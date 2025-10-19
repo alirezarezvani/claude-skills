@@ -4,7 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Purpose
 
-This is a **marketing skills library** for Claude AI - reusable, production-ready skill packages that bundle marketing best practices, analysis tools, and strategic frameworks. The repository provides modular skills (starting with `content-creator`) that marketing teams can download and use directly.
+This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks across marketing, executive leadership, and product development. The repository provides modular skills that teams can download and use directly in their workflows.
+
+**Current Scope:** 8 production-ready skills across 3 domains:
+- **Marketing:** Content creation, SEO, brand voice, social media
+- **C-Level Advisory:** CEO strategic planning, CTO technical leadership
+- **Product Team:** Product management, agile delivery, UX research, UI design, strategic planning
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -12,15 +17,42 @@ This is a **marketing skills library** for Claude AI - reusable, production-read
 
 ### Skill Package Structure
 
-Each skill follows a consistent modular architecture:
+The repository is organized by domain, with each skill following a consistent modular architecture:
 
 ```
-marketing-skill/
-└── {skill-name}/
-    ├── SKILL.md                    # Master documentation: workflows, usage, best practices
-    ├── scripts/                    # Python CLI tools for analysis/optimization
-    ├── references/                 # Knowledge bases: frameworks, guidelines, templates
-    └── assets/                     # Reusable templates for end users
+claude-skills/
+├── marketing-skill/
+│   └── content-creator/
+│       ├── SKILL.md                # Master documentation
+│       ├── scripts/                # Python CLI tools
+│       ├── references/             # Knowledge bases
+│       └── assets/                 # User templates
+├── c-level-advisor/
+│   ├── ceo-advisor/
+│   │   ├── SKILL.md
+│   │   ├── scripts/
+│   │   └── references/
+│   └── cto-advisor/
+│       ├── SKILL.md
+│       ├── scripts/
+│       └── references/
+└── product-team/
+    ├── product-manager-toolkit/
+    │   ├── SKILL.md
+    │   ├── scripts/
+    │   └── references/
+    ├── agile-product-owner/
+    │   ├── SKILL.md
+    │   └── scripts/
+    ├── product-strategist/
+    │   ├── SKILL.md
+    │   └── scripts/
+    ├── ux-researcher-designer/
+    │   ├── SKILL.md
+    │   └── scripts/
+    └── ui-design-system/
+        ├── SKILL.md
+        └── scripts/
 ```
 
 **Design Philosophy**: Skills are self-contained packages. Each includes executable tools (Python scripts), knowledge bases (markdown references), and user-facing templates. Teams can extract a skill folder and use it immediately.
@@ -67,6 +99,57 @@ Located in `references/`, these are **expert-curated guideline documents**:
 
 **Critical Architecture Point**: References are NOT code - they're knowledge bases that inform both human users and Claude when creating content. When editing, maintain structured markdown with clear sections, checklists, and examples.
 
+### Product Team Python Scripts
+
+Located in `product-team/*/scripts/`, these are **specialized product development tools**:
+
+**rice_prioritizer.py** (Product Manager Toolkit):
+- RICE framework implementation: (Reach × Impact × Confidence) / Effort
+- Portfolio analysis (quick wins vs big bets)
+- Quarterly roadmap generation with capacity planning
+- Supports CSV input/output and JSON for integrations
+- Usage: `python scripts/rice_prioritizer.py features.csv --capacity 20`
+
+**customer_interview_analyzer.py** (Product Manager Toolkit):
+- NLP-based interview transcript analysis
+- Extracts pain points with severity scoring
+- Identifies feature requests and priorities
+- Sentiment analysis and theme extraction
+- Jobs-to-be-done pattern recognition
+- Usage: `python scripts/customer_interview_analyzer.py interview.txt [json]`
+
+**user_story_generator.py** (Agile Product Owner):
+- INVEST-compliant user story generation
+- Sprint planning with capacity allocation
+- Epic breakdown into deliverable stories
+- Acceptance criteria generation
+- Usage: `python scripts/user_story_generator.py sprint 30`
+
+**okr_cascade_generator.py** (Product Strategist):
+- Automated OKR hierarchy: company → product → team
+- Alignment scoring (vertical and horizontal)
+- Strategy templates (growth, retention, revenue, innovation)
+- Usage: `python scripts/okr_cascade_generator.py growth`
+
+**persona_generator.py** (UX Researcher Designer):
+- Data-driven persona creation from user research
+- Demographic and psychographic profiling
+- Goals, pain points, and behavior patterns
+- Usage: `python scripts/persona_generator.py --output json`
+
+**design_token_generator.py** (UI Design System):
+- Complete design token system from brand color
+- Generates colors, typography, spacing, shadows
+- Multiple export formats: CSS, JSON, SCSS
+- Responsive breakpoint calculations
+- Usage: `python scripts/design_token_generator.py "#0066CC" modern css`
+
+**Implementation Notes**:
+- All scripts use standard library (minimal dependencies)
+- CLI-first design for easy automation and integration
+- Support both interactive and batch modes
+- JSON output for tool integration (Jira, Figma, Confluence)
+
 ## Development Commands
 
 ### Running Analysis Tools
@@ -83,6 +166,30 @@ python marketing-skill/content-creator/scripts/seo_optimizer.py article.md "main
 
 # SEO with secondary keywords
 python marketing-skill/content-creator/scripts/seo_optimizer.py article.md "main keyword" "secondary,keywords"
+
+# Product Manager - RICE prioritization
+python product-team/product-manager-toolkit/scripts/rice_prioritizer.py features.csv
+python product-team/product-manager-toolkit/scripts/rice_prioritizer.py features.csv --capacity 20 --output json
+
+# Product Manager - Interview analysis
+python product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interview.txt
+python product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interview.txt json
+
+# Product Owner - User stories
+python product-team/agile-product-owner/scripts/user_story_generator.py
+python product-team/agile-product-owner/scripts/user_story_generator.py sprint 30
+
+# Product Strategist - OKR cascade
+python product-team/product-strategist/scripts/okr_cascade_generator.py growth
+python product-team/product-strategist/scripts/okr_cascade_generator.py retention
+
+# UX Researcher - Personas
+python product-team/ux-researcher-designer/scripts/persona_generator.py
+python product-team/ux-researcher-designer/scripts/persona_generator.py --output json
+
+# UI Designer - Design tokens
+python product-team/ui-design-system/scripts/design_token_generator.py "#0066CC" modern css
+python product-team/ui-design-system/scripts/design_token_generator.py "#0066CC" modern json
 ```
 
 ### Development Environment
@@ -98,14 +205,29 @@ No build system, package managers, or test frameworks currently exist. This is i
 
 ### Creating New Skills
 
-Follow the roadmap in `marketing-skill/marketing_skills_roadmap.md`. When adding a new skill:
+Follow the appropriate roadmap for your skill domain. When adding a new skill:
 
+**For Marketing Skills:**
 1. Create skill folder: `marketing-skill/{skill-name}/`
 2. Copy structure from `content-creator/` as template
-3. Write SKILL.md first (defines workflows before building tools)
-4. Build scripts if algorithmic analysis is needed
-5. Curate reference knowledge bases
-6. Create user-facing templates in assets/
+3. Follow roadmap in `marketing-skill/marketing_skills_roadmap.md`
+
+**For C-Level Advisory Skills:**
+1. Create skill folder: `c-level-advisor/{role}-advisor/`
+2. Copy structure from `ceo-advisor/` or `cto-advisor/`
+3. Focus on strategic decision-making tools
+
+**For Product Team Skills:**
+1. Create skill folder: `product-team/{skill-name}/`
+2. Copy structure from `product-manager-toolkit/` as template
+3. Follow guide in `product-team/product_team_implementation_guide.md`
+
+**Universal Process:**
+1. Write SKILL.md first (defines workflows before building tools)
+2. Build Python scripts if algorithmic analysis is needed
+3. Curate reference knowledge bases (frameworks, templates)
+4. Create user-facing templates and examples
+5. Package as .zip for distribution
 
 **Quality Standard**: Each skill should save users 40%+ time while improving consistency/quality by 30%+.
 
@@ -121,34 +243,53 @@ Follow the roadmap in `marketing-skill/marketing_skills_roadmap.md`. When adding
 
 ## Git Workflow
 
-Repository is initialized but has no commits yet. Recommended workflow:
+The repository follows a domain-based branching strategy. Recommended workflow:
 
 ```bash
-# Feature branches for new skills
-git checkout -b feature/seo-optimizer-skill
+# Feature branches by domain
+git checkout -b feature/marketing/seo-optimizer
+git checkout -b feature/product/ux-research-tools
+git checkout -b feature/c-level/cfo-advisor
 
 # Semantic versioning by skill
 git tag v1.0-content-creator
-git tag v1.0-seo-optimizer
+git tag v1.0-product-manager-toolkit
+git tag v1.0-ceo-advisor
 
-# Commit messages
+# Commit message conventions
 feat(content-creator): add LinkedIn content framework
-fix(seo-optimizer): correct keyword density calculation
-docs(social-media): update TikTok best practices
+feat(product-manager): add RICE prioritization script
+fix(agile-product-owner): correct sprint capacity calculation
+docs(ux-researcher): update persona generation guide
+refactor(ui-design-system): improve token generator performance
 ```
 
-**.gitignore excludes**: .vscode/, CLAUDE.md, AGENTS.md, PROMPTS.md, .env* (these are user-specific configuration files)
+**Current State:**
+- 4 commits total
+- 8 skills deployed across 3 domains
+- All skills v1.0 production-ready
+
+**.gitignore excludes**: .vscode/, .DS_Store, AGENTS.md, PROMPTS.md, .env* (CLAUDE.md is tracked as living documentation)
 
 ## Roadmap Context
 
-Current status: **Phase 1 Complete** (content-creator skill ready for deployment)
+**Current Status: Phase 1 Complete** - 8 production-ready skills deployed
 
-Next priorities:
-- Phase 2 (Weeks 3-6): seo-optimizer, social-media-manager, campaign-analytics skills
-- Phase 3 (Weeks 7-10): email-marketing, paid-ads-manager, competitor-intelligence skills
-- Phase 4 (Weeks 11-12): conversion-optimizer, influencer-outreach skills
+**Delivered Skills:**
+- **Marketing (1):** content-creator
+- **C-Level Advisory (2):** ceo-advisor, cto-advisor
+- **Product Team (5):** product-manager-toolkit, agile-product-owner, product-strategist, ux-researcher-designer, ui-design-system
 
-See `marketing-skill/marketing_skills_roadmap.md` for detailed implementation plan and ROI projections.
+**Next Priorities:**
+- Phase 2 (Q1 2026): Marketing expansion - SEO optimizer, social media manager, campaign analytics
+- Phase 3 (Q2 2026): Engineering & ops - DevOps engineer, security engineer, data engineer
+- Phase 4 (Q3 2026): Business & growth - Sales engineer, customer success, growth marketer
+
+**Target: 18+ skills by Q3 2026**
+
+See detailed roadmaps:
+- `marketing-skill/marketing_skills_roadmap.md`
+- `product-team/product_team_implementation_guide.md`
 
 ## Key Principles
 

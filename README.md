@@ -1,6 +1,6 @@
 # Claude Skills Library
 
-**Production-ready skill packages for Claude AI** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, and product development teams.
+**Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)

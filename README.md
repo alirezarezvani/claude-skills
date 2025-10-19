@@ -1,4 +1,4 @@
-# Claude Skills Library
+# Claude Skills Library by nginity (Your Agentic Startup Kit)
 
 **Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 

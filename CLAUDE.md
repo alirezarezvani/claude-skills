@@ -6,10 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks across marketing, executive leadership, and product development. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 8 production-ready skills across 3 domains:
+**Current Scope:** 9 production-ready skills across 4 domains:
 - **Marketing:** Content creation, SEO, brand voice, social media
 - **C-Level Advisory:** CEO strategic planning, CTO technical leadership
 - **Product Team:** Product management, agile delivery, UX research, UI design, strategic planning
+- **Engineering Team:** Fullstack development, code quality, architecture patterns
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -53,6 +54,11 @@ claude-skills/
     └── ui-design-system/
         ├── SKILL.md
         └── scripts/
+└── engineering-team/
+    └── fullstack-engineer/
+        ├── SKILL.md
+        ├── scripts/
+        └── references/
 ```
 
 **Design Philosophy**: Skills are self-contained packages. Each includes executable tools (Python scripts), knowledge bases (markdown references), and user-facing templates. Teams can extract a skill folder and use it immediately.
@@ -150,6 +156,39 @@ Located in `product-team/*/scripts/`, these are **specialized product developmen
 - Support both interactive and batch modes
 - JSON output for tool integration (Jira, Figma, Confluence)
 
+### Engineering Team Python Scripts
+
+Located in `engineering-team/*/scripts/`, these are **fullstack development automation tools**:
+
+**project_scaffolder.py** (Fullstack Engineer):
+- Production-ready project scaffolding for Next.js + GraphQL + PostgreSQL stack
+- Docker Compose configuration with all services
+- CI/CD pipeline setup with GitHub Actions
+- Testing infrastructure (Jest, Cypress)
+- TypeScript, ESLint, Prettier configuration
+- Usage: `python scripts/project_scaffolder.py my-project --type nextjs-graphql`
+
+**code_quality_analyzer.py** (Fullstack Engineer):
+- Comprehensive code quality analysis and metrics
+- Security vulnerability scanning
+- Performance issue detection
+- Test coverage assessment
+- Documentation quality evaluation
+- Dependency analysis and recommendations
+- Usage: `python scripts/code_quality_analyzer.py /path/to/project [--json]`
+
+**fullstack_scaffolder.py** (Fullstack Engineer):
+- Rapid fullstack application generation
+- Modern stack templates with Docker support
+- Automated project structure and boilerplate
+- Usage: `python scripts/fullstack_scaffolder.py my-app --stack nextjs-graphql`
+
+**Implementation Notes**:
+- Scripts use standard library with minimal external dependencies
+- Designed for rapid project bootstrapping and quality assurance
+- Support both Docker and manual deployment workflows
+- Comprehensive analysis with actionable recommendations
+
 ## Development Commands
 
 ### Running Analysis Tools
@@ -190,6 +229,17 @@ python product-team/ux-researcher-designer/scripts/persona_generator.py --output
 # UI Designer - Design tokens
 python product-team/ui-design-system/scripts/design_token_generator.py "#0066CC" modern css
 python product-team/ui-design-system/scripts/design_token_generator.py "#0066CC" modern json
+
+# Fullstack Engineer - Project scaffolding
+python engineering-team/fullstack-engineer/scripts/project_scaffolder.py my-project --type nextjs-graphql
+cd my-project && docker-compose up -d
+
+# Fullstack Engineer - Code quality
+python engineering-team/fullstack-engineer/scripts/code_quality_analyzer.py /path/to/project
+python engineering-team/fullstack-engineer/scripts/code_quality_analyzer.py /path/to/project --json
+
+# Fullstack Engineer - Rapid scaffolding
+python engineering-team/fullstack-engineer/scripts/fullstack_scaffolder.py my-app --stack nextjs-graphql
 ```
 
 ### Development Environment
@@ -221,6 +271,11 @@ Follow the appropriate roadmap for your skill domain. When adding a new skill:
 1. Create skill folder: `product-team/{skill-name}/`
 2. Copy structure from `product-manager-toolkit/` as template
 3. Follow guide in `product-team/product_team_implementation_guide.md`
+
+**For Engineering Team Skills:**
+1. Create skill folder: `engineering-team/{skill-name}/`
+2. Copy structure from `fullstack-engineer/` as template
+3. Follow guide in `engineering-team/engineering_skills_roadmap.md`
 
 **Universal Process:**
 1. Write SKILL.md first (defines workflows before building tools)
@@ -273,23 +328,25 @@ refactor(ui-design-system): improve token generator performance
 
 ## Roadmap Context
 
-**Current Status: Phase 1 Complete** - 8 production-ready skills deployed
+**Current Status: Phase 1 Complete** - 9 production-ready skills deployed
 
 **Delivered Skills:**
 - **Marketing (1):** content-creator
 - **C-Level Advisory (2):** ceo-advisor, cto-advisor
 - **Product Team (5):** product-manager-toolkit, agile-product-owner, product-strategist, ux-researcher-designer, ui-design-system
+- **Engineering Team (1):** fullstack-engineer
 
 **Next Priorities:**
 - Phase 2 (Q1 2026): Marketing expansion - SEO optimizer, social media manager, campaign analytics
 - Phase 3 (Q2 2026): Engineering & ops - DevOps engineer, security engineer, data engineer
 - Phase 4 (Q3 2026): Business & growth - Sales engineer, customer success, growth marketer
 
-**Target: 18+ skills by Q3 2026**
+**Target: 20+ skills by Q3 2026**
 
 See detailed roadmaps:
 - `marketing-skill/marketing_skills_roadmap.md`
 - `product-team/product_team_implementation_guide.md`
+- `engineering-team/engineering_skills_roadmap.md`
 
 ## Key Principles
 

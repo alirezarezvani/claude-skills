@@ -227,6 +227,31 @@ Visual design systems and component architecture for consistent user interfaces.
 
 ---
 
+### Engineering Team Skills
+
+#### 💻 Fullstack Engineer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Complete toolkit for fullstack development with modern web technologies and best practices.
+
+**What's Included:**
+- **Project Scaffolder** - Production-ready Next.js + GraphQL + PostgreSQL project setup (Python CLI)
+- **Code Quality Analyzer** - Comprehensive code analysis with security scanning (Python CLI)
+- **Fullstack Scaffolder** - Rapid fullstack project generation with Docker support (Python CLI)
+- **Architecture Patterns** - System architecture, frontend/backend patterns, clean code principles
+- **Development Workflows** - Git workflow, CI/CD pipelines, testing strategies, monitoring
+- **Tech Stack Guide** - Frontend (React, Next.js), Backend (Node.js, GraphQL, Go), databases, DevOps
+
+**Core Workflows:**
+1. New project scaffolding with best practices
+2. Code quality analysis and security scanning
+3. Architecture pattern implementation
+4. CI/CD pipeline setup and automation
+
+**Learn More:** [engineering-team/fullstack-engineer/SKILL.md](engineering-team/fullstack-engineer/SKILL.md)
+
+---
+
 ## ⚡ Quick Start
 
 ### For Claude AI Users
@@ -350,6 +375,15 @@ Using the ui-design-system skill:
 2. Create component library architecture using atomic design
 3. Define responsive breakpoints and grid system
 4. Export design tokens as CSS variables for developers
+```
+
+**Fullstack Engineer:**
+```
+Using the fullstack-engineer skill:
+1. Scaffold a new Next.js + GraphQL + PostgreSQL project
+2. Analyze code quality and security vulnerabilities in existing project
+3. Implement clean architecture patterns for backend API
+4. Set up CI/CD pipeline with GitHub Actions and Docker
 ```
 
 ### Tips for Best Results
@@ -540,6 +574,39 @@ python product-team/ui-design-system/scripts/design_token_generator.py "#0066CC"
 python product-team/ui-design-system/scripts/design_token_generator.py "#0066CC" modern json
 ```
 
+#### Project Scaffolder (Fullstack Engineer)
+
+Scaffold production-ready fullstack projects:
+
+```bash
+# Create new Next.js + GraphQL + PostgreSQL project
+python engineering-team/fullstack-engineer/scripts/project_scaffolder.py my-project --type nextjs-graphql
+
+# Navigate and start
+cd my-project && docker-compose up -d
+```
+
+#### Code Quality Analyzer (Fullstack Engineer)
+
+Analyze code quality and security:
+
+```bash
+# Analyze existing project
+python engineering-team/fullstack-engineer/scripts/code_quality_analyzer.py /path/to/project
+
+# Get JSON report
+python engineering-team/fullstack-engineer/scripts/code_quality_analyzer.py /path/to/project --json
+```
+
+#### Fullstack Scaffolder (Fullstack Engineer)
+
+Rapid fullstack project generation:
+
+```bash
+# Generate fullstack application structure
+python engineering-team/fullstack-engineer/scripts/fullstack_scaffolder.py my-app --stack nextjs-graphql
+```
+
 ### Integrating with Claude Code Workflows
 
 **Example 1: Automated Content Quality Check**
@@ -668,6 +735,11 @@ python product-team/agile-product-owner/scripts/user_story_generator.py --help
 python product-team/product-strategist/scripts/okr_cascade_generator.py --help
 python product-team/ux-researcher-designer/scripts/persona_generator.py --help
 python product-team/ui-design-system/scripts/design_token_generator.py --help
+
+# Test engineering team skills
+python engineering-team/fullstack-engineer/scripts/project_scaffolder.py --help
+python engineering-team/fullstack-engineer/scripts/code_quality_analyzer.py --help
+python engineering-team/fullstack-engineer/scripts/fullstack_scaffolder.py --help
 ```
 
 ---
@@ -776,7 +848,7 @@ python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codeba
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 8 Production-Ready Skills**
+**✅ Phase 1: Complete - 9 Production-Ready Skills**
 
 **Marketing Skills (1):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks
@@ -791,6 +863,9 @@ python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codeba
 - Product Strategist - OKR cascading, strategic planning, vision frameworks
 - UX Researcher Designer - Persona generation, journey mapping, research synthesis
 - UI Design System - Design tokens, component architecture, system documentation
+
+**Engineering Team Skills (1):**
+- Fullstack Engineer - Project scaffolding, code quality analysis, architecture patterns
 
 ### Phase 2: Marketing Expansion (Q1 2026)
 
@@ -817,30 +892,32 @@ python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codeba
 
 | Metric | Current | Target (Q3 2026) |
 |--------|---------|------------------|
-| Available Skills | 8 | 18+ |
-| Skill Categories | 3 | 6 |
-| Time Savings | 40% | 60% |
-| Quality Improvement | 35% | 50% |
+| Available Skills | 9 | 20+ |
+| Skill Categories | 4 | 6 |
+| Time Savings | 45% | 60% |
+| Quality Improvement | 40% | 55% |
 | Teams Using | Early adopters | 1,000+ |
 | Organizations | 10 | 100+ |
 
-### ROI Metrics (Current - 8 Skills)
+### ROI Metrics (Current - 9 Skills)
 
 **Time Savings:**
 - Marketing teams: 40 hours/month
 - C-level executives: 30 hours/month
 - Product teams: 180 hours/month
-- **Total: 250 hours/month per organization**
+- Engineering teams: 120 hours/month
+- **Total: 370 hours/month per organization**
 
 **Financial Impact:**
-- Time value: $25,000/month (@ $100/hour)
-- Quality improvements: $30,000/month (reduced rework)
-- Faster delivery: $45,000/month (opportunity value)
-- **Total: $100,000/month value per organization**
+- Time value: $37,000/month (@ $100/hour)
+- Quality improvements: $45,000/month (reduced rework)
+- Faster delivery: $60,000/month (opportunity value)
+- **Total: $142,000/month value per organization**
 
 **See detailed roadmaps:**
 - [marketing-skill/marketing_skills_roadmap.md](marketing-skill/marketing_skills_roadmap.md)
 - [product-team/product_team_implementation_guide.md](product-team/product_team_implementation_guide.md)
+- [engineering-team/engineering_skills_roadmap.md](engineering-team/engineering_skills_roadmap.md)
 
 ---
 

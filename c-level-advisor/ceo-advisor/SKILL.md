@@ -1,11 +1,23 @@
 ---
 name: ceo-advisor
-description: Comprehensive CEO leadership skill providing strategic planning frameworks, financial scenario modeling, board governance guidance, investor relations strategies, and organizational leadership tools. Use when making strategic decisions, preparing for board meetings, managing investors, leading organizational transformation, developing company culture, or navigating crisis situations.
+description: Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Includes strategy analyzer, financial scenario modeling, board governance frameworks, and investor relations playbooks. Use when planning strategy, preparing board presentations, managing investors, developing organizational culture, making executive decisions, or when user mentions CEO, strategic planning, board meetings, investor updates, organizational leadership, or executive strategy.
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: c-level
+  domain: ceo-leadership
+  updated: 2025-10-20
+  python-tools: strategy_analyzer.py, financial_scenario_analyzer.py
+  frameworks: executive-decision-framework, board-governance, investor-relations
 ---
 
 # CEO Advisor
 
 Strategic frameworks and tools for chief executive leadership, organizational transformation, and stakeholder management.
+
+## Keywords
+CEO, chief executive officer, executive leadership, strategic planning, board governance, investor relations, board meetings, board presentations, financial modeling, strategic decisions, organizational culture, company culture, leadership development, stakeholder management, executive strategy, crisis management, organizational transformation, investor updates, strategic initiatives, company vision
 
 ## Quick Start
 

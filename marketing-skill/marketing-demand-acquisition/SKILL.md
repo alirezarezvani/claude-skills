@@ -1,11 +1,24 @@
 ---
 name: marketing-demand-acquisition
-description: Expert demand generation, paid media, SEO, and partnerships for Series A+ startups. Use when planning acquisition campaigns, optimizing paid channels, building organic traffic, or establishing partnership programs. Covers full-funnel strategies from awareness to pipeline with HubSpot integration for hybrid PLG/Sales-Led motions.
+description: Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups. Includes CAC calculator, channel playbooks, HubSpot integration, and international expansion tactics. Use when planning demand generation campaigns, optimizing paid media, building SEO strategies, establishing partnerships, or when user mentions demand gen, paid ads, LinkedIn ads, Google ads, CAC, acquisition, lead generation, or pipeline generation.
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  domain: demand-generation
+  updated: 2025-10-20
+  python-tools: calculate_cac.py
+  tech-stack: HubSpot, LinkedIn-Ads, Google-Ads, Meta-Ads, SEO-tools
+  target-market: B2B-SaaS, Series-A+
 ---
 
 # Marketing Demand & Acquisition
 
 Expert acquisition playbook for Series A+ startups scaling internationally (EU/US/Canada) with hybrid PLG/Sales-Led motion.
+
+## Keywords
+demand generation, paid media, paid ads, LinkedIn ads, Google ads, Meta ads, CAC, customer acquisition cost, lead generation, MQL, SQL, pipeline generation, acquisition strategy, performance marketing, paid social, paid search, partnerships, affiliate marketing, SEO strategy, HubSpot campaigns, marketing automation, B2B marketing, SaaS marketing
 
 ## Role Coverage
 

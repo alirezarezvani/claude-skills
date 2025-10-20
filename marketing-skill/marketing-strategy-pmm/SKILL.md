@@ -1,11 +1,23 @@
 ---
 name: marketing-strategy-pmm
-description: World-class Product Marketing Manager expertise for Series A+ startups. Use when developing positioning, messaging frameworks, GTM strategies, competitive intelligence, ICP definition, product launches, or international market entry. Covers hybrid PLG/Sales-Led motions with focus on EU/US/Canada expansion.
+description: Product marketing, positioning, GTM strategy, and competitive intelligence. Includes ICP definition, April Dunford positioning methodology, launch playbooks, competitive battlecards, and international market entry guides. Use when developing positioning, planning product launches, creating messaging, analyzing competitors, entering new markets, enabling sales, or when user mentions product marketing, positioning, GTM, go-to-market, competitive analysis, market entry, or sales enablement.
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  domain: product-marketing
+  updated: 2025-10-20
+  frameworks: April-Dunford-positioning, ICP-definition, messaging-hierarchy
+  target-market: B2B-SaaS, international-expansion, Series-A+
 ---
 
 # Marketing Strategy & Product Marketing
 
 Expert Product Marketing playbook for Series A+ startups expanding internationally with hybrid PLG/Sales-Led motion.
+
+## Keywords
+product marketing, positioning, GTM, go-to-market strategy, competitive analysis, competitive intelligence, battlecards, ICP, ideal customer profile, messaging, value proposition, product launch, market entry, international expansion, sales enablement, win loss analysis, PMM, product marketing manager, market positioning, competitive landscape, sales training
 
 ## Role Coverage
 

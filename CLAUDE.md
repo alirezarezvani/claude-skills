@@ -6,8 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks across marketing, executive leadership, and product development. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 34 production-ready skills across 5 domains:
-- **Marketing (1):** Content creation, SEO, brand voice, social media
+**Current Scope:** 36 production-ready skills across 5 domains:
+- **Marketing (3):** Content creation, demand generation & acquisition, product marketing & strategy
 - **C-Level Advisory (2):** CEO strategic planning, CTO technical leadership
 - **Product Team (5):** Product management, agile delivery, UX research, UI design, strategic planning
 - **Engineering Team (14):**
@@ -31,11 +31,18 @@ The repository is organized by domain, with each skill following a consistent mo
 ```
 claude-skills/
 ├── marketing-skill/
-│   └── content-creator/
-│       ├── SKILL.md                # Master documentation
-│       ├── scripts/                # Python CLI tools
-│       ├── references/             # Knowledge bases
-│       └── assets/                 # User templates
+│   ├── content-creator/
+│   │   ├── SKILL.md                # Master documentation
+│   │   ├── scripts/                # Python CLI tools (2)
+│   │   ├── references/             # Knowledge bases (3)
+│   │   └── assets/                 # User templates
+│   ├── marketing-demand-acquisition/
+│   │   ├── SKILL.md
+│   │   └── scripts/                # Python CLI tools (1)
+│   ├── marketing-strategy-pmm/
+│   │   └── SKILL.md
+│   ├── README.md                   # Marketing team overview
+│   └── marketing_skills_roadmap.md # Roadmap and expansion plans
 ├── c-level-advisor/
 │   ├── ceo-advisor/
 │   │   ├── SKILL.md
@@ -398,9 +405,10 @@ refactor(ui-design-system): improve token generator performance
 ```
 
 **Current State:**
-- 34 skills deployed across 5 domains
-- 94 Python automation tools
+- 36 skills deployed across 5 domains
+- 97 Python automation tools
 - All skills v1.0 production-ready
+- Complete marketing suite with 3 skills (content, demand gen, product marketing)
 - Complete engineering suite with 14 specialized roles (9 core + 5 AI/ML/Data)
 - Complete RA/QM suite with 12 specialized roles for HealthTech/MedTech compliance
 
@@ -408,10 +416,10 @@ refactor(ui-design-system): improve token generator performance
 
 ## Roadmap Context
 
-**Current Status: Phase 1 Complete** - 34 production-ready skills deployed
+**Current Status: Phase 1 Complete** - 36 production-ready skills deployed
 
 **Delivered Skills:**
-- **Marketing (1):** content-creator
+- **Marketing (3):** content-creator, marketing-demand-acquisition, marketing-strategy-pmm
 - **C-Level Advisory (2):** ceo-advisor, cto-advisor
 - **Product Team (5):** product-manager-toolkit, agile-product-owner, product-strategist, ux-researcher-designer, ui-design-system
 - **Engineering Team (14):**
@@ -425,7 +433,7 @@ refactor(ui-design-system): improve token generator performance
   - Audit: qms-audit-expert, isms-audit-expert, gdpr-dsgvo-expert
 
 **Total Automation:**
-- **94 Python automation tools** (34 skills × 2.8 avg tools per skill)
+- **97 Python automation tools** (36 skills × 2.7 avg tools per skill)
 - **90+ comprehensive reference guides** with patterns and best practices
 - **Complete enterprise coverage** from marketing through regulatory compliance
 

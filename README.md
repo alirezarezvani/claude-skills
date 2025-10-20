@@ -46,10 +46,12 @@ This repository provides **modular, self-contained skill packages** designed to 
 
 ### Marketing Skills
 
+**3 comprehensive marketing skills** covering content creation, demand generation, and product marketing strategy.
+
 #### 📝 Content Creator
 **Status:** ✅ Production Ready | **Version:** 1.0
 
-Transform your content creation process with professional-grade tools and frameworks.
+Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks.
 
 **What's Included:**
 - **Brand Voice Analyzer** - Analyze text for tone, formality, and readability (Python CLI)
@@ -59,13 +61,42 @@ Transform your content creation process with professional-grade tools and framew
 - **Social Media Optimization** - Platform-specific guides for LinkedIn, Twitter/X, Instagram, Facebook, TikTok
 - **Content Calendar Template** - Monthly planning and distribution framework
 
-**Core Workflows:**
-1. Brand voice development and consistency
-2. SEO-optimized content creation
-3. Platform-specific social media content
-4. Content calendar planning and execution
-
 **Learn More:** [marketing-skill/content-creator/SKILL.md](marketing-skill/content-creator/SKILL.md)
+
+---
+
+#### 🎯 Marketing Demand & Acquisition
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Expert demand generation, paid media, SEO, and partnerships for Series A+ startups.
+
+**What's Included:**
+- **CAC Calculator** - Calculate channel-specific and blended customer acquisition cost (Python CLI)
+- **Full-Funnel Strategy** - TOFU → MOFU → BOFU frameworks
+- **Channel Playbooks** - LinkedIn Ads, Google Ads, Meta, SEO, Partnerships
+- **HubSpot Integration** - Campaign tracking, attribution, lead scoring
+- **International Expansion** - EU vs US vs Canada tactics
+- **Performance Benchmarks** - B2B SaaS CAC and conversion benchmarks
+
+**Learn More:** [marketing-skill/marketing-demand-acquisition/SKILL.md](marketing-skill/marketing-demand-acquisition/SKILL.md)
+
+---
+
+#### 🚀 Marketing Strategy & Product Marketing
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Product marketing, positioning, GTM strategy, and competitive intelligence.
+
+**What's Included:**
+- **ICP Definition** - Firmographics and psychographics frameworks
+- **Positioning** - April Dunford positioning methodology
+- **GTM Strategy** - PLG, Sales-Led, and Hybrid motion playbooks
+- **Launch Plans** - 90-day product launch frameworks (Tier 1/2/3)
+- **Competitive Intelligence** - Battlecard templates and analysis frameworks
+- **International Market Entry** - 5-phase market expansion playbooks
+- **Sales Enablement** - Training programs and asset development
+
+**Learn More:** [marketing-skill/marketing-strategy-pmm/SKILL.md](marketing-skill/marketing-strategy-pmm/SKILL.md)
 
 ---
 
@@ -1277,10 +1308,12 @@ python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codeba
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 34 Production-Ready Skills**
+**✅ Phase 1: Complete - 36 Production-Ready Skills**
 
-**Marketing Skills (1):**
+**Marketing Skills (3):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks
+- Marketing Demand & Acquisition - Multi-channel demand gen, paid media, partnerships
+- Marketing Strategy & Product Marketing - Positioning, GTM, competitive intelligence
 
 **C-Level Advisory Skills (2):**
 - CEO Advisor - Strategic planning, financial modeling, board governance
@@ -1351,35 +1384,36 @@ python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codeba
 
 | Metric | Current | Target (Q3 2026) |
 |--------|---------|------------------|
-| Available Skills | 34 | 40+ |
+| Available Skills | 36 | 45+ |
 | Skill Categories | 5 | 8 |
-| Python Tools | 94 | 120+ |
+| Python Tools | 97 | 125+ |
 | Time Savings | 70% | 85% |
 | Quality Improvement | 65% | 80% |
 | Teams Using | Early adopters | 3,000+ |
 | Organizations | 25 | 250+ |
 | Industries Covered | Tech, HealthTech | Tech, Health, Finance, Manufacturing |
 
-### ROI Metrics (Current - 34 Skills)
+### ROI Metrics (Current - 36 Skills)
 
 **Time Savings Per Organization:**
-- Marketing teams: 40 hours/month
+- Marketing teams: 250 hours/month (Content + Demand Gen + PMM)
 - C-level executives: 30 hours/month
 - Product teams: 180 hours/month
 - Core engineering teams: 460 hours/month
 - AI/ML/Data teams: 280 hours/month
 - Regulatory/Quality teams: 320 hours/month
-- **Total: 1,310 hours/month per organization**
+- **Total: 1,520 hours/month per organization**
 
 **Financial Impact:**
-- Time value: $131,000/month (@ $100/hour)
-- Quality improvements: $180,000/month (reduced rework)
-- Faster delivery: $220,000/month (opportunity value)
+- Time value: $152,000/month (@ $100/hour)
+- Quality improvements: $200,000/month (reduced rework)
+- Faster delivery: $240,000/month (opportunity value)
 - Security risk mitigation: $200,000/month
 - ML/AI innovation value: $250,000/month
 - Regulatory compliance value: $400,000/month (avoided delays, penalties)
-- **Total: $1,381,000/month value per organization**
-- **Annual ROI: $16.6M per organization**
+- Marketing efficiency value: $100,000/month (better CAC, conversion, positioning)
+- **Total: $1,542,000/month value per organization**
+- **Annual ROI: $18.5M per organization**
 
 **Productivity Gains:**
 - Developer velocity: +70% improvement

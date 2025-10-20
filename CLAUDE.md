@@ -6,13 +6,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks across marketing, executive leadership, and product development. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 22 production-ready skills across 4 domains:
+**Current Scope:** 34 production-ready skills across 5 domains:
 - **Marketing (1):** Content creation, SEO, brand voice, social media
 - **C-Level Advisory (2):** CEO strategic planning, CTO technical leadership
 - **Product Team (5):** Product management, agile delivery, UX research, UI design, strategic planning
 - **Engineering Team (14):**
   - Core Engineering (9): Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, code review, security
   - AI/ML/Data (5): Data science, data engineering, ML engineering, prompt engineering, computer vision
+- **Regulatory Affairs & Quality Management (12):**
+  - Strategic Leadership (2): RA Manager, Quality Manager (QMR)
+  - Quality Systems (3): QMS ISO 13485, CAPA Officer, Documentation Manager
+  - Risk & Security (2): Risk Management (ISO 14971), Information Security (ISO 27001)
+  - Regulatory Specialists (2): MDR 2017/745, FDA Consultant
+  - Audit & Compliance (3): QMS Audit, ISMS Audit, GDPR/DSGVO
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -79,6 +85,23 @@ Each skill contains:
     ├── SKILL.md                       # Master documentation
     ├── scripts/                       # 3 Python automation tools
     └── references/                    # 3 comprehensive guides
+
+└── ra-qm-team/
+    ├── regulatory-affairs-head/
+    ├── quality-manager-qmr/
+    ├── quality-manager-qms-iso13485/
+    ├── capa-officer/
+    ├── quality-documentation-manager/
+    ├── risk-management-specialist/
+    ├── information-security-manager-iso27001/
+    ├── mdr-745-specialist/
+    ├── fda-consultant-specialist/
+    ├── qms-audit-expert/
+    ├── isms-audit-expert/
+    ├── gdpr-dsgvo-expert/
+    ├── README.md                      # RA/QM team overview
+    ├── START_HERE.md                  # Quick start (if exists)
+    └── final-complete-skills-collection.md  # Complete skills summary
 ```
 
 **Design Philosophy**: Skills are self-contained packages. Each includes executable tools (Python scripts), knowledge bases (markdown references), and user-facing templates. Teams can extract a skill folder and use it immediately.
@@ -375,16 +398,17 @@ refactor(ui-design-system): improve token generator performance
 ```
 
 **Current State:**
-- 22 skills deployed across 4 domains
-- 58 Python automation tools
+- 34 skills deployed across 5 domains
+- 94 Python automation tools
 - All skills v1.0 production-ready
 - Complete engineering suite with 14 specialized roles (9 core + 5 AI/ML/Data)
+- Complete RA/QM suite with 12 specialized roles for HealthTech/MedTech compliance
 
 **.gitignore excludes**: .vscode/, .DS_Store, AGENTS.md, PROMPTS.md, .env* (CLAUDE.md is tracked as living documentation)
 
 ## Roadmap Context
 
-**Current Status: Phase 1 Complete** - 22 production-ready skills deployed
+**Current Status: Phase 1 Complete** - 34 production-ready skills deployed
 
 **Delivered Skills:**
 - **Marketing (1):** content-creator
@@ -393,23 +417,30 @@ refactor(ui-design-system): improve token generator performance
 - **Engineering Team (14):**
   - Core Engineering (9): senior-architect, senior-frontend, senior-backend, senior-fullstack, senior-qa, senior-devops, senior-secops, code-reviewer, senior-security
   - AI/ML/Data (5): senior-data-scientist, senior-data-engineer, senior-ml-engineer, senior-prompt-engineer, senior-computer-vision
+- **Regulatory Affairs & Quality Management (12):**
+  - Strategic: regulatory-affairs-head, quality-manager-qmr
+  - Quality Systems: quality-manager-qms-iso13485, capa-officer, quality-documentation-manager
+  - Risk & Security: risk-management-specialist, information-security-manager-iso27001
+  - Regulatory: mdr-745-specialist, fda-consultant-specialist
+  - Audit: qms-audit-expert, isms-audit-expert, gdpr-dsgvo-expert
 
 **Total Automation:**
-- **58 Python automation tools** (22 skills × 2.6 avg tools per skill)
-- **60+ comprehensive reference guides** with patterns and best practices
-- **Complete development lifecycle coverage** from architecture through AI/ML deployment
+- **94 Python automation tools** (34 skills × 2.8 avg tools per skill)
+- **90+ comprehensive reference guides** with patterns and best practices
+- **Complete enterprise coverage** from marketing through regulatory compliance
 
 **Next Priorities:**
 - Phase 2 (Q1 2026): Marketing expansion - SEO optimizer, social media manager, campaign analytics
 - Phase 3 (Q2 2026): Business & growth - Sales engineer, customer success, growth marketer
-- Phase 4 (Q3 2026): Specialized domains - Mobile-specific, blockchain, web3
+- Phase 4 (Q3 2026): Specialized domains - Mobile, blockchain, web3, finance
 
-**Target: 30+ skills by Q3 2026**
+**Target: 40+ skills by Q3 2026**
 
 See detailed roadmaps:
 - `marketing-skill/marketing_skills_roadmap.md`
 - `product-team/product_team_implementation_guide.md`
-- `engineering-team/engineering_skills_roadmap.md`
+- `engineering-team/START_HERE.md` and `TEAM_STRUCTURE_GUIDE.md`
+- `ra-qm-team/README.md` and `final-complete-skills-collection.md`
 
 ## Key Principles
 

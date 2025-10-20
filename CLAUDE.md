@@ -6,11 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks across marketing, executive leadership, and product development. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 17 production-ready skills across 4 domains:
+**Current Scope:** 22 production-ready skills across 4 domains:
 - **Marketing (1):** Content creation, SEO, brand voice, social media
 - **C-Level Advisory (2):** CEO strategic planning, CTO technical leadership
 - **Product Team (5):** Product management, agile delivery, UX research, UI design, strategic planning
-- **Engineering Team (9):** Architecture, frontend, backend, fullstack, QA testing, DevOps, SecOps, code review, security engineering
+- **Engineering Team (14):**
+  - Core Engineering (9): Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, code review, security
+  - AI/ML/Data (5): Data science, data engineering, ML engineering, prompt engineering, computer vision
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -55,10 +57,28 @@ claude-skills/
         ├── SKILL.md
         └── scripts/
 └── engineering-team/
-    └── fullstack-engineer/
-        ├── SKILL.md
-        ├── scripts/
-        └── references/
+    ├── senior-architect/
+    ├── senior-frontend/
+    ├── senior-backend/
+    ├── senior-fullstack/
+    ├── senior-qa/
+    ├── senior-devops/
+    ├── senior-secops/
+    ├── code-reviewer/
+    ├── senior-security/
+    ├── senior-data-scientist/
+    ├── senior-data-engineer/
+    ├── senior-ml-engineer/
+    ├── senior-prompt-engineer/
+    ├── senior-computer-vision/
+    ├── README.md                      # Engineering skills overview
+    ├── START_HERE.md                  # Quick start guide
+    └── TEAM_STRUCTURE_GUIDE.md        # Team composition recommendations
+
+Each skill contains:
+    ├── SKILL.md                       # Master documentation
+    ├── scripts/                       # 3 Python automation tools
+    └── references/                    # 3 comprehensive guides
 ```
 
 **Design Philosophy**: Skills are self-contained packages. Each includes executable tools (Python scripts), knowledge bases (markdown references), and user-facing templates. Teams can extract a skill folder and use it immediately.
@@ -188,6 +208,41 @@ Located in `engineering-team/*/scripts/`, these are **fullstack development auto
 - Designed for rapid project bootstrapping and quality assurance
 - Support both Docker and manual deployment workflows
 - Comprehensive analysis with actionable recommendations
+
+### AI/ML/Data Team Python Scripts
+
+Located in `engineering-team/senior-{data,ml,ai}*/scripts/`, these are **AI/ML and data infrastructure tools**:
+
+**Senior Data Scientist:**
+- `experiment_designer.py` - Design A/B tests and statistical experiments
+- `feature_engineering_pipeline.py` - Automated feature engineering
+- `statistical_analyzer.py` - Statistical modeling and causal inference
+
+**Senior Data Engineer:**
+- `pipeline_orchestrator.py` - Build data pipelines with Airflow/Spark
+- `data_quality_validator.py` - Data quality checks and monitoring
+- `etl_generator.py` - Generate ETL/ELT workflows
+
+**Senior ML Engineer:**
+- `model_deployment_pipeline.py` - Deploy ML models to production
+- `mlops_setup_tool.py` - Setup MLOps infrastructure (MLflow, monitoring)
+- `llm_integration_builder.py` - Integrate LLMs into applications
+
+**Senior Prompt Engineer:**
+- `prompt_optimizer.py` - Optimize prompts for LLMs
+- `rag_system_builder.py` - Build RAG (Retrieval Augmented Generation) systems
+- `agent_orchestrator.py` - Design and orchestrate AI agents
+
+**Senior Computer Vision Engineer:**
+- `vision_model_trainer.py` - Train object detection and segmentation models
+- `inference_optimizer.py` - Optimize vision model inference
+- `video_processor.py` - Process and analyze video streams
+
+**Implementation Notes**:
+- AI/ML scripts integrate with modern frameworks (PyTorch, LangChain, OpenCV)
+- Data engineering tools support Spark, Airflow, dbt, Kafka
+- MLOps workflows include monitoring, versioning, and drift detection
+- All tools designed for production deployment at scale
 
 ## Development Commands
 
@@ -320,34 +375,36 @@ refactor(ui-design-system): improve token generator performance
 ```
 
 **Current State:**
-- 17 skills deployed across 4 domains
-- 43 Python automation tools
+- 22 skills deployed across 4 domains
+- 58 Python automation tools
 - All skills v1.0 production-ready
-- Complete engineering suite with 9 specialized roles
+- Complete engineering suite with 14 specialized roles (9 core + 5 AI/ML/Data)
 
 **.gitignore excludes**: .vscode/, .DS_Store, AGENTS.md, PROMPTS.md, .env* (CLAUDE.md is tracked as living documentation)
 
 ## Roadmap Context
 
-**Current Status: Phase 1 Complete** - 17 production-ready skills deployed
+**Current Status: Phase 1 Complete** - 22 production-ready skills deployed
 
 **Delivered Skills:**
 - **Marketing (1):** content-creator
 - **C-Level Advisory (2):** ceo-advisor, cto-advisor
 - **Product Team (5):** product-manager-toolkit, agile-product-owner, product-strategist, ux-researcher-designer, ui-design-system
-- **Engineering Team (9):** senior-architect, senior-frontend, senior-backend, senior-fullstack, senior-qa, senior-devops, senior-secops, code-reviewer, senior-security
+- **Engineering Team (14):**
+  - Core Engineering (9): senior-architect, senior-frontend, senior-backend, senior-fullstack, senior-qa, senior-devops, senior-secops, code-reviewer, senior-security
+  - AI/ML/Data (5): senior-data-scientist, senior-data-engineer, senior-ml-engineer, senior-prompt-engineer, senior-computer-vision
 
 **Total Automation:**
-- **43 Python tools** across all skills
-- **40+ reference guides** with patterns and best practices
-- **Complete development lifecycle coverage**
+- **58 Python automation tools** (22 skills × 2.6 avg tools per skill)
+- **60+ comprehensive reference guides** with patterns and best practices
+- **Complete development lifecycle coverage** from architecture through AI/ML deployment
 
 **Next Priorities:**
 - Phase 2 (Q1 2026): Marketing expansion - SEO optimizer, social media manager, campaign analytics
-- Phase 3 (Q2 2026): Specialized engineering - Mobile engineer, data engineer, ML engineer
-- Phase 4 (Q3 2026): Business & growth - Sales engineer, customer success, growth marketer
+- Phase 3 (Q2 2026): Business & growth - Sales engineer, customer success, growth marketer
+- Phase 4 (Q3 2026): Specialized domains - Mobile-specific, blockchain, web3
 
-**Target: 25+ skills by Q3 2026**
+**Target: 30+ skills by Q3 2026**
 
 See detailed roadmaps:
 - `marketing-skill/marketing_skills_roadmap.md`

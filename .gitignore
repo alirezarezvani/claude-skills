@@ -14,3 +14,4 @@ PROMPTS.md
 .env.development.local
 .env.test.local
 .env.production.local
+medium-content-pro/*

@@ -6,10 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks across marketing, executive leadership, and product development. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 36 production-ready skills across 5 domains:
+**Current Scope:** 42 production-ready skills across 6 domains:
 - **Marketing (3):** Content creation, demand generation & acquisition, product marketing & strategy
 - **C-Level Advisory (2):** CEO strategic planning, CTO technical leadership
 - **Product Team (5):** Product management, agile delivery, UX research, UI design, strategic planning
+- **Project Management (6):** Senior PM, Scrum Master, Jira expert, Confluence expert, Atlassian admin, Template creator
 - **Engineering Team (14):**
   - Core Engineering (9): Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, code review, security
   - AI/ML/Data (5): Data science, data engineering, ML engineering, prompt engineering, computer vision
@@ -69,6 +70,23 @@ claude-skills/
     └── ui-design-system/
         ├── SKILL.md
         └── scripts/
+└── project-management/
+    ├── senior-pm/
+    │   └── SKILL.md
+    ├── scrum-master/
+    │   └── SKILL.md
+    ├── jira-expert/
+    │   └── SKILL.md
+    ├── confluence-expert/
+    │   └── SKILL.md
+    ├── atlassian-admin/
+    │   └── SKILL.md
+    ├── atlassian-templates/
+    │   └── SKILL.md
+    ├── README.md                      # PM team overview
+    ├── INSTALLATION_GUIDE.txt         # Installation steps
+    ├── IMPLEMENTATION_SUMMARY.md      # Technical details
+    └── REAL_WORLD_SCENARIO.md         # Complete usage example
 └── engineering-team/
     ├── senior-architect/
     ├── senior-frontend/
@@ -405,23 +423,26 @@ refactor(ui-design-system): improve token generator performance
 ```
 
 **Current State:**
-- 36 skills deployed across 5 domains
+- 42 skills deployed across 6 domains
 - 97 Python automation tools
 - All skills v1.0 production-ready
 - Complete marketing suite with 3 skills (content, demand gen, product marketing)
+- Complete project management suite with 6 skills (PM, agile, Atlassian tools)
 - Complete engineering suite with 14 specialized roles (9 core + 5 AI/ML/Data)
 - Complete RA/QM suite with 12 specialized roles for HealthTech/MedTech compliance
+- Atlassian MCP Server integration for Jira and Confluence operations
 
 **.gitignore excludes**: .vscode/, .DS_Store, AGENTS.md, PROMPTS.md, .env* (CLAUDE.md is tracked as living documentation)
 
 ## Roadmap Context
 
-**Current Status: Phase 1 Complete** - 36 production-ready skills deployed
+**Current Status: Phase 1 Complete** - 42 production-ready skills deployed
 
 **Delivered Skills:**
 - **Marketing (3):** content-creator, marketing-demand-acquisition, marketing-strategy-pmm
 - **C-Level Advisory (2):** ceo-advisor, cto-advisor
 - **Product Team (5):** product-manager-toolkit, agile-product-owner, product-strategist, ux-researcher-designer, ui-design-system
+- **Project Management (6):** senior-pm, scrum-master, jira-expert, confluence-expert, atlassian-admin, atlassian-templates
 - **Engineering Team (14):**
   - Core Engineering (9): senior-architect, senior-frontend, senior-backend, senior-fullstack, senior-qa, senior-devops, senior-secops, code-reviewer, senior-security
   - AI/ML/Data (5): senior-data-scientist, senior-data-engineer, senior-ml-engineer, senior-prompt-engineer, senior-computer-vision
@@ -433,20 +454,22 @@ refactor(ui-design-system): improve token generator performance
   - Audit: qms-audit-expert, isms-audit-expert, gdpr-dsgvo-expert
 
 **Total Automation:**
-- **97 Python automation tools** (36 skills × 2.7 avg tools per skill)
+- **97 Python automation tools** (42 skills × 2.3 avg tools per skill)
 - **90+ comprehensive reference guides** with patterns and best practices
 - **Complete enterprise coverage** from marketing through regulatory compliance
+- **Atlassian MCP integration** for project management and agile delivery
 
 **Next Priorities:**
 - Phase 2 (Q1 2026): Marketing expansion - SEO optimizer, social media manager, campaign analytics
 - Phase 3 (Q2 2026): Business & growth - Sales engineer, customer success, growth marketer
 - Phase 4 (Q3 2026): Specialized domains - Mobile, blockchain, web3, finance
 
-**Target: 40+ skills by Q3 2026**
+**Target: 50+ skills by Q3 2026**
 
 See detailed roadmaps:
 - `marketing-skill/marketing_skills_roadmap.md`
 - `product-team/product_team_implementation_guide.md`
+- `project-management/README.md` and `REAL_WORLD_SCENARIO.md`
 - `engineering-team/START_HERE.md` and `TEAM_STRUCTURE_GUIDE.md`
 - `ra-qm-team/README.md` and `final-complete-skills-collection.md`
 

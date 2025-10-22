@@ -10,18 +10,18 @@
 
 ## 📚 Table of Contents
 
-- [Overview](#overview)
-- [Available Skills](#available-skills)
-- [Quick Start](#quick-start)
-- [How to Use with Claude AI](#how-to-use-with-claude-ai)
-- [How to Use with Claude Code](#how-to-use-with-claude-code)
-- [Skill Architecture](#skill-architecture)
-- [Installation](#installation)
-- [Usage Examples](#usage-examples)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
+- [Overview](#-overview)
+- [Available Skills](#-available-skills)
+- [Quick Start](#-quick-start)
+- [How to Use with Claude AI](#-how-to-use-with-claude-ai)
+- [How to Use with Claude Code](#-how-to-use-with-claude-code)
+- [Skill Architecture](#-skill-architecture)
+- [Installation](#-installation)
+- [Usage Examples](#-usage-examples)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
 
 ---
 

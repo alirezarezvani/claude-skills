@@ -16,3 +16,4 @@ PROMPTS.md
 .env.production.local
 medium-content-pro/*
 documentation/GIST_CONTENT.md
+documentation/implementation/*

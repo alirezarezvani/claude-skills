@@ -15,3 +15,4 @@ PROMPTS.md
 .env.test.local
 .env.production.local
 medium-content-pro/*
+documentation/GIST_CONTENT.md

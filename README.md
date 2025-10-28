@@ -1415,6 +1415,98 @@ python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codeba
 
 ---
 
+## 🔗 Related Projects & Tools
+
+Explore our complete ecosystem of Claude Code augmentation tools and utilities:
+
+### 🏭 Claude Code Skills & Agents Factory
+
+**Repository:** [claude-code-skill-factory](https://github.com/alirezarezvani/claude-code-skill-factory)
+
+**What it is:** Factory toolkit for generating production-ready Claude Skills and Agents at scale.
+
+**Key Features:**
+- 🎯 **69 Factory Presets** across 15 professional domains
+- 🔧 **Smart Generation** - Automatically determines if Python code or prompt-only instruction is needed
+- 📦 **Complete Skill Packages** - Generates SKILL.md, Python scripts, references, and sample data
+- 🚀 **Multi-Platform Support** - Works with Claude.ai, Claude Code, and API
+- ⚡ **Rapid Prototyping** - Create custom skills in minutes, not hours
+
+**Perfect For:**
+- Building custom skills beyond the 42 provided in this library
+- Generating domain-specific agents for your organization
+- Scaling AI customization across teams
+- Rapid prototyping of specialized workflows
+
+**Use Case:** "I need a skill for [your specific domain]? Use the Factory to generate it instantly!"
+
+---
+
+### 💎 Claude Code Tresor (Productivity Toolkit)
+
+**Repository:** [claude-code-tresor](https://github.com/alirezarezvani/claude-code-tresor)
+
+**What it is:** Comprehensive productivity enhancement toolkit with 20+ utilities for Claude Code development workflows.
+
+**Key Features:**
+- 🤖 **8 Autonomous Skills** - Background helpers (code quality, security, testing, docs)
+- 👨‍💻 **8 Expert Agents** - Manual specialists via `@` mentions (architecture, debugging, performance)
+- ⚡ **4 Workflow Commands** - Slash commands (`/scaffold`, `/review`, `/test-gen`, `/docs-gen`)
+- 📋 **20+ Prompt Templates** - Common development scenarios ready to use
+- 📚 **Development Standards** - Style guides and best practices
+
+**Perfect For:**
+- Solo developers seeking productivity acceleration
+- Development teams standardizing processes
+- Code quality automation and continuous improvement
+- Professional Claude Code workflows from scaffolding through deployment
+
+**Use Case:** "Working on a project in Claude Code? Use Tresor's agents, commands, and skills to supercharge your development workflow!"
+
+---
+
+### 🌟 How These Projects Work Together
+
+**Complete Claude Code Ecosystem:**
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Claude Skills Library (This Repository)                │
+│  42 Domain Expert Skills - Marketing to Engineering     │
+│  Use for: Domain expertise, frameworks, best practices  │
+└────────────────┬────────────────────────────────────────┘
+                 │
+        ┌────────┴────────┐
+        │                 │
+        ▼                 ▼
+┌──────────────┐  ┌───────────────────┐
+│ Skill Factory│  │  Claude Tresor    │
+│              │  │                   │
+│ Create MORE  │  │ USE skills in     │
+│ custom skills│  │ development       │
+│              │  │                   │
+│ For: Custom  │  │ For: Daily dev    │
+│ domains &    │  │ workflows, code   │
+│ org-specific │  │ quality, testing  │
+│ needs        │  │ automation        │
+└──────────────┘  └───────────────────┘
+```
+
+**Workflow:**
+1. **Start here** (Skills Library) - Get 42 production-ready expert skills
+2. **Expand** (Skill Factory) - Generate custom skills for your specific needs
+3. **Supercharge** (Tresor) - Use skills + agents + commands in Claude Code development
+
+**Together they provide:**
+- ✅ 42 ready-to-use expert skills (this repo)
+- ✅ Unlimited custom skill generation (Factory)
+- ✅ Complete development workflow automation (Tresor)
+- ✅ Cross-platform compatibility (Claude.ai, Claude Code, API)
+
+**All repositories by [Alireza Rezvani](https://alirezarezvani.com)** - Building the complete Claude Code augmentation ecosystem.
+
+---
+
 ## 🗺️ Roadmap
 
 ### Current Status (Q4 2025)

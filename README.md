@@ -1675,6 +1675,12 @@ Using these skills successfully? I'd love to hear about it:
 
 ---
 
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=alirezarezvani/claude-skills&type=Date)](https://star-history.com/#alirezarezvani/claude-skills&Date)
+
+---
+
 <div align="center">
 
 **⭐ Star this repository** if you find these skills useful!

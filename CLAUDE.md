@@ -25,6 +25,92 @@ This is a **comprehensive skills library** for Claude AI - reusable, production-
 
 ## Architecture Overview
 
+### Plugin Marketplace Structure
+
+This repository implements the Claude Code plugin marketplace architecture, enabling users to discover and install skills through Claude Code's native plugin system.
+
+#### Marketplace Configuration
+
+Located at `.claude-plugin/marketplace.json`, this file defines 10 granular plugin collections:
+
+1. **marketing-skills** (3 skills) - Content, demand generation, product marketing
+2. **executive-advisory** (2 skills) - CEO and CTO advisory
+3. **product-management** (3 skills) - PM, agile, strategy
+4. **ux-design-skills** (2 skills) - UX research, UI design
+5. **project-management** (6 skills) - PM, Scrum, Atlassian tools
+6. **core-engineering** (9 skills) - Architecture through security
+7. **ai-ml-data-engineering** (5 skills) - Data science, ML, AI
+8. **regulatory-affairs** (4 skills) - RA, MDR, FDA, risk management
+9. **quality-management** (5 skills) - QMR, ISO 13485, CAPA, ISO 27001
+10. **audit-compliance** (3 skills) - QMS audit, ISMS audit, GDPR
+
+Each plugin entry includes:
+- `name`: Unique plugin identifier (kebab-case)
+- `description`: Plugin overview and use cases
+- `source`: Path to plugin directory (`./ ` for local)
+- `strict`: false (allows skills without individual plugin.json)
+- `category`: Domain classification
+- `keywords`: Discovery tags
+- `skills`: Array of skill paths (e.g., `./marketing-skill/content-creator`)
+
+#### YAML Frontmatter Format (Hybrid)
+
+All SKILL.md files use a standardized hybrid YAML format:
+
+```yaml
+---
+name: skill-name
+description: Comprehensive description with use cases and triggers
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: domain
+  domain: subdomain
+  updated: 2025-10-20
+  python-tools: tool1.py, tool2.py
+  tech-stack: technologies
+---
+```
+
+**Top-level fields** (required by Claude Code spec):
+- `name`: Skill identifier matching folder name
+- `description`: What the skill does, when to use it, and trigger keywords
+- `license`: MIT (all skills)
+
+**Metadata section** (preserved from original):
+- `version`: Semantic version
+- `author`: Creator name
+- `category`: Primary domain
+- `domain`: Specific subdomain
+- `updated`: Last update date
+- `python-tools`: Comma-separated list of Python scripts
+- `tech-stack`: Technologies and platforms covered
+
+This hybrid approach maintains the Claude Code plugin specification while preserving rich metadata for documentation and discoverability.
+
+#### Installation Flow
+
+```bash
+# User adds marketplace
+/plugin marketplace add alirezarezvani/claude-skills
+
+# Claude Code reads .claude-plugin/marketplace.json
+# Discovers 10 plugin collections with 42 total skills
+
+# User installs specific plugin
+/plugin install marketing-skills@nginity-claude-skills
+
+# Claude Code resolves paths:
+# - ./marketing-skill/content-creator
+# - ./marketing-skill/marketing-demand-acquisition
+# - ./marketing-skill/marketing-strategy-pmm
+
+# Skills become available in Claude sessions
+# SKILL.md files provide context and workflows
+# Python scripts become invokable tools
+```
+
 ### Skill Package Structure
 
 The repository is organized by domain, with each skill following a consistent modular architecture:

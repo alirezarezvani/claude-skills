@@ -11,6 +11,7 @@
 ## 📚 Table of Contents
 
 - [Overview](#-overview)
+- [Plugin Marketplace Installation](#-plugin-marketplace-installation)
 - [Available Skills](#-available-skills)
 - [Quick Start](#-quick-start)
 - [How to Use with Claude AI](#-how-to-use-with-claude-ai)
@@ -39,6 +40,60 @@ This repository provides **modular, self-contained skill packages** designed to 
 - 🎯 **Domain expertise** - Battle-tested frameworks from industry experts
 - 🔧 **Practical tools** - Algorithmic analysis without external API dependencies
 - 📈 **Measurable ROI** - 40%+ time savings, 30%+ quality improvements
+
+---
+
+## 🔌 Plugin Marketplace Installation
+
+**NEW:** This repository is now a Claude Code plugin marketplace! Install skills directly through Claude Code's plugin system.
+
+### Quick Installation
+
+```bash
+# Add the marketplace
+/plugin marketplace add alirezarezvani/claude-skills
+
+# Browse available plugins
+/plugin
+
+# Install specific plugin collection
+/plugin install marketing-skills@nginity-claude-skills
+/plugin install core-engineering@nginity-claude-skills
+/plugin install product-management@nginity-claude-skills
+```
+
+### Available Plugin Collections
+
+- **marketing-skills** (3 skills) - Content, demand generation, product marketing
+- **executive-advisory** (2 skills) - CEO and CTO strategic advisory
+- **product-management** (3 skills) - PM, agile product owner, product strategist
+- **ux-design-skills** (2 skills) - UX research, UI design systems
+- **project-management** (6 skills) - PM, Scrum Master, Jira, Confluence, Atlassian
+- **core-engineering** (9 skills) - Architecture, frontend, backend, fullstack, QA, DevOps, security
+- **ai-ml-data-engineering** (5 skills) - Data science, ML engineering, prompt engineering, computer vision
+- **regulatory-affairs** (4 skills) - RA management, MDR, FDA, risk management
+- **quality-management** (5 skills) - QMR, ISO 13485, CAPA, documentation, ISO 27001
+- **audit-compliance** (3 skills) - QMS audit, ISMS audit, GDPR/DSGVO
+
+📖 **Detailed marketplace documentation:** [MARKETPLACE.md](MARKETPLACE.md)
+
+### Team Configuration
+
+Add to `.claude/settings.json` for automatic installation:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "nginity-claude-skills": {
+      "source": {
+        "source": "github",
+        "repo": "alirezarezvani/claude-skills"
+      }
+    }
+  },
+  "enabledPlugins": ["marketing-skills", "core-engineering"]
+}
+```
 
 ---
 

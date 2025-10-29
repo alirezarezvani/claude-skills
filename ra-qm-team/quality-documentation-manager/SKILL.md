@@ -1,6 +1,7 @@
 ---
 name: quality-documentation-manager
 description: Senior Quality Documentation Manager for comprehensive documentation control and regulatory document review. Provides document management system design, change control, configuration management, and regulatory documentation oversight. Use for document control system implementation, regulatory document review, change management, and documentation compliance verification.
+license: MIT
 ---
 
 # Senior Quality Documentation Manager

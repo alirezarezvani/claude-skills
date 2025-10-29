@@ -1,0 +1,157 @@
+{
+  "name": "nginity-claude-skills",
+  "owner": {
+    "name": "Alireza Rezvani",
+    "email": "contact@nginity.io"
+  },
+  "metadata": {
+    "description": "Production-ready skill packages for Claude AI - 42 expert skills across marketing, engineering, product, compliance, and leadership domains",
+    "version": "1.0.0",
+    "homepage": "https://github.com/alirezarezvani/claude-skills",
+    "license": "MIT"
+  },
+  "plugins": [
+    {
+      "name": "marketing-skills",
+      "description": "Content creation, demand generation, and product marketing strategy toolkit with SEO optimization and brand voice analysis",
+      "source": "./",
+      "strict": false,
+      "category": "marketing",
+      "keywords": ["marketing", "content", "seo", "brand-voice", "demand-generation", "product-marketing"],
+      "skills": [
+        "./marketing-skill/content-creator",
+        "./marketing-skill/marketing-demand-acquisition",
+        "./marketing-skill/marketing-strategy-pmm"
+      ]
+    },
+    {
+      "name": "executive-advisory",
+      "description": "Strategic leadership advisory for CEO and CTO roles with decision frameworks and technical leadership guidance",
+      "source": "./",
+      "strict": false,
+      "category": "leadership",
+      "keywords": ["ceo", "cto", "executive", "strategy", "leadership", "advisory"],
+      "skills": [
+        "./c-level-advisor/ceo-advisor",
+        "./c-level-advisor/cto-advisor"
+      ]
+    },
+    {
+      "name": "product-management",
+      "description": "Product management, agile delivery, and product strategy with RICE prioritization and OKR frameworks",
+      "source": "./",
+      "strict": false,
+      "category": "product",
+      "keywords": ["product-management", "agile", "product-owner", "strategy", "roadmap", "prioritization"],
+      "skills": [
+        "./product-team/product-manager-toolkit",
+        "./product-team/agile-product-owner",
+        "./product-team/product-strategist"
+      ]
+    },
+    {
+      "name": "ux-design-skills",
+      "description": "UX research, UI design systems, persona generation, and design token automation",
+      "source": "./",
+      "strict": false,
+      "category": "design",
+      "keywords": ["ux", "ui", "design", "research", "personas", "design-system", "design-tokens"],
+      "skills": [
+        "./product-team/ux-researcher-designer",
+        "./product-team/ui-design-system"
+      ]
+    },
+    {
+      "name": "project-management",
+      "description": "Complete project management toolkit covering PM, Scrum, Jira, Confluence, and Atlassian administration",
+      "source": "./",
+      "strict": false,
+      "category": "project-management",
+      "keywords": ["project-management", "scrum", "jira", "confluence", "atlassian", "agile", "templates"],
+      "skills": [
+        "./project-management/senior-pm",
+        "./project-management/scrum-master",
+        "./project-management/jira-expert",
+        "./project-management/confluence-expert",
+        "./project-management/atlassian-admin",
+        "./project-management/atlassian-templates"
+      ]
+    },
+    {
+      "name": "core-engineering",
+      "description": "Complete engineering team skills from architecture to fullstack, QA, DevOps, security, and code review",
+      "source": "./",
+      "strict": false,
+      "category": "engineering",
+      "keywords": ["architecture", "frontend", "backend", "fullstack", "qa", "devops", "security", "code-review"],
+      "skills": [
+        "./engineering-team/senior-architect",
+        "./engineering-team/senior-frontend",
+        "./engineering-team/senior-backend",
+        "./engineering-team/senior-fullstack",
+        "./engineering-team/senior-qa",
+        "./engineering-team/senior-devops",
+        "./engineering-team/senior-secops",
+        "./engineering-team/code-reviewer",
+        "./engineering-team/senior-security"
+      ]
+    },
+    {
+      "name": "ai-ml-data-engineering",
+      "description": "AI/ML and data engineering skills including data science, ML engineering, prompt engineering, and computer vision",
+      "source": "./",
+      "strict": false,
+      "category": "ai-ml-data",
+      "keywords": ["data-science", "machine-learning", "ai", "mlops", "data-engineering", "prompt-engineering", "computer-vision"],
+      "skills": [
+        "./engineering-team/senior-data-scientist",
+        "./engineering-team/senior-data-engineer",
+        "./engineering-team/senior-ml-engineer",
+        "./engineering-team/senior-prompt-engineer",
+        "./engineering-team/senior-computer-vision"
+      ]
+    },
+    {
+      "name": "regulatory-affairs",
+      "description": "HealthTech/MedTech regulatory compliance including RA management, MDR 2017/745, FDA consultation, and risk management",
+      "source": "./",
+      "strict": false,
+      "category": "compliance",
+      "keywords": ["regulatory-affairs", "mdr", "fda", "medical-devices", "compliance", "risk-management", "iso-14971"],
+      "skills": [
+        "./ra-qm-team/regulatory-affairs-head",
+        "./ra-qm-team/mdr-745-specialist",
+        "./ra-qm-team/fda-consultant-specialist",
+        "./ra-qm-team/risk-management-specialist"
+      ]
+    },
+    {
+      "name": "quality-management",
+      "description": "Quality management systems covering QMR, ISO 13485, CAPA, documentation, and ISO 27001 information security",
+      "source": "./",
+      "strict": false,
+      "category": "compliance",
+      "keywords": ["quality-management", "qms", "iso-13485", "capa", "documentation", "iso-27001", "information-security"],
+      "skills": [
+        "./ra-qm-team/quality-manager-qmr",
+        "./ra-qm-team/quality-manager-qms-iso13485",
+        "./ra-qm-team/capa-officer",
+        "./ra-qm-team/quality-documentation-manager",
+        "./ra-qm-team/information-security-manager-iso27001"
+      ]
+    },
+    {
+      "name": "audit-compliance",
+      "description": "Audit and compliance expertise including QMS audit, ISMS audit, and GDPR/DSGVO compliance",
+      "source": "./",
+      "strict": false,
+      "category": "compliance",
+      "keywords": ["audit", "compliance", "qms-audit", "isms-audit", "gdpr", "dsgvo", "data-protection"],
+      "skills": [
+        "./ra-qm-team/qms-audit-expert",
+        "./ra-qm-team/isms-audit-expert",
+        "./ra-qm-team/gdpr-dsgvo-expert"
+      ]
+    }
+  ]
+}

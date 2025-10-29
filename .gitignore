@@ -1,7 +1,18 @@
+# Editor and system files
 .vscode
 .DS_Store
+
+# Internal documentation (not for public)
 AGENTS.md
 PROMPTS.md
+
+# Temporary scripts
+update_yaml_frontmatter.py
+
+# IMPORTANT: .claude-plugin/ MUST be tracked (contains marketplace.json)
+# Do NOT add .claude-plugin/ to .gitignore
+
+# Environment files
 .env
 .env.local
 .env.development.local

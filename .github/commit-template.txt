@@ -1,0 +1,14 @@
+<type>(<scope>): <summary>
+
+## Context
+-
+
+## Testing
+- [ ] All Python scripts tested
+- [ ] Skills validated with Claude
+- [ ] Documentation updated
+- [ ] Examples work as expected
+
+## Reviewers
+- [ ] @
+

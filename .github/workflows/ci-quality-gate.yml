@@ -1,0 +1,91 @@
+---
+name: CI Quality Gate
+
+'on':
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch to run quality gate against
+        required: false
+  repository_dispatch:
+    types: [ci-quality]
+
+concurrency:
+  group: quality-gate-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, Tests, Docs, Security
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 25
+    steps:
+      - name: Resolve ref
+        id: ref
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ github.event.inputs.ref }}" ]]; then
+            echo "target_ref=${{ github.event.inputs.ref }}" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ github.event_name }}" == "repository_dispatch" && -n "${{ github.event.client_payload.ref }}" ]]; then
+            echo "target_ref=${{ github.event.client_payload.ref }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "target_ref=${{ github.head_ref || github.ref_name }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ steps.ref.outputs.target_ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install tooling
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllint==1.35.1 check-jsonschema==0.28.4 safety==3.2.4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: YAML lint (.github/workflows)
+        run: |
+          yamllint -d '{extends: default, rules: {line-length: {max: 160}}}' .github/workflows
+
+      - name: Validate GitHub workflow schemas
+        run: |
+          check-jsonschema --schema github-workflow --base-dir . .github/workflows/*.yml
+
+      - name: Python syntax check
+        run: |
+          python -m compileall marketing-skill product-team c-level-advisor engineering-team ra-qm-team || true
+
+      - name: Safety dependency audit (requirements*.txt)
+        run: |
+          set -e
+          files=$(find . -name "requirements*.txt" 2>/dev/null || true)
+          if [[ -z "$files" ]]; then
+            echo "No requirements files found; skipping safety scan."
+            exit 0
+          fi
+          for f in $files; do
+            echo "Auditing $f"
+            safety check --full-report --file "$f" || true
+          done
+
+      - name: Markdown link spot-check
+        run: |
+          npx --yes markdown-link-check@3.12.2 README.md
+
+      - name: Summarize results
+        if: always()
+        run: |
+          echo "Quality gate completed with status: ${{ job.status }}"

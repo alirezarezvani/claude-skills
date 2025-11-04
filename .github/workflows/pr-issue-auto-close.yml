@@ -1,0 +1,207 @@
+---
+name: Auto-Close Issues on PR Merge
+
+'on':
+  pull_request:
+    types: [closed]
+
+permissions:
+  issues: write
+  pull-requests: read
+  contents: read
+
+jobs:
+  close-linked-issues:
+    name: Close Issues Linked in PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Workflow Kill Switch
+        run: |
+          if [ -f ".github/WORKFLOW_KILLSWITCH" ]; then
+            STATUS=$(grep "STATUS:" .github/WORKFLOW_KILLSWITCH | awk '{print $2}')
+            if [ "$STATUS" = "DISABLED" ]; then
+              echo "🛑 Workflows disabled by kill switch"
+              exit 0
+            fi
+          fi
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract linked issues from PR body
+        id: extract_issues
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prBody = context.payload.pull_request.body || '';
+            const prNumber = context.payload.pull_request.number;
+
+            // Patterns to detect linked issues
+            // Supports: Fixes #123, Closes #456, Resolves #789, Related to #111, See #222
+            const patterns = [
+              /(?:fix|fixes|fixed|close|closes|closed|resolve|resolves|resolved)\s+#(\d+)/gi,
+              /(?:related\s+to|see|ref|references)\s+#(\d+)/gi
+            ];
+
+            const issueNumbers = new Set();
+
+            // Extract issue numbers
+            patterns.forEach(pattern => {
+              let match;
+              while ((match = pattern.exec(prBody)) !== null) {
+                issueNumbers.add(match[1]);
+              }
+            });
+
+            // Also check PR title
+            const prTitle = context.payload.pull_request.title || '';
+            patterns.forEach(pattern => {
+              let match;
+              while ((match = pattern.exec(prTitle)) !== null) {
+                issueNumbers.add(match[1]);
+              }
+            });
+
+            // Also check commit messages in PR
+            const commits = await github.rest.pulls.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+
+            commits.data.forEach(commit => {
+              const message = commit.commit.message;
+              patterns.forEach(pattern => {
+                let match;
+                while ((match = pattern.exec(message)) !== null) {
+                  issueNumbers.add(match[1]);
+                }
+              });
+            });
+
+            const issues = Array.from(issueNumbers);
+            console.log(`Found linked issues: ${issues.join(', ')}`);
+
+            return issues;
+
+      - name: Close linked issues
+        if: steps.extract_issues.outputs.result != '[]'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumbers = ${{ steps.extract_issues.outputs.result }};
+            const prNumber = context.payload.pull_request.number;
+            const prTitle = context.payload.pull_request.title;
+            const prUrl = context.payload.pull_request.html_url;
+            const merger = context.payload.pull_request.merged_by.login;
+
+            console.log(`Processing ${issueNumbers.length} linked issue(s)`);
+
+            for (const issueNumber of issueNumbers) {
+              try {
+                // Get issue details first
+                const issue = await github.rest.issues.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: parseInt(issueNumber)
+                });
+
+                // Skip if already closed
+                if (issue.data.state === 'closed') {
+                  console.log(`Issue #${issueNumber} already closed, skipping`);
+                  continue;
+                }
+
+                // Add comment explaining closure
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: parseInt(issueNumber),
+                  body: `## ✅ Completed via PR #${prNumber}
+
+**PR**: ${prTitle}
+**URL**: ${prUrl}
+**Merged by**: @${merger}
+
+This issue has been resolved and the changes have been merged into main.
+
+🤖 Automatically closed via PR merge automation`
+                });
+
+                // Close the issue
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: parseInt(issueNumber),
+                  state: 'closed',
+                  state_reason: 'completed'
+                });
+
+                console.log(`✅ Closed issue #${issueNumber}`);
+
+              } catch (error) {
+                console.error(`❌ Failed to close issue #${issueNumber}: ${error.message}`);
+              }
+            }
+
+      - name: Update project board status
+        if: steps.extract_issues.outputs.result != '[]'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumbers = ${{ steps.extract_issues.outputs.result }};
+
+            for (const issueNumber of issueNumbers) {
+              try {
+                // Add status: done label
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: parseInt(issueNumber),
+                  labels: ['status: done']
+                });
+
+                // Remove in-progress and in-review labels
+                const labelsToRemove = ['status: in-progress', 'status: in-review'];
+                for (const label of labelsToRemove) {
+                  try {
+                    await github.rest.issues.removeLabel({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      issue_number: parseInt(issueNumber),
+                      name: label
+                    });
+                  } catch (e) {
+                    // Label might not exist, ignore error
+                  }
+                }
+
+                console.log(`✅ Updated project status for issue #${issueNumber}`);
+
+              } catch (error) {
+                console.error(`❌ Failed to update status for issue #${issueNumber}: ${error.message}`);
+              }
+            }
+
+      - name: Summary
+        if: steps.extract_issues.outputs.result != '[]'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumbers = ${{ steps.extract_issues.outputs.result }};
+            const prNumber = context.payload.pull_request.number;
+
+            console.log(`
+            ✅ PR #${prNumber} Merge Automation Complete
+
+            Closed issues: ${issueNumbers.join(', ')}
+            Updated project board: status → done
+            Comments added: Linked to PR #${prNumber}
+
+            All linked issues have been automatically closed and marked as done.
+            `);

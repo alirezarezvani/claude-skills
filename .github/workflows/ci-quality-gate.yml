@@ -66,7 +66,10 @@ jobs:
         run: |
           # Exclude pr-issue-auto-close.yml (complex JS template literals cause parsing errors)
           # Exclude smart-sync.yml (uses projects_v2_item event not yet in official schema)
-          find .github/workflows -name "*.yml" ! -name "pr-issue-auto-close.yml" ! -name "smart-sync.yml" -exec check-jsonschema --builtin-schema github-workflows {} + || true
+          find .github/workflows -name "*.yml" \
+            ! -name "pr-issue-auto-close.yml" \
+            ! -name "smart-sync.yml" \
+            -exec check-jsonschema --builtin-schema github-workflows {} + || true
 
       - name: Python syntax check
         run: |

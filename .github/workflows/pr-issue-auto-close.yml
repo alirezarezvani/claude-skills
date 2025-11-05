@@ -122,9 +122,9 @@ jobs:
                   issue_number: parseInt(issueNumber),
                   body: `## ✅ Completed via PR #${prNumber}
 
-**PR**: ${prTitle}
-**URL**: ${prUrl}
-**Merged by**: @${merger}
+PR: ${prTitle}
+URL: ${prUrl}
+Merged by: @${merger}
 
 This issue has been resolved and the changes have been merged into main.
 

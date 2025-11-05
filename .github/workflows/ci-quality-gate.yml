@@ -64,7 +64,7 @@ jobs:
 
       - name: Validate GitHub workflow schemas
         run: |
-          check-jsonschema --schema github-workflow --base-dir . .github/workflows/*.yml
+          check-jsonschema --builtin-schema github-workflow .github/workflows/*.yml
 
       - name: Python syntax check
         run: |

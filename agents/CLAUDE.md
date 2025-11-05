@@ -14,6 +14,22 @@ This guide provides comprehensive instructions for creating **cs-* prefixed agen
 
 **Key Principle**: Agents ORCHESTRATE skills, they don't replace them. Skills remain self-contained and portable.
 
+### Production Agents
+
+**5 Agents Currently Available** (as of November 5, 2025):
+
+| Agent | Domain | Description | Skills Used | Lines |
+|-------|--------|-------------|-------------|-------|
+| [cs-content-creator](marketing/cs-content-creator.md) | Marketing | AI-powered content creation with brand voice consistency and SEO optimization | content-creator | 327 |
+| [cs-demand-gen-specialist](marketing/cs-demand-gen-specialist.md) | Marketing | Demand generation and customer acquisition specialist | marketing-demand-acquisition | 289 |
+| [cs-ceo-advisor](c-level/cs-ceo-advisor.md) | C-Level | Strategic leadership advisor for CEOs covering vision, strategy, board management | ceo-advisor | 360 |
+| [cs-cto-advisor](c-level/cs-cto-advisor.md) | C-Level | Technical leadership advisor for CTOs covering tech strategy and team scaling | cto-advisor | 412 |
+| [cs-product-manager](product/cs-product-manager.md) | Product | Product management agent for RICE prioritization and customer discovery | product-manager-toolkit | 407 |
+
+**Total**: 1,795 lines of comprehensive agent documentation
+
+**Template Available**: [templates/agent-template.md](../templates/agent-template.md) (318 lines) - Use this to create new agents
+
 ### Agent vs Skill
 
 | Aspect | Agent (cs-*) | Skill |

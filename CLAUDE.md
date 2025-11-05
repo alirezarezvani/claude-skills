@@ -63,26 +63,40 @@ skill-name/
 
 ## Git Workflow
 
-Follow conventional commits and semantic versioning:
+**Branch Strategy:** feature → dev → main (PR only)
+
+**Branch Protection Active:** Main branch requires PR approval. Direct pushes blocked.
+
+### Quick Start
 
 ```bash
-# Feature branches by domain
-git checkout -b feature/marketing/seo-optimizer
-git checkout -b feature/agents/content-creator
+# 1. Always start from dev
+git checkout dev
+git pull origin dev
 
-# Conventional commit format
-feat(agents): implement cs-content-creator agent
-fix(seo-optimizer): correct keyword density calculation
-docs(README): update agent catalog section
+# 2. Create feature branch
+git checkout -b feature/agents-{name}
 
-# Semantic versioning by skill
-git tag v1.0-content-creator
-git tag v1.0-product-manager-toolkit
+# 3. Work and commit (conventional commits)
+feat(agents): implement cs-{agent-name}
+fix(tool): correct calculation logic
+docs(workflow): update branch strategy
+
+# 4. Push and create PR to dev
+git push origin feature/agents-{name}
+gh pr create --base dev --head feature/agents-{name}
+
+# 5. After approval, PR merges to dev
+# 6. Periodically, dev merges to main via PR
 ```
 
-**Branch Strategy**: Domain-based branches, squash merge to main, semantic tags per skill release.
+**Branch Protection Rules:**
+- ✅ Main: Requires PR approval, no direct push
+- ✅ Dev: Unprotected, but PRs recommended
+- ✅ All: Conventional commits enforced
 
-See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standards.md) for complete workflow details.
+See [documentation/WORKFLOW.md](documentation/WORKFLOW.md) for complete workflow guide.
+See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standards.md) for commit standards.
 
 ## Development Environment
 
@@ -103,7 +117,13 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 **Active Sprint:** sprint-11-05-2025 (Nov 5-19, 2025)
 **Goal:** Skill-Agent Integration Phase 1-2
-**Status:** Day 1 complete (foundation), Day 2 ready (marketing agents)
+**Status:** ✅ COMPLETE - All 6 days finished, 5 agents deployed
+
+**Deliverables:**
+- 5 production agents: cs-content-creator, cs-demand-gen-specialist, cs-ceo-advisor, cs-cto-advisor, cs-product-manager
+- 1 agent template for future development
+- Modular documentation structure (main + 9 domain CLAUDE.md files)
+- Branch protection and workflow documentation
 
 **Progress Tracking:**
 - [Sprint Plan](documentation/delivery/sprint-11-05-2025/plan.md) - Day-by-day execution plan

@@ -1,39 +1,92 @@
+---
 name: Claude Code Review
 
-on:
+'on':
   pull_request:
     types: [opened, synchronize]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+
+# Prevent multiple review runs on rapid PR updates
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
-
+    # Auto-review ALL pull requests with Claude
+    # BYPASS: Add [EMERGENCY], [SKIP REVIEW], or [HOTFIX] to PR title
+    # BYPASS: Or add 'emergency' or 'skip-review' label to PR
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: read
       issues: read
-      id-token: write
+      id-token: write  # Required by Claude Code action for OIDC authentication
 
     steps:
+      - name: Check Workflow Kill Switch
+        run: |
+          if [ -f ".github/WORKFLOW_KILLSWITCH" ]; then
+            STATUS=$(grep "STATUS:" .github/WORKFLOW_KILLSWITCH | awk '{print $2}')
+            if [ "$STATUS" = "DISABLED" ]; then
+              echo "🛑 Workflows disabled by kill switch"
+              exit 0
+            fi
+          fi
+      - name: Check for Review Bypass
+        id: bypass
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_LABELS="${{ toJSON(github.event.pull_request.labels.*.name) }}"
+
+          # Check for bypass markers in PR title
+          if echo "$PR_TITLE" | grep -qE '\[EMERGENCY\]|\[SKIP REVIEW\]|\[HOTFIX\]'; then
+            echo "bypass=true" >> $GITHUB_OUTPUT
+            echo "reason=PR title contains bypass marker" >> $GITHUB_OUTPUT
+            echo "⏭️ BYPASS: PR title contains bypass marker"
+            exit 0
+          fi
+
+          # Check for bypass labels
+          if echo "$PR_LABELS" | grep -qE 'emergency|skip-review|hotfix'; then
+            echo "bypass=true" >> $GITHUB_OUTPUT
+            echo "reason=PR has bypass label" >> $GITHUB_OUTPUT
+            echo "⏭️ BYPASS: PR has bypass label"
+            exit 0
+          fi
+
+          echo "bypass=false" >> $GITHUB_OUTPUT
+          echo "✅ No bypass detected - review will proceed"
+
+      - name: Post Bypass Notice
+        if: steps.bypass.outputs.bypass == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## ⏭️ Code Review Bypassed
+
+              **Reason**: ${{ steps.bypass.outputs.reason }}
+
+              ⚠️ **Manual review recommended** - This PR was merged without automated code review.
+
+              ---
+              *Bypass triggered by emergency procedures protocol*`
+            })
+
       - name: Checkout repository
+        if: steps.bypass.outputs.bypass != 'true'
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
       - name: Run Claude Code Review
+        if: steps.bypass.outputs.bypass != 'true'
         id: claude-review
         uses: anthropics/claude-code-action@v1
+        continue-on-error: true
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -46,12 +99,33 @@ jobs:
             - Performance considerations
             - Security concerns
             - Test coverage
+            - Skill quality (if applicable)
 
             Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
 
             Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
 
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
-          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
+          # or https://docs.claude.com/en/docs/claude-code/cli-reference
+          claude_args: >-
+            --allowed-tools
+            "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),
+            Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"
 
+      - name: Post fallback review note (quota/timeout)
+        if: steps.claude-review.outcome != 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## ⚠️ Automated Review Skipped
+
+              The automated Claude review could not complete (likely quota or a transient error).
+
+              - You can retry this workflow from the Actions tab
+              - Proceed with manual review to unblock
+              `
+            })

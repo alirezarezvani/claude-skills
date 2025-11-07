@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 42 production-ready skills across 6 domains with 97 Python automation tools.
+**Current Scope:** 48 production-ready skills across 6 domains with 68+ Python automation tools.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -35,9 +35,9 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── agents/                    # cs-* prefixed agents (in development)
-├── marketing-skill/           # 3 marketing skills + Python tools
+├── marketing-skill/           # 5 marketing skills + Python tools
 ├── product-team/              # 5 product skills + Python tools
-├── engineering-team/          # 14 engineering skills + Python tools
+├── engineering-team/          # 18 engineering skills + Python tools
 ├── c-level-advisor/           # 2 C-level skills
 ├── project-management/        # 6 PM skills + Atlassian MCP
 ├── ra-qm-team/                # 12 RA/QM compliance skills
@@ -132,9 +132,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1 Complete:** 42 production-ready skills deployed
-- Marketing (3), C-Level (2), Product (5), PM (6), Engineering (14), RA/QM (12)
-- 97 Python automation tools, 90+ reference guides
+**Phase 1 Complete:** 48 production-ready skills deployed
+- Marketing (5), C-Level (2), Product (5), PM (6), Engineering (18), RA/QM (12)
+- 68+ Python automation tools, 90+ reference guides
 - Complete enterprise coverage from marketing through regulatory compliance
 
 **Next Priorities:**
@@ -181,4 +181,4 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
 **Last Updated:** November 5, 2025
 **Current Sprint:** sprint-11-05-2025 (Skill-Agent Integration Phase 1-2)
-**Status:** 42 skills deployed, agent system in development
+**Status:** 48 skills deployed, agent system in development

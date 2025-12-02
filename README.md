@@ -1,5 +1,8 @@
 # Claude Skills Library by nginity (Your Agentic Startup Kit)
 
+[![Run in Smithery](https://smithery.ai/badge/skills/alirezarezvani)](https://smithery.ai/skills?ns=alirezarezvani&utm_source=github&utm_medium=badge)
+
+
 **Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

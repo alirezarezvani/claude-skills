@@ -6,6 +6,7 @@
 
 ## 📚 Table of Contents
 
+- [Installation](#installation)
 - [Overview](#overview)
 - [Skills Catalog](#skills-catalog)
 - [Quick Start Guide](#quick-start-guide)
@@ -14,6 +15,48 @@
 - [Common Workflows](#common-workflows)
 - [Success Metrics](#success-metrics)
 - [ROI & Business Impact](#roi--business-impact)
+
+---
+
+## ⚡ Installation
+
+### Quick Install (Recommended)
+
+Install all marketing skills with one command:
+
+```bash
+# Install all marketing skills to all supported agents
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill
+
+# Install to Claude Code only
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill --agent claude
+
+# Install to Cursor only
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill --agent cursor
+```
+
+### Install Individual Skills
+
+```bash
+# Content Creator
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+
+# Demand Generation & Acquisition
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/marketing-demand-acquisition
+
+# Product Marketing Strategy
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/marketing-strategy-pmm
+
+# App Store Optimization
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/app-store-optimization
+
+# Social Media Analyzer
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/social-media-analyzer
+```
+
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex
+
+**Complete Installation Guide:** See [../INSTALLATION.md](../INSTALLATION.md) for detailed instructions, troubleshooting, and manual installation.
 
 ---
 

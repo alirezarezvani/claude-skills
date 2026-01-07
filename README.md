@@ -5,11 +5,48 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
+[![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
+[![48 Skills](https://img.shields.io/badge/Skills-48-brightgreen.svg)](#-available-skills)
+
+---
+
+## ⚡ Quick Install (Universal Installer)
+
+Install skills to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command!
+
+```bash
+# Install all 48 skills to all supported agents
+npx ai-agent-skills install alirezarezvani/claude-skills
+
+# Install to specific agent (Claude Code)
+npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+
+# Install single skill
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+
+# Install to Cursor
+npx ai-agent-skills install alirezarezvani/claude-skills --agent cursor
+
+# Preview before installing
+npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
+```
+
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex, Letta, OpenCode
+
+**Installation Locations:**
+- Claude Code: `~/.claude/skills/`
+- Cursor: `.cursor/skills/`
+- VS Code/Copilot: `.github/skills/`
+- Goose: `~/.config/goose/skills/`
+- Project-specific: `.skills/`
+
+**Alternative:** Manual installation instructions in the [Installation](#-installation) section below.
 
 ---
 
 ## 📚 Table of Contents
 
+- [Quick Install (Universal Installer)](#-quick-install-universal-installer)
 - [Overview](#-overview)
 - [Available Skills](#-available-skills)
 - [Quick Start](#-quick-start)
@@ -1375,20 +1412,57 @@ Each skill package follows a consistent, modular structure:
 
 ## 📦 Installation
 
-### Prerequisites
+### Method 1: Universal Installer (Recommended)
+
+**Fastest way to get started** - Installs to all supported agents automatically:
+
+```bash
+# Install all skills to Claude Code, Cursor, VS Code, Amp, Goose, etc.
+npx ai-agent-skills install alirezarezvani/claude-skills
+
+# Or install to specific agent
+npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+
+# Or install single skill
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+```
+
+**Supported Agents:**
+- Claude Code (`--agent claude`) → `~/.claude/skills/`
+- Cursor (`--agent cursor`) → `.cursor/skills/`
+- VS Code/Copilot (`--agent vscode`) → `.github/skills/`
+- Goose (`--agent goose`) → `~/.config/goose/skills/`
+- Project-specific (`--agent project`) → `.skills/`
+
+**Verification:**
+```bash
+# Check installed skills (Claude Code example)
+ls ~/.claude/skills/
+
+# Use skills directly in your agent
+# No additional setup required!
+```
+
+---
+
+### Method 2: Manual Installation (Alternative)
+
+For development, customization, or offline use:
+
+#### Prerequisites
 
 - **Python 3.7+** (for running analysis scripts)
 - **Claude AI account** or **Claude Code** (for using skills)
 - **Git** (for cloning repository)
 
-### Clone Repository
+#### Clone Repository
 
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
 ```
 
-### Install Dependencies
+#### Install Dependencies
 
 Most scripts use Python standard library only. Optional dependencies:
 
@@ -1396,7 +1470,7 @@ Most scripts use Python standard library only. Optional dependencies:
 pip install pyyaml  # For future features
 ```
 
-### Verify Installation
+#### Verify Installation
 
 ```bash
 # Test marketing skills

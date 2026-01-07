@@ -1,6 +1,59 @@
 # Engineering Skills Collection
 
-Complete set of 9 engineering role skills tailored to your tech stack (ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python).
+Complete set of 18 engineering role skills tailored to your tech stack (ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python).
+
+## ⚡ Installation
+
+### Quick Install (Recommended)
+
+Install all engineering skills with one command:
+
+```bash
+# Install all engineering skills to all supported agents
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team
+
+# Install to Claude Code only
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team --agent claude
+
+# Install to Cursor only
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team --agent cursor
+```
+
+### Install Individual Skills
+
+```bash
+# Core Engineering
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-architect
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-frontend
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-backend
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-fullstack
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-qa
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-devops
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-secops
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/code-reviewer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-security
+
+# Cloud & Enterprise
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/aws-solution-architect
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/ms365-tenant-manager
+
+# Development Tools
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/tdd-guide
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/tech-stack-evaluator
+
+# AI/ML/Data
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-data-scientist
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-data-engineer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-ml-engineer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-prompt-engineer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-computer-vision
+```
+
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex
+
+**Complete Installation Guide:** See [../INSTALLATION.md](../INSTALLATION.md) for detailed instructions, troubleshooting, and manual installation.
+
+---
 
 ## 📦 Skills Package
 

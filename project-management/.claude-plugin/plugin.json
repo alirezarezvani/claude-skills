@@ -1,0 +1,12 @@
+{
+  "name": "pm-skills",
+  "description": "6 production-ready project management skills for Atlassian users: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, and template creator with MCP integration",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/project-management",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT"
+}

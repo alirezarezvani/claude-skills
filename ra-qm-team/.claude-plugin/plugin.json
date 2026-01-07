@@ -1,0 +1,12 @@
+{
+  "name": "ra-qm-skills",
+  "description": "12 production-ready regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR compliance expertise",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT"
+}

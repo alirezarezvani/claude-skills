@@ -10,9 +10,42 @@
 
 ---
 
-## ⚡ Quick Install (Universal Installer)
+## ⚡ Quick Install
 
-Install skills to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command!
+**Two installation methods available** - choose based on your needs:
+
+### Method 1: Claude Code Native (Recommended for Claude Code users)
+
+Use Claude Code's built-in plugin system for native integration:
+
+```bash
+# In Claude Code, run:
+/plugin marketplace add alirezarezvani/claude-skills
+
+# Then install skill bundles:
+/plugin install marketing-skills@claude-code-skills     # 5 marketing skills
+/plugin install engineering-skills@claude-code-skills   # 18 engineering skills
+/plugin install product-skills@claude-code-skills       # 5 product skills
+/plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
+/plugin install pm-skills@claude-code-skills            # 6 project management skills
+/plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
+
+# Or install individual skills:
+/plugin install content-creator@claude-code-skills      # Single skill
+/plugin install fullstack-engineer@claude-code-skills   # Single skill
+```
+
+**Benefits:**
+- ✅ Native Claude Code integration
+- ✅ Automatic updates with `/plugin update`
+- ✅ Version management with git tags
+- ✅ Skills available in `~/.claude/skills/`
+
+---
+
+### Method 2: Universal Installer (Works across all agents)
+
+Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
 
 ```bash
 # Install all 48 skills to all supported agents
@@ -31,6 +64,11 @@ npx ai-agent-skills install alirezarezvani/claude-skills --agent cursor
 npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
 ```
 
+**Benefits:**
+- ✅ Works across 9+ AI agents simultaneously
+- ✅ One command installs to all agents
+- ✅ No agent-specific configuration needed
+
 **Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex, Letta, OpenCode
 
 **Installation Locations:**
@@ -40,7 +78,9 @@ npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
 - Goose: `~/.config/goose/skills/`
 - Project-specific: `.skills/`
 
-**Alternative:** Manual installation instructions in the [Installation](#-installation) section below.
+---
+
+**Detailed Installation Guide:** See [INSTALLATION.md](INSTALLATION.md) for complete instructions, troubleshooting, and manual installation.
 
 ---
 

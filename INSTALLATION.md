@@ -17,7 +17,19 @@ Complete installation guide for all 48 production-ready skills across multiple A
 
 ## Quick Start
 
-**Fastest way to install all 48 skills:**
+**Two installation methods available:**
+
+### Method 1: Claude Code Native (Recommended for Claude Code users)
+
+```bash
+# In Claude Code, run:
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install marketing-skills@claude-code-skills
+```
+
+Native integration with automatic updates and version management.
+
+### Method 2: Universal Installer (Works across all agents)
 
 ```bash
 npx ai-agent-skills install alirezarezvani/claude-skills
@@ -27,7 +39,79 @@ This single command installs all skills to all supported agents (Claude Code, Cu
 
 ---
 
-## Universal Installer (Recommended)
+## Claude Code Native Marketplace (New!)
+
+**Best for Claude Code users** - Native integration with Claude Code's plugin system.
+
+### Add the Marketplace
+
+```bash
+# In Claude Code, run:
+/plugin marketplace add alirezarezvani/claude-skills
+```
+
+This adds the skills library to your available marketplaces.
+
+### Install Skill Bundles
+
+```bash
+# Install by domain (bundles of skills)
+/plugin install marketing-skills@claude-code-skills     # 5 marketing skills
+/plugin install engineering-skills@claude-code-skills   # 18 engineering skills
+/plugin install product-skills@claude-code-skills       # 5 product skills
+/plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
+/plugin install pm-skills@claude-code-skills            # 6 project management skills
+/plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
+```
+
+### Install Individual Skills
+
+```bash
+# Marketing
+/plugin install content-creator@claude-code-skills
+/plugin install demand-gen@claude-code-skills
+
+# Engineering
+/plugin install fullstack-engineer@claude-code-skills
+/plugin install aws-architect@claude-code-skills
+
+# Product
+/plugin install product-manager@claude-code-skills
+
+# Project Management
+/plugin install scrum-master@claude-code-skills
+```
+
+### Update Skills
+
+```bash
+# Update all installed plugins
+/plugin update
+
+# Update specific plugin
+/plugin update marketing-skills
+```
+
+### Remove Skills
+
+```bash
+# Remove specific plugin
+/plugin remove marketing-skills
+
+# Remove marketplace
+/plugin marketplace remove claude-code-skills
+```
+
+**Benefits:**
+- ✅ Native Claude Code integration
+- ✅ Automatic updates with `/plugin update`
+- ✅ Version management with git tags
+- ✅ Skills installed to `~/.claude/skills/`
+- ✅ Managed through Claude Code UI
+
+---
+
+## Universal Installer
 
 The universal installer uses the [ai-agent-skills](https://github.com/skillcreatorai/Ai-Agent-Skills) package to install skills across multiple agents simultaneously.
 

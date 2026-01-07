@@ -1,0 +1,12 @@
+{
+  "name": "product-skills",
+  "description": "5 production-ready product skills: product manager toolkit, agile product owner, product strategist, UX researcher designer, and UI design system",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT"
+}

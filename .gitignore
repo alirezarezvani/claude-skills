@@ -17,3 +17,6 @@ PROMPTS.md
 medium-content-pro/*
 documentation/GIST_CONTENT.md
 documentation/implementation/*__pycache__/
+
+# Archive folder (historical/backup files)
+archive/

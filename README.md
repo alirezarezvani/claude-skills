@@ -5,11 +5,88 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
+[![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
+[![48 Skills](https://img.shields.io/badge/Skills-48-brightgreen.svg)](#-available-skills)
+
+---
+
+## ⚡ Quick Install
+
+**Two installation methods available** - choose based on your needs:
+
+### Method 1: Claude Code Native (Recommended for Claude Code users)
+
+Use Claude Code's built-in plugin system for native integration:
+
+```bash
+# In Claude Code, run:
+/plugin marketplace add alirezarezvani/claude-skills
+
+# Then install skill bundles:
+/plugin install marketing-skills@claude-code-skills     # 5 marketing skills
+/plugin install engineering-skills@claude-code-skills   # 18 engineering skills
+/plugin install product-skills@claude-code-skills       # 5 product skills
+/plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
+/plugin install pm-skills@claude-code-skills            # 6 project management skills
+/plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
+
+# Or install individual skills:
+/plugin install content-creator@claude-code-skills      # Single skill
+/plugin install fullstack-engineer@claude-code-skills   # Single skill
+```
+
+**Benefits:**
+- ✅ Native Claude Code integration
+- ✅ Automatic updates with `/plugin update`
+- ✅ Version management with git tags
+- ✅ Skills available in `~/.claude/skills/`
+
+---
+
+### Method 2: Universal Installer (Works across all agents)
+
+Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
+
+```bash
+# Install all 48 skills to all supported agents
+npx ai-agent-skills install alirezarezvani/claude-skills
+
+# Install to specific agent (Claude Code)
+npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+
+# Install single skill
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+
+# Install to Cursor
+npx ai-agent-skills install alirezarezvani/claude-skills --agent cursor
+
+# Preview before installing
+npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
+```
+
+**Benefits:**
+- ✅ Works across 9+ AI agents simultaneously
+- ✅ One command installs to all agents
+- ✅ No agent-specific configuration needed
+
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex, Letta, OpenCode
+
+**Installation Locations:**
+- Claude Code: `~/.claude/skills/`
+- Cursor: `.cursor/skills/`
+- VS Code/Copilot: `.github/skills/`
+- Goose: `~/.config/goose/skills/`
+- Project-specific: `.skills/`
+
+---
+
+**Detailed Installation Guide:** See [INSTALLATION.md](INSTALLATION.md) for complete instructions, troubleshooting, and manual installation.
 
 ---
 
 ## 📚 Table of Contents
 
+- [Quick Install (Universal Installer)](#-quick-install-universal-installer)
 - [Overview](#-overview)
 - [Available Skills](#-available-skills)
 - [Quick Start](#-quick-start)
@@ -30,7 +107,7 @@
 This repository provides **modular, self-contained skill packages** designed to augment Claude AI with specialized domain expertise. Each skill includes:
 
 - **📖 Comprehensive documentation** - Workflows, best practices, and strategic frameworks
-- **🛠️ Python analysis tools** - CLI utilities for automated analysis and optimization
+- **🛠️ Python analysis tools** - 68+ CLI utilities for automated analysis and optimization
 - **📚 Knowledge bases** - Curated reference materials and guidelines
 - **📋 Ready-to-use templates** - Customizable assets for immediate deployment
 
@@ -46,7 +123,7 @@ This repository provides **modular, self-contained skill packages** designed to 
 
 ### Marketing Skills
 
-**3 comprehensive marketing skills** covering content creation, demand generation, and product marketing strategy.
+**5 comprehensive marketing skills** covering content creation, demand generation, product marketing strategy, mobile app optimization, and social media analytics.
 
 #### 📝 Content Creator
 **Status:** ✅ Production Ready | **Version:** 1.0
@@ -97,6 +174,42 @@ Product marketing, positioning, GTM strategy, and competitive intelligence.
 - **Sales Enablement** - Training programs and asset development
 
 **Learn More:** [marketing-skill/marketing-strategy-pmm/SKILL.md](marketing-skill/marketing-strategy-pmm/SKILL.md)
+
+---
+
+#### 📱 App Store Optimization (ASO)
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Complete ASO toolkit for Apple App Store and Google Play Store optimization.
+
+**What's Included:**
+- **Keyword Research** - Volume, competition, and relevance analysis frameworks
+- **Metadata Optimization** - Platform-specific title, description, and keyword optimization
+- **Conversion Optimization** - A/B testing frameworks and visual asset testing strategies
+- **Rating & Review Management** - Review monitoring, response templates, sentiment analysis
+- **Launch Strategies** - Pre-launch checklists, timing optimization, soft launch tactics
+- **Analytics Tracking** - ASO score calculation, performance benchmarking, competitor tracking
+- **Platform Support** - Apple App Store (30 char title) and Google Play Store (50 char title)
+
+**Learn More:** [marketing-skill/app-store-optimization/SKILL.md](marketing-skill/app-store-optimization/SKILL.md)
+
+---
+
+#### 📊 Social Media Analyzer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Analyze social media campaign performance across platforms with data-driven insights and ROI tracking.
+
+**What's Included:**
+- **Campaign Metrics Calculator** - Engagement rate, reach, impressions, CTR calculations (Python CLI)
+- **Performance Analyzer** - ROI analysis and optimization recommendations (Python CLI)
+- **Multi-Platform Support** - Facebook, Instagram, Twitter/X, LinkedIn, TikTok best practices
+- **Audience Insights** - Demographics, peak engagement times, content performance patterns
+- **Trend Detection** - High-performing content types, hashtag analysis, posting patterns
+- **Competitive Benchmarking** - Industry standard comparisons and gap analysis
+- **ROI Analysis** - Cost per engagement, campaign effectiveness measurement
+
+**Learn More:** [marketing-skill/social-media-analyzer/SKILL.md](marketing-skill/social-media-analyzer/SKILL.md)
 
 ---
 
@@ -371,7 +484,7 @@ Template and file creation/modification specialist.
 
 ### Engineering Team Skills
 
-**Complete engineering skills suite with 9 specialized roles** covering architecture, development, testing, security, and operations.
+**Complete engineering skills suite with 13 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, and enterprise systems.
 
 #### 🏗️ Senior Software Architect
 **Status:** ✅ Production Ready | **Version:** 1.0
@@ -523,6 +636,80 @@ Security architecture, penetration testing, and cryptography implementation.
 - **Cryptography Implementation** - Encryption, hashing, secure communication
 
 **Learn More:** See `engineering-team/README.md` for details
+
+---
+
+#### ☁️ AWS Solution Architect
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Expert AWS solution architecture for startups with serverless and cost-optimized design.
+
+**What's Included:**
+- **Architecture Designer** - Generate architecture patterns and service recommendations (Python CLI)
+- **Serverless Stack Builder** - Create Lambda, API Gateway, DynamoDB stacks (Python CLI)
+- **Cost Optimizer** - AWS cost analysis and optimization strategies (Python CLI)
+- **IaC Generator** - CloudFormation, CDK, Terraform template generation (Python CLI)
+- **Security Auditor** - AWS security validation and compliance checks (Python CLI)
+- **Serverless Patterns** - Lambda, API Gateway, DynamoDB, Step Functions, EventBridge
+- **Event-Driven Architecture** - Microservices with SQS, SNS, Kinesis
+- **Container Orchestration** - ECS Fargate, EKS best practices
+
+**Learn More:** [engineering-team/aws-solution-architect/SKILL.md](engineering-team/aws-solution-architect/SKILL.md)
+
+---
+
+#### 🏢 Microsoft 365 Tenant Manager
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Comprehensive Microsoft 365 administration for Global Administrators and IT teams.
+
+**What's Included:**
+- **Tenant Setup Tool** - Initial configuration automation (Python CLI)
+- **User Management** - Lifecycle operations and bulk provisioning (Python CLI)
+- **Security Policies** - Conditional Access, MFA, DLP configuration (Python CLI)
+- **Reporting Suite** - Analytics, audit logs, compliance reports (Python CLI)
+- **PowerShell Generator** - Microsoft Graph API script generation (Python CLI)
+- **SharePoint & Teams** - Site provisioning, Teams policy management
+- **Exchange Online** - Mailbox management, mail flow rules, transport security
+- **License Management** - Allocation, optimization, cost analysis
+
+**Learn More:** [engineering-team/ms365-tenant-manager/SKILL.md](engineering-team/ms365-tenant-manager/SKILL.md)
+
+---
+
+#### 🧪 TDD Guide
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Comprehensive Test-Driven Development guide with intelligent test generation and coverage analysis.
+
+**What's Included:**
+- **Test Generation** - Convert requirements, user stories, and API specs to executable tests
+- **Coverage Analysis** - Parse LCOV, JSON, XML coverage reports with gap identification
+- **Framework Support** - Jest, Pytest, JUnit, Vitest, Mocha, RSpec with auto-detection
+- **Quality Review** - Test isolation, assertions, naming conventions, complexity analysis
+- **Missing Scenarios** - Identify untested edge cases and error conditions
+- **Red-Green-Refactor** - Step-by-step TDD cycle guidance with best practices
+- **Metrics Dashboard** - Coverage, complexity, quality scores, execution timing
+
+**Learn More:** [engineering-team/tdd-guide/SKILL.md](engineering-team/tdd-guide/SKILL.md)
+
+---
+
+#### 🔍 Tech Stack Evaluator
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Comprehensive technology evaluation with TCO analysis, security assessment, and migration planning.
+
+**What's Included:**
+- **Technology Comparison** - Head-to-head framework and tool comparisons with scoring
+- **Stack Evaluation** - Complete stack assessment for specific use cases (e.g., e-commerce, SaaS)
+- **TCO Calculator** - Licensing, hosting, developer productivity, and maintenance costs
+- **Security Assessment** - Vulnerability analysis, update frequency, compliance readiness
+- **Migration Analyzer** - Legacy to modern migration complexity, risks, and timeline estimation
+- **Cloud Comparison** - AWS vs Azure vs GCP for specific workloads with cost projections
+- **Decision Reports** - Matrices with pros/cons, confidence scores, and actionable recommendations
+
+**Learn More:** [engineering-team/tech-stack-evaluator/SKILL.md](engineering-team/tech-stack-evaluator/SKILL.md)
 
 ---
 
@@ -1265,20 +1452,57 @@ Each skill package follows a consistent, modular structure:
 
 ## 📦 Installation
 
-### Prerequisites
+### Method 1: Universal Installer (Recommended)
+
+**Fastest way to get started** - Installs to all supported agents automatically:
+
+```bash
+# Install all skills to Claude Code, Cursor, VS Code, Amp, Goose, etc.
+npx ai-agent-skills install alirezarezvani/claude-skills
+
+# Or install to specific agent
+npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+
+# Or install single skill
+npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+```
+
+**Supported Agents:**
+- Claude Code (`--agent claude`) → `~/.claude/skills/`
+- Cursor (`--agent cursor`) → `.cursor/skills/`
+- VS Code/Copilot (`--agent vscode`) → `.github/skills/`
+- Goose (`--agent goose`) → `~/.config/goose/skills/`
+- Project-specific (`--agent project`) → `.skills/`
+
+**Verification:**
+```bash
+# Check installed skills (Claude Code example)
+ls ~/.claude/skills/
+
+# Use skills directly in your agent
+# No additional setup required!
+```
+
+---
+
+### Method 2: Manual Installation (Alternative)
+
+For development, customization, or offline use:
+
+#### Prerequisites
 
 - **Python 3.7+** (for running analysis scripts)
 - **Claude AI account** or **Claude Code** (for using skills)
 - **Git** (for cloning repository)
 
-### Clone Repository
+#### Clone Repository
 
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
 ```
 
-### Install Dependencies
+#### Install Dependencies
 
 Most scripts use Python standard library only. Optional dependencies:
 
@@ -1286,7 +1510,7 @@ Most scripts use Python standard library only. Optional dependencies:
 pip install pyyaml  # For future features
 ```
 
-### Verify Installation
+#### Verify Installation
 
 ```bash
 # Test marketing skills
@@ -1433,7 +1657,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - ⚡ **Rapid Prototyping** - Create custom skills in minutes, not hours
 
 **Perfect For:**
-- Building custom skills beyond the 42 provided in this library
+- Building custom skills beyond the 48 provided in this library
 - Generating domain-specific agents for your organization
 - Scaling AI customization across teams
 - Rapid prototyping of specialized workflows
@@ -1472,7 +1696,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  Claude Skills Library (This Repository)                │
-│  42 Domain Expert Skills - Marketing to Engineering     │
+│  48 Domain Expert Skills - Marketing to Engineering     │
 │  Use for: Domain expertise, frameworks, best practices  │
 └────────────────┬────────────────────────────────────────┘
                  │
@@ -1493,12 +1717,12 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 
 **Workflow:**
-1. **Start here** (Skills Library) - Get 42 production-ready expert skills
+1. **Start here** (Skills Library) - Get 48 production-ready expert skills
 2. **Expand** (Skill Factory) - Generate custom skills for your specific needs
 3. **Supercharge** (Tresor) - Use skills + agents + commands in Claude Code development
 
 **Together they provide:**
-- ✅ 42 ready-to-use expert skills (this repo)
+- ✅ 48 ready-to-use expert skills (this repo)
 - ✅ Unlimited custom skill generation (Factory)
 - ✅ Complete development workflow automation (Tresor)
 - ✅ Cross-platform compatibility (Claude.ai, Claude Code, API)
@@ -1511,12 +1735,14 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 42 Production-Ready Skills**
+**✅ Phase 1: Complete - 48 Production-Ready Skills**
 
-**Marketing Skills (3):**
+**Marketing Skills (5):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks
 - Marketing Demand & Acquisition - Multi-channel demand gen, paid media, partnerships
 - Marketing Strategy & Product Marketing - Positioning, GTM, competitive intelligence
+- App Store Optimization (ASO) - App Store & Google Play metadata optimization, keyword research
+- Social Media Analyzer - Platform analytics, engagement optimization, competitor benchmarking
 
 **C-Level Advisory Skills (2):**
 - CEO Advisor - Strategic planning, financial modeling, board governance
@@ -1537,7 +1763,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - Atlassian Administrator - System administration, security, user management
 - Atlassian Template Creator - Template design, standardization, 15+ ready templates
 
-**Engineering Team Skills - Core Engineering (9):**
+**Engineering Team Skills - Core Engineering (13):**
 - Senior Software Architect - Architecture design, tech decisions, documentation
 - Senior Frontend Engineer - React/Next.js development, performance optimization
 - Senior Backend Engineer - API design, database optimization, microservices
@@ -1547,6 +1773,10 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - Senior SecOps Engineer - Security operations, vulnerability management, compliance
 - Code Reviewer - PR analysis, code quality, automated reviews
 - Senior Security Engineer - Security architecture, penetration testing, cryptography
+- AWS Solution Architect - Serverless architectures, cost optimization, AWS best practices
+- Microsoft 365 Tenant Manager - Tenant configuration, security, compliance, automation
+- TDD Guide - Test-driven development methodology, test patterns, quality frameworks
+- Tech Stack Evaluator - Technology evaluation, vendor selection, architecture decisions
 
 **Engineering Team Skills - AI/ML/Data (5):**
 - Senior Data Scientist - Statistical modeling, experimentation, analytics
@@ -1595,29 +1825,29 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 | Metric | Current | Target (Q3 2026) |
 |--------|---------|------------------|
-| Available Skills | 42 | 50+ |
+| Available Skills | 48 | 55+ |
 | Skill Categories | 6 | 9 |
-| Python Tools | 97 | 130+ |
+| Python Tools | 68+ | 110+ |
 | Time Savings | 70% | 85% |
 | Quality Improvement | 65% | 80% |
 | Teams Using | Early adopters | 3,000+ |
 | Organizations | 25 | 250+ |
 | Industries Covered | Tech, HealthTech | Tech, Health, Finance, Manufacturing |
 
-### ROI Metrics (Current - 42 Skills)
+### ROI Metrics (Current - 48 Skills)
 
 **Time Savings Per Organization:**
-- Marketing teams: 250 hours/month (Content + Demand Gen + PMM)
+- Marketing teams: 310 hours/month (Content + Demand Gen + PMM + ASO + Social Media)
 - C-level executives: 30 hours/month
 - Product teams: 180 hours/month
 - Project management teams: 200 hours/month (PM + Agile + Atlassian)
-- Core engineering teams: 460 hours/month
+- Core engineering teams: 580 hours/month (13 specialized roles)
 - AI/ML/Data teams: 280 hours/month
 - Regulatory/Quality teams: 320 hours/month
-- **Total: 1,720 hours/month per organization**
+- **Total: 1,900 hours/month per organization**
 
 **Financial Impact:**
-- Time value: $172,000/month (@ $100/hour)
+- Time value: $190,000/month (@ $100/hour)
 - Quality improvements: $220,000/month (reduced rework)
 - Faster delivery: $260,000/month (opportunity value)
 - Security risk mitigation: $200,000/month
@@ -1625,8 +1855,8 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - Regulatory compliance value: $400,000/month (avoided delays, penalties)
 - Marketing efficiency value: $100,000/month (better CAC, conversion, positioning)
 - PM/Agile efficiency value: $130,000/month (faster delivery, better stakeholder satisfaction)
-- **Total: $1,732,000/month value per organization**
-- **Annual ROI: $20.8M per organization**
+- **Total: $1,750,000/month value per organization**
+- **Annual ROI: $21.0M per organization**
 
 **Productivity Gains:**
 - Developer velocity: +70% improvement

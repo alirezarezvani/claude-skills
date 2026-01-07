@@ -6,6 +6,7 @@
 
 ## 📚 Table of Contents
 
+- [Installation](#installation)
 - [Overview](#overview)
 - [Skills Architecture](#skills-architecture)
 - [Complete Skills Catalog](#complete-skills-catalog)
@@ -15,6 +16,55 @@
 - [Common Workflows](#common-workflows)
 - [Integration Points](#integration-points)
 - [Success Metrics](#success-metrics)
+
+---
+
+## ⚡ Installation
+
+### Quick Install (Recommended)
+
+Install all RA/QM skills with one command:
+
+```bash
+# Install all RA/QM skills to all supported agents
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team
+
+# Install to Claude Code only
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team --agent claude
+
+# Install to Cursor only
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team --agent cursor
+```
+
+### Install Individual Skills
+
+```bash
+# Strategic Leadership
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/regulatory-affairs-head
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/quality-manager-qmr
+
+# Quality Systems
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/quality-manager-qms-iso13485
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/capa-officer
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/quality-documentation-manager
+
+# Risk & Security
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/risk-management-specialist
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/information-security-manager-iso27001
+
+# Regulatory Specialists
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/mdr-745-specialist
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/fda-consultant-specialist
+
+# Audit & Compliance
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/qms-audit-expert
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/isms-audit-expert
+npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/gdpr-dsgvo-expert
+```
+
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex
+
+**Complete Installation Guide:** See [../INSTALLATION.md](../INSTALLATION.md) for detailed instructions, troubleshooting, and manual installation.
 
 ---
 

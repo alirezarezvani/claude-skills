@@ -1,0 +1,12 @@
+{
+  "name": "marketing-skills",
+  "description": "5 production-ready marketing skills: content creator, demand generation, product marketing strategy, app store optimization, and social media analytics",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT"
+}

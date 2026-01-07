@@ -1,0 +1,12 @@
+{
+  "name": "c-level-skills",
+  "description": "2 production-ready C-level advisory skills: CEO advisor for strategic decision-making and CTO advisor for technical leadership",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT"
+}

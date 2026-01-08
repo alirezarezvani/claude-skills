@@ -10,11 +10,7 @@
   "plugins": [
     {
       "name": "marketing-skills",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "marketing-skill"
-      },
+      "source": "./marketing-skill",
       "description": "5 marketing skills: content creator, demand generation, product marketing, ASO, social media analytics",
       "version": "1.0.0",
       "author": {
@@ -25,11 +21,7 @@
     },
     {
       "name": "engineering-skills",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "engineering-team"
-      },
+      "source": "./engineering-team",
       "description": "18 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering",
       "version": "1.0.0",
       "author": {
@@ -40,11 +32,7 @@
     },
     {
       "name": "product-skills",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "product-team"
-      },
+      "source": "./product-team",
       "description": "5 product skills: product manager toolkit, agile product owner, product strategist, UX researcher, UI design system",
       "version": "1.0.0",
       "author": {
@@ -55,11 +43,7 @@
     },
     {
       "name": "c-level-skills",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "c-level-advisor"
-      },
+      "source": "./c-level-advisor",
       "description": "2 C-level advisory skills: CEO advisor, CTO advisor",
       "version": "1.0.0",
       "author": {
@@ -70,11 +54,7 @@
     },
     {
       "name": "pm-skills",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "project-management"
-      },
+      "source": "./project-management",
       "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator",
       "version": "1.0.0",
       "author": {
@@ -85,11 +65,7 @@
     },
     {
       "name": "ra-qm-skills",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "ra-qm-team"
-      },
+      "source": "./ra-qm-team",
       "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485, MDR, FDA, GDPR, ISO 27001 compliance",
       "version": "1.0.0",
       "author": {
@@ -100,11 +76,7 @@
     },
     {
       "name": "content-creator",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "marketing-skill/content-creator"
-      },
+      "source": "./marketing-skill/content-creator",
       "description": "Brand voice analysis, SEO optimization, content frameworks for marketing content creation",
       "version": "1.0.0",
       "author": {
@@ -115,11 +87,7 @@
     },
     {
       "name": "demand-gen",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "marketing-skill/marketing-demand-acquisition"
-      },
+      "source": "./marketing-skill/marketing-demand-acquisition",
       "description": "Demand generation, paid media, SEO, partnerships for Series A+ startups",
       "version": "1.0.0",
       "author": {
@@ -130,11 +98,7 @@
     },
     {
       "name": "fullstack-engineer",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "engineering-team/senior-fullstack"
-      },
+      "source": "./engineering-team/senior-fullstack",
       "description": "End-to-end application development with Next.js, GraphQL, PostgreSQL",
       "version": "1.0.0",
       "author": {
@@ -145,11 +109,7 @@
     },
     {
       "name": "aws-architect",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "engineering-team/aws-solution-architect"
-      },
+      "source": "./engineering-team/aws-solution-architect",
       "description": "AWS solution architecture with serverless, cost optimization, and security best practices",
       "version": "1.0.0",
       "author": {
@@ -160,11 +120,7 @@
     },
     {
       "name": "product-manager",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "product-team/product-manager-toolkit"
-      },
+      "source": "./product-team/product-manager-toolkit",
       "description": "RICE prioritization, customer interview analysis, PRD templates for product managers",
       "version": "1.0.0",
       "author": {
@@ -175,11 +131,7 @@
     },
     {
       "name": "scrum-master",
-      "source": {
-        "type": "github",
-        "repo": "alirezarezvani/claude-skills",
-        "path": "project-management/scrum-master-agent"
-      },
+      "source": "./project-management/scrum-master-agent",
       "description": "Agile facilitation, sprint planning, retrospectives for Scrum teams",
       "version": "1.0.0",
       "author": {

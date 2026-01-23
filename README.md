@@ -13,7 +13,7 @@
 
 ## ⚡ Quick Install
 
-**Two installation methods available** - choose based on your needs:
+**Choose your AI agent:**
 
 ### Method 1: Claude Code Native (Recommended for Claude Code users)
 
@@ -44,7 +44,35 @@ Use Claude Code's built-in plugin system for native integration:
 
 ---
 
-### Method 2: Universal Installer (Works across all agents)
+### Method 2: OpenAI Codex Installation
+
+For OpenAI Codex users, install via universal installer or direct script:
+
+```bash
+# Option A: Universal installer
+npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+
+# Option B: Direct installation script
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/codex-install.sh
+
+# Option C: Install specific category or skill
+./scripts/codex-install.sh --category engineering
+./scripts/codex-install.sh --skill content-creator
+```
+
+**Benefits:**
+- ✅ Full Codex compatibility via `.codex/skills/` symlinks
+- ✅ 43 skills with YAML frontmatter metadata
+- ✅ Cross-platform scripts (Unix + Windows)
+- ✅ Skills available in `~/.codex/skills/`
+
+**See:** [How to Use with OpenAI Codex](#-how-to-use-with-openai-codex) for detailed guide.
+
+---
+
+### Method 3: Universal Installer (Works across all agents)
 
 Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
 
@@ -70,13 +98,14 @@ npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
 - ✅ One command installs to all agents
 - ✅ No agent-specific configuration needed
 
-**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex, Letta, OpenCode
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, OpenAI Codex, Letta, OpenCode
 
 **Installation Locations:**
 - Claude Code: `~/.claude/skills/`
 - Cursor: `.cursor/skills/`
 - VS Code/Copilot: `.github/skills/`
 - Goose: `~/.config/goose/skills/`
+- OpenAI Codex: `~/.codex/skills/`
 - Project-specific: `.skills/`
 
 ---
@@ -87,12 +116,13 @@ npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
 
 ## 📚 Table of Contents
 
-- [Quick Install (Universal Installer)](#-quick-install-universal-installer)
+- [Quick Install](#-quick-install)
 - [Overview](#-overview)
 - [Available Skills](#-available-skills)
 - [Quick Start](#-quick-start)
 - [How to Use with Claude AI](#-how-to-use-with-claude-ai)
 - [How to Use with Claude Code](#-how-to-use-with-claude-code)
+- [How to Use with OpenAI Codex](#-how-to-use-with-openai-codex)
 - [Skill Architecture](#-skill-architecture)
 - [Installation](#-installation)
 - [Usage Examples](#-usage-examples)
@@ -1410,6 +1440,126 @@ Use this repository as a template to build your own skills:
 5. **Share** with your team or contribute back
 
 See [CLAUDE.md](CLAUDE.md) for detailed architecture and development guidelines.
+
+---
+
+## 🤖 How to Use with OpenAI Codex
+
+OpenAI Codex users can install and use these skills through the `.codex/skills/` directory, which provides Codex-compatible skill discovery.
+
+### Quick Installation
+
+**Option 1: Universal Installer (Recommended)**
+
+```bash
+# Install all 43 skills to Codex
+npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+
+# Verify installation
+ls ~/.codex/skills/
+```
+
+**Option 2: Direct Installation Script**
+
+```bash
+# Clone and install
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/codex-install.sh
+
+# Or install specific category
+./scripts/codex-install.sh --category marketing
+./scripts/codex-install.sh --category engineering
+
+# Or install single skill
+./scripts/codex-install.sh --skill content-creator
+```
+
+**Option 3: Manual Installation**
+
+```bash
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+mkdir -p ~/.codex/skills
+cp -rL .codex/skills/* ~/.codex/skills/
+```
+
+### Using Skills in Codex
+
+Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
+
+```
+~/.codex/skills/
+├── content-creator/
+│   ├── SKILL.md              # Main documentation
+│   ├── scripts/              # Python CLI tools
+│   ├── references/           # Knowledge bases
+│   └── assets/               # Templates
+├── senior-fullstack/
+├── product-manager-toolkit/
+└── ... (43 skills total)
+```
+
+### Available Skills by Category
+
+| Category | Count | Key Skills |
+|----------|-------|------------|
+| **Marketing** | 5 | content-creator, marketing-demand-acquisition, app-store-optimization |
+| **Engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer, tdd-guide |
+| **Product** | 5 | product-manager-toolkit, agile-product-owner, ux-researcher-designer |
+| **C-Level** | 2 | ceo-advisor, cto-advisor |
+| **Project Management** | 1 | scrum-master-agent |
+| **RA/QM** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
+
+### Running Python Analysis Tools
+
+```bash
+# Brand voice analysis
+python ~/.codex/skills/content-creator/scripts/brand_voice_analyzer.py article.txt
+
+# SEO optimization
+python ~/.codex/skills/content-creator/scripts/seo_optimizer.py blog.md "target keyword"
+
+# Tech debt analysis
+python ~/.codex/skills/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codebase
+
+# RICE prioritization
+python ~/.codex/skills/product-manager-toolkit/scripts/rice_prioritizer.py features.csv
+```
+
+### Skills Index
+
+The `.codex/skills-index.json` manifest provides metadata for all skills:
+
+```bash
+# View skills index
+cat ~/.codex/skills-index.json | python -m json.tool
+
+# Or from the repository
+cat .codex/skills-index.json
+```
+
+### Windows Installation
+
+```cmd
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+scripts\codex-install.bat
+
+REM Or install single skill
+scripts\codex-install.bat --skill content-creator
+```
+
+### Keeping Skills Updated
+
+```bash
+# Update from repository
+cd claude-skills
+git pull
+./scripts/codex-install.sh
+```
+
+**Detailed Installation Guide:** See [INSTALLATION.md](INSTALLATION.md#openai-codex-installation) for complete instructions, troubleshooting, and category-specific installation.
 
 ---
 

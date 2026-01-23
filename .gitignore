@@ -1,20 +1,30 @@
+# IDE and OS
 .vscode
 .DS_Store
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+
+# Specific archive exclusions (NOT all .zip - skill packages are intentional)
+medium-content-pro.zip
+v1-10-2025-medium-content-pro.zip
+
+# Project-specific exclusions
 AGENTS.md
 PROMPTS.md
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env.development
-.env.test
-.env.production
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 medium-content-pro/*
+medium-content-pro 2/*
 documentation/GIST_CONTENT.md
 documentation/implementation/*__pycache__/
 medium-content-pro 2/*

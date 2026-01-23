@@ -5,10 +5,12 @@ Complete installation guide for all 48 production-ready skills across multiple A
 ## Table of Contents
 
 - [Quick Start](#quick-start)
-- [Universal Installer (Recommended)](#universal-installer-recommended)
-- [Manual Installation](#manual-installation)
+- [Claude Code Native Marketplace](#claude-code-native-marketplace-new)
+- [Universal Installer](#universal-installer)
+- [OpenAI Codex Installation](#openai-codex-installation)
 - [Per-Skill Installation](#per-skill-installation)
 - [Multi-Agent Setup](#multi-agent-setup)
+- [Manual Installation](#manual-installation)
 - [Verification & Testing](#verification--testing)
 - [Troubleshooting](#troubleshooting)
 - [Uninstallation](#uninstallation)
@@ -17,9 +19,9 @@ Complete installation guide for all 48 production-ready skills across multiple A
 
 ## Quick Start
 
-**Two installation methods available:**
+**Choose your agent:**
 
-### Method 1: Claude Code Native (Recommended for Claude Code users)
+### For Claude Code Users (Recommended)
 
 ```bash
 # In Claude Code, run:
@@ -29,13 +31,27 @@ Complete installation guide for all 48 production-ready skills across multiple A
 
 Native integration with automatic updates and version management.
 
-### Method 2: Universal Installer (Works across all agents)
+### For OpenAI Codex Users
+
+```bash
+# Option 1: Universal installer
+npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+
+# Option 2: Direct installation script
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/codex-install.sh
+```
+
+Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
+
+### For All Other Agents (Cursor, VS Code, Goose, etc.)
 
 ```bash
 npx ai-agent-skills install alirezarezvani/claude-skills
 ```
 
-This single command installs all skills to all supported agents (Claude Code, Cursor, VS Code, Amp, Goose, etc.) automatically.
+This single command installs all skills to all supported agents automatically.
 
 ---
 
@@ -606,6 +622,108 @@ rm -rf .cursor/skills/fullstack-engineer/
 
 ---
 
+## OpenAI Codex Installation
+
+OpenAI Codex users can install skills using the methods below. This repository provides full Codex compatibility through a `.codex/skills/` directory with symlinks to all 43 skills.
+
+### Method 1: Universal Installer (Recommended)
+
+```bash
+# Install all skills to Codex
+npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+
+# Preview before installing
+npx ai-agent-skills install alirezarezvani/claude-skills --agent codex --dry-run
+```
+
+### Method 2: Direct Installation Script
+
+For manual installation using the provided scripts:
+
+**macOS/Linux:**
+```bash
+# Clone repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Generate symlinks (if not already present)
+python scripts/sync-codex-skills.py
+
+# Install all skills to ~/.codex/skills/
+./scripts/codex-install.sh
+
+# Or install specific category
+./scripts/codex-install.sh --category marketing
+./scripts/codex-install.sh --category engineering
+
+# Or install single skill
+./scripts/codex-install.sh --skill content-creator
+
+# List available skills
+./scripts/codex-install.sh --list
+```
+
+**Windows:**
+```cmd
+REM Clone repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+REM Generate structure (if not already present)
+python scripts\sync-codex-skills.py
+
+REM Install all skills to %USERPROFILE%\.codex\skills\
+scripts\codex-install.bat
+
+REM Or install single skill
+scripts\codex-install.bat --skill content-creator
+
+REM List available skills
+scripts\codex-install.bat --list
+```
+
+### Method 3: Manual Installation
+
+```bash
+# Clone repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Copy skills (following symlinks) to Codex directory
+mkdir -p ~/.codex/skills
+cp -rL .codex/skills/* ~/.codex/skills/
+```
+
+### Verification
+
+```bash
+# Check installed skills
+ls ~/.codex/skills/
+
+# Verify skill structure
+ls ~/.codex/skills/content-creator/
+# Should show: SKILL.md, scripts/, references/, assets/
+
+# Check total skill count
+ls ~/.codex/skills/ | wc -l
+# Should show: 43
+```
+
+### Available Categories
+
+| Category | Skills | Examples |
+|----------|--------|----------|
+| **c-level** | 2 | ceo-advisor, cto-advisor |
+| **engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer |
+| **marketing** | 5 | content-creator, marketing-demand-acquisition, social-media-analyzer |
+| **product** | 5 | product-manager-toolkit, agile-product-owner, ui-design-system |
+| **project-management** | 1 | scrum-master-agent |
+| **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
+
+See `.codex/skills-index.json` for the complete manifest with descriptions.
+
+---
+
 ## Advanced: Installation Locations Reference
 
 | Agent | Default Location | Flag | Notes |
@@ -615,7 +733,7 @@ rm -rf .cursor/skills/fullstack-engineer/
 | **VS Code/Copilot** | `.github/skills/` | `--agent vscode` | Project-level installation |
 | **Goose** | `~/.config/goose/skills/` | `--agent goose` | User-level installation |
 | **Amp** | Platform-specific | `--agent amp` | Varies by platform |
-| **Codex** | Platform-specific | `--agent codex` | Varies by platform |
+| **Codex** | `~/.codex/skills/` | `--agent codex` | User-level installation |
 | **Letta** | Platform-specific | `--agent letta` | Varies by platform |
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
 | **Project** | `.skills/` | `--agent project` | Portable, project-specific |

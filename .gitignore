@@ -26,6 +26,7 @@ PROMPTS.md
 medium-content-pro/*
 medium-content-pro 2/*
 documentation/GIST_CONTENT.md
+documentation/implementation/*__pycache__/
 ARTICLE-FEEDBACK-AND-OPTIMIZED-VERSION.md
 CLAUDE-CODE-LOCAL-MAC-PROMPT.md
 CLAUDE-CODE-SEO-FIX-COPYPASTE.md

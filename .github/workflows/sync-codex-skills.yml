@@ -14,7 +14,7 @@ on:
       dry_run:
         description: 'Dry run (no changes)'
         required: false
-        default: 'false'
+        default: false
         type: boolean
 
 jobs:

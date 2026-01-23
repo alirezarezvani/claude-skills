@@ -5,10 +5,12 @@ Complete installation guide for all 48 production-ready skills across multiple A
 ## Table of Contents
 
 - [Quick Start](#quick-start)
-- [Universal Installer (Recommended)](#universal-installer-recommended)
-- [Manual Installation](#manual-installation)
+- [Claude Code Native Marketplace](#claude-code-native-marketplace-new)
+- [Universal Installer](#universal-installer)
+- [OpenAI Codex Installation](#openai-codex-installation)
 - [Per-Skill Installation](#per-skill-installation)
 - [Multi-Agent Setup](#multi-agent-setup)
+- [Manual Installation](#manual-installation)
 - [Verification & Testing](#verification--testing)
 - [Troubleshooting](#troubleshooting)
 - [Uninstallation](#uninstallation)
@@ -17,9 +19,9 @@ Complete installation guide for all 48 production-ready skills across multiple A
 
 ## Quick Start
 
-**Two installation methods available:**
+**Choose your agent:**
 
-### Method 1: Claude Code Native (Recommended for Claude Code users)
+### For Claude Code Users (Recommended)
 
 ```bash
 # In Claude Code, run:
@@ -29,13 +31,27 @@ Complete installation guide for all 48 production-ready skills across multiple A
 
 Native integration with automatic updates and version management.
 
-### Method 2: Universal Installer (Works across all agents)
+### For OpenAI Codex Users
+
+```bash
+# Option 1: Universal installer
+npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+
+# Option 2: Direct installation script
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/codex-install.sh
+```
+
+Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
+
+### For All Other Agents (Cursor, VS Code, Goose, etc.)
 
 ```bash
 npx ai-agent-skills install alirezarezvani/claude-skills
 ```
 
-This single command installs all skills to all supported agents (Claude Code, Cursor, VS Code, Amp, Goose, etc.) automatically.
+This single command installs all skills to all supported agents automatically.
 
 ---
 

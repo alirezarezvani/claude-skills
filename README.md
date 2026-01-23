@@ -70,13 +70,14 @@ npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
 - ✅ One command installs to all agents
 - ✅ No agent-specific configuration needed
 
-**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex, Letta, OpenCode
+**Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, OpenAI Codex, Letta, OpenCode
 
 **Installation Locations:**
 - Claude Code: `~/.claude/skills/`
 - Cursor: `.cursor/skills/`
 - VS Code/Copilot: `.github/skills/`
 - Goose: `~/.config/goose/skills/`
+- OpenAI Codex: `~/.codex/skills/`
 - Project-specific: `.skills/`
 
 ---

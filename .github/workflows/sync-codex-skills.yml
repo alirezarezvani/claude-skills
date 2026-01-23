@@ -1,0 +1,82 @@
+name: Sync Codex Skills Symlinks
+
+on:
+  push:
+    paths:
+      - '**/SKILL.md'
+      - 'scripts/sync-codex-skills.py'
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no changes)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sync Codex skills symlinks
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" == "true" ]; then
+            python scripts/sync-codex-skills.py --verbose --dry-run
+          else
+            python scripts/sync-codex-skills.py --verbose --validate
+          fi
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet .codex/; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: sync codex skills symlinks [automated]"
+          file_pattern: ".codex/*"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+      - name: Summary
+        run: |
+          echo "## Codex Skills Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f ".codex/skills-index.json" ]; then
+            TOTAL=$(python3 -c "import json; print(json.load(open('.codex/skills-index.json'))['total_skills'])")
+            echo "**Total Skills:** $TOTAL" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Categories" >> $GITHUB_STEP_SUMMARY
+            python3 << 'PYEOF'
+import json
+with open('.codex/skills-index.json') as f:
+    data = json.load(f)
+for cat, info in data['categories'].items():
+    print(f'- **{cat}**: {info["count"]} skills')
+PYEOF
+          else
+            echo "No skills index found." >> $GITHUB_STEP_SUMMARY
+          fi

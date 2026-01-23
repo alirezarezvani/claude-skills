@@ -1,3 +1,4 @@
+---
 name: Sync Codex Skills Symlinks
 
 on:
@@ -70,13 +71,12 @@ jobs:
             echo "**Total Skills:** $TOTAL" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "### Categories" >> $GITHUB_STEP_SUMMARY
-            python3 << 'PYEOF'
-import json
-with open('.codex/skills-index.json') as f:
-    data = json.load(f)
-for cat, info in data['categories'].items():
-    print(f'- **{cat}**: {info["count"]} skills')
-PYEOF
+            python3 -c "
+          import json
+          data = json.load(open('.codex/skills-index.json'))
+          for cat, info in data['categories'].items():
+              print(f'- **{cat}**: {info[\"count\"]} skills')
+          " >> $GITHUB_STEP_SUMMARY
           else
             echo "No skills index found." >> $GITHUB_STEP_SUMMARY
           fi

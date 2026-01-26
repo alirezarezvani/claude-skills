@@ -1,209 +1,434 @@
 ---
 name: senior-backend
-description: Comprehensive backend development skill for building scalable backend systems using NodeJS, Express, Go, Python, Postgres, GraphQL, REST APIs. Includes API scaffolding, database optimization, security implementation, and performance tuning. Use when designing APIs, optimizing database queries, implementing business logic, handling authentication/authorization, or reviewing backend code.
+description: This skill should be used when the user asks to "design REST APIs", "optimize database queries", "implement authentication", "build microservices", "review backend code", "set up GraphQL", "handle database migrations", or "load test APIs". Use for Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.
 ---
 
-# Senior Backend
+# Senior Backend Engineer
 
-Complete toolkit for senior backend with modern tools and best practices.
+Backend development patterns, API design, database optimization, and security practices.
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Tools Overview](#tools-overview)
+  - [API Scaffolder](#1-api-scaffolder)
+  - [Database Migration Tool](#2-database-migration-tool)
+  - [API Load Tester](#3-api-load-tester)
+- [Backend Development Workflows](#backend-development-workflows)
+  - [API Design Workflow](#api-design-workflow)
+  - [Database Optimization Workflow](#database-optimization-workflow)
+  - [Security Hardening Workflow](#security-hardening-workflow)
+- [Reference Documentation](#reference-documentation)
+- [Common Patterns Quick Reference](#common-patterns-quick-reference)
+
+---
 
 ## Quick Start
 
-### Main Capabilities
-
-This skill provides three core capabilities through automated scripts:
-
 ```bash
-# Script 1: Api Scaffolder
-python scripts/api_scaffolder.py [options]
+# Generate API routes from OpenAPI spec
+python scripts/api_scaffolder.py openapi.yaml --framework express --output src/routes/
 
-# Script 2: Database Migration Tool
-python scripts/database_migration_tool.py [options]
+# Analyze database schema and generate migrations
+python scripts/database_migration_tool.py --connection postgres://localhost/mydb --analyze
 
-# Script 3: Api Load Tester
-python scripts/api_load_tester.py [options]
+# Load test an API endpoint
+python scripts/api_load_tester.py https://api.example.com/users --concurrency 50 --duration 30
 ```
 
-## Core Capabilities
+---
 
-### 1. Api Scaffolder
+## Tools Overview
 
-Automated tool for api scaffolder tasks.
+### 1. API Scaffolder
 
-**Features:**
-- Automated scaffolding
-- Best practices built-in
-- Configurable templates
-- Quality checks
+Generates API route handlers, middleware, and OpenAPI specifications from schema definitions.
+
+**Input:** OpenAPI spec (YAML/JSON) or database schema
+**Output:** Route handlers, validation middleware, TypeScript types
 
 **Usage:**
 ```bash
-python scripts/api_scaffolder.py <project-path> [options]
+# Generate Express routes from OpenAPI spec
+python scripts/api_scaffolder.py openapi.yaml --framework express --output src/routes/
+
+# Output:
+# Generated 12 route handlers in src/routes/
+# - GET /users (listUsers)
+# - POST /users (createUser)
+# - GET /users/{id} (getUser)
+# - PUT /users/{id} (updateUser)
+# - DELETE /users/{id} (deleteUser)
+# ...
+# Created validation middleware: src/middleware/validators.ts
+# Created TypeScript types: src/types/api.ts
+
+# Generate from database schema
+python scripts/api_scaffolder.py --from-db postgres://localhost/mydb --output src/routes/
+
+# Generate OpenAPI spec from existing routes
+python scripts/api_scaffolder.py src/routes/ --generate-spec --output openapi.yaml
 ```
+
+**Supported Frameworks:**
+- Express.js (`--framework express`)
+- Fastify (`--framework fastify`)
+- Koa (`--framework koa`)
+
+---
 
 ### 2. Database Migration Tool
 
-Comprehensive analysis and optimization tool.
+Analyzes database schemas, detects changes, and generates migration files with rollback support.
 
-**Features:**
-- Deep analysis
-- Performance metrics
-- Recommendations
-- Automated fixes
+**Input:** Database connection string or schema files
+**Output:** Migration files, schema diff report, optimization suggestions
 
 **Usage:**
 ```bash
-python scripts/database_migration_tool.py <target-path> [--verbose]
+# Analyze current schema and suggest optimizations
+python scripts/database_migration_tool.py --connection postgres://localhost/mydb --analyze
+
+# Output:
+# === Database Analysis Report ===
+# Tables: 24
+# Total rows: 1,247,832
+#
+# MISSING INDEXES (5 found):
+#   orders.user_id - 847ms avg query time, ADD INDEX recommended
+#   products.category_id - 234ms avg query time, ADD INDEX recommended
+#
+# N+1 QUERY RISKS (3 found):
+#   users -> orders relationship (no eager loading)
+#
+# SUGGESTED MIGRATIONS:
+#   1. Add index on orders(user_id)
+#   2. Add index on products(category_id)
+#   3. Add composite index on order_items(order_id, product_id)
+
+# Generate migration from schema diff
+python scripts/database_migration_tool.py --connection postgres://localhost/mydb \
+  --compare schema/v2.sql --output migrations/
+
+# Output:
+# Generated migration: migrations/20240115_add_user_indexes.sql
+# Generated rollback: migrations/20240115_add_user_indexes_rollback.sql
+
+# Dry-run a migration
+python scripts/database_migration_tool.py --connection postgres://localhost/mydb \
+  --migrate migrations/20240115_add_user_indexes.sql --dry-run
 ```
 
-### 3. Api Load Tester
+---
 
-Advanced tooling for specialized tasks.
+### 3. API Load Tester
 
-**Features:**
-- Expert-level automation
-- Custom configurations
-- Integration ready
-- Production-grade output
+Performs HTTP load testing with configurable concurrency, measuring latency percentiles and throughput.
+
+**Input:** API endpoint URL and test configuration
+**Output:** Performance report with latency distribution, error rates, throughput metrics
 
 **Usage:**
 ```bash
-python scripts/api_load_tester.py [arguments] [options]
+# Basic load test
+python scripts/api_load_tester.py https://api.example.com/users --concurrency 50 --duration 30
+
+# Output:
+# === Load Test Results ===
+# Target: https://api.example.com/users
+# Duration: 30s | Concurrency: 50
+#
+# THROUGHPUT:
+#   Total requests: 15,247
+#   Requests/sec: 508.2
+#   Successful: 15,102 (99.0%)
+#   Failed: 145 (1.0%)
+#
+# LATENCY (ms):
+#   Min: 12
+#   Avg: 89
+#   P50: 67
+#   P95: 198
+#   P99: 423
+#   Max: 1,247
+#
+# ERRORS:
+#   Connection timeout: 89
+#   HTTP 503: 56
+#
+# RECOMMENDATION: P99 latency (423ms) exceeds 200ms target.
+# Consider: connection pooling, query optimization, or horizontal scaling.
+
+# Test with custom headers and body
+python scripts/api_load_tester.py https://api.example.com/orders \
+  --method POST \
+  --header "Authorization: Bearer token123" \
+  --body '{"product_id": 1, "quantity": 2}' \
+  --concurrency 100 \
+  --duration 60
+
+# Compare two endpoints
+python scripts/api_load_tester.py https://api.example.com/v1/users https://api.example.com/v2/users \
+  --compare --concurrency 50 --duration 30
 ```
+
+---
+
+## Backend Development Workflows
+
+### API Design Workflow
+
+Use when designing a new API or refactoring existing endpoints.
+
+**Step 1: Define resources and operations**
+```yaml
+# openapi.yaml
+openapi: 3.0.3
+info:
+  title: User Service API
+  version: 1.0.0
+paths:
+  /users:
+    get:
+      summary: List users
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+    post:
+      summary: Create user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUser'
+```
+
+**Step 2: Generate route scaffolding**
+```bash
+python scripts/api_scaffolder.py openapi.yaml --framework express --output src/routes/
+```
+
+**Step 3: Implement business logic**
+```typescript
+// src/routes/users.ts (generated, then customized)
+export const createUser = async (req: Request, res: Response) => {
+  const { email, name } = req.body;
+
+  // Add business logic
+  const user = await userService.create({ email, name });
+
+  res.status(201).json(user);
+};
+```
+
+**Step 4: Add validation middleware**
+```bash
+# Validation is auto-generated from OpenAPI schema
+# src/middleware/validators.ts includes:
+# - Request body validation
+# - Query parameter validation
+# - Path parameter validation
+```
+
+**Step 5: Generate updated OpenAPI spec**
+```bash
+python scripts/api_scaffolder.py src/routes/ --generate-spec --output openapi.yaml
+```
+
+---
+
+### Database Optimization Workflow
+
+Use when queries are slow or database performance needs improvement.
+
+**Step 1: Analyze current performance**
+```bash
+python scripts/database_migration_tool.py --connection $DATABASE_URL --analyze
+```
+
+**Step 2: Identify slow queries**
+```sql
+-- Check query execution plans
+EXPLAIN ANALYZE SELECT * FROM orders
+WHERE user_id = 123
+ORDER BY created_at DESC
+LIMIT 10;
+
+-- Look for: Seq Scan (bad), Index Scan (good)
+```
+
+**Step 3: Generate index migrations**
+```bash
+python scripts/database_migration_tool.py --connection $DATABASE_URL \
+  --suggest-indexes --output migrations/
+```
+
+**Step 4: Test migration (dry-run)**
+```bash
+python scripts/database_migration_tool.py --connection $DATABASE_URL \
+  --migrate migrations/add_indexes.sql --dry-run
+```
+
+**Step 5: Apply and verify**
+```bash
+# Apply migration
+python scripts/database_migration_tool.py --connection $DATABASE_URL \
+  --migrate migrations/add_indexes.sql
+
+# Verify improvement
+python scripts/database_migration_tool.py --connection $DATABASE_URL --analyze
+```
+
+---
+
+### Security Hardening Workflow
+
+Use when preparing an API for production or after a security review.
+
+**Step 1: Review authentication setup**
+```typescript
+// Verify JWT configuration
+const jwtConfig = {
+  secret: process.env.JWT_SECRET,  // Must be from env, never hardcoded
+  expiresIn: '1h',                 // Short-lived tokens
+  algorithm: 'RS256'               // Prefer asymmetric
+};
+```
+
+**Step 2: Add rate limiting**
+```typescript
+import rateLimit from 'express-rate-limit';
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,  // 15 minutes
+  max: 100,                   // 100 requests per window
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use('/api/', apiLimiter);
+```
+
+**Step 3: Validate all inputs**
+```typescript
+import { z } from 'zod';
+
+const CreateUserSchema = z.object({
+  email: z.string().email().max(255),
+  name: z.string().min(1).max(100),
+  age: z.number().int().positive().optional()
+});
+
+// Use in route handler
+const data = CreateUserSchema.parse(req.body);
+```
+
+**Step 4: Load test with attack patterns**
+```bash
+# Test rate limiting
+python scripts/api_load_tester.py https://api.example.com/login \
+  --concurrency 200 --duration 10 --expect-rate-limit
+
+# Test input validation
+python scripts/api_load_tester.py https://api.example.com/users \
+  --method POST \
+  --body '{"email": "not-an-email"}' \
+  --expect-status 400
+```
+
+**Step 5: Review security headers**
+```typescript
+import helmet from 'helmet';
+
+app.use(helmet({
+  contentSecurityPolicy: true,
+  crossOriginEmbedderPolicy: true,
+  crossOriginOpenerPolicy: true,
+  crossOriginResourcePolicy: true,
+  hsts: { maxAge: 31536000, includeSubDomains: true },
+}));
+```
+
+---
 
 ## Reference Documentation
 
-### Api Design Patterns
+| File | Contains | Use When |
+|------|----------|----------|
+| `references/api_design_patterns.md` | REST vs GraphQL, versioning, error handling, pagination | Designing new APIs |
+| `references/database_optimization_guide.md` | Indexing strategies, query optimization, N+1 solutions | Fixing slow queries |
+| `references/backend_security_practices.md` | OWASP Top 10, auth patterns, input validation | Security hardening |
 
-Comprehensive guide available in `references/api_design_patterns.md`:
+---
 
-- Detailed patterns and practices
-- Code examples
-- Best practices
-- Anti-patterns to avoid
-- Real-world scenarios
+## Common Patterns Quick Reference
 
-### Database Optimization Guide
-
-Complete workflow documentation in `references/database_optimization_guide.md`:
-
-- Step-by-step processes
-- Optimization strategies
-- Tool integrations
-- Performance tuning
-- Troubleshooting guide
-
-### Backend Security Practices
-
-Technical reference guide in `references/backend_security_practices.md`:
-
-- Technology stack details
-- Configuration examples
-- Integration patterns
-- Security considerations
-- Scalability guidelines
-
-## Tech Stack
-
-**Languages:** TypeScript, JavaScript, Python, Go, Swift, Kotlin
-**Frontend:** React, Next.js, React Native, Flutter
-**Backend:** Node.js, Express, GraphQL, REST APIs
-**Database:** PostgreSQL, Prisma, NeonDB, Supabase
-**DevOps:** Docker, Kubernetes, Terraform, GitHub Actions, CircleCI
-**Cloud:** AWS, GCP, Azure
-
-## Development Workflow
-
-### 1. Setup and Configuration
-
-```bash
-# Install dependencies
-npm install
-# or
-pip install -r requirements.txt
-
-# Configure environment
-cp .env.example .env
+### REST API Response Format
+```json
+{
+  "data": { "id": 1, "name": "John" },
+  "meta": { "requestId": "abc-123" }
+}
 ```
 
-### 2. Run Quality Checks
-
-```bash
-# Use the analyzer script
-python scripts/database_migration_tool.py .
-
-# Review recommendations
-# Apply fixes
+### Error Response Format
+```json
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid email format",
+    "details": [{ "field": "email", "message": "must be valid email" }]
+  },
+  "meta": { "requestId": "abc-123" }
+}
 ```
 
-### 3. Implement Best Practices
+### HTTP Status Codes
+| Code | Use Case |
+|------|----------|
+| 200 | Success (GET, PUT, PATCH) |
+| 201 | Created (POST) |
+| 204 | No Content (DELETE) |
+| 400 | Validation error |
+| 401 | Authentication required |
+| 403 | Permission denied |
+| 404 | Resource not found |
+| 429 | Rate limit exceeded |
+| 500 | Internal server error |
 
-Follow the patterns and practices documented in:
-- `references/api_design_patterns.md`
-- `references/database_optimization_guide.md`
-- `references/backend_security_practices.md`
+### Database Index Strategy
+```sql
+-- Single column (equality lookups)
+CREATE INDEX idx_users_email ON users(email);
 
-## Best Practices Summary
+-- Composite (multi-column queries)
+CREATE INDEX idx_orders_user_status ON orders(user_id, status);
 
-### Code Quality
-- Follow established patterns
-- Write comprehensive tests
-- Document decisions
-- Review regularly
+-- Partial (filtered queries)
+CREATE INDEX idx_orders_active ON orders(created_at) WHERE status = 'active';
 
-### Performance
-- Measure before optimizing
-- Use appropriate caching
-- Optimize critical paths
-- Monitor in production
+-- Covering (avoid table lookup)
+CREATE INDEX idx_users_email_name ON users(email) INCLUDE (name);
+```
 
-### Security
-- Validate all inputs
-- Use parameterized queries
-- Implement proper authentication
-- Keep dependencies updated
-
-### Maintainability
-- Write clear code
-- Use consistent naming
-- Add helpful comments
-- Keep it simple
+---
 
 ## Common Commands
 
 ```bash
-# Development
-npm run dev
-npm run build
-npm run test
-npm run lint
+# API Development
+python scripts/api_scaffolder.py openapi.yaml --framework express
+python scripts/api_scaffolder.py src/routes/ --generate-spec
 
-# Analysis
-python scripts/database_migration_tool.py .
-python scripts/api_load_tester.py --analyze
+# Database Operations
+python scripts/database_migration_tool.py --connection $DATABASE_URL --analyze
+python scripts/database_migration_tool.py --connection $DATABASE_URL --migrate file.sql
 
-# Deployment
-docker build -t app:latest .
-docker-compose up -d
-kubectl apply -f k8s/
+# Performance Testing
+python scripts/api_load_tester.py https://api.example.com/endpoint --concurrency 50
+python scripts/api_load_tester.py https://api.example.com/endpoint --compare baseline.json
 ```
-
-## Troubleshooting
-
-### Common Issues
-
-Check the comprehensive troubleshooting section in `references/backend_security_practices.md`.
-
-### Getting Help
-
-- Review reference documentation
-- Check script output messages
-- Consult tech stack documentation
-- Review error logs
-
-## Resources
-
-- Pattern Reference: `references/api_design_patterns.md`
-- Workflow Guide: `references/database_optimization_guide.md`
-- Technical Guide: `references/backend_security_practices.md`
-- Tool Scripts: `scripts/` directory

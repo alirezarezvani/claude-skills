@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 43,
+  "total_skills": 42,
   "skills": [
     {
       "name": "ceo-advisor",
@@ -39,7 +39,7 @@
       "name": "senior-architect",
       "source": "../../engineering-team/senior-architect",
       "category": "engineering",
-      "description": "Comprehensive software architecture skill for designing scalable, maintainable systems using ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python. Includes architecture diagram generation, system design patterns, tech stack decision frameworks, and dependency analysis. Use when designing system architecture, making technical decisions, creating architecture diagrams, evaluating trade-offs, or defining integration patterns."
+      "description": "This skill should be used when the user asks to \"design system architecture\", \"evaluate microservices vs monolith\", \"create architecture diagrams\", \"analyze dependencies\", \"choose a database\", \"plan for scalability\", \"make technical decisions\", or \"review system design\". Use for architecture decision records (ADRs), tech stack evaluation, system design reviews, dependency analysis, and generating architecture diagrams in Mermaid, PlantUML, or ASCII format."
     },
     {
       "name": "senior-backend",
@@ -93,7 +93,7 @@
       "name": "senior-prompt-engineer",
       "source": "../../engineering-team/senior-prompt-engineer",
       "category": "engineering",
-      "description": "World-class prompt engineering skill for LLM optimization, prompt patterns, structured outputs, and AI product development. Expertise in Claude, GPT-4, prompt design patterns, few-shot learning, chain-of-thought, and AI evaluation. Includes RAG optimization, agent design, and LLM system architecture. Use when building AI products, optimizing LLM performance, designing agentic systems, or implementing advanced prompting techniques."
+      "description": "This skill should be used when the user asks to \"optimize prompts\", \"design prompt templates\", \"evaluate LLM outputs\", \"build agentic systems\", \"implement RAG\", \"create few-shot examples\", \"analyze token usage\", or \"design AI workflows\". Use for prompt engineering patterns, LLM evaluation frameworks, agent architectures, and structured output design."
     },
     {
       "name": "senior-qa",
@@ -184,12 +184,6 @@
       "source": "../../product-team/ux-researcher-designer",
       "category": "product",
       "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation."
-    },
-    {
-      "name": "scrum-master-agent",
-      "source": "../../project-management/scrum-master-agent",
-      "category": "project-management",
-      "description": "Comprehensive Scrum Master assistant for sprint planning, backlog grooming, retrospectives, capacity planning, and daily standups with intelligent context-aware reporting"
     },
     {
       "name": "capa-officer",
@@ -284,11 +278,6 @@
       "count": 5,
       "source": "../../product-team",
       "description": "Product management and design skills"
-    },
-    "project-management": {
-      "count": 1,
-      "source": "../../project-management",
-      "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
       "count": 12,

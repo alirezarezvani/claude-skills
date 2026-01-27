@@ -196,31 +196,36 @@ skill-name/
 
 ### 5. Senior QA Testing Engineer (`senior-qa.zip`)
 
-**Purpose:** Quality assurance and test automation
+**Purpose:** Quality assurance and test automation for React/Next.js applications
+
+**Tech Stack Focus:**
+- Jest + React Testing Library (unit/integration)
+- Playwright (E2E testing)
+- Istanbul/NYC (coverage analysis)
+- MSW (API mocking)
 
 **Key Capabilities:**
-- Test suite generation
-- Coverage analysis
-- E2E test setup (Playwright, Cypress)
-- Unit/Integration testing
-- Test automation strategies
-- Quality metrics tracking
+- Component test generation with accessibility checks
+- Coverage gap analysis with critical path detection
+- E2E test scaffolding with Page Object Model
+- Test pyramid implementation (70/20/10 ratio)
+- CI/CD integration patterns
 
 **Scripts:**
-- `test_suite_generator.py` - Generate test suites
-- `coverage_analyzer.py` - Analyze test coverage
-- `e2e_test_scaffolder.py` - Setup E2E tests
+- `test_suite_generator.py` - Scans React components, generates Jest + RTL tests with accessibility assertions
+- `coverage_analyzer.py` - Parses Istanbul/LCOV reports, identifies untested critical paths, generates HTML reports
+- `e2e_test_scaffolder.py` - Scans Next.js routes, generates Playwright tests with Page Object Model classes
 
 **References:**
-- `testing_strategies.md` - Testing approaches and pyramid
-- `test_automation_patterns.md` - Automation best practices
-- `qa_best_practices.md` - QA processes and standards
+- `testing_strategies.md` - Test pyramid, coverage targets, CI/CD integration patterns
+- `test_automation_patterns.md` - Page Object Model, fixtures, mocking strategies, async testing
+- `qa_best_practices.md` - Test naming, isolation, flaky test handling, debugging strategies
 
 **Use When:**
-- Setting up testing infrastructure
-- Writing test cases
-- Analyzing test coverage
-- Implementing test automation
+- Setting up React/Next.js testing infrastructure
+- Generating component test suites with RTL
+- Analyzing coverage gaps in critical paths
+- Scaffolding Playwright E2E tests for Next.js routes
 
 ---
 

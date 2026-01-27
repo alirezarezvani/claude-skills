@@ -99,7 +99,7 @@
       "name": "senior-qa",
       "source": "../../engineering-team/senior-qa",
       "category": "engineering",
-      "description": "Comprehensive QA and testing skill for quality assurance, test automation, and testing strategies for ReactJS, NextJS, NodeJS applications. Includes test suite generation, coverage analysis, E2E testing setup, and quality metrics. Use when designing test strategies, writing test cases, implementing test automation, performing manual testing, or analyzing test coverage."
+      "description": "This skill should be used when the user asks to \"generate tests\", \"write unit tests\", \"analyze test coverage\", \"scaffold E2E tests\", \"set up Playwright\", \"configure Jest\", \"implement testing patterns\", or \"improve test quality\". Use for React/Next.js testing with Jest, React Testing Library, and Playwright."
     },
     {
       "name": "senior-secops",

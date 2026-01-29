@@ -1,226 +1,356 @@
 ---
 name: senior-data-scientist
-description: World-class data science skill for statistical modeling, experimentation, causal inference, and advanced analytics. Expertise in Python (NumPy, Pandas, Scikit-learn), R, SQL, statistical methods, A/B testing, time series, and business intelligence. Includes experiment design, feature engineering, model evaluation, and stakeholder communication. Use when designing experiments, building predictive models, performing causal analysis, or driving data-driven decisions.
+description: Data science skill for statistical modeling, experimentation, and causal inference. Includes A/B test design, sample size calculation, feature engineering analysis, and statistical hypothesis testing. CLI tools for experiment planning, data transformation recommendations, and result analysis.
 ---
 
 # Senior Data Scientist
 
-World-class senior data scientist skill for production-grade AI/ML/Data systems.
+Statistical analysis, experiment design, and feature engineering toolkit for data-driven decision making.
+
+---
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Core Workflows](#core-workflows)
+- [Tools Reference](#tools-reference)
+- [Reference Documentation](#reference-documentation)
+- [Validation Checklist](#validation-checklist)
+
+---
 
 ## Quick Start
 
-### Main Capabilities
+### Design an A/B Test
 
 ```bash
-# Core Tool 1
-python scripts/experiment_designer.py --input data/ --output results/
+# Calculate sample size for 10% baseline, detecting 1% absolute lift
+python scripts/experiment_designer.py --baseline 0.10 --mde 0.01
 
-# Core Tool 2  
-python scripts/feature_engineering_pipeline.py --target project/ --analyze
+# Include duration estimate with daily traffic
+python scripts/experiment_designer.py --baseline 0.10 --mde 0.01 --traffic 5000
 
-# Core Tool 3
-python scripts/model_evaluation_suite.py --config config.yaml --deploy
+# JSON output for programmatic use
+python scripts/experiment_designer.py --baseline 0.05 --mde 0.005 --json
 ```
 
-## Core Expertise
+### Analyze CSV Features
 
-This skill covers world-class capabilities in:
+```bash
+# Get feature engineering recommendations for a dataset
+python scripts/feature_engineering_pipeline.py data.csv
 
-- Advanced production patterns and architectures
-- Scalable system design and implementation
-- Performance optimization at scale
-- MLOps and DataOps best practices
-- Real-time processing and inference
-- Distributed computing frameworks
-- Model deployment and monitoring
-- Security and compliance
-- Cost optimization
-- Team leadership and mentoring
+# JSON output for integration
+python scripts/feature_engineering_pipeline.py data.csv --json
+```
 
-## Tech Stack
+### Run Statistical Tests
 
-**Languages:** Python, SQL, R, Scala, Go
-**ML Frameworks:** PyTorch, TensorFlow, Scikit-learn, XGBoost
-**Data Tools:** Spark, Airflow, dbt, Kafka, Databricks
-**LLM Frameworks:** LangChain, LlamaIndex, DSPy
-**Deployment:** Docker, Kubernetes, AWS/GCP/Azure
-**Monitoring:** MLflow, Weights & Biases, Prometheus
-**Databases:** PostgreSQL, BigQuery, Snowflake, Pinecone
+```bash
+# A/B test result analysis (proportions)
+python scripts/model_evaluation_suite.py --ab \
+  --control-success 450 --control-total 5000 \
+  --treatment-success 520 --treatment-total 5000
+
+# T-test from CSV data
+python scripts/model_evaluation_suite.py data.csv --test ttest --group variant --metric revenue
+
+# Correlation analysis
+python scripts/model_evaluation_suite.py data.csv --test correlation --columns "age,income"
+```
+
+---
+
+## Core Workflows
+
+### Workflow 1: A/B Test Planning
+
+Design a statistically valid experiment before launch.
+
+**Step 1: Define parameters**
+- Baseline conversion rate (from historical data)
+- Minimum detectable effect (smallest meaningful change)
+- Significance level (typically 0.05)
+- Power (typically 0.80)
+
+**Step 2: Calculate sample size**
+```bash
+python scripts/experiment_designer.py --baseline 0.10 --mde 0.01 --power 0.80
+```
+
+Example output:
+```
+============================================================
+EXPERIMENT DESIGN
+============================================================
+
+Baseline conversion rate: 10.00%
+Minimum detectable effect: 1.00% (absolute)
+Expected treatment rate: 11.00%
+Relative lift: 10.0%
+Significance level (α): 0.05
+Statistical power (1-β): 80%
+
+────────────────────────────────────────
+SAMPLE SIZE REQUIREMENTS
+────────────────────────────────────────
+Per group: 14,752 users
+Total: 29,504 users
+Actual power: 80.1%
+```
+
+**Step 3: Estimate duration**
+```bash
+python scripts/experiment_designer.py --baseline 0.10 --mde 0.01 --traffic 2000
+```
+
+**Step 4: Validate design**
+- [ ] Sample size achievable within timeline?
+- [ ] MDE aligned with business impact threshold?
+- [ ] Weekly patterns accounted for (run 2+ weeks)?
+
+### Workflow 2: Feature Engineering Analysis
+
+Get transformation recommendations for a new dataset.
+
+**Step 1: Analyze data**
+```bash
+python scripts/feature_engineering_pipeline.py customer_data.csv
+```
+
+**Step 2: Review column types**
+```
+COLUMN TYPE SUMMARY
+──────────────────────────────────────────────────
+Numeric columns: 5
+Categorical columns: 3
+Datetime columns: 1
+ID columns (to drop): 1
+```
+
+**Step 3: Apply recommendations**
+For each column, the tool suggests:
+- Scaling method (StandardScaler vs RobustScaler)
+- Encoding approach (One-Hot vs Target vs Frequency)
+- Transformation (log, binning)
+- Missing value imputation
+
+**Step 4: Validate**
+- [ ] High-cardinality categoricals handled?
+- [ ] Outliers addressed?
+- [ ] Missing values imputed appropriately?
+- [ ] ID columns excluded?
+
+### Workflow 3: A/B Test Result Analysis
+
+Analyze experiment results and make ship decisions.
+
+**Step 1: Gather results**
+- Control: 450 conversions out of 5,000 users (9.0%)
+- Treatment: 520 conversions out of 5,000 users (10.4%)
+
+**Step 2: Run statistical test**
+```bash
+python scripts/model_evaluation_suite.py --ab \
+  --control-success 450 --control-total 5000 \
+  --treatment-success 520 --treatment-total 5000
+```
+
+**Step 3: Interpret results**
+```
+Control: 9.0% (450/5000)
+Treatment: 10.4% (520/5000)
+
+────────────────────────────────────────
+DIFFERENCE
+────────────────────────────────────────
+Absolute difference: 1.4%
+Relative lift: 15.56%
+95% CI: [0.36%, 2.44%]
+
+────────────────────────────────────────
+STATISTICS
+────────────────────────────────────────
+z_statistic: 2.3077
+p_value: 0.021011
+significant_at_05: Yes
+
+────────────────────────────────────────
+RECOMMENDATION: Ship treatment
+```
+
+**Step 4: Decision checklist**
+- [ ] p-value < 0.05?
+- [ ] Confidence interval excludes zero?
+- [ ] Effect size practically meaningful?
+- [ ] Guardrail metrics OK (latency, errors)?
+- [ ] Sample ratio mismatch checked?
+
+---
+
+## Tools Reference
+
+### experiment_designer.py
+
+Calculate sample sizes and experiment duration for A/B tests.
+
+| Parameter | Flag | Default | Description |
+|-----------|------|---------|-------------|
+| Baseline | `--baseline`, `-b` | Required | Current conversion rate (0-1) |
+| MDE | `--mde`, `-m` | Required | Minimum detectable effect (absolute) |
+| Alpha | `--alpha`, `-a` | 0.05 | Significance level |
+| Power | `--power`, `-p` | 0.80 | Statistical power |
+| Traffic | `--traffic`, `-t` | None | Daily traffic for duration estimate |
+| Traffic % | `--traffic-percent` | 100 | Percentage of traffic in experiment |
+| JSON | `--json`, `-j` | False | Output as JSON |
+
+**Example: High-power test**
+```bash
+python scripts/experiment_designer.py --baseline 0.05 --mde 0.005 --power 0.90 --alpha 0.01
+```
+
+### feature_engineering_pipeline.py
+
+Analyze CSV data and generate feature transformation recommendations.
+
+| Parameter | Flag | Description |
+|-----------|------|-------------|
+| Input | positional | CSV file path |
+| Target | `--target`, `-t` | Target column (optional context) |
+| JSON | `--json`, `-j` | Output as JSON |
+
+**Output includes:**
+- Column type detection (numeric, categorical, datetime, text, ID)
+- Missing value analysis
+- Distribution statistics (mean, std, skewness, outliers)
+- Transformation recommendations with code snippets
+
+### model_evaluation_suite.py
+
+Statistical hypothesis testing for experiment analysis.
+
+**A/B Test Mode (proportions):**
+```bash
+python scripts/model_evaluation_suite.py --ab \
+  --control-success N --control-total M \
+  --treatment-success N --treatment-total M
+```
+
+**T-Test Mode (continuous metrics):**
+```bash
+python scripts/model_evaluation_suite.py data.csv --test ttest \
+  --group variant_column --metric metric_column
+```
+
+**Correlation Mode:**
+```bash
+python scripts/model_evaluation_suite.py data.csv --test correlation \
+  --columns "column1,column2"
+```
+
+**Chi-Square Mode:**
+```bash
+python scripts/model_evaluation_suite.py data.csv --test chisquare \
+  --row row_variable --column column_variable
+```
+
+---
 
 ## Reference Documentation
 
-### 1. Statistical Methods Advanced
+### Statistical Methods (`references/statistical_methods_advanced.md`)
 
-Comprehensive guide available in `references/statistical_methods_advanced.md` covering:
+- Hypothesis testing framework (Type I/II errors, one vs two-tailed)
+- P-value interpretation and common misconceptions
+- Effect size measures (Cohen's d, relative lift)
+- Confidence intervals
+- Causal inference methods (RCT, DiD, propensity scoring, IV)
+- Bayesian A/B testing
+- Time series analysis (stationarity, seasonality)
+- Statistical test selection guide
+- Multiple comparisons correction
 
-- Advanced patterns and best practices
-- Production implementation strategies
-- Performance optimization techniques
-- Scalability considerations
-- Security and compliance
-- Real-world case studies
+### Experiment Design (`references/experiment_design_frameworks.md`)
 
-### 2. Experiment Design Frameworks
+- A/B test anatomy and metrics taxonomy
+- Power analysis and sample size calculation
+- Randomization schemes (simple, stratified, cluster, switchback)
+- Experiment lifecycle (design → pre-checks → analysis → decision)
+- Multi-armed bandits (Thompson sampling, epsilon-greedy)
+- Common pitfalls (peeking, SRM, Simpson's paradox, novelty effects)
 
-Complete workflow documentation in `references/experiment_design_frameworks.md` including:
+### Feature Engineering (`references/feature_engineering_patterns.md`)
 
-- Step-by-step processes
-- Architecture design patterns
-- Tool integration guides
-- Performance tuning strategies
-- Troubleshooting procedures
+- Numeric transformations (scaling, power transforms, binning)
+- Categorical encoding (one-hot, target, frequency)
+- Feature selection (filter, wrapper, embedded methods)
+- Collinearity detection (correlation matrix, VIF)
+- Time-based features (extraction, lags, rolling windows)
+- Text features (TF-IDF, basic statistics)
+- Production patterns (sklearn pipelines, feature stores)
 
-### 3. Feature Engineering Patterns
+---
 
-Technical reference guide in `references/feature_engineering_patterns.md` with:
+## Validation Checklist
 
-- System design principles
-- Implementation examples
-- Configuration best practices
-- Deployment strategies
-- Monitoring and observability
+### Before Running Experiment
 
-## Production Patterns
+- [ ] Hypothesis clearly stated
+- [ ] Primary metric defined
+- [ ] Sample size calculated with adequate power (≥80%)
+- [ ] Guardrail metrics identified
+- [ ] Duration accounts for weekly patterns (≥2 weeks)
+- [ ] Randomization unit appropriate (user, session, etc.)
+- [ ] Logging verified in test environment
 
-### Pattern 1: Scalable Data Processing
+### Before Analyzing Results
 
-Enterprise-scale data processing with distributed computing:
+- [ ] Sample ratio mismatch check passed (p > 0.001)
+- [ ] Reached planned sample size
+- [ ] No incidents during experiment period
+- [ ] Data quality validated
 
-- Horizontal scaling architecture
-- Fault-tolerant design
-- Real-time and batch processing
-- Data quality validation
-- Performance monitoring
+### Before Shipping
 
-### Pattern 2: ML Model Deployment
+- [ ] Primary metric significant (p < 0.05)
+- [ ] Confidence interval direction matches hypothesis
+- [ ] Effect size practically meaningful
+- [ ] Guardrail metrics not regressed
+- [ ] Segment analysis completed (no Simpson's paradox)
+- [ ] Results documented
 
-Production ML system with high availability:
+---
 
-- Model serving with low latency
-- A/B testing infrastructure
-- Feature store integration
-- Model monitoring and drift detection
-- Automated retraining pipelines
+## Common Scenarios
 
-### Pattern 3: Real-Time Inference
-
-High-throughput inference system:
-
-- Batching and caching strategies
-- Load balancing
-- Auto-scaling
-- Latency optimization
-- Cost optimization
-
-## Best Practices
-
-### Development
-
-- Test-driven development
-- Code reviews and pair programming
-- Documentation as code
-- Version control everything
-- Continuous integration
-
-### Production
-
-- Monitor everything critical
-- Automate deployments
-- Feature flags for releases
-- Canary deployments
-- Comprehensive logging
-
-### Team Leadership
-
-- Mentor junior engineers
-- Drive technical decisions
-- Establish coding standards
-- Foster learning culture
-- Cross-functional collaboration
-
-## Performance Targets
-
-**Latency:**
-- P50: < 50ms
-- P95: < 100ms
-- P99: < 200ms
-
-**Throughput:**
-- Requests/second: > 1000
-- Concurrent users: > 10,000
-
-**Availability:**
-- Uptime: 99.9%
-- Error rate: < 0.1%
-
-## Security & Compliance
-
-- Authentication & authorization
-- Data encryption (at rest & in transit)
-- PII handling and anonymization
-- GDPR/CCPA compliance
-- Regular security audits
-- Vulnerability management
-
-## Common Commands
+### Low baseline conversion
+With very low baselines (<2%), detecting small effects requires large samples:
 
 ```bash
-# Development
-python -m pytest tests/ -v --cov
-python -m black src/
-python -m pylint src/
-
-# Training
-python scripts/train.py --config prod.yaml
-python scripts/evaluate.py --model best.pth
-
-# Deployment
-docker build -t service:v1 .
-kubectl apply -f k8s/
-helm upgrade service ./charts/
-
-# Monitoring
-kubectl logs -f deployment/service
-python scripts/health_check.py
+# 1% baseline, detect 0.1% absolute change (10% relative)
+python scripts/experiment_designer.py --baseline 0.01 --mde 0.001
+# Result: ~785,000 per group
 ```
 
-## Resources
+Consider larger MDE or longer duration.
 
-- Advanced Patterns: `references/statistical_methods_advanced.md`
-- Implementation Guide: `references/experiment_design_frameworks.md`
-- Technical Reference: `references/feature_engineering_patterns.md`
-- Automation Scripts: `scripts/` directory
+### High-variance metrics (revenue)
+Revenue metrics have high variance. Use larger samples or variance reduction:
 
-## Senior-Level Responsibilities
+```bash
+# Revenue example in statistical_methods_advanced.md
+# Mean=$50, Std=$100 → Coefficient of variation = 2.0
+# Detecting 5% lift requires ~6,400 per group
+```
 
-As a world-class senior professional:
+### Underpowered test
+If an experiment didn't reach significance:
 
-1. **Technical Leadership**
-   - Drive architectural decisions
-   - Mentor team members
-   - Establish best practices
-   - Ensure code quality
+1. Check if sample size was adequate
+2. Calculate observed power
+3. If underpowered, don't conclude "no effect" — extend or repeat
 
-2. **Strategic Thinking**
-   - Align with business goals
-   - Evaluate trade-offs
-   - Plan for scale
-   - Manage technical debt
-
-3. **Collaboration**
-   - Work across teams
-   - Communicate effectively
-   - Build consensus
-   - Share knowledge
-
-4. **Innovation**
-   - Stay current with research
-   - Experiment with new approaches
-   - Contribute to community
-   - Drive continuous improvement
-
-5. **Production Excellence**
-   - Ensure high availability
-   - Monitor proactively
-   - Optimize performance
-   - Respond to incidents
+```bash
+# Re-run with observed effect size to calculate required n
+python scripts/experiment_designer.py --baseline 0.10 --mde 0.005
+```

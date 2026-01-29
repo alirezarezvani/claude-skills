@@ -1,7 +1,69 @@
 #!/usr/bin/env python3
 """
 Data-Driven Persona Generator
-Creates research-backed user personas from user data and interviews
+Creates research-backed user personas from user data and interviews.
+
+Usage:
+    python persona_generator.py [json]
+
+    Without arguments: Human-readable formatted output
+    With 'json': JSON output for integration with other tools
+
+Examples:
+    python persona_generator.py           # Formatted persona output
+    python persona_generator.py json      # JSON for programmatic use
+
+Table of Contents:
+==================
+
+CLASS: PersonaGenerator
+    __init__()                      - Initialize archetype templates and persona components
+    generate_persona_from_data()    - Main entry: generate persona from user data + interviews
+    format_persona_output()         - Format persona dict as human-readable text
+
+PATTERN ANALYSIS:
+    _analyze_user_patterns()        - Extract usage, device, context patterns from data
+    _identify_archetype()           - Classify user into power/casual/business/mobile archetype
+    _analyze_behaviors()            - Analyze usage patterns and feature preferences
+
+DEMOGRAPHIC EXTRACTION:
+    _aggregate_demographics()       - Calculate age range, location, tech proficiency
+    _extract_psychographics()       - Extract motivations, values, attitudes, lifestyle
+
+NEEDS & FRUSTRATIONS:
+    _identify_needs()               - Identify primary/secondary goals, functional/emotional needs
+    _extract_frustrations()         - Extract pain points from patterns and interviews
+
+CONTENT GENERATION:
+    _generate_name()                - Generate persona name from archetype
+    _generate_tagline()             - Generate one-line persona summary
+    _generate_scenarios()           - Create usage scenarios based on archetype
+    _select_quote()                 - Select representative quote from interviews
+
+DATA VALIDATION:
+    _calculate_data_points()        - Calculate sample size and confidence level
+    _derive_design_implications()   - Generate actionable design recommendations
+
+FUNCTIONS:
+    create_sample_user_data()       - Generate sample data for testing/demo
+    main()                          - CLI entry point
+
+Archetypes Supported:
+    - power_user: Daily users, 10+ features, efficiency-focused
+    - casual_user: Weekly users, basic needs, simplicity-focused
+    - business_user: Work context, team collaboration, ROI-focused
+    - mobile_first: Mobile primary, on-the-go, quick interactions
+
+Output Components:
+    - name, archetype, tagline, quote
+    - demographics: age, location, occupation, education, tech_proficiency
+    - psychographics: motivations, values, attitudes, lifestyle
+    - behaviors: usage_patterns, feature_preferences, interaction_style
+    - needs_and_goals: primary, secondary, functional, emotional
+    - frustrations: pain points with frequency
+    - scenarios: contextual usage stories
+    - data_points: sample_size, confidence_level, validation_method
+    - design_implications: actionable recommendations
 """
 
 import json

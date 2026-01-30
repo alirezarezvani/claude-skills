@@ -123,7 +123,7 @@
       "name": "tech-stack-evaluator",
       "source": "../../engineering-team/tech-stack-evaluator",
       "category": "engineering",
-      "description": "Comprehensive technology stack evaluation and comparison tool with TCO analysis, security assessment, and intelligent recommendations for engineering teams"
+      "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability."
     },
     {
       "name": "app-store-optimization",

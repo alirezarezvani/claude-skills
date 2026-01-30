@@ -231,7 +231,7 @@
       "name": "quality-documentation-manager",
       "source": "../../ra-qm-team/quality-documentation-manager",
       "category": "ra-qm",
-      "description": "Senior Quality Documentation Manager for comprehensive documentation control and regulatory document review. Provides document management system design, change control, configuration management, and regulatory documentation oversight. Use for document control system implementation, regulatory document review, change management, and documentation compliance verification."
+      "description": "Document control system management for medical device QMS. Covers document numbering, version control, change management, and 21 CFR Part 11 compliance. Use for document control procedures, change control workflow, document numbering, version management, electronic signature compliance, or regulatory documentation review."
     },
     {
       "name": "quality-manager-qmr",

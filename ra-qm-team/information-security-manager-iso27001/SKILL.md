@@ -1,246 +1,419 @@
 ---
 name: information-security-manager-iso27001
-description: Senior Information Security Manager specializing in ISO 27001 and ISO 27002 implementation for HealthTech and MedTech companies. Provides ISMS implementation, cybersecurity risk assessment, security controls management, and compliance oversight. Use for ISMS design, security risk assessments, control implementation, and ISO 27001 certification activities.
+description: ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use for ISMS design, security risk assessment, control implementation, ISO 27001 certification, security audits, incident response, and compliance verification. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity.
 ---
 
-# Senior Information Security Manager - ISO 27001/27002 Specialist
+# Information Security Manager - ISO 27001
 
-Expert-level Information Security Management System (ISMS) implementation and cybersecurity governance with comprehensive knowledge of ISO 27001, ISO 27002, and healthcare-specific security requirements.
+Implement and manage Information Security Management Systems (ISMS) aligned with ISO 27001:2022 and healthcare regulatory requirements.
 
-## Core ISMS Competencies
+---
 
-### 1. ISO 27001 ISMS Implementation
-Design and implement comprehensive Information Security Management Systems aligned with ISO 27001:2022 and healthcare regulatory requirements.
+## Table of Contents
 
-**ISMS Implementation Framework:**
-```
-ISO 27001 ISMS IMPLEMENTATION
-├── ISMS Planning and Design
-│   ├── Information security policy development
-│   ├── Scope and boundaries definition
-│   ├── Risk assessment methodology
-│   └── Security objectives establishment
-├── Security Risk Management
-│   ├── Asset identification and classification
-│   ├── Threat and vulnerability assessment
-│   ├── Risk analysis and evaluation
-│   └── Risk treatment planning
-├── Security Controls Implementation
-│   ├── ISO 27002 controls selection
-│   ├── Technical controls deployment
-│   ├── Administrative controls establishment
-│   └── Physical controls implementation
-└── ISMS Operation and Monitoring
-    ├── Security incident management
-    ├── Performance monitoring
-    ├── Management review
-    └── Continuous improvement
-```
+- [Trigger Phrases](#trigger-phrases)
+- [Quick Start](#quick-start)
+- [Tools](#tools)
+- [Workflows](#workflows)
+- [Reference Guides](#reference-guides)
+- [Validation Checkpoints](#validation-checkpoints)
 
-### 2. Information Security Risk Assessment (ISO 27001 Clause 6.1.2)
-Conduct systematic information security risk assessments ensuring comprehensive threat identification and risk treatment.
+---
 
-**Risk Assessment Methodology:**
-1. **Asset Identification and Classification**
-   - Information assets inventory and valuation
-   - System and infrastructure asset mapping
-   - Data classification and handling requirements
-   - **Decision Point**: Determine asset criticality and protection requirements
+## Trigger Phrases
 
-2. **Threat and Vulnerability Analysis**
-   - **For Healthcare Data**: Follow references/healthcare-threat-modeling.md
-   - **For Medical Devices**: Follow references/device-security-assessment.md
-   - **For Cloud Services**: Follow references/cloud-security-evaluation.md
-   - Threat landscape analysis and modeling
+Use this skill when you hear:
+- "implement ISO 27001"
+- "ISMS implementation"
+- "security risk assessment"
+- "information security policy"
+- "ISO 27001 certification"
+- "security controls implementation"
+- "incident response plan"
+- "healthcare data security"
+- "medical device cybersecurity"
+- "security compliance audit"
 
-3. **Risk Analysis and Evaluation**
-   - Risk likelihood and impact assessment
-   - Risk level determination and prioritization
-   - Risk acceptability evaluation
-   - Risk treatment option analysis
+---
 
-### 3. ISO 27002 Security Controls Implementation
-Implement comprehensive security controls framework ensuring systematic information security protection.
+## Quick Start
 
-**Security Controls Categories:**
-```
-ISO 27002:2022 CONTROLS FRAMEWORK
-├── Organizational Controls (5.1-5.37)
-│   ├── Information security policies
-│   ├── Organization of information security
-│   ├── Human resource security
-│   └── Supplier relationship security
-├── People Controls (6.1-6.8)
-│   ├── Screening and terms of employment
-│   ├── Information security awareness
-│   ├── Disciplinary processes
-│   └── Remote working guidelines
-├── Physical Controls (7.1-7.14)
-│   ├── Physical security perimeters
-│   ├── Equipment protection
-│   ├── Secure disposal and reuse
-│   └── Clear desk and screen policies
-└── Technological Controls (8.1-8.34)
-    ├── Access control management
-    ├── Cryptography and key management
-    ├── Systems security
-    ├── Network security controls
-    ├── Application security
-    ├── Secure development
-    └── Supplier relationship security
+### Run Security Risk Assessment
+
+```bash
+python scripts/risk_assessment.py --scope "patient-data-system" --output risk_register.json
 ```
 
-### 4. Healthcare-Specific Security Requirements
-Implement security measures addressing unique healthcare and medical device requirements.
+### Check Compliance Status
 
-**Healthcare Security Framework:**
-- **HIPAA Technical Safeguards**: Access control, audit controls, integrity, transmission security
-- **Medical Device Cybersecurity**: FDA cybersecurity guidance and IEC 62304 integration
-- **Clinical Data Protection**: Clinical trial data security and patient privacy
-- **Interoperability Security**: HL7 FHIR and healthcare standard security
+```bash
+python scripts/compliance_checker.py --standard iso27001 --controls-file controls.csv
+```
 
-## Advanced Information Security Applications
+### Generate Gap Analysis Report
 
-### Medical Device Cybersecurity Management
-Implement comprehensive cybersecurity measures for connected medical devices and IoT healthcare systems.
+```bash
+python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output gaps.md
+```
 
-**Device Cybersecurity Framework:**
-1. **Device Security Assessment**
-   - Security architecture review and validation
-   - Vulnerability assessment and penetration testing
-   - Threat modeling and attack surface analysis
-   - **Decision Point**: Determine device security classification and controls
+---
 
-2. **Security Controls Implementation**
-   - **Device Authentication**: Multi-factor authentication and device identity
-   - **Data Protection**: Encryption at rest and in transit
-   - **Network Security**: Segmentation and monitoring
-   - **Update Management**: Secure software update mechanisms
+## Tools
 
-3. **Security Monitoring and Response**
-   - Security event monitoring and SIEM integration
-   - Incident response and forensic capabilities
-   - Threat intelligence and vulnerability management
-   - Security awareness and training programs
+### risk_assessment.py
 
-### Cloud Security Management
-Ensure comprehensive security for cloud-based healthcare systems and SaaS applications.
+Automated security risk assessment following ISO 27001 Clause 6.1.2 methodology.
 
-**Cloud Security Strategy:**
-- **Cloud Security Assessment**: Cloud service provider evaluation and due diligence
-- **Data Residency and Sovereignty**: Regulatory compliance and data location requirements
-- **Shared Responsibility Model**: Cloud provider and customer security responsibilities
-- **Cloud Access Security**: Identity and access management for cloud services
+**Usage:**
 
-### Privacy and Data Protection Integration
-Integrate information security with privacy and data protection requirements ensuring comprehensive data governance.
+```bash
+# Full risk assessment
+python scripts/risk_assessment.py --scope "cloud-infrastructure" --output risks.json
 
-**Privacy-Security Integration:**
-- **Privacy by Design**: Security controls supporting privacy requirements
-- **Data Minimization**: Security measures for data collection and retention limits
-- **Data Subject Rights**: Technical measures supporting privacy rights exercise
-- **Cross-Border Data Transfer**: Security controls for international data transfers
+# Healthcare-specific assessment
+python scripts/risk_assessment.py --scope "ehr-system" --template healthcare --output risks.json
 
-## ISMS Governance and Operations
+# Quick asset-based assessment
+python scripts/risk_assessment.py --assets assets.csv --output risks.json
+```
 
-### Information Security Policy Framework
-Establish comprehensive information security policies ensuring organizational security governance.
+**Parameters:**
 
-**Policy Framework Structure:**
-- **Information Security Policy**: Top-level security commitment and direction
-- **Acceptable Use Policy**: System and data usage guidelines
-- **Access Control Policy**: User access and privilege management
-- **Incident Response Policy**: Security incident handling procedures
-- **Business Continuity Policy**: Security aspects of continuity planning
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `--scope` | Yes | System or area to assess |
+| `--template` | No | Assessment template: `general`, `healthcare`, `cloud` |
+| `--assets` | No | CSV file with asset inventory |
+| `--output` | No | Output file (default: stdout) |
+| `--format` | No | Output format: `json`, `csv`, `markdown` |
 
-### Security Awareness and Training Program
-Develop and maintain comprehensive security awareness programs ensuring organizational security culture.
+**Output:**
+- Asset inventory with classification
+- Threat and vulnerability mapping
+- Risk scores (likelihood × impact)
+- Treatment recommendations
+- Residual risk calculations
 
-**Training Program Components:**
-- **General Security Awareness**: All-staff security training and awareness
-- **Role-Based Security Training**: Specialized training for specific roles
-- **Incident Response Training**: Security incident handling and escalation
-- **Regular Security Updates**: Ongoing security communication and updates
+### compliance_checker.py
 
-### Security Incident Management (ISO 27001 Clause 8.2.3)
-Implement robust security incident management processes ensuring effective incident response and recovery.
+Verify ISO 27001/27002 control implementation status.
 
-**Incident Management Process:**
-1. **Incident Detection and Reporting**
-2. **Incident Classification and Prioritization**
-3. **Incident Investigation and Analysis**
-4. **Incident Response and Containment**
-5. **Recovery and Post-Incident Activities**
-6. **Lessons Learned and Improvement**
+**Usage:**
 
-## ISMS Performance and Compliance
+```bash
+# Check all ISO 27001 controls
+python scripts/compliance_checker.py --standard iso27001
 
-### Security Metrics and KPIs
-Monitor comprehensive security performance indicators ensuring ISMS effectiveness and continuous improvement.
+# Gap analysis with recommendations
+python scripts/compliance_checker.py --standard iso27001 --gap-analysis
 
-**Security Performance Dashboard:**
-- **Security Control Effectiveness**: Control implementation and performance metrics
-- **Incident Management Performance**: Response times, resolution rates, impact assessment
-- **Compliance Status**: Regulatory and standard compliance verification
-- **Risk Management Effectiveness**: Risk treatment success and residual risk levels
-- **Security Awareness Metrics**: Training completion, phishing simulation results
+# Check specific control domains
+python scripts/compliance_checker.py --standard iso27001 --domains "access-control,cryptography"
 
-### Internal Security Auditing
-Conduct systematic internal security audits ensuring ISMS compliance and effectiveness.
+# Export compliance report
+python scripts/compliance_checker.py --standard iso27001 --output compliance_report.md
+```
 
-**Security Audit Program:**
-- **Risk-Based Audit Planning**: Audit scope and frequency based on risk assessment
-- **Technical Security Testing**: Vulnerability assessments and penetration testing
-- **Compliance Auditing**: ISO 27001 and regulatory requirement verification
-- **Process Auditing**: ISMS process effectiveness evaluation
+**Parameters:**
 
-### Management Review and Continuous Improvement
-Lead management review processes ensuring systematic ISMS evaluation and strategic security planning.
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `--standard` | Yes | Standard to check: `iso27001`, `iso27002`, `hipaa` |
+| `--controls-file` | No | CSV with current control status |
+| `--gap-analysis` | No | Include remediation recommendations |
+| `--domains` | No | Specific control domains to check |
+| `--output` | No | Output file path |
 
-**Management Review Framework:**
-- **Security Performance Review**: Metrics analysis and trend identification
-- **Risk Assessment Updates**: Risk landscape changes and impact evaluation
-- **Compliance Status Review**: Regulatory and certification compliance assessment
-- **Security Investment Planning**: Security technology and resource allocation
-- **Strategic Security Planning**: Security strategy alignment with business objectives
+**Output:**
+- Control implementation status
+- Compliance percentage by domain
+- Gap analysis with priorities
+- Remediation recommendations
 
-## Regulatory and Certification Management
+---
 
-### ISO 27001 Certification Management
-Oversee ISO 27001 certification processes ensuring successful certification and maintenance.
+## Workflows
 
-**Certification Management:**
-- **Pre-certification Readiness**: Gap analysis and remediation planning
-- **Certification Audit Management**: Stage 1 and Stage 2 audit coordination
-- **Surveillance Audit Preparation**: Ongoing compliance and improvement demonstration
-- **Certification Maintenance**: Certificate renewal and scope management
+### Workflow 1: ISMS Implementation
 
-### Regulatory Security Compliance
-Ensure comprehensive compliance with healthcare security regulations and standards.
+**Step 1: Define Scope and Context**
 
-**Regulatory Compliance Framework:**
-- **HIPAA Security Rule**: Technical, administrative, and physical safeguards
-- **GDPR Security Requirements**: Technical and organizational measures
-- **FDA Cybersecurity Guidance**: Medical device cybersecurity compliance
-- **NIST Cybersecurity Framework**: Cybersecurity risk management integration
+Document organizational context and ISMS boundaries:
+- Identify interested parties and requirements
+- Define ISMS scope and boundaries
+- Document internal/external issues
 
-## Resources
+**Validation:** Scope statement reviewed and approved by management.
 
-### scripts/
-- `isms-performance-dashboard.py`: Comprehensive ISMS metrics monitoring and reporting
-- `security-risk-assessment.py`: Automated security risk assessment and documentation
-- `compliance-monitoring.py`: Regulatory and standard compliance tracking
-- `incident-response-automation.py`: Security incident workflow automation
+**Step 2: Conduct Risk Assessment**
 
-### references/
-- `iso27001-implementation-guide.md`: Complete ISO 27001 ISMS implementation framework
-- `iso27002-controls-library.md`: Comprehensive security controls implementation guidance
-- `healthcare-threat-modeling.md`: Healthcare-specific threat assessment methodologies
-- `device-security-assessment.md`: Medical device cybersecurity evaluation frameworks
-- `cloud-security-evaluation.md`: Cloud service security assessment criteria
+```bash
+python scripts/risk_assessment.py --scope "full-organization" --template general --output initial_risks.json
+```
 
-### assets/
-- `isms-templates/`: Information security policy, procedure, and documentation templates
-- `risk-assessment-tools/`: Security risk assessment worksheets and calculation tools
-- `audit-checklists/`: ISO 27001 and security compliance audit checklists
-- `training-materials/`: Information security awareness and training programs
+- Identify information assets
+- Assess threats and vulnerabilities
+- Calculate risk levels
+- Determine risk treatment options
+
+**Validation:** Risk register contains all critical assets with assigned owners.
+
+**Step 3: Select and Implement Controls**
+
+Map risks to ISO 27002 controls:
+
+```bash
+python scripts/compliance_checker.py --standard iso27002 --gap-analysis --output control_gaps.md
+```
+
+Control categories:
+- Organizational (policies, roles, responsibilities)
+- People (screening, awareness, training)
+- Physical (perimeters, equipment, media)
+- Technological (access, crypto, network, application)
+
+**Validation:** Statement of Applicability (SoA) documents all controls with justification.
+
+**Step 4: Establish Monitoring**
+
+Define security metrics:
+- Incident count and severity trends
+- Control effectiveness scores
+- Training completion rates
+- Audit findings closure rate
+
+**Validation:** Dashboard shows real-time compliance status.
+
+### Workflow 2: Security Risk Assessment
+
+**Step 1: Asset Identification**
+
+Create asset inventory:
+
+| Asset Type | Examples | Classification |
+|------------|----------|----------------|
+| Information | Patient records, source code | Confidential |
+| Software | EHR system, APIs | Critical |
+| Hardware | Servers, medical devices | High |
+| Services | Cloud hosting, backup | High |
+| People | Admin accounts, developers | Varies |
+
+**Validation:** All assets have assigned owners and classifications.
+
+**Step 2: Threat Analysis**
+
+Identify threats per asset category:
+
+| Asset | Threats | Likelihood |
+|-------|---------|------------|
+| Patient data | Unauthorized access, breach | High |
+| Medical devices | Malware, tampering | Medium |
+| Cloud services | Misconfiguration, outage | Medium |
+| Credentials | Phishing, brute force | High |
+
+**Validation:** Threat model covers top-10 industry threats.
+
+**Step 3: Vulnerability Assessment**
+
+```bash
+python scripts/risk_assessment.py --scope "network-infrastructure" --output vuln_risks.json
+```
+
+Document vulnerabilities:
+- Technical (unpatched systems, weak configs)
+- Process (missing procedures, gaps)
+- People (lack of training, insider risk)
+
+**Validation:** Vulnerability scan results mapped to risk register.
+
+**Step 4: Risk Evaluation and Treatment**
+
+Calculate risk: `Risk = Likelihood × Impact`
+
+| Risk Level | Score | Treatment |
+|------------|-------|-----------|
+| Critical | 20-25 | Immediate action required |
+| High | 15-19 | Treatment plan within 30 days |
+| Medium | 10-14 | Treatment plan within 90 days |
+| Low | 5-9 | Accept or monitor |
+| Minimal | 1-4 | Accept |
+
+**Validation:** All high/critical risks have approved treatment plans.
+
+### Workflow 3: Incident Response
+
+**Step 1: Detection and Reporting**
+
+Incident categories:
+- Security breach (unauthorized access)
+- Malware infection
+- Data leakage
+- System compromise
+- Policy violation
+
+**Validation:** Incident logged within 15 minutes of detection.
+
+**Step 2: Triage and Classification**
+
+| Severity | Criteria | Response Time |
+|----------|----------|---------------|
+| Critical | Data breach, system down | Immediate |
+| High | Active threat, significant risk | 1 hour |
+| Medium | Contained threat, limited impact | 4 hours |
+| Low | Minor violation, no impact | 24 hours |
+
+**Validation:** Severity assigned and escalation triggered if needed.
+
+**Step 3: Containment and Eradication**
+
+Immediate actions:
+1. Isolate affected systems
+2. Preserve evidence
+3. Block threat vectors
+4. Remove malicious artifacts
+
+**Validation:** Containment confirmed, no ongoing compromise.
+
+**Step 4: Recovery and Lessons Learned**
+
+Post-incident activities:
+1. Restore systems from clean backups
+2. Verify integrity before reconnection
+3. Document timeline and actions
+4. Conduct post-incident review
+5. Update controls and procedures
+
+**Validation:** Post-incident report completed within 5 business days.
+
+---
+
+## Reference Guides
+
+### When to Use Each Reference
+
+**references/iso27001-controls.md**
+- Control selection for SoA
+- Implementation guidance
+- Evidence requirements
+- Audit preparation
+
+**references/risk-assessment-guide.md**
+- Risk methodology selection
+- Asset classification criteria
+- Threat modeling approaches
+- Risk calculation methods
+
+**references/incident-response.md**
+- Response procedures
+- Escalation matrices
+- Communication templates
+- Recovery checklists
+
+---
+
+## Validation Checkpoints
+
+### ISMS Implementation Validation
+
+| Phase | Checkpoint | Evidence Required |
+|-------|------------|-------------------|
+| Scope | Scope approved | Signed scope document |
+| Risk | Register complete | Risk register with owners |
+| Controls | SoA approved | Statement of Applicability |
+| Operation | Metrics active | Dashboard screenshots |
+| Audit | Internal audit done | Audit report |
+
+### Certification Readiness
+
+Before Stage 1 audit:
+- [ ] ISMS scope documented and approved
+- [ ] Information security policy published
+- [ ] Risk assessment completed
+- [ ] Statement of Applicability finalized
+- [ ] Internal audit conducted
+- [ ] Management review completed
+- [ ] Nonconformities addressed
+
+Before Stage 2 audit:
+- [ ] Controls implemented and operational
+- [ ] Evidence of effectiveness available
+- [ ] Staff trained and aware
+- [ ] Incidents logged and managed
+- [ ] Metrics collected for 3+ months
+
+### Compliance Verification
+
+Run periodic checks:
+
+```bash
+# Monthly compliance check
+python scripts/compliance_checker.py --standard iso27001 --output monthly_$(date +%Y%m).md
+
+# Quarterly gap analysis
+python scripts/compliance_checker.py --standard iso27001 --gap-analysis --output quarterly_gaps.md
+```
+
+---
+
+## Worked Example: Healthcare Risk Assessment
+
+**Scenario:** Assess security risks for a patient data management system.
+
+### Step 1: Define Assets
+
+```bash
+python scripts/risk_assessment.py --scope "patient-data-system" --template healthcare
+```
+
+**Asset inventory output:**
+
+| Asset ID | Asset | Type | Owner | Classification |
+|----------|-------|------|-------|----------------|
+| A001 | Patient database | Information | DBA Team | Confidential |
+| A002 | EHR application | Software | App Team | Critical |
+| A003 | Database server | Hardware | Infra Team | High |
+| A004 | Admin credentials | Access | Security | Critical |
+
+### Step 2: Identify Risks
+
+**Risk register output:**
+
+| Risk ID | Asset | Threat | Vulnerability | L | I | Score |
+|---------|-------|--------|---------------|---|---|-------|
+| R001 | A001 | Data breach | Weak encryption | 3 | 5 | 15 |
+| R002 | A002 | SQL injection | Input validation | 4 | 4 | 16 |
+| R003 | A004 | Credential theft | No MFA | 4 | 5 | 20 |
+
+### Step 3: Determine Treatment
+
+| Risk | Treatment | Control | Timeline |
+|------|-----------|---------|----------|
+| R001 | Mitigate | Implement AES-256 encryption | 30 days |
+| R002 | Mitigate | Add input validation, WAF | 14 days |
+| R003 | Mitigate | Enforce MFA for all admins | 7 days |
+
+### Step 4: Verify Implementation
+
+```bash
+python scripts/compliance_checker.py --controls-file implemented_controls.csv
+```
+
+**Verification output:**
+
+```
+Control Implementation Status
+=============================
+Cryptography (A.8.24): IMPLEMENTED
+  - AES-256 at rest: YES
+  - TLS 1.3 in transit: YES
+
+Access Control (A.8.5): IMPLEMENTED
+  - MFA enabled: YES
+  - Admin accounts: 100% coverage
+
+Application Security (A.8.26): PARTIAL
+  - Input validation: YES
+  - WAF deployed: PENDING
+
+Overall Compliance: 87%
+```

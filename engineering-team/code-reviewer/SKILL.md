@@ -1,209 +1,177 @@
 ---
 name: code-reviewer
-description: Comprehensive code review skill for TypeScript, JavaScript, Python, Swift, Kotlin, Go. Includes automated code analysis, best practice checking, security scanning, and review checklist generation. Use when reviewing pull requests, providing code feedback, identifying issues, or ensuring code quality standards.
+description: Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists.
 ---
 
 # Code Reviewer
 
-Complete toolkit for code reviewer with modern tools and best practices.
+Automated code review tools for analyzing pull requests, detecting code quality issues, and generating review reports.
 
-## Quick Start
+---
 
-### Main Capabilities
+## Table of Contents
 
-This skill provides three core capabilities through automated scripts:
+- [Tools](#tools)
+  - [PR Analyzer](#pr-analyzer)
+  - [Code Quality Checker](#code-quality-checker)
+  - [Review Report Generator](#review-report-generator)
+- [Reference Guides](#reference-guides)
+- [Languages Supported](#languages-supported)
+
+---
+
+## Tools
+
+### PR Analyzer
+
+Analyzes git diff between branches to assess review complexity and identify risks.
 
 ```bash
-# Script 1: Pr Analyzer
-python scripts/pr_analyzer.py [options]
+# Analyze current branch against main
+python scripts/pr_analyzer.py /path/to/repo
 
-# Script 2: Code Quality Checker
-python scripts/code_quality_checker.py [options]
+# Compare specific branches
+python scripts/pr_analyzer.py . --base main --head feature-branch
 
-# Script 3: Review Report Generator
-python scripts/review_report_generator.py [options]
+# JSON output for integration
+python scripts/pr_analyzer.py /path/to/repo --json
 ```
 
-## Core Capabilities
+**What it detects:**
+- Hardcoded secrets (passwords, API keys, tokens)
+- SQL injection patterns (string concatenation in queries)
+- Debug statements (debugger, console.log)
+- ESLint rule disabling
+- TypeScript `any` types
+- TODO/FIXME comments
 
-### 1. Pr Analyzer
+**Output includes:**
+- Complexity score (1-10)
+- Risk categorization (critical, high, medium, low)
+- File prioritization for review order
+- Commit message validation
 
-Automated tool for pr analyzer tasks.
+---
 
-**Features:**
-- Automated scaffolding
-- Best practices built-in
-- Configurable templates
-- Quality checks
+### Code Quality Checker
 
-**Usage:**
+Analyzes source code for structural issues, code smells, and SOLID violations.
+
 ```bash
-python scripts/pr_analyzer.py <project-path> [options]
+# Analyze a directory
+python scripts/code_quality_checker.py /path/to/code
+
+# Analyze specific language
+python scripts/code_quality_checker.py . --language python
+
+# JSON output
+python scripts/code_quality_checker.py /path/to/code --json
 ```
 
-### 2. Code Quality Checker
+**What it detects:**
+- Long functions (>50 lines)
+- Large files (>500 lines)
+- God classes (>20 methods)
+- Deep nesting (>4 levels)
+- Too many parameters (>5)
+- High cyclomatic complexity
+- Missing error handling
+- Unused imports
+- Magic numbers
 
-Comprehensive analysis and optimization tool.
+**Thresholds:**
 
-**Features:**
-- Deep analysis
-- Performance metrics
-- Recommendations
-- Automated fixes
+| Issue | Threshold |
+|-------|-----------|
+| Long function | >50 lines |
+| Large file | >500 lines |
+| God class | >20 methods |
+| Too many params | >5 |
+| Deep nesting | >4 levels |
+| High complexity | >10 branches |
 
-**Usage:**
+---
+
+### Review Report Generator
+
+Combines PR analysis and code quality findings into structured review reports.
+
 ```bash
-python scripts/code_quality_checker.py <target-path> [--verbose]
+# Generate report for current repo
+python scripts/review_report_generator.py /path/to/repo
+
+# Markdown output
+python scripts/review_report_generator.py . --format markdown --output review.md
+
+# Use pre-computed analyses
+python scripts/review_report_generator.py . \
+  --pr-analysis pr_results.json \
+  --quality-analysis quality_results.json
 ```
 
-### 3. Review Report Generator
+**Report includes:**
+- Review verdict (approve, request changes, block)
+- Score (0-100)
+- Prioritized action items
+- Issue summary by severity
+- Suggested review order
 
-Advanced tooling for specialized tasks.
+**Verdicts:**
 
-**Features:**
-- Expert-level automation
-- Custom configurations
-- Integration ready
-- Production-grade output
+| Score | Verdict |
+|-------|---------|
+| 90+ with no high issues | Approve |
+| 75+ with ≤2 high issues | Approve with suggestions |
+| 50-74 | Request changes |
+| <50 or critical issues | Block |
 
-**Usage:**
-```bash
-python scripts/review_report_generator.py [arguments] [options]
-```
+---
 
-## Reference Documentation
+## Reference Guides
 
 ### Code Review Checklist
+`references/code_review_checklist.md`
 
-Comprehensive guide available in `references/code_review_checklist.md`:
-
-- Detailed patterns and practices
-- Code examples
-- Best practices
-- Anti-patterns to avoid
-- Real-world scenarios
+Systematic checklists covering:
+- Pre-review checks (build, tests, PR hygiene)
+- Correctness (logic, data handling, error handling)
+- Security (input validation, injection prevention)
+- Performance (efficiency, caching, scalability)
+- Maintainability (code quality, naming, structure)
+- Testing (coverage, quality, mocking)
+- Language-specific checks
 
 ### Coding Standards
+`references/coding_standards.md`
 
-Complete workflow documentation in `references/coding_standards.md`:
-
-- Step-by-step processes
-- Optimization strategies
-- Tool integrations
-- Performance tuning
-- Troubleshooting guide
+Language-specific standards for:
+- TypeScript (type annotations, null safety, async/await)
+- JavaScript (declarations, patterns, modules)
+- Python (type hints, exceptions, class design)
+- Go (error handling, structs, concurrency)
+- Swift (optionals, protocols, errors)
+- Kotlin (null safety, data classes, coroutines)
 
 ### Common Antipatterns
+`references/common_antipatterns.md`
 
-Technical reference guide in `references/common_antipatterns.md`:
+Antipattern catalog with examples and fixes:
+- Structural (god class, long method, deep nesting)
+- Logic (boolean blindness, stringly typed code)
+- Security (SQL injection, hardcoded credentials)
+- Performance (N+1 queries, unbounded collections)
+- Testing (duplication, testing implementation)
+- Async (floating promises, callback hell)
 
-- Technology stack details
-- Configuration examples
-- Integration patterns
-- Security considerations
-- Scalability guidelines
+---
 
-## Tech Stack
+## Languages Supported
 
-**Languages:** TypeScript, JavaScript, Python, Go, Swift, Kotlin
-**Frontend:** React, Next.js, React Native, Flutter
-**Backend:** Node.js, Express, GraphQL, REST APIs
-**Database:** PostgreSQL, Prisma, NeonDB, Supabase
-**DevOps:** Docker, Kubernetes, Terraform, GitHub Actions, CircleCI
-**Cloud:** AWS, GCP, Azure
-
-## Development Workflow
-
-### 1. Setup and Configuration
-
-```bash
-# Install dependencies
-npm install
-# or
-pip install -r requirements.txt
-
-# Configure environment
-cp .env.example .env
-```
-
-### 2. Run Quality Checks
-
-```bash
-# Use the analyzer script
-python scripts/code_quality_checker.py .
-
-# Review recommendations
-# Apply fixes
-```
-
-### 3. Implement Best Practices
-
-Follow the patterns and practices documented in:
-- `references/code_review_checklist.md`
-- `references/coding_standards.md`
-- `references/common_antipatterns.md`
-
-## Best Practices Summary
-
-### Code Quality
-- Follow established patterns
-- Write comprehensive tests
-- Document decisions
-- Review regularly
-
-### Performance
-- Measure before optimizing
-- Use appropriate caching
-- Optimize critical paths
-- Monitor in production
-
-### Security
-- Validate all inputs
-- Use parameterized queries
-- Implement proper authentication
-- Keep dependencies updated
-
-### Maintainability
-- Write clear code
-- Use consistent naming
-- Add helpful comments
-- Keep it simple
-
-## Common Commands
-
-```bash
-# Development
-npm run dev
-npm run build
-npm run test
-npm run lint
-
-# Analysis
-python scripts/code_quality_checker.py .
-python scripts/review_report_generator.py --analyze
-
-# Deployment
-docker build -t app:latest .
-docker-compose up -d
-kubectl apply -f k8s/
-```
-
-## Troubleshooting
-
-### Common Issues
-
-Check the comprehensive troubleshooting section in `references/common_antipatterns.md`.
-
-### Getting Help
-
-- Review reference documentation
-- Check script output messages
-- Consult tech stack documentation
-- Review error logs
-
-## Resources
-
-- Pattern Reference: `references/code_review_checklist.md`
-- Workflow Guide: `references/coding_standards.md`
-- Technical Guide: `references/common_antipatterns.md`
-- Tool Scripts: `scripts/` directory
+| Language | Extensions |
+|----------|------------|
+| Python | `.py` |
+| TypeScript | `.ts`, `.tsx` |
+| JavaScript | `.js`, `.jsx`, `.mjs` |
+| Go | `.go` |
+| Swift | `.swift` |
+| Kotlin | `.kt`, `.kts` |

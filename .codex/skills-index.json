@@ -117,7 +117,7 @@
       "name": "tdd-guide",
       "source": "../../engineering-team/tdd-guide",
       "category": "engineering",
-      "description": "Comprehensive Test Driven Development guide for engineering subagents with multi-framework support, coverage analysis, and intelligent test generation"
+      "description": "Test-driven development workflow with test generation, coverage analysis, and multi-framework support"
     },
     {
       "name": "tech-stack-evaluator",

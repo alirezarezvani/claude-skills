@@ -1,195 +1,335 @@
 ---
 name: mdr-745-specialist
-description: EU MDR 2017/745 regulation specialist and consultant for medical device requirement management. Provides comprehensive MDR compliance expertise, gap analysis, technical documentation guidance, clinical evidence requirements, and post-market surveillance implementation. Use for MDR compliance assessment, classification decisions, technical file preparation, and regulatory requirement interpretation.
+description: EU MDR 2017/745 compliance specialist for medical device classification, technical documentation, clinical evidence, and post-market surveillance. Covers Annex VIII classification rules, Annex II/III technical files, Annex XIV clinical evaluation, and EUDAMED integration.
+triggers:
+  - MDR compliance
+  - EU MDR
+  - medical device classification
+  - Annex VIII
+  - technical documentation
+  - clinical evaluation
+  - PMCF
+  - EUDAMED
+  - UDI
+  - notified body
 ---
 
-# Senior MDR 2017/745 Specialist and Consultant
+# MDR 2017/745 Specialist
 
-Expert-level EU MDR 2017/745 compliance specialist with comprehensive knowledge of medical device regulation requirements, technical documentation, clinical evidence, and post-market surveillance obligations.
+EU MDR compliance patterns for medical device classification, technical documentation, and clinical evidence.
 
-## Core MDR Competencies
+---
 
-### 1. MDR Classification and Risk Assessment
-Provide expert guidance on device classification under MDR Annex VIII and conformity assessment route selection.
+## Table of Contents
 
-**Classification Decision Framework:**
-1. **Preliminary Classification Assessment**
-   - Apply MDR Annex VIII classification rules
-   - Consider device duration, invasiveness, and body system interaction
-   - Evaluate software classification per MDCG 2019-11
-   - **Decision Point**: Determine appropriate classification class (I, IIa, IIb, III)
+- [Device Classification Workflow](#device-classification-workflow)
+- [Technical Documentation](#technical-documentation)
+- [Clinical Evidence](#clinical-evidence)
+- [Post-Market Surveillance](#post-market-surveillance)
+- [EUDAMED and UDI](#eudamed-and-udi)
+- [Reference Documentation](#reference-documentation)
+- [Tools](#tools)
 
-2. **Classification Justification**
-   - Document classification rationale per references/mdr-classification-guide.md
-   - Consider borderline cases and MDCG guidance
-   - Evaluate combination device implications
-   - Validate classification with Notified Body consultation
+---
 
-3. **Conformity Assessment Route Selection**
-   - **Class I**: Self-certification under Annex II
-   - **Class IIa**: Module C2 + Annex V (Notified Body involvement)
-   - **Class IIb**: Module B + C or D (Type examination + production)
-   - **Class III**: Module B + C or D (Full quality assurance)
+## Device Classification Workflow
 
-### 2. Technical Documentation Requirements (Annex II & III)
-Ensure comprehensive technical file preparation meeting all MDR documentation requirements.
+Classify device under MDR Annex VIII:
 
-**Technical Documentation Structure:**
+1. Identify device duration (transient, short-term, long-term)
+2. Determine invasiveness level (non-invasive, body orifice, surgical)
+3. Assess body system contact (CNS, cardiac, other)
+4. Check if active device (energy dependent)
+5. Apply classification rules 1-22
+6. For software, apply MDCG 2019-11 algorithm
+7. Document classification rationale
+8. **Validation:** Classification confirmed with Notified Body
+
+### Classification Matrix
+
+| Factor | Class I | Class IIa | Class IIb | Class III |
+|--------|---------|-----------|-----------|-----------|
+| Duration | Any | Short-term | Long-term | Long-term |
+| Invasiveness | Non-invasive | Body orifice | Surgical | Implantable |
+| System | Any | Non-critical | Critical organs | CNS/cardiac |
+| Risk | Lowest | Low-medium | Medium-high | Highest |
+
+### Software Classification (MDCG 2019-11)
+
+| Information Use | Condition Severity | Class |
+|-----------------|-------------------|-------|
+| Informs decision | Non-serious | IIa |
+| Informs decision | Serious | IIb |
+| Drives/treats | Critical | III |
+
+### Classification Examples
+
+**Example 1: Absorbable Surgical Suture**
+- Rule 8 (implantable, long-term)
+- Duration: > 30 days (absorbed)
+- Contact: General tissue
+- Classification: **Class IIb**
+
+**Example 2: AI Diagnostic Software**
+- Rule 11 + MDCG 2019-11
+- Function: Diagnoses serious condition
+- Classification: **Class IIb**
+
+**Example 3: Cardiac Pacemaker**
+- Rule 8 (implantable)
+- Contact: Central circulatory system
+- Classification: **Class III**
+
+---
+
+## Technical Documentation
+
+Prepare technical file per Annex II and III:
+
+1. Create device description (variants, accessories, intended purpose)
+2. Develop labeling (Article 13 requirements, IFU)
+3. Document design and manufacturing process
+4. Complete GSPR compliance matrix
+5. Prepare benefit-risk analysis
+6. Compile verification and validation evidence
+7. Integrate risk management file (ISO 14971)
+8. **Validation:** Technical file reviewed for completeness
+
+### Technical File Structure
+
 ```
 ANNEX II TECHNICAL DOCUMENTATION
-├── General Information
-│   ├── Device identification and UDI-DI
-│   ├── Manufacturer and authorized representative info
-│   ├── Intended purpose and clinical condition
-│   └── Device description and variants
-├── Information to be Supplied by Manufacturer
-│   ├── Label and instructions for use
-│   ├── Clinical evaluation and post-market clinical follow-up
-│   ├── Risk management documentation
-│   └── Product verification and validation
-├── Design and Manufacturing Information
-│   ├── Quality management system documentation
-│   ├── Design and development process
-│   ├── Manufacturing process description
-│   └── Identification and traceability procedures
-└── General Safety and Performance Requirements
-    ├── Solutions adopted for GSPR compliance
-    ├── Benefit-risk analysis and risk management
-    ├── Product lifecycle and post-market surveillance
-    └── Clinical evidence and evaluation
+├── Device description and UDI-DI
+├── Label and instructions for use
+├── Design and manufacturing info
+├── GSPR compliance matrix
+├── Benefit-risk analysis
+├── Verification and validation
+└── Clinical evaluation report
 ```
 
-### 3. Clinical Evidence Requirements (Annex XIV)
-Manage comprehensive clinical evidence strategies ensuring MDR compliance and scientific rigor.
+### GSPR Compliance Checklist
 
-**Clinical Evidence Pathway Selection:**
-1. **Literature-Based Evidence**
-   - Systematic literature review methodology
-   - Appraisal of clinical data per MEDDEV 2.7/1 rev.4
-   - Gap analysis and additional evidence requirements
-   - **Decision Point**: Determine if literature is sufficient or clinical investigation required
+| Requirement | Evidence | Status |
+|-------------|----------|--------|
+| Safe design (GSPR 1-3) | Risk management file | ☐ |
+| Chemical properties (GSPR 10.1) | Biocompatibility report | ☐ |
+| Infection risk (GSPR 10.2) | Sterilization validation | ☐ |
+| Software requirements (GSPR 17) | IEC 62304 documentation | ☐ |
+| Labeling (GSPR 23) | Label artwork, IFU | ☐ |
 
-2. **Clinical Investigation Requirements**
-   - **For significant changes** or **novel devices**
-   - **For Class III implantable devices** (Article 61)
-   - Clinical investigation plan development
-   - Ethics committee and competent authority approvals
+### Conformity Assessment Routes
 
-3. **Post-Market Clinical Follow-up (PMCF)**
-   - **PMCF Plan** development per Annex XIV Part B
-   - **PMCF Evaluation Report** (PMCF-ER) preparation
-   - Clinical evaluation report updating requirements
-   - Integration with post-market surveillance system
+| Class | Route | NB Involvement |
+|-------|-------|----------------|
+| I | Annex II self-declaration | None |
+| Is/Im | Annex II + IX/XI | Sterile/measuring aspects |
+| IIa | Annex II + IX or XI | Product or QMS |
+| IIb | Annex IX + X or X + XI | Type exam + production |
+| III | Annex IX + X | Full QMS + type exam |
 
-### 4. UDI System Implementation (Article 27)
-Implement comprehensive Unique Device Identification system meeting MDR requirements and EUDAMED integration.
+---
 
-**UDI Implementation Workflow:**
-1. **UDI Strategy Development**
-   - UDI-DI assignment for device variants
-   - UDI-PI requirements for higher risk devices
-   - EUDAMED registration timeline planning
-   - Labeling compliance verification
+## Clinical Evidence
 
-2. **EUDAMED Registration**
-   - **Actor registration** (manufacturers, authorized representatives)
-   - **Device registration** and UDI-DI assignment
-   - **Certificate registration** (Notified Body certificates)
-   - **Clinical investigation** and serious incident reporting
+Develop clinical evidence strategy per Annex XIV:
 
-## MDR Compliance Management
+1. Define clinical claims and endpoints
+2. Conduct systematic literature search
+3. Appraise clinical data quality
+4. Assess equivalence (technical, biological, clinical)
+5. Identify evidence gaps
+6. Determine if clinical investigation required
+7. Prepare Clinical Evaluation Report (CER)
+8. **Validation:** CER reviewed by qualified evaluator
 
-### Gap Analysis and Transition Planning
-Conduct systematic gap assessments against current MDR requirements and develop comprehensive transition strategies.
+### Evidence Requirements by Class
 
-**Gap Analysis Framework:**
-1. **Current State Assessment**
-   - Existing QMS compliance evaluation
-   - Technical documentation gap identification
-   - Clinical evidence adequacy assessment
-   - Post-market surveillance system review
+| Class | Minimum Evidence | Investigation |
+|-------|------------------|---------------|
+| I | Risk-benefit analysis | Not typically required |
+| IIa | Literature + post-market | May be required |
+| IIb | Systematic literature review | Often required |
+| III | Comprehensive clinical data | Required (Article 61) |
 
-2. **MDR Requirement Mapping**
-   - **For existing devices**: Legacy directive vs. MDR requirements
-   - **For new devices**: Full MDR compliance roadmap
-   - **For software**: Software-specific MDR requirements per MDCG guidance
-   - Resource and timeline impact assessment
+### Clinical Evaluation Report Structure
 
-### Post-Market Surveillance (Chapter VII)
-Establish robust post-market surveillance systems meeting MDR requirements for continuous safety monitoring.
+```
+CER CONTENTS
+├── Executive summary
+├── Device scope and intended purpose
+├── Clinical background (state of the art)
+├── Literature search methodology
+├── Data appraisal and analysis
+├── Safety and performance conclusions
+├── Benefit-risk determination
+└── PMCF plan summary
+```
 
-**PMS System Components:**
-- **PMS Plan** development per Article 84
-- **Periodic Safety Update Report (PSUR)** preparation
-- **Serious incident reporting** to competent authorities
-- **Field safety corrective actions (FSCA)** management
-- **Trend reporting** and signal detection
+### Qualified Evaluator Requirements
 
-### Economic Operator Obligations
-Ensure compliance with expanded economic operator responsibilities under MDR.
+- Medical degree or equivalent healthcare qualification
+- 4+ years clinical experience in relevant field
+- Training in clinical evaluation methodology
+- Understanding of MDR requirements
 
-**Key Obligations Management:**
-- **Manufacturer obligations** (Article 10)
-- **Authorized representative duties** (Article 11)
-- **Importer responsibilities** (Article 13)
-- **Distributor obligations** (Article 14)
-- **Person responsible for regulatory compliance** (Article 15)
+---
+
+## Post-Market Surveillance
+
+Establish PMS system per Chapter VII:
+
+1. Develop PMS plan (Article 84)
+2. Define data collection methods
+3. Establish complaint handling procedures
+4. Create vigilance reporting process
+5. Plan Periodic Safety Update Reports (PSUR)
+6. Integrate with PMCF activities
+7. Define trend analysis and signal detection
+8. **Validation:** PMS system audited annually
+
+### PMS System Components
+
+| Component | Requirement | Frequency |
+|-----------|-------------|-----------|
+| PMS Plan | Article 84 | Maintain current |
+| PSUR | Class IIa and higher | Per class schedule |
+| PMCF Plan | Annex XIV Part B | Update with CER |
+| PMCF Report | Annex XIV Part B | Annual (Class III) |
+| Vigilance | Articles 87-92 | As events occur |
+
+### PSUR Schedule
+
+| Class | Frequency |
+|-------|-----------|
+| Class III | Annual |
+| Class IIb implantable | Annual |
+| Class IIb | Every 2 years |
+| Class IIa | When necessary |
+
+### Serious Incident Reporting
+
+| Timeline | Requirement |
+|----------|-------------|
+| 2 days | Serious public health threat |
+| 10 days | Death or serious deterioration |
+| 15 days | Other serious incidents |
+
+---
+
+## EUDAMED and UDI
+
+Implement UDI system per Article 27:
+
+1. Obtain issuing entity code (GS1, HIBCC, ICCBBA)
+2. Assign UDI-DI to each device variant
+3. Assign UDI-PI (production identifier)
+4. Apply UDI carrier to labels (AIDC + HRI)
+5. Register actor in EUDAMED
+6. Register devices in EUDAMED
+7. Upload certificates when available
+8. **Validation:** UDI verified on sample labels
+
+### EUDAMED Modules
+
+| Module | Content | Actor |
+|--------|---------|-------|
+| Actor | Company registration | Manufacturer, AR |
+| UDI/Device | Device and variant data | Manufacturer |
+| Certificates | NB certificates | Notified Body |
+| Clinical Investigation | Study registration | Sponsor |
+| Vigilance | Incident reports | Manufacturer |
+| Market Surveillance | Authority actions | Competent Authority |
+
+### UDI Label Requirements
+
+Required elements per Article 13:
+
+- [ ] UDI-DI (device identifier)
+- [ ] UDI-PI (production identifier) for Class II+
+- [ ] AIDC format (barcode/RFID)
+- [ ] HRI format (human-readable)
+- [ ] Manufacturer name and address
+- [ ] Lot/serial number
+- [ ] Expiration date (if applicable)
+
+---
+
+## Reference Documentation
+
+### MDR Classification Guide
+
+`references/mdr-classification-guide.md` contains:
+
+- Complete Annex VIII classification rules (Rules 1-22)
+- Software classification per MDCG 2019-11
+- Worked classification examples
+- Conformity assessment route selection
+
+### Clinical Evidence Requirements
+
+`references/clinical-evidence-requirements.md` contains:
+
+- Clinical evidence framework and hierarchy
+- Literature search methodology
+- Clinical Evaluation Report structure
+- PMCF plan and evaluation report guidance
+
+### Technical Documentation Templates
+
+`references/technical-documentation-templates.md` contains:
+
+- Annex II and III content requirements
+- Design History File structure
+- GSPR compliance matrix template
+- Declaration of Conformity template
+- Notified Body submission checklist
+
+---
+
+## Tools
+
+### MDR Gap Analyzer
+
+```bash
+# Quick gap analysis
+python scripts/mdr_gap_analyzer.py --device "Device Name" --class IIa
+
+# JSON output for integration
+python scripts/mdr_gap_analyzer.py --device "Device Name" --class III --output json
+
+# Interactive assessment
+python scripts/mdr_gap_analyzer.py --interactive
+```
+
+Analyzes device against MDR requirements, identifies compliance gaps, generates prioritized recommendations.
+
+**Output includes:**
+- Requirements checklist by category
+- Gap identification with priorities
+- Critical gap highlighting
+- Compliance roadmap recommendations
+
+---
 
 ## Notified Body Interface
 
-### Notified Body Selection and Management
-Provide strategic guidance on Notified Body selection and relationship management throughout the conformity assessment process.
+### Selection Criteria
 
-**Notified Body Engagement Strategy:**
-1. **Selection Criteria Assessment**
-   - Technical competency evaluation
-   - Capacity and timeline considerations
-   - Geographic scope and market access
-   - Fee structure and commercial terms
+| Factor | Considerations |
+|--------|----------------|
+| Designation scope | Covers your device type |
+| Capacity | Timeline for initial audit |
+| Geographic reach | Markets you need to access |
+| Technical expertise | Experience with your technology |
+| Fee structure | Transparency, predictability |
 
-2. **Pre-submission Activities**
-   - Pre-submission meetings and consultations
-   - Technical documentation readiness assessment
-   - Timeline and milestone planning
-   - **Decision Point**: Determine submission readiness and timing
+### Pre-Submission Checklist
 
-### Audit and Assessment Management
-Coordinate Notified Body audits and assessments ensuring successful outcomes and certificate maintenance.
-
-**Audit Preparation Protocol:**
-- **Documentation preparation** and organization
-- **Personnel training** and role assignment
-- **Facility readiness** and compliance verification
-- **Mock audit** execution and improvement implementation
-
-## Regulatory Intelligence and Updates
-
-### MDR Guidance Monitoring
-Maintain current awareness of evolving MDR guidance and regulatory expectations.
-
-**Guidance Tracking System:**
-- **MDCG guidance** monitoring and impact assessment
-- **Notified Body guidance** evaluation and implementation
-- **Competent authority positions** and national implementations
-- **Industry best practices** and lessons learned integration
-
-## Resources
-
-### scripts/
-- `mdr-gap-analysis.py`: Automated MDR compliance gap assessment tool
-- `clinical-evidence-tracker.py`: Clinical evidence requirement monitoring
-- `udeudi-compliance-checker.py`: UDI and EUDAMED compliance verification
-- `pms-reporting-automation.py`: Post-market surveillance report generation
-
-### references/
-- `mdr-classification-guide.md`: Comprehensive device classification framework
-- `technical-documentation-templates.md`: Annex II and III documentation templates
-- `clinical-evidence-requirements.md`: Clinical evaluation and PMCF guidance
-- `notified-body-selection-criteria.md`: NB evaluation and selection framework
-- `mdcg-guidance-library.md`: Current MDCG guidance compilation
-
-### assets/
-- `mdr-templates/`: Technical file, clinical evaluation, and PMS plan templates
-- `gap-analysis-checklists/`: MDR compliance assessment tools
-- `eudamed-forms/`: EUDAMED registration and reporting templates
-- `training-materials/`: MDR training presentations and compliance guides
+- [ ] Technical documentation complete
+- [ ] GSPR matrix fully addressed
+- [ ] Risk management file current
+- [ ] Clinical evaluation report complete
+- [ ] QMS (ISO 13485) certified
+- [ ] Labeling and IFU finalized
+- [ ] **Validation:** Internal gap assessment complete

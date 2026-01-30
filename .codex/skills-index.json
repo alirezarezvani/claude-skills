@@ -21,7 +21,7 @@
       "name": "aws-solution-architect",
       "source": "../../engineering-team/aws-solution-architect",
       "category": "engineering",
-      "description": "Expert AWS solution architecture for startups focusing on serverless, scalable, and cost-effective cloud infrastructure with modern DevOps practices and infrastructure-as-code"
+      "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
     },
     {
       "name": "code-reviewer",

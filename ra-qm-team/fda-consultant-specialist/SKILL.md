@@ -1,245 +1,307 @@
 ---
 name: fda-consultant-specialist
-description: Senior FDA consultant and specialist for medical device companies including HIPAA compliance and requirement management. Provides FDA pathway expertise, QSR compliance, cybersecurity guidance, and regulatory submission support. Use for FDA submission planning, QSR compliance assessments, HIPAA evaluations, and FDA regulatory strategy development.
+description: FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QSR (21 CFR 820) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QSR, premarket, predicate device, substantial equivalence, HIPAA medical device, or FDA cybersecurity.
 ---
 
-# Senior FDA Consultant and Specialist
+# FDA Consultant Specialist
 
-Expert-level FDA regulatory consulting with comprehensive knowledge of medical device regulations, Quality System Regulation (QSR), HIPAA compliance, cybersecurity requirements, and FDA submission pathways.
+FDA regulatory consulting for medical device manufacturers covering submission pathways, Quality System Regulation (QSR), HIPAA compliance, and device cybersecurity requirements.
 
-## Core FDA Regulatory Competencies
+## Table of Contents
 
-### 1. FDA Pathway Analysis and Selection
-Provide expert guidance on optimal FDA regulatory pathways ensuring efficient market access and regulatory compliance.
+- [FDA Pathway Selection](#fda-pathway-selection)
+- [510(k) Submission Process](#510k-submission-process)
+- [QSR Compliance](#qsr-compliance)
+- [HIPAA for Medical Devices](#hipaa-for-medical-devices)
+- [Device Cybersecurity](#device-cybersecurity)
+- [Resources](#resources)
 
-**FDA Pathway Decision Framework:**
+---
+
+## FDA Pathway Selection
+
+Determine the appropriate FDA regulatory pathway based on device classification and predicate availability.
+
+### Decision Framework
+
 ```
-FDA REGULATORY PATHWAY SELECTION
-├── Device Classification Determination
-│   ├── Predicate device identification
-│   ├── Classification database research
-│   ├── Classification panel consultation
-│   └── De Novo pathway evaluation
-├── Submission Pathway Selection
-│   ├── 510(k) Clearance Assessment
-│   │   ├── Traditional 510(k)
-│   │   ├── Special 510(k)
-│   │   └── Abbreviated 510(k)
-│   ├── PMA (Premarket Approval) Evaluation
-│   │   ├── Original PMA
-│   │   ├── Panel-track supplement
-│   │   └── Real-time supplement
-│   └── De Novo Classification Request
-│       ├── Novel device evaluation
-│       ├── Risk classification
-│       └── Special controls development
-└── Pre-submission Strategy
-    ├── Q-Sub meeting planning
-    ├── FDA feedback integration
-    ├── Submission timeline optimization
-    └── Risk mitigation planning
+Predicate device exists?
+├── YES → Substantially equivalent?
+│   ├── YES → 510(k) Pathway
+│   │   ├── No design changes → Abbreviated 510(k)
+│   │   ├── Manufacturing only → Special 510(k)
+│   │   └── Design/performance → Traditional 510(k)
+│   └── NO → PMA or De Novo
+└── NO → Novel device?
+    ├── Low-to-moderate risk → De Novo
+    └── High risk (Class III) → PMA
 ```
 
-### 2. Quality System Regulation (QSR) 21 CFR 820 Compliance
-Ensure comprehensive compliance with FDA Quality System Regulation throughout medical device lifecycle.
+### Pathway Comparison
 
-**QSR Compliance Framework:**
-1. **Design Controls (21 CFR 820.30)**
-   - Design planning and procedures
-   - Design input requirements and documentation
-   - Design output specifications and verification
-   - Design review, verification, and validation
-   - Design transfer and change control
+| Pathway | When to Use | Timeline | Cost |
+|---------|-------------|----------|------|
+| 510(k) Traditional | Predicate exists, design changes | 90 days | $21,760 |
+| 510(k) Special | Manufacturing changes only | 30 days | $21,760 |
+| 510(k) Abbreviated | Guidance/standard conformance | 30 days | $21,760 |
+| De Novo | Novel, low-moderate risk | 150 days | $134,676 |
+| PMA | Class III, no predicate | 180+ days | $425,000+ |
 
-2. **Management Responsibility (21 CFR 820.20)**
-   - Quality policy establishment and communication
-   - Organizational structure and responsibility
-   - Management representative designation
-   - Management review process implementation
+### Pre-Submission Strategy
 
-3. **Document Controls (21 CFR 820.40)**
-   - Document approval and distribution procedures
-   - Document change control processes
-   - Document retention and access management
-   - Obsolete document control
+1. Identify product code and classification
+2. Search 510(k) database for predicates
+3. Assess substantial equivalence feasibility
+4. Prepare Q-Sub questions for FDA
+5. Schedule Pre-Sub meeting if needed
 
-4. **Corrective and Preventive Actions (21 CFR 820.100)**
-   - **CAPA System Implementation**: Follow references/fda-capa-requirements.md
-   - Investigation and root cause analysis procedures
-   - Corrective action implementation and verification
-   - Preventive action identification and implementation
+**Reference:** See [fda_submission_guide.md](references/fda_submission_guide.md) for pathway decision matrices and submission requirements.
 
-### 3. FDA Submission Preparation and Management
-Lead comprehensive FDA submission preparation ensuring regulatory compliance and approval success.
+---
 
-**510(k) Submission Process:**
-1. **Pre-submission Activities**
-   - Predicate device analysis and substantial equivalence strategy
-   - Q-Sub meeting preparation and FDA consultation
-   - Testing strategy development and validation
-   - **Decision Point**: Determine submission readiness and pathway confirmation
+## 510(k) Submission Process
 
-2. **510(k) Preparation**
-   - **Device Description**: Comprehensive device characterization
-   - **Indications for Use**: Clinical indication and patient population
-   - **Substantial Equivalence Comparison**: Predicate device analysis
-   - **Performance Testing**: Bench testing, biocompatibility, software validation
-   - **Labeling**: Instructions for use and contraindications
+### Workflow
 
-3. **FDA Review Management**
-   - FDA communication and additional information responses
-   - Review timeline monitoring and management
-   - FDA questions and clarification coordination
-   - Clearance letter processing and market launch preparation
-
-**PMA Submission Process:**
-1. **Clinical Investigation Requirements**
-   - IDE (Investigational Device Exemption) strategy and submission
-   - Clinical study protocol development and validation
-   - Good Clinical Practice (GCP) compliance oversight
-   - Clinical data analysis and statistical evaluation
-
-2. **PMA Application Preparation**
-   - Manufacturing information and quality system documentation
-   - Clinical and nonclinical safety and effectiveness data
-   - Risk analysis and benefit-risk assessment
-   - Labeling and post-market study commitments
-
-### 4. HIPAA Compliance and Healthcare Data Protection
-Ensure comprehensive HIPAA compliance for medical devices handling protected health information (PHI).
-
-**HIPAA Compliance Framework:**
 ```
-HIPAA COMPLIANCE REQUIREMENTS
-├── Administrative Safeguards
-│   ├── Security officer designation
-│   ├── Workforce training and access management
-│   ├── Information access management
-│   └── Security awareness and training
-├── Physical Safeguards
-│   ├── Facility access controls
-│   ├── Workstation use restrictions
-│   ├── Device and media controls
-│   └── Equipment disposal procedures
-├── Technical Safeguards
-│   ├── Access control systems
-│   ├── Audit controls and monitoring
-│   ├── Integrity controls
-│   ├── Person or entity authentication
-│   └── Transmission security
-└── Business Associate Requirements
-    ├── Business associate agreements
-    ├── Subcontractor management
-    ├── Breach notification procedures
-    └── Risk assessment documentation
+Phase 1: Planning
+├── Step 1: Identify predicate device(s)
+├── Step 2: Compare intended use and technology
+├── Step 3: Determine testing requirements
+└── Checkpoint: SE argument feasible?
+
+Phase 2: Preparation
+├── Step 4: Complete performance testing
+├── Step 5: Prepare device description
+├── Step 6: Document SE comparison
+├── Step 7: Finalize labeling
+└── Checkpoint: All required sections complete?
+
+Phase 3: Submission
+├── Step 8: Assemble submission package
+├── Step 9: Submit via eSTAR
+├── Step 10: Track acknowledgment
+└── Checkpoint: Submission accepted?
+
+Phase 4: Review
+├── Step 11: Monitor review status
+├── Step 12: Respond to AI requests
+├── Step 13: Receive decision
+└── Verification: SE letter received?
 ```
 
-**HIPAA Risk Assessment Process:**
-1. **PHI Data Flow Analysis**
-   - PHI collection, storage, and transmission mapping
-   - Data access point identification and control
-   - Third-party data sharing evaluation
-   - Data retention and disposal procedures
+### Required Sections (21 CFR 807.87)
 
-2. **Technical Safeguard Implementation**
-   - **For Connected Devices**: Follow references/device-cybersecurity-guidance.md
-   - **For Software Systems**: Follow references/software-hipaa-compliance.md
-   - **For Cloud Services**: Follow references/cloud-hipaa-requirements.md
-   - Encryption and access control verification
+| Section | Content |
+|---------|---------|
+| Cover Letter | Submission type, device ID, contact info |
+| Form 3514 | CDRH premarket review cover sheet |
+| Device Description | Physical description, principles of operation |
+| Indications for Use | Form 3881, patient population, use environment |
+| SE Comparison | Side-by-side comparison with predicate |
+| Performance Testing | Bench, biocompatibility, electrical safety |
+| Software Documentation | Level of concern, hazard analysis (IEC 62304) |
+| Labeling | IFU, package labels, warnings |
+| 510(k) Summary | Public summary of submission |
 
-## Advanced FDA Regulatory Applications
+### Common RTA Issues
 
-### Software as Medical Device (SaMD) Regulation
-Navigate complex FDA requirements for software-based medical devices ensuring compliance and efficient approval.
+| Issue | Prevention |
+|-------|------------|
+| Missing user fee | Verify payment before submission |
+| Incomplete Form 3514 | Review all fields, ensure signature |
+| No predicate identified | Confirm K-number in FDA database |
+| Inadequate SE comparison | Address all technological characteristics |
 
-**SaMD Regulatory Strategy:**
-- **Software Classification**: SaMD risk categorization per FDA guidance
-- **Software Documentation**: Software lifecycle documentation per FDA requirements
-- **Cybersecurity Requirements**: FDA cybersecurity guidance implementation
-- **Change Control**: Software modification and FDA notification requirements
+---
 
-### Combination Product Regulation
-Manage FDA combination product requirements ensuring proper classification and regulatory pathway selection.
+## QSR Compliance
 
-**Combination Product Framework:**
-- **OPDP Assignment**: Office of Product Development and Policy consultation
-- **Lead Center Determination**: CDER, CDRH, or CBER assignment
-- **Intercenter Agreement**: Cross-center coordination and communication
-- **Combination Product Guidance**: Product-specific regulatory guidance
+Quality System Regulation (21 CFR Part 820) requirements for medical device manufacturers.
 
-### FDA Cybersecurity Compliance
-Implement comprehensive cybersecurity measures meeting FDA requirements and guidance.
+### Key Subsystems
 
-**FDA Cybersecurity Requirements:**
-1. **Premarket Cybersecurity Requirements**
-   - Cybersecurity risk assessment and management
-   - Software bill of materials (SBOM) documentation
-   - Cybersecurity controls implementation and verification
-   - Vulnerability disclosure and management procedures
+| Section | Title | Focus |
+|---------|-------|-------|
+| 820.20 | Management Responsibility | Quality policy, org structure, management review |
+| 820.30 | Design Controls | Input, output, review, verification, validation |
+| 820.40 | Document Controls | Approval, distribution, change control |
+| 820.50 | Purchasing Controls | Supplier qualification, purchasing data |
+| 820.70 | Production Controls | Process validation, environmental controls |
+| 820.100 | CAPA | Root cause analysis, corrective actions |
+| 820.181 | Device Master Record | Specifications, procedures, acceptance criteria |
 
-2. **Post-market Cybersecurity Obligations**
-   - Cybersecurity monitoring and threat intelligence
-   - Security update and patch management
-   - Incident response and reporting procedures
-   - Coordinated vulnerability disclosure programs
+### Design Controls Workflow (820.30)
 
-## FDA Inspection Readiness
+```
+Step 1: Design Input
+└── Capture user needs, intended use, regulatory requirements
+    Verification: Inputs reviewed and approved?
 
-### FDA Inspection Preparation
-Ensure comprehensive readiness for FDA inspections including QSR compliance verification and documentation review.
+Step 2: Design Output
+└── Create specifications, drawings, software architecture
+    Verification: Outputs traceable to inputs?
 
-**Inspection Readiness Protocol:**
-- **Quality System Assessment**: QSR compliance verification and gap analysis
-- **Documentation Review**: Record completeness and regulatory compliance
-- **Personnel Training**: Inspection response and communication training
-- **Mock Inspection**: Internal inspection simulation and improvement
+Step 3: Design Review
+└── Conduct reviews at each phase milestone
+    Verification: Review records with signatures?
 
-### FDA Warning Letter Response
-Manage FDA warning letter responses ensuring comprehensive corrective action and regulatory compliance restoration.
+Step 4: Design Verification
+└── Perform testing against specifications
+    Verification: All tests pass acceptance criteria?
 
-**Warning Letter Response Strategy:**
-1. **Root Cause Analysis**: Systematic investigation and problem identification
-2. **Corrective Action Plan**: Comprehensive CAPA implementation
-3. **FDA Communication**: Professional response and timeline management
-4. **Verification Activities**: Effectiveness verification and compliance demonstration
+Step 5: Design Validation
+└── Confirm device meets user needs in actual use conditions
+    Verification: Validation report approved?
 
-## Regulatory Intelligence and Strategy
+Step 6: Design Transfer
+└── Release to production with DMR complete
+    Verification: Transfer checklist complete?
+```
 
-### FDA Guidance Monitoring
-Maintain current awareness of FDA guidance development and regulatory policy changes.
+### CAPA Process (820.100)
 
-**FDA Intelligence System:**
-- **Guidance Document Monitoring**: New and revised guidance tracking
-- **FDA Policy Changes**: Regulatory policy evolution and impact assessment
-- **Industry Communication**: FDA workshops, conferences, and stakeholder meetings
-- **Warning Letter Analysis**: Industry trends and enforcement patterns
+1. **Identify**: Document nonconformity or potential problem
+2. **Investigate**: Perform root cause analysis (5 Whys, Fishbone)
+3. **Plan**: Define corrective/preventive actions
+4. **Implement**: Execute actions, update documentation
+5. **Verify**: Confirm implementation complete
+6. **Effectiveness**: Monitor for recurrence (30-90 days)
+7. **Close**: Management approval and closure
 
-### Market Access Strategy
-Develop comprehensive market access strategies optimizing FDA regulatory pathways and commercial objectives.
+**Reference:** See [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) for detailed QSR implementation guidance.
 
-**Market Access Planning:**
-- **Regulatory Strategy Development**: Pathway optimization and risk mitigation
-- **Competitive Intelligence**: Regulatory landscape analysis and positioning
-- **Timeline Optimization**: Regulatory milestone planning and resource allocation
-- **Commercial Integration**: Regulatory strategy and business objective alignment
+---
+
+## HIPAA for Medical Devices
+
+HIPAA requirements for devices that create, store, transmit, or access Protected Health Information (PHI).
+
+### Applicability
+
+| Device Type | HIPAA Applies |
+|-------------|---------------|
+| Standalone diagnostic (no data transmission) | No |
+| Connected device transmitting patient data | Yes |
+| Device with EHR integration | Yes |
+| SaMD storing patient information | Yes |
+| Wellness app (no diagnosis) | Only if stores PHI |
+
+### Required Safeguards
+
+```
+Administrative (§164.308)
+├── Security officer designation
+├── Risk analysis and management
+├── Workforce training
+├── Incident response procedures
+└── Business associate agreements
+
+Physical (§164.310)
+├── Facility access controls
+├── Workstation security
+└── Device disposal procedures
+
+Technical (§164.312)
+├── Access control (unique IDs, auto-logoff)
+├── Audit controls (logging)
+├── Integrity controls (checksums, hashes)
+├── Authentication (MFA recommended)
+└── Transmission security (TLS 1.2+)
+```
+
+### Risk Assessment Steps
+
+1. Inventory all systems handling ePHI
+2. Document data flows (collection, storage, transmission)
+3. Identify threats and vulnerabilities
+4. Assess likelihood and impact
+5. Determine risk levels
+6. Implement controls
+7. Document residual risk
+
+**Reference:** See [hipaa_compliance_framework.md](references/hipaa_compliance_framework.md) for implementation checklists and BAA templates.
+
+---
+
+## Device Cybersecurity
+
+FDA cybersecurity requirements for connected medical devices.
+
+### Premarket Requirements
+
+| Element | Description |
+|---------|-------------|
+| Threat Model | STRIDE analysis, attack trees, trust boundaries |
+| Security Controls | Authentication, encryption, access control |
+| SBOM | Software Bill of Materials (CycloneDX or SPDX) |
+| Security Testing | Penetration testing, vulnerability scanning |
+| Vulnerability Plan | Disclosure process, patch management |
+
+### Device Tier Classification
+
+**Tier 1 (Higher Risk):**
+- Connects to network/internet
+- Cybersecurity incident could cause patient harm
+
+**Tier 2 (Standard Risk):**
+- All other connected devices
+
+### Postmarket Obligations
+
+1. Monitor NVD and ICS-CERT for vulnerabilities
+2. Assess applicability to device components
+3. Develop and test patches
+4. Communicate with customers
+5. Report to FDA per guidance
+
+### Coordinated Vulnerability Disclosure
+
+```
+Researcher Report
+    ↓
+Acknowledgment (48 hours)
+    ↓
+Initial Assessment (5 days)
+    ↓
+Fix Development
+    ↓
+Coordinated Public Disclosure
+```
+
+**Reference:** See [device_cybersecurity_guidance.md](references/device_cybersecurity_guidance.md) for SBOM format examples and threat modeling templates.
+
+---
 
 ## Resources
 
 ### scripts/
-- `fda-submission-tracker.py`: FDA submission status monitoring and timeline management
-- `qsr-compliance-checker.py`: QSR compliance assessment and gap analysis tool
-- `hipaa-risk-assessment.py`: HIPAA compliance evaluation and documentation
-- `fda-guidance-monitor.py`: FDA guidance and policy change monitoring
+
+| Script | Purpose |
+|--------|---------|
+| `fda_submission_tracker.py` | Track 510(k)/PMA/De Novo submission milestones and timelines |
+| `qsr_compliance_checker.py` | Assess 21 CFR 820 compliance against project documentation |
+| `hipaa_risk_assessment.py` | Evaluate HIPAA safeguards in medical device software |
 
 ### references/
-- `fda-submission-guide.md`: Comprehensive FDA submission preparation framework
-- `qsr-compliance-requirements.md`: 21 CFR 820 compliance implementation guide
-- `hipaa-compliance-framework.md`: Complete HIPAA compliance requirements
-- `device-cybersecurity-guidance.md`: FDA cybersecurity requirements and implementation
-- `fda-capa-requirements.md`: FDA CAPA system requirements and best practices
 
-### assets/
-- `fda-templates/`: FDA submission templates, forms, and checklists
-- `qsr-documentation/`: QSR compliance documentation templates
-- `hipaa-tools/`: HIPAA compliance assessment and documentation tools
-- `inspection-materials/`: FDA inspection preparation and response materials
+| File | Content |
+|------|---------|
+| `fda_submission_guide.md` | 510(k), De Novo, PMA submission requirements and checklists |
+| `qsr_compliance_requirements.md` | 21 CFR 820 implementation guide with templates |
+| `hipaa_compliance_framework.md` | HIPAA Security Rule safeguards and BAA requirements |
+| `device_cybersecurity_guidance.md` | FDA cybersecurity requirements, SBOM, threat modeling |
+| `fda_capa_requirements.md` | CAPA process, root cause analysis, effectiveness verification |
+
+### Usage Examples
+
+```bash
+# Track FDA submission status
+python scripts/fda_submission_tracker.py /path/to/project --type 510k
+
+# Assess QSR compliance
+python scripts/qsr_compliance_checker.py /path/to/project --section 820.30
+
+# Run HIPAA risk assessment
+python scripts/hipaa_risk_assessment.py /path/to/project --category technical
+```

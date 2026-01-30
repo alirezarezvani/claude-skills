@@ -1,279 +1,288 @@
 ---
 name: isms-audit-expert
-description: Senior ISMS Audit Expert for internal and external information security management system auditing. Provides ISO 27001 audit expertise, security audit program management, security control assessment, and compliance verification. Use for ISMS internal auditing, external audit preparation, security control testing, and ISO 27001 certification support.
+description: Information Security Management System auditing for ISO 27001 compliance, security control assessment, and certification support
+triggers:
+  - ISMS audit
+  - ISO 27001 audit
+  - security audit
+  - internal audit ISO 27001
+  - security control assessment
+  - certification audit
+  - surveillance audit
+  - audit finding
+  - nonconformity
 ---
 
-# Senior ISMS Audit Expert
+# ISMS Audit Expert
 
-Expert-level Information Security Management System (ISMS) auditing with comprehensive knowledge of ISO 27001, security audit methodologies, security control assessment, and cybersecurity compliance verification.
+Internal and external ISMS audit management for ISO 27001 compliance verification, security control assessment, and certification support.
 
-## Core ISMS Auditing Competencies
+## Table of Contents
 
-### 1. ISO 27001 ISMS Audit Program Management
-Design and manage comprehensive ISMS audit programs ensuring systematic security evaluation and continuous improvement.
+- [Audit Program Management](#audit-program-management)
+- [Audit Execution](#audit-execution)
+- [Control Assessment](#control-assessment)
+- [Finding Management](#finding-management)
+- [Certification Support](#certification-support)
+- [Tools](#tools)
+- [References](#references)
 
-**ISMS Audit Program Framework:**
+---
+
+## Audit Program Management
+
+### Risk-Based Audit Schedule
+
+| Risk Level | Audit Frequency | Examples |
+|------------|-----------------|----------|
+| Critical | Quarterly | Privileged access, vulnerability management, logging |
+| High | Semi-annual | Access control, incident response, encryption |
+| Medium | Annual | Policies, awareness training, physical security |
+| Low | Annual | Documentation, asset inventory |
+
+### Annual Audit Planning Workflow
+
+1. Review previous audit findings and risk assessment results
+2. Identify high-risk controls and recent security incidents
+3. Determine audit scope based on ISMS boundaries
+4. Assign auditors ensuring independence from audited areas
+5. Create audit schedule with resource allocation
+6. Obtain management approval for audit plan
+7. **Validation:** Audit plan covers all Annex A controls within certification cycle
+
+### Auditor Competency Requirements
+
+- ISO 27001 Lead Auditor certification (preferred)
+- No operational responsibility for audited processes
+- Understanding of technical security controls
+- Knowledge of applicable regulations (GDPR, HIPAA)
+
+---
+
+## Audit Execution
+
+### Pre-Audit Preparation
+
+1. Review ISMS documentation (policies, SoA, risk assessment)
+2. Analyze previous audit reports and open findings
+3. Prepare audit plan with interview schedule
+4. Notify auditees of audit scope and timing
+5. Prepare checklists for controls in scope
+6. **Validation:** All documentation received and reviewed before opening meeting
+
+### Audit Conduct Steps
+
+1. **Opening Meeting**
+   - Confirm audit scope and objectives
+   - Introduce audit team and methodology
+   - Agree on communication channels and logistics
+
+2. **Evidence Collection**
+   - Interview control owners and operators
+   - Review documentation and records
+   - Observe processes in operation
+   - Inspect technical configurations
+
+3. **Control Verification**
+   - Test control design (does it address the risk?)
+   - Test control operation (is it working as intended?)
+   - Sample transactions and records
+   - Document all evidence collected
+
+4. **Closing Meeting**
+   - Present preliminary findings
+   - Clarify any factual inaccuracies
+   - Agree on finding classification
+   - Confirm corrective action timelines
+
+5. **Validation:** All controls in scope assessed with documented evidence
+
+### Evidence Collection Methods
+
+| Method | Use Case | Example |
+|--------|----------|---------|
+| Inquiry | Process understanding | Interview Security Manager about incident response |
+| Observation | Operational verification | Watch visitor sign-in process |
+| Inspection | Documentation review | Check access approval records |
+| Re-performance | Control testing | Attempt login with weak password |
+
+---
+
+## Control Assessment
+
+### ISO 27002 Control Categories
+
+**Organizational Controls (A.5):**
+- Information security policies
+- Roles and responsibilities
+- Segregation of duties
+- Contact with authorities
+- Threat intelligence
+- Information security in projects
+
+**People Controls (A.6):**
+- Screening and background checks
+- Employment terms and conditions
+- Security awareness and training
+- Disciplinary process
+- Remote working security
+
+**Physical Controls (A.7):**
+- Physical security perimeters
+- Physical entry controls
+- Securing offices and facilities
+- Physical security monitoring
+- Equipment protection
+
+**Technological Controls (A.8):**
+- User endpoint devices
+- Privileged access rights
+- Access restriction
+- Secure authentication
+- Malware protection
+- Vulnerability management
+- Backup and recovery
+- Logging and monitoring
+- Network security
+- Cryptography
+
+### Control Testing Approach
+
+1. Identify control objective from ISO 27002
+2. Determine testing method (inquiry, observation, inspection, re-performance)
+3. Define sample size based on population and risk
+4. Execute test and document results
+5. Evaluate control effectiveness
+6. **Validation:** Evidence supports conclusion about control status
+
+---
+
+## Finding Management
+
+### Finding Classification
+
+| Severity | Definition | Response Time |
+|----------|------------|---------------|
+| Major Nonconformity | Control failure creating significant risk | 30 days |
+| Minor Nonconformity | Isolated deviation with limited impact | 90 days |
+| Observation | Improvement opportunity | Next audit cycle |
+
+### Finding Documentation Template
+
 ```
-ISMS AUDIT PROGRAM MANAGEMENT
-├── Security Audit Planning
-│   ├── Risk-based audit scheduling
-│   ├── Security domain scope definition
-│   ├── Technical auditor competency
-│   └── Security testing resource allocation
-├── Audit Execution Coordination
-│   ├── Technical security assessment
-│   ├── Administrative control evaluation
-│   ├── Physical security verification
-│   └── Security documentation review
-├── Security Finding Management
-│   ├── Security gap identification
-│   ├── Vulnerability assessment integration
-│   ├── Risk-based finding prioritization
-│   └── Security improvement recommendations
-└── ISMS Audit Performance
-    ├── Security audit effectiveness
-    ├── Technical auditor development
-    ├── Security methodology enhancement
-    └── Industry best practice adoption
-```
+Finding ID: ISMS-[YEAR]-[NUMBER]
+Control Reference: A.X.X - [Control Name]
+Severity: [Major/Minor/Observation]
 
-### 2. Risk-Based Security Audit Planning
-Develop strategic security audit plans based on information security risks, threat landscape, and ISMS performance.
+Evidence:
+- [Specific evidence observed]
+- [Records reviewed]
+- [Interview statements]
 
-**Security Audit Risk Assessment:**
-1. **Information Security Risk Evaluation**
-   - Asset criticality and threat exposure analysis
-   - Security control effectiveness assessment
-   - Previous security incident and audit analysis
-   - **Decision Point**: Determine audit priority and frequency based on security risk
+Risk Impact:
+- [Potential consequences if not addressed]
 
-2. **Security Audit Scope Definition**
-   - **High-Risk Assets**: Quarterly technical security assessments
-   - **Critical Security Controls**: Semi-annual control effectiveness testing
-   - **Standard Security Processes**: Annual compliance verification
-   - **Emerging Threats**: Event-driven security evaluations
+Root Cause:
+- [Why the nonconformity occurred]
 
-3. **Technical Security Testing Integration**
-   - Vulnerability assessment and penetration testing coordination
-   - Security control technical verification
-   - Threat simulation and red team exercises
-   - Compliance scanning and automated testing
-
-### 3. ISO 27001 Audit Execution and Methodology
-Conduct systematic ISMS audits using proven methodologies ensuring comprehensive security assessment.
-
-**ISMS Audit Execution Process:**
-1. **Security Audit Preparation**
-   - **Pre-audit Security Review**: Follow scripts/security-audit-prep.py
-   - **Technical Assessment Planning**: Security testing scope and methods
-   - **Security Auditor Assignment**: Technical competency and independence
-   - **ISMS Documentation Review**: Policy, procedure, and control documentation
-
-2. **Security Audit Conduct**
-   - **ISMS Process Assessment**: Security management process evaluation
-   - **Security Control Testing**: Technical and administrative control verification
-   - **Security Compliance Verification**: Regulatory and standard compliance
-   - **Security Culture Assessment**: Security awareness and training effectiveness
-
-3. **Security Audit Documentation**
-   - **Security Finding Documentation**: Technical and administrative findings
-   - **Risk Assessment Integration**: Security risk impact and likelihood
-   - **Security Improvement Recommendations**: Control enhancement and optimization
-   - **Compliance Status Reporting**: ISO 27001 and regulatory compliance
-
-### 4. Security Control Assessment and Testing
-Conduct comprehensive security control assessments ensuring effective security implementation and operation.
-
-**Security Control Assessment Framework:**
-```
-ISO 27002 CONTROL ASSESSMENT
-├── Organizational Security Controls
-│   ├── Information security policies
-│   ├── Information security organization
-│   ├── Human resource security
-│   └── Asset management
-├── Technical Security Controls
-│   ├── Access control systems
-│   ├── Cryptography implementation
-│   ├── Systems security configuration
-│   ├── Network security controls
-│   ├── Application security measures
-│   └── Secure development practices
-├── Physical Security Controls
-│   ├── Physical security perimeters
-│   ├── Physical entry controls
-│   ├── Equipment protection
-│   └── Secure disposal procedures
-└── Operational Security Controls
-    ├── Operational procedures
-    ├── Change management
-    ├── Capacity management
-    ├── System segregation
-    ├── Malware protection
-    └── Backup and recovery
-```
-
-## Advanced ISMS Audit Applications
-
-### Technical Security Testing Integration
-Integrate technical security assessments with ISMS auditing ensuring comprehensive security verification.
-
-**Technical Security Assessment:**
-1. **Vulnerability Assessment Integration**
-   - Network vulnerability scanning and analysis
-   - Application security testing and code review
-   - Configuration assessment and hardening verification
-   - **Decision Point**: Determine technical testing scope based on risk and compliance
-
-2. **Penetration Testing Coordination**
-   - **For External Networks**: Follow references/external-pentest-guide.md
-   - **For Internal Systems**: Follow references/internal-pentest-guide.md
-   - **For Web Applications**: Follow references/webapp-security-testing.md
-   - Social engineering and phishing simulation
-
-3. **Security Control Verification**
-   - Access control effectiveness testing
-   - Encryption implementation verification
-   - Monitoring and logging system assessment
-   - Incident response procedure validation
-
-### Cybersecurity Compliance Auditing
-Conduct specialized cybersecurity compliance audits addressing regulatory and industry requirements.
-
-**Cybersecurity Compliance Framework:**
-- **Healthcare Cybersecurity**: HIPAA Security Rule and healthcare-specific requirements
-- **Medical Device Cybersecurity**: FDA cybersecurity guidance and IEC 62304 integration
-- **Financial Services**: PCI DSS and financial industry security standards
-- **Critical Infrastructure**: NIST Cybersecurity Framework and sector-specific guidelines
-
-### Cloud Security Auditing
-Assess cloud security implementations ensuring comprehensive cloud service security verification.
-
-**Cloud Security Audit Approach:**
-1. **Cloud Service Provider Assessment**
-   - CSP security certification and compliance verification
-   - Shared responsibility model implementation review
-   - Data residency and sovereignty compliance
-   - Cloud access and identity management assessment
-
-2. **Cloud Configuration Assessment**
-   - Cloud resource configuration and hardening
-   - Network security and segmentation verification
-   - Data encryption and key management assessment
-   - Cloud monitoring and logging evaluation
-
-## Security Auditor Competency and Development
-
-### Security Auditor Technical Competency
-Develop and maintain security auditor technical competency ensuring effective security assessment capabilities.
-
-**Security Auditor Competency Framework:**
-```
-SECURITY AUDITOR COMPETENCY
-├── Technical Security Knowledge
-│   ├── Network security and protocols
-│   ├── System security and hardening
-│   ├── Application security and testing
-│   ├── Cryptography and key management
-│   └── Security architecture and design
-├── Security Assessment Skills
-│   ├── Vulnerability assessment techniques
-│   ├── Penetration testing methodologies
-│   ├── Security control testing
-│   └── Risk assessment and analysis
-├── Compliance and Standards
-│   ├── ISO 27001/27002 expertise
-│   ├── Regulatory requirement knowledge
-│   ├── Industry standard familiarity
-│   └── Audit methodology proficiency
-└── Communication and Reporting
-    ├── Technical finding documentation
-    ├── Risk communication skills
-    ├── Executive reporting capabilities
-    └── Stakeholder engagement
+Recommendation:
+- [Specific corrective action steps]
 ```
 
-### Security Audit Tool Proficiency
-Maintain proficiency with security audit tools and technologies ensuring effective technical assessment.
+### Corrective Action Workflow
 
-**Security Audit Tool Categories:**
-- **Vulnerability Scanners**: Network, web application, and database vulnerability assessment
-- **Penetration Testing Tools**: Exploitation frameworks and security testing utilities
-- **Configuration Assessment**: System and application configuration analysis
-- **Compliance Scanning**: Automated compliance verification and reporting
+1. Auditee acknowledges finding and severity
+2. Root cause analysis completed within 10 days
+3. Corrective action plan submitted with target dates
+4. Actions implemented by responsible parties
+5. Auditor verifies effectiveness of corrections
+6. Finding closed with evidence of resolution
+7. **Validation:** Root cause addressed, recurrence prevented
 
-## External Security Audit Coordination
+---
 
-### ISO 27001 Certification Audit Support
-Prepare organization for ISO 27001 certification audits ensuring successful certification and maintenance.
+## Certification Support
 
-**Certification Audit Preparation:**
-1. **Pre-certification Readiness**
-   - Internal ISMS audit completion and closure
-   - Security control implementation verification
-   - ISMS documentation review and compliance
-   - **Mock Certification Audit**: Full-scale external audit simulation
+### Stage 1 Audit Preparation
 
-2. **Certification Audit Coordination**
-   - **Stage 1 Audit Support**: Documentation review and ISMS assessment
-   - **Stage 2 Audit Coordination**: Implementation testing and verification
-   - **Surveillance Audit Preparation**: Ongoing compliance and improvement
-   - Certification body relationship management
+Ensure documentation is complete:
+- [ ] ISMS scope statement
+- [ ] Information security policy (management signed)
+- [ ] Statement of Applicability
+- [ ] Risk assessment methodology and results
+- [ ] Risk treatment plan
+- [ ] Internal audit results (past 12 months)
+- [ ] Management review minutes
 
-### Regulatory Security Inspection Preparation
-Prepare organization for regulatory security inspections and compliance assessments.
+### Stage 2 Audit Preparation
 
-**Regulatory Inspection Coordination:**
-- **Healthcare Inspections**: OCR HIPAA security audits and assessments
-- **Financial Services**: Regulatory cybersecurity examinations
-- **Critical Infrastructure**: Sector-specific security assessments
-- **International Compliance**: Multi-jurisdictional security requirements
+Verify operational readiness:
+- [ ] All Stage 1 findings addressed
+- [ ] ISMS operational for minimum 3 months
+- [ ] Evidence of control implementation
+- [ ] Security awareness training records
+- [ ] Incident response evidence (if applicable)
+- [ ] Access review documentation
 
-## ISMS Audit Performance and Improvement
+### Surveillance Audit Cycle
 
-### Security Audit Performance Metrics
-Monitor ISMS audit program effectiveness ensuring continuous security improvement and compliance.
+| Period | Focus |
+|--------|-------|
+| Year 1, Q2 | High-risk controls, Stage 2 findings follow-up |
+| Year 1, Q4 | Continual improvement, control sample |
+| Year 2, Q2 | Full surveillance |
+| Year 2, Q4 | Re-certification preparation |
 
-**Security Audit KPIs:**
-- **Security Control Effectiveness**: Control implementation and operation success
-- **Security Finding Resolution**: Finding closure rates and timelines
-- **Security Risk Mitigation**: Risk reduction and residual risk management
-- **Compliance Achievement**: ISO 27001 and regulatory compliance rates
-- **Security Incident Prevention**: Audit-driven security improvement effectiveness
+**Validation:** No major nonconformities at surveillance audits.
 
-### ISMS Audit Program Optimization
-Continuously improve ISMS audit program through methodology enhancement and technology integration.
+---
 
-**Audit Program Enhancement:**
-1. **Security Audit Technology Integration**
-   - Automated security scanning and assessment
-   - Continuous security monitoring integration
-   - Security information and event management (SIEM) correlation
-   - **Decision Point**: Determine automation opportunities and tool integration
-
-2. **Security Audit Methodology Evolution**
-   - Threat intelligence integration and analysis
-   - Security framework alignment and optimization
-   - Industry best practice adoption and customization
-   - Regulatory requirement evolution and adaptation
-
-## Resources
+## Tools
 
 ### scripts/
-- `isms-audit-scheduler.py`: Risk-based ISMS audit planning and scheduling
-- `security-audit-prep.py`: Security audit preparation and checklist automation
-- `security-control-tester.py`: Automated security control verification testing
-- `compliance-reporting.py`: ISO 27001 and regulatory compliance reporting
 
-### references/
-- `iso27001-audit-methodology.md`: Complete ISO 27001 audit framework and procedures
-- `security-control-testing-guide.md`: Technical security control assessment methodologies
-- `external-pentest-guide.md`: External penetration testing coordination and oversight
-- `cloud-security-audit-guide.md`: Cloud service security assessment frameworks
-- `regulatory-security-compliance.md`: Multi-jurisdictional security compliance requirements
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| `isms_audit_scheduler.py` | Generate risk-based audit plans | `python scripts/isms_audit_scheduler.py --year 2025 --format markdown` |
 
-### assets/
-- `isms-audit-templates/`: ISMS audit plan, checklist, and report templates
-- `security-testing-tools/`: Security assessment and testing automation scripts
-- `compliance-checklists/`: ISO 27001 and regulatory compliance verification checklists
-- `training-materials/`: Security auditor training and competency development programs
+### Audit Planning Example
+
+```bash
+# Generate annual audit plan
+python scripts/isms_audit_scheduler.py --year 2025 --output audit_plan.json
+
+# With custom control risk ratings
+python scripts/isms_audit_scheduler.py --controls controls.csv --format markdown
+```
+
+---
+
+## References
+
+| File | Content |
+|------|---------|
+| [iso27001-audit-methodology.md](references/iso27001-audit-methodology.md) | Audit program structure, pre-audit phase, certification support |
+| [security-control-testing.md](references/security-control-testing.md) | Technical verification procedures for ISO 27002 controls |
+| [cloud-security-audit.md](references/cloud-security-audit.md) | Cloud provider assessment, configuration security, IAM review |
+
+---
+
+## Audit Performance Metrics
+
+| KPI | Target | Measurement |
+|-----|--------|-------------|
+| Audit plan completion | 100% | Audits completed vs. planned |
+| Finding closure rate | >90% within SLA | Closed on time vs. total |
+| Major nonconformities | 0 at certification | Count per certification cycle |
+| Audit effectiveness | Incidents prevented | Security improvements implemented |
+
+---
+
+## Compliance Framework Integration
+
+| Framework | ISMS Audit Relevance |
+|-----------|---------------------|
+| GDPR | A.5.34 Privacy, A.8.10 Information deletion |
+| HIPAA | Access controls, audit logging, encryption |
+| PCI DSS | Network security, access control, monitoring |
+| SOC 2 | Trust Services Criteria mapped to ISO 27002 |

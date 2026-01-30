@@ -1,5 +1,30 @@
 # Social Media Optimization Guide
 
+Platform-specific best practices, algorithm factors, content optimization strategies, and analytics frameworks.
+
+---
+
+## Table of Contents
+
+- [Platform-Specific Best Practices](#platform-specific-best-practices)
+  - [LinkedIn](#linkedin)
+  - [Twitter/X](#twitterx)
+  - [Instagram](#instagram)
+  - [Facebook](#facebook)
+  - [TikTok](#tiktok)
+- [Content Optimization Strategies](#content-optimization-strategies)
+  - [Hashtag Strategy](#hashtag-strategy)
+  - [Visual Content Optimization](#visual-content-optimization)
+  - [Caption Writing Formulas](#caption-writing-formulas)
+  - [Engagement Tactics](#engagement-tactics)
+  - [Analytics & KPIs](#analytics--kpis)
+  - [Content Calendar Planning](#content-calendar-planning)
+  - [Crisis Management Protocol](#crisis-management-protocol)
+- [Tool Stack Recommendations](#tool-stack-recommendations)
+- [Compliance & Best Practices](#compliance--best-practices)
+
+---
+
 ## Platform-Specific Best Practices
 
 ### LinkedIn

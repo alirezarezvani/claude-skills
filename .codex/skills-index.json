@@ -201,7 +201,7 @@
       "name": "gdpr-dsgvo-expert",
       "source": "../../ra-qm-team/gdpr-dsgvo-expert",
       "category": "ra-qm",
-      "description": "Senior GDPR/DSGVO expert and internal/external auditor for data protection compliance. Provides EU GDPR and German DSGVO expertise, privacy impact assessments, data protection auditing, and compliance verification. Use for GDPR compliance assessments, privacy audits, data protection planning, and regulatory compliance verification."
+      "description": "GDPR and German DSGVO compliance automation. Scans codebases for privacy risks, generates DPIA documentation, tracks data subject rights requests. Use for GDPR compliance assessments, privacy audits, data protection planning, DPIA generation, and data subject rights management."
     },
     {
       "name": "information-security-manager-iso27001",

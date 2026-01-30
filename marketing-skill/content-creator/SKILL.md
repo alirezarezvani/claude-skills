@@ -16,160 +16,251 @@ metadata:
 
 Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks.
 
+---
+
+## Table of Contents
+
+- [Keywords](#keywords)
+- [Quick Start](#quick-start)
+- [Core Workflows](#core-workflows)
+- [Tools](#tools)
+- [Reference Guides](#reference-guides)
+- [Best Practices](#best-practices)
+- [Integration Points](#integration-points)
+
+---
+
 ## Keywords
+
 content creation, blog posts, SEO, brand voice, social media, content calendar, marketing content, content strategy, content marketing, brand consistency, content optimization, social media marketing, content planning, blog writing, content frameworks, brand guidelines, social media strategy
+
+---
 
 ## Quick Start
 
-### For Brand Voice Development
+### Brand Voice Development
+
 1. Run `scripts/brand_voice_analyzer.py` on existing content to establish baseline
 2. Review `references/brand_guidelines.md` to select voice attributes
 3. Apply chosen voice consistently across all content
 
-### For Blog Content Creation
+### Blog Content Creation
+
 1. Choose template from `references/content_frameworks.md`
 2. Research keywords for topic
 3. Write content following template structure
 4. Run `scripts/seo_optimizer.py [file] [primary-keyword]` to optimize
 5. Apply recommendations before publishing
 
-### For Social Media Content
+### Social Media Content
+
 1. Review platform best practices in `references/social_media_optimization.md`
 2. Use appropriate template from `references/content_frameworks.md`
 3. Optimize based on platform-specific guidelines
 4. Schedule using `assets/content_calendar_template.md`
 
+---
+
 ## Core Workflows
 
-### Establishing Brand Voice (First Time Setup)
+### Workflow 1: Establish Brand Voice (First Time Setup)
 
-When creating content for a new brand or client:
+For new brands or clients:
 
-1. **Analyze Existing Content** (if available)
-   ```bash
-   python scripts/brand_voice_analyzer.py existing_content.txt
-   ```
-   
-2. **Define Voice Attributes**
-   - Review brand personality archetypes in `references/brand_guidelines.md`
-   - Select primary and secondary archetypes
-   - Choose 3-5 tone attributes
-   - Document in brand guidelines
+**Step 1: Analyze Existing Content (if available)**
 
-3. **Create Voice Sample**
-   - Write 3 sample pieces in chosen voice
-   - Test consistency using analyzer
-   - Refine based on results
+```bash
+python scripts/brand_voice_analyzer.py existing_content.txt
+```
 
-### Creating SEO-Optimized Blog Posts
+**Step 2: Define Voice Attributes**
 
-1. **Keyword Research**
-   - Identify primary keyword (search volume 500-5000/month)
-   - Find 3-5 secondary keywords
-   - List 10-15 LSI keywords
+- Review brand personality archetypes in `references/brand_guidelines.md`
+- Select primary and secondary archetypes
+- Choose 3-5 tone attributes
+- Document in brand guidelines
 
-2. **Content Structure**
-   - Use blog template from `references/content_frameworks.md`
-   - Include keyword in title, first paragraph, and 2-3 H2s
-   - Aim for 1,500-2,500 words for comprehensive coverage
+**Step 3: Create Voice Sample**
 
-3. **Optimization Check**
-   ```bash
-   python scripts/seo_optimizer.py blog_post.md "primary keyword" "secondary,keywords,list"
-   ```
+- Write 3 sample pieces in chosen voice
+- Test consistency using analyzer
+- Refine based on results
 
-4. **Apply SEO Recommendations**
-   - Adjust keyword density to 1-3%
-   - Ensure proper heading structure
-   - Add internal and external links
-   - Optimize meta description
+### Workflow 2: Create SEO-Optimized Blog Posts
 
-### Social Media Content Creation
+**Step 1: Keyword Research**
 
-1. **Platform Selection**
-   - Identify primary platforms based on audience
-   - Review platform-specific guidelines in `references/social_media_optimization.md`
+- Identify primary keyword (search volume 500-5000/month)
+- Find 3-5 secondary keywords
+- List 10-15 LSI keywords
 
-2. **Content Adaptation**
-   - Start with blog post or core message
-   - Use repurposing matrix from `references/content_frameworks.md`
-   - Adapt for each platform following templates
+**Step 2: Content Structure**
 
-3. **Optimization Checklist**
-   - Platform-appropriate length
-   - Optimal posting time
-   - Correct image dimensions
-   - Platform-specific hashtags
-   - Engagement elements (polls, questions)
+- Use blog template from `references/content_frameworks.md`
+- Include keyword in title, first paragraph, and 2-3 H2s
+- Aim for 1,500-2,500 words for comprehensive coverage
 
-### Content Calendar Planning
+**Step 3: Optimization Check**
 
-1. **Monthly Planning**
-   - Copy `assets/content_calendar_template.md`
-   - Set monthly goals and KPIs
-   - Identify key campaigns/themes
+```bash
+python scripts/seo_optimizer.py blog_post.md "primary keyword" "secondary,keywords,list"
+```
 
-2. **Weekly Distribution**
-   - Follow 40/25/25/10 content pillar ratio
-   - Balance platforms throughout week
-   - Align with optimal posting times
+**Step 4: Apply SEO Recommendations**
 
-3. **Batch Creation**
-   - Create all weekly content in one session
-   - Maintain consistent voice across pieces
-   - Prepare all visual assets together
+- Adjust keyword density to 1-3%
+- Ensure proper heading structure
+- Add internal and external links
+- Optimize meta description
 
-## Key Scripts
+### Workflow 3: Create Social Media Content
 
-### brand_voice_analyzer.py
+**Step 1: Platform Selection**
+
+- Identify primary platforms based on audience
+- Review platform-specific guidelines in `references/social_media_optimization.md`
+
+**Step 2: Content Adaptation**
+
+- Start with blog post or core message
+- Use repurposing matrix from `references/content_frameworks.md`
+- Adapt for each platform following templates
+
+**Step 3: Optimization Checklist**
+
+- Platform-appropriate length
+- Optimal posting time
+- Correct image dimensions
+- Platform-specific hashtags
+- Engagement elements (polls, questions)
+
+### Workflow 4: Plan Content Calendar
+
+**Step 1: Monthly Planning**
+
+- Copy `assets/content_calendar_template.md`
+- Set monthly goals and KPIs
+- Identify key campaigns/themes
+
+**Step 2: Weekly Distribution**
+
+- Follow 40/25/25/10 content pillar ratio
+- Balance platforms throughout week
+- Align with optimal posting times
+
+**Step 3: Batch Creation**
+
+- Create all weekly content in one session
+- Maintain consistent voice across pieces
+- Prepare all visual assets together
+
+---
+
+## Tools
+
+### Brand Voice Analyzer
+
 Analyzes text content for voice characteristics, readability, and consistency.
 
-**Usage**: `python scripts/brand_voice_analyzer.py <file> [json|text]`
+**Usage:**
 
-**Returns**:
+```bash
+# Human-readable output
+python scripts/brand_voice_analyzer.py content.txt
+
+# JSON output for integrations
+python scripts/brand_voice_analyzer.py content.txt json
+```
+
+**Parameters:**
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `file` | Yes | Path to content file |
+| `format` | No | Output format: `text` (default) or `json` |
+
+**Output:**
+
 - Voice profile (formality, tone, perspective)
-- Readability score
+- Readability score (Flesch Reading Ease)
 - Sentence structure analysis
 - Improvement recommendations
 
-### seo_optimizer.py
+### SEO Optimizer
+
 Analyzes content for SEO optimization and provides actionable recommendations.
 
-**Usage**: `python scripts/seo_optimizer.py <file> [primary_keyword] [secondary_keywords]`
+**Usage:**
 
-**Returns**:
+```bash
+# Basic analysis
+python scripts/seo_optimizer.py article.md "main keyword"
+
+# With secondary keywords
+python scripts/seo_optimizer.py article.md "main keyword" "secondary,keywords,list"
+
+# JSON output
+python scripts/seo_optimizer.py article.md "keyword" --json
+```
+
+**Parameters:**
+
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `file` | Yes | Path to content file (md or html) |
+| `primary_keyword` | Yes | Main target keyword |
+| `secondary_keywords` | No | Comma-separated secondary keywords |
+| `--json` | No | Output in JSON format |
+
+**Output:**
+
 - SEO score (0-100)
 - Keyword density analysis
 - Structure assessment
 - Meta tag suggestions
 - Specific optimization recommendations
 
+---
+
 ## Reference Guides
 
 ### When to Use Each Reference
 
 **references/brand_guidelines.md**
+
 - Setting up new brand voice
 - Ensuring consistency across content
 - Training new team members
 - Resolving voice/tone questions
 
 **references/content_frameworks.md**
+
 - Starting any new content piece
 - Structuring different content types
 - Creating content templates
 - Planning content repurposing
 
 **references/social_media_optimization.md**
+
 - Platform-specific optimization
 - Hashtag strategy development
 - Understanding algorithm factors
 - Setting up analytics tracking
 
+**references/analytics_guide.md**
+
+- Tracking content performance
+- Setting up measurement frameworks
+- Creating performance reports
+- Attribution modeling
+
+---
+
 ## Best Practices
 
 ### Content Creation Process
-1. Always start with audience need/pain point
+
+1. Start with audience need/pain point
 2. Research before writing
 3. Create outline using templates
 4. Write first draft without editing
@@ -180,6 +271,7 @@ Analyzes content for SEO optimization and provides actionable recommendations.
 9. Schedule strategically
 
 ### Quality Indicators
+
 - SEO score above 75/100
 - Readability appropriate for audience
 - Consistent brand voice throughout
@@ -189,6 +281,7 @@ Analyzes content for SEO optimization and provides actionable recommendations.
 - Platform-optimized
 
 ### Common Pitfalls to Avoid
+
 - Writing before researching keywords
 - Ignoring platform-specific requirements
 - Inconsistent brand voice
@@ -197,52 +290,14 @@ Analyzes content for SEO optimization and provides actionable recommendations.
 - Publishing without proofreading
 - Ignoring analytics feedback
 
-## Performance Metrics
-
-Track these KPIs for content success:
-
-### Content Metrics
-- Organic traffic growth
-- Average time on page
-- Bounce rate
-- Social shares
-- Backlinks earned
-
-### Engagement Metrics
-- Comments and discussions
-- Email click-through rates
-- Social media engagement rate
-- Content downloads
-- Form submissions
-
-### Business Metrics
-- Leads generated
-- Conversion rate
-- Customer acquisition cost
-- Revenue attribution
-- ROI per content piece
+---
 
 ## Integration Points
 
 This skill works best with:
-- Analytics platforms (Google Analytics, social media insights)
-- SEO tools (for keyword research)
-- Design tools (for visual content)
-- Scheduling platforms (for content distribution)
-- Email marketing systems (for newsletter content)
 
-## Quick Commands
-
-```bash
-# Analyze brand voice
-python scripts/brand_voice_analyzer.py content.txt
-
-# Optimize for SEO
-python scripts/seo_optimizer.py article.md "main keyword"
-
-# Check content against brand guidelines
-grep -f references/brand_guidelines.md content.txt
-
-# Create monthly calendar
-cp assets/content_calendar_template.md this_month_calendar.md
-```
+- **Analytics platforms** - Google Analytics, social media insights for tracking (see `references/analytics_guide.md`)
+- **SEO tools** - For keyword research and competitive analysis
+- **Design tools** - Canva, Figma for visual content
+- **Scheduling platforms** - Buffer, Hootsuite for content distribution
+- **Email marketing systems** - For newsletter content campaigns

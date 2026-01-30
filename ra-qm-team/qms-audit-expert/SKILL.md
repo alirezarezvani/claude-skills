@@ -1,238 +1,323 @@
 ---
 name: qms-audit-expert
-description: Senior QMS Audit Expert for internal and external quality management system auditing. Provides ISO 13485 audit expertise, audit program management, nonconformity identification, and corrective action verification. Use for internal audit planning, external audit preparation, audit execution, and audit follow-up activities.
+description: ISO 13485 internal audit expertise for medical device QMS. Covers audit planning, execution, nonconformity classification, and CAPA verification. Use for internal audit planning, audit execution, finding classification, external audit preparation, or audit program management.
+triggers:
+  - ISO 13485 audit
+  - internal audit
+  - QMS audit
+  - audit planning
+  - nonconformity classification
+  - CAPA verification
+  - audit checklist
+  - audit finding
+  - external audit prep
+  - audit schedule
 ---
 
-# Senior QMS Audit Expert
+# QMS Audit Expert
 
-Expert-level quality management system auditing with comprehensive knowledge of ISO 13485, audit methodologies, nonconformity management, and audit program optimization for medical device organizations.
+ISO 13485 internal audit methodology for medical device quality management systems.
 
-## Core QMS Auditing Competencies
+---
 
-### 1. ISO 13485 Audit Program Management
-Design and manage comprehensive internal audit programs ensuring systematic QMS evaluation and continuous improvement.
+## Table of Contents
 
-**Audit Program Framework:**
+- [Audit Planning Workflow](#audit-planning-workflow)
+- [Audit Execution](#audit-execution)
+- [Nonconformity Management](#nonconformity-management)
+- [External Audit Preparation](#external-audit-preparation)
+- [Reference Documentation](#reference-documentation)
+- [Tools](#tools)
+
+---
+
+## Audit Planning Workflow
+
+Plan risk-based internal audit program:
+
+1. List all QMS processes requiring audit
+2. Assign risk level to each process (High/Medium/Low)
+3. Review previous audit findings and trends
+4. Determine audit frequency by risk level
+5. Assign qualified auditors (verify independence)
+6. Create annual audit schedule
+7. Communicate schedule to process owners
+8. **Validation:** All ISO 13485 clauses covered within cycle
+
+### Risk-Based Audit Frequency
+
+| Risk Level | Frequency | Criteria |
+|------------|-----------|----------|
+| High | Quarterly | Design control, CAPA, production validation |
+| Medium | Semi-annual | Purchasing, training, document control |
+| Low | Annual | Infrastructure, management review (if stable) |
+
+### Audit Scope by Clause
+
+| Clause | Process | Focus Areas |
+|--------|---------|-------------|
+| 4.2 | Document Control | Document approval, distribution, obsolete control |
+| 5.6 | Management Review | Inputs complete, decisions documented, actions tracked |
+| 6.2 | Training | Competency defined, records complete, effectiveness verified |
+| 7.3 | Design Control | Inputs, reviews, V&V, transfer, changes |
+| 7.4 | Purchasing | Supplier evaluation, incoming inspection |
+| 7.5 | Production | Work instructions, process validation, DHR |
+| 7.6 | Calibration | Equipment list, calibration status, out-of-tolerance |
+| 8.2.2 | Internal Audit | Schedule compliance, auditor independence |
+| 8.3 | NC Product | Identification, segregation, disposition |
+| 8.5 | CAPA | Root cause, implementation, effectiveness |
+
+### Auditor Independence
+
+Verify auditor independence before assignment:
+
+- [ ] Auditor not responsible for area being audited
+- [ ] No direct reporting relationship to auditee
+- [ ] Not involved in recent activities under audit
+- [ ] Documented qualification for audit scope
+
+---
+
+## Audit Execution
+
+Conduct systematic internal audit:
+
+1. Prepare audit plan (scope, criteria, schedule)
+2. Review relevant documentation before audit
+3. Conduct opening meeting with auditee
+4. Collect evidence (records, interviews, observation)
+5. Classify findings (Major/Minor/Observation)
+6. Conduct closing meeting with preliminary findings
+7. Prepare audit report within 5 business days
+8. **Validation:** All scope items covered, findings supported by evidence
+
+### Evidence Collection
+
+| Method | Use For | Documentation |
+|--------|---------|---------------|
+| Document review | Procedures, records | Document number, version, date |
+| Interview | Process understanding | Interviewee name, role, summary |
+| Observation | Actual practice | What, where, when observed |
+| Record trace | Process flow | Record IDs, dates, linkage |
+
+### Audit Questions by Clause
+
+**Document Control (4.2):**
+- Show me the document master list
+- How do you control obsolete documents?
+- Show me evidence of document change approval
+
+**Design Control (7.3):**
+- Show me the Design History File for [product]
+- Who participates in design reviews?
+- Show me design input to output traceability
+
+**CAPA (8.5):**
+- Show me the CAPA log with open items
+- How do you determine root cause?
+- Show me effectiveness verification records
+
+See `references/iso13485-audit-guide.md` for complete question sets.
+
+### Finding Documentation
+
+Document each finding with:
+
 ```
-QMS AUDIT PROGRAM MANAGEMENT
-├── Annual Audit Planning
-│   ├── Risk-based audit scheduling
-│   ├── Process audit scope definition
-│   ├── Auditor competency management
-│   └── Resource allocation planning
-├── Audit Execution Management
-│   ├── Audit preparation and logistics
-│   ├── Audit team coordination
-│   ├── Audit conduct and documentation
-│   └── Audit report generation
-├── Audit Follow-up and Closure
-│   ├── Nonconformity management
-│   ├── Corrective action verification
-│   ├── Effectiveness assessment
-│   └── Audit cycle completion
-└── Audit Program Improvement
-    ├── Audit performance analysis
-    ├── Auditor feedback and development
-    ├── Methodology enhancement
-    └── Best practice implementation
+Requirement: [Specific ISO 13485 clause or procedure]
+Evidence: [What was observed, reviewed, or heard]
+Gap: [How evidence fails to meet requirement]
 ```
 
-### 2. Risk-Based Audit Planning (ISO 13485 Clause 8.2.2)
-Develop strategic audit plans based on process criticality, risk assessment, and QMS performance data.
-
-**Risk-Based Audit Planning Process:**
-1. **QMS Risk Assessment for Auditing**
-   - Process risk evaluation and criticality analysis
-   - Previous audit results and trend analysis
-   - Regulatory requirement changes and impact
-   - **Decision Point**: Determine audit frequency and scope based on risk level
-
-2. **Audit Schedule Development**
-   - **High-Risk Processes**: Quarterly or semi-annual auditing
-   - **Medium-Risk Processes**: Annual auditing with focused reviews
-   - **Low-Risk Processes**: Extended cycle auditing with surveillance
-   - **Special Audits**: Event-driven or complaint-triggered audits
-
-3. **Audit Scope and Criteria Definition**
-   - ISO 13485 clause-specific auditing
-   - Process-based audit scope definition
-   - Regulatory requirement integration
-   - Customer-specific requirement inclusion
-
-### 3. Audit Execution and Methodology
-Conduct systematic and effective audits using proven methodologies ensuring comprehensive QMS assessment.
-
-**Audit Execution Process:**
-1. **Audit Preparation**
-   - **Pre-audit Document Review**: Follow scripts/audit-prep-checklist.py
-   - **Audit Plan Development**: Scope, objectives, criteria, methods
-   - **Auditor Assignment**: Competency matching and independence verification
-   - **Auditee Communication**: Schedule, expectations, and logistics
-
-2. **Audit Conduct**
-   - **Opening Meeting**: Audit introduction and expectation setting
-   - **Evidence Collection**: Interviews, document review, observation
-   - **Finding Development**: Nonconformity identification and classification
-   - **Closing Meeting**: Audit summary and preliminary findings presentation
-
-3. **Audit Documentation and Reporting**
-   - **Audit Report Preparation**: Findings, evidence, and recommendations
-   - **Nonconformity Documentation**: Detailed description and requirements
-   - **Audit Summary**: Executive summary and improvement opportunities
-   - **Report Distribution**: Stakeholder communication and follow-up planning
-
-### 4. Auditor Competency Management
-Develop and maintain auditor competency ensuring effective audit execution and professional development.
-
-**Auditor Competency Framework:**
+**Example:**
 ```
-AUDITOR COMPETENCY REQUIREMENTS
-├── Technical Competency
-│   ├── ISO 13485 standard knowledge
-│   ├── Medical device industry understanding
-│   ├── QMS process comprehension
-│   └── Regulatory requirement familiarity
-├── Audit Methodology Skills
-│   ├── Audit planning and preparation
-│   ├── Interview and communication techniques
-│   ├── Evidence collection and analysis
-│   └── Report writing and presentation
-├── Personal Attributes
-│   ├── Independence and objectivity
-│   ├── Professional ethics and integrity
-│   ├── Analytical and critical thinking
-│   └── Continuous learning mindset
-└── Industry-Specific Knowledge
-    ├── Medical device regulations
-    ├── Risk management principles
-    ├── Design control requirements
-    └── Post-market surveillance obligations
+Requirement: ISO 13485:2016 Clause 7.6 requires calibration
+at specified intervals.
+
+Evidence: Calibration records for pH meter (EQ-042) show
+last calibration 2024-01-15. Calibration interval is
+12 months. Today is 2025-03-20.
+
+Gap: Equipment is 2 months overdue for calibration,
+representing a gap in calibration program execution.
 ```
 
-## Advanced Audit Applications
+---
 
-### Process-Based Auditing
-Implement process-based audit methodologies ensuring comprehensive process evaluation and improvement identification.
+## Nonconformity Management
 
-**Process-Based Audit Approach:**
-1. **Process Understanding and Mapping**
-   - Process flow analysis and documentation
-   - Input-output relationship evaluation
-   - Process performance metrics review
-   - Process interaction assessment
+Classify and manage audit findings:
 
-2. **Process Audit Execution**
-   - **Management Processes**: Management review, resource management, communication
-   - **Core Processes**: Design controls, purchasing, production, delivery
-   - **Support Processes**: Document control, training, infrastructure, work environment
-   - **Monitoring Processes**: Customer satisfaction, internal audit, product monitoring
+1. Evaluate finding against classification criteria
+2. Assign severity (Major/Minor/Observation)
+3. Document finding with objective evidence
+4. Communicate to process owner
+5. Initiate CAPA for Major/Minor findings
+6. Track to closure
+7. Verify effectiveness at follow-up
+8. **Validation:** Finding closed only after effective CAPA
 
-### External Audit Preparation and Coordination
-Prepare organization for external audits including regulatory inspections and certification body assessments.
+### Classification Criteria
 
-**External Audit Preparation:**
-1. **Pre-audit Readiness Assessment**
-   - Internal audit completion and closure verification
-   - Documentation review and compliance verification
-   - Personnel training and role assignment
-   - **Mock Audit Execution**: Full-scale external audit simulation
+| Category | Definition | CAPA Required | Timeline |
+|----------|------------|---------------|----------|
+| Major | Systematic failure or absence of element | Yes | 30 days |
+| Minor | Isolated lapse or partial implementation | Recommended | 60 days |
+| Observation | Improvement opportunity | Optional | As appropriate |
 
-2. **External Audit Coordination**
-   - **For Regulatory Inspections**: Follow references/regulatory-inspection-guide.md
-   - **For Certification Body Audits**: Follow references/certification-audit-guide.md
-   - **For Customer Audits**: Follow references/customer-audit-guide.md
-   - Audit logistics and resource coordination
+### Classification Decision
 
-3. **External Audit Support**
-   - Auditor escort and facility coordination
-   - Documentation provision and explanation
-   - Technical expert availability and consultation
-   - Real-time issue resolution and escalation
+```
+Is required element absent or failed?
+├── Yes → Systematic (multiple instances)? → MAJOR
+│   └── No → Could affect product safety? → MAJOR
+│       └── No → MINOR
+└── No → Deviation from procedure?
+    ├── Yes → Recurring? → MAJOR
+    │   └── No → MINOR
+    └── No → Improvement opportunity? → OBSERVATION
+```
 
-### Specialized Audit Areas
-Conduct specialized audits addressing specific QMS areas and regulatory requirements.
+### CAPA Integration
 
-**Specialized Audit Types:**
-- **Design Control Audits**: ISO 13485 Clause 7.3 comprehensive assessment
-- **Risk Management Audits**: ISO 14971 integration and effectiveness
-- **Software Audits**: IEC 62304 compliance and software lifecycle
-- **Post-Market Surveillance Audits**: Vigilance and feedback system effectiveness
-- **Supplier Audits**: Supply chain quality and risk management
+| Finding Severity | CAPA Depth | Verification |
+|------------------|------------|--------------|
+| Major | Full root cause analysis (5-Why, Fishbone) | Next audit or within 6 months |
+| Minor | Immediate cause identification | Next scheduled audit |
+| Observation | Not required | Noted at next audit |
 
-## Nonconformity and CAPA Integration
+See `references/nonconformity-classification.md` for detailed guidance.
 
-### Nonconformity Identification and Classification
-Systematically identify and classify nonconformities ensuring appropriate corrective action initiation.
+---
 
-**Nonconformity Classification System:**
-- **Major Nonconformity**: Systematic failure or absence of QMS requirements
-- **Minor Nonconformity**: Isolated incident or partial implementation failure
-- **Observation**: Improvement opportunity or potential future nonconformity
-- **Best Practice**: Exemplary implementation or innovation identification
+## External Audit Preparation
 
-### CAPA Integration and Verification
-Coordinate with CAPA processes ensuring effective corrective action implementation and verification.
+Prepare for certification body or regulatory audit:
 
-**CAPA Integration Process:**
-1. **CAPA Initiation**: Audit finding translation to CAPA requirements
-2. **Root Cause Analysis Support**: Audit evidence provision and validation
-3. **Corrective Action Verification**: Implementation effectiveness assessment
-4. **Follow-up Audit Planning**: CAPA effectiveness verification auditing
+1. Complete all scheduled internal audits
+2. Verify all findings closed with effective CAPA
+3. Review documentation for currency and accuracy
+4. Conduct management review with audit as input
+5. Prepare facility and personnel
+6. Conduct mock audit (full scope)
+7. Brief personnel on audit protocol
+8. **Validation:** Mock audit findings addressed before external audit
 
-## Audit Performance and Continuous Improvement
+### Pre-Audit Readiness Checklist
 
-### Audit Program Performance Metrics
-Monitor audit program effectiveness ensuring continuous improvement and value demonstration.
+**Documentation:**
+- [ ] Quality Manual current
+- [ ] Procedures reflect actual practice
+- [ ] Records complete and retrievable
+- [ ] Previous audit findings closed
 
-**Audit Performance KPIs:**
-- **Audit Schedule Compliance**: Planned vs. actual audit completion rates
-- **Finding Quality**: Finding accuracy, significance, and actionability
-- **Auditor Performance**: Competency assessments and feedback scores
-- **CAPA Effectiveness**: Corrective action success rates and recurrence prevention
-- **Process Improvement**: Audit-driven improvement identification and implementation
+**Personnel:**
+- [ ] Key personnel available during audit
+- [ ] Subject matter experts identified
+- [ ] Personnel briefed on audit protocol
+- [ ] Escorts assigned
 
-### Audit Program Optimization
-Continuously improve audit program effectiveness through methodology enhancement and best practice adoption.
+**Facility:**
+- [ ] Work areas organized
+- [ ] Documents at point of use current
+- [ ] Equipment calibration status visible
+- [ ] Nonconforming product segregated
 
-**Audit Program Improvement Framework:**
-1. **Audit Effectiveness Analysis**
-   - Audit finding trends and pattern analysis
-   - Process improvement opportunity identification
-   - Stakeholder feedback collection and analysis
-   - **Decision Point**: Determine audit program modification needs
+### Mock Audit Protocol
 
-2. **Methodology Enhancement**
-   - Audit technique optimization and standardization
-   - Technology integration and automation opportunities
-   - Auditor training and development programs
-   - Best practice sharing and knowledge management
+1. Use external auditor or qualified internal auditor
+2. Cover full scope of upcoming external audit
+3. Simulate actual audit conditions (timing, formality)
+4. Document findings as for real audit
+5. Address all Major and Minor findings before external audit
+6. Brief management on readiness status
 
-### Industry Benchmarking and Best Practices
-Maintain awareness of industry audit best practices and regulatory expectations.
+---
 
-**Benchmarking Activities:**
-- **Regulatory Guidance Monitoring**: FDA, EU, and other authority audit expectations
-- **Industry Standards Evolution**: ISO 13485 updates and audit methodology changes
-- **Professional Development**: Auditor certification and continuing education
-- **Peer Learning**: Industry audit community participation and knowledge sharing
+## Reference Documentation
 
-## Resources
+### ISO 13485 Audit Guide
 
-### scripts/
-- `audit-schedule-optimizer.py`: Risk-based audit planning and schedule optimization
-- `audit-prep-checklist.py`: Comprehensive audit preparation automation
-- `nonconformity-tracker.py`: Audit finding and CAPA integration management
-- `audit-performance-analyzer.py`: Audit program effectiveness monitoring
+`references/iso13485-audit-guide.md` contains:
 
-### references/
-- `iso13485-audit-guide.md`: Complete ISO 13485 audit methodology and checklists
-- `process-audit-procedures.md`: Process-based audit execution frameworks
-- `regulatory-inspection-guide.md`: Regulatory audit preparation and response
-- `certification-audit-guide.md`: Certification body audit coordination
-- `auditor-competency-framework.md`: Auditor development and assessment criteria
+- Clause-by-clause audit methodology
+- Sample audit questions for each clause
+- Evidence collection requirements
+- Common nonconformities by clause
+- Finding severity classification
 
-### assets/
-- `audit-templates/`: Audit plan, checklist, and report templates
-- `audit-checklists/`: ISO 13485 clause-specific audit checklists
-- `training-materials/`: Auditor training and competency development programs
-- `nonconformity-forms/`: Standardized nonconformity documentation templates
+### Nonconformity Classification
+
+`references/nonconformity-classification.md` contains:
+
+- Severity classification criteria and decision tree
+- Impact vs. occurrence matrix
+- CAPA integration requirements
+- Finding documentation templates
+- Closure requirements by severity
+
+---
+
+## Tools
+
+### Audit Schedule Optimizer
+
+```bash
+# Generate optimized audit schedule
+python scripts/audit_schedule_optimizer.py --processes processes.json
+
+# Interactive mode
+python scripts/audit_schedule_optimizer.py --interactive
+
+# JSON output for integration
+python scripts/audit_schedule_optimizer.py --processes processes.json --output json
+```
+
+Generates risk-based audit schedule considering:
+- Process risk level
+- Previous findings
+- Days since last audit
+- Criticality scores
+
+**Output includes:**
+- Prioritized audit schedule
+- Quarterly distribution
+- Overdue audit alerts
+- Resource recommendations
+
+### Sample Process Input
+
+```json
+{
+  "processes": [
+    {
+      "name": "Design Control",
+      "iso_clause": "7.3",
+      "risk_level": "HIGH",
+      "last_audit_date": "2024-06-15",
+      "previous_findings": 2
+    },
+    {
+      "name": "Document Control",
+      "iso_clause": "4.2",
+      "risk_level": "MEDIUM",
+      "last_audit_date": "2024-09-01",
+      "previous_findings": 0
+    }
+  ]
+}
+```
+
+---
+
+## Audit Program Metrics
+
+Track audit program effectiveness:
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Schedule compliance | >90% | Audits completed on time |
+| Finding closure rate | >95% | Findings closed by due date |
+| Repeat findings | <10% | Same finding in consecutive audits |
+| CAPA effectiveness | >90% | Verified effective at follow-up |
+| Auditor utilization | 4 days/month | Audit days per qualified auditor |

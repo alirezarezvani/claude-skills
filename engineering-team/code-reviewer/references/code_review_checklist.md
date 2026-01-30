@@ -1,103 +1,270 @@
 # Code Review Checklist
 
-## Overview
+Structured checklists for systematic code review across different aspects.
 
-This reference guide provides comprehensive information for code reviewer.
+---
 
-## Patterns and Practices
+## Table of Contents
 
-### Pattern 1: Best Practice Implementation
+- [Pre-Review Checks](#pre-review-checks)
+- [Correctness](#correctness)
+- [Security](#security)
+- [Performance](#performance)
+- [Maintainability](#maintainability)
+- [Testing](#testing)
+- [Documentation](#documentation)
+- [Language-Specific Checks](#language-specific-checks)
 
-**Description:**
-Detailed explanation of the pattern.
+---
 
-**When to Use:**
-- Scenario 1
-- Scenario 2
-- Scenario 3
+## Pre-Review Checks
 
-**Implementation:**
-```typescript
-// Example code implementation
-export class Example {
-  // Implementation details
-}
-```
+Before diving into code, verify these basics:
 
-**Benefits:**
-- Benefit 1
-- Benefit 2
-- Benefit 3
+### Build and Tests
+- [ ] Code compiles without errors
+- [ ] All existing tests pass
+- [ ] New tests are included for new functionality
+- [ ] No unintended files included (build artifacts, IDE configs)
 
-**Trade-offs:**
-- Consider 1
-- Consider 2
-- Consider 3
+### PR Hygiene
+- [ ] PR has clear title and description
+- [ ] Changes are scoped appropriately (not too large)
+- [ ] Commits follow conventional commit format
+- [ ] Branch is up to date with base branch
 
-### Pattern 2: Advanced Technique
+### Scope Verification
+- [ ] Changes match the stated purpose
+- [ ] No unrelated changes bundled in
+- [ ] Breaking changes are documented
+- [ ] Migration path provided if needed
 
-**Description:**
-Another important pattern for code reviewer.
+---
 
-**Implementation:**
-```typescript
-// Advanced example
-async function advancedExample() {
-  // Code here
-}
-```
+## Correctness
 
-## Guidelines
+### Logic
+- [ ] Algorithm implements requirements correctly
+- [ ] Edge cases handled (null, empty, boundary values)
+- [ ] Off-by-one errors checked
+- [ ] Correct operators used (== vs ===, & vs &&)
+- [ ] Loop termination conditions correct
+- [ ] Recursion has proper base cases
 
-### Code Organization
-- Clear structure
-- Logical separation
-- Consistent naming
-- Proper documentation
+### Data Handling
+- [ ] Data types appropriate for the use case
+- [ ] Numeric overflow/underflow considered
+- [ ] Date/time handling accounts for timezones
+- [ ] Unicode and internationalization handled
+- [ ] Data validation at entry points
 
-### Performance Considerations
-- Optimization strategies
-- Bottleneck identification
-- Monitoring approaches
-- Scaling techniques
+### State Management
+- [ ] State transitions are valid
+- [ ] Race conditions addressed
+- [ ] Concurrent access handled correctly
+- [ ] State cleanup on errors/exit
 
-### Security Best Practices
-- Input validation
-- Authentication
-- Authorization
-- Data protection
+### Error Handling
+- [ ] Errors caught at appropriate levels
+- [ ] Error messages are actionable
+- [ ] Errors don't expose sensitive information
+- [ ] Recovery or graceful degradation implemented
+- [ ] Resources cleaned up in error paths
 
-## Common Patterns
+---
 
-### Pattern A
-Implementation details and examples.
+## Security
 
-### Pattern B
-Implementation details and examples.
+### Input Validation
+- [ ] All user input validated and sanitized
+- [ ] Input length limits enforced
+- [ ] File uploads validated (type, size, content)
+- [ ] URL parameters validated
 
-### Pattern C
-Implementation details and examples.
+### Injection Prevention
+- [ ] SQL queries parameterized
+- [ ] Command execution uses safe APIs
+- [ ] HTML output escaped to prevent XSS
+- [ ] LDAP queries properly escaped
+- [ ] XML parsing disables external entities
 
-## Anti-Patterns to Avoid
+### Authentication & Authorization
+- [ ] Authentication required for protected resources
+- [ ] Authorization checked before operations
+- [ ] Session management secure
+- [ ] Password handling follows best practices
+- [ ] Token expiration implemented
 
-### Anti-Pattern 1
-What not to do and why.
+### Data Protection
+- [ ] Sensitive data encrypted at rest
+- [ ] Sensitive data encrypted in transit
+- [ ] PII handled according to policy
+- [ ] Secrets not hardcoded
+- [ ] Logs don't contain sensitive data
 
-### Anti-Pattern 2
-What not to do and why.
+### API Security
+- [ ] Rate limiting implemented
+- [ ] CORS configured correctly
+- [ ] CSRF protection in place
+- [ ] API keys/tokens secured
+- [ ] Endpoints use HTTPS
 
-## Tools and Resources
+---
 
-### Recommended Tools
-- Tool 1: Purpose
-- Tool 2: Purpose
-- Tool 3: Purpose
+## Performance
 
-### Further Reading
-- Resource 1
-- Resource 2
-- Resource 3
+### Efficiency
+- [ ] Appropriate data structures used
+- [ ] Algorithms have acceptable complexity
+- [ ] Database queries are optimized
+- [ ] N+1 query problems avoided
+- [ ] Indexes used where beneficial
 
-## Conclusion
+### Resource Usage
+- [ ] Memory usage bounded
+- [ ] No memory leaks
+- [ ] File handles properly closed
+- [ ] Database connections pooled
+- [ ] Network calls minimized
 
-Key takeaways for using this reference guide effectively.
+### Caching
+- [ ] Appropriate caching strategy
+- [ ] Cache invalidation handled
+- [ ] Cache keys are unique and predictable
+- [ ] TTL values appropriate
+
+### Scalability
+- [ ] Horizontal scaling considered
+- [ ] Bottlenecks identified
+- [ ] Async processing for long operations
+- [ ] Batch operations where appropriate
+
+---
+
+## Maintainability
+
+### Code Quality
+- [ ] Functions/methods have single responsibility
+- [ ] Classes follow SOLID principles
+- [ ] Code is DRY (Don't Repeat Yourself)
+- [ ] No dead code or commented-out code
+- [ ] Magic numbers replaced with constants
+
+### Naming
+- [ ] Names are descriptive and consistent
+- [ ] Naming follows project conventions
+- [ ] No abbreviations that obscure meaning
+- [ ] Boolean variables/functions have is/has/can prefix
+
+### Structure
+- [ ] Functions are appropriately sized (<50 lines preferred)
+- [ ] Nesting depth is reasonable (<4 levels)
+- [ ] Related code is grouped together
+- [ ] Dependencies are minimal and explicit
+
+### Readability
+- [ ] Code is self-documenting where possible
+- [ ] Complex logic has explanatory comments
+- [ ] Formatting is consistent
+- [ ] No overly clever or obscure code
+
+---
+
+## Testing
+
+### Coverage
+- [ ] New code has unit tests
+- [ ] Critical paths have integration tests
+- [ ] Edge cases are tested
+- [ ] Error conditions are tested
+
+### Quality
+- [ ] Tests are independent
+- [ ] Tests have clear assertions
+- [ ] Test names describe what is tested
+- [ ] Tests don't depend on external state
+
+### Mocking
+- [ ] External dependencies are mocked
+- [ ] Mocks are realistic
+- [ ] Mock setup is not excessive
+
+---
+
+## Documentation
+
+### Code Documentation
+- [ ] Public APIs are documented
+- [ ] Complex algorithms explained
+- [ ] Non-obvious decisions documented
+- [ ] TODO/FIXME comments have context
+
+### External Documentation
+- [ ] README updated if needed
+- [ ] API documentation updated
+- [ ] Changelog updated
+- [ ] Migration guides provided
+
+---
+
+## Language-Specific Checks
+
+### TypeScript/JavaScript
+- [ ] Types are explicit (avoid `any`)
+- [ ] Null checks present (`?.`, `??`)
+- [ ] Async/await errors handled
+- [ ] No floating promises
+- [ ] Memory leaks from closures checked
+
+### Python
+- [ ] Type hints used for public APIs
+- [ ] Context managers for resources (`with` statements)
+- [ ] Exception handling is specific (not bare `except`)
+- [ ] No mutable default arguments
+- [ ] List comprehensions used appropriately
+
+### Go
+- [ ] Errors checked and handled
+- [ ] Goroutine leaks prevented
+- [ ] Context propagation correct
+- [ ] Defer statements in right order
+- [ ] Interfaces minimal
+
+### Swift
+- [ ] Optionals handled safely
+- [ ] Memory management correct (weak/unowned)
+- [ ] Error handling uses Result or throws
+- [ ] Access control appropriate
+- [ ] Codable implementation correct
+
+### Kotlin
+- [ ] Null safety leveraged
+- [ ] Coroutine cancellation handled
+- [ ] Data classes used appropriately
+- [ ] Extension functions don't obscure behavior
+- [ ] Sealed classes for state
+
+---
+
+## Review Process Tips
+
+### Before Approving
+1. Verify all critical checks passed
+2. Confirm tests are adequate
+3. Consider deployment impact
+4. Check for any security concerns
+5. Ensure documentation is updated
+
+### Providing Feedback
+- Be specific about issues
+- Explain why something is problematic
+- Suggest alternatives when possible
+- Distinguish blockers from suggestions
+- Acknowledge good patterns
+
+### When to Block
+- Security vulnerabilities present
+- Critical logic errors
+- No tests for risky changes
+- Breaking changes without migration
+- Significant performance regressions

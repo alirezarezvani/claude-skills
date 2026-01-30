@@ -189,7 +189,7 @@
       "name": "capa-officer",
       "source": "../../ra-qm-team/capa-officer",
       "category": "ra-qm",
-      "description": "Senior CAPA Officer specialist for managing Corrective and Preventive Actions within Quality Management Systems. Provides CAPA process management, root cause analysis, effectiveness verification, and continuous improvement coordination. Use for CAPA investigations, corrective action planning, preventive action implementation, and CAPA system optimization."
+      "description": "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use for CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
     },
     {
       "name": "fda-consultant-specialist",

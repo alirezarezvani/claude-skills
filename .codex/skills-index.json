@@ -153,7 +153,7 @@
       "name": "social-media-analyzer",
       "source": "../../marketing-skill/social-media-analyzer",
       "category": "marketing",
-      "description": "Analyzes social media campaign performance across platforms with engagement metrics, ROI calculations, and audience insights for data-driven marketing decisions"
+      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards."
     },
     {
       "name": "agile-product-owner",

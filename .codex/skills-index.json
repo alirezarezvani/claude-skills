@@ -159,7 +159,7 @@
       "name": "agile-product-owner",
       "source": "../../product-team/agile-product-owner",
       "category": "product",
-      "description": "Agile product ownership toolkit for Senior Product Owner including INVEST-compliant user story generation, sprint planning, backlog management, and velocity tracking. Use for story writing, sprint planning, stakeholder communication, and agile ceremonies."
+      "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
       "name": "product-manager-toolkit",
@@ -237,7 +237,7 @@
       "name": "quality-manager-qmr",
       "source": "../../ra-qm-team/quality-manager-qmr",
       "category": "ra-qm",
-      "description": "Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides overall quality system responsibility, regulatory compliance oversight, management accountability, and strategic quality leadership. Use for quality system governance, regulatory compliance oversight, management responsibility, and quality strategic planning."
+      "description": "Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review leadership, regulatory compliance oversight, and quality performance monitoring per ISO 13485 Clause 5.5.2."
     },
     {
       "name": "quality-manager-qms-iso13485",

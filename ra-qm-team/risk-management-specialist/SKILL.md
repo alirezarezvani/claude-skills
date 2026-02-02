@@ -1,225 +1,537 @@
 ---
 name: risk-management-specialist
-description: Senior Risk Management specialist for medical device companies implementing ISO 14971 risk management throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis. Use for risk management planning, risk assessments, risk control verification, and risk management file maintenance.
+description: Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis.
+triggers:
+  - risk management
+  - ISO 14971
+  - risk analysis
+  - FMEA
+  - fault tree analysis
+  - hazard identification
+  - risk control
+  - risk matrix
+  - benefit-risk analysis
+  - residual risk
+  - risk acceptability
+  - post-market risk
 ---
 
-# Senior Risk Management Specialist
+# Risk Management Specialist
 
-Expert-level medical device risk management implementing ISO 14971 throughout the complete product lifecycle with comprehensive risk analysis, evaluation, control, and post-production monitoring capabilities.
+ISO 14971:2019 risk management implementation throughout the medical device lifecycle.
 
-## Core Risk Management Competencies
+---
 
-### 1. Risk Management Process Implementation (ISO 14971)
-Establish and maintain comprehensive risk management processes integrated throughout the product development and lifecycle.
+## Table of Contents
 
-**Risk Management Process Framework:**
+- [Risk Management Planning Workflow](#risk-management-planning-workflow)
+- [Risk Analysis Workflow](#risk-analysis-workflow)
+- [Risk Evaluation Workflow](#risk-evaluation-workflow)
+- [Risk Control Workflow](#risk-control-workflow)
+- [Post-Production Risk Management](#post-production-risk-management)
+- [Risk Assessment Templates](#risk-assessment-templates)
+- [Decision Frameworks](#decision-frameworks)
+- [Tools and References](#tools-and-references)
+
+---
+
+## Risk Management Planning Workflow
+
+Establish risk management process per ISO 14971.
+
+### Workflow: Create Risk Management Plan
+
+1. Define scope of risk management activities:
+   - Medical device identification
+   - Lifecycle stages covered
+   - Applicable standards and regulations
+2. Establish risk acceptability criteria:
+   - Define probability categories (P1-P5)
+   - Define severity categories (S1-S5)
+   - Create risk matrix with acceptance thresholds
+3. Assign responsibilities:
+   - Risk management lead
+   - Subject matter experts
+   - Approval authorities
+4. Define verification activities:
+   - Methods for control verification
+   - Acceptance criteria
+5. Plan production and post-production activities:
+   - Information sources
+   - Review triggers
+   - Update procedures
+6. Obtain plan approval
+7. Establish risk management file
+8. **Validation:** Plan approved; acceptability criteria defined; responsibilities assigned; file established
+
+### Risk Management Plan Content
+
+| Section | Content | Evidence |
+|---------|---------|----------|
+| Scope | Device and lifecycle coverage | Scope statement |
+| Criteria | Risk acceptability matrix | Risk matrix document |
+| Responsibilities | Roles and authorities | RACI chart |
+| Verification | Methods and acceptance | Verification plan |
+| Production/Post-Production | Monitoring activities | Surveillance plan |
+
+### Risk Acceptability Matrix (5x5)
+
+| Probability \ Severity | Negligible | Minor | Serious | Critical | Catastrophic |
+|------------------------|------------|-------|---------|----------|--------------|
+| **Frequent (P5)** | Medium | High | High | Unacceptable | Unacceptable |
+| **Probable (P4)** | Medium | Medium | High | High | Unacceptable |
+| **Occasional (P3)** | Low | Medium | Medium | High | High |
+| **Remote (P2)** | Low | Low | Medium | Medium | High |
+| **Improbable (P1)** | Low | Low | Low | Medium | Medium |
+
+### Risk Level Actions
+
+| Level | Acceptable | Action Required |
+|-------|------------|-----------------|
+| Low | Yes | Document and accept |
+| Medium | ALARP | Reduce if practicable; document rationale |
+| High | ALARP | Reduction required; demonstrate ALARP |
+| Unacceptable | No | Design change mandatory |
+
+---
+
+## Risk Analysis Workflow
+
+Identify hazards and estimate risks systematically.
+
+### Workflow: Conduct Risk Analysis
+
+1. Define intended use and reasonably foreseeable misuse:
+   - Medical indication
+   - Patient population
+   - User population
+   - Use environment
+2. Select analysis method(s):
+   - FMEA for component/function analysis
+   - FTA for system-level analysis
+   - HAZOP for process deviations
+   - Use Error Analysis for user interaction
+3. Identify hazards by category:
+   - Energy hazards (electrical, mechanical, thermal)
+   - Biological hazards (bioburden, biocompatibility)
+   - Chemical hazards (residues, leachables)
+   - Operational hazards (software, use errors)
+4. Determine hazardous situations:
+   - Sequence of events
+   - Foreseeable misuse scenarios
+   - Single fault conditions
+5. Estimate probability of harm (P1-P5)
+6. Estimate severity of harm (S1-S5)
+7. Document in hazard analysis worksheet
+8. **Validation:** All hazard categories addressed; all hazards documented; probability and severity assigned
+
+### Hazard Categories Checklist
+
+| Category | Examples | Analyzed |
+|----------|----------|----------|
+| Electrical | Shock, burns, interference | ☐ |
+| Mechanical | Crushing, cutting, entrapment | ☐ |
+| Thermal | Burns, tissue damage | ☐ |
+| Radiation | Ionizing, non-ionizing | ☐ |
+| Biological | Infection, biocompatibility | ☐ |
+| Chemical | Toxicity, irritation | ☐ |
+| Software | Incorrect output, timing | ☐ |
+| Use Error | Misuse, perception, cognition | ☐ |
+| Environment | EMC, mechanical stress | ☐ |
+
+### Analysis Method Selection
+
+| Situation | Recommended Method |
+|-----------|-------------------|
+| Component failures | FMEA |
+| System-level failure | FTA |
+| Process deviations | HAZOP |
+| User interaction | Use Error Analysis |
+| Software behavior | Software FMEA |
+| Early design phase | PHA |
+
+### Probability Criteria
+
+| Level | Name | Description | Frequency |
+|-------|------|-------------|-----------|
+| P5 | Frequent | Expected to occur | >10⁻³ |
+| P4 | Probable | Likely to occur | 10⁻³ to 10⁻⁴ |
+| P3 | Occasional | May occur | 10⁻⁴ to 10⁻⁵ |
+| P2 | Remote | Unlikely | 10⁻⁵ to 10⁻⁶ |
+| P1 | Improbable | Very unlikely | <10⁻⁶ |
+
+### Severity Criteria
+
+| Level | Name | Description | Harm |
+|-------|------|-------------|------|
+| S5 | Catastrophic | Death | Death |
+| S4 | Critical | Permanent impairment | Irreversible injury |
+| S3 | Serious | Injury requiring intervention | Reversible injury |
+| S2 | Minor | Temporary discomfort | No treatment needed |
+| S1 | Negligible | Inconvenience | No injury |
+
+See: [references/risk-analysis-methods.md](references/risk-analysis-methods.md)
+
+---
+
+## Risk Evaluation Workflow
+
+Evaluate risks against acceptability criteria.
+
+### Workflow: Evaluate Identified Risks
+
+1. Calculate initial risk level from probability × severity
+2. Compare to risk acceptability criteria
+3. For each risk, determine:
+   - Acceptable: Document and accept
+   - ALARP: Proceed to risk control
+   - Unacceptable: Mandatory risk control
+4. Document evaluation rationale
+5. Identify risks requiring benefit-risk analysis
+6. Complete benefit-risk analysis if applicable
+7. Compile risk evaluation summary
+8. **Validation:** All risks evaluated; acceptability determined; rationale documented
+
+### Risk Evaluation Decision Tree
+
 ```
-ISO 14971 RISK MANAGEMENT PROCESS
-├── Risk Management Planning
-│   ├── Risk management plan development
-│   ├── Risk acceptability criteria definition
-│   ├── Risk management team formation
-│   └── Risk management file establishment
-├── Risk Analysis
-│   ├── Intended use and reasonably foreseeable misuse
-│   ├── Hazard identification and analysis
-│   ├── Hazardous situation evaluation
-│   └── Risk estimation and documentation
-├── Risk Evaluation
-│   ├── Risk acceptability assessment
-│   ├── Risk benefit analysis
-│   ├── Risk control necessity determination
-│   └── Risk evaluation documentation
-├── Risk Control
-│   ├── Risk control option analysis
-│   ├── Risk control measure implementation
-│   ├── Residual risk evaluation
-│   └── Risk control effectiveness verification
-└── Production and Post-Production Information
-    ├── Information collection and analysis
-    ├── Risk management file updates
-    ├── Risk benefit analysis review
-    └── Risk control measure adjustment
+Risk Estimated
+      │
+      ▼
+Apply Acceptability Criteria
+      │
+      ├── Low Risk ──────────► Accept and document
+      │
+      ├── Medium Risk ───────► Consider risk reduction
+      │   │                    Document ALARP if not reduced
+      │   ▼
+      │   Practicable to reduce?
+      │   │
+      │   Yes──► Implement control
+      │   No───► Document ALARP rationale
+      │
+      ├── High Risk ─────────► Risk reduction required
+      │   │                    Must demonstrate ALARP
+      │   ▼
+      │   Implement control
+      │   Verify residual risk
+      │
+      └── Unacceptable ──────► Design change mandatory
+                               Cannot proceed without control
 ```
 
-### 2. Risk Analysis and Hazard Identification
-Conduct systematic risk analysis identifying all potential hazards and hazardous situations throughout device lifecycle.
+### ALARP Demonstration Requirements
 
-**Risk Analysis Methodology:**
-1. **Intended Use and Context Analysis**
-   - Medical indication and patient population
-   - Use environment and conditions
-   - User characteristics and training
-   - **Decision Point**: Define scope of risk analysis
+| Criterion | Evidence Required |
+|-----------|-------------------|
+| Technical feasibility | Analysis of alternative controls |
+| Proportionality | Cost-benefit of further reduction |
+| State of the art | Comparison to similar devices |
+| Stakeholder input | Clinical/user perspectives |
 
-2. **Hazard Identification Process**
-   - **For Hardware Components**: Mechanical, electrical, thermal, chemical hazards
-   - **For Software Components**: Software failure modes per IEC 62304
-   - **For Combination Products**: Drug-device interaction risks
-   - **For Connected Devices**: Cybersecurity and data privacy risks
+### Benefit-Risk Analysis Triggers
 
-3. **Hazardous Situation Analysis**
-   - Sequence of events leading to hazardous situations
-   - Foreseeable misuse and use error scenarios
-   - Single fault condition analysis
-   - Multiple fault condition evaluation
+| Situation | Benefit-Risk Required |
+|-----------|----------------------|
+| Residual risk remains high | Yes |
+| No feasible risk reduction | Yes |
+| Novel device | Yes |
+| Unacceptable risk with clinical benefit | Yes |
+| All risks low | No |
 
-### 3. Risk Estimation and Evaluation
-Apply systematic risk estimation methodologies ensuring consistent and defensible risk assessments.
+---
 
-**Risk Estimation Framework:**
-- **Probability Assessment**: Statistical data, literature, expert judgment
-- **Severity Assessment**: Clinical outcome evaluation and classification
-- **Risk Level Determination**: Risk matrix application and documentation
-- **Risk Acceptability Evaluation**: Criteria application and justification
+## Risk Control Workflow
 
-**Risk Evaluation Decision Tree:**
+Implement and verify risk control measures.
+
+### Workflow: Implement Risk Controls
+
+1. Identify risk control options:
+   - Inherent safety by design (Priority 1)
+   - Protective measures in device (Priority 2)
+   - Information for safety (Priority 3)
+2. Select optimal control following hierarchy
+3. Analyze control for new hazards introduced
+4. Document control in design requirements
+5. Implement control in design
+6. Develop verification protocol
+7. Execute verification and document results
+8. Evaluate residual risk with control in place
+9. **Validation:** Control implemented; verification passed; residual risk acceptable; no unaddressed new hazards
+
+### Risk Control Hierarchy
+
+| Priority | Control Type | Examples | Effectiveness |
+|----------|--------------|----------|---------------|
+| 1 | Inherent Safety | Eliminate hazard, fail-safe design | Highest |
+| 2 | Protective Measures | Guards, alarms, automatic shutdown | High |
+| 3 | Information | Warnings, training, IFU | Lower |
+
+### Risk Control Option Analysis Template
+
 ```
-RISK EVALUATION PROCESS
-├── Is Risk Acceptable? (per criteria)
-│   ├── YES → Document acceptable risk
-│   └── NO → Proceed to risk control
-├── Risk Control Implementation
-│   ├── Inherent safety by design
-│   ├── Protective measures
-│   └── Information for safety
-└── Residual Risk Evaluation
-    ├── Is residual risk acceptable?
-    ├── Risk benefit analysis
-    └── Final risk acceptability decision
+RISK CONTROL OPTION ANALYSIS
+
+Hazard ID: H-[XXX]
+Hazard: [Description]
+Initial Risk: P[X] × S[X] = [Level]
+
+OPTIONS CONSIDERED:
+| Option | Control Type | New Hazards | Feasibility | Selected |
+|--------|--------------|-------------|-------------|----------|
+| 1 | [Type] | [Yes/No] | [H/M/L] | [Yes/No] |
+| 2 | [Type] | [Yes/No] | [H/M/L] | [Yes/No] |
+
+SELECTED CONTROL: Option [X]
+Rationale: [Justification for selection]
+
+IMPLEMENTATION:
+- Requirement: [REQ-XXX]
+- Design Document: [Reference]
+
+VERIFICATION:
+- Method: [Test/Analysis/Review]
+- Protocol: [Reference]
+- Acceptance Criteria: [Criteria]
 ```
 
-### 4. Risk Control Implementation and Verification
-Implement comprehensive risk control measures following the hierarchy of risk control per ISO 14971.
+### Risk Control Verification Methods
 
-**Risk Control Hierarchy:**
-1. **Inherent Safety by Design**
-   - Design modifications eliminating hazards
-   - Fail-safe design implementation
-   - Redundancy and diversity application
-   - Human factors engineering integration
+| Method | When to Use | Evidence |
+|--------|-------------|----------|
+| Test | Quantifiable performance | Test report |
+| Inspection | Physical presence | Inspection record |
+| Analysis | Design calculation | Analysis report |
+| Review | Documentation check | Review record |
 
-2. **Protective Measures in the Medical Device**
-   - Alarms and alert systems
-   - Automatic shut-off mechanisms
-   - Physical barriers and shields
-   - Software safety functions
+### Residual Risk Evaluation
 
-3. **Information for Safety**
-   - User training and education
-   - Labeling and instructions for use
-   - Warning systems and alerts
-   - Contraindications and precautions
+| After Control | Action |
+|---------------|--------|
+| Acceptable | Document, proceed |
+| ALARP achieved | Document rationale, proceed |
+| Still unacceptable | Additional control or design change |
+| New hazard introduced | Analyze and control new hazard |
 
-**Risk Control Verification:**
-- Risk control effectiveness testing and validation
-- Verification protocol development and execution
-- Test results analysis and documentation
-- Risk control performance monitoring
+---
 
-## Advanced Risk Management Applications
+## Post-Production Risk Management
 
-### Software Risk Management (IEC 62304 Integration)
-Integrate software lifecycle processes with risk management ensuring comprehensive software safety assessment.
+Monitor and update risk management throughout product lifecycle.
 
-**Software Risk Management Process:**
-- **Software Safety Classification**: Class A, B, or C determination
-- **Software Hazard Analysis**: Software contribution to hazardous situations
-- **Software Risk Control**: Architecture and design safety measures
-- **Software Risk Management File**: Integration with overall risk management file
+### Workflow: Post-Production Risk Monitoring
 
-### Cybersecurity Risk Management
-Implement cybersecurity risk management per FDA guidance and emerging international standards.
+1. Identify information sources:
+   - Customer complaints
+   - Service reports
+   - Vigilance/adverse events
+   - Literature monitoring
+   - Clinical studies
+2. Establish collection procedures
+3. Define review triggers:
+   - New hazard identified
+   - Increased frequency of known hazard
+   - Serious incident
+   - Regulatory feedback
+4. Analyze incoming information for risk relevance
+5. Update risk management file as needed
+6. Communicate significant findings
+7. Conduct periodic risk management review
+8. **Validation:** Information sources monitored; file current; reviews completed per schedule
 
-**Cybersecurity Risk Framework:**
-1. **Cybersecurity Threat Modeling**
-   - Asset identification and vulnerability assessment
-   - Threat source analysis and attack vector evaluation
-   - Impact assessment on patient safety and device functionality
-   - Cybersecurity risk estimation and prioritization
+### Information Sources
 
-2. **Cybersecurity Controls Implementation**
-   - **Preventive Controls**: Authentication, authorization, encryption
-   - **Detective Controls**: Monitoring, logging, intrusion detection
-   - **Corrective Controls**: Incident response, recovery procedures
-   - **Compensating Controls**: Additional safeguards and mitigations
+| Source | Information Type | Review Frequency |
+|--------|------------------|------------------|
+| Complaints | Use issues, failures | Continuous |
+| Service | Field failures, repairs | Monthly |
+| Vigilance | Serious incidents | Immediate |
+| Literature | Similar device issues | Quarterly |
+| Regulatory | Authority feedback | As received |
+| Clinical | PMCF data | Per plan |
 
-### Human Factors and Use Error Risk Management
-Integrate human factors engineering with risk management addressing use-related risks.
+### Risk Management File Update Triggers
 
-**Use Error Risk Management:**
-- **Use-Related Risk Analysis**: Task analysis and use scenario evaluation
-- **Use Error Identification**: Critical task and use error analysis
-- **Use Error Risk Estimation**: Probability and severity assessment
-- **Use Error Risk Control**: Design controls and user interface optimization
+| Trigger | Response Time | Action |
+|---------|---------------|--------|
+| Serious incident | Immediate | Full risk review |
+| New hazard identified | 30 days | Risk analysis update |
+| Trend increase | 60 days | Trend analysis |
+| Design change | Before implementation | Impact assessment |
+| Standards update | Per transition period | Gap analysis |
 
-## Risk Management File Management
+### Periodic Review Requirements
 
-### Risk Management Documentation
-Maintain comprehensive risk management files ensuring traceability and regulatory compliance.
+| Review Element | Frequency |
+|----------------|-----------|
+| Risk management file completeness | Annual |
+| Risk control effectiveness | Annual |
+| Post-market information analysis | Quarterly |
+| Risk-benefit conclusions | Annual or on new data |
 
-**Risk Management File Structure:**
-- **Risk Management Plan**: Objectives, scope, criteria, and responsibilities
-- **Risk Analysis Records**: Hazard identification, risk estimation, evaluation
-- **Risk Control Records**: Control measures, verification, validation results
-- **Production and Post-Production Information**: Surveillance data, updates
-- **Risk Management Report**: Summary of risk management activities and conclusions
+---
 
-### Risk Management File Maintenance
-Ensure risk management files remain current throughout product lifecycle.
+## Risk Assessment Templates
 
-**File Maintenance Protocol:**
-- **Design Change Impact Assessment**: Risk analysis updates for design changes
-- **Post-Market Information Integration**: Surveillance data incorporation
-- **Risk Control Effectiveness Review**: Ongoing effectiveness verification
-- **Periodic Risk Management Review**: Systematic file review and updates
+### Hazard Analysis Worksheet
 
-## Cross-functional Integration
+```
+HAZARD ANALYSIS WORKSHEET
 
-### Quality Management System Integration
-Ensure seamless integration of risk management with quality management system processes.
+Product: [Device Name]
+Document: HA-[Product]-[Rev]
+Analyst: [Name]
+Date: [Date]
 
-**QMS-Risk Management Interface:**
-- **Design Controls**: Risk management integration in design and development
-- **Document Control**: Risk management file configuration management
-- **CAPA Integration**: Risk assessment for corrective and preventive actions
-- **Management Review**: Risk management performance reporting
+| ID | Hazard | Hazardous Situation | Harm | P | S | Initial Risk | Control | Residual P | Residual S | Final Risk |
+|----|--------|---------------------|------|---|---|--------------|---------|------------|------------|------------|
+| H-001 | [Hazard] | [Situation] | [Harm] | [1-5] | [1-5] | [Level] | [Control ref] | [1-5] | [1-5] | [Level] |
+```
 
-### Regulatory Submission Integration
-Coordinate risk management documentation with regulatory submission requirements.
+### FMEA Worksheet
 
-**Regulatory Integration Points:**
-- **FDA Submissions**: Risk analysis and risk management summaries
-- **EU MDR Technical Documentation**: Risk management file integration
-- **ISO 13485 Certification**: Risk management process compliance
-- **Post-Market Requirements**: Risk management in post-market surveillance
+```
+FMEA WORKSHEET
 
-### Clinical and Post-Market Integration
-Integrate risk management with clinical evaluation and post-market surveillance activities.
+Product: [Device Name]
+Subsystem: [Subsystem]
+Analyst: [Name]
+Date: [Date]
 
-**Clinical-Risk Interface:**
-- **Clinical Risk Assessment**: Clinical data integration with risk analysis
-- **Clinical Investigation**: Risk management in clinical study design
-- **Post-Market Surveillance**: Risk signal detection and evaluation
-- **Clinical Evaluation Updates**: Risk-benefit analysis integration
+| ID | Item | Function | Failure Mode | Effect | S | Cause | O | Control | D | RPN | Action |
+|----|------|----------|--------------|--------|---|-------|---|---------|---|-----|--------|
+| FM-001 | [Item] | [Function] | [Mode] | [Effect] | [1-10] | [Cause] | [1-10] | [Detection] | [1-10] | [S×O×D] | [Action] |
 
-## Resources
+RPN Action Thresholds:
+>200: Critical - Immediate action
+100-200: High - Action plan required
+50-100: Medium - Consider action
+<50: Low - Monitor
+```
 
-### scripts/
-- `risk-assessment-automation.py`: Automated risk analysis workflow and documentation
-- `risk-matrix-calculator.py`: Risk estimation and evaluation automation
-- `risk-control-tracker.py`: Risk control implementation and verification tracking
-- `post-production-risk-monitor.py`: Post-market risk information analysis
+### Risk Management Report Summary
 
-### references/
-- `iso14971-implementation-guide.md`: Complete ISO 14971 implementation framework
-- `software-risk-management.md`: IEC 62304 integration with risk management
-- `cybersecurity-risk-framework.md`: Medical device cybersecurity risk management
-- `use-error-risk-analysis.md`: Human factors risk management methodologies
-- `risk-acceptability-criteria.md`: Risk acceptability frameworks and examples
+```
+RISK MANAGEMENT REPORT
 
-### assets/
-- `risk-templates/`: Risk management plan, risk analysis, and risk control templates
-- `risk-matrices/`: Standardized risk estimation and evaluation matrices
-- `hazard-libraries/`: Medical device hazard identification libraries
-- `training-materials/`: Risk management training and competency programs
+Product: [Device Name]
+Date: [Date]
+Revision: [X.X]
+
+SUMMARY:
+- Total hazards identified: [N]
+- Risk controls implemented: [N]
+- Residual risks: [N] Low, [N] Medium, [N] High
+- Overall conclusion: [Acceptable / Not Acceptable]
+
+RISK DISTRIBUTION:
+| Risk Level | Before Control | After Control |
+|------------|----------------|---------------|
+| Unacceptable | [N] | 0 |
+| High | [N] | [N] |
+| Medium | [N] | [N] |
+| Low | [N] | [N] |
+
+CONTROLS IMPLEMENTED:
+- Inherent safety: [N]
+- Protective measures: [N]
+- Information for safety: [N]
+
+OVERALL RESIDUAL RISK: [Acceptable / ALARP Demonstrated]
+BENEFIT-RISK CONCLUSION: [If applicable]
+
+APPROVAL:
+Risk Management Lead: _____________ Date: _______
+Quality Assurance: _____________ Date: _______
+```
+
+---
+
+## Decision Frameworks
+
+### Risk Control Selection
+
+```
+What is the risk level?
+        │
+        ├── Unacceptable ──► Can hazard be eliminated?
+        │                    │
+        │                Yes─┴─No
+        │                 │     │
+        │                 ▼     ▼
+        │            Eliminate  Can protective
+        │            hazard     measure reduce?
+        │                           │
+        │                       Yes─┴─No
+        │                        │     │
+        │                        ▼     ▼
+        │                   Add       Add warning
+        │                   protection + training
+        │
+        └── High/Medium ──► Apply hierarchy
+                            starting at Level 1
+```
+
+### New Hazard Analysis
+
+| Question | If Yes | If No |
+|----------|--------|-------|
+| Does control introduce new hazard? | Analyze new hazard | Proceed |
+| Is new risk higher than original? | Reject control option | Acceptable trade-off |
+| Can new hazard be controlled? | Add control | Reject control option |
+
+### Risk Acceptability Decision
+
+| Condition | Decision |
+|-----------|----------|
+| All risks Low | Acceptable |
+| Medium risks with ALARP | Acceptable |
+| High risks with ALARP documented | Acceptable if benefits outweigh |
+| Any Unacceptable residual | Not acceptable - redesign |
+
+---
+
+## Tools and References
+
+### Scripts
+
+| Tool | Purpose | Usage |
+|------|---------|-------|
+| [risk_matrix_calculator.py](scripts/risk_matrix_calculator.py) | Calculate risk levels and FMEA RPN | `python risk_matrix_calculator.py --help` |
+
+**Risk Matrix Calculator Features:**
+- ISO 14971 5x5 risk matrix calculation
+- FMEA RPN (Risk Priority Number) calculation
+- Interactive mode for guided assessment
+- Display risk criteria definitions
+- JSON output for integration
+
+### References
+
+| Document | Content |
+|----------|---------|
+| [iso14971-implementation-guide.md](references/iso14971-implementation-guide.md) | Complete ISO 14971:2019 implementation with templates |
+| [risk-analysis-methods.md](references/risk-analysis-methods.md) | FMEA, FTA, HAZOP, Use Error Analysis methods |
+
+### Quick Reference: ISO 14971 Process
+
+| Stage | Key Activities | Output |
+|-------|----------------|--------|
+| Planning | Define scope, criteria, responsibilities | Risk Management Plan |
+| Analysis | Identify hazards, estimate risk | Hazard Analysis |
+| Evaluation | Compare to criteria, ALARP assessment | Risk Evaluation |
+| Control | Implement hierarchy, verify | Risk Control Records |
+| Residual | Overall assessment, benefit-risk | Risk Management Report |
+| Production | Monitor, review, update | Updated RM File |
+
+---
+
+## Related Skills
+
+| Skill | Integration Point |
+|-------|-------------------|
+| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS integration |
+| [capa-officer](../capa-officer/) | Risk-based CAPA |
+| [regulatory-affairs-head](../regulatory-affairs-head/) | Regulatory submissions |
+| [quality-documentation-manager](../quality-documentation-manager/) | Risk file management |

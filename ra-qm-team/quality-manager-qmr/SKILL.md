@@ -1,209 +1,488 @@
 ---
 name: quality-manager-qmr
-description: Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides overall quality system responsibility, regulatory compliance oversight, management accountability, and strategic quality leadership. Use for quality system governance, regulatory compliance oversight, management responsibility, and quality strategic planning.
+description: Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review leadership, regulatory compliance oversight, and quality performance monitoring per ISO 13485 Clause 5.5.2.
+triggers:
+  - management review
+  - quality policy
+  - quality objectives
+  - QMR responsibilities
+  - quality system effectiveness
+  - quality KPIs
+  - cost of quality
+  - quality performance
+  - management accountability
+  - regulatory oversight
+  - quality culture
+  - quality governance
 ---
 
 # Senior Quality Manager Responsible Person (QMR)
 
-Ultimate quality system accountability and regulatory compliance oversight with comprehensive responsibility for quality management system effectiveness and regulatory compliance across all jurisdictions.
+Quality system accountability, management review leadership, and regulatory compliance oversight per ISO 13485 Clause 5.5.2 requirements.
 
-## Core QMR Responsibilities
+---
 
-### 1. Overall Quality System Responsibility (ISO 13485 Clause 5.5.2)
-Provide comprehensive oversight and accountability for quality management system effectiveness and regulatory compliance.
+## Table of Contents
 
-**QMR Accountability Framework:**
+- [QMR Responsibilities](#qmr-responsibilities)
+- [Management Review Workflow](#management-review-workflow)
+- [Quality KPI Management Workflow](#quality-kpi-management-workflow)
+- [Quality Objectives Workflow](#quality-objectives-workflow)
+- [Quality Culture Assessment Workflow](#quality-culture-assessment-workflow)
+- [Regulatory Compliance Oversight](#regulatory-compliance-oversight)
+- [Decision Frameworks](#decision-frameworks)
+- [Tools and References](#tools-and-references)
+
+---
+
+## QMR Responsibilities
+
+### ISO 13485 Clause 5.5.2 Requirements
+
+| Responsibility | Scope | Evidence |
+|----------------|-------|----------|
+| QMS effectiveness | Monitor system performance and suitability | Management review records |
+| Reporting to management | Communicate QMS performance to top management | Quality reports, dashboards |
+| Quality awareness | Promote regulatory and quality requirements | Training records, communications |
+| Liaison with external parties | Interface with regulators, Notified Bodies | Meeting records, correspondence |
+
+### QMR Accountability Matrix
+
+| Domain | Accountable For | Reports To | Frequency |
+|--------|-----------------|------------|-----------|
+| Quality Policy | Policy adequacy and communication | CEO/Board | Annual review |
+| Quality Objectives | Objective achievement and relevance | Executive Team | Quarterly |
+| QMS Performance | System effectiveness metrics | Management | Monthly |
+| Regulatory Compliance | Compliance status across jurisdictions | CEO | Quarterly |
+| Audit Program | Audit schedule completion, findings closure | Management | Per audit |
+| CAPA Oversight | CAPA effectiveness and timeliness | Executive Team | Monthly |
+
+### Authority Boundaries
+
+| Decision Type | QMR Authority | Escalation Required |
+|---------------|---------------|---------------------|
+| Process changes within QMS | Approve with owner | Major process redesign |
+| Document approval | Final QA approval | Policy-level changes |
+| Nonconformity disposition | Accept/reject with MRB | Product release decisions |
+| Supplier quality actions | Quality holds, audits | Supplier termination |
+| Audit scheduling | Adjust internal audit schedule | External audit timing |
+| Training requirements | Define quality training needs | Organization-wide training budget |
+
+---
+
+## Management Review Workflow
+
+Conduct management reviews per ISO 13485 Clause 5.6 requirements.
+
+### Workflow: Prepare and Execute Management Review
+
+1. Schedule management review (minimum annually, typically quarterly or semi-annually)
+2. Notify all required attendees minimum 2 weeks prior
+3. Collect required inputs from process owners:
+   - Audit results (internal and external)
+   - Customer feedback (complaints, satisfaction, returns)
+   - Process performance and product conformity
+   - CAPA status and effectiveness
+   - Previous review action items
+   - Changes affecting QMS (regulatory, organizational)
+   - Recommendations for improvement
+4. Compile input summary report with trend analysis
+5. Prepare presentation materials with supporting data
+6. Distribute agenda and input package 1 week prior
+7. Conduct review meeting per agenda
+8. **Validation:** All required inputs reviewed; decisions documented with owners and due dates
+
+### Required Attendees
+
+| Role | Requirement | Input Responsibility |
+|------|-------------|---------------------|
+| CEO/General Manager | Required | Strategic decisions |
+| QMR | Chair | Overall QMS status |
+| Department Heads | Required | Process performance |
+| RA Manager | Required | Regulatory changes |
+| Production Manager | Required | Product conformity |
+| Customer Quality | Required | Complaint data |
+
+### Management Review Input Template
+
 ```
-QMR RESPONSIBILITY MATRIX
-├── Quality Management System Oversight
-│   ├── QMS effectiveness monitoring
-│   ├── Quality policy implementation
-│   ├── Quality objectives achievement
-│   └── Resource adequacy assessment
-├── Regulatory Compliance Oversight
-│   ├── Regulatory requirement monitoring
-│   ├── Compliance status assessment
-│   ├── Regulatory submission oversight
-│   └── Authority relationship management
-├── Management Responsibility
-│   ├── Senior management reporting
-│   ├── Quality performance communication
-│   ├── Strategic quality planning
-│   └── Organizational quality culture
-└── Continuous Improvement Leadership
-    ├── Quality system enhancement
-    ├── Performance improvement initiatives
-    ├── Best practice implementation
-    └── Innovation and modernization
+MANAGEMENT REVIEW INPUT SUMMARY
+
+Review Period: [Start Date] to [End Date]
+Review Date: [Scheduled Date]
+Prepared By: [QMR Name]
+
+1. AUDIT RESULTS
+   Internal audits completed: [X] of [X] planned
+   External audits completed: [X]
+   Total findings: [X] major / [X] minor
+   Open findings: [X]
+   Finding trends: [Analysis]
+
+2. CUSTOMER FEEDBACK
+   Complaints received: [X]
+   Complaint rate: [X per 1000 units]
+   Customer satisfaction score: [X.X/5.0]
+   Returns: [X] units ([X]%)
+   Top issues: [Categories]
+
+3. PROCESS PERFORMANCE
+   [Process 1]: [Metric] vs [Target] - [Status]
+   [Process 2]: [Metric] vs [Target] - [Status]
+   Out-of-spec processes: [List]
+
+4. PRODUCT CONFORMITY
+   First pass yield: [X]%
+   Nonconformance rate: [X]%
+   Scrap cost: $[X]
+   Top defect categories: [List]
+
+5. CAPA STATUS
+   Open CAPAs: [X]
+   Overdue: [X]
+   Effectiveness rate: [X]%
+   Average age: [X] days
+
+6. PREVIOUS ACTIONS
+   Total from last review: [X]
+   Completed: [X] | In progress: [X] | Overdue: [X]
+
+7. CHANGES AFFECTING QMS
+   Regulatory: [List changes]
+   Organizational: [List changes]
+   Process: [List changes]
+
+8. RECOMMENDATIONS
+   [Collected improvement opportunities]
 ```
 
-### 2. Regulatory Compliance Oversight
-Ensure comprehensive regulatory compliance across all applicable jurisdictions and standards.
+### Management Review Output Requirements
 
-**Compliance Monitoring System:**
-1. **Multi-jurisdictional Compliance Tracking**
-   - **EU MDR 2017/745** compliance status monitoring
-   - **FDA QSR 21 CFR 820** compliance verification
-   - **ISO 13485** certification maintenance
-   - **National regulatory requirements** adherence
+| Output | Documentation | Owner |
+|--------|---------------|-------|
+| QMS improvement decisions | Action items with due dates | Assigned per item |
+| Resource needs | Resource plan updates | Department heads |
+| Quality objectives changes | Updated objectives document | QMR |
+| Process improvement needs | Improvement project charters | Process owners |
 
-2. **Compliance Risk Assessment**
-   - Regulatory risk identification and assessment
-   - Compliance gap analysis and remediation
-   - Regulatory change impact evaluation
-   - **Decision Point**: Escalate significant compliance risks to senior management
+See: [references/management-review-guide.md](references/management-review-guide.md)
 
-3. **Regulatory Authority Interface**
-   - **For EU Authorities**: Coordinate with Notified Bodies and Competent Authorities
-   - **For FDA**: Manage FDA communications and inspection readiness
-   - **For Other Markets**: Oversee international regulatory compliance
-   - Authority communication oversight and strategy
+---
 
-### 3. Management Review and Reporting (ISO 13485 Clause 5.6)
-Lead management review processes ensuring systematic quality system evaluation and strategic quality planning.
+## Quality KPI Management Workflow
 
-**Management Review Leadership:**
-- **Quarterly Management Reviews** with C-level executives
-- **Quality Performance Dashboards** with real-time KPIs
-- **Annual Quality Strategy Planning** sessions
-- **Regulatory Compliance Reports** to board and senior management
+Establish, monitor, and report quality performance indicators.
 
-**Key Review Topics:**
-- Quality management system performance and effectiveness
-- Regulatory compliance status and emerging requirements
-- Customer satisfaction trends and market feedback
-- Quality costs and return on quality investments
-- Strategic quality initiatives and resource requirements
+### Workflow: Establish Quality KPI Framework
 
-### 4. Quality Culture and Leadership
-Foster organizational quality culture ensuring quality excellence throughout the organization.
+1. Identify quality objectives requiring measurement
+2. Select KPIs per objective using SMART criteria:
+   - Specific: Clear definition and calculation
+   - Measurable: Quantifiable with available data
+   - Actionable: Team can influence results
+   - Relevant: Aligned to quality objectives
+   - Time-bound: Defined measurement frequency
+3. Define target values based on baseline data and benchmarks
+4. Assign data source and collection responsibility
+5. Establish reporting frequency per KPI category
+6. Configure dashboard displays and trend analysis
+7. Define escalation thresholds and alert triggers
+8. **Validation:** Each KPI has owner, target, data source, and escalation criteria
 
-**Quality Culture Initiatives:**
-- **Quality Leadership Development** programs
-- **Quality Awareness Training** for all employees
-- **Quality Recognition Programs** and incentives
-- **Quality Communication** strategies and campaigns
+### Core Quality KPIs
 
-## Strategic Quality Management
+| Category | KPI | Target | Calculation |
+|----------|-----|--------|-------------|
+| Process | First Pass Yield | >95% | (Units passed first time / Total units) × 100 |
+| Process | Nonconformance Rate | <1% | (NC count / Total units) × 100 |
+| CAPA | CAPA Closure Rate | >90% | (On-time closures / Due closures) × 100 |
+| CAPA | CAPA Effectiveness | >85% | (Effective CAPAs / Verified CAPAs) × 100 |
+| Audit | Finding Closure Rate | >90% | (On-time closures / Due closures) × 100 |
+| Audit | Repeat Finding Rate | <10% | (Repeat findings / Total findings) × 100 |
+| Customer | Complaint Rate | <0.1% | (Complaints / Units sold) × 100 |
+| Customer | Satisfaction Score | >4.0/5.0 | Average of survey scores |
 
-### Quality Strategic Planning
-Develop and implement comprehensive quality strategies aligned with business objectives and regulatory requirements.
+### KPI Review Frequency
 
-**Strategic Planning Process:**
-1. **Quality Strategy Development**
-   - Business objective alignment and integration
-   - Regulatory landscape analysis and planning
-   - Quality investment prioritization and ROI analysis
-   - Competitive quality positioning assessment
+| KPI Type | Review Frequency | Trend Period | Audience |
+|----------|------------------|--------------|----------|
+| Safety/Compliance | Daily monitoring | Weekly | Operations |
+| Production Quality | Weekly | Monthly | Department heads |
+| Customer Quality | Monthly | Quarterly | Executive team |
+| Strategic Quality | Quarterly | Annual | Board/C-suite |
 
-2. **Quality Resource Management**
-   - Quality team capability assessment and development
-   - Quality technology and system modernization
-   - Quality infrastructure investment planning
-   - External quality resource utilization
+### Performance Response Matrix
 
-3. **Quality Performance Management**
-   - Quality KPI framework development and monitoring
-   - Quality scorecards and dashboard implementation
-   - Quality benchmarking and best practice identification
-   - Quality improvement initiative prioritization
+| Performance Level | Status | Action Required |
+|-------------------|--------|-----------------|
+| >110% of target | Exceeding | Consider raising target |
+| 100-110% of target | Meeting | Maintain current approach |
+| 90-100% of target | Approaching | Monitor closely |
+| 80-90% of target | Below | Improvement plan required |
+| <80% of target | Critical | Immediate intervention |
 
-### Cross-functional Quality Integration
-Ensure quality considerations are integrated across all organizational functions and processes.
+See: [references/quality-kpi-framework.md](references/quality-kpi-framework.md)
 
-**Quality Integration Framework:**
-- **R&D Integration**: Design quality and design controls oversight
-- **Manufacturing Integration**: Production quality and process validation
-- **Supply Chain Integration**: Supplier quality and supply chain risk management
-- **Commercial Integration**: Customer quality and market quality feedback
+---
 
-## Quality System Governance
+## Quality Objectives Workflow
 
-### Quality Policy and Objectives (ISO 13485 Clause 5.3 & 5.4.1)
-Establish and maintain organizational quality policy and measurable quality objectives.
+Establish and maintain measurable quality objectives per ISO 13485 Clause 5.4.1.
 
-**Quality Governance Structure:**
-- **Quality Policy**: Top-level quality commitment and direction
-- **Quality Objectives**: Measurable quality targets and KPIs
-- **Quality Planning**: Strategic and operational quality planning
-- **Quality Communication**: Quality policy and objective communication
+### Workflow: Annual Quality Objectives Setting
 
-### Document and Change Control Oversight
-Ensure robust document control and change management processes throughout the organization.
+1. Review prior year objective achievement
+2. Analyze quality performance trends and gaps
+3. Align with organizational strategic plan
+4. Draft objectives with measurable targets
+5. Validate resource availability for achievement
+6. Obtain executive approval
+7. Communicate objectives organization-wide
+8. **Validation:** Each objective is measurable, has owner, target, and timeline
 
-**Document Control Oversight:**
-- Document control system effectiveness monitoring
-- Change control process compliance verification
-- Document review and approval process optimization
-- Configuration management and version control oversight
+### Quality Objective Structure
 
-### Quality Audit Program Oversight
-Provide strategic oversight of internal and external audit programs ensuring comprehensive quality system assessment.
+```
+QUALITY OBJECTIVE [Number]
 
-**Audit Program Management:**
-- **Internal Audit Program**: Strategic audit planning and resource allocation
-- **External Audit Coordination**: Regulatory and certification body audit management
-- **Audit Follow-up Oversight**: Corrective action effectiveness verification
-- **Audit Performance Assessment**: Audit program effectiveness evaluation
+Objective Statement: [Clear, measurable statement]
+Aligned to Policy Element: [Quality policy section]
+Target: [Specific measurable target]
+Baseline: [Current performance]
+Owner: [Name and title]
+Due Date: [Target achievement date]
 
-## Regulatory Interface Management
+Success Criteria:
+- [Criterion 1]
+- [Criterion 2]
 
-### Regulatory Authority Relationships
-Maintain strategic relationships with regulatory authorities ensuring effective communication and collaboration.
+Measurement Method: [How progress is tracked]
+Reporting Frequency: [Monthly/Quarterly]
 
-**Authority Relationship Management:**
-- **Regulatory Authority Meetings**: Strategic regulatory discussions and planning
-- **Regulatory Submission Oversight**: Quality and completeness verification
-- **Regulatory Inspection Management**: Preparation, coordination, and follow-up
-- **Regulatory Intelligence**: Authority position monitoring and trend analysis
+Supporting Initiatives:
+- [Initiative 1]
+- [Initiative 2]
 
-### Quality System Certification Management
-Oversee all quality system certifications ensuring compliance and continuous improvement.
+Resource Requirements:
+- [Resource 1]
+- [Resource 2]
+```
 
-**Certification Management:**
-- **ISO 13485 Certification**: Maintenance and continuous improvement
-- **Regulatory Certifications**: FDA registration, CE marking, other market certifications
-- **Quality Certifications**: Additional quality certifications and accreditations
-- **Certification Strategy**: Multi-market certification planning and optimization
+### Objective Categories
 
-## Quality Performance Monitoring
+| Category | Example Objectives | Typical Targets |
+|----------|-------------------|-----------------|
+| Customer Quality | Reduce complaint rate | <0.1% of units sold |
+| Process Quality | Improve first pass yield | >96% |
+| Compliance | Maintain certification | Zero major NCs |
+| Efficiency | Reduce quality costs | <4% of revenue |
+| Culture | Increase training completion | >98% on-time |
 
-### Quality Key Performance Indicators (KPIs)
-Monitor comprehensive quality performance metrics ensuring quality excellence and regulatory compliance.
+### Quarterly Objective Review
 
-**Quality Performance Dashboard:**
-- **Quality System Effectiveness**: Process performance, audit results, nonconformity trends
-- **Customer Quality**: Customer satisfaction, complaint rates, return rates
-- **Product Quality**: Product conformity, defect rates, quality costs
-- **Regulatory Compliance**: Compliance scores, submission success rates, inspection outcomes
-- **Quality Culture**: Training completion, quality awareness, employee engagement
+| Review Element | Assessment | Action |
+|----------------|------------|--------|
+| Progress vs. target | On track / Behind / Ahead | Adjust resources if behind |
+| Relevance | Still valid / Needs update | Modify if conditions changed |
+| Resources | Adequate / Insufficient | Request additional if needed |
+| Barriers | Identified obstacles | Escalate for resolution |
 
-### Quality Cost Management
-Monitor and optimize quality costs ensuring cost-effective quality management.
+---
 
-**Quality Cost Categories:**
-- **Prevention Costs**: Quality planning, training, prevention activities
-- **Appraisal Costs**: Inspection, testing, audit activities
-- **Internal Failure Costs**: Rework, scrap, internal quality failures
-- **External Failure Costs**: Returns, recalls, customer complaints, regulatory sanctions
+## Quality Culture Assessment Workflow
 
-## Resources
+Assess and improve organizational quality culture.
 
-### scripts/
-- `qmr-dashboard.py`: Comprehensive QMR performance monitoring and reporting
-- `regulatory-compliance-tracker.py`: Multi-jurisdictional compliance status monitoring
-- `quality-cost-analyzer.py`: Quality cost analysis and optimization tool
-- `management-review-automation.py`: Management review preparation and follow-up automation
+### Workflow: Annual Quality Culture Assessment
 
-### references/
-- `qmr-responsibilities-matrix.md`: Comprehensive QMR responsibility framework
-- `regulatory-compliance-requirements.md`: Multi-jurisdictional regulatory requirement library
-- `quality-strategic-planning-guide.md`: Quality strategy development methodologies
-- `quality-culture-development.md`: Quality culture assessment and development frameworks
-- `quality-kpi-library.md`: Comprehensive quality performance indicator definitions
+1. Design or select quality culture survey instrument
+2. Define survey population (all employees or sample)
+3. Communicate survey purpose and confidentiality
+4. Administer survey with 2-week response window
+5. Analyze results by department, role, and tenure
+6. Identify strengths and improvement areas
+7. Develop action plan for culture gaps
+8. **Validation:** Response rate >60%; action plan addresses bottom 3 scores
 
-### assets/
-- `qmr-templates/`: QMR reporting templates, quality policy templates, strategic planning tools
-- `compliance-dashboards/`: Regulatory compliance monitoring dashboards
-- `quality-communication/`: Quality communication templates and presentation materials
-- `training-materials/`: QMR and quality leadership training programs
+### Quality Culture Dimensions
+
+| Dimension | Indicators | Assessment Method |
+|-----------|------------|-------------------|
+| Leadership commitment | Management visible support for quality | Survey, observation |
+| Quality ownership | Employees feel responsible for quality | Survey |
+| Communication | Quality information flows effectively | Survey, audit |
+| Continuous improvement | Suggestions submitted and implemented | Metrics |
+| Training and competence | Employees feel adequately trained | Survey, records |
+| Problem solving | Issues addressed at root cause | CAPA analysis |
+
+### Culture Survey Categories
+
+| Category | Sample Questions |
+|----------|------------------|
+| Leadership | "Management demonstrates commitment to quality" |
+| Resources | "I have the tools and training to do quality work" |
+| Communication | "Quality expectations are clearly communicated" |
+| Empowerment | "I am encouraged to report quality issues" |
+| Recognition | "Quality achievements are recognized" |
+
+### Culture Improvement Actions
+
+| Gap Identified | Potential Actions |
+|----------------|-------------------|
+| Low leadership visibility | Quality gemba walks, all-hands quality updates |
+| Inadequate training | Competency-based training program |
+| Poor communication | Quality newsletters, department huddles |
+| Low reporting | Anonymous reporting system, no-blame culture |
+| Lack of recognition | Quality award program, team celebrations |
+
+---
+
+## Regulatory Compliance Oversight
+
+Monitor and maintain regulatory compliance across jurisdictions.
+
+### Multi-Jurisdictional Compliance Matrix
+
+| Jurisdiction | Regulation | Requirement | Status Tracking |
+|--------------|------------|-------------|-----------------|
+| EU | MDR 2017/745 | CE marking, Notified Body | Technical file, annual review |
+| USA | 21 CFR 820 | FDA registration, QSR compliance | Annual registration, inspections |
+| International | ISO 13485 | QMS certification | Surveillance audits |
+| Germany | MPG/MPDG | National implementation | Competent authority filings |
+
+### Compliance Monitoring Workflow
+
+1. Maintain regulatory requirement register
+2. Subscribe to regulatory update services
+3. Assess impact of regulatory changes monthly
+4. Update affected processes within 90 days of effective date
+5. Verify training completion for regulatory changes
+6. Document compliance status in management review
+7. Maintain inspection readiness checklist
+8. **Validation:** All applicable requirements mapped; no expired registrations
+
+### Regulatory Authority Interface
+
+| Activity | QMR Role | Preparation Required |
+|----------|----------|---------------------|
+| Notified Body audit | Primary contact | Audit package, personnel schedules |
+| FDA inspection | Host, escort coordinator | Inspection readiness review |
+| Competent Authority inquiry | Response coordinator | Technical file access |
+| Regulatory meeting | Attendee or delegate | Briefing materials |
+
+### Inspection Readiness Checklist
+
+| Area | Ready | Action Needed |
+|------|-------|---------------|
+| Document control system current | ☐ | |
+| Training records complete | ☐ | |
+| CAPA system current, no overdue items | ☐ | |
+| Complaint files complete | ☐ | |
+| Equipment calibration current | ☐ | |
+| Supplier qualification files complete | ☐ | |
+| Management review records available | ☐ | |
+| Internal audit program current | ☐ | |
+
+---
+
+## Decision Frameworks
+
+### Escalation Decision Tree
+
+```
+Issue Identified
+      │
+      ▼
+Is it a regulatory violation?
+      │
+  Yes─┴─No
+  │      │
+  ▼      ▼
+Escalate to    Is it a safety issue?
+Executive          │
+immediately    Yes─┴─No
+               │      │
+               ▼      ▼
+          Escalate to   Does it affect
+          Safety Team   multiple departments?
+                             │
+                         Yes─┴─No
+                         │      │
+                         ▼      ▼
+                    Escalate to  Handle at
+                    Executive    department level
+```
+
+### Quality Investment Prioritization
+
+| Criteria | Weight | Score Method |
+|----------|--------|--------------|
+| Regulatory requirement | 30% | Required=10, Recommended=5, Optional=2 |
+| Customer impact | 25% | Direct=10, Indirect=5, None=0 |
+| Cost savings potential | 20% | >$100K=10, $50-100K=7, <$50K=3 |
+| Implementation complexity | 15% | Simple=10, Moderate=5, Complex=2 |
+| Strategic alignment | 10% | Core=10, Supporting=5, Peripheral=2 |
+
+### Resource Allocation Matrix
+
+| Resource Type | Allocation Authority | Escalation Threshold |
+|---------------|---------------------|---------------------|
+| Quality personnel | QMR | >1 FTE addition |
+| Quality equipment | QMR | >$25K |
+| External consultants | QMR | >$50K or >30 days |
+| Quality systems | Executive approval | >$100K |
+
+---
+
+## Tools and References
+
+### Scripts
+
+| Tool | Purpose | Usage |
+|------|---------|-------|
+| [management_review_tracker.py](scripts/management_review_tracker.py) | Track review inputs, actions, metrics | `python management_review_tracker.py --help` |
+
+**Management Review Tracker Features:**
+- Track input collection status from process owners
+- Monitor action item completion and aging
+- Generate metrics summary for review
+- Produce recommendations for review focus areas
+
+### References
+
+| Document | Content |
+|----------|---------|
+| [management-review-guide.md](references/management-review-guide.md) | ISO 13485 Clause 5.6 requirements, input/output templates, action tracking |
+| [quality-kpi-framework.md](references/quality-kpi-framework.md) | KPI categories, targets, calculations, dashboard templates |
+
+### Quick Reference: Management Review Inputs (ISO 13485 Clause 5.6.2)
+
+| Input | Source | Required |
+|-------|--------|----------|
+| Feedback | Customer complaints, surveys | Yes |
+| Audit results | Internal and external audits | Yes |
+| Process performance | Process metrics | Yes |
+| Product conformity | Inspection, NC data | Yes |
+| CAPA status | CAPA system | Yes |
+| Previous actions | Prior review records | Yes |
+| Changes | Regulatory, organizational | Yes |
+| Recommendations | All sources | Yes |
+
+### Quick Reference: Management Review Outputs (ISO 13485 Clause 5.6.3)
+
+| Output | Documentation Required |
+|--------|----------------------|
+| Improvement to QMS and processes | Action items with owners |
+| Improvement to product | Project initiation if needed |
+| Resource needs | Resource plan updates |
+
+---
+
+## Related Skills
+
+| Skill | Integration Point |
+|-------|-------------------|
+| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS process management |
+| [capa-officer](../capa-officer/) | CAPA system oversight |
+| [qms-audit-expert](../qms-audit-expert/) | Internal audit program |
+| [quality-documentation-manager](../quality-documentation-manager/) | Document control oversight |

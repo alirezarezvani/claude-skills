@@ -243,7 +243,7 @@
       "name": "quality-manager-qms-iso13485",
       "source": "../../ra-qm-team/quality-manager-qms-iso13485",
       "category": "ra-qm",
-      "description": "ISO 13485 Quality Management System specialist for medical device companies. Provides QMS implementation, maintenance, process optimization, and compliance expertise. Use for QMS design, documentation control, management review, internal auditing, corrective actions, and ISO 13485 certification activities."
+      "description": "ISO 13485 Quality Management System implementation and maintenance for medical device organizations. Provides QMS design, documentation control, internal auditing, CAPA management, and certification support."
     },
     {
       "name": "regulatory-affairs-head",

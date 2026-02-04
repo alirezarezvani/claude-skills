@@ -8,5 +8,6 @@
   },
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "license": "MIT"
+  "license": "MIT",
+  "skills": "./"
 }

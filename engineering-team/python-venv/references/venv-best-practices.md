@@ -29,8 +29,9 @@ When checking for existing virtual environments, use this priority order:
 1. `.venv/` -- Most common convention (PEP 405 recommendation)
 2. `venv/` -- Also widely used
 3. `env/` -- Sometimes used, less specific
-4. `.env/` -- Avoid confusion with dotenv files (`.env` as a file stores environment variables)
-5. Conda: Check `CONDA_PREFIX` environment variable
+4. Conda: Check `CONDA_PREFIX` environment variable
+
+**Excluded:** `.env/` -- Do not auto-detect. `.env` is universally used for environment variable files containing secrets. Treating it as a venv directory risks activating the wrong thing or causing data confusion.
 
 **Important:** Always check for `VIRTUAL_ENV` environment variable first -- if set, a venv is already active.
 

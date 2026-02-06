@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 48 production-ready skills across 6 domains with 68+ Python automation tools.
+**Current Scope:** 54 production-ready skills across 8 domains with 87+ Python automation tools.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -17,12 +17,14 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 | Domain | CLAUDE.md Location | Focus |
 |--------|-------------------|-------|
 | **Agent Development** | [agents/CLAUDE.md](agents/CLAUDE.md) | cs-* agent creation, YAML frontmatter, relative paths |
-| **Marketing Skills** | [marketing-skill/CLAUDE.md](marketing-skill/CLAUDE.md) | Content creation, SEO, demand gen Python tools |
+| **Marketing Skills** | [marketing-skill/CLAUDE.md](marketing-skill/CLAUDE.md) | Content creation, SEO, demand gen, campaign analytics Python tools |
 | **Product Team** | [product-team/CLAUDE.md](product-team/CLAUDE.md) | RICE, OKRs, user stories, UX research tools |
 | **Engineering** | [engineering-team/CLAUDE.md](engineering-team/CLAUDE.md) | Scaffolding, fullstack, AI/ML, data tools |
 | **C-Level Advisory** | [c-level-advisor/CLAUDE.md](c-level-advisor/CLAUDE.md) | CEO/CTO strategic decision-making |
 | **Project Management** | [project-management/CLAUDE.md](project-management/CLAUDE.md) | Atlassian MCP, Jira/Confluence integration |
 | **RA/QM Compliance** | [ra-qm-team/CLAUDE.md](ra-qm-team/CLAUDE.md) | ISO 13485, MDR, FDA compliance workflows |
+| **Business & Growth** | [business-growth/CLAUDE.md](business-growth/CLAUDE.md) | Customer success, sales engineering, revenue operations |
+| **Finance** | [finance/CLAUDE.md](finance/CLAUDE.md) | Financial analysis, DCF valuation, budgeting, forecasting |
 | **Standards Library** | [standards/CLAUDE.md](standards/CLAUDE.md) | Communication, quality, git, security standards |
 | **Templates** | [templates/CLAUDE.md](templates/CLAUDE.md) | Template system usage |
 
@@ -35,12 +37,14 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── agents/                    # cs-* prefixed agents (in development)
-├── marketing-skill/           # 5 marketing skills + Python tools
+├── marketing-skill/           # 6 marketing skills + Python tools
 ├── product-team/              # 5 product skills + Python tools
 ├── engineering-team/          # 18 engineering skills + Python tools
 ├── c-level-advisor/           # 2 C-level skills
 ├── project-management/        # 6 PM skills + Atlassian MCP
 ├── ra-qm-team/                # 12 RA/QM compliance skills
+├── business-growth/           # 3 business & growth skills + Python tools
+├── finance/                   # 1 finance skill + Python tools
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates
 └── documentation/             # Implementation plans, sprints, delivery
@@ -132,17 +136,16 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1 Complete:** 48 production-ready skills deployed
-- Marketing (5), C-Level (2), Product (5), PM (6), Engineering (18), RA/QM (12)
-- 68+ Python automation tools, 90+ reference guides
-- Complete enterprise coverage from marketing through regulatory compliance
+**Phase 1-2 Complete:** 54 production-ready skills deployed
+- Marketing (7), C-Level (2), Product (5), PM (6), Engineering (18), RA/QM (12), Business & Growth (3), Finance (1)
+- 87+ Python automation tools, 104+ reference guides
+- Complete enterprise coverage from marketing through regulatory compliance, sales, customer success, and finance
 
 **Next Priorities:**
-- **Phase 2 (Q1 2026):** Marketing expansion - SEO optimizer, social media manager, campaign analytics
-- **Phase 3 (Q2 2026):** Business & growth - Sales engineer, customer success, growth marketer
-- **Phase 4 (Q3 2026):** Specialized domains - Mobile, blockchain, web3, finance
+- **Phase 3 (Q2 2026):** Marketing expansion - SEO optimizer, social media manager, growth marketer
+- **Phase 4 (Q3 2026):** Specialized domains - Mobile, blockchain, web3, advanced analytics
 
-**Target:** 50+ skills by Q3 2026
+**Target:** 60+ skills by Q3 2026
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
@@ -179,6 +182,6 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
 ---
 
-**Last Updated:** November 5, 2025
+**Last Updated:** February 2026
 **Current Sprint:** sprint-11-05-2025 (Skill-Agent Integration Phase 1-2)
-**Status:** 48 skills deployed, agent system in development
+**Status:** 54 skills deployed, agent system in development

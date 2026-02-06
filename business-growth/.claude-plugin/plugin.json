@@ -1,0 +1,13 @@
+{
+  "name": "business-growth-skills",
+  "description": "3 production-ready business & growth skills: customer success manager, sales engineer, and revenue operations",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/business-growth",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

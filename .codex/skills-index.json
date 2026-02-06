@@ -3,7 +3,11 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
+<<<<<<< dev
   "total_skills": 47,
+=======
+  "total_skills": 42,
+>>>>>>> main
   "skills": [
     {
       "name": "customer-success-manager",
@@ -142,24 +146,30 @@
       "source": "../../engineering-team/tech-stack-evaluator",
       "category": "engineering",
       "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability."
+<<<<<<< dev
     },
     {
       "name": "financial-analyst",
       "source": "../../finance/financial-analyst",
       "category": "finance",
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making"
+=======
+>>>>>>> main
     },
     {
       "name": "app-store-optimization",
       "source": "../../marketing-skill/app-store-optimization",
       "category": "marketing",
       "description": "App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store."
+<<<<<<< dev
     },
     {
       "name": "campaign-analytics",
       "source": "../../marketing-skill/campaign-analytics",
       "category": "marketing",
       "description": "Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization"
+=======
+>>>>>>> main
     },
     {
       "name": "content-creator",

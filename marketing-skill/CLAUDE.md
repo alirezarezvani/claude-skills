@@ -1,6 +1,6 @@
 # Marketing Skills - Claude Code Guidance
 
-This guide covers the 3 production-ready marketing skills and their Python automation tools.
+This guide covers the 4 production-ready marketing skills and their Python automation tools.
 
 ## Marketing Skills Overview
 
@@ -8,8 +8,9 @@ This guide covers the 3 production-ready marketing skills and their Python autom
 1. **content-creator/** - Content creation, brand voice, SEO optimization (2 Python tools)
 2. **marketing-demand-acquisition/** - Demand generation and customer acquisition (1 Python tool)
 3. **marketing-strategy-pmm/** - Product marketing and go-to-market strategy
+4. **campaign-analytics/** - Multi-touch attribution, funnel conversion analysis, campaign ROI calculation (3 Python tools)
 
-**Total Tools:** 3 Python automation tools, 6+ knowledge bases, 10+ templates
+**Total Tools:** 6 Python automation tools, 9+ knowledge bases, 15+ templates
 
 ## Python Automation Tools
 
@@ -108,6 +109,57 @@ Recommendations:
 python marketing-demand-acquisition/scripts/demand_gen_analyzer.py campaign-data.csv
 ```
 
+### Campaign Analytics Tools
+
+#### 4. Attribution Analyzer (`campaign-analytics/scripts/attribution_analyzer.py`)
+
+**Purpose:** Multi-touch attribution modeling across marketing channels
+
+**Features:**
+- Five attribution models (first-touch, last-touch, linear, time-decay, position-based)
+- Configurable time-decay half-life
+- Per-channel credit allocation and revenue attribution
+- Conversion and non-conversion journey analysis
+
+**Usage:**
+```bash
+python campaign-analytics/scripts/attribution_analyzer.py campaign_data.json
+python campaign-analytics/scripts/attribution_analyzer.py campaign_data.json --model time-decay --half-life 14
+python campaign-analytics/scripts/attribution_analyzer.py campaign_data.json --format json
+```
+
+#### 5. Funnel Analyzer (`campaign-analytics/scripts/funnel_analyzer.py`)
+
+**Purpose:** Conversion funnel analysis with bottleneck detection
+
+**Features:**
+- Stage-to-stage conversion rates and drop-off percentages
+- Automatic bottleneck identification (largest absolute and relative drops)
+- Overall funnel conversion rate
+- Segment comparison when multiple segments provided
+
+**Usage:**
+```bash
+python campaign-analytics/scripts/funnel_analyzer.py funnel_data.json
+python campaign-analytics/scripts/funnel_analyzer.py funnel_data.json --format json
+```
+
+#### 6. Campaign ROI Calculator (`campaign-analytics/scripts/campaign_roi_calculator.py`)
+
+**Purpose:** Calculate comprehensive campaign ROI metrics with benchmarking
+
+**Features:**
+- ROI, ROAS, CPA, CPL, CAC calculation
+- CTR and conversion rate metrics
+- Industry benchmark comparison
+- Underperformance flagging
+
+**Usage:**
+```bash
+python campaign-analytics/scripts/campaign_roi_calculator.py campaign_data.json
+python campaign-analytics/scripts/campaign_roi_calculator.py campaign_data.json --format json
+```
+
 ## Knowledge Bases
 
 ### Content Creator References
@@ -133,6 +185,14 @@ python marketing-demand-acquisition/scripts/demand_gen_analyzer.py campaign-data
    - Instagram: Visual-first, captions, hashtag limits
    - Facebook: Conversational, engagement tactics
    - TikTok: Short-form video, trending sounds
+
+### Campaign Analytics References
+
+**Location:** `campaign-analytics/references/`
+
+1. **attribution-models-guide.md** - Deep dive into 5 attribution models with formulas, pros/cons, selection criteria
+2. **campaign-metrics-benchmarks.md** - Industry benchmarks by channel and vertical for CTR, CPC, CPM, CPA, ROAS
+3. **funnel-optimization-framework.md** - Stage-by-stage optimization strategies, common bottlenecks, best practices
 
 ## User Templates
 
@@ -182,6 +242,22 @@ cat content-creator/references/brand_guidelines.md
 python marketing-demand-acquisition/scripts/demand_gen_analyzer.py campaign-results.csv
 ```
 
+### Pattern 3: Campaign Performance Analysis
+
+```bash
+# 1. Analyze multi-touch attribution
+python campaign-analytics/scripts/attribution_analyzer.py journey_data.json
+
+# 2. Identify funnel bottlenecks
+python campaign-analytics/scripts/funnel_analyzer.py funnel_data.json
+
+# 3. Calculate campaign ROI
+python campaign-analytics/scripts/campaign_roi_calculator.py campaign_data.json
+
+# 4. Document findings using templates
+# Reference: campaign-analytics/assets/campaign_report_template.md
+```
+
 ## Development Commands
 
 ```bash
@@ -195,6 +271,11 @@ python content-creator/scripts/seo_optimizer.py article.md "main keyword" "secon
 
 # Demand generation
 python marketing-demand-acquisition/scripts/demand_gen_analyzer.py data.csv
+
+# Campaign analytics
+python campaign-analytics/scripts/attribution_analyzer.py campaign_data.json
+python campaign-analytics/scripts/funnel_analyzer.py funnel_data.json
+python campaign-analytics/scripts/campaign_roi_calculator.py campaign_data.json
 ```
 
 ## Quality Standards
@@ -208,18 +289,18 @@ python marketing-demand-acquisition/scripts/demand_gen_analyzer.py data.csv
 
 ## Roadmap
 
-**Current (Phase 1):** 3 skills deployed
+**Current (Phase 1-2):** 4 skills deployed
 - ✅ Content creator (brand voice + SEO)
 - ✅ Demand generation & acquisition
 - ✅ Product marketing strategy
+- ✅ Campaign analytics (attribution, funnel, ROI)
 
-**Phase 2 (Q1 2026):** Marketing expansion
+**Phase 3 (Q2 2026):** Marketing expansion
 - SEO content optimizer (advanced)
 - Social media manager (multi-platform)
-- Campaign analytics dashboard
 - Email marketing automation
 
-**Phase 3 (Q2 2026):** Growth marketing
+**Phase 4 (Q3 2026):** Growth marketing
 - Growth hacking frameworks
 - Viral content analyzer
 - Influencer collaboration tools
@@ -248,6 +329,6 @@ See `marketing_skills_roadmap.md` for detailed expansion plans.
 
 ---
 
-**Last Updated:** November 5, 2025
-**Skills Deployed:** 3/3 marketing skills production-ready
-**Total Tools:** 3 Python automation tools
+**Last Updated:** February 2026
+**Skills Deployed:** 4/4 marketing skills production-ready
+**Total Tools:** 6 Python automation tools

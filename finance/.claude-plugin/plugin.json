@@ -1,0 +1,13 @@
+{
+  "name": "finance-skills",
+  "description": "1 production-ready finance skill: financial analyst with ratio analysis, DCF valuation, budget variance, and forecasting",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/finance",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

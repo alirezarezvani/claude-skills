@@ -1,6 +1,6 @@
 ---
 name: python-venv
-description: "Before running Python scripts or installing packages, you MUST use a virtual environment in the current working directory. This applies to: running .py files, using pip/uv pip install, or any task requiring third-party packages. Exceptions: simple one-liners using only Python standard library."
+description: Enforces Python virtual environment usage for third-party package isolation with auto-detection, uv priority, and cross-platform support
 ---
 
 # Python Virtual Environment Requirement
@@ -13,25 +13,25 @@ description: "Before running Python scripts or installing packages, you MUST use
 
 | Scenario | Required? | Reason |
 |----------|-----------|--------|
-| `pip install` / `uv pip install` | ✅ YES | Installing packages |
-| Running `.py` files with third-party imports | ✅ YES | Needs dependencies |
-| `python script.py` with `requirements.txt` | ✅ YES | Project dependencies |
-| Multi-file Python projects | ✅ YES | Isolation needed |
+| `pip install` / `uv pip install` | YES | Installing packages |
+| Running `.py` files with third-party imports | YES | Needs dependencies |
+| `python script.py` with `requirements.txt` | YES | Project dependencies |
+| Multi-file Python projects | YES | Isolation needed |
 
 ## When Virtual Environment is NOT Required
 
 | Scenario | Required? | Example |
 |----------|-----------|---------|
-| Simple one-liner with stdlib only | ❌ NO | `python3 -c "print('hello')"` |
-| Quick math/string operations | ❌ NO | `python3 -c "print(2**10)"` |
-| Using only built-in modules | ❌ NO | `python3 -c "import json; ..."` |
-| Checking Python version | ❌ NO | `python3 --version` |
+| Simple one-liner with stdlib only | NO | `python3 -c "print('hello')"` |
+| Quick math/string operations | NO | `python3 -c "print(2**10)"` |
+| Using only built-in modules | NO | `python3 -c "import json; ..."` |
+| Checking Python version | NO | `python3 --version` |
 
 ### Python Standard Library (No venv needed)
 
 These modules are built-in and don't require virtual environment:
 ```
-os, sys, json, re, math, datetime, pathlib, subprocess, 
+os, sys, json, re, math, datetime, pathlib, subprocess,
 collections, itertools, functools, argparse, logging,
 urllib, http, socket, threading, multiprocessing, etc.
 ```
@@ -39,8 +39,8 @@ urllib, http, socket, threading, multiprocessing, etc.
 ## Workflow (When venv IS Required)
 
 ```
-1. Check if virtual environment exists (.venv, venv, env, .env) → If YES, activate and reuse it
-2. If NOT exists → Create with uv (if available) or python3 -m venv
+1. Check if virtual environment exists (.venv, venv, env) -> If YES, activate and reuse it
+2. If NOT exists -> Create with uv (if available) or python3 -m venv
 3. Activate, then proceed with Python commands
 ```
 
@@ -49,10 +49,10 @@ urllib, http, socket, threading, multiprocessing, etc.
 Check in this order (first match wins):
 ```bash
 # Common virtual environment directory names
-.venv/  →  Most common (preferred)
-venv/   →  Also common
-env/    →  Sometimes used
-.env/   →  Less common (be careful: may conflict with dotenv files)
+.venv/  ->  Most common (preferred)
+venv/   ->  Also common
+env/    ->  Sometimes used
+# NOTE: .env/ is intentionally excluded -- .env is universally used for environment variable files
 ```
 
 ## Setup Methods
@@ -114,10 +114,10 @@ pip install <package>
 
 Before Python operations requiring venv:
 
-1. [ ] Check for existing virtual environment (in order): `.venv/`, `venv/`, `env/`, `.env/`
+1. [ ] Check for existing virtual environment (in order): `.venv/`, `venv/`, `env/`
 2. [ ] Also check for conda: `conda info --envs` or check if `CONDA_PREFIX` is set
-3. [ ] If exists → **Reuse it** (activate the found environment)
-4. [ ] If not exists → Create: `uv venv` (preferred) or `python3 -m venv .venv` (fallback)
+3. [ ] If exists -> **Reuse it** (activate the found environment)
+4. [ ] If not exists -> Create: `uv venv` (preferred) or `python3 -m venv .venv` (fallback)
 5. [ ] Activate and proceed
 
 **Priority: Always reuse existing virtual environment to preserve installed packages.**
@@ -233,8 +233,10 @@ conda info --envs
 If venv is broken (import errors, missing packages after install):
 
 ```bash
-# Remove and recreate
-rm -rf .venv
+# Remove and recreate (verify it's a venv before deleting)
+if [ -d .venv ] && [ -f .venv/pyvenv.cfg ]; then
+    rm -rf .venv
+fi
 uv venv && source .venv/bin/activate
 # or
 python3 -m venv .venv && source .venv/bin/activate
@@ -252,7 +254,12 @@ python3.11 -m venv .venv
 
 ### Permission Denied on Windows
 
-Run PowerShell as Administrator, or:
+Preferred: unblock only the activation script:
+```powershell
+Unblock-File .\.venv\Scripts\Activate.ps1
+```
+
+Alternative: set execution policy for all local scripts (one-time setup, allows locally-created scripts to run unsigned):
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```

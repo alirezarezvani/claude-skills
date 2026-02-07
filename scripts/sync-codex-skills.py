@@ -43,6 +43,14 @@ SKILL_DOMAINS = {
     "ra-qm-team": {
         "category": "ra-qm",
         "description": "Regulatory affairs and quality management skills"
+    },
+    "business-growth": {
+        "category": "business-growth",
+        "description": "Customer success, sales engineering, and revenue operations skills"
+    },
+    "finance": {
+        "category": "finance",
+        "description": "Financial analysis, valuation, and forecasting skills"
     }
 }
 

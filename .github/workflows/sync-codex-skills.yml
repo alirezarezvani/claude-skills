@@ -53,14 +53,19 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit changes
-        if: steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true'
+      - name: Commit changes (dev only)
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true' && github.ref != 'refs/heads/main'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: sync codex skills symlinks [automated]"
           file_pattern: ".codex/*"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+      - name: Warn if main has drift
+        if: steps.check_changes.outputs.has_changes == 'true' && github.ref == 'refs/heads/main'
+        run: |
+          echo "::warning::Codex skills symlinks are out of sync on main. Run the sync on dev and merge via PR."
 
       - name: Summary
         run: |

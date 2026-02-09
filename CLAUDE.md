@@ -37,7 +37,7 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── agents/                    # cs-* prefixed agents (in development)
-├── marketing-skill/           # 6 marketing skills + Python tools
+├── marketing-skill/           # 7 marketing skills + Python tools
 ├── product-team/              # 5 product skills + Python tools
 ├── engineering-team/          # 18 engineering skills + Python tools
 ├── c-level-advisor/           # 2 C-level skills

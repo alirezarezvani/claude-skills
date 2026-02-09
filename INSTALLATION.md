@@ -1,6 +1,6 @@
 # Installation Guide - Claude Skills Library
 
-Complete installation guide for all 48 production-ready skills across multiple AI agents and platforms.
+Complete installation guide for all 54 production-ready skills across multiple AI agents and platforms.
 
 ## Table of Contents
 
@@ -72,7 +72,7 @@ This adds the skills library to your available marketplaces.
 
 ```bash
 # Install by domain (bundles of skills)
-/plugin install marketing-skills@claude-code-skills     # 5 marketing skills
+/plugin install marketing-skills@claude-code-skills     # 7 marketing skills
 /plugin install engineering-skills@claude-code-skills   # 18 engineering skills
 /plugin install product-skills@claude-code-skills       # 5 product skills
 /plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
@@ -706,7 +706,7 @@ ls ~/.codex/skills/content-creator/
 
 # Check total skill count
 ls ~/.codex/skills/ | wc -l
-# Should show: 43
+# Should show: 47
 ```
 
 ### Available Categories
@@ -715,10 +715,12 @@ ls ~/.codex/skills/ | wc -l
 |----------|--------|----------|
 | **c-level** | 2 | ceo-advisor, cto-advisor |
 | **engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer |
-| **marketing** | 5 | content-creator, marketing-demand-acquisition, social-media-analyzer |
+| **marketing** | 7 | content-creator, marketing-demand-acquisition, social-media-analyzer |
 | **product** | 5 | product-manager-toolkit, agile-product-owner, ui-design-system |
-| **project-management** | 1 | scrum-master-agent |
+| **project-management** | 6 | scrum-master-agent |
 | **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
+| **business-growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
+| **finance** | 1 | financial-analyst |
 
 See `.codex/skills-index.json` for the complete manifest with descriptions.
 
@@ -757,5 +759,5 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 ---
 
 **Last Updated:** January 2026
-**Skills Version:** 1.0 (48 production skills)
+**Skills Version:** 1.0 (54 production skills)
 **Universal Installer:** [ai-agent-skills](https://github.com/skillcreatorai/Ai-Agent-Skills)

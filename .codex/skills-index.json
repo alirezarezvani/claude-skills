@@ -150,10 +150,22 @@
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making"
     },
     {
+      "name": "financial-analyst",
+      "source": "../../finance/financial-analyst",
+      "category": "finance",
+      "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making"
+    },
+    {
       "name": "app-store-optimization",
       "source": "../../marketing-skill/app-store-optimization",
       "category": "marketing",
       "description": "App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store."
+    },
+    {
+      "name": "campaign-analytics",
+      "source": "../../marketing-skill/campaign-analytics",
+      "category": "marketing",
+      "description": "Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization"
     },
     {
       "name": "campaign-analytics",

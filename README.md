@@ -1585,7 +1585,7 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 │   └── assets/               # Templates
 ├── senior-fullstack/
 ├── product-manager-toolkit/
-└── ... (47 skills total)
+└── ... (53 skills total)
 ```
 
 ### Available Skills by Category
@@ -1596,7 +1596,7 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 | **Engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer, tdd-guide |
 | **Product** | 5 | product-manager-toolkit, agile-product-owner, ux-researcher-designer |
 | **C-Level** | 2 | ceo-advisor, cto-advisor |
-| **Project Management** | 6 | scrum-master-agent, jira-expert, confluence-expert, atlassian-admin |
+| **Project Management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **RA/QM** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
 | **Business & Growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
 | **Finance** | 1 | financial-analyst |

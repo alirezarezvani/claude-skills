@@ -7,10 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `campaign-analytics` - Multi-touch attribution, funnel conversion, campaign ROI (3 Python tools)
+- `customer-success-manager` - Onboarding, retention, expansion, health scoring (2 Python tools)
+- `sales-engineer` - Technical sales, solution design, RFP responses (2 Python tools)
+- `revenue-operations` - Pipeline analytics, forecasting, process optimization (2 Python tools)
+- `financial-analyst` - DCF valuation, budgeting, forecasting, financial modeling (3 Python tools)
+- New `business-growth` domain with 3 skills
+- New `finance` domain with 1 skill
+- 87+ Python automation tools (up from 68+)
+- 53 total skills across 8 domains (up from 48 across 6)
+
 ### Planned
 - Complete Anthropic best practices refactoring (37/42 skills remaining)
 - Develop production Python tools for RA/QM skills (11 scripts)
-- Add medium-content-pro to official documentation
 - Marketing expansion: SEO Optimizer, Social Media Manager skills
 
 ---
@@ -170,11 +180,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Progressive disclosure implementation
 - allowed-tools restrictions where appropriate
 
-### v2.0.0 (Planned - Q1 2026)
+### v2.0.0 (Planned - Q2 2026)
 - Production Python tools for RA/QM skills (11 scripts)
 - Marketing expansion (SEO Optimizer, Social Media Manager)
-- Business & Growth skills (Sales Engineer, Customer Success)
 - Mobile and specialized engineering skills
+- Growth Marketer skill
 
 ---
 

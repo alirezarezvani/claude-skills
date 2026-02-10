@@ -1,4 +1,4 @@
-# Claude Skills Library by nginity (Your Agentic Startup Kit)
+# Claude Skills Library (Your Agentic Startup Kit)
 
 **Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 
@@ -6,7 +6,7 @@
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![48 Skills](https://img.shields.io/badge/Skills-48-brightgreen.svg)](#-available-skills)
+[![53 Skills](https://img.shields.io/badge/Skills-53-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -24,12 +24,14 @@ Use Claude Code's built-in plugin system for native integration:
 /plugin marketplace add alirezarezvani/claude-skills
 
 # Then install skill bundles:
-/plugin install marketing-skills@claude-code-skills     # 5 marketing skills
+/plugin install marketing-skills@claude-code-skills     # 6 marketing skills
 /plugin install engineering-skills@claude-code-skills   # 18 engineering skills
 /plugin install product-skills@claude-code-skills       # 5 product skills
 /plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
 /plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
+/plugin install business-growth-skills@claude-code-skills  # 3 business & growth skills
+/plugin install finance-skills@claude-code-skills           # 1 finance skill
 
 # Or install individual skills:
 /plugin install content-creator@claude-code-skills      # Single skill
@@ -77,7 +79,7 @@ cd claude-skills
 Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
 
 ```bash
-# Install all 48 skills to all supported agents
+# Install all 53 skills to all supported agents
 npx ai-agent-skills install alirezarezvani/claude-skills
 
 # Install to specific agent (Claude Code)
@@ -138,7 +140,7 @@ npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
 This repository provides **modular, self-contained skill packages** designed to augment Claude AI with specialized domain expertise. Each skill includes:
 
 - **📖 Comprehensive documentation** - Workflows, best practices, and strategic frameworks
-- **🛠️ Python analysis tools** - 68+ CLI utilities for automated analysis and optimization
+- **🛠️ Python analysis tools** - 87+ CLI utilities for automated analysis and optimization
 - **📚 Knowledge bases** - Curated reference materials and guidelines
 - **📋 Ready-to-use templates** - Customizable assets for immediate deployment
 
@@ -154,7 +156,7 @@ This repository provides **modular, self-contained skill packages** designed to 
 
 ### Marketing Skills
 
-**5 comprehensive marketing skills** covering content creation, demand generation, product marketing strategy, mobile app optimization, and social media analytics.
+**6 comprehensive marketing skills** covering content creation, demand generation, product marketing strategy, mobile app optimization, social media analytics, and campaign analytics.
 
 #### 📝 Content Creator
 **Status:** ✅ Production Ready | **Version:** 1.0
@@ -241,6 +243,22 @@ Analyze social media campaign performance across platforms with data-driven insi
 - **ROI Analysis** - Cost per engagement, campaign effectiveness measurement
 
 **Learn More:** [marketing-skill/social-media-analyzer/SKILL.md](marketing-skill/social-media-analyzer/SKILL.md)
+
+---
+
+#### 📈 Campaign Analytics
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Multi-touch attribution, funnel conversion analysis, and campaign ROI measurement.
+
+**What's Included:**
+- **Attribution Analyzer** - Multi-touch attribution modeling across marketing channels (Python CLI)
+- **Funnel Analyzer** - Conversion funnel analysis with bottleneck detection (Python CLI)
+- **Campaign ROI Calculator** - Comprehensive campaign ROI metrics with benchmarking (Python CLI)
+- **Attribution Models** - First-touch, last-touch, linear, time-decay, position-based
+- **Industry Benchmarks** - Channel and vertical performance benchmarks
+
+**Learn More:** [marketing-skill/campaign-analytics/SKILL.md](marketing-skill/campaign-analytics/SKILL.md)
 
 ---
 
@@ -1041,6 +1059,76 @@ EU GDPR and German DSGVO compliance and auditing.
 
 ---
 
+### Business & Growth Skills
+
+**3 specialized business growth skills** covering customer success, sales engineering, and revenue operations.
+
+#### 🤝 Customer Success Manager
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Expert customer success management with onboarding, retention, and expansion frameworks.
+
+**What's Included:**
+- **Health Score Calculator** - Calculate customer health scores with weighted metrics (Python CLI)
+- **Churn Risk Analyzer** - Identify at-risk accounts with early warning signals (Python CLI)
+- **Onboarding Playbooks** - Structured onboarding frameworks for different customer segments
+- **Retention Strategies** - Proactive retention and expansion revenue tactics
+- **QBR Templates** - Quarterly business review preparation and execution
+
+**Learn More:** [business-growth/customer-success-manager/SKILL.md](business-growth/customer-success-manager/SKILL.md)
+
+---
+
+#### 💼 Sales Engineer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Technical sales support with solution design, RFP responses, and demo optimization.
+
+**What's Included:**
+- **Solution Designer** - Map customer requirements to product capabilities (Python CLI)
+- **RFP Response Generator** - Generate structured RFP responses from templates (Python CLI)
+- **Demo Frameworks** - Technical demonstration planning and execution
+- **POC Management** - Proof of concept planning and success criteria
+- **Technical Discovery** - Pre-sales technical assessment frameworks
+
+**Learn More:** [business-growth/sales-engineer/SKILL.md](business-growth/sales-engineer/SKILL.md)
+
+---
+
+#### 📊 Revenue Operations
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Revenue operations with pipeline analytics, forecasting, and process optimization.
+
+**What's Included:**
+- **Pipeline Analyzer** - Analyze pipeline health, velocity, and conversion rates (Python CLI)
+- **Forecast Modeler** - Revenue forecasting with multiple scenario modeling (Python CLI)
+- **Process Optimizer** - Identify and resolve revenue process bottlenecks
+- **GTM Metrics** - Go-to-market metrics tracking and benchmarking
+- **Territory Planning** - Data-driven territory design and optimization
+
+**Learn More:** [business-growth/revenue-operations/SKILL.md](business-growth/revenue-operations/SKILL.md)
+
+---
+
+### Finance Skills
+
+#### 💰 Financial Analyst
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Financial analysis with DCF valuation, budgeting, forecasting, and financial modeling.
+
+**What's Included:**
+- **DCF Calculator** - Discounted cash flow valuation with sensitivity analysis (Python CLI)
+- **Budget Analyzer** - Budget variance analysis and forecasting (Python CLI)
+- **Financial Modeler** - Three-statement financial model generation (Python CLI)
+- **Ratio Analyzer** - Financial ratio analysis with industry benchmarks
+- **Scenario Planner** - Multi-scenario financial planning and stress testing
+
+**Learn More:** [finance/financial-analyst/SKILL.md](finance/financial-analyst/SKILL.md)
+
+---
+
 ## ⚡ Quick Start
 
 ### For Claude AI Users
@@ -1497,19 +1585,21 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 │   └── assets/               # Templates
 ├── senior-fullstack/
 ├── product-manager-toolkit/
-└── ... (43 skills total)
+└── ... (47 skills total)
 ```
 
 ### Available Skills by Category
 
 | Category | Count | Key Skills |
 |----------|-------|------------|
-| **Marketing** | 5 | content-creator, marketing-demand-acquisition, app-store-optimization |
+| **Marketing** | 6 | content-creator, marketing-demand-acquisition, app-store-optimization |
 | **Engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer, tdd-guide |
 | **Product** | 5 | product-manager-toolkit, agile-product-owner, ux-researcher-designer |
 | **C-Level** | 2 | ceo-advisor, cto-advisor |
-| **Project Management** | 1 | scrum-master-agent |
+| **Project Management** | 6 | scrum-master-agent, jira-expert, confluence-expert, atlassian-admin |
 | **RA/QM** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
+| **Business & Growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
+| **Finance** | 1 | financial-analyst |
 
 ### Running Python Analysis Tools
 
@@ -1808,7 +1898,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - ⚡ **Rapid Prototyping** - Create custom skills in minutes, not hours
 
 **Perfect For:**
-- Building custom skills beyond the 48 provided in this library
+- Building custom skills beyond the 53 provided in this library
 - Generating domain-specific agents for your organization
 - Scaling AI customization across teams
 - Rapid prototyping of specialized workflows
@@ -1847,7 +1937,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  Claude Skills Library (This Repository)                │
-│  48 Domain Expert Skills - Marketing to Engineering     │
+│  53 Domain Expert Skills - Marketing to Engineering     │
 │  Use for: Domain expertise, frameworks, best practices  │
 └────────────────┬────────────────────────────────────────┘
                  │
@@ -1868,12 +1958,12 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 
 **Workflow:**
-1. **Start here** (Skills Library) - Get 48 production-ready expert skills
+1. **Start here** (Skills Library) - Get 53 production-ready expert skills
 2. **Expand** (Skill Factory) - Generate custom skills for your specific needs
 3. **Supercharge** (Tresor) - Use skills + agents + commands in Claude Code development
 
 **Together they provide:**
-- ✅ 48 ready-to-use expert skills (this repo)
+- ✅ 53 ready-to-use expert skills (this repo)
 - ✅ Unlimited custom skill generation (Factory)
 - ✅ Complete development workflow automation (Tresor)
 - ✅ Cross-platform compatibility (Claude.ai, Claude Code, API)
@@ -1886,14 +1976,15 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 48 Production-Ready Skills**
+**✅ Phase 1: Complete - 53 Production-Ready Skills**
 
-**Marketing Skills (5):**
+**Marketing Skills (6):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks
 - Marketing Demand & Acquisition - Multi-channel demand gen, paid media, partnerships
 - Marketing Strategy & Product Marketing - Positioning, GTM, competitive intelligence
 - App Store Optimization (ASO) - App Store & Google Play metadata optimization, keyword research
 - Social Media Analyzer - Platform analytics, engagement optimization, competitor benchmarking
+- Campaign Analytics - Multi-touch attribution, funnel conversion analysis, campaign ROI
 
 **C-Level Advisory Skills (2):**
 - CEO Advisor - Strategic planning, financial modeling, board governance
@@ -1950,18 +2041,23 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - Senior ISMS Audit Expert - Security system auditing
 - Senior GDPR/DSGVO Expert - Privacy and data protection compliance
 
-### Phase 2: Marketing Expansion (Q1 2026)
+**Business & Growth Skills (3):**
+- Customer Success Manager - Onboarding, retention, expansion, health scoring
+- Sales Engineer - Technical sales, solution design, RFP responses, demo optimization
+- Revenue Operations - Pipeline analytics, forecasting, process optimization
+
+**Finance Skills (1):**
+- Financial Analyst - DCF valuation, budgeting, forecasting, financial modeling
+
+### Phase 2: Marketing Expansion (Q2 2026)
 
 **🔄 In Planning:**
 - **SEO Optimizer Skill** - Deep SEO analysis and optimization (standalone expansion)
 - **Social Media Manager Skill** - Campaign management across platforms
-- **Campaign Analytics Skill** - Performance measurement and optimization
 
-### Phase 2: Business & Growth (Q1-Q2 2026)
+### Phase 2: Business & Growth (Q2 2026)
 
 **📋 Planned:**
-- **Sales Engineer** - Technical sales, solution design, RFP responses
-- **Customer Success Manager** - Onboarding, retention, expansion strategies
 - **Growth Marketer** - Acquisition, activation, viral loops, experimentation
 
 ### Phase 3: Specialized Domains (Q3 2026)
@@ -1976,16 +2072,16 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 | Metric | Current | Target (Q3 2026) |
 |--------|---------|------------------|
-| Available Skills | 48 | 55+ |
-| Skill Categories | 6 | 9 |
-| Python Tools | 68+ | 110+ |
+| Available Skills | 53 | 55+ |
+| Skill Categories | 8 | 9 |
+| Python Tools | 87+ | 110+ |
 | Time Savings | 70% | 85% |
 | Quality Improvement | 65% | 80% |
 | Teams Using | Early adopters | 3,000+ |
 | Organizations | 25 | 250+ |
 | Industries Covered | Tech, HealthTech | Tech, Health, Finance, Manufacturing |
 
-### ROI Metrics (Current - 48 Skills)
+### ROI Metrics (Current - 53 Skills)
 
 **Time Savings Per Organization:**
 - Marketing teams: 310 hours/month (Content + Demand Gen + PMM + ASO + Social Media)
@@ -1995,7 +2091,9 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - Core engineering teams: 580 hours/month (13 specialized roles)
 - AI/ML/Data teams: 280 hours/month
 - Regulatory/Quality teams: 320 hours/month
-- **Total: 1,900 hours/month per organization**
+- Business & growth teams: 190 hours/month (Customer Success + Sales Engineering + Revenue Ops)
+- Finance teams: 60 hours/month (Financial analysis + modeling + forecasting)
+- **Total: 2,150 hours/month per organization**
 
 **Financial Impact:**
 - Time value: $190,000/month (@ $100/hour)

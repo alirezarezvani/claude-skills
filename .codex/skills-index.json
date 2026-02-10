@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 47,
+  "total_skills": 53,
   "skills": [
     {
       "name": "customer-success-manager",
@@ -216,6 +216,42 @@
       "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation."
     },
     {
+      "name": "atlassian-admin",
+      "source": "../../project-management/atlassian-admin",
+      "category": "project-management",
+      "description": "Atlassian Administrator for managing and organizing Atlassian products, users, customization of the Atlassian suite, permissions, security, integrations, system configuration, and all administrative features. Use for user provisioning, global settings, security policies, system optimization, and org-wide Atlassian governance."
+    },
+    {
+      "name": "atlassian-templates",
+      "source": "../../project-management/atlassian-templates",
+      "category": "project-management",
+      "description": "Atlassian Template and Files Creator/Modifier expert for creating, modifying, and managing Jira and Confluence templates, blueprints, custom layouts, reusable components, and standardized content structures. Use for building org-wide templates, custom blueprints, page layouts, and automated content generation."
+    },
+    {
+      "name": "confluence-expert",
+      "source": "../../project-management/confluence-expert",
+      "category": "project-management",
+      "description": "Atlassian Confluence expert for creating and managing spaces, knowledge bases, documentation, planning, product discovery, page layouts, macros, templates, and all Confluence features. Use for documentation strategy, space architecture, content organization, and collaborative knowledge management."
+    },
+    {
+      "name": "jira-expert",
+      "source": "../../project-management/jira-expert",
+      "category": "project-management",
+      "description": "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use for Jira project setup, configuration, advanced search, dashboard creation, workflow design, and technical Jira operations."
+    },
+    {
+      "name": "scrum-master",
+      "source": "../../project-management/scrum-master",
+      "category": "project-management",
+      "description": "Scrum Master for agile software development teams. Use for sprint planning, daily standups, retrospectives, backlog refinement, velocity tracking, removing impediments, facilitating ceremonies, coaching teams on agile practices, and managing sprint execution for R&D and development teams."
+    },
+    {
+      "name": "senior-pm",
+      "source": "../../project-management/senior-pm",
+      "category": "project-management",
+      "description": "Senior Project Manager for Software, SaaS, and digital web/mobile applications. Use for strategic planning, portfolio management, stakeholder alignment, risk management, roadmap development, budget oversight, cross-functional team leadership, and executive reporting for software products."
+    },
+    {
       "name": "capa-officer",
       "source": "../../ra-qm-team/capa-officer",
       "category": "ra-qm",
@@ -318,6 +354,11 @@
       "count": 5,
       "source": "../../product-team",
       "description": "Product management and design skills"
+    },
+    "project-management": {
+      "count": 6,
+      "source": "../../project-management",
+      "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
       "count": 12,

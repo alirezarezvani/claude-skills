@@ -131,7 +131,7 @@
     },
     {
       "name": "scrum-master",
-      "source": "./project-management/scrum-master-agent",
+      "source": "./project-management/scrum-master",
       "description": "Agile facilitation, sprint planning, retrospectives for Scrum teams",
       "version": "1.0.0",
       "author": {

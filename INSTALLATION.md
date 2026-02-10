@@ -706,7 +706,7 @@ ls ~/.codex/skills/content-creator/
 
 # Check total skill count
 ls ~/.codex/skills/ | wc -l
-# Should show: 48
+# Should show: 53
 ```
 
 ### Available Categories
@@ -717,7 +717,7 @@ ls ~/.codex/skills/ | wc -l
 | **engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer |
 | **marketing** | 6 | content-creator, marketing-demand-acquisition, social-media-analyzer |
 | **product** | 5 | product-manager-toolkit, agile-product-owner, ui-design-system |
-| **project-management** | 6 | scrum-master-agent |
+| **project-management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
 | **business-growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
 | **finance** | 1 | financial-analyst |

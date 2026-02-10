@@ -131,7 +131,7 @@ This project management skills collection provides world-class Atlassian experti
 - Removing team impediments
 - Tracking sprint velocity and burndown
 
-**Learn More:** [scrum-master-agent/SKILL.md](scrum-master-agent/SKILL.md)
+**Learn More:** [scrum-master/SKILL.md](scrum-master/SKILL.md)
 
 ---
 

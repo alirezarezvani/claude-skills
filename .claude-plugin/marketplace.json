@@ -4,14 +4,18 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "Production-ready skill packages for Claude AI - 48 expert skills across marketing, engineering, product, C-level advisory, project management, and regulatory compliance",
+  "description": "Production-ready skill packages for Claude AI - 53 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
+  "metadata": {
+    "description": "53 production-ready skill packages across 8 domains: marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "description": "5 marketing skills: content creator, demand generation, product marketing, ASO, social media analytics",
+      "description": "6 marketing skills: content creator, demand generation, product marketing, ASO, social media analytics, campaign analytics",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -73,6 +77,28 @@
       },
       "keywords": ["regulatory", "quality", "compliance", "iso-13485", "mdr", "fda", "gdpr", "medtech"],
       "category": "compliance"
+    },
+    {
+      "name": "business-growth-skills",
+      "source": "./business-growth",
+      "description": "3 business & growth skills: customer success manager, sales engineer, revenue operations",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": ["customer-success", "sales-engineering", "revenue-operations", "business-growth"],
+      "category": "business-growth"
+    },
+    {
+      "name": "finance-skills",
+      "source": "./finance",
+      "description": "1 finance skill: financial analyst with ratio analysis, DCF valuation, budgeting, and forecasting",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": ["finance", "dcf", "valuation", "budgeting", "forecasting"],
+      "category": "finance"
     },
     {
       "name": "content-creator",

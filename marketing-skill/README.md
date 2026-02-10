@@ -1,6 +1,6 @@
 # Marketing Team Skills Collection
 
-**Complete suite of 7 expert marketing skills** for scaling tech companies covering content creation, demand generation, and product marketing strategy.
+**Complete suite of 6 expert marketing skills** for scaling tech companies covering content creation, demand generation, and product marketing strategy.
 
 ---
 
@@ -68,7 +68,7 @@ npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/campaig
 This marketing skills collection provides comprehensive marketing capabilities from content creation through demand generation and strategic product marketing.
 
 **What's Included:**
-- **7 expert-level skills** covering content, acquisition, and strategy
+- **6 expert-level skills** covering content, acquisition, and strategy
 - **8+ Python automation tools** for content analysis and optimization
 - **Comprehensive frameworks** for demand gen, SEO, and product marketing
 - **Platform-specific playbooks** for LinkedIn, Google, Meta, and organic channels
@@ -975,7 +975,7 @@ What makes these marketing skills world-class:
 
 ## 🎊 Summary
 
-You now have **7 comprehensive marketing skills** providing complete marketing capabilities:
+You now have **6 comprehensive marketing skills** providing complete marketing capabilities:
 
 ✅ **Content Creator** - Brand voice, SEO, social media, content frameworks
 ✅ **Demand & Acquisition** - Multi-channel campaigns, paid media, SEO, partnerships

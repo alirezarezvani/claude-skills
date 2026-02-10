@@ -2,7 +2,7 @@
 
 **Repository:** Claude Skills Library by nginity
 **Audit Date:** November 7, 2025 (Updated)
-**Total Skills:** 54 (business-growth and finance domains added)
+**Total Skills:** 53 (business-growth and finance domains added)
 **Total Python Scripts:** 87+ files
 **Total Python Code:** 11,487+ lines
 
@@ -23,7 +23,7 @@
 | **RA/QM** | 12 | 11 | 408 | ⚠️ **Placeholders** |
 | **Business & Growth** | 3 | 7+ | ~800+ | ✅ Production |
 | **Finance** | 1 | 3+ | ~650+ | ✅ Production |
-| **Total** | **54** | **97+** | **15,919+** | **Mixed** |
+| **Total** | **53** | **97+** | **15,919+** | **Mixed** |
 
 ---
 
@@ -472,7 +472,7 @@ Prioritize based on user value:
 **February 2026 Update:**
 - ✅ Added business-growth domain (3 skills, 7+ tools)
 - ✅ Added finance domain (1 skill, 3+ tools)
-- ✅ Updated skill counts: 48→54
+- ✅ Updated skill counts: 48→53
 - ✅ Updated tool counts: 68+→87+ scripts
 - ✅ Added campaign-analytics to marketing (3 tools)
 

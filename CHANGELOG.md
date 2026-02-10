@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New `business-growth` domain with 3 skills
 - New `finance` domain with 1 skill
 - 87+ Python automation tools (up from 68+)
-- 54 total skills across 8 domains (up from 48 across 6)
+- 53 total skills across 8 domains (up from 48 across 6)
 
 ### Planned
 - Complete Anthropic best practices refactoring (37/42 skills remaining)

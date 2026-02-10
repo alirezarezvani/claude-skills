@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-This document outlines the systematic process for adding new skills, enhancing existing agents, and maintaining the claude-code-skills ecosystem as it scales from 54 to 60+ skills by Q3 2026.
+This document outlines the systematic process for adding new skills, enhancing existing agents, and maintaining the claude-code-skills ecosystem as it scales from 53 to 60+ skills by Q3 2026.
 
 **Key Principles:**
 - **Skill-First Design**: Skills are portable, self-contained expertise packages
@@ -557,7 +557,7 @@ Expert agent for {domain} using the {Skill Name} skill.
 
 ### Current State (Q4 2025)
 
-- **Skills:** 54 (7 marketing, 2 C-level, 5 product, 6 PM, 18 engineering, 12 RA/QM, 3 business & growth, 1 finance)
+- **Skills:** 53 (6 marketing, 2 C-level, 5 product, 6 PM, 18 engineering, 12 RA/QM, 3 business & growth, 1 finance)
 - **Agents:** 5 (cs-content-creator, cs-demand-gen-specialist, cs-ceo-advisor, cs-cto-advisor, cs-product-manager)
 - **Python Tools:** 87+
 - **Active Users:** Early adopters (estimated 25 organizations)
@@ -571,7 +571,7 @@ Expert agent for {domain} using the {Skill Name} skill.
 
 ### Domain Growth Roadmap
 
-**Marketing (7 → 10):**
+**Marketing (6 → 10):**
 - ✅ Content Creator
 - ✅ Marketing Demand & Acquisition
 - ✅ Marketing Strategy & Product Marketing

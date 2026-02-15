@@ -243,13 +243,13 @@
       "name": "scrum-master",
       "source": "../../project-management/scrum-master",
       "category": "project-management",
-      "description": "Scrum Master for agile software development teams. Use for sprint planning, daily standups, retrospectives, backlog refinement, velocity tracking, removing impediments, facilitating ceremonies, coaching teams on agile practices, and managing sprint execution for R&D and development teams."
+      "description": "Advanced Scrum Master with data-driven team health analysis, velocity forecasting, retrospective insights, and team development expertise. Features comprehensive sprint health scoring, Monte Carlo forecasting, and psychological safety frameworks for high-performing agile teams."
     },
     {
       "name": "senior-pm",
       "source": "../../project-management/senior-pm",
       "category": "project-management",
-      "description": "Senior Project Manager for Software, SaaS, and digital web/mobile applications. Use for strategic planning, portfolio management, stakeholder alignment, risk management, roadmap development, budget oversight, cross-functional team leadership, and executive reporting for software products."
+      "description": "Senior Project Manager for enterprise software, SaaS, and digital transformation projects. Specializes in portfolio management, quantitative risk analysis, resource optimization, stakeholder alignment, and executive reporting. Uses advanced methodologies including EMV analysis, Monte Carlo simulation, WSJF prioritization, and multi-dimensional health scoring."
     },
     {
       "name": "capa-officer",

@@ -420,6 +420,23 @@ Visual design systems and component architecture for consistent user interfaces.
 
 ---
 
+#### 🎨 OilOil UI/UX Guide (Community)
+**Status:** ✅ Production Ready | **Source:** [oil-oil/oiloil-ui-ux-guide](https://github.com/oil-oil/oiloil-ui-ux-guide)
+
+Modern, clean UI/UX guidance and review skill with actionable recommendations.
+
+**What's Included:**
+- **Guide Mode** - Actionable do/don't rules for modern clean UI/UX
+- **Review Mode** - Prioritized P0/P1/P2 fix lists with design psychology diagnosis
+- **Design Principles** - CRAP, task-first UX, cognitive load, HCI laws (Fitts/Hick/Miller)
+- **Modern Minimal Style** - Clean, spacious, typography-led design enforcement
+
+**Learn More:** [oiloil-ui-ux-guide/SKILL.md](oiloil-ui-ux-guide/SKILL.md)
+
+Install via: `npx skills add oil-oil/oiloil-ui-ux-guide`
+
+---
+
 ### Project Management Team Skills
 
 **6 world-class Atlassian expert skills** for project and agile delivery teams using Jira and Confluence.

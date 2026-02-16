@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Check Workflow Kill Switch
         run: |
           if [ -f ".github/WORKFLOW_KILLSWITCH" ]; then

@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 59,
+  "total_skills": 65,
   "skills": [
     {
       "name": "customer-success-manager",
@@ -366,6 +366,42 @@
       ],
       "references": true,
       "assets": true
+    },
+    {
+      "name": "dependency-auditor",
+      "source": "../../engineering/dependency-auditor",
+      "category": "engineering",
+      "description": "Multi-language dependency scanning, license compliance, and upgrade planning for modern software projects"
+    },
+    {
+      "name": "release-manager",
+      "source": "../../engineering/release-manager",
+      "category": "engineering",
+      "description": "Automated changelog generation, semantic version bumping, and release readiness planning for production deployments"
+    },
+    {
+      "name": "database-designer",
+      "source": "../../engineering/database-designer",
+      "category": "engineering",
+      "description": "Schema analysis with ERD generation, index optimization, and migration generation for database architecture"
+    },
+    {
+      "name": "rag-architect",
+      "source": "../../engineering/rag-architect",
+      "category": "engineering",
+      "description": "RAG pipeline design with chunking optimization, retrieval evaluation, and architecture generation for AI systems"
+    },
+    {
+      "name": "agent-designer",
+      "source": "../../engineering/agent-designer",
+      "category": "engineering",
+      "description": "Multi-agent system architecture, tool schema generation, and agent performance evaluation for agentic AI"
+    },
+    {
+      "name": "skill-tester",
+      "source": "../../engineering/skill-tester",
+      "category": "engineering",
+      "description": "Meta-skill for automated skill validation, script testing, and quality scoring for skill development workflows"
     }
   ],
   "categories": {
@@ -380,7 +416,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 19,
+      "count": 25,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
@@ -410,5 +446,5 @@
       "description": "Regulatory affairs and quality management skills"
     }
   },
-  "total": 59
+  "total": 65
 }

@@ -6,7 +6,7 @@
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![53 Skills](https://img.shields.io/badge/Skills-53-brightgreen.svg)](#-available-skills)
+[![59 Skills](https://img.shields.io/badge/Skills-59-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -797,6 +797,108 @@ Data pipeline engineering, ETL/ELT workflows, and data infrastructure.
 - **Data Modeling Guide** - Dimensional modeling, data vault, schema design
 
 **Learn More:** See `engineering-team/README.md` for details
+
+---
+
+#### 🚨 Incident Commander
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Incident response playbook with severity classification, timeline reconstruction, and post-incident review generation.
+
+**What's Included:**
+- **Incident Classifier** - Severity analysis and response team recommendations (Python CLI)
+- **Timeline Reconstructor** - Chronological incident timeline reconstruction (Python CLI)
+- **PIR Generator** - Comprehensive post-incident review generation (Python CLI)
+- **Severity Classifier** - Automated incident severity assessment (Python CLI)
+- **Timeline Builder** - Incident event timeline construction (Python CLI)
+- **Postmortem Generator** - Structured postmortem documentation (Python CLI)
+
+**Learn More:** [engineering-team/incident-commander/SKILL.md](engineering-team/incident-commander/SKILL.md)
+
+---
+
+#### 📊 Tech Debt Tracker  
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Codebase debt analysis with AST parsing, prioritization frameworks, and trend dashboards.
+
+**What's Included:**
+- **Debt Scanner** - Automated technical debt detection with AST parsing (Python CLI)
+- **Debt Prioritizer** - Cost-of-delay analysis and debt prioritization (Python CLI)
+- **Debt Dashboard** - Trend tracking and executive reporting dashboard (Python CLI)
+- **Code Quality Analysis** - Comprehensive codebase health assessment
+- **Architecture Debt Detection** - Structural and design debt identification
+- **Maintenance Cost Modeling** - Financial impact analysis of technical debt
+
+**Learn More:** [engineering/tech-debt-tracker/SKILL.md](engineering/tech-debt-tracker/SKILL.md)
+
+---
+
+#### 🔌 API Design Reviewer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+REST/OpenAPI linting, breaking change detection, and API design scorecards.
+
+**What's Included:**
+- **API Linter** - REST convention validation and best practices enforcement (Python CLI)
+- **Breaking Change Detector** - Automated API compatibility analysis (Python CLI)
+- **API Scorecard** - Comprehensive design quality assessment (Python CLI)
+- **OpenAPI Validation** - Schema compliance and documentation checking
+- **Security Assessment** - Authentication, authorization, and security headers review
+- **Performance Analysis** - Caching, pagination, and efficiency pattern evaluation
+
+**Learn More:** [engineering/api-design-reviewer/SKILL.md](engineering/api-design-reviewer/SKILL.md)
+
+---
+
+#### 🎯 Interview System Designer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Calibrated interview loops, question banks, and hiring calibration analysis.
+
+**What's Included:**
+- **Loop Designer** - Role-specific interview process design (Python CLI)
+- **Question Bank Generator** - Competency-based question generation (Python CLI)
+- **Hiring Calibrator** - Interview bias analysis and calibration tools (Python CLI)
+- **Competency Matrices** - Skills assessment framework development
+- **Scoring Rubrics** - Standardized evaluation criteria creation
+- **Bias Mitigation** - Interview process fairness optimization
+
+**Learn More:** [engineering/interview-system-designer/SKILL.md](engineering/interview-system-designer/SKILL.md)
+
+---
+
+#### 🚀 Migration Architect
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Zero-downtime migration planning, compatibility checking, and rollback generation.
+
+**What's Included:**
+- **Migration Planner** - Phased migration strategy generation (Python CLI)
+- **Compatibility Checker** - Schema and API compatibility validation (Python CLI)
+- **Rollback Generator** - Automated rollback procedure creation (Python CLI)
+- **Risk Assessment** - Migration failure point identification
+- **Timeline Estimation** - Resource-based migration scheduling
+- **Data Validation** - Cross-system data integrity verification
+
+**Learn More:** [engineering/migration-architect/SKILL.md](engineering/migration-architect/SKILL.md)
+
+---
+
+#### 📡 Observability Designer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+SLI/SLO frameworks, alert optimization, and dashboard generation for production observability.
+
+**What's Included:**
+- **SLO Designer** - Generate SLI definitions, SLO targets, error budgets, and burn rate alerts (Python CLI)
+- **Alert Optimizer** - Analyze alert configs for noise, coverage gaps, duplicates, and fatigue risks (Python CLI)
+- **Dashboard Generator** - Create role-based dashboard specs with golden signals and RED/USE methods (Python CLI)
+- **SLO Cookbook** - Comprehensive SLO implementation guide
+- **Alert Design Patterns** - Battle-tested alerting strategies
+- **Dashboard Best Practices** - Visualization and layout principles
+
+**Learn More:** [engineering/observability-designer/SKILL.md](engineering/observability-designer/SKILL.md)
 
 ---
 

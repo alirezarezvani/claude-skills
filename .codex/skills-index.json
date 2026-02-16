@@ -51,7 +51,7 @@
       "name": "incident-commander",
       "source": "../../engineering-team/incident-commander",
       "category": "engineering",
-      "description": "Production incident management with structured timeline analysis, severity classification (SEV1-4), automated postmortem generation, and SLA tracking. Features communication templates, escalation routing, 5-Whys root cause analysis, and MTTR/MTTD metrics for high-reliability engineering teams."
+      "description": "Skill from engineering-team"
     },
     {
       "name": "ms365-tenant-manager",

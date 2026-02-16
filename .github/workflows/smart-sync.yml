@@ -27,6 +27,9 @@ jobs:
       issue_number: ${{ steps.check.outputs.issue_number }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Check Workflow Kill Switch
         run: |
             if [ -f ".github/WORKFLOW_KILLSWITCH" ]; then
@@ -142,23 +145,35 @@ jobs:
           fetch-depth: 1
 
       - name: Sync Issue to Project Board
-        uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          echo "# Issue → Project Board Sync"
+          echo "**Issue**: #${{ github.event.issue.number }} \"${{ github.event.issue.title }}\""
+          echo "**State**: ${{ github.event.issue.state }}"
+          echo "**Action**: ${{ github.event.action }}"
 
-          prompt: |
-            # Issue → Project Board Sync
+          # Step 1: Check if in Project
+          PROJECT_ITEM=$(gh api graphql -f query='
+            query {
+              repository(owner: "alirezarezvani", name: "claude-skills") {
+                issue(number: ${{ github.event.issue.number }}) {
+                  projectItems(first: 10) {
+                    nodes {
+                      id
+                      project { number }
+                    }
+                  }
+                }
+              }
+            }
+          ' --jq '.data.repository.issue.projectItems.nodes[] | select(.project.number == 9) | .id')
 
-            **Issue**: #${{ github.event.issue.number }} "${{ github.event.issue.title }}"
-            **State**: ${{ github.event.issue.state }}
-            **Action**: ${{ github.event.action }}
+          if [ -z "$PROJECT_ITEM" ]; then
+            echo "Adding to project..."
+            gh project item-add 9 --owner alirezarezvani --url ${{ github.event.issue.html_url }}
+            sleep 2
 
-            ## Task: Sync issue status to project board
-
-            ### Step 1: Check if in Project
-            ```bash
             PROJECT_ITEM=$(gh api graphql -f query='
               query {
                 repository(owner: "alirezarezvani", name: "claude-skills") {
@@ -173,118 +188,84 @@ jobs:
                 }
               }
             ' --jq '.data.repository.issue.projectItems.nodes[] | select(.project.number == 9) | .id')
+          fi
 
-            if [ -z "$PROJECT_ITEM" ]; then
-              echo "Adding to project..."
-              gh project item-add 9 --owner alirezarezvani --url ${{ github.event.issue.html_url }}
-              sleep 2
+          echo "Project Item ID: $PROJECT_ITEM"
 
-              PROJECT_ITEM=$(gh api graphql -f query='
-                query {
-                  repository(owner: "alirezarezvani", name: "claude-skills") {
-                    issue(number: ${{ github.event.issue.number }}) {
-                      projectItems(first: 10) {
-                        nodes {
-                          id
-                          project { number }
-                        }
-                      }
-                    }
-                  }
-                }
-              ' --jq '.data.repository.issue.projectItems.nodes[] | select(.project.number == 9) | .id')
-            fi
+          # Step 2: Determine Target Status
+          LABELS=$(gh issue view ${{ github.event.issue.number }} --json labels --jq '[.labels[].name] | join(",")')
+          ISSUE_STATE="${{ github.event.issue.state }}"
 
-            echo "Project Item ID: $PROJECT_ITEM"
-            ```
+          # Priority order: closed state > status labels > default
+          if [ "$ISSUE_STATE" = "closed" ]; then
+            TARGET_STATUS="Done"
+          elif echo "$LABELS" | grep -q "status: done"; then
+            TARGET_STATUS="Done"
+          elif echo "$LABELS" | grep -q "status: in-review"; then
+            TARGET_STATUS="In Review"
+          elif echo "$LABELS" | grep -q "status: in-progress"; then
+            TARGET_STATUS="In Progress"
+          elif echo "$LABELS" | grep -q "status: ready"; then
+            TARGET_STATUS="Ready"
+          elif echo "$LABELS" | grep -q "status: backlog"; then
+            TARGET_STATUS="Backlog"
+          elif echo "$LABELS" | grep -q "status: triage"; then
+            TARGET_STATUS="To triage"
+          else
+            TARGET_STATUS=$([ "$ISSUE_STATE" = "open" ] && echo "To triage" || echo "Done")
+          fi
 
-            ### Step 2: Determine Target Status
-            ```bash
-            LABELS=$(gh issue view ${{ github.event.issue.number }} --json labels --jq '[.labels[].name] | join(",")')
-            ISSUE_STATE="${{ github.event.issue.state }}"
+          echo "Target Status: $TARGET_STATUS"
 
-            # Priority order: closed state > status labels > default
-            if [ "$ISSUE_STATE" = "closed" ]; then
-              TARGET_STATUS="Done"
-            elif echo "$LABELS" | grep -q "status: done"; then
-              TARGET_STATUS="Done"
-            elif echo "$LABELS" | grep -q "status: in-review"; then
-              TARGET_STATUS="In Review"
-            elif echo "$LABELS" | grep -q "status: in-progress"; then
-              TARGET_STATUS="In Progress"
-            elif echo "$LABELS" | grep -q "status: ready"; then
-              TARGET_STATUS="Ready"
-            elif echo "$LABELS" | grep -q "status: backlog"; then
-              TARGET_STATUS="Backlog"
-            elif echo "$LABELS" | grep -q "status: triage"; then
-              TARGET_STATUS="To triage"
-            else
-              TARGET_STATUS=$([ "$ISSUE_STATE" = "open" ] && echo "To triage" || echo "Done")
-            fi
-
-            echo "Target Status: $TARGET_STATUS"
-            ```
-
-            ### Step 3: Get Project IDs
-            ```bash
-            PROJECT_DATA=$(gh api graphql -f query='
-              query {
-                user(login: "alirezarezvani") {
-                  projectV2(number: 9) {
-                    id
-                    fields(first: 20) {
-                      nodes {
-                        ... on ProjectV2SingleSelectField {
+          # Step 3: Get Project IDs
+          PROJECT_DATA=$(gh api graphql -f query='
+            query {
+              user(login: "alirezarezvani") {
+                projectV2(number: 9) {
+                  id
+                  fields(first: 20) {
+                    nodes {
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
                           id
                           name
-                          options {
-                            id
-                            name
-                          }
                         }
                       }
                     }
                   }
                 }
               }
-            ')
+            }
+          ')
 
-            PROJECT_ID=$(echo "$PROJECT_DATA" | jq -r '.data.user.projectV2.id')
-            STATUS_FIELD_ID=$(echo "$PROJECT_DATA" | \
-              jq -r '.data.user.projectV2.fields.nodes[] | select(.name == "Status") | .id')
-            STATUS_OPTION_ID=$(echo "$PROJECT_DATA" | jq -r --arg status "$TARGET_STATUS" \
-              '.data.user.projectV2.fields.nodes[] | select(.name == "Status") | .options[] | select(.name == $status) | .id')
-            ```
+          PROJECT_ID=$(echo "$PROJECT_DATA" | jq -r '.data.user.projectV2.id')
+          STATUS_FIELD_ID=$(echo "$PROJECT_DATA" | \
+            jq -r '.data.user.projectV2.fields.nodes[] | select(.name == "Status") | .id')
+          STATUS_OPTION_ID=$(echo "$PROJECT_DATA" | jq -r --arg status "$TARGET_STATUS" \
+            '.data.user.projectV2.fields.nodes[] | select(.name == "Status") | .options[] | select(.name == $status) | .id')
 
-            ### Step 4: Update Project Board
-            ```bash
-            if [ -n "$PROJECT_ITEM" ] && [ -n "$STATUS_OPTION_ID" ]; then
-              gh api graphql -f query='
-                mutation {
-                  updateProjectV2ItemFieldValue(
-                    input: {
-                      projectId: "'"$PROJECT_ID"'"
-                      itemId: "'"$PROJECT_ITEM"'"
-                      fieldId: "'"$STATUS_FIELD_ID"'"
-                      value: { singleSelectOptionId: "'"$STATUS_OPTION_ID"'" }
-                    }
-                  ) {
-                    projectV2Item { id }
+          # Step 4: Update Project Board
+          if [ -n "$PROJECT_ITEM" ] && [ -n "$STATUS_OPTION_ID" ]; then
+            gh api graphql -f query='
+              mutation {
+                updateProjectV2ItemFieldValue(
+                  input: {
+                    projectId: "'"$PROJECT_ID"'"
+                    itemId: "'"$PROJECT_ITEM"'"
+                    fieldId: "'"$STATUS_FIELD_ID"'"
+                    value: { singleSelectOptionId: "'"$STATUS_OPTION_ID"'" }
                   }
+                ) {
+                  projectV2Item { id }
                 }
-              '
-              echo "✅ Project board updated to: $TARGET_STATUS"
-            else
-              echo "⚠️ Could not update (missing IDs)"
-            fi
-            ```
-
-            ## Rules
-            - DO NOT comment on issue (prevents notification spam)
-            - DO NOT modify issue labels (prevents sync loop)
-            - Only update project board status
-
-          claude_args: '--allowed-tools "Bash(gh issue:*),Bash(gh api:*),Bash(gh project:*),Bash(echo:*),Bash(sleep:*)"'
+              }
+            '
+            echo "✅ Project board updated to: $TARGET_STATUS"
+          else
+            echo "⚠️ Could not update (missing IDs)"
+          fi
 
   sync-project-to-issue:
     needs: [determine-direction, rate-limit-check, debounce]
@@ -305,66 +286,55 @@ jobs:
           fetch-depth: 1
 
       - name: Sync Project Board to Issue
-        uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          echo "# Project Board → Issue Sync"
+          echo "**Project Item**: ${{ github.event.projects_v2_item.node_id }}"
+          echo "**Content**: ${{ github.event.projects_v2_item.content_node_id }}"
+          echo "**Changed By**: @${{ github.event.sender.login }}"
 
-          prompt: |
-            # Project Board → Issue Sync
+          # Step 1: Get Issue Number
+          CONTENT_ID="${{ github.event.projects_v2_item.content_node_id }}"
 
-            **Project Item**: ${{ github.event.projects_v2_item.node_id }}
-            **Content**: ${{ github.event.projects_v2_item.content_node_id }}
-            **Changed By**: @${{ github.event.sender.login }}
-
-            ## Task: Sync project board status to issue
-
-            ### Step 1: Get Issue Number
-            ```bash
-            CONTENT_ID="${{ github.event.projects_v2_item.content_node_id }}"
-
-            ISSUE_DATA=$(gh api graphql -f query='
-              query {
-                node(id: "${{ github.event.projects_v2_item.node_id }}") {
-                  ... on ProjectV2Item {
-                    content {
-                      ... on Issue {
-                        number
-                        url
-                        state
-                        title
-                      }
+          ISSUE_DATA=$(gh api graphql -f query='
+            query {
+              node(id: "${{ github.event.projects_v2_item.node_id }}") {
+                ... on ProjectV2Item {
+                  content {
+                    ... on Issue {
+                      number
+                      url
+                      state
+                      title
                     }
                   }
                 }
               }
-            ')
+            }
+          ')
 
-            ISSUE_NUMBER=$(echo "$ISSUE_DATA" | jq -r '.data.node.content.number')
+          ISSUE_NUMBER=$(echo "$ISSUE_DATA" | jq -r '.data.node.content.number')
 
-            if [ -z "$ISSUE_NUMBER" ] || [ "$ISSUE_NUMBER" = "null" ]; then
-              echo "⏭️ Not an issue (might be PR or other content)"
-              exit 0
-            fi
+          if [ -z "$ISSUE_NUMBER" ] || [ "$ISSUE_NUMBER" = "null" ]; then
+            echo "⏭️ Not an issue (might be PR or other content)"
+            exit 0
+          fi
 
-            echo "Issue Number: $ISSUE_NUMBER"
-            ```
+          echo "Issue Number: $ISSUE_NUMBER"
 
-            ### Step 2: Get Project Status
-            ```bash
-            STATUS=$(gh api graphql -f query='
-              query {
-                node(id: "${{ github.event.projects_v2_item.node_id }}") {
-                  ... on ProjectV2Item {
-                    fieldValues(first: 20) {
-                      nodes {
-                        ... on ProjectV2ItemFieldSingleSelectValue {
-                          name
-                          field {
-                            ... on ProjectV2SingleSelectField {
-                              name
-                            }
+          # Step 2: Get Project Status
+          STATUS=$(gh api graphql -f query='
+            query {
+              node(id: "${{ github.event.projects_v2_item.node_id }}") {
+                ... on ProjectV2Item {
+                  fieldValues(first: 20) {
+                    nodes {
+                      ... on ProjectV2ItemFieldSingleSelectValue {
+                        name
+                        field {
+                          ... on ProjectV2SingleSelectField {
+                            name
                           }
                         }
                       }
@@ -372,71 +342,55 @@ jobs:
                   }
                 }
               }
-            ' --jq '.data.node.fieldValues.nodes[] | select(.field.name == "Status") | .name')
+            }
+          ' --jq '.data.node.fieldValues.nodes[] | select(.field.name == "Status") | .name')
 
-            if [ -z "$STATUS" ]; then
-              echo "⏭️ No status field found"
+          if [ -z "$STATUS" ]; then
+            echo "⏭️ No status field found"
+            exit 0
+          fi
+
+          echo "Project Status: $STATUS"
+
+          # Step 3: Map Status to Label
+          case "$STATUS" in
+            "To triage") NEW_LABEL="status: triage" ;;
+            "Backlog") NEW_LABEL="status: backlog" ;;
+            "Ready") NEW_LABEL="status: ready" ;;
+            "In Progress") NEW_LABEL="status: in-progress" ;;
+            "In Review") NEW_LABEL="status: in-review" ;;
+            "Done") NEW_LABEL="status: done" ;;
+            *)
+              echo "⏭️ Unknown status: $STATUS"
               exit 0
+              ;;
+          esac
+
+          echo "Target Label: $NEW_LABEL"
+
+          # Step 4: Update Issue Labels
+          CURRENT_LABELS=$(gh issue view $ISSUE_NUMBER --json labels --jq '[.labels[].name] | join(",")')
+
+          # Remove all status: labels
+          for label in "status: triage" "status: backlog" "status: ready" "status: in-progress" "status: in-review" "status: done"; do
+            if echo "$CURRENT_LABELS" | grep -q "$label"; then
+              gh issue edit $ISSUE_NUMBER --remove-label "$label" 2>/dev/null || true
             fi
+          done
 
-            echo "Project Status: $STATUS"
-            ```
+          # Add new status label
+          gh issue edit $ISSUE_NUMBER --add-label "$NEW_LABEL"
+          echo "✅ Label updated to: $NEW_LABEL"
 
-            ### Step 3: Map Status to Label
-            ```bash
-            case "$STATUS" in
-              "To triage") NEW_LABEL="status: triage" ;;
-              "Backlog") NEW_LABEL="status: backlog" ;;
-              "Ready") NEW_LABEL="status: ready" ;;
-              "In Progress") NEW_LABEL="status: in-progress" ;;
-              "In Review") NEW_LABEL="status: in-review" ;;
-              "Done") NEW_LABEL="status: done" ;;
-              *)
-                echo "⏭️ Unknown status: $STATUS"
-                exit 0
-                ;;
-            esac
+          # Step 5: Handle Issue State
+          CURRENT_STATE=$(gh issue view $ISSUE_NUMBER --json state --jq '.state')
 
-            echo "Target Label: $NEW_LABEL"
-            ```
+          if [ "$STATUS" = "Done" ] && [ "$CURRENT_STATE" = "OPEN" ]; then
+            gh issue close $ISSUE_NUMBER --reason completed
+            echo "✅ Issue closed (moved to Done)"
+          elif [ "$STATUS" != "Done" ] && [ "$CURRENT_STATE" = "CLOSED" ]; then
+            gh issue reopen $ISSUE_NUMBER
+            echo "✅ Issue reopened (moved from Done)"
+          fi
 
-            ### Step 4: Update Issue Labels
-            ```bash
-            CURRENT_LABELS=$(gh issue view $ISSUE_NUMBER --json labels --jq '[.labels[].name] | join(",")')
-
-            # Remove all status: labels
-            for label in "status: triage" "status: backlog" "status: ready" "status: in-progress" "status: in-review" "status: done"; do
-              if echo "$CURRENT_LABELS" | grep -q "$label"; then
-                gh issue edit $ISSUE_NUMBER --remove-label "$label" 2>/dev/null || true
-              fi
-            done
-
-            # Add new status label
-            gh issue edit $ISSUE_NUMBER --add-label "$NEW_LABEL"
-            echo "✅ Label updated to: $NEW_LABEL"
-            ```
-
-            ### Step 5: Handle Issue State
-            ```bash
-            CURRENT_STATE=$(gh issue view $ISSUE_NUMBER --json state --jq '.state')
-
-            if [ "$STATUS" = "Done" ] && [ "$CURRENT_STATE" = "OPEN" ]; then
-              gh issue close $ISSUE_NUMBER --reason completed
-              echo "✅ Issue closed (moved to Done)"
-            elif [ "$STATUS" != "Done" ] && [ "$CURRENT_STATE" = "CLOSED" ]; then
-              gh issue reopen $ISSUE_NUMBER
-              echo "✅ Issue reopened (moved from Done)"
-            fi
-            ```
-
-            ### Step 6: Silent Completion
-            ```bash
-            echo "✅ Sync complete: Issue #$ISSUE_NUMBER updated to $STATUS"
-            ```
-
-            ## Rules
-            - DO NOT comment on issue (prevents notification spam)
-            - DO NOT modify project board (prevents sync loop)
-            - Only update issue labels and state
-
-          claude_args: '--allowed-tools "Bash(gh issue:*),Bash(gh api:*),Bash(echo:*)"'
+          echo "✅ Sync complete: Issue #$ISSUE_NUMBER updated to $STATUS"

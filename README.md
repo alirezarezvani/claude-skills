@@ -52,7 +52,7 @@ For OpenAI Codex users, install via universal installer or direct script:
 
 ```bash
 # Option A: Universal installer
-npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 
 # Option B: Direct installation script
 git clone https://github.com/alirezarezvani/claude-skills.git
@@ -80,19 +80,19 @@ Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one com
 
 ```bash
 # Install all 53 skills to all supported agents
-npx ai-agent-skills install alirezarezvani/claude-skills
+npx agent-skills-cli add alirezarezvani/claude-skills
 
 # Install to specific agent (Claude Code)
-npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+npx agent-skills-cli add alirezarezvani/claude-skills --agent claude
 
 # Install single skill
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/content-creator
 
 # Install to Cursor
-npx ai-agent-skills install alirezarezvani/claude-skills --agent cursor
+npx agent-skills-cli add alirezarezvani/claude-skills --agent cursor
 
 # Preview before installing
-npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
+npx agent-skills-cli add alirezarezvani/claude-skills --dry-run
 ```
 
 **Benefits:**
@@ -1541,7 +1541,7 @@ OpenAI Codex users can install and use these skills through the `.codex/skills/`
 
 ```bash
 # Install all 43 skills to Codex
-npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 
 # Verify installation
 ls ~/.codex/skills/
@@ -1699,13 +1699,13 @@ Each skill package follows a consistent, modular structure:
 
 ```bash
 # Install all skills to Claude Code, Cursor, VS Code, Amp, Goose, etc.
-npx ai-agent-skills install alirezarezvani/claude-skills
+npx agent-skills-cli add alirezarezvani/claude-skills
 
 # Or install to specific agent
-npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+npx agent-skills-cli add alirezarezvani/claude-skills --agent claude
 
 # Or install single skill
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/content-creator
 ```
 
 **Supported Agents:**

@@ -1,0 +1,31 @@
+Current Version: 2.2.5
+Recommended Version: 3.0.0
+With v prefix: v3.0.0
+Bump Type: major
+
+Commit Analysis:
+- Total commits: 13
+- Breaking changes: 2
+- New features: 4
+- Bug fixes: 4
+- Ignored commits: 3
+
+Breaking Changes:
+  - feat(ui): redesign dashboard with new component library
+  - fix(security): patch SQL injection vulnerability in reports
+
+Bump Commands:
+  npm:
+    npm version 3.0.0 --no-git-tag-version
+  python:
+    # Update version in setup.py, __init__.py, or pyproject.toml
+    # pyproject.toml: version = "3.0.0"
+  rust:
+    # Update Cargo.toml
+    # version = "3.0.0"
+  git:
+    git tag -a v3.0.0 -m 'Release v3.0.0'
+    git push origin v3.0.0
+  docker:
+    docker build -t myapp:3.0.0 .
+    docker tag myapp:3.0.0 myapp:latest

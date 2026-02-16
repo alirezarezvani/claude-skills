@@ -6,7 +6,7 @@
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![59 Skills](https://img.shields.io/badge/Skills-59-brightgreen.svg)](#-available-skills)
+[![65 Skills](https://img.shields.io/badge/Skills-65-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -533,7 +533,7 @@ Template and file creation/modification specialist.
 
 ### Engineering Team Skills
 
-**Complete engineering skills suite with 13 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, and enterprise systems.
+**Complete engineering skills suite with 19 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, and enterprise systems.
 
 #### 🏗️ Senior Software Architect
 **Status:** ✅ Production Ready | **Version:** 1.0
@@ -759,6 +759,108 @@ Comprehensive technology evaluation with TCO analysis, security assessment, and 
 - **Decision Reports** - Matrices with pros/cons, confidence scores, and actionable recommendations
 
 **Learn More:** [engineering-team/tech-stack-evaluator/SKILL.md](engineering-team/tech-stack-evaluator/SKILL.md)
+
+---
+
+#### 📦 Dependency Auditor
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Multi-language dependency scanning, license compliance, and upgrade planning for modern software projects.
+
+**What's Included:**
+- **Dependency Scanner** - Multi-language dependency analysis and vulnerability detection (Python CLI)
+- **License Compliance Checker** - License compatibility and compliance validation (Python CLI)
+- **Upgrade Planner** - Strategic dependency upgrade planning with risk assessment (Python CLI)
+- **Security Vulnerability Assessment** - CVE analysis and remediation recommendations
+- **License Compatibility Matrix** - Legal compliance checking across multiple licenses
+- **Upgrade Impact Analysis** - Breaking changes and migration effort estimation
+
+**Learn More:** [engineering/dependency-auditor/SKILL.md](engineering/dependency-auditor/SKILL.md)
+
+---
+
+#### 🚀 Release Manager
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Automated changelog generation, semantic version bumping, and release readiness planning for production deployments.
+
+**What's Included:**
+- **Changelog Generator** - Automated changelog creation from commit history (Python CLI)
+- **Version Bumper** - Semantic versioning with automated version increment (Python CLI)
+- **Release Readiness Checker** - Pre-release validation and readiness assessment (Python CLI)
+- **Release Notes Automation** - Generate comprehensive release documentation
+- **Semantic Versioning Guide** - Best practices for version management
+- **Release Pipeline Integration** - CI/CD release workflow optimization
+
+**Learn More:** [engineering/release-manager/SKILL.md](engineering/release-manager/SKILL.md)
+
+---
+
+#### 🗄️ Database Designer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Schema analysis with ERD generation, index optimization, and migration generation for database architecture.
+
+**What's Included:**
+- **Schema Analyzer** - Database schema analysis and optimization recommendations (Python CLI)
+- **ERD Generator** - Entity Relationship Diagram generation from schema (Python CLI)
+- **Index Optimizer** - Query performance optimization through strategic indexing (Python CLI)
+- **Migration Generator** - Automated database migration script creation (Python CLI)
+- **Schema Validation** - Database integrity and constraint validation
+- **Performance Tuning Guide** - Query optimization and database performance patterns
+
+**Learn More:** [engineering/database-designer/SKILL.md](engineering/database-designer/SKILL.md)
+
+---
+
+#### 🧠 RAG Architect
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+RAG pipeline design with chunking optimization, retrieval evaluation, and architecture generation for AI systems.
+
+**What's Included:**
+- **RAG Pipeline Builder** - Complete RAG system architecture and implementation (Python CLI)
+- **Chunking Optimizer** - Document chunking strategy optimization for retrieval (Python CLI)
+- **Retrieval Evaluator** - RAG system performance evaluation and tuning (Python CLI)
+- **Vector Database Integration** - Multi-provider vector database setup and optimization
+- **Embedding Strategy Guide** - Embedding model selection and fine-tuning
+- **RAG Performance Patterns** - Architecture patterns for scalable RAG systems
+
+**Learn More:** [engineering/rag-architect/SKILL.md](engineering/rag-architect/SKILL.md)
+
+---
+
+#### 🤖 Agent Designer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Multi-agent system architecture, tool schema generation, and agent performance evaluation for agentic AI.
+
+**What's Included:**
+- **Multi-Agent Architect** - Design and implement multi-agent system architecture (Python CLI)
+- **Tool Schema Generator** - Generate standardized tool schemas for agent integration (Python CLI)
+- **Agent Performance Evaluator** - Comprehensive agent performance analysis and optimization (Python CLI)
+- **Agent Communication Patterns** - Inter-agent communication and coordination strategies
+- **Tool Integration Framework** - Standardized tool integration patterns for agents
+- **Agent Orchestration Guide** - Best practices for agent system orchestration
+
+**Learn More:** [engineering/agent-designer/SKILL.md](engineering/agent-designer/SKILL.md)
+
+---
+
+#### 🧪 Skill Tester
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+Meta-skill for automated skill validation, script testing, and quality scoring for skill development workflows.
+
+**What's Included:**
+- **Skill Validator** - Automated skill functionality validation and testing (Python CLI)
+- **Script Tester** - Comprehensive testing framework for skill scripts (Python CLI)
+- **Quality Scorer** - Skill quality assessment and scoring system (Python CLI)
+- **Skill CI/CD Integration** - Automated testing in skill development workflows
+- **Quality Metrics Framework** - Standardized quality assessment criteria
+- **Skill Performance Benchmarking** - Performance testing and optimization guidance
+
+**Learn More:** [engineering/skill-tester/SKILL.md](engineering/skill-tester/SKILL.md)
 
 ---
 

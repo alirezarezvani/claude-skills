@@ -14,6 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **interview-system-designer** (POWERFUL tier) — Interview loop designer, question bank generator, and hiring calibrator
 - **migration-architect** (POWERFUL tier) — Migration planner, compatibility checker, and rollback generator
 - **observability-designer** (POWERFUL tier) — SLO designer, alert optimizer, and dashboard generator
+- **dependency-auditor** (POWERFUL tier) — Multi-language dependency scanner, license compliance checker, and upgrade planner
+- **release-manager** (POWERFUL tier) — Automated changelog generator, semantic version bumper, and release readiness checker
+- **database-designer** (POWERFUL tier) — Schema analyzer with ERD generation, index optimizer, and migration generator
+- **rag-architect** (POWERFUL tier) — RAG pipeline builder, chunking optimizer, and retrieval evaluator
+- **agent-designer** (POWERFUL tier) — Multi-agent architect, tool schema generator, and agent performance evaluator
+- **skill-tester** (POWERFUL tier) — Meta-skill validator, script tester, and quality scorer
 - `campaign-analytics` - Multi-touch attribution, funnel conversion, campaign ROI (3 Python tools)
 - `customer-success-manager` - Onboarding, retention, expansion, health scoring (2 Python tools)
 - `sales-engineer` - Technical sales, solution design, RFP responses (2 Python tools)
@@ -22,7 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New `business-growth` domain with 3 skills
 - New `finance` domain with 1 skill
 - 92+ Python automation tools (up from 87+, including 17 new POWERFUL-tier tools)
-- 58 total skills across 8 domains (up from 53)
+- 64 total skills across 8 domains (up from 53)
 
 ### Fixed
 - CI workflows (smart-sync.yml, pr-issue-auto-close.yml) — PR #193

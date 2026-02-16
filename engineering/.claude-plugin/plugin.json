@@ -1,0 +1,13 @@
+{
+  "name": "engineering-advanced-skills",
+  "description": "11 advanced engineering skills covering tech debt tracking, API design review, database design, dependency auditing, release management, RAG architecture, agent design, migration planning, observability, interview system design, and skill testing",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

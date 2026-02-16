@@ -35,7 +35,7 @@ Native integration with automatic updates and version management.
 
 ```bash
 # Option 1: Universal installer
-npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 
 # Option 2: Direct installation script
 git clone https://github.com/alirezarezvani/claude-skills.git
@@ -48,10 +48,17 @@ Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-co
 ### For All Other Agents (Cursor, VS Code, Goose, etc.)
 
 ```bash
-npx ai-agent-skills install alirezarezvani/claude-skills
+npx agent-skills-cli add alirezarezvani/claude-skills
 ```
 
 This single command installs all skills to all supported agents automatically.
+
+**What this does:**
+- ✅ Detects all 53 skills automatically
+- ✅ Installs to Claude, Cursor, Copilot, Windsurf, Cline, and 37+ other AI agents
+- ✅ Works across all skill formats
+
+Learn more: https://www.agentskills.in
 
 ---
 
@@ -129,13 +136,13 @@ This adds the skills library to your available marketplaces.
 
 ## Universal Installer
 
-The universal installer uses the [ai-agent-skills](https://github.com/skillcreatorai/Ai-Agent-Skills) package to install skills across multiple agents simultaneously.
+The universal installer uses the [Agent Skills CLI](https://github.com/Karanjot786/agent-skills-cli) package to install skills across multiple agents simultaneously.
 
 ### Install All Skills
 
 ```bash
 # Install to all supported agents
-npx ai-agent-skills install alirezarezvani/claude-skills
+npx agent-skills-cli add alirezarezvani/claude-skills
 ```
 
 **This installs to:**
@@ -152,26 +159,26 @@ npx ai-agent-skills install alirezarezvani/claude-skills
 
 ```bash
 # Claude Code only
-npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+npx agent-skills-cli add alirezarezvani/claude-skills --agent claude
 
 # Cursor only
-npx ai-agent-skills install alirezarezvani/claude-skills --agent cursor
+npx agent-skills-cli add alirezarezvani/claude-skills --agent cursor
 
 # VS Code/Copilot only
-npx ai-agent-skills install alirezarezvani/claude-skills --agent vscode
+npx agent-skills-cli add alirezarezvani/claude-skills --agent vscode
 
 # Goose only
-npx ai-agent-skills install alirezarezvani/claude-skills --agent goose
+npx agent-skills-cli add alirezarezvani/claude-skills --agent goose
 
 # Project-specific installation (portable)
-npx ai-agent-skills install alirezarezvani/claude-skills --agent project
+npx agent-skills-cli add alirezarezvani/claude-skills --agent project
 ```
 
 ### Preview Before Installing
 
 ```bash
 # Dry run to see what will be installed
-npx ai-agent-skills install alirezarezvani/claude-skills --dry-run
+npx agent-skills-cli add alirezarezvani/claude-skills --dry-run
 ```
 
 ---
@@ -184,126 +191,126 @@ Install individual skills instead of the entire library:
 
 ```bash
 # Content Creator
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/content-creator
 
 # Demand Generation & Acquisition
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/marketing-demand-acquisition
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/marketing-demand-acquisition
 
 # Product Marketing Strategy
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/marketing-strategy-pmm
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/marketing-strategy-pmm
 
 # App Store Optimization
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/app-store-optimization
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/app-store-optimization
 
 # Social Media Analyzer
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/social-media-analyzer
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/social-media-analyzer
 ```
 
 ### C-Level Advisory Skills
 
 ```bash
 # CEO Advisor
-npx ai-agent-skills install alirezarezvani/claude-skills/c-level-advisor/ceo-advisor
+npx agent-skills-cli add alirezarezvani/claude-skills/c-level-advisor/ceo-advisor
 
 # CTO Advisor
-npx ai-agent-skills install alirezarezvani/claude-skills/c-level-advisor/cto-advisor
+npx agent-skills-cli add alirezarezvani/claude-skills/c-level-advisor/cto-advisor
 ```
 
 ### Product Team Skills
 
 ```bash
 # Product Manager Toolkit
-npx ai-agent-skills install alirezarezvani/claude-skills/product-team/product-manager-toolkit
+npx agent-skills-cli add alirezarezvani/claude-skills/product-team/product-manager-toolkit
 
 # Agile Product Owner
-npx ai-agent-skills install alirezarezvani/claude-skills/product-team/agile-product-owner
+npx agent-skills-cli add alirezarezvani/claude-skills/product-team/agile-product-owner
 
 # Product Strategist
-npx ai-agent-skills install alirezarezvani/claude-skills/product-team/product-strategist
+npx agent-skills-cli add alirezarezvani/claude-skills/product-team/product-strategist
 
 # UX Researcher Designer
-npx ai-agent-skills install alirezarezvani/claude-skills/product-team/ux-researcher-designer
+npx agent-skills-cli add alirezarezvani/claude-skills/product-team/ux-researcher-designer
 
 # UI Design System
-npx ai-agent-skills install alirezarezvani/claude-skills/product-team/ui-design-system
+npx agent-skills-cli add alirezarezvani/claude-skills/product-team/ui-design-system
 ```
 
 ### Project Management Skills
 
 ```bash
 # Senior PM Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/senior-pm-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/senior-pm-expert
 
 # Scrum Master Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/scrum-master-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/scrum-master-expert
 
 # Atlassian Jira Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/atlassian-jira-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-jira-expert
 
 # Atlassian Confluence Expert
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/atlassian-confluence-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-confluence-expert
 
 # Atlassian Administrator
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/atlassian-administrator
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-administrator
 
 # Atlassian Template Creator
-npx ai-agent-skills install alirezarezvani/claude-skills/project-management/atlassian-template-creator
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-template-creator
 ```
 
 ### Engineering Team Skills
 
 ```bash
 # Core Engineering
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-architect
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-frontend
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-backend
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-fullstack
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-qa
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-devops
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-secops
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/code-reviewer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-security
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-architect
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-frontend
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-backend
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-fullstack
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-qa
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-devops
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-secops
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/code-reviewer
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-security
 
 # Cloud & Enterprise
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/aws-solution-architect
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/ms365-tenant-manager
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/aws-solution-architect
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/ms365-tenant-manager
 
 # Development Tools
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/tdd-guide
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/tech-stack-evaluator
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/tdd-guide
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/tech-stack-evaluator
 
 # AI/ML/Data
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-data-scientist
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-data-engineer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-ml-engineer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-prompt-engineer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-computer-vision
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-data-scientist
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-data-engineer
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-ml-engineer
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-prompt-engineer
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-computer-vision
 ```
 
 ### Regulatory Affairs & Quality Management Skills
 
 ```bash
 # Regulatory & Quality Leadership
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/regulatory-affairs-head
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/quality-manager-qmr
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/quality-manager-qms-iso13485
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/regulatory-affairs-head
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/quality-manager-qmr
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/quality-manager-qms-iso13485
 
 # Quality Processes
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/capa-officer
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/quality-documentation-manager
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/risk-management-specialist
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/capa-officer
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/quality-documentation-manager
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/risk-management-specialist
 
 # Security & Privacy
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/information-security-manager-iso27001
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/gdpr-dsgvo-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/information-security-manager-iso27001
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/gdpr-dsgvo-expert
 
 # Regional Compliance
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/mdr-745-specialist
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/fda-consultant-specialist
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/mdr-745-specialist
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/fda-consultant-specialist
 
 # Audit & Assessment
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/qms-audit-expert
-npx ai-agent-skills install alirezarezvani/claude-skills/ra-qm-team/isms-audit-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/qms-audit-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team/isms-audit-expert
 ```
 
 ---
@@ -316,23 +323,23 @@ Install the same skills across different agents for team consistency:
 
 ```bash
 # Install marketing skills to Claude Code (for content strategist)
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator --agent claude
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/content-creator --agent claude
 
 # Install same skills to Cursor (for developer working on content)
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator --agent cursor
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/content-creator --agent cursor
 
 # Install to VS Code (for SEO specialist)
-npx ai-agent-skills install alirezarezvani/claude-skills/marketing-skill/content-creator --agent vscode
+npx agent-skills-cli add alirezarezvani/claude-skills/marketing-skill/content-creator --agent vscode
 ```
 
 ### Example: Engineering Team Setup
 
 ```bash
 # Full engineering suite to Claude Code
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team --agent claude
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team --agent claude
 
 # Same suite to Cursor
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team --agent cursor
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team --agent cursor
 ```
 
 ---
@@ -557,7 +564,7 @@ rm -rf ~/.claude/skills/
 mkdir -p ~/.claude/skills/
 
 # Reinstall
-npx ai-agent-skills install alirezarezvani/claude-skills --agent claude
+npx agent-skills-cli add alirezarezvani/claude-skills --agent claude
 ```
 
 #### Cursor
@@ -630,10 +637,10 @@ OpenAI Codex users can install skills using the methods below. This repository p
 
 ```bash
 # Install all skills to Codex
-npx ai-agent-skills install alirezarezvani/claude-skills --agent codex
+npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 
 # Preview before installing
-npx ai-agent-skills install alirezarezvani/claude-skills --agent codex --dry-run
+npx agent-skills-cli add alirezarezvani/claude-skills --agent codex --dry-run
 ```
 
 ### Method 2: Direct Installation Script
@@ -746,7 +753,7 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 
 **Installation Issues?**
 - Check [Troubleshooting](#troubleshooting) section above
-- Review [ai-agent-skills documentation](https://github.com/skillcreatorai/Ai-Agent-Skills)
+- Review [Agent Skills CLI documentation](https://github.com/Karanjot786/agent-skills-cli)
 - Open issue: https://github.com/alirezarezvani/claude-skills/issues
 
 **Feature Requests:**
@@ -758,6 +765,6 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 
 ---
 
-**Last Updated:** January 2026
+**Last Updated:** February 2026
 **Skills Version:** 1.0 (53 production skills)
-**Universal Installer:** [ai-agent-skills](https://github.com/skillcreatorai/Ai-Agent-Skills)
+**Universal Installer:** [Agent Skills CLI](https://github.com/Karanjot786/agent-skills-cli)

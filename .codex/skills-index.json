@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 53,
+  "total_skills": 54,
   "skills": [
     {
       "name": "customer-success-manager",
@@ -46,6 +46,12 @@
       "source": "../../engineering-team/code-reviewer",
       "category": "engineering",
       "description": "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists."
+    },
+    {
+      "name": "incident-commander",
+      "source": "../../engineering-team/incident-commander",
+      "category": "engineering",
+      "description": "Production incident management with structured timeline analysis, severity classification (SEV1-4), automated postmortem generation, and SLA tracking. Features communication templates, escalation routing, 5-Whys root cause analysis, and MTTR/MTTD metrics for high-reliability engineering teams."
     },
     {
       "name": "ms365-tenant-manager",
@@ -336,7 +342,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 18,
+      "count": 19,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },

@@ -5,9 +5,14 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Unreleased] - 2026-02-16
 
 ### Added
+- **incident-commander** (POWERFUL tier) — Incident response playbook with severity classifier, timeline reconstructor, and PIR generator
+- **tech-debt-tracker** (POWERFUL tier) — Codebase debt scanner with AST parsing, debt prioritizer, and trend dashboard
+- **api-design-reviewer** (POWERFUL tier) — REST API linter, breaking change detector, and API design scorecard
+- **interview-system-designer** (POWERFUL tier) — Interview loop designer, question bank generator, and hiring calibrator
+- **migration-architect** (POWERFUL tier) — Migration planner, compatibility checker, and rollback generator
 - `campaign-analytics` - Multi-touch attribution, funnel conversion, campaign ROI (3 Python tools)
 - `customer-success-manager` - Onboarding, retention, expansion, health scoring (2 Python tools)
 - `sales-engineer` - Technical sales, solution design, RFP responses (2 Python tools)
@@ -15,8 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `financial-analyst` - DCF valuation, budgeting, forecasting, financial modeling (3 Python tools)
 - New `business-growth` domain with 3 skills
 - New `finance` domain with 1 skill
-- 87+ Python automation tools (up from 68+)
-- 53 total skills across 8 domains (up from 48 across 6)
+- 92+ Python automation tools (up from 87+, including 17 new POWERFUL-tier tools)
+- 58 total skills across 8 domains (up from 53)
+
+### Fixed
+- CI workflows (smart-sync.yml, pr-issue-auto-close.yml) — PR #193
+- Installation documentation (Issue #189) — PR #193
 
 ### Planned
 - Complete Anthropic best practices refactoring (37/42 skills remaining)

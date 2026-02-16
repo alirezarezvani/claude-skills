@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 54,
+  "total_skills": 59,
   "skills": [
     {
       "name": "customer-success-manager",
@@ -51,7 +51,31 @@
       "name": "incident-commander",
       "source": "../../engineering-team/incident-commander",
       "category": "engineering",
-      "description": "Skill from engineering-team"
+      "description": "Incident response playbook with severity classification, timeline reconstruction, and post-incident review generation. Includes automated severity classification, timeline reconstruction from logs, PIR generation with RCA frameworks, and communication templates for stakeholder updates."
+    },
+    {
+      "name": "tech-debt-tracker",
+      "source": "../../engineering/tech-debt-tracker",
+      "category": "engineering",
+      "description": "Codebase debt analysis with AST parsing, prioritization frameworks, and trend dashboards. Automatically identifies tech debt signals, analyzes cost-of-delay, and tracks debt trends over time with executive reporting capabilities."
+    },
+    {
+      "name": "api-design-reviewer",
+      "source": "../../engineering/api-design-reviewer",
+      "category": "engineering",
+      "description": "REST/OpenAPI linting, breaking change detection, and API design scorecards. Validates API conventions, detects compatibility issues, scores design quality, and ensures security best practices for REST APIs."
+    },
+    {
+      "name": "interview-system-designer",
+      "source": "../../engineering/interview-system-designer",
+      "category": "engineering",
+      "description": "Calibrated interview loops, question banks, and hiring calibration analysis. Designs role-specific interview processes, generates competency-based questions, and provides bias analysis with standardized evaluation frameworks."
+    },
+    {
+      "name": "migration-architect",
+      "source": "../../engineering/migration-architect",
+      "category": "engineering",
+      "description": "Zero-downtime migration planning, compatibility checking, and rollback generation. Plans phased migrations, validates schema compatibility, generates rollback procedures, and provides risk assessment for complex system migrations."
     },
     {
       "name": "ms365-tenant-manager",

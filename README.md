@@ -6,7 +6,7 @@
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![58 Skills](https://img.shields.io/badge/Skills-58-brightgreen.svg)](#-available-skills)
+[![59 Skills](https://img.shields.io/badge/Skills-59-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -882,6 +882,23 @@ Zero-downtime migration planning, compatibility checking, and rollback generatio
 - **Data Validation** - Cross-system data integrity verification
 
 **Learn More:** [engineering/migration-architect/SKILL.md](engineering/migration-architect/SKILL.md)
+
+---
+
+#### 📡 Observability Designer
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+SLI/SLO frameworks, alert optimization, and dashboard generation for production observability.
+
+**What's Included:**
+- **SLO Designer** - Generate SLI definitions, SLO targets, error budgets, and burn rate alerts (Python CLI)
+- **Alert Optimizer** - Analyze alert configs for noise, coverage gaps, duplicates, and fatigue risks (Python CLI)
+- **Dashboard Generator** - Create role-based dashboard specs with golden signals and RED/USE methods (Python CLI)
+- **SLO Cookbook** - Comprehensive SLO implementation guide
+- **Alert Design Patterns** - Battle-tested alerting strategies
+- **Dashboard Best Practices** - Visualization and layout principles
+
+**Learn More:** [engineering/observability-designer/SKILL.md](engineering/observability-designer/SKILL.md)
 
 ---
 

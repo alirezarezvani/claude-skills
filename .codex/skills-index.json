@@ -352,6 +352,20 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis."
+    },
+    {
+      "name": "observability-designer",
+      "path": "engineering/observability-designer",
+      "category": "engineering",
+      "tier": "POWERFUL",
+      "description": "SLI/SLO frameworks, alert optimization, and dashboard generation for production observability.",
+      "scripts": [
+        "slo_designer.py",
+        "alert_optimizer.py",
+        "dashboard_generator.py"
+      ],
+      "references": true,
+      "assets": true
     }
   ],
   "categories": {
@@ -395,5 +409,6 @@
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     }
-  }
+  },
+  "total": 59
 }

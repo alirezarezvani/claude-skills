@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **api-design-reviewer** (POWERFUL tier) — REST API linter, breaking change detector, and API design scorecard
 - **interview-system-designer** (POWERFUL tier) — Interview loop designer, question bank generator, and hiring calibrator
 - **migration-architect** (POWERFUL tier) — Migration planner, compatibility checker, and rollback generator
+- **observability-designer** (POWERFUL tier) — SLO designer, alert optimizer, and dashboard generator
 - `campaign-analytics` - Multi-touch attribution, funnel conversion, campaign ROI (3 Python tools)
 - `customer-success-manager` - Onboarding, retention, expansion, health scoring (2 Python tools)
 - `sales-engineer` - Technical sales, solution design, RFP responses (2 Python tools)

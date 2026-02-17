@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 65,
+  "total_skills": 54,
   "skills": [
     {
       "name": "customer-success-manager",
@@ -51,31 +51,7 @@
       "name": "incident-commander",
       "source": "../../engineering-team/incident-commander",
       "category": "engineering",
-      "description": "Incident response playbook with severity classification, timeline reconstruction, and post-incident review generation. Includes automated severity classification, timeline reconstruction from logs, PIR generation with RCA frameworks, and communication templates for stakeholder updates."
-    },
-    {
-      "name": "tech-debt-tracker",
-      "source": "../../engineering/tech-debt-tracker",
-      "category": "engineering",
-      "description": "Codebase debt analysis with AST parsing, prioritization frameworks, and trend dashboards. Automatically identifies tech debt signals, analyzes cost-of-delay, and tracks debt trends over time with executive reporting capabilities."
-    },
-    {
-      "name": "api-design-reviewer",
-      "source": "../../engineering/api-design-reviewer",
-      "category": "engineering",
-      "description": "REST/OpenAPI linting, breaking change detection, and API design scorecards. Validates API conventions, detects compatibility issues, scores design quality, and ensures security best practices for REST APIs."
-    },
-    {
-      "name": "interview-system-designer",
-      "source": "../../engineering/interview-system-designer",
-      "category": "engineering",
-      "description": "Calibrated interview loops, question banks, and hiring calibration analysis. Designs role-specific interview processes, generates competency-based questions, and provides bias analysis with standardized evaluation frameworks."
-    },
-    {
-      "name": "migration-architect",
-      "source": "../../engineering/migration-architect",
-      "category": "engineering",
-      "description": "Zero-downtime migration planning, compatibility checking, and rollback generation. Plans phased migrations, validates schema compatibility, generates rollback procedures, and provides risk assessment for complex system migrations."
+      "description": "Skill from engineering-team"
     },
     {
       "name": "ms365-tenant-manager",
@@ -129,7 +105,7 @@
       "name": "senior-fullstack",
       "source": "../../engineering-team/senior-fullstack",
       "category": "engineering",
-      "description": "Fullstack development toolkit with project scaffolding for Next.js/FastAPI/MERN/Django stacks and code quality analysis. Use when scaffolding new projects, analyzing codebase quality, or implementing fullstack architecture patterns."
+      "description": ">"
     },
     {
       "name": "senior-ml-engineer",
@@ -352,56 +328,6 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis."
-    },
-    {
-      "name": "observability-designer",
-      "path": "engineering/observability-designer",
-      "category": "engineering",
-      "tier": "POWERFUL",
-      "description": "SLI/SLO frameworks, alert optimization, and dashboard generation for production observability.",
-      "scripts": [
-        "slo_designer.py",
-        "alert_optimizer.py",
-        "dashboard_generator.py"
-      ],
-      "references": true,
-      "assets": true
-    },
-    {
-      "name": "dependency-auditor",
-      "source": "../../engineering/dependency-auditor",
-      "category": "engineering",
-      "description": "Multi-language dependency scanning, license compliance, and upgrade planning for modern software projects"
-    },
-    {
-      "name": "release-manager",
-      "source": "../../engineering/release-manager",
-      "category": "engineering",
-      "description": "Automated changelog generation, semantic version bumping, and release readiness planning for production deployments"
-    },
-    {
-      "name": "database-designer",
-      "source": "../../engineering/database-designer",
-      "category": "engineering",
-      "description": "Schema analysis with ERD generation, index optimization, and migration generation for database architecture"
-    },
-    {
-      "name": "rag-architect",
-      "source": "../../engineering/rag-architect",
-      "category": "engineering",
-      "description": "RAG pipeline design with chunking optimization, retrieval evaluation, and architecture generation for AI systems"
-    },
-    {
-      "name": "agent-designer",
-      "source": "../../engineering/agent-designer",
-      "category": "engineering",
-      "description": "Multi-agent system architecture, tool schema generation, and agent performance evaluation for agentic AI"
-    },
-    {
-      "name": "skill-tester",
-      "source": "../../engineering/skill-tester",
-      "category": "engineering",
-      "description": "Meta-skill for automated skill validation, script testing, and quality scoring for skill development workflows"
     }
   ],
   "categories": {
@@ -416,7 +342,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 25,
+      "count": 19,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
@@ -445,6 +371,5 @@
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     }
-  },
-  "total": 65
+  }
 }

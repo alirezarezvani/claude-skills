@@ -51,7 +51,7 @@
       "name": "incident-commander",
       "source": "../../engineering-team/incident-commander",
       "category": "engineering",
-      "description": "Skill from engineering-team"
+      "description": "Incident response playbook with severity classification, timeline reconstruction, and post-incident review generation. Includes automated severity classification, timeline reconstruction from logs, PIR generation with RCA frameworks, and communication templates for stakeholder updates."
     },
     {
       "name": "ms365-tenant-manager",
@@ -105,7 +105,7 @@
       "name": "senior-fullstack",
       "source": "../../engineering-team/senior-fullstack",
       "category": "engineering",
-      "description": ">"
+      "description": "Fullstack development toolkit with project scaffolding for Next.js/FastAPI/MERN/Django stacks and code quality analysis. Use when scaffolding new projects, analyzing codebase quality, or implementing fullstack architecture patterns."
     },
     {
       "name": "senior-ml-engineer",

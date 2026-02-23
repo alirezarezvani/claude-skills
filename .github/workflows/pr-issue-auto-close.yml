@@ -29,8 +29,6 @@ jobs:
               exit 0
             fi
           fi
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
       - name: Extract linked issues from PR body
         id: extract_issues

@@ -28,7 +28,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PROJECTS_TOKEN }}
+>>>>>>> b6f463f (fix(ci): pass PROJECTS_TOKEN to fix automated git push and dedup checkout step)
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -62,6 +63,7 @@ jobs:
           file_pattern: ".codex/*"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          token: ${{ secrets.PROJECTS_TOKEN }}
 
       - name: Warn if main has drift
         if: steps.check_changes.outputs.has_changes == 'true' && github.ref == 'refs/heads/main'

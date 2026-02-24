@@ -72,6 +72,39 @@ cd claude-skills
 
 **See:** [How to Use with OpenAI Codex](#-how-to-use-with-openai-codex) for detailed guide.
 
+
+---
+
+### Method 3: OpenClaw Installation
+
+For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 66 skills work out of the box.
+
+```bash
+# Clone the repo
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Run the OpenClaw installer (symlinks all skills into ~/.openclaw/workspace/skills/)
+./scripts/openclaw-install.sh
+
+# Restart the gateway to pick up new skills
+openclaw gateway restart
+```
+
+Or preview first with `--dry-run`:
+
+```bash
+./scripts/openclaw-install.sh --dry-run
+```
+
+**Benefits:**
+- ✅ All 66 skills instantly available in OpenClaw
+- ✅ Live-linked — `git pull` updates skills automatically
+- ✅ No manual copying needed
+- ✅ Skills appear in `/skills list` immediately after gateway restart
+
+> **Also available on [clawhub.com](https://clawhub.com)** — search for `alirezarezvani` to install individual skills via the ClawHub CLI (`openclaw skill install <name>`).
+
 ---
 
 ### Method 3: Universal Installer (Works across all agents)

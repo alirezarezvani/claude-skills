@@ -29,7 +29,6 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PROJECTS_TOKEN }}
->>>>>>> b6f463f (fix(ci): pass PROJECTS_TOKEN to fix automated git push and dedup checkout step)
 
       - name: Set up Python
         uses: actions/setup-python@v5

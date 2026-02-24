@@ -4,12 +4,10 @@ name: Smart Bidirectional Sync
 'on':
   issues:
     types: [labeled, closed, reopened]
-  projects_v2_item:
-    types: [edited]
 
 # Prevent sync loops with debouncing
 concurrency:
-  group: smart-sync-${{ github.event.issue.number || github.event.projects_v2_item.node_id }}
+  group: smart-sync-${{ github.event.issue.number }}
   cancel-in-progress: true  # Cancel pending runs (debouncing effect)
 
 jobs:
@@ -58,12 +56,6 @@ jobs:
               echo "should_sync=false" >> $GITHUB_OUTPUT
               echo "⏭️ Skipping: Not a status change or state change"
             fi
-
-          elif [ "${{ github.event_name }}" = "projects_v2_item" ]; then
-            # Project event → sync to issue
-            echo "direction=project-to-issue" >> $GITHUB_OUTPUT
-            echo "should_sync=true" >> $GITHUB_OUTPUT
-            echo "✅ Will sync: Project Board → Issue"
 
           else
             echo "should_sync=false" >> $GITHUB_OUTPUT
@@ -147,9 +139,10 @@ jobs:
       - name: Sync Issue to Project Board
         env:
           GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           echo "# Issue → Project Board Sync"
-          echo "**Issue**: #${{ github.event.issue.number }} \"${{ github.event.issue.title }}\""
+          echo "**Issue**: #${{ github.event.issue.number }} \"$ISSUE_TITLE\""
           echo "**State**: ${{ github.event.issue.state }}"
           echo "**Action**: ${{ github.event.action }}"
 
@@ -288,6 +281,7 @@ jobs:
       - name: Sync Project Board to Issue
         env:
           GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           echo "# Project Board → Issue Sync"
           echo "**Project Item**: ${{ github.event.projects_v2_item.node_id }}"

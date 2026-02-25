@@ -29,8 +29,6 @@ jobs:
               exit 0
             fi
           fi
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
       - name: Extract linked issues from PR body
         id: extract_issues
@@ -123,15 +121,7 @@ jobs:
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: parseInt(issueNumber),
-                  body: `Completed via PR #${prNumber}
-
-PR: ${prTitle}
-URL: ${prUrl}
-Merged by: ${merger}
-
-This issue has been resolved and the changes have been merged into main.
-
-Automatically closed via PR merge automation`
+                  body: `Completed via PR #${prNumber}\n\nPR: ${prTitle}\nURL: ${prUrl}\nMerged by: ${merger}\n\nThis issue has been resolved and the changes have been merged into main.\n\nAutomatically closed via PR merge automation`
                 });
 
                 // Close the issue

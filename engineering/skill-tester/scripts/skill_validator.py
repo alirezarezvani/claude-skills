@@ -35,7 +35,7 @@ class ValidationReport:
     
     def __init__(self, skill_path: str):
         self.skill_path = skill_path
-        self.timestamp = dt.datetime.now(dt.timezone.utc).isoformat()
+        self.timestamp = dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")
         self.checks = {}
         self.warnings = []
         self.errors = []

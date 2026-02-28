@@ -1364,6 +1364,20 @@ Financial analysis with DCF valuation, budgeting, forecasting, and financial mod
 
 **Learn More:** [finance/financial-analyst/SKILL.md](finance/financial-analyst/SKILL.md)
 
+#### 🏰 DeFi Vault Analyst
+**Status:** ✅ Production Ready | **Version:** 1.0
+
+DeFi vault risk analysis, yield comparison, portfolio assessment, and oracle monitoring across Morpho, Yearn, Aave, Beefy, and Spark.
+
+**What's Included:**
+- **Vault Screening** - Pre-built screening presets for conservative, balanced, and aggressive strategies
+- **Risk Breakdown** - Three-vector risk analysis (Asset, Platform, Control) with scoring
+- **Portfolio Analysis** - Cross-chain position analysis with weighted risk metrics
+- **Protocol Comparison** - Side-by-side protocol and vault comparison
+- **Oracle Monitoring** - Real-time oracle feed freshness and deviation tracking
+
+**Learn More:** [finance/defi-vault-analyst/SKILL.md](finance/defi-vault-analyst/SKILL.md)
+
 ---
 
 ## ⚡ Quick Start
@@ -1836,7 +1850,7 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 | **Project Management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **RA/QM** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
 | **Business & Growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
-| **Finance** | 1 | financial-analyst |
+| **Finance** | 2 | financial-analyst, defi-vault-analyst |
 
 ### Running Python Analysis Tools
 
@@ -2283,8 +2297,9 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - Sales Engineer - Technical sales, solution design, RFP responses, demo optimization
 - Revenue Operations - Pipeline analytics, forecasting, process optimization
 
-**Finance Skills (1):**
+**Finance Skills (2):**
 - Financial Analyst - DCF valuation, budgeting, forecasting, financial modeling
+- DeFi Vault Analyst - DeFi vault risk analysis, yield comparison, oracle monitoring
 
 ### Phase 2: Marketing Expansion (Q2 2026)
 
@@ -2329,7 +2344,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - AI/ML/Data teams: 280 hours/month
 - Regulatory/Quality teams: 320 hours/month
 - Business & growth teams: 190 hours/month (Customer Success + Sales Engineering + Revenue Ops)
-- Finance teams: 60 hours/month (Financial analysis + modeling + forecasting)
+- Finance teams: 90 hours/month (Financial analysis + modeling + forecasting + DeFi risk intelligence)
 - **Total: 2,150 hours/month per organization**
 
 **Financial Impact:**
@@ -2498,3 +2513,4 @@ Using these skills successfully? I'd love to hear about it:
 **🚀 Built with Claude AI** | **📦 Packaged for Impact** | **🌍 Open for All**
 
 </div>
+

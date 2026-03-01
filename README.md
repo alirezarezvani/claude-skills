@@ -1,12 +1,12 @@
 # Claude Skills Library (Your Agentic Startup Kit)
 
-**Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
+**86 Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![65 Skills](https://img.shields.io/badge/Skills-65-brightgreen.svg)](#-available-skills)
+[![86 Skills](https://img.shields.io/badge/Skills-86-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -24,13 +24,13 @@ Use Claude Code's built-in plugin system for native integration:
 /plugin marketplace add alirezarezvani/claude-skills
 
 # Then install skill bundles:
-/plugin install marketing-skills@claude-code-skills     # 6 marketing skills
-/plugin install engineering-skills@claude-code-skills   # 18 engineering skills
-/plugin install product-skills@claude-code-skills       # 5 product skills
+/plugin install marketing-skills@claude-code-skills     # 7 marketing skills
+/plugin install engineering-skills@claude-code-skills   # 24 engineering skills
+/plugin install product-skills@claude-code-skills       # 8 product skills
 /plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
 /plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
-/plugin install business-growth-skills@claude-code-skills  # 3 business & growth skills
+/plugin install business-growth-skills@claude-code-skills  # 4 business & growth skills
 /plugin install finance-skills@claude-code-skills           # 1 finance skill
 
 # Or install individual skills:
@@ -77,7 +77,7 @@ cd claude-skills
 
 ### Method 3: OpenClaw Installation
 
-For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 66 skills work out of the box.
+For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 86 skills work out of the box.
 
 ```bash
 # Clone the repo
@@ -1829,14 +1829,52 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 
 | Category | Count | Key Skills |
 |----------|-------|------------|
-| **Marketing** | 6 | content-creator, marketing-demand-acquisition, app-store-optimization |
-| **Engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer, tdd-guide |
-| **Product** | 5 | product-manager-toolkit, agile-product-owner, ux-researcher-designer |
+| **Marketing** | 7 | content-creator, prompt-engineer-toolkit, app-store-optimization |
+| **Engineering** | 24 | git-worktree-manager, ci-cd-pipeline-builder, mcp-server-builder, performance-profiler |
+| **Engineering Team** | 18 | stripe-integration-expert, email-template-builder, senior-fullstack |
+| **Product** | 8 | saas-scaffolder, landing-page-generator, competitive-teardown, product-manager-toolkit |
 | **C-Level** | 2 | ceo-advisor, cto-advisor |
 | **Project Management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **RA/QM** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
-| **Business & Growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
+| **Business & Growth** | 4 | contract-and-proposal-writer, customer-success-manager, sales-engineer |
 | **Finance** | 1 | financial-analyst |
+
+
+### 🆕 New Skills (March 2026)
+
+**20 practical skills** designed for everyday professional use and commercial distribution.
+
+#### Developer Workflow
+| Skill | What It Does |
+|-------|-------------|
+| **git-worktree-manager** | Parallel dev with port isolation, env sync, Docker overrides |
+| **ci-cd-pipeline-builder** | Analyze stack → generate GitHub Actions/GitLab CI/Bitbucket configs |
+| **mcp-server-builder** | Build MCP servers from OpenAPI specs (Python FastMCP + TypeScript) |
+| **changelog-generator** | Conventional commits → structured changelogs + GitHub Releases |
+| **pr-review-expert** | Blast radius analysis, security scan, coverage delta for PRs/MRs |
+| **api-test-suite-builder** | Scan API routes → generate complete test suites (Vitest/Pytest) |
+| **env-secrets-manager** | .env management, leak detection, rotation workflows |
+| **database-schema-designer** | Requirements → migrations, types, seed data, RLS policies |
+| **codebase-onboarding** | Auto-generate onboarding docs from codebase analysis |
+| **performance-profiler** | Node/Python/Go profiling, bundle analysis, load testing |
+| **monorepo-navigator** | Turborepo/Nx/pnpm workspace management & impact analysis |
+| **runbook-generator** | Codebase → operational runbooks with copy-paste commands |
+
+#### AI Engineering
+| Skill | What It Does |
+|-------|-------------|
+| **agent-workflow-designer** | Design multi-agent orchestration (Claude Code, OpenClaw, CrewAI) |
+| **prompt-engineer-toolkit** | A/B testing, version control, quality metrics for prompts |
+
+#### Product & Business
+| Skill | What It Does |
+|-------|-------------|
+| **saas-scaffolder** | Generate full SaaS projects (auth, billing, dashboard, landing) |
+| **landing-page-generator** | High-converting landing pages with copy frameworks (PAS, AIDA) |
+| **stripe-integration-expert** | Subscriptions, webhooks, usage billing — all edge cases |
+| **email-template-builder** | React Email/MJML transactional email systems |
+| **competitive-teardown** | Structured competitive analysis with SWOT & positioning maps |
+| **contract-and-proposal-writer** | Contracts, SOWs, NDAs — jurisdiction-aware (US, EU, DACH) |
 
 ### Running Python Analysis Tools
 

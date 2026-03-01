@@ -3,8 +3,14 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 54,
+  "total_skills": 61,
   "skills": [
+    {
+      "name": "contract-and-proposal-writer",
+      "source": "../../business-growth/contract-and-proposal-writer",
+      "category": "business-growth",
+      "description": "Skill from business-growth"
+    },
     {
       "name": "customer-success-manager",
       "source": "../../business-growth/customer-success-manager",
@@ -48,10 +54,16 @@
       "description": "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists."
     },
     {
+      "name": "email-template-builder",
+      "source": "../../engineering-team/email-template-builder",
+      "category": "engineering",
+      "description": "Skill from engineering-team"
+    },
+    {
       "name": "incident-commander",
       "source": "../../engineering-team/incident-commander",
       "category": "engineering",
-      "description": "Incident response playbook with severity classification, timeline reconstruction, and post-incident review generation. Includes automated severity classification, timeline reconstruction from logs, PIR generation with RCA frameworks, and communication templates for stakeholder updates."
+      "description": "Skill from engineering-team"
     },
     {
       "name": "ms365-tenant-manager",
@@ -105,7 +117,7 @@
       "name": "senior-fullstack",
       "source": "../../engineering-team/senior-fullstack",
       "category": "engineering",
-      "description": "Fullstack development toolkit with project scaffolding for Next.js/FastAPI/MERN/Django stacks and code quality analysis. Use when scaffolding new projects, analyzing codebase quality, or implementing fullstack architecture patterns."
+      "description": "Fullstack development toolkit with project scaffolding for Next.js, FastAPI, MERN, and Django stacks, code quality analysis with security and complexity scoring, and stack selection guidance. Use when the user asks to \"scaffold a new project\", \"create a Next.js app\", \"set up FastAPI with React\", \"analyze code quality\", \"audit my codebase\", \"what stack should I use\", \"generate project boilerplate\", or mentions fullstack development, project setup, or tech stack comparison."
     },
     {
       "name": "senior-ml-engineer",
@@ -136,6 +148,12 @@
       "source": "../../engineering-team/senior-security",
       "category": "engineering",
       "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools."
+    },
+    {
+      "name": "stripe-integration-expert",
+      "source": "../../engineering-team/stripe-integration-expert",
+      "category": "engineering",
+      "description": "Skill from engineering-team"
     },
     {
       "name": "tdd-guide",
@@ -186,6 +204,12 @@
       "description": "Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry."
     },
     {
+      "name": "prompt-engineer-toolkit",
+      "source": "../../marketing-skill/prompt-engineer-toolkit",
+      "category": "marketing",
+      "description": "Skill from marketing-skill"
+    },
+    {
       "name": "social-media-analyzer",
       "source": "../../marketing-skill/social-media-analyzer",
       "category": "marketing",
@@ -198,6 +222,18 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "competitive-teardown",
+      "source": "../../product-team/competitive-teardown",
+      "category": "product",
+      "description": "Skill from product-team"
+    },
+    {
+      "name": "landing-page-generator",
+      "source": "../../product-team/landing-page-generator",
+      "category": "product",
+      "description": "Skill from product-team"
+    },
+    {
       "name": "product-manager-toolkit",
       "source": "../../product-team/product-manager-toolkit",
       "category": "product",
@@ -208,6 +244,12 @@
       "source": "../../product-team/product-strategist",
       "category": "product",
       "description": "Strategic product leadership toolkit for Head of Product including OKR cascade generation, market analysis, vision setting, and team scaling. Use for strategic planning, goal alignment, competitive analysis, and organizational design."
+    },
+    {
+      "name": "saas-scaffolder",
+      "source": "../../product-team/saas-scaffolder",
+      "category": "product",
+      "description": "Skill from product-team"
     },
     {
       "name": "ui-design-system",
@@ -332,7 +374,7 @@
   ],
   "categories": {
     "business-growth": {
-      "count": 3,
+      "count": 4,
       "source": "../../business-growth",
       "description": "Customer success, sales engineering, and revenue operations skills"
     },
@@ -342,7 +384,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 19,
+      "count": 21,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
@@ -352,12 +394,12 @@
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 6,
+      "count": 7,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 5,
+      "count": 8,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

@@ -17,11 +17,10 @@ Dependencies: Python Standard Library Only
 import argparse
 import ast
 import json
-import os
 import re
 import sys
 import yaml
-from datetime import datetime
+import datetime as dt
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
@@ -36,7 +35,7 @@ class ValidationReport:
     
     def __init__(self, skill_path: str):
         self.skill_path = skill_path
-        self.timestamp = datetime.utcnow().isoformat() + "Z"
+        self.timestamp = dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")
         self.checks = {}
         self.warnings = []
         self.errors = []

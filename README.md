@@ -131,6 +131,20 @@ Scans for: command injection, code execution, data exfiltration, prompt injectio
 
 ---
 
+## Recently Enhanced Skills
+
+Production-quality upgrades added for:
+
+- `engineering/git-worktree-manager` — worktree lifecycle + cleanup automation scripts
+- `engineering/mcp-server-builder` — OpenAPI -> MCP scaffold + manifest validator
+- `engineering/changelog-generator` — release note generator + conventional commit linter
+- `engineering/ci-cd-pipeline-builder` — stack detector + pipeline generator
+- `marketing-skill/prompt-engineer-toolkit` — prompt A/B tester + prompt version/diff manager
+
+Each now ships with `scripts/`, extracted `references/`, and a usage-focused `README.md`.
+
+---
+
 ## Usage Examples
 
 ### Architecture Review

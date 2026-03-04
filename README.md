@@ -112,7 +112,7 @@ Or preview first with `--dry-run`:
 Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
 
 ```bash
-# Install all 53 skills to all supported agents
+# Install all 85 skills to all supported agents
 npx agent-skills-cli add alirezarezvani/claude-skills
 
 # Install to specific agent (Claude Code)
@@ -173,7 +173,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills --dry-run
 This repository provides **modular, self-contained skill packages** designed to augment Claude AI with specialized domain expertise. Each skill includes:
 
 - **📖 Comprehensive documentation** - Workflows, best practices, and strategic frameworks
-- **🛠️ Python analysis tools** - 87+ CLI utilities for automated analysis and optimization
+- **🛠️ Python analysis tools** - 92+ CLI utilities for automated analysis and optimization
 - **📚 Knowledge bases** - Curated reference materials and guidelines
 - **📋 Ready-to-use templates** - Customizable assets for immediate deployment
 
@@ -566,7 +566,7 @@ Template and file creation/modification specialist.
 
 ### Engineering Team Skills
 
-**Complete engineering skills suite with 19 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, and enterprise systems.
+**Complete engineering skills suite with 45 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, enterprise systems, and 24 POWERFUL-tier advanced engineering skills.
 
 #### 🏗️ Senior Software Architect
 **Status:** ✅ Production Ready | **Version:** 1.0
@@ -2173,7 +2173,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - ⚡ **Rapid Prototyping** - Create custom skills in minutes, not hours
 
 **Perfect For:**
-- Building custom skills beyond the 53 provided in this library
+- Building custom skills beyond the 85 provided in this library
 - Generating domain-specific agents for your organization
 - Scaling AI customization across teams
 - Rapid prototyping of specialized workflows
@@ -2212,7 +2212,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  Claude Skills Library (This Repository)                │
-│  53 Domain Expert Skills - Marketing to Engineering     │
+│  85 Domain Expert Skills - Marketing to Engineering     │
 │  Use for: Domain expertise, frameworks, best practices  │
 └────────────────┬────────────────────────────────────────┘
                  │
@@ -2233,12 +2233,12 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 
 **Workflow:**
-1. **Start here** (Skills Library) - Get 53 production-ready expert skills
+1. **Start here** (Skills Library) - Get 85 production-ready expert skills
 2. **Expand** (Skill Factory) - Generate custom skills for your specific needs
 3. **Supercharge** (Tresor) - Use skills + agents + commands in Claude Code development
 
 **Together they provide:**
-- ✅ 53 ready-to-use expert skills (this repo)
+- ✅ 85 ready-to-use expert skills (this repo)
 - ✅ Unlimited custom skill generation (Factory)
 - ✅ Complete development workflow automation (Tresor)
 - ✅ Cross-platform compatibility (Claude.ai, Claude Code, API)
@@ -2251,7 +2251,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 53 Production-Ready Skills**
+**✅ Phase 1: Complete - 85 Production-Ready Skills**
 
 **Marketing Skills (6):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks
@@ -2347,7 +2347,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 | Metric | Current | Target (Q3 2026) |
 |--------|---------|------------------|
-| Available Skills | 53 | 55+ |
+| Available Skills | 85 | 55+ |
 | Skill Categories | 8 | 9 |
 | Python Tools | 87+ | 110+ |
 | Time Savings | 70% | 85% |
@@ -2356,7 +2356,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 | Organizations | 25 | 250+ |
 | Industries Covered | Tech, HealthTech | Tech, Health, Finance, Manufacturing |
 
-### ROI Metrics (Current - 53 Skills)
+### ROI Metrics (Current - 85 Skills)
 
 **Time Savings Per Organization:**
 - Marketing teams: 310 hours/month (Content + Demand Gen + PMM + ASO + Social Media)

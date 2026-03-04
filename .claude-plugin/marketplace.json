@@ -1,170 +1,284 @@
 {
-  "name": "claude-code-skills",
-  "owner": {
-    "name": "Alireza Rezvani",
-    "url": "https://alirezarezvani.com"
-  },
-  "description": "Production-ready skill packages for Claude AI - 65 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
-  "homepage": "https://github.com/alirezarezvani/claude-skills",
-  "repository": "https://github.com/alirezarezvani/claude-skills",
-  "metadata": {
-    "description": "65 production-ready skill packages across 8 domains: marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
-    "version": "1.0.0"
-  },
-  "plugins": [
-    {
-      "name": "marketing-skills",
-      "source": "./marketing-skill",
-      "description": "6 marketing skills: content creator, demand generation, product marketing, ASO, social media analytics, campaign analytics",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["marketing", "content", "seo", "demand-gen", "social-media"],
-      "category": "marketing"
+    "name": "claude-code-skills",
+    "owner": {
+        "name": "Alireza Rezvani",
+        "url": "https://alirezarezvani.com"
     },
-    {
-      "name": "engineering-skills",
-      "source": "./engineering-team",
-      "description": "30 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["engineering", "architecture", "frontend", "backend", "devops", "security", "ai", "ml", "data"],
-      "category": "development"
+    "description": "Production-ready skill packages for Claude AI - 85 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+    "homepage": "https://github.com/alirezarezvani/claude-skills",
+    "repository": "https://github.com/alirezarezvani/claude-skills",
+    "metadata": {
+        "description": "85 production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+        "version": "2.0.0"
     },
-    {
-      "name": "product-skills",
-      "source": "./product-team",
-      "description": "5 product skills: product manager toolkit, agile product owner, product strategist, UX researcher, UI design system",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["product", "pm", "agile", "ux", "design-system"],
-      "category": "product"
-    },
-    {
-      "name": "c-level-skills",
-      "source": "./c-level-advisor",
-      "description": "2 C-level advisory skills: CEO advisor, CTO advisor",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["ceo", "cto", "executive", "strategy", "leadership"],
-      "category": "leadership"
-    },
-    {
-      "name": "pm-skills",
-      "source": "./project-management",
-      "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["project-management", "scrum", "agile", "jira", "confluence", "atlassian"],
-      "category": "project-management"
-    },
-    {
-      "name": "ra-qm-skills",
-      "source": "./ra-qm-team",
-      "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485, MDR, FDA, GDPR, ISO 27001 compliance",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["regulatory", "quality", "compliance", "iso-13485", "mdr", "fda", "gdpr", "medtech"],
-      "category": "compliance"
-    },
-    {
-      "name": "business-growth-skills",
-      "source": "./business-growth",
-      "description": "3 business & growth skills: customer success manager, sales engineer, revenue operations",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["customer-success", "sales-engineering", "revenue-operations", "business-growth"],
-      "category": "business-growth"
-    },
-    {
-      "name": "finance-skills",
-      "source": "./finance",
-      "description": "1 finance skill: financial analyst with ratio analysis, DCF valuation, budgeting, and forecasting",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["finance", "dcf", "valuation", "budgeting", "forecasting"],
-      "category": "finance"
-    },
-    {
-      "name": "content-creator",
-      "source": "./marketing-skill/content-creator",
-      "description": "Brand voice analysis, SEO optimization, content frameworks for marketing content creation",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["content", "seo", "brand-voice", "marketing"],
-      "category": "marketing"
-    },
-    {
-      "name": "demand-gen",
-      "source": "./marketing-skill/marketing-demand-acquisition",
-      "description": "Demand generation, paid media, SEO, partnerships for Series A+ startups",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["demand-gen", "paid-media", "acquisition", "marketing"],
-      "category": "marketing"
-    },
-    {
-      "name": "fullstack-engineer",
-      "source": "./engineering-team/senior-fullstack",
-      "description": "End-to-end application development with Next.js, GraphQL, PostgreSQL",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["fullstack", "nextjs", "graphql", "postgresql"],
-      "category": "development"
-    },
-    {
-      "name": "aws-architect",
-      "source": "./engineering-team/aws-solution-architect",
-      "description": "AWS solution architecture with serverless, cost optimization, and security best practices",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["aws", "cloud", "serverless", "architecture"],
-      "category": "development"
-    },
-    {
-      "name": "product-manager",
-      "source": "./product-team/product-manager-toolkit",
-      "description": "RICE prioritization, customer interview analysis, PRD templates for product managers",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["product-management", "rice", "prd", "prioritization"],
-      "category": "product"
-    },
-    {
-      "name": "scrum-master",
-      "source": "./project-management/scrum-master",
-      "description": "Agile facilitation, sprint planning, retrospectives for Scrum teams",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": ["scrum", "agile", "sprint", "retrospective"],
-      "category": "project-management"
-    }
-  ]
+    "plugins": [
+        {
+            "name": "marketing-skills",
+            "source": "./marketing-skill",
+            "description": "6 marketing skills: content creator, demand generation, product marketing, ASO, social media analytics, campaign analytics",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "marketing",
+                "content",
+                "seo",
+                "demand-gen",
+                "social-media"
+            ],
+            "category": "marketing"
+        },
+        {
+            "name": "engineering-skills",
+            "source": "./engineering-team",
+            "description": "21 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "engineering",
+                "architecture",
+                "frontend",
+                "backend",
+                "devops",
+                "security",
+                "ai",
+                "ml",
+                "data"
+            ],
+            "category": "development"
+        },
+        {
+            "name": "engineering-advanced-skills",
+            "source": "./engineering",
+            "description": "24 POWERFUL-tier engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, and more",
+            "version": "2.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "powerful",
+                "agent-design",
+                "rag",
+                "database",
+                "migration",
+                "observability",
+                "dependency-audit",
+                "release",
+                "api-review",
+                "ci-cd",
+                "mcp",
+                "monorepo",
+                "performance",
+                "runbook",
+                "changelog",
+                "onboarding",
+                "worktree"
+            ],
+            "category": "development"
+        },
+        {
+            "name": "product-skills",
+            "source": "./product-team",
+            "description": "8 product skills: product manager toolkit, agile product owner, product strategist, UX researcher, UI design system, and 3 more",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "product",
+                "pm",
+                "agile",
+                "ux",
+                "design-system"
+            ],
+            "category": "product"
+        },
+        {
+            "name": "c-level-skills",
+            "source": "./c-level-advisor",
+            "description": "2 C-level advisory skills: CEO advisor, CTO advisor",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "ceo",
+                "cto",
+                "executive",
+                "strategy",
+                "leadership"
+            ],
+            "category": "leadership"
+        },
+        {
+            "name": "pm-skills",
+            "source": "./project-management",
+            "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "project-management",
+                "scrum",
+                "agile",
+                "jira",
+                "confluence",
+                "atlassian"
+            ],
+            "category": "project-management"
+        },
+        {
+            "name": "ra-qm-skills",
+            "source": "./ra-qm-team",
+            "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485, MDR, FDA, GDPR, ISO 27001 compliance",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "regulatory",
+                "quality",
+                "compliance",
+                "iso-13485",
+                "mdr",
+                "fda",
+                "gdpr",
+                "medtech"
+            ],
+            "category": "compliance"
+        },
+        {
+            "name": "business-growth-skills",
+            "source": "./business-growth",
+            "description": "4 business & growth skills: customer success manager, sales engineer, revenue operations, and more",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "customer-success",
+                "sales-engineering",
+                "revenue-operations",
+                "business-growth"
+            ],
+            "category": "business-growth"
+        },
+        {
+            "name": "finance-skills",
+            "source": "./finance",
+            "description": "1 finance skill: financial analyst with ratio analysis, DCF valuation, budgeting, and forecasting",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "finance",
+                "dcf",
+                "valuation",
+                "budgeting",
+                "forecasting"
+            ],
+            "category": "finance"
+        },
+        {
+            "name": "content-creator",
+            "source": "./marketing-skill/content-creator",
+            "description": "Brand voice analysis, SEO optimization, content frameworks for marketing content creation",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "content",
+                "seo",
+                "brand-voice",
+                "marketing"
+            ],
+            "category": "marketing"
+        },
+        {
+            "name": "demand-gen",
+            "source": "./marketing-skill/marketing-demand-acquisition",
+            "description": "Demand generation, paid media, SEO, partnerships for Series A+ startups",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "demand-gen",
+                "paid-media",
+                "acquisition",
+                "marketing"
+            ],
+            "category": "marketing"
+        },
+        {
+            "name": "fullstack-engineer",
+            "source": "./engineering-team/senior-fullstack",
+            "description": "End-to-end application development with Next.js, GraphQL, PostgreSQL",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "fullstack",
+                "nextjs",
+                "graphql",
+                "postgresql"
+            ],
+            "category": "development"
+        },
+        {
+            "name": "aws-architect",
+            "source": "./engineering-team/aws-solution-architect",
+            "description": "AWS solution architecture with serverless, cost optimization, and security best practices",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "aws",
+                "cloud",
+                "serverless",
+                "architecture"
+            ],
+            "category": "development"
+        },
+        {
+            "name": "product-manager",
+            "source": "./product-team/product-manager-toolkit",
+            "description": "RICE prioritization, customer interview analysis, PRD templates for product managers",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "product-management",
+                "rice",
+                "prd",
+                "prioritization"
+            ],
+            "category": "product"
+        },
+        {
+            "name": "scrum-master",
+            "source": "./project-management/scrum-master",
+            "description": "Agile facilitation, sprint planning, retrospectives for Scrum teams",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "scrum",
+                "agile",
+                "sprint",
+                "retrospective"
+            ],
+            "category": "project-management"
+        }
+    ]
 }

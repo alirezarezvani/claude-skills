@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.0.0] - 2026-02-16
 
-### ⚡ POWERFUL Tier — 12 New Skills
+### ⚡ POWERFUL Tier — 25 New Skills
 
 A new tier of advanced, deeply-engineered skills with comprehensive tooling:
 
@@ -32,6 +32,19 @@ A new tier of advanced, deeply-engineered skills with comprehensive tooling:
 - **rag-architect** — RAG pipeline builder, chunking optimizer, and retrieval evaluator
 - **agent-designer** — Multi-agent architect, tool schema generator, and agent performance evaluator
 - **skill-tester** — Meta-skill validator, script tester, and quality scorer
+- **agent-workflow-designer** — Multi-agent orchestration system designer with sequential, parallel, router, orchestrator, and evaluator patterns
+- **api-test-suite-builder** — API route scanner and test suite generator across frameworks (Next.js, Express, FastAPI, Django REST)
+- **changelog-generator** — Conventional commit parser, semantic version bumper, and structured changelog generator
+- **ci-cd-pipeline-builder** — Stack-aware CI/CD pipeline generator for GitHub Actions, GitLab CI, and more
+- **codebase-onboarding** — Codebase analyzer and onboarding documentation generator for new team members
+- **database-schema-designer** — Database schema design and modeling tool with migration support
+- **env-secrets-manager** — Environment and secrets management across dev/staging/prod lifecycle
+- **git-worktree-manager** — Systematic Git worktree management for parallel development workflows
+- **mcp-server-builder** — MCP (Model Context Protocol) server scaffolder and implementation guide
+- **monorepo-navigator** — Monorepo management for Turborepo, Nx, pnpm workspaces, and Lerna
+- **performance-profiler** — Systematic performance profiling for Node.js, Python, and Go applications
+- **pr-review-expert** — Structured code review for GitHub PRs and GitLab MRs with systematic analysis
+- **runbook-generator** — Production-grade operational runbook generator with stack detection
 
 ### 🆕 New Domains & Skills
 
@@ -86,10 +99,10 @@ Major rewrite of existing skills following Anthropic's agent skills specificatio
 - **Codex skills sync** — Automated symlink workflow for Codex integration
 
 ### 📊 Stats
-- **65 total skills** across 9 domains (up from 42 across 6)
+- **85 total skills** across 9 domains (up from 42 across 6)
 - **92+ Python automation tools** (up from 20+)
-- **17 POWERFUL-tier tools** with advanced capabilities
-- **37/42 skills refactored** to Anthropic best practices
+- **25 POWERFUL-tier skills** in new `engineering/` domain
+- **37/42 original skills refactored** to Anthropic best practices
 
 ### Fixed
 - CI workflows (`smart-sync.yml`, `pr-issue-auto-close.yml`) — PR #193
@@ -237,7 +250,7 @@ Major rewrite of existing skills following Anthropic's agent skills specificatio
 
 | Version | Date | Skills | Domains | Key Changes |
 |---------|------|--------|---------|-------------|
-| 2.0.0 | 2026-02-16 | 65 | 9 | 12 POWERFUL-tier skills, 37 refactored, Codex support, 2 new domains |
+| 2.0.0 | 2026-02-16 | 85 | 9 | 25 POWERFUL-tier skills, 37 refactored, Codex support, 3 new domains |
 | 1.1.0 | 2025-10-21 | 42 | 6 | Anthropic best practices refactoring (5 skills) |
 | 1.0.2 | 2025-10-21 | 42 | 6 | GitHub repository pages (LICENSE, CONTRIBUTING, etc.) |
 | 1.0.1 | 2025-10-21 | 42 | 6 | Star History, link fixes |

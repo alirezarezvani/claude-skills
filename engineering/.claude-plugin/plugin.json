@@ -1,7 +1,7 @@
 {
   "name": "engineering-advanced-skills",
-  "description": "11 advanced engineering skills covering tech debt tracking, API design review, database design, dependency auditing, release management, RAG architecture, agent design, migration planning, observability, interview system design, and skill testing",
-  "version": "1.0.0",
+  "description": "25 advanced engineering skills covering architecture, automation, CI/CD, MCP servers, release management, security, observability, migration, and platform operations",
+  "version": "1.1.0",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

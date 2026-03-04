@@ -9,6 +9,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **skill-security-auditor** (POWERFUL tier) — Security audit and vulnerability scanner for AI agent skills. Scans for malicious code, prompt injection, data exfiltration, supply chain risks, and privilege escalation. Zero dependencies, PASS/WARN/FAIL verdicts.
+- `engineering/git-worktree-manager` enhancements:
+  - Added `scripts/worktree_manager.py` (worktree creation, port allocation, env sync, optional dependency install)
+  - Added `scripts/worktree_cleanup.py` (stale/dirty/merged analysis with safe cleanup options)
+  - Added extracted references and new skill README
+- `engineering/mcp-server-builder` enhancements:
+  - Added `scripts/openapi_to_mcp.py` (OpenAPI -> MCP manifest + scaffold generation)
+  - Added `scripts/mcp_validator.py` (tool definition validation and strict checks)
+  - Extracted templates/guides into references and added skill README
+- `engineering/changelog-generator` enhancements:
+  - Added `scripts/generate_changelog.py` (conventional commit parsing + Keep a Changelog rendering)
+  - Added `scripts/commit_linter.py` (strict conventional commit validation)
+  - Extracted CI/format/monorepo docs into references and added skill README
+- `engineering/ci-cd-pipeline-builder` enhancements:
+  - Added `scripts/stack_detector.py` (stack and tooling detection)
+  - Added `scripts/pipeline_generator.py` (GitHub Actions / GitLab CI YAML generation)
+  - Extracted platform templates into references and added skill README
+- `marketing-skill/prompt-engineer-toolkit` enhancements:
+  - Added `scripts/prompt_tester.py` (A/B prompt evaluation with per-case scoring)
+  - Added `scripts/prompt_versioner.py` (prompt history, diff, changelog management)
+  - Extracted prompt libraries/guides into references and added skill README
+
+### Changed
+- Refactored the five enhanced skills to slim, workflow-first `SKILL.md` documents aligned to Anthropic best practices.
+- Updated `engineering/.claude-plugin/plugin.json` metadata:
+  - Description now reflects 25 advanced engineering skills
+  - Version bumped from `1.0.0` to `1.1.0`
+- Updated root `README.md` with a dedicated \"Recently Enhanced Skills\" section.
 
 ### Planned
 - Complete Anthropic best practices refactoring (5/42 skills remaining)

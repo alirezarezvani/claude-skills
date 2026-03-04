@@ -4,11 +4,11 @@
         "name": "Alireza Rezvani",
         "url": "https://alirezarezvani.com"
     },
-    "description": "Production-ready skill packages for Claude AI - 85 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+    "description": "Production-ready skill packages for Claude AI - 86 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
     "homepage": "https://github.com/alirezarezvani/claude-skills",
     "repository": "https://github.com/alirezarezvani/claude-skills",
     "metadata": {
-        "description": "85 production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+        "description": "86 production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
         "version": "2.0.0"
     },
     "plugins": [
@@ -53,7 +53,7 @@
         {
             "name": "engineering-advanced-skills",
             "source": "./engineering",
-            "description": "24 POWERFUL-tier engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, and more",
+            "description": "25 POWERFUL-tier engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, and more",
             "version": "2.0.0",
             "author": {
                 "name": "Alireza Rezvani"
@@ -75,7 +75,9 @@
                 "runbook",
                 "changelog",
                 "onboarding",
-                "worktree"
+                "worktree",
+                "security-audit",
+                "vulnerability-scanner"
             ],
             "category": "development"
         },
@@ -279,6 +281,28 @@
                 "retrospective"
             ],
             "category": "project-management"
+        },
+        {
+            "name": "skill-security-auditor",
+            "source": "./engineering/skill-security-auditor",
+            "description": "Security audit and vulnerability scanner for AI agent skills. Scans for malicious code, prompt injection, data exfiltration, supply chain risks, and privilege escalation before installation. Zero dependencies, PASS/WARN/FAIL verdicts with remediation guidance.",
+            "version": "2.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "security",
+                "audit",
+                "vulnerability",
+                "scanner",
+                "malware",
+                "prompt-injection",
+                "supply-chain",
+                "code-review",
+                "safety",
+                "pre-install"
+            ],
+            "category": "security"
         }
     ]
 }

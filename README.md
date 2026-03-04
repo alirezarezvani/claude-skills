@@ -34,6 +34,7 @@ Use Claude Code's built-in plugin system for native integration:
 /plugin install finance-skills@claude-code-skills           # 1 finance skill
 
 # Or install individual skills:
+/plugin install skill-security-auditor@claude-code-skills  # Security scanner
 /plugin install content-creator@claude-code-skills      # Single skill
 /plugin install fullstack-engineer@claude-code-skills   # Single skill
 ```
@@ -112,7 +113,7 @@ Or preview first with `--dry-run`:
 Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
 
 ```bash
-# Install all 85 skills to all supported agents
+# Install all 86 skills to all supported agents
 npx agent-skills-cli add alirezarezvani/claude-skills
 
 # Install to specific agent (Claude Code)
@@ -2251,7 +2252,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 85 Production-Ready Skills**
+**✅ Phase 1: Complete - 86 Production-Ready Skills**
 
 **Marketing Skills (6):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks

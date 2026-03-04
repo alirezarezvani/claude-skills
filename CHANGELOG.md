@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **skill-security-auditor** (POWERFUL tier) — Security audit and vulnerability scanner for AI agent skills. Scans for malicious code, prompt injection, data exfiltration, supply chain risks, and privilege escalation. Zero dependencies, PASS/WARN/FAIL verdicts.
+
 ### Planned
 - Complete Anthropic best practices refactoring (5/42 skills remaining)
 - Production Python tools for remaining RA/QM skills
@@ -99,9 +102,9 @@ Major rewrite of existing skills following Anthropic's agent skills specificatio
 - **Codex skills sync** — Automated symlink workflow for Codex integration
 
 ### 📊 Stats
-- **85 total skills** across 9 domains (up from 42 across 6)
+- **86 total skills** across 9 domains (up from 42 across 6)
 - **92+ Python automation tools** (up from 20+)
-- **25 POWERFUL-tier skills** in new `engineering/` domain
+- **26 POWERFUL-tier skills** in `engineering/` domain (including skill-security-auditor)
 - **37/42 original skills refactored** to Anthropic best practices
 
 ### Fixed
@@ -250,7 +253,7 @@ Major rewrite of existing skills following Anthropic's agent skills specificatio
 
 | Version | Date | Skills | Domains | Key Changes |
 |---------|------|--------|---------|-------------|
-| 2.0.0 | 2026-02-16 | 85 | 9 | 25 POWERFUL-tier skills, 37 refactored, Codex support, 3 new domains |
+| 2.0.0 | 2026-02-16 | 86 | 9 | 26 POWERFUL-tier skills, 37 refactored, Codex support, 3 new domains |
 | 1.1.0 | 2025-10-21 | 42 | 6 | Anthropic best practices refactoring (5 skills) |
 | 1.0.2 | 2025-10-21 | 42 | 6 | GitHub repository pages (LICENSE, CONTRIBUTING, etc.) |
 | 1.0.1 | 2025-10-21 | 42 | 6 | Star History, link fixes |

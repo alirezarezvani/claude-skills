@@ -1,12 +1,12 @@
 # Claude Skills Library (Your Agentic Startup Kit)
 
-**86 Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
+**85 Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![86 Skills](https://img.shields.io/badge/Skills-86-brightgreen.svg)](#-available-skills)
+[![85 Skills](https://img.shields.io/badge/Skills-85-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -25,7 +25,8 @@ Use Claude Code's built-in plugin system for native integration:
 
 # Then install skill bundles:
 /plugin install marketing-skills@claude-code-skills     # 7 marketing skills
-/plugin install engineering-skills@claude-code-skills   # 24 engineering skills
+/plugin install engineering-skills@claude-code-skills   # 21 core engineering skills
+/plugin install engineering-advanced-skills@claude-code-skills  # 24 POWERFUL-tier engineering skills
 /plugin install product-skills@claude-code-skills       # 8 product skills
 /plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
@@ -77,7 +78,7 @@ cd claude-skills
 
 ### Method 3: OpenClaw Installation
 
-For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 86 skills work out of the box.
+For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 85 skills work out of the box.
 
 ```bash
 # Clone the repo
@@ -112,7 +113,7 @@ Or preview first with `--dry-run`:
 Install to Claude Code, Cursor, VS Code, Amp, Goose, and more - all with one command:
 
 ```bash
-# Install all 53 skills to all supported agents
+# Install all 85 skills to all supported agents
 npx agent-skills-cli add alirezarezvani/claude-skills
 
 # Install to specific agent (Claude Code)
@@ -173,7 +174,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills --dry-run
 This repository provides **modular, self-contained skill packages** designed to augment Claude AI with specialized domain expertise. Each skill includes:
 
 - **📖 Comprehensive documentation** - Workflows, best practices, and strategic frameworks
-- **🛠️ Python analysis tools** - 87+ CLI utilities for automated analysis and optimization
+- **🛠️ Python analysis tools** - 92+ CLI utilities for automated analysis and optimization
 - **📚 Knowledge bases** - Curated reference materials and guidelines
 - **📋 Ready-to-use templates** - Customizable assets for immediate deployment
 
@@ -566,7 +567,7 @@ Template and file creation/modification specialist.
 
 ### Engineering Team Skills
 
-**Complete engineering skills suite with 19 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, and enterprise systems.
+**Complete engineering skills suite with 45 specialized roles** covering architecture, development, testing, security, operations, cloud infrastructure, enterprise systems, and 24 POWERFUL-tier advanced engineering skills.
 
 #### 🏗️ Senior Software Architect
 **Status:** ✅ Production Ready | **Version:** 1.0
@@ -1842,7 +1843,7 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 
 ### 🆕 New Skills (March 2026)
 
-**20 practical skills** designed for everyday professional use and commercial distribution.
+**24 POWERFUL-tier skills** designed for everyday professional use — all in the `engineering/` domain.
 
 #### Developer Workflow
 | Skill | What It Does |
@@ -2173,7 +2174,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 - ⚡ **Rapid Prototyping** - Create custom skills in minutes, not hours
 
 **Perfect For:**
-- Building custom skills beyond the 53 provided in this library
+- Building custom skills beyond the 85 provided in this library
 - Generating domain-specific agents for your organization
 - Scaling AI customization across teams
 - Rapid prototyping of specialized workflows
@@ -2212,7 +2213,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  Claude Skills Library (This Repository)                │
-│  53 Domain Expert Skills - Marketing to Engineering     │
+│  85 Domain Expert Skills - Marketing to Engineering     │
 │  Use for: Domain expertise, frameworks, best practices  │
 └────────────────┬────────────────────────────────────────┘
                  │
@@ -2233,12 +2234,12 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 ```
 
 **Workflow:**
-1. **Start here** (Skills Library) - Get 53 production-ready expert skills
+1. **Start here** (Skills Library) - Get 85 production-ready expert skills
 2. **Expand** (Skill Factory) - Generate custom skills for your specific needs
 3. **Supercharge** (Tresor) - Use skills + agents + commands in Claude Code development
 
 **Together they provide:**
-- ✅ 53 ready-to-use expert skills (this repo)
+- ✅ 85 ready-to-use expert skills (this repo)
 - ✅ Unlimited custom skill generation (Factory)
 - ✅ Complete development workflow automation (Tresor)
 - ✅ Cross-platform compatibility (Claude.ai, Claude Code, API)
@@ -2251,7 +2252,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 ### Current Status (Q4 2025)
 
-**✅ Phase 1: Complete - 53 Production-Ready Skills**
+**✅ Phase 1: Complete - 85 Production-Ready Skills**
 
 **Marketing Skills (6):**
 - Content Creator - Brand voice analysis, SEO optimization, social media frameworks
@@ -2347,7 +2348,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 
 | Metric | Current | Target (Q3 2026) |
 |--------|---------|------------------|
-| Available Skills | 53 | 55+ |
+| Available Skills | 85 | 55+ |
 | Skill Categories | 8 | 9 |
 | Python Tools | 87+ | 110+ |
 | Time Savings | 70% | 85% |
@@ -2356,7 +2357,7 @@ Explore our complete ecosystem of Claude Code augmentation tools and utilities:
 | Organizations | 25 | 250+ |
 | Industries Covered | Tech, HealthTech | Tech, Health, Finance, Manufacturing |
 
-### ROI Metrics (Current - 53 Skills)
+### ROI Metrics (Current - 85 Skills)
 
 **Time Savings Per Organization:**
 - Marketing teams: 310 hours/month (Content + Demand Gen + PMM + ASO + Social Media)

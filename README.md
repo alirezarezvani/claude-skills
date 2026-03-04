@@ -1,12 +1,12 @@
 # Claude Skills Library (Your Agentic Startup Kit)
 
-**85 Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
+**86 Production-Ready skill packages for Claude AI & Claude Code** - Reusable expertise bundles combining best practices, analysis tools, and strategic frameworks for marketing teams, executive leadership, product development, your web and mobile engineering teams. Many other teams will be included soon and regularly.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude AI](https://img.shields.io/badge/Claude-AI-blue.svg)](https://claude.ai)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://claude.ai/code)
 [![Multi-Agent Compatible](https://img.shields.io/badge/Multi--Agent-Compatible-green.svg)](https://github.com/skillcreatorai/Ai-Agent-Skills)
-[![85 Skills](https://img.shields.io/badge/Skills-85-brightgreen.svg)](#-available-skills)
+[![86 Skills](https://img.shields.io/badge/Skills-86-brightgreen.svg)](#-available-skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
 ---
@@ -25,8 +25,7 @@ Use Claude Code's built-in plugin system for native integration:
 
 # Then install skill bundles:
 /plugin install marketing-skills@claude-code-skills     # 7 marketing skills
-/plugin install engineering-skills@claude-code-skills   # 21 core engineering skills
-/plugin install engineering-advanced-skills@claude-code-skills  # 24 POWERFUL-tier engineering skills
+/plugin install engineering-skills@claude-code-skills   # 24 engineering skills
 /plugin install product-skills@claude-code-skills       # 8 product skills
 /plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
@@ -78,7 +77,7 @@ cd claude-skills
 
 ### Method 3: OpenClaw Installation
 
-For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 85 skills work out of the box.
+For [OpenClaw](https://openclaw.ai) users — skills use the same `SKILL.md` format, so all 86 skills work out of the box.
 
 ```bash
 # Clone the repo
@@ -1843,7 +1842,7 @@ Once installed, skills are available at `~/.codex/skills/`. Each skill contains:
 
 ### 🆕 New Skills (March 2026)
 
-**24 POWERFUL-tier skills** designed for everyday professional use — all in the `engineering/` domain.
+**20 practical skills** designed for everyday professional use and commercial distribution.
 
 #### Developer Workflow
 | Skill | What It Does |

@@ -1,9 +1,9 @@
 # Claude Skills Library
 
-**87+ production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**88+ production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-87-brightgreen.svg)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-88-brightgreen.svg)](#skills-overview)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
@@ -41,6 +41,7 @@ Skills are modular instruction packages that give AI agents domain expertise the
 # Or install individual skills
 /plugin install skill-security-auditor@claude-code-skills       # Security scanner
 /plugin install playwright-pro@claude-code-skills                  # Playwright testing toolkit
+/plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
 /plugin install content-creator@claude-code-skills              # Single skill
 ```
 
@@ -68,12 +69,13 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**87+ skills across 9 domains:**
+**88+ skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
 | **🔧 Engineering — Core** | 21 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data | [engineering-team/](engineering-team/) |
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
+| **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
 | **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder | [product-team/](product-team/) |
 | **📣 Marketing** | 7 | Content creator, demand gen, PMM strategy, ASO, social media, campaign analytics, prompt engineering | [marketing-skill/](marketing-skill/) |

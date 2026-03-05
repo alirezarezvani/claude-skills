@@ -1,0 +1,11 @@
+{
+  "hooks": [
+    {
+      "name": "error-capture",
+      "event": "PostToolUse",
+      "matcher": "Bash",
+      "command": "./hooks/error-capture.sh",
+      "description": "Detects command failures and appends structured entries to auto-memory. Zero overhead on successful commands."
+    }
+  ]
+}

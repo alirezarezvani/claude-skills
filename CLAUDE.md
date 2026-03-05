@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 53 production-ready skills across 8 domains with 87+ Python automation tools.
+**Current Scope:** 87 production-ready skills across 9 domains with 160+ Python automation tools and 200+ reference guides.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -17,18 +17,17 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 | Domain | CLAUDE.md Location | Focus |
 |--------|-------------------|-------|
 | **Agent Development** | [agents/CLAUDE.md](agents/CLAUDE.md) | cs-* agent creation, YAML frontmatter, relative paths |
-| **Marketing Skills** | [marketing-skill/CLAUDE.md](marketing-skill/CLAUDE.md) | Content creation, SEO, demand gen, campaign analytics Python tools |
-| **Product Team** | [product-team/CLAUDE.md](product-team/CLAUDE.md) | RICE, OKRs, user stories, UX research tools |
-| **Engineering** | [engineering-team/CLAUDE.md](engineering-team/CLAUDE.md) | Scaffolding, fullstack, AI/ML, data tools |
+| **Marketing Skills** | [marketing-skill/CLAUDE.md](marketing-skill/CLAUDE.md) | Content creation, SEO, ASO, demand gen, campaign analytics |
+| **Product Team** | [product-team/CLAUDE.md](product-team/CLAUDE.md) | RICE, OKRs, user stories, UX research, SaaS scaffolding |
+| **Engineering (Core)** | [engineering-team/CLAUDE.md](engineering-team/CLAUDE.md) | Fullstack, AI/ML, DevOps, security, data, QA tools |
+| **Engineering (POWERFUL)** | [engineering/](engineering/) | Agent design, RAG, MCP, CI/CD, database, observability |
 | **C-Level Advisory** | [c-level-advisor/CLAUDE.md](c-level-advisor/CLAUDE.md) | CEO/CTO strategic decision-making |
 | **Project Management** | [project-management/CLAUDE.md](project-management/CLAUDE.md) | Atlassian MCP, Jira/Confluence integration |
-| **RA/QM Compliance** | [ra-qm-team/CLAUDE.md](ra-qm-team/CLAUDE.md) | ISO 13485, MDR, FDA compliance workflows |
+| **RA/QM Compliance** | [ra-qm-team/CLAUDE.md](ra-qm-team/CLAUDE.md) | ISO 13485, MDR, FDA, GDPR, ISO 27001 compliance |
 | **Business & Growth** | [business-growth/CLAUDE.md](business-growth/CLAUDE.md) | Customer success, sales engineering, revenue operations |
 | **Finance** | [finance/CLAUDE.md](finance/CLAUDE.md) | Financial analysis, DCF valuation, budgeting, forecasting |
 | **Standards Library** | [standards/CLAUDE.md](standards/CLAUDE.md) | Communication, quality, git, security standards |
 | **Templates** | [templates/CLAUDE.md](templates/CLAUDE.md) | Template system usage |
-
-**Current Sprint:** See [documentation/delivery/sprint-11-05-2025/](documentation/delivery/sprint-11-05-2025/) for active sprint context and progress.
 
 ## Architecture Overview
 
@@ -36,14 +35,16 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 
 ```
 claude-code-skills/
+├── .claude-plugin/            # Plugin registry (marketplace.json)
 ├── agents/                    # cs-* prefixed agents (in development)
-├── marketing-skill/           # 6 marketing skills + Python tools
-├── product-team/              # 5 product skills + Python tools
-├── engineering-team/          # 18 engineering skills + Python tools
+├── marketing-skill/           # 7 marketing skills + Python tools
+├── product-team/              # 8 product skills + Python tools
+├── engineering-team/          # 22 core engineering skills + Python tools
+├── engineering/               # 25 POWERFUL-tier advanced skills (v2.0.0)
 ├── c-level-advisor/           # 2 C-level skills
-├── project-management/        # 6 PM skills + Atlassian MCP
+├── project-management/        # 6 PM skills + Atlassian MCP + packaged-skills
 ├── ra-qm-team/                # 12 RA/QM compliance skills
-├── business-growth/           # 3 business & growth skills + Python tools
+├── business-growth/           # 4 business & growth skills + Python tools
 ├── finance/                   # 1 finance skill + Python tools
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates
@@ -117,35 +118,31 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 - Document all dependencies in SKILL.md
 - Prefer standard library implementations
 
-## Current Sprint
+## Current Version
 
-**Active Sprint:** sprint-11-05-2025 (Nov 5-19, 2025)
-**Goal:** Skill-Agent Integration Phase 1-2
-**Status:** ✅ COMPLETE - All 6 days finished, 5 agents deployed
+**Version:** v2.0.0 (released 2026-02-16)
 
-**Deliverables:**
-- 5 production agents: cs-content-creator, cs-demand-gen-specialist, cs-ceo-advisor, cs-cto-advisor, cs-product-manager
-- 1 agent template for future development
-- Modular documentation structure (main + 9 domain CLAUDE.md files)
-- Branch protection and workflow documentation
+**v2.0.0 Highlights:**
+- 25 POWERFUL-tier engineering skills added (engineering/ folder)
+- Plugin marketplace infrastructure (.claude-plugin/marketplace.json)
+- VirusTotal security scanning for skills (CI)
+- Multi-platform support: Claude Code, OpenAI Codex, OpenClaw
+- Skills enhanced with production Python scripts and Anthropic best practices
 
-**Progress Tracking:**
-- [Sprint Plan](documentation/delivery/sprint-11-05-2025/plan.md) - Day-by-day execution plan
-- [Sprint Context](documentation/delivery/sprint-11-05-2025/context.md) - Goals, scope, risks
-- [Sprint Progress](documentation/delivery/sprint-11-05-2025/PROGRESS.md) - Real-time auto-updating tracker
+**Past Sprints:** See [documentation/delivery/](documentation/delivery/) for sprint history.
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 53 production-ready skills deployed
-- Marketing (6), C-Level (2), Product (5), PM (6), Engineering (18), RA/QM (12), Business & Growth (3), Finance (1)
-- 87+ Python automation tools, 104+ reference guides
+**Phase 1-2 Complete:** 87 production-ready skills deployed across 9 domains
+- Marketing (7), C-Level (2), Product (8), PM (6), Engineering Core (22), Engineering POWERFUL (25), RA/QM (12), Business & Growth (4), Finance (1)
+- 160+ Python automation tools, 200+ reference guides
 - Complete enterprise coverage from marketing through regulatory compliance, sales, customer success, and finance
 
 **Next Priorities:**
 - **Phase 3 (Q2 2026):** Marketing expansion - SEO optimizer, social media manager, growth marketer
 - **Phase 4 (Q3 2026):** Specialized domains - Mobile, blockchain, web3, advanced analytics
 
-**Target:** 60+ skills by Q3 2026
+**Target:** 100+ skills by Q3 2026
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
@@ -176,12 +173,13 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 ## Additional Resources
 
 - **.gitignore:** Excludes .vscode/, .DS_Store, AGENTS.md, PROMPTS.md, .env*
+- **Plugin Registry:** [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json) - Marketplace distribution
 - **Standards Library:** [standards/](standards/) - Communication, quality, git, documentation, security
 - **Implementation Plans:** [documentation/implementation/](documentation/implementation/)
 - **Sprint Delivery:** [documentation/delivery/](documentation/delivery/)
 
 ---
 
-**Last Updated:** February 2026
-**Current Sprint:** sprint-11-05-2025 (Skill-Agent Integration Phase 1-2)
-**Status:** 53 skills deployed, agent system in development
+**Last Updated:** March 2026
+**Version:** v2.0.0
+**Status:** 87 skills deployed across 9 domains, plugin marketplace active

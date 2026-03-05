@@ -187,6 +187,17 @@ This is the highest-signal competitive data you have. Most companies do it too r
 | Competitor raised >$20M and targets your ICP | 12-month runway for them to compete hard |
 | Prospects evaluate you to justify competitor decision | You're the "check box" — fix perception or segment |
 
+## Integration with C-Suite Roles
+
+| Intelligence Type | Feeds To | Output Format |
+|------------------|----------|---------------|
+| Product moves | CPO | Roadmap input, feature gap analysis |
+| Pricing changes | CRO, CFO | Pricing response recommendations |
+| Funding rounds | CEO, CFO | Strategic positioning update |
+| Hiring signals | CHRO, CTO | Talent market intelligence |
+| Customer wins/losses | CRO, CMO | Battlecard updates, positioning shifts |
+| Marketing campaigns | CMO | Counter-positioning, channel intelligence |
+
 ## References
 - `references/ci-playbook.md` — OSINT sources, win/loss framework, positioning map construction
 - `templates/battlecard-template.md` — sales battlecard template

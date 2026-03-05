@@ -208,6 +208,17 @@ RECOMMENDED DECISION
 - Market contraction + burn multiple spikes
 - Lead investor wants pivot + team resists
 
+## Integration with C-Suite Roles
+
+| Scenario Type | Primary Roles | Cascade To |
+|--------------|---------------|------------|
+| Revenue miss | CRO, CFO | CMO (pipeline), COO (cuts), CHRO (layoffs) |
+| Key person departure | CHRO, COO | CTO (if eng), CRO (if sales) |
+| Fundraise failure | CFO, CEO | COO (runway extension), CHRO (hiring freeze) |
+| Security breach | CISO, CTO | CEO (comms), CFO (cost), CRO (customer impact) |
+| Market shift | CEO, CPO | CMO (repositioning), CRO (new segments) |
+| Competitor move | CMO, CRO | CPO (roadmap response), CEO (strategy) |
+
 ## References
 - `references/scenario-planning.md` — Shell methodology, pre-mortem, Monte Carlo, cascade frameworks
 - `scripts/scenario_modeler.py` — CLI tool for structured scenario modeling

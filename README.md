@@ -3,7 +3,7 @@
 **88+ production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-116-brightgreen.svg)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-134-brightgreen.svg)](#skills-overview)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
@@ -81,7 +81,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 | **📣 Marketing** | 7 | Content creator, demand gen, PMM strategy, ASO, social media, campaign analytics, prompt engineering | [marketing-skill/](marketing-skill/) |
 | **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 12 | ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
-| **💼 C-Level Advisory** | 10 | CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO advisors + Executive Mentor | [c-level-advisor/](c-level-advisor/) |
+| **💼 C-Level Advisory** | 28 | Full C-suite (10 roles) + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
 | **📈 Business & Growth** | 4 | Customer success, sales engineer, revenue ops, contracts & proposals | [business-growth/](business-growth/) |
 | **💰 Finance** | 1 | Financial analyst (DCF, budgeting, forecasting) | [finance/](finance/) |
 

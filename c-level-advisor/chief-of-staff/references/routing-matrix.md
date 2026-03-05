@@ -167,3 +167,46 @@ Automatically escalate to board meeting when any of these apply:
 | CISO | ciso-advisor | Security, compliance, risk |
 
 **If a role file doesn't exist:** Note the gap. Answer from first principles with domain expertise. Log that the role is missing.
+
+---
+
+## Complementary Skills Registry
+
+These skills are invoked for specific cross-cutting needs, not for general domain questions.
+
+### Orchestration & Infrastructure
+| Skill | Trigger | File |
+|-------|---------|------|
+| C-Suite Onboard | `/cs:setup`, first-time setup, "tell me about your company" | cs-onboard |
+| Context Engine | Auto-loaded; staleness check | context-engine |
+| Board Meeting | `/cs:board`, multi-role decisions, score ≥ 4 | board-meeting |
+| Decision Logger | After board meetings, `/cs:decisions`, `/cs:review` | decision-logger |
+| Agent Protocol | Inter-role invocations, loop detection | agent-protocol |
+
+### Cross-Cutting Capabilities
+| Skill | Trigger | File |
+|-------|---------|------|
+| Board Deck Builder | "board deck", "investor update", "board presentation" | board-deck-builder |
+| Scenario War Room | "what if", multi-variable scenarios, stress test across functions | scenario-war-room |
+| Competitive Intelligence | "competitor", "competitive analysis", "battlecard", "who's winning" | competitive-intel |
+| Org Health Diagnostic | "how healthy are we", "org health", "company health check" | org-health-diagnostic |
+| M&A Playbook | "acquisition", "M&A", "due diligence", "being acquired" | ma-playbook |
+| International Expansion | "expand to", "new market", "international", "localization" | intl-expansion |
+
+### Culture & Collaboration
+| Skill | Trigger | File |
+|-------|---------|------|
+| Culture Architect | "values", "culture", "mission", "vision", culture problems | culture-architect |
+| Company OS | "operating system", "EOS", "Scaling Up", "meeting cadence", "how do we run" | company-os |
+| Founder Coach | "delegation", "blind spots", "founder growth", "leadership style", burnout | founder-coach |
+| Strategic Alignment | "alignment", "silos", "teams not aligned", "strategy cascade" | strategic-alignment |
+| Change Management | "rolling out", "reorg", "change", "new process", "transition" | change-management |
+| Internal Narrative | "all-hands", "internal comms", "how do we tell", "narrative" | internal-narrative |
+
+### Routing Priority
+
+1. Check if it matches a **complementary skill trigger** → route there
+2. Check if it matches a **single role domain** → route to that role
+3. Check if it spans **multiple role domains** (score ≥ 3) → invoke multiple roles
+4. Check if it meets **escalation criteria** (score ≥ 4 or irreversible) → trigger board meeting
+5. If unclear → ask one clarifying question, then route

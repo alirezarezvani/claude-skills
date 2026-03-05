@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "pw-testrail": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "${CLAUDE_PLUGIN_ROOT}/integrations/testrail-mcp/src/index.ts"
+      ],
+      "env": {
+        "TESTRAIL_URL": "${TESTRAIL_URL}",
+        "TESTRAIL_USER": "${TESTRAIL_USER}",
+        "TESTRAIL_API_KEY": "${TESTRAIL_API_KEY}"
+      }
+    },
+    "pw-browserstack": {
+      "command": "npx",
+      "args": [
+        "tsx",
+        "${CLAUDE_PLUGIN_ROOT}/integrations/browserstack-mcp/src/index.ts"
+      ],
+      "env": {
+        "BROWSERSTACK_USERNAME": "${BROWSERSTACK_USERNAME}",
+        "BROWSERSTACK_ACCESS_KEY": "${BROWSERSTACK_ACCESS_KEY}"
+      }
+    }
+  }
+}

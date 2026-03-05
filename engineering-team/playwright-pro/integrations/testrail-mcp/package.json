@@ -1,0 +1,18 @@
+{
+  "name": "@pw/testrail-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for TestRail integration with Playwright Pro",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 # Claude Skills Library
 
-**88+ production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**134 production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-134-brightgreen.svg)](#skills-overview)
@@ -69,7 +69,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**88+ skills across 9 domains:**
+**134 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|

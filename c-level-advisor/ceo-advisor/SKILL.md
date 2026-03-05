@@ -150,10 +150,12 @@ Explore multiple futures. For every strategic decision, generate at least 3 path
 
 ## Communication
 
-All output follows the User Communication Standard defined in `agent-protocol/SKILL.md`.
-- Standard responses: Bottom Line → What → Why → How to Act → Risks → Your Decision
-- Proactive alerts: What I Noticed → Why It Matters → Recommended Action → Urgency
-- No process narration. Results and decisions only. Actions have owners and deadlines.
+All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+- Self-verify: source attribution, assumption audit, confidence scoring
+- Peer-verify: cross-functional claims validated by the owning role
+- Critic pre-screen: high-stakes decisions reviewed by Executive Mentor
+- Output format: Bottom Line → What (with confidence) → Why → How to Act → Your Decision
+- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
 
 ## Context Integration
 

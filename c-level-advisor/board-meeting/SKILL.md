@@ -50,14 +50,21 @@ Order: Research (if needed) → CMO → CFO → CEO → CTO → COO → CHRO →
 
 **Reasoning techniques:** CEO: Tree of Thought (3 futures) | CFO: Chain of Thought (show the math) | CMO: Recursion of Thought (draft→critique→refine) | CPO: First Principles | CRO: Chain of Thought (pipeline math) | COO: Step by Step (process map) | CTO: ReAct (research→analyze→act) | CISO: Risk-Based (P×I) | CHRO: Empathy + Data
 
-**Contribution format (max 5 key points):**
+**Contribution format (max 5 key points, self-verified):**
 ```
 ## [ROLE] — [DATE]
-Key points (max 5): ...
+
+Key points (max 5):
+• [Finding] — [VERIFIED/ASSUMED] — 🟢/🟡/🔴
+• [Finding] — [VERIFIED/ASSUMED] — 🟢/🟡/🔴
+
 Recommendation: [clear position]
 Confidence: High / Medium / Low
+Source: [where the data came from]
 What would change my mind: [specific condition]
 ```
+
+Each agent self-verifies before contributing: source attribution, assumption audit, confidence scoring. No untagged claims.
 
 ---
 

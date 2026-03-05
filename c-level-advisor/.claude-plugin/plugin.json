@@ -1,7 +1,8 @@
 {
   "name": "c-level-skills",
-  "description": "2 production-ready C-level advisory skills: CEO advisor for strategic decision-making and CTO advisor for technical leadership",
-  "version": "1.0.0",
+  "namespace": "cs",
+  "description": "Complete virtual board of directors: 10 C-level advisory roles, 6 orchestration skills, 6 cross-cutting capabilities, and 6 culture & collaboration frameworks. Features internal quality loop (self-verify → peer-verify → critic pre-screen), two-layer memory, board meeting protocol with Phase 2 isolation, proactive triggers, and structured user communication standard.",
+  "version": "2.0.0",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,5 +10,273 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": [
+    {
+      "name": "CEO Advisor",
+      "description": "Strategic planning, business model, stakeholder management. Reasoning: Tree of Thought.",
+      "path": "ceo-advisor/SKILL.md"
+    },
+    {
+      "name": "CTO Advisor",
+      "description": "Technical leadership, architecture decisions, engineering strategy. Reasoning: ReAct.",
+      "path": "cto-advisor/SKILL.md"
+    },
+    {
+      "name": "COO Advisor",
+      "description": "Operations leadership, process design, OKR execution. Reasoning: Step by Step.",
+      "path": "coo-advisor/SKILL.md"
+    },
+    {
+      "name": "CPO Advisor",
+      "description": "Product vision, portfolio strategy, product-market fit. Reasoning: First Principles.",
+      "path": "cpo-advisor/SKILL.md"
+    },
+    {
+      "name": "CMO Advisor",
+      "description": "Brand strategy, growth models, marketing budget allocation. Reasoning: Recursion of Thought.",
+      "path": "cmo-advisor/SKILL.md"
+    },
+    {
+      "name": "CFO Advisor",
+      "description": "Financial leadership, fundraising, unit economics, cash management. Reasoning: Chain of Thought.",
+      "path": "cfo-advisor/SKILL.md"
+    },
+    {
+      "name": "CRO Advisor",
+      "description": "Revenue leadership, sales strategy, pricing, net revenue retention. Reasoning: Chain of Thought.",
+      "path": "cro-advisor/SKILL.md"
+    },
+    {
+      "name": "CISO Advisor",
+      "description": "Security leadership, risk quantification, compliance roadmaps. Reasoning: Risk-Based.",
+      "path": "ciso-advisor/SKILL.md"
+    },
+    {
+      "name": "CHRO Advisor",
+      "description": "People leadership, hiring plans, compensation, org design. Reasoning: Empathy + Data.",
+      "path": "chro-advisor/SKILL.md"
+    },
+    {
+      "name": "Executive Mentor",
+      "description": "Adversarial executive coach with /em: slash commands. Reasoning: Adversarial.",
+      "path": "executive-mentor/SKILL.md"
+    },
+    {
+      "name": "C-Suite Onboard",
+      "description": "Founder interview → company-context.md that all agents read.",
+      "path": "cs-onboard/SKILL.md"
+    },
+    {
+      "name": "Chief of Staff",
+      "description": "Central router — routes questions to the right role, triggers board meetings.",
+      "path": "chief-of-staff/SKILL.md"
+    },
+    {
+      "name": "Board Meeting",
+      "description": "6-phase multi-agent deliberation with Phase 2 isolation.",
+      "path": "board-meeting/SKILL.md"
+    },
+    {
+      "name": "Decision Logger",
+      "description": "Two-layer memory: raw transcripts + approved decisions only.",
+      "path": "decision-logger/SKILL.md"
+    },
+    {
+      "name": "Agent Protocol",
+      "description": "Inter-agent invocation, loop prevention, quality loop, communication standard.",
+      "path": "agent-protocol/SKILL.md"
+    },
+    {
+      "name": "Context Engine",
+      "description": "Company context loading and stage-adaptive configuration.",
+      "path": "context-engine/SKILL.md"
+    },
+    {
+      "name": "Board Deck Builder",
+      "description": "Assembles board and investor update presentations.",
+      "path": "board-deck-builder/SKILL.md"
+    },
+    {
+      "name": "Scenario War Room",
+      "description": "Multi-variable what-if modeling for strategic scenarios.",
+      "path": "scenario-war-room/SKILL.md"
+    },
+    {
+      "name": "Competitive Intel",
+      "description": "Systematic competitor tracking and market intelligence.",
+      "path": "competitive-intel/SKILL.md"
+    },
+    {
+      "name": "Org Health Diagnostic",
+      "description": "Cross-functional organizational health scoring.",
+      "path": "org-health-diagnostic/SKILL.md"
+    },
+    {
+      "name": "M&A Playbook",
+      "description": "Due diligence, integration planning for acquisitions.",
+      "path": "ma-playbook/SKILL.md"
+    },
+    {
+      "name": "International Expansion",
+      "description": "Market entry strategy, regional playbooks, localization.",
+      "path": "intl-expansion/SKILL.md"
+    },
+    {
+      "name": "Culture Architect",
+      "description": "Build and operationalize company culture systematically.",
+      "path": "culture-architect/SKILL.md"
+    },
+    {
+      "name": "Company OS",
+      "description": "EOS/Scaling Up operating system implementation.",
+      "path": "company-os/SKILL.md"
+    },
+    {
+      "name": "Founder Coach",
+      "description": "Founder personal development and leadership growth.",
+      "path": "founder-coach/SKILL.md"
+    },
+    {
+      "name": "Strategic Alignment",
+      "description": "Strategy cascade, silo detection, cross-functional alignment.",
+      "path": "strategic-alignment/SKILL.md"
+    },
+    {
+      "name": "Change Management",
+      "description": "ADKAR-based change rollout and transformation planning.",
+      "path": "change-management/SKILL.md"
+    },
+    {
+      "name": "Internal Narrative",
+      "description": "One consistent story across all audiences and channels.",
+      "path": "internal-narrative/SKILL.md"
+    }
+  ],
+  "scripts": [
+    {
+      "name": "strategy_analyzer",
+      "path": "ceo-advisor/scripts/strategy_analyzer.py",
+      "run": "python ceo-advisor/scripts/strategy_analyzer.py"
+    },
+    {
+      "name": "financial_scenario_analyzer",
+      "path": "ceo-advisor/scripts/financial_scenario_analyzer.py",
+      "run": "python ceo-advisor/scripts/financial_scenario_analyzer.py"
+    },
+    {
+      "name": "tech_debt_analyzer",
+      "path": "cto-advisor/scripts/tech_debt_analyzer.py",
+      "run": "python cto-advisor/scripts/tech_debt_analyzer.py"
+    },
+    {
+      "name": "team_scaling_calculator",
+      "path": "cto-advisor/scripts/team_scaling_calculator.py",
+      "run": "python cto-advisor/scripts/team_scaling_calculator.py"
+    },
+    {
+      "name": "ops_efficiency_analyzer",
+      "path": "coo-advisor/scripts/ops_efficiency_analyzer.py",
+      "run": "python coo-advisor/scripts/ops_efficiency_analyzer.py"
+    },
+    {
+      "name": "okr_tracker",
+      "path": "coo-advisor/scripts/okr_tracker.py",
+      "run": "python coo-advisor/scripts/okr_tracker.py"
+    },
+    {
+      "name": "pmf_scorer",
+      "path": "cpo-advisor/scripts/pmf_scorer.py",
+      "run": "python cpo-advisor/scripts/pmf_scorer.py"
+    },
+    {
+      "name": "portfolio_analyzer",
+      "path": "cpo-advisor/scripts/portfolio_analyzer.py",
+      "run": "python cpo-advisor/scripts/portfolio_analyzer.py"
+    },
+    {
+      "name": "marketing_budget_modeler",
+      "path": "cmo-advisor/scripts/marketing_budget_modeler.py",
+      "run": "python cmo-advisor/scripts/marketing_budget_modeler.py"
+    },
+    {
+      "name": "growth_model_simulator",
+      "path": "cmo-advisor/scripts/growth_model_simulator.py",
+      "run": "python cmo-advisor/scripts/growth_model_simulator.py"
+    },
+    {
+      "name": "burn_rate_calculator",
+      "path": "cfo-advisor/scripts/burn_rate_calculator.py",
+      "run": "python cfo-advisor/scripts/burn_rate_calculator.py"
+    },
+    {
+      "name": "unit_economics_analyzer",
+      "path": "cfo-advisor/scripts/unit_economics_analyzer.py",
+      "run": "python cfo-advisor/scripts/unit_economics_analyzer.py"
+    },
+    {
+      "name": "fundraising_model",
+      "path": "cfo-advisor/scripts/fundraising_model.py",
+      "run": "python cfo-advisor/scripts/fundraising_model.py"
+    },
+    {
+      "name": "revenue_forecast_model",
+      "path": "cro-advisor/scripts/revenue_forecast_model.py",
+      "run": "python cro-advisor/scripts/revenue_forecast_model.py"
+    },
+    {
+      "name": "churn_analyzer",
+      "path": "cro-advisor/scripts/churn_analyzer.py",
+      "run": "python cro-advisor/scripts/churn_analyzer.py"
+    },
+    {
+      "name": "risk_quantifier",
+      "path": "ciso-advisor/scripts/risk_quantifier.py",
+      "run": "python ciso-advisor/scripts/risk_quantifier.py"
+    },
+    {
+      "name": "compliance_tracker",
+      "path": "ciso-advisor/scripts/compliance_tracker.py",
+      "run": "python ciso-advisor/scripts/compliance_tracker.py"
+    },
+    {
+      "name": "hiring_plan_modeler",
+      "path": "chro-advisor/scripts/hiring_plan_modeler.py",
+      "run": "python chro-advisor/scripts/hiring_plan_modeler.py"
+    },
+    {
+      "name": "comp_benchmarker",
+      "path": "chro-advisor/scripts/comp_benchmarker.py",
+      "run": "python chro-advisor/scripts/comp_benchmarker.py"
+    },
+    {
+      "name": "decision_matrix_scorer",
+      "path": "executive-mentor/scripts/decision_matrix_scorer.py",
+      "run": "python executive-mentor/scripts/decision_matrix_scorer.py"
+    },
+    {
+      "name": "stakeholder_mapper",
+      "path": "executive-mentor/scripts/stakeholder_mapper.py",
+      "run": "python executive-mentor/scripts/stakeholder_mapper.py"
+    },
+    {
+      "name": "health_scorer",
+      "path": "org-health-diagnostic/scripts/health_scorer.py",
+      "run": "python org-health-diagnostic/scripts/health_scorer.py"
+    },
+    {
+      "name": "alignment_checker",
+      "path": "strategic-alignment/scripts/alignment_checker.py",
+      "run": "python strategic-alignment/scripts/alignment_checker.py"
+    },
+    {
+      "name": "decision_tracker",
+      "path": "decision-logger/scripts/decision_tracker.py",
+      "run": "python decision-logger/scripts/decision_tracker.py"
+    },
+    {
+      "name": "culture_scorer",
+      "path": "culture-architect/scripts/culture_scorer.py",
+      "run": "python culture-architect/scripts/culture_scorer.py"
+    }
+  ]
 }

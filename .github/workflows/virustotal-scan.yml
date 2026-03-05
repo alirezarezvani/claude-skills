@@ -1,0 +1,159 @@
+---
+name: VirusTotal Security Scan
+
+"on":
+  pull_request:
+    branches: [dev, main]
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  scan-skills:
+    name: Scan Skills with VirusTotal
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Package changed skills (PR)
+        if: github.event_name == 'pull_request'
+        run: |
+          mkdir -p /tmp/vt-scan
+
+          CHANGED=$(git diff --name-only \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.sha }} \
+            | grep -E '\.(js|ts|py|sh|json|yml|yaml|md|mjs|cjs)$' || true)
+
+          if [ -z "$CHANGED" ]; then
+            echo "No scannable files changed"
+            echo "SKIP_SCAN=true" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          SKILL_DIRS=$(echo "$CHANGED" \
+            | grep -oP '^[^/]+/[^/]+' | sort -u || true)
+
+          if [ -z "$SKILL_DIRS" ]; then
+            for f in $CHANGED; do
+              if [ -f "$f" ]; then
+                cp "$f" "/tmp/vt-scan/"
+              fi
+            done
+          else
+            for dir in $SKILL_DIRS; do
+              if [ -d "$dir" ]; then
+                dirname=$(echo "$dir" | tr '/' '-')
+                zip -r "/tmp/vt-scan/${dirname}.zip" "$dir" \
+                  -x "*/node_modules/*" "*/.git/*"
+              fi
+            done
+          fi
+
+          ROOT_FILES=$(echo "$CHANGED" | grep -v '/' || true)
+          if [ -n "$ROOT_FILES" ]; then
+            for f in $ROOT_FILES; do
+              if [ -f "$f" ]; then
+                cp "$f" "/tmp/vt-scan/"
+              fi
+            done
+          fi
+
+          echo "Files to scan:"
+          ls -la /tmp/vt-scan/
+
+      - name: Package all skills (Release)
+        if: github.event_name == 'release'
+        run: |
+          mkdir -p /tmp/vt-scan
+
+          for dir in */; do
+            if [ -d "$dir" ] && [ "$dir" != ".github/" ] \
+              && [ "$dir" != "node_modules/" ]; then
+              dirname=$(echo "$dir" | tr -d '/')
+              zip -r "/tmp/vt-scan/${dirname}.zip" "$dir" \
+                -x "*/node_modules/*" "*/.git/*"
+            fi
+          done
+
+          echo "Files to scan:"
+          ls -la /tmp/vt-scan/
+
+      - name: VirusTotal Scan
+        if: env.SKIP_SCAN != 'true'
+        uses: crazy-max/ghaction-virustotal@v5
+        id: vt-scan
+        with:
+          vt_api_key: ${{ secrets.VT_API_KEY }}
+          files: |
+            /tmp/vt-scan/*
+          request_rate: 4
+          update_release_body: ${{ github.event_name == 'release' }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Parse scan results
+        if: env.SKIP_SCAN != 'true'
+        run: |
+          echo "## VirusTotal Scan Results" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          ANALYSIS="${{ steps.vt-scan.outputs.analysis }}"
+
+          if [ -z "$ANALYSIS" ]; then
+            echo "No analysis results returned" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          echo "| File | VirusTotal Analysis |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|------|-------------------|" >> "$GITHUB_STEP_SUMMARY"
+
+          IFS=',' read -ra RESULTS <<< "$ANALYSIS"
+          for result in "${RESULTS[@]}"; do
+            FILE=$(echo "$result" | cut -d'=' -f1)
+            URL=$(echo "$result" | cut -d'=' -f2-)
+            echo "| \`$(basename "$FILE")\` | [Report]($URL) |" \
+              >> "$GITHUB_STEP_SUMMARY"
+          done
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "All files scanned with 70+ AV engines" \
+            >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && env.SKIP_SCAN != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const analysis = '${{ steps.vt-scan.outputs.analysis }}';
+            if (!analysis) return;
+            const results = analysis.split(',').map(r => {
+              const [file, ...urlParts] = r.split('=');
+              const url = urlParts.join('=');
+              return `| \`${file.split('/').pop()}\` | [Report](${url}) |`;
+            });
+            const body = [
+              '## 🛡️ VirusTotal Security Scan',
+              '',
+              '| File | Analysis |',
+              '|------|----------|',
+              ...results,
+              '',
+              'Scanned with 70+ antivirus engines',
+              '',
+              '_Automated by [ghaction-virustotal](https://github.com/crazy-max/ghaction-virustotal)_'
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });

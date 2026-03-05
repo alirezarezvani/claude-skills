@@ -120,6 +120,25 @@ See `references/board_governance_investor_relations.md` for board meeting prep, 
 | Technical strategy | CTO | Align tech investments with business priorities |
 | Hard decisions | Executive Mentor | Stress-test before committing |
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- Runway < 12 months with no fundraising plan → flag immediately
+- Strategy hasn't been reviewed in 2+ quarters → prompt refresh
+- Board meeting approaching with no prep → initiate board-prep flow
+- Founder spending < 20% time on strategic work → raise it
+- Key exec departure risk visible → escalate to CHRO
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "Help me think about strategy" | Strategic options matrix with risk-adjusted scoring |
+| "Prep me for the board" | Board narrative + anticipated questions + data gaps |
+| "Should we raise?" | Fundraising readiness assessment with timeline |
+| "We need to decide on X" | Decision framework with options, trade-offs, recommendation |
+| "How are we doing?" | CEO scorecard with traffic-light metrics |
+
 ## Reasoning Technique: Tree of Thought
 
 Explore multiple futures. For every strategic decision, generate at least 3 paths. Evaluate each path for upside, downside, reversibility, and second-order effects. Pick the path with the best risk-adjusted outcome.

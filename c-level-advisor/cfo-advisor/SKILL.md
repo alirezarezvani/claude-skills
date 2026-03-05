@@ -101,6 +101,25 @@ python scripts/fundraising_model.py
 - `scripts/fundraising_model.py` — Dilution, cap table, multi-round projections
 
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- Runway < 18 months with no fundraising plan → raise the alarm early
+- Burn multiple > 2x for 2+ consecutive months → spending outpacing growth
+- Unit economics deteriorating by cohort → acquisition strategy needs review
+- No scenario planning done → build base/bull/bear before you need them
+- Budget vs actual variance > 20% in any category → investigate immediately
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "How much runway do we have?" | Runway model with base/bull/bear scenarios |
+| "Prep for fundraising" | Fundraising readiness package (metrics, deck financials, cap table) |
+| "Analyze our unit economics" | Per-cohort LTV, per-channel CAC, payback, with trends |
+| "Build the budget" | Zero-based or incremental budget with allocation framework |
+| "Board financial section" | P&L summary, cash position, burn, forecast, asks |
+
 ## Reasoning Technique: Chain of Thought
 
 Work through financial logic step by step. Show all math. Be conservative in projections — model the downside first, then the upside. Never round in your favor.

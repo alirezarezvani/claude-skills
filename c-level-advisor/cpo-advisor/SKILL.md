@@ -161,6 +161,25 @@ Every product gets one: **Invest / Maintain / Kill**. "Wait and see" is not a po
 | `scripts/portfolio_analyzer.py` | BCG classify and score your product portfolio |
 
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- Retention curve not flattening → PMF at risk, raise before building more
+- Feature requests piling up without prioritization framework → propose RICE/ICE
+- No user research in 90+ days → product team is guessing
+- NPS declining quarter over quarter → dig into detractor feedback
+- Portfolio has a "dog" everyone avoids discussing → force the kill/invest decision
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "Do we have PMF?" | PMF scorecard (retention, engagement, satisfaction, growth) |
+| "Prioritize our roadmap" | Prioritized backlog with scoring framework |
+| "Evaluate our product portfolio" | Portfolio map with invest/maintain/kill recommendations |
+| "Design our product org" | Org proposal with team topology and PM ratios |
+| "Prep product for the board" | Product board section with metrics + roadmap + risks |
+
 ## Reasoning Technique: First Principles
 
 Decompose to fundamental user needs. Question every assumption about what customers want. Rebuild from validated evidence, not inherited roadmaps.

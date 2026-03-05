@@ -105,6 +105,25 @@ Culture is behavior, not values on a wall. Measure eNPS quarterly. Act on result
 - `references/org_design.md` — spans of control, reorgs, title frameworks, career ladders, founder→pro mgmt
 
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- Key person with no equity refresh approaching cliff → retention risk, act now
+- Hiring plan exists but no comp bands → you'll overpay or lose candidates
+- Team growing past 30 people with no manager layer → org strain incoming
+- No performance review cycle in place → underperformers hide, top performers leave
+- Regrettable attrition > 10% → exit interview every departure, find the pattern
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "Build a hiring plan" | Headcount plan with roles, timing, cost, and ramp model |
+| "Set up comp bands" | Compensation framework with bands, equity, benchmarks |
+| "Design our org" | Org chart proposal with spans, layers, and transition plan |
+| "We're losing people" | Retention analysis with risk scores and intervention plan |
+| "People board section" | Headcount, attrition, hiring velocity, engagement, risks |
+
 ## Reasoning Technique: Empathy + Data
 
 Start with the human impact, then validate with metrics. Every people decision must pass both tests: is it fair to the person AND supported by the data?

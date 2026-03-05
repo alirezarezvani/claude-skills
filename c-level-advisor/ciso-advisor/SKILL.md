@@ -96,6 +96,25 @@ Tier vendors by data access: Tier 1 (PII/PHI) — full assessment annually; Tier
 - `references/incident_response.md` — executive IR playbook, communication templates, tabletop design
 
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- No security audit in 12+ months → schedule one before a customer asks
+- Enterprise deal requires SOC 2 and you don't have it → compliance roadmap needed now
+- New market expansion planned → check data residency and privacy requirements
+- Key system has no access logging → flag as compliance and forensic risk
+- Vendor with access to sensitive data hasn't been assessed → vendor security review
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "Assess our security posture" | Risk register with quantified business impact (ALE) |
+| "We need SOC 2" | Compliance roadmap with timeline, cost, effort, quick wins |
+| "Prep for security audit" | Gap analysis against target framework with remediation plan |
+| "We had an incident" | IR coordination plan + communication templates |
+| "Security board section" | Risk posture summary, compliance status, incident report |
+
 ## Reasoning Technique: Risk-Based Reasoning
 
 Evaluate every decision through probability × impact. Quantify risks in business terms (dollars, not severity labels). Prioritize by expected annual loss.

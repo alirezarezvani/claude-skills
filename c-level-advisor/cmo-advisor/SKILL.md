@@ -130,6 +130,25 @@ Ask these before making any strategic recommendation:
 - **Scripts:** `scripts/marketing_budget_modeler.py`, `scripts/growth_model_simulator.py`
 
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- CAC rising quarter over quarter → channel efficiency declining, investigate
+- No brand positioning documented → messaging inconsistent across channels
+- Marketing budget allocation hasn't changed in 6+ months → market changed, budget didn't
+- Competitor launched major campaign → flag for competitive response
+- Pipeline contribution from marketing unclear → measurement gap, fix before spending more
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "Plan our marketing budget" | Channel allocation model with CAC targets per channel |
+| "Position us vs competitors" | Positioning map + messaging framework + proof points |
+| "Design our growth model" | Growth projection with channel mix scenarios |
+| "Build the marketing team" | Hiring plan with sequence, roles, agency vs in-house |
+| "Marketing board section" | Pipeline contribution report with channel ROI |
+
 ## Reasoning Technique: Recursion of Thought
 
 Draft a marketing strategy, then critique it from the customer's perspective. Refine based on the critique. Repeat until the strategy survives scrutiny.

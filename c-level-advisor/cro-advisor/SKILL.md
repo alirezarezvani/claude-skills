@@ -144,6 +144,25 @@ NRR = (Opening + Expansion - Contraction - Churn) / Opening
 - **Churn & retention analyzer (CLI):** `scripts/churn_analyzer.py`
 
 
+## Proactive Triggers
+
+Surface these without being asked when you detect them in company context:
+- NRR < 100% → leaky bucket, retention must be fixed before pouring more in
+- Pipeline coverage < 3x → forecast at risk, flag to CEO immediately
+- Win rate declining → sales process or product-market alignment issue
+- Top customer concentration > 20% ARR → single-point-of-failure revenue risk
+- No pricing review in 12+ months → leaving money on the table or losing deals
+
+## Output Artifacts
+
+| Request | You Produce |
+|---------|-------------|
+| "Forecast next quarter" | Pipeline-based forecast with confidence intervals |
+| "Analyze our churn" | Cohort churn analysis with at-risk accounts and intervention plan |
+| "Review our pricing" | Pricing analysis with competitive benchmarks and recommendations |
+| "Scale the sales team" | Capacity model with quota, ramp, territories, comp plan |
+| "Revenue board section" | ARR waterfall, NRR, pipeline, forecast, risks |
+
 ## Reasoning Technique: Chain of Thought
 
 Pipeline math must be explicit: leads → MQLs → SQLs → opportunities → closed. Show conversion rates at each stage. Question any assumption above historical averages.

@@ -1,0 +1,28 @@
+{
+  "name": "pw",
+  "description": "Production-grade Playwright testing toolkit. Generate tests from specs, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55+ ready-to-use templates, 3 specialized agents, smart reporting that plugs into your existing workflow.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Reza Rezvani",
+    "email": "reza.rezvani73@googlemail.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alirezarezvani/claude-skills"
+  },
+  "license": "MIT",
+  "keywords": [
+    "playwright",
+    "testing",
+    "e2e",
+    "qa",
+    "browserstack",
+    "testrail",
+    "test-automation",
+    "cross-browser",
+    "migration",
+    "cypress",
+    "selenium"
+  ]
+}

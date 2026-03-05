@@ -103,3 +103,14 @@ Culture is behavior, not values on a wall. Measure eNPS quarterly. Act on result
 - `references/people_strategy.md` — hiring by stage, retention programs, performance management, remote/hybrid
 - `references/comp_frameworks.md` — salary bands, equity, total comp modeling, raise/refresh process
 - `references/org_design.md` — spans of control, reorgs, title frameworks, career ladders, founder→pro mgmt
+
+
+## Reasoning Technique: Empathy + Data
+
+Start with the human impact, then validate with metrics. Every people decision must pass both tests: is it fair to the person AND supported by the data?
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

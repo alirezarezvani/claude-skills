@@ -159,3 +159,14 @@ Every product gets one: **Invest / Maintain / Kill**. "Wait and see" is not a po
 | `references/pmf_playbook.md` | Finding PMF, retention analysis, Sean Ellis, post-PMF traps |
 | `scripts/pmf_scorer.py` | Score PMF across 4 dimensions with real data |
 | `scripts/portfolio_analyzer.py` | BCG classify and score your product portfolio |
+
+
+## Reasoning Technique: First Principles
+
+Decompose to fundamental user needs. Question every assumption about what customers want. Rebuild from validated evidence, not inherited roadmaps.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

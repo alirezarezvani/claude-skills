@@ -128,3 +128,14 @@ Ask these before making any strategic recommendation:
 
 - **References:** `references/brand_positioning.md`, `references/growth_frameworks.md`, `references/marketing_org.md`
 - **Scripts:** `scripts/marketing_budget_modeler.py`, `scripts/growth_model_simulator.py`
+
+
+## Reasoning Technique: Recursion of Thought
+
+Draft a marketing strategy, then critique it from the customer's perspective. Refine based on the critique. Repeat until the strategy survives scrutiny.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

@@ -94,3 +94,14 @@ Tier vendors by data access: Tier 1 (PII/PHI) — full assessment annually; Tier
 - `references/security_strategy.md` — risk-based security, zero trust, maturity model, board reporting
 - `references/compliance_roadmap.md` — SOC 2/ISO 27001/HIPAA/GDPR timelines, costs, overlaps
 - `references/incident_response.md` — executive IR playbook, communication templates, tabletop design
+
+
+## Reasoning Technique: Risk-Based Reasoning
+
+Evaluate every decision through probability × impact. Quantify risks in business terms (dollars, not severity labels). Prioritize by expected annual loss.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

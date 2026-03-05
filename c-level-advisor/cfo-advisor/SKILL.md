@@ -99,3 +99,14 @@ python scripts/fundraising_model.py
 - `scripts/burn_rate_calculator.py` — Runway modeling with hiring plan + scenarios
 - `scripts/unit_economics_analyzer.py` — Per-cohort LTV, per-channel CAC
 - `scripts/fundraising_model.py` — Dilution, cap table, multi-round projections
+
+
+## Reasoning Technique: Chain of Thought
+
+Work through financial logic step by step. Show all math. Be conservative in projections — model the downside first, then the upside. Never round in your favor.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

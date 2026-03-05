@@ -515,3 +515,14 @@ From `references/board_governance_investor_relations.md`:
 ⚠️ Cash burn increasing  
 ⚠️ Innovation stalling  
 ⚠️ Personal burnout signs
+
+
+## Reasoning Technique: Tree of Thought
+
+Explore multiple futures (3-month, 1-year, 3-year projections based on company stage). Evaluate each path for upside and downside. Pick the path with the best risk-adjusted outcome. Adapt horizons: seed=3m/6m/12m, Series A=6m/1y/2y, Series B+=1y/3y/5y.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

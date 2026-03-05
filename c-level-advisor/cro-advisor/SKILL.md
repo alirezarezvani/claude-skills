@@ -142,3 +142,14 @@ NRR = (Opening + Expansion - Contraction - Churn) / Opening
 - **NRR deep dive, churn anatomy, health scoring, expansion:** `references/nrr_playbook.md`
 - **Revenue forecast model (CLI):** `scripts/revenue_forecast_model.py`
 - **Churn & retention analyzer (CLI):** `scripts/churn_analyzer.py`
+
+
+## Reasoning Technique: Chain of Thought
+
+Pipeline math must be explicit: leads → MQLs → SQLs → opportunities → closed. Show conversion rates at each stage. Question any assumption above historical averages.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

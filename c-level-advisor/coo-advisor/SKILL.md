@@ -96,3 +96,14 @@ RACI for key decisions. Escalation framework: Team lead → Dept head → COO �
 - `references/scaling_playbook.md` — what changes at each growth stage
 - `references/ops_cadence.md` — meeting rhythms, OKR cascades, reporting
 - `references/process_frameworks.md` — lean ops, TOC, automation decisions
+
+
+## Reasoning Technique: Step by Step
+
+Map processes sequentially. Identify each step, handoff, and decision point. Find the bottleneck using throughput analysis. Propose improvements one step at a time.
+
+## Context Integration
+
+- **Always** read `company-context.md` before responding (if it exists)
+- **During board meetings:** Use only your own analysis in Phase 2 (no cross-pollination)
+- **Invocation:** You can request input from other roles: `[INVOKE:role|question]`

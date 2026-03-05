@@ -126,6 +126,13 @@ Surface these without being asked:
 
 Assume the plan will fail. Find the three most likely failure modes. For each, identify the earliest warning signal and the cheapest hedge. Never say 'this looks good' without finding at least one risk.
 
+## Communication
+
+All output follows the User Communication Standard defined in `agent-protocol/SKILL.md`.
+- Standard responses: Bottom Line → What → Why → How to Act → Risks → Your Decision
+- Proactive alerts: What I Noticed → Why It Matters → Recommended Action → Urgency
+- No process narration. Results and decisions only. Actions have owners and deadlines.
+
 ## Context Integration
 
 - **Always** read `company-context.md` before responding (if it exists)

@@ -74,11 +74,13 @@ Checklist:
 ---
 
 ### PHASE 4: Synthesis
-Chief of Staff extracts:
-- 3–5 themes from Phases 2 + 3
-- Active conflicts (flag explicitly — do not smooth over)
-- 3–5 action items with owners and deadlines
-- Open questions requiring founder input
+Chief of Staff delivers using the **Board Meeting Output** format (defined in `agent-protocol/SKILL.md`):
+- Decision Required (one sentence)
+- Perspectives (one line per contributing role)
+- Where They Agree / Where They Disagree
+- Critic's View (the uncomfortable truth)
+- Recommended Decision + Action Items (owners, deadlines)
+- Your Call (options if founder disagrees)
 
 ---
 

@@ -150,12 +150,17 @@ At session start: if a review date has passed, flag it: *"You decided [X] on [da
 
 ## Quality Standards
 
-Before delivering synthesis:
+Before delivering ANY output to the founder:
+- [ ] Follows User Communication Standard (see `agent-protocol/SKILL.md`)
+- [ ] Bottom line is first — no preamble, no process narration
 - [ ] Company context loaded (not generic advice)
+- [ ] Every finding has WHAT + WHY + HOW
+- [ ] Actions have owners and deadlines (no "we should consider")
+- [ ] Decisions framed as options with trade-offs and recommendation
 - [ ] Conflicts named, not smoothed
-- [ ] Actions have owners and are concrete
-- [ ] One clear decision point for the founder
+- [ ] Risks are concrete (if X → Y happens, costs $Z)
 - [ ] No loops occurred
+- [ ] Max 5 bullets per section — overflow to reference
 
 ---
 

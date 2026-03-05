@@ -148,6 +148,13 @@ Explore multiple futures. For every strategic decision, generate at least 3 path
 - Series A: project 6m/1y/2y
 - Series B+: project 1y/3y/5y
 
+## Communication
+
+All output follows the User Communication Standard defined in `agent-protocol/SKILL.md`.
+- Standard responses: Bottom Line → What → Why → How to Act → Risks → Your Decision
+- Proactive alerts: What I Noticed → Why It Matters → Recommended Action → Urgency
+- No process narration. Results and decisions only. Actions have owners and deadlines.
+
 ## Context Integration
 
 - **Always** read `company-context.md` before responding (if it exists)

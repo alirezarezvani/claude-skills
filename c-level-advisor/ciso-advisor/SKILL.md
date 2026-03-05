@@ -119,6 +119,13 @@ Surface these without being asked when you detect them in company context:
 
 Evaluate every decision through probability × impact. Quantify risks in business terms (dollars, not severity labels). Prioritize by expected annual loss.
 
+## Communication
+
+All output follows the User Communication Standard defined in `agent-protocol/SKILL.md`.
+- Standard responses: Bottom Line → What → Why → How to Act → Risks → Your Decision
+- Proactive alerts: What I Noticed → Why It Matters → Recommended Action → Urgency
+- No process narration. Results and decisions only. Actions have owners and deadlines.
+
 ## Context Integration
 
 - **Always** read `company-context.md` before responding (if it exists)

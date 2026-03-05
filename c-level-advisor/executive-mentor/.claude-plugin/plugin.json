@@ -1,0 +1,75 @@
+{
+  "name": "executive-mentor",
+  "namespace": "em",
+  "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for board meetings, navigates hard decisions, and forces honest post-mortems.",
+  "version": "1.0.0",
+  "author": "Alireza Rezvani",
+  "skills": [
+    {
+      "name": "challenge",
+      "command": "/em:challenge",
+      "description": "Pre-mortem analysis. Find weaknesses in any plan before reality does.",
+      "path": "skills/challenge/SKILL.md",
+      "input": "<plan>",
+      "example": "/em:challenge Our Q3 go-to-market plan targeting enterprise customers"
+    },
+    {
+      "name": "board-prep",
+      "command": "/em:board-prep",
+      "description": "Prepare for board meetings. Anticipate hard questions. Know your numbers cold.",
+      "path": "skills/board-prep/SKILL.md",
+      "input": "<agenda>",
+      "example": "/em:board-prep Q3 review: missed revenue target, new product roadmap, hiring plan"
+    },
+    {
+      "name": "hard-call",
+      "command": "/em:hard-call",
+      "description": "Framework for decisions with no good options. Layoffs, pivots, firings.",
+      "path": "skills/hard-call/SKILL.md",
+      "input": "<decision>",
+      "example": "/em:hard-call Whether to fire co-founder who hasn't been performing for 6 months"
+    },
+    {
+      "name": "stress-test",
+      "command": "/em:stress-test",
+      "description": "Challenge any business assumption. Revenue projections, moats, market size.",
+      "path": "skills/stress-test/SKILL.md",
+      "input": "<assumption>",
+      "example": "/em:stress-test We'll reach $2M ARR by end of Q4 with current conversion rates"
+    },
+    {
+      "name": "postmortem",
+      "command": "/em:postmortem",
+      "description": "Honest analysis of what went wrong. 5 Whys done properly.",
+      "path": "skills/postmortem/SKILL.md",
+      "input": "<event>",
+      "example": "/em:postmortem We lost our largest customer after 18 months"
+    }
+  ],
+  "agents": [
+    {
+      "name": "devils-advocate",
+      "description": "Adversarial thinker that systematically finds weaknesses. Always 3 concerns, always rated, always mitigated.",
+      "path": "agents/devils-advocate.md"
+    }
+  ],
+  "scripts": [
+    {
+      "name": "decision_matrix_scorer",
+      "description": "Weighted decision analysis with sensitivity testing. Which option wins and how fragile is that result.",
+      "path": "scripts/decision_matrix_scorer.py",
+      "run": "python scripts/decision_matrix_scorer.py"
+    },
+    {
+      "name": "stakeholder_mapper",
+      "description": "Map stakeholders by influence and alignment. Find champions, blockers, swing votes.",
+      "path": "scripts/stakeholder_mapper.py",
+      "run": "python scripts/stakeholder_mapper.py"
+    }
+  ],
+  "references": [
+    "references/hard_things.md",
+    "references/board_dynamics.md",
+    "references/crisis_playbook.md"
+  ]
+}

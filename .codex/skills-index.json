@@ -42,6 +42,54 @@
       "description": "Technical leadership guidance for engineering teams, architecture decisions, and technology strategy. Includes tech debt analyzer, team scaling calculator, engineering metrics frameworks, technology evaluation tools, and ADR templates. Use when assessing technical debt, scaling engineering teams, evaluating technologies, making architecture decisions, establishing engineering metrics, or when user mentions CTO, tech debt, technical debt, team scaling, architecture decisions, technology evaluation, engineering metrics, DORA metrics, or technology strategy."
     },
     {
+      "name": "coo-advisor",
+      "source": "../../c-level-advisor/coo-advisor",
+      "category": "c-level",
+      "description": "Operations leadership for scaling companies. Process design, OKR execution, operational cadence, and scaling playbooks. Use when designing operations, setting up OKRs, building processes, scaling teams, or analyzing bottlenecks."
+    },
+    {
+      "name": "cpo-advisor",
+      "source": "../../c-level-advisor/cpo-advisor",
+      "category": "c-level",
+      "description": "Product leadership for vision, portfolio strategy, and product-market fit. Use when evaluating PMF, designing product org, making invest/maintain/kill decisions, or building product strategy for boards."
+    },
+    {
+      "name": "cmo-advisor",
+      "source": "../../c-level-advisor/cmo-advisor",
+      "category": "c-level",
+      "description": "Marketing leadership for brand strategy, growth models, and budget allocation. Use when designing growth engines, optimizing channel mix, building marketing org, or planning brand positioning."
+    },
+    {
+      "name": "cfo-advisor",
+      "source": "../../c-level-advisor/cfo-advisor",
+      "category": "c-level",
+      "description": "Financial leadership for startup fundraising, unit economics, and cash management. Use when modeling burn rate, preparing for fundraising, analyzing unit economics, or building board financial packages."
+    },
+    {
+      "name": "cro-advisor",
+      "source": "../../c-level-advisor/cro-advisor",
+      "category": "c-level",
+      "description": "Revenue leadership for sales strategy, pricing, and net revenue retention. Use when forecasting revenue, designing sales models, optimizing pricing, or analyzing churn and expansion."
+    },
+    {
+      "name": "ciso-advisor",
+      "source": "../../c-level-advisor/ciso-advisor",
+      "category": "c-level",
+      "description": "Security leadership for risk management, compliance roadmaps, and incident response. Use when quantifying security risk, planning SOC2/ISO27001/HIPAA compliance, or building security strategy."
+    },
+    {
+      "name": "chro-advisor",
+      "source": "../../c-level-advisor/chro-advisor",
+      "category": "c-level",
+      "description": "People leadership for hiring plans, compensation frameworks, and org design. Use when building hiring plans, designing comp bands, planning org structure, or addressing retention."
+    },
+    {
+      "name": "executive-mentor",
+      "source": "../../c-level-advisor/executive-mentor",
+      "category": "c-level",
+      "description": "Adversarial executive coach. Stress-tests plans, preps for board meetings, and frameworks for hard decisions. Use /em:challenge, /em:board-prep, /em:hard-call, /em:stress-test, /em:postmortem."
+    },
+    {
       "name": "aws-solution-architect",
       "source": "../../engineering-team/aws-solution-architect",
       "category": "engineering",
@@ -391,7 +439,7 @@
       "description": "Customer success, sales engineering, and revenue operations skills"
     },
     "c-level": {
-      "count": 2,
+      "count": 10,
       "source": "../../c-level-advisor",
       "description": "Executive leadership and advisory skills"
     },

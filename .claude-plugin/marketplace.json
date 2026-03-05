@@ -8,7 +8,7 @@
     "homepage": "https://github.com/alirezarezvani/claude-skills",
     "repository": "https://github.com/alirezarezvani/claude-skills",
     "metadata": {
-        "description": "86 production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+        "description": "87+ production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
         "version": "2.0.0"
     },
     "plugins": [
@@ -303,6 +303,29 @@
                 "pre-install"
             ],
             "category": "security"
+        },
+        {
+            "name": "playwright-pro",
+            "source": "./engineering-team/playwright-pro",
+            "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, TestRail + BrowserStack MCP integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
+            "version": "1.0.0",
+            "author": {
+                "name": "Alireza Rezvani"
+            },
+            "keywords": [
+                "playwright",
+                "testing",
+                "e2e",
+                "qa",
+                "test-automation",
+                "browserstack",
+                "testrail",
+                "cross-browser",
+                "migration",
+                "cypress",
+                "selenium"
+            ],
+            "category": "development"
         }
     ]
 }

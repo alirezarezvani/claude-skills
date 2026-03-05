@@ -1,0 +1,28 @@
+{
+  "name": "self-improving-agent",
+  "displayName": "Self-Improving Agent",
+  "version": "1.0.0",
+  "description": "Curate auto-memory, promote learnings to rules, extract skills from patterns.",
+  "author": "Reza Rezvani",
+  "license": "MIT",
+  "platforms": ["claude-code", "openclaw", "codex"],
+  "category": "development",
+  "tags": ["memory", "auto-memory", "self-improvement", "learning", "rules", "skills"],
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "commands": {
+    "review": "/si:review",
+    "promote": "/si:promote",
+    "extract": "/si:extract",
+    "status": "/si:status",
+    "remember": "/si:remember"
+  },
+  "hooks": {
+    "PostToolUse": {
+      "Bash": "hooks/error-capture.sh"
+    }
+  },
+  "agents": [
+    "memory-analyst",
+    "skill-extractor"
+  ]
+}

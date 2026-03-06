@@ -1,7 +1,12 @@
 ---
 name: marketing-ideas
-version: 1.0.0
 description: "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Marketing Ideas for SaaS
@@ -157,32 +162,50 @@ When recommending ideas, provide for each:
 
 ---
 
-## Related Skills
-
-- **programmatic-seo**: For scaling SEO content (#4)
-- **competitor-alternatives**: For comparison pages (#11)
-- **email-sequence**: For email marketing tactics
-- **free-tool-strategy**: For engineering as marketing (#15)
-- **referral-program**: For viral growth (#93)
-
 ## Proactive Triggers
 
-- **Doing the same 3 marketing channels** → Marketing diversity reduces risk. Explore new channels.
-- **No experimentation budget** → Allocate 10-20% for testing new ideas.
-- **Competitor doing something you're not** → Competitive gap in marketing approach.
-- **Growth has plateaued** → Time for new channels or approaches. This skill can spark ideas.
+Surface these issues WITHOUT being asked when you notice them in context:
+
+- **User is at pre-revenue stage but asks about paid ads** → Flag spend timing risk; redirect to zero-budget tactics (content, community, founder-led sales) until PMF is validated.
+- **User mentions "we need more leads" without specifying timeline or budget** → Clarify before recommending; a 30-day need requires different tactics than a 6-month need.
+- **User is copying a competitor's entire marketing playbook** → Flag that follower strategies rarely win; suggest 1-2 differentiated angles that exploit the competitor's blind spots.
+- **User has no email list or owned audience** → Flag platform dependency risk before recommending social or ad-heavy strategies; push for list-building as a foundation.
+- **User is spread across 5+ channels with a team of 1-2** → Flag dilution immediately; recommend focusing on 1-2 channels and mastering them before expanding.
+
+---
 
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
-| "Marketing ideas" | Curated list of 10-15 ideas ranked by effort/impact |
-| "Growth tactics" | Quick-win tactics for your specific stage and audience |
-| "What else can I try?" | Unexplored channel recommendations with rationale |
+| Marketing ideas for my product | 3-5 curated ideas matched to stage, budget, and goal — each with rationale, first steps, and expected outcome |
+| A full marketing channel list | Complete 139-idea reference organized by category, with implementation notes for relevant ones |
+| A prioritized growth plan | Ranked list of 5-10 tactics with effort/impact matrix and 90-day sequencing |
+| Ideas for a specific goal (e.g., leads, authority) | Focused shortlist from the relevant use-case category with implementation details |
+| Competitor tactic breakdown | Analysis of what a named competitor is doing + gap/opportunity map for differentiation |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+All output follows the structured communication standard:
+
+- **Bottom line first** — recommend the top 3 ideas immediately, then explain
+- **What + Why + How** — every idea gets: what it is, why it fits their situation, how to start
+- **Effort/Impact framing** — always indicate relative effort and expected timeline to results
+- **Confidence tagging** — 🟢 proven for this stage / 🟡 worth testing / 🔴 high-variance bet
+
+Never dump all 139 ideas. Curate ruthlessly for context. If stage or budget is unclear, ask before recommending.
+
+---
+
+## Related Skills
+
+- **marketing-context**: USE as foundation before brainstorming — loads product, audience, and competitive context. NOT a substitute for this skill's idea library.
+- **content-strategy**: USE when the chosen channel is content/SEO and a full topic plan is needed. NOT for channel selection itself.
+- **copywriting**: USE when the chosen tactic requires page or ad copy. NOT for deciding which tactics to pursue.
+- **social-content**: USE when the chosen idea involves social media execution. NOT for channel strategy decisions.
+- **copy-editing**: USE to polish any marketing copy produced from these ideas. NOT for idea generation.
+- **content-production**: USE when scaling content-based ideas to high volume. NOT for the initial brainstorm.
+- **seo-audit**: USE when content/SEO ideas need technical validation. NOT for ideation.
+- **free-tool-strategy**: USE when Engineering as Marketing (#15) is the chosen tactic and a tool needs to be planned and built. NOT for general idea browsing.

@@ -1,7 +1,12 @@
 ---
 name: copy-editing
-version: 1.0.0
 description: "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Copy Editing
@@ -427,15 +432,6 @@ This iterative process ensures each edit doesn't create new problems while respe
 
 ---
 
-## Related Skills
-
-- **copywriting**: For writing new copy from scratch (use this skill to edit after your first draft is complete)
-- **page-cro**: For broader page optimization beyond copy
-- **marketing-psychology**: For understanding why certain edits improve conversion
-- **ab-test-setup**: For testing copy variations
-
----
-
 ## When to Use Each Skill
 
 | Task | Skill to Use |
@@ -445,25 +441,51 @@ This iterative process ensures each edit doesn't create new problems while respe
 | Editing copy you just wrote | copy-editing (this skill) |
 | Structural or strategic page changes | page-cro |
 
+---
+
 ## Proactive Triggers
 
-- **Passive voice exceeds 15%** → Rewrite for active voice. Passive weakens persuasion.
-- **Average sentence length >25 words** → Readability suffers. Break up long sentences.
-- **Inconsistent brand voice across sections** → Tone shifts between formal and casual. Standardize.
-- **Jargon without explanation** → Industry terms used without context. Add plain-language alternatives.
+Surface these issues WITHOUT being asked when you notice them in context:
+
+- **Copy is submitted for editing without a stated goal** → Ask for the target action and audience before starting any sweeps; editing without this context guarantees misaligned feedback.
+- **Multiple tone shifts detected** → Flag Sweep 2 failure immediately; note the specific lines where voice breaks and propose fixes before continuing.
+- **Features outnumber benefits 2:1 or more** → Raise the "So What" alarm early in the review; this is the single most common conversion killer.
+- **Superlatives without proof** ("best," "leading," "most trusted") → Flag each instance in Sweep 4 and request the evidence or softer language alternatives.
+- **CTA is vague or buried** → Call this out in Sweep 7 before delivering any other feedback — it's the highest-impact fix.
+
+---
 
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
-| "Edit this copy" | Multi-pass edit: structure, clarity, voice, grammar, CTA strength |
-| "Proofread" | Error-focused review: grammar, spelling, punctuation, consistency |
-| "Make this shorter" | Tightened copy with tracked cuts and reasoning |
-| "Polish for brand voice" | Voice-aligned rewrite matching brand guidelines |
+| A full copy review | Seven-sweep structured report with specific issues, proposed edits, and rationale for each change |
+| A quick copy pass | Word- and sentence-level edits with tracked-change style annotations |
+| A copy editing checklist run | Completed checklist with pass/fail per section and priority fixes |
+| Specific sweep only (e.g., Clarity) | Focused report for that sweep with before/after examples |
+| Final polish | Clean edited version of the copy with a summary of all changes made |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+All output follows the structured communication standard:
+
+- **Bottom line first** — state the overall copy health before diving into issues
+- **What + Why + How** — every flagged issue gets: what's wrong, why it hurts conversion, how to fix it
+- **Edits have reasons** — never change words without explaining the principle
+- **Confidence tagging** — 🟢 clear improvement / 🟡 judgment call / 🔴 needs author input
+
+Deliver findings sweep-by-sweep. Don't dump all issues at once. Prioritize by conversion impact, not writing preference.
+
+---
+
+## Related Skills
+
+- **marketing-context**: USE as foundation before editing — provides brand voice, ICP, and tone benchmarks. NOT a substitute for reading the copy itself.
+- **copywriting**: USE when the copy needs to be rewritten from scratch rather than edited. NOT for polishing existing drafts.
+- **content-strategy**: USE when the problem is what to say, not how to say it. NOT for line-level improvements.
+- **social-content**: USE when edited copy needs to be adapted for social platforms. NOT for page-level editing.
+- **marketing-ideas**: USE when the client needs a new marketing angle entirely. NOT for editorial improvement.
+- **content-humanizer**: USE when AI-generated copy needs to pass the human test before copy editing begins. NOT for structural review.
+- **ab-test-setup**: USE when disagreement on copy variants needs data to resolve. NOT for the editing process itself.

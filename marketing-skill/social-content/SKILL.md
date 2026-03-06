@@ -1,7 +1,12 @@
 ---
 name: social-content
-version: 1.0.0
 description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Social Content
@@ -269,31 +274,50 @@ Instead of guessing, analyze what's working for top creators in your niche:
 
 ---
 
-## Related Skills
-
-- **copywriting**: For longer-form content that feeds social
-- **launch-strategy**: For coordinating social with launches
-- **email-sequence**: For nurturing social audience via email
-- **marketing-psychology**: For understanding what drives engagement
-
 ## Proactive Triggers
 
-- **Same content format across all platforms** → Each platform has different optimal formats. Adapt.
-- **No engagement strategy** → Posting without responding kills reach. Plan for community interaction.
-- **Posting frequency below platform minimums** → LinkedIn 3x/week, Twitter/X 5x/week minimum for growth.
-- **No repurposing pipeline** → One piece of content should become 5-10 social posts.
+Surface these issues WITHOUT being asked when you notice them in context:
+
+- **User wants to post the same content on every platform** → Flag platform format mismatch immediately; adapt tone, length, and structure per platform before writing.
+- **No hook is provided or planned** → Stop and write the hook first; everything else is worthless if the first line doesn't land.
+- **Posting frequency is unsustainable** (e.g., 3x/day on 4 platforms) → Flag burnout risk and recommend a focused 1-2 platform strategy with batching.
+- **Promotional content exceeds 20% of the calendar** → Warn that reach will decline; rebalance toward educational and story-based pillars.
+- **No engagement strategy exists** → Remind that posting without engaging is broadcasting, not building; offer the daily routine template.
+
+---
 
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
-| "Write a LinkedIn post" | Post with hook, body, CTA + 3 variations |
-| "Social media content plan" | Week of posts across platforms with themes |
-| "Repurpose this article" | 5-10 social posts extracted from long-form content |
+| A social post | Platform-native post with hook, body, CTA, and hashtag recommendations |
+| A content calendar | Weekly or monthly table with topic, platform, format, pillar, and posting day |
+| A repurposing plan | Source content mapped to 5-8 derivative social formats across platforms |
+| Hook options | 5 hook variants (curiosity, story, value, contrarian, data) for a given topic |
+| A LinkedIn thread | Full thread structure: hook tweet, 5-8 body tweets, CTA tweet, with formatting notes |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+All output follows the structured communication standard:
+
+- **Bottom line first** — deliver the post or calendar before explaining the strategy choices
+- **What + Why + How** — every format or platform decision is explained
+- **Platform-native by default** — never deliver generic copy; always adapt to the target platform
+- **Confidence tagging** — 🟢 proven format / 🟡 test this / 🔴 depends on your audience
+
+Always include a hook as the first element. Never deliver body copy without it. For calendars, flag which posts are evergreen vs. timely.
+
+---
+
+## Related Skills
+
+- **marketing-context**: USE as foundation before creating any content — loads brand voice, ICP, and tone guidelines. NOT a substitute for platform-specific adaptation.
+- **copywriting**: USE when long-form page or landing page copy is needed. NOT for short-form social posts.
+- **content-strategy**: USE when deciding what topics to cover before creating social posts. NOT for writing the posts themselves.
+- **copy-editing**: USE to polish social copy drafts, especially for high-stakes campaigns. NOT for casual post creation.
+- **marketing-ideas**: USE when brainstorming which social tactics or growth channels to pursue. NOT for writing specific posts.
+- **content-production**: USE when operating a high-volume content machine across multiple creators. NOT for one-off post creation.
+- **content-humanizer**: USE when AI-drafted posts sound robotic or templated. NOT for strategy or scheduling.
+- **launch-strategy**: USE when coordinating social content around a product launch. NOT for evergreen posting schedules.

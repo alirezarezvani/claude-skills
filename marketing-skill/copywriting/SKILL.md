@@ -1,7 +1,12 @@
 ---
 name: copywriting
-version: 1.0.0
-description: When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing copy," "headline help," or "CTA copy." For email copy, see email-sequence. For popup copy, see popup-cro.
+description: "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Copywriting
@@ -242,33 +247,50 @@ For headlines and CTAs, provide 2-3 options:
 
 ---
 
-## Related Skills
-
-- **copy-editing**: For polishing existing copy (use after your draft)
-- **page-cro**: If page structure/strategy needs work, not just copy
-- **email-sequence**: For email copywriting
-- **popup-cro**: For popup and modal copy
-- **ab-test-setup**: To test copy variations
-
 ## Proactive Triggers
 
-- **Hero section buries the value prop** → Lead with outcome, not feature description.
-- **No social proof above the fold** → Trust signals needed before the scroll.
-- **CTA is vague** → "Get started" beats "Learn more" by 30%+. Be specific about what happens next.
-- **Copy is feature-focused, not benefit-focused** → Rewrite features as outcomes.
+Surface these issues WITHOUT being asked when you notice them in context:
+
+- **Copy opens with "We" or the company name** → Flag it immediately; reframe to lead with the customer's outcome or problem.
+- **Value proposition is vague** (e.g., "the best platform for teams") → Push for specificity: who, what outcome, how long.
+- **Features are listed without benefits** → Add "which means..." bridges before delivering the draft.
+- **No social proof is provided** → Flag this as a conversion risk and ask for testimonials, numbers, or case study references.
+- **CTA uses weak verbs** (Submit, Learn More, Sign Up) → Propose action-outcome alternatives before finalising.
+
+---
 
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
-| "Write homepage copy" | Full page copy: hero, features, social proof, CTA sections |
-| "Write a headline" | 10 headline variations with scoring rationale |
-| "Rewrite this section" | Before/after with explanation of changes |
-| "Landing page copy" | Complete landing page with headline, subhead, body, CTA, FAQ |
+| Homepage copy | Full page copy organized by section: headline, subheadline, CTA, social proof, benefits, how it works, objection handling, final CTA |
+| Landing page | Single-focus copy with headline, body, and one CTA — annotated with conversion rationale |
+| Headline options | 5 headline variants using different formulas (outcome, pain, question, bold claim, category) |
+| CTA copy | 3-5 CTA options with formula and rationale for each |
+| Page copy review | Section-by-section feedback on clarity, benefit framing, and CTA strength |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+All output follows the structured communication standard:
+
+- **Bottom line first** — deliver the copy, then explain the choices
+- **What + Why + How** — every copy decision has a principle behind it
+- **Annotations are mandatory** — never ship copy without explaining the key choices
+- **Confidence tagging** — 🟢 strong recommendation / 🟡 test this / 🔴 needs proof to land
+
+Always provide alternatives for high-stakes elements (headline, CTA). Never deliver one option and call it done.
+
+---
+
+## Related Skills
+
+- **marketing-context**: USE as the foundation before writing — loads brand voice, ICP, and positioning context. NOT a substitute for this skill.
+- **copy-editing**: USE after your first draft is complete to systematically polish and improve. NOT for writing new copy from scratch.
+- **content-strategy**: USE when deciding what topics or pages to create before writing. NOT for the writing itself.
+- **social-content**: USE when adapting finished copy for social platforms. NOT for long-form page copy.
+- **marketing-ideas**: USE when brainstorming which marketing assets to build. NOT for writing the copy for those assets.
+- **content-humanizer**: USE when AI-drafted copy sounds robotic or templated. NOT for strategic decisions.
+- **ab-test-setup**: USE to design experiments testing copy variants. NOT for writing the copy itself.
+- **email-sequence**: USE for email copywriting specifically. NOT for page or landing page copy.

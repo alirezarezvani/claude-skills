@@ -1,7 +1,12 @@
 ---
 name: content-strategy
-version: 1.0.0
-description: When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," or "content planning." For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit.
+description: "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Content Strategy
@@ -347,33 +352,50 @@ Visual or structured representation of how content interconnects.
 
 ---
 
-## Related Skills
-
-- **copywriting**: For writing individual content pieces
-- **seo-audit**: For technical SEO and on-page optimization
-- **programmatic-seo**: For scaled content generation
-- **email-sequence**: For email-based content
-- **social-content**: For social media content
-
 ## Proactive Triggers
 
-- **No content published in 60+ days** → Content momentum has stalled. Recommend a content sprint.
-- **All content targets same keyword cluster** → Topical cannibalization risk. Diversify clusters.
-- **No pillar content exists** → Hub-and-spoke model missing. Build pillar pages first.
-- **Competitor publishes 3x more frequently** → Content gap growing. Prioritize or risk ranking loss.
+Surface these issues WITHOUT being asked when you notice them in context:
+
+- **No content plan exists** → Immediately propose a 3-pillar starter strategy with 10 seed topics before asking more questions.
+- **User has content but low traffic** → Flag the searchable vs. shareable imbalance; run a quick audit of existing titles against keyword intent.
+- **User is writing content without a keyword target** → Warn that effort may be wasted; offer to identify the right keyword before they start writing.
+- **Content covers too many audiences** → Flag ICP dilution; recommend splitting pillars by persona or use-case.
+- **Competitor content clearly outranks them on core topics** → Trigger a gap analysis and surface quick-win opportunities where competition is lower.
+
+---
 
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
-| "Plan my content" | Content calendar with topics, formats, keywords, and publishing cadence |
-| "What should I write about?" | Prioritized topic list based on search volume, competition, and business value |
-| "Content audit" | Gap analysis against competitors + topic cluster map |
-| "Topic clusters" | Pillar/cluster structure with internal linking strategy |
+| A content strategy | 3-5 pillars with rationale, subtopic clusters per pillar, product-content connection map |
+| Topic ideation | Prioritized topic table (keyword, volume, difficulty, buyer stage, content type, score) |
+| A content calendar | Weekly/monthly plan with topic, format, target keyword, and distribution channel |
+| Competitor analysis | Gap table showing competitor coverage vs. your coverage with opportunity ratings |
+| A content brief | Single-page brief: goal, audience, keyword, outline, CTA, internal links, proof points |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+All output follows the structured communication standard:
+
+- **Bottom line first** — recommendation before rationale
+- **What + Why + How** — every strategy has all three
+- **Actions have owners and deadlines** — no "you might consider"
+- **Confidence tagging** — 🟢 high confidence / 🟡 medium / 🔴 assumption
+
+Output format defaults: tables for prioritization, bullet lists for options, prose for rationale. Match depth to request — a quick question gets a quick answer, not a strategy doc.
+
+---
+
+## Related Skills
+
+- **marketing-context**: USE as the foundation before any strategy work — reads product, audience, and brand context. NOT a substitute for this skill.
+- **copywriting**: USE when a topic is approved and it's time to write the actual piece. NOT for deciding what to write about.
+- **copy-editing**: USE to polish content drafts after writing. NOT for planning or strategy decisions.
+- **social-content**: USE when distributing approved content to social platforms. NOT for organic search strategy.
+- **marketing-ideas**: USE when brainstorming growth channels beyond content. NOT for deep keyword or topic planning.
+- **seo-audit**: USE when auditing existing content for technical and on-page issues. NOT for creating new strategy from scratch.
+- **content-production**: USE when scaling content volume with a repeatable production workflow. NOT for initial strategy definition.
+- **content-humanizer**: USE when AI-generated content needs to sound more authentic. NOT for topic selection.

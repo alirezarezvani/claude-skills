@@ -1,0 +1,121 @@
+# Content Pod Import Log
+Date: 2026-03-06
+Imported by: Leo (subagent: content-importer)
+Source: ~/.openclaw/workspace/skills/
+Destination: /tmp/claude-skills-merge/marketing-skill/
+
+---
+
+## Summary
+
+Imported 5 marketing skills (Content Pod) from the OpenClaw workspace into the claude-skills merge directory.
+All 5 skills passed validation: frontmatter complete, all 4 required sections added.
+
+---
+
+## Skills Imported
+
+### 1. content-strategy
+- Source: ~/.openclaw/workspace/skills/content-strategy/SKILL.md
+- Destination: /tmp/claude-skills-merge/marketing-skill/content-strategy/SKILL.md
+- Size: 14,336 bytes
+- Frontmatter: ✅ name, description, license: MIT, metadata (version 1.0.0, author Alireza Rezvani, category marketing, updated 2026-03-06)
+- Sections added:
+  - ✅ ## Proactive Triggers (5 triggers: no plan exists, low traffic, missing keyword target, audience dilution, competitor gap)
+  - ✅ ## Output Artifacts (5 artifacts: strategy doc, topic table, content calendar, competitor analysis, content brief)
+  - ✅ ## Communication (quality standard: bottom-line-first, What+Why+How, confidence tagging)
+  - ✅ ## Related Skills (8 skills: marketing-context, copywriting, copy-editing, social-content, marketing-ideas, seo-audit, content-production, content-humanizer — all with WHEN/NOT TO)
+- Core content: preserved unchanged
+- References dir: copied
+
+### 2. copywriting
+- Source: ~/.openclaw/workspace/skills/copywriting/SKILL.md
+- Destination: /tmp/claude-skills-merge/marketing-skill/copywriting/SKILL.md
+- Size: 9,781 bytes
+- Frontmatter: ✅ name, description, license: MIT, metadata (version 1.0.0, author Alireza Rezvani, category marketing, updated 2026-03-06)
+- Sections added:
+  - ✅ ## Proactive Triggers (5 triggers: copy opens with "We", vague value prop, features without benefits, no social proof, weak CTA verbs)
+  - ✅ ## Output Artifacts (5 artifacts: homepage copy, landing page, headline options, CTA copy, page copy review)
+  - ✅ ## Communication (quality standard: deliver copy first, annotate every choice, provide alternatives for key elements)
+  - ✅ ## Related Skills (8 skills: marketing-context, copy-editing, content-strategy, social-content, marketing-ideas, content-humanizer, ab-test-setup, email-sequence — all with WHEN/NOT TO)
+- Core content: preserved unchanged
+- References dir: copied
+
+### 3. copy-editing
+- Source: ~/.openclaw/workspace/skills/copy-editing/SKILL.md
+- Destination: /tmp/claude-skills-merge/marketing-skill/copy-editing/SKILL.md
+- Size: 15,946 bytes
+- Frontmatter: ✅ name, description, license: MIT, metadata (version 1.0.0, author Alireza Rezvani, category marketing, updated 2026-03-06)
+- Sections added:
+  - ✅ ## Proactive Triggers (5 triggers: no goal stated, tone shifts, features > benefits, superlatives without proof, vague/buried CTA)
+  - ✅ ## Output Artifacts (5 artifacts: full copy review, quick copy pass, checklist run, single sweep, final polish)
+  - ✅ ## Communication (quality standard: sweep-by-sweep delivery, prioritize by conversion impact, annotate every change)
+  - ✅ ## Related Skills (7 skills: marketing-context, copywriting, content-strategy, social-content, marketing-ideas, content-humanizer, ab-test-setup — all with WHEN/NOT TO)
+- Core content: preserved unchanged
+- References dir: copied
+
+### 4. social-content
+- Source: ~/.openclaw/workspace/skills/social-content/SKILL.md
+- Destination: /tmp/claude-skills-merge/marketing-skill/social-content/SKILL.md
+- Size: 11,255 bytes
+- Frontmatter: ✅ name, description, license: MIT, metadata (version 1.0.0, author Alireza Rezvani, category marketing, updated 2026-03-06)
+- Sections added:
+  - ✅ ## Proactive Triggers (5 triggers: same content on all platforms, no hook planned, unsustainable frequency, too much promo, no engagement strategy)
+  - ✅ ## Output Artifacts (5 artifacts: social post, content calendar, repurposing plan, hook options, LinkedIn thread)
+  - ✅ ## Communication (quality standard: platform-native by default, hook always first, flag evergreen vs. timely)
+  - ✅ ## Related Skills (8 skills: marketing-context, copywriting, content-strategy, copy-editing, marketing-ideas, content-production, content-humanizer, launch-strategy — all with WHEN/NOT TO)
+- Core content: preserved unchanged
+- References dir: copied (if exists)
+
+### 5. marketing-ideas
+- Source: ~/.openclaw/workspace/skills/marketing-ideas/SKILL.md
+- Destination: /tmp/claude-skills-merge/marketing-skill/marketing-ideas/SKILL.md
+- Size: 7,930 bytes
+- Frontmatter: ✅ name, description, license: MIT, metadata (version 1.0.0, author Alireza Rezvani, category marketing, updated 2026-03-06)
+- Sections added:
+  - ✅ ## Proactive Triggers (5 triggers: pre-revenue + paid ads, vague lead goal, copying competitor playbook, no owned audience, channel dilution)
+  - ✅ ## Output Artifacts (5 artifacts: curated ideas, full idea list, prioritized growth plan, goal-specific shortlist, competitor breakdown)
+  - ✅ ## Communication (quality standard: top 3 ideas first, effort/impact framing, never dump all 139 ideas)
+  - ✅ ## Related Skills (8 skills: marketing-context, content-strategy, copywriting, social-content, copy-editing, content-production, seo-audit, free-tool-strategy — all with WHEN/NOT TO)
+- Core content: preserved unchanged
+- References dir: copied
+
+---
+
+## Cross-Reference Matrix
+
+All skills in this pod reference each other appropriately:
+
+| Skill              | → content-strategy | → copywriting | → copy-editing | → social-content | → marketing-ideas | → marketing-context |
+|--------------------|-------------------|---------------|----------------|------------------|--------------------|----------------------|
+| content-strategy   | self              | ✅            | ✅             | ✅               | ✅                 | ✅                   |
+| copywriting        | ✅                | self          | ✅             | ✅               | ✅                 | ✅                   |
+| copy-editing       | ✅                | ✅            | self           | ✅               | ✅                 | ✅                   |
+| social-content     | ✅                | ✅            | ✅             | self             | ✅                 | ✅                   |
+| marketing-ideas    | ✅                | ✅            | ✅             | ✅               | self               | ✅                   |
+
+All skills also reference: content-production, content-humanizer, seo-audit (where relevant)
+
+---
+
+## Validation Results
+
+| Skill | Frontmatter | License | Author | Triggers | Artifacts | Communication | Related Skills |
+|-------|-------------|---------|--------|----------|-----------|---------------|----------------|
+| content-strategy | ✅ | ✅ | ✅ | ✅ (5) | ✅ (5) | ✅ | ✅ (8) |
+| copywriting | ✅ | ✅ | ✅ | ✅ (5) | ✅ (5) | ✅ | ✅ (8) |
+| copy-editing | ✅ | ✅ | ✅ | ✅ (5) | ✅ (5) | ✅ | ✅ (7) |
+| social-content | ✅ | ✅ | ✅ | ✅ (5) | ✅ (5) | ✅ | ✅ (8) |
+| marketing-ideas | ✅ | ✅ | ✅ | ✅ (5) | ✅ (5) | ✅ | ✅ (8) |
+
+All 5 skills: PASS
+
+---
+
+## Notes
+
+- Existing ## Related Skills sections in source files were replaced with the enhanced format (WHEN to use / WHEN NOT TO use) per spec
+- Core instructional content (workflows, frameworks, checklists, examples) was NOT modified
+- YAML frontmatter was restructured to match SKILL-AUTHORING-STANDARD.md format (license + metadata block)
+- version field was moved from top-level frontmatter into metadata block to match the standard
+- All cross-references use skill names consistent with existing claude-skills repo naming conventions

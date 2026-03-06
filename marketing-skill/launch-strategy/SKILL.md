@@ -1,7 +1,12 @@
 ---
 name: launch-strategy
-version: 1.0.0
-description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum."
+description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'GTM plan,' 'launch checklist,' or 'launch momentum.' This skill covers phased launches, channel strategy, and ongoing launch momentum."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Launch Strategy
@@ -342,32 +347,41 @@ Even small changelog updates remind customers your product is evolving. This bui
 
 ---
 
-## Related Skills
-
-- **marketing-ideas**: For additional launch tactics (#22 Product Hunt, #23 Early Access Referrals)
-- **email-sequence**: For launch and onboarding email sequences
-- **page-cro**: For optimizing launch landing pages
-- **marketing-psychology**: For psychology behind waitlists and exclusivity
-- **programmatic-seo**: For comparison pages mentioned in post-launch
-
 ## Proactive Triggers
 
-- **Launch without waitlist** → Pre-launch list building dramatically improves day-1 numbers.
-- **No phased rollout** → Big bang launches are risky. Plan soft launch → beta → public.
-- **No post-launch plan** → Most launches peak day 1 and die. Plan week 2-4 momentum.
-- **No success metrics defined** → Define what "successful launch" means before launching.
+Proactively offer launch planning when:
+
+1. **Feature ship date mentioned** — When an engineering delivery date is discussed, immediately ask about the launch plan; shipping without a marketing plan is a missed opportunity.
+2. **Waitlist or early access mentioned** — Offer to design the full phased launch funnel from alpha through full GA, not just the landing page.
+3. **Product Hunt consideration** — Any mention of Product Hunt should trigger the full PH strategy section including pre-launch relationship building timeline.
+4. **Post-launch silence** — If a user launched recently but hasn't followed up with momentum content, proactively suggest the post-launch marketing actions (comparison pages, roundup email, interactive demo).
+5. **Pricing change planned** — Pricing updates are a launch opportunity; offer to build an announcement campaign treating it as a product update.
+
+---
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Plan a launch" | Phased launch plan with timeline, channels, and milestones |
-| "Product Hunt strategy" | PH-specific playbook with timing, asset checklist, community prep |
-| "Feature announcement" | Multi-channel announcement plan with templates |
+| Artifact | Format | Description |
+|----------|--------|-------------|
+| Launch Plan | Markdown doc | Phase-by-phase plan with owners, dates, channels, and success metrics |
+| ORB Channel Map | Table | Owned/Rented/Borrowed channel strategy with tactics per channel |
+| Launch Day Checklist | Checklist | Complete day-of execution checklist with time-boxed actions |
+| Product Hunt Brief | Markdown doc | Listing copy, asset specs, pre-launch timeline, engagement playbook |
+| Post-Launch Momentum Plan | Bulleted list | 30-day post-launch actions to sustain and compound the launch |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+Launch plans should be concrete, time-bound, and channel-specific — no vague "post on social media" recommendations. Every output should specify who does what and when. Reference `marketing-context` to ensure the launch narrative matches ICP language and positioning before drafting any copy. Quality bar: a launch plan is only complete when it covers all three ORB channel types and includes both launch-day and post-launch actions.
+
+---
+
+## Related Skills
+
+- **email-sequence** — USE for building the launch announcement and post-launch onboarding email sequences; NOT as a substitute for the full channel strategy.
+- **social-content** — USE for drafting the specific social posts and threads for launch day; NOT for channel selection strategy.
+- **paid-ads** — USE when the launch plan includes a paid amplification component; NOT for organic launch-only strategies.
+- **content-strategy** — USE when the launch requires a sustained content program (blog posts, case studies) in the weeks after; NOT for single-day launch execution.
+- **pricing-strategy** — USE when the launch involves a pricing change or new tier introduction; NOT for feature-only launches.
+- **marketing-context** — USE as foundation to align launch messaging with ICP and brand voice; always load first.

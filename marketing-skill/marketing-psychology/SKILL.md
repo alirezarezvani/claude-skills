@@ -1,7 +1,12 @@
 ---
 name: marketing-psychology
-version: 1.0.0
-description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application."
+description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' 'consumer behavior,' 'nudge,' 'influence,' or 'conversion psychology.' This skill provides 70+ mental models organized for marketing application."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
 ---
 
 # Marketing Psychology & Mental Models
@@ -445,32 +450,40 @@ When facing a marketing challenge, consider:
 
 ---
 
-## Related Skills
-
-- **page-cro**: Apply psychology to page optimization
-- **copywriting**: Write copy using psychological principles
-- **popup-cro**: Use triggers and psychology in popups
-- **pricing-page optimization**: See page-cro for pricing psychology
-- **ab-test-setup**: Test psychological hypotheses
-
 ## Proactive Triggers
 
-- **No scarcity or urgency signals** → Legitimate scarcity drives action. Add countdowns, limited spots, etc.
-- **Social proof missing** → People follow people. Add testimonials, user counts, logos.
-- **Choice overload on pricing page** → More than 3-4 options causes decision paralysis.
-- **No loss framing** → Loss aversion is 2x stronger than gain. Frame what they'll miss.
+Proactively apply marketing psychology when:
+
+1. **Copy review requested** — When reviewing any page or email copy, layer in relevant psychological models (loss aversion, social proof, anchoring) as improvement recommendations.
+2. **Pricing discussion** — Any pricing page or plan structure discussion should immediately invoke charm pricing, decoy effect, and mental accounting analysis.
+3. **Low conversion problem** — When a user reports low conversions, map the funnel against BJ Fogg's Motivation × Ability × Prompt before recommending tactical fixes.
+4. **Onboarding friction** — Activation or onboarding drop-off discussions should trigger IKEA Effect, Goal-Gradient, and Activation Energy analysis.
+5. **New campaign design** — Before any campaign brief is finalized, apply the Quick Reference table to identify which psychological levers are being left unused.
+
+---
 
 ## Output Artifacts
 
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Apply psychology to this page" | Psychology audit with specific recommendations |
-| "Which mental models apply?" | Relevant mental models with application examples |
-| "Persuasion audit" | Score against Cialdini's 6 principles with fixes |
+| Artifact | Format | Description |
+|----------|--------|-------------|
+| Psychology Audit | Markdown doc | Page or campaign mapped against 10+ relevant models with gap analysis |
+| Persuasion Layer Plan | Bulleted list | Specific copy, design, and UX changes tied to named psychological principles |
+| Pricing Psychology Review | Table + narrative | Tier structure, anchoring, framing, and charm pricing recommendations |
+| Ethical Influence Checklist | Checklist | Verification that all psychological techniques are honest and non-manipulative |
+| Mental Model Quick Map | Reference table | Top 5 models applicable to the user's specific challenge with action items |
+
+---
 
 ## Communication
 
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+Apply psychological principles ethically — influence should serve the customer's genuine interests, not exploit vulnerabilities. When recommending persuasion techniques, always flag if a tactic edges toward manipulation. Reference `marketing-context` to ensure psychological applications align with the target audience's actual values and beliefs. Quality bar: every recommendation should be traceable to a named model with a clear mechanism of action.
+
+---
+
+## Related Skills
+
+- **copywriting** — USE when translating psychological insights into actual copy; NOT when the task is understanding *why* a principle works.
+- **page-cro** — USE to apply psychology to specific page element optimization; NOT as a substitute for understanding the underlying behavior model.
+- **pricing-strategy** — USE when psychological pricing recommendations need to be validated against business model constraints; NOT for pure pricing math.
+- **ad-creative** — USE when applying persuasion and emotional triggers to paid ad creative; NOT for organic content strategy.
+- **marketing-context** — USE as foundation to understand audience beliefs and biases before selecting which psychological models apply; always load first.

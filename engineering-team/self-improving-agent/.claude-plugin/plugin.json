@@ -1,67 +1,11 @@
 {
-  "name": "si",
+  "name": "self-improving-agent",
   "version": "1.0.0",
-  "displayName": "Self-Improving Agent",
   "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract proven patterns into reusable skills.",
-  "skills": [
-    {
-      "name": "review",
-      "path": "skills/review",
-      "command": "/si:review",
-      "description": "Analyze auto-memory for promotion candidates, stale entries, and health"
-    },
-    {
-      "name": "promote",
-      "path": "skills/promote",
-      "command": "/si:promote",
-      "description": "Elevate a proven pattern from MEMORY.md to CLAUDE.md or .claude/rules/"
-    },
-    {
-      "name": "extract",
-      "path": "skills/extract",
-      "command": "/si:extract",
-      "description": "Turn a recurring pattern into a standalone reusable skill"
-    },
-    {
-      "name": "status",
-      "path": "skills/status",
-      "command": "/si:status",
-      "description": "Memory health dashboard with line counts, topic files, and recommendations"
-    },
-    {
-      "name": "remember",
-      "path": "skills/remember",
-      "command": "/si:remember",
-      "description": "Explicitly save important knowledge to auto-memory with context"
-    }
-  ],
-  "agents": [
-    {
-      "name": "memory-analyst",
-      "path": "agents/memory-analyst.md"
-    },
-    {
-      "name": "skill-extractor",
-      "path": "agents/skill-extractor.md"
-    }
-  ],
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "./hooks/error-capture.sh"
-          }
-        ]
-      }
-    ]
+  "author": {
+    "name": "Alireza Rezvani"
   },
-  "settings": {
-    "memoryDir": "~/.claude/projects",
-    "maxMemoryLines": 200,
-    "promotionThreshold": 3,
-    "promotionWindowDays": 30
-  }
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
 }

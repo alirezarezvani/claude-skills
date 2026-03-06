@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alirezarezvani.github.io/claude-skills/sitemap.xml

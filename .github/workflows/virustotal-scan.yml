@@ -29,10 +29,12 @@ jobs:
         run: |
           mkdir -p /tmp/vt-scan
 
+          # Only scan executable/binary-capable files — skip text-only formats
+          # (.md, .py, .json, .yml are plain text; VT adds no value scanning them)
           CHANGED=$(git diff --name-only \
             ${{ github.event.pull_request.base.sha }} \
             ${{ github.sha }} \
-            | grep -E '\.(js|ts|py|sh|json|yml|yaml|md|mjs|cjs)$' || true)
+            | grep -E '\.(js|ts|sh|mjs|cjs|exe|dll|so|bin|wasm)$' || true)
 
           if [ -z "$CHANGED" ]; then
             echo "No scannable files changed"

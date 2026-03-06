@@ -9,7 +9,7 @@
       "name": "contract-and-proposal-writer",
       "source": "../../business-growth/contract-and-proposal-writer",
       "category": "business-growth",
-      "description": "Skill from business-growth"
+      "description": "Contract & Proposal Writer"
     },
     {
       "name": "customer-success-manager",
@@ -213,13 +213,13 @@
       "name": "email-template-builder",
       "source": "../../engineering-team/email-template-builder",
       "category": "engineering",
-      "description": "Skill from engineering-team"
+      "description": "Email Template Builder"
     },
     {
       "name": "incident-commander",
       "source": "../../engineering-team/incident-commander",
       "category": "engineering",
-      "description": "Skill from engineering-team"
+      "description": "Incident Commander Skill"
     },
     {
       "name": "ms365-tenant-manager",
@@ -321,7 +321,7 @@
       "name": "stripe-integration-expert",
       "source": "../../engineering-team/stripe-integration-expert",
       "category": "engineering",
-      "description": "Skill from engineering-team"
+      "description": "Stripe Integration Expert"
     },
     {
       "name": "tdd-guide",
@@ -603,13 +603,13 @@
       "name": "competitive-teardown",
       "source": "../../product-team/competitive-teardown",
       "category": "product",
-      "description": "Skill from product-team"
+      "description": "Competitive Teardown"
     },
     {
       "name": "landing-page-generator",
       "source": "../../product-team/landing-page-generator",
       "category": "product",
-      "description": "Skill from product-team"
+      "description": "Landing Page Generator"
     },
     {
       "name": "product-manager-toolkit",
@@ -627,7 +627,7 @@
       "name": "saas-scaffolder",
       "source": "../../product-team/saas-scaffolder",
       "category": "product",
-      "description": "Skill from product-team"
+      "description": "SaaS Scaffolder"
     },
     {
       "name": "ui-design-system",

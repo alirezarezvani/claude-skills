@@ -5,68 +5,117 @@ site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
 edit_uri: edit/main/
+copyright: "Built by Alireza Rezvani"
 
 theme:
   name: material
+  custom_dir: docs/overrides
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme)"
+      scheme: slate
       primary: deep purple
-      accent: amber
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: deep purple
-      accent: amber
+      accent: deep purple
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
+    - navigation.path
     - navigation.top
+    - navigation.indexes
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
+    - content.code.annotate
     - content.action.edit
+    - content.tabs.link
+    - header.autohide
+    - toc.follow
+    - announce.dismiss
   icon:
     repo: fontawesome/brands/github
+    annotation: material/chevron-right-circle
 
 plugins:
-  - search
+  - search:
+      separator: '[\s\-\.]+'
   - tags
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/alirezarezvani/claude-skills
-    - icon: fontawesome/brands/twitter
+      name: GitHub
+    - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/nginitycloud
+      name: Twitter
     - icon: fontawesome/brands/medium
       link: https://alirezarezvani.medium.com
+      name: Medium
   analytics:
     provider: google
-    property: G-XXXXXXXXXX
+    property: G-VHRY2VKY9K
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
+  - abbr
   - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
   - toc:
       permalink: true
-  - tables
-  - attr_list
-  - md_in_html
+      permalink_title: Link to this section
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 nav:
   - Home: index.md

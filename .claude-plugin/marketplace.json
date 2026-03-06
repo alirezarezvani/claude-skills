@@ -13,23 +13,6 @@
   },
   "plugins": [
     {
-      "name": "marketing-skills",
-      "source": "./marketing-skill",
-      "description": "6 marketing skills: content creator, demand generation, product marketing, ASO, social media analytics, campaign analytics",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "marketing",
-        "content",
-        "seo",
-        "demand-gen",
-        "social-media"
-      ],
-      "category": "marketing"
-    },
-    {
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "21 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering",
@@ -345,11 +328,11 @@
       "slug": "marketing-skills",
       "name": "Marketing Division",
       "version": "2.0.0",
-      "description": "42-skill marketing division \u2014 content, SEO, CRO, channels, growth, intelligence, sales. Foundation context + orchestration router + 27 Python tools.",
+      "description": "42-skill marketing division: 7 pods (Content, SEO, CRO, Channels, Growth, Intelligence, Sales) + context foundation + orchestration router. 27 Python tools, 60 reference docs. All stdlib-only.",
       "path": "marketing-skill/",
       "skills_count": 42,
       "category": "marketing"
     }
   ],
-  "total_plugins": 19
+  "total_plugins": 18
 }

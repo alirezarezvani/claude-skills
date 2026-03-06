@@ -561,7 +561,8 @@
       "name": "content-creator",
       "source": "../../marketing-skill/content-creator",
       "category": "marketing",
-      "description": "Create SEO-optimized marketing content with consistent brand voice across formats"
+      "description": "DEPRECATED \u2014 redirects to content-production (writing) and content-strategy (planning). Scripts moved to content-production.",
+      "status": "deprecated"
     },
     {
       "name": "content-humanizer",
@@ -645,7 +646,7 @@
       "name": "marketing-psychology",
       "source": "../../marketing-skill/marketing-psychology",
       "category": "marketing",
-      "description": "Apply 70+ psychological principles and mental models to marketing decisions"
+      "description": "Apply 70+ psychological principles and mental models to marketing decisions. Catalog in references/mental-models-catalog.md."
     },
     {
       "name": "marketing-strategy-pmm",

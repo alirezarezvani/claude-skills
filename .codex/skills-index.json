@@ -42,6 +42,54 @@
       "description": "Technical leadership guidance for engineering teams, architecture decisions, and technology strategy. Includes tech debt analyzer, team scaling calculator, engineering metrics frameworks, technology evaluation tools, and ADR templates. Use when assessing technical debt, scaling engineering teams, evaluating technologies, making architecture decisions, establishing engineering metrics, or when user mentions CTO, tech debt, technical debt, team scaling, architecture decisions, technology evaluation, engineering metrics, DORA metrics, or technology strategy."
     },
     {
+      "name": "coo-advisor",
+      "source": "../../c-level-advisor/coo-advisor",
+      "category": "c-level",
+      "description": "Operations leadership for scaling companies. Process design, OKR execution, operational cadence, and scaling playbooks. Use when designing operations, setting up OKRs, building processes, scaling teams, or analyzing bottlenecks."
+    },
+    {
+      "name": "cpo-advisor",
+      "source": "../../c-level-advisor/cpo-advisor",
+      "category": "c-level",
+      "description": "Product leadership for vision, portfolio strategy, and product-market fit. Use when evaluating PMF, designing product org, making invest/maintain/kill decisions, or building product strategy for boards."
+    },
+    {
+      "name": "cmo-advisor",
+      "source": "../../c-level-advisor/cmo-advisor",
+      "category": "c-level",
+      "description": "Marketing leadership for brand strategy, growth models, and budget allocation. Use when designing growth engines, optimizing channel mix, building marketing org, or planning brand positioning."
+    },
+    {
+      "name": "cfo-advisor",
+      "source": "../../c-level-advisor/cfo-advisor",
+      "category": "c-level",
+      "description": "Financial leadership for startup fundraising, unit economics, and cash management. Use when modeling burn rate, preparing for fundraising, analyzing unit economics, or building board financial packages."
+    },
+    {
+      "name": "cro-advisor",
+      "source": "../../c-level-advisor/cro-advisor",
+      "category": "c-level",
+      "description": "Revenue leadership for sales strategy, pricing, and net revenue retention. Use when forecasting revenue, designing sales models, optimizing pricing, or analyzing churn and expansion."
+    },
+    {
+      "name": "ciso-advisor",
+      "source": "../../c-level-advisor/ciso-advisor",
+      "category": "c-level",
+      "description": "Security leadership for risk management, compliance roadmaps, and incident response. Use when quantifying security risk, planning SOC2/ISO27001/HIPAA compliance, or building security strategy."
+    },
+    {
+      "name": "chro-advisor",
+      "source": "../../c-level-advisor/chro-advisor",
+      "category": "c-level",
+      "description": "People leadership for hiring plans, compensation frameworks, and org design. Use when building hiring plans, designing comp bands, planning org structure, or addressing retention."
+    },
+    {
+      "name": "executive-mentor",
+      "source": "../../c-level-advisor/executive-mentor",
+      "category": "c-level",
+      "description": "Adversarial executive coach. Stress-tests plans, preps for board meetings, and frameworks for hard decisions. Use /em:challenge, /em:board-prep, /em:hard-call, /em:stress-test, /em:postmortem."
+    },
+    {
       "name": "aws-solution-architect",
       "source": "../../engineering-team/aws-solution-architect",
       "category": "engineering",
@@ -382,6 +430,114 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis."
+    },
+    {
+      "name": "cs-onboard",
+      "source": "../../c-level-advisor/cs-onboard",
+      "category": "c-level",
+      "description": "Founder interview that creates company-context.md. Captures stage, team size, burn rate, competitive landscape, and strategic priorities. Every C-suite agent reads this file before advising."
+    },
+    {
+      "name": "chief-of-staff",
+      "source": "../../c-level-advisor/chief-of-staff",
+      "category": "c-level",
+      "description": "Central router for the C-suite ecosystem. Routes questions to the right role, triggers board meetings, enforces quality gates, and synthesizes multi-role outputs. Use when unsure which C-level role to consult."
+    },
+    {
+      "name": "board-meeting",
+      "source": "../../c-level-advisor/board-meeting",
+      "category": "c-level",
+      "description": "6-phase multi-agent deliberation protocol. Context gathering, isolated independent analysis (Phase 2), adversarial critique (Phase 3), synthesis, founder review, and decision extraction. Use for strategic decisions requiring multiple perspectives."
+    },
+    {
+      "name": "decision-logger",
+      "source": "../../c-level-advisor/decision-logger",
+      "category": "c-level",
+      "description": "Two-layer memory system for board decisions. Layer 1: raw transcripts (reference only). Layer 2: approved decisions that feed future meetings. Tracks DO_NOT_RESURFACE flags on rejected proposals."
+    },
+    {
+      "name": "agent-protocol",
+      "source": "../../c-level-advisor/agent-protocol",
+      "category": "c-level",
+      "description": "Inter-agent communication protocol. Defines invocation syntax, loop prevention (no self-invoke, max depth 2, no circular), isolation rules, internal quality loop (self-verify, peer-verify, critic pre-screen), and user communication standard."
+    },
+    {
+      "name": "context-engine",
+      "source": "../../c-level-advisor/context-engine",
+      "category": "c-level",
+      "description": "Company context loading and stage-adaptive configuration. Reads company-context.md, applies temporal horizons by stage (seed/Series A/B+), manages context freshness."
+    },
+    {
+      "name": "board-deck-builder",
+      "source": "../../c-level-advisor/board-deck-builder",
+      "category": "c-level",
+      "description": "Assembles board and investor update presentations. Pulls data from multiple C-suite roles into structured board deck format with narrative, metrics, and asks."
+    },
+    {
+      "name": "scenario-war-room",
+      "source": "../../c-level-advisor/scenario-war-room",
+      "category": "c-level",
+      "description": "Multi-variable what-if modeling for strategic scenarios. Stress-tests business plans against market shifts, competitive moves, and internal constraints. Uses multiple C-suite perspectives."
+    },
+    {
+      "name": "competitive-intel",
+      "source": "../../c-level-advisor/competitive-intel",
+      "category": "c-level",
+      "description": "Systematic competitor tracking and market intelligence. Competitor profiles, feature matrices, pricing analysis, positioning maps, and strategic response recommendations."
+    },
+    {
+      "name": "org-health-diagnostic",
+      "source": "../../c-level-advisor/org-health-diagnostic",
+      "category": "c-level",
+      "description": "Cross-functional organizational health scoring. Surveys engineering velocity, team morale, process efficiency, and leadership effectiveness. Outputs actionable health scorecard."
+    },
+    {
+      "name": "ma-playbook",
+      "source": "../../c-level-advisor/ma-playbook",
+      "category": "c-level",
+      "description": "M&A playbook for acquiring or being acquired. Due diligence checklists, valuation frameworks, integration planning, and post-merger execution. Use when evaluating acquisition targets or preparing for exit."
+    },
+    {
+      "name": "intl-expansion",
+      "source": "../../c-level-advisor/intl-expansion",
+      "category": "c-level",
+      "description": "International market entry strategy. Regional playbooks, localization requirements, regulatory considerations, go-to-market by geography, and partnership models for new markets."
+    },
+    {
+      "name": "culture-architect",
+      "source": "../../c-level-advisor/culture-architect",
+      "category": "c-level",
+      "description": "Build and operationalize company culture systematically. Values definition, culture measurement, ritual design, and culture-strategy alignment. Use when culture feels undefined or misaligned with strategy."
+    },
+    {
+      "name": "company-os",
+      "source": "../../c-level-advisor/company-os",
+      "category": "c-level",
+      "description": "Operating system implementation (EOS, Scaling Up). Meeting cadences, accountability structures, scorecard design, and issue resolution. Use when the company needs a structured operating rhythm."
+    },
+    {
+      "name": "founder-coach",
+      "source": "../../c-level-advisor/founder-coach",
+      "category": "c-level",
+      "description": "Founder personal development and leadership growth. CEO transitions (builder to manager to leader), energy management, decision fatigue, and founder-specific challenges."
+    },
+    {
+      "name": "strategic-alignment",
+      "source": "../../c-level-advisor/strategic-alignment",
+      "category": "c-level",
+      "description": "Strategy cascade and cross-functional alignment. Detects silos, misaligned OKRs, and strategy-execution gaps. Ensures company, department, and team goals connect coherently."
+    },
+    {
+      "name": "change-management",
+      "source": "../../c-level-advisor/change-management",
+      "category": "c-level",
+      "description": "ADKAR-based change rollout and transformation planning. Stakeholder analysis, communication planning, resistance management, and adoption tracking for organizational changes."
+    },
+    {
+      "name": "internal-narrative",
+      "source": "../../c-level-advisor/internal-narrative",
+      "category": "c-level",
+      "description": "One consistent story across all audiences and channels. Company narrative architecture, messaging hierarchy, all-hands talking points, and narrative-strategy alignment."
     }
   ],
   "categories": {
@@ -390,11 +546,7 @@
       "source": "../../business-growth",
       "description": "Customer success, sales engineering, and revenue operations skills"
     },
-    "c-level": {
-      "count": 2,
-      "source": "../../c-level-advisor",
-      "description": "Executive leadership and advisory skills"
-    },
+    "c-level": 28,
     "engineering": {
       "count": 23,
       "source": "../../engineering-team",

@@ -101,8 +101,8 @@
     {
       "name": "c-level-skills",
       "source": "./c-level-advisor",
-      "description": "2 C-level advisory skills: CEO advisor, CTO advisor",
-      "version": "1.0.0",
+      "description": "Complete virtual board of directors: 10 C-level advisory roles (CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor), 6 orchestration skills (Chief of Staff router, board meetings, decision logger, agent protocol, context engine, onboarding), 6 cross-cutting capabilities (board deck builder, scenario war room, competitive intel, org health, M&A playbook, international expansion), and 6 culture & collaboration frameworks. Features internal quality loop, two-layer memory, Phase 2 isolation, 25 Python tools, and structured communication standard. 28 skills total.",
+      "version": "2.0.0",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -113,7 +113,9 @@
         "strategy",
         "leadership"
       ],
-      "category": "leadership"
+      "category": "leadership",
+      "skills_count": 28,
+      "scripts_count": 25
     },
     {
       "name": "pm-skills",

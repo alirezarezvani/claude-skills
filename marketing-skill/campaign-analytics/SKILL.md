@@ -214,3 +214,32 @@ Calculates comprehensive ROI metrics with industry benchmarking:
 - **Single-currency** -- All monetary values assumed to be in the same currency. No currency conversion support.
 - **Simplified time-decay** -- Uses exponential decay based on configurable half-life. Does not account for weekday/weekend or seasonal patterns.
 - **No cross-device tracking** -- Attribution operates on provided journey data as-is. Cross-device identity resolution must be handled upstream.
+
+## Proactive Triggers
+
+- **Attribution model not set** → Last-click attribution misses 60%+ of the journey. Use multi-touch.
+- **No baseline metrics documented** → Can't measure improvement without baselines.
+- **Data discrepancy between tools** → GA4 and ad platform numbers rarely match. Document the gap.
+- **Vanity metrics dominating reports** → Pageviews don't matter. Focus on conversion metrics.
+
+## Output Artifacts
+
+| When you ask for... | You get... |
+|---------------------|------------|
+| "Campaign report" | Cross-channel performance report with attribution analysis |
+| "Channel comparison" | Channel-by-channel ROI with budget reallocation recommendations |
+| "What's working?" | Top 5 performers + bottom 5 drains with specific actions |
+
+## Communication
+
+All output passes quality verification:
+- Self-verify: source attribution, assumption audit, confidence scoring
+- Output format: Bottom Line → What (with confidence) → Why → How to Act
+- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+
+## Related Skills
+
+- **analytics-tracking**: For setting up tracking. NOT for analyzing data (that's this skill).
+- **ab-test-setup**: For designing experiments to test what analytics reveals.
+- **marketing-ops**: For routing insights to the right execution skill.
+- **paid-ads**: For optimizing ad spend based on analytics findings.

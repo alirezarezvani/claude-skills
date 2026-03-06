@@ -1,0 +1,77 @@
+# Import Log: SEO + CRO Batch 1
+Date: 2026-03-06
+Batch: seo-cro1
+Imported by: seo-cro-importer subagent
+
+## Summary
+
+5 skills imported successfully from ~/.openclaw/workspace/skills/ to /tmp/claude-skills-merge/marketing-skill/
+
+## Skills Processed
+
+| Skill | Source Lines | Output Size | Status | Notes |
+|-------|-------------|-------------|--------|-------|
+| seo-audit | ~260 (original) | 12004 bytes / 437 lines | ✅ SUCCESS | YAML updated; Related Skills expanded (6 refs); Communication, Proactive Triggers, Output Artifacts added |
+| programmatic-seo | ~200 (original) | 10212 bytes / 280 lines | ✅ SUCCESS | YAML updated; Related Skills expanded (6 refs); Communication, Proactive Triggers, Output Artifacts added |
+| page-cro | ~160 (original) | 9242 bytes / 224 lines | ✅ SUCCESS | YAML updated; Related Skills expanded (7 refs); Communication, Proactive Triggers, Output Artifacts added |
+| form-cro | ~330 (original) | 14164 bytes / 471 lines | ✅ SUCCESS | YAML updated; Related Skills expanded (6 refs); Communication, Proactive Triggers, Output Artifacts added |
+| signup-flow-cro | ~320 (original) | 13784 bytes / 401 lines | ✅ SUCCESS | YAML updated; Related Skills expanded (6 refs); Communication, Proactive Triggers, Output Artifacts added |
+
+## YAML Frontmatter Applied to All Skills
+
+```yaml
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
+```
+
+Note: All 5 source files already had `name`, `version` (in old position), and `description` fields.
+YAML was restructured to conform to the standard schema (version moved into metadata block, license and metadata fields added).
+
+## Sections Added Per Skill
+
+All 5 skills received:
+- [x] YAML frontmatter updated (license, metadata block with version/author/category/updated)
+- [x] `## Related Skills` — expanded with WHEN / WHEN NOT TO format (6-7 cross-references each)
+- [x] `## Communication` — quality standard for output format and delivery
+- [x] `## Proactive Triggers` — 5 triggers per skill, skill-specific
+- [x] `## Output Artifacts` — table with 5 artifacts per skill (name, format, description)
+
+## Cross-References Implemented
+
+### SEO Cluster
+- seo-audit ↔ programmatic-seo (bidirectional)
+- seo-audit → ai-seo, schema-markup, site-architecture, content-strategy
+- programmatic-seo → seo-audit, schema-markup, competitor-alternatives, content-strategy, site-architecture
+- All SEO skills → marketing-context (foundation)
+
+### CRO Cluster
+- page-cro ↔ form-cro ↔ signup-flow-cro (bidirectional within cluster)
+- page-cro → onboarding-cro, popup-cro, copywriting, ab-test-setup
+- form-cro → popup-cro, page-cro, ab-test-setup, analytics-tracking
+- signup-flow-cro → onboarding-cro, page-cro, ab-test-setup, paywall-upgrade-cro
+- All CRO skills → marketing-context (foundation)
+
+## Core Content Policy
+
+✅ CONFIRMED: No modifications to existing core content sections.
+All additions were appended after the existing `## Related Skills` section (which was replaced/expanded) or appended at the end of the file.
+The original audit frameworks, principles, field-by-field guides, experiment ideas, and task-specific questions are unchanged.
+
+## Existing Skills in Target Directory (Pre-existing, Not Modified)
+
+The following skills were already present in /tmp/claude-skills-merge/marketing-skill/ and were NOT touched:
+ab-test-setup, app-store-optimization, brand-guidelines, campaign-analytics, competitor-alternatives,
+content-creator, content-strategy, copy-editing, copywriting, email-sequence, launch-strategy,
+marketing-context, marketing-demand-acquisition, marketing-ideas, marketing-ops, marketing-psychology,
+marketing-strategy-pmm, onboarding-cro, paid-ads, paywall-upgrade-cro, popup-cro,
+prompt-engineer-toolkit, social-content, social-media-analyzer
+
+## Next Batches (Suggested)
+
+- seo-cro2: ai-seo, schema-markup, site-architecture, onboarding-cro, popup-cro, paywall-upgrade-cro
+- content-batch: copywriting, copy-editing, content-strategy, content-creator, email-sequence
+- ads-batch: paid-ads, ab-test-setup, analytics-tracking, launch-strategy

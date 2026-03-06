@@ -301,3 +301,32 @@ This skill works best with:
 - **Design tools** - Canva, Figma for visual content
 - **Scheduling platforms** - Buffer, Hootsuite for content distribution
 - **Email marketing systems** - For newsletter content campaigns
+
+## Proactive Triggers
+
+- **Content lacks SEO optimization** → Missing title tags, meta descriptions, or keyword targeting.
+- **No content calendar** → Ad hoc publishing reduces consistency. Set up a cadence.
+- **Thin content (<800 words)** → Longer content ranks better. Aim for comprehensive coverage.
+- **No internal linking strategy** → Content islands don't build authority. Link between pieces.
+
+## Output Artifacts
+
+| When you ask for... | You get... |
+|---------------------|------------|
+| "Create a blog post" | SEO-optimized article with meta tags, headings, internal links |
+| "Content calendar" | Monthly publishing plan with topics, keywords, formats |
+| "Social media content" | Platform-specific posts with hooks and CTAs |
+
+## Communication
+
+All output passes quality verification:
+- Self-verify: source attribution, assumption audit, confidence scoring
+- Output format: Bottom Line → What (with confidence) → Why → How to Act
+- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+
+## Related Skills
+
+- **content-strategy**: For planning what to create. Use content-creator for the actual creation.
+- **copy-editing**: For polishing content after creation.
+- **seo-audit**: For SEO optimization of content.
+- **marketing-context**: Foundation — reads brand voice and target keywords.

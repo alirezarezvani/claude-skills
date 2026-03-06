@@ -1,5 +1,5 @@
 ---
-name: analytics-tracking
+name: "analytics-tracking"
 description: "Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when building a tracking plan from scratch, auditing existing analytics for gaps or errors, debugging missing events, or setting up GTM. Trigger keywords: GA4 setup, Google Tag Manager, GTM, event tracking, analytics implementation, conversion tracking, tracking plan, event taxonomy, custom dimensions, UTM tracking, analytics audit, missing events, tracking broken. NOT for analyzing marketing campaign data — use campaign-analytics for that. NOT for BI dashboards — use product-analytics for in-product event analysis."
 license: MIT
 metadata:
@@ -143,7 +143,7 @@ For any event not auto-collected, create it in GTM (preferred) or via gtag direc
 gtag('event', 'signup_completed', {
   method: 'email',
   user_id: 'usr_abc123',
-  plan_name: 'trial'
+  plan_name: "trial"
 });
 ```
 
@@ -206,7 +206,7 @@ window.dataLayer.push({
   event: 'signup_completed',
   signup_method: 'email',
   user_id: userId,
-  plan_name: 'trial'
+  plan_name: "trial"
 });
 ```
 
@@ -216,7 +216,7 @@ GTM Tag: GA4 Event
   Parameters:
     signup_method: {{DLV - signup_method}}
     user_id: {{DLV - user_id}}
-    plan_name: {{DLV - plan_name}}
+    plan_name: "dlv-plan-name"
 Trigger: Custom Event - "signup_completed"
 ```
 

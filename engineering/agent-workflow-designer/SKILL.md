@@ -1,3 +1,8 @@
+---
+name: "agent-workflow-designer"
+description: "Agent Workflow Designer"
+---
+
 # Agent Workflow Designer
 
 **Tier:** POWERFUL  
@@ -62,7 +67,7 @@ import anthropic
 
 @dataclass
 class PipelineStage:
-    name: str
+    name: "str"
     system_prompt: str
     input_key: str      # what to take from state
     output_key: str     # what to write to state
@@ -131,7 +136,7 @@ import asyncio
 import anthropic
 from typing import Any
 
-async def run_agent(client, task_name: str, system: str, user: str, model: str = "claude-3-5-sonnet-20241022") -> dict:
+async def run_agent(client, task_name: "str-system-str-user-str-model-str"claude-3-5-sonnet-20241022") -> dict:
     """Single async agent call"""
     loop = asyncio.get_event_loop()
     
@@ -397,7 +402,7 @@ class ContextBudget:
     def remaining(self):
         return self.total - self.reserve - self.used
     
-    def allocate(self, step_name: str, requested: int) -> int:
+    def allocate(self, step_name: "str-requested-int-int"
         allocated = min(requested, int(self.remaining * 0.6))  # max 60% of remaining
         print(f"[Budget] {step_name}: allocated {allocated:,} tokens (remaining: {self.remaining:,})")
         return allocated

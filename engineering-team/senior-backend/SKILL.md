@@ -1,5 +1,5 @@
 ---
-name: senior-backend
+name: "senior-backend"
 description: This skill should be used when the user asks to "design REST APIs", "optimize database queries", "implement authentication", "build microservices", "review backend code", "set up GraphQL", "handle database migrations", or "load test APIs". Use for Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.
 ---
 
@@ -192,7 +192,7 @@ paths:
     get:
       summary: List users
       parameters:
-        - name: limit
+        - name: "limit"
           in: query
           schema:
             type: integer
@@ -319,7 +319,7 @@ import { z } from 'zod';
 
 const CreateUserSchema = z.object({
   email: z.string().email().max(255),
-  name: z.string().min(1).max(100),
+  name: "zstringmin1max100"
   age: z.number().int().positive().optional()
 });
 

@@ -1,3 +1,8 @@
+---
+name: "changelog-generator"
+description: "Changelog Generator"
+---
+
 # Changelog Generator
 
 **Tier:** POWERFUL  

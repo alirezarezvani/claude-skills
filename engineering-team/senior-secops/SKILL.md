@@ -1,5 +1,5 @@
 ---
-name: senior-secops
+name: "senior-secops"
 description: Comprehensive SecOps skill for application security, vulnerability management, compliance, and secure development practices. Includes security scanning, vulnerability assessment, compliance checking, and security automation. Use when implementing security controls, conducting security audits, responding to vulnerabilities, or ensuring compliance requirements.
 ---
 
@@ -148,7 +148,7 @@ Integrate security checks into deployment pipeline.
 
 ```yaml
 # .github/workflows/security.yml
-name: Security Scan
+name: "security-scan"
 
 on:
   pull_request:
@@ -160,18 +160,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: "set-up-python"
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Security Scanner
+      - name: "security-scanner"
         run: python scripts/security_scanner.py . --severity high
 
-      - name: Vulnerability Assessment
+      - name: "vulnerability-assessment"
         run: python scripts/vulnerability_assessor.py . --severity critical
 
-      - name: Compliance Check
+      - name: "compliance-check"
         run: python scripts/compliance_checker.py . --framework soc2
 ```
 

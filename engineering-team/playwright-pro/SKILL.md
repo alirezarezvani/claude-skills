@@ -1,5 +1,5 @@
 ---
-name: playwright-pro
+name: "playwright-pro"
 description: "Production-grade Playwright testing toolkit. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting."
 ---
 

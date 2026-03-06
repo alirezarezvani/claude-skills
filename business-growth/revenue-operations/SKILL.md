@@ -1,5 +1,5 @@
 ---
-name: revenue-operations
+name: "revenue-operations"
 description: Analyzes pipeline coverage, tracks forecast accuracy with MAPE, and calculates GTM efficiency metrics for SaaS revenue optimization
 ---
 

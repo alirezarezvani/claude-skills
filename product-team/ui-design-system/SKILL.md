@@ -1,5 +1,5 @@
 ---
-name: ui-design-system
+name: "ui-design-system"
 description: UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration.
 ---
 

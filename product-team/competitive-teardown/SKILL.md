@@ -1,3 +1,8 @@
+---
+name: "competitive-teardown"
+description: "Competitive Teardown"
+---
+
 # Competitive Teardown
 
 **Tier:** POWERFUL  

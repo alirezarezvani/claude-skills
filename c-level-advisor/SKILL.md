@@ -1,5 +1,5 @@
 ---
-name: c-level-advisor
+name: "c-level-advisor"
 description: "Complete virtual board of directors — 28 skills covering 10 C-level roles, orchestration, cross-cutting capabilities, and culture frameworks. Features internal quality loop, two-layer memory, board meeting protocol with Phase 2 isolation, proactive triggers, and structured communication standard."
 license: MIT
 metadata:

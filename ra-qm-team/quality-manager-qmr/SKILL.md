@@ -1,5 +1,5 @@
 ---
-name: quality-manager-qmr
+name: "quality-manager-qmr"
 description: Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review leadership, regulatory compliance oversight, and quality performance monitoring per ISO 13485 Clause 5.5.2.
 triggers:
   - management review

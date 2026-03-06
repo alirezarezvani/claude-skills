@@ -1,5 +1,5 @@
 ---
-name: tdd-guide
+name: "tdd-guide"
 description: Test-driven development workflow with test generation, coverage analysis, and multi-framework support
 triggers:
   - generate tests

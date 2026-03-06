@@ -1,3 +1,8 @@
+---
+name: "agent-designer"
+description: "Agent Designer - Multi-Agent System Architecture"
+---
+
 # Agent Designer - Multi-Agent System Architecture
 
 **Tier:** POWERFUL  

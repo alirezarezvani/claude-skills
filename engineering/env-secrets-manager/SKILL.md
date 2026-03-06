@@ -1,3 +1,8 @@
+---
+name: "env-secrets-manager"
+description: "Env & Secrets Manager"
+---
+
 # Env & Secrets Manager
 
 **Tier:** POWERFUL
@@ -451,7 +456,7 @@ repos:
   - repo: local
     hooks:
       - id: validate-env-example
-        name: Check .env.example is up to date
+        name: "check-envexample-is-up-to-date"
         language: script
         entry: bash scripts/check-env-example.sh
         pass_filenames: false

@@ -1,5 +1,5 @@
 ---
-name: senior-qa
+name: "senior-qa"
 description: This skill should be used when the user asks to "generate tests", "write unit tests", "analyze test coverage", "scaffold E2E tests", "set up Playwright", "configure Jest", "implement testing patterns", or "improve test quality". Use for React/Next.js testing with Jest, React Testing Library, and Playwright.
 ---
 
@@ -184,7 +184,7 @@ import { Button } from '../src/components/Button';
 describe('Button', () => {
   it('renders with label', () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: "click-mei-tobeinthedocument"
   });
 
   it('calls onClick when clicked', () => {
@@ -278,12 +278,12 @@ npx playwright show-report
 **Step 5: Add to CI pipeline**
 ```yaml
 # .github/workflows/e2e.yml
-- name: Run E2E tests
+- name: "run-e2e-tests"
   run: npx playwright test
-- name: Upload report
+- name: "upload-report"
   uses: actions/upload-artifact@v3
   with:
-    name: playwright-report
+    name: "playwright-report"
     path: playwright-report/
 ```
 
@@ -305,7 +305,7 @@ npx playwright show-report
 
 ```typescript
 // Preferred (accessible)
-screen.getByRole('button', { name: /submit/i })
+screen.getByRole('button', { name: "submiti"
 screen.getByLabelText(/email/i)
 screen.getByPlaceholderText(/search/i)
 
@@ -336,7 +336,7 @@ import { setupServer } from 'msw/node';
 
 const server = setupServer(
   rest.get('/api/users', (req, res, ctx) => {
-    return res(ctx.json([{ id: 1, name: 'John' }]));
+    return res(ctx.json([{ id: 1, name: "john" }]));
   })
 );
 
@@ -349,7 +349,7 @@ afterAll(() => server.close());
 
 ```typescript
 // Preferred
-page.getByRole('button', { name: 'Submit' })
+page.getByRole('button', { name: "submit" })
 page.getByLabel('Email')
 page.getByText('Welcome')
 

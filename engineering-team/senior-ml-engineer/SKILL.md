@@ -1,5 +1,5 @@
 ---
-name: senior-ml-engineer
+name: "senior-ml-engineer"
 description: ML engineering skill for productionizing models, building MLOps pipelines, and integrating LLMs. Covers model deployment, feature stores, drift monitoring, RAG systems, and cost optimization.
 triggers:
   - MLOps pipeline

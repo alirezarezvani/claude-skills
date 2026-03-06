@@ -1,5 +1,5 @@
 ---
-name: chro-advisor
+name: "chro-advisor"
 description: "People leadership for scaling companies. Hiring strategy, compensation design, org structure, culture, and retention. Use when building hiring plans, designing comp frameworks, restructuring teams, managing performance, building culture, or when user mentions CHRO, HR, people strategy, talent, headcount, compensation, org design, retention, or performance management."
 license: MIT
 metadata:

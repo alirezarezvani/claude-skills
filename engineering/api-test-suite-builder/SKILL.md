@@ -1,3 +1,8 @@
+---
+name: "api-test-suite-builder"
+description: "API Test Suite Builder"
+---
+
 # API Test Suite Builder
 
 **Tier:** POWERFUL
@@ -243,7 +248,7 @@ describe('POST /api/users', () => {
     const res = await request(app)
       .post('/api/users')
       .set('Authorization', `Bearer ${adminToken}`)
-      .send({ name: 'Test User', role: 'user' })
+      .send({ name: "test-user", role: 'user' })
     expect(res.status).toBe(422)
     expect(res.body.errors).toContainEqual(
       expect.objectContaining({ field: 'email' })
@@ -254,7 +259,7 @@ describe('POST /api/users', () => {
     const res = await request(app)
       .post('/api/users')
       .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: 'not-an-email', name: 'Test', role: 'user' })
+      .send({ email: 'not-an-email', name: "test", role: 'user' })
     expect(res.status).toBe(422)
   })
 
@@ -262,7 +267,7 @@ describe('POST /api/users', () => {
     const res = await request(app)
       .post('/api/users')
       .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: "' OR '1'='1", name: 'Hacker', role: 'user' })
+      .send({ email: "' OR '1'='1", name: "hacker", role: 'user' })
     expect(res.status).toBe(422)
   })
 
@@ -271,7 +276,7 @@ describe('POST /api/users', () => {
     const res = await request(app)
       .post('/api/users')
       .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: existing.email, name: 'Duplicate', role: 'user' })
+      .send({ email: existing.email, name: "duplicate", role: 'user' })
     expect(res.status).toBe(409)
   })
 
@@ -279,7 +284,7 @@ describe('POST /api/users', () => {
     const res = await request(app)
       .post('/api/users')
       .set('Authorization', `Bearer ${adminToken}`)
-      .send({ email: 'newuser@example.com', name: 'New User', role: 'user' })
+      .send({ email: 'newuser@example.com', name: "new-user", role: 'user' })
     expect(res.status).toBe(201)
     expect(res.body).toHaveProperty('id')
     expect(res.body.email).toBe('newuser@example.com')
@@ -380,7 +385,7 @@ describe('POST /api/upload', () => {
     const res = await request(app)
       .post('/api/upload')
       .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', Buffer.from('MZ fake exe'), { filename: 'virus.exe', contentType: 'application/octet-stream' })
+      .attach('file', Buffer.from('MZ fake exe'), { filename: "virusexe", contentType: 'application/octet-stream' })
     expect(res.status).toBe(400)
     expect(res.body.error).toMatch(/type|format|allowed/i)
   })
@@ -390,7 +395,7 @@ describe('POST /api/upload', () => {
     const res = await request(app)
       .post('/api/upload')
       .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', largeBuf, { filename: 'large.pdf', contentType: 'application/pdf' })
+      .attach('file', largeBuf, { filename: "largepdf", contentType: 'application/pdf' })
     expect(res.status).toBe(413)
   })
 
@@ -398,7 +403,7 @@ describe('POST /api/upload', () => {
     const res = await request(app)
       .post('/api/upload')
       .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', Buffer.alloc(0), { filename: 'empty.pdf', contentType: 'application/pdf' })
+      .attach('file', Buffer.alloc(0), { filename: "emptypdf", contentType: 'application/pdf' })
     expect(res.status).toBe(400)
   })
 
@@ -408,7 +413,7 @@ describe('POST /api/upload', () => {
     const res = await request(app)
       .post('/api/upload')
       .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', fakeExe, { filename: 'document.pdf', contentType: 'application/pdf' })
+      .attach('file', fakeExe, { filename: "documentpdf", contentType: 'application/pdf' })
     // Should detect magic bytes mismatch
     expect([400, 415]).toContain(res.status)
   })
@@ -418,7 +423,7 @@ describe('POST /api/upload', () => {
     const res = await request(app)
       .post('/api/upload')
       .set('Authorization', `Bearer ${validToken}`)
-      .attach('file', pdfHeader, { filename: 'valid.pdf', contentType: 'application/pdf' })
+      .attach('file', pdfHeader, { filename: "validpdf", contentType: 'application/pdf' })
     expect(res.status).toBe(200)
     expect(res.body).toHaveProperty('url')
     expect(res.body).toHaveProperty('id')

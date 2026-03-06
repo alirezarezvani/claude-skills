@@ -1,5 +1,5 @@
 ---
-name: risk-management-specialist
+name: "risk-management-specialist"
 description: Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis.
 triggers:
   - risk management

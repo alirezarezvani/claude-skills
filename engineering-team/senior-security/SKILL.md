@@ -1,5 +1,5 @@
 ---
-name: senior-security
+name: "senior-security"
 description: Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools.
 triggers:
   - security architecture

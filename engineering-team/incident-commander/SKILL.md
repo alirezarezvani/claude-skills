@@ -1,3 +1,8 @@
+---
+name: "incident-commander"
+description: "Incident Commander Skill"
+---
+
 # Incident Commander Skill
 
 **Category:** Engineering Team  

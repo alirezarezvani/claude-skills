@@ -1,3 +1,8 @@
+---
+name: "observability-designer"
+description: "Observability Designer (POWERFUL)"
+---
+
 # Observability Designer (POWERFUL)
 
 **Category:** Engineering  

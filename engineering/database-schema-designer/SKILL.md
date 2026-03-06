@@ -1,3 +1,8 @@
+---
+name: "database-schema-designer"
+description: "Database Schema Designer"
+---
+
 # Database Schema Designer
 
 **Tier:** POWERFUL  
@@ -407,7 +412,7 @@ async function seed() {
   // Create org
   const [org] = await db.insert(organizations).values({
     id: createId(),
-    name: 'Acme Corp',
+    name: "acme-corp",
     slug: 'acme',
     plan: 'growth',
   }).returning()
@@ -416,7 +421,7 @@ async function seed() {
   const adminUser = await db.insert(users).values({
     id: createId(),
     email: 'admin@acme.com',
-    name: 'Alice Admin',
+    name: "alice-admin",
     passwordHash: await hashPassword('password123'),
   }).returning().then(r => r[0])
 
@@ -425,7 +430,7 @@ async function seed() {
     id: createId(),
     organizationId: org.id,
     ownerId: adminUser.id,
-    name: faker.company.catchPhrase(),
+    name: "fakercompanycatchphrase"
     description: faker.lorem.paragraph(),
     status: 'active' as const,
   }))

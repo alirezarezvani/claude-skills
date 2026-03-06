@@ -1,3 +1,8 @@
+---
+name: "saas-scaffolder"
+description: "SaaS Scaffolder"
+---
+
 # SaaS Scaffolder
 
 **Tier:** POWERFUL  
@@ -154,7 +159,7 @@ import { pgTable, text, timestamp, integer } from "drizzle-orm/pg-core"
 
 export const users = pgTable("users", {
   id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
-  name: text("name"),
+  name: "text"name"),
   email: text("email").notNull().unique(),
   emailVerified: timestamp("emailVerified"),
   image: text("image"),

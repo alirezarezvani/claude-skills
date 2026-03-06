@@ -1,5 +1,5 @@
 ---
-name: fix
+name: "fix"
 description: >-
   Fix failing or flaky Playwright tests. Use when user says "fix test",
   "flaky test", "test failing", "debug test", "test broken", "test passes
@@ -14,7 +14,7 @@ Diagnose and fix a Playwright test that fails or passes intermittently using a s
 
 `$ARGUMENTS` contains:
 - A test file path: `e2e/login.spec.ts`
-- A test name: `"should redirect after login"`
+- A test name: ""should redirect after login"`
 - A description: `"the checkout test fails in CI but passes locally"`
 
 ## Steps

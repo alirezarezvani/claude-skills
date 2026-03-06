@@ -1,5 +1,5 @@
 ---
-name: atlassian-admin
+name: "atlassian-admin"
 description: Atlassian Administrator for managing and organizing Atlassian products, users, customization of the Atlassian suite, permissions, security, integrations, system configuration, and all administrative features. Use for user provisioning, global settings, security policies, system optimization, and org-wide Atlassian governance.
 ---
 

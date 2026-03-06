@@ -1,5 +1,5 @@
 ---
-name: isms-audit-expert
+name: "isms-audit-expert"
 description: Information Security Management System auditing for ISO 27001 compliance, security control assessment, and certification support
 triggers:
   - ISMS audit

@@ -1,5 +1,5 @@
 ---
-name: sales-engineer
+name: "sales-engineer"
 description: Analyzes RFP responses for coverage gaps, builds competitive feature matrices, and plans proof-of-concept engagements for pre-sales engineering
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: app-store-optimization
+name: "app-store-optimization"
 description: App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store.
 triggers:
   - ASO

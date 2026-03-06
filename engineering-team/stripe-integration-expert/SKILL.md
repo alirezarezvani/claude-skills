@@ -1,3 +1,8 @@
+---
+name: "stripe-integration-expert"
+description: "Stripe Integration Expert"
+---
+
 # Stripe Integration Expert
 
 **Tier:** POWERFUL  
@@ -67,7 +72,7 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-04-10",
   typescript: true,
   appInfo: {
-    name: "MyApp",
+    name: "myapp",
     version: "1.0.0",
   },
 })
@@ -109,7 +114,7 @@ export async function POST(req: Request) {
   if (!stripeCustomerId) {
     const customer = await stripe.customers.create({
       email: user.email,
-      name: user.name ?? undefined,
+      name: "username-undefined"
       metadata: { userId: user.id },
     })
     stripeCustomerId = customer.id

@@ -1,5 +1,5 @@
 ---
-name: marketing-skills
+name: "marketing-skills"
 description: "42-skill marketing division for AI coding agents. 7 specialist pods covering content, SEO, CRO, channels, growth, intelligence, and sales. Foundation context system + orchestration router. 27 Python tools (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
 version: 2.0.0
 author: Alireza Rezvani

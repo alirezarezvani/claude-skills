@@ -1,5 +1,5 @@
 ---
-name: financial-analyst
+name: "financial-analyst"
 description: Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making
 ---
 

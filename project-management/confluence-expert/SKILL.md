@@ -1,5 +1,5 @@
 ---
-name: confluence-expert
+name: "confluence-expert"
 description: Atlassian Confluence expert for creating and managing spaces, knowledge bases, documentation, planning, product discovery, page layouts, macros, templates, and all Confluence features. Use for documentation strategy, space architecture, content organization, and collaborative knowledge management.
 ---
 

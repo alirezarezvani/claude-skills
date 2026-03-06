@@ -1,3 +1,8 @@
+---
+name: "release-manager"
+description: "Release Manager"
+---
+
 # Release Manager
 
 **Tier:** POWERFUL  

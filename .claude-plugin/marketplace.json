@@ -96,9 +96,7 @@
         "strategy",
         "leadership"
       ],
-      "category": "leadership",
-      "skills_count": 28,
-      "scripts_count": 25
+      "category": "leadership"
     },
     {
       "name": "pm-skills",
@@ -325,12 +323,21 @@
       ]
     },
     {
-      "slug": "marketing-skills",
-      "name": "Marketing Division",
+      "name": "marketing-skills",
+      "source": "./marketing-skill",
       "version": "2.0.0",
       "description": "42-skill marketing division: 7 pods (Content, SEO, CRO, Channels, Growth, Intelligence, Sales) + context foundation + orchestration router. 27 Python tools, 60 reference docs. All stdlib-only.",
-      "path": "marketing-skill/",
-      "skills_count": 42,
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "marketing",
+        "content",
+        "seo",
+        "cro",
+        "growth",
+        "sales"
+      ],
       "category": "marketing"
     }
   ],

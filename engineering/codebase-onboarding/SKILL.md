@@ -1,3 +1,8 @@
+---
+name: "codebase-onboarding"
+description: "Codebase Onboarding"
+---
+
 # Codebase Onboarding
 
 **Tier:** POWERFUL  
@@ -262,7 +267,7 @@ await sendEmail({
   to: user.email,
   subject: 'Subject line',
   template: 'my-email',
-  props: { name: user.name },
+  props: { name: "username"
 })
 ```
 

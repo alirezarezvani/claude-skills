@@ -1,5 +1,5 @@
 ---
-name: referral-program
+name: "referral-program"
 description: "When the user wants to design, launch, or optimize a referral or affiliate program. Use when they mention 'referral program,' 'affiliate program,' 'word of mouth,' 'refer a friend,' 'incentive program,' 'customer referrals,' 'brand ambassador,' 'partner program,' 'referral link,' or 'growth through referrals.' Covers program mechanics, incentive design, and optimization — not just the idea of referrals but the actual system."
 license: MIT
 metadata:

@@ -1,5 +1,5 @@
 ---
-name: regulatory-affairs-head
+name: "regulatory-affairs-head"
 description: Senior Regulatory Affairs Manager for HealthTech and MedTech companies. Provides regulatory strategy development, submission management, pathway analysis, global compliance coordination, and cross-functional team leadership.
 triggers:
   - regulatory strategy

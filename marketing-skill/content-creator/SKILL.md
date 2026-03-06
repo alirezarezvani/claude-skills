@@ -1,5 +1,5 @@
 ---
-name: content-creator
+name: "content-creator"
 description: "DEPRECATED — Use content-production for full content pipeline, or content-strategy for planning. This skill redirects to the appropriate specialist."
 license: MIT
 metadata:

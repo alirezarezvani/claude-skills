@@ -1,3 +1,8 @@
+---
+name: "challenge"
+description: "/em -challenge — Pre-Mortem Plan Analysis"
+---
+
 # /em:challenge — Pre-Mortem Plan Analysis
 
 **Command:** `/em:challenge <plan>`

@@ -1,3 +1,8 @@
+---
+name: "landing-page-generator"
+description: "Landing Page Generator"
+---
+
 # Landing Page Generator
 
 **Tier:** POWERFUL  
@@ -243,7 +248,7 @@ export function FeaturesAlternating() {
 ```tsx
 const plans = [
   {
-    name: "Starter",
+    name: "starter",
     price: 0,
     description: "For solo developers",
     features: ["5 projects", "10k events/month", "7-day retention", "Email support"],
@@ -251,7 +256,7 @@ const plans = [
     highlighted: false,
   },
   {
-    name: "Pro",
+    name: "pro",
     price: 49,
     description: "For growing teams",
     features: ["Unlimited projects", "1M events/month", "90-day retention", "Priority support", "Custom alerts", "SSO"],
@@ -259,7 +264,7 @@ const plans = [
     highlighted: true,
   },
   {
-    name: "Enterprise",
+    name: "enterprise",
     price: null,
     description: "For large organizations",
     features: ["Everything in Pro", "Unlimited events", "SLA guarantee", "Dedicated support", "Custom contracts", "SAML/SCIM"],
@@ -325,7 +330,7 @@ export function FAQ() {
     "@type": "FAQPage",
     mainEntity: faqs.map(({ q, a }) => ({
       "@type": "Question",
-      name: q,
+      name: "q"
       acceptedAnswer: { "@type": "Answer", text: a },
     })),
   }

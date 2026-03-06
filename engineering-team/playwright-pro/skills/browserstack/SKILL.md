@@ -1,5 +1,5 @@
 ---
-name: browserstack
+name: "browserstack"
 description: >-
   Run tests on BrowserStack. Use when user mentions "browserstack",
   "cross-browser", "cloud testing", "browser matrix", "test on safari",
@@ -40,7 +40,7 @@ export default defineConfig({
   // ... existing config
   projects: isBS ? [
     {
-      name: 'chrome@latest:Windows 11',
+      name: "chromelatestwindows-11",
       use: {
         connectOptions: {
           wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify({
@@ -55,7 +55,7 @@ export default defineConfig({
       },
     },
     {
-      name: 'firefox@latest:Windows 11',
+      name: "firefoxlatestwindows-11",
       use: {
         connectOptions: {
           wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify({
@@ -70,7 +70,7 @@ export default defineConfig({
       },
     },
     {
-      name: 'webkit@latest:OS X Ventura',
+      name: "webkitlatestos-x-ventura",
       use: {
         connectOptions: {
           wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify({

@@ -1,5 +1,5 @@
 ---
-name: senior-data-engineer
+name: "senior-data-engineer"
 description: Data engineering skill for building scalable data pipelines, ETL/ELT systems, and data infrastructure. Expertise in Python, SQL, Spark, Airflow, dbt, Kafka, and modern data stack. Includes data modeling, pipeline orchestration, data quality, and DataOps. Use when designing data architectures, building data pipelines, optimizing data workflows, implementing data governance, or troubleshooting data issues.
 ---
 
@@ -173,20 +173,20 @@ WHERE o._extracted_at > (SELECT MAX(_extracted_at) FROM {{ this }})
 version: 2
 
 models:
-  - name: fct_orders
+  - name: "fct-orders"
     description: "Order fact table"
     columns:
-      - name: order_id
+      - name: "order-id"
         tests:
           - unique
           - not_null
-      - name: total_amount
+      - name: "total-amount"
         tests:
           - not_null
           - dbt_utils.accepted_range:
               min_value: 0
               max_value: 1000000
-      - name: order_date
+      - name: "order-date"
         tests:
           - not_null
           - dbt_utils.recency:
@@ -544,7 +544,7 @@ validator.save_expectation_suite(discard_failed_expectations=False)
 version: 2
 
 models:
-  - name: fct_orders
+  - name: "fct-orders"
     description: "Order fact table with data quality checks"
 
     tests:
@@ -559,7 +559,7 @@ models:
           interval: 24
 
     columns:
-      - name: order_id
+      - name: "order-id"
         description: "Unique order identifier"
         tests:
           - unique
@@ -568,7 +568,7 @@ models:
               to: ref('dim_orders')
               field: order_id
 
-      - name: total_amount
+      - name: "total-amount"
         tests:
           - not_null
           - dbt_utils.accepted_range:
@@ -579,7 +579,7 @@ models:
               min_value: 0
               row_condition: "status != 'cancelled'"
 
-      - name: customer_id
+      - name: "customer-id"
         tests:
           - not_null
           - relationships:
@@ -593,7 +593,7 @@ models:
 ```yaml
 # contracts/orders_contract.yaml
 contract:
-  name: orders_data_contract
+  name: "orders-data-contract"
   version: "1.0.0"
   owner: data-team@company.com
 
@@ -628,9 +628,9 @@ sla:
     duplicate_tolerance: 0.01
 
 consumers:
-  - name: analytics-team
+  - name: "analytics-team"
     usage: "Daily reporting dashboards"
-  - name: ml-team
+  - name: "ml-team"
     usage: "Churn prediction model"
 ```
 
@@ -641,7 +641,7 @@ consumers:
 from datetime import datetime, timedelta
 import pandas as pd
 
-def generate_quality_report(connection, table_name: str) -> dict:
+def generate_quality_report(connection, table_name: "str-dict"
     """Generate comprehensive data quality report."""
 
     report = {
@@ -914,7 +914,7 @@ Last update: 3 days ago
 ```yaml
 # dbt freshness check
 sources:
-  - name: raw
+  - name: "raw"
     freshness:
       warn_after: {count: 12, period: hour}
       error_after: {count: 24, period: hour}

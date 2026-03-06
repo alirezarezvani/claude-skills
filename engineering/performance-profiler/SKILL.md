@@ -1,3 +1,8 @@
+---
+name: "performance-profiler"
+description: "Performance Profiler"
+---
+
 # Performance Profiler
 
 **Tier:** POWERFUL  

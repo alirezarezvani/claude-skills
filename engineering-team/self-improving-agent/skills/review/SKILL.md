@@ -1,5 +1,5 @@
 ---
-name: review
+name: "review"
 description: "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics."
 command: /si:review
 ---

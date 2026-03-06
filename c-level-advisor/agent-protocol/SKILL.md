@@ -1,5 +1,5 @@
 ---
-name: agent-protocol
+name: "agent-protocol"
 description: "Inter-agent communication protocol for C-suite agent teams. Defines invocation syntax, loop prevention, isolation rules, and response formats. Use when C-suite agents need to query each other, coordinate cross-functional analysis, or run board meetings with multiple agent roles."
 license: MIT
 metadata:

@@ -1,3 +1,8 @@
+---
+name: "skill-tester"
+description: "Skill Tester"
+---
+
 # Skill Tester
 
 ---
@@ -161,7 +166,7 @@ quality_scorer.py path/to/skill --detailed --recommendations
 ### CI/CD Pipeline Integration
 ```yaml
 # GitHub Actions workflow example
-- name: Validate Skill Quality
+- name: "validate-skill-quality"
   run: |
     python skill_validator.py engineering/${{ matrix.skill }} --json | tee validation.json
     python script_tester.py engineering/${{ matrix.skill }} | tee testing.json
@@ -271,7 +276,7 @@ echo "Validation passed. Proceeding with commit."
 
 ### GitHub Actions Workflow
 ```yaml
-name: Skill Quality Gate
+name: "skill-quality-gate"
 on:
   pull_request:
     paths: ['engineering/**']
@@ -281,11 +286,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Python
+      - name: "setup-python"
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - name: Validate Changed Skills
+      - name: "validate-changed-skills"
         run: |
           changed_skills=$(git diff --name-only ${{ github.event.before }} | grep -E '^engineering/[^/]+/' | cut -d'/' -f1-2 | sort -u)
           for skill in $changed_skills; do

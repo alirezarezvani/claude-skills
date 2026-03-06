@@ -1,3 +1,8 @@
+---
+name: "git-worktree-manager"
+description: "Git Worktree Manager"
+---
+
 # Git Worktree Manager
 
 **Tier:** POWERFUL  

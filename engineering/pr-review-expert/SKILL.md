@@ -1,3 +1,8 @@
+---
+name: "pr-review-expert"
+description: "PR Review Expert"
+---
+
 # PR Review Expert
 
 **Tier:** POWERFUL

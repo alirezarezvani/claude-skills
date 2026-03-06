@@ -1,5 +1,5 @@
 ---
-name: prompt-engineer-toolkit
+name: "prompt-engineer-toolkit"
 description: "When the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
 license: MIT
 metadata:

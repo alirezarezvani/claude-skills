@@ -34,3 +34,6 @@ GITHUB_ISSUE_RESPONSES.md
 
 # Archive folder (historical/backup files)
 archive/
+
+# MkDocs build output
+site/

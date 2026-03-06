@@ -69,9 +69,6 @@ extra:
     - icon: fontawesome/brands/medium
       link: https://alirezarezvani.medium.com
       name: Medium
-  analytics:
-    provider: google
-    property: G-VHRY2VKY9K
   generator: false
 
 extra_css:

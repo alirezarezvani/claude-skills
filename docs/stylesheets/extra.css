@@ -1,0 +1,374 @@
+/* ============================================
+   Claude Code Skills — Custom Theme
+   Modern, minimal dark-first design
+   ============================================ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --cs-accent: #a78bfa;
+  --cs-accent-dim: #7c3aed;
+  --cs-surface: #1e1b2e;
+  --cs-surface-hover: #2a2740;
+  --cs-border: rgba(167, 139, 250, 0.15);
+  --cs-glow: rgba(167, 139, 250, 0.08);
+  --cs-text-muted: rgba(255, 255, 255, 0.5);
+  --cs-radius: 12px;
+  --cs-radius-sm: 8px;
+}
+
+[data-md-color-scheme="default"] {
+  --cs-accent: #7c3aed;
+  --cs-accent-dim: #6d28d9;
+  --cs-surface: #f8f7fc;
+  --cs-surface-hover: #ede9fe;
+  --cs-border: rgba(124, 58, 237, 0.12);
+  --cs-glow: rgba(124, 58, 237, 0.04);
+  --cs-text-muted: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Typography --- */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--cs-accent) 0%, #e879f9 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--cs-text-muted);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-badges .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  color: var(--cs-accent);
+}
+
+/* --- CTA Buttons --- */
+.cta-group {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.cta-group a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cta-primary {
+  background: var(--cs-accent);
+  color: #fff !important;
+}
+
+.cta-primary:hover {
+  background: var(--cs-accent-dim);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3);
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--cs-accent) !important;
+  border: 1px solid var(--cs-border);
+}
+
+.cta-secondary:hover {
+  background: var(--cs-glow);
+  border-color: var(--cs-accent);
+}
+
+/* --- Domain Cards Grid --- */
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.domain-card {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+}
+
+.domain-card:hover {
+  border-color: var(--cs-accent);
+  background: var(--cs-surface-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--cs-glow);
+}
+
+.domain-card .card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.domain-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.domain-card .card-count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--cs-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.domain-card p {
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- Stats Row --- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.stat {
+  padding: 1.25rem 0.5rem;
+  border-radius: var(--cs-radius);
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+}
+
+.stat .number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cs-accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat .label {
+  font-size: 0.7rem;
+  color: var(--cs-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* --- Feature List --- */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  border-radius: var(--cs-radius-sm);
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+}
+
+.feature-list .icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.feature-list strong {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.15rem;
+}
+
+.feature-list .desc {
+  font-size: 0.78rem;
+  color: var(--cs-text-muted);
+  line-height: 1.5;
+}
+
+/* --- Install Steps --- */
+.install-steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.install-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+  margin-bottom: 0.75rem;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-sm);
+}
+
+.install-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 1.1rem;
+  top: 1.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--cs-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Section Divider --- */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: var(--cs-border);
+  margin: 3rem 0;
+}
+
+/* --- Code Blocks --- */
+.md-typeset code {
+  border-radius: 6px;
+}
+
+.md-typeset pre {
+  border-radius: var(--cs-radius-sm);
+  border: 1px solid var(--cs-border);
+}
+
+/* --- Navigation polish --- */
+.md-tabs {
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.md-nav__link--active {
+  font-weight: 600;
+}
+
+/* --- Footer --- */
+.md-footer {
+  border-top: 1px solid var(--cs-border);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .domain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Hide the default h1 on index page --- */
+.md-content [data-md-component="content"] > .md-typeset > h1:first-child {
+  display: none;
+}
+
+/* --- Admonition styling --- */
+.md-typeset .admonition {
+  border-radius: var(--cs-radius-sm);
+  border: 1px solid var(--cs-border);
+}
+
+/* --- Smooth transitions --- */
+* {
+  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+
+/* Exclude transitions that cause layout shifts */
+.md-typeset pre,
+.md-typeset code,
+.md-content img {
+  transition: none;
+}

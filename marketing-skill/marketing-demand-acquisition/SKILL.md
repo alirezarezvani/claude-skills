@@ -308,3 +308,32 @@ Required:
 | First demo scheduled | 3 business days |
 
 **Validation:** Test lead through workflow, verify notifications and routing.
+
+## Proactive Triggers
+
+- **Over-relying on one channel** → Single-channel dependency is a business risk. Diversify.
+- **No lead scoring** → Not all leads are equal. Route to revenue-operations for scoring.
+- **CAC exceeding LTV** → Demand gen is unprofitable. Optimize or cut channels.
+- **No nurture for non-ready leads** → 80% of leads aren't ready to buy. Nurture converts them later.
+
+## Output Artifacts
+
+| When you ask for... | You get... |
+|---------------------|------------|
+| "Demand gen plan" | Multi-channel acquisition strategy with budget allocation |
+| "Pipeline analysis" | Funnel conversion rates with bottleneck identification |
+| "Channel strategy" | Channel selection matrix based on audience and budget |
+
+## Communication
+
+All output passes quality verification:
+- Self-verify: source attribution, assumption audit, confidence scoring
+- Output format: Bottom Line → What (with confidence) → Why → How to Act
+- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+
+## Related Skills
+
+- **paid-ads**: For executing paid acquisition campaigns.
+- **content-strategy**: For content-driven demand generation.
+- **email-sequence**: For nurture sequences in the demand funnel.
+- **campaign-analytics**: For measuring demand gen effectiveness.

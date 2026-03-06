@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 89,
+  "total_skills": 124,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -342,48 +342,6 @@
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making"
     },
     {
-      "name": "app-store-optimization",
-      "source": "../../marketing-skill/app-store-optimization",
-      "category": "marketing",
-      "description": "App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store."
-    },
-    {
-      "name": "campaign-analytics",
-      "source": "../../marketing-skill/campaign-analytics",
-      "category": "marketing",
-      "description": "Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization"
-    },
-    {
-      "name": "content-creator",
-      "source": "../../marketing-skill/content-creator",
-      "category": "marketing",
-      "description": "Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy."
-    },
-    {
-      "name": "marketing-demand-acquisition",
-      "source": "../../marketing-skill/marketing-demand-acquisition",
-      "category": "marketing",
-      "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups"
-    },
-    {
-      "name": "marketing-strategy-pmm",
-      "source": "../../marketing-skill/marketing-strategy-pmm",
-      "category": "marketing",
-      "description": "Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry."
-    },
-    {
-      "name": "prompt-engineer-toolkit",
-      "source": "../../marketing-skill/prompt-engineer-toolkit",
-      "category": "marketing",
-      "description": "Skill from marketing-skill"
-    },
-    {
-      "name": "social-media-analyzer",
-      "source": "../../marketing-skill/social-media-analyzer",
-      "category": "marketing",
-      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards."
-    },
-    {
       "name": "agile-product-owner",
       "source": "../../product-team/agile-product-owner",
       "category": "product",
@@ -538,6 +496,259 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis."
+    },
+    {
+      "name": "ab-test-setup",
+      "source": "../../marketing-skill/ab-test-setup",
+      "category": "marketing",
+      "description": "Design, implement, and analyze A/B tests and experiments with statistical rigor"
+    },
+    {
+      "name": "ad-creative",
+      "source": "../../marketing-skill/ad-creative",
+      "category": "marketing",
+      "description": "Bulk ad creative generation and iteration for paid advertising across platforms"
+    },
+    {
+      "name": "ai-seo",
+      "source": "../../marketing-skill/ai-seo",
+      "category": "marketing",
+      "description": "Optimize content for AI search engines \u2014 get cited by ChatGPT, Perplexity, Google AI Overviews"
+    },
+    {
+      "name": "analytics-tracking",
+      "source": "../../marketing-skill/analytics-tracking",
+      "category": "marketing",
+      "description": "Set up, audit, and optimize analytics tracking \u2014 GA4, GTM, conversion tracking, event taxonomy"
+    },
+    {
+      "name": "app-store-optimization",
+      "source": "../../marketing-skill/app-store-optimization",
+      "category": "marketing",
+      "description": "App Store Optimization for Apple App Store and Google Play Store metadata and keywords"
+    },
+    {
+      "name": "brand-guidelines",
+      "source": "../../marketing-skill/brand-guidelines",
+      "category": "marketing",
+      "description": "Create and maintain brand identity systems \u2014 logo, colors, typography, voice guidelines"
+    },
+    {
+      "name": "campaign-analytics",
+      "source": "../../marketing-skill/campaign-analytics",
+      "category": "marketing",
+      "description": "Cross-channel campaign performance analysis, attribution modeling, and ROI optimization"
+    },
+    {
+      "name": "churn-prevention",
+      "source": "../../marketing-skill/churn-prevention",
+      "category": "marketing",
+      "description": "Reduce voluntary churn (cancel flows, save offers) and involuntary churn (dunning, payment recovery)"
+    },
+    {
+      "name": "cold-email",
+      "source": "../../marketing-skill/cold-email",
+      "category": "marketing",
+      "description": "B2B cold outreach that sounds human \u2014 outreach sequences, follow-ups, deliverability"
+    },
+    {
+      "name": "competitor-alternatives",
+      "source": "../../marketing-skill/competitor-alternatives",
+      "category": "marketing",
+      "description": "Create competitor comparison and alternative pages for SEO and sales enablement"
+    },
+    {
+      "name": "content-creator",
+      "source": "../../marketing-skill/content-creator",
+      "category": "marketing",
+      "description": "DEPRECATED \u2014 redirects to content-production (writing) and content-strategy (planning). Scripts moved to content-production.",
+      "status": "deprecated"
+    },
+    {
+      "name": "content-humanizer",
+      "source": "../../marketing-skill/content-humanizer",
+      "category": "marketing",
+      "description": "Detect AI writing patterns and inject authentic voice, personality, and lived experience"
+    },
+    {
+      "name": "content-production",
+      "source": "../../marketing-skill/content-production",
+      "category": "marketing",
+      "description": "Full content production pipeline \u2014 research, brief, draft, optimize, publish"
+    },
+    {
+      "name": "content-strategy",
+      "source": "../../marketing-skill/content-strategy",
+      "category": "marketing",
+      "description": "Plan content strategy, decide topics, build topic clusters, and create content calendars"
+    },
+    {
+      "name": "copy-editing",
+      "source": "../../marketing-skill/copy-editing",
+      "category": "marketing",
+      "description": "Edit, review, and improve existing marketing copy through systematic multi-pass editing"
+    },
+    {
+      "name": "copywriting",
+      "source": "../../marketing-skill/copywriting",
+      "category": "marketing",
+      "description": "Write high-converting marketing copy for any page type \u2014 landing, pricing, features, about"
+    },
+    {
+      "name": "email-sequence",
+      "source": "../../marketing-skill/email-sequence",
+      "category": "marketing",
+      "description": "Create email sequences, drip campaigns, nurture flows, and lifecycle email programs"
+    },
+    {
+      "name": "form-cro",
+      "source": "../../marketing-skill/form-cro",
+      "category": "marketing",
+      "description": "Optimize lead capture, contact, demo request, and application forms for higher completion"
+    },
+    {
+      "name": "free-tool-strategy",
+      "source": "../../marketing-skill/free-tool-strategy",
+      "category": "marketing",
+      "description": "Engineering as marketing \u2014 build free tools for lead generation and SEO value"
+    },
+    {
+      "name": "launch-strategy",
+      "source": "../../marketing-skill/launch-strategy",
+      "category": "marketing",
+      "description": "Plan product launches, feature announcements, and release strategies across channels"
+    },
+    {
+      "name": "marketing-context",
+      "source": "../../marketing-skill/marketing-context",
+      "category": "marketing",
+      "description": "Foundation skill \u2014 captures brand voice, audience personas, competitive landscape for all marketing skills"
+    },
+    {
+      "name": "marketing-demand-acquisition",
+      "source": "../../marketing-skill/marketing-demand-acquisition",
+      "category": "marketing",
+      "description": "Multi-channel demand generation, paid media optimization, and partnership programs"
+    },
+    {
+      "name": "marketing-ideas",
+      "source": "../../marketing-skill/marketing-ideas",
+      "category": "marketing",
+      "description": "139 proven marketing approaches organized by category for SaaS and software products"
+    },
+    {
+      "name": "marketing-ops",
+      "source": "../../marketing-skill/marketing-ops",
+      "category": "marketing",
+      "description": "Central router for all 42 marketing skills \u2014 routes requests to the right specialist"
+    },
+    {
+      "name": "marketing-psychology",
+      "source": "../../marketing-skill/marketing-psychology",
+      "category": "marketing",
+      "description": "Apply 70+ psychological principles and mental models to marketing decisions. Catalog in references/mental-models-catalog.md."
+    },
+    {
+      "name": "marketing-strategy-pmm",
+      "source": "../../marketing-skill/marketing-strategy-pmm",
+      "category": "marketing",
+      "description": "Product marketing \u2014 positioning (April Dunford), GTM strategy, competitive battlecards"
+    },
+    {
+      "name": "onboarding-cro",
+      "source": "../../marketing-skill/onboarding-cro",
+      "category": "marketing",
+      "description": "Optimize user onboarding flows for activation and retention"
+    },
+    {
+      "name": "page-cro",
+      "source": "../../marketing-skill/page-cro",
+      "category": "marketing",
+      "description": "Conversion rate optimization for any web page \u2014 hero, layout, CTA, social proof"
+    },
+    {
+      "name": "paid-ads",
+      "source": "../../marketing-skill/paid-ads",
+      "category": "marketing",
+      "description": "Paid advertising strategy, campaign structure, and budget optimization across platforms"
+    },
+    {
+      "name": "paywall-upgrade-cro",
+      "source": "../../marketing-skill/paywall-upgrade-cro",
+      "category": "marketing",
+      "description": "Optimize free-to-paid conversion \u2014 upgrade prompts, plan comparison, trial-to-paid"
+    },
+    {
+      "name": "popup-cro",
+      "source": "../../marketing-skill/popup-cro",
+      "category": "marketing",
+      "description": "Design high-converting popups \u2014 exit-intent, scroll-triggered, timed, welcome mat"
+    },
+    {
+      "name": "pricing-strategy",
+      "source": "../../marketing-skill/pricing-strategy",
+      "category": "marketing",
+      "description": "Pricing, packaging, and monetization for SaaS \u2014 tiers, value metrics, price increases"
+    },
+    {
+      "name": "programmatic-seo",
+      "source": "../../marketing-skill/programmatic-seo",
+      "category": "marketing",
+      "description": "Generate thousands of SEO-optimized pages from structured data at scale"
+    },
+    {
+      "name": "prompt-engineer-toolkit",
+      "source": "../../marketing-skill/prompt-engineer-toolkit",
+      "category": "marketing",
+      "description": "Prompt engineering techniques for AI-assisted marketing content production"
+    },
+    {
+      "name": "referral-program",
+      "source": "../../marketing-skill/referral-program",
+      "category": "marketing",
+      "description": "Design referral and affiliate programs \u2014 incentives, mechanics, optimization"
+    },
+    {
+      "name": "schema-markup",
+      "source": "../../marketing-skill/schema-markup",
+      "category": "marketing",
+      "description": "Structured data implementation \u2014 JSON-LD, schema types, validation, AI discoverability"
+    },
+    {
+      "name": "seo-audit",
+      "source": "../../marketing-skill/seo-audit",
+      "category": "marketing",
+      "description": "Full SEO audit \u2014 technical, on-page, content, backlinks with prioritized fix list"
+    },
+    {
+      "name": "signup-flow-cro",
+      "source": "../../marketing-skill/signup-flow-cro",
+      "category": "marketing",
+      "description": "Optimize signup and registration flows for higher completion rates"
+    },
+    {
+      "name": "site-architecture",
+      "source": "../../marketing-skill/site-architecture",
+      "category": "marketing",
+      "description": "Website structure, URL hierarchy, navigation design, and internal linking strategy"
+    },
+    {
+      "name": "social-content",
+      "source": "../../marketing-skill/social-content",
+      "category": "marketing",
+      "description": "Write platform-specific social media posts with hooks, formatting, and CTAs"
+    },
+    {
+      "name": "social-media-analyzer",
+      "source": "../../marketing-skill/social-media-analyzer",
+      "category": "marketing",
+      "description": "Analyze social media performance data, engagement patterns, and competitor activity"
+    },
+    {
+      "name": "social-media-manager",
+      "source": "../../marketing-skill/social-media-manager",
+      "category": "marketing",
+      "description": "Social media strategy, content calendars, community engagement, and growth planning"
     }
   ],
   "categories": {

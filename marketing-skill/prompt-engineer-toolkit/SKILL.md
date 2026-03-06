@@ -1,3 +1,14 @@
+---
+name: prompt-engineer-toolkit
+description: "When the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
+---
+
 # Prompt Engineer Toolkit
 
 **Tier:** POWERFUL  
@@ -150,3 +161,32 @@ This enables deterministic grading across prompt variants.
 - Optimizing for one benchmark while harming edge cases
 - Missing audit trail for prompt edits in multi-author teams
 - Model swap without rerunning baseline A/B suite
+
+## Proactive Triggers
+
+- **AI output sounds generic** → Prompts lack brand voice context. Include voice guidelines.
+- **Inconsistent output quality** → Prompts too vague. Add specific examples and constraints.
+- **No quality checks on AI content** → AI output needs human review. Never publish without editing.
+- **Same prompt style for all tasks** → Different tasks need different prompt structures.
+
+## Output Artifacts
+
+| When you ask for... | You get... |
+|---------------------|------------|
+| "Improve my prompts" | Prompt audit with specific rewrites for better output |
+| "Prompt templates" | Task-specific prompt templates for marketing use cases |
+| "AI content workflow" | End-to-end AI-assisted content production workflow |
+
+## Communication
+
+All output passes quality verification:
+- Self-verify: source attribution, assumption audit, confidence scoring
+- Output format: Bottom Line → What (with confidence) → Why → How to Act
+- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+
+## Related Skills
+
+- **content-production**: For the full content pipeline. Prompt engineering supports AI-assisted writing.
+- **ad-creative**: For generating ad variations using prompt techniques.
+- **content-humanizer**: For refining AI-generated output to sound natural.
+- **marketing-context**: Provides brand context that improves prompt outputs.

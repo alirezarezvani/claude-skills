@@ -7,10 +7,7 @@
     "email": "reza.rezvani73@googlemail.com"
   },
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alirezarezvani/claude-skills"
-  },
+  "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
   "keywords": [
     "playwright",

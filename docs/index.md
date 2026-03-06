@@ -3,6 +3,7 @@ title: Claude Code Skills & Plugins
 description: "169 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw. Reusable expertise bundles for engineering, product, marketing, compliance, and more."
 hide:
   - toc
+  - edit
 ---
 
 <style>

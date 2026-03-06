@@ -1,140 +1,276 @@
-# Extractable Content Patterns for AI Citation
+# Content Patterns for AI Citability
 
-Templates for content blocks optimized for AI extraction. Each pattern is designed to work as a self-contained passage that AI systems can pull into answers.
+Ready-to-use block templates for each content pattern that AI search engines reliably extract and cite. Copy, adapt, and embed in your pages.
 
 ---
 
-## Definition Block
+## Why Patterns Matter
 
-For "What is X?" queries. The definition should be complete in one paragraph — AI extracts this verbatim.
+AI systems don't read pages the way humans do. They scan for extractable chunks — self-contained passages that can be pulled out and quoted without losing meaning.
 
+The patterns below are structured to be self-contained by design. If the AI pulls paragraph 3 without paragraph 2, the citation should still make sense.
+
+---
+
+## Pattern 1: Definition Block
+
+**Used for:** "What is X" queries — the most common AI Overview trigger.
+
+**Requirements:**
+- First sentence: direct definition
+- Second sentence: why it matters or how it works
+- Third sentence (optional): example or context
+- Placed in first 300 words of the page
+
+**Template:**
 ```markdown
-## What Is [Term]?
-
-[Term] is [concise definition in one sentence]. It [what it does / how it works in one sentence]. Unlike [alternative/predecessor], [term] [key differentiator]. [Term] is used by [who uses it] to [primary benefit].
+**[Term]** is [precise definition — what it is, what it does, who uses it]. 
+[One sentence on why it matters or what problem it solves]. 
+[Optional: one sentence example — "For example, a SaaS company might use X to..."].
 ```
 
-**Target:** 40-60 words. Self-contained. No references to "as mentioned above."
-
----
-
-## Comparison Block
-
-For "X vs Y" queries. Tables are extracted at much higher rates than prose comparisons.
-
+**Example:**
 ```markdown
-## [X] vs [Y]: Key Differences
-
-| Feature | [X] | [Y] |
-|---------|-----|-----|
-| [Feature 1] | [X's approach] | [Y's approach] |
-| [Feature 2] | [X's approach] | [Y's approach] |
-| [Feature 3] | [X's approach] | [Y's approach] |
-| **Best for** | [X's ideal user] | [Y's ideal user] |
-| **Pricing** | [X's price] | [Y's price] |
-
-**Bottom line:** Choose [X] if [scenario]. Choose [Y] if [scenario].
+**Churn rate** is the percentage of customers who cancel or stop using a service within a given period, typically measured monthly or annually. It directly impacts recurring revenue — a 5% monthly churn means losing over half your customer base each year. For subscription SaaS, a healthy monthly churn rate is typically below 2%.
 ```
 
-**Critical:** Be balanced and fair. AI systems deprioritize obviously biased comparisons.
+**Tips:**
+- Bold the term on its first use
+- Don't start with "In the world of..." or "When it comes to..."
+- The definition should work even if the reader knows nothing about the topic
 
 ---
 
-## Step-by-Step Block
+## Pattern 2: Numbered Steps (How-To)
 
-For "How to X" queries. Numbered steps with action verbs.
+**Used for:** "How to X" and "How do I X" queries.
 
+**Requirements:**
+- Numbered list (not bulleted)
+- Each step starts with an action verb
+- Each step is self-contained (can be cited alone)
+- 5-10 steps maximum
+- Pair with HowTo schema markup
+
+**Template:**
 ```markdown
-## How to [Action] in [N] Steps
+## How to [Task]
 
-1. **[Action verb] [object]** — [Brief explanation of what and why]. [Specific detail].
-2. **[Action verb] [object]** — [Brief explanation]. [Specific detail].
-3. **[Action verb] [object]** — [Brief explanation]. [Specific detail].
-
-**Time required:** [estimate]. **Difficulty:** [beginner/intermediate/advanced].
+1. **[Verb phrase]** — [1-2 sentence explanation of this specific step]
+2. **[Verb phrase]** — [1-2 sentence explanation]
+3. **[Verb phrase]** — [1-2 sentence explanation]
+4. **[Verb phrase]** — [1-2 sentence explanation]
+5. **[Verb phrase]** — [1-2 sentence explanation]
 ```
 
-**Rules:** Start each step with an action verb. Include specific details (not "do the thing"). Add time/difficulty metadata.
-
----
-
-## Statistics Block
-
-For authority and citation boost. Statistics with sources are among the highest-cited content types.
-
+**Example:**
 ```markdown
-According to [Source] ([Year]), [specific statistic]. This represents [context — growth, comparison, significance]. [One sentence interpreting what this means for the reader].
+## How to Reduce SaaS Churn
+
+1. **Define your activation event** — Identify the specific action that signals a user has experienced core product value. For Slack, it's 2,000 messages sent. For Dropbox, it's saving the first file.
+2. **Instrument the activation funnel** — Add event tracking from signup to activation. Find the step where most users drop off — that's your highest-leverage point.
+3. **Build a customer health score** — Combine login frequency, feature adoption, and support ticket volume into a single score. Customers below 40 get proactive outreach.
+4. **Segment churn by cohort** — Not all churn looks the same. Compare churn rates by acquisition channel, onboarding path, and company size to find patterns.
+5. **Interview churned customers** — The customers who left quietly are more valuable than the ones who complained. Call 10 churned accounts per month and ask what they were trying to accomplish.
 ```
 
-**Rules:** Always include source name, year, and specific number. Never cite statistics without attribution. Dated statistics beat undated ones.
+**Schema markup (JSON-LD):**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to [Task]",
+  "step": [
+    {"@type": "HowToStep", "name": "Step 1 name", "text": "Step 1 explanation"},
+    {"@type": "HowToStep", "name": "Step 2 name", "text": "Step 2 explanation"}
+  ]
+}
+```
 
 ---
 
-## FAQ Block
+## Pattern 3: Comparison Table
 
-For direct question-answer queries. Use the exact question people ask.
+**Used for:** "X vs Y" and "best X for Y" queries.
 
+**Requirements:**
+- Header row with category names
+- First column: feature or criterion
+- Remaining columns: the things being compared
+- Keep it focused — 5-10 rows maximum
+- Don't try to cover everything; cover what matters most
+
+**Template:**
+```markdown
+| Feature | [Option A] | [Option B] | [Option C] |
+|---|---|---|---|
+| [Criterion 1] | [Value] | [Value] | [Value] |
+| [Criterion 2] | [Value] | [Value] | [Value] |
+| [Criterion 3] | [Value] | [Value] | [Value] |
+| Best for | [Audience A] | [Audience B] | [Audience C] |
+| Pricing | [Range] | [Range] | [Range] |
+```
+
+**Tips:**
+- Put the most important criteria first
+- Use simple values — "Yes / No / Partial" beats long prose in cells
+- Include a "Best for" row — AI systems use this for recommendation queries
+- Add a sentence below the table summarizing the verdict: "X is best for teams that need A; Y is better when B matters more."
+
+---
+
+## Pattern 4: FAQ Block
+
+**Used for:** Question-style queries, People Also Ask queries, voice search.
+
+**Requirements:**
+- Question phrased exactly as someone would ask it (natural language)
+- Answer is complete in 2-4 sentences (no "read more in section 3")
+- 5-10 FAQs per block
+- Pair with FAQPage schema markup
+
+**Template:**
 ```markdown
 ## Frequently Asked Questions
 
-### [Exact question as people would phrase it]?
+**What is [X]?**
+[2-4 sentence complete answer]
 
-[Direct answer in first sentence — no preamble]. [2-3 supporting sentences with specifics]. [Optional: link to deeper content].
+**How does [X] work?**
+[2-4 sentence complete answer]
 
-### [Next question]?
+**What's the difference between [X] and [Y]?**
+[2-4 sentence complete answer]
 
-[Direct answer first]. [Supporting detail].
+**How much does [X] cost?**
+[2-4 sentence complete answer]
+
+**Is [X] right for [audience]?**
+[2-4 sentence complete answer]
 ```
 
-**Rules:** Question must be phrased naturally (how people actually ask, not keyword-stuffed). Answer must start with the direct answer — no "Great question!" or "That depends."
+**Schema markup (JSON-LD):**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is [X]?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complete answer text here"
+      }
+    }
+  ]
+}
+```
+
+**Tips:**
+- Write questions the way users actually type or speak them — use Google's "People Also Ask" as a source
+- Answers should be complete without needing context from anywhere else on the page
+- Don't start answers with "Great question" or "That's a common question" — just answer
 
 ---
 
-## List Block
+## Pattern 5: Statistic with Attribution
 
-For "Best X" or "Top X" queries. Structured lists with brief annotations.
+**Used for:** Data queries, "how many" queries, research-backed claims.
 
+**Requirements:**
+- Named source (not "a study" — the actual organization name)
+- Year of the data
+- Specific number (not "many" or "most")
+- Context (what the number means)
+
+**Template:**
 ```markdown
-## [N] Best [Category] for [Use Case] ([Year])
-
-1. **[Option 1]** — [One sentence: what it is + key strength]. Best for [specific scenario].
-2. **[Option 2]** — [One sentence: what it is + key strength]. Best for [specific scenario].
-3. **[Option 3]** — [One sentence: what it is + key strength]. Best for [specific scenario].
+According to [Organization Name]'s [Report Name] ([Year]), [specific statistic with units]. [One sentence on what this means or why it matters].
 ```
 
-**Rules:** Include the year in the heading (recency signal). Each item should be a complete, self-contained recommendation.
+**Example:**
+```markdown
+According to the Baymard Institute's 2024 UX benchmarking study, 69.8% of online shopping carts are abandoned before purchase. For a $1M/month ecommerce store, recovering just 5% of abandoned carts represents $35,000 in monthly revenue.
+```
+
+**Tips:**
+- Link to the original source (AI systems and readers both benefit)
+- If data is from your own research, say so: "In our 2025 survey of 500 SaaS founders..."
+- Proprietary data is the highest-value citation target — AI systems actively seek original research
 
 ---
 
-## Expert Quote Block
+## Pattern 6: Expert Quote Block
 
-For authority boost. Named experts with credentials.
+**Used for:** Authority building, "what do experts say" queries.
 
+**Requirements:**
+- Full name of the person quoted
+- Their title and organization
+- A quote that's substantive (not a generic endorsement)
+- Brief context sentence before the quote
+
+**Template:**
 ```markdown
-"[Quote that adds genuine insight, not marketing fluff]," says [Full Name], [Title] at [Organization]. "[Optional second sentence adding nuance]."
+[Context sentence explaining why this person's view matters.]
+
+"[Direct quote — specific, substantive, something only they would say]," says [Full Name], [Title] at [Organization].
 ```
 
-**Rules:** Real name, real title, real organization. The quote should add insight that couldn't come from generic content. Avoid promotional quotes.
+**Example:**
+```markdown
+Patrick Campbell, founder of ProfitWell (acquired by Paddle), studied pricing data from over 30,000 SaaS companies before reaching a counterintuitive conclusion about churn.
+
+"Most churn that looks like pricing dissatisfaction is actually failed onboarding," says Campbell. "The customer never saw the value that justified the price. That's a different problem than being too expensive."
+```
+
+**Tips:**
+- Don't use generic quotes ("innovation is key to success") — they add nothing
+- Quotes should contain a specific claim, data point, or perspective
+- If quoting your own team: "[Name], [Title] at [Company Name]" is still valid
+- Live quotes (from interviews or primary research) outperform secondary quotes from other articles
 
 ---
 
-## Pros/Cons Block
+## Pattern 7: Quick-Scan Summary Box
 
-For evaluation queries. Honest assessment builds trust with AI systems.
+**Used for:** Queries where users want the TL;DR before committing to the full article.
 
+**Requirements:**
+- Placed near the top of the article (after the intro)
+- 3-7 key takeaways
+- Each bullet stands alone — no context required
+- Labeled clearly ("Key Takeaways" or "Quick Summary")
+
+**Template:**
 ```markdown
-## [Subject] Pros and Cons
-
-**Pros:**
-- [Specific benefit with context]
-- [Specific benefit with context]
-- [Specific benefit with context]
-
-**Cons:**
-- [Honest limitation with context]
-- [Honest limitation with context]
-
-**Verdict:** [Balanced one-line assessment with recommendation for who should/shouldn't use it].
+**Key Takeaways**
+- [Specific, complete takeaway — could be read as a tweet]
+- [Specific, complete takeaway]
+- [Specific, complete takeaway]
+- [Specific, complete takeaway]
+- [Specific, complete takeaway]
 ```
 
-**Rules:** Honest cons build more trust than all-positive reviews. AI systems can detect and deprioritize suspiciously one-sided content.
+**Tips:**
+- This is often the block AI systems extract for "summary" type queries
+- Make each bullet specific: "Monthly churn below 2% is considered healthy for most SaaS" beats "Churn should be low"
+- Don't repeat the article intro verbatim — these should be the most actionable insights
+
+---
+
+## Combining Patterns
+
+The most citable pages combine multiple patterns throughout the piece:
+
+**Recommended page structure for maximum AI extractability:**
+1. Definition block (first 300 words)
+2. Quick summary box (right after intro)
+3. Body sections with numbered steps or subsections
+4. Data points with full attribution throughout
+5. Comparison table (if competitive topic)
+6. FAQ block (before conclusion)
+7. Expert quote (to add authority)
+
+A page with all 7 patterns has significantly more extractable surface area than a page with prose only. The AI has more options to pull from and a higher probability of finding something that perfectly matches the query.

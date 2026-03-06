@@ -1,9 +1,9 @@
 # Claude Skills Library
 
-**134 production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**169 production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-134-brightgreen.svg)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-169-brightgreen.svg)](#skills-overview)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
@@ -31,7 +31,7 @@ Skills are modular instruction packages that give AI agents domain expertise the
 /plugin install engineering-skills@claude-code-skills          # 21 core engineering
 /plugin install engineering-advanced-skills@claude-code-skills  # 25 POWERFUL-tier
 /plugin install product-skills@claude-code-skills               # 8 product skills
-/plugin install marketing-skills@claude-code-skills             # 7 marketing skills
+/plugin install marketing-skills@claude-code-skills             # 42 marketing skills
 /plugin install ra-qm-skills@claude-code-skills                 # 12 regulatory/quality
 /plugin install pm-skills@claude-code-skills                    # 6 project management
 /plugin install c-level-skills@claude-code-skills               # 10 C-level advisory (full C-suite)
@@ -78,7 +78,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
 | **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder | [product-team/](product-team/) |
-| **📣 Marketing** | 7 | Content creator, demand gen, PMM strategy, ASO, social media, campaign analytics, prompt engineering | [marketing-skill/](marketing-skill/) |
+| **📣 Marketing** | 42 | 7 pods: Content (8), SEO (5), CRO (6), Channels (5), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 27 Python tools. | [marketing-skill/](marketing-skill/) |
 | **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 12 | ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
 | **💼 C-Level Advisory** | 28 | Full C-suite (10 roles) + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |

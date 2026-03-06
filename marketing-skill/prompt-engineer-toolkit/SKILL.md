@@ -1,3 +1,14 @@
+---
+name: prompt-engineer-toolkit
+description: "When the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: marketing
+  updated: 2026-03-06
+---
+
 # Prompt Engineer Toolkit
 
 **Tier:** POWERFUL  

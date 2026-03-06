@@ -428,12 +428,17 @@ def main():
             print(f"Error reading file: {e}", file=sys.stderr)
             sys.exit(1)
     elif not sys.stdin.isatty():
-        try:
-            data = json.load(sys.stdin)
-            ads = data if isinstance(data, list) else [data]
-        except Exception as e:
-            print(f"Error reading stdin: {e}", file=sys.stderr)
-            sys.exit(1)
+        raw = sys.stdin.read().strip()
+        if raw:
+            try:
+                data = json.loads(raw)
+                ads = data if isinstance(data, list) else [data]
+            except Exception as e:
+                print(f"Error reading stdin: {e}", file=sys.stderr)
+                sys.exit(1)
+        else:
+            print("No input provided — running embedded sample ads.\n")
+            ads = SAMPLE_ADS
     else:
         print("No input provided — running embedded sample ads.\n")
         ads = SAMPLE_ADS

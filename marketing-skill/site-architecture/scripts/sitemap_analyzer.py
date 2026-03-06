@@ -17,6 +17,7 @@ Stdlib only — no external dependencies.
 import json
 import sys
 import re
+import select
 import urllib.request
 import urllib.error
 from collections import Counter, defaultdict
@@ -328,9 +329,11 @@ def load_content(source: str) -> str:
 
 def main():
     if len(sys.argv) > 1:
-        content = load_content(sys.argv[1])
-    elif not sys.stdin.isatty():
-        content = sys.stdin.read()
+        arg = sys.argv[1]
+        if arg == "-":
+            content = sys.stdin.read()
+        else:
+            content = load_content(arg)
     else:
         print("No file or URL provided — running on embedded sample sitemap.\n")
         content = SAMPLE_SITEMAP

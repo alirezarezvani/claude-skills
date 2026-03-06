@@ -15,6 +15,7 @@ Scoring: 0-100 per schema block based on required/recommended field coverage.
 import json
 import sys
 import re
+import select
 from html.parser import HTMLParser
 from typing import List, Dict, Any, Optional
 
@@ -390,15 +391,16 @@ SAMPLE_HTML = """<!DOCTYPE html>
 
 def main():
     if len(sys.argv) > 1:
-        filepath = sys.argv[1]
-        try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                html = f.read()
-        except FileNotFoundError:
-            print(f"Error: File not found: {filepath}", file=sys.stderr)
-            sys.exit(1)
-    elif not sys.stdin.isatty():
-        html = sys.stdin.read()
+        arg = sys.argv[1]
+        if arg == "-":
+            html = sys.stdin.read()
+        else:
+            try:
+                with open(arg, "r", encoding="utf-8") as f:
+                    html = f.read()
+            except FileNotFoundError:
+                print(f"Error: File not found: {arg}", file=sys.stderr)
+                sys.exit(1)
     else:
         print("No file provided — running on embedded sample HTML.\n")
         html = SAMPLE_HTML

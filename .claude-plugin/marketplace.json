@@ -15,7 +15,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "21 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering",
+      "description": "23 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright, self-improving agent",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -314,13 +314,17 @@
       "name": "self-improving-agent",
       "source": "./engineering-team/self-improving-agent",
       "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills.",
-      "category": "development",
-      "tags": [
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
         "memory",
         "auto-memory",
         "self-improvement",
         "learning"
-      ]
+      ],
+      "category": "development"
     },
     {
       "name": "marketing-skills",

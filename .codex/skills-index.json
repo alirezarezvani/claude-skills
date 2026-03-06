@@ -342,6 +342,258 @@
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making"
     },
     {
+      "name": "ab-test-setup",
+      "source": "../../marketing-skill/ab-test-setup",
+      "category": "marketing",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"conversion experiment,\" \"statistical significance,\" or \"test this.\" For tracking implementation, see analytics-tracking."
+    },
+    {
+      "name": "ad-creative",
+      "source": "../../marketing-skill/ad-creative",
+      "category": "marketing",
+      "description": "When the user needs to generate, iterate, or scale ad creative for paid advertising. Use when they say 'write ad copy,' 'generate headlines,' 'create ad variations,' 'bulk creative,' 'iterate on ads,' 'ad copy validation,' 'RSA headlines,' 'Meta ad copy,' 'LinkedIn ad,' or 'creative testing.' This is pure creative production \u2014 distinct from paid-ads (campaign strategy). Use ad-creative when you need the copy, not the campaign plan."
+    },
+    {
+      "name": "ai-seo",
+      "source": "../../marketing-skill/ai-seo",
+      "category": "marketing",
+      "description": "Optimize content to get cited by AI search engines \u2014 ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, Copilot. Use when you want your content to appear in AI-generated answers, not just ranked in blue links. Triggers: 'optimize for AI search', 'get cited by ChatGPT', 'AI Overviews', 'Perplexity citations', 'AI SEO', 'generative search', 'LLM visibility', 'GEO' (generative engine optimization). NOT for traditional SEO ranking (use seo-audit). NOT for content creation (use content-production)."
+    },
+    {
+      "name": "analytics-tracking",
+      "source": "../../marketing-skill/analytics-tracking",
+      "category": "marketing",
+      "description": "Set up, audit, and debug analytics tracking implementation \u2014 GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when building a tracking plan from scratch, auditing existing analytics for gaps or errors, debugging missing events, or setting up GTM. Trigger keywords: GA4 setup, Google Tag Manager, GTM, event tracking, analytics implementation, conversion tracking, tracking plan, event taxonomy, custom dimensions, UTM tracking, analytics audit, missing events, tracking broken. NOT for analyzing marketing campaign data \u2014 use campaign-analytics for that. NOT for BI dashboards \u2014 use product-analytics for in-product event analysis."
+    },
+    {
+      "name": "app-store-optimization",
+      "source": "../../marketing-skill/app-store-optimization",
+      "category": "marketing",
+      "description": "App Store Optimization toolkit for researching keywords, optimizing metadata, and tracking mobile app performance on Apple App Store and Google Play Store."
+    },
+    {
+      "name": "brand-guidelines",
+      "source": "../../marketing-skill/brand-guidelines",
+      "category": "marketing",
+      "description": "When the user wants to apply, document, or enforce brand guidelines for any product or company. Also use when the user mentions 'brand guidelines,' 'brand colors,' 'typography,' 'logo usage,' 'brand voice,' 'visual identity,' 'tone of voice,' 'brand standards,' 'style guide,' 'brand consistency,' or 'company design standards.' Covers color systems, typography, logo rules, imagery guidelines, and tone matrix for any brand \u2014 including Anthropic's official identity."
+    },
+    {
+      "name": "campaign-analytics",
+      "source": "../../marketing-skill/campaign-analytics",
+      "category": "marketing",
+      "description": "Analyzes campaign performance with multi-touch attribution, funnel conversion, and ROI calculation for marketing optimization"
+    },
+    {
+      "name": "churn-prevention",
+      "source": "../../marketing-skill/churn-prevention",
+      "category": "marketing",
+      "description": "Reduce voluntary and involuntary churn through cancel flow design, save offers, exit surveys, and dunning sequences. Use when designing or optimizing a cancel flow, building save offers, setting up dunning emails, or reducing failed-payment churn. Trigger keywords: cancel flow, churn reduction, save offers, dunning, exit survey, payment recovery, win-back, involuntary churn, failed payments, cancel page. NOT for customer health scoring or expansion revenue \u2014 use customer-success-manager for that."
+    },
+    {
+      "name": "cold-email",
+      "source": "../../marketing-skill/cold-email",
+      "category": "marketing",
+      "description": "When the user wants to write, improve, or build a sequence of B2B cold outreach emails to prospects who haven't asked to hear from them. Use when the user mentions 'cold email,' 'cold outreach,' 'prospecting emails,' 'SDR emails,' 'sales emails,' 'first touch email,' 'follow-up sequence,' or 'email prospecting.' Also use when they share an email draft that sounds too sales-y and needs to be humanized. Distinct from email-sequence (lifecycle/nurture to opted-in subscribers) \u2014 this is unsolicited outreach to new prospects. NOT for lifecycle emails, newsletters, or drip campaigns (use email-sequence)."
+    },
+    {
+      "name": "competitor-alternatives",
+      "source": "../../marketing-skill/competitor-alternatives",
+      "category": "marketing",
+      "description": "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'switch from competitor,' or 'comparison content.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables."
+    },
+    {
+      "name": "content-creator",
+      "source": "../../marketing-skill/content-creator",
+      "category": "marketing",
+      "description": "DEPRECATED \u2014 Use content-production for full content pipeline, or content-strategy for planning. This skill redirects to the appropriate specialist."
+    },
+    {
+      "name": "content-humanizer",
+      "source": "../../marketing-skill/content-humanizer",
+      "category": "marketing",
+      "description": "Makes AI-generated content sound genuinely human \u2014 not just cleaned up, but alive. Use when content feels robotic, uses too many AI clich\u00e9s, lacks personality, or reads like it was written by committee. Triggers: 'this sounds like AI', 'make it more human', 'add personality', 'it feels generic', 'sounds robotic', 'fix AI writing', 'inject our voice'. NOT for initial content creation (use content-production). NOT for SEO optimization (use content-production Mode 3)."
+    },
+    {
+      "name": "content-production",
+      "source": "../../marketing-skill/content-production",
+      "category": "marketing",
+      "description": "Full content production pipeline \u2014 takes a topic from blank page to published-ready piece. Use when you need to execute content: write a blog post, article, or guide end-to-end. Triggers: 'write a post about', 'draft an article', 'create content for', 'help me write', 'I need a blog post'. NOT for content strategy or calendar planning (use content-strategy). NOT for repurposing existing content (use content-repurposing). NOT for social captions only."
+    },
+    {
+      "name": "content-strategy",
+      "source": "../../marketing-skill/content-strategy",
+      "category": "marketing",
+      "description": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \\\"content strategy,\\\" \\\"what should I write about,\\\" \\\"content ideas,\\\" \\\"blog strategy,\\\" \\\"topic clusters,\\\" or \\\"content planning.\\\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit."
+    },
+    {
+      "name": "copy-editing",
+      "source": "../../marketing-skill/copy-editing",
+      "category": "marketing",
+      "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes."
+    },
+    {
+      "name": "copywriting",
+      "source": "../../marketing-skill/copywriting",
+      "category": "marketing",
+      "description": "When the user wants to write, rewrite, or improve marketing copy for any page \u2014 including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \\\"write copy for,\\\" \\\"improve this copy,\\\" \\\"rewrite this page,\\\" \\\"marketing copy,\\\" \\\"headline help,\\\" or \\\"CTA copy.\\\" For email copy, see email-sequence. For popup copy, see popup-cro."
+    },
+    {
+      "name": "email-sequence",
+      "source": "../../marketing-skill/email-sequence",
+      "category": "marketing",
+      "description": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions \"email sequence,\" \"drip campaign,\" \"nurture sequence,\" \"onboarding emails,\" \"welcome sequence,\" \"re-engagement emails,\" \"email automation,\" or \"lifecycle emails.\" For in-app onboarding, see onboarding-cro."
+    },
+    {
+      "name": "form-cro",
+      "source": "../../marketing-skill/form-cro",
+      "category": "marketing",
+      "description": "When the user wants to optimize any form that is NOT signup/registration \u2014 including lead capture forms, contact forms, demo request forms, application forms, survey forms, or checkout forms. Also use when the user mentions \"form optimization,\" \"lead form conversions,\" \"form friction,\" \"form fields,\" \"form completion rate,\" or \"contact form.\" For signup/registration forms, see signup-flow-cro. For popups containing forms, see popup-cro."
+    },
+    {
+      "name": "free-tool-strategy",
+      "source": "../../marketing-skill/free-tool-strategy",
+      "category": "marketing",
+      "description": "When the user wants to build a free tool for marketing \u2014 lead generation, SEO value, or brand awareness. Use when they mention 'engineering as marketing,' 'free tool,' 'calculator,' 'generator,' 'checker,' 'grader,' 'marketing tool,' 'lead gen tool,' 'build something for traffic,' 'interactive tool,' or 'free resource.' Covers idea evaluation, tool design, and launch strategy. For pure SEO content strategy (no tool), use seo-audit or content-strategy instead."
+    },
+    {
+      "name": "launch-strategy",
+      "source": "../../marketing-skill/launch-strategy",
+      "category": "marketing",
+      "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'GTM plan,' 'launch checklist,' or 'launch momentum.' This skill covers phased launches, channel strategy, and ongoing launch momentum."
+    },
+    {
+      "name": "marketing-context",
+      "source": "../../marketing-skill/marketing-context",
+      "category": "marketing",
+      "description": "Create and maintain the marketing context document that all marketing skills read before starting. Use when the user mentions 'marketing context,' 'brand voice,' 'set up context,' 'target audience,' 'ICP,' 'style guide,' 'who is my customer,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Run this at the start of any new project before using other marketing skills."
+    },
+    {
+      "name": "marketing-demand-acquisition",
+      "source": "../../marketing-skill/marketing-demand-acquisition",
+      "category": "marketing",
+      "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups"
+    },
+    {
+      "name": "marketing-ideas",
+      "source": "../../marketing-skill/marketing-ideas",
+      "category": "marketing",
+      "description": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category."
+    },
+    {
+      "name": "marketing-ops",
+      "source": "../../marketing-skill/marketing-ops",
+      "category": "marketing",
+      "description": "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, and analytics. Also use when the user mentions 'marketing help,' 'campaign plan,' 'what should I do next,' 'marketing priorities,' or 'coordinate marketing.'"
+    },
+    {
+      "name": "marketing-psychology",
+      "source": "../../marketing-skill/marketing-psychology",
+      "category": "marketing",
+      "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application."
+    },
+    {
+      "name": "marketing-strategy-pmm",
+      "source": "../../marketing-skill/marketing-strategy-pmm",
+      "category": "marketing",
+      "description": "Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Covers April Dunford positioning, ICP definition, competitive battlecards, launch playbooks, and international market entry."
+    },
+    {
+      "name": "onboarding-cro",
+      "source": "../../marketing-skill/onboarding-cro",
+      "category": "marketing",
+      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions \"onboarding flow,\" \"activation rate,\" \"user activation,\" \"first-run experience,\" \"empty states,\" \"onboarding checklist,\" \"aha moment,\" or \"new user experience.\" For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence."
+    },
+    {
+      "name": "page-cro",
+      "source": "../../marketing-skill/page-cro",
+      "category": "marketing",
+      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro."
+    },
+    {
+      "name": "paid-ads",
+      "source": "../../marketing-skill/paid-ads",
+      "category": "marketing",
+      "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization."
+    },
+    {
+      "name": "paywall-upgrade-cro",
+      "source": "../../marketing-skill/paywall-upgrade-cro",
+      "category": "marketing",
+      "description": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" or \"in-app pricing.\" Distinct from public pricing pages (see page-cro) \u2014 this skill focuses on in-product upgrade moments where the user has already experienced value."
+    },
+    {
+      "name": "popup-cro",
+      "source": "../../marketing-skill/popup-cro",
+      "category": "marketing",
+      "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro."
+    },
+    {
+      "name": "pricing-strategy",
+      "source": "../../marketing-skill/pricing-strategy",
+      "category": "marketing",
+      "description": "Design, optimize, and communicate SaaS pricing \u2014 tier structure, value metrics, pricing pages, and price increase strategy. Use when building a pricing model from scratch, redesigning existing pricing, planning a price increase, or improving a pricing page. Trigger keywords: pricing tiers, pricing page, price increase, packaging, value metric, per seat pricing, usage-based pricing, freemium, good-better-best, pricing strategy, monetization, pricing page conversion, Van Westendorp. NOT for broader product strategy \u2014 use product-strategist for that. NOT for customer success or renewals \u2014 use customer-success-manager for expansion revenue."
+    },
+    {
+      "name": "programmatic-seo",
+      "source": "../../marketing-skill/programmatic-seo",
+      "category": "marketing",
+      "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit."
+    },
+    {
+      "name": "prompt-engineer-toolkit",
+      "source": "../../marketing-skill/prompt-engineer-toolkit",
+      "category": "marketing",
+      "description": "When the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
+    },
+    {
+      "name": "referral-program",
+      "source": "../../marketing-skill/referral-program",
+      "category": "marketing",
+      "description": "When the user wants to design, launch, or optimize a referral or affiliate program. Use when they mention 'referral program,' 'affiliate program,' 'word of mouth,' 'refer a friend,' 'incentive program,' 'customer referrals,' 'brand ambassador,' 'partner program,' 'referral link,' or 'growth through referrals.' Covers program mechanics, incentive design, and optimization \u2014 not just the idea of referrals but the actual system."
+    },
+    {
+      "name": "schema-markup",
+      "source": "../../marketing-skill/schema-markup",
+      "category": "marketing",
+      "description": "When the user wants to implement, audit, or validate structured data (schema markup) on their website. Use when the user mentions 'structured data,' 'schema.org,' 'JSON-LD,' 'rich results,' 'rich snippets,' 'schema markup,' 'FAQ schema,' 'Product schema,' 'HowTo schema,' or 'structured data errors in Search Console.' Also use when someone asks why their content isn't showing rich results or wants to improve AI search visibility. NOT for general SEO audits (use seo-audit) or technical SEO crawl issues (use site-architecture)."
+    },
+    {
+      "name": "seo-audit",
+      "source": "../../marketing-skill/seo-audit",
+      "category": "marketing",
+      "description": "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions \"SEO audit,\" \"technical SEO,\" \"why am I not ranking,\" \"SEO issues,\" \"on-page SEO,\" \"meta tags review,\" or \"SEO health check.\" For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup."
+    },
+    {
+      "name": "signup-flow-cro",
+      "source": "../../marketing-skill/signup-flow-cro",
+      "category": "marketing",
+      "description": "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" or \"account creation flow.\" For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro."
+    },
+    {
+      "name": "site-architecture",
+      "source": "../../marketing-skill/site-architecture",
+      "category": "marketing",
+      "description": "When the user wants to audit, redesign, or plan their website's structure, URL hierarchy, navigation design, or internal linking strategy. Use when the user mentions 'site architecture,' 'URL structure,' 'internal links,' 'site navigation,' 'breadcrumbs,' 'topic clusters,' 'hub pages,' 'orphan pages,' 'silo structure,' 'information architecture,' or 'website reorganization.' Also use when someone has SEO problems and the root cause is structural (not content or schema). NOT for content strategy decisions about what to write (use content-strategy) or for schema markup (use schema-markup)."
+    },
+    {
+      "name": "social-content",
+      "source": "../../marketing-skill/social-content",
+      "category": "marketing",
+      "description": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies."
+    },
+    {
+      "name": "social-media-analyzer",
+      "source": "../../marketing-skill/social-media-analyzer",
+      "category": "marketing",
+      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards."
+    },
+    {
+      "name": "social-media-manager",
+      "source": "../../marketing-skill/social-media-manager",
+      "category": "marketing",
+      "description": "When the user wants to develop social media strategy, plan content calendars, manage community engagement, or grow their social presence across platforms. Also use when the user mentions 'social media strategy,' 'social calendar,' 'community management,' 'social media plan,' 'grow followers,' 'engagement rate,' 'social media audit,' or 'which platforms should I use.' For writing individual social posts, see social-content. For analyzing social performance data, see social-media-analyzer."
+    },
+    {
       "name": "agile-product-owner",
       "source": "../../product-team/agile-product-owner",
       "category": "product",
@@ -496,259 +748,6 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis."
-    },
-    {
-      "name": "ab-test-setup",
-      "source": "../../marketing-skill/ab-test-setup",
-      "category": "marketing",
-      "description": "Design, implement, and analyze A/B tests and experiments with statistical rigor"
-    },
-    {
-      "name": "ad-creative",
-      "source": "../../marketing-skill/ad-creative",
-      "category": "marketing",
-      "description": "Bulk ad creative generation and iteration for paid advertising across platforms"
-    },
-    {
-      "name": "ai-seo",
-      "source": "../../marketing-skill/ai-seo",
-      "category": "marketing",
-      "description": "Optimize content for AI search engines \u2014 get cited by ChatGPT, Perplexity, Google AI Overviews"
-    },
-    {
-      "name": "analytics-tracking",
-      "source": "../../marketing-skill/analytics-tracking",
-      "category": "marketing",
-      "description": "Set up, audit, and optimize analytics tracking \u2014 GA4, GTM, conversion tracking, event taxonomy"
-    },
-    {
-      "name": "app-store-optimization",
-      "source": "../../marketing-skill/app-store-optimization",
-      "category": "marketing",
-      "description": "App Store Optimization for Apple App Store and Google Play Store metadata and keywords"
-    },
-    {
-      "name": "brand-guidelines",
-      "source": "../../marketing-skill/brand-guidelines",
-      "category": "marketing",
-      "description": "Create and maintain brand identity systems \u2014 logo, colors, typography, voice guidelines"
-    },
-    {
-      "name": "campaign-analytics",
-      "source": "../../marketing-skill/campaign-analytics",
-      "category": "marketing",
-      "description": "Cross-channel campaign performance analysis, attribution modeling, and ROI optimization"
-    },
-    {
-      "name": "churn-prevention",
-      "source": "../../marketing-skill/churn-prevention",
-      "category": "marketing",
-      "description": "Reduce voluntary churn (cancel flows, save offers) and involuntary churn (dunning, payment recovery)"
-    },
-    {
-      "name": "cold-email",
-      "source": "../../marketing-skill/cold-email",
-      "category": "marketing",
-      "description": "B2B cold outreach that sounds human \u2014 outreach sequences, follow-ups, deliverability"
-    },
-    {
-      "name": "competitor-alternatives",
-      "source": "../../marketing-skill/competitor-alternatives",
-      "category": "marketing",
-      "description": "Create competitor comparison and alternative pages for SEO and sales enablement"
-    },
-    {
-      "name": "content-creator",
-      "source": "../../marketing-skill/content-creator",
-      "category": "marketing",
-      "description": "DEPRECATED \u2014 redirects to content-production (writing) and content-strategy (planning). Scripts moved to content-production.",
-      "status": "deprecated"
-    },
-    {
-      "name": "content-humanizer",
-      "source": "../../marketing-skill/content-humanizer",
-      "category": "marketing",
-      "description": "Detect AI writing patterns and inject authentic voice, personality, and lived experience"
-    },
-    {
-      "name": "content-production",
-      "source": "../../marketing-skill/content-production",
-      "category": "marketing",
-      "description": "Full content production pipeline \u2014 research, brief, draft, optimize, publish"
-    },
-    {
-      "name": "content-strategy",
-      "source": "../../marketing-skill/content-strategy",
-      "category": "marketing",
-      "description": "Plan content strategy, decide topics, build topic clusters, and create content calendars"
-    },
-    {
-      "name": "copy-editing",
-      "source": "../../marketing-skill/copy-editing",
-      "category": "marketing",
-      "description": "Edit, review, and improve existing marketing copy through systematic multi-pass editing"
-    },
-    {
-      "name": "copywriting",
-      "source": "../../marketing-skill/copywriting",
-      "category": "marketing",
-      "description": "Write high-converting marketing copy for any page type \u2014 landing, pricing, features, about"
-    },
-    {
-      "name": "email-sequence",
-      "source": "../../marketing-skill/email-sequence",
-      "category": "marketing",
-      "description": "Create email sequences, drip campaigns, nurture flows, and lifecycle email programs"
-    },
-    {
-      "name": "form-cro",
-      "source": "../../marketing-skill/form-cro",
-      "category": "marketing",
-      "description": "Optimize lead capture, contact, demo request, and application forms for higher completion"
-    },
-    {
-      "name": "free-tool-strategy",
-      "source": "../../marketing-skill/free-tool-strategy",
-      "category": "marketing",
-      "description": "Engineering as marketing \u2014 build free tools for lead generation and SEO value"
-    },
-    {
-      "name": "launch-strategy",
-      "source": "../../marketing-skill/launch-strategy",
-      "category": "marketing",
-      "description": "Plan product launches, feature announcements, and release strategies across channels"
-    },
-    {
-      "name": "marketing-context",
-      "source": "../../marketing-skill/marketing-context",
-      "category": "marketing",
-      "description": "Foundation skill \u2014 captures brand voice, audience personas, competitive landscape for all marketing skills"
-    },
-    {
-      "name": "marketing-demand-acquisition",
-      "source": "../../marketing-skill/marketing-demand-acquisition",
-      "category": "marketing",
-      "description": "Multi-channel demand generation, paid media optimization, and partnership programs"
-    },
-    {
-      "name": "marketing-ideas",
-      "source": "../../marketing-skill/marketing-ideas",
-      "category": "marketing",
-      "description": "139 proven marketing approaches organized by category for SaaS and software products"
-    },
-    {
-      "name": "marketing-ops",
-      "source": "../../marketing-skill/marketing-ops",
-      "category": "marketing",
-      "description": "Central router for all 42 marketing skills \u2014 routes requests to the right specialist"
-    },
-    {
-      "name": "marketing-psychology",
-      "source": "../../marketing-skill/marketing-psychology",
-      "category": "marketing",
-      "description": "Apply 70+ psychological principles and mental models to marketing decisions. Catalog in references/mental-models-catalog.md."
-    },
-    {
-      "name": "marketing-strategy-pmm",
-      "source": "../../marketing-skill/marketing-strategy-pmm",
-      "category": "marketing",
-      "description": "Product marketing \u2014 positioning (April Dunford), GTM strategy, competitive battlecards"
-    },
-    {
-      "name": "onboarding-cro",
-      "source": "../../marketing-skill/onboarding-cro",
-      "category": "marketing",
-      "description": "Optimize user onboarding flows for activation and retention"
-    },
-    {
-      "name": "page-cro",
-      "source": "../../marketing-skill/page-cro",
-      "category": "marketing",
-      "description": "Conversion rate optimization for any web page \u2014 hero, layout, CTA, social proof"
-    },
-    {
-      "name": "paid-ads",
-      "source": "../../marketing-skill/paid-ads",
-      "category": "marketing",
-      "description": "Paid advertising strategy, campaign structure, and budget optimization across platforms"
-    },
-    {
-      "name": "paywall-upgrade-cro",
-      "source": "../../marketing-skill/paywall-upgrade-cro",
-      "category": "marketing",
-      "description": "Optimize free-to-paid conversion \u2014 upgrade prompts, plan comparison, trial-to-paid"
-    },
-    {
-      "name": "popup-cro",
-      "source": "../../marketing-skill/popup-cro",
-      "category": "marketing",
-      "description": "Design high-converting popups \u2014 exit-intent, scroll-triggered, timed, welcome mat"
-    },
-    {
-      "name": "pricing-strategy",
-      "source": "../../marketing-skill/pricing-strategy",
-      "category": "marketing",
-      "description": "Pricing, packaging, and monetization for SaaS \u2014 tiers, value metrics, price increases"
-    },
-    {
-      "name": "programmatic-seo",
-      "source": "../../marketing-skill/programmatic-seo",
-      "category": "marketing",
-      "description": "Generate thousands of SEO-optimized pages from structured data at scale"
-    },
-    {
-      "name": "prompt-engineer-toolkit",
-      "source": "../../marketing-skill/prompt-engineer-toolkit",
-      "category": "marketing",
-      "description": "Prompt engineering techniques for AI-assisted marketing content production"
-    },
-    {
-      "name": "referral-program",
-      "source": "../../marketing-skill/referral-program",
-      "category": "marketing",
-      "description": "Design referral and affiliate programs \u2014 incentives, mechanics, optimization"
-    },
-    {
-      "name": "schema-markup",
-      "source": "../../marketing-skill/schema-markup",
-      "category": "marketing",
-      "description": "Structured data implementation \u2014 JSON-LD, schema types, validation, AI discoverability"
-    },
-    {
-      "name": "seo-audit",
-      "source": "../../marketing-skill/seo-audit",
-      "category": "marketing",
-      "description": "Full SEO audit \u2014 technical, on-page, content, backlinks with prioritized fix list"
-    },
-    {
-      "name": "signup-flow-cro",
-      "source": "../../marketing-skill/signup-flow-cro",
-      "category": "marketing",
-      "description": "Optimize signup and registration flows for higher completion rates"
-    },
-    {
-      "name": "site-architecture",
-      "source": "../../marketing-skill/site-architecture",
-      "category": "marketing",
-      "description": "Website structure, URL hierarchy, navigation design, and internal linking strategy"
-    },
-    {
-      "name": "social-content",
-      "source": "../../marketing-skill/social-content",
-      "category": "marketing",
-      "description": "Write platform-specific social media posts with hooks, formatting, and CTAs"
-    },
-    {
-      "name": "social-media-analyzer",
-      "source": "../../marketing-skill/social-media-analyzer",
-      "category": "marketing",
-      "description": "Analyze social media performance data, engagement patterns, and competitor activity"
-    },
-    {
-      "name": "social-media-manager",
-      "source": "../../marketing-skill/social-media-manager",
-      "category": "marketing",
-      "description": "Social media strategy, content calendars, community engagement, and growth planning"
     }
   ],
   "categories": {
@@ -773,7 +772,7 @@
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 7,
+      "count": 42,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },

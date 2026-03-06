@@ -26,7 +26,7 @@ Valid status values: "done" | "partial" | "not_started"
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 # ---------------------------------------------------------------------------
@@ -155,7 +155,7 @@ def score_readiness(checklist: dict) -> dict:
             "score_label":    _score_label(overall),
             "launch_decision": _launch_decision(overall, all_blockers),
             "blockers":        all_blockers,
-            "generated_at":    datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "generated_at":    datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         },
         "categories": {
             cat: {**CATEGORY_META.get(cat, {"emoji": "📋", "label": cat.title()}),

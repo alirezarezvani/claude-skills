@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 87 production-ready skills across 9 domains with 160+ Python automation tools and 200+ reference guides.
+**Current Scope:** 134 production-ready skills across 9 domains with 185+ Python automation tools and 250+ reference guides.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -133,8 +133,8 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 87 production-ready skills deployed across 9 domains
-- Marketing (7), C-Level (2), Product (8), PM (6), Engineering Core (22), Engineering POWERFUL (25), RA/QM (12), Business & Growth (4), Finance (1)
+**Phase 1-2 Complete:** 134 production-ready skills deployed across 9 domains
+- Marketing (7), C-Level (33), Product (8), PM (6), Engineering Core (23), Engineering Advanced (14), RA/QM (12), Business & Growth (4), Finance (1)
 - 160+ Python automation tools, 200+ reference guides
 - Complete enterprise coverage from marketing through regulatory compliance, sales, customer success, and finance
 
@@ -182,4 +182,4 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
 **Last Updated:** March 2026
 **Version:** v2.0.0
-**Status:** 87 skills deployed across 9 domains, plugin marketplace active
+**Status:** 134 skills deployed across 9 domains, plugin marketplace active

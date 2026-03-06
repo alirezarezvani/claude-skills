@@ -1,6 +1,6 @@
-# Claude Skills Library
+# Claude Code Skills & Plugins
 
-**169 production-ready skill packages for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**169 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-169-brightgreen.svg)](#skills-overview)
@@ -11,11 +11,11 @@
 
 ---
 
-## What Is This?
+## What Are Claude Code Skills?
 
-Skills are modular instruction packages that give AI agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
+Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, three platforms:** Works natively with Claude Code, OpenAI Codex, and OpenClaw.
+**One repo, three platforms:** Works natively as Claude Code plugins, OpenAI Codex agents, and OpenClaw skills.
 
 ---
 
@@ -28,13 +28,13 @@ Skills are modular instruction packages that give AI agents domain expertise the
 /plugin marketplace add alirezarezvani/claude-skills
 
 # Install by domain
-/plugin install engineering-skills@claude-code-skills          # 21 core engineering
+/plugin install engineering-skills@claude-code-skills          # 23 core engineering
 /plugin install engineering-advanced-skills@claude-code-skills  # 25 POWERFUL-tier
 /plugin install product-skills@claude-code-skills               # 8 product skills
 /plugin install marketing-skills@claude-code-skills             # 42 marketing skills
 /plugin install ra-qm-skills@claude-code-skills                 # 12 regulatory/quality
 /plugin install pm-skills@claude-code-skills                    # 6 project management
-/plugin install c-level-skills@claude-code-skills               # 10 C-level advisory (full C-suite)
+/plugin install c-level-skills@claude-code-skills               # 28 C-level advisory (full C-suite)
 /plugin install business-growth-skills@claude-code-skills       # 4 business & growth
 /plugin install finance-skills@claude-code-skills               # 1 finance
 
@@ -69,11 +69,11 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**134 skills across 9 domains:**
+**169 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
-| **🔧 Engineering — Core** | 21 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data | [engineering-team/](engineering-team/) |
+| **🔧 Engineering — Core** | 23 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent | [engineering-team/](engineering-team/) |
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
@@ -173,7 +173,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-92+ CLI tools ship with the skills:
+160+ CLI tools ship with the skills:
 
 ```bash
 # Brand voice analysis
@@ -197,6 +197,22 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py /pa
 |---------|-------------|
 | [**Claude Code Skills & Agents Factory**](https://github.com/alirezarezvani/claude-code-skills-agents-factory) | Methodology for building skills at scale |
 | [**Claude Code Tresor**](https://github.com/alirezarezvani/claude-code-tresor) | Productivity toolkit with 60+ prompt templates |
+
+---
+
+## FAQ
+
+**How do I install Claude Code plugins?**
+Add the marketplace with `/plugin marketplace add alirezarezvani/claude-skills`, then install any skill bundle with `/plugin install <name>@claude-code-skills`.
+
+**Do these skills work with OpenAI Codex?**
+Yes. Skills work natively with Claude Code, OpenAI Codex, and OpenClaw. See Quick Install above.
+
+**Are the Python tools dependency-free?**
+Yes. All 160+ Python CLI tools use the standard library only — zero pip installs required.
+
+**How do I create my own Claude Code skill?**
+Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.
 
 ---
 

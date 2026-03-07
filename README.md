@@ -1,13 +1,15 @@
 # Claude Code Skills & Plugins
 
-**169 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**170 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-169-brightgreen.svg)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-170-brightgreen.svg)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-11-blue.svg)](#agents)
+[![Commands](https://img.shields.io/badge/Commands-5-orange.svg)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
-> ⭐ **2,300+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
+> ⭐ **2,500+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
 
 ---
 

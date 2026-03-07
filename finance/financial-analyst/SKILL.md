@@ -1,13 +1,13 @@
 ---
 name: "financial-analyst"
-description: Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making
+description: Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projections, or spreadsheet analysis.
 ---
 
 # Financial Analyst Skill
 
 ## Overview
 
-Production-ready financial analysis toolkit providing ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction. Designed for financial analysts with 3-6 years experience performing financial modeling, forecasting & budgeting, management reporting, business performance analysis, and investment analysis.
+Production-ready financial analysis toolkit providing ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction. Designed for financial modeling, forecasting & budgeting, management reporting, business performance analysis, and investment analysis.
 
 ## 5-Phase Workflow
 
@@ -19,8 +19,9 @@ Production-ready financial analysis toolkit providing ratio analysis, DCF valuat
 
 ### Phase 2: Data Analysis & Modeling
 - Collect and validate financial data (income statement, balance sheet, cash flow)
+- **Validate input data completeness** before running ratio calculations (check for missing fields, nulls, or implausible values)
 - Calculate financial ratios across 5 categories (profitability, liquidity, leverage, efficiency, valuation)
-- Build DCF models with WACC and terminal value calculations
+- Build DCF models with WACC and terminal value calculations; **cross-check DCF outputs against sanity bounds** (e.g., implied multiples vs. comparables)
 - Construct budget variance analyses with favorable/unfavorable classification
 - Develop driver-based forecasts with scenario modeling
 
@@ -118,6 +119,7 @@ python scripts/forecast_builder.py forecast_data.json --scenarios base,bull,bear
 | `references/financial-ratios-guide.md` | Ratio formulas, interpretation, industry benchmarks |
 | `references/valuation-methodology.md` | DCF methodology, WACC, terminal value, comps |
 | `references/forecasting-best-practices.md` | Driver-based forecasting, rolling forecasts, accuracy |
+| `references/industry-adaptations.md` | Sector-specific metrics and considerations (SaaS, Retail, Manufacturing, Financial Services, Healthcare) |
 
 ## Templates
 
@@ -126,38 +128,6 @@ python scripts/forecast_builder.py forecast_data.json --scenarios base,bull,bear
 | `assets/variance_report_template.md` | Budget variance report template |
 | `assets/dcf_analysis_template.md` | DCF valuation analysis template |
 | `assets/forecast_report_template.md` | Revenue forecast report template |
-
-## Industry Adaptations
-
-### SaaS
-- Key metrics: MRR, ARR, CAC, LTV, Churn Rate, Net Revenue Retention
-- Revenue recognition: subscription-based, deferred revenue tracking
-- Unit economics: CAC payback period, LTV/CAC ratio
-- Cohort analysis for retention and expansion revenue
-
-### Retail
-- Key metrics: Same-store sales, Revenue per square foot, Inventory turnover
-- Seasonal adjustment factors in forecasting
-- Gross margin analysis by product category
-- Working capital cycle optimization
-
-### Manufacturing
-- Key metrics: Gross margin by product line, Capacity utilization, COGS breakdown
-- Bill of materials cost analysis
-- Absorption vs variable costing impact
-- Capital expenditure planning and ROI
-
-### Financial Services
-- Key metrics: Net Interest Margin, Efficiency Ratio, ROA, Tier 1 Capital
-- Regulatory capital requirements
-- Credit loss provisioning and reserves
-- Fee income analysis and diversification
-
-### Healthcare
-- Key metrics: Revenue per patient, Payer mix, Days in A/R, Operating margin
-- Reimbursement rate analysis by payer
-- Case mix index impact on revenue
-- Compliance cost allocation
 
 ## Key Metrics & Targets
 

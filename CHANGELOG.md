@@ -5,6 +5,46 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2026-03-07
+
+### Changed — Tessl Quality Optimization (#287)
+18 skills optimized from 66-83% to 85-100% via `tessl skill review --optimize`:
+
+| Skill | Before | After |
+|-------|--------|-------|
+| `project-management/confluence-expert` | 66% | 94% |
+| `project-management/jira-expert` | 77% | 97% |
+| `product-team/product-strategist` | 76% | 85%+ |
+| `marketing-skill/campaign-analytics` | 70% | 85%+ |
+| `business-growth/customer-success-manager` | 70% | 85%+ |
+| `business-growth/revenue-operations` | 70% | 85%+ |
+| `finance/financial-analyst` | 70% | 85%+ |
+| `engineering-team/senior-secops` | 75% | 94% |
+| `marketing-skill/prompt-engineer-toolkit` | 79% | 90% |
+| `ra-qm-team/quality-manager-qms-iso13485` | 76% | 85%+ |
+| `engineering-team/senior-security` | 80% | 93% |
+| `engineering-team/playwright-pro` | 82% | 100% |
+| `engineering-team/senior-backend` | 83% | 100% |
+| `engineering-team/senior-qa` | 83% | 100% |
+| `engineering-team/senior-ml-engineer` | 82% | 99% |
+| `engineering-team/ms365-tenant-manager` | 83% | 100% |
+| `engineering-team/aws-solution-architect` | 83% | 94% |
+| `c-level-advisor/cto-advisor` | 82% | 99% |
+| `marketing-skill/marketing-demand-acquisition` | 72% | 99% |
+
+### Fixed
+- Created missing `finance/financial-analyst/references/industry-adaptations.md` (reference was declared but file didn't exist)
+- Removed dead `project-management/packaged-skills/` folder (zip files redundant)
+
+### Added
+- `SKILL_PIPELINE.md` — Mandatory 9-phase production pipeline for all skill work
+
+### Verified
+- Claude Code compliance: 18/18 pass (after fix)
+- All YAML frontmatter valid
+- All file references resolve
+- All SKILL.md files under 500 lines
+
 ## [Unreleased]
 
 ### Added

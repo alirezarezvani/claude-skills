@@ -1,6 +1,6 @@
 ---
 name: "prompt-engineer-toolkit"
-description: "When the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
+description: "Analyzes and rewrites prompts for better AI output, creates reusable prompt templates for marketing use cases (ad copy, email campaigns, social media), and structures end-to-end AI content workflows. Use when the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
 license: MIT
 metadata:
   version: 1.0.0
@@ -11,13 +11,9 @@ metadata:
 
 # Prompt Engineer Toolkit
 
-**Tier:** POWERFUL  
-**Category:** Marketing Skill / AI Operations  
-**Domain:** Prompt Engineering, LLM Optimization, AI Workflows
-
 ## Overview
 
-Use this skill to move prompts from ad-hoc drafts to production assets with repeatable testing, versioning, and regression safety. It emphasizes measurable quality over intuition.
+Use this skill to move prompts from ad-hoc drafts to production assets with repeatable testing, versioning, and regression safety. It emphasizes measurable quality over intuition. Apply it when launching a new LLM feature that needs reliable outputs, when prompt quality degrades after model or instruction changes, when multiple team members edit prompts and need history/diffs, when you need evidence-based prompt choice for production rollout, or when you want consistent prompt governance across environments.
 
 ## Core Capabilities
 
@@ -27,14 +23,6 @@ Use this skill to move prompts from ad-hoc drafts to production assets with repe
 - Prompt diffs to review behavior-impacting edits
 - Reusable prompt templates and selection guidance
 - Regression-friendly workflows for model/prompt updates
-
-## When to Use
-
-- You are launching a new LLM feature and need reliable outputs
-- Prompt quality degrades after model or instruction changes
-- Multiple team members edit prompts and need history/diffs
-- You need evidence-based prompt choice for production rollout
-- You want consistent prompt governance across environments
 
 ## Key Workflows
 
@@ -97,22 +85,24 @@ python3 scripts/prompt_versioner.py changelog --name support_classifier
   - Manages prompt history (`add`, `list`, `diff`, `changelog`)
   - Stores metadata and content snapshots locally
 
-## Common Pitfalls
+## Pitfalls, Best Practices & Review Checklist
 
-1. Picking prompts by anecdotal single-case outputs
-2. Changing prompt + model simultaneously without control group
-3. Missing forbidden-content checks in evaluation criteria
-4. Editing prompts without version metadata or rationale
-5. Failing to diff semantic changes before deploy
+**Avoid these mistakes:**
+1. Picking prompts from single-case outputs — use a realistic, edge-case-rich test suite.
+2. Changing prompt and model simultaneously — always isolate variables.
+3. Missing `must_not_contain` (forbidden-content) checks in evaluation criteria.
+4. Editing prompts without version metadata, author, or change rationale.
+5. Skipping semantic diffs before deploying a new prompt version.
+6. Optimizing one benchmark while harming edge cases — track the full suite.
+7. Model swap without rerunning the baseline A/B suite.
 
-## Best Practices
-
-1. Keep test cases realistic and edge-case rich.
-2. Always include negative checks (`must_not_contain`).
-3. Store prompt versions with author and change reason.
-4. Run A/B tests before and after major model upgrades.
-5. Separate reusable templates from production prompt instances.
-6. Maintain a small golden regression suite for every critical prompt.
+**Before promoting any prompt, confirm:**
+- [ ] Task intent is explicit and unambiguous.
+- [ ] Output schema/format is explicit.
+- [ ] Safety and exclusion constraints are explicit.
+- [ ] No contradictory instructions.
+- [ ] No unnecessary verbosity tokens.
+- [ ] A/B score improves and violation count stays at zero.
 
 ## References
 
@@ -146,47 +136,3 @@ This enables deterministic grading across prompt variants.
 3. Run A/B suite against same cases.
 4. Promote only if winner improves average and keeps violation count at zero.
 5. Track post-release feedback and feed new failure cases back into test suite.
-
-## Prompt Review Checklist
-
-1. Task intent is explicit and unambiguous.
-2. Output schema/format is explicit.
-3. Safety and exclusion constraints are explicit.
-4. Prompt avoids contradictory instructions.
-5. Prompt avoids unnecessary verbosity tokens.
-
-## Common Operational Risks
-
-- Evaluating with too few test cases (false confidence)
-- Optimizing for one benchmark while harming edge cases
-- Missing audit trail for prompt edits in multi-author teams
-- Model swap without rerunning baseline A/B suite
-
-## Proactive Triggers
-
-- **AI output sounds generic** → Prompts lack brand voice context. Include voice guidelines.
-- **Inconsistent output quality** → Prompts too vague. Add specific examples and constraints.
-- **No quality checks on AI content** → AI output needs human review. Never publish without editing.
-- **Same prompt style for all tasks** → Different tasks need different prompt structures.
-
-## Output Artifacts
-
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Improve my prompts" | Prompt audit with specific rewrites for better output |
-| "Prompt templates" | Task-specific prompt templates for marketing use cases |
-| "AI content workflow" | End-to-end AI-assisted content production workflow |
-
-## Communication
-
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
-
-## Related Skills
-
-- **content-production**: For the full content pipeline. Prompt engineering supports AI-assisted writing.
-- **ad-creative**: For generating ad variations using prompt techniques.
-- **content-humanizer**: For refining AI-generated output to sound natural.
-- **marketing-context**: Provides brand context that improves prompt outputs.

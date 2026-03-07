@@ -1,6 +1,6 @@
 ---
 name: "marketing-demand-acquisition"
-description: Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups
+description: Creates demand generation campaigns, optimizes paid ad spend across LinkedIn, Google, and Meta, develops SEO strategies, and structures partnership programs for Series A+ startups scaling internationally. Use when planning marketing strategy, growth marketing, advertising campaigns, PPC optimization, lead generation, pipeline generation, or startup marketing budgets. Covers multi-channel acquisition (Google Ads, LinkedIn Ads, Meta Ads), CAC analysis, MQL/SQL workflows, attribution modeling, technical SEO, and co-marketing partnerships for hybrid PLG/Sales-Led motions in EU/US/Canada markets.
 triggers:
   - demand gen
   - demand generation
@@ -31,7 +31,6 @@ Acquisition playbook for Series A+ startups scaling internationally (EU/US/Canad
 
 ## Table of Contents
 
-- [Role Coverage](#role-coverage)
 - [Core KPIs](#core-kpis)
 - [Demand Generation Framework](#demand-generation-framework)
 - [Paid Media Channels](#paid-media-channels)
@@ -40,17 +39,6 @@ Acquisition playbook for Series A+ startups scaling internationally (EU/US/Canad
 - [Attribution](#attribution)
 - [Tools](#tools)
 - [References](#references)
-
----
-
-## Role Coverage
-
-| Role | Focus Areas |
-|------|-------------|
-| Demand Generation Manager | Multi-channel campaigns, pipeline generation |
-| Paid Media Marketer | Paid search/social/display optimization |
-| SEO Manager | Organic acquisition, technical SEO |
-| Partnerships Manager | Co-marketing, channel partnerships |
 
 ---
 
@@ -315,21 +303,6 @@ Required:
 - **No lead scoring** → Not all leads are equal. Route to revenue-operations for scoring.
 - **CAC exceeding LTV** → Demand gen is unprofitable. Optimize or cut channels.
 - **No nurture for non-ready leads** → 80% of leads aren't ready to buy. Nurture converts them later.
-
-## Output Artifacts
-
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Demand gen plan" | Multi-channel acquisition strategy with budget allocation |
-| "Pipeline analysis" | Funnel conversion rates with bottleneck identification |
-| "Channel strategy" | Channel selection matrix based on audience and budget |
-
-## Communication
-
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
 
 ## Related Skills
 

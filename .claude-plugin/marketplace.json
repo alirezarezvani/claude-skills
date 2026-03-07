@@ -225,6 +225,117 @@
         "sales"
       ],
       "category": "marketing"
+    },
+    {
+      "name": "content-creator",
+      "source": "./marketing-skill/content-creator",
+      "description": "SEO-optimized marketing content with brand voice analysis",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "content",
+        "marketing",
+        "seo",
+        "brand-voice"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "demand-gen",
+      "source": "./marketing-skill/marketing-demand-acquisition",
+      "description": "Multi-channel demand generation and paid media optimization",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "demand-gen",
+        "paid-media",
+        "acquisition"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "fullstack-engineer",
+      "source": "./engineering-team/senior-fullstack",
+      "description": "Full-stack engineering with React, Node, databases, and deployment",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "fullstack",
+        "react",
+        "node",
+        "engineering"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "aws-architect",
+      "source": "./engineering-team/aws-solution-architect",
+      "description": "AWS serverless architecture design with IaC templates",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "aws",
+        "serverless",
+        "cloud",
+        "architecture"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "product-manager",
+      "source": "./product-team/product-manager-toolkit",
+      "description": "Product management toolkit with RICE scoring and PRD generation",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "product",
+        "prd",
+        "rice",
+        "prioritization"
+      ],
+      "category": "product"
+    },
+    {
+      "name": "scrum-master",
+      "source": "./project-management/scrum-master",
+      "description": "Sprint health analysis, velocity tracking, and retrospective facilitation",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "scrum",
+        "agile",
+        "sprint",
+        "velocity"
+      ],
+      "category": "project-management"
+    },
+    {
+      "name": "skill-security-auditor",
+      "source": "./engineering/skill-security-auditor",
+      "description": "Security audit and vulnerability scanner for AI agent skills",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "security",
+        "audit",
+        "vulnerability",
+        "scanner"
+      ],
+      "category": "development"
     }
   ]
 }

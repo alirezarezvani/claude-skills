@@ -16,7 +16,7 @@
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "23 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright, self-improving agent",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -37,7 +37,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "25 POWERFUL-tier engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, and more",
-      "version": "2.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -68,7 +68,7 @@
       "name": "product-skills",
       "source": "./product-team",
       "description": "8 product skills: product manager toolkit, agile product owner, product strategist, UX researcher, UI design system, and 3 more",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -140,7 +140,7 @@
       "name": "business-growth-skills",
       "source": "./business-growth",
       "description": "4 business & growth skills: customer success manager, sales engineer, revenue operations, and more",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -168,124 +168,6 @@
         "forecasting"
       ],
       "category": "finance"
-    },
-    {
-      "name": "content-creator",
-      "source": "./marketing-skill/content-creator",
-      "description": "Brand voice analysis, SEO optimization, content frameworks for marketing content creation",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "content",
-        "seo",
-        "brand-voice",
-        "marketing"
-      ],
-      "category": "marketing"
-    },
-    {
-      "name": "demand-gen",
-      "source": "./marketing-skill/marketing-demand-acquisition",
-      "description": "Demand generation, paid media, SEO, partnerships for Series A+ startups",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "demand-gen",
-        "paid-media",
-        "acquisition",
-        "marketing"
-      ],
-      "category": "marketing"
-    },
-    {
-      "name": "fullstack-engineer",
-      "source": "./engineering-team/senior-fullstack",
-      "description": "End-to-end application development with Next.js, GraphQL, PostgreSQL",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "fullstack",
-        "nextjs",
-        "graphql",
-        "postgresql"
-      ],
-      "category": "development"
-    },
-    {
-      "name": "aws-architect",
-      "source": "./engineering-team/aws-solution-architect",
-      "description": "AWS solution architecture with serverless, cost optimization, and security best practices",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "aws",
-        "cloud",
-        "serverless",
-        "architecture"
-      ],
-      "category": "development"
-    },
-    {
-      "name": "product-manager",
-      "source": "./product-team/product-manager-toolkit",
-      "description": "RICE prioritization, customer interview analysis, PRD templates for product managers",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "product-management",
-        "rice",
-        "prd",
-        "prioritization"
-      ],
-      "category": "product"
-    },
-    {
-      "name": "scrum-master",
-      "source": "./project-management/scrum-master",
-      "description": "Agile facilitation, sprint planning, retrospectives for Scrum teams",
-      "version": "1.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "scrum",
-        "agile",
-        "sprint",
-        "retrospective"
-      ],
-      "category": "project-management"
-    },
-    {
-      "name": "skill-security-auditor",
-      "source": "./engineering/skill-security-auditor",
-      "description": "Security audit and vulnerability scanner for AI agent skills. Scans for malicious code, prompt injection, data exfiltration, supply chain risks, and privilege escalation before installation. Zero dependencies, PASS/WARN/FAIL verdicts with remediation guidance.",
-      "version": "2.0.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "security",
-        "audit",
-        "vulnerability",
-        "scanner",
-        "malware",
-        "prompt-injection",
-        "supply-chain",
-        "code-review",
-        "safety",
-        "pre-install"
-      ],
-      "category": "security"
     },
     {
       "name": "playwright-pro",
@@ -329,7 +211,7 @@
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "version": "2.0.0",
+      "version": "1.1.0",
       "description": "42-skill marketing division: 7 pods (Content, SEO, CRO, Channels, Growth, Intelligence, Sales) + context foundation + orchestration router. 27 Python tools, 60 reference docs. All stdlib-only.",
       "author": {
         "name": "Alireza Rezvani"
@@ -344,6 +226,5 @@
       ],
       "category": "marketing"
     }
-  ],
-  "total_plugins": 18
+  ]
 }

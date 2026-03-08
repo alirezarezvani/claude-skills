@@ -100,3 +100,6 @@ python financial-analyst/scripts/forecast_builder.py forecast_data.json --format
 **Last Updated:** February 2026
 **Skills Deployed:** 1/1 finance skills production-ready
 **Total Tools:** 4 Python automation tools
+
+## saas-metrics-coach
+SaaS financial health advisor. Calculates ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio. Benchmarks against industry standards. Includes 12-month projection simulator.

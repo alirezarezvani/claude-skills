@@ -1,6 +1,6 @@
 # Product Team Skills - Claude Code Guidance
 
-This guide covers the 8 production-ready product management skills and their Python automation tools.
+This guide covers the 12 production-ready product management skills and their Python automation tools.
 
 ## Product Skills Overview
 
@@ -13,12 +13,16 @@ This guide covers the 8 production-ready product management skills and their Pyt
 6. **competitive-teardown/** - Competitive matrix building, gap analysis (1 tool)
 7. **landing-page-generator/** - Landing page scaffolding (1 tool)
 8. **saas-scaffolder/** - SaaS project bootstrapping (1 tool)
+9. **product-analytics/** - KPI design, retention/cohort/funnel analysis (1 tool)
+10. **experiment-designer/** - Experiment design and sample size planning (1 tool)
+11. **product-discovery/** - Discovery frameworks and assumption mapping (1 tool)
+12. **roadmap-communicator/** - Roadmap communication and changelog generation (1 tool)
 
-**Total Tools:** 9 Python automation tools
+**Total Tools:** 13 Python automation tools
 
-**Agents:** 4 (cs-product-manager, cs-agile-product-owner, cs-product-strategist, cs-ux-researcher)
+**Agents:** 5 (cs-product-manager, cs-agile-product-owner, cs-product-strategist, cs-ux-researcher, cs-product-analyst)
 
-**Slash Commands:** 5 (/rice, /okr, /persona, /user-story, /competitive-matrix)
+**Slash Commands:** 7 (/rice, /okr, /persona, /user-story, /competitive-matrix, /prd, /sprint-plan)
 
 ## Python Automation Tools
 
@@ -95,14 +99,6 @@ python agile-product-owner/scripts/user_story_generator.py
 python agile-product-owner/scripts/user_story_generator.py sprint 30
 ```
 
-**Output Format:**
-```
-US-001: As a user, I want to...
-Priority: High | Points: 5
-Acceptance Criteria:
-- Given... When... Then...
-```
-
 ### 4. OKR Cascade Generator (`product-strategist/scripts/okr_cascade_generator.py`)
 
 **Purpose:** Automated OKR hierarchy (company → product → team)
@@ -126,18 +122,9 @@ python product-strategist/scripts/okr_cascade_generator.py retention
 
 **Purpose:** Data-driven persona creation from user research
 
-**Features:**
-- Demographic and psychographic profiling
-- Goals, pain points, and behavior patterns
-- User journey mapping integration
-- Empathy map generation
-
 **Usage:**
 ```bash
-# Interactive persona creation
 python ux-researcher-designer/scripts/persona_generator.py
-
-# JSON export
 python ux-researcher-designer/scripts/persona_generator.py --output json
 ```
 
@@ -145,22 +132,10 @@ python ux-researcher-designer/scripts/persona_generator.py --output json
 
 **Purpose:** Complete design token system from brand color
 
-**Features:**
-- Color palette generation (primary, secondary, neutrals)
-- Typography scale (font sizes, line heights, weights)
-- Spacing system (4px/8px grid)
-- Shadow and elevation tokens
-- Export formats: CSS, JSON, SCSS
-
 **Usage:**
 ```bash
-# Generate design tokens
 python ui-design-system/scripts/design_token_generator.py "#0066CC" modern css
-
-# SCSS output
 python ui-design-system/scripts/design_token_generator.py "#0066CC" modern scss
-
-# JSON for Figma integration
 python ui-design-system/scripts/design_token_generator.py "#0066CC" modern json
 ```
 
@@ -182,47 +157,11 @@ python competitive-teardown/scripts/competitive_matrix_builder.py competitors.js
 - 4 design styles: `dark-saas`, `clean-minimal`, `bold-startup`, `enterprise`
 - 7 section generators: nav, hero, features, testimonials, pricing, CTA, footer
 - Copy frameworks: PAS, AIDA, BAB
-- SEO metadata export
-- HTML output preserved via `--format html`
 
 **Usage:**
 ```bash
-# TSX output (default) with design style
 python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
-
-# HTML output
 python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format html
-
-# JSON manifest (dry run)
-python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format json
-```
-
-**Config JSON format:**
-```json
-{
-  "product_name": "Acme",
-  "tagline": "Ship faster. Break less.",
-  "design_style": "dark-saas",
-  "copy_framework": "PAS",
-  "sections": ["nav", "hero", "features", "pricing", "cta", "footer"],
-  "features": [
-    {"title": "Fast deploys", "description": "Zero-downtime deployments"}
-  ],
-  "pricing": [
-    {"name": "Free", "price": "$0/mo", "features": ["5 projects"]},
-    {"name": "Pro", "price": "$29/mo", "features": ["Unlimited"], "highlighted": true}
-  ]
-}
-```
-
-**Brand Voice Integration:** Before generating copy, run the brand voice analyzer to establish tone and formality:
-```bash
-# 1. Analyze existing brand content to establish voice profile
-python ../marketing-skill/content-production/scripts/brand_voice_analyzer.py brand_samples.txt --format json > voice_profile.json
-
-# 2. Use the voice profile (formality, tone, perspective) to guide copy framework selection
-# 3. Generate landing page with matching style
-python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
 ```
 
 ### 9. Project Bootstrapper (`saas-scaffolder/scripts/project_bootstrapper.py`)
@@ -234,102 +173,123 @@ python landing-page-generator/scripts/landing_page_scaffolder.py config.json --f
 python saas-scaffolder/scripts/project_bootstrapper.py project_config.json
 ```
 
+### 10. Metrics Calculator (`product-analytics/scripts/metrics_calculator.py`)
+
+**Purpose:** Product analytics — retention, cohort, and funnel analysis
+
+**Features:**
+- Retention curve analysis from event data
+- Funnel conversion tracking with stage-by-stage drop-off
+- Cohort grouping and comparison
+
+**Usage:**
+```bash
+# Retention analysis
+python product-analytics/scripts/metrics_calculator.py retention events.csv
+
+# Funnel analysis
+python product-analytics/scripts/metrics_calculator.py funnel funnel.csv --stages visit,signup,activate,pay
+
+# KPI summary
+python product-analytics/scripts/metrics_calculator.py kpi metrics.csv --json
+```
+
+### 11. Sample Size Calculator (`experiment-designer/scripts/sample_size_calculator.py`)
+
+**Purpose:** Statistical sample size planning for A/B tests and experiments
+
+**Features:**
+- Minimum detectable effect (MDE) calculation
+- Absolute and relative effect size modes
+- Power analysis with configurable alpha/beta
+
+**Usage:**
+```bash
+# Absolute MDE
+python experiment-designer/scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.02 --mde-type absolute
+
+# Relative MDE
+python experiment-designer/scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.15 --mde-type relative
+
+# Custom power/significance
+python experiment-designer/scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.02 --alpha 0.01 --power 0.9
+```
+
+### 12. Assumption Mapper (`product-discovery/scripts/assumption_mapper.py`)
+
+**Purpose:** Map and prioritize product assumptions for discovery validation
+
+**Features:**
+- Risk × uncertainty scoring for prioritization
+- CSV input with structured assumption fields
+- Categorization by assumption type (desirability, viability, feasibility, usability)
+
+**Usage:**
+```bash
+python product-discovery/scripts/assumption_mapper.py assumptions.csv
+python product-discovery/scripts/assumption_mapper.py assumptions.csv --json
+```
+
+### 13. Changelog Generator (`roadmap-communicator/scripts/changelog_generator.py`)
+
+**Purpose:** Generate structured changelogs from git commit history
+
+**Note:** Requires `git` on PATH — must be run inside a git repository.
+
+**Usage:**
+```bash
+python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to HEAD
+python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to v2.0.0 --json
+```
+
 ## Product Workflows
 
-### Workflow 1: Feature Prioritization
+### Workflow 1: Feature Prioritization to Sprint Execution
 
 ```bash
-# 1. Collect feature requests
-cat feature-requests.csv
-
-# 2. Run RICE prioritization
 python product-manager-toolkit/scripts/rice_prioritizer.py features.csv --capacity 30
-
-# 3. Generate quarterly roadmap
-
-# 4. Create user stories for top priorities
 python agile-product-owner/scripts/user_story_generator.py sprint 30
 ```
 
-### Workflow 2: User Research to Product
+### Workflow 2: Strategy to Team-Level OKRs
 
 ```bash
-# 1. Conduct user interviews
-
-# 2. Analyze transcripts
-python product-manager-toolkit/scripts/customer_interview_analyzer.py interview-001.txt
-
-# 3. Generate personas
-python ux-researcher-designer/scripts/persona_generator.py
-
-# 4. Create OKRs based on insights
-python product-strategist/scripts/okr_cascade_generator.py growth
+python product-strategist/scripts/okr_cascade_generator.py growth --json > okrs.json
 ```
 
-### Workflow 3: Sprint Planning
+### Workflow 3: Research to Persona Artifacts
 
 ```bash
-# 1. Set sprint capacity (story points)
-CAPACITY=30
-
-# 2. Generate user stories
-python agile-product-owner/scripts/user_story_generator.py sprint $CAPACITY
-
-# 3. Export to Jira (via JSON)
-python product-manager-toolkit/scripts/rice_prioritizer.py features.csv --output json > priorities.json
+python ux-researcher-designer/scripts/persona_generator.py json > personas.json
 ```
 
 ### Workflow 4: Brand-Aligned Landing Page
 
-This workflow connects the marketing brand voice skill with the landing page generator to ensure copy consistency.
-
 ```bash
-# 1. Analyze existing brand content for voice profile
 python ../marketing-skill/content-production/scripts/brand_voice_analyzer.py website_copy.txt --format json > voice.json
-# Output: formality (formal/casual), tone (professional/friendly), perspective (authoritative/conversational)
-
-# 2. Map voice profile to design style + copy framework:
-#    - formal + professional → enterprise style, AIDA framework
-#    - casual + friendly → bold-startup style, BAB framework
-#    - professional + authoritative → dark-saas style, PAS framework
-#    - casual + conversational → clean-minimal style, BAB framework
-
-# 3. Generate design tokens for brand consistency
 python ui-design-system/scripts/design_token_generator.py "#0066CC" modern css
-
-# 4. Generate the landing page
 python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
-
-# 5. Run competitive teardown to refine positioning
 python competitive-teardown/scripts/competitive_matrix_builder.py competitors.json
 ```
 
-## Integration Patterns
-
-### Jira Integration
-
-All tools support JSON output for Jira import:
+### Workflow 5: Product Analytics and Experimentation
 
 ```bash
-# Export prioritized features
-python product-manager-toolkit/scripts/rice_prioritizer.py features.csv --output json > jira-import.json
+python product-analytics/scripts/metrics_calculator.py retention events.csv
+python product-analytics/scripts/metrics_calculator.py funnel funnel.csv --stages visit,signup,activate,pay
+python experiment-designer/scripts/sample_size_calculator.py --baseline-rate 0.12 --mde 0.02 --mde-type absolute
 ```
 
-### Figma Integration
-
-Design tokens export for Figma plugins:
+### Workflow 6: Discovery and Opportunity Validation
 
 ```bash
-# Generate tokens
-python ui-design-system/scripts/design_token_generator.py "#0066CC" modern json > design-tokens.json
+python product-discovery/scripts/assumption_mapper.py assumptions.csv
 ```
 
-### Confluence Documentation
-
-Use persona generator output for user documentation:
+### Workflow 7: Roadmap and Release Communication
 
 ```bash
-python ux-researcher-designer/scripts/persona_generator.py --output json > personas.json
+python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to HEAD
 ```
 
 ## Quality Standards
@@ -341,20 +301,6 @@ python ux-researcher-designer/scripts/persona_generator.py --output json > perso
 - Standard library only (minimal dependencies)
 - Actionable recommendations
 
-## Cross-Domain Integration
-
-### Brand Voice → Landing Page
-
-The landing page generator integrates with the marketing brand voice analyzer (`marketing-skill/content-production/scripts/brand_voice_analyzer.py`) to ensure copy on generated pages matches the brand's established voice. The analyzer outputs formality, tone, and perspective dimensions which map to design style and copy framework choices. See Workflow 4 above.
-
-### Design Tokens → Landing Page
-
-Design tokens from `ui-design-system/scripts/design_token_generator.py` can be generated alongside landing pages to ensure consistent color, typography, and spacing across the product.
-
-### Competitive Teardown → Landing Page
-
-Competitive positioning from `competitive-teardown/scripts/competitive_matrix_builder.py` informs landing page messaging — use SWOT analysis to identify differentiation points and translate them into hero copy and feature sections.
-
 ## Additional Resources
 
 - **Main Documentation:** `../CLAUDE.md`
@@ -362,7 +308,7 @@ Competitive positioning from `competitive-teardown/scripts/competitive_matrix_bu
 
 ---
 
-**Last Updated:** March 10, 2026
-**Skills Deployed:** 8/8 product skills production-ready
-**Total Tools:** 9 Python automation tools
-**Agents:** 4 | **Commands:** 5
+**Last Updated:** March 11, 2026
+**Skills Deployed:** 12/12 product skills production-ready
+**Total Tools:** 13 Python automation tools
+**Agents:** 5 | **Commands:** 7

@@ -1,0 +1,192 @@
+/* ============================================
+   THE LEVER — Subscribe Page
+   ============================================ */
+
+.subscribe-hero {
+  text-align: center;
+  padding: var(--space-3xl) 0 var(--space-xl);
+}
+
+.subscribe-hero .hero-title {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.subscribe-hero__sub {
+  font-size: var(--text-lg);
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+  max-width: 32rem;
+  margin: var(--space-lg) auto 0;
+}
+
+.subscribe-form-block {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-2xl) 0;
+}
+
+.subscribe-form-block .subscribe-box {
+  border: 2px solid var(--ink);
+}
+
+.subscribe-form-block .subscribe-box__row {
+  max-width: 100%;
+}
+
+.what-you-get {
+  padding: var(--space-2xl) 0;
+}
+
+.what-you-get__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-heavy);
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.what-you-get__list {
+  display: grid;
+  gap: var(--space-lg);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.what-you-get__item {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--color-border-light);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.what-you-get__item:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.what-you-get__item-content {
+  flex: 1;
+}
+
+.what-you-get__item-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+  margin-bottom: var(--space-2xs);
+}
+
+.what-you-get__item-preview {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+  line-height: var(--leading-normal);
+  font-style: italic;
+}
+
+.social-proof {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.social-proof__text {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+}
+
+.social-proof__number {
+  color: var(--terra);
+  font-weight: var(--weight-black);
+}
+
+/* FAQ accordion */
+.faq-section {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: var(--space-2xl) 0;
+}
+
+.faq-section__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-heavy);
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.faq-item:first-of-type {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.faq-item summary {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--ink);
+  padding: var(--space-lg) 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  transition: color var(--duration-fast) ease;
+}
+
+.faq-item summary:hover {
+  color: var(--terra);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-light);
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item__answer {
+  font-size: var(--text-base);
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+  padding: 0 0 var(--space-lg);
+  max-width: 32rem;
+}
+
+/* Pulse on the main CTA */
+.subscribe-form-block .subscribe-box__btn {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 89, 59, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(184, 89, 59, 0.12); }
+}
+
+@media (max-width: 600px) {
+  .what-you-get__item {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}

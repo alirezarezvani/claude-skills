@@ -577,7 +577,14 @@
 
 .breadcrumb__sep {
   color: var(--color-border);
-  font-size: 0.7em;
+  font-size: 0;
+  width: 16px;
+  height: 6px;
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 6'%3E%3Cpath d='M0 3 Q2 1 4 3 Q6 5 8 3 Q10 1 12 3 Q14 5 16 3' fill='none' stroke='%23d9d2c4' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 /* === TOPIC TAG === */
@@ -611,6 +618,10 @@
   padding: var(--space-xl);
   position: relative;
   font-variation-settings: var(--opsz-display);
+}
+
+.pull-quote {
+  transform: rotate(-1deg);
 }
 
 .pull-quote::before {

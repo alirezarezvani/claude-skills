@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <!-- Squiggly line -->
+    <symbol id="doodle-squiggle" viewBox="0 0 80 12">
+      <path d="M0 6 Q5 2 10 6 Q15 10 20 6 Q25 2 30 6 Q35 10 40 6 Q45 2 50 6 Q55 10 60 6 Q65 2 70 6 Q75 10 80 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Star doodle -->
+    <symbol id="doodle-star" viewBox="0 0 24 24">
+      <path d="M12 2 L14.5 8.5 L21 9.5 L16 14 L17.5 21 L12 17.5 L6.5 21 L8 14 L3 9.5 L9.5 8.5 Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Arrow doodle -->
+    <symbol id="doodle-arrow" viewBox="0 0 32 24">
+      <path d="M2 12 C8 12 16 12 26 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M22 6 L28 12 L22 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Circle doodle (hand-drawn feel) -->
+    <symbol id="doodle-circle" viewBox="0 0 32 32">
+      <path d="M16 4 C24 3 29 8 28 16 C27 24 22 29 14 28 C6 27 3 22 4 14 C5 8 10 5 16 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Lever motif -->
+    <symbol id="doodle-lever" viewBox="0 0 48 32">
+      <polygon points="24,22 18,32 30,32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+      <line x1="4" y1="20" x2="44" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="6" cy="20" r="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="42" cy="14" r="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    </symbol>
+
+    <!-- Sparkle doodle -->
+    <symbol id="doodle-sparkle" viewBox="0 0 20 20">
+      <path d="M10 2 L10 18 M2 10 L18 10 M4 4 L16 16 M16 4 L4 16" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Wavy underline -->
+    <symbol id="doodle-wave" viewBox="0 0 100 8">
+      <path d="M0 4 Q6 0 12 4 Q18 8 24 4 Q30 0 36 4 Q42 8 48 4 Q54 0 60 4 Q66 8 72 4 Q78 0 84 4 Q90 8 96 4 L100 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+
+  <!-- Preview instances -->
+  <use href="#doodle-squiggle" x="10" y="10" width="80" height="12" style="color:#d9d2c4"/>
+  <use href="#doodle-star" x="110" y="4" width="24" height="24" style="color:#c49032"/>
+  <use href="#doodle-arrow" x="160" y="6" width="32" height="24" style="color:#b8593b"/>
+  <use href="#doodle-circle" x="210" y="2" width="32" height="32" style="color:#4a6741"/>
+  <use href="#doodle-lever" x="260" y="2" width="48" height="32" style="color:#2d2926"/>
+  <use href="#doodle-sparkle" x="330" y="6" width="20" height="20" style="color:#6b5775"/>
+  <use href="#doodle-wave" x="10" y="50" width="100" height="8" style="color:#d9d2c4"/>
+</svg>

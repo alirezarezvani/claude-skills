@@ -33,13 +33,13 @@
   }
 
   .tilt-hover:hover {
-    transform: rotate(-0.5deg) scale(1.01);
+    transform: rotate(-0.5deg) scale(1.02);
     box-shadow: var(--shadow-md);
   }
 
   /* Alternating tilt direction */
   .tilt-hover:nth-child(even):hover {
-    transform: rotate(0.5deg) scale(1.01);
+    transform: rotate(0.5deg) scale(1.02);
   }
 }
 
@@ -73,6 +73,12 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6'%3E%3Cpath d='M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3' fill='none' stroke='%23b8593b' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-size: 40px 6px;
   background-repeat: repeat-x;
+  animation: squiggle-shift 1.5s linear infinite;
+}
+
+@keyframes squiggle-shift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
 }
 
 .squiggly--amber::after {
@@ -250,6 +256,37 @@
 .paper-lift:hover {
   box-shadow: var(--shadow-lift);
   transform: translateY(-2px);
+}
+
+/* === LOADING STATES === */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-border-light) 50%, var(--color-surface) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton--text {
+  height: 1em;
+  width: 80%;
+  margin-bottom: var(--space-sm);
+}
+
+.skeleton--title {
+  height: 1.5em;
+  width: 60%;
+  margin-bottom: var(--space-md);
+}
+
+.skeleton--card {
+  height: 120px;
+  width: 100%;
+  margin-bottom: var(--space-lg);
 }
 
 /* === BROKEN LEVER (404 page) === */

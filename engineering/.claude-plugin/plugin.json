@@ -1,7 +1,7 @@
 {
   "name": "engineering-advanced-skills",
-  "description": "25 advanced engineering skills covering architecture, automation, CI/CD, MCP servers, release management, security, observability, migration, and platform operations",
-  "version": "1.1.0",
+  "description": "25 advanced engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, and more",
+  "version": "2.1.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

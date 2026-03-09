@@ -1,25 +1,11 @@
 ---
-name: senior-qa
-description: This skill should be used when the user asks to "generate tests", "write unit tests", "analyze test coverage", "scaffold E2E tests", "set up Playwright", "configure Jest", "implement testing patterns", or "improve test quality". Use for React/Next.js testing with Jest, React Testing Library, and Playwright.
+name: "senior-qa"
+description: Generates unit tests, integration tests, and E2E tests for React/Next.js applications. Scans components to create Jest + React Testing Library test stubs, analyzes Istanbul/LCOV coverage reports to surface gaps, scaffolds Playwright test files from Next.js routes, mocks API calls with MSW, creates test fixtures, and configures test runners. Use when the user asks to "generate tests", "write unit tests", "analyze test coverage", "scaffold E2E tests", "set up Playwright", "configure Jest", "implement testing patterns", or "improve test quality".
 ---
 
 # Senior QA Engineer
 
 Test automation, coverage analysis, and quality assurance patterns for React and Next.js applications.
-
-## Table of Contents
-
-- [Quick Start](#quick-start)
-- [Tools Overview](#tools-overview)
-  - [Test Suite Generator](#1-test-suite-generator)
-  - [Coverage Analyzer](#2-coverage-analyzer)
-  - [E2E Test Scaffolder](#3-e2e-test-scaffolder)
-- [QA Workflows](#qa-workflows)
-  - [Unit Test Generation Workflow](#unit-test-generation-workflow)
-  - [Coverage Analysis Workflow](#coverage-analysis-workflow)
-  - [E2E Test Setup Workflow](#e2e-test-setup-workflow)
-- [Reference Documentation](#reference-documentation)
-- [Common Patterns Quick Reference](#common-patterns-quick-reference)
 
 ---
 
@@ -52,18 +38,6 @@ Scans React/TypeScript components and generates Jest + React Testing Library tes
 # Basic usage - scan components and generate tests
 python scripts/test_suite_generator.py src/components/ --output __tests__/
 
-# Output:
-# Scanning: src/components/
-# Found 24 React components
-#
-# Generated tests:
-#   __tests__/Button.test.tsx (render, click handler, disabled state)
-#   __tests__/Modal.test.tsx (render, open/close, keyboard events)
-#   __tests__/Form.test.tsx (render, validation, submission)
-#   ...
-#
-# Summary: 24 test files, 87 test cases
-
 # Include accessibility tests
 python scripts/test_suite_generator.py src/ --output __tests__/ --include-a11y
 
@@ -91,29 +65,6 @@ Parses Jest/Istanbul coverage reports and identifies gaps, uncovered branches, a
 # Analyze coverage report
 python scripts/coverage_analyzer.py coverage/coverage-final.json
 
-# Output:
-# === Coverage Analysis Report ===
-# Overall: 72.4% (target: 80%)
-#
-# BY TYPE:
-#   Statements: 74.2%
-#   Branches: 68.1%
-#   Functions: 71.8%
-#   Lines: 73.5%
-#
-# CRITICAL GAPS (uncovered business logic):
-#   src/services/payment.ts:45-67 - Payment processing
-#   src/hooks/useAuth.ts:23-41 - Authentication flow
-#
-# RECOMMENDATIONS:
-#   1. Add tests for payment service error handling
-#   2. Cover authentication edge cases
-#   3. Test form validation branches
-#
-# Files below threshold (80%):
-#   src/components/Checkout.tsx: 45%
-#   src/services/api.ts: 62%
-
 # Enforce threshold (exit 1 if below)
 python scripts/coverage_analyzer.py coverage/ --threshold 80 --strict
 
@@ -134,21 +85,6 @@ Scans Next.js pages/app directory and generates Playwright test files with commo
 ```bash
 # Scaffold E2E tests for Next.js App Router
 python scripts/e2e_test_scaffolder.py src/app/ --output e2e/
-
-# Output:
-# Scanning: src/app/
-# Found 12 routes
-#
-# Generated E2E tests:
-#   e2e/home.spec.ts (navigation, hero section)
-#   e2e/auth/login.spec.ts (form submission, validation)
-#   e2e/auth/register.spec.ts (registration flow)
-#   e2e/dashboard.spec.ts (authenticated routes)
-#   e2e/products/[id].spec.ts (dynamic routes)
-#   ...
-#
-# Generated: playwright.config.ts
-# Generated: e2e/fixtures/auth.ts
 
 # Include Page Object Model classes
 python scripts/e2e_test_scaffolder.py src/app/ --output e2e/ --include-pom
@@ -184,7 +120,7 @@ import { Button } from '../src/components/Button';
 describe('Button', () => {
   it('renders with label', () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: "click-mei-tobeinthedocument"
   });
 
   it('calls onClick when clicked', () => {
@@ -278,12 +214,12 @@ npx playwright show-report
 **Step 5: Add to CI pipeline**
 ```yaml
 # .github/workflows/e2e.yml
-- name: Run E2E tests
+- name: "run-e2e-tests"
   run: npx playwright test
-- name: Upload report
+- name: "upload-report"
   uses: actions/upload-artifact@v3
   with:
-    name: playwright-report
+    name: "playwright-report"
     path: playwright-report/
 ```
 
@@ -305,7 +241,7 @@ npx playwright show-report
 
 ```typescript
 // Preferred (accessible)
-screen.getByRole('button', { name: /submit/i })
+screen.getByRole('button', { name: "submiti"
 screen.getByLabelText(/email/i)
 screen.getByPlaceholderText(/search/i)
 
@@ -336,7 +272,7 @@ import { setupServer } from 'msw/node';
 
 const server = setupServer(
   rest.get('/api/users', (req, res, ctx) => {
-    return res(ctx.json([{ id: 1, name: 'John' }]));
+    return res(ctx.json([{ id: 1, name: "john" }]));
   })
 );
 
@@ -349,7 +285,7 @@ afterAll(() => server.close());
 
 ```typescript
 // Preferred
-page.getByRole('button', { name: 'Submit' })
+page.getByRole('button', { name: "submit" })
 page.getByLabel('Email')
 page.getByText('Welcome')
 

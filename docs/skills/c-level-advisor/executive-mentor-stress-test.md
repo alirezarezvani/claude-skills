@@ -10,6 +10,8 @@ description: "/em:stress-test — Business Assumption Stress Testing - Claude Co
 ---
 
 
+# /em:stress-test — Business Assumption Stress Testing
+
 **Command:** `/em:stress-test <assumption>`
 
 Take any business assumption and break it before the market does. Revenue projections. Market size. Competitive moat. Hiring velocity. Customer retention.

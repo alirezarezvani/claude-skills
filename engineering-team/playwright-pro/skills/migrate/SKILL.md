@@ -1,5 +1,5 @@
 ---
-name: migrate
+name: "migrate"
 description: >-
   Migrate from Cypress or Selenium to Playwright. Use when user mentions
   "cypress", "selenium", "migrate tests", "convert tests", "switch to

@@ -1,3 +1,8 @@
+---
+name: "rag-architect"
+description: "RAG Architect - POWERFUL"
+---
+
 # RAG Architect - POWERFUL
 
 ## Overview

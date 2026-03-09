@@ -1,3 +1,8 @@
+---
+name: "stress-test"
+description: "/em -stress-test — Business Assumption Stress Testing"
+---
+
 # /em:stress-test — Business Assumption Stress Testing
 
 **Command:** `/em:stress-test <assumption>`

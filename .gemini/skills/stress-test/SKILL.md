@@ -1,0 +1,1 @@
+../../../c-level-advisor/executive-mentor/skills/stress-test/SKILL.md

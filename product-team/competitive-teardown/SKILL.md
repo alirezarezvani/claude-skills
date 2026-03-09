@@ -1,27 +1,13 @@
+---
+name: "competitive-teardown"
+description: "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session, responding to a competitor's new feature or pricing change, or performing a quarterly competitive review."
+---
+
 # Competitive Teardown
 
 **Tier:** POWERFUL  
 **Category:** Product Team  
 **Domain:** Competitive Intelligence, Product Strategy, Market Analysis
-
----
-
-## Overview
-
-Run a structured competitive analysis on any product or company. Synthesizes data from pricing pages, app store reviews, job postings, SEO signals, and social media into actionable insights: feature matrices, SWOT, positioning maps, UX audits, and a stakeholder presentation template.
-
----
-
-## Core Capabilities
-
-- Feature comparison matrix (scored 1-5 across 12 dimensions)
-- Pricing model analysis (per-seat, usage-based, flat rate)
-- SWOT analysis
-- Positioning map (2x2 matrix)
-- UX audit (onboarding, key workflows, mobile)
-- Content strategy gap analysis
-- Action item roadmap (quick wins / medium-term / strategic)
-- Stakeholder presentation template
 
 ---
 
@@ -35,38 +21,28 @@ Run a structured competitive analysis on any product or company. Synthesizes dat
 
 ---
 
+## Teardown Workflow
+
+Follow these steps in sequence to produce a complete teardown:
+
+1. **Define competitors** — List 2–4 competitors to analyze. Confirm which is the primary focus.
+2. **Collect data** — Use `DATA_COLLECTION.md` to gather raw signals from at least 3 sources per competitor (website, reviews, job postings, SEO, social).  
+   _Validation checkpoint: Before proceeding, confirm you have pricing data, at least 20 reviews, and job posting counts for each competitor._
+3. **Score using rubric** — Apply the 12-dimension rubric below to produce a numeric scorecard for each competitor and your own product.  
+   _Validation checkpoint: Every dimension should have a score and at least one supporting evidence note._
+4. **Generate outputs** — Populate the templates in `TEMPLATES.md` (Feature Matrix, Pricing Analysis, SWOT, Positioning Map, UX Audit).
+5. **Build action plan** — Translate findings into the Action Items template (quick wins / medium-term / strategic).
+6. **Package for stakeholders** — Assemble the Stakeholder Presentation using outputs from steps 3–5.
+
+---
+
 ## Data Collection Guide
+
+> Full executable scripts for each source are in `DATA_COLLECTION.md`. Summaries of what to capture are below.
 
 ### 1. Website Analysis
 
-```bash
-# Scrape pricing page structure
-curl -s "https://competitor.com/pricing" | \
-  python3 -c "
-import sys
-from html.parser import HTMLParser
-
-class TextExtractor(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.text = []
-    def handle_data(self, data):
-        if data.strip():
-            self.text.append(data.strip())
-
-p = TextExtractor()
-p.feed(sys.stdin.read())
-print('\n'.join(p.text[:200]))
-"
-
-# Check changelog / release notes
-curl -s "https://competitor.com/changelog" | grep -i "added\|new\|launched\|improved"
-
-# Feature list from sitemap
-curl -s "https://competitor.com/sitemap.xml" | grep -oP '(?<=<loc>)[^<]+' | head -50
-```
-
-Key things to capture from the website:
+Key things to capture:
 - Pricing tiers and price points
 - Feature lists per tier
 - Primary CTA and messaging
@@ -76,51 +52,21 @@ Key things to capture from the website:
 
 ### 2. App Store Reviews
 
-```bash
-# iOS reviews via RSS
-curl "https://itunes.apple.com/rss/customerreviews/id=[APP_ID]/sortBy=mostRecent/json" | \
-  python3 -c "
-import sys, json
-data = json.load(sys.stdin)
-entries = data.get('feed', {}).get('entry', [])
-for e in entries[1:]:  # skip first (app metadata)
-    rating = e.get('im:rating', {}).get('label', '?')
-    title = e.get('title', {}).get('label', '')
-    content = e.get('content', {}).get('label', '')
-    print(f'[{rating}] {title}: {content[:200]}')
-"
-
-# Google Play via scraping (use playwright or a reviews API)
-# Categorize reviews into: praise / feature requests / bugs / UX complaints
-```
-
 Review sentiment categories:
 - **Praise** → what users love (defend / strengthen these)
 - **Feature requests** → unmet needs (opportunity gaps)
 - **Bugs** → quality signals
 - **UX complaints** → friction points you can beat them on
 
-### 3. Job Postings (Team Size & Tech Stack Signals)
-
-```python
-# Search LinkedIn / Greenhouse / Lever / Workable
-import requests
-
-# Example: scrape Greenhouse job board
-def get_jobs(company_token):
-    r = requests.get(f"https://boards-api.greenhouse.io/v1/boards/{company_token}/jobs")
-    return r.json().get('jobs', [])
-
-jobs = get_jobs("competitor-name")
-departments = {}
-for job in jobs:
-    dept = job.get('departments', [{}])[0].get('name', 'Unknown')
-    departments[dept] = departments.get(dept, 0) + 1
-
-print("Team breakdown by open roles:")
-for dept, count in sorted(departments.items(), key=lambda x: -x[1]):
-    print(f"  {dept}: {count} open roles")
+**Sample App Store query (iTunes Search API):**
 ```
+GET https://itunes.apple.com/search?term=<competitor_name>&entity=software&limit=1
+# Extract trackId, then:
+GET https://itunes.apple.com/rss/customerreviews/id=<trackId>/sortBy=mostRecent/json?l=en&limit=50
+```
+Parse `entry[].content.label` for review text and `entry[].im:rating.label` for star rating.
+
+### 3. Job Postings (Team Size & Tech Stack Signals)
 
 Signals from job postings:
 - **Engineering volume** → scaling vs. consolidating
@@ -131,21 +77,6 @@ Signals from job postings:
 
 ### 4. SEO Analysis
 
-```bash
-# Organic keyword gap (using Ahrefs/Semrush API or free alternatives)
-# Ubersuggest, SpyFu, or SimilarWeb free tiers
-
-# Quick domain overview via Moz free API
-curl "https://moz.com/api/free/v2/url-metrics?targets[]=competitor.com" \
-  -H "x-moz-token: YOUR_TOKEN"
-
-# Check their blog topics (sitemap)
-curl "https://competitor.com/sitemap-posts.xml" | \
-  grep -oP '(?<=<loc>)[^<]+' | \
-  sed 's|.*/||' | \
-  tr '-' ' '
-```
-
 SEO signals to capture:
 - Top 20 organic keywords (intent: informational / navigational / commercial)
 - Domain Authority / backlink count
@@ -154,18 +85,7 @@ SEO signals to capture:
 
 ### 5. Social Media Sentiment
 
-```bash
-# Twitter/X search (via API v2)
-curl "https://api.twitter.com/2/tweets/search/recent?query=%40competitor+OR+%22competitor+name%22&max_results=100" \
-  -H "Authorization: Bearer $TWITTER_BEARER_TOKEN" | \
-  python3 -c "
-import sys, json
-data = json.load(sys.stdin)
-tweets = data.get('data', [])
-for t in tweets:
-    print(t['text'][:150])
-"
-```
+Capture recent mentions via Twitter/X API v2, Reddit, or LinkedIn. Look for recurring praise, complaints, and feature requests. See `DATA_COLLECTION.md` for API query examples.
 
 ---
 
@@ -186,253 +106,61 @@ for t in tweets:
 | 11 | **Community** | None | Forum / Slack | Active, vibrant community |
 | 12 | **Innovation** | No recent releases | Quarterly | Frequent, meaningful |
 
----
+**Example completed row** (Competitor: Acme Corp, Dimension 3 – UX):
 
-## Feature Comparison Matrix Template
+| Dimension | Acme Corp Score | Evidence |
+|-----------|----------------|---------|
+| UX | 2 | App Store reviews cite "confusing navigation" (38 mentions); onboarding requires 7 steps before TTFV; no onboarding wizard; CC required at signup. |
 
-```markdown
-## Feature Comparison Matrix
-
-| Feature | [YOUR PRODUCT] | [COMPETITOR A] | [COMPETITOR B] | [COMPETITOR C] |
-|---------|---------------|----------------|----------------|----------------|
-| **Core Features** | | | | |
-| [Feature 1] | 5 | 4 | 3 | 2 |
-| [Feature 2] | 3 | 5 | 4 | 3 |
-| [Feature 3] | 4 | 3 | 5 | 1 |
-| **Pricing** | | | | |
-| Free tier | Yes | No | Limited | Yes |
-| Starting price | $X/mo | $Y/mo | $Z/mo | $W/mo |
-| Enterprise | Custom | Custom | No | Custom |
-| **Platform** | | | | |
-| Web app | 5 | 5 | 4 | 3 |
-| Mobile iOS | 4 | 3 | 5 | 2 |
-| Mobile Android | 4 | 3 | 4 | 2 |
-| API | 5 | 4 | 3 | 1 |
-| **TOTAL SCORE** | **XX/60** | **XX/60** | **XX/60** | **XX/60** |
-
-### Score Legend: 5=Best-in-class, 4=Strong, 3=Average, 2=Below average, 1=Weak/Missing
-```
+Apply this pattern to all 12 dimensions for each competitor.
 
 ---
 
-## Pricing Analysis Template
+## Templates
 
-```markdown
-## Pricing Analysis
+> Full template markdown is in `TEMPLATES.md`. Abbreviated reference below.
 
-### Model Comparison
-| Competitor | Model | Entry | Mid | Enterprise | Free Trial |
-|-----------|-------|-------|-----|------------|------------|
-| [Yours] | Per-seat | $X | $Y | Custom | 14 days |
-| [Comp A] | Usage-based | $X | $Y | Custom | 30 days |
-| [Comp B] | Flat rate | $X | - | Custom | No |
-| [Comp C] | Freemium | $0 | $Y | Custom | Freemium |
+### Feature Comparison Matrix
 
-### Pricing Intelligence
-- **Price leader:** [Competitor] at $X/mo for comparable features
-- **Value leader:** [Competitor] - most features per dollar
-- **Premium positioning:** [Competitor] - 2x market price, targets enterprise
-- **Our position:** [Describe where you sit and why]
+Rows: core features, pricing tiers, platform capabilities (web, iOS, Android, API).  
+Columns: your product + up to 3 competitors.  
+Score each cell 1–5. Sum to get total out of 60.  
+**Score legend:** 5=Best-in-class, 4=Strong, 3=Average, 2=Below average, 1=Weak/Missing
 
-### Pricing Opportunity
-- [e.g., "No competitor offers usage-based pricing — opportunity for SMBs"]
-- [e.g., "All competitors charge per seat — flat rate could disrupt"]
-- [e.g., "Freemium tier could capture top-of-funnel the others miss"]
-```
+### Pricing Analysis
 
----
+Capture per competitor: model type (per-seat / usage-based / flat rate / freemium), entry/mid/enterprise price points, free trial length.  
+Summarize: price leader, value leader, premium positioning, your position, and 2–3 pricing opportunity bullets.
 
-## SWOT Analysis Template
+### SWOT Analysis
 
-```markdown
-## SWOT Analysis: [COMPETITOR NAME]
+For each competitor: 3–5 bullets per quadrant (Strengths, Weaknesses, Opportunities for us, Threats to us). Anchor every bullet to a data signal (review quote, job posting count, pricing page, etc.).
 
-### Strengths
-- [e.g., "3x more integrations than any competitor"]
-- [e.g., "Strong brand recognition in enterprise segment"]
-- [e.g., "Best-in-class mobile UX (4.8 App Store rating)"]
+### Positioning Map
 
-### Weaknesses
-- [e.g., "No free tier — losing top-of-funnel to freemium players"]
-- [e.g., "Pricing complexity confuses buyers (3 pages of pricing)"]
-- [e.g., "App store reviews cite slow support response"]
+2x2 axes (e.g., Simple ↔ Complex / Low Value ↔ High Value). Place each competitor and your product. Bubble size = market share or funding. See `TEMPLATES.md` for ASCII and editable versions.
 
-### Opportunities (for US)
-- [e.g., "They have no presence in DACH — our opening"]
-- [e.g., "Their API is limited — power users frustrated"]
-- [e.g., "Recent layoffs in engineering suggest slower roadmap"]
+### UX Audit Checklist
 
-### Threats (to Us)
-- [e.g., "Well-funded — can undercut pricing for 12+ months"]
-- [e.g., "Strong channel partner network we don't have"]
-- [e.g., "Announced AI feature launching Q2 — may close our gap"]
-```
+Onboarding: TTFV (minutes), steps to activation, CC-required, onboarding wizard quality.  
+Key workflows: steps, friction points, comparative score (yours vs. theirs).  
+Mobile: iOS/Android ratings, feature parity, top complaint and praise.  
+Navigation: global search, keyboard shortcuts, in-app help.
 
----
+### Action Items
 
-## Positioning Map
+| Horizon | Effort | Examples |
+|---------|--------|---------|
+| Quick wins (0–4 wks) | Low | Add review badges, publish comparison landing page |
+| Medium-term (1–3 mo) | Moderate | Launch free tier, improve onboarding TTFV, add top-requested integration |
+| Strategic (3–12 mo) | High | Enter new market, build API v2, achieve SOC2 Type II |
 
-```
-                HIGH VALUE
-                    |
-    [COMP A]        |         [YOURS]
-    (feature-rich,  |         (balanced,
-     expensive)     |          mid-price)
-                    |
-COMPLEX ────────────┼──────────────── SIMPLE
-                    |
-    [COMP B]        |         [COMP C]
-    (complex,       |         (simple,
-     cheap)         |          cheap)
-                    |
-                 LOW VALUE
+### Stakeholder Presentation (7 slides)
 
-Axes: X = Complexity (Simple ↔ Complex)
-      Y = Value delivered (Low ↔ High)
-      
-Bubble size = market share or funding
-```
-
----
-
-## UX Audit Checklist
-
-```markdown
-## UX Audit: [COMPETITOR]
-
-### Onboarding Flow
-- [ ] Time to first value (TTFV): _____ minutes
-- [ ] Steps to activation: _____
-- [ ] Email verification required? Yes / No
-- [ ] Credit card required for trial? Yes / No
-- [ ] Onboarding checklist / wizard? Yes / No
-- [ ] Empty state quality: 1-5 ___
-
-### Key Workflows
-| Workflow | Steps | Friction Points | Our Score | Their Score |
-|----------|-------|-----------------|-----------|-------------|
-| [Core action 1] | X | [notes] | X/5 | X/5 |
-| [Core action 2] | X | [notes] | X/5 | X/5 |
-| [Core action 3] | X | [notes] | X/5 | X/5 |
-
-### Mobile Experience
-- iOS rating: _____ / 5 ([X] reviews)
-- Android rating: _____ / 5 ([X] reviews)
-- Mobile feature parity: Full / Partial / Web-only
-- Top mobile complaint: _____
-- Top mobile praise: _____
-
-### Navigation & IA
-- [ ] Global search available? 
-- [ ] Keyboard shortcuts?
-- [ ] Breadcrumbs / clear navigation?
-- [ ] Help / docs accessible in-app?
-```
-
----
-
-## Action Items Template
-
-```markdown
-## Action Items from Competitive Teardown
-
-### Quick Wins (0-4 weeks, low effort, high impact)
-- [ ] [e.g., "Add G2/Capterra badges — competitor displays these prominently"]
-- [ ] [e.g., "Publish integration page — competitor's ranks for '[product] integrations'"]
-- [ ] [e.g., "Add comparison landing page targeting '[competitor] alternative' keyword"]
-
-### Medium-Term (1-3 months, moderate effort)
-- [ ] [e.g., "Launch free tier to capture top-of-funnel competitor is missing"]
-- [ ] [e.g., "Improve onboarding — competitor's TTFV is 4min vs our 12min"]
-- [ ] [e.g., "Build [integration] — #1 request in competitor app store reviews"]
-
-### Strategic (3-12 months, high effort)
-- [ ] [e.g., "Enter DACH market — competitor has no German localization"]
-- [ ] [e.g., "Build API v2 — power users leaving competitor for API limitations"]
-- [ ] [e.g., "Achieve SOC2 Type II — competitor uses this as primary enterprise objection handler"]
-```
-
----
-
-## Stakeholder Presentation Template
-
-```markdown
-# [COMPETITOR NAME] Teardown
-## Competitive Intelligence Report — [DATE]
-
----
-
-### Executive Summary (1 slide)
-- Overall threat level: LOW / MEDIUM / HIGH / CRITICAL
-- Their biggest strength vs. us: [1 sentence]
-- Our biggest opportunity vs. them: [1 sentence]
-- Recommended priority action: [1 sentence]
-
----
-
-### Market Position (1 slide)
-[Insert 2x2 positioning map]
-
----
-
-### Feature Scorecard (1 slide)
-[Insert 12-dimension radar chart or table]
-Overall: [COMPETITOR] = XX/60 | [YOURS] = XX/60
-
----
-
-### Pricing Analysis (1 slide)
-[Insert pricing comparison table]
-Key insight: [1-2 sentences]
-
----
-
-### UX Highlights (1 slide)
-What they do better: [3 bullets]
-Where we beat them: [3 bullets]
-
----
-
-### Voice of Customer (1 slide)
-Top 3 complaints about [COMPETITOR] from reviews:
-1. [Quote or paraphrase]
-2. [Quote or paraphrase]
-3. [Quote or paraphrase]
-
----
-
-### Our Action Plan (1 slide)
-Quick wins: [2-3 bullets]
-Medium-term: [2-3 bullets]
-Strategic: [1-2 bullets]
-
----
-
-### Appendix
-- Raw feature matrix
-- Full review analysis
-- Job posting breakdown
-- SEO keyword comparison
-```
-
----
-
-## Common Pitfalls
-
-1. **Recency bias** - Pricing pages change; always date-stamp your data
-2. **Feature theater** - A competitor may list a feature that barely works; check reviews
-3. **Vanity metrics** - "10,000 integrations" via Zapier != 10,000 native integrations
-4. **Ignoring momentum** - A weaker competitor growing 3x YoY is a bigger threat than a stronger one shrinking
-5. **Only comparing features** - Brand perception and community often matter more than features
-6. **Single-source analysis** - Website alone misses the real user experience; always add reviews
-
----
-
-## Best Practices
-
-- Run teardowns quarterly; competitors move fast
-- Assign a DRI (directly responsible individual) for each major competitor
-- Build a "battle card" 1-pager per competitor for sales to use
-- Track competitor job postings monthly as a leading indicator of product direction
-- Screenshot pricing pages — they change and you want the history
-- Include a "what we copied from them" section internally — intellectual honesty builds better products
+1. **Executive Summary** — Threat level (LOW/MEDIUM/HIGH/CRITICAL), top strength, top opportunity, recommended action
+2. **Market Position** — 2x2 positioning map
+3. **Feature Scorecard** — 12-dimension radar or table, total scores
+4. **Pricing Analysis** — Comparison table + key insight
+5. **UX Highlights** — What they do better (3 bullets) vs. where we win (3 bullets)
+6. **Voice of Customer** — Top 3 review complaints (quoted or paraphrased)
+7. **Our Action Plan** — Quick wins, medium-term, strategic priorities; Appendix with raw data

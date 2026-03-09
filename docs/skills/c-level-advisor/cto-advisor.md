@@ -27,19 +27,19 @@ python scripts/team_scaling_calculator.py  # Model engineering team growth and c
 ## Core Responsibilities
 
 ### 1. Technology Strategy
-Align technology investments with business priorities. Not "what's exciting" — "what moves the needle."
+Align technology investments with business priorities.
 
 **Strategy components:**
 - Technology vision (3-year: where the platform is going)
 - Architecture roadmap (what to build, refactor, or replace)
 - Innovation budget (10-20% of engineering capacity for experimentation)
 - Build vs buy decisions (default: buy unless it's your core IP)
-- Technical debt strategy (not elimination — management)
+- Technical debt strategy (management, not elimination)
 
 See `references/technology_evaluation_framework.md` for the full evaluation framework.
 
 ### 2. Engineering Team Leadership
-The CTO's job is to make the engineering org 10x more productive, not to write the best code.
+Scale the engineering org's productivity — not individual output.
 
 **Scaling engineering:**
 - Hire for the next stage, not the current one
@@ -56,7 +56,7 @@ The CTO's job is to make the engineering org 10x more productive, not to write t
 See `references/engineering_metrics.md` for DORA metrics and the engineering health dashboard.
 
 ### 3. Architecture Governance
-You don't make every architecture decision. You create the framework for making good ones.
+Create the framework for making good decisions — not making every decision yourself.
 
 **Architecture Decision Records (ADRs):**
 - Every significant decision gets documented: context, options, decision, consequences
@@ -73,11 +73,96 @@ Every vendor is a dependency. Every dependency is a risk.
 ### 5. Crisis Management
 Incident response, security breaches, major outages, data loss.
 
-**Your role in a crisis:** Not to fix it yourself. To ensure the right people are on it, communication is flowing, and the business is informed. Post-crisis: blameless retrospective within 48 hours.
+**Your role in a crisis:** Ensure the right people are on it, communication is flowing, and the business is informed. Post-crisis: blameless retrospective within 48 hours.
+
+## Workflows
+
+### Tech Debt Assessment Workflow
+
+**Step 1 — Run the analyzer**
+```bash
+python scripts/tech_debt_analyzer.py --output report.json
+```
+
+**Step 2 — Interpret results**
+The analyzer produces a severity-scored inventory. Review each item against:
+- Severity (P0–P3): how much is it blocking velocity or creating risk?
+- Cost-to-fix: engineering days estimated to remediate
+- Blast radius: how many systems / teams are affected?
+
+**Step 3 — Build a prioritized remediation plan**
+Sort by: `(Severity × Blast Radius) / Cost-to-fix` — highest score = fix first.
+Group items into: (a) immediate sprint, (b) next quarter, (c) tracked backlog.
+
+**Step 4 — Validate before presenting to stakeholders**
+- [ ] Every P0/P1 item has an owner and a target date
+- [ ] Cost-to-fix estimates reviewed with the relevant tech lead
+- [ ] Debt ratio calculated: maintenance work / total engineering capacity (target: < 25%)
+- [ ] Remediation plan fits within capacity (don't promise 40 points of debt reduction in a 2-week sprint)
+
+**Example output — Tech Debt Inventory:**
+```
+Item                  | Severity | Cost-to-Fix | Blast Radius | Priority Score
+----------------------|----------|-------------|--------------|---------------
+Auth service (v1 API) | P1       | 8 days      | 6 services   | HIGH
+Unindexed DB queries  | P2       | 3 days      | 2 services   | MEDIUM
+Legacy deploy scripts | P3       | 5 days      | 1 service    | LOW
+```
+
+---
+
+### ADR Creation Workflow
+
+**Step 1 — Identify the decision**
+Trigger an ADR when: the decision affects more than one team, is hard to reverse, or has cost/risk implications > 1 sprint of effort.
+
+**Step 2 — Draft the ADR**
+Use the template from `references/architecture_decision_records.md`:
+```
+Title: [Short noun phrase]
+Status: Proposed | Accepted | Superseded
+Context: What is the problem? What constraints exist?
+Options Considered:
+  - Option A: [description] — TCO: $X | Risk: Low/Med/High
+  - Option B: [description] — TCO: $X | Risk: Low/Med/High
+Decision: [Chosen option and rationale]
+Consequences: [What becomes easier? What becomes harder?]
+```
+
+**Step 3 — Validation checkpoint (before finalizing)**
+- [ ] All options include a 3-year TCO estimate
+- [ ] At least one "do nothing" or "buy" alternative is documented
+- [ ] Affected team leads have reviewed and signed off
+- [ ] Consequences section addresses reversibility and migration path
+- [ ] ADR is committed to the repository (not left in a doc or Slack thread)
+
+**Step 4 — Communicate and close**
+Share the accepted ADR in the engineering all-hands or architecture sync. Link it from the relevant service's README.
+
+---
+
+### Build vs Buy Analysis Workflow
+
+**Step 1 — Define requirements** (functional + non-functional)
+**Step 2 — Identify candidate vendors or internal build scope**
+**Step 3 — Score each option:**
+
+```
+Criterion              | Weight | Build Score | Vendor A Score | Vendor B Score
+-----------------------|--------|-------------|----------------|---------------
+Solves core problem    | 30%    | 9           | 8              | 7
+Migration risk         | 20%    | 2 (low risk)| 7              | 6
+3-year TCO             | 25%    | $X          | $Y             | $Z
+Vendor stability       | 15%    | N/A         | 8              | 5
+Integration effort     | 10%    | 3           | 7              | 8
+```
+
+**Step 4 — Default rule:** Buy unless it is core IP or no vendor meets ≥ 70% of requirements.
+**Step 5 — Document the decision as an ADR** (see ADR workflow above).
 
 ## Key Questions a CTO Asks
 
-- "What's our biggest technical risk right now? Not the most annoying — the most dangerous."
+- "What's our biggest technical risk right now — not the most annoying, the most dangerous?"
 - "If we 10x our traffic tomorrow, what breaks first?"
 - "How much of our engineering time goes to maintenance vs new features?"
 - "What would a new engineer say about our codebase after their first week?"
@@ -103,16 +188,13 @@ Incident response, security breaches, major outages, data loss.
 
 ## Red Flags
 
-- Tech debt is growing faster than you're paying it down
-- Deployment frequency is declining (a leading indicator of team health)
-- Senior engineers are leaving (they see problems before management does)
-- "It works on my machine" is still a thing
+- Tech debt ratio > 30% and growing faster than it's being paid down
+- Deployment frequency declining over 4+ weeks
 - No ADRs for the last 3 major decisions
 - The CTO is the only person who can deploy to production
-- Security audit hasn't happened in 12+ months
-- The team dreads on-call rotation
 - Build times exceed 10 minutes
-- No one can explain the system architecture to a new hire in 30 minutes
+- Single points of failure on critical systems with no mitigation plan
+- The team dreads on-call rotation
 
 ## Integration with C-Suite Roles
 

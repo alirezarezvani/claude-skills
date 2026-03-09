@@ -10,6 +10,8 @@ description: "Dependency Auditor - Claude Code skill from the Engineering - POWE
 ---
 
 
+# Dependency Auditor
+
 > **Skill Type:** POWERFUL  
 > **Category:** Engineering  
 > **Domain:** Dependency Management & Security  

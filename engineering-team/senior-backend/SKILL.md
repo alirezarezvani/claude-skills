@@ -1,25 +1,11 @@
 ---
-name: senior-backend
-description: This skill should be used when the user asks to "design REST APIs", "optimize database queries", "implement authentication", "build microservices", "review backend code", "set up GraphQL", "handle database migrations", or "load test APIs". Use for Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.
+name: "senior-backend"
+description: Designs and implements backend systems including REST APIs, microservices, database architectures, authentication flows, and security hardening. Use when the user asks to "design REST APIs", "optimize database queries", "implement authentication", "build microservices", "review backend code", "set up GraphQL", "handle database migrations", or "load test APIs". Covers Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.
 ---
 
 # Senior Backend Engineer
 
 Backend development patterns, API design, database optimization, and security practices.
-
-## Table of Contents
-
-- [Quick Start](#quick-start)
-- [Tools Overview](#tools-overview)
-  - [API Scaffolder](#1-api-scaffolder)
-  - [Database Migration Tool](#2-database-migration-tool)
-  - [API Load Tester](#3-api-load-tester)
-- [Backend Development Workflows](#backend-development-workflows)
-  - [API Design Workflow](#api-design-workflow)
-  - [Database Optimization Workflow](#database-optimization-workflow)
-  - [Security Hardening Workflow](#security-hardening-workflow)
-- [Reference Documentation](#reference-documentation)
-- [Common Patterns Quick Reference](#common-patterns-quick-reference)
 
 ---
 
@@ -51,17 +37,7 @@ Generates API route handlers, middleware, and OpenAPI specifications from schema
 ```bash
 # Generate Express routes from OpenAPI spec
 python scripts/api_scaffolder.py openapi.yaml --framework express --output src/routes/
-
-# Output:
-# Generated 12 route handlers in src/routes/
-# - GET /users (listUsers)
-# - POST /users (createUser)
-# - GET /users/{id} (getUser)
-# - PUT /users/{id} (updateUser)
-# - DELETE /users/{id} (deleteUser)
-# ...
-# Created validation middleware: src/middleware/validators.ts
-# Created TypeScript types: src/types/api.ts
+# Output: Generated 12 route handlers, validation middleware, and TypeScript types
 
 # Generate from database schema
 python scripts/api_scaffolder.py --from-db postgres://localhost/mydb --output src/routes/
@@ -88,31 +64,11 @@ Analyzes database schemas, detects changes, and generates migration files with r
 ```bash
 # Analyze current schema and suggest optimizations
 python scripts/database_migration_tool.py --connection postgres://localhost/mydb --analyze
-
-# Output:
-# === Database Analysis Report ===
-# Tables: 24
-# Total rows: 1,247,832
-#
-# MISSING INDEXES (5 found):
-#   orders.user_id - 847ms avg query time, ADD INDEX recommended
-#   products.category_id - 234ms avg query time, ADD INDEX recommended
-#
-# N+1 QUERY RISKS (3 found):
-#   users -> orders relationship (no eager loading)
-#
-# SUGGESTED MIGRATIONS:
-#   1. Add index on orders(user_id)
-#   2. Add index on products(category_id)
-#   3. Add composite index on order_items(order_id, product_id)
+# Output: Missing indexes, N+1 query risks, and suggested migration files
 
 # Generate migration from schema diff
 python scripts/database_migration_tool.py --connection postgres://localhost/mydb \
   --compare schema/v2.sql --output migrations/
-
-# Output:
-# Generated migration: migrations/20240115_add_user_indexes.sql
-# Generated rollback: migrations/20240115_add_user_indexes_rollback.sql
 
 # Dry-run a migration
 python scripts/database_migration_tool.py --connection postgres://localhost/mydb \
@@ -132,32 +88,7 @@ Performs HTTP load testing with configurable concurrency, measuring latency perc
 ```bash
 # Basic load test
 python scripts/api_load_tester.py https://api.example.com/users --concurrency 50 --duration 30
-
-# Output:
-# === Load Test Results ===
-# Target: https://api.example.com/users
-# Duration: 30s | Concurrency: 50
-#
-# THROUGHPUT:
-#   Total requests: 15,247
-#   Requests/sec: 508.2
-#   Successful: 15,102 (99.0%)
-#   Failed: 145 (1.0%)
-#
-# LATENCY (ms):
-#   Min: 12
-#   Avg: 89
-#   P50: 67
-#   P95: 198
-#   P99: 423
-#   Max: 1,247
-#
-# ERRORS:
-#   Connection timeout: 89
-#   HTTP 503: 56
-#
-# RECOMMENDATION: P99 latency (423ms) exceeds 200ms target.
-# Consider: connection pooling, query optimization, or horizontal scaling.
+# Output: Throughput (req/sec), latency percentiles (P50/P95/P99), error counts, and scaling recommendations
 
 # Test with custom headers and body
 python scripts/api_load_tester.py https://api.example.com/orders \
@@ -192,7 +123,7 @@ paths:
     get:
       summary: List users
       parameters:
-        - name: limit
+        - name: "limit"
           in: query
           schema:
             type: integer
@@ -319,7 +250,7 @@ import { z } from 'zod';
 
 const CreateUserSchema = z.object({
   email: z.string().email().max(255),
-  name: z.string().min(1).max(100),
+  name: "zstringmin1max100"
   age: z.number().int().positive().optional()
 });
 

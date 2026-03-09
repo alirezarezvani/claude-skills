@@ -1,26 +1,13 @@
 ---
-name: revenue-operations
-description: Analyzes pipeline coverage, tracks forecast accuracy with MAPE, and calculates GTM efficiency metrics for SaaS revenue optimization
+name: "revenue-operations"
+description: Analyzes sales pipeline health, revenue forecasting accuracy, and go-to-market efficiency metrics for SaaS revenue optimization. Use when analyzing sales pipeline coverage, forecasting revenue, evaluating go-to-market performance, reviewing sales metrics, assessing pipeline analysis, tracking forecast accuracy with MAPE, calculating GTM efficiency, or measuring sales efficiency and unit economics for SaaS teams.
 ---
 
 # Revenue Operations
 
 Pipeline analysis, forecast accuracy tracking, and GTM efficiency measurement for SaaS revenue teams.
 
-## Table of Contents
-
-- [Quick Start](#quick-start)
-- [Tools Overview](#tools-overview)
-  - [Pipeline Analyzer](#1-pipeline-analyzer)
-  - [Forecast Accuracy Tracker](#2-forecast-accuracy-tracker)
-  - [GTM Efficiency Calculator](#3-gtm-efficiency-calculator)
-- [Revenue Operations Workflows](#revenue-operations-workflows)
-  - [Weekly Pipeline Review](#weekly-pipeline-review)
-  - [Forecast Accuracy Review](#forecast-accuracy-review)
-  - [GTM Efficiency Audit](#gtm-efficiency-audit)
-  - [Quarterly Business Review](#quarterly-business-review)
-- [Reference Documentation](#reference-documentation)
-- [Templates](#templates)
+> **Output formats:** All scripts support `--format text` (human-readable) and `--format json` (dashboards/integrations).
 
 ---
 
@@ -51,11 +38,7 @@ Analyzes sales pipeline health including coverage ratios, stage conversion rates
 **Usage:**
 
 ```bash
-# Text report (human-readable)
 python scripts/pipeline_analyzer.py --input pipeline.json --format text
-
-# JSON output (for dashboards/integrations)
-python scripts/pipeline_analyzer.py --input pipeline.json --format json
 ```
 
 **Key Metrics Calculated:**
@@ -97,15 +80,11 @@ Tracks forecast accuracy over time using MAPE, detects systematic bias, analyzes
 **Usage:**
 
 ```bash
-# Track forecast accuracy
 python scripts/forecast_accuracy_tracker.py forecast_data.json --format text
-
-# JSON output for trend analysis
-python scripts/forecast_accuracy_tracker.py forecast_data.json --format json
 ```
 
 **Key Metrics Calculated:**
-- **MAPE** -- Mean Absolute Percentage Error: mean(|actual - forecast| / |actual|) x 100
+- **MAPE** -- mean(|actual - forecast| / |actual|) x 100
 - **Forecast Bias** -- Over-forecasting (positive) vs under-forecasting (negative) tendency
 - **Weighted Accuracy** -- MAPE weighted by deal value for materiality
 - **Period Trends** -- Improving, stable, or declining accuracy over time
@@ -146,11 +125,7 @@ Calculates core SaaS GTM efficiency metrics with industry benchmarking, ratings,
 **Usage:**
 
 ```bash
-# Calculate all GTM efficiency metrics
 python scripts/gtm_efficiency_calculator.py gtm_data.json --format text
-
-# JSON output for dashboards
-python scripts/gtm_efficiency_calculator.py gtm_data.json --format json
 ```
 
 **Key Metrics Calculated:**
@@ -201,57 +176,69 @@ python scripts/gtm_efficiency_calculator.py gtm_data.json --format json
 
 Use this workflow for your weekly pipeline inspection cadence.
 
-1. **Generate pipeline report:**
+1. **Verify input data:** Confirm pipeline export is current and all required fields (stage, value, close_date, owner) are populated before proceeding.
+
+2. **Generate pipeline report:**
    ```bash
    python scripts/pipeline_analyzer.py --input current_pipeline.json --format text
    ```
 
-2. **Review key indicators:**
+3. **Cross-check output totals** against your CRM source system to confirm data integrity.
+
+4. **Review key indicators:**
    - Pipeline coverage ratio (is it above 3x quota?)
    - Deals aging beyond threshold (which deals need intervention?)
    - Concentration risk (are we over-reliant on a few large deals?)
    - Stage distribution (is there a healthy funnel shape?)
 
-3. **Document using template:** Use `assets/pipeline_review_template.md`
+5. **Document using template:** Use `assets/pipeline_review_template.md`
 
-4. **Action items:** Address aging deals, redistribute pipeline concentration, fill coverage gaps
+6. **Action items:** Address aging deals, redistribute pipeline concentration, fill coverage gaps
 
 ### Forecast Accuracy Review
 
 Use monthly or quarterly to evaluate and improve forecasting discipline.
 
-1. **Generate accuracy report:**
+1. **Verify input data:** Confirm all forecast periods have corresponding actuals and no periods are missing before running.
+
+2. **Generate accuracy report:**
    ```bash
    python scripts/forecast_accuracy_tracker.py forecast_history.json --format text
    ```
 
-2. **Analyze patterns:**
+3. **Cross-check actuals** against closed-won records in your CRM before drawing conclusions.
+
+4. **Analyze patterns:**
    - Is MAPE trending down (improving)?
    - Which reps or segments have the highest error rates?
    - Is there systematic over- or under-forecasting?
 
-3. **Document using template:** Use `assets/forecast_report_template.md`
+5. **Document using template:** Use `assets/forecast_report_template.md`
 
-4. **Improvement actions:** Coach high-bias reps, adjust methodology, improve data hygiene
+6. **Improvement actions:** Coach high-bias reps, adjust methodology, improve data hygiene
 
 ### GTM Efficiency Audit
 
 Use quarterly or during board prep to evaluate go-to-market efficiency.
 
-1. **Calculate efficiency metrics:**
+1. **Verify input data:** Confirm revenue, cost, and customer figures reconcile with finance records before running.
+
+2. **Calculate efficiency metrics:**
    ```bash
    python scripts/gtm_efficiency_calculator.py quarterly_data.json --format text
    ```
 
-2. **Benchmark against targets:**
-   - Magic Number signals GTM spend efficiency
-   - LTV:CAC validates unit economics
-   - CAC Payback shows capital efficiency
-   - Rule of 40 balances growth and profitability
+3. **Cross-check computed ARR and spend totals** against your finance system before sharing results.
 
-3. **Document using template:** Use `assets/gtm_dashboard_template.md`
+4. **Benchmark against targets:**
+   - Magic Number (>0.75)
+   - LTV:CAC (>3:1)
+   - CAC Payback (<18 months)
+   - Rule of 40 (>40%)
 
-4. **Strategic decisions:** Adjust spend allocation, optimize channels, improve retention
+5. **Document using template:** Use `assets/gtm_dashboard_template.md`
+
+6. **Strategic decisions:** Adjust spend allocation, optimize channels, improve retention
 
 ### Quarterly Business Review
 

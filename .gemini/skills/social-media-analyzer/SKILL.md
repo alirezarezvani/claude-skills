@@ -1,0 +1,1 @@
+../../../marketing-skill/social-media-analyzer/SKILL.md

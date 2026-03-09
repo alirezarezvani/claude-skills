@@ -81,7 +81,7 @@ The generated SKILL.md must follow this format:
 
 ```markdown
 ---
-name: <skill-name>
+name: "skill-name"
 description: "<one-line description>. Use when: <trigger conditions>."
 ---
 

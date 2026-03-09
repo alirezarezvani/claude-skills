@@ -1,5 +1,5 @@
 ---
-name: skill-security-auditor
+name: "skill-security-auditor"
 description: >
   Security audit and vulnerability scanner for AI agent skills before installation.
   Use when: (1) evaluating a skill from an untrusted source, (2) auditing a skill
@@ -141,7 +141,7 @@ python3 scripts/skill_security_auditor.py https://github.com/user/skill-repo --s
 
 ```yaml
 # GitHub Actions step
-- name: Audit Skill Security
+- name: "audit-skill-security"
   run: |
     python3 skill-security-auditor/scripts/skill_security_auditor.py ./skills/new-skill/ --strict --json > audit.json
     if [ $? -ne 0 ]; then echo "Security audit failed"; exit 1; fi

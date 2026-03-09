@@ -1,5 +1,5 @@
 ---
-name: senior-devops
+name: "senior-devops"
 description: Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes.
 ---
 
@@ -14,196 +14,262 @@ Complete toolkit for senior devops with modern tools and best practices.
 This skill provides three core capabilities through automated scripts:
 
 ```bash
-# Script 1: Pipeline Generator
-python scripts/pipeline_generator.py [options]
+# Script 1: Pipeline Generator — scaffolds CI/CD pipelines for GitHub Actions or CircleCI
+python scripts/pipeline_generator.py ./app --platform=github --stages=build,test,deploy
 
-# Script 2: Terraform Scaffolder
-python scripts/terraform_scaffolder.py [options]
+# Script 2: Terraform Scaffolder — generates and validates IaC modules for AWS/GCP/Azure
+python scripts/terraform_scaffolder.py ./infra --provider=aws --module=ecs-service --verbose
 
-# Script 3: Deployment Manager
-python scripts/deployment_manager.py [options]
+# Script 3: Deployment Manager — orchestrates container deployments with rollback support
+python scripts/deployment_manager.py deploy --env=production --image=app:1.2.3 --strategy=blue-green
 ```
 
 ## Core Capabilities
 
 ### 1. Pipeline Generator
 
-Automated tool for pipeline generator tasks.
+Scaffolds CI/CD pipeline configurations for GitHub Actions or CircleCI, with stages for build, test, security scan, and deploy.
 
-**Features:**
-- Automated scaffolding
-- Best practices built-in
-- Configurable templates
-- Quality checks
+**Example — GitHub Actions workflow:**
+```yaml
+# .github/workflows/ci.yml
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test -- --coverage
+      - name: Upload coverage
+        uses: codecov/codecov-action@v4
+
+  build-docker:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          push: ${{ github.ref == 'refs/heads/main' }}
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+
+  deploy:
+    needs: build-docker
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to ECS
+        run: |
+          aws ecs update-service \
+            --cluster production \
+            --service app-service \
+            --force-new-deployment
+```
 
 **Usage:**
 ```bash
-python scripts/pipeline_generator.py <project-path> [options]
+python scripts/pipeline_generator.py <project-path> --platform=github|circleci --stages=build,test,deploy
 ```
 
 ### 2. Terraform Scaffolder
 
-Comprehensive analysis and optimization tool.
+Generates, validates, and plans Terraform modules. Enforces consistent module structure and runs `terraform validate` + `terraform plan` before any apply.
 
-**Features:**
-- Deep analysis
-- Performance metrics
-- Recommendations
-- Automated fixes
+**Example — AWS ECS service module:**
+```hcl
+# modules/ecs-service/main.tf
+resource "aws_ecs_task_definition" "app" {
+  family                   = var.service_name
+  requires_compatibilities = ["FARGATE"]
+  network_mode             = "awsvpc"
+  cpu                      = var.cpu
+  memory                   = var.memory
+
+  container_definitions = jsonencode([{
+    name      = var.service_name
+    image     = var.container_image
+    essential = true
+    portMappings = [{
+      containerPort = var.container_port
+      protocol      = "tcp"
+    }]
+    environment = [for k, v in var.env_vars : { name = k, value = v }]
+    logConfiguration = {
+      logDriver = "awslogs"
+      options = {
+        awslogs-group         = "/ecs/${var.service_name}"
+        awslogs-region        = var.aws_region
+        awslogs-stream-prefix = "ecs"
+      }
+    }
+  }])
+}
+
+resource "aws_ecs_service" "app" {
+  name            = var.service_name
+  cluster         = var.cluster_id
+  task_definition = aws_ecs_task_definition.app.arn
+  desired_count   = var.desired_count
+  launch_type     = "FARGATE"
+
+  network_configuration {
+    subnets          = var.private_subnet_ids
+    security_groups  = [aws_security_group.app.id]
+    assign_public_ip = false
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.app.arn
+    container_name   = var.service_name
+    container_port   = var.container_port
+  }
+}
+```
 
 **Usage:**
 ```bash
-python scripts/terraform_scaffolder.py <target-path> [--verbose]
+python scripts/terraform_scaffolder.py <target-path> --provider=aws|gcp|azure --module=ecs-service|gke-deployment|aks-service [--verbose]
 ```
 
 ### 3. Deployment Manager
 
-Advanced tooling for specialized tasks.
+Orchestrates deployments with blue/green or rolling strategies, health-check gates, and automatic rollback on failure.
 
-**Features:**
-- Expert-level automation
-- Custom configurations
-- Integration ready
-- Production-grade output
+**Example — Kubernetes blue/green deployment (blue-slot specific elements):**
+```yaml
+# k8s/deployment-blue.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-blue
+  labels:
+    app: myapp
+    slot: blue      # slot label distinguishes blue from green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+      slot: blue
+  template:
+    metadata:
+      labels:
+        app: myapp
+        slot: blue
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/org/app:1.2.3
+          readinessProbe:       # gate: pod must pass before traffic switches
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+```
 
 **Usage:**
 ```bash
-python scripts/deployment_manager.py [arguments] [options]
+python scripts/deployment_manager.py deploy \
+  --env=staging|production \
+  --image=app:1.2.3 \
+  --strategy=blue-green|rolling \
+  --health-check-url=https://app.example.com/healthz
+
+python scripts/deployment_manager.py rollback --env=production --to-version=1.2.2
+python scripts/deployment_manager.py --analyze --env=production   # audit current state
 ```
 
-## Reference Documentation
+## Resources
 
-### Cicd Pipeline Guide
-
-Comprehensive guide available in `references/cicd_pipeline_guide.md`:
-
-- Detailed patterns and practices
-- Code examples
-- Best practices
-- Anti-patterns to avoid
-- Real-world scenarios
-
-### Infrastructure As Code
-
-Complete workflow documentation in `references/infrastructure_as_code.md`:
-
-- Step-by-step processes
-- Optimization strategies
-- Tool integrations
-- Performance tuning
-- Troubleshooting guide
-
-### Deployment Strategies
-
-Technical reference guide in `references/deployment_strategies.md`:
-
-- Technology stack details
-- Configuration examples
-- Integration patterns
-- Security considerations
-- Scalability guidelines
-
-## Tech Stack
-
-**Languages:** TypeScript, JavaScript, Python, Go, Swift, Kotlin
-**Frontend:** React, Next.js, React Native, Flutter
-**Backend:** Node.js, Express, GraphQL, REST APIs
-**Database:** PostgreSQL, Prisma, NeonDB, Supabase
-**DevOps:** Docker, Kubernetes, Terraform, GitHub Actions, CircleCI
-**Cloud:** AWS, GCP, Azure
+- Pattern Reference: `references/cicd_pipeline_guide.md` — detailed CI/CD patterns, best practices, anti-patterns
+- Workflow Guide: `references/infrastructure_as_code.md` — IaC step-by-step processes, optimization, troubleshooting
+- Technical Guide: `references/deployment_strategies.md` — deployment strategy configs, security considerations, scalability
+- Tool Scripts: `scripts/` directory
 
 ## Development Workflow
 
-### 1. Setup and Configuration
+### 1. Infrastructure Changes (Terraform)
 
 ```bash
-# Install dependencies
-npm install
-# or
-pip install -r requirements.txt
+# Scaffold or update module
+python scripts/terraform_scaffolder.py ./infra --provider=aws --module=ecs-service --verbose
 
-# Configure environment
-cp .env.example .env
+# Validate and plan — review diff before applying
+terraform -chdir=infra init
+terraform -chdir=infra validate
+terraform -chdir=infra plan -out=tfplan
+
+# Apply only after plan review
+terraform -chdir=infra apply tfplan
+
+# Verify resources are healthy
+aws ecs describe-services --cluster production --services app-service \
+  --query 'services[0].{Status:status,Running:runningCount,Desired:desiredCount}'
 ```
 
-### 2. Run Quality Checks
+### 2. Application Deployment
 
 ```bash
-# Use the analyzer script
-python scripts/terraform_scaffolder.py .
+# Generate or update pipeline config
+python scripts/pipeline_generator.py . --platform=github --stages=build,test,security,deploy
 
-# Review recommendations
-# Apply fixes
+# Build and tag image
+docker build -t ghcr.io/org/app:$(git rev-parse --short HEAD) .
+docker push ghcr.io/org/app:$(git rev-parse --short HEAD)
+
+# Deploy with health-check gate
+python scripts/deployment_manager.py deploy \
+  --env=production \
+  --image=app:$(git rev-parse --short HEAD) \
+  --strategy=blue-green \
+  --health-check-url=https://app.example.com/healthz
+
+# Verify pods are running
+kubectl get pods -n production -l app=myapp
+kubectl rollout status deployment/app-blue -n production
+
+# Switch traffic after verification
+kubectl patch service app-svc -n production \
+  -p '{"spec":{"selector":{"slot":"blue"}}}'
 ```
 
-### 3. Implement Best Practices
-
-Follow the patterns and practices documented in:
-- `references/cicd_pipeline_guide.md`
-- `references/infrastructure_as_code.md`
-- `references/deployment_strategies.md`
-
-## Best Practices Summary
-
-### Code Quality
-- Follow established patterns
-- Write comprehensive tests
-- Document decisions
-- Review regularly
-
-### Performance
-- Measure before optimizing
-- Use appropriate caching
-- Optimize critical paths
-- Monitor in production
-
-### Security
-- Validate all inputs
-- Use parameterized queries
-- Implement proper authentication
-- Keep dependencies updated
-
-### Maintainability
-- Write clear code
-- Use consistent naming
-- Add helpful comments
-- Keep it simple
-
-## Common Commands
+### 3. Rollback Procedure
 
 ```bash
-# Development
-npm run dev
-npm run build
-npm run test
-npm run lint
+# Immediate rollback via deployment manager
+python scripts/deployment_manager.py rollback --env=production --to-version=1.2.2
 
-# Analysis
-python scripts/terraform_scaffolder.py .
-python scripts/deployment_manager.py --analyze
+# Or via kubectl
+kubectl rollout undo deployment/app -n production
+kubectl rollout status deployment/app -n production
 
-# Deployment
-docker build -t app:latest .
-docker-compose up -d
-kubectl apply -f k8s/
+# Verify rollback succeeded
+kubectl get pods -n production -l app=myapp
+curl -sf https://app.example.com/healthz || echo "ROLLBACK FAILED — escalate"
 ```
 
 ## Troubleshooting
 
-### Common Issues
-
 Check the comprehensive troubleshooting section in `references/deployment_strategies.md`.
-
-### Getting Help
-
-- Review reference documentation
-- Check script output messages
-- Consult tech stack documentation
-- Review error logs
-
-## Resources
-
-- Pattern Reference: `references/cicd_pipeline_guide.md`
-- Workflow Guide: `references/infrastructure_as_code.md`
-- Technical Guide: `references/deployment_strategies.md`
-- Tool Scripts: `scripts/` directory

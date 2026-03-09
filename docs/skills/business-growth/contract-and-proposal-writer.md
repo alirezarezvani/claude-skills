@@ -10,6 +10,8 @@ description: "Contract & Proposal Writer - Claude Code skill from the Business &
 ---
 
 
+# Contract & Proposal Writer
+
 **Tier:** POWERFUL  
 **Category:** Business Growth  
 **Domain:** Legal Documents, Business Development, Client Relations

@@ -12,20 +12,6 @@ description: "App Store Optimization (ASO) - Claude Code skill from the Marketin
 
 # App Store Optimization (ASO)
 
-ASO tools for researching keywords, optimizing metadata, analyzing competitors, and improving app store visibility on Apple App Store and Google Play Store.
-
----
-
-## Table of Contents
-
-- [Keyword Research Workflow](#keyword-research-workflow)
-- [Metadata Optimization Workflow](#metadata-optimization-workflow)
-- [Competitor Analysis Workflow](#competitor-analysis-workflow)
-- [App Launch Workflow](#app-launch-workflow)
-- [A/B Testing Workflow](#ab-testing-workflow)
-- [Before/After Examples](#beforeafter-examples)
-- [Tools and References](#tools-and-references)
-
 ---
 
 ## Keyword Research Workflow
@@ -69,13 +55,13 @@ Discover and evaluate keywords that drive app store visibility.
 
 ### Keyword Placement Priority
 
-| Location | Search Weight | Character Limit |
-|----------|---------------|-----------------|
-| App Title | Highest | 30 (iOS) / 50 (Android) |
-| Subtitle (iOS) | High | 30 |
-| Keyword Field (iOS) | High | 100 |
-| Short Description (Android) | High | 80 |
-| Full Description | Medium | 4,000 |
+| Location | Search Weight |
+|----------|---------------|
+| App Title | Highest |
+| Subtitle (iOS) | High |
+| Keyword Field (iOS) | High |
+| Short Description (Android) | High |
+| Full Description | Medium |
 
 See: [references/keyword-research-guide.md](references/keyword-research-guide.md)
 
@@ -448,35 +434,18 @@ Trusted by 500,000+ professionals.
 
 ---
 
-## Platform Limitations
+## Platform Notes
 
-### Data Constraints
+| Platform / Constraint | Behavior / Impact |
+|-----------------------|-------------------|
+| iOS keyword changes | Require app submission |
+| iOS promotional text | Editable without an app update |
+| Android metadata changes | Index in 1-2 hours |
+| Android keyword field | None — use description instead |
+| Keyword volume data | Estimates only; no official source |
+| Competitor data | Public listings only |
 
-| Constraint | Impact |
-|------------|--------|
-| No official keyword volume data | Estimates based on third-party tools |
-| Competitor data limited to public info | Cannot see internal metrics |
-| Review access limited to public reviews | No access to private feedback |
-| Historical data unavailable for new apps | Cannot compare to past performance |
-
-### Platform Behavior
-
-| Platform | Behavior |
-|----------|----------|
-| iOS | Keyword changes require app submission |
-| iOS | Promotional text editable without update |
-| Android | Metadata changes index in 1-2 hours |
-| Android | No separate keyword field (use description) |
-| Both | Algorithm changes without notice |
-
-### When Not to Use This Skill
-
-| Scenario | Alternative |
-|----------|-------------|
-| Web apps | Use web SEO skills |
-| Enterprise apps (not public) | Internal distribution tools |
-| Beta/TestFlight only | Focus on feedback, not ASO |
-| Paid advertising strategy | Use paid acquisition skills |
+**When not to use this skill:** web apps (use web SEO), enterprise/internal apps, TestFlight-only betas, or paid advertising strategy.
 
 ---
 

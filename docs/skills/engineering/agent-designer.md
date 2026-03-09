@@ -10,6 +10,8 @@ description: "Agent Designer - Multi-Agent System Architecture - Claude Code ski
 ---
 
 
+# Agent Designer - Multi-Agent System Architecture
+
 **Tier:** POWERFUL  
 **Category:** Engineering  
 **Tags:** AI agents, architecture, system design, orchestration, multi-agent systems

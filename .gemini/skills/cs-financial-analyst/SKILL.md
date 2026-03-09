@@ -1,0 +1,1 @@
+../../../agents/finance/cs-financial-analyst.md

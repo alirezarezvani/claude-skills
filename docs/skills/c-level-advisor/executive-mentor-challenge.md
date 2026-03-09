@@ -10,6 +10,8 @@ description: "/em:challenge — Pre-Mortem Plan Analysis - Claude Code skill fro
 ---
 
 
+# /em:challenge — Pre-Mortem Plan Analysis
+
 **Command:** `/em:challenge <plan>`
 
 Systematically finds weaknesses in any plan before reality does. Not to kill the plan — to make it survive contact with reality.

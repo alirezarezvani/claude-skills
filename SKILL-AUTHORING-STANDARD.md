@@ -426,6 +426,7 @@ Before a skill is considered done:
 - [ ] Listed in domain CLAUDE.md
 - [ ] Listed in `.codex/skills-index.json`
 - [ ] Listed in `.claude-plugin/marketplace.json`
+- [ ] Listed in `.gemini/skills-index.json` (run `./scripts/gemini-install.sh`)
 
 ### Quality Standard
 - [ ] Proactive Triggers (4-6 per skill)

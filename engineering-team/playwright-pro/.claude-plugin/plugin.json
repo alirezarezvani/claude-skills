@@ -9,17 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "keywords": [
-    "playwright",
-    "testing",
-    "e2e",
-    "qa",
-    "browserstack",
-    "testrail",
-    "test-automation",
-    "cross-browser",
-    "migration",
-    "cypress",
-    "selenium"
-  ]
+  "skills": "./"
 }

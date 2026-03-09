@@ -1,3 +1,8 @@
+---
+name: "api-design-reviewer"
+description: "API Design Reviewer"
+---
+
 # API Design Reviewer
 
 **Tier:** POWERFUL  
@@ -363,13 +368,13 @@ Provides comprehensive scoring of API design quality.
 
 ### CI/CD Integration
 ```yaml
-- name: API Linting
+- name: "api-linting"
   run: python scripts/api_linter.py openapi.json
 
-- name: Breaking Change Detection
+- name: "breaking-change-detection"
   run: python scripts/breaking_change_detector.py openapi-v1.json openapi-v2.json
 
-- name: API Scorecard
+- name: "api-scorecard"
   run: python scripts/api_scorecard.py openapi.json
 ```
 

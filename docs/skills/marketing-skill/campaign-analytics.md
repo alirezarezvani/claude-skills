@@ -16,30 +16,6 @@ Production-grade campaign performance analysis with multi-touch attribution mode
 
 ---
 
-## Table of Contents
-
-- [Capabilities](#capabilities)
-- [Input Requirements](#input-requirements)
-- [Output Formats](#output-formats)
-- [How to Use](#how-to-use)
-- [Scripts](#scripts)
-- [Reference Guides](#reference-guides)
-- [Best Practices](#best-practices)
-- [Limitations](#limitations)
-
----
-
-## Capabilities
-
-- **Multi-Touch Attribution**: Five attribution models (first-touch, last-touch, linear, time-decay, position-based) with configurable parameters
-- **Funnel Conversion Analysis**: Stage-by-stage conversion rates, drop-off identification, bottleneck detection, and segment comparison
-- **Campaign ROI Calculation**: ROI, ROAS, CPA, CPL, CAC metrics with industry benchmarking and underperformance flagging
-- **A/B Test Support**: Templates for structured A/B test documentation and analysis
-- **Channel Comparison**: Cross-channel performance comparison with normalized metrics
-- **Executive Reporting**: Ready-to-use templates for campaign performance reports
-
----
-
 ## Input Requirements
 
 All scripts accept a JSON file as positional input argument. See `assets/sample_campaign_data.json` for complete examples.
@@ -93,6 +69,16 @@ All scripts accept a JSON file as positional input argument. See `assets/sample_
 }
 ```
 
+### Input Validation
+
+Before running scripts, verify your JSON is valid and matches the expected schema. Common errors:
+
+- **Missing required keys** (e.g., `journeys`, `funnel.stages`, `campaigns`) → script exits with a descriptive `KeyError`
+- **Mismatched array lengths** in funnel data (`stages` and `counts` must be the same length) → raises `ValueError`
+- **Non-numeric monetary values** in ROI data → raises `TypeError`
+
+Use `python -m json.tool your_file.json` to validate JSON syntax before passing it to any script.
+
 ---
 
 ## Output Formats
@@ -101,6 +87,25 @@ All scripts support two output formats via the `--format` flag:
 
 - `--format text` (default): Human-readable tables and summaries for review
 - `--format json`: Machine-readable JSON for integrations and pipelines
+
+---
+
+## Typical Analysis Workflow
+
+For a complete campaign review, run the three scripts in sequence:
+
+```bash
+# Step 1 — Attribution: understand which channels drive conversions
+python scripts/attribution_analyzer.py campaign_data.json --model time-decay
+
+# Step 2 — Funnel: identify where prospects drop off on the path to conversion
+python scripts/funnel_analyzer.py funnel_data.json
+
+# Step 3 — ROI: calculate profitability and benchmark against industry standards
+python scripts/campaign_roi_calculator.py campaign_data.json
+```
+
+Use attribution results to identify top-performing channels, then focus funnel analysis on those channels' segments, and finally validate ROI metrics to prioritize budget reallocation.
 
 ---
 
@@ -194,10 +199,10 @@ Calculates comprehensive ROI metrics with industry benchmarking:
 
 ## Best Practices
 
-1. **Use multiple attribution models** -- No single model tells the full story. Compare at least 3 models to triangulate channel value.
+1. **Use multiple attribution models** -- Compare at least 3 models to triangulate channel value; no single model tells the full story.
 2. **Set appropriate lookback windows** -- Match your time-decay half-life to your average sales cycle length.
-3. **Segment your funnels** -- Always compare segments (channel, cohort, geography) to identify what drives best performance.
-4. **Benchmark against your own history first** -- Industry benchmarks provide context, but your own historical data is the most relevant comparison.
+3. **Segment your funnels** -- Compare segments (channel, cohort, geography) to identify performance drivers.
+4. **Benchmark against your own history first** -- Industry benchmarks provide context, but historical data is the most relevant comparison.
 5. **Run ROI analysis at regular intervals** -- Weekly for active campaigns, monthly for strategic review.
 6. **Include all costs** -- Factor in creative, tooling, and labor costs alongside media spend for accurate ROI.
 7. **Document A/B tests rigorously** -- Use the provided template to ensure statistical validity and clear decision criteria.
@@ -206,34 +211,12 @@ Calculates comprehensive ROI metrics with industry benchmarking:
 
 ## Limitations
 
-- **No statistical significance testing** -- A/B test analysis requires external tools for p-value calculations. Scripts provide descriptive metrics only.
-- **Standard library only** -- No advanced statistical or data processing libraries. Suitable for most campaign sizes but not optimized for datasets exceeding 100K journeys.
-- **Offline analysis** -- Scripts analyze static JSON snapshots. No real-time data connections or API integrations.
-- **Single-currency** -- All monetary values assumed to be in the same currency. No currency conversion support.
-- **Simplified time-decay** -- Uses exponential decay based on configurable half-life. Does not account for weekday/weekend or seasonal patterns.
-- **No cross-device tracking** -- Attribution operates on provided journey data as-is. Cross-device identity resolution must be handled upstream.
-
-## Proactive Triggers
-
-- **Attribution model not set** → Last-click attribution misses 60%+ of the journey. Use multi-touch.
-- **No baseline metrics documented** → Can't measure improvement without baselines.
-- **Data discrepancy between tools** → GA4 and ad platform numbers rarely match. Document the gap.
-- **Vanity metrics dominating reports** → Pageviews don't matter. Focus on conversion metrics.
-
-## Output Artifacts
-
-| When you ask for... | You get... |
-|---------------------|------------|
-| "Campaign report" | Cross-channel performance report with attribution analysis |
-| "Channel comparison" | Channel-by-channel ROI with budget reallocation recommendations |
-| "What's working?" | Top 5 performers + bottom 5 drains with specific actions |
-
-## Communication
-
-All output passes quality verification:
-- Self-verify: source attribution, assumption audit, confidence scoring
-- Output format: Bottom Line → What (with confidence) → Why → How to Act
-- Results only. Every finding tagged: 🟢 verified, 🟡 medium, 🔴 assumed.
+- **No statistical significance testing** -- Scripts provide descriptive metrics only; p-value calculations require external tools.
+- **Standard library only** -- No advanced statistical libraries. Suitable for most campaign sizes but not optimized for datasets exceeding 100K journeys.
+- **Offline analysis** -- Scripts analyze static JSON snapshots; no real-time data connections or API integrations.
+- **Single-currency** -- All monetary values assumed to be in the same currency; no currency conversion support.
+- **Simplified time-decay** -- Exponential decay based on configurable half-life; does not account for weekday/weekend or seasonal patterns.
+- **No cross-device tracking** -- Attribution operates on provided journey data as-is; cross-device identity resolution must be handled upstream.
 
 ## Related Skills
 

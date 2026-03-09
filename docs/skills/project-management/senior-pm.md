@@ -14,7 +14,7 @@ description: "Senior Project Management Expert - Claude Code skill from the Proj
 
 ## Overview
 
-Strategic project management for enterprise software, SaaS, and digital transformation initiatives. This skill provides sophisticated portfolio management capabilities, quantitative analysis tools, and executive-level reporting frameworks for managing complex, multi-million dollar project portfolios.
+Strategic project management for enterprise software, SaaS, and digital transformation initiatives. Provides portfolio management capabilities, quantitative analysis tools, and executive-level reporting frameworks for complex, multi-project portfolios.
 
 ### Core Expertise Areas
 
@@ -70,13 +70,30 @@ python3 scripts/risk_matrix_analyzer.py assets/sample_project_data.json
 1. **Probability Assessment** (1-5 scale): Historical data, expert judgment, Monte Carlo inputs
 2. **Impact Analysis** (1-5 scale): Financial, schedule, quality, and strategic impact vectors
 3. **Category Weighting**: Technical (1.2x), Resource (1.1x), Financial (1.4x), Schedule (1.0x)
-4. **EMV Calculation**: Risk Score = (Probability × Impact × Category Weight)
+4. **EMV Calculation**:
 
-**Risk Response Strategies:**
-- **Avoid** (>18 score): Eliminate through scope/approach changes
-- **Mitigate** (12-18 score): Reduce probability or impact through active intervention
-- **Transfer** (8-12 score): Insurance, contracts, partnerships
-- **Accept** (<8 score): Monitor with contingency planning
+```python
+# EMV and risk-adjusted budget calculation
+def calculate_emv(risks):
+    category_weights = {"Technical": 1.2, "Resource": 1.1, "Financial": 1.4, "Schedule": 1.0}
+    total_emv = 0
+    for risk in risks:
+        score = risk["probability"] * risk["impact"] * category_weights[risk["category"]]
+        emv = risk["probability"] * risk["financial_impact"]
+        total_emv += emv
+        risk["score"] = score
+    return total_emv
+
+def risk_adjusted_budget(base_budget, portfolio_risk_score, risk_tolerance_factor):
+    risk_premium = portfolio_risk_score * risk_tolerance_factor
+    return base_budget * (1 + risk_premium)
+```
+
+**Risk Response Strategies (by score threshold):**
+- **Avoid** (>18): Eliminate through scope/approach changes
+- **Mitigate** (12-18): Reduce probability or impact through active intervention
+- **Transfer** (8-12): Insurance, contracts, partnerships
+- **Accept** (<8): Monitor with contingency planning
 
 **Tier 3: Resource Capacity Optimization**
 Employs `resource_capacity_planner.py` for portfolio resource analysis:
@@ -93,83 +110,77 @@ python3 scripts/resource_capacity_planner.py assets/sample_project_data.json
 
 ### Advanced Prioritization Models
 
-**Weighted Shortest Job First (WSJF) - For Agile Portfolios**
-```
-WSJF Score = (User Value + Time Criticality + Risk Reduction) ÷ Job Size
+Apply each model in the specific context where it provides the most signal:
 
-Application Context:
-- Resource-constrained environments
-- Fast-moving competitive landscapes  
-- Agile/SAFe methodology adoption
-- Clear cost-of-delay quantification available
+**Weighted Shortest Job First (WSJF)** — Resource-constrained agile portfolios with quantifiable cost-of-delay
+```python
+def wsjf(user_value, time_criticality, risk_reduction, job_size):
+    return (user_value + time_criticality + risk_reduction) / job_size
 ```
 
-**RICE Framework - For Product Development**
-```
-RICE Score = (Reach × Impact × Confidence) ÷ Effort
-
-Best for:
-- Customer-facing initiatives
-- Marketing and growth projects
-- When reach metrics are quantifiable
-- Data-driven product decisions
+**RICE** — Customer-facing initiatives where reach metrics are quantifiable
+```python
+def rice(reach, impact, confidence_pct, effort_person_months):
+    return (reach * impact * (confidence_pct / 100)) / effort_person_months
 ```
 
-**ICE Scoring - For Rapid Decision Making**
-```  
-ICE Score = (Impact + Confidence + Ease) ÷ 3
-
-Optimal when:
-- Quick prioritization needed
-- Brainstorming and ideation phases
-- Limited analysis time available
-- Cross-functional team alignment required
+**ICE** — Rapid prioritization during brainstorming or when analysis time is limited
+```python
+def ice(impact, confidence, ease):
+    return (impact + confidence + ease) / 3
 ```
 
-**Decision Tree for Model Selection:**
+**Model Selection — Use this decision logic:**
+```
+if resource_constrained and agile_methodology and cost_of_delay_quantifiable:
+    → WSJF
+elif customer_facing and reach_metrics_available:
+    → RICE
+elif quick_prioritization_needed or ideation_phase:
+    → ICE
+elif multiple_stakeholder_groups_with_differing_priorities:
+    → MoSCoW
+elif complex_tradeoffs_across_incommensurable_criteria:
+    → Multi-Criteria Decision Analysis (MCDA)
+```
+
 Reference: `references/portfolio-prioritization-models.md`
-
-- **Resource Constrained?** → WSJF
-- **Customer Impact Focus?** → RICE
-- **Need Speed?** → ICE
-- **Multiple Stakeholder Groups?** → MoSCoW
-- **Complex Trade-offs?** → Multi-Criteria Decision Analysis (MCDA)
 
 ### Risk Management Framework
 
-**Quantitative Risk Analysis Process:**
 Reference: `references/risk-management-framework.md`
 
-**Step 1: Risk Identification & Classification**
-- Technical risks: Architecture, integration, performance
-- Resource risks: Availability, skills, retention
-- Schedule risks: Dependencies, critical path, external factors
-- Financial risks: Budget overruns, currency, economic factors
-- Business risks: Market changes, competitive pressure, strategic shifts
+**Step 1: Risk Classification by Category**
+- Technical: Architecture, integration, performance
+- Resource: Availability, skills, retention
+- Schedule: Dependencies, critical path, external factors
+- Financial: Budget overruns, currency, economic factors
+- Business: Market changes, competitive pressure, strategic shifts
 
-**Step 2: Probability/Impact Assessment**
-Uses three-point estimation for Monte Carlo simulation:
-```
-Expected Value = (Optimistic + 4×Most Likely + Pessimistic) ÷ 6
-Standard Deviation = (Pessimistic - Optimistic) ÷ 6
-```
-
-**Step 3: Expected Monetary Value (EMV) Calculation**
-```
-EMV = Σ(Probability × Financial Impact) for all risk scenarios
-
-Risk-Adjusted Budget = Base Budget × (1 + Risk Premium)
-Risk Premium = Portfolio Risk Score × Risk Tolerance Factor
+**Step 2: Three-Point Estimation for Monte Carlo Inputs**
+```python
+def three_point_estimate(optimistic, most_likely, pessimistic):
+    expected = (optimistic + 4 * most_likely + pessimistic) / 6
+    std_dev = (pessimistic - optimistic) / 6
+    return expected, std_dev
 ```
 
-**Step 4: Portfolio Risk Correlation Analysis**
-```
-Portfolio Risk = √(Σ Individual Risks² + 2Σ Correlation×Risk1×Risk2)
+**Step 3: Portfolio Risk Correlation**
+```python
+import math
+
+def portfolio_risk(individual_risks, correlations):
+    # individual_risks: list of risk EMV values
+    # correlations: list of (i, j, corr_coefficient) tuples
+    sum_sq = sum(r**2 for r in individual_risks)
+    sum_corr = sum(2 * c * individual_risks[i] * individual_risks[j]
+                   for i, j, c in correlations)
+    return math.sqrt(sum_sq + sum_corr)
 ```
 
 **Risk Appetite Framework:**
 - **Conservative**: Risk scores 0-8, 25-30% contingency reserves
-- **Moderate**: Risk scores 8-15, 15-20% contingency reserves  
+- **Moderate**: Risk scores 8-15, 15-20% contingency reserves
 - **Aggressive**: Risk scores 15+, 10-15% contingency reserves
 
 ## Assets & Templates
@@ -185,13 +196,7 @@ Reference: `assets/project_charter_template.md`
 - Budget breakdown with contingency analysis
 - Timeline with critical path dependencies
 
-**Key Features:**
-- Production-ready for board presentation
-- Integrated stakeholder management framework
-- Risk-adjusted financial projections
-- Change control and governance processes
-
-### Executive Report Template  
+### Executive Report Template
 Reference: `assets/executive_report_template.md`
 
 **Board-level portfolio reporting with:**
@@ -200,12 +205,6 @@ Reference: `assets/executive_report_template.md`
 - Risk heat map with mitigation status
 - Resource utilization and capacity analysis
 - Forward-looking recommendations with ROI projections
-
-**Executive Decision Support:**
-- Critical issues requiring immediate action
-- Investment recommendations with business cases
-- Portfolio optimization opportunities
-- Market/competitive intelligence integration
 
 ### RACI Matrix Template
 Reference: `assets/raci_matrix_template.md`
@@ -217,12 +216,6 @@ Reference: `assets/raci_matrix_template.md`
 - Communication protocols and meeting frameworks
 - Conflict resolution processes with governance integration
 
-**Advanced Features:**
-- Decision-making RACI for strategic vs. operational choices
-- Risk and issue management responsibility assignment
-- Performance metrics for RACI effectiveness
-- Template validation checklist and maintenance procedures
-
 ### Sample Portfolio Data
 Reference: `assets/sample_project_data.json`
 
@@ -233,12 +226,6 @@ Reference: `assets/sample_project_data.json`
 - Risk register with probability/impact scoring
 - Quality metrics and stakeholder satisfaction data
 - Dependencies and milestone tracking
-
-**Data Completeness:**
-- Works with all three analysis scripts
-- Demonstrates portfolio balance across strategic priorities
-- Includes both successful and at-risk project examples
-- Provides historical trend data for analysis
 
 ### Expected Output Examples
 Reference: `assets/expected_output.json`
@@ -255,21 +242,21 @@ Reference: `assets/expected_output.json`
 
 1. **Data Collection & Validation**
    ```bash
-   # Update project data from JIRA, financial systems, team surveys
    python3 scripts/project_health_dashboard.py current_portfolio.json
    ```
+   ⚠️ If any project composite score <60 or a critical data field is missing, STOP and resolve data integrity issues before proceeding.
 
 2. **Risk Assessment Update**
    ```bash
-   # Refresh risk probabilities and impact assessments
    python3 scripts/risk_matrix_analyzer.py current_portfolio.json
    ```
+   ⚠️ If any risk score >18 (Avoid threshold), STOP and initiate escalation to project sponsor before proceeding.
 
 3. **Capacity Analysis**
-   ```bash  
-   # Review resource utilization and bottlenecks
+   ```bash
    python3 scripts/resource_capacity_planner.py current_portfolio.json
    ```
+   ⚠️ If any team utilization >90% or <60%, flag for immediate reallocation discussion before step 4.
 
 4. **Executive Summary Generation**
    - Synthesize outputs into executive report format
@@ -380,25 +367,27 @@ Reference: `assets/expected_output.json`
 
 ## Success Metrics & KPIs
 
-### Portfolio Performance Indicators
-- **On-time Delivery Rate**: >80% projects delivered within 10% of planned timeline
-- **Budget Variance**: <5% average variance across portfolio
-- **Quality Score**: >85 composite quality rating across all projects
-- **Risk Mitigation Effectiveness**: >90% risks with active mitigation plans
-- **Resource Utilization**: 75-85% average utilization across teams
+Reference: `references/portfolio-kpis.md` for full definitions and measurement guidance.
 
-### Strategic Value Indicators  
-- **ROI Achievement**: >90% projects meeting ROI projections within 12 months
-- **Strategic Alignment**: >95% portfolio investment aligned with business priorities
-- **Innovation Balance**: 70% operational, 20% growth, 10% transformational projects
-- **Stakeholder Satisfaction**: >8.5/10 average satisfaction across executive stakeholders
-- **Value Acceleration**: <6 months average time from completion to value realization
+### Portfolio Performance
+- On-time Delivery Rate: >80% within 10% of planned timeline
+- Budget Variance: <5% average across portfolio
+- Quality Score: >85 composite rating
+- Risk Mitigation Coverage: >90% risks with active plans
+- Resource Utilization: 75-85% average
 
-### Risk Management Indicators
-- **Risk Exposure Level**: Maintain within approved risk appetite ranges
-- **Risk Resolution Time**: <30 days average for medium risks, <7 days for high risks
-- **Mitigation Cost Efficiency**: Mitigation spend <20% of total portfolio risk EMV
-- **Risk Prediction Accuracy**: >70% accuracy in risk probability assessments
+### Strategic Value
+- ROI Achievement: >90% projects meeting projections within 12 months
+- Strategic Alignment: >95% investment aligned with business priorities
+- Innovation Balance: 70% operational / 20% growth / 10% transformational
+- Stakeholder Satisfaction: >8.5/10 executive average
+- Time-to-Value: <6 months average post-completion
+
+### Risk Management
+- Risk Exposure: Maintain within approved appetite ranges
+- Resolution Time: <30 days (medium), <7 days (high)
+- Mitigation Cost Efficiency: <20% of total portfolio risk EMV
+- Risk Prediction Accuracy: >70% probability assessment accuracy
 
 ## Continuous Improvement Framework
 
@@ -419,5 +408,3 @@ Reference: `assets/expected_output.json`
 - Executive interview feedback on decision support quality
 - Team feedback on process efficiency and effectiveness
 - Customer impact assessment of portfolio decisions
-
-This skill represents the pinnacle of enterprise project management capability, providing both strategic oversight and tactical execution support for complex digital transformation initiatives. The combination of quantitative analysis, sophisticated prioritization, and executive-level communication enables senior project managers to drive significant business value while managing enterprise-level risks and complexities.

@@ -1,6 +1,6 @@
 ---
-name: isms-audit-expert
-description: Information Security Management System auditing for ISO 27001 compliance, security control assessment, and certification support
+name: "isms-audit-expert"
+description: Information Security Management System (ISMS) audit expert for ISO 27001 compliance verification, security control assessment, and certification support. Use when the user mentions ISO 27001, ISMS audit, Annex A controls, Statement of Applicability (SOA), gap analysis, nonconformity management, internal audit, surveillance audit, or security certification preparation. Helps review control implementation evidence, document audit findings, classify nonconformities, generate risk-based audit plans, map controls to Annex A requirements, prepare Stage 1 and Stage 2 audit documentation, and support corrective action workflows.
 triggers:
   - ISMS audit
   - ISO 27001 audit
@@ -97,54 +97,9 @@ Internal and external ISMS audit management for ISO 27001 compliance verificatio
 
 5. **Validation:** All controls in scope assessed with documented evidence
 
-### Evidence Collection Methods
-
-| Method | Use Case | Example |
-|--------|----------|---------|
-| Inquiry | Process understanding | Interview Security Manager about incident response |
-| Observation | Operational verification | Watch visitor sign-in process |
-| Inspection | Documentation review | Check access approval records |
-| Re-performance | Control testing | Attempt login with weak password |
-
 ---
 
 ## Control Assessment
-
-### ISO 27002 Control Categories
-
-**Organizational Controls (A.5):**
-- Information security policies
-- Roles and responsibilities
-- Segregation of duties
-- Contact with authorities
-- Threat intelligence
-- Information security in projects
-
-**People Controls (A.6):**
-- Screening and background checks
-- Employment terms and conditions
-- Security awareness and training
-- Disciplinary process
-- Remote working security
-
-**Physical Controls (A.7):**
-- Physical security perimeters
-- Physical entry controls
-- Securing offices and facilities
-- Physical security monitoring
-- Equipment protection
-
-**Technological Controls (A.8):**
-- User endpoint devices
-- Privileged access rights
-- Access restriction
-- Secure authentication
-- Malware protection
-- Vulnerability management
-- Backup and recovery
-- Logging and monitoring
-- Network security
-- Cryptography
 
 ### Control Testing Approach
 
@@ -154,6 +109,8 @@ Internal and external ISMS audit management for ISO 27001 compliance verificatio
 4. Execute test and document results
 5. Evaluate control effectiveness
 6. **Validation:** Evidence supports conclusion about control status
+
+For detailed technical verification procedures by Annex A control, see [security-control-testing.md](references/security-control-testing.md).
 
 ---
 
@@ -275,14 +232,3 @@ python scripts/isms_audit_scheduler.py --controls controls.csv --format markdown
 | Finding closure rate | >90% within SLA | Closed on time vs. total |
 | Major nonconformities | 0 at certification | Count per certification cycle |
 | Audit effectiveness | Incidents prevented | Security improvements implemented |
-
----
-
-## Compliance Framework Integration
-
-| Framework | ISMS Audit Relevance |
-|-----------|---------------------|
-| GDPR | A.5.34 Privacy, A.8.10 Information deletion |
-| HIPAA | Access controls, audit logging, encryption |
-| PCI DSS | Network security, access control, monitoring |
-| SOC 2 | Trust Services Criteria mapped to ISO 27002 |

@@ -76,7 +76,7 @@ For each file:
 
 ### Critical
 - Line 15: `waitForTimeout(2000)` → use `expect(locator).toBeVisible()`
-- Line 28: CSS selector `.btn-submit` → `getByRole('button', { name: 'Submit' })`
+- Line 28: CSS selector `.btn-submit` → `getByRole('button', { name: "submit" })`
 
 ### Warning
 - Line 42: Test name "test login" → "should redirect to dashboard after login"

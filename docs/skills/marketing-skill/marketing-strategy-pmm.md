@@ -53,20 +53,11 @@ Define ideal customer profile for targeting:
 
 ### Buyer Personas
 
-**Economic Buyer** (signs contract):
-- Title: VP, Director, Head of [Department]
-- Goals: ROI, team productivity, cost reduction
-- Messaging: Business outcomes, ROI, case studies
-
-**Technical Buyer** (evaluates product):
-- Title: Engineer, Architect, Tech Lead
-- Goals: Technical fit, easy integration
-- Messaging: Architecture, security, documentation
-
-**User/Champion** (advocates internally):
-- Title: Manager, Team Lead, Power User
-- Goals: Makes job easier, quick wins
-- Messaging: UX, ease of use, time savings
+| Persona | Title | Goals | Messaging |
+|---------|-------|-------|-----------|
+| Economic Buyer | VP, Director, Head of [Department] | ROI, team productivity, cost reduction | Business outcomes, ROI, case studies |
+| Technical Buyer | Engineer, Architect, Tech Lead | Technical fit, easy integration | Architecture, security, documentation |
+| User/Champion | Manager, Team Lead, Power User | Makes job easier, quick wins | UX, ease of use, time savings |
 
 ### ICP Validation Checklist
 

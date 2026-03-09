@@ -10,6 +10,8 @@ description: "Observability Designer (POWERFUL) - Claude Code skill from the Eng
 ---
 
 
+# Observability Designer (POWERFUL)
+
 **Category:** Engineering  
 **Tier:** POWERFUL  
 **Description:** Design comprehensive observability strategies for production systems including SLI/SLO frameworks, alerting optimization, and dashboard generation.

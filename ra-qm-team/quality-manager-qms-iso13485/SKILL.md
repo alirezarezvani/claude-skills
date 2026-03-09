@@ -1,6 +1,6 @@
 ---
-name: quality-manager-qms-iso13485
-description: ISO 13485 Quality Management System implementation and maintenance for medical device organizations. Provides QMS design, documentation control, internal auditing, CAPA management, and certification support.
+name: "quality-manager-qms-iso13485"
+description: ISO 13485 Quality Management System implementation and maintenance for medical device organizations. Provides QMS design, documentation control, internal auditing, CAPA management, and certification support. Use when working with medical device quality systems, preparing for ISO 13485 audits, managing regulatory compliance documentation, setting up corrective actions, or building audit preparation programs. Useful for quality management, audit preparation, regulatory compliance, medical device documentation, and corrective action workflows.
 triggers:
   - ISO 13485
   - QMS implementation
@@ -52,45 +52,20 @@ Implement ISO 13485:2016 compliant quality management system from gap analysis t
    - QMS scope with justified exclusions
    - Process interactions
    - Procedure references
-6. Create required documented procedures:
-   - Document control (4.2.3)
-   - Record control (4.2.4)
-   - Internal audit (8.2.4)
-   - Nonconforming product (8.3)
-   - Corrective action (8.5.2)
-   - Preventive action (8.5.3)
+6. Create required documented procedures — see [Mandatory Documented Procedures](#quick-reference-mandatory-documented-procedures) for the full list
 7. Deploy processes with training
 8. **Validation:** Gap analysis complete; Quality Manual approved; all required procedures documented and trained
 
-### Gap Analysis Matrix
-
-| Clause | Requirement | Current State | Gap | Priority | Action |
-|--------|-------------|---------------|-----|----------|--------|
-| 4.2.2 | Quality Manual | Not documented | Major | High | Create QM |
-| 4.2.3 | Document control | Informal | Moderate | High | Formalize SOP |
-| 5.6 | Management review | Ad hoc | Major | High | Establish schedule |
-| 7.3 | Design control | Partial | Moderate | Medium | Complete procedures |
-| 8.2.4 | Internal audit | None | Major | High | Create program |
+> Use the Gap Analysis Matrix template in [qms-process-templates.md](references/qms-process-templates.md) to document clause-by-clause current state, gaps, priority, and actions.
 
 ### QMS Structure
 
-| Level | Document Type | Purpose | Example |
-|-------|---------------|---------|---------|
-| 1 | Quality Manual | QMS overview, policy | QM-001 |
-| 2 | Procedures | How processes work | SOP-02-001 |
-| 3 | Work Instructions | Task-level detail | WI-06-012 |
-| 4 | Records | Evidence of conformity | Training records |
-
-### Required Procedure List
-
-| Clause | Procedure | Minimum Content |
-|--------|-----------|-----------------|
-| 4.2.3 | Document Control | Approval, review, distribution, obsolete control |
-| 4.2.4 | Record Control | Identification, storage, retention, disposal |
-| 8.2.4 | Internal Audit | Program, auditor qualification, reporting |
-| 8.3 | Nonconforming Product | Identification, segregation, disposition |
-| 8.5.2 | Corrective Action | Investigation, root cause, effectiveness |
-| 8.5.3 | Preventive Action | Risk identification, implementation, verification |
+| Level | Document Type | Example |
+|-------|---------------|---------|
+| 1 | Quality Manual | QM-001 |
+| 2 | Procedures | SOP-02-001 |
+| 3 | Work Instructions | WI-06-012 |
+| 4 | Records | Training records |
 
 ---
 
@@ -174,6 +149,8 @@ Plan and execute internal audits per ISO 13485 Clause 8.2.4.
 7. Track completion and reschedule as needed
 8. **Validation:** All processes covered; auditors qualified and independent; schedule approved
 
+> Use the Audit Program Template in [qms-process-templates.md](references/qms-process-templates.md) to schedule audits by clause and quarter across processes such as Document Control (4.2.3/4.2.4), Management Review (5.6), Design Control (7.3), Production (7.5), and CAPA (8.5.2/8.5.3).
+
 ### Workflow: Individual Audit Execution
 
 1. Prepare audit plan with scope, criteria, and schedule
@@ -193,16 +170,6 @@ Plan and execute internal audits per ISO 13485 Clause 8.2.4.
 8. Conduct closing meeting
 9. Issue audit report within 5 business days
 10. **Validation:** All checklist items addressed; findings supported by evidence; report distributed
-
-### Audit Program Template
-
-| Audit # | Process | Clauses | Q1 | Q2 | Q3 | Q4 | Auditor |
-|---------|---------|---------|----|----|----|----|---------|
-| IA-001 | Document Control | 4.2.3, 4.2.4 | X | | | | [Name] |
-| IA-002 | Management Review | 5.6 | | X | | | [Name] |
-| IA-003 | Design Control | 7.3 | | X | | | [Name] |
-| IA-004 | Production | 7.5 | | | X | | [Name] |
-| IA-005 | CAPA | 8.5.2, 8.5.3 | | | | X | [Name] |
 
 ### Auditor Qualification Requirements
 
@@ -239,15 +206,9 @@ Validate special processes per ISO 13485 Clause 7.5.6.
    - Equipment and materials
    - Acceptance criteria
    - Statistical approach
-4. Execute Installation Qualification (IQ):
-   - Verify equipment installed correctly
-   - Document equipment specifications
-5. Execute Operational Qualification (OQ):
-   - Test parameter ranges
-   - Verify process control
-6. Execute Performance Qualification (PQ):
-   - Run production conditions
-   - Verify output meets requirements
+4. Execute IQ: verify equipment installed correctly and document specifications
+5. Execute OQ: test parameter ranges and verify process control
+6. Execute PQ: run production conditions and verify output meets requirements
 7. Write validation report with conclusions
 8. **Validation:** IQ/OQ/PQ complete; acceptance criteria met; validation report approved
 
@@ -344,26 +305,7 @@ Evaluate and approve suppliers per ISO 13485 Clause 7.4.
 
 ## QMS Process Reference
 
-### ISO 13485 Clause Structure
-
-| Clause | Title | Key Requirements |
-|--------|-------|-----------------|
-| 4.1 | General Requirements | Process identification, interaction, outsourcing |
-| 4.2 | Documentation | Quality Manual, procedures, records |
-| 5.1-5.5 | Management Responsibility | Commitment, policy, objectives, organization |
-| 5.6 | Management Review | Inputs, outputs, records |
-| 6.1-6.4 | Resource Management | Personnel, infrastructure, environment |
-| 7.1 | Product Realization Planning | Quality plan, risk management |
-| 7.2 | Customer Requirements | Determination, review, communication |
-| 7.3 | Design and Development | Planning, inputs, outputs, review, V&V, transfer, changes |
-| 7.4 | Purchasing | Supplier control, purchasing info, verification |
-| 7.5 | Production | Control, cleanliness, validation, identification, traceability |
-| 7.6 | Monitoring Equipment | Calibration, control |
-| 8.1 | Measurement Planning | Monitoring and analysis planning |
-| 8.2 | Monitoring | Feedback, complaints, reporting, audits, process, product |
-| 8.3 | Nonconforming Product | Control, disposition |
-| 8.4 | Data Analysis | Trend analysis |
-| 8.5 | Improvement | CAPA |
+For detailed requirements and audit questions for each ISO 13485:2016 clause, see [iso13485-clause-requirements.md](references/iso13485-clause-requirements.md).
 
 ### Management Review Required Inputs (Clause 5.6.2)
 
@@ -467,7 +409,7 @@ Nonconforming Product Identified
 | Document | Content |
 |----------|---------|
 | [iso13485-clause-requirements.md](references/iso13485-clause-requirements.md) | Detailed requirements for each ISO 13485:2016 clause with audit questions |
-| [qms-process-templates.md](references/qms-process-templates.md) | Ready-to-use templates for document control, audit, CAPA, supplier, training |
+| [qms-process-templates.md](references/qms-process-templates.md) | Ready-to-use templates for gap analysis, audit program, document control, CAPA, supplier, training |
 
 ### Quick Reference: Mandatory Documented Procedures
 

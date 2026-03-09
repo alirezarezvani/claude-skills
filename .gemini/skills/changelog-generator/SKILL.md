@@ -1,0 +1,1 @@
+../../../engineering/changelog-generator/SKILL.md

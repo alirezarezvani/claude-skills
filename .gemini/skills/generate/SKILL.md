@@ -1,0 +1,1 @@
+../../../engineering-team/playwright-pro/skills/generate/SKILL.md

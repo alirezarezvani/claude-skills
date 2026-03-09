@@ -10,6 +10,8 @@ description: "MCP Server Builder - Claude Code skill from the Engineering - POWE
 ---
 
 
+# MCP Server Builder
+
 **Tier:** POWERFUL  
 **Category:** Engineering  
 **Domain:** AI / API Integration

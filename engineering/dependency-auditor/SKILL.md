@@ -1,3 +1,8 @@
+---
+name: "dependency-auditor"
+description: "Dependency Auditor"
+---
+
 # Dependency Auditor
 
 > **Skill Type:** POWERFUL  

@@ -1,13 +1,15 @@
 # Claude Code Skills & Plugins
 
-**169 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**170 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-169-brightgreen.svg)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-170-brightgreen.svg)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-12-blue.svg)](#agents)
+[![Commands](https://img.shields.io/badge/Commands-5-orange.svg)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
-> ⭐ **2,300+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
+> ⭐ **2,500+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
 
 ---
 
@@ -15,11 +17,25 @@
 
 Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, three platforms:** Works natively as Claude Code plugins, OpenAI Codex agents, and OpenClaw skills.
+**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills.
 
 ---
 
 ## Quick Install
+
+### Gemini CLI (New)
+
+```bash
+# Clone the repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Run the setup script
+./scripts/gemini-install.sh
+
+# Start using skills
+> activate_skill(name="senior-architect")
+```
 
 ### Claude Code (Recommended)
 
@@ -69,7 +85,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**169 skills across 9 domains:**
+**170 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -173,7 +189,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-160+ CLI tools ship with the skills:
+210+ CLI tools ship with the skills:
 
 ```bash
 # Brand voice analysis
@@ -210,7 +226,7 @@ Add the marketplace with `/plugin marketplace add alirezarezvani/claude-skills`,
 Yes. Skills work natively with Claude Code, OpenAI Codex, and OpenClaw. See Quick Install above.
 
 **Are the Python tools dependency-free?**
-Yes. All 160+ Python CLI tools use the standard library only — zero pip installs required.
+Yes. All 210+ Python CLI tools use the standard library only — zero pip installs required.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

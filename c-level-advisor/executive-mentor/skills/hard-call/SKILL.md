@@ -1,3 +1,8 @@
+---
+name: "hard-call"
+description: "/em -hard-call — Framework for Decisions With No Good Options"
+---
+
 # /em:hard-call — Framework for Decisions With No Good Options
 
 **Command:** `/em:hard-call <decision>`

@@ -1,6 +1,6 @@
 # Installation Guide - Claude Skills Library
 
-Complete installation guide for all 53 production-ready skills across multiple AI agents and platforms.
+Complete installation guide for all 170 production-ready skills across multiple AI agents and platforms.
 
 ## Table of Contents
 
@@ -8,6 +8,8 @@ Complete installation guide for all 53 production-ready skills across multiple A
 - [Claude Code Native Marketplace](#claude-code-native-marketplace-new)
 - [Universal Installer](#universal-installer)
 - [OpenAI Codex Installation](#openai-codex-installation)
+- [Gemini CLI Installation](#gemini-cli-installation)
+- [OpenClaw Installation](#openclaw-installation)
 - [Per-Skill Installation](#per-skill-installation)
 - [Multi-Agent Setup](#multi-agent-setup)
 - [Manual Installation](#manual-installation)
@@ -43,7 +45,31 @@ cd claude-skills
 ./scripts/codex-install.sh
 ```
 
+### For Gemini CLI Users
+
+```bash
+# Setup script for Gemini CLI
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/gemini-install.sh
+```
+
+Skills install to `.gemini/skills/` and are activated via `activate_skill(name="skill-name")`.
+
 Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
+
+### For OpenClaw Users
+
+```bash
+# Install from ClawHub
+clawhub install alirezarezvani/claude-skills
+
+# Or manual installation
+git clone https://github.com/alirezarezvani/claude-skills.git
+cp -r claude-skills/engineering-team ~/.openclaw/skills/
+```
+
+Skills load via YAML frontmatter triggers. See [OpenClaw Installation](#openclaw-installation) for details.
 
 ### For All Other Agents (Cursor, VS Code, Goose, etc.)
 
@@ -54,7 +80,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills
 This single command installs all skills to all supported agents automatically.
 
 **What this does:**
-- ✅ Detects all 53 skills automatically
+- ✅ Detects all 170 skills automatically
 - ✅ Installs to Claude, Cursor, Copilot, Windsurf, Cline, and 37+ other AI agents
 - ✅ Works across all skill formats
 
@@ -79,12 +105,15 @@ This adds the skills library to your available marketplaces.
 
 ```bash
 # Install by domain (bundles of skills)
-/plugin install marketing-skills@claude-code-skills     # 6 marketing skills
-/plugin install engineering-skills@claude-code-skills   # 18 engineering skills
-/plugin install product-skills@claude-code-skills       # 5 product skills
-/plugin install c-level-skills@claude-code-skills       # 2 C-level advisory skills
+/plugin install marketing-skills@claude-code-skills     # 42 marketing skills
+/plugin install engineering-skills@claude-code-skills   # 23 engineering skills
+/plugin install engineering-advanced-skills@claude-code-skills  # 25 advanced engineering skills
+/plugin install product-skills@claude-code-skills       # 8 product skills
+/plugin install c-level-skills@claude-code-skills       # 28 C-level advisory skills
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
 /plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
+/plugin install business-growth-skills@claude-code-skills  # 4 business & growth skills
+/plugin install finance-skills@claude-code-skills       # 1 finance skill
 ```
 
 ### Install Individual Skills
@@ -494,6 +523,20 @@ sudo apt-get install nodejs npm
 # Download from https://nodejs.org/
 ```
 
+#### Issue: "Skill not found" when installing a domain bundle
+
+**Solution:** Use `agent-skills-cli` (not `ai-agent-skills`) and specify the correct path:
+
+```bash
+# Install entire domain bundle
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
+
+# Or install individual skills
+npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team/senior-frontend
+```
+
+Note: The older `ai-agent-skills` package may not support bundle installation. Use `agent-skills-cli` instead.
+
 #### Issue: "Failed to install skills"
 
 **Solution:** Check network connection and permissions
@@ -629,9 +672,142 @@ rm -rf .cursor/skills/fullstack-engineer/
 
 ---
 
+## Gemini CLI Installation
+
+Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 170+ skills, agents, and commands.
+
+### Setup Instructions
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ```
+
+2.  **Run the Gemini setup script:**
+    ```bash
+    ./scripts/gemini-install.sh
+    ```
+    This script performs the following:
+    - Scans all 9 domain folders for `SKILL.md` files.
+    - Scans the `agents/` folder for multi-agent persona definitions.
+    - Scans the `commands/` folder for predefined slash command workflows.
+    - Creates a `.gemini/skills/` directory with standardized subfolders for each.
+    - Generates a `skills-index.json` manifest for discovery.
+
+3.  **Activate Skills in Gemini CLI:**
+    Gemini CLI can now activate any of these 170+ skills by name. Use the `activate_skill` tool:
+    ```javascript
+    // Activate a core skill
+    activate_skill(name="senior-architect")
+
+    // Activate a marketing specialist
+    activate_skill(name="content-creator")
+
+    // Activate a C-level advisor
+    activate_skill(name="cto-advisor")
+
+    // Activate a multi-agent persona
+    activate_skill(name="cs-engineering-lead")
+
+    // Activate a slash command workflow
+    activate_skill(name="tdd")
+    ```
+
+### Python CLI Tools
+
+Every skill includes deterministic Python CLI tools in its `scripts/` folder. These use the standard library only and can be run directly from your terminal or by the Gemini CLI.
+
+Example:
+```bash
+python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
+```
+
+---
+
+## OpenClaw Installation
+
+OpenClaw loads skills via YAML frontmatter in `SKILL.md` files. Every skill in this repository includes OpenClaw-compatible frontmatter with `name`, `description`, and `tags` fields.
+
+### Method 1: ClawHub (Recommended)
+
+```bash
+# Install from ClawHub registry
+clawhub install alirezarezvani/claude-skills
+
+# Install specific skill
+clawhub install alirezarezvani/claude-skills/engineering-team/senior-frontend
+```
+
+### Method 2: Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Copy a skill to your OpenClaw skills directory
+cp -r engineering-team/senior-frontend ~/.openclaw/skills/senior-frontend
+
+# Or copy an entire domain
+cp -r engineering-team ~/.openclaw/skills/engineering-team
+```
+
+### How Skills Load in OpenClaw
+
+OpenClaw reads the YAML frontmatter from each `SKILL.md` to determine when to activate a skill:
+
+```yaml
+---
+name: "senior-frontend"
+description: "Frontend development skill for React, Next.js, TypeScript..."
+tags:
+  - frontend
+  - react
+  - nextjs
+---
+```
+
+The `description` field triggers skill activation — when your prompt matches the described use case, OpenClaw loads the skill automatically.
+
+### Verify Installation
+
+```bash
+# List installed skills
+ls ~/.openclaw/skills/
+
+# Verify a skill's frontmatter
+head -20 ~/.openclaw/skills/senior-frontend/SKILL.md
+```
+
+### Available Domains
+
+| Domain | Folder | Skills |
+|--------|--------|--------|
+| Engineering (Core) | `engineering-team/` | 23 |
+| Engineering (Advanced) | `engineering/` | 25 |
+| Marketing | `marketing-skill/` | 42 |
+| C-Level Advisory | `c-level-advisor/` | 28 |
+| Product Team | `product-team/` | 8 |
+| Project Management | `project-management/` | 6 |
+| RA/QM Compliance | `ra-qm-team/` | 12 |
+| Business & Growth | `business-growth/` | 4 |
+| Finance | `finance/` | 1 |
+
+### Python Tools
+
+All Python scripts work independently of OpenClaw — run them directly:
+
+```bash
+python3 engineering-team/senior-security/scripts/threat_modeler.py --help
+python3 finance/financial-analyst/scripts/dcf_valuation.py --help
+```
+
+---
+
 ## OpenAI Codex Installation
 
-OpenAI Codex users can install skills using the methods below. This repository provides full Codex compatibility through a `.codex/skills/` directory with symlinks to all 43 skills.
+OpenAI Codex users can install skills using the methods below. This repository provides full Codex compatibility through a `.codex/skills/` directory with symlinks to all skills.
 
 ### Method 1: Universal Installer (Recommended)
 
@@ -713,20 +889,20 @@ ls ~/.codex/skills/content-creator/
 
 # Check total skill count
 ls ~/.codex/skills/ | wc -l
-# Should show: 53
 ```
 
 ### Available Categories
 
 | Category | Skills | Examples |
 |----------|--------|----------|
-| **c-level** | 2 | ceo-advisor, cto-advisor |
-| **engineering** | 18 | senior-fullstack, aws-solution-architect, senior-ml-engineer |
-| **marketing** | 6 | content-creator, marketing-demand-acquisition, social-media-analyzer |
-| **product** | 5 | product-manager-toolkit, agile-product-owner, ui-design-system |
+| **c-level** | 28 | ceo-advisor, cto-advisor, cfo-advisor, executive-mentor |
+| **engineering** | 23 | senior-fullstack, aws-solution-architect, senior-ml-engineer, playwright-pro |
+| **engineering-advanced** | 25 | agent-designer, rag-architect, mcp-server-builder, performance-profiler |
+| **marketing** | 42 | content-creator, seo-audit, campaign-analytics, content-strategy |
+| **product** | 8 | product-manager-toolkit, agile-product-owner, saas-scaffolder |
 | **project-management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
-| **business-growth** | 3 | customer-success-manager, sales-engineer, revenue-operations |
+| **business-growth** | 4 | customer-success-manager, sales-engineer, revenue-operations |
 | **finance** | 1 | financial-analyst |
 
 See `.codex/skills-index.json` for the complete manifest with descriptions.
@@ -745,6 +921,8 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 | **Codex** | `~/.codex/skills/` | `--agent codex` | User-level installation |
 | **Letta** | Platform-specific | `--agent letta` | Varies by platform |
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
+| **OpenClaw** | `~/.openclaw/skills/` | `clawhub install` | YAML frontmatter triggers |
+| **Gemini CLI** | `.gemini/skills/` | `gemini-install.sh` | Symlink-based discovery |
 | **Project** | `.skills/` | `--agent project` | Portable, project-specific |
 
 ---
@@ -765,6 +943,6 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 
 ---
 
-**Last Updated:** February 2026
-**Skills Version:** 1.0 (53 production skills)
+**Last Updated:** March 2026
+**Skills Version:** 2.1.1 (170 production skills across 9 domains)
 **Universal Installer:** [Agent Skills CLI](https://github.com/Karanjot786/agent-skills-cli)

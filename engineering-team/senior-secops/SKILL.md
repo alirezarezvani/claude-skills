@@ -1,6 +1,6 @@
 ---
-name: senior-secops
-description: Comprehensive SecOps skill for application security, vulnerability management, compliance, and secure development practices. Includes security scanning, vulnerability assessment, compliance checking, and security automation. Use when implementing security controls, conducting security audits, responding to vulnerabilities, or ensuring compliance requirements.
+name: "senior-secops"
+description: Senior SecOps engineer skill for application security, vulnerability management, compliance verification, and secure development practices. Runs SAST/DAST scans, generates CVE remediation plans, checks dependency vulnerabilities, creates security policies, enforces secure coding patterns, and automates compliance checks against SOC2, PCI-DSS, HIPAA, and GDPR. Use when conducting a security review or audit, responding to a CVE or security incident, hardening infrastructure, implementing authentication or secrets management, running penetration test prep, checking OWASP Top 10 exposure, or enforcing security controls in CI/CD pipelines.
 ---
 
 # Senior SecOps Engineer
@@ -11,34 +11,12 @@ Complete toolkit for Security Operations including vulnerability management, com
 
 ## Table of Contents
 
-- [Trigger Terms](#trigger-terms)
 - [Core Capabilities](#core-capabilities)
 - [Workflows](#workflows)
 - [Tool Reference](#tool-reference)
 - [Security Standards](#security-standards)
 - [Compliance Frameworks](#compliance-frameworks)
 - [Best Practices](#best-practices)
-
----
-
-## Trigger Terms
-
-Use this skill when you encounter:
-
-| Category | Terms |
-|----------|-------|
-| **Vulnerability Management** | CVE, CVSS, vulnerability scan, security patch, dependency audit, npm audit, pip-audit |
-| **OWASP Top 10** | injection, XSS, CSRF, broken authentication, security misconfiguration, sensitive data exposure |
-| **Compliance** | SOC 2, PCI-DSS, HIPAA, GDPR, compliance audit, security controls, access control |
-| **Secure Coding** | input validation, output encoding, parameterized queries, prepared statements, sanitization |
-| **Secrets Management** | API key, secrets vault, environment variables, HashiCorp Vault, AWS Secrets Manager |
-| **Authentication** | JWT, OAuth, MFA, 2FA, TOTP, password hashing, bcrypt, argon2, session management |
-| **Security Testing** | SAST, DAST, penetration test, security scan, Snyk, Semgrep, CodeQL, Trivy |
-| **Incident Response** | security incident, breach notification, incident response, forensics, containment |
-| **Network Security** | TLS, HTTPS, HSTS, CSP, CORS, security headers, firewall rules, WAF |
-| **Infrastructure Security** | container security, Kubernetes security, IAM, least privilege, zero trust |
-| **Cryptography** | encryption at rest, encryption in transit, AES-256, RSA, key management, KMS |
-| **Monitoring** | security monitoring, SIEM, audit logging, intrusion detection, anomaly detection |
 
 ---
 
@@ -129,14 +107,23 @@ Complete security assessment of a codebase.
 ```bash
 # Step 1: Scan for code vulnerabilities
 python scripts/security_scanner.py . --severity medium
+# STOP if exit code 2 — resolve critical findings before continuing
+```
 
+```bash
 # Step 2: Check dependency vulnerabilities
 python scripts/vulnerability_assessor.py . --severity high
+# STOP if exit code 2 — patch critical CVEs before continuing
+```
 
+```bash
 # Step 3: Verify compliance controls
 python scripts/compliance_checker.py . --framework all
+# STOP if exit code 2 — address critical gaps before proceeding
+```
 
-# Step 4: Generate combined report
+```bash
+# Step 4: Generate combined reports
 python scripts/security_scanner.py . --json --output security.json
 python scripts/vulnerability_assessor.py . --json --output vulns.json
 python scripts/compliance_checker.py . --json --output compliance.json
@@ -148,7 +135,7 @@ Integrate security checks into deployment pipeline.
 
 ```yaml
 # .github/workflows/security.yml
-name: Security Scan
+name: "security-scan"
 
 on:
   pull_request:
@@ -160,20 +147,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: "set-up-python"
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Security Scanner
+      - name: "security-scanner"
         run: python scripts/security_scanner.py . --severity high
 
-      - name: Vulnerability Assessment
+      - name: "vulnerability-assessment"
         run: python scripts/vulnerability_assessor.py . --severity critical
 
-      - name: Compliance Check
+      - name: "compliance-check"
         run: python scripts/compliance_checker.py . --framework soc2
 ```
+
+Each step fails the pipeline on its respective exit code — no deployment proceeds past a critical finding.
 
 ### Workflow 3: CVE Triage
 
@@ -184,6 +173,7 @@ Respond to a new CVE affecting your application.
    - Identify affected systems using vulnerability_assessor.py
    - Check if CVE is being actively exploited
    - Determine CVSS environmental score for your context
+   - STOP if CVSS 9.0+ on internet-facing system — escalate immediately
 
 2. PRIORITIZE
    - Critical (CVSS 9.0+, internet-facing): 24 hours
@@ -193,7 +183,8 @@ Respond to a new CVE affecting your application.
 
 3. REMEDIATE
    - Update affected dependency to fixed version
-   - Run security_scanner.py to verify fix
+   - Run security_scanner.py to verify fix (must return exit code 0)
+   - STOP if scanner still flags the CVE — do not deploy
    - Test for regressions
    - Deploy with enhanced monitoring
 
@@ -223,7 +214,7 @@ PHASE 2: CONTAIN (15-60 min)
 PHASE 3: ERADICATE (1-4 hours)
 - Root cause identified
 - Malware/backdoors removed
-- Vulnerabilities patched (run security_scanner.py)
+- Vulnerabilities patched (run security_scanner.py; must return exit code 0)
 - Systems hardened
 
 PHASE 4: RECOVER (4-24 hours)
@@ -254,10 +245,7 @@ PHASE 5: POST-INCIDENT (24-72 hours)
 | `--json` | Output results as JSON |
 | `--output, -o` | Write results to file |
 
-**Exit Codes:**
-- `0`: No critical/high findings
-- `1`: High severity findings
-- `2`: Critical severity findings
+**Exit Codes:** `0` = no critical/high findings · `1` = high severity findings · `2` = critical severity findings
 
 ### vulnerability_assessor.py
 
@@ -269,10 +257,7 @@ PHASE 5: POST-INCIDENT (24-72 hours)
 | `--json` | Output results as JSON |
 | `--output, -o` | Write results to file |
 
-**Exit Codes:**
-- `0`: No critical/high vulnerabilities
-- `1`: High severity vulnerabilities
-- `2`: Critical severity vulnerabilities
+**Exit Codes:** `0` = no critical/high vulnerabilities · `1` = high severity vulnerabilities · `2` = critical severity vulnerabilities
 
 ### compliance_checker.py
 
@@ -284,29 +269,13 @@ PHASE 5: POST-INCIDENT (24-72 hours)
 | `--json` | Output results as JSON |
 | `--output, -o` | Write results to file |
 
-**Exit Codes:**
-- `0`: Compliant (90%+ score)
-- `1`: Non-compliant (50-69% score)
-- `2`: Critical gaps (<50% score)
+**Exit Codes:** `0` = compliant (90%+ score) · `1` = non-compliant (50-69% score) · `2` = critical gaps (<50% score)
 
 ---
 
 ## Security Standards
 
-### OWASP Top 10 Prevention
-
-| Vulnerability | Prevention |
-|--------------|------------|
-| **A01: Broken Access Control** | Implement RBAC, deny by default, validate permissions server-side |
-| **A02: Cryptographic Failures** | Use TLS 1.2+, AES-256 encryption, secure key management |
-| **A03: Injection** | Parameterized queries, input validation, escape output |
-| **A04: Insecure Design** | Threat modeling, secure design patterns, defense in depth |
-| **A05: Security Misconfiguration** | Hardening guides, remove defaults, disable unused features |
-| **A06: Vulnerable Components** | Dependency scanning, automated updates, SBOM |
-| **A07: Authentication Failures** | MFA, rate limiting, secure password storage |
-| **A08: Data Integrity Failures** | Code signing, integrity checks, secure CI/CD |
-| **A09: Security Logging Failures** | Comprehensive audit logs, SIEM integration, alerting |
-| **A10: SSRF** | URL validation, allowlist destinations, network segmentation |
+See `references/security_standards.md` for OWASP Top 10 full guidance, secure coding standards, authentication requirements, and API security controls.
 
 ### Secure Coding Checklist
 
@@ -346,47 +315,28 @@ PHASE 5: POST-INCIDENT (24-72 hours)
 
 ## Compliance Frameworks
 
-### SOC 2 Type II Controls
+See `references/compliance_requirements.md` for full control mappings. Run `compliance_checker.py` to verify the controls below:
 
-| Control | Category | Description |
-|---------|----------|-------------|
-| CC1 | Control Environment | Security policies, org structure |
-| CC2 | Communication | Security awareness, documentation |
-| CC3 | Risk Assessment | Vulnerability scanning, threat modeling |
-| CC6 | Logical Access | Authentication, authorization, MFA |
-| CC7 | System Operations | Monitoring, logging, incident response |
-| CC8 | Change Management | CI/CD, code review, deployment controls |
+### SOC 2 Type II
+- **CC6** Logical Access: authentication, authorization, MFA
+- **CC7** System Operations: monitoring, logging, incident response
+- **CC8** Change Management: CI/CD, code review, deployment controls
 
-### PCI-DSS v4.0 Requirements
-
-| Requirement | Description |
-|-------------|-------------|
-| Req 3 | Protect stored cardholder data (encryption at rest) |
-| Req 4 | Encrypt transmission (TLS 1.2+) |
-| Req 6 | Secure development (input validation, secure coding) |
-| Req 8 | Strong authentication (MFA, password policy) |
-| Req 10 | Audit logging (all access to cardholder data) |
-| Req 11 | Security testing (SAST, DAST, penetration testing) |
+### PCI-DSS v4.0
+- **Req 3/4**: Encryption at rest and in transit (TLS 1.2+)
+- **Req 6**: Secure development (input validation, secure coding)
+- **Req 8**: Strong authentication (MFA, password policy)
+- **Req 10/11**: Audit logging, SAST/DAST/penetration testing
 
 ### HIPAA Security Rule
+- Unique user IDs and audit trails for PHI access (164.312(a)(1), 164.312(b))
+- MFA for person/entity authentication (164.312(d))
+- Transmission encryption via TLS (164.312(e)(1))
 
-| Safeguard | Requirement |
-|-----------|-------------|
-| 164.312(a)(1) | Unique user identification for PHI access |
-| 164.312(b) | Audit trails for PHI access |
-| 164.312(c)(1) | Data integrity controls |
-| 164.312(d) | Person/entity authentication (MFA) |
-| 164.312(e)(1) | Transmission encryption (TLS) |
-
-### GDPR Requirements
-
-| Article | Requirement |
-|---------|-------------|
-| Art 25 | Privacy by design, data minimization |
-| Art 32 | Security measures, encryption, pseudonymization |
-| Art 33 | Breach notification (72 hours) |
-| Art 17 | Right to erasure (data deletion) |
-| Art 20 | Data portability (export capability) |
+### GDPR
+- **Art 25/32**: Privacy by design, encryption, pseudonymization
+- **Art 33**: Breach notification within 72 hours
+- **Art 17/20**: Right to erasure and data portability
 
 ---
 
@@ -469,37 +419,4 @@ app.use((req, res, next) => {
 |----------|-------------|
 | `references/security_standards.md` | OWASP Top 10, secure coding, authentication, API security |
 | `references/vulnerability_management_guide.md` | CVE triage, CVSS scoring, remediation workflows |
-| `references/compliance_requirements.md` | SOC 2, PCI-DSS, HIPAA, GDPR requirements |
-
----
-
-## Tech Stack
-
-**Security Scanning:**
-- Snyk (dependency scanning)
-- Semgrep (SAST)
-- CodeQL (code analysis)
-- Trivy (container scanning)
-- OWASP ZAP (DAST)
-
-**Secrets Management:**
-- HashiCorp Vault
-- AWS Secrets Manager
-- Azure Key Vault
-- 1Password Secrets Automation
-
-**Authentication:**
-- bcrypt, argon2 (password hashing)
-- jsonwebtoken (JWT)
-- passport.js (authentication middleware)
-- speakeasy (TOTP/MFA)
-
-**Logging & Monitoring:**
-- Winston, Pino (Node.js logging)
-- Datadog, Splunk (SIEM)
-- PagerDuty (alerting)
-
-**Compliance:**
-- Vanta (SOC 2 automation)
-- Drata (compliance management)
-- AWS Config (configuration compliance)
+| `references/compliance_requirements.md` | SOC 2, PCI-DSS, HIPAA, GDPR full control mappings |

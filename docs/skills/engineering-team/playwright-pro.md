@@ -30,6 +30,45 @@ When installed as a Claude Code plugin, these are available as `/pw:` commands:
 | `/pw:browserstack` | Run on BrowserStack, pull cross-browser reports |
 | `/pw:report` | Generate test report in your preferred format |
 
+## Quick Start Workflow
+
+The recommended sequence for most projects:
+
+```
+1. /pw:init          → scaffolds config, CI pipeline, and a first smoke test
+2. /pw:generate      → generates tests from your spec or URL
+3. /pw:review        → validates quality and flags anti-patterns      ← always run after generate
+4. /pw:fix <test>    → diagnoses and repairs any failing/flaky tests  ← run when CI turns red
+```
+
+**Validation checkpoints:**
+- After `/pw:generate` — always run `/pw:review` before committing; it catches locator anti-patterns and missing assertions automatically.
+- After `/pw:fix` — re-run the full suite locally (`npx playwright test`) to confirm the fix doesn't introduce regressions.
+- After `/pw:migrate` — run `/pw:coverage` to confirm parity with the old suite before decommissioning Cypress/Selenium tests.
+
+### Example: Generate → Review → Fix
+
+```bash
+# 1. Generate tests from a user story
+/pw:generate "As a user I can log in with email and password"
+
+# Generated: tests/auth/login.spec.ts
+# → Playwright Pro creates the file using the auth template.
+
+# 2. Review the generated tests
+/pw:review tests/auth/login.spec.ts
+
+# → Flags: one test used page.locator('input[type=password]') — suggests getByLabel('Password')
+# → Fix applied automatically.
+
+# 3. Run locally to confirm
+npx playwright test tests/auth/login.spec.ts --headed
+
+# 4. If a test is flaky in CI, diagnose it
+/pw:fix tests/auth/login.spec.ts
+# → Identifies missing web-first assertion; replaces waitForTimeout(2000) with expect(locator).toBeVisible()
+```
+
 ## Golden Rules
 
 1. `getByRole()` over CSS/XPath — resilient to markup changes

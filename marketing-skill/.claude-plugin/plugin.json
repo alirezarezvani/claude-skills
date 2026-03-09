@@ -1,7 +1,7 @@
 {
   "name": "marketing-skills",
-  "description": "7 production-ready marketing skills: content creator, demand generation, product marketing strategy, app store optimization, social media analytics, campaign analytics, and prompt engineering toolkit",
-  "version": "1.1.0",
+  "description": "42 production-ready marketing skills across 7 pods: Content (copywriting, content strategy, content production), SEO (audits, schema markup, programmatic SEO, site architecture), CRO (A/B testing, forms, popups, signup flows, pricing, onboarding), Channels (email sequences, social media, paid ads, cold email), Growth (launch strategy, referral programs, free tools), Intelligence (competitor analysis, marketing psychology, analytics tracking), and Sales enablement",
+  "version": "2.1.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

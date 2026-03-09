@@ -17,11 +17,25 @@
 
 Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, three platforms:** Works natively as Claude Code plugins, OpenAI Codex agents, and OpenClaw skills.
+**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills.
 
 ---
 
 ## Quick Install
+
+### Gemini CLI (New)
+
+```bash
+# Clone the repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Run the setup script
+./scripts/gemini-install.sh
+
+# Start using skills
+> activate_skill(name="senior-architect")
+```
 
 ### Claude Code (Recommended)
 

@@ -8,6 +8,8 @@ Complete installation guide for all 170 production-ready skills across multiple 
 - [Claude Code Native Marketplace](#claude-code-native-marketplace-new)
 - [Universal Installer](#universal-installer)
 - [OpenAI Codex Installation](#openai-codex-installation)
+- [Gemini CLI Installation](#gemini-cli-installation)
+- [OpenClaw Installation](#openclaw-installation)
 - [Per-Skill Installation](#per-skill-installation)
 - [Multi-Agent Setup](#multi-agent-setup)
 - [Manual Installation](#manual-installation)
@@ -55,6 +57,19 @@ cd claude-skills
 Skills install to `.gemini/skills/` and are activated via `activate_skill(name="skill-name")`.
 
 Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
+
+### For OpenClaw Users
+
+```bash
+# Install from ClawHub
+clawhub install alirezarezvani/claude-skills
+
+# Or manual installation
+git clone https://github.com/alirezarezvani/claude-skills.git
+cp -r claude-skills/engineering-team ~/.openclaw/skills/
+```
+
+Skills load via YAML frontmatter triggers. See [OpenClaw Installation](#openclaw-installation) for details.
 
 ### For All Other Agents (Cursor, VS Code, Goose, etc.)
 
@@ -659,7 +674,7 @@ rm -rf .cursor/skills/fullstack-engineer/
 
 ## Gemini CLI Installation
 
-Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 165+ skills, agents, and commands.
+Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 170+ skills, agents, and commands.
 
 ### Setup Instructions
 
@@ -681,7 +696,7 @@ Gemini CLI users can install skills using the setup script below. This repositor
     - Generates a `skills-index.json` manifest for discovery.
 
 3.  **Activate Skills in Gemini CLI:**
-    Gemini CLI can now activate any of these 165+ skills by name. Use the `activate_skill` tool:
+    Gemini CLI can now activate any of these 170+ skills by name. Use the `activate_skill` tool:
     ```javascript
     // Activate a core skill
     activate_skill(name="senior-architect")
@@ -706,6 +721,86 @@ Every skill includes deterministic Python CLI tools in its `scripts/` folder. Th
 Example:
 ```bash
 python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
+```
+
+---
+
+## OpenClaw Installation
+
+OpenClaw loads skills via YAML frontmatter in `SKILL.md` files. Every skill in this repository includes OpenClaw-compatible frontmatter with `name`, `description`, and `tags` fields.
+
+### Method 1: ClawHub (Recommended)
+
+```bash
+# Install from ClawHub registry
+clawhub install alirezarezvani/claude-skills
+
+# Install specific skill
+clawhub install alirezarezvani/claude-skills/engineering-team/senior-frontend
+```
+
+### Method 2: Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Copy a skill to your OpenClaw skills directory
+cp -r engineering-team/senior-frontend ~/.openclaw/skills/senior-frontend
+
+# Or copy an entire domain
+cp -r engineering-team ~/.openclaw/skills/engineering-team
+```
+
+### How Skills Load in OpenClaw
+
+OpenClaw reads the YAML frontmatter from each `SKILL.md` to determine when to activate a skill:
+
+```yaml
+---
+name: "senior-frontend"
+description: "Frontend development skill for React, Next.js, TypeScript..."
+tags:
+  - frontend
+  - react
+  - nextjs
+---
+```
+
+The `description` field triggers skill activation — when your prompt matches the described use case, OpenClaw loads the skill automatically.
+
+### Verify Installation
+
+```bash
+# List installed skills
+ls ~/.openclaw/skills/
+
+# Verify a skill's frontmatter
+head -20 ~/.openclaw/skills/senior-frontend/SKILL.md
+```
+
+### Available Domains
+
+| Domain | Folder | Skills |
+|--------|--------|--------|
+| Engineering (Core) | `engineering-team/` | 23 |
+| Engineering (Advanced) | `engineering/` | 25 |
+| Marketing | `marketing-skill/` | 42 |
+| C-Level Advisory | `c-level-advisor/` | 28 |
+| Product Team | `product-team/` | 8 |
+| Project Management | `project-management/` | 6 |
+| RA/QM Compliance | `ra-qm-team/` | 12 |
+| Business & Growth | `business-growth/` | 4 |
+| Finance | `finance/` | 1 |
+
+### Python Tools
+
+All Python scripts work independently of OpenClaw — run them directly:
+
+```bash
+python3 engineering-team/senior-security/scripts/threat_modeler.py --help
+python3 finance/financial-analyst/scripts/dcf_valuation.py --help
 ```
 
 ---
@@ -826,6 +921,8 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 | **Codex** | `~/.codex/skills/` | `--agent codex` | User-level installation |
 | **Letta** | Platform-specific | `--agent letta` | Varies by platform |
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
+| **OpenClaw** | `~/.openclaw/skills/` | `clawhub install` | YAML frontmatter triggers |
+| **Gemini CLI** | `.gemini/skills/` | `gemini-install.sh` | Symlink-based discovery |
 | **Project** | `.skills/` | `--agent project` | Portable, project-specific |
 
 ---

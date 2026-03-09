@@ -131,6 +131,7 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 - 21 over-500-line skills split into SKILL.md + references/
 - YAML frontmatter (name + description) added to all SKILL.md files
 - 6 new agents + 5 slash commands for full domain coverage
+- **Gemini CLI support added** (scripts/gemini-install.sh + GEMINI.md)
 - MkDocs Material documentation site at alirezarezvani.github.io/claude-skills
 
 **v2.0.0 (2026-02-16):**

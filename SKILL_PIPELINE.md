@@ -185,6 +185,15 @@ skill-name/
 - Ensure compatible with OpenClaw's skill loading (YAML frontmatter triggers)
 - Publish to ClawHub: `clawhub publish ./skill-name`
 
+### 7d. Gemini CLI Skill
+```
+skill-name/
+├── SKILL.md           # Gemini-compatible (same base)
+└── (same scripts, references, assets)
+```
+- Ensure compatible with Gemini CLI's `activate_skill` tool.
+- Run `./scripts/gemini-install.sh` to update the local `.gemini/skills/` index.
+
 ## Phase 8: Deploy
 
 ### Marketplace
@@ -193,6 +202,12 @@ skill-name/
 # Users install with:
 /plugin marketplace add alirezarezvani/claude-skills
 /plugin install skill-name@claude-code-skills
+```
+
+### Gemini CLI setup
+```bash
+# Users setup with:
+./scripts/gemini-install.sh
 ```
 
 ### GitHub Release
@@ -286,6 +301,7 @@ description: <what this command does>
 
 ### 9e. Cross-Platform Verify
 - **Claude Code**: Install from marketplace, trigger, run workflow
+- **Gemini CLI**: Run `scripts/gemini-install.sh`, activate skill, verify instructions
 - **Codex CLI**: Load AGENTS.md, run test prompt
 - **OpenClaw**: Load skill, verify frontmatter triggers
 
@@ -417,6 +433,7 @@ If a deployed skill breaks:
 [ ] Assets: templates, sample data, expected outputs
 [ ] Benchmark: with-skill vs baseline, pass rate ≥85%, delta ≥30%
 [ ] Description optimization: run_loop.py, 20 trigger queries
+[ ] Gemini CLI: ./scripts/gemini-install.sh, activate_skill(name="skill-name") verified
 [ ] Codex: AGENTS.md / codex.md
 [ ] OpenClaw: frontmatter triggers verified
 [ ] README.md updated (category + root)

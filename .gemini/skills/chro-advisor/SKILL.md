@@ -1,0 +1,1 @@
+../../../c-level-advisor/chro-advisor/SKILL.md

@@ -28,6 +28,10 @@ SKILL_DOMAINS = {
         "category": "engineering",
         "description": "Software engineering and technical skills"
     },
+    "engineering": {
+        "category": "engineering-advanced",
+        "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
+    },
     "product-team": {
         "category": "product",
         "description": "Product management and design skills"

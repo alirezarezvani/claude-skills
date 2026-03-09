@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 124,
+  "total_skills": 149,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -334,6 +334,156 @@
       "source": "../../engineering-team/tech-stack-evaluator",
       "category": "engineering",
       "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability."
+    },
+    {
+      "name": "agent-designer",
+      "source": "../../engineering/agent-designer",
+      "category": "engineering-advanced",
+      "description": "Agent Designer - Multi-Agent System Architecture"
+    },
+    {
+      "name": "agent-workflow-designer",
+      "source": "../../engineering/agent-workflow-designer",
+      "category": "engineering-advanced",
+      "description": "Agent Workflow Designer"
+    },
+    {
+      "name": "api-design-reviewer",
+      "source": "../../engineering/api-design-reviewer",
+      "category": "engineering-advanced",
+      "description": "API Design Reviewer"
+    },
+    {
+      "name": "api-test-suite-builder",
+      "source": "../../engineering/api-test-suite-builder",
+      "category": "engineering-advanced",
+      "description": "API Test Suite Builder"
+    },
+    {
+      "name": "changelog-generator",
+      "source": "../../engineering/changelog-generator",
+      "category": "engineering-advanced",
+      "description": "Changelog Generator"
+    },
+    {
+      "name": "ci-cd-pipeline-builder",
+      "source": "../../engineering/ci-cd-pipeline-builder",
+      "category": "engineering-advanced",
+      "description": "CI/CD Pipeline Builder"
+    },
+    {
+      "name": "codebase-onboarding",
+      "source": "../../engineering/codebase-onboarding",
+      "category": "engineering-advanced",
+      "description": "Codebase Onboarding"
+    },
+    {
+      "name": "database-designer",
+      "source": "../../engineering/database-designer",
+      "category": "engineering-advanced",
+      "description": "Database Designer - POWERFUL Tier Skill"
+    },
+    {
+      "name": "database-schema-designer",
+      "source": "../../engineering/database-schema-designer",
+      "category": "engineering-advanced",
+      "description": "Database Schema Designer"
+    },
+    {
+      "name": "dependency-auditor",
+      "source": "../../engineering/dependency-auditor",
+      "category": "engineering-advanced",
+      "description": "Dependency Auditor"
+    },
+    {
+      "name": "env-secrets-manager",
+      "source": "../../engineering/env-secrets-manager",
+      "category": "engineering-advanced",
+      "description": "Env & Secrets Manager"
+    },
+    {
+      "name": "git-worktree-manager",
+      "source": "../../engineering/git-worktree-manager",
+      "category": "engineering-advanced",
+      "description": "Git Worktree Manager"
+    },
+    {
+      "name": "interview-system-designer",
+      "source": "../../engineering/interview-system-designer",
+      "category": "engineering-advanced",
+      "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
+    },
+    {
+      "name": "mcp-server-builder",
+      "source": "../../engineering/mcp-server-builder",
+      "category": "engineering-advanced",
+      "description": "MCP Server Builder"
+    },
+    {
+      "name": "migration-architect",
+      "source": "../../engineering/migration-architect",
+      "category": "engineering-advanced",
+      "description": "Migration Architect"
+    },
+    {
+      "name": "monorepo-navigator",
+      "source": "../../engineering/monorepo-navigator",
+      "category": "engineering-advanced",
+      "description": "Monorepo Navigator"
+    },
+    {
+      "name": "observability-designer",
+      "source": "../../engineering/observability-designer",
+      "category": "engineering-advanced",
+      "description": "Observability Designer (POWERFUL)"
+    },
+    {
+      "name": "performance-profiler",
+      "source": "../../engineering/performance-profiler",
+      "category": "engineering-advanced",
+      "description": "Performance Profiler"
+    },
+    {
+      "name": "pr-review-expert",
+      "source": "../../engineering/pr-review-expert",
+      "category": "engineering-advanced",
+      "description": "PR Review Expert"
+    },
+    {
+      "name": "rag-architect",
+      "source": "../../engineering/rag-architect",
+      "category": "engineering-advanced",
+      "description": "RAG Architect - POWERFUL"
+    },
+    {
+      "name": "release-manager",
+      "source": "../../engineering/release-manager",
+      "category": "engineering-advanced",
+      "description": "Release Manager"
+    },
+    {
+      "name": "runbook-generator",
+      "source": "../../engineering/runbook-generator",
+      "category": "engineering-advanced",
+      "description": "Runbook Generator"
+    },
+    {
+      "name": "skill-security-auditor",
+      "source": "../../engineering/skill-security-auditor",
+      "category": "engineering-advanced",
+      "description": ">"
+    },
+    {
+      "name": "skill-tester",
+      "source": "../../engineering/skill-tester",
+      "category": "engineering-advanced",
+      "description": "Skill Tester"
+    },
+    {
+      "name": "tech-debt-tracker",
+      "source": "../../engineering/tech-debt-tracker",
+      "category": "engineering-advanced",
+      "description": "Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation."
     },
     {
       "name": "financial-analyst",
@@ -765,6 +915,11 @@
       "count": 23,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
+    },
+    "engineering-advanced": {
+      "count": 25,
+      "source": "../../engineering",
+      "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
     "finance": {
       "count": 1,

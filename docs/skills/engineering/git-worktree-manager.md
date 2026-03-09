@@ -10,6 +10,8 @@ description: "Git Worktree Manager - Claude Code skill from the Engineering - PO
 ---
 
 
+# Git Worktree Manager
+
 **Tier:** POWERFUL  
 **Category:** Engineering  
 **Domain:** Parallel Development & Branch Isolation

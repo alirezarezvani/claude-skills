@@ -10,45 +10,15 @@ description: "SaaS Scaffolder - Claude Code skill from the Product domain."
 ---
 
 
+# SaaS Scaffolder
+
 **Tier:** POWERFUL  
 **Category:** Product Team  
 **Domain:** Full-Stack Development / Project Bootstrapping
 
 ---
 
-## Overview
-
-Generate complete, production-ready SaaS projects from a product brief. Outputs a fully wired Next.js App Router project with authentication, database, payments, and a working dashboard — not a toy starter kit.
-
-**Stack:** Next.js 14+ App Router · TypeScript · Tailwind CSS · shadcn/ui  
-**Auth:** NextAuth.js / Clerk / Supabase Auth  
-**Database:** NeonDB / Supabase / PlanetScale (Drizzle ORM)  
-**Payments:** Stripe / Lemon Squeezy  
-
----
-
-## Core Capabilities
-
-- Generate full project file tree with all boilerplate written
-- Wire auth, DB, and payments together from day one
-- Output landing page, auth flow, dashboard layout, API routes, DB schema
-- Produce environment variable templates and deployment configs
-- Generate a scaffold checklist to track completion
-
----
-
-## When to Use
-
-- Starting a new SaaS from a product idea or brief
-- Standardizing project structure across a team
-- Rapidly prototyping to validate before committing to architecture
-- Onboarding engineers to a consistent codebase pattern
-
----
-
-## Triggering This Skill
-
-Provide a product brief in this format:
+## Input Format
 
 ```
 Product: [name]
@@ -226,28 +196,6 @@ export async function POST(req: Request) {
 }
 ```
 
-### Protected Dashboard Layout
-
-```typescript
-// app/(dashboard)/layout.tsx
-import { redirect } from "next/navigation"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/auth"
-import { Sidebar } from "@/components/dashboard/sidebar"
-
-export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(authOptions)
-  if (!session) redirect("/login")
-
-  return (
-    <div className="flex h-screen">
-      <Sidebar user={session.user} />
-      <main className="flex-1 overflow-y-auto bg-gray-50 p-6">{children}</main>
-    </div>
-  )
-}
-```
-
 ### Middleware
 
 ```typescript
@@ -288,23 +236,31 @@ STRIPE_PRO_PRICE_ID=price_...
 
 ---
 
-## Scaffold Checklist (25 Items)
+## Scaffold Checklist
 
-### Foundation
+The following phases must be completed in order. **Validate at the end of each phase before proceeding.**
+
+### Phase 1 — Foundation
 - [ ] 1. Next.js initialized with TypeScript and App Router
 - [ ] 2. Tailwind CSS configured with custom theme tokens
 - [ ] 3. shadcn/ui installed and configured
 - [ ] 4. ESLint + Prettier configured
 - [ ] 5. `.env.example` created with all required variables
 
-### Database
+✅ **Validate:** Run `npm run build` — no TypeScript or lint errors should appear.  
+🔧 **If build fails:** Check `tsconfig.json` paths and that all shadcn/ui peer dependencies are installed.
+
+### Phase 2 — Database
 - [ ] 6. Drizzle ORM installed and configured
 - [ ] 7. Schema written (users, accounts, sessions, verification_tokens)
 - [ ] 8. Initial migration generated and applied
 - [ ] 9. DB client singleton exported from `lib/db.ts`
 - [ ] 10. DB connection tested in local environment
 
-### Authentication
+✅ **Validate:** Run a simple `db.select().from(users)` in a test script — it should return an empty array without throwing.  
+🔧 **If DB connection fails:** Verify `DATABASE_URL` format includes `?sslmode=require` for NeonDB/Supabase. Check that the migration has been applied with `drizzle-kit push` (dev) or `drizzle-kit migrate` (prod).
+
+### Phase 3 — Authentication
 - [ ] 11. Auth provider installed (NextAuth / Clerk / Supabase)
 - [ ] 12. OAuth provider configured (Google / GitHub)
 - [ ] 13. Auth API route created
@@ -312,49 +268,33 @@ STRIPE_PRO_PRICE_ID=price_...
 - [ ] 15. Middleware protects dashboard routes
 - [ ] 16. Login and register pages built with error states
 
-### Payments
+✅ **Validate:** Sign in via OAuth, confirm session user has `id` and `subscriptionStatus`. Attempt to access `/dashboard` without a session — you should be redirected to `/login`.  
+🔧 **If sign-out loops occur in production:** Ensure `NEXTAUTH_SECRET` is set and consistent across deployments. Add `declare module "next-auth"` to extend session types if TypeScript errors appear.
+
+### Phase 4 — Payments
 - [ ] 17. Stripe client initialized with TypeScript types
 - [ ] 18. Checkout session route created
 - [ ] 19. Customer portal route created
 - [ ] 20. Stripe webhook handler with signature verification
 - [ ] 21. Webhook updates user subscription status in DB idempotently
 
-### UI
+✅ **Validate:** Complete a Stripe test checkout using a `4242 4242 4242 4242` card. Confirm `stripeSubscriptionId` is written to the DB. Replay the `checkout.session.completed` webhook event and confirm idempotency (no duplicate DB writes).  
+🔧 **If webhook signature fails:** Use `stripe listen --forward-to localhost:3000/api/webhooks/stripe` locally — never hardcode the raw webhook secret. Verify `STRIPE_WEBHOOK_SECRET` matches the listener output.
+
+### Phase 5 — UI
 - [ ] 22. Landing page with hero, features, pricing sections
 - [ ] 23. Dashboard layout with sidebar and responsive header
 - [ ] 24. Billing page showing current plan and upgrade options
 - [ ] 25. Settings page with profile update form and success states
 
----
-
-## Customization Points
-
-| Point | Options |
-|---|---|
-| Auth provider | nextauth, clerk, supabase-auth |
-| Database | neondb, supabase-pg, planetscale |
-| ORM | drizzle (default), prisma |
-| Payment provider | stripe, lemonsqueezy |
-| UI theme | default, zinc, slate, rose |
-| Billing model | per-seat, flat-rate, usage-based |
+✅ **Validate:** Run `npm run build` for a final production build check. Navigate all routes manually and confirm no broken layouts, missing session data, or hydration errors.
 
 ---
 
-## Common Pitfalls
+## Reference Files
 
-- **Missing NEXTAUTH_SECRET** — causes random sign-out loops in production
-- **Webhook secret mismatch** — use `stripe listen --forward-to` locally, never hardcode raw secret
-- **Edge runtime conflicts** — Drizzle needs Node.js runtime; set `export const runtime = "nodejs"` on API routes
-- **Session type not extended** — add `declare module "next-auth"` to include custom fields
-- **Drizzle migrations in CI** — use `drizzle-kit push` for dev, `drizzle-kit migrate` for prod
+For additional guidance, generate the following companion reference files alongside the scaffold:
 
----
-
-## Best Practices
-
-- Always create a `lib/stripe.ts` singleton — never instantiate Stripe inline in route handlers
-- Use server actions for form mutations, not client-side fetch where avoidable
-- Keep webhook handlers idempotent — check DB state before writing
-- Add `Suspense` boundaries around dashboard async data fetches
-- Store `stripeCurrentPeriodEnd` in DB and check it server-side for all feature gating
-- Ship with rate limiting on auth routes from day one (use Upstash Redis + `@upstash/ratelimit`)
+- **`CUSTOMIZATION.md`** — Auth providers, database options, ORM alternatives, payment providers, UI themes, and billing models (per-seat, flat-rate, usage-based).
+- **`PITFALLS.md`** — Common failure modes: missing `NEXTAUTH_SECRET`, webhook secret mismatches, Edge runtime conflicts with Drizzle, unextended session types, and migration strategy differences between dev and prod.
+- **`BEST_PRACTICES.md`** — Stripe singleton pattern, server actions for form mutations, idempotent webhook handlers, `Suspense` boundaries for async dashboard data, server-side feature gating via `stripeCurrentPeriodEnd`, and rate limiting on auth routes with Upstash Redis + `@upstash/ratelimit`.

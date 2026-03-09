@@ -10,6 +10,8 @@ description: "RAG Architect - POWERFUL - Claude Code skill from the Engineering 
 ---
 
 
+# RAG Architect - POWERFUL
+
 ## Overview
 
 The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, implementing, and optimizing production-grade RAG pipelines. This skill covers the entire RAG ecosystem from document chunking strategies to evaluation frameworks, enabling you to build scalable, efficient, and accurate retrieval systems.

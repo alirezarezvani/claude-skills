@@ -10,6 +10,8 @@ description: "Release Manager - Claude Code skill from the Engineering - POWERFU
 ---
 
 
+# Release Manager
+
 **Tier:** POWERFUL  
 **Category:** Engineering  
 **Domain:** Software Release Management & DevOps

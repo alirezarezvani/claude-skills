@@ -14,27 +14,6 @@ description: "TDD Guide - Claude Code skill from the Engineering - Core domain."
 
 Test-driven development skill for generating tests, analyzing coverage, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, and Vitest.
 
-## Table of Contents
-
-- [Capabilities](#capabilities)
-- [Workflows](#workflows)
-- [Tools](#tools)
-- [Input Requirements](#input-requirements)
-- [Limitations](#limitations)
-
----
-
-## Capabilities
-
-| Capability | Description |
-|------------|-------------|
-| Test Generation | Convert requirements or code into test cases with proper structure |
-| Coverage Analysis | Parse LCOV/JSON/XML reports, identify gaps, prioritize fixes |
-| TDD Workflow | Guide red-green-refactor cycles with validation |
-| Framework Adapters | Generate tests for Jest, Pytest, JUnit, Vitest, Mocha |
-| Quality Scoring | Assess test isolation, assertions, naming, detect test smells |
-| Fixture Generation | Create realistic test data, mocks, and factories |
-
 ---
 
 ## Workflows
@@ -66,18 +45,85 @@ Test-driven development skill for generating tests, analyzing coverage, and guid
 
 ---
 
-## Tools
+## Examples
+
+### Test Generation — Input → Output (Pytest)
+
+**Input source function (`math_utils.py`):**
+```python
+def divide(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
+```
+
+**Command:**
+```bash
+python scripts/test_generator.py --input math_utils.py --framework pytest
+```
+
+**Generated test output (`test_math_utils.py`):**
+```python
+import pytest
+from math_utils import divide
+
+class TestDivide:
+    def test_divide_positive_numbers(self):
+        assert divide(10, 2) == 5.0
+
+    def test_divide_negative_numerator(self):
+        assert divide(-10, 2) == -5.0
+
+    def test_divide_float_result(self):
+        assert divide(1, 3) == pytest.approx(0.333, rel=1e-3)
+
+    def test_divide_by_zero_raises_value_error(self):
+        with pytest.raises(ValueError, match="Cannot divide by zero"):
+            divide(10, 0)
+
+    def test_divide_zero_numerator(self):
+        assert divide(0, 5) == 0.0
+```
+
+---
+
+### Coverage Analysis — Sample P0/P1/P2 Output
+
+**Command:**
+```bash
+python scripts/coverage_analyzer.py --report lcov.info --threshold 80
+```
+
+**Sample output:**
+```
+Coverage Report — Overall: 63% (threshold: 80%)
+
+P0 — Critical gaps (uncovered error paths):
+  auth/login.py:42-58   handle_expired_token()       0% covered
+  payments/process.py:91-110  handle_payment_failure()   0% covered
+
+P1 — High-value gaps (core logic branches):
+  users/service.py:77   update_profile() — else branch  0% covered
+  orders/cart.py:134    apply_discount() — zero-qty guard  0% covered
+
+P2 — Low-risk gaps (utility / helper functions):
+  utils/formatting.py:12  format_currency()            0% covered
+
+Recommended: Generate tests for P0 items first to reach 80% threshold.
+```
+
+---
+
+## Key Tools
 
 | Tool | Purpose | Usage |
 |------|---------|-------|
 | `test_generator.py` | Generate test cases from code/requirements | `python scripts/test_generator.py --input source.py --framework pytest` |
 | `coverage_analyzer.py` | Parse and analyze coverage reports | `python scripts/coverage_analyzer.py --report lcov.info --threshold 80` |
 | `tdd_workflow.py` | Guide red-green-refactor cycles | `python scripts/tdd_workflow.py --phase red --test test_auth.py` |
-| `framework_adapter.py` | Convert tests between frameworks | `python scripts/framework_adapter.py --from jest --to pytest` |
 | `fixture_generator.py` | Generate test data and mocks | `python scripts/fixture_generator.py --entity User --count 5` |
-| `metrics_calculator.py` | Calculate test quality metrics | `python scripts/metrics_calculator.py --tests tests/` |
-| `format_detector.py` | Detect language and framework | `python scripts/format_detector.py --file source.ts` |
-| `output_formatter.py` | Format output for CLI/desktop/CI | `python scripts/output_formatter.py --format markdown` |
+
+Additional scripts: `framework_adapter.py` (convert between frameworks), `metrics_calculator.py` (quality metrics), `format_detector.py` (detect language/framework), `output_formatter.py` (CLI/desktop/CI output).
 
 ---
 

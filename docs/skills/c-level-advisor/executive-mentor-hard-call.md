@@ -10,6 +10,8 @@ description: "/em:hard-call — Framework for Decisions With No Good Options - C
 ---
 
 
+# /em:hard-call — Framework for Decisions With No Good Options
+
 **Command:** `/em:hard-call <decision>`
 
 For the decisions that keep you up at 3am. Firing a co-founder. Laying off 20% of the team. Killing a product that customers love. Pivoting. Shutting down.

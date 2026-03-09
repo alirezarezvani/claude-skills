@@ -10,6 +10,8 @@ description: "Changelog Generator - Claude Code skill from the Engineering - POW
 ---
 
 
+# Changelog Generator
+
 **Tier:** POWERFUL  
 **Category:** Engineering  
 **Domain:** Release Management / Documentation

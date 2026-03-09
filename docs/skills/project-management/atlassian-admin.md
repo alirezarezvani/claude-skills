@@ -12,83 +12,54 @@ description: "Atlassian Administrator Expert - Claude Code skill from the Projec
 
 # Atlassian Administrator Expert
 
-System administrator with deep expertise in Atlassian Cloud/Data Center management, user provisioning, security, integrations, and org-wide configuration and governance.
-
-## Core Competencies
-
-**User & Access Management**
-- Provision and deprovision users across Atlassian products
-- Manage groups and group memberships
-- Configure SSO/SAML authentication
-- Implement role-based access control (RBAC)
-- Audit user access and permissions
-
-**Product Administration**
-- Configure Jira global settings and schemes
-- Manage Confluence global templates and blueprints
-- Optimize system performance and indexing
-- Monitor system health and usage
-- Plan and execute upgrades
-
-**Security & Compliance**
-- Implement security policies and standards
-- Configure IP allowlisting and 2FA
-- Manage API tokens and webhooks
-- Conduct security audits
-- Ensure compliance with data regulations (GDPR, SOC 2)
-
-**Integration & Automation**
-- Configure org-wide integrations (Slack, GitHub, etc.)
-- Manage marketplace apps and licenses
-- Set up enterprise automation
-- Configure webhooks and API access
-- Implement SSO with identity providers
-
 ## Workflows
 
 ### User Provisioning
-1. Receive request for new user access
-2. Verify user identity and role
-3. Create user account in organization
-4. Add to appropriate groups (Jira users, Confluence users, etc.)
-5. Assign product access (Jira, Confluence)
-6. Configure default permissions
-7. Send welcome email with onboarding info
-8. **NOTIFY**: Relevant team leads of new member
+1. Create user account: `admin.atlassian.com > User management > Invite users`
+   - REST API: `POST /rest/api/3/user` with `{"emailAddress": "...", "displayName": "...","products": [...]}`
+2. Add to appropriate groups: `admin.atlassian.com > User management > Groups > [group] > Add members`
+3. Assign product access (Jira, Confluence) via `admin.atlassian.com > Products > [product] > Access`
+4. Configure default permissions per group scheme
+5. Send welcome email with onboarding info
+6. **NOTIFY**: Relevant team leads of new member
+7. **VERIFY**: Confirm user appears active at `admin.atlassian.com/o/{orgId}/users` and can log in
 
 ### User Deprovisioning
-1. Receive offboarding request
-2. **CRITICAL**: Audit user's owned content and tickets
-3. Reassign ownership of:
-   - Jira projects
-   - Confluence spaces
-   - Open issues
-   - Filters and dashboards
-4. Remove from all groups
-5. Revoke product access
-6. Deactivate or delete account (per policy)
+1. **CRITICAL**: Audit user's owned content and tickets
+   - Jira: `GET /rest/api/3/search?jql=assignee={accountId}` to find open issues
+   - Confluence: `GET /wiki/rest/api/user/{accountId}/property` to find owned spaces/pages
+2. Reassign ownership of:
+   - Jira projects: `Project settings > People > Change lead`
+   - Confluence spaces: `Space settings > Overview > Edit space details`
+   - Open issues: bulk reassign via `Jira > Issues > Bulk change`
+   - Filters and dashboards: transfer via `User management > [user] > Managed content`
+3. Remove from all groups: `admin.atlassian.com > User management > [user] > Groups`
+4. Revoke product access
+5. Deactivate account: `admin.atlassian.com > User management > [user] > Deactivate`
+   - REST API: `DELETE /rest/api/3/user?accountId={accountId}`
+6. **VERIFY**: Confirm `GET /rest/api/3/user?accountId={accountId}` returns `"active": false`
 7. Document deprovisioning in audit log
-8. **USE**: Jira Expert to reassign issues
+8. **USE**: Jira Expert to reassign any remaining issues
 
 ### Group Management
-1. Create groups based on:
-   - Teams (engineering, product, sales)
-   - Roles (admins, users, viewers)
-   - Projects (project-alpha-team)
-2. Define group purpose and membership criteria
+1. Create groups: `admin.atlassian.com > User management > Groups > Create group`
+   - REST API: `POST /rest/api/3/group` with `{"name": "..."}`
+   - Structure by: Teams (engineering, product, sales), Roles (admins, users, viewers), Projects (project-alpha-team)
+2. Define group purpose and membership criteria (document in Confluence)
 3. Assign default permissions per group
 4. Add users to appropriate groups
-5. Regular review and cleanup (quarterly)
-6. **USE**: Confluence Expert to document group structure
+5. **VERIFY**: Confirm group members via `GET /rest/api/3/group/member?groupName={name}`
+6. Regular review and cleanup (quarterly)
+7. **USE**: Confluence Expert to document group structure
 
 ### Permission Scheme Design
-**Jira Permission Schemes**:
+**Jira Permission Schemes** (`Jira Settings > Issues > Permission Schemes`):
 - **Public Project**: All users can view, members can edit
 - **Team Project**: Team members full access, stakeholders view
 - **Restricted Project**: Named individuals only
 - **Admin Project**: Admins only
 
-**Confluence Permission Schemes**:
+**Confluence Permission Schemes** (`Confluence Admin > Space permissions`):
 - **Public Space**: All users view, space members edit
 - **Team Space**: Team-specific access
 - **Personal Space**: Individual user only
@@ -102,304 +73,153 @@ System administrator with deep expertise in Atlassian Cloud/Data Center manageme
 
 ### SSO Configuration
 1. Choose identity provider (Okta, Azure AD, Google)
-2. Configure SAML settings in Atlassian
-3. Test SSO with admin account
+2. Configure SAML settings: `admin.atlassian.com > Security > SAML single sign-on > Add SAML configuration`
+   - Set Entity ID, ACS URL, and X.509 certificate from IdP
+3. Test SSO with admin account (keep password login active during test)
 4. Test with regular user account
 5. Enable SSO for organization
-6. Enforce SSO (disable password login)
-7. Configure SCIM for auto-provisioning (optional)
-8. Monitor SSO logs for failures
+6. Enforce SSO: `admin.atlassian.com > Security > Authentication policies > Enforce SSO`
+7. Configure SCIM for auto-provisioning: `admin.atlassian.com > User provisioning > [IdP] > Enable SCIM`
+8. **VERIFY**: Confirm SSO flow succeeds and audit logs show `saml.login.success` events
+9. Monitor SSO logs: `admin.atlassian.com > Security > Audit log > filter: SSO`
 
 ### Marketplace App Management
-1. Evaluate app need and security
-2. Review vendor security documentation
+1. Evaluate app need and security: check vendor's security self-assessment at `marketplace.atlassian.com`
+2. Review vendor security documentation (penetration test reports, SOC 2)
 3. Test app in sandbox environment
-4. Purchase or request trial
-5. Install app on production
-6. Configure app settings
+4. Purchase or request trial: `admin.atlassian.com > Billing > Manage subscriptions`
+5. Install app: `admin.atlassian.com > Products > [product] > Apps > Find new apps`
+6. Configure app settings per vendor documentation
 7. Train users on app usage
-8. Monitor app performance and usage
-9. Review app annually for continued need
+8. **VERIFY**: Confirm app appears in `GET /rest/plugins/1.0/` and health check passes
+9. Monitor app performance and usage; review annually for continued need
 
 ### System Performance Optimization
-**Jira Optimization**:
-- Archive old projects and issues
-- Reindex when performance degrades
-- Optimize JQL queries
-- Clean up unused workflows and schemes
-- Monitor queue and thread counts
+**Jira** (`Jira Settings > System`):
+- Archive old projects: `Project settings > Archive project`
+- Reindex: `Jira Settings > System > Indexing > Full re-index`
+- Clean up unused workflows and schemes: `Jira Settings > Issues > Workflows`
+- Monitor queue/thread counts: `Jira Settings > System > System info`
 
-**Confluence Optimization**:
-- Archive inactive spaces
-- Remove orphaned pages
-- Compress attachments
-- Monitor index and cache
-- Clean up unused macros and apps
+**Confluence** (`Confluence Admin > Configuration`):
+- Archive inactive spaces: `Space tools > Overview > Archive space`
+- Remove orphaned pages: `Confluence Admin > Orphaned pages`
+- Monitor index and cache: `Confluence Admin > Cache management`
 
-**Monitoring**:
-- Daily health checks
+**Monitoring Cadence**:
+- Daily health checks: `admin.atlassian.com > Products > [product] > Health`
 - Weekly performance reports
 - Monthly capacity planning
 - Quarterly optimization reviews
 
 ### Integration Setup
 **Common Integrations**:
-- **Slack**: Notifications for Jira and Confluence
-- **GitHub/Bitbucket**: Link commits to issues
-- **Microsoft Teams**: Collaboration and notifications
-- **Zoom**: Meeting links in issues and pages
-- **Salesforce**: Customer issue tracking
+- **Slack**: `Jira Settings > Apps > Slack integration` — notifications for Jira and Confluence
+- **GitHub/Bitbucket**: `Jira Settings > Apps > DVCS accounts` — link commits to issues
+- **Microsoft Teams**: `admin.atlassian.com > Apps > Microsoft Teams`
+- **Zoom**: Available via Marketplace app `zoom-for-jira`
+- **Salesforce**: Via Marketplace app `salesforce-connector`
 
 **Configuration Steps**:
-1. Review integration requirements
-2. Configure OAuth or API authentication
+1. Review integration requirements and OAuth scopes needed
+2. Configure OAuth or API authentication (store tokens in secure vault, not plain text)
 3. Map fields and data flows
-4. Test integration thoroughly
-5. Document configuration
+4. Test integration thoroughly with sample data
+5. Document configuration in Confluence runbook
 6. Train users on integration features
-7. Monitor integration health
+7. **VERIFY**: Confirm webhook delivery via `Jira Settings > System > WebHooks > [webhook] > Test`
+8. Monitor integration health via app-specific dashboards
 
 ## Global Configuration
 
-### Jira Global Settings
-**Issue Types**:
-- Create and manage org-wide issue types
-- Define issue type schemes
-- Standardize across projects
+### Jira Global Settings (`Jira Settings > Issues`)
+**Issue Types**: Create and manage org-wide issue types; define issue type schemes; standardize across projects
+**Workflows**: Create global workflow templates via `Workflows > Add workflow`; manage workflow schemes
+**Custom Fields**: Create org-wide custom fields at `Custom fields > Add custom field`; manage field configurations and context
+**Notification Schemes**: Configure default notification rules; create custom notification schemes; manage email templates
 
-**Workflows**:
-- Create global workflow templates
-- Define standard workflows (simple, complex)
-- Manage workflow schemes
+### Confluence Global Settings (`Confluence Admin`)
+**Blueprints & Templates**: Create org-wide templates at `Configuration > Global Templates and Blueprints`; manage blueprint availability
+**Themes & Appearance**: Configure org branding at `Configuration > Themes`; customize logos and colors
+**Macros**: Enable/disable macros at `Configuration > Macro usage`; configure macro permissions
 
-**Custom Fields**:
-- Create org-wide custom fields
-- Manage field configurations
-- Control field context
-
-**Notification Schemes**:
-- Configure default notification rules
-- Create custom notification schemes
-- Manage email templates
-
-### Confluence Global Settings
-**Blueprints & Templates**:
-- Create org-wide templates
-- Manage blueprint availability
-- Standardize content structure
-
-**Themes & Appearance**:
-- Configure org branding
-- Manage global themes
-- Customize logos and colors
-
-**Macros**:
-- Enable/disable macros
-- Configure macro defaults
-- Manage macro permissions
-
-### Security Settings
+### Security Settings (`admin.atlassian.com > Security`)
 **Authentication**:
-- Password policies (length, complexity, expiry)
-- Session timeout settings
-- Failed login lockout
-- API token management
+- Password policies: `Security > Authentication policies > Edit`
+- Session timeout: `Security > Session duration`
+- API token management: `Security > API token controls`
 
-**Data Residency**:
-- Configure data location (US, EU, APAC)
-- Ensure compliance with regulations
-- Document data residency for audits
+**Data Residency**: Configure data location at `admin.atlassian.com > Data residency > Pin products`
 
-**Encryption**:
-- Enable encryption at rest
-- Configure encryption in transit
-- Manage encryption keys
-
-**Audit Logs**:
-- Enable comprehensive audit logging
-- Review logs regularly for anomalies
-- Export logs for compliance
-- Retain logs per policy (7 years for compliance)
+**Audit Logs**: `admin.atlassian.com > Security > Audit log`
+- Enable comprehensive logging; export via `GET /admin/v1/orgs/{orgId}/audit-log`
+- Retain per policy (minimum 7 years for SOC 2/GDPR compliance)
 
 ## Governance & Policies
 
 ### Access Governance
-**User Access Review**:
-- Quarterly review of all user access
-- Verify user roles and permissions
-- Remove inactive users
-- Update group memberships
-
-**Admin Access Control**:
-- Limit org admins to 2-3 individuals
-- Use project/space admins for delegation
-- Audit admin actions monthly
-- Require MFA for all admins
+- Quarterly review of all user access: `admin.atlassian.com > User management > Export users`
+- Verify user roles and permissions; remove inactive users
+- Limit org admins to 2–3 individuals; audit admin actions monthly
+- Require MFA for all admins: `Security > Authentication policies > Require 2FA`
 
 ### Naming Conventions
-**Jira**:
-- Project keys: 3-4 letters, uppercase (PROJ, WEB)
-- Issue types: Title case, descriptive
-- Custom fields: Prefix with type (CF: Story Points)
-
-**Confluence**:
-- Spaces: Team/Project prefix (TEAM: Engineering)
-- Pages: Descriptive, consistent format
-- Labels: Lowercase, hyphen-separated
+**Jira**: Project keys 3–4 uppercase letters (PROJ, WEB); issue types Title Case; custom fields prefixed (CF: Story Points)
+**Confluence**: Spaces use Team/Project prefix (TEAM: Engineering); pages descriptive and consistent; labels lowercase, hyphen-separated
 
 ### Change Management
-**Major Changes**:
-- Announce 2 weeks in advance
-- Test in sandbox
-- Create rollback plan
-- Execute during off-peak
-- Post-implementation review
-
-**Minor Changes**:
-- Announce 48 hours in advance
-- Document in change log
-- Monitor for issues
+**Major Changes**: Announce 2 weeks in advance; test in sandbox; create rollback plan; execute during off-peak; post-implementation review
+**Minor Changes**: Announce 48 hours in advance; document in change log; monitor for issues
 
 ## Disaster Recovery
 
 ### Backup Strategy
-**Jira**:
-- Daily automated backups
-- Weekly manual verification
-- 30-day retention
-- Offsite storage
+**Jira & Confluence**: Daily automated backups; weekly manual verification; 30-day retention; offsite storage
+- Trigger manual backup: `Jira Settings > System > Backup system` / `Confluence Admin > Backup and Restore`
 
-**Confluence**:
-- Daily automated backups
-- Weekly export validation
-- 30-day retention
-- Offsite storage
-
-**Recovery Testing**:
-- Quarterly recovery drills
-- Document recovery procedures
-- Measure recovery time objectives (RTO)
-- Measure recovery point objectives (RPO)
+**Recovery Testing**: Quarterly recovery drills; document procedures; measure RTO and RPO
 
 ### Incident Response
 **Severity Levels**:
-- **P1 (Critical)**: System down, respond in 15 min
-- **P2 (High)**: Major feature broken, respond in 1 hour
-- **P3 (Medium)**: Minor issue, respond in 4 hours
-- **P4 (Low)**: Enhancement, respond in 24 hours
+- **P1 (Critical)**: System down — respond in 15 min
+- **P2 (High)**: Major feature broken — respond in 1 hour
+- **P3 (Medium)**: Minor issue — respond in 4 hours
+- **P4 (Low)**: Enhancement — respond in 24 hours
 
 **Response Steps**:
-1. Acknowledge incident
+1. Acknowledge and log incident
 2. Assess impact and severity
 3. Communicate status to stakeholders
-4. Investigate root cause
+4. Investigate root cause (check `admin.atlassian.com > Products > [product] > Health` and Atlassian Status Page)
 5. Implement fix
-6. Verify resolution
+6. **VERIFY**: Confirm resolution via affected user test and health check
 7. Post-mortem and lessons learned
 
 ## Metrics & Reporting
 
-### System Health Metrics
-- Active users (daily, weekly, monthly)
-- Storage utilization
-- API rate limits
-- Integration health
-- App performance
-- Response times
+**System Health**: Active users (daily/weekly/monthly), storage utilization, API rate limits, integration health, response times
+- Export via: `GET /admin/v1/orgs/{orgId}/users` for user counts; product-specific analytics dashboards
 
-### Usage Analytics
-- Most active projects/spaces
-- Content creation trends
-- User engagement
-- Search patterns
-- Popular pages/issues
+**Usage Analytics**: Most active projects/spaces, content creation trends, user engagement, search patterns
+**Compliance Metrics**: User access review completion, security audit findings, failed login attempts, API token usage
 
-### Compliance Metrics
-- User access review completion
-- Security audit findings
-- Failed login attempts
-- API token usage
-- Data residency compliance
+## Decision Framework & Handoff Protocols
 
-## Decision Framework
+**Escalate to Atlassian Support**: System outage, performance degradation org-wide, data loss/corruption, license/billing issues, complex migrations
 
-**When to Escalate to Atlassian Support**:
-- System outage or critical bug
-- Performance degradation across org
-- Data loss or corruption
-- License or billing issues
-- Complex migration needs
-
-**When to Delegate to Product Experts**:
+**Delegate to Product Experts**:
 - Jira Expert: Project-specific configuration
 - Confluence Expert: Space-specific settings
 - Scrum Master: Team workflow needs
 - Senior PM: Strategic planning input
 
-**When to Involve Security Team**:
-- Security incidents or breaches
-- Unusual access patterns
-- Compliance audit preparation
-- New integration security review
+**Involve Security Team**: Security incidents, unusual access patterns, compliance audit preparation, new integration security review
 
-## Handoff Protocols
-
-**TO Jira Expert**:
-- New global workflows available
-- Custom field created
-- Permission scheme deployed
-- Automation capabilities enabled
-
-**TO Confluence Expert**:
-- New global template available
-- Space permission scheme updated
-- Blueprint configured
-- Macro enabled/disabled
-
-**TO Senior PM**:
-- Usage analytics for portfolio
-- Capacity planning insights
-- Cost optimization opportunities
-- Security compliance status
-
-**TO Scrum Master**:
-- Team access provisioned
-- Board configuration options
-- Automation rules available
-- Integration enabled
-
-**FROM All Roles**:
-- User access requests
-- Permission change requests
-- App installation requests
-- Configuration support needs
-- Incident reports
-
-## Best Practices
-
-**User Management**:
-- Automate provisioning with SCIM
-- Use groups for scalability
-- Regular access reviews
-- Document user lifecycle
-
-**Security**:
-- Enforce MFA for all users
-- Regular security audits
-- Least privilege principle
-- Monitor anomalous behavior
-
-**Performance**:
-- Proactive monitoring
-- Regular cleanup
-- Optimize before issues occur
-- Capacity planning
-
-**Documentation**:
-- Document all configurations
-- Maintain runbooks
-- Update after changes
-- Make searchable in Confluence
+**TO Jira Expert**: New global workflows, custom fields, permission schemes, or automation capabilities available
+**TO Confluence Expert**: New global templates, space permission schemes, blueprints, or macros configured
+**TO Senior PM**: Usage analytics, capacity planning insights, cost optimization, security compliance status
+**TO Scrum Master**: Team access provisioned, board configuration options, automation rules, integrations enabled
+**FROM All Roles**: User access requests, permission changes, app installation requests, configuration support, incident reports
 
 ## Atlassian MCP Integration
 

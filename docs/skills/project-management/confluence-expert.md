@@ -14,31 +14,42 @@ description: "Atlassian Confluence Expert - Claude Code skill from the Project M
 
 Master-level expertise in Confluence space management, documentation architecture, content creation, macros, templates, and collaborative knowledge management.
 
-## Core Competencies
+## Atlassian MCP Integration
 
-**Space Architecture**
-- Design and create space hierarchies
-- Organize knowledge by teams, projects, or topics
-- Implement documentation taxonomies
-- Configure space permissions and visibility
+**Primary Tool**: Confluence MCP Server
 
-**Content Creation**
-- Create structured pages with layouts
-- Use macros for dynamic content
-- Build templates for consistency
-- Implement version control and change tracking
+**Key Operations**:
 
-**Collaboration & Governance**
-- Facilitate team documentation practices
-- Implement review and approval workflows
-- Manage content lifecycle
-- Establish documentation standards
+```
+// Create a new space
+create_space({ key: "TEAM", name: "Engineering Team", description: "Engineering team knowledge base" })
 
-**Integration & Automation**
-- Link Confluence with Jira
-- Embed dynamic Jira reports
-- Configure page watchers and notifications
-- Set up content automation
+// Create a page under a parent
+create_page({ spaceKey: "TEAM", title: "Sprint 42 Notes", parentId: "123456", body: "<p>Meeting notes in storage-format HTML</p>" })
+
+// Update an existing page (version must be incremented)
+update_page({ pageId: "789012", version: 4, body: "<p>Updated content</p>" })
+
+// Delete a page
+delete_page({ pageId: "789012" })
+
+// Search with CQL
+search({ cql: 'space = "TEAM" AND label = "meeting-notes" ORDER BY lastModified DESC' })
+
+// Retrieve child pages for hierarchy inspection
+get_children({ pageId: "123456" })
+
+// Apply a label to a page
+add_label({ pageId: "789012", label: "archived" })
+```
+
+**Integration Points**:
+- Create documentation for Senior PM projects
+- Support Scrum Master with ceremony templates
+- Link to Jira issues for Jira Expert
+- Provide templates for Template Creator
+
+> **See also**: `MACROS.md` for macro syntax reference, `TEMPLATES.md` for full template library, `PERMISSIONS.md` for permission scheme details.
 
 ## Workflows
 
@@ -51,7 +62,8 @@ Master-level expertise in Confluence space management, documentation architectur
    - Admin privileges
 5. Create initial page tree structure
 6. Add space shortcuts for navigation
-7. **HANDOFF TO**: Teams for content population
+7. **Verify**: Navigate to the space URL and confirm the homepage loads; check that a non-admin test user sees the correct permission level
+8. **HANDOFF TO**: Teams for content population
 
 ### Page Architecture
 **Best Practices**:
@@ -86,7 +98,8 @@ Space Home
 4. Format with appropriate macros
 5. Save as template
 6. Share with space or make global
-7. **USE**: References for advanced template patterns
+7. **Verify**: Create a test page from the template and confirm all placeholders render correctly before sharing with the team
+8. **USE**: References for advanced template patterns
 
 ### Documentation Strategy
 1. **Assess** current documentation state
@@ -114,6 +127,8 @@ Space Home
 - Reviewed quarterly
 
 ## Essential Macros
+
+> Full macro reference with all parameters: see `MACROS.md`.
 
 ### Content Macros
 **Info, Note, Warning, Tip**:
@@ -219,135 +234,18 @@ const example = "code here";
 
 ## Templates Library
 
-### Meeting Notes Template
-```
-**Date**: {date}
-**Attendees**: @user1, @user2
-**Facilitator**: @facilitator
+> Full template library with complete markup: see `TEMPLATES.md`. Key templates summarised below.
 
-## Agenda
-1. Topic 1
-2. Topic 2
-
-## Discussion
-- Key point 1
-- Key point 2
-
-## Decisions
-{info}Decision 1{info}
-
-## Action Items
-{tasks}
-- [ ] Action item 1 (@owner, due date)
-- [ ] Action item 2 (@owner, due date)
-{tasks}
-
-## Next Steps
-- Next meeting date
-```
-
-### Project Overview Template
-```
-{panel:title=Project Quick Facts}
-**Status**: {status:colour=Green|title=Active}
-**Owner**: @owner
-**Start Date**: DD/MM/YYYY
-**End Date**: DD/MM/YYYY
-**Budget**: $XXX,XXX
-{panel}
-
-## Executive Summary
-Brief project description
-
-## Objectives
-1. Objective 1
-2. Objective 2
-
-## Key Stakeholders
-| Name | Role | Responsibility |
-|------|------|----------------|
-| @user | PM | Overall delivery |
-
-## Milestones
-{jira:project=PROJ AND type=Epic}
-
-## Risks & Issues
-| Risk | Impact | Mitigation |
-|------|--------|-----------|
-| Risk 1 | High | Action plan |
-
-## Resources
-- [Design Docs](#)
-- [Technical Specs](#)
-```
-
-### Decision Log Template
-```
-**Decision ID**: PROJ-DEC-001
-**Date**: {date}
-**Status**: {status:colour=Green|title=Approved}
-**Decision Maker**: @decisionmaker
-
-## Context
-Background and problem statement
-
-## Options Considered
-1. Option A
-   - Pros:
-   - Cons:
-2. Option B
-   - Pros:
-   - Cons:
-
-## Decision
-Chosen option and rationale
-
-## Consequences
-Expected outcomes and impacts
-
-## Next Steps
-- [ ] Action 1
-- [ ] Action 2
-```
-
-### Sprint Retrospective Template
-```
-**Sprint**: Sprint XX
-**Date**: {date}
-**Team**: Team Name
-
-## What Went Well
-{info}
-- Positive item 1
-- Positive item 2
-{info}
-
-## What Didn't Go Well
-{warning}
-- Challenge 1
-- Challenge 2
-{warning}
-
-## Action Items
-{tasks}
-- [ ] Improvement 1 (@owner)
-- [ ] Improvement 2 (@owner)
-{tasks}
-
-## Metrics
-**Velocity**: XX points
-**Completed Stories**: X/X
-**Bugs Found**: X
-```
+| Template | Purpose | Key Sections |
+|----------|---------|--------------|
+| **Meeting Notes** | Sprint/team meetings | Agenda, Discussion, Decisions, Action Items (tasks macro) |
+| **Project Overview** | Project kickoff & status | Quick Facts panel, Objectives, Stakeholders table, Milestones (Jira macro), Risks |
+| **Decision Log** | Architectural/strategic decisions | Context, Options Considered, Decision, Consequences, Next Steps |
+| **Sprint Retrospective** | Agile ceremony docs | What Went Well (info), What Didn't (warning), Action Items (tasks), Metrics |
 
 ## Space Permissions
 
-### Permission Levels
-- **View**: Read-only access
-- **Edit**: Modify existing pages
-- **Create**: Add new pages
-- **Delete**: Remove pages
-- **Admin**: Full space control
+> Full permission scheme details: see `PERMISSIONS.md`.
 
 ### Permission Schemes
 **Public Space**:
@@ -448,13 +346,6 @@ Expected outcomes and impacts
 
 ## Best Practices
 
-**Writing Style**:
-- Use active voice
-- Write scannable content (headings, bullets, short paragraphs)
-- Include visuals and diagrams
-- Provide examples
-- Keep language simple and clear
-
 **Organization**:
 - Consistent naming conventions
 - Meaningful labels
@@ -484,22 +375,3 @@ Expected outcomes and impacts
 - Duplicate content
 - Broken links
 - Empty spaces
-
-## Atlassian MCP Integration
-
-**Primary Tool**: Confluence MCP Server
-
-**Key Operations**:
-- Create and manage spaces
-- Create, update, and delete pages
-- Apply templates and macros
-- Manage page hierarchies
-- Configure permissions
-- Search content
-- Extract documentation for analysis
-
-**Integration Points**:
-- Create documentation for Senior PM projects
-- Support Scrum Master with ceremony templates
-- Link to Jira issues for Jira Expert
-- Provide templates for Template Creator

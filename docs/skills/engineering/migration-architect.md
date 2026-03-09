@@ -10,6 +10,8 @@ description: "Migration Architect - Claude Code skill from the Engineering - POW
 ---
 
 
+# Migration Architect
+
 **Tier:** POWERFUL  
 **Category:** Engineering - Migration Strategy  
 **Purpose:** Zero-downtime migration planning, compatibility validation, and rollback strategy generation

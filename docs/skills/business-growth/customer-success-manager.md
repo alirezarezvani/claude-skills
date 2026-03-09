@@ -18,7 +18,6 @@ Production-grade customer success analytics with multi-dimensional health scorin
 
 ## Table of Contents
 
-- [Capabilities](#capabilities)
 - [Input Requirements](#input-requirements)
 - [Output Formats](#output-formats)
 - [How to Use](#how-to-use)
@@ -30,135 +29,21 @@ Production-grade customer success analytics with multi-dimensional health scorin
 
 ---
 
-## Capabilities
-
-- **Customer Health Scoring**: Multi-dimensional weighted scoring across usage, engagement, support, and relationship dimensions with Red/Yellow/Green classification
-- **Churn Risk Analysis**: Behavioral signal detection with tier-based intervention playbooks and time-to-renewal urgency multipliers
-- **Expansion Opportunity Scoring**: Adoption depth analysis, whitespace mapping, and revenue opportunity estimation with effort-vs-impact prioritization
-- **Segment-Aware Benchmarking**: Configurable thresholds for Enterprise, Mid-Market, and SMB customer segments
-- **Trend Analysis**: Period-over-period comparison to detect improving or declining trajectories
-- **Executive Reporting**: QBR templates, success plans, and executive business review templates
-
----
-
 ## Input Requirements
 
-All scripts accept a JSON file as positional input argument. See `assets/sample_customer_data.json` for complete examples.
+All scripts accept a JSON file as positional input argument. See `assets/sample_customer_data.json` for complete schema examples and sample data.
 
 ### Health Score Calculator
 
-```json
-{
-  "customers": [
-    {
-      "customer_id": "CUST-001",
-      "name": "Acme Corp",
-      "segment": "enterprise",
-      "arr": 120000,
-      "usage": {
-        "login_frequency": 85,
-        "feature_adoption": 72,
-        "dau_mau_ratio": 0.45
-      },
-      "engagement": {
-        "support_ticket_volume": 3,
-        "meeting_attendance": 90,
-        "nps_score": 8,
-        "csat_score": 4.2
-      },
-      "support": {
-        "open_tickets": 2,
-        "escalation_rate": 0.05,
-        "avg_resolution_hours": 18
-      },
-      "relationship": {
-        "executive_sponsor_engagement": 80,
-        "multi_threading_depth": 4,
-        "renewal_sentiment": "positive"
-      },
-      "previous_period": {
-        "usage_score": 70,
-        "engagement_score": 65,
-        "support_score": 75,
-        "relationship_score": 60
-      }
-    }
-  ]
-}
-```
+Required fields per customer object: `customer_id`, `name`, `segment`, `arr`, and nested objects `usage` (login_frequency, feature_adoption, dau_mau_ratio), `engagement` (support_ticket_volume, meeting_attendance, nps_score, csat_score), `support` (open_tickets, escalation_rate, avg_resolution_hours), `relationship` (executive_sponsor_engagement, multi_threading_depth, renewal_sentiment), and `previous_period` scores for trend analysis.
 
 ### Churn Risk Analyzer
 
-```json
-{
-  "customers": [
-    {
-      "customer_id": "CUST-001",
-      "name": "Acme Corp",
-      "segment": "enterprise",
-      "arr": 120000,
-      "contract_end_date": "2026-06-30",
-      "usage_decline": {
-        "login_trend": -15,
-        "feature_adoption_change": -10,
-        "dau_mau_change": -0.08
-      },
-      "engagement_drop": {
-        "meeting_cancellations": 2,
-        "response_time_days": 5,
-        "nps_change": -3
-      },
-      "support_issues": {
-        "open_escalations": 1,
-        "unresolved_critical": 0,
-        "satisfaction_trend": "declining"
-      },
-      "relationship_signals": {
-        "champion_left": false,
-        "sponsor_change": false,
-        "competitor_mentions": 1
-      },
-      "commercial_factors": {
-        "contract_type": "annual",
-        "pricing_complaints": false,
-        "budget_cuts_mentioned": false
-      }
-    }
-  ]
-}
-```
+Required fields per customer object: `customer_id`, `name`, `segment`, `arr`, `contract_end_date`, and nested objects `usage_decline`, `engagement_drop`, `support_issues`, `relationship_signals`, and `commercial_factors`.
 
 ### Expansion Opportunity Scorer
 
-```json
-{
-  "customers": [
-    {
-      "customer_id": "CUST-001",
-      "name": "Acme Corp",
-      "segment": "enterprise",
-      "arr": 120000,
-      "contract": {
-        "licensed_seats": 100,
-        "active_seats": 95,
-        "plan_tier": "professional",
-        "available_tiers": ["professional", "enterprise", "enterprise_plus"]
-      },
-      "product_usage": {
-        "core_platform": {"adopted": true, "usage_pct": 85},
-        "analytics_module": {"adopted": true, "usage_pct": 60},
-        "integrations_module": {"adopted": false, "usage_pct": 0},
-        "api_access": {"adopted": true, "usage_pct": 40},
-        "advanced_reporting": {"adopted": false, "usage_pct": 0}
-      },
-      "departments": {
-        "current": ["engineering", "product"],
-        "potential": ["marketing", "sales", "support"]
-      }
-    }
-  ]
-}
-```
+Required fields per customer object: `customer_id`, `name`, `segment`, `arr`, and nested objects `contract` (licensed_seats, active_seats, plan_tier, available_tiers), `product_usage` (per-module adoption flags and usage percentages), and `departments` (current and potential).
 
 ---
 
@@ -194,16 +79,25 @@ python scripts/expansion_opportunity_scorer.py assets/sample_customer_data.json 
 ```bash
 # 1. Score customer health across portfolio
 python scripts/health_score_calculator.py customer_portfolio.json --format json > health_results.json
+# Verify: confirm health_results.json contains the expected number of customer records before continuing
 
 # 2. Identify at-risk accounts
 python scripts/churn_risk_analyzer.py customer_portfolio.json --format json > risk_results.json
+# Verify: confirm risk_results.json is non-empty and risk tiers are present for each customer
 
 # 3. Find expansion opportunities in healthy accounts
 python scripts/expansion_opportunity_scorer.py customer_portfolio.json --format json > expansion_results.json
+# Verify: confirm expansion_results.json lists opportunities ranked by priority
 
 # 4. Prepare QBR using templates
 # Reference: assets/qbr_template.md
 ```
+
+**Error handling:** If a script exits with an error, check that:
+- The input JSON matches the required schema for that script (see Input Requirements above)
+- All required fields are present and correctly typed
+- Python 3.7+ is being used (`python --version`)
+- Output files from prior steps are non-empty before piping into subsequent steps
 
 ---
 
@@ -297,12 +191,10 @@ python scripts/expansion_opportunity_scorer.py customer_data.json --format json
 
 ## Best Practices
 
-1. **Score regularly**: Run health scoring weekly for Enterprise, bi-weekly for Mid-Market, monthly for SMB
+1. **Combine signals**: Use all three scripts together for a complete customer picture
 2. **Act on trends, not snapshots**: A declining Green is more urgent than a stable Yellow
-3. **Combine signals**: Use all three scripts together for a complete customer picture
-4. **Calibrate thresholds**: Adjust segment benchmarks based on your product and industry
-5. **Document interventions**: Track what actions you took and outcomes for playbook refinement
-6. **Prepare with data**: Run scripts before every QBR and executive meeting
+3. **Calibrate thresholds**: Adjust segment benchmarks based on your product and industry per `references/health-scoring-framework.md`
+4. **Prepare with data**: Run scripts before every QBR and executive meeting; reference `references/cs-playbooks.md` for intervention guidance
 
 ---
 

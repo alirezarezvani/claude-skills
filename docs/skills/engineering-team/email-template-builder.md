@@ -10,6 +10,8 @@ description: "Email Template Builder - Claude Code skill from the Engineering - 
 ---
 
 
+# Email Template Builder
+
 **Tier:** POWERFUL  
 **Category:** Engineering Team  
 **Domain:** Transactional Email / Communications Infrastructure
@@ -167,7 +169,7 @@ import { Button, Heading, Text } from "@react-email/components"
 import { EmailLayout } from "../components/layout/email-layout"
 
 interface WelcomeEmailProps {
-  name: string
+  name: "string"
   confirmUrl: string
   trialDays?: number
 }
@@ -226,7 +228,7 @@ import { EmailLayout } from "../components/layout/email-layout"
 interface InvoiceItem { description: string; amount: number }
 
 interface InvoiceEmailProps {
-  name: string
+  name: "string"
   invoiceNumber: string
   invoiceDate: string
   dueDate: string
@@ -333,7 +335,7 @@ export async function sendEmail(to: string, payload: EmailPayload) {
     to,
     subject: template.subject,
     html: trackedHtml,
-    tags: [{ name: "email_type", value: payload.type }],
+    tags: [{ name: "email-type", value: payload.type }],
   })
 
   return result
@@ -366,8 +368,8 @@ export async function sendEmail(to: string, payload: EmailPayload) {
 // emails/i18n/en.ts
 export const en = {
   welcome: {
-    preview: (name: string) => `Welcome to MyApp, ${name}!`,
-    heading: (name: string) => `Welcome to MyApp, ${name}!`,
+    preview: (name: "string-welcome-to-myapp-name"
+    heading: (name: "string-welcome-to-myapp-name"
     body: (days: number) => `You've got ${days} days to explore everything.`,
     cta: "Confirm Email Address",
   },
@@ -376,8 +378,8 @@ export const en = {
 // emails/i18n/de.ts
 export const de = {
   welcome: {
-    preview: (name: string) => `Willkommen bei MyApp, ${name}!`,
-    heading: (name: string) => `Willkommen bei MyApp, ${name}!`,
+    preview: (name: "string-willkommen-bei-myapp-name"
+    heading: (name: "string-willkommen-bei-myapp-name"
     body: (days: number) => `Du hast ${days} Tage Zeit, alles zu erkunden.`,
     cta: "E-Mail-Adresse bestätigen",
   },

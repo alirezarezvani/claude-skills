@@ -144,7 +144,7 @@ For any event not auto-collected, create it in GTM (preferred) or via gtag direc
 gtag('event', 'signup_completed', {
   method: 'email',
   user_id: 'usr_abc123',
-  plan_name: 'trial'
+  plan_name: "trial"
 });
 ```
 
@@ -207,7 +207,7 @@ window.dataLayer.push({
   event: 'signup_completed',
   signup_method: 'email',
   user_id: userId,
-  plan_name: 'trial'
+  plan_name: "trial"
 });
 ```
 
@@ -217,7 +217,7 @@ GTM Tag: GA4 Event
   Parameters:
     signup_method: {{DLV - signup_method}}
     user_id: {{DLV - user_id}}
-    plan_name: {{DLV - plan_name}}
+    plan_name: "dlv-plan-name"
 Trigger: Custom Event - "signup_completed"
 ```
 

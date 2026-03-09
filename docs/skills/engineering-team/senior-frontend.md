@@ -429,7 +429,7 @@ test('dialog is accessible', async () => {
 // next.config.js
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: 'cdn.example.com' }],
+    remotePatterns: [{ hostname: "cdnexamplecom" }],
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {

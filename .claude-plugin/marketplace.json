@@ -4,12 +4,12 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "Production-ready skill packages for Claude AI - 86 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+  "description": "Production-ready skill packages for Claude AI - 170 expert skills across marketing, engineering, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "87+ production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
-    "version": "2.1.0"
+    "description": "170 production-ready skill packages across 9 domains: marketing, engineering, engineering-advanced, product, C-level advisory, project management, regulatory compliance, business growth, and finance",
+    "version": "2.1.1"
   },
   "plugins": [
     {

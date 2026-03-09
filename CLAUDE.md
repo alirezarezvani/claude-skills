@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 134 production-ready skills across 9 domains with 185+ Python automation tools and 250+ reference guides.
+**Current Scope:** 170 production-ready skills across 9 domains with 210+ Python automation tools, 310+ reference guides, 12 agents, and 5 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -36,18 +36,22 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
-├── agents/                    # cs-* prefixed agents (in development)
-├── marketing-skill/           # 7 marketing skills + Python tools
+├── agents/                    # 12 cs-* prefixed agents across all domains
+├── commands/                  # 5 slash commands (changelog, tdd, tech-debt, etc.)
+├── engineering-team/          # 23 core engineering skills + Playwright Pro + Self-Improving Agent
+├── engineering/               # 25 POWERFUL-tier advanced skills
 ├── product-team/              # 8 product skills + Python tools
-├── engineering-team/          # 22 core engineering skills + Python tools
-├── engineering/               # 25 POWERFUL-tier advanced skills (v2.0.0)
-├── c-level-advisor/           # 2 C-level skills
-├── project-management/        # 6 PM skills + Atlassian MCP + packaged-skills
+├── marketing-skill/           # 42 marketing skills (7 pods) + Python tools
+├── c-level-advisor/           # 28 C-level advisory skills (10 roles + orchestration)
+├── project-management/        # 6 PM skills + Atlassian MCP
 ├── ra-qm-team/                # 12 RA/QM compliance skills
 ├── business-growth/           # 4 business & growth skills + Python tools
 ├── finance/                   # 1 finance skill + Python tools
+├── eval-workspace/            # Skill evaluation results (Tessl)
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates
+├── docs/                      # MkDocs Material documentation site
+├── scripts/                   # Build scripts (docs generation)
 └── documentation/             # Implementation plans, sprints, delivery
 ```
 
@@ -120,29 +124,29 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.0.0 (released 2026-02-16)
+**Version:** v2.1.1 (latest)
 
-**v2.0.0 Highlights:**
+**v2.1.1 Highlights:**
+- 18 skills optimized from 66-83% to 85-100% via Tessl quality review
+- 21 over-500-line skills split into SKILL.md + references/
+- YAML frontmatter (name + description) added to all SKILL.md files
+- 6 new agents + 5 slash commands for full domain coverage
+- MkDocs Material documentation site at alirezarezvani.github.io/claude-skills
+
+**v2.0.0 (2026-02-16):**
 - 25 POWERFUL-tier engineering skills added (engineering/ folder)
 - Plugin marketplace infrastructure (.claude-plugin/marketplace.json)
-- VirusTotal security scanning for skills (CI)
 - Multi-platform support: Claude Code, OpenAI Codex, OpenClaw
-- Skills enhanced with production Python scripts and Anthropic best practices
 
-**Past Sprints:** See [documentation/delivery/](documentation/delivery/) for sprint history.
+**Past Sprints:** See [documentation/delivery/](documentation/delivery/) and [CHANGELOG.md](CHANGELOG.md) for history.
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 134 production-ready skills deployed across 9 domains
-- Marketing (7), C-Level (33), Product (8), PM (6), Engineering Core (23), Engineering Advanced (14), RA/QM (12), Business & Growth (4), Finance (1)
-- 160+ Python automation tools, 200+ reference guides
-- Complete enterprise coverage from marketing through regulatory compliance, sales, customer success, and finance
-
-**Next Priorities:**
-- **Phase 3 (Q2 2026):** Marketing expansion - SEO optimizer, social media manager, growth marketer
-- **Phase 4 (Q3 2026):** Specialized domains - Mobile, blockchain, web3, advanced analytics
-
-**Target:** 100+ skills by Q3 2026
+**Phase 1-2 Complete:** 170 production-ready skills deployed across 9 domains
+- Engineering Core (23), Engineering POWERFUL (25), Product (8), Marketing (42), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (1)
+- 210+ Python automation tools, 310+ reference guides, 12 agents, 5 commands
+- Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
+- MkDocs Material docs site with 170+ indexed pages for SEO
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
@@ -181,5 +185,5 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 ---
 
 **Last Updated:** March 2026
-**Version:** v2.0.0
-**Status:** 134 skills deployed across 9 domains, plugin marketplace active
+**Version:** v2.1.1
+**Status:** 170 skills deployed across 9 domains, 18 marketplace plugins, docs site live

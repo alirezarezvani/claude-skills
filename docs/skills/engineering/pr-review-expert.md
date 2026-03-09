@@ -10,6 +10,8 @@ description: "PR Review Expert - Claude Code skill from the Engineering - POWERF
 ---
 
 
+# PR Review Expert
+
 **Tier:** POWERFUL
 **Category:** Engineering
 **Domain:** Code Review / Quality Assurance

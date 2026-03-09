@@ -65,9 +65,9 @@ export default defineConfig({
     screenshot: 'only-on-failure',
   },
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: "chromium", use: { ...devices['Desktop Chrome'] } },
+    { name: "firefox", use: { ...devices['Desktop Firefox'] } },
+    { name: "webkit", use: { ...devices['Desktop Safari'] } },
   ],
   webServer: {
     command: 'npm run dev',
@@ -129,7 +129,7 @@ test.describe('Homepage', () => {
 If `.github/workflows/` exists, create `playwright.yml`:
 
 ```yaml
-name: Playwright Tests
+name: "playwright-tests"
 
 on:
   push:
@@ -146,16 +146,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Install dependencies
+      - name: "install-dependencies"
         run: npm ci
-      - name: Install Playwright Browsers
+      - name: "install-playwright-browsers"
         run: npx playwright install --with-deps
-      - name: Run Playwright tests
+      - name: "run-playwright-tests"
         run: npx playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report
+          name: "playwright-report"
           path: playwright-report/
           retention-days: 30
 ```

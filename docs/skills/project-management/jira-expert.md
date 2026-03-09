@@ -14,31 +14,21 @@ description: "Atlassian Jira Expert - Claude Code skill from the Project Managem
 
 Master-level expertise in Jira configuration, project management, JQL, workflows, automation, and reporting. Handles all technical and operational aspects of Jira.
 
-## Core Competencies
+## Quick Start — Most Common Operations
 
-**Project Configuration**
-- Create and configure Jira projects (Scrum, Kanban, custom)
-- Design and implement custom workflows
-- Configure issue types, fields, and screens
-- Set up project permissions and security schemes
+**Create a project**:
+```
+mcp jira create_project --name "My Project" --key "MYPROJ" --type scrum --lead "user@example.com"
+```
 
-**JQL Mastery**
-- Write advanced JQL queries for any use case
-- Create complex filters with multiple conditions
-- Optimize query performance
-- Build saved filters for team use
+**Run a JQL query**:
+```
+mcp jira search_issues --jql "project = MYPROJ AND status != Done AND dueDate < now()" --maxResults 50
+```
 
-**Automation & Integration**
-- Design Jira automation rules
-- Configure webhooks and integrations
-- Set up email notifications
-- Integrate with external tools (Confluence, Slack, etc.)
+For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integration). For JQL functions, see [JQL Functions Reference](#jql-functions-reference). For report templates, see [Reporting Templates](#reporting-templates).
 
-**Reporting & Dashboards**
-- Create custom dashboards with gadgets
-- Build reports for sprint metrics, velocity, burndown
-- Configure portfolio-level reporting
-- Export data for executive reporting
+---
 
 ## Workflows
 
@@ -60,9 +50,9 @@ Master-level expertise in Jira configuration, project management, JQL, workflows
 2. Define transitions and conditions
 3. Add validators, post-functions, and conditions
 4. Configure workflow scheme
-5. Associate workflow with project
-6. Test workflow with sample issues
-7. **USE**: References for complex workflow patterns
+5. **Validate**: Deploy to a test project first; verify all transitions, conditions, and post-functions behave as expected before associating with production projects
+6. Associate workflow with project
+7. Test workflow with sample issues
 
 ### JQL Query Building
 **Basic Structure**: `field operator value`
@@ -132,7 +122,6 @@ assignee in (user1, user2) AND sprint in openSprints()
    - Post comment
 4. Test automation with sample data
 5. Enable and monitor
-6. **USE**: References for complex automation patterns
 
 ## Advanced Features
 
@@ -142,12 +131,7 @@ assignee in (user1, user2) AND sprint in openSprints()
 - Capture process-specific information
 - Enable advanced reporting
 
-**Field Types**:
-- Text: Short text, paragraph
-- Numeric: Number, decimal
-- Date: Date picker, date-time
-- Select: Single select, multi-select, cascading
-- User: User picker, multi-user picker
+**Field Types**: Text, Numeric, Date, Select (single/multi/cascading), User picker
 
 **Configuration**:
 1. Create custom field
@@ -186,7 +170,7 @@ assignee in (user1, user2) AND sprint in openSprints()
 1. Use JQL to find target issues
 2. Select bulk change operation
 3. Choose fields to update
-4. Preview changes
+4. **Validate**: Preview all changes before executing; confirm the JQL filter matches only intended issues — bulk edits are difficult to reverse
 5. Execute and confirm
 6. Monitor background task
 
@@ -194,50 +178,30 @@ assignee in (user1, user2) AND sprint in openSprints()
 - Move multiple issues through workflow
 - Useful for sprint cleanup
 - Requires appropriate permissions
+- **Validate**: Run the JQL filter and review results in small batches before applying at scale
 
 ## JQL Functions Reference
 
-**Date Functions**:
-- `startOfDay()`, `endOfDay()`
-- `startOfWeek()`, `endOfWeek()`
-- `startOfMonth()`, `endOfMonth()`
-- `startOfYear()`, `endOfYear()`
+> **Tip**: Save frequently used queries as named filters instead of re-running complex JQL ad hoc. See [Best Practices](#best-practices) for performance guidance.
 
-**Sprint Functions**:
-- `openSprints()`
-- `closedSprints()`
-- `futureSprints()`
+**Date**: `startOfDay()`, `endOfDay()`, `startOfWeek()`, `endOfWeek()`, `startOfMonth()`, `endOfMonth()`, `startOfYear()`, `endOfYear()`
 
-**User Functions**:
-- `currentUser()`
-- `membersOf("group")`
+**Sprint**: `openSprints()`, `closedSprints()`, `futureSprints()`
 
-**Advanced Functions**:
-- `issueHistory()`
-- `linkedIssues()`
-- `issuesWithFixVersions()`
+**User**: `currentUser()`, `membersOf("group")`
+
+**Advanced**: `issueHistory()`, `linkedIssues()`, `issuesWithFixVersions()`
 
 ## Reporting Templates
 
-**Sprint Report**:
-```jql
-project = PROJ AND sprint = 23
-```
+> **Tip**: These JQL snippets can be saved as shared filters or wired directly into Dashboard gadgets (see [Dashboard Creation](#dashboard-creation)).
 
-**Team Velocity**:
-```jql
-assignee in (team) AND sprint in closedSprints() AND resolution = Done
-```
-
-**Bug Trend**:
-```jql
-type = Bug AND created >= -30d
-```
-
-**Blocker Analysis**:
-```jql
-priority = Blocker AND status != Done
-```
+| Report | JQL |
+|---|---|
+| Sprint Report | `project = PROJ AND sprint = 23` |
+| Team Velocity | `assignee in (team) AND sprint in closedSprints() AND resolution = Done` |
+| Bug Trend | `type = Bug AND created >= -30d` |
+| Blocker Analysis | `priority = Blocker AND status != Done` |
 
 ## Decision Framework
 
@@ -289,35 +253,52 @@ priority = Blocker AND status != Done
 ## Best Practices
 
 **Data Quality**:
-- Enforce required fields
-- Use field validation
-- Regular cleanup of stale issues
-- Consistent naming conventions
+- Enforce required fields with field validation rules
+- Use consistent issue key naming conventions per project type
+- Schedule regular cleanup of stale/orphaned issues
 
 **Performance**:
-- Optimize JQL queries
-- Limit dashboard gadgets
-- Use saved filters
-- Archive old projects
+- Avoid leading wildcards in JQL (`~` on large text fields is expensive)
+- Use saved filters instead of re-running complex JQL ad hoc
+- Limit dashboard gadgets to reduce page load time
+- Archive completed projects rather than deleting to preserve history
 
 **Governance**:
-- Document workflow rationale
-- Version control for schemes
-- Change management for major updates
-- Regular permission audits
+- Document rationale for custom workflow states and transitions
+- Version-control permission/workflow schemes before making changes
+- Require change management review for org-wide scheme updates
+- Run permission audits after user role changes
 
 ## Atlassian MCP Integration
 
 **Primary Tool**: Jira MCP Server
 
-**Key Operations**:
-- Create and configure projects
-- Execute JQL queries for data extraction
-- Update issue fields and statuses
-- Create and manage sprints
-- Generate reports and dashboards
-- Configure workflows and automation
-- Manage boards and filters
+**Key Operations with Example Commands**:
+
+Create a project:
+```
+mcp jira create_project --name "My Project" --key "MYPROJ" --type scrum --lead "user@example.com"
+```
+
+Execute a JQL query:
+```
+mcp jira search_issues --jql "project = MYPROJ AND status != Done AND dueDate < now()" --maxResults 50
+```
+
+Update an issue field:
+```
+mcp jira update_issue --issue "MYPROJ-42" --field "status" --value "In Progress"
+```
+
+Create a sprint:
+```
+mcp jira create_sprint --board 10 --name "Sprint 5" --startDate "2024-06-01" --endDate "2024-06-14"
+```
+
+Create a board filter:
+```
+mcp jira create_filter --name "Open Blockers" --jql "priority = Blocker AND status != Done" --shareWith "project-team"
+```
 
 **Integration Points**:
 - Pull metrics for Senior PM reporting

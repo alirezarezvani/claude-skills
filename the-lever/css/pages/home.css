@@ -1,0 +1,12 @@
+/* ============================================
+   THE LEVER — Homepage Styles
+   ============================================ */
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}

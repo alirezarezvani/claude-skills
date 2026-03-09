@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reese — The Lever</title>
+  <meta name="description" content="Reese writes Signal and Contrarian for The Lever. She pulls data from actual local business campaigns and figures out what's actually moving the needle right now.">
+  <meta property="og:title" content="Reese — The Lever">
+  <meta property="og:description" content="Signal + Contrarian. Separating the noise from the news — and saying 'that's wrong' when it is.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="../images/og-default.svg">
+  <link rel="icon" href="../images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="../fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/whimsy.css">
+  <link rel="stylesheet" href="../css/pages/contributor.css">
+
+  <!-- Schema: Person + ProfilePage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Reese",
+        "url": "https://thelever.co/contributors/reese",
+        "description": "Reese watches patterns, pulls data from actual local business campaigns, and figures out what's actually moving the needle right now.",
+        "memberOf": {
+          "@type": "Organization",
+          "name": "The Lever",
+          "url": "https://thelever.co"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "name": "Reese — The Lever",
+        "url": "https://thelever.co/contributors/reese",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Reese"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thelever.co"},
+          {"@type": "ListItem", "position": 2, "name": "Contributors", "item": "https://thelever.co/contributors"},
+          {"@type": "ListItem", "position": 3, "name": "Reese", "item": "https://thelever.co/contributors/reese"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="../columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="../archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="../about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="../subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="../columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="../archive.html" class="mobile-menu__link">Archive</a>
+    <a href="../about.html" class="mobile-menu__link">About</a>
+    <a href="../subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== BREADCRUMB ===== -->
+      <div class="breadcrumb reveal">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Contributors</span>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Reese</span>
+      </div>
+
+      <!-- ===== CONTRIBUTOR HERO ===== -->
+      <section class="contributor-hero reveal">
+        <div class="contributor-hero__avatar" style="background:var(--terra);">
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="96" height="96" rx="24" fill="var(--terra)"/>
+            <text x="48" y="56" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="900" fill="white">R</text>
+          </svg>
+        </div>
+        <h1 class="contributor-hero__name">Reese</h1>
+        <p class="contributor-hero__columns">Signal &middot; Contrarian</p>
+        <p class="contributor-hero__bio">
+          Reese watches patterns. While everyone else is reading the same SEO blog posts from 2022, she's pulling data from actual local business campaigns and figuring out what's actually moving the needle right now. She writes Signal because someone needs to separate the noise from the news. She writes Contrarian because someone needs to say &ldquo;that's wrong&rdquo; when it is &mdash; and show why.
+        </p>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== ARTICLES ===== -->
+      <section class="contributor-articles reveal">
+        <h2 class="contributor-articles__heading">Articles by Reese</h2>
+
+        <div class="article-list">
+
+          <a href="../articles/quiet-ranking-factor.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--signal">
+              <span class="column-glyph__dot"></span>Signal
+            </span>
+            <h3 class="article-list__title">The quiet ranking factor that moved a restaurant from page 3 to the Map Pack in 6 weeks</h3>
+          </a>
+
+          <a href="../articles/website-not-destination.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--signal">
+              <span class="column-glyph__dot"></span>Signal
+            </span>
+            <h3 class="article-list__title">Your website might not be the thing people look at anymore</h3>
+          </a>
+
+          <a href="../articles/local-seo-outdated.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--contrarian">
+              <span class="column-glyph__dot"></span>Contrarian
+            </span>
+            <h3 class="article-list__title">Most local SEO advice is two years out of date. Here's what we'd actually do right now.</h3>
+          </a>
+
+        </div>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== SUBSCRIBE CTA DARK ===== -->
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-3xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Next time someone asks<br>"have you tried&hellip;"<br>you'll <em>already have.</em>
+        </h2>
+        <p style="font-size:var(--text-base); color:rgba(255,255,255,0.35); line-height:1.7; max-width:26rem; margin:0 auto var(--space-xl); position:relative;">
+          One email. Fridays. What we tested that week inside real local businesses &mdash; and what actually worked.
+        </p>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="../columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="../columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="../columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="../columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="../columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="../about.html" class="site-footer__link">About The Lever</a>
+          <a href="kyle.html" class="site-footer__link">Kyle</a>
+          <a href="reese.html" class="site-footer__link">Reese</a>
+          <a href="../colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="../subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Footer lever tip animation
+    const leverObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('lever-anim--tipped');
+      });
+    }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever');
+    if (lever) leverObs.observe(lever);
+  </script>
+
+</body>
+</html>

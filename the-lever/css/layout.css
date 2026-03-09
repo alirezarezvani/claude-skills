@@ -1,0 +1,126 @@
+/* ============================================
+   THE LEVER — Layout System
+   Containers, grids, spacing utilities.
+   ============================================ */
+
+/* === CONTAINERS === */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.page--wide {
+  max-width: var(--wide-width);
+}
+
+.page--full {
+  max-width: var(--page-width);
+}
+
+/* Full-bleed sections that break out of .page */
+.bleed {
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* === FLEX UTILITIES === */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+
+/* === GRID === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === SPACING BLOCKS === */
+.spacer-hero   { height: var(--space-hero); }
+.spacer-section { height: var(--space-section); }
+.spacer-xl     { height: clamp(3rem, 6vh, 5rem); }
+.spacer-lg     { height: clamp(2rem, 4vh, 3.5rem); }
+.spacer-md     { height: clamp(1.25rem, 2.5vh, 2rem); }
+
+/* === MAIN CONTENT AREA === */
+main {
+  padding-top: 58px; /* Nav height */
+}
+
+/* === TEXT ALIGNMENT === */
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+/* === MAX WIDTHS === */
+.max-w-reading { max-width: var(--content-width); }
+.max-w-narrow  { max-width: 28rem; }
+.max-w-wide    { max-width: var(--wide-width); }
+.mx-auto       { margin-left: auto; margin-right: auto; }
+
+/* === RESPONSIVE SHOW/HIDE === */
+.hide-mobile {
+  display: none;
+}
+
+.show-mobile {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .hide-mobile {
+    display: initial;
+  }
+  .show-mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive — The Lever</title>
+  <meta name="description" content="Every issue of The Lever. Every article. Everything we've published about AI, automation, and marketing for local businesses.">
+  <meta property="og:title" content="Archive — The Lever">
+  <meta property="og:description" content="Every issue. Every article. Everything we've published.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-default.svg">
+  <link rel="icon" href="images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/whimsy.css">
+  <link rel="stylesheet" href="css/pages/archive.css">
+
+  <!-- Schema: CollectionPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "name": "Archive — The Lever",
+        "url": "https://thelever.co/archive",
+        "description": "Every issue of The Lever. Every article. Everything we've published.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "The Lever",
+          "url": "https://thelever.co"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thelever.co"},
+          {"@type": "ListItem", "position": 2, "name": "Archive", "item": "https://thelever.co/archive"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="archive.html" class="site-nav__link site-nav__link--active wiggle-hover">Archive</a>
+      <a href="about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="archive.html" class="mobile-menu__link">Archive</a>
+    <a href="about.html" class="mobile-menu__link">About</a>
+    <a href="subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== BREADCRUMB ===== -->
+      <div class="breadcrumb reveal">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Archive</span>
+      </div>
+
+      <!-- ===== PAGE HEADER ===== -->
+      <div class="page-header reveal">
+        <h1 class="page-header__title">The Archive</h1>
+        <p class="page-header__subtitle">Every issue. Every article. Everything we've published.</p>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== 2026 ===== -->
+      <section class="archive-year reveal">
+        <span class="archive-year__label">2026</span>
+
+        <div class="issue-cards">
+
+          <a href="issues/009.html" class="issue-card paper-lift tilt-hover reveal" style="display:block;">
+            <span class="issue-card__number">No. 009</span>
+            <span class="issue-card__date">March 7, 2026</span>
+            <span class="issue-card__title">A restaurant owner didn't notice his phone was being answered by AI. For four days.</span>
+          </a>
+
+          <div class="issue-card issue-card--coming-soon reveal">
+            <span class="issue-card__number">No. 008</span>
+            <span class="issue-card__date">Feb 28, 2026</span>
+            <span class="issue-card__title">Coming soon</span>
+          </div>
+
+          <div class="issue-card issue-card--coming-soon reveal">
+            <span class="issue-card__number">No. 007</span>
+            <span class="issue-card__date">Feb 21, 2026</span>
+            <span class="issue-card__title">Coming soon</span>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== SUBSCRIBE CTA DARK ===== -->
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-3xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Next time someone asks<br>"have you tried&hellip;"<br>you'll <em>already have.</em>
+        </h2>
+        <p style="font-size:var(--text-base); color:rgba(255,255,255,0.35); line-height:1.7; max-width:26rem; margin:0 auto var(--space-xl); position:relative;">
+          One email. Fridays. What we tested that week inside real local businesses &mdash; and what actually worked.
+        </p>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="about.html" class="site-footer__link">About The Lever</a>
+          <a href="contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Footer lever tip animation
+    const leverObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('lever-anim--tipped');
+      });
+    }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever');
+    if (lever) leverObs.observe(lever);
+  </script>
+
+</body>
+</html>

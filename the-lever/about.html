@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — The Lever</title>
+  <meta name="description" content="Kyle and Reese work inside local businesses every week, testing AI, automation, and marketing. They write about what actually works.">
+  <meta property="og:title" content="About — The Lever">
+  <meta property="og:description" content="We got tired of the same advice recycled in different fonts. So we started testing things ourselves.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-default.svg">
+  <link rel="icon" href="images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/whimsy.css">
+  <link rel="stylesheet" href="css/pages/about.css">
+
+  <!-- Schema: AboutPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About The Lever",
+    "url": "https://thelever.co/about",
+    "description": "Kyle and Reese work inside local businesses every week, testing AI, automation, and marketing. They write about what actually works.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "The Lever",
+      "url": "https://thelever.co",
+      "founder": [
+        {"@type": "Person", "name": "Kyle", "jobTitle": "Co-founder", "url": "https://thelever.co/contributors/kyle"},
+        {"@type": "Person", "name": "Reese", "jobTitle": "Co-founder", "url": "https://thelever.co/contributors/reese"}
+      ],
+      "description": "AI, automation, and marketing insights tested inside real local businesses every week."
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="about.html" class="site-nav__link site-nav__link--active wiggle-hover">About</a>
+      <a href="subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="archive.html" class="mobile-menu__link">Archive</a>
+    <a href="about.html" class="mobile-menu__link">About</a>
+    <a href="subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== HERO ===== -->
+      <section class="about-hero reveal">
+        <h1 class="hero-title" style="font-size:var(--text-4xl); max-width:32rem; margin:0 auto;">
+          We got tired of the same advice recycled in <em class="hero-em">different fonts.</em>
+        </h1>
+      </section>
+
+      <!-- Decorative squiggle -->
+      <div class="doodle-divider reveal squiggly">
+        <svg viewBox="0 0 80 12" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 6 Q5 2 10 6 Q15 10 20 6 Q25 2 30 6 Q35 10 40 6 Q45 2 50 6 Q55 10 60 6 Q65 2 70 6 Q75 10 80 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== THE STORY ===== -->
+      <section class="about-section reveal">
+        <h2 class="about-section__title">The short version</h2>
+
+        <p class="body-lg" style="margin-bottom:var(--space-lg);">
+          Kyle and Reese work inside local businesses &mdash; restaurants, salons, clinics, trades. Every week they test AI tools, automation workflows, and marketing strategies. Not in a lab. Not in a case study from 2019. Inside real businesses with real budgets and real customers who just want their food hot and their haircut right.
+        </p>
+
+        <p class="body-lg" style="margin-bottom:var(--space-lg);">
+          They got frustrated. About 90% of marketing advice on the internet is written by people who have never run a Google Ads campaign for a burger restaurant. Who&rsquo;ve never debugged a booking system for a salon at 11pm on a Tuesday. Who talk about &ldquo;leveraging AI&rdquo; but couldn&rsquo;t tell you what happens when you actually try it on a real business with a real budget.
+        </p>
+
+        <p class="body-lg" style="margin-bottom:var(--space-lg);">
+          So they started writing about what actually works. Based on what they actually test. Every Friday, one email. No sponsors, no affiliate links, no &ldquo;here&rsquo;s my course.&rdquo; Just: <em>here&rsquo;s what we tried this week, here&rsquo;s what happened, here&rsquo;s the number.</em>
+        </p>
+
+        <p class="body-lg">
+          That&rsquo;s The Lever. A newsletter for people who run local businesses and are tired of guessing.
+        </p>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== THE COLUMNS ===== -->
+      <section class="about-section reveal">
+        <h2 class="about-section__title">The Columns</h2>
+        <p class="body-lg" style="margin-bottom:var(--space-xl);">
+          Every issue pulls from five recurring columns. Some weeks we run one. Some weeks we run three. Depends on what we found.
+        </p>
+
+        <div class="columns-grid">
+
+          <!-- Signal -->
+          <div class="column-card column-card--signal paper-lift reveal">
+            <span class="column-glyph column-glyph--signal">
+              <span class="column-glyph__dot"></span>Signal
+            </span>
+            <h3 class="column-card__name">Signal</h3>
+            <p class="column-card__desc">What&rsquo;s changing in local search, AI, and marketing. No hype. Data and patterns we&rsquo;re watching.</p>
+            <p class="column-card__author">Written by Reese</p>
+          </div>
+
+          <!-- Field Notes -->
+          <div class="column-card column-card--field-notes paper-lift reveal">
+            <span class="column-glyph column-glyph--field-notes">
+              <span class="column-glyph__dot"></span>Field Notes
+            </span>
+            <h3 class="column-card__name">Field Notes</h3>
+            <p class="column-card__desc">Stories from inside real businesses. What we tried, what happened, what we learned.</p>
+            <p class="column-card__author">Written by Kyle</p>
+          </div>
+
+          <!-- Systems -->
+          <div class="column-card column-card--systems paper-lift reveal">
+            <span class="column-glyph column-glyph--systems">
+              <span class="column-glyph__dot"></span>Systems
+            </span>
+            <h3 class="column-card__name">Systems</h3>
+            <p class="column-card__desc">The gap between knowing and doing. Frameworks that close it.</p>
+            <p class="column-card__author">Written by Kyle</p>
+          </div>
+
+          <!-- Experiment -->
+          <div class="column-card column-card--experiment paper-lift reveal">
+            <span class="column-glyph column-glyph--experiment">
+              <span class="column-glyph__dot"></span>Experiment
+            </span>
+            <h3 class="column-card__name">Experiment</h3>
+            <p class="column-card__desc">We test something specific and tell you exactly what happened. Numbers included.</p>
+            <p class="column-card__author">From The Lab</p>
+          </div>
+
+          <!-- Contrarian -->
+          <div class="column-card column-card--contrarian paper-lift reveal">
+            <span class="column-glyph column-glyph--contrarian">
+              <span class="column-glyph__dot"></span>Contrarian
+            </span>
+            <h3 class="column-card__name">Contrarian</h3>
+            <p class="column-card__desc">When the conventional wisdom is wrong, we say so. With receipts.</p>
+            <p class="column-card__author">Written by Reese</p>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== TEAM ===== -->
+      <section class="about-section reveal">
+        <h2 class="about-section__title">Who writes this thing</h2>
+
+        <div class="team-grid">
+
+          <!-- Kyle -->
+          <div class="team-card paper-lift reveal">
+            <div class="team-card__avatar" style="background:var(--olive);">
+              <!-- SVG avatar placeholder -->
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="72" height="72" rx="20" fill="var(--olive)"/>
+                <circle cx="36" cy="28" r="10" fill="rgba(255,255,255,0.85)"/>
+                <path d="M16 62c0-11 9-20 20-20s20 9 20 20" fill="rgba(255,255,255,0.85)"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Kyle</h3>
+            <p class="team-card__role">Field Notes &middot; Systems</p>
+            <p class="team-card__bio">
+              Works inside restaurants, salons, and service businesses. Builds the systems that turn &ldquo;we should probably do that&rdquo; into something that actually runs. Writes about what happens when theory meets a Tuesday lunch rush. Prefers spreadsheets to slide decks and diners to conferences.
+            </p>
+          </div>
+
+          <!-- Reese -->
+          <div class="team-card paper-lift reveal">
+            <div class="team-card__avatar" style="background:var(--terra);">
+              <!-- SVG avatar placeholder -->
+              <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="72" height="72" rx="20" fill="var(--terra)"/>
+                <circle cx="36" cy="28" r="10" fill="rgba(255,255,255,0.85)"/>
+                <path d="M16 62c0-11 9-20 20-20s20 9 20 20" fill="rgba(255,255,255,0.85)"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Reese</h3>
+            <p class="team-card__role">Signal &middot; Contrarian</p>
+            <p class="team-card__bio">
+              Tracks what&rsquo;s actually changing in search, AI, and local marketing. Runs the ad campaigns, watches the data, and tells you when the conventional wisdom is wrong. Comfortable being unpopular when the numbers back it up. Usually right. Occasionally insufferable about it.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== SUBSCRIBE CTA ===== -->
+      <div class="subscribe-box paper-lift reveal">
+        <div class="subscribe-box__text">We send one email every Friday. That&rsquo;s it.</div>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">No sponsors. No courses. No &ldquo;but first, a word from our partners.&rdquo; Just the work.</p>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== DARK CLOSER ===== -->
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-3xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Next time someone asks<br>&ldquo;have you tried&hellip;&rdquo;<br>you&rsquo;ll <em>already have.</em>
+        </h2>
+        <p style="font-size:var(--text-base); color:rgba(255,255,255,0.35); line-height:1.7; max-width:26rem; margin:0 auto var(--space-xl); position:relative;">
+          One email. Fridays. What we tested that week inside real local businesses &mdash; and what actually worked.
+        </p>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="about.html" class="site-footer__link">About The Lever</a>
+          <a href="contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <!-- The animated lever -->
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Footer lever tip animation
+    const leverObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('lever-anim--tipped');
+      });
+    }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever');
+    if (lever) leverObs.observe(lever);
+  </script>
+
+</body>
+</html>

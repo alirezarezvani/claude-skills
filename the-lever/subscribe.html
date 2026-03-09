@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe — The Lever</title>
+  <meta name="description" content="One email a week. What we tested inside real local businesses — restaurants, salons, clinics, trades — and what actually worked. Free.">
+  <meta property="og:title" content="Subscribe to The Lever">
+  <meta property="og:description" content="Your competitors are reading this. Every Friday. One email with what we tested inside real local businesses and what actually worked.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-default.svg">
+  <link rel="icon" href="images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/whimsy.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="stylesheet" href="css/pages/about.css">
+
+  <!-- Schema: WebPage + FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Subscribe to The Lever",
+        "url": "https://thelever.co/subscribe",
+        "description": "One email a week. What we tested inside real local businesses and what actually worked. Free."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How often will you email me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every Friday. That's it. No drip sequences, no 'just checking in,' no surprise Wednesday emails because we saw a cool thread on Twitter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this just for restaurants?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. We work inside salons, clinics, trades companies, and restaurants. The principles transfer. A booking system that works for a salon works for a clinic. An ad strategy that fills tables fills chairs too."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will you try to sell me stuff?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. We share what we learn. That's the whole thing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I already know this stuff?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Read issue No. 007. If you already knew all of that, you don't need us."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I unsubscribe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, one click. We won't chase you. We're too busy running campaigns."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Subscribe page specifics */
+    .subscribe-hero {
+      text-align: center;
+      padding: var(--space-3xl) 0 var(--space-xl);
+    }
+
+    .subscribe-hero .hero-title {
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .subscribe-hero__sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-soft);
+      line-height: var(--leading-relaxed);
+      max-width: 32rem;
+      margin: var(--space-lg) auto 0;
+    }
+
+    .subscribe-form-block {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: var(--space-2xl) 0;
+    }
+
+    .subscribe-form-block .subscribe-box {
+      border: 2px solid var(--ink);
+    }
+
+    .subscribe-form-block .subscribe-box__row {
+      max-width: 100%;
+    }
+
+    .what-you-get {
+      padding: var(--space-2xl) 0;
+    }
+
+    .what-you-get__title {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-heavy);
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .what-you-get__list {
+      display: grid;
+      gap: var(--space-lg);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .what-you-get__item {
+      display: flex;
+      gap: var(--space-lg);
+      align-items: flex-start;
+      padding: var(--space-lg);
+      border-radius: var(--radius-xl);
+      border: 1.5px solid var(--color-border-light);
+      transition: all var(--duration-base) var(--ease-out);
+    }
+
+    .what-you-get__item:hover {
+      border-color: transparent;
+      box-shadow: var(--shadow-md);
+    }
+
+    .what-you-get__item-content {
+      flex: 1;
+    }
+
+    .what-you-get__item-name {
+      font-family: var(--font-serif);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-bold);
+      color: var(--ink);
+      margin-bottom: var(--space-2xs);
+    }
+
+    .what-you-get__item-preview {
+      font-size: var(--text-sm);
+      color: var(--color-text-soft);
+      line-height: var(--leading-normal);
+      font-style: italic;
+    }
+
+    .social-proof {
+      text-align: center;
+      padding: var(--space-2xl) 0;
+    }
+
+    .social-proof__text {
+      font-family: var(--font-serif);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--ink);
+    }
+
+    .social-proof__number {
+      color: var(--terra);
+      font-weight: var(--weight-black);
+    }
+
+    /* FAQ accordion */
+    .faq-section {
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: var(--space-2xl) 0;
+    }
+
+    .faq-section__title {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-heavy);
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid var(--color-border-light);
+    }
+
+    .faq-item summary {
+      font-family: var(--font-serif);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--ink);
+      padding: var(--space-lg) 0;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      transition: color var(--duration-fast) ease;
+    }
+
+    .faq-item summary:hover {
+      color: var(--terra);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-family: var(--font-sans);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-light);
+      color: var(--color-text-faint);
+      flex-shrink: 0;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item__answer {
+      font-size: var(--text-base);
+      color: var(--color-text-soft);
+      line-height: var(--leading-relaxed);
+      padding: 0 0 var(--space-lg);
+      max-width: 32rem;
+    }
+
+    /* Pulse on the main CTA */
+    .subscribe-form-block .subscribe-box__btn {
+      animation: subtlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes subtlePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(184, 89, 59, 0); }
+      50% { box-shadow: 0 0 0 6px rgba(184, 89, 59, 0.12); }
+    }
+
+    @media (max-width: 600px) {
+      .what-you-get__item {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV (minimal) ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="archive.html" class="site-nav__link wiggle-hover">Archive</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-menu__link">Home</a>
+    <a href="about.html" class="mobile-menu__link">About</a>
+    <a href="archive.html" class="mobile-menu__link">Archive</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== HERO ===== -->
+      <section class="subscribe-hero reveal">
+        <h1 class="hero-title">
+          Your competitors are<br>reading this.<br>
+          <em class="hero-em">Every Friday.</em>
+        </h1>
+        <p class="subscribe-hero__sub">
+          One email a week. What we tested inside real local businesses &mdash; restaurants, salons, clinics, trades &mdash; and what actually worked. Free.
+        </p>
+      </section>
+
+      <!-- ===== MAIN SUBSCRIBE FORM ===== -->
+      <div class="subscribe-form-block reveal">
+        <div class="subscribe-box paper-lift">
+          <div class="subscribe-box__text">Get it every Friday. Takes 4 minutes to read.</div>
+          <form class="subscribe-box__row" action="#" method="POST">
+            <input type="email" class="subscribe-box__input pulse" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+            <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+          </form>
+          <p class="subscribe-box__fine">No spam. No sales pitches. Unsubscribe in one click.</p>
+        </div>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== SOCIAL PROOF ===== -->
+      <div class="social-proof reveal">
+        <p class="social-proof__text">
+          Join <span class="social-proof__number big-number">[X]</span> business owners who read The Lever every Friday
+        </p>
+      </div>
+
+      <div class="spacer-lg"></div>
+
+      <!-- Decorative squiggle -->
+      <div class="doodle-divider reveal squiggly">
+        <svg viewBox="0 0 80 12" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 6 Q5 2 10 6 Q15 10 20 6 Q25 2 30 6 Q35 10 40 6 Q45 2 50 6 Q55 10 60 6 Q65 2 70 6 Q75 10 80 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== WHAT YOU'LL GET ===== -->
+      <section class="what-you-get reveal">
+        <h2 class="what-you-get__title">Here&rsquo;s what you&rsquo;ll get</h2>
+
+        <div class="what-you-get__list">
+
+          <!-- Signal -->
+          <div class="what-you-get__item paper-lift reveal">
+            <span class="column-glyph column-glyph--signal" style="padding-top:2px;">
+              <span class="column-glyph__dot"></span>
+            </span>
+            <div class="what-you-get__item-content">
+              <div class="what-you-get__item-name">Signal</div>
+              <p class="what-you-get__item-preview">&ldquo;Google just changed how local results work. Here&rsquo;s what we&rsquo;re seeing in the data and what it means for your business this month.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Field Notes -->
+          <div class="what-you-get__item paper-lift reveal">
+            <span class="column-glyph column-glyph--field-notes" style="padding-top:2px;">
+              <span class="column-glyph__dot"></span>
+            </span>
+            <div class="what-you-get__item-content">
+              <div class="what-you-get__item-name">Field Notes</div>
+              <p class="what-you-get__item-preview">&ldquo;A salon owner told me she doesn&rsquo;t do marketing. She filled 40 empty chairs in 3 weeks. Here&rsquo;s the one system that was running.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Systems -->
+          <div class="what-you-get__item paper-lift reveal">
+            <span class="column-glyph column-glyph--systems" style="padding-top:2px;">
+              <span class="column-glyph__dot"></span>
+            </span>
+            <div class="what-you-get__item-content">
+              <div class="what-you-get__item-name">Systems</div>
+              <p class="what-you-get__item-preview">&ldquo;The Graveyard Gap: knowing what to do and actually doing it are $200K apart. Here&rsquo;s the framework that closes it.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Experiment -->
+          <div class="what-you-get__item paper-lift reveal">
+            <span class="column-glyph column-glyph--experiment" style="padding-top:2px;">
+              <span class="column-glyph__dot"></span>
+            </span>
+            <div class="what-you-get__item-content">
+              <div class="what-you-get__item-name">Experiment</div>
+              <p class="what-you-get__item-preview">&ldquo;We let AI write 47 ad variations for a burger restaurant. Three beat everything we&rsquo;d ever made by hand. Here are the numbers.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Contrarian -->
+          <div class="what-you-get__item paper-lift reveal">
+            <span class="column-glyph column-glyph--contrarian" style="padding-top:2px;">
+              <span class="column-glyph__dot"></span>
+            </span>
+            <div class="what-you-get__item-content">
+              <div class="what-you-get__item-name">Contrarian</div>
+              <p class="what-you-get__item-preview">&ldquo;Most local SEO advice is two years out of date. We threw out our own playbook last quarter. Here&rsquo;s what replaced it.&rdquo;</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== FAQ ===== -->
+      <section class="faq-section reveal">
+        <h2 class="faq-section__title">Questions you might have</h2>
+
+        <details class="faq-item">
+          <summary>How often will you email me?</summary>
+          <p class="faq-item__answer">Every Friday. That&rsquo;s it. No drip sequences, no &ldquo;just checking in,&rdquo; no surprise Wednesday emails because we saw a cool thread on Twitter.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is this just for restaurants?</summary>
+          <p class="faq-item__answer">No. We work inside salons, clinics, trades companies, and restaurants. The principles transfer. A booking system that works for a salon works for a clinic. An ad strategy that fills tables fills chairs too.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will you try to sell me stuff?</summary>
+          <p class="faq-item__answer">No. We share what we learn. That&rsquo;s the whole thing.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if I already know this stuff?</summary>
+          <p class="faq-item__answer">Read <a href="archive.html" style="color:var(--terra); text-decoration:underline; text-underline-offset:3px;">issue No.&thinsp;007</a>. If you already knew all of that, you don&rsquo;t need us.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I unsubscribe?</summary>
+          <p class="faq-item__answer">Yes, one click. We won&rsquo;t chase you. We&rsquo;re too busy running campaigns.</p>
+        </details>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== FINAL DARK CTA ===== -->
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-3xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Next time someone asks<br>&ldquo;have you tried&hellip;&rdquo;<br>you&rsquo;ll <em>already have.</em>
+        </h2>
+        <p style="font-size:var(--text-base); color:rgba(255,255,255,0.35); line-height:1.7; max-width:26rem; margin:0 auto var(--space-xl); position:relative;">
+          One email. Fridays. What we tested that week inside real local businesses &mdash; and what actually worked.
+        </p>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="about.html" class="site-footer__link">About The Lever</a>
+          <a href="contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <!-- The animated lever -->
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Footer lever tip animation
+    const leverObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('lever-anim--tipped');
+      });
+    }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever');
+    if (lever) leverObs.observe(lever);
+  </script>
+
+</body>
+</html>

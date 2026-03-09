@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colophon — The Lever</title>
+  <meta name="description" content="How this site was made. No frameworks, no build tools, no npm install. Pure HTML, CSS, and a few lines of JavaScript. Built to last 20 years.">
+  <meta property="og:title" content="Colophon — The Lever">
+  <meta property="og:description" content="How this site was made. Built to last 20 years.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-default.svg">
+  <link rel="icon" href="images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/whimsy.css">
+
+  <style>
+    .colophon-section {
+      margin-bottom: var(--space-2xl);
+    }
+    .colophon-section h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-md);
+    }
+    .colophon-section p {
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      color: var(--color-text-soft);
+      max-width: 38rem;
+    }
+    .color-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .color-swatch {
+      text-align: center;
+    }
+    .color-swatch__block {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      margin-bottom: var(--space-xs);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .color-swatch__name {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      display: block;
+    }
+    .color-swatch__hex {
+      font-size: var(--text-xs);
+      color: var(--color-text-soft);
+      font-family: monospace;
+    }
+    .colophon-credits {
+      font-style: italic;
+      color: var(--color-text-soft);
+    }
+  </style>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thelever.co"},
+      {"@type": "ListItem", "position": 2, "name": "Colophon", "item": "https://thelever.co/colophon"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="archive.html" class="mobile-menu__link">Archive</a>
+    <a href="about.html" class="mobile-menu__link">About</a>
+    <a href="subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== BREADCRUMB ===== -->
+      <div class="breadcrumb reveal">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Colophon</span>
+      </div>
+
+      <!-- ===== PAGE HEADER ===== -->
+      <div class="page-header reveal">
+        <h1 class="page-header__title">How this site was made</h1>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== DESIGN PHILOSOPHY ===== -->
+      <section class="colophon-section reveal">
+        <h2>Design Philosophy</h2>
+        <p>
+          This site was built to last 20 years. No frameworks, no build tools, no <code>npm install</code>. Pure HTML, CSS, and a few lines of JavaScript. If the internet still exists in 2046, this site will still work exactly as it does today.
+        </p>
+        <p style="margin-top:var(--space-sm);">
+          Every decision was made with longevity in mind. No dependencies to break, no packages to update, no services to sunset. Just files on a server, doing what files on a server have always done.
+        </p>
+      </section>
+
+      <!-- ===== TYPOGRAPHY ===== -->
+      <section class="colophon-section reveal">
+        <h2>Typography</h2>
+        <p>
+          <strong>Fraunces</strong> for headlines &mdash; a variable font with optical sizing that gives our headings their warm, slightly quirky character. It feels handmade without being precious about it.
+        </p>
+        <p style="margin-top:var(--space-sm);">
+          <strong>Outfit</strong> for body text &mdash; clean, geometric, reads beautifully at every size. Both are self-hosted. No CDN dependency. If Google Fonts goes down tomorrow, you'd never know.
+        </p>
+      </section>
+
+      <!-- ===== COLORS ===== -->
+      <section class="colophon-section reveal">
+        <h2>Colors</h2>
+        <p>Seven colors. That's it. Each one earns its place.</p>
+        <div class="color-swatches">
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#1c1a17;"></div>
+            <span class="color-swatch__name">Ink</span>
+            <span class="color-swatch__hex">#1c1a17</span>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#faf7f1;"></div>
+            <span class="color-swatch__name">Paper</span>
+            <span class="color-swatch__hex">#faf7f1</span>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#b8593b;"></div>
+            <span class="color-swatch__name">Terra</span>
+            <span class="color-swatch__hex">#b8593b</span>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#4a6741;"></div>
+            <span class="color-swatch__name">Olive</span>
+            <span class="color-swatch__hex">#4a6741</span>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#526b85;"></div>
+            <span class="color-swatch__name">Slate</span>
+            <span class="color-swatch__hex">#526b85</span>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#7a5a6e;"></div>
+            <span class="color-swatch__name">Plum</span>
+            <span class="color-swatch__hex">#7a5a6e</span>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch__block" style="background:#c49032;"></div>
+            <span class="color-swatch__name">Amber</span>
+            <span class="color-swatch__hex">#c49032</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== THE NAME ===== -->
+      <section class="colophon-section reveal">
+        <h2>The Name</h2>
+        <p>
+          A lever is the simplest machine. Small effort, big result. That's what we want this newsletter to be for local businesses &mdash; the small, specific insight that moves the whole thing.
+        </p>
+        <p style="margin-top:var(--space-sm);">
+          Also, we liked how it looked as a logo. Sometimes it's that simple.
+        </p>
+      </section>
+
+      <!-- ===== CREDITS ===== -->
+      <section class="colophon-section reveal">
+        <h2>Credits</h2>
+        <p class="colophon-credits">
+          Built by Kyle and Reese. Designed, written, coded, and deployed by the same two people who write the newsletter. No agency. No template. Just two people who like making things.
+        </p>
+        <p style="margin-top:var(--space-sm); color:var(--color-text-soft);">2026.</p>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="about.html" class="site-footer__link">About The Lever</a>
+          <a href="contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/nav.js"></script>
+
+</body>
+</html>

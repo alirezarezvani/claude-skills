@@ -1,0 +1,325 @@
+/* ============================================
+   THE LEVER — Whimsy
+   The secret sauce. Playful interactions,
+   hand-drawn feels, and delightful surprises.
+   This is what makes it NOT generic.
+   ============================================ */
+
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--duration-reveal) ease,
+              transform var(--duration-reveal) ease;
+}
+
+.reveal--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveals for lists */
+.reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 320ms; }
+
+/* === ARTICLE CARD TILT === */
+@media (hover: hover) {
+  .tilt-hover {
+    transition: transform var(--duration-base) var(--ease-out),
+                box-shadow var(--duration-base) var(--ease-out);
+  }
+
+  .tilt-hover:hover {
+    transform: rotate(-0.5deg) scale(1.01);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Alternating tilt direction */
+  .tilt-hover:nth-child(even):hover {
+    transform: rotate(0.5deg) scale(1.01);
+  }
+}
+
+/* === BUTTON BOUNCE === */
+.btn-bounce {
+  transition: transform var(--duration-fast) var(--ease-bounce),
+              background var(--duration-fast) ease;
+}
+
+.btn-bounce:hover {
+  transform: scale(1.05);
+}
+
+.btn-bounce:active {
+  transform: scale(0.97);
+}
+
+/* === SQUIGGLY UNDERLINE === */
+.squiggly {
+  position: relative;
+  display: inline;
+}
+
+.squiggly::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6'%3E%3Cpath d='M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3' fill='none' stroke='%23b8593b' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 40px 6px;
+  background-repeat: repeat-x;
+}
+
+.squiggly--amber::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6'%3E%3Cpath d='M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3' fill='none' stroke='%23c49032' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.squiggly--olive::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 6'%3E%3Cpath d='M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3' fill='none' stroke='%234a6741' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* === HAND-DRAWN CIRCLE (around issue numbers) === */
+.hand-circle {
+  position: relative;
+  display: inline-block;
+}
+
+.hand-circle::before {
+  content: '';
+  position: absolute;
+  inset: -8px -12px;
+  border: 2px solid var(--terra);
+  border-radius: 50% 45% 50% 48%;
+  transform: rotate(-2deg);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* === BIG NUMBER (children's book style) === */
+.big-number {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: var(--weight-black);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-variation-settings: var(--opsz-display);
+  color: var(--ink);
+}
+
+.big-number--terra { color: var(--terra); }
+.big-number--olive { color: var(--olive); }
+.big-number--amber { color: var(--amber); }
+
+/* === SCRIBBLE BORDER === */
+.scribble-border {
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 4'%3E%3Cpath d='M0 2 Q5 0.5 10 2 Q15 3.5 20 2 Q25 0.5 30 2 Q35 3.5 40 2 Q45 0.5 50 2 Q55 3.5 60 2 Q65 0.5 70 2 Q75 3.5 80 2 Q85 0.5 90 2 Q95 3.5 100 2' fill='none' stroke='%23d9d2c4' stroke-width='1.2'/%3E%3C/svg%3E");
+  border-image-slice: 0 0 2 0;
+  border-image-width: 0 0 4px 0;
+  border-image-repeat: round;
+  border-bottom: 4px solid var(--color-border);
+}
+
+/* === LEVER ANIMATION (footer) === */
+.lever-anim {
+  display: inline-block;
+  width: 48px;
+  height: 32px;
+  position: relative;
+}
+
+.lever-anim__fulcrum {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid var(--ink-faint);
+}
+
+.lever-anim__bar {
+  position: absolute;
+  bottom: 8px;
+  left: 2px;
+  right: 2px;
+  height: 3px;
+  background: var(--ink-faint);
+  border-radius: 2px;
+  transform-origin: center center;
+  transform: rotate(0deg);
+  transition: transform 0.8s var(--ease-bounce);
+}
+
+.lever-anim--tipped .lever-anim__bar {
+  transform: rotate(-12deg);
+}
+
+/* === DOODLE DECORATIONS === */
+.doodle {
+  display: inline-block;
+  color: var(--color-border);
+  pointer-events: none;
+}
+
+.doodle--star {
+  font-size: 1.2rem;
+}
+
+.doodle--arrow {
+  font-size: 0.9rem;
+  transform: rotate(-15deg);
+}
+
+/* Decorative squiggle between sections */
+.doodle-divider {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+  opacity: 0.3;
+}
+
+.doodle-divider svg {
+  width: 80px;
+  height: 12px;
+}
+
+/* === HERO TEXT — italic emphasis === */
+.hero-em {
+  font-weight: var(--weight-semibold);
+  font-style: italic;
+  color: var(--terra);
+  font-variation-settings: var(--opsz-display);
+}
+
+/* === FLOAT-IN FROM SIDES (for about page elements) === */
+.float-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity var(--duration-reveal) ease,
+              transform var(--duration-reveal) ease;
+}
+
+.float-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity var(--duration-reveal) ease,
+              transform var(--duration-reveal) ease;
+}
+
+.float-left.reveal--show,
+.float-right.reveal--show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* === WIGGLE (for nav hover) === */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.wiggle-hover:hover {
+  animation: wiggle 0.3s ease-in-out;
+}
+
+/* === PULSE (for CTA attention) === */
+@keyframes gentle-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 89, 59, 0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(184, 89, 59, 0); }
+}
+
+.pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+/* === PAPER LIFT (elements that sit ON the paper) === */
+.paper-lift {
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-base) ease,
+              transform var(--duration-base) var(--ease-out);
+}
+
+.paper-lift:hover {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
+/* === BROKEN LEVER (404 page) === */
+.lever-broken {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 80px;
+}
+
+.lever-broken__fulcrum {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 20px solid var(--ink-faint);
+}
+
+.lever-broken__bar-left {
+  position: absolute;
+  bottom: 16px;
+  left: 10px;
+  width: 45px;
+  height: 4px;
+  background: var(--ink-faint);
+  border-radius: 2px;
+  transform: rotate(25deg);
+  transform-origin: right center;
+}
+
+.lever-broken__bar-right {
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
+  width: 40px;
+  height: 4px;
+  background: var(--ink-faint);
+  border-radius: 2px;
+  transform: rotate(-10deg);
+  transform-origin: left center;
+}
+
+/* === COLUMN PAGE TINTING === */
+.page-tint--signal       { background-color: color-mix(in srgb, var(--slate-pale) 30%, var(--paper)); }
+.page-tint--field-notes  { background-color: color-mix(in srgb, var(--olive-pale) 30%, var(--paper)); }
+.page-tint--systems      { background-color: color-mix(in srgb, var(--terra-pale) 30%, var(--paper)); }
+.page-tint--experiment   { background-color: color-mix(in srgb, var(--plum-pale) 30%, var(--paper)); }
+.page-tint--contrarian   { background-color: color-mix(in srgb, var(--amber-pale) 30%, var(--paper)); }
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .float-left, .float-right {
+    opacity: 1;
+    transform: none;
+  }
+  .tilt-hover:hover {
+    transform: none;
+  }
+  .wiggle-hover:hover {
+    animation: none;
+  }
+  .pulse {
+    animation: none;
+  }
+}

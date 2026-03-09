@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28">
+  <rect width="28" height="28" rx="7" fill="#1c1a17"/>
+  <!-- The L as a lever: angled bar on a fulcrum -->
+  <path d="M8 7 L8 18 L20 18" stroke="#c49032" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Fulcrum triangle -->
+  <polygon points="14,18 11,23 17,23" fill="#c49032" opacity="0.5"/>
+</svg>

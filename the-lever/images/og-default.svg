@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1c1a17"/>
+  <!-- Warm glow -->
+  <circle cx="900" cy="200" r="400" fill="#b8593b" opacity="0.06"/>
+  <circle cx="300" cy="500" r="300" fill="#c49032" opacity="0.04"/>
+  <!-- Logo mark -->
+  <rect x="80" y="200" width="56" height="56" rx="12" fill="#2e2b26"/>
+  <text x="108" y="236" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="900" fill="#c49032">L</text>
+  <!-- Title -->
+  <text x="160" y="237" font-family="Georgia, serif" font-size="42" font-weight="900" fill="#faf7f1">The Lever</text>
+  <!-- Tagline -->
+  <text x="80" y="330" font-family="-apple-system, sans-serif" font-size="28" fill="#a69e90">What we tested this week inside</text>
+  <text x="80" y="370" font-family="-apple-system, sans-serif" font-size="28" fill="#a69e90">real local businesses.</text>
+  <!-- Accent line -->
+  <rect x="80" y="420" width="120" height="3" rx="1.5" fill="#b8593b"/>
+  <!-- Footer -->
+  <text x="80" y="550" font-family="-apple-system, sans-serif" font-size="20" fill="#6d665b">Every Friday · Free</text>
+</svg>

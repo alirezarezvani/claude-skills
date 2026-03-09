@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — The Lever</title>
+  <meta name="description" content="This page doesn't exist. But we do. Try the homepage, archive, or subscribe.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/whimsy.css">
+
+  <style>
+    .error-page {
+      text-align: center;
+      padding: var(--space-3xl) var(--space-md);
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .error-page__headline {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      line-height: var(--leading-tight);
+      margin-bottom: var(--space-md);
+    }
+    .error-page__subtext {
+      font-size: var(--text-lg);
+      color: var(--color-text-soft);
+      max-width: 32rem;
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-xl);
+    }
+    .error-page__links-label {
+      font-size: var(--text-sm);
+      color: var(--color-text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-sm);
+    }
+    .error-page__links {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .error-page__links a {
+      font-weight: 600;
+      border-bottom: 2px solid var(--color-terra);
+      padding-bottom: 2px;
+    }
+    .error-page__links a:hover {
+      color: var(--color-terra);
+    }
+
+    /* Broken lever illustration */
+    .lever-broken {
+      position: relative;
+      width: 120px;
+      height: 80px;
+      margin: 0 auto var(--space-xl);
+    }
+    .lever-broken__fulcrum {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-bottom: 24px solid var(--color-terra);
+      opacity: 0.7;
+    }
+    .lever-broken__bar-left {
+      position: absolute;
+      bottom: 22px;
+      left: 8px;
+      width: 46px;
+      height: 6px;
+      background: var(--color-ink);
+      border-radius: 3px;
+      transform: rotate(-18deg);
+      transform-origin: right center;
+    }
+    .lever-broken__bar-right {
+      position: absolute;
+      bottom: 28px;
+      right: 8px;
+      width: 46px;
+      height: 6px;
+      background: var(--color-ink);
+      border-radius: 3px;
+      transform: rotate(12deg);
+      transform-origin: left center;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="archive.html" class="mobile-menu__link">Archive</a>
+    <a href="about.html" class="mobile-menu__link">About</a>
+    <a href="subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="error-page">
+        <!-- Broken lever illustration -->
+        <div class="lever-broken">
+          <div class="lever-broken__fulcrum"></div>
+          <div class="lever-broken__bar-left"></div>
+          <div class="lever-broken__bar-right"></div>
+        </div>
+
+        <h1 class="error-page__headline">Well, that lever's broken.</h1>
+
+        <p class="error-page__subtext">
+          The page you're looking for doesn't exist. Maybe it moved, maybe it never existed, maybe we broke it while testing something. Wouldn't be the first time.
+        </p>
+
+        <p class="error-page__links-label">Here are some places that definitely work:</p>
+        <div class="error-page__links">
+          <a href="index.html">Home</a>
+          <a href="archive.html">Archive</a>
+          <a href="subscribe.html">Subscribe</a>
+        </div>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="about.html" class="site-footer__link">About The Lever</a>
+          <a href="contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/nav.js"></script>
+
+</body>
+</html>

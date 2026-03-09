@@ -1,0 +1,47 @@
+/* THE LEVER — Archive + Column + Contributor Pages */
+
+.archive-year {
+  margin-bottom: var(--space-2xl);
+}
+
+.archive-year__label {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-black);
+  color: var(--color-border);
+  margin-bottom: var(--space-md);
+  font-variation-settings: var(--opsz-display);
+}
+
+.issue-card {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  transition: padding-left var(--duration-base) var(--ease-out);
+}
+
+.issue-card:hover {
+  padding-left: 8px;
+}
+
+.issue-card__number {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-heavy);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.issue-card__date {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+.issue-card__title {
+  font-size: var(--text-base);
+  color: var(--color-text-soft);
+  flex: 1;
+}

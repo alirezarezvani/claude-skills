@@ -1,0 +1,87 @@
+/* THE LEVER — About Page */
+
+.about-hero {
+  padding: var(--space-3xl) 0;
+  text-align: center;
+}
+
+.about-lever-illustration {
+  margin: var(--space-xl) auto;
+  display: flex;
+  justify-content: center;
+}
+
+.about-section {
+  padding: var(--space-2xl) 0;
+}
+
+.about-section__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-heavy);
+  color: var(--ink);
+  margin-bottom: var(--space-lg);
+}
+
+.columns-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .columns-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 640px) {
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.team-card {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.team-card__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-xl);
+  margin: 0 auto var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: var(--weight-black);
+  color: white;
+}
+
+.team-card__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+  margin-bottom: var(--space-xs);
+}
+
+.team-card__role {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-md);
+}
+
+.team-card__bio {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+}

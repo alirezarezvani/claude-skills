@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lever — AI, automation & marketing for local businesses</title>
+  <meta name="description" content="One email every Friday. What we tested that week inside real local businesses — restaurants, salons, clinics, trades — and what actually worked.">
+  <meta property="og:title" content="The Lever — AI, automation & marketing for local businesses">
+  <meta property="og:description" content="What we tested this week inside real local businesses. Every Friday.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-default.svg">
+  <link rel="icon" href="images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/whimsy.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+
+  <!-- Schema: WebSite + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "The Lever",
+        "url": "https://thelever.co",
+        "description": "AI, automation, and marketing insights for local businesses"
+      },
+      {
+        "@type": "Organization",
+        "name": "The Lever",
+        "url": "https://thelever.co",
+        "description": "We test AI, automation, and marketing inside real local businesses every week and share what works.",
+        "founder": [
+          {"@type": "Person", "name": "Kyle", "url": "https://thelever.co/contributors/kyle"},
+          {"@type": "Person", "name": "Reese", "url": "https://thelever.co/contributors/reese"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="archive.html" class="mobile-menu__link">Archive</a>
+    <a href="about.html" class="mobile-menu__link">About</a>
+    <a href="subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== HERO ===== -->
+      <h1 class="hero-title reveal">
+        Your competitors<br>
+        are about to get<br>
+        <em class="hero-em">very good</em> at this.
+      </h1>
+
+      <div class="spacer-xl"></div>
+
+      <p class="body-lg reveal">
+        AI. Automation. Search that works differently than it did a year ago. The local businesses that figure this out first will be the ones everybody else is chasing.
+      </p>
+
+      <div class="spacer-lg"></div>
+
+      <p class="body-lg reveal">
+        We work inside restaurants, salons, clinics, and trades companies. We test things every week that most people won't try for another 6&ndash;12 months. <strong>The stuff that works ends up here.</strong>
+      </p>
+
+      <div class="spacer-lg"></div>
+
+      <p class="body-lg reveal" style="max-width:30rem;">
+        <em>Read it for a while and you stop guessing what to do next. You just know &mdash; because somebody already tested it and told you what happened.</em>
+      </p>
+
+      <!-- Decorative squiggle -->
+      <div class="doodle-divider reveal">
+        <svg viewBox="0 0 80 12" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 6 Q5 2 10 6 Q15 10 20 6 Q25 2 30 6 Q35 10 40 6 Q45 2 50 6 Q55 10 60 6 Q65 2 70 6 Q75 10 80 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== SUBSCRIBE ===== -->
+      <div class="subscribe-box paper-lift reveal">
+        <div class="subscribe-box__text">One email. Every Friday. Whatever we found that week.</div>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Cancel whenever. We're too busy running campaigns to bug you.</p>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== ISSUE RIBBON ===== -->
+      <div class="issue-ribbon reveal">
+        <span class="issue-ribbon__badge hand-circle">No. 009</span>
+        <span class="issue-ribbon__date">March 7, 2026</span>
+        <span class="issue-ribbon__line"></span>
+      </div>
+
+      <!-- ===== FEATURED ARTICLE ===== -->
+      <a href="articles/ai-phone-answering.html" class="article-card--featured tilt-hover reveal" style="display:block;">
+        <span class="kicker">Latest</span>
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span class="byline__name">Kyle</span>
+          </div>
+          <span class="column-glyph column-glyph--field-notes">
+            <span class="column-glyph__dot"></span>Field Notes
+          </span>
+        </div>
+        <div class="article-card__title">A restaurant owner didn't notice his phone was being answered by AI. For four days.</div>
+        <div class="article-card__excerpt">312 calls. 41 reservations. One confused guy trying to order pizza from a burger place. The owner found out on day 4. Here's everything.</div>
+      </a>
+
+      <div class="spacer-md"></div>
+
+      <!-- ===== ARTICLE FEED ===== -->
+      <a href="articles/quiet-ranking-factor.html" class="article-card tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--reese">R</span>
+            <span class="byline__name">Reese</span>
+          </div>
+          <span class="column-glyph column-glyph--signal">
+            <span class="column-glyph__dot"></span>Signal
+          </span>
+        </div>
+        <div class="article-card__title">The quiet ranking factor that moved a restaurant from page 3 to the Map Pack in 6 weeks</div>
+        <div class="article-card__excerpt">Not backlinks. Not content. Something most SEOs aren't tracking yet.</div>
+      </a>
+
+      <a href="articles/graveyard-gap.html" class="article-card article-card--band bg-terra tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span class="byline__name">Kyle</span>
+          </div>
+          <span class="column-glyph column-glyph--systems">
+            <span class="column-glyph__dot"></span>Systems
+          </span>
+        </div>
+        <div class="article-card__title">The Graveyard Gap: knowing what to do and actually doing it are $200K apart</div>
+        <div class="article-card__excerpt">Every restaurant owner I talk to knows what they should be doing. Almost none are. I've been thinking about what actually closes the gap.</div>
+      </a>
+
+      <a href="articles/ai-ad-variations.html" class="article-card tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--lab">L</span>
+            <span class="byline__name">The Lab</span>
+          </div>
+          <span class="column-glyph column-glyph--experiment">
+            <span class="column-glyph__dot"></span>Experiment
+          </span>
+        </div>
+        <div class="article-card__title">We let AI write 47 ad variations for a burger restaurant. Three beat everything we'd ever made by hand.</div>
+        <div class="article-card__excerpt">Most were bad. A few were really bad. But the ones that worked changed how we think about creative.</div>
+      </a>
+
+      <a href="articles/website-not-destination.html" class="article-card article-card--band bg-slate tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--reese">R</span>
+            <span class="byline__name">Reese</span>
+          </div>
+          <span class="column-glyph column-glyph--signal">
+            <span class="column-glyph__dot"></span>Signal
+          </span>
+        </div>
+        <div class="article-card__title">Your website might not be the thing people look at anymore</div>
+        <div class="article-card__excerpt">We pulled the data on where clicks actually go for local businesses. The answer was uncomfortable.</div>
+      </a>
+
+      <a href="articles/chef-said-goodbye.html" class="article-card tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span class="byline__name">Kyle</span>
+          </div>
+          <span class="column-glyph column-glyph--field-notes">
+            <span class="column-glyph__dot"></span>Field Notes
+          </span>
+        </div>
+        <div class="article-card__title">A chef said goodbye. His restaurant sold out for three straight weeks.</div>
+        <div class="article-card__excerpt">The campaign was simpler than it should have been. That's the point.</div>
+      </a>
+
+      <a href="articles/customer-acquisition-spread.html" class="article-card article-card--band bg-plum tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--lab">L</span>
+            <span class="byline__name">The Lab</span>
+          </div>
+          <span class="column-glyph column-glyph--experiment">
+            <span class="column-glyph__dot"></span>Experiment
+          </span>
+        </div>
+        <div class="article-card__title">Customer acquisition costs from 11 restaurants in the same city. The spread was 23x.</div>
+        <div class="article-card__excerpt">$4 at one place. $94 at another. Same neighbourhood. Same food. Most didn't know their number.</div>
+      </a>
+
+      <a href="articles/local-seo-outdated.html" class="article-card tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--reese">R</span>
+            <span class="byline__name">Reese</span>
+          </div>
+          <span class="column-glyph column-glyph--contrarian">
+            <span class="column-glyph__dot"></span>Contrarian
+          </span>
+        </div>
+        <div class="article-card__title">Most local SEO advice is two years out of date. Here's what we'd actually do right now.</div>
+        <div class="article-card__excerpt">We threw out our own playbook last quarter. What replaced it is working better.</div>
+      </a>
+
+      <a href="articles/salon-no-marketing.html" class="article-card article-card--band bg-olive tilt-hover reveal" style="display:block;">
+        <div class="article-card__top">
+          <div class="byline">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span class="byline__name">Kyle</span>
+          </div>
+          <span class="column-glyph column-glyph--field-notes">
+            <span class="column-glyph__dot"></span>Field Notes
+          </span>
+        </div>
+        <div class="article-card__title">A salon owner told me she "doesn't do marketing." She filled 40 empty chairs in 3 weeks.</div>
+        <div class="article-card__excerpt">No budget. No boosted posts. One system running correctly.</div>
+      </a>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== DARK CLOSER ===== -->
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-3xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Next time someone asks<br>"have you tried&hellip;"<br>you'll <em>already have.</em>
+        </h2>
+        <p style="font-size:var(--text-base); color:rgba(255,255,255,0.35); line-height:1.7; max-width:26rem; margin:0 auto var(--space-xl); position:relative;">
+          One email. Fridays. What we tested that week inside real local businesses &mdash; and what actually worked.
+        </p>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="about.html" class="site-footer__link">About The Lever</a>
+          <a href="contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <!-- The animated lever -->
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Footer lever tip animation
+    const leverObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('lever-anim--tipped');
+      });
+    }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever');
+    if (lever) leverObs.observe(lever);
+  </script>
+
+</body>
+</html>

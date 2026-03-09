@@ -1,0 +1,150 @@
+/* ============================================
+   THE LEVER — Design Tokens
+   The single source of truth for every visual
+   decision. Change this file, change the world.
+   ============================================ */
+
+:root {
+  /* === PAPER & INK === */
+  --ink:              #1c1a17;
+  --ink-warm:         #2e2b26;
+  --ink-soft:         #6d665b;
+  --ink-faint:        #a69e90;
+  --paper:            #faf7f1;
+  --paper-warm:       #f2ede3;
+  --paper-dark:       #e8e1d4;
+
+  /* === EDITORIAL ACCENTS === */
+  --terra:            #b8593b;
+  --terra-light:      #d4785e;
+  --terra-pale:       #fbeee8;
+  --olive:            #4a6741;
+  --olive-light:      #6b8a5f;
+  --olive-pale:       #eaf0e7;
+  --slate:            #526b85;
+  --slate-light:      #7a96b0;
+  --slate-pale:       #e9eff5;
+  --plum:             #7a5a6e;
+  --plum-light:       #a07d94;
+  --plum-pale:        #f2ecf0;
+  --amber:            #c49032;
+  --amber-light:      #daa84f;
+  --amber-pale:       #fdf6ec;
+
+  /* === FUNCTIONAL COLORS === */
+  --color-bg:         var(--paper);
+  --color-surface:    var(--paper-warm);
+  --color-text:       var(--ink);
+  --color-text-soft:  var(--ink-soft);
+  --color-text-faint: var(--ink-faint);
+  --color-border:     #d9d2c4;
+  --color-border-light: #e8e2d6;
+  --color-link:       var(--terra);
+  --color-link-hover: #9c4530;
+  --color-focus:      var(--terra);
+
+  /* === DARK SURFACES === */
+  --dark-bg:          var(--ink-warm);
+  --dark-text:        var(--paper);
+  --dark-text-soft:   rgba(255, 255, 255, 0.5);
+  --dark-text-faint:  rgba(255, 255, 255, 0.25);
+  --dark-border:      rgba(255, 255, 255, 0.1);
+  --dark-glow-terra:  rgba(184, 89, 59, 0.08);
+  --dark-glow-amber:  rgba(196, 144, 50, 0.06);
+
+  /* === COLUMN COLORS === */
+  --col-signal:           var(--slate);
+  --col-signal-pale:      var(--slate-pale);
+  --col-field-notes:      var(--olive);
+  --col-field-notes-pale: var(--olive-pale);
+  --col-systems:          var(--terra);
+  --col-systems-pale:     var(--terra-pale);
+  --col-experiment:       var(--plum);
+  --col-experiment-pale:  var(--plum-pale);
+  --col-contrarian:       var(--amber);
+  --col-contrarian-pale:  var(--amber-pale);
+
+  /* === TYPOGRAPHY === */
+  --font-serif:       'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:        'Outfit', -apple-system, system-ui, 'Segoe UI', sans-serif;
+
+  /* Fluid type scale */
+  --text-xs:          clamp(0.7rem, 0.65rem + 0.2vw, 0.78rem);
+  --text-sm:          clamp(0.8rem, 0.75rem + 0.2vw, 0.875rem);
+  --text-base:        clamp(0.95rem, 0.9rem + 0.25vw, 1.08rem);
+  --text-lg:          clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+  --text-xl:          clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl:         clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --text-3xl:         clamp(1.85rem, 1.4rem + 1.5vw, 2.5rem);
+  --text-4xl:         clamp(2.25rem, 1.6rem + 2vw, 3.25rem);
+  --text-5xl:         clamp(2.8rem, 1.8rem + 3.5vw, 5rem);
+
+  /* Line heights */
+  --leading-tight:    1.05;
+  --leading-snug:     1.25;
+  --leading-normal:   1.6;
+  --leading-relaxed:  1.75;
+
+  /* Fraunces optical sizing */
+  --opsz-display:     'opsz' 144;
+  --opsz-heading:     'opsz' 48;
+  --opsz-body:        'opsz' 12;
+
+  /* Font weights */
+  --weight-light:     300;
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-heavy:     800;
+  --weight-black:     900;
+
+  /* === SPACING (8pt grid) === */
+  --space-2xs:        0.25rem;   /* 4px */
+  --space-xs:         0.5rem;    /* 8px */
+  --space-sm:         0.75rem;   /* 12px */
+  --space-md:         1rem;      /* 16px */
+  --space-lg:         1.5rem;    /* 24px */
+  --space-xl:         2rem;      /* 32px */
+  --space-2xl:        3rem;      /* 48px */
+  --space-3xl:        4rem;      /* 64px */
+  --space-4xl:        6rem;      /* 96px */
+  --space-section:    clamp(3rem, 2rem + 4vw, 6rem);
+  --space-hero:       clamp(7rem, 5rem + 6vw, 10rem);
+
+  /* === LAYOUT === */
+  --content-width:    42rem;     /* ~672px reading column */
+  --wide-width:       56rem;     /* ~896px for wide content */
+  --page-width:       72rem;     /* ~1152px max page */
+  --gutter:           clamp(1.25rem, 0.5rem + 3vw, 3rem);
+
+  /* === BORDERS & RADIUS === */
+  --radius-sm:        5px;
+  --radius-md:        8px;
+  --radius-lg:        12px;
+  --radius-xl:        20px;
+  --radius-full:      9999px;
+
+  /* === SHADOWS (warm, paper-like) === */
+  --shadow-sm:        0 1px 3px rgba(28, 26, 23, 0.06);
+  --shadow-md:        0 4px 12px rgba(28, 26, 23, 0.08);
+  --shadow-lg:        0 8px 24px rgba(28, 26, 23, 0.1);
+  --shadow-lift:      0 12px 32px rgba(28, 26, 23, 0.12);
+
+  /* === TRANSITIONS === */
+  --ease-out:         cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:    150ms;
+  --duration-base:    250ms;
+  --duration-slow:    400ms;
+  --duration-reveal:  650ms;
+
+  /* === Z-INDEX === */
+  --z-base:           1;
+  --z-above:          10;
+  --z-sticky:         100;
+  --z-nav:            200;
+  --z-overlay:        300;
+  --z-modal:          400;
+  --z-texture:        9999;
+}

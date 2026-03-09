@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kyle — The Lever</title>
+  <meta name="description" content="Kyle writes Field Notes and Systems for The Lever. He works inside local businesses every week — restaurants, salons, clinics, trades — testing what actually works.">
+  <meta property="og:title" content="Kyle — The Lever">
+  <meta property="og:description" content="Field Notes + Systems. What he tried on Tuesday and how it went by Friday.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="../images/og-default.svg">
+  <link rel="icon" href="../images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts (self-hosted, no CDN dependency) -->
+  <link rel="preload" href="../fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/whimsy.css">
+  <link rel="stylesheet" href="../css/pages/contributor.css">
+
+  <!-- Schema: Person + ProfilePage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Kyle",
+        "url": "https://thelever.co/contributors/kyle",
+        "description": "Kyle works inside local businesses every week — restaurants, salons, clinics, trades — testing what actually works.",
+        "memberOf": {
+          "@type": "Organization",
+          "name": "The Lever",
+          "url": "https://thelever.co"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "name": "Kyle — The Lever",
+        "url": "https://thelever.co/contributors/kyle",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Kyle"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://thelever.co"},
+          {"@type": "ListItem", "position": 2, "name": "Contributors", "item": "https://thelever.co/contributors"},
+          {"@type": "ListItem", "position": 3, "name": "Kyle", "item": "https://thelever.co/contributors/kyle"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="site-nav__logo">
+      <span class="site-nav__mark">L</span>
+      The Lever
+    </a>
+
+    <div class="site-nav__links">
+      <a href="../columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="../archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="../about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="../subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="../columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="../archive.html" class="mobile-menu__link">Archive</a>
+    <a href="../about.html" class="mobile-menu__link">About</a>
+    <a href="../subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+
+      <div class="spacer-hero"></div>
+
+      <!-- ===== BREADCRUMB ===== -->
+      <div class="breadcrumb reveal">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Contributors</span>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Kyle</span>
+      </div>
+
+      <!-- ===== CONTRIBUTOR HERO ===== -->
+      <section class="contributor-hero reveal">
+        <div class="contributor-hero__avatar" style="background:var(--olive);">
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="96" height="96" rx="24" fill="var(--olive)"/>
+            <text x="48" y="56" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="900" fill="white">K</text>
+          </svg>
+        </div>
+        <h1 class="contributor-hero__name">Kyle</h1>
+        <p class="contributor-hero__columns">Field Notes &middot; Systems</p>
+        <p class="contributor-hero__bio">
+          Kyle works inside local businesses &mdash; restaurants, salons, clinics, trades &mdash; every single week. He's not writing about what might work in theory. He's writing about what he tried on Tuesday and how it went by Friday. Before The Lever, he spent 8 years running marketing for businesses most people drive past without thinking about. He started writing because he got tired of advice from people who've never stood behind a counter.
+        </p>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== ARTICLES ===== -->
+      <section class="contributor-articles reveal">
+        <h2 class="contributor-articles__heading">Articles by Kyle</h2>
+
+        <div class="article-list">
+
+          <a href="../articles/ai-phone-answering.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--field-notes">
+              <span class="column-glyph__dot"></span>Field Notes
+            </span>
+            <h3 class="article-list__title">A restaurant owner didn't notice his phone was being answered by AI. For four days.</h3>
+          </a>
+
+          <a href="../articles/graveyard-gap.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--systems">
+              <span class="column-glyph__dot"></span>Systems
+            </span>
+            <h3 class="article-list__title">The Graveyard Gap: knowing what to do and actually doing it are $200K apart</h3>
+          </a>
+
+          <a href="../articles/chef-said-goodbye.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--field-notes">
+              <span class="column-glyph__dot"></span>Field Notes
+            </span>
+            <h3 class="article-list__title">A chef said goodbye. His restaurant sold out for three straight weeks.</h3>
+          </a>
+
+          <a href="../articles/salon-no-marketing.html" class="article-list__item tilt-hover reveal" style="display:block;">
+            <span class="column-glyph column-glyph--field-notes">
+              <span class="column-glyph__dot"></span>Field Notes
+            </span>
+            <h3 class="article-list__title">A salon owner told me she &ldquo;doesn't do marketing.&rdquo; She filled 40 empty chairs in 3 weeks.</h3>
+          </a>
+
+        </div>
+      </section>
+
+      <div class="spacer-xl"></div>
+
+      <!-- ===== SUBSCRIBE CTA DARK ===== -->
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-3xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Next time someone asks<br>"have you tried&hellip;"<br>you'll <em>already have.</em>
+        </h2>
+        <p style="font-size:var(--text-base); color:rgba(255,255,255,0.35); line-height:1.7; max-width:26rem; margin:0 auto var(--space-xl); position:relative;">
+          One email. Fridays. What we tested that week inside real local businesses &mdash; and what actually worked.
+        </p>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+
+    </div><!-- /.page -->
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="../columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="../columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="../columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="../columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="../columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="../about.html" class="site-footer__link">About The Lever</a>
+          <a href="kyle.html" class="site-footer__link">Kyle</a>
+          <a href="reese.html" class="site-footer__link">Reese</a>
+          <a href="../colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm); color:var(--color-text-soft); line-height:var(--leading-relaxed); margin-bottom:var(--space-md);">
+            One email every Friday. What we tested that week &mdash; and what worked.
+          </p>
+          <a href="../subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever">
+          <div class="lever-anim__fulcrum"></div>
+          <div class="lever-anim__bar"></div>
+        </div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Footer lever tip animation
+    const leverObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('lever-anim--tipped');
+      });
+    }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever');
+    if (lever) leverObs.observe(lever);
+  </script>
+
+</body>
+</html>

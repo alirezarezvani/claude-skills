@@ -1,0 +1,13 @@
+/* TEAM */
+Kyle — Field Notes, Systems
+Reese — Signal, Contrarian
+The Lab — Experiments
+
+/* SITE */
+Standards: HTML5, CSS3, Vanilla JS
+Software: Built by hand. No frameworks.
+Fonts: Fraunces (variable), Outfit (variable)
+Colors: ink, paper, terra, olive, slate, plum, amber
+
+/* THANKS */
+To every restaurant owner who let us poke around their marketing.

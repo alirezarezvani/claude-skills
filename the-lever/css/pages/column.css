@@ -1,0 +1,33 @@
+/* THE LEVER — Column Landing Pages */
+
+.column-hero {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+}
+
+.column-hero__glyph {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-bottom: var(--space-md);
+}
+
+.column-hero__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-black);
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
+}
+
+.column-hero__desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+  max-width: 34rem;
+}
+
+.column-hero__author {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  margin-top: var(--space-md);
+}

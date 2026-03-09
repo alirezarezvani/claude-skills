@@ -1,0 +1,98 @@
+/* ============================================
+   THE LEVER — Article Page Styles
+   ============================================ */
+
+.article-header {
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.article-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: var(--space-md) 0;
+  max-width: 38rem;
+}
+
+.article-header__subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+  max-width: 34rem;
+}
+
+.article-header__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.article-header__date {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.article-header__issue {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.article-header__issue a {
+  color: var(--color-text-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Article body */
+.article-body {
+  padding: var(--space-xl) 0 var(--space-3xl);
+}
+
+.article-body > * + * {
+  margin-top: var(--space-lg);
+}
+
+.article-body h2 {
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.article-body h3 {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.article-body p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-soft);
+}
+
+.article-body p strong {
+  color: var(--ink);
+  font-weight: var(--weight-semibold);
+}
+
+.article-body p em {
+  color: var(--ink-warm);
+}
+
+/* Related articles section */
+.related-articles {
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.related-articles__heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+  margin-bottom: var(--space-lg);
+}

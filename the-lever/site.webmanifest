@@ -1,0 +1,12 @@
+{
+  "name": "The Lever",
+  "short_name": "Lever",
+  "description": "AI, automation & marketing for local businesses",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#faf7f1",
+  "theme_color": "#1c1a17",
+  "icons": [
+    {"src": "images/lever-icon.svg", "type": "image/svg+xml", "sizes": "any"}
+  ]
+}

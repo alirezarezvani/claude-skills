@@ -1,0 +1,47 @@
+/* THE LEVER — Contributor Profile Pages */
+
+.contributor-hero {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+.contributor-hero__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-xl);
+  flex-shrink: 0;
+}
+
+.contributor-hero__name {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-black);
+  color: var(--ink);
+  margin-bottom: var(--space-xs);
+}
+
+.contributor-hero__columns {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.contributor-hero__bio {
+  font-size: var(--text-base);
+  color: var(--color-text-soft);
+  line-height: var(--leading-relaxed);
+  max-width: 34rem;
+}
+
+@media (max-width: 600px) {
+  .contributor-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .contributor-hero__columns {
+    justify-content: center;
+  }
+}

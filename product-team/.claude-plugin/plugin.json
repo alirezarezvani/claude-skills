@@ -1,7 +1,7 @@
 {
   "name": "product-skills",
-  "description": "8 production-ready product skills: product manager toolkit, agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, and SaaS scaffolder",
-  "version": "1.1.0",
+  "description": "8 product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, and SaaS scaffolder",
+  "version": "2.1.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

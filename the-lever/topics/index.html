@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topics — The Lever</title>
+  <meta name="description" content="Browse articles by subject. AI tools, automation, marketing, operations, and case studies for local businesses.">
+  <link rel="icon" href="../images/lever-icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/whimsy.css">
+  <link rel="stylesheet" href="../css/pages/column.css">
+  <script type="application/ld+json">
+  [
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"Topics","description":"Browse articles by subject.","url":"https://thelever.co/topics/","isPartOf":{"@type":"WebSite","name":"The Lever","url":"https://thelever.co"}},
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thelever.co/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://thelever.co/topics/"}]}
+  ]
+  </script>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__logo"><span class="site-nav__mark">L</span> The Lever</a>
+    <div class="site-nav__links">
+      <a href="../columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="../archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="../about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="../subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="../archive.html" class="mobile-menu__link">Archive</a>
+    <a href="../about.html" class="mobile-menu__link">About</a>
+    <a href="../subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+      <div class="spacer-hero"></div>
+
+      <div class="breadcrumb reveal">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Topics</span>
+      </div>
+
+      <div class="page-header reveal">
+        <h1 class="page-header__title">Topics</h1>
+        <p class="page-header__subtitle">Browse articles by subject.</p>
+      </div>
+
+      <div class="spacer-lg"></div>
+
+      <div class="columns-grid reveal-stagger">
+        <a href="ai-tools.html" class="column-card paper-lift reveal" style="display:block;">
+          <h2 class="column-card__name">AI Tools</h2>
+          <p class="column-card__desc">How AI is changing the way local businesses operate — from phone answering to ad creative to customer service.</p>
+        </a>
+
+        <a href="automation.html" class="column-card paper-lift reveal" style="display:block;">
+          <h2 class="column-card__name">Automation</h2>
+          <p class="column-card__desc">Systems that run without you. Booking reminders, follow-ups, review responses — the invisible workforce.</p>
+        </a>
+
+        <a href="marketing.html" class="column-card paper-lift reveal" style="display:block;">
+          <h2 class="column-card__name">Marketing</h2>
+          <p class="column-card__desc">What actually works for local businesses right now. Not theory — tested campaigns, real numbers.</p>
+        </a>
+
+        <a href="operations.html" class="column-card paper-lift reveal" style="display:block;">
+          <h2 class="column-card__name">Operations</h2>
+          <p class="column-card__desc">The systems side. How to stop knowing what to do and start actually doing it.</p>
+        </a>
+
+        <a href="case-studies.html" class="column-card paper-lift reveal" style="display:block;">
+          <h2 class="column-card__name">Case Studies</h2>
+          <p class="column-card__desc">Real businesses, real results, real numbers. Everything we tested and how it went.</p>
+        </a>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-2xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          Deep dives on every topic. <em>Every Friday.</em>
+        </h2>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="../columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="../columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="../columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="../columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="../columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="../about.html" class="site-footer__link">About The Lever</a>
+          <a href="../contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="../contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="../colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm);color:var(--color-text-soft);line-height:var(--leading-relaxed);margin-bottom:var(--space-md);">One email every Friday.</p>
+          <a href="../subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever"><div class="lever-anim__fulcrum"></div><div class="lever-anim__bar"></div></div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); }); }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    const leverObs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('lever-anim--tipped'); }); }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever'); if (lever) leverObs.observe(lever);
+  </script>
+</body>
+</html>

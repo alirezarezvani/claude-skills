@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation — The Lever</title>
+  <meta name="description" content="Systems that run without you. Booking reminders, follow-ups, review responses — the invisible workforce.">
+  <meta property="og:title" content="Automation — The Lever">
+  <meta property="og:description" content="Systems that run without you. The invisible workforce for local businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../images/og-default.svg">
+  <link rel="icon" href="../images/lever-icon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preload" href="../fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css">
+
+  <!-- Design System -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/whimsy.css">
+  <link rel="stylesheet" href="../css/pages/column.css">
+
+  <!-- Schema: CollectionPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  [
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"Automation","description":"Systems that run without you. Booking reminders, follow-ups, review responses — the invisible workforce.","url":"https://thelever.co/topics/automation","isPartOf":{"@type":"WebSite","name":"The Lever","url":"https://thelever.co"}},
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thelever.co"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://thelever.co/topics/"},{"@type":"ListItem","position":3,"name":"Automation","item":"https://thelever.co/topics/automation"}]}
+  ]
+  </script>
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__logo"><span class="site-nav__mark">L</span> The Lever</a>
+    <div class="site-nav__links">
+      <a href="../columns/index.html" class="site-nav__link wiggle-hover">Columns</a>
+      <a href="../archive.html" class="site-nav__link wiggle-hover">Archive</a>
+      <a href="../about.html" class="site-nav__link wiggle-hover">About</a>
+      <a href="../subscribe.html" class="site-nav__cta btn-bounce">Subscribe free</a>
+    </div>
+    <button class="site-nav__hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('mobile-menu--open')"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="../columns/index.html" class="mobile-menu__link">Columns</a>
+    <a href="../archive.html" class="mobile-menu__link">Archive</a>
+    <a href="../about.html" class="mobile-menu__link">About</a>
+    <a href="../subscribe.html" class="mobile-menu__link">Subscribe</a>
+  </div>
+
+  <main>
+    <div class="page">
+      <div class="spacer-hero"></div>
+
+      <div class="breadcrumb reveal">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <a href="index.html">Topics</a>
+        <span class="breadcrumb__sep">&rsaquo;</span>
+        <span>Automation</span>
+      </div>
+
+      <div class="page-header reveal">
+        <h1 class="page-header__title">Automation</h1>
+        <p class="page-header__desc" style="font-size:var(--text-lg); color:var(--color-text-soft); max-width:36rem; line-height:var(--leading-relaxed); margin-top:var(--space-sm);">
+          Systems that run without you. Booking reminders, follow-ups, review responses &mdash; the invisible workforce.
+        </p>
+      </div>
+
+      <div class="spacer-lg"></div>
+
+      <div class="article-list reveal-stagger">
+        <a href="../articles/ai-phone-answering.html" class="article-list__item paper-lift reveal">
+          <h2 class="article-list__title">A restaurant owner didn't notice his phone was being answered by AI. For four days.</h2>
+          <div class="article-list__meta">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span>Kyle</span>
+            <span class="article-list__sep">&middot;</span>
+            <span>Field Notes</span>
+          </div>
+          <p class="article-list__excerpt">312 calls. 41 reservations. One confused guy trying to order pizza from a burger place. The owner found out on day 4.</p>
+        </a>
+
+        <a href="../articles/salon-no-marketing.html" class="article-list__item paper-lift reveal">
+          <h2 class="article-list__title">A salon owner told me she "doesn't do marketing." She filled 40 empty chairs in 3 weeks.</h2>
+          <div class="article-list__meta">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span>Kyle</span>
+            <span class="article-list__sep">&middot;</span>
+            <span>Field Notes</span>
+          </div>
+          <p class="article-list__excerpt">No budget. No boosted posts. One system running correctly.</p>
+        </a>
+
+        <a href="../articles/graveyard-gap.html" class="article-list__item paper-lift reveal">
+          <h2 class="article-list__title">The Graveyard Gap: knowing what to do and actually doing it are $200K apart</h2>
+          <div class="article-list__meta">
+            <span class="byline__avatar byline__avatar--kyle">K</span>
+            <span>Kyle</span>
+            <span class="article-list__sep">&middot;</span>
+            <span>Systems</span>
+          </div>
+          <p class="article-list__excerpt">Every restaurant owner I talk to knows what they should be doing. Almost none are. I've been thinking about what actually closes the gap.</p>
+        </a>
+      </div>
+
+      <div class="spacer-xl"></div>
+
+      <div class="subscribe-box subscribe-box--dark bleed reveal">
+        <h2 class="subscribe-box__text" style="font-size:var(--text-2xl); max-width:28rem; margin:0 auto var(--space-sm);">
+          All five columns. One email. <em>Every Friday.</em>
+        </h2>
+        <form class="subscribe-box__row" action="#" method="POST">
+          <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
+          <button type="submit" class="subscribe-box__btn btn-bounce">Subscribe free</button>
+        </form>
+        <p class="subscribe-box__fine">Free. Cancel whenever.</p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid">
+        <div>
+          <h4 class="site-footer__heading">Columns</h4>
+          <a href="../columns/signal.html" class="site-footer__link">Signal</a>
+          <a href="../columns/field-notes.html" class="site-footer__link">Field Notes</a>
+          <a href="../columns/systems.html" class="site-footer__link">Systems</a>
+          <a href="../columns/experiment.html" class="site-footer__link">Experiment</a>
+          <a href="../columns/contrarian.html" class="site-footer__link">Contrarian</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">About</h4>
+          <a href="../about.html" class="site-footer__link">About The Lever</a>
+          <a href="../contributors/kyle.html" class="site-footer__link">Kyle</a>
+          <a href="../contributors/reese.html" class="site-footer__link">Reese</a>
+          <a href="../colophon.html" class="site-footer__link">Colophon</a>
+        </div>
+        <div>
+          <h4 class="site-footer__heading">Stay in the loop</h4>
+          <p style="font-size:var(--text-sm);color:var(--color-text-soft);line-height:var(--leading-relaxed);margin-bottom:var(--space-md);">One email every Friday.</p>
+          <a href="../subscribe.html" class="site-nav__cta btn-bounce" style="display:inline-block;">Subscribe free</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div class="lever-anim" id="footer-lever"><div class="lever-anim__fulcrum"></div><div class="lever-anim__bar"></div></div>
+        <p style="margin-top:var(--space-sm);">The Lever &middot; Kyle + Reese &middot; 2026</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="../js/scroll-reveal.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/subscribe.js"></script>
+
+</body>
+</html>

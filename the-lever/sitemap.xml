@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://thelever.co/</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://thelever.co/about</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/archive</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/subscribe</loc><lastmod>2026-03-07</lastmod><priority>0.9</priority></url>
+  <url><loc>https://thelever.co/colophon</loc><lastmod>2026-03-07</lastmod><priority>0.3</priority></url>
+
+  <!-- Columns -->
+  <url><loc>https://thelever.co/columns/</loc><lastmod>2026-03-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thelever.co/columns/signal</loc><lastmod>2026-03-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thelever.co/columns/field-notes</loc><lastmod>2026-03-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thelever.co/columns/systems</loc><lastmod>2026-03-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thelever.co/columns/experiment</loc><lastmod>2026-03-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://thelever.co/columns/contrarian</loc><lastmod>2026-03-07</lastmod><priority>0.7</priority></url>
+
+  <!-- Contributors -->
+  <url><loc>https://thelever.co/contributors/kyle</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://thelever.co/contributors/reese</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+
+  <!-- Issues -->
+  <url><loc>https://thelever.co/issues/009</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+
+  <!-- Articles -->
+  <url><loc>https://thelever.co/articles/ai-phone-answering</loc><lastmod>2026-03-07</lastmod><priority>0.9</priority></url>
+  <url><loc>https://thelever.co/articles/quiet-ranking-factor</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/graveyard-gap</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/ai-ad-variations</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/website-not-destination</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/chef-said-goodbye</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/customer-acquisition-spread</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/local-seo-outdated</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+  <url><loc>https://thelever.co/articles/salon-no-marketing</loc><lastmod>2026-03-07</lastmod><priority>0.8</priority></url>
+
+  <!-- Topics -->
+  <url><loc>https://thelever.co/topics/</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://thelever.co/topics/ai-tools</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://thelever.co/topics/automation</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://thelever.co/topics/marketing</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://thelever.co/topics/operations</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+  <url><loc>https://thelever.co/topics/case-studies</loc><lastmod>2026-03-07</lastmod><priority>0.6</priority></url>
+</urlset>

@@ -1,0 +1,99 @@
+/* ============================================
+   THE LEVER — Print Stylesheet
+   Clean, readable printing. No distractions.
+   ============================================ */
+
+@media print {
+  /* Hide interactive/navigation elements */
+  .site-nav,
+  .mobile-menu,
+  .site-nav__hamburger,
+  .subscribe-box,
+  .subscribe-box--dark,
+  .share-cta,
+  .article-nav,
+  .lever-anim,
+  .lever-broken,
+  .doodle-divider,
+  .site-footer,
+  button,
+  .site-nav__cta {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and colors */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  body::before {
+    display: none !important;
+  }
+
+  /* Show URLs after links */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+
+  /* Clean typography */
+  h1, h2, h3 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  p, li {
+    color: #333 !important;
+  }
+
+  /* Prevent orphans/widows */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* No shadows or transforms */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transform: none !important;
+  }
+
+  /* Page breaks */
+  .article-card,
+  .article-list__item {
+    page-break-inside: avoid;
+  }
+
+  /* Reasonable margins */
+  .page {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  main {
+    padding-top: 0;
+  }
+
+  /* Dark sections become light */
+  .article-card--featured,
+  .bleed {
+    background: #f5f5f5 !important;
+    color: black !important;
+    padding: 1em !important;
+    margin: 0 !important;
+  }
+
+  .article-card--featured .article-card__title,
+  .article-card--featured .article-card__excerpt {
+    color: black !important;
+  }
+}

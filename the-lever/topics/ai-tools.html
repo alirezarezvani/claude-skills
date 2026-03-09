@@ -3,20 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools — The Lever</title>
+  <title>AI Tools — Topics — The Lever</title>
   <meta name="description" content="How AI is changing the way local businesses operate — from phone answering to ad creative to customer service.">
-  <meta property="og:title" content="AI Tools — The Lever">
-  <meta property="og:description" content="How AI is changing the way local businesses operate.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="../images/og-default.svg">
   <link rel="icon" href="../images/lever-icon.svg" type="image/svg+xml">
-
-  <!-- Fonts -->
   <link rel="preload" href="../fonts/fraunces-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/outfit-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../fonts/fonts.css">
-
-  <!-- Design System -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/base.css">
@@ -24,12 +16,10 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/whimsy.css">
   <link rel="stylesheet" href="../css/pages/column.css">
-
-  <!-- Schema: CollectionPage + BreadcrumbList -->
   <script type="application/ld+json">
   [
-    {"@context":"https://schema.org","@type":"CollectionPage","name":"AI Tools","description":"How AI is changing the way local businesses operate — from phone answering to ad creative to customer service.","url":"https://thelever.co/topics/ai-tools","isPartOf":{"@type":"WebSite","name":"The Lever","url":"https://thelever.co"}},
-    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thelever.co"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://thelever.co/topics/"},{"@type":"ListItem","position":3,"name":"AI Tools","item":"https://thelever.co/topics/ai-tools"}]}
+    {"@context":"https://schema.org","@type":"CollectionPage","name":"AI Tools","description":"How AI is changing the way local businesses operate — from phone answering to ad creative to customer service.","url":"https://thelever.co/topics/ai-tools.html","isPartOf":{"@type":"WebSite","name":"The Lever","url":"https://thelever.co"}},
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://thelever.co/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://thelever.co/topics/"},{"@type":"ListItem","position":3,"name":"AI Tools","item":"https://thelever.co/topics/ai-tools.html"}]}
   ]
   </script>
 </head>
@@ -65,34 +55,19 @@
 
       <div class="page-header reveal">
         <h1 class="page-header__title">AI Tools</h1>
-        <p class="page-header__desc" style="font-size:var(--text-lg); color:var(--color-text-soft); max-width:36rem; line-height:var(--leading-relaxed); margin-top:var(--space-sm);">
-          How AI is changing the way local businesses operate &mdash; from phone answering to ad creative to customer service.
-        </p>
+        <p class="page-header__subtitle">How AI is changing the way local businesses operate — from phone answering to ad creative to customer service.</p>
       </div>
 
       <div class="spacer-lg"></div>
 
       <div class="article-list reveal-stagger">
-        <a href="../articles/ai-phone-answering.html" class="article-list__item paper-lift reveal">
+        <a href="../articles/ai-phone-answering.html" class="article-list__item reveal">
           <h2 class="article-list__title">A restaurant owner didn't notice his phone was being answered by AI. For four days.</h2>
-          <div class="article-list__meta">
-            <span class="byline__avatar byline__avatar--kyle">K</span>
-            <span>Kyle</span>
-            <span class="article-list__sep">&middot;</span>
-            <span>Field Notes</span>
-          </div>
-          <p class="article-list__excerpt">312 calls. 41 reservations. One confused guy trying to order pizza from a burger place. The owner found out on day 4.</p>
+          <p class="article-list__meta">Kyle &middot; Field Notes</p>
         </a>
-
-        <a href="../articles/ai-ad-variations.html" class="article-list__item paper-lift reveal">
-          <h2 class="article-list__title">We let AI write 47 ad variations for a burger restaurant. Three beat everything we'd ever made by hand.</h2>
-          <div class="article-list__meta">
-            <span class="byline__avatar byline__avatar--lab">L</span>
-            <span>The Lab</span>
-            <span class="article-list__sep">&middot;</span>
-            <span>Experiment</span>
-          </div>
-          <p class="article-list__excerpt">Most were bad. A few were really bad. But the ones that worked changed how we think about creative.</p>
+        <a href="../articles/ai-ad-variations.html" class="article-list__item reveal">
+          <h2 class="article-list__title">We let AI write 47 ad variations for a burger restaurant.</h2>
+          <p class="article-list__meta">The Lab &middot; Experiment</p>
         </a>
       </div>
 
@@ -100,7 +75,7 @@
 
       <div class="subscribe-box subscribe-box--dark bleed reveal">
         <h2 class="subscribe-box__text" style="font-size:var(--text-2xl); max-width:28rem; margin:0 auto var(--space-sm);">
-          All five columns. One email. <em>Every Friday.</em>
+          AI insights for local business. <em>Every Friday.</em>
         </h2>
         <form class="subscribe-box__row" action="#" method="POST">
           <input type="email" class="subscribe-box__input" placeholder="you@yourbusiness.com" aria-label="Email address" required>
@@ -140,9 +115,11 @@
     </footer>
   </main>
 
-  <script src="../js/scroll-reveal.js"></script>
-  <script src="../js/nav.js"></script>
-  <script src="../js/subscribe.js"></script>
-
+  <script>
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal--show'); }); }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    const leverObs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('lever-anim--tipped'); }); }, { threshold: 0.5 });
+    const lever = document.getElementById('footer-lever'); if (lever) leverObs.observe(lever);
+  </script>
 </body>
 </html>

@@ -1,13 +1,16 @@
 # Finance Skills - Claude Code Guidance
 
-This guide covers the finance skill and its Python automation tools.
+This guide covers the finance skills and their Python automation tools.
 
 ## Finance Skills Overview
 
 **Available Skills:**
 1. **financial-analyst/** - Financial statement analysis, ratio analysis, DCF valuation, budgeting, forecasting (4 Python tools)
+2. **saas-metrics-coach/** - SaaS financial health: ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, 12-month projections (3 Python tools)
 
-**Total Tools:** 4 Python automation tools, 3 knowledge bases, 5 templates
+**Total Tools:** 7 Python automation tools, 5 knowledge bases, 6 templates
+
+**Commands:** 2 (`/financial-health`, `/saas-health`)
 
 ## Python Automation Tools
 
@@ -97,9 +100,7 @@ python financial-analyst/scripts/forecast_builder.py forecast_data.json --format
 
 ---
 
-**Last Updated:** February 2026
-**Skills Deployed:** 1/1 finance skills production-ready
-**Total Tools:** 4 Python automation tools
-
-## saas-metrics-coach
-SaaS financial health advisor. Calculates ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio. Benchmarks against industry standards. Includes 12-month projection simulator.
+**Last Updated:** March 2026
+**Skills Deployed:** 2/2 finance skills production-ready
+**Total Tools:** 7 Python automation tools
+**Commands:** /financial-health, /saas-health

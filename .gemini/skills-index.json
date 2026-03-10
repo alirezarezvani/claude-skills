@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 204,
+  "total_skills": 207,
   "skills": [
     {
       "name": "cs-agile-product-owner",
@@ -36,7 +36,7 @@
     {
       "name": "cs-financial-analyst",
       "category": "agent",
-      "description": "Financial Analyst agent for DCF valuation, financial modeling, budgeting, and forecasting. Orchestrates finance skills. Spawn when users need financial statements analysis, valuation models, budget planning, ratio analysis, or industry benchmarking."
+      "description": "Financial Analyst agent for DCF valuation, financial modeling, budgeting, forecasting, and SaaS metrics (ARR, MRR, churn, CAC, LTV, NRR). Orchestrates finance skills. Spawn when users need financial analysis, valuation models, budget planning, ratio analysis, SaaS health checks, or unit economics projections."
     },
     {
       "name": "cs-growth-strategist",
@@ -279,6 +279,11 @@
       "description": "Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]"
     },
     {
+      "name": "financial-health",
+      "category": "command",
+      "description": "Run financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecasts. Usage: /financial-health <ratios|dcf|budget|forecast> <data.json>"
+    },
+    {
       "name": "okr",
       "category": "command",
       "description": "Generate OKR cascades from company strategy to team objectives. Usage: /okr generate <strategy>"
@@ -307,6 +312,11 @@
       "name": "rice",
       "category": "command",
       "description": "RICE feature prioritization with scoring and capacity planning. Usage: /rice prioritize <features.csv> [options]"
+    },
+    {
+      "name": "saas-health",
+      "category": "command",
+      "description": "Calculate SaaS health metrics (ARR, MRR, churn, CAC, LTV, NRR) and benchmark against industry standards. Usage: /saas-health <metrics|quick-ratio|simulate> [options]"
     },
     {
       "name": "sprint-health",
@@ -662,6 +672,11 @@
       "name": "financial-analyst",
       "category": "finance",
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projections, or spreadsheet analysis."
+    },
+    {
+      "name": "saas-metrics-coach",
+      "category": "finance",
+      "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing."
     },
     {
       "name": "ab-test-setup",
@@ -1038,7 +1053,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 12,
+      "count": 14,
       "description": "Command resources"
     },
     "engineering": {
@@ -1050,7 +1065,7 @@
       "description": "Engineering-advanced resources"
     },
     "finance": {
-      "count": 2,
+      "count": 3,
       "description": "Finance resources"
     },
     "marketing": {

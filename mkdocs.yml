@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Plugins
 site_url: https://alirezarezvani.github.io/claude-skills
-site_description: "170 production-ready skills, 14 agents, and 12 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "170 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -309,6 +309,7 @@ nav:
     - Finance:
       - Overview: skills/finance/index.md
       - "Financial Analyst": skills/finance/financial-analyst.md
+      - "SaaS Metrics Coach": skills/finance/saas-metrics-coach.md
   - Agents:
     - Overview: agents/index.md
     - "CS Agile Product Owner": agents/cs-agile-product-owner.md
@@ -329,12 +330,14 @@ nav:
     - Overview: commands/index.md
     - "/changelog": commands/changelog.md
     - "/competitive-matrix": commands/competitive-matrix.md
+    - "/financial-health": commands/financial-health.md
     - "/okr": commands/okr.md
     - "/persona": commands/persona.md
     - "/pipeline": commands/pipeline.md
     - "/project-health": commands/project-health.md
     - "/retro": commands/retro.md
     - "/rice": commands/rice.md
+    - "/saas-health": commands/saas-health.md
     - "/sprint-health": commands/sprint-health.md
     - "/tdd": commands/tdd.md
     - "/tech-debt": commands/tech-debt.md

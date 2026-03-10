@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "170 production-ready skills, 14 agents, and 12 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "171 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Claude Code Skills
 
-170 production-ready skills that transform AI coding agents into specialized professionals.
+171 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
 **Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw**
@@ -27,13 +27,13 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **170**
+-   :material-counter:{ .lg .middle } **171**
 
     ---
 
     Production-ready skills
 
--   :material-language-python:{ .lg .middle } **237**
+-   :material-language-python:{ .lg .middle } **240**
 
     ---
 
@@ -45,7 +45,7 @@ hide:
 
     [Multi-skill agents](agents/)
 
--   :material-console:{ .lg .middle } **12**
+-   :material-console:{ .lg .middle } **14**
 
     ---
 
@@ -127,9 +127,9 @@ hide:
 
     ---
 
-    Financial analyst — DCF valuation, budgeting, forecasting, ratio analysis
+    Financial analyst, SaaS metrics coach — DCF valuation, budgeting, forecasting, ratio analysis, ARR/MRR/churn/LTV
 
-    [:octicons-arrow-right-24: 1 skill](skills/finance/)
+    [:octicons-arrow-right-24: 2 skills](skills/finance/)
 
 </div>
 

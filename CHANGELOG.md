@@ -5,6 +5,39 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.2] - 2026-03-10
+
+### Changed — Product Team Quality & Cross-Domain Integration
+
+**Landing Page Generator — TSX + Brand Voice Integration:**
+- Landing page scaffolder now defaults to **Next.js/React TSX output** with Tailwind CSS (HTML preserved via `--format html`)
+- 4 Tailwind design styles: `dark-saas`, `clean-minimal`, `bold-startup`, `enterprise` with complete class mappings
+- 7 section generators: nav, hero, features, testimonials, pricing, CTA, footer
+- Brand voice integration: generation workflow now includes brand voice analysis (step 2) using `marketing-skill/content-production/scripts/brand_voice_analyzer.py` to map voice profile to design style + copy framework
+- Added Related Skills cross-references to SKILL.md
+
+**Documentation Updates:**
+- `product-team/CLAUDE.md` — Added Workflow 4 (Brand-Aligned Landing Page), updated scaffolder section with TSX docs, added Cross-Domain Integration section
+- `product-team/README.md` — Fixed ghost script references (removed 7 scripts that never existed), corrected skill/tool/agent/command counts
+- `product-team/.codex/instructions.md` — Added brand voice cross-domain workflow and TSX default note
+
+### Fixed
+- **competitive-teardown/SKILL.md** — Fixed 6 broken file references (`DATA_COLLECTION.md` → `references/data-collection-guide.md`, `TEMPLATES.md` → `references/analysis-templates.md`)
+- **saas-scaffolder/scripts/project_bootstrapper.py** — Fixed f-string backslash syntax incompatible with Python <3.12
+- **237 Python scripts verified** — All pass `--help` without errors (previous session fixed 25 scripts across all domains)
+
+### Added
+- `landing-page-generator/SKILL.md` — Brand voice analysis as prerequisite step in generation workflow
+- Codex and Gemini skill indexes re-synced with updated SKILL.md content
+
+### Backward Compatibility
+- `--format html` still works for landing page scaffolder (TSX is new default)
+- All existing script CLIs and arguments unchanged
+- No skill removals or renames
+- Plugin source paths unchanged — existing installations will not break
+
+---
+
 ## [2.1.1] - 2026-03-07
 
 ### Changed — Tessl Quality Optimization (#287)
@@ -320,6 +353,8 @@ Major rewrite of existing skills following Anthropic's agent skills specificatio
 
 | Version | Date | Skills | Domains | Key Changes |
 |---------|------|--------|---------|-------------|
+| 2.1.2 | 2026-03-10 | 170 | 9 | Landing page TSX output, brand voice integration, 25 script fixes |
+| 2.1.1 | 2026-03-07 | 170 | 9 | 18 skills optimized via Tessl, YAML frontmatter, agents + commands |
 | 2.0.0 | 2026-02-16 | 86 | 9 | 26 POWERFUL-tier skills, 37 refactored, Codex support, 3 new domains |
 | 1.1.0 | 2025-10-21 | 42 | 6 | Anthropic best practices refactoring (5 skills) |
 | 1.0.2 | 2025-10-21 | 42 | 6 | GitHub repository pages (LICENSE, CONTRIBUTING, etc.) |
@@ -336,7 +371,9 @@ Major rewrite of existing skills following Anthropic's agent skills specificatio
 
 ---
 
-[Unreleased]: https://github.com/alirezarezvani/claude-skills/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/alirezarezvani/claude-skills/compare/v2.1.2...HEAD
+[2.1.2]: https://github.com/alirezarezvani/claude-skills/compare/v2.1.1...v2.1.2
+[2.1.1]: https://github.com/alirezarezvani/claude-skills/compare/v2.0.0...v2.1.1
 [2.0.0]: https://github.com/alirezarezvani/claude-skills/compare/v1.0.2...v2.0.0
 [1.1.0]: https://github.com/alirezarezvani/claude-skills/compare/v1.0.1...v1.1.0
 [1.0.2]: https://github.com/alirezarezvani/claude-skills/compare/v1.0.1...v1.0.2

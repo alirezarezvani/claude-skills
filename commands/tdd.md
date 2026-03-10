@@ -24,9 +24,13 @@ Generate tests, analyze coverage, and validate test quality using the TDD Guide 
 ```
 
 ## Scripts
-- `engineering-team/tdd-guide/scripts/test_generator.py` — Generate test cases
-- `engineering-team/tdd-guide/scripts/coverage_analyzer.py` — Coverage analysis
-- `engineering-team/tdd-guide/scripts/test_quality_checker.py` — Quality validation
+- `engineering-team/tdd-guide/scripts/test_generator.py` — Test case generation (library module)
+- `engineering-team/tdd-guide/scripts/coverage_analyzer.py` — Coverage analysis (library module)
+- `engineering-team/tdd-guide/scripts/tdd_workflow.py` — TDD workflow orchestration (library module)
+- `engineering-team/tdd-guide/scripts/fixture_generator.py` — Test fixture generation (library module)
+- `engineering-team/tdd-guide/scripts/metrics_calculator.py` — TDD metrics calculation (library module)
+
+> **Note:** These scripts are library modules without CLI entry points. Import them in Python or use via the SKILL.md workflow guidance.
 
 ## Skill Reference
 → `engineering-team/tdd-guide/SKILL.md`

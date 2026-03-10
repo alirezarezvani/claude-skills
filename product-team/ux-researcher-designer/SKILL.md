@@ -412,3 +412,8 @@ Detailed reference guides in `references/`:
 - [ ] Findings include evidence
 - [ ] Recommendations are actionable
 - [ ] Priorities justified
+
+## Related Skills
+
+- **UI Design System** (`product-team/ui-design-system/`) — Research findings inform design system decisions
+- **Product Manager Toolkit** (`product-team/product-manager-toolkit/`) — Customer interview analysis complements persona research

@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "170 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw. Reusable expertise bundles for engineering, product, marketing, compliance, and more."
+description: "177 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw. Reusable expertise bundles for engineering, product, marketing, compliance, and more."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Claude Code Skills
 
-170 production-ready skills that transform AI coding agents into specialized professionals.
+177 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
 **Claude Code** | **OpenAI Codex** | **OpenClaw**
@@ -27,13 +27,13 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **170**
+-   :material-counter:{ .lg .middle } **177**
 
     ---
 
     Production-ready skills
 
--   :material-language-python:{ .lg .middle } **210+**
+-   :material-language-python:{ .lg .middle } **218+**
 
     ---
 

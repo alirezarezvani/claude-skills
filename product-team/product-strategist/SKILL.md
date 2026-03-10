@@ -220,3 +220,8 @@ See `references/examples/sample_growth_okrs.json` for a complete example.
 - Adjust contribution percentages based on team size
 - Platform/Infrastructure teams often support all objectives
 - Specialized teams (ML, Data) may only support relevant objectives
+
+## Related Skills
+
+- **Senior PM** (`project-management/senior-pm/`) — Portfolio management and risk analysis inform strategic planning
+- **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive intelligence feeds product strategy

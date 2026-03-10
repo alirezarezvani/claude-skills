@@ -124,15 +124,20 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.1.1 (latest)
+**Version:** v2.1.2 (latest)
 
-**v2.1.1 Highlights:**
+**v2.1.2 Highlights:**
+- Landing page generator now outputs **Next.js TSX + Tailwind CSS** by default (4 design styles, 7 section generators)
+- **Brand voice integration** — landing page workflow uses marketing brand voice analyzer to match copy tone to design style
+- 25 Python scripts fixed across all domains (syntax, dependencies, argparse)
+- 237/237 scripts verified passing `--help`
+- Competitive teardown SKILL.md fixed (6 broken file references)
+- Cross-domain workflows documented (product + marketing skill integration)
+
+**v2.1.1 (2026-03-07):**
 - 18 skills optimized from 66-83% to 85-100% via Tessl quality review
-- 21 over-500-line skills split into SKILL.md + references/
 - YAML frontmatter (name + description) added to all SKILL.md files
-- 6 new agents + 5 slash commands for full domain coverage
-- **Gemini CLI support added** (scripts/gemini-install.sh + GEMINI.md)
-- MkDocs Material documentation site at alirezarezvani.github.io/claude-skills
+- 6 new agents + 5 slash commands, Gemini CLI support, MkDocs docs site
 
 **v2.0.0 (2026-02-16):**
 - 25 POWERFUL-tier engineering skills added (engineering/ folder)
@@ -185,6 +190,6 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
 ---
 
-**Last Updated:** March 2026
-**Version:** v2.1.1
+**Last Updated:** March 10, 2026
+**Version:** v2.1.2
 **Status:** 170 skills deployed across 9 domains, 18 marketplace plugins, docs site live

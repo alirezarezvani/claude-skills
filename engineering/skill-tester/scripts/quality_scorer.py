@@ -23,7 +23,22 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
-import yaml
+try:
+    import yaml
+except ImportError:
+    # Minimal YAML subset: parse simple key: value frontmatter without pyyaml
+    class _YamlStub:
+        class YAMLError(Exception):
+            pass
+        @staticmethod
+        def safe_load(text):
+            result = {}
+            for line in text.strip().splitlines():
+                if ':' in line:
+                    key, _, value = line.partition(':')
+                    result[key.strip()] = value.strip()
+            return result if result else None
+    yaml = _YamlStub()
 
 
 class QualityDimension:

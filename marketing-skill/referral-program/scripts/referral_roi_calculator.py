@@ -353,11 +353,25 @@ def run(params):
 # ---------------------------------------------------------------------------
 
 def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Calculates referral program ROI. "
+                    "Models economics given LTV, CAC, referral rate, reward cost, "
+                    "and conversion rate."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a JSON file with referral program parameters. "
+             "If omitted, reads from stdin or runs embedded sample."
+    )
+    args = parser.parse_args()
+
     params = None
 
-    if len(sys.argv) > 1:
+    if args.file:
         try:
-            with open(sys.argv[1]) as f:
+            with open(args.file) as f:
                 params = json.load(f)
         except Exception as e:
             print(f"Error reading file: {e}", file=sys.stderr)

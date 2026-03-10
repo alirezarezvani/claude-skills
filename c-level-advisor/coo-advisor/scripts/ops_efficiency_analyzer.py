@@ -18,7 +18,7 @@ import sys
 import argparse
 import math
 from datetime import datetime
-from typing import Any
+from typing import Any, Optional
 
 
 # ---------------------------------------------------------------------------
@@ -458,7 +458,7 @@ def _dept_revenue_benchmark(dept_name: str, stage: str) -> int:
     return stage_data.get(dept_key, stage_data["default"])
 
 
-def _efficiency_status(efficiency_pct: float | None) -> str:
+def _efficiency_status(efficiency_pct: Optional[float]) -> str:
     if efficiency_pct is None:
         return "N/A"
     if efficiency_pct >= 90:

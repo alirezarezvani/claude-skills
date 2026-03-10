@@ -119,8 +119,23 @@ def print_report(analysis: dict):
 
 
 def main():
-    if len(sys.argv) > 1:
-        filepath = Path(sys.argv[1])
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Track campaign status across marketing skills — tasks, owners, deadlines."
+    )
+    parser.add_argument(
+        "input_file", nargs="?", default=None,
+        help="JSON file with campaign data (default: run with sample data)"
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Also output results as JSON"
+    )
+    args = parser.parse_args()
+
+    if args.input_file:
+        filepath = Path(args.input_file)
         if filepath.exists():
             campaign = json.loads(filepath.read_text())
         else:
@@ -133,7 +148,7 @@ def main():
     analysis = analyze_campaign(campaign)
     print_report(analysis)
 
-    if "--json" in sys.argv:
+    if args.json:
         print(f"\n{json.dumps(analysis, indent=2)}")
 
 

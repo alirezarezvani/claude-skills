@@ -34,30 +34,29 @@ The cs-demand-gen-specialist agent bridges the gap between marketing strategy an
 
 ### Knowledge Bases
 
-1. **Acquisition Frameworks**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/acquisition_frameworks.md`
-   - **Content:** Lead generation strategies, conversion optimization frameworks, acquisition funnel templates
-   - **Use Case:** Campaign planning, strategy development, funnel design
+1. **Attribution Guide**
+   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/attribution-guide.md`
+   - **Content:** Marketing attribution models, channel attribution, ROI measurement frameworks
+   - **Use Case:** Campaign attribution, channel performance analysis, budget justification
 
-2. **Channel Best Practices**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/channel_best_practices.md`
-   - **Content:** Paid search (Google Ads), paid social (LinkedIn, Facebook), content marketing, email campaigns
-   - **Use Case:** Channel-specific optimization, budget allocation, A/B testing
+2. **Campaign Templates**
+   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/campaign-templates.md`
+   - **Content:** Reusable campaign structures, launch checklists, multi-channel campaign blueprints
+   - **Use Case:** Campaign planning, rapid campaign setup, standardized launch processes
 
-3. **Conversion Optimization**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/conversion_optimization.md`
-   - **Content:** Landing page best practices, CTA optimization, form optimization, lead magnets
-   - **Use Case:** Conversion rate improvement, landing page design, lead capture optimization
+3. **HubSpot Workflows**
+   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/hubspot-workflows.md`
+   - **Content:** HubSpot automation workflows, lead nurturing sequences, CRM integration patterns
+   - **Use Case:** Marketing automation, lead scoring, nurture campaign setup
+
+4. **International Playbooks**
+   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/international-playbooks.md`
+   - **Content:** International market expansion strategies, localization best practices, regional channel optimization
+   - **Use Case:** Global campaign planning, market entry strategy, cross-border demand generation
 
 ### Templates
 
-1. **Campaign Planning Template**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/assets/campaign-plan.md`
-   - **Use Case:** Multi-channel campaign planning, goal setting
-
-2. **Funnel Analysis Template**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/assets/funnel-analysis.md`
-   - **Use Case:** Conversion funnel mapping, bottleneck identification
+No asset templates currently available — use campaign-templates.md reference for campaign structure guidance.
 
 ## Workflows
 
@@ -67,21 +66,21 @@ The cs-demand-gen-specialist agent bridges the gap between marketing strategy an
 
 **Steps:**
 1. **Define Campaign Goals** - Set targets for leads, MQLs, SQLs, conversion rates
-2. **Reference Acquisition Frameworks** - Review proven lead generation strategies
+2. **Reference Campaign Templates** - Review proven campaign structures and launch checklists
    ```bash
-   cat ../../marketing-skill/marketing-demand-acquisition/references/acquisition_frameworks.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/campaign-templates.md
    ```
-3. **Select Channels** - Choose optimal mix based on target audience and budget
+3. **Select Channels** - Choose optimal mix based on target audience, budget, and attribution models
    ```bash
-   cat ../../marketing-skill/marketing-demand-acquisition/references/channel_best_practices.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/attribution-guide.md
    ```
-4. **Create Campaign Plan** - Use template to structure multi-channel approach
+4. **Set Up Automation** - Configure HubSpot workflows for lead nurturing
    ```bash
-   cp ../../marketing-skill/marketing-demand-acquisition/assets/campaign-plan.md q4-demand-gen-campaign.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/hubspot-workflows.md
    ```
-5. **Design Landing Pages** - Reference conversion optimization best practices
+5. **Plan International Reach** - Reference international playbooks if targeting multiple markets
    ```bash
-   cat ../../marketing-skill/marketing-demand-acquisition/references/conversion_optimization.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/international-playbooks.md
    ```
 6. **Launch and Monitor** - Deploy campaigns, track metrics, collect data
 
@@ -99,18 +98,18 @@ The cs-demand-gen-specialist agent bridges the gap between marketing strategy an
    ```bash
    python ../../marketing-skill/marketing-demand-acquisition/scripts/calculate_cac.py campaign-spend.csv conversions.csv
    ```
-3. **Map Conversion Funnel** - Use template to visualize drop-off points
+3. **Map Conversion Funnel** - Visualize drop-off points using campaign templates as structure guide
    ```bash
-   cp ../../marketing-skill/marketing-demand-acquisition/assets/funnel-analysis.md current-funnel-analysis.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/campaign-templates.md
    ```
 4. **Identify Bottlenecks** - Analyze conversion rates at each funnel stage:
    - Awareness → Interest (CTR)
    - Interest → Consideration (landing page conversion)
    - Consideration → Intent (form completion)
    - Intent → Purchase/MQL (qualification rate)
-5. **Reference Optimization Guides** - Review best practices for problem areas
+5. **Reference Attribution Guide** - Review attribution models to identify problem areas
    ```bash
-   cat ../../marketing-skill/marketing-demand-acquisition/references/conversion_optimization.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/attribution-guide.md
    ```
 6. **Implement A/B Tests** - Test hypotheses for improvement
 7. **Re-calculate CAC Post-Optimization** - Measure cost efficiency improvements
@@ -145,9 +144,9 @@ cat cac-report.txt
    ```bash
    python ../../marketing-skill/marketing-demand-acquisition/scripts/calculate_cac.py channel-spend.csv channel-conversions.csv
    ```
-3. **Reference Channel Best Practices** - Understand benchmarks for each channel
+3. **Reference Attribution Guide** - Understand attribution models and benchmarks for each channel
    ```bash
-   cat ../../marketing-skill/marketing-demand-acquisition/references/channel_best_practices.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/attribution-guide.md
    ```
 4. **Calculate Key Metrics:**
    - CAC (Customer Acquisition Cost) by channel
@@ -167,9 +166,9 @@ cat cac-report.txt
 
 **Steps:**
 1. **Define Lead Magnet** - Choose format: ebook, webinar, template, assessment, free trial
-2. **Reference Conversion Best Practices** - Review lead capture optimization strategies
+2. **Reference Campaign Templates** - Review lead capture and campaign structure best practices
    ```bash
-   cat ../../marketing-skill/marketing-demand-acquisition/references/conversion_optimization.md
+   cat ../../marketing-skill/marketing-demand-acquisition/references/campaign-templates.md
    ```
 3. **Create Landing Page** - Design high-converting landing page with:
    - Clear value proposition
@@ -273,8 +272,8 @@ fi
 ## Related Agents
 
 - [cs-content-creator](cs-content-creator.md) - Content creation for demand gen campaigns
-- [cs-product-marketing](../product/cs-product-marketing.md) - Product positioning and messaging (planned)
-- [cs-growth-marketer](cs-growth-marketer.md) - Growth hacking and viral acquisition (planned)
+- cs-product-marketing - Product positioning and messaging (planned)
+- cs-growth-marketer - Growth hacking and viral acquisition (planned)
 
 ## References
 

@@ -207,11 +207,26 @@ def print_report(result, inputs):
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] != "--json":
-        with open(sys.argv[1]) as f:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Pricing modeler — projects revenue at different price points and recommends tier structure."
+    )
+    parser.add_argument(
+        "input_file", nargs="?", default=None,
+        help="JSON file with pricing data (default: run with sample data)"
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output results as JSON"
+    )
+    args = parser.parse_args()
+
+    if args.input_file:
+        with open(args.input_file) as f:
             inputs = json.load(f)
     else:
-        if "--json" not in sys.argv:
+        if not args.json:
             print("No input file provided. Running with sample data...\n")
         inputs = SAMPLE_INPUT
 
@@ -260,7 +275,7 @@ def main():
 
     print_report(result, inputs)
 
-    if "--json" in sys.argv:
+    if args.json:
         print(json.dumps(result, indent=2))
 
 

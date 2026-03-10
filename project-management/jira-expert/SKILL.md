@@ -298,3 +298,8 @@ mcp jira create_filter --name "Open Blockers" --jql "priority = Blocker AND stat
 - Configure sprint boards for Scrum Master
 - Create documentation pages for Confluence Expert
 - Support template creation for Template Creator
+
+## Related Skills
+
+- **Confluence Expert** (`project-management/confluence-expert/`) — Documentation complements Jira workflows
+- **Atlassian Admin** (`project-management/atlassian-admin/`) — Permission and user management for Jira projects

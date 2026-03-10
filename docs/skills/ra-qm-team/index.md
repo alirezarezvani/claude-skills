@@ -5,7 +5,7 @@ description: "All Regulatory & Quality skills for Claude Code, OpenAI Codex, and
 
 # Regulatory & Quality Skills
 
-12 skills in this domain.
+13 skills in this domain.
 
 | Skill | Description |
 |-------|-------------|
@@ -19,5 +19,6 @@ description: "All Regulatory & Quality skills for Claude Code, OpenAI Codex, and
 | [Quality Documentation Manager](quality-documentation-manager.md) | `quality-documentation-manager` |
 | [Senior Quality Manager Responsible Person (QMR)](quality-manager-qmr.md) | `quality-manager-qmr` |
 | [Quality Manager - QMS ISO 13485 Specialist](quality-manager-qms-iso13485.md) | `quality-manager-qms-iso13485` |
+| [Regulatory Affairs & Quality Management Skills](ra-qm-team.md) | `ra-qm-team` |
 | [Head of Regulatory Affairs](regulatory-affairs-head.md) | `regulatory-affairs-head` |
 | [Risk Management Specialist](risk-management-specialist.md) | `risk-management-specialist` |

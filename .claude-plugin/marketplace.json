@@ -4,19 +4,19 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "149 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (1). Includes 213 Python tools, 314 reference documents, 9 agents, and 5 slash commands.",
+  "description": "149 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (1). Includes 224 Python tools, 341 reference documents, 14 agents, and 12 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "149 production-ready skill packages across 9 domains with 213 Python tools, 314 reference documents, 9 agents, and 5 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
-    "version": "2.1.1"
+    "description": "149 production-ready skill packages across 9 domains with 224 Python tools, 341 reference documents, 14 agents, and 12 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "version": "2.1.2"
   },
   "plugins": [
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "description": "42 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, and Sales enablement. 27 Python tools, 60 reference docs.",
-      "version": "2.1.1",
+      "description": "42 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, and Sales enablement. 46 Python tools, 72 reference docs.",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -38,7 +38,7 @@
       "name": "c-level-skills",
       "source": "./c-level-advisor",
       "description": "28 C-level advisory skills: virtual board of directors (CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO), executive mentor, founder coach, orchestration (Chief of Staff, board meetings, decision logger), strategic capabilities (board deck builder, scenario war room, competitive intel, M&A playbook), and culture frameworks.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -58,7 +58,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "25 advanced engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, and more.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -81,7 +81,7 @@
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "23 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -103,7 +103,7 @@
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
       "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -122,8 +122,8 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "8 product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, SaaS scaffolder.",
-      "version": "2.1.1",
+      "description": "8 product skills with 9 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, SaaS scaffolder.",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -142,8 +142,8 @@
     {
       "name": "pm-skills",
       "source": "./project-management",
-      "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator.",
-      "version": "2.1.1",
+      "description": "6 project management skills with 12 Python tools: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator.",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -161,7 +161,7 @@
       "name": "business-growth-skills",
       "source": "./business-growth",
       "description": "4 business & growth skills: customer success manager, sales engineer, revenue operations, contract & proposal writer.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -178,7 +178,7 @@
       "name": "finance-skills",
       "source": "./finance",
       "description": "1 finance skill: financial analyst with ratio analysis, DCF valuation, budgeting, and forecasting. 4 Python automation tools.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -195,7 +195,7 @@
       "name": "pw",
       "source": "./engineering-team/playwright-pro",
       "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, TestRail + BrowserStack MCP integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -214,7 +214,7 @@
       "name": "self-improving-agent",
       "source": "./engineering-team/self-improving-agent",
       "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -230,7 +230,7 @@
       "name": "content-creator",
       "source": "./marketing-skill/content-creator",
       "description": "SEO-optimized marketing content with brand voice analysis, content frameworks, and social media templates.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -246,7 +246,7 @@
       "name": "demand-gen",
       "source": "./marketing-skill/marketing-demand-acquisition",
       "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -261,7 +261,7 @@
       "name": "fullstack-engineer",
       "source": "./engineering-team/senior-fullstack",
       "description": "Full-stack engineering with React, Node, databases, and deployment.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -277,7 +277,7 @@
       "name": "aws-architect",
       "source": "./engineering-team/aws-solution-architect",
       "description": "AWS serverless architecture design with IaC templates, cost optimization, and CI/CD pipelines.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -293,7 +293,7 @@
       "name": "product-manager",
       "source": "./product-team/product-manager-toolkit",
       "description": "Product management toolkit with RICE scoring, customer interview analysis, and PRD generation.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -309,7 +309,7 @@
       "name": "scrum-master",
       "source": "./project-management/scrum-master",
       "description": "Sprint health analysis, velocity tracking, and retrospective facilitation.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -325,7 +325,7 @@
       "name": "skill-security-auditor",
       "source": "./engineering/skill-security-auditor",
       "description": "Security audit and vulnerability scanner for AI agent skills. Scans for malicious patterns, prompt injection, data exfiltration, and unsafe file operations.",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },

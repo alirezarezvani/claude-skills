@@ -390,16 +390,28 @@ SAMPLE_HTML = """<!DOCTYPE html>
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) > 1:
-        arg = sys.argv[1]
-        if arg == "-":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Extracts and validates JSON-LD structured data from HTML. "
+                    "Scores 0-100 per schema block based on required/recommended field coverage."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to an HTML file to validate. "
+             "Use '-' to read from stdin. If omitted, runs embedded sample."
+    )
+    args = parser.parse_args()
+
+    if args.file:
+        if args.file == "-":
             html = sys.stdin.read()
         else:
             try:
-                with open(arg, "r", encoding="utf-8") as f:
+                with open(args.file, "r", encoding="utf-8") as f:
                     html = f.read()
             except FileNotFoundError:
-                print(f"Error: File not found: {arg}", file=sys.stderr)
+                print(f"Error: File not found: {args.file}", file=sys.stderr)
                 sys.exit(1)
     else:
         print("No file provided — running on embedded sample HTML.\n")

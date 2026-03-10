@@ -5,7 +5,7 @@ description: "All Project Management skills for Claude Code, OpenAI Codex, and O
 
 # Project Management Skills
 
-6 skills in this domain.
+7 skills in this domain.
 
 | Skill | Description |
 |-------|-------------|
@@ -13,5 +13,6 @@ description: "All Project Management skills for Claude Code, OpenAI Codex, and O
 | [Atlassian Template & Files Creator Expert](atlassian-templates.md) | `atlassian-templates` |
 | [Atlassian Confluence Expert](confluence-expert.md) | `confluence-expert` |
 | [Atlassian Jira Expert](jira-expert.md) | `jira-expert` |
+| [Project Management Skills](project-management.md) | `project-management` |
 | [Scrum Master Expert](scrum-master.md) | `scrum-master` |
 | [Senior Project Management Expert](senior-pm.md) | `senior-pm` |

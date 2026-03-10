@@ -547,33 +547,44 @@ class DesignTokenGenerator:
 
 def main():
     import sys
-    
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Design Token Generator - Creates consistent design system tokens for colors, typography, spacing, and more."
+    )
+    parser.add_argument(
+        "brand_color", nargs="?", default="#0066CC",
+        help="Hex brand color (default: #0066CC)"
+    )
+    parser.add_argument(
+        "--style", choices=["modern", "classic", "playful"], default="modern",
+        help="Design style (default: modern)"
+    )
+    parser.add_argument(
+        "--format", choices=["json", "css", "scss", "summary"], default="json",
+        dest="output_format",
+        help="Output format (default: json)"
+    )
+    args = parser.parse_args()
+
     generator = DesignTokenGenerator()
-    
-    # Get parameters
-    brand_color = sys.argv[1] if len(sys.argv) > 1 else "#0066CC"
-    style = sys.argv[2] if len(sys.argv) > 2 else "modern"
-    output_format = sys.argv[3] if len(sys.argv) > 3 else "json"
-    
-    # Generate tokens
-    tokens = generator.generate_complete_system(brand_color, style)
-    
-    # Output
-    if output_format == 'summary':
+    tokens = generator.generate_complete_system(args.brand_color, args.style)
+
+    if args.output_format == 'summary':
         print("=" * 60)
         print("DESIGN SYSTEM TOKENS")
         print("=" * 60)
-        print(f"\n🎨 Style: {style}")
-        print(f"🎨 Brand Color: {brand_color}")
-        print("\n📊 Generated Tokens:")
-        print(f"  • Colors: {len(tokens['colors'])} palettes")
-        print(f"  • Typography: {len(tokens['typography'])} categories")
-        print(f"  • Spacing: {len(tokens['spacing'])} values")
-        print(f"  • Shadows: {len(tokens['shadows'])} styles")
-        print(f"  • Breakpoints: {len(tokens['breakpoints'])} sizes")
-        print("\n💾 Export formats available: json, css, scss")
+        print(f"\n  Style: {args.style}")
+        print(f"  Brand Color: {args.brand_color}")
+        print("\n  Generated Tokens:")
+        print(f"  - Colors: {len(tokens['colors'])} palettes")
+        print(f"  - Typography: {len(tokens['typography'])} categories")
+        print(f"  - Spacing: {len(tokens['spacing'])} values")
+        print(f"  - Shadows: {len(tokens['shadows'])} styles")
+        print(f"  - Breakpoints: {len(tokens['breakpoints'])} sizes")
+        print("\n  Export formats available: json, css, scss")
     else:
-        print(generator.export_tokens(tokens, output_format))
+        print(generator.export_tokens(tokens, args.output_format))
 
 if __name__ == "__main__":
     main()

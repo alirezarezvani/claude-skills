@@ -401,11 +401,31 @@ def print_report(result: dict, title: str, keyword: str) -> None:
 
 
 def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Scores content 0-100 on readability, SEO, structure, and engagement."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a text/markdown file to analyze. If omitted, runs demo "
+             "with embedded sample content."
+    )
+    parser.add_argument(
+        "keyword", nargs="?", default="",
+        help="Target SEO keyword to check density and placement."
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Also output results as JSON."
+    )
+    args = parser.parse_args()
+
     title = ""
-    keyword = ""
+    keyword = args.keyword
     text = ""
 
-    if len(sys.argv) == 1:
+    if args.file is None:
         # Demo mode — use embedded sample
         print("[Demo mode — using embedded sample content]")
         text = SAMPLE_CONTENT
@@ -413,13 +433,11 @@ def main():
         keyword = SAMPLE_KEYWORD
     else:
         # Read from file
-        filepath = sys.argv[1]
-        keyword = sys.argv[2] if len(sys.argv) > 2 else ""
         try:
-            with open(filepath, 'r', encoding='utf-8') as f:
+            with open(args.file, 'r', encoding='utf-8') as f:
                 text = f.read()
         except FileNotFoundError:
-            print(f"Error: file not found: {filepath}", file=sys.stderr)
+            print(f"Error: file not found: {args.file}", file=sys.stderr)
             sys.exit(1)
 
         # Extract title from first H1 or first line
@@ -438,7 +456,7 @@ def main():
     print_report(result, title, keyword)
 
     # JSON output for programmatic use
-    if "--json" in sys.argv:
+    if args.json:
         print(json.dumps(result, indent=2))
 
 

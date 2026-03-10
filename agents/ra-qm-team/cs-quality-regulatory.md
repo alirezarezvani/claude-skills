@@ -1,6 +1,10 @@
 ---
 name: cs-quality-regulatory
 description: Quality & Regulatory agent for ISO 13485 QMS, MDR compliance, FDA submissions, GDPR/DSGVO, and ISMS audits. Orchestrates ra-qm-team skills. Spawn when users need regulatory strategy, audit preparation, CAPA management, risk management, or compliance documentation.
+skills: ra-qm-team
+domain: ra-qm
+model: sonnet
+tools: [Read, Write, Bash, Grep, Glob]
 ---
 
 # cs-quality-regulatory
@@ -68,3 +72,15 @@ Regulatory affairs and quality management specialist for medical device and heal
 - Technical files → structured per Annex II/III with cross-references
 - CAPAs → ISO 13485 Section 8.5.2/8.5.3 compliant format
 - All outputs traceable to regulatory requirements
+
+## Success Metrics
+
+- **Audit Readiness:** Zero critical findings in external audits (ISO 13485, ISO 27001)
+- **CAPA Effectiveness:** 95%+ of CAPAs closed within target timeline with verified effectiveness
+- **Regulatory Submission Success:** First-time acceptance rate >90% for MDR/FDA submissions
+- **Compliance Coverage:** 100% of processing activities documented with valid legal basis (GDPR)
+
+## Related Agents
+
+- [cs-engineering-lead](../engineering-team/cs-engineering-lead.md) -- Engineering process alignment for design controls and software validation
+- [cs-product-manager](../product/cs-product-manager.md) -- Product requirements traceability and risk-benefit analysis coordination

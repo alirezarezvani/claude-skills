@@ -416,12 +416,25 @@ SAMPLE_ADS = [
 # ---------------------------------------------------------------------------
 
 def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Validates ad copy against platform specs. "
+                    "Checks character counts, rejection triggers, and scores each ad 0-100."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a JSON file containing ad data. "
+             "If omitted, reads from stdin or runs embedded sample."
+    )
+    args = parser.parse_args()
+
     # Load from file or stdin, else use sample
     ads = None
 
-    if len(sys.argv) > 1:
+    if args.file:
         try:
-            with open(sys.argv[1]) as f:
+            with open(args.file) as f:
                 data = json.load(f)
                 ads = data if isinstance(data, list) else [data]
         except Exception as e:

@@ -5,10 +5,11 @@ description: "All Business & Growth skills for Claude Code, OpenAI Codex, and Op
 
 # Business & Growth Skills
 
-4 skills in this domain.
+5 skills in this domain.
 
 | Skill | Description |
 |-------|-------------|
+| [Business & Growth Skills](business-growth.md) | `business-growth` |
 | [Contract & Proposal Writer](contract-and-proposal-writer.md) | `contract-and-proposal-writer` |
 | [Customer Success Manager](customer-success-manager.md) | `customer-success-manager` |
 | [Revenue Operations](revenue-operations.md) | `revenue-operations` |

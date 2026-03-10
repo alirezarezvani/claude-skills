@@ -352,18 +352,33 @@ def print_report(result, inputs):
 
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] != "--json":
-        with open(sys.argv[1]) as f:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Tracking plan generator — produces event taxonomy, GTM config, and GA4 dimension recommendations."
+    )
+    parser.add_argument(
+        "input_file", nargs="?", default=None,
+        help="JSON file with business config (default: run with sample SaaS data)"
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output full config as JSON"
+    )
+    args = parser.parse_args()
+
+    if args.input_file:
+        with open(args.input_file) as f:
             inputs = json.load(f)
     else:
-        if "--json" not in sys.argv:
+        if not args.json:
             print("No input file provided. Running with sample data...\n")
         inputs = SAMPLE_INPUT
 
     result = generate_tracking_plan(inputs)
     print_report(result, inputs)
 
-    if "--json" in sys.argv:
+    if args.json:
         print(json.dumps(result, indent=2))
 
 

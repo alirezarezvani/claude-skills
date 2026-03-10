@@ -406,14 +406,28 @@ def optimize_content(content: str, keyword: str = None,
 
 if __name__ == "__main__":
     import sys
-    
-    if len(sys.argv) > 1:
-        with open(sys.argv[1], 'r') as f:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="SEO Content Optimizer - Analyzes and optimizes content for SEO"
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Text file to analyze"
+    )
+    parser.add_argument(
+        "--keyword", "-k", default=None,
+        help="Primary keyword to optimize for"
+    )
+    parser.add_argument(
+        "--secondary", "-s", default=None,
+        help="Comma-separated secondary keywords"
+    )
+    args = parser.parse_args()
+
+    if args.file:
+        with open(args.file, 'r') as f:
             content = f.read()
-        
-        keyword = sys.argv[2] if len(sys.argv) > 2 else None
-        secondary = sys.argv[3] if len(sys.argv) > 3 else None
-        
-        print(optimize_content(content, keyword, secondary))
+        print(optimize_content(content, args.keyword, args.secondary))
     else:
-        print("Usage: python seo_optimizer.py <file> [primary_keyword] [secondary_keywords]")
+        print("Usage: python seo_optimizer.py <file> [--keyword primary] [--secondary kw1,kw2]")

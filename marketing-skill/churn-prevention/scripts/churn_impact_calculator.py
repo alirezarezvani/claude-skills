@@ -164,8 +164,23 @@ def print_report(result):
 
 
 def main():
-    if len(sys.argv) > 1:
-        with open(sys.argv[1]) as f:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Churn impact calculator — models revenue impact of churn reduction improvements."
+    )
+    parser.add_argument(
+        "input_file", nargs="?", default=None,
+        help="JSON file with churn metrics (default: run with sample data)"
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output results as JSON"
+    )
+    args = parser.parse_args()
+
+    if args.input_file:
+        with open(args.input_file) as f:
             inputs = json.load(f)
     else:
         print("No input file provided. Running with sample data...\n")
@@ -176,8 +191,7 @@ def main():
     result = calculate(inputs)
     print_report(result)
 
-    # Also dump JSON for programmatic use
-    if "--json" in sys.argv:
+    if args.json:
         print(json.dumps(result, indent=2))
 
 

@@ -330,11 +330,25 @@ DEFAULT_PARAMS = {
 # ---------------------------------------------------------------------------
 
 def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Estimates ROI of building a free marketing tool. "
+                    "Models return given build cost, maintenance, traffic, "
+                    "conversion rate, and lead value."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a JSON file with tool parameters. "
+             "If omitted, reads from stdin or runs embedded sample."
+    )
+    args = parser.parse_args()
+
     params = None
 
-    if len(sys.argv) > 1:
+    if args.file:
         try:
-            with open(sys.argv[1]) as f:
+            with open(args.file) as f:
                 params = json.load(f)
         except Exception as e:
             print(f"Error reading file: {e}", file=sys.stderr)

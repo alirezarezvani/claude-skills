@@ -32,12 +32,12 @@ Generate portfolio health dashboards and risk matrices for project oversight.
 ```
 /project-health dashboard portfolio-q2.json
 /project-health risk risk-register.json
-/project-health dashboard portfolio-q2.json --format json --output dashboard.json
+/project-health dashboard portfolio-q2.json --format json
 ```
 
 ## Scripts
-- `project-management/senior-pm/scripts/project_health_dashboard.py` — Health dashboard
-- `project-management/senior-pm/scripts/risk_matrix_analyzer.py` — Risk matrix analyzer
+- `project-management/senior-pm/scripts/project_health_dashboard.py` — Health dashboard (`<data_file> [--format text|json]`)
+- `project-management/senior-pm/scripts/risk_matrix_analyzer.py` — Risk matrix analyzer (`<data_file> [--format text|json]`)
 
 ## Skill Reference
 > `project-management/senior-pm/SKILL.md`

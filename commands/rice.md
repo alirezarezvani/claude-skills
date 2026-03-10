@@ -29,11 +29,11 @@ Mobile app,20000,3,0.5,13
 ```
 /rice prioritize features.csv
 /rice prioritize features.csv --capacity 20
-/rice prioritize features.csv --format json --output prioritized.json
+/rice prioritize features.csv --output json
 ```
 
 ## Scripts
-- `product-team/product-manager-toolkit/scripts/rice_prioritizer.py` — RICE prioritizer
+- `product-team/product-manager-toolkit/scripts/rice_prioritizer.py` — RICE prioritizer (`<input.csv> [--capacity N] [--output text|json|csv]`)
 
 ## Skill Reference
 > `product-team/product-manager-toolkit/SKILL.md`

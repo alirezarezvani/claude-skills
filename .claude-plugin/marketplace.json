@@ -4,18 +4,18 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "149 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (1). Includes 213 Python tools, 314 reference documents, 9 agents, and 5 slash commands.",
+  "description": "149 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (1). Includes 224 Python tools, 341 reference documents, 14 agents, and 12 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "149 production-ready skill packages across 9 domains with 213 Python tools, 314 reference documents, 9 agents, and 5 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "149 production-ready skill packages across 9 domains with 224 Python tools, 341 reference documents, 14 agents, and 12 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.1"
   },
   "plugins": [
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "description": "42 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, and Sales enablement. 27 Python tools, 60 reference docs.",
+      "description": "42 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, and Sales enablement. 46 Python tools, 72 reference docs.",
       "version": "2.1.1",
       "author": {
         "name": "Alireza Rezvani"
@@ -122,7 +122,7 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "8 product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, SaaS scaffolder.",
+      "description": "8 product skills with 9 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, SaaS scaffolder.",
       "version": "2.1.1",
       "author": {
         "name": "Alireza Rezvani"
@@ -142,7 +142,7 @@
     {
       "name": "pm-skills",
       "source": "./project-management",
-      "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator.",
+      "description": "6 project management skills with 12 Python tools: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator.",
       "version": "2.1.1",
       "author": {
         "name": "Alireza Rezvani"

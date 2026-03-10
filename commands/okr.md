@@ -13,7 +13,7 @@ Generate cascaded OKR frameworks from company-level strategy down to team-level 
 /okr generate <strategy>                                     Generate OKR cascade
 ```
 
-Supported strategies: `growth`, `retention`, `revenue`, `innovation`
+Supported strategies: `growth`, `retention`, `revenue`, `innovation`, `operational`
 
 ## Input Format
 
@@ -26,11 +26,12 @@ Pass a strategy keyword directly. The generator produces company, department, an
 /okr generate retention
 /okr generate revenue
 /okr generate innovation
-/okr generate growth --format json --output okrs.json
+/okr generate operational
+/okr generate growth --json
 ```
 
 ## Scripts
-- `product-team/product-strategist/scripts/okr_cascade_generator.py` — OKR cascade generator
+- `product-team/product-strategist/scripts/okr_cascade_generator.py` — OKR cascade generator (`<strategy> [--teams "A,B,C"] [--contribution 0.3] [--json]`)
 
 ## Skill Reference
 > `product-team/product-strategist/SKILL.md`

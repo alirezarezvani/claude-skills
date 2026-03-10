@@ -32,13 +32,12 @@ Interactive mode prompts for feature context. For sprint planning, provide capac
 
 ```
 /user-story generate
-/user-story generate --output json
 /user-story sprint 34
-/user-story sprint 21 --format json --output sprint-plan.json
+/user-story sprint 21
 ```
 
 ## Scripts
-- `product-team/agile-product-owner/scripts/user_story_generator.py` — User story generator
+- `product-team/agile-product-owner/scripts/user_story_generator.py` — User story generator (positional args: `sprint <capacity>`)
 
 ## Skill Reference
 > `product-team/agile-product-owner/SKILL.md`

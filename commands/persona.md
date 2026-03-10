@@ -11,7 +11,7 @@ Generate structured user personas with demographics, goals, pain points, and beh
 
 ```
 /persona generate                                            Generate persona (interactive)
-/persona generate --output json                              Generate persona as JSON
+/persona generate json                                       Generate persona as JSON
 ```
 
 ## Input Format
@@ -29,12 +29,12 @@ Interactive mode prompts for product context. Alternatively, provide context inl
 
 ```
 /persona generate
-/persona generate --output json
-/persona generate --output json > persona-eng-manager.json
+/persona generate json
+/persona generate json > persona-eng-manager.json
 ```
 
 ## Scripts
-- `product-team/ux-researcher-designer/scripts/persona_generator.py` — Persona generator
+- `product-team/ux-researcher-designer/scripts/persona_generator.py` — Persona generator (positional `json` arg for JSON output)
 
 ## Skill Reference
 > `product-team/ux-researcher-designer/SKILL.md`

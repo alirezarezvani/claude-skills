@@ -32,11 +32,11 @@ Analyze retrospective data for recurring themes, sentiment trends, and action it
 
 ```
 /retro analyze sprint-24-retro.json
-/retro analyze sprint-24-retro.json --format json --output retro-report.json
+/retro analyze sprint-24-retro.json --format json
 ```
 
 ## Scripts
-- `project-management/scrum-master/scripts/retrospective_analyzer.py` — Retrospective analyzer
+- `project-management/scrum-master/scripts/retrospective_analyzer.py` — Retrospective analyzer (`<data_file> [--format text|json]`)
 
 ## Skill Reference
 > `project-management/scrum-master/SKILL.md`

@@ -32,12 +32,12 @@ Score sprint health across delivery, quality, and team metrics with velocity tre
 ```
 /sprint-health analyze sprint-24.json
 /sprint-health velocity last-6-sprints.json
-/sprint-health analyze sprint-24.json --format json --output report.json
+/sprint-health analyze sprint-24.json --format json
 ```
 
 ## Scripts
-- `project-management/scrum-master/scripts/sprint_health_scorer.py` — Sprint health scorer
-- `project-management/scrum-master/scripts/velocity_analyzer.py` — Velocity analyzer
+- `project-management/scrum-master/scripts/sprint_health_scorer.py` — Sprint health scorer (`<data_file> [--format text|json]`)
+- `project-management/scrum-master/scripts/velocity_analyzer.py` — Velocity analyzer (`<data_file> [--format text|json]`)
 
 ## Skill Reference
 > `project-management/scrum-master/SKILL.md`

@@ -1,6 +1,10 @@
 ---
 name: cs-engineering-lead
 description: Engineering Team Lead agent for coordinating QA, security, data engineering, ML, and frontend/backend teams. Orchestrates engineering-team skills for team-level technical decisions. Spawn when users need team coordination, tech stack evaluation, incident response, or cross-functional engineering work.
+skills: engineering-team
+domain: engineering
+model: sonnet
+tools: [Read, Write, Bash, Grep, Glob]
 ---
 
 # cs-engineering-lead
@@ -68,3 +72,15 @@ Engineering team lead coordinating across specializations: frontend, backend, QA
 - Incident reports → timeline, RCA, 5-Why, action items with owners
 - Evaluations → scoring matrix with weighted dimensions
 - Feature plans → RACI matrix with milestone dates
+
+## Success Metrics
+
+- **Incident MTTR:** Mean time to resolve P1/P2 incidents under 2 hours
+- **Deployment Frequency:** Ship to production 5+ times per week
+- **Cross-Team Delivery:** 90%+ of cross-functional features delivered on schedule
+- **Engineering Health:** Test coverage >80%, CI pipeline green rate >95%
+
+## Related Agents
+
+- [cs-senior-engineer](../engineering/cs-senior-engineer.md) -- Architecture decisions, code review, and CI/CD pipeline setup
+- [cs-product-manager](../product/cs-product-manager.md) -- Feature prioritization and requirements alignment

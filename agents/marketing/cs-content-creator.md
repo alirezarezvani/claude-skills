@@ -23,19 +23,7 @@ The cs-content-creator agent bridges the gap between creative content production
 
 ### Python Tools
 
-1. **Brand Voice Analyzer**
-   - **Purpose:** Analyzes text for formality, tone, perspective, and readability to ensure brand consistency
-   - **Path:** `../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py`
-   - **Usage:** `python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py content.txt`
-   - **Output Formats:** Human-readable report or JSON for integrations
-   - **Use Cases:** Pre-publish content review, brand audit, voice consistency checking
-
-2. **SEO Optimizer**
-   - **Purpose:** Comprehensive SEO analysis with keyword density, structure evaluation, and actionable recommendations
-   - **Path:** `../../marketing-skill/content-creator/scripts/seo_optimizer.py`
-   - **Usage:** `python ../../marketing-skill/content-creator/scripts/seo_optimizer.py article.md "primary keyword" "secondary,keywords"`
-   - **Features:** Keyword analysis, content structure, meta tags, SEO score (0-100), improvement recommendations
-   - **Use Cases:** Blog post optimization, landing page SEO, content audit
+No Python tools — this skill relies on SKILL.md workflows, knowledge bases, and templates for content creation guidance.
 
 ### Knowledge Bases
 
@@ -54,19 +42,16 @@ The cs-content-creator agent bridges the gap between creative content production
    - **Content:** Platform-specific best practices for LinkedIn (1,300 chars, professional tone), Twitter/X (280 chars, concise), Instagram (visual-first, caption strategy), Facebook (engagement tactics), TikTok (short-form video)
    - **Use Case:** Platform optimization, social media strategy, content adaptation
 
+4. **Analytics Guide**
+   - **Location:** `../../marketing-skill/content-creator/references/analytics_guide.md`
+   - **Content:** Content performance analytics and measurement frameworks
+   - **Use Case:** Content performance tracking, reporting, data-driven optimization
+
 ### Templates
 
 1. **Content Calendar Template**
-   - **Location:** `../../marketing-skill/content-creator/assets/content-calendar.md`
+   - **Location:** `../../marketing-skill/content-creator/assets/content_calendar_template.md`
    - **Use Case:** Planning monthly content, tracking production pipeline
-
-2. **SEO Checklist**
-   - **Location:** `../../marketing-skill/content-creator/assets/seo-checklist.md`
-   - **Use Case:** Pre-publish validation, SEO audit
-
-3. **Content Brief Template**
-   - **Location:** `../../marketing-skill/content-creator/assets/content-brief.md`
-   - **Use Case:** Writer briefing, stakeholder alignment
 
 ## Workflows
 
@@ -76,28 +61,27 @@ The cs-content-creator agent bridges the gap between creative content production
 
 **Steps:**
 1. **Draft Content** - Write initial blog post draft in markdown format
-2. **Analyze Brand Voice** - Run brand voice analyzer to check tone and readability
+2. **Reference Brand Guidelines** - Review brand voice requirements for tone and readability
    ```bash
-   python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py draft-post.md
+   cat ../../marketing-skill/content-creator/references/brand_guidelines.md
    ```
-3. **Review Feedback** - Adjust content based on formality score, tone, and readability metrics
-4. **Optimize for SEO** - Run SEO optimizer with target keywords
+3. **Review Content Frameworks** - Select appropriate blog post template (how-to, listicle, case study)
    ```bash
-   python ../../marketing-skill/content-creator/scripts/seo_optimizer.py draft-post.md "target keyword" "secondary,keywords,here"
+   cat ../../marketing-skill/content-creator/references/content_frameworks.md
    ```
+4. **Optimize for SEO** - Apply SEO best practices from SKILL.md workflows (keyword placement, structure, meta description)
 5. **Implement Recommendations** - Update content structure, keyword placement, meta description
-6. **Final Validation** - Re-run both analyzers to verify improvements
+6. **Final Validation** - Review against brand guidelines and content frameworks
 
-**Expected Output:** SEO score 80+ with consistent brand voice alignment
+**Expected Output:** SEO-optimized blog post with consistent brand voice alignment
 
 **Time Estimate:** 2-3 hours for 1,500-word blog post
 
 **Example:**
 ```bash
-# Complete workflow
-echo "# Blog Post Draft" > post.md
-python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py post.md
-python ../../marketing-skill/content-creator/scripts/seo_optimizer.py post.md "content marketing" "SEO,strategy"
+# Review guidelines before writing
+cat ../../marketing-skill/content-creator/references/brand_guidelines.md
+cat ../../marketing-skill/content-creator/references/content_frameworks.md
 ```
 
 ### Workflow 2: Multi-Platform Content Adaptation
@@ -113,10 +97,9 @@ python ../../marketing-skill/content-creator/scripts/seo_optimizer.py post.md "c
 3. **Create LinkedIn Version** - Professional tone, 1,300 characters, 3-5 hashtags
 4. **Create Twitter/X Thread** - Break into 280-char tweets, engaging hook
 5. **Create Instagram Caption** - Visual-first approach, caption with line breaks, hashtags
-6. **Validate Brand Voice** - Ensure consistency across all versions
+6. **Validate Brand Voice** - Ensure consistency across all versions by reviewing against brand guidelines
    ```bash
-   python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py linkedin-post.txt
-   python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py twitter-thread.txt
+   cat ../../marketing-skill/content-creator/references/brand_guidelines.md
    ```
 
 **Expected Output:** 4-5 platform-optimized versions from single source
@@ -129,19 +112,14 @@ python ../../marketing-skill/content-creator/scripts/seo_optimizer.py post.md "c
 
 **Steps:**
 1. **Collect Content** - Gather markdown files for all published content
-2. **Batch Brand Voice Analysis** - Run analyzer on all content pieces
+2. **Brand Voice Review** - Review each content piece against brand guidelines for consistency
    ```bash
-   for file in content/*.md; do
-     echo "Analyzing: $file"
-     python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py "$file" json >> audit-results.json
-   done
+   cat ../../marketing-skill/content-creator/references/brand_guidelines.md
    ```
-3. **Identify Inconsistencies** - Review formality scores, tone patterns, readability metrics
-4. **SEO Audit** - Run SEO optimizer on key landing pages and blog posts
+3. **Identify Inconsistencies** - Check formality, tone patterns, and readability against brand archetypes
+4. **SEO Audit** - Review content structure against content frameworks best practices
    ```bash
-   for file in landing-pages/*.md; do
-     python ../../marketing-skill/content-creator/scripts/seo_optimizer.py "$file" "target-keyword"
-   done
+   cat ../../marketing-skill/content-creator/references/content_frameworks.md
    ```
 5. **Create Improvement Plan** - Prioritize content updates based on SEO score and brand alignment
 6. **Implement Updates** - Revise content following brand guidelines and SEO recommendations
@@ -152,12 +130,9 @@ python ../../marketing-skill/content-creator/scripts/seo_optimizer.py post.md "c
 
 **Example:**
 ```bash
-# Quick audit of top 5 blog posts
-ls -t blog/*.md | head -5 | while read file; do
-  echo "=== $file ==="
-  python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py "$file"
-  python ../../marketing-skill/content-creator/scripts/seo_optimizer.py "$file" "main-keyword"
-done
+# Review brand guidelines and frameworks before auditing content
+cat ../../marketing-skill/content-creator/references/brand_guidelines.md
+cat ../../marketing-skill/content-creator/references/analytics_guide.md
 ```
 
 ### Workflow 4: Campaign Content Planning
@@ -171,7 +146,7 @@ done
    ```
 2. **Copy Content Calendar** - Use template for campaign planning
    ```bash
-   cp ../../marketing-skill/content-creator/assets/content-calendar.md campaign-calendar.md
+   cp ../../marketing-skill/content-creator/assets/content_calendar_template.md campaign-calendar.md
    ```
 3. **Define Brand Voice Target** - Reference brand guidelines for campaign tone
    ```bash
@@ -179,10 +154,10 @@ done
    ```
 4. **Create Content Briefs** - Use brief template for each content piece
 5. **Draft All Content** - Produce blog posts, social media posts, email campaigns
-6. **Validate Before Publishing** - Run analyzers on all campaign content
+6. **Validate Before Publishing** - Review all campaign content against brand guidelines and social media optimization guides
    ```bash
-   python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py campaign-email.md
-   python ../../marketing-skill/content-creator/scripts/seo_optimizer.py campaign-landing-page.md "campaign keyword"
+   cat ../../marketing-skill/content-creator/references/brand_guidelines.md
+   cat ../../marketing-skill/content-creator/references/social_media_optimization.md
    ```
 
 **Expected Output:** Complete campaign content library with consistent brand voice and optimized SEO
@@ -191,52 +166,47 @@ done
 
 ## Integration Examples
 
-### Example 1: Real-Time Content Feedback Loop
+### Example 1: Content Quality Review Workflow
 
 ```bash
 #!/bin/bash
-# content-feedback.sh - Automated content quality check
+# content-review.sh - Content quality review using knowledge bases
 
 CONTENT_FILE=$1
-PRIMARY_KEYWORD=$2
 
-echo "🎨 Checking brand voice..."
-python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py "$CONTENT_FILE"
-
-echo ""
-echo "🔍 Checking SEO optimization..."
-python ../../marketing-skill/content-creator/scripts/seo_optimizer.py "$CONTENT_FILE" "$PRIMARY_KEYWORD"
+echo "Reviewing brand voice guidelines..."
+cat ../../marketing-skill/content-creator/references/brand_guidelines.md
 
 echo ""
-echo "✅ Analysis complete! Review feedback above and revise content."
+echo "Reviewing content frameworks..."
+cat ../../marketing-skill/content-creator/references/content_frameworks.md
+
+echo ""
+echo "Review complete. Compare $CONTENT_FILE against the guidelines above."
 ```
 
-**Usage:** `./content-feedback.sh blog-post.md "target keyword"`
+**Usage:** `./content-review.sh blog-post.md`
 
-### Example 2: JSON Output for CMS Integration
+### Example 2: Platform-Specific Content Adaptation
 
 ```bash
-# Generate JSON reports for automated publishing pipeline
-python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py article.md json > voice-report.json
-python ../../marketing-skill/content-creator/scripts/seo_optimizer.py article.md "keyword" --json > seo-report.json
+# Review platform guidelines before adapting content
+cat ../../marketing-skill/content-creator/references/social_media_optimization.md
 
-# Use in CI/CD pipeline to block publishing if quality thresholds not met
-SEO_SCORE=$(jq '.overall_score' seo-report.json)
-if [ "$SEO_SCORE" -lt 70 ]; then
-  echo "❌ SEO score too low: $SEO_SCORE. Minimum required: 70"
-  exit 1
-fi
+# Key platform limits to follow:
+# - LinkedIn: 1,300 chars, professional tone, 3-5 hashtags
+# - Twitter/X: 280 chars per tweet, engaging hook
+# - Instagram: Visual-first, caption with line breaks
 ```
 
-### Example 3: Weekly Content Performance Review
+### Example 3: Campaign Content Planning
 
 ```bash
-# Analyze all content published this week
-WEEK_START="2025-11-01"
-find blog/ -name "*.md" -newermt "$WEEK_START" | while read file; do
-  echo "=== Weekly Review: $file ==="
-  python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py "$file"
-done
+# Set up content calendar from template
+cp ../../marketing-skill/content-creator/assets/content_calendar_template.md campaign-calendar.md
+
+# Review analytics guide for performance tracking
+cat ../../marketing-skill/content-creator/references/analytics_guide.md
 ```
 
 ## Success Metrics
@@ -259,8 +229,8 @@ done
 ## Related Agents
 
 - [cs-demand-gen-specialist](cs-demand-gen-specialist.md) - Demand generation and acquisition campaigns
-- [cs-product-marketing](../product/cs-product-marketing.md) - Product positioning and messaging (planned)
-- [cs-social-media-manager](cs-social-media-manager.md) - Social media management and scheduling (planned)
+- cs-product-marketing - Product positioning and messaging (planned)
+- cs-social-media-manager - Social media management and scheduling (planned)
 
 ## References
 

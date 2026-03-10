@@ -344,7 +344,7 @@ esac
 
 - [cs-cto-advisor](cs-cto-advisor.md) - Technology strategy and engineering leadership (CTO counterpart)
 - [cs-product-manager](../product/cs-product-manager.md) - Product strategy and roadmap execution (planned)
-- [cs-growth-strategist](../marketing/cs-growth-strategist.md) - Growth strategy and market expansion (planned)
+- [cs-growth-strategist](../business-growth/cs-growth-strategist.md) - Growth strategy and market expansion (planned)
 
 ## References
 

@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Plugins
 site_url: https://alirezarezvani.github.io/claude-skills
-site_description: "177 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "170 production-ready skills, 14 agents, and 12 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -309,3 +309,33 @@ nav:
     - Finance:
       - Overview: skills/finance/index.md
       - "Financial Analyst": skills/finance/financial-analyst.md
+  - Agents:
+    - Overview: agents/index.md
+    - "CS Agile Product Owner": agents/cs-agile-product-owner.md
+    - "CS CEO Advisor": agents/cs-ceo-advisor.md
+    - "CS Content Creator": agents/cs-content-creator.md
+    - "CS CTO Advisor": agents/cs-cto-advisor.md
+    - "CS Demand Gen Specialist": agents/cs-demand-gen-specialist.md
+    - "CS Engineering Lead": agents/cs-engineering-lead.md
+    - "CS Financial Analyst": agents/cs-financial-analyst.md
+    - "CS Growth Strategist": agents/cs-growth-strategist.md
+    - "CS Product Manager": agents/cs-product-manager.md
+    - "CS Product Strategist": agents/cs-product-strategist.md
+    - "CS Project Manager": agents/cs-project-manager.md
+    - "CS Quality & Regulatory": agents/cs-quality-regulatory.md
+    - "CS Senior Engineer": agents/cs-senior-engineer.md
+    - "CS UX Researcher": agents/cs-ux-researcher.md
+  - Commands:
+    - Overview: commands/index.md
+    - "/changelog": commands/changelog.md
+    - "/competitive-matrix": commands/competitive-matrix.md
+    - "/okr": commands/okr.md
+    - "/persona": commands/persona.md
+    - "/pipeline": commands/pipeline.md
+    - "/project-health": commands/project-health.md
+    - "/retro": commands/retro.md
+    - "/rice": commands/rice.md
+    - "/sprint-health": commands/sprint-health.md
+    - "/tdd": commands/tdd.md
+    - "/tech-debt": commands/tech-debt.md
+    - "/user-story": commands/user-story.md

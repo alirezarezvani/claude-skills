@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "177 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw. Reusable expertise bundles for engineering, product, marketing, compliance, and more."
+description: "170 production-ready skills, 14 agents, and 12 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,10 +14,10 @@ hide:
 
 # Claude Code Skills
 
-177 production-ready skills that transform AI coding agents into specialized professionals.
+170 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
-**Claude Code** | **OpenAI Codex** | **OpenClaw**
+**Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw**
 { .hero-platforms }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -27,29 +27,29 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **177**
+-   :material-counter:{ .lg .middle } **170**
 
     ---
 
     Production-ready skills
 
--   :material-language-python:{ .lg .middle } **218+**
+-   :material-language-python:{ .lg .middle } **237**
 
     ---
 
-    Python CLI tools (stdlib-only)
+    Python CLI tools (stdlib-only, all verified)
 
--   :material-domain:{ .lg .middle } **9**
-
-    ---
-
-    Professional domains
-
--   :material-package-variant:{ .lg .middle } **0**
+-   :material-robot:{ .lg .middle } **14**
 
     ---
 
-    External dependencies
+    [Multi-skill agents](agents/)
+
+-   :material-console:{ .lg .middle } **12**
+
+    ---
+
+    [Slash commands](commands/)
 
 </div>
 
@@ -79,7 +79,7 @@ hide:
 
     ---
 
-    Product manager, agile PO, strategist, UX researcher, UI design system, landing pages, SaaS scaffolder
+    Product manager, agile PO, strategist, UX researcher, UI design system, landing pages (TSX + Tailwind), SaaS scaffolder
 
     [:octicons-arrow-right-24: 8 skills](skills/product-team/)
 

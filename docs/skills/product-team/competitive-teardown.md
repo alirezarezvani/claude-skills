@@ -33,11 +33,11 @@ description: "Competitive Teardown - Claude Code skill from the Product domain."
 Follow these steps in sequence to produce a complete teardown:
 
 1. **Define competitors** — List 2–4 competitors to analyze. Confirm which is the primary focus.
-2. **Collect data** — Use `DATA_COLLECTION.md` to gather raw signals from at least 3 sources per competitor (website, reviews, job postings, SEO, social).  
+2. **Collect data** — Use `references/data-collection-guide.md` to gather raw signals from at least 3 sources per competitor (website, reviews, job postings, SEO, social).  
    _Validation checkpoint: Before proceeding, confirm you have pricing data, at least 20 reviews, and job posting counts for each competitor._
 3. **Score using rubric** — Apply the 12-dimension rubric below to produce a numeric scorecard for each competitor and your own product.  
    _Validation checkpoint: Every dimension should have a score and at least one supporting evidence note._
-4. **Generate outputs** — Populate the templates in `TEMPLATES.md` (Feature Matrix, Pricing Analysis, SWOT, Positioning Map, UX Audit).
+4. **Generate outputs** — Populate the templates in `references/analysis-templates.md` (Feature Matrix, Pricing Analysis, SWOT, Positioning Map, UX Audit).
 5. **Build action plan** — Translate findings into the Action Items template (quick wins / medium-term / strategic).
 6. **Package for stakeholders** — Assemble the Stakeholder Presentation using outputs from steps 3–5.
 
@@ -45,7 +45,7 @@ Follow these steps in sequence to produce a complete teardown:
 
 ## Data Collection Guide
 
-> Full executable scripts for each source are in `DATA_COLLECTION.md`. Summaries of what to capture are below.
+> Full executable scripts for each source are in `references/data-collection-guide.md`. Summaries of what to capture are below.
 
 ### 1. Website Analysis
 
@@ -92,7 +92,7 @@ SEO signals to capture:
 
 ### 5. Social Media Sentiment
 
-Capture recent mentions via Twitter/X API v2, Reddit, or LinkedIn. Look for recurring praise, complaints, and feature requests. See `DATA_COLLECTION.md` for API query examples.
+Capture recent mentions via Twitter/X API v2, Reddit, or LinkedIn. Look for recurring praise, complaints, and feature requests. See `references/data-collection-guide.md` for API query examples.
 
 ---
 
@@ -125,7 +125,7 @@ Apply this pattern to all 12 dimensions for each competitor.
 
 ## Templates
 
-> Full template markdown is in `TEMPLATES.md`. Abbreviated reference below.
+> Full template markdown is in `references/analysis-templates.md`. Abbreviated reference below.
 
 ### Feature Comparison Matrix
 
@@ -145,7 +145,7 @@ For each competitor: 3–5 bullets per quadrant (Strengths, Weaknesses, Opportun
 
 ### Positioning Map
 
-2x2 axes (e.g., Simple ↔ Complex / Low Value ↔ High Value). Place each competitor and your product. Bubble size = market share or funding. See `TEMPLATES.md` for ASCII and editable versions.
+2x2 axes (e.g., Simple ↔ Complex / Low Value ↔ High Value). Place each competitor and your product. Bubble size = market share or funding. See `references/analysis-templates.md` for ASCII and editable versions.
 
 ### UX Audit Checklist
 

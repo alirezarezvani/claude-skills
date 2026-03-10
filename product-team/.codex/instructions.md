@@ -29,7 +29,17 @@ python3 product-team/product-strategist/scripts/okr_cascade_generator.py --help
 | Landing pages | landing-page-generator |
 | SaaS boilerplate | saas-scaffolder |
 
+## Cross-Domain Workflows
+
+**Landing page + brand voice:** Before generating landing pages, run the brand voice analyzer to match copy tone:
+```bash
+python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py brand_copy.txt --format json
+python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
+```
+Voice profile maps to design styles: formal+professional→enterprise, casual+friendly→bold-startup, professional+authoritative→dark-saas, casual+conversational→clean-minimal.
+
 ## Rules
 
 - Load only 1-2 skills per request — don't bulk-load
 - Use Python tools for scoring and analysis
+- Landing page scaffolder defaults to TSX output (Next.js + Tailwind). Use `--format html` for standalone HTML.

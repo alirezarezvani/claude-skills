@@ -1,7 +1,7 @@
 {
   "name": "engineering-skills",
   "description": "23 production-ready engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, and more",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -1,6 +1,6 @@
 # Claude Code Skills & Plugins
 
-**170 production-ready skills and plugins for Claude Code, OpenAI Codex, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**170 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-170-brightgreen.svg)](#skills-overview)
@@ -17,7 +17,7 @@
 
 Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills.
+**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills. All 237 Python tools are stdlib-only and verified working.
 
 ---
 
@@ -93,7 +93,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
-| **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder | [product-team/](product-team/) |
+| **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages (TSX + Tailwind), SaaS scaffolder | [product-team/](product-team/) |
 | **📣 Marketing** | 42 | 7 pods: Content (8), SEO (5), CRO (6), Channels (5), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 27 Python tools. | [marketing-skill/](marketing-skill/) |
 | **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 12 | ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
@@ -189,11 +189,11 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-210+ CLI tools ship with the skills:
+237 CLI tools ship with the skills (all verified, stdlib-only):
 
 ```bash
 # Brand voice analysis
-python3 marketing-skill/content-creator/scripts/brand_voice_analyzer.py article.txt
+python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
 
 # Tech debt scoring
 python3 c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py /path/to/codebase
@@ -203,6 +203,9 @@ python3 product-team/product-manager-toolkit/scripts/rice_prioritizer.py feature
 
 # Security audit
 python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py /path/to/skill/
+
+# Landing page (TSX + Tailwind)
+python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
 ```
 
 ---
@@ -223,10 +226,13 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py /pa
 Add the marketplace with `/plugin marketplace add alirezarezvani/claude-skills`, then install any skill bundle with `/plugin install <name>@claude-code-skills`.
 
 **Do these skills work with OpenAI Codex?**
-Yes. Skills work natively with Claude Code, OpenAI Codex, and OpenClaw. See Quick Install above.
+Yes. Skills work natively with Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. See Quick Install above.
+
+**Will updating break my installation?**
+No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 210+ Python CLI tools use the standard library only — zero pip installs required.
+Yes. All 237 Python CLI tools use the standard library only — zero pip installs required. Every script is verified to run with `--help`.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

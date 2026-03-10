@@ -175,11 +175,54 @@ python competitive-teardown/scripts/competitive_matrix_builder.py competitors.js
 
 ### 8. Landing Page Scaffolder (`landing-page-generator/scripts/landing_page_scaffolder.py`)
 
-**Purpose:** Landing page template generation
+**Purpose:** Generate production-ready landing pages as Next.js/React TSX components with Tailwind CSS (default) or plain HTML.
+
+**Features:**
+- TSX output (default): Next.js 14+ App Router components with Tailwind classes
+- 4 design styles: `dark-saas`, `clean-minimal`, `bold-startup`, `enterprise`
+- 7 section generators: nav, hero, features, testimonials, pricing, CTA, footer
+- Copy frameworks: PAS, AIDA, BAB
+- SEO metadata export
+- HTML output preserved via `--format html`
 
 **Usage:**
 ```bash
-python landing-page-generator/scripts/landing_page_scaffolder.py config.json
+# TSX output (default) with design style
+python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
+
+# HTML output
+python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format html
+
+# JSON manifest (dry run)
+python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format json
+```
+
+**Config JSON format:**
+```json
+{
+  "product_name": "Acme",
+  "tagline": "Ship faster. Break less.",
+  "design_style": "dark-saas",
+  "copy_framework": "PAS",
+  "sections": ["nav", "hero", "features", "pricing", "cta", "footer"],
+  "features": [
+    {"title": "Fast deploys", "description": "Zero-downtime deployments"}
+  ],
+  "pricing": [
+    {"name": "Free", "price": "$0/mo", "features": ["5 projects"]},
+    {"name": "Pro", "price": "$29/mo", "features": ["Unlimited"], "highlighted": true}
+  ]
+}
+```
+
+**Brand Voice Integration:** Before generating copy, run the brand voice analyzer to establish tone and formality:
+```bash
+# 1. Analyze existing brand content to establish voice profile
+python ../marketing-skill/content-production/scripts/brand_voice_analyzer.py brand_samples.txt --format json > voice_profile.json
+
+# 2. Use the voice profile (formality, tone, perspective) to guide copy framework selection
+# 3. Generate landing page with matching style
+python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
 ```
 
 ### 9. Project Bootstrapper (`saas-scaffolder/scripts/project_bootstrapper.py`)
@@ -236,6 +279,31 @@ python agile-product-owner/scripts/user_story_generator.py sprint $CAPACITY
 python product-manager-toolkit/scripts/rice_prioritizer.py features.csv --output json > priorities.json
 ```
 
+### Workflow 4: Brand-Aligned Landing Page
+
+This workflow connects the marketing brand voice skill with the landing page generator to ensure copy consistency.
+
+```bash
+# 1. Analyze existing brand content for voice profile
+python ../marketing-skill/content-production/scripts/brand_voice_analyzer.py website_copy.txt --format json > voice.json
+# Output: formality (formal/casual), tone (professional/friendly), perspective (authoritative/conversational)
+
+# 2. Map voice profile to design style + copy framework:
+#    - formal + professional → enterprise style, AIDA framework
+#    - casual + friendly → bold-startup style, BAB framework
+#    - professional + authoritative → dark-saas style, PAS framework
+#    - casual + conversational → clean-minimal style, BAB framework
+
+# 3. Generate design tokens for brand consistency
+python ui-design-system/scripts/design_token_generator.py "#0066CC" modern css
+
+# 4. Generate the landing page
+python landing-page-generator/scripts/landing_page_scaffolder.py config.json --format tsx
+
+# 5. Run competitive teardown to refine positioning
+python competitive-teardown/scripts/competitive_matrix_builder.py competitors.json
+```
+
 ## Integration Patterns
 
 ### Jira Integration
@@ -273,28 +341,28 @@ python ux-researcher-designer/scripts/persona_generator.py --output json > perso
 - Standard library only (minimal dependencies)
 - Actionable recommendations
 
-## Roadmap
+## Cross-Domain Integration
 
-**Current (Phase 2):** 8 skills deployed with 9 tools, 4 agents, 5 commands
+### Brand Voice → Landing Page
 
-**Next:** Product analytics
-- A/B test analyzer
-- Funnel conversion tracker
-- Cohort retention analyzer
-- Product-market fit assessment
-- Revenue impact calculator
+The landing page generator integrates with the marketing brand voice analyzer (`marketing-skill/content-production/scripts/brand_voice_analyzer.py`) to ensure copy on generated pages matches the brand's established voice. The analyzer outputs formality, tone, and perspective dimensions which map to design style and copy framework choices. See Workflow 4 above.
 
-See `product_team_implementation_guide.md` for detailed plans.
+### Design Tokens → Landing Page
+
+Design tokens from `ui-design-system/scripts/design_token_generator.py` can be generated alongside landing pages to ensure consistent color, typography, and spacing across the product.
+
+### Competitive Teardown → Landing Page
+
+Competitive positioning from `competitive-teardown/scripts/competitive_matrix_builder.py` informs landing page messaging — use SWOT analysis to identify differentiation points and translate them into hero copy and feature sections.
 
 ## Additional Resources
 
-- **Implementation Guide:** `product_team_implementation_guide.md`
-- **Real-World Scenario:** `REAL_WORLD_SCENARIO.md` (if exists)
 - **Main Documentation:** `../CLAUDE.md`
+- **Marketing Brand Voice:** `../marketing-skill/content-production/scripts/brand_voice_analyzer.py`
 
 ---
 
-**Last Updated:** March 9, 2026
+**Last Updated:** March 10, 2026
 **Skills Deployed:** 8/8 product skills production-ready
 **Total Tools:** 9 Python automation tools
 **Agents:** 4 | **Commands:** 5

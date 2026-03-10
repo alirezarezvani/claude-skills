@@ -1,8 +1,13 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 194,
+  "total_skills": 204,
   "skills": [
+    {
+      "name": "cs-agile-product-owner",
+      "category": "agent",
+      "description": "Agile product owner agent for epic breakdown, sprint planning, backlog refinement, and INVEST-compliant user story generation"
+    },
     {
       "name": "cs-ceo-advisor",
       "category": "agent",
@@ -44,9 +49,14 @@
       "description": "Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework"
     },
     {
+      "name": "cs-product-strategist",
+      "category": "agent",
+      "description": "Product strategy agent for quarterly OKR planning, competitive landscape analysis, product vision development, and strategy pivot evaluation"
+    },
+    {
       "name": "cs-project-manager",
       "category": "agent",
-      "description": "Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management skills. Spawn when users need sprint planning, Jira configuration, workflow design, retrospectives, or project status dashboards."
+      "description": "Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management skills."
     },
     {
       "name": "cs-quality-regulatory",
@@ -57,6 +67,11 @@
       "name": "cs-senior-engineer",
       "category": "agent",
       "description": "Senior Engineer agent for architecture decisions, code review, DevOps, and API design. Orchestrates engineering and engineering-team skills for technical implementation work. Spawn when users need system design, code quality review, CI/CD pipeline setup, or infrastructure decisions."
+    },
+    {
+      "name": "cs-ux-researcher",
+      "category": "agent",
+      "description": "UX research agent for research planning, persona generation, journey mapping, and usability test analysis"
     },
     {
       "name": "business-growth-bundle",
@@ -264,9 +279,39 @@
       "description": "Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]"
     },
     {
+      "name": "okr",
+      "category": "command",
+      "description": "Generate OKR cascades from company strategy to team objectives. Usage: /okr generate <strategy>"
+    },
+    {
+      "name": "persona",
+      "category": "command",
+      "description": "Generate data-driven user personas for UX research and product design. Usage: /persona generate [options]"
+    },
+    {
       "name": "pipeline",
       "category": "command",
       "description": "Detect stack and generate CI/CD pipeline configs. Usage: /pipeline <detect|generate> [options]"
+    },
+    {
+      "name": "project-health",
+      "category": "command",
+      "description": "Portfolio health dashboard and risk matrix analysis. Usage: /project-health <dashboard|risk> [options]"
+    },
+    {
+      "name": "retro",
+      "category": "command",
+      "description": "Analyze sprint retrospectives for patterns and action item tracking. Usage: /retro analyze <retro_data.json>"
+    },
+    {
+      "name": "rice",
+      "category": "command",
+      "description": "RICE feature prioritization with scoring and capacity planning. Usage: /rice prioritize <features.csv> [options]"
+    },
+    {
+      "name": "sprint-health",
+      "category": "command",
+      "description": "Sprint health scoring and velocity analysis for agile teams. Usage: /sprint-health <analyze|velocity> [options]"
     },
     {
       "name": "tdd",
@@ -276,7 +321,12 @@
     {
       "name": "tech-debt",
       "category": "command",
-      "description": "Score, track, and prioritize technical debt. Usage: /tech-debt <scan|score|report> [options]"
+      "description": "Scan, prioritize, and report technical debt. Usage: /tech-debt <scan|prioritize|report> [options]"
+    },
+    {
+      "name": "user-story",
+      "category": "command",
+      "description": "Generate user stories with acceptance criteria and sprint planning. Usage: /user-story <generate|sprint> [options]"
     },
     {
       "name": "aws-solution-architect",
@@ -976,7 +1026,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 11,
+      "count": 14,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -988,7 +1038,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 5,
+      "count": 12,
       "description": "Command resources"
     },
     "engineering": {

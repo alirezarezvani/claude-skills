@@ -448,7 +448,25 @@ def print_report(result: dict, label: str = "") -> None:
 
 
 def main():
-    if len(sys.argv) == 1:
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Scores content 0-100 on 'humanity' by detecting AI writing patterns. "
+                    "Checks AI vocabulary, sentence variance, passive voice, hedging, "
+                    "em-dash overuse, and paragraph variety."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a text file to analyze. If omitted, runs demo comparing "
+             "human vs AI sample content."
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Also output results as JSON."
+    )
+    args = parser.parse_args()
+
+    if args.file is None:
         # Demo mode: compare human vs AI sample
         print("[Demo mode — comparing human vs AI sample content]")
         print()
@@ -468,18 +486,17 @@ def main():
         print(f"  Difference: {r1['humanity_score'] - r2['humanity_score']} points")
         print()
     else:
-        filepath = sys.argv[1]
         try:
-            with open(filepath, 'r', encoding='utf-8') as f:
+            with open(args.file, 'r', encoding='utf-8') as f:
                 text = f.read()
         except FileNotFoundError:
-            print(f"Error: file not found: {filepath}", file=sys.stderr)
+            print(f"Error: file not found: {args.file}", file=sys.stderr)
             sys.exit(1)
 
         result = score_humanity(text)
-        print_report(result, filepath)
+        print_report(result, args.file)
 
-        if "--json" in sys.argv:
+        if args.json:
             print(json.dumps(result, indent=2))
 
 

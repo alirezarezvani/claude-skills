@@ -267,6 +267,9 @@ def generate_docker_compose(config: Dict[str, Any]) -> str:
         compose["volumes"]["mongodata"] = {}
 
     # Manual YAML-like output (avoid pyyaml dependency)
+    nl = "\n"
+    depends_on = f"    depends_on:{nl}      - db" if db else ""
+    vol_line = "  pgdata:" if db == "postgresql" else "  mongodata:" if db == "mongodb" else "  {}"
     return f"""version: '3.8'
 
 services:
@@ -278,12 +281,12 @@ services:
       - .env
     volumes:
       - .:/app
-{f'    depends_on:\\n      - db' if db else ''}
+{depends_on}
 
 {generate_db_service(db)}
 {generate_redis_service(config)}
 volumes:
-{f'  pgdata:' if db == 'postgresql' else f'  mongodata:' if db == 'mongodb' else '  {}'}
+{vol_line}
 """
 
 

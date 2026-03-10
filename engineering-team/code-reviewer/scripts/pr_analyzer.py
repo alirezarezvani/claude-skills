@@ -455,7 +455,7 @@ def main():
         help="Base branch for comparison (default: main)"
     )
     parser.add_argument(
-        "--head", "-h",
+        "--head",
         default="HEAD",
         help="Head branch/commit for comparison (default: HEAD)"
     )

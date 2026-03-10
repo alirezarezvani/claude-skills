@@ -328,12 +328,24 @@ def load_content(source: str) -> str:
 
 
 def main():
-    if len(sys.argv) > 1:
-        arg = sys.argv[1]
-        if arg == "-":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Analyzes sitemap.xml files for structure, depth, and potential issues. "
+                    "Reports depth distribution, URL patterns, orphan candidates, and duplicates."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a sitemap.xml file or URL (https://...). "
+             "Use '-' to read from stdin. If omitted, runs embedded sample."
+    )
+    args = parser.parse_args()
+
+    if args.file:
+        if args.file == "-":
             content = sys.stdin.read()
         else:
-            content = load_content(arg)
+            content = load_content(args.file)
     else:
         print("No file or URL provided — running on embedded sample sitemap.\n")
         content = SAMPLE_SITEMAP

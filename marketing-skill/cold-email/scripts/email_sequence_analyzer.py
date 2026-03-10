@@ -439,16 +439,29 @@ SAMPLE_SEQUENCE = [
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) > 1:
-        arg = sys.argv[1]
-        if arg == "-":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Analyzes a cold email sequence for quality signals. "
+                    "Evaluates word count, reading level, personalization, CTA clarity, "
+                    "spam triggers, and subject lines. Scores each email 0-100."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a JSON file containing the email sequence. "
+             "Use '-' to read from stdin. If omitted, runs embedded sample."
+    )
+    args = parser.parse_args()
+
+    if args.file:
+        if args.file == "-":
             sequence = json.load(sys.stdin)
         else:
             try:
-                with open(arg, "r", encoding="utf-8") as f:
+                with open(args.file, "r", encoding="utf-8") as f:
                     sequence = json.load(f)
             except FileNotFoundError:
-                print(f"Error: File not found: {arg}", file=sys.stderr)
+                print(f"Error: File not found: {args.file}", file=sys.stderr)
                 sys.exit(1)
             except json.JSONDecodeError as e:
                 print(f"Error: Invalid JSON: {e}", file=sys.stderr)

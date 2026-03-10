@@ -1,6 +1,6 @@
 ---
 name: tech-debt
-description: Score, track, and prioritize technical debt. Usage: /tech-debt <scan|score|report> [options]
+description: Scan, prioritize, and report technical debt. Usage: /tech-debt <scan|prioritize|report> [options]
 ---
 
 # /tech-debt

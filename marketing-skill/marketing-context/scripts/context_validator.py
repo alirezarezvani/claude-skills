@@ -123,8 +123,25 @@ def print_report(results: dict):
 
 
 def main():
-    if len(sys.argv) > 1:
-        filepath = Path(sys.argv[1])
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Validates marketing context completeness. "
+                    "Scores 0-100 based on required and optional section coverage."
+    )
+    parser.add_argument(
+        "file", nargs="?", default=None,
+        help="Path to a marketing context markdown file. "
+             "If omitted, runs demo with embedded sample data."
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Also output results as JSON."
+    )
+    args = parser.parse_args()
+
+    if args.file:
+        filepath = Path(args.file)
         if not filepath.exists():
             print(f"Error: File not found: {filepath}", file=sys.stderr)
             sys.exit(1)
@@ -194,7 +211,7 @@ def main():
     results = validate_context(content)
     print_report(results)
 
-    if "--json" in sys.argv:
+    if args.json:
         print(f"\n{json.dumps(results, indent=2)}")
 
 

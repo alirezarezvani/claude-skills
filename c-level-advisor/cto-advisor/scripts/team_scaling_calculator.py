@@ -323,8 +323,30 @@ class TeamScalingCalculator:
                 'designer': 120000,
                 'data_engineer': 140000
             },
-            'EU': {k: v * 0.8 for k, v in salary_bands.get('US', {}).items()},
-            'APAC': {k: v * 0.6 for k, v in salary_bands.get('US', {}).items()}
+            'EU': {
+                'engineering_manager': 160000,
+                'tech_lead': 144000,
+                'senior_engineer': 128000,
+                'mid_engineer': 96000,
+                'junior_engineer': 68000,
+                'devops': 120000,
+                'qa': 80000,
+                'product_manager': 120000,
+                'designer': 96000,
+                'data_engineer': 112000
+            },
+            'APAC': {
+                'engineering_manager': 120000,
+                'tech_lead': 108000,
+                'senior_engineer': 96000,
+                'mid_engineer': 72000,
+                'junior_engineer': 51000,
+                'devops': 90000,
+                'qa': 60000,
+                'product_manager': 90000,
+                'designer': 72000,
+                'data_engineer': 84000
+            }
         }
         
         location_salaries = salary_bands.get(location, salary_bands['US'])
@@ -493,24 +515,48 @@ def calculate_team_scaling(current_state: Dict, growth_targets: Dict) -> str:
     return '\n'.join(output)
 
 if __name__ == "__main__":
-    # Example usage
-    example_current = {
-        'headcount': 25,
-        'velocity': 450,
-        'roles': {
-            'engineering_manager': 2,
-            'tech_lead': 3,
-            'senior_engineer': 8,
-            'mid_engineer': 10,
-            'junior_engineer': 2
-        },
-        'attrition_rate': 12,
-        'location': 'US'
-    }
-    
-    example_targets = {
-        'target_headcount': 75,
-        'timeline_quarters': 4
-    }
-    
-    print(calculate_team_scaling(example_current, example_targets))
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Engineering Team Scaling Calculator - Optimize team growth and structure"
+    )
+    parser.add_argument(
+        "input_file", nargs="?", default=None,
+        help="JSON file with current_state and growth_targets (default: run with sample data)"
+    )
+    parser.add_argument(
+        "--json", action="store_true",
+        help="Output raw JSON instead of formatted report"
+    )
+    args = parser.parse_args()
+
+    if args.input_file:
+        with open(args.input_file) as f:
+            data = json.load(f)
+        current_state = data["current_state"]
+        growth_targets = data["growth_targets"]
+    else:
+        current_state = {
+            'headcount': 25,
+            'velocity': 450,
+            'roles': {
+                'engineering_manager': 2,
+                'tech_lead': 3,
+                'senior_engineer': 8,
+                'mid_engineer': 10,
+                'junior_engineer': 2
+            },
+            'attrition_rate': 12,
+            'location': 'US'
+        }
+        growth_targets = {
+            'target_headcount': 75,
+            'timeline_quarters': 4
+        }
+
+    if args.json:
+        calculator = TeamScalingCalculator()
+        results = calculator.calculate_scaling_plan(current_state, growth_targets)
+        print(json.dumps(results, indent=2))
+    else:
+        print(calculate_team_scaling(current_state, growth_targets))

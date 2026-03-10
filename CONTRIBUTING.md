@@ -2,6 +2,19 @@
 
 Thank you for your interest in contributing to the Claude Skills Library! This repository aims to democratize professional expertise through reusable, production-ready skill packages for Claude AI.
 
+## ⚠️ Important: Always Target `dev`
+
+**All PRs must target the `dev` branch.** PRs targeting `main` will be automatically closed.
+
+```bash
+# Fork the repo, then:
+git checkout -b feat/my-new-skill origin/dev
+# ... make your changes ...
+# Open PR → base: dev (NOT main)
+```
+
+The `main` branch is reserved for releases and is maintained by the project owner.
+
 ## 🎯 Ways to Contribute
 
 ### 1. Create New Skills

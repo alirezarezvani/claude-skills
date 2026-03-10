@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate MkDocs documentation pages from all SKILL.md files in the repository."""
+"""Generate MkDocs documentation pages from SKILL.md files, agents, and commands."""
 
 import os
 import re
@@ -75,6 +75,30 @@ def extract_title(filepath):
                     continue
                 if line.startswith("# "):
                     return line[2:].strip()
+    except Exception:
+        pass
+    return None
+
+
+def extract_subtitle(filepath):
+    """Extract the first non-empty line after the first H1 heading."""
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            found_h1 = False
+            in_frontmatter = False
+            for line in f:
+                stripped = line.strip()
+                if stripped == "---" and not in_frontmatter:
+                    in_frontmatter = True
+                    for line2 in f:
+                        if line2.strip() == "---":
+                            break
+                    continue
+                if stripped.startswith("# ") and not found_h1:
+                    found_h1 = True
+                    continue
+                if found_h1 and stripped and not stripped.startswith("#"):
+                    return stripped
     except Exception:
         pass
     return None
@@ -226,10 +250,152 @@ description: "All {domain_name} skills for Claude Code, OpenAI Codex, and OpenCl
         with open(index_path, "w", encoding="utf-8") as f:
             f.write(index_content)
 
-    # Print nav YAML for mkdocs.yml
+    # Generate agent pages
+    agents_dir = os.path.join(REPO_ROOT, "agents")
+    agents_docs_dir = os.path.join(DOCS_DIR, "agents")
+    os.makedirs(agents_docs_dir, exist_ok=True)
+    agent_count = 0
+    agent_entries = []
+
+    # Agent domain mapping for display
+    AGENT_DOMAINS = {
+        "business-growth": "Business & Growth",
+        "c-level": "C-Level Advisory",
+        "engineering-team": "Engineering - Core",
+        "engineering": "Engineering - POWERFUL",
+        "finance": "Finance",
+        "marketing": "Marketing",
+        "product": "Product",
+        "project-management": "Project Management",
+        "ra-qm-team": "Regulatory & Quality",
+    }
+
+    if os.path.isdir(agents_dir):
+        for domain_folder in sorted(os.listdir(agents_dir)):
+            domain_path = os.path.join(agents_dir, domain_folder)
+            if not os.path.isdir(domain_path):
+                continue
+            domain_label = AGENT_DOMAINS.get(domain_folder, prettify(domain_folder))
+            for agent_file in sorted(os.listdir(domain_path)):
+                if not agent_file.endswith(".md"):
+                    continue
+                agent_name = agent_file.replace(".md", "")
+                agent_path = os.path.join(domain_path, agent_file)
+                rel = os.path.relpath(agent_path, REPO_ROOT)
+                title = extract_title(agent_path) or prettify(agent_name)
+                title = re.sub(r"[*_`]", "", title)
+
+                with open(agent_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+
+                content_clean = re.sub(r"^---\n.*?---\n", "", content, flags=re.DOTALL)
+                content_clean = re.sub(r"^#\s+.+\n", "", content_clean, count=1)
+
+                page = f"""---
+title: "{title}"
+description: "{title} - Claude Code agent for {domain_label}."
+---
+
+# {title}
+
+**Type:** Agent | **Domain:** {domain_label} | **Source:** [`{rel}`](https://github.com/alirezarezvani/claude-skills/tree/main/{rel})
+
+---
+
+{content_clean}"""
+                slug = slugify(agent_name)
+                out_path = os.path.join(agents_docs_dir, f"{slug}.md")
+                with open(out_path, "w", encoding="utf-8") as f:
+                    f.write(page)
+                agent_count += 1
+                agent_entries.append((title, slug, domain_label))
+
+    # Generate agents index
+    if agent_entries:
+        idx = f"""---
+title: "Agents"
+description: "All {agent_count} Claude Code agents — multi-skill orchestrators across domains."
+---
+
+# Agents
+
+{agent_count} agents that orchestrate skills across domains.
+
+| Agent | Domain |
+|-------|--------|
+"""
+        for title, slug, domain in agent_entries:
+            idx += f"| [{title}]({slug}.md) | {domain} |\n"
+        with open(os.path.join(agents_docs_dir, "index.md"), "w", encoding="utf-8") as f:
+            f.write(idx)
+
+    # Generate command pages
+    commands_dir = os.path.join(REPO_ROOT, "commands")
+    commands_docs_dir = os.path.join(DOCS_DIR, "commands")
+    os.makedirs(commands_docs_dir, exist_ok=True)
+    cmd_count = 0
+    cmd_entries = []
+
+    if os.path.isdir(commands_dir):
+        for cmd_file in sorted(os.listdir(commands_dir)):
+            if not cmd_file.endswith(".md") or cmd_file == "CLAUDE.md":
+                continue
+            cmd_name = cmd_file.replace(".md", "")
+            cmd_path = os.path.join(commands_dir, cmd_file)
+            rel = os.path.relpath(cmd_path, REPO_ROOT)
+            title = extract_title(cmd_path) or prettify(cmd_name)
+            title = re.sub(r"[*_`]", "", title)
+
+            with open(cmd_path, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            content_clean = re.sub(r"^---\n.*?---\n", "", content, flags=re.DOTALL)
+            content_clean = re.sub(r"^#\s+.+\n", "", content_clean, count=1)
+
+            page = f"""---
+title: "/{cmd_name}"
+description: "/{cmd_name} — Claude Code slash command."
+---
+
+# /{cmd_name}
+
+**Type:** Slash Command | **Source:** [`{rel}`](https://github.com/alirezarezvani/claude-skills/tree/main/{rel})
+
+---
+
+{content_clean}"""
+            slug = slugify(cmd_name)
+            out_path = os.path.join(commands_docs_dir, f"{slug}.md")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(page)
+            cmd_count += 1
+            desc = extract_subtitle(cmd_path) or title
+            cmd_entries.append((cmd_name, slug, title, desc))
+
+    # Generate commands index
+    if cmd_entries:
+        idx = f"""---
+title: "Commands"
+description: "All {cmd_count} slash commands for quick access to common operations."
+---
+
+# Slash Commands
+
+{cmd_count} commands for quick access to common operations.
+
+| Command | Description |
+|---------|-------------|
+"""
+        for name, slug, title, desc in cmd_entries:
+            idx += f"| [`/{name}`]({slug}.md) | {desc} |\n"
+        with open(os.path.join(commands_docs_dir, "index.md"), "w", encoding="utf-8") as f:
+            f.write(idx)
+
+    # Print summary
     print(f"Generated {total} skill pages across {len(skills_by_domain)} domains.")
-    print("\nNav structure for mkdocs.yml:\n")
-    print(generate_nav_entry(skills_by_domain))
+    print(f"Generated {agent_count} agent pages.")
+    print(f"Generated {cmd_count} command pages.")
+    print(f"Total: {total + agent_count + cmd_count} pages.")
 
 
 if __name__ == "__main__":

@@ -170,10 +170,10 @@ if __name__ == "__main__":
     )
     parser.add_argument("--mrr", type=float, required=True, help="Starting MRR")
     parser.add_argument(
-        "--growth", type=float, required=True, help="Monthly growth rate (%)"
+        "--growth", type=float, required=True, help="Monthly growth rate (pct)"
     )
     parser.add_argument(
-        "--churn", type=float, required=True, help="Monthly churn rate (%)"
+        "--churn", type=float, required=True, help="Monthly churn rate (pct)"
     )
     parser.add_argument("--cac", type=float, required=True, help="Customer acquisition cost")
     parser.add_argument(

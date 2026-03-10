@@ -164,6 +164,17 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 4. **Template-heavy** - Provide ready-to-use templates users customize
 5. **Platform-specific** - Specific best practices > generic advice
 
+## ClawHub Publishing Constraints
+
+This repository publishes skills to **ClawHub** (clawhub.com) as the distribution registry. The following rules are **non-negotiable**:
+
+1. **cs- prefix for slug conflicts only.** When a skill slug is already taken on ClawHub by another publisher, publish with the `cs-` prefix (e.g., `cs-copywriting`, `cs-seo-audit`). The `cs-` prefix applies **only on the ClawHub registry** — repo folder names, local skill names, and all other tools (Claude Code, Codex, Gemini CLI) remain unchanged.
+2. **Never rename repo folders or local skill names** to match ClawHub slugs. The repo is the source of truth.
+3. **No paid/commercial service dependencies.** Skills must not require paid third-party API keys or commercial services unless provided by the project itself. Free-tier APIs and BYOK (bring-your-own-key) patterns are acceptable.
+4. **Rate limit: 5 new skills per hour** on ClawHub. Batch publishes must respect this. Use the drip timer (`clawhub-drip.timer`) for bulk operations.
+5. **plugin.json schema** — ONLY these fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills: "./"`. No extra fields.
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.1.2+).
+
 ## Anti-Patterns to Avoid
 
 - Creating dependencies between skills (keep each self-contained)

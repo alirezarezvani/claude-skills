@@ -14,6 +14,14 @@ This guide provides comprehensive instructions for creating **cs-* prefixed agen
 
 **Key Principle**: Agents ORCHESTRATE skills, they don't replace them. Skills remain self-contained and portable.
 
+### ClawHub Publishing Constraints
+
+When skills are published to **ClawHub** (clawhub.com):
+- **cs- prefix for slug conflicts only** — applies only on the ClawHub registry when another publisher already owns the slug. Repo folder names and local skill names are never renamed.
+- **No paid/commercial service dependencies** — skills must not require paid third-party API keys or commercial services unless provided by the project itself.
+- **plugin.json** — ONLY fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills: "./"`.
+- **Rate limit:** 5 new skills/hour on ClawHub. Use drip publishing for bulk operations.
+
 ### Production Agents
 
 **5 Agents Currently Available** (as of November 5, 2025):

@@ -78,7 +78,7 @@ Choose your platform and follow the steps:
 | **Project Management** | `/plugin install pm-skills@claude-code-skills` | 6 |
 | **C-Level Advisory** | `/plugin install c-level-skills@claude-code-skills` | 28 |
 | **Business & Growth** | `/plugin install business-growth-skills@claude-code-skills` | 4 |
-| **Finance** | `/plugin install finance-skills@claude-code-skills` | 1 |
+| **Finance** | `/plugin install finance-skills@claude-code-skills` | 2 |
 
 Or install individual skills: `/plugin install skill-name@claude-code-skills`
 
@@ -112,7 +112,7 @@ AI-augmented development. Optimize for SEO.
 
 ## Python Tools
 
-All 237 tools use the standard library only — zero pip installs, all verified.
+All 240 tools use the standard library only — zero pip installs, all verified.
 
 ```bash
 # Security audit a skill before installing

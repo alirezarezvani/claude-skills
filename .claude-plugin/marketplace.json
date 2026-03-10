@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "149 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (1). Includes 224 Python tools, 341 reference documents, 14 agents, and 12 slash commands.",
+  "description": "150 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (2). Includes 240 Python tools, 343 reference documents, 14 agents, and 14 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "149 production-ready skill packages across 9 domains with 224 Python tools, 341 reference documents, 14 agents, and 12 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "150 production-ready skill packages across 9 domains with 240 Python tools, 343 reference documents, 14 agents, and 14 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
@@ -177,7 +177,7 @@
     {
       "name": "finance-skills",
       "source": "./finance",
-      "description": "1 finance skill: financial analyst with ratio analysis, DCF valuation, budgeting, and forecasting. 4 Python automation tools.",
+      "description": "2 finance skills: financial analyst (ratio analysis, DCF valuation, budgeting, forecasting) and SaaS metrics coach (ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, projections). 7 Python automation tools.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -187,7 +187,14 @@
         "dcf",
         "valuation",
         "budgeting",
-        "forecasting"
+        "forecasting",
+        "saas",
+        "metrics",
+        "arr",
+        "mrr",
+        "churn",
+        "ltv",
+        "cac"
       ],
       "category": "finance"
     },

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 170 production-ready skills across 9 domains with 210+ Python automation tools, 310+ reference guides, 12 agents, and 5 slash commands.
+**Current Scope:** 171 production-ready skills across 9 domains with 240 Python automation tools, 343 reference guides, 14 agents, and 14 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -25,7 +25,7 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 | **Project Management** | [project-management/CLAUDE.md](project-management/CLAUDE.md) | Atlassian MCP, Jira/Confluence integration |
 | **RA/QM Compliance** | [ra-qm-team/CLAUDE.md](ra-qm-team/CLAUDE.md) | ISO 13485, MDR, FDA, GDPR, ISO 27001 compliance |
 | **Business & Growth** | [business-growth/CLAUDE.md](business-growth/CLAUDE.md) | Customer success, sales engineering, revenue operations |
-| **Finance** | [finance/CLAUDE.md](finance/CLAUDE.md) | Financial analysis, DCF valuation, budgeting, forecasting |
+| **Finance** | [finance/CLAUDE.md](finance/CLAUDE.md) | Financial analysis, DCF valuation, budgeting, forecasting, SaaS metrics |
 | **Standards Library** | [standards/CLAUDE.md](standards/CLAUDE.md) | Communication, quality, git, security standards |
 | **Templates** | [templates/CLAUDE.md](templates/CLAUDE.md) | Template system usage |
 
@@ -36,8 +36,8 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
-├── agents/                    # 12 cs-* prefixed agents across all domains
-├── commands/                  # 5 slash commands (changelog, tdd, tech-debt, etc.)
+├── agents/                    # 14 cs-* prefixed agents across all domains
+├── commands/                  # 14 slash commands (changelog, tdd, saas-health, etc.)
 ├── engineering-team/          # 23 core engineering skills + Playwright Pro + Self-Improving Agent
 ├── engineering/               # 25 POWERFUL-tier advanced skills
 ├── product-team/              # 8 product skills + Python tools
@@ -46,7 +46,7 @@ claude-code-skills/
 ├── project-management/        # 6 PM skills + Atlassian MCP
 ├── ra-qm-team/                # 12 RA/QM compliance skills
 ├── business-growth/           # 4 business & growth skills + Python tools
-├── finance/                   # 1 finance skill + Python tools
+├── finance/                   # 2 finance skills + Python tools
 ├── eval-workspace/            # Skill evaluation results (Tessl)
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates
@@ -148,11 +148,11 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 170 production-ready skills deployed across 9 domains
-- Engineering Core (23), Engineering POWERFUL (25), Product (8), Marketing (42), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (1)
-- 210+ Python automation tools, 310+ reference guides, 12 agents, 5 commands
+**Phase 1-2 Complete:** 171 production-ready skills deployed across 9 domains
+- Engineering Core (23), Engineering POWERFUL (25), Product (8), Marketing (42), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
+- 240 Python automation tools, 343 reference guides, 14 agents, 14 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
-- MkDocs Material docs site with 170+ indexed pages for SEO
+- MkDocs Material docs site with 206 indexed pages for SEO
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
@@ -192,4 +192,4 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
 **Last Updated:** March 10, 2026
 **Version:** v2.1.2
-**Status:** 170 skills deployed across 9 domains, 18 marketplace plugins, docs site live
+**Status:** 171 skills deployed across 9 domains, 19 marketplace plugins, docs site live

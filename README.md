@@ -85,14 +85,14 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**170 skills across 9 domains:**
+**171 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
 | **🔧 Engineering — Core** | 23 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent | [engineering-team/](engineering-team/) |
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
-| **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
+| **⚡ Engineering — POWERFUL** | 26 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder, translate-image | [engineering/](engineering/) |
 | **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages (TSX + Tailwind), SaaS scaffolder | [product-team/](product-team/) |
 | **📣 Marketing** | 42 | 7 pods: Content (8), SEO (5), CRO (6), Channels (5), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 27 Python tools. | [marketing-skill/](marketing-skill/) |
 | **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
@@ -105,7 +105,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## ⚡ POWERFUL Tier
 
-25 advanced skills with deep, production-grade capabilities:
+26 advanced skills with deep, production-grade capabilities:
 
 | Skill | What It Does |
 |-------|-------------|
@@ -127,6 +127,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 | **performance-profiler** | Node/Python/Go profiling, bundle analysis, load testing |
 | **monorepo-navigator** | Turborepo/Nx/pnpm workspace management & impact analysis |
 | **changelog-generator** | Conventional commits → structured changelogs |
+| **translate-image** | AI image translation, OCR, text removal — 130+ languages |
 | **codebase-onboarding** | Auto-generate onboarding docs from codebase analysis |
 | **runbook-generator** | Codebase → operational runbooks with commands |
 | **git-worktree-manager** | Parallel dev with port isolation, env sync |

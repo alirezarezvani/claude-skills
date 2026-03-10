@@ -1,0 +1,57 @@
+---
+name: Enforce PR Target Branch
+
+on:
+  pull_request_target:
+    types: [opened]
+    branches: [main]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  check-target:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block PRs targeting main from non-maintainers
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+
+            // Maintainers who can PR to main directly
+            const maintainers = ['alirezarezvani'];
+
+            if (maintainers.includes(author)) {
+              console.log(`✅ ${author} is a maintainer — PR to main allowed.`);
+              return;
+            }
+
+            const message = `👋 Hi @${author}, thanks for your contribution!
+
+            All community PRs should target the \`dev\` branch, not \`main\`. The \`main\` branch is reserved for releases.
+
+            **How to fix:**
+            1. Close this PR
+            2. Reopen it targeting \`dev\` instead of \`main\`
+
+            Or I can do it for you — just click "Edit" at the top right of this PR and change the base branch to \`dev\`.
+
+            See our [Contributing Guide](https://github.com/alirezarezvani/claude-skills/blob/dev/CONTRIBUTING.md) for details.`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: message.split('\n').map(l => l.trim()).join('\n'),
+            });
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              state: 'closed',
+            });
+
+            core.setFailed(`PR #${pr.number} targets main. Closed automatically.`);

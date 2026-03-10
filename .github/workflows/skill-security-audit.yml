@@ -1,0 +1,237 @@
+---
+name: Skill Security Audit
+
+'on':
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'engineering/**'
+      - 'engineering-team/**'
+      - 'business-growth/**'
+      - 'c-level-advisor/**'
+      - 'documentation/**'
+      - 'finance/**'
+      - 'marketing-skill/**'
+      - 'product-team/**'
+      - 'project-management/**'
+      - 'ra-qm-team/**'
+      - 'agents/**'
+      - 'templates/**'
+
+concurrency:
+  group: security-audit-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  detect-changes:
+    name: Detect changed skills
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      skills: ${{ steps.find.outputs.skills }}
+      has_skills: ${{ steps.find.outputs.has_skills }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find changed skill directories
+        id: find
+        run: |
+          # Get list of changed files in PR
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD 2>/dev/null || echo "")
+
+          if [ -z "$CHANGED" ]; then
+            echo "skills=[]" >> "$GITHUB_OUTPUT"
+            echo "has_skills=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Extract unique skill root directories (top-level dirs containing SKILL.md)
+          SKILLS=()
+          SEEN=()
+          while IFS= read -r file; do
+            # Get the top-level directory
+            dir=$(echo "$file" | cut -d'/' -f1-2)
+            # Skip non-skill paths
+            case "$dir" in
+              .github/*|.claude/*|.codex/*|.gemini/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*) continue ;;
+            esac
+            # Check if this directory has a SKILL.md (is a skill)
+            skill_root=$(echo "$file" | cut -d'/' -f1)
+            # Walk up to find the skill root that contains SKILL.md
+            for candidate in "$skill_root" "$dir"; do
+              if [ -f "$candidate/SKILL.md" ] && [[ ! " ${SEEN[*]} " =~ " $candidate " ]]; then
+                SKILLS+=("$candidate")
+                SEEN+=("$candidate")
+                break
+              fi
+            done
+          done <<< "$CHANGED"
+
+          if [ ${#SKILLS[@]} -eq 0 ]; then
+            echo "skills=[]" >> "$GITHUB_OUTPUT"
+            echo "has_skills=false" >> "$GITHUB_OUTPUT"
+          else
+            # Build JSON array
+            JSON="["
+            for i in "${!SKILLS[@]}"; do
+              [ $i -gt 0 ] && JSON+=","
+              JSON+="\"${SKILLS[$i]}\""
+            done
+            JSON+="]"
+            echo "skills=$JSON" >> "$GITHUB_OUTPUT"
+            echo "has_skills=true" >> "$GITHUB_OUTPUT"
+            echo "Changed skills: $JSON"
+          fi
+
+  audit:
+    name: Security audit
+    needs: detect-changes
+    if: needs.detect-changes.outputs.has_skills == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run security auditor on changed skills
+        id: audit
+        run: |
+          AUDITOR="engineering/skill-security-auditor/scripts/skill_security_auditor.py"
+          SKILLS='${{ needs.detect-changes.outputs.skills }}'
+          REPORT_FILE=$(mktemp)
+          OVERALL_EXIT=0
+
+          echo "## 🔒 Skill Security Audit Results" > "$REPORT_FILE"
+          echo "" >> "$REPORT_FILE"
+
+          # Parse JSON array of skill dirs
+          for skill_dir in $(echo "$SKILLS" | python3 -c "import sys,json; [print(s) for s in json.load(sys.stdin)]"); do
+            echo "::group::Auditing $skill_dir"
+            echo "Scanning: $skill_dir"
+
+            # Run auditor in strict mode with JSON output
+            JSON_OUT=$(python3 "$AUDITOR" "$skill_dir" --strict --json 2>&1) && EXIT_CODE=$? || EXIT_CODE=$?
+
+            # Try to parse JSON output
+            VERDICT=$(echo "$JSON_OUT" | python3 -c "
+          import sys, json
+          try:
+              d = json.load(sys.stdin)
+              v = d.get('verdict', 'UNKNOWN')
+              c = d.get('summary', {}).get('critical', 0)
+              h = d.get('summary', {}).get('high', 0)
+              i = d.get('summary', {}).get('info', 0)
+              t = d.get('summary', {}).get('total', 0)
+              print(f'{v}|{c}|{h}|{i}|{t}')
+          except:
+              print('ERROR|0|0|0|0')
+          " 2>/dev/null || echo "ERROR|0|0|0|0")
+
+            IFS='|' read -r V CRIT HIGH INFO TOTAL <<< "$VERDICT"
+
+            # Map verdict to emoji
+            case "$V" in
+              PASS) ICON="✅" ;;
+              WARN) ICON="⚠️" ;;
+              FAIL) ICON="❌"; OVERALL_EXIT=1 ;;
+              *)    ICON="❓"; OVERALL_EXIT=1 ;;
+            esac
+
+            echo "### $ICON \`$skill_dir\` — $V" >> "$REPORT_FILE"
+            echo "" >> "$REPORT_FILE"
+
+            if [ "$TOTAL" -gt 0 ]; then
+              echo "| Severity | Count |" >> "$REPORT_FILE"
+              echo "|----------|-------|" >> "$REPORT_FILE"
+              [ "$CRIT" -gt 0 ] && echo "| 🔴 Critical | $CRIT |" >> "$REPORT_FILE"
+              [ "$HIGH" -gt 0 ] && echo "| 🟡 High | $HIGH |" >> "$REPORT_FILE"
+              [ "$INFO" -gt 0 ] && echo "| ⚪ Info | $INFO |" >> "$REPORT_FILE"
+              echo "" >> "$REPORT_FILE"
+
+              # Include finding details for WARN/FAIL
+              if [ "$V" != "PASS" ]; then
+                echo "<details><summary>Findings detail</summary>" >> "$REPORT_FILE"
+                echo "" >> "$REPORT_FILE"
+                echo '```json' >> "$REPORT_FILE"
+                echo "$JSON_OUT" | python3 -c "
+          import sys, json
+          try:
+              d = json.load(sys.stdin)
+              findings = d.get('findings', [])
+              for f in findings:
+                  if f.get('severity') in ('CRITICAL', 'HIGH'):
+                      print(json.dumps(f, indent=2))
+          except:
+              pass
+          " >> "$REPORT_FILE"
+                echo '```' >> "$REPORT_FILE"
+                echo "</details>" >> "$REPORT_FILE"
+                echo "" >> "$REPORT_FILE"
+              fi
+            else
+              echo "No findings." >> "$REPORT_FILE"
+              echo "" >> "$REPORT_FILE"
+            fi
+
+            echo "::endgroup::"
+          done
+
+          # Save report for comment step
+          echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
+          echo "exit_code=$OVERALL_EXIT" >> "$GITHUB_OUTPUT"
+
+      - name: Post audit results as PR comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const reportFile = '${{ steps.audit.outputs.report_file }}';
+            let body = '## 🔒 Skill Security Audit\n\nNo report generated.';
+            try {
+              body = fs.readFileSync(reportFile, 'utf8');
+            } catch (e) {
+              console.log('Could not read report file:', e.message);
+            }
+
+            // Find and update existing comment or create new
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const marker = '## 🔒 Skill Security Audit';
+            const existing = comments.find(c => c.body.startsWith(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body,
+              });
+            }
+
+      - name: Fail on critical findings
+        if: steps.audit.outputs.exit_code == '1'
+        run: |
+          echo "::error::Security audit found CRITICAL findings. Merge blocked."
+          exit 1

@@ -1,17 +1,20 @@
 # Project Management Skills - Claude Code Guidance
 
-This guide covers the 6 production-ready project management skills with Atlassian MCP integration.
+This guide covers the 6 production-ready project management skills, 12 Python automation tools, and Atlassian MCP integration.
 
 ## PM Skills Overview
 
 **Available Skills:**
-1. **senior-pm/** - Senior project manager workflows and best practices
-2. **scrum-master/** - Scrum ceremonies, agile coaching, team facilitation
-3. **jira-expert/** - Jira administration, workflows, automation
-4. **confluence-expert/** - Documentation, knowledge management, collaboration
-5. **atlassian-admin/** - Atlassian suite administration and configuration
-6. **atlassian-templates/** - Ready-to-use templates for Jira and Confluence
+1. **senior-pm/** - Portfolio health, risk analysis, resource planning (3 scripts)
+2. **scrum-master/** - Sprint health, velocity forecasting, retrospectives (3 scripts)
+3. **jira-expert/** - JQL building, workflow validation (2 scripts)
+4. **confluence-expert/** - Space structure, content auditing (2 scripts)
+5. **atlassian-admin/** - Permission auditing (1 script)
+6. **atlassian-templates/** - Template scaffolding (1 script)
 
+**Total Tools:** 12 Python automation tools
+**Agent:** cs-project-manager (orchestrates all 6 skills)
+**Slash Commands:** 3 (/sprint-health, /project-health, /retro)
 **Key Feature:** Atlassian MCP Server integration for direct Jira/Confluence operations
 
 ## Atlassian MCP Integration
@@ -62,6 +65,10 @@ mcp__atlassian__create_page space="TEAM" title="Sprint Retrospective"
 
 **Focus:** Jira configuration, custom workflows, automation rules
 
+**Scripts:**
+- `scripts/jql_query_builder.py` — Pattern-matching JQL builder from natural language
+- `scripts/workflow_validator.py` — Validates workflow definitions for anti-patterns
+
 **Key Workflows:**
 - Workflow customization
 - Automation rule creation
@@ -71,6 +78,10 @@ mcp__atlassian__create_page space="TEAM" title="Sprint Retrospective"
 ### Confluence Expert (`confluence-expert/`)
 
 **Focus:** Documentation strategy, templates, knowledge management
+
+**Scripts:**
+- `scripts/space_structure_generator.py` — Generates space hierarchy from team description
+- `scripts/content_audit_analyzer.py` — Analyzes page inventory for stale/orphaned content
 
 **Key Workflows:**
 - Space architecture design
@@ -82,6 +93,9 @@ mcp__atlassian__create_page space="TEAM" title="Sprint Retrospective"
 
 **Focus:** Suite administration, user management, integrations
 
+**Scripts:**
+- `scripts/permission_audit_tool.py` — Analyzes permission schemes for security gaps
+
 **Key Workflows:**
 - User provisioning and permissions
 - SSO/SAML configuration
@@ -91,6 +105,9 @@ mcp__atlassian__create_page space="TEAM" title="Sprint Retrospective"
 ### Atlassian Templates (`atlassian-templates/`)
 
 **Focus:** Ready-to-use templates for common PM tasks
+
+**Scripts:**
+- `scripts/template_scaffolder.py` — Generates Confluence storage-format XHTML templates
 
 **Available Templates:**
 - Sprint planning template
@@ -124,6 +141,30 @@ mcp__atlassian__create_page space="DOCS" title="Feature Spec" template="feature-
 mcp__atlassian__link_issue issue="PROJ-123" confluence_page_id="456789"
 ```
 
+## Python Automation Tools
+
+### New Scripts (Phase 2)
+
+```bash
+# JQL from natural language
+python jira-expert/scripts/jql_query_builder.py "high priority bugs assigned to me"
+
+# Validate Jira workflow
+python jira-expert/scripts/workflow_validator.py workflow.json
+
+# Generate Confluence space structure
+python confluence-expert/scripts/space_structure_generator.py team_info.json
+
+# Audit Confluence content health
+python confluence-expert/scripts/content_audit_analyzer.py pages.json
+
+# Audit Atlassian permissions
+python atlassian-admin/scripts/permission_audit_tool.py permissions.json
+
+# Scaffold Confluence templates
+python atlassian-templates/scripts/template_scaffolder.py meeting-notes
+```
+
 ## Additional Resources
 
 - **Installation Guide:** `INSTALLATION_GUIDE.txt`
@@ -134,6 +175,8 @@ mcp__atlassian__link_issue issue="PROJ-123" confluence_page_id="456789"
 
 ---
 
-**Last Updated:** November 5, 2025
+**Last Updated:** March 9, 2026
 **Skills Deployed:** 6/6 PM skills production-ready
+**Total Tools:** 12 Python automation tools
+**Agent:** cs-project-manager | **Commands:** 3
 **Integration:** Atlassian MCP Server for Jira/Confluence automation

@@ -99,7 +99,7 @@ AI-augmented development. Optimize for SEO.
 
 ## Python Tools
 
-All 210+ tools use the standard library only — zero pip installs.
+All 218+ tools use the standard library only — zero pip installs.
 
 ```bash
 # Security audit a skill before installing

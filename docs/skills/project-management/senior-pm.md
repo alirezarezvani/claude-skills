@@ -408,3 +408,8 @@ Reference: `references/portfolio-kpis.md` for full definitions and measurement g
 - Executive interview feedback on decision support quality
 - Team feedback on process efficiency and effectiveness
 - Customer impact assessment of portfolio decisions
+
+## Related Skills
+
+- **Product Strategist** (`product-team/product-strategist/`) — Product OKRs align with portfolio objectives
+- **Scrum Master** (`project-management/scrum-master/`) — Sprint velocity data feeds project health dashboards

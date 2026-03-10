@@ -389,3 +389,8 @@ Story is complete when:
 - [ ] Deployed to staging environment
 - [ ] Product Owner accepted
 - [ ] No critical bugs remaining
+
+## Related Skills
+
+- **Scrum Master** (`project-management/scrum-master/`) — Velocity data and sprint ceremonies complement backlog management
+- **Product Manager Toolkit** (`product-team/product-manager-toolkit/`) — RICE prioritization feeds backlog ordering

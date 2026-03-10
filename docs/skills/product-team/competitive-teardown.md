@@ -171,3 +171,8 @@ Navigation: global search, keyboard shortcuts, in-app help.
 5. **UX Highlights** — What they do better (3 bullets) vs. where we win (3 bullets)
 6. **Voice of Customer** — Top 3 review complaints (quoted or paraphrased)
 7. **Our Action Plan** — Quick wins, medium-term, strategic priorities; Appendix with raw data
+
+## Related Skills
+
+- **Product Strategist** (`product-team/product-strategist/`) — Competitive insights feed OKR and strategy planning
+- **Landing Page Generator** (`product-team/landing-page-generator/`) — Competitive positioning informs landing page messaging

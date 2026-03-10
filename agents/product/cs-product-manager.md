@@ -1,7 +1,7 @@
 ---
 name: cs-product-manager
 description: Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework
-skills: product-team/product-manager-toolkit
+skills: product-team/product-manager-toolkit, product-team/agile-product-owner, product-team/product-strategist, product-team/ux-researcher-designer, product-team/ui-design-system, product-team/competitive-teardown, product-team/landing-page-generator, product-team/saas-scaffolder
 domain: product
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]
@@ -11,7 +11,7 @@ tools: [Read, Write, Bash, Grep, Glob]
 
 ## Purpose
 
-The cs-product-manager agent is a specialized product management agent focused on feature prioritization, customer discovery, requirements documentation, and data-driven roadmap planning. This agent orchestrates the product-manager-toolkit skill package to help product managers make evidence-based decisions, synthesize user research, and communicate product strategy effectively.
+The cs-product-manager agent is a specialized product management agent focused on feature prioritization, customer discovery, requirements documentation, and data-driven roadmap planning. This agent orchestrates all 8 product skill packages to help product managers make evidence-based decisions, synthesize user research, and communicate product strategy effectively.
 
 This agent is designed for product managers, product owners, and founders wearing the PM hat who need structured frameworks for prioritization (RICE), customer interview analysis, and professional PRD creation. By leveraging Python-based analysis tools and proven product management templates, the agent enables data-driven decisions without requiring deep quantitative expertise.
 
@@ -19,7 +19,20 @@ The cs-product-manager agent bridges the gap between customer insights and produ
 
 ## Skill Integration
 
-**Skill Location:** `../../product-team/product-manager-toolkit/`
+**Primary Skill:** `../../product-team/product-manager-toolkit/`
+
+### All Orchestrated Skills
+
+| # | Skill | Location | Primary Tool |
+|---|-------|----------|-------------|
+| 1 | Product Manager Toolkit | `../../product-team/product-manager-toolkit/` | rice_prioritizer.py, customer_interview_analyzer.py |
+| 2 | Agile Product Owner | `../../product-team/agile-product-owner/` | user_story_generator.py |
+| 3 | Product Strategist | `../../product-team/product-strategist/` | okr_cascade_generator.py |
+| 4 | UX Researcher & Designer | `../../product-team/ux-researcher-designer/` | persona_generator.py |
+| 5 | UI Design System | `../../product-team/ui-design-system/` | design_token_generator.py |
+| 6 | Competitive Teardown | `../../product-team/competitive-teardown/` | competitive_matrix_builder.py |
+| 7 | Landing Page Generator | `../../product-team/landing-page-generator/` | landing_page_scaffolder.py |
+| 8 | SaaS Scaffolder | `../../product-team/saas-scaffolder/` | project_bootstrapper.py |
 
 ### Python Tools
 
@@ -38,12 +51,114 @@ The cs-product-manager agent bridges the gap between customer insights and produ
    - **Features:** Pain point extraction with severity, feature request identification, jobs-to-be-done patterns, sentiment analysis, theme extraction
    - **Use Cases:** User research synthesis, discovery validation, problem prioritization, insight generation
 
+3. **User Story Generator**
+   - **Purpose:** Break epics into INVEST-compliant user stories with acceptance criteria
+   - **Path:** `../../product-team/agile-product-owner/scripts/user_story_generator.py`
+   - **Usage:** `python ../../product-team/agile-product-owner/scripts/user_story_generator.py epic.yaml`
+   - **Use Cases:** Sprint planning, backlog refinement, story decomposition
+
+4. **OKR Cascade Generator**
+   - **Purpose:** Generate cascaded OKRs from company objectives to team-level key results
+   - **Path:** `../../product-team/product-strategist/scripts/okr_cascade_generator.py`
+   - **Usage:** `python ../../product-team/product-strategist/scripts/okr_cascade_generator.py growth`
+   - **Use Cases:** Quarterly planning, strategic alignment, goal setting
+
+5. **Persona Generator**
+   - **Purpose:** Create data-driven user personas from research inputs
+   - **Path:** `../../product-team/ux-researcher-designer/scripts/persona_generator.py`
+   - **Usage:** `python ../../product-team/ux-researcher-designer/scripts/persona_generator.py research-data.json`
+   - **Use Cases:** User research synthesis, persona development, journey mapping
+
+6. **Design Token Generator**
+   - **Purpose:** Generate design tokens for consistent UI implementation
+   - **Path:** `../../product-team/ui-design-system/scripts/design_token_generator.py`
+   - **Usage:** `python ../../product-team/ui-design-system/scripts/design_token_generator.py theme.json`
+   - **Use Cases:** Design system creation, developer handoff, theming
+
+7. **Competitive Matrix Builder**
+   - **Purpose:** Build competitive analysis matrices and feature comparison grids
+   - **Path:** `../../product-team/competitive-teardown/scripts/competitive_matrix_builder.py`
+   - **Usage:** `python ../../product-team/competitive-teardown/scripts/competitive_matrix_builder.py competitors.csv`
+   - **Use Cases:** Competitive intelligence, market positioning, feature gap analysis
+
+8. **Landing Page Scaffolder**
+   - **Purpose:** Generate conversion-optimized landing page scaffolds
+   - **Path:** `../../product-team/landing-page-generator/scripts/landing_page_scaffolder.py`
+   - **Usage:** `python ../../product-team/landing-page-generator/scripts/landing_page_scaffolder.py config.yaml`
+   - **Use Cases:** Product launches, A/B testing, GTM campaigns
+
+9. **Project Bootstrapper**
+   - **Purpose:** Scaffold SaaS project structures with boilerplate and configurations
+   - **Path:** `../../product-team/saas-scaffolder/scripts/project_bootstrapper.py`
+   - **Usage:** `python ../../product-team/saas-scaffolder/scripts/project_bootstrapper.py --stack nextjs --name my-saas`
+   - **Use Cases:** MVP scaffolding, project kickoff, SaaS prototype creation
+
 ### Knowledge Bases
 
 1. **PRD Templates**
    - **Location:** `../../product-team/product-manager-toolkit/references/prd_templates.md`
    - **Content:** Multiple PRD formats (Standard PRD, One-Page PRD, Feature Brief, Agile Epic), structure guidelines, best practices
    - **Use Case:** Requirements documentation, stakeholder communication, engineering handoff
+
+2. **Sprint Planning Guide**
+   - **Location:** `../../product-team/agile-product-owner/references/sprint-planning-guide.md`
+   - **Content:** Sprint planning ceremonies, velocity tracking, capacity allocation
+   - **Use Case:** Sprint execution, backlog refinement, agile ceremonies
+
+3. **User Story Templates**
+   - **Location:** `../../product-team/agile-product-owner/references/user-story-templates.md`
+   - **Content:** INVEST-compliant story formats, acceptance criteria patterns, story splitting techniques
+   - **Use Case:** Story writing, backlog grooming, definition of done
+
+4. **OKR Framework**
+   - **Location:** `../../product-team/product-strategist/references/okr_framework.md`
+   - **Content:** OKR methodology, cascade patterns, scoring guidelines
+   - **Use Case:** Quarterly planning, strategic alignment, goal tracking
+
+5. **Strategy Types**
+   - **Location:** `../../product-team/product-strategist/references/strategy_types.md`
+   - **Content:** Product strategy frameworks, competitive positioning, growth strategies
+   - **Use Case:** Strategic planning, market analysis, product vision
+
+6. **Persona Methodology**
+   - **Location:** `../../product-team/ux-researcher-designer/references/persona-methodology.md`
+   - **Content:** Research-backed persona creation methodology, data collection, validation
+   - **Use Case:** Persona development, user segmentation, research planning
+
+7. **Example Personas**
+   - **Location:** `../../product-team/ux-researcher-designer/references/example-personas.md`
+   - **Content:** Sample persona documents with demographics, goals, pain points, behaviors
+   - **Use Case:** Persona templates, research documentation
+
+8. **Journey Mapping Guide**
+   - **Location:** `../../product-team/ux-researcher-designer/references/journey-mapping-guide.md`
+   - **Content:** Customer journey mapping methodology, touchpoint analysis, emotion mapping
+   - **Use Case:** Experience design, touchpoint optimization, service design
+
+9. **Usability Testing Frameworks**
+   - **Location:** `../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md`
+   - **Content:** Usability test planning, task design, analysis methods
+   - **Use Case:** Usability studies, prototype validation, UX evaluation
+
+10. **Component Architecture**
+    - **Location:** `../../product-team/ui-design-system/references/component-architecture.md`
+    - **Content:** Component hierarchy, atomic design patterns, composition strategies
+    - **Use Case:** Design system architecture, component libraries
+
+11. **Developer Handoff**
+    - **Location:** `../../product-team/ui-design-system/references/developer-handoff.md`
+    - **Content:** Design-to-dev handoff process, specification formats, asset delivery
+    - **Use Case:** Engineering collaboration, implementation specs
+
+12. **Responsive Calculations**
+    - **Location:** `../../product-team/ui-design-system/references/responsive-calculations.md`
+    - **Content:** Responsive design formulas, breakpoint strategies, fluid typography
+    - **Use Case:** Responsive implementation, cross-device design
+
+13. **Token Generation**
+    - **Location:** `../../product-team/ui-design-system/references/token-generation.md`
+    - **Content:** Design token standards, naming conventions, platform-specific output
+    - **Use Case:** Design system tokens, theming, multi-platform consistency
 
 ## Workflows
 
@@ -229,32 +344,37 @@ cat roadmap.txt
    python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py q4-candidates.csv --capacity 18
    ```
 
-3. **Define Product OKRs** - Set ambitious but achievable goals:
+3. **Generate OKR Cascade** - Use the OKR cascade generator to create aligned objectives
+   ```bash
+   python ../../product-team/product-strategist/scripts/okr_cascade_generator.py growth
+   ```
+
+4. **Define Product OKRs** - Set ambitious but achievable goals:
    - **Objective**: Qualitative, inspirational (e.g., "Become the easiest platform to onboard")
    - **Key Results**: Quantitative, measurable (e.g., "Reduce onboarding time from 30min to 10min")
    - **Initiatives**: Features that drive key results
    - **Metrics**: How we'll track progress weekly
 
-4. **Capacity Planning** - Allocate team resources:
+5. **Capacity Planning** - Allocate team resources:
    - Engineering capacity: Person-months available
    - Design capacity: UI/UX support needed
    - Buffer allocation: 20% for bugs, support, unknowns
    - Dependency tracking: External blockers
 
-5. **Risk Assessment** - Identify what could go wrong:
+6. **Risk Assessment** - Identify what could go wrong:
    - Technical risks (scalability, performance)
    - Market risks (competition, demand)
    - Execution risks (dependencies, team velocity)
    - Mitigation plans for each risk
 
-6. **Stakeholder Review** - Present quarterly plan:
+7. **Stakeholder Review** - Present quarterly plan:
    - OKRs with supporting initiatives
    - RICE-justified priorities
    - Resource allocation and capacity
    - Risks and mitigation strategies
    - Success metrics and tracking cadence
 
-7. **Track Progress** - Weekly OKR check-ins:
+8. **Track Progress** - Weekly OKR check-ins:
    - Update key result progress
    - Adjust priorities if needed
    - Communicate blockers early
@@ -262,6 +382,164 @@ cat roadmap.txt
 **Expected Output:** Quarterly OKRs with prioritized roadmap, capacity plan, and risk mitigation
 
 **Time Estimate:** 1 week for quarterly planning (last week of previous quarter)
+
+### Workflow 5: User Research to Personas
+
+**Goal:** Generate data-driven personas from user research to align the team on target users
+
+**Steps:**
+1. **Collect Research Data** - Aggregate findings from interviews, surveys, and analytics:
+   - Interview transcripts and notes
+   - Survey responses and demographics
+   - Behavioral analytics (usage patterns, feature adoption)
+   - Support ticket themes
+
+2. **Review Persona Methodology** - Understand research-backed persona creation
+   ```bash
+   cat ../../product-team/ux-researcher-designer/references/persona-methodology.md
+   ```
+
+3. **Generate Personas** - Create structured personas from research inputs
+   ```bash
+   python ../../product-team/ux-researcher-designer/scripts/persona_generator.py research-data.json
+   ```
+
+4. **Map Customer Journeys** - Reference journey mapping guide for each persona
+   ```bash
+   cat ../../product-team/ux-researcher-designer/references/journey-mapping-guide.md
+   ```
+
+5. **Review Example Personas** - Compare output against proven persona formats
+   ```bash
+   cat ../../product-team/ux-researcher-designer/references/example-personas.md
+   ```
+
+6. **Validate and Iterate** - Share personas with stakeholders:
+   - Cross-reference with interview insights from customer_interview_analyzer.py
+   - Verify demographics and behaviors match real user data
+   - Update personas quarterly as new research emerges
+
+**Expected Output:** 3-5 data-driven user personas with demographics, goals, pain points, behaviors, and mapped customer journeys
+
+**Time Estimate:** 1-2 weeks (research collection + persona generation + validation)
+
+**Example:**
+```bash
+# Complete persona generation workflow
+python ../../product-team/ux-researcher-designer/scripts/persona_generator.py user-research-q4.json > personas.md
+
+# Cross-reference with interview analysis
+python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interviews-batch.txt > insights.txt
+
+# Review journey mapping methodology
+cat ../../product-team/ux-researcher-designer/references/journey-mapping-guide.md
+```
+
+### Workflow 6: Sprint Story Generation
+
+**Goal:** Break epics into INVEST-compliant user stories ready for sprint planning
+
+**Steps:**
+1. **Define the Epic** - Structure epic with clear scope and acceptance criteria:
+   - Business objective and user value
+   - Functional requirements
+   - Non-functional requirements (performance, security)
+   - Dependencies and constraints
+
+2. **Review Story Templates** - Load INVEST-compliant story patterns
+   ```bash
+   cat ../../product-team/agile-product-owner/references/user-story-templates.md
+   ```
+
+3. **Generate User Stories** - Break the epic into sprint-sized stories
+   ```bash
+   python ../../product-team/agile-product-owner/scripts/user_story_generator.py epic.yaml
+   ```
+
+4. **Review Sprint Planning Guide** - Ensure stories fit sprint capacity
+   ```bash
+   cat ../../product-team/agile-product-owner/references/sprint-planning-guide.md
+   ```
+
+5. **Refine and Estimate** - Groom generated stories:
+   - Verify each story meets INVEST criteria (Independent, Negotiable, Valuable, Estimable, Small, Testable)
+   - Add story points based on team velocity
+   - Identify dependencies between stories
+   - Write acceptance criteria in Given/When/Then format
+
+6. **Prioritize for Sprint** - Use RICE scores to sequence stories
+   ```bash
+   python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py sprint-stories.csv --capacity 8
+   ```
+
+**Expected Output:** Sprint-ready backlog of INVEST-compliant user stories with acceptance criteria, story points, and priority order
+
+**Time Estimate:** 2-4 hours per epic decomposition
+
+**Example:**
+```bash
+# End-to-end story generation workflow
+python ../../product-team/agile-product-owner/scripts/user_story_generator.py onboarding-epic.yaml > stories.md
+
+# Prioritize stories for sprint
+python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py stories.csv --capacity 8 > sprint-plan.txt
+
+# Review sprint planning best practices
+cat ../../product-team/agile-product-owner/references/sprint-planning-guide.md
+```
+
+### Workflow 7: Competitive Intelligence
+
+**Goal:** Build competitive analysis matrices to identify market positioning and feature gaps
+
+**Steps:**
+1. **Identify Competitors** - Map the competitive landscape:
+   - Direct competitors (same category, same audience)
+   - Indirect competitors (different category, same job-to-be-done)
+   - Emerging threats (startups, adjacent products)
+
+2. **Gather Competitive Data** - Structure competitor information in CSV:
+   ```csv
+   competitor,feature_1,feature_2,feature_3,pricing,market_share
+   Competitor A,yes,partial,no,$49/mo,35%
+   Competitor B,yes,yes,yes,$99/mo,25%
+   Our Product,yes,no,partial,$39/mo,15%
+   ```
+
+3. **Build Competitive Matrix** - Generate visual comparison
+   ```bash
+   python ../../product-team/competitive-teardown/scripts/competitive_matrix_builder.py competitors.csv
+   ```
+
+4. **Analyze Gaps** - Identify strategic opportunities:
+   - Feature parity gaps (what competitors have that we lack)
+   - Differentiation opportunities (where we can lead)
+   - Pricing positioning (value vs premium vs budget)
+   - Underserved segments (unmet user needs)
+
+5. **Feed Into Prioritization** - Use gaps to inform roadmap
+   ```bash
+   # Add competitive gap features to RICE analysis
+   python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py competitive-features.csv --capacity 20
+   ```
+
+6. **Track Over Time** - Update competitive matrix quarterly:
+   - Monitor competitor launches and pricing changes
+   - Re-run matrix builder with updated data
+   - Adjust positioning strategy based on market shifts
+
+**Expected Output:** Competitive analysis matrix with feature comparison, gap analysis, and prioritized list of competitive features for the roadmap
+
+**Time Estimate:** 1-2 days for initial matrix, 2-4 hours for quarterly updates
+
+**Example:**
+```bash
+# Full competitive intelligence workflow
+python ../../product-team/competitive-teardown/scripts/competitive_matrix_builder.py q4-competitors.csv > competitive-matrix.md
+
+# Prioritize competitive gap features
+python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py gap-features.csv --capacity 12 > competitive-roadmap.txt
+```
 
 ## Integration Examples
 
@@ -389,9 +667,9 @@ echo "Report: $QUARTER-roadmap.txt"
 
 ## Related Agents
 
-- [cs-agile-product-owner](cs-agile-product-owner.md) - Sprint planning and user story generation (planned)
-- [cs-product-strategist](cs-product-strategist.md) - OKR cascade and strategic planning (planned)
-- [cs-ux-researcher](cs-ux-researcher.md) - Persona generation and user research (planned)
+- [cs-agile-product-owner](cs-agile-product-owner.md) - Sprint planning and user story generation
+- [cs-product-strategist](cs-product-strategist.md) - OKR cascade and strategic planning
+- [cs-ux-researcher](cs-ux-researcher.md) - Persona generation and user research
 
 ## References
 
@@ -401,7 +679,6 @@ echo "Report: $QUARTER-roadmap.txt"
 
 ---
 
-**Last Updated:** November 5, 2025
-**Sprint:** sprint-11-05-2025 (Day 4)
+**Last Updated:** March 9, 2026
 **Status:** Production Ready
-**Version:** 1.0
+**Version:** 2.0

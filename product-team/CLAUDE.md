@@ -1,6 +1,6 @@
 # Product Team Skills - Claude Code Guidance
 
-This guide covers the 5 production-ready product management skills and their Python automation tools.
+This guide covers the 8 production-ready product management skills and their Python automation tools.
 
 ## Product Skills Overview
 
@@ -10,8 +10,15 @@ This guide covers the 5 production-ready product management skills and their Pyt
 3. **product-strategist/** - OKR cascade, strategic planning (1 tool)
 4. **ux-researcher-designer/** - Persona generation, user research (1 tool)
 5. **ui-design-system/** - Design token generation, component systems (1 tool)
+6. **competitive-teardown/** - Competitive matrix building, gap analysis (1 tool)
+7. **landing-page-generator/** - Landing page scaffolding (1 tool)
+8. **saas-scaffolder/** - SaaS project bootstrapping (1 tool)
 
-**Total Tools:** 6 Python automation tools
+**Total Tools:** 9 Python automation tools
+
+**Agents:** 4 (cs-product-manager, cs-agile-product-owner, cs-product-strategist, cs-ux-researcher)
+
+**Slash Commands:** 5 (/rice, /okr, /persona, /user-story, /competitive-matrix)
 
 ## Python Automation Tools
 
@@ -157,6 +164,33 @@ python ui-design-system/scripts/design_token_generator.py "#0066CC" modern scss
 python ui-design-system/scripts/design_token_generator.py "#0066CC" modern json
 ```
 
+### 7. Competitive Matrix Builder (`competitive-teardown/scripts/competitive_matrix_builder.py`)
+
+**Purpose:** Weighted competitive scoring with gap analysis
+
+**Usage:**
+```bash
+python competitive-teardown/scripts/competitive_matrix_builder.py competitors.json
+```
+
+### 8. Landing Page Scaffolder (`landing-page-generator/scripts/landing_page_scaffolder.py`)
+
+**Purpose:** Landing page template generation
+
+**Usage:**
+```bash
+python landing-page-generator/scripts/landing_page_scaffolder.py config.json
+```
+
+### 9. Project Bootstrapper (`saas-scaffolder/scripts/project_bootstrapper.py`)
+
+**Purpose:** SaaS project scaffolding with auth, billing, and API setup
+
+**Usage:**
+```bash
+python saas-scaffolder/scripts/project_bootstrapper.py project_config.json
+```
+
 ## Product Workflows
 
 ### Workflow 1: Feature Prioritization
@@ -241,15 +275,12 @@ python ux-researcher-designer/scripts/persona_generator.py --output json > perso
 
 ## Roadmap
 
-**Current (Phase 1):** 5 skills deployed with 6 tools
+**Current (Phase 2):** 8 skills deployed with 9 tools, 4 agents, 5 commands
 
-**Phase 2 (Q1 2026):** Product analytics
+**Next:** Product analytics
 - A/B test analyzer
 - Funnel conversion tracker
 - Cohort retention analyzer
-
-**Phase 3 (Q2 2026):** Advanced PM tools
-- Competitive analysis framework
 - Product-market fit assessment
 - Revenue impact calculator
 
@@ -263,6 +294,7 @@ See `product_team_implementation_guide.md` for detailed plans.
 
 ---
 
-**Last Updated:** November 5, 2025
-**Skills Deployed:** 5/5 product skills production-ready
-**Total Tools:** 6 Python automation tools
+**Last Updated:** March 9, 2026
+**Skills Deployed:** 8/8 product skills production-ready
+**Total Tools:** 9 Python automation tools
+**Agents:** 4 | **Commands:** 5

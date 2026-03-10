@@ -5,7 +5,7 @@ description: "All Engineering - POWERFUL skills for Claude Code, OpenAI Codex, a
 
 # Engineering - POWERFUL Skills
 
-25 skills in this domain.
+26 skills in this domain.
 
 | Skill | Description |
 |-------|-------------|
@@ -19,6 +19,7 @@ description: "All Engineering - POWERFUL skills for Claude Code, OpenAI Codex, a
 | [Database Designer - POWERFUL Tier Skill](database-designer.md) | `database-designer` |
 | [Database Schema Designer](database-schema-designer.md) | `database-schema-designer` |
 | [Dependency Auditor](dependency-auditor.md) | `dependency-auditor` |
+| [Engineering Advanced Skills (POWERFUL Tier)](engineering.md) | `engineering` |
 | [Env & Secrets Manager](env-secrets-manager.md) | `env-secrets-manager` |
 | [Git Worktree Manager](git-worktree-manager.md) | `git-worktree-manager` |
 | [Interview System Designer](interview-system-designer.md) | `interview-system-designer` |

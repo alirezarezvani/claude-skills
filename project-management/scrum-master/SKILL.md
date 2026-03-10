@@ -212,4 +212,11 @@ Apply stage-specific facilitation (details in `references/team-dynamics-framewor
 
 ---
 
+## Related Skills
+
+- **Agile Product Owner** (`product-team/agile-product-owner/`) — User stories and backlog feed sprint planning
+- **Senior PM** (`project-management/senior-pm/`) — Portfolio health context informs sprint priorities
+
+---
+
 *For deep framework references see `references/velocity-forecasting-guide.md` and `references/team-dynamics-framework.md`. For template assets see `assets/sprint_report_template.md` and `assets/team_health_check_template.md`.*

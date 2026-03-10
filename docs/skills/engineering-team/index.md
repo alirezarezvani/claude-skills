@@ -5,13 +5,14 @@ description: "All Engineering - Core skills for Claude Code, OpenAI Codex, and O
 
 # Engineering - Core Skills
 
-37 skills in this domain.
+38 skills in this domain.
 
 | Skill | Description |
 |-------|-------------|
 | [AWS Solution Architect](aws-solution-architect.md) | `aws-solution-architect` |
 | [Code Reviewer](code-reviewer.md) | `code-reviewer` |
 | [Email Template Builder](email-template-builder.md) | `email-template-builder` |
+| [Engineering Team Skills](engineering-team.md) | `engineering-team` |
 | [Incident Commander Skill](incident-commander.md) | `incident-commander` |
 | [Microsoft 365 Tenant Manager](ms365-tenant-manager.md) | `ms365-tenant-manager` |
 | [Playwright Pro](playwright-pro.md) | `playwright-pro` |

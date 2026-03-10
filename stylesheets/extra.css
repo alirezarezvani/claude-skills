@@ -1,0 +1,91 @@
+/* ============================================
+   Claude Code Skills — Custom Theme
+   Minimal overrides on Material's native grid
+   ============================================ */
+
+/* --- Hero Section --- */
+.hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.75rem !important;
+  background: linear-gradient(135deg, #a78bfa 0%, #e879f9 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-md-color-scheme="default"] .hero h1 {
+  background: linear-gradient(135deg, #7c3aed 0%, #c026d3 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.65;
+  max-width: 480px;
+  margin: 0 auto 1rem;
+}
+
+.hero-platforms {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  margin-bottom: 1.5rem;
+}
+
+.hero .md-button {
+  margin: 0.25rem;
+}
+
+/* --- Tighter grid card spacing --- */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li,
+.md-typeset .grid > .card {
+  border-radius: 10px;
+}
+
+/* --- Section dividers --- */
+.md-typeset hr {
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+/* --- Code block polish --- */
+.md-typeset code {
+  border-radius: 6px;
+}
+
+.md-typeset pre {
+  border-radius: 8px;
+}
+
+/* --- Typography --- */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+}

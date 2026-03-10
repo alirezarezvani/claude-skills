@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 149,
+  "total_skills": 151,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -492,6 +492,12 @@
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projections, or spreadsheet analysis."
     },
     {
+      "name": "saas-metrics-coach",
+      "source": "../../finance/saas-metrics-coach",
+      "category": "finance",
+      "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing."
+    },
+    {
       "name": "ab-test-setup",
       "source": "../../marketing-skill/ab-test-setup",
       "category": "marketing",
@@ -708,6 +714,12 @@
       "description": "When the user wants to implement, audit, or validate structured data (schema markup) on their website. Use when the user mentions 'structured data,' 'schema.org,' 'JSON-LD,' 'rich results,' 'rich snippets,' 'schema markup,' 'FAQ schema,' 'Product schema,' 'HowTo schema,' or 'structured data errors in Search Console.' Also use when someone asks why their content isn't showing rich results or wants to improve AI search visibility. NOT for general SEO audits (use seo-audit) or technical SEO crawl issues (use site-architecture)."
     },
     {
+      "name": "seek-and-analyze-video",
+      "source": "../../marketing-skill/seek-and-analyze-video",
+      "category": "marketing",
+      "description": "Video intelligence and content analysis using Memories.ai LVMM. Discover videos on TikTok, YouTube, Instagram by topic or creator. Analyze video content, summarize meetings, build searchable knowledge bases across multiple videos. Use for video research, competitor content analysis, meeting notes, lecture summaries, or building video knowledge libraries."
+    },
+    {
       "name": "seo-audit",
       "source": "../../marketing-skill/seo-audit",
       "category": "marketing",
@@ -922,12 +934,12 @@
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
     "finance": {
-      "count": 1,
+      "count": 2,
       "source": "../../finance",
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 42,
+      "count": 43,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },

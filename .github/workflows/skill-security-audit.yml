@@ -6,6 +6,7 @@ name: Skill Security Audit
     types: [opened, synchronize, reopened]
     paths:
       - 'engineering/**'
+      - 'engineering-team/**'
       - 'business-growth/**'
       - 'c-level-advisor/**'
       - 'documentation/**'
@@ -120,8 +121,7 @@ jobs:
             echo "Scanning: $skill_dir"
 
             # Run auditor in strict mode with JSON output
-            JSON_OUT=$(python3 "$AUDITOR" "$skill_dir" --strict --json 2>&1) || true
-            EXIT_CODE=$?
+            JSON_OUT=$(python3 "$AUDITOR" "$skill_dir" --strict --json 2>&1) && EXIT_CODE=$? || EXIT_CODE=$?
 
             # Try to parse JSON output
             VERDICT=$(echo "$JSON_OUT" | python3 -c "
@@ -145,7 +145,7 @@ jobs:
               PASS) ICON="✅" ;;
               WARN) ICON="⚠️" ;;
               FAIL) ICON="❌"; OVERALL_EXIT=1 ;;
-              *)    ICON="❓" ;;
+              *)    ICON="❓"; OVERALL_EXIT=1 ;;
             esac
 
             echo "### $ICON \`$skill_dir\` — $V" >> "$REPORT_FILE"

@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "151 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (2). Includes 245 Python tools, 344 reference documents, 14 agents, and 14 slash commands.",
+  "description": "173 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (24+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (2). Includes 250 Python tools, 347 reference documents, 15 agents, and 15 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "151 production-ready skill packages across 9 domains with 245 Python tools, 344 reference documents, 14 agents, and 14 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "173 production-ready skill packages across 9 domains with 250 Python tools, 347 reference documents, 15 agents, and 15 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "23 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator.",
+      "description": "24 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -97,7 +97,12 @@
         "ai",
         "ml",
         "data",
-        "playwright"
+        "playwright",
+        "google-workspace",
+        "gws",
+        "gmail",
+        "google-drive",
+        "google-sheets"
       ],
       "category": "development"
     },
@@ -343,6 +348,25 @@
         "audit",
         "vulnerability",
         "scanner"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "google-workspace-cli",
+      "source": "./engineering-team/google-workspace-cli",
+      "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. 5 Python tools, 3 reference guides, 43 built-in recipes, 10 persona bundles.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "google-workspace",
+        "gws",
+        "gmail",
+        "google-drive",
+        "google-sheets",
+        "google-calendar",
+        "workspace-admin"
       ],
       "category": "development"
     }

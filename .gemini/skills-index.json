@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 208,
+  "total_skills": 211,
   "skills": [
     {
       "name": "cs-agile-product-owner",
@@ -72,6 +72,11 @@
       "name": "cs-ux-researcher",
       "category": "agent",
       "description": "UX research agent for research planning, persona generation, journey mapping, and usability test analysis"
+    },
+    {
+      "name": "cs-workspace-admin",
+      "category": "agent",
+      "description": "Google Workspace administration agent using the gws CLI. Orchestrates workspace setup, Gmail/Drive/Sheets/Calendar automation, security audits, and recipe execution. Spawn when users need Google Workspace automation, gws CLI help, or workspace administration."
     },
     {
       "name": "business-growth-bundle",
@@ -284,6 +289,11 @@
       "description": "Run financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecasts. Usage: /financial-health <ratios|dcf|budget|forecast> <data.json>"
     },
     {
+      "name": "google-workspace",
+      "category": "command",
+      "description": "Google Workspace CLI operations: setup diagnostics, security audit, recipe discovery, and output analysis. Usage: /google-workspace <setup|audit|recipe|analyze> [options]"
+    },
+    {
       "name": "okr",
       "category": "command",
       "description": "Generate OKR cascades from company strategy to team objectives. Usage: /okr generate <strategy>"
@@ -382,6 +392,11 @@
       "name": "generate",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "google-workspace-cli",
+      "category": "engineering",
+      "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits, execute 43 built-in recipes, and use 10 persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
     },
     {
       "name": "incident-commander",
@@ -1046,7 +1061,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 14,
+      "count": 15,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -1058,11 +1073,11 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 14,
+      "count": 15,
       "description": "Command resources"
     },
     "engineering": {
-      "count": 38,
+      "count": 39,
       "description": "Engineering resources"
     },
     "engineering-advanced": {

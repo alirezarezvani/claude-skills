@@ -70,7 +70,7 @@ Choose your platform and follow the steps:
 
 | Bundle | Install Command | Skills |
 |--------|----------------|--------|
-| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 23 |
+| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 24 |
 | **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 25 |
 | **Product** | `/plugin install product-skills@claude-code-skills` | 8 |
 | **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 43 |
@@ -112,7 +112,7 @@ AI-augmented development. Optimize for SEO.
 
 ## Python Tools
 
-All 245 tools use the standard library only — zero pip installs, all verified.
+All 250 tools use the standard library only — zero pip installs, all verified.
 
 ```bash
 # Security audit a skill before installing

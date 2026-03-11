@@ -31,7 +31,7 @@ description: "19 installable plugins for Claude Code, Codex CLI, Gemini CLI, and
 
     Engineering, Marketing, Product, C-Level, PM, RA/QM, Business, Finance
 
--   :material-toolbox-outline:{ .lg .middle } **173 Skills**
+-   :material-toolbox-outline:{ .lg .middle } **177 Skills**
 
     ---
 
@@ -99,7 +99,7 @@ graph TB
         B3["marketing-skills<br/>43 skills"]
         B4["c-level-skills<br/>28 skills"]
         B5["ra-qm-skills<br/>12 skills"]
-        B6["product-skills<br/>8 skills"]
+        B6["product-skills<br/>12 skills"]
         B7["pm-skills<br/>6 skills"]
         B8["business-growth-skills<br/>4 skills"]
         B9["finance-skills<br/>2 skills"]
@@ -203,10 +203,10 @@ ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA ma
 | | |
 |---|---|
 | **Plugin** | `product-skills` |
-| **Skills** | 8 |
+| **Skills** | 12 |
 | **Install** | `claude /plugin install product-skills` |
 
-Product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder. 9 Python tools.
+Product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator. 13 Python tools.
 
 [:octicons-arrow-right-24: Browse skills](../skills/product-team/index.md)
 
@@ -431,7 +431,7 @@ domain-name/
 | `engineering-advanced-skills` | Bundle | 25 | Development | agent, rag, database, ci-cd, mcp |
 | `engineering-skills` | Bundle | 24 | Development | architecture, devops, ai, ml |
 | `ra-qm-skills` | Bundle | 12 | Compliance | iso-13485, mdr, fda, gdpr |
-| `product-skills` | Bundle | 8 | Product | pm, agile, ux, saas |
+| `product-skills` | Bundle | 12 | Product | pm, agile, ux, saas, analytics, experimentation, discovery, roadmap |
 | `pm-skills` | Bundle | 6 | PM | scrum, jira, confluence |
 | `business-growth-skills` | Bundle | 4 | Business | sales, revenue, customer-success |
 | `finance-skills` | Bundle | 2 | Finance | dcf, valuation, saas-metrics |

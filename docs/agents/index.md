@@ -1,13 +1,13 @@
 ---
 title: "Agents"
-description: "All 15 Claude Code agents — multi-skill orchestrators across domains."
+description: "All 16 Claude Code agents — multi-skill orchestrators across domains."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">15 agents that orchestrate skills across domains</p>
+<p class="domain-count">16 agents that orchestrate skills across domains</p>
 
 </div>
 
@@ -68,6 +68,12 @@ description: "All 15 Claude Code agents — multi-skill orchestrators across dom
     Marketing
 
 -   :material-lightbulb-outline:{ .lg .middle } **[Agile Product Owner Agent](cs-agile-product-owner.md)**
+
+    ---
+
+    Product
+
+-   :material-lightbulb-outline:{ .lg .middle } **[Product Analyst Agent](cs-product-analyst.md)**
 
     ---
 

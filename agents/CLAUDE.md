@@ -6,7 +6,7 @@ This guide provides comprehensive instructions for creating **cs-* prefixed agen
 
 ### What are cs-* Agents?
 
-**cs-* agents** are specialized Claude Code agents that orchestrate the 173 existing skills. Each agent:
+**cs-* agents** are specialized Claude Code agents that orchestrate the 177 existing skills. Each agent:
 - References skills via relative paths (`../../marketing-skill/`)
 - Executes Python automation tools from skill packages
 - Follows established workflows and templates
@@ -24,7 +24,7 @@ When skills are published to **ClawHub** (clawhub.com):
 
 ### Production Agents
 
-**15 Agents Currently Available**:
+**16 Agents Currently Available**:
 
 | Agent | Domain | Description |
 |-------|--------|-------------|
@@ -36,6 +36,7 @@ When skills are published to **ClawHub** (clawhub.com):
 | [cs-product-strategist](product/cs-product-strategist.md) | Product | Product strategy, OKR cascades, market positioning |
 | [cs-agile-product-owner](product/cs-agile-product-owner.md) | Product | Agile product ownership and backlog management |
 | [cs-ux-researcher](product/cs-ux-researcher.md) | Product | UX research, usability testing, design insights |
+| [cs-product-analyst](product/cs-product-analyst.md) | Product | Product analytics, KPI design, experiment design |
 | [cs-engineering-lead](engineering-team/cs-engineering-lead.md) | Engineering | Engineering team coordination and incident management |
 | [cs-workspace-admin](engineering-team/cs-workspace-admin.md) | Engineering | Google Workspace administration via gws CLI |
 | [cs-senior-engineer](engineering/cs-senior-engineer.md) | Engineering | Architecture decisions, code review, CI/CD setup |
@@ -375,5 +376,5 @@ After creating an agent:
 ---
 
 **Last Updated:** March 11, 2026
-**Current:** 15 agents across 8 domains
+**Current:** 16 agents across 8 domains
 **Related:** See [main CLAUDE.md](../CLAUDE.md) for repository overview

@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "173 production-ready skills, 19 plugins, 15 agents, and 15 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "177 production-ready skills, 19 plugins, 16 agents, and 17 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Claude Code Skills
 
-173 production-ready skills that transform AI coding agents into specialized professionals.
+177 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
 **Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw**
@@ -27,19 +27,19 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **173**
+-   :material-counter:{ .lg .middle } **177**
 
     ---
 
     Production-ready skills
 
--   :material-language-python:{ .lg .middle } **250**
+-   :material-language-python:{ .lg .middle } **254**
 
     ---
 
     Python CLI tools (stdlib-only, all verified)
 
--   :material-robot:{ .lg .middle } **15**
+-   :material-robot:{ .lg .middle } **16**
 
     ---
 
@@ -51,7 +51,7 @@ hide:
 
     [Installable plugins](plugins/)
 
--   :material-console:{ .lg .middle } **15**
+-   :material-console:{ .lg .middle } **17**
 
     ---
 
@@ -85,9 +85,9 @@ hide:
 
     ---
 
-    Product manager, agile PO, strategist, UX researcher, UI design system, landing pages (TSX + Tailwind), SaaS scaffolder
+    Product manager, agile PO, strategist, UX researcher, UI design system, landing pages, SaaS scaffolder, analytics, experiment designer, discovery, roadmap communicator
 
-    [:octicons-arrow-right-24: 8 skills](skills/product-team/)
+    [:octicons-arrow-right-24: 12 skills](skills/product-team/)
 
 -   :material-bullhorn:{ .lg .middle } **Marketing**
 

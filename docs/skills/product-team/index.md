@@ -1,13 +1,13 @@
 ---
 title: "Product Skills"
-description: "All 9 Product skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "All 13 Product skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightbulb-outline: Product
 
-<p class="domain-count">9 skills in this domain</p>
+<p class="domain-count">13 skills in this domain</p>
 
 </div>
 
@@ -29,11 +29,29 @@ description: "All 9 Product skills for Claude Code, Codex CLI, Gemini CLI, and O
 
     Tier: POWERFUL
 
+-   **[Experiment Designer](experiment-designer.md)**
+
+    ---
+
+    Design, prioritize, and evaluate product experiments with clear hypotheses and defensible decisions.
+
 -   **[Landing Page Generator](landing-page-generator.md)**
 
     ---
 
     Generate high-converting landing pages from a product description. Output complete Next.js/React components with mult...
+
+-   **[Product Analytics](product-analytics.md)**
+
+    ---
+
+    Define, track, and interpret product metrics across discovery, growth, and mature product stages.
+
+-   **[Product Discovery](product-discovery.md)**
+
+    ---
+
+    Run structured discovery to identify high-value opportunities and de-risk product bets.
 
 -   **[Product Manager Toolkit](product-manager-toolkit.md)**
 
@@ -52,6 +70,12 @@ description: "All 9 Product skills for Claude Code, Codex CLI, Gemini CLI, and O
     ---
 
     8 production-ready product skills covering product management, UX/UI design, and SaaS development.
+
+-   **[Roadmap Communicator](roadmap-communicator.md)**
+
+    ---
+
+    Create clear roadmap communication artifacts for internal and external stakeholders.
 
 -   **[SaaS Scaffolder](saas-scaffolder.md)**
 

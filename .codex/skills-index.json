@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 152,
+  "total_skills": 156,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -774,10 +774,28 @@
       "description": "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session, responding to a competitor's new feature or pricing change, or performing a quarterly competitive review."
     },
     {
+      "name": "experiment-designer",
+      "source": "../../product-team/experiment-designer",
+      "category": "product",
+      "description": "Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor."
+    },
+    {
       "name": "landing-page-generator",
       "source": "../../product-team/landing-page-generator",
       "category": "product",
       "description": "Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP < 1s, CLS < 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page \u2014 or when they want to A/B test landing page variants or replace a static page with one designed to convert."
+    },
+    {
+      "name": "product-analytics",
+      "source": "../../product-team/product-analytics",
+      "category": "product",
+      "description": "Use when defining product KPIs, building metric dashboards, running cohort or retention analysis, or interpreting feature adoption trends across product stages."
+    },
+    {
+      "name": "product-discovery",
+      "source": "../../product-team/product-discovery",
+      "category": "product",
+      "description": "Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources."
     },
     {
       "name": "product-manager-toolkit",
@@ -790,6 +808,12 @@
       "source": "../../product-team/product-strategist",
       "category": "product",
       "description": "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product vision documents, and team scaling proposals. Use when creating quarterly OKR documents, defining product goals or KPIs, building product roadmaps, running competitive analysis, drafting team structure or hiring plans, aligning product strategy across engineering and design, or generating cascaded goal hierarchies from company to team level."
+    },
+    {
+      "name": "roadmap-communicator",
+      "source": "../../product-team/roadmap-communicator",
+      "category": "product",
+      "description": "Use when preparing roadmap narratives, release notes, changelogs, or stakeholder updates tailored for executives, engineering teams, and customers."
     },
     {
       "name": "saas-scaffolder",
@@ -950,7 +974,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 8,
+      "count": 12,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

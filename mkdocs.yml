@@ -118,6 +118,7 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Skills:
+    - Overview: skills/index.md
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md

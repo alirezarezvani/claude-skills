@@ -2,12 +2,12 @@
 
 **173 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-173-brightgreen.svg)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-15-blue.svg)](#agents)
-[![Commands](https://img.shields.io/badge/Commands-15-orange.svg)](#commands)
-[![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
-[![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Skills](https://img.shields.io/badge/Skills-173-brightgreen?style=for-the-badge)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-15-blue?style=for-the-badge)](#agents)
+[![Commands](https://img.shields.io/badge/Commands-15-orange?style=for-the-badge)](#commands)
+[![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
+[![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
 > ⭐ **2,500+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
 

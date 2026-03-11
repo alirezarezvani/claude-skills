@@ -5,12 +5,16 @@ description: "CHRO Advisor - Claude Code skill from the C-Level Advisory domain.
 
 # CHRO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `chro-advisor` | **Source:** [`c-level-advisor/chro-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/chro-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `chro-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/chro-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# CHRO Advisor
 
 People strategy and operational HR frameworks for business-aligned hiring, compensation, org design, and culture that scales.
 

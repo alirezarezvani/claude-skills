@@ -5,12 +5,16 @@ description: "Playwright Pro - Claude Code skill from the Engineering - Core dom
 
 # Playwright Pro
 
-**Domain:** Engineering - Core | **Skill:** `playwright-pro` | **Source:** [`engineering-team/playwright-pro/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `playwright-pro`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Playwright Pro
 
 Production-grade Playwright testing toolkit for AI coding agents.
 

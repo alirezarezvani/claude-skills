@@ -5,12 +5,16 @@ description: "Review Playwright Tests - Claude Code skill from the Engineering -
 
 # Review Playwright Tests
 
-**Domain:** Engineering - Core | **Skill:** `review` | **Source:** [`engineering-team/playwright-pro/skills/review/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/review/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `review`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/review/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Review Playwright Tests
 
 Systematically review Playwright test files for anti-patterns, missed best practices, and coverage gaps.
 

@@ -5,12 +5,16 @@ description: "Database Schema Designer - Claude Code skill from the Engineering 
 
 # Database Schema Designer
 
-**Domain:** Engineering - POWERFUL | **Skill:** `database-schema-designer` | **Source:** [`engineering/database-schema-designer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/database-schema-designer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `database-schema-designer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/database-schema-designer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Database Schema Designer
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

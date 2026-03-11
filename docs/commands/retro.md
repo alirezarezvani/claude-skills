@@ -5,12 +5,11 @@ description: "/retro — Claude Code slash command."
 
 # /retro
 
-**Type:** Slash Command | **Source:** [`commands/retro.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/retro.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/retro.md">Source</a></span>
+</div>
 
----
-
-
-# /retro
 
 Analyze retrospective data for recurring themes, sentiment trends, and action item effectiveness.
 

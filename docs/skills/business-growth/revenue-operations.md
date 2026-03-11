@@ -5,12 +5,16 @@ description: "Revenue Operations - Claude Code skill from the Business & Growth 
 
 # Revenue Operations
 
-**Domain:** Business & Growth | **Skill:** `revenue-operations` | **Source:** [`business-growth/revenue-operations/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-trending-up: Business & Growth</span>
+<span class="meta-badge">:material-identifier: `revenue-operations`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install business-growth-skills</code>
+</div>
 
-
-# Revenue Operations
 
 Pipeline analysis, forecast accuracy tracking, and GTM efficiency measurement for SaaS revenue teams.
 

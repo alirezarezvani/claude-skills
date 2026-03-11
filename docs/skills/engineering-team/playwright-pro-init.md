@@ -5,12 +5,16 @@ description: "Initialize Playwright Project - Claude Code skill from the Enginee
 
 # Initialize Playwright Project
 
-**Domain:** Engineering - Core | **Skill:** `init` | **Source:** [`engineering-team/playwright-pro/skills/init/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/init/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `init`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/init/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Initialize Playwright Project
 
 Set up a production-ready Playwright testing environment. Detect the framework, generate config, folder structure, example test, and CI workflow.
 

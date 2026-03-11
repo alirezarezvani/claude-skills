@@ -5,12 +5,16 @@ description: "CRO Advisor - Claude Code skill from the C-Level Advisory domain."
 
 # CRO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `cro-advisor` | **Source:** [`c-level-advisor/cro-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cro-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `cro-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cro-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# CRO Advisor
 
 Revenue frameworks for building predictable, scalable revenue engines — from $1M ARR to $100M and beyond.
 

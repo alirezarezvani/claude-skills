@@ -5,12 +5,16 @@ description: "Senior QA Engineer - Claude Code skill from the Engineering - Core
 
 # Senior QA Engineer
 
-**Domain:** Engineering - Core | **Skill:** `senior-qa` | **Source:** [`engineering-team/senior-qa/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-qa/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-qa`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-qa/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior QA Engineer
 
 Test automation, coverage analysis, and quality assurance patterns for React and Next.js applications.
 

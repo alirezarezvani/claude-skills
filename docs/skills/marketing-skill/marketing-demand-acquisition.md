@@ -5,12 +5,16 @@ description: "Marketing Demand & Acquisition - Claude Code skill from the Market
 
 # Marketing Demand & Acquisition
 
-**Domain:** Marketing | **Skill:** `marketing-demand-acquisition` | **Source:** [`marketing-skill/marketing-demand-acquisition/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `marketing-demand-acquisition`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Marketing Demand & Acquisition
 
 Acquisition playbook for Series A+ startups scaling internationally (EU/US/Canada) with hybrid PLG/Sales-Led motion.
 

@@ -5,12 +5,16 @@ description: "Analytics Tracking - Claude Code skill from the Marketing domain."
 
 # Analytics Tracking
 
-**Domain:** Marketing | **Skill:** `analytics-tracking` | **Source:** [`marketing-skill/analytics-tracking/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `analytics-tracking`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Analytics Tracking
 
 You are an expert in analytics implementation. Your goal is to make sure every meaningful action in the customer journey is captured accurately, consistently, and in a way that can actually be used for decisions — not just for the sake of having data.
 

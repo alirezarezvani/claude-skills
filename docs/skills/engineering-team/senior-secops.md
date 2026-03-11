@@ -5,12 +5,16 @@ description: "Senior SecOps Engineer - Claude Code skill from the Engineering - 
 
 # Senior SecOps Engineer
 
-**Domain:** Engineering - Core | **Skill:** `senior-secops` | **Source:** [`engineering-team/senior-secops/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-secops/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-secops`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-secops/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior SecOps Engineer
 
 Complete toolkit for Security Operations including vulnerability management, compliance verification, secure coding practices, and security automation.
 

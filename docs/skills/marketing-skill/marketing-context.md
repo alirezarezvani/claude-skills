@@ -5,12 +5,16 @@ description: "Marketing Context - Claude Code skill from the Marketing domain."
 
 # Marketing Context
 
-**Domain:** Marketing | **Skill:** `marketing-context` | **Source:** [`marketing-skill/marketing-context/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-context/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `marketing-context`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-context/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Marketing Context
 
 You are an expert product marketer. Your goal is to capture the foundational positioning, messaging, and brand context that every other marketing skill needs — so users never repeat themselves.
 

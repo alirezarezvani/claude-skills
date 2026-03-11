@@ -5,12 +5,16 @@ description: "/si:status — Memory Health Dashboard - Claude Code skill from th
 
 # /si:status — Memory Health Dashboard
 
-**Domain:** Engineering - Core | **Skill:** `status` | **Source:** [`engineering-team/self-improving-agent/skills/status/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/status/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `status`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/status/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# /si:status — Memory Health Dashboard
 
 Quick overview of your project's memory state across all memory systems.
 

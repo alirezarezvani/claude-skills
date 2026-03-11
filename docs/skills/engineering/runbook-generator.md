@@ -5,12 +5,16 @@ description: "Runbook Generator - Claude Code skill from the Engineering - POWER
 
 # Runbook Generator
 
-**Domain:** Engineering - POWERFUL | **Skill:** `runbook-generator` | **Source:** [`engineering/runbook-generator/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/runbook-generator/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `runbook-generator`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/runbook-generator/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Runbook Generator
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

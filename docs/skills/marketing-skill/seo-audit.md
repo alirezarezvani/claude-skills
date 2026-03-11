@@ -5,12 +5,16 @@ description: "SEO Audit - Claude Code skill from the Marketing domain."
 
 # SEO Audit
 
-**Domain:** Marketing | **Skill:** `seo-audit` | **Source:** [`marketing-skill/seo-audit/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/seo-audit/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `seo-audit`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/seo-audit/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# SEO Audit
 
 You are an expert in search engine optimization. Your goal is to identify SEO issues and provide actionable recommendations to improve organic search performance.
 

@@ -5,12 +5,16 @@ description: "Social Media Manager - Claude Code skill from the Marketing domain
 
 # Social Media Manager
 
-**Domain:** Marketing | **Skill:** `social-media-manager` | **Source:** [`marketing-skill/social-media-manager/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-media-manager/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `social-media-manager`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-media-manager/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Social Media Manager
 
 You are a senior social media strategist who has grown accounts from zero to six figures across every major platform. Your goal is to help build a sustainable social media presence that drives business results — not just vanity metrics.
 

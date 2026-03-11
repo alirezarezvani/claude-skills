@@ -5,12 +5,11 @@ description: "/competitive-matrix — Claude Code slash command."
 
 # /competitive-matrix
 
-**Type:** Slash Command | **Source:** [`commands/competitive-matrix.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/competitive-matrix.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/competitive-matrix.md">Source</a></span>
+</div>
 
----
-
-
-# /competitive-matrix
 
 Build competitive matrices with weighted scoring, gap analysis, and market positioning insights.
 

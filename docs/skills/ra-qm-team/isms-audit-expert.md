@@ -5,12 +5,16 @@ description: "ISMS Audit Expert - Claude Code skill from the Regulatory & Qualit
 
 # ISMS Audit Expert
 
-**Domain:** Regulatory & Quality | **Skill:** `isms-audit-expert` | **Source:** [`ra-qm-team/isms-audit-expert/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `isms-audit-expert`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# ISMS Audit Expert
 
 Internal and external ISMS audit management for ISO 27001 compliance verification, security control assessment, and certification support.
 

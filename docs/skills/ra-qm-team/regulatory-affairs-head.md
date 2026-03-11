@@ -5,12 +5,16 @@ description: "Head of Regulatory Affairs - Claude Code skill from the Regulatory
 
 # Head of Regulatory Affairs
 
-**Domain:** Regulatory & Quality | **Skill:** `regulatory-affairs-head` | **Source:** [`ra-qm-team/regulatory-affairs-head/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `regulatory-affairs-head`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# Head of Regulatory Affairs
 
 Regulatory strategy development, submission management, and global market access for medical device organizations.
 

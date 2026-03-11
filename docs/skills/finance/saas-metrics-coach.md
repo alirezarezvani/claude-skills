@@ -5,12 +5,16 @@ description: "SaaS Metrics Coach - Claude Code skill from the Finance domain."
 
 # SaaS Metrics Coach
 
-**Domain:** Finance | **Skill:** `saas-metrics-coach` | **Source:** [`finance/saas-metrics-coach/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/finance/saas-metrics-coach/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-calculator-variant: Finance</span>
+<span class="meta-badge">:material-identifier: `saas-metrics-coach`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/finance/saas-metrics-coach/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install finance-skills</code>
+</div>
 
-
-# SaaS Metrics Coach
 
 Act as a senior SaaS CFO advisor. Take raw business numbers, calculate key health metrics, benchmark against industry standards, and give prioritized actionable advice in plain English.
 

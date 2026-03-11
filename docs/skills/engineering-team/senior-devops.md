@@ -5,12 +5,16 @@ description: "Senior Devops - Claude Code skill from the Engineering - Core doma
 
 # Senior Devops
 
-**Domain:** Engineering - Core | **Skill:** `senior-devops` | **Source:** [`engineering-team/senior-devops/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-devops/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-devops`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-devops/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior Devops
 
 Complete toolkit for senior devops with modern tools and best practices.
 

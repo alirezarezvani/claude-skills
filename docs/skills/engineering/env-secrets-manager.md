@@ -5,12 +5,16 @@ description: "Env & Secrets Manager - Claude Code skill from the Engineering - P
 
 # Env & Secrets Manager
 
-**Domain:** Engineering - POWERFUL | **Skill:** `env-secrets-manager` | **Source:** [`engineering/env-secrets-manager/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/env-secrets-manager/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `env-secrets-manager`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/env-secrets-manager/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Env & Secrets Manager
 
 **Tier:** POWERFUL
 **Category:** Engineering

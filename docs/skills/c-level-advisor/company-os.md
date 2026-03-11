@@ -5,12 +5,16 @@ description: "Company Operating System - Claude Code skill from the C-Level Advi
 
 # Company Operating System
 
-**Domain:** C-Level Advisory | **Skill:** `company-os` | **Source:** [`c-level-advisor/company-os/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/company-os/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `company-os`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/company-os/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Company Operating System
 
 The operating system is the collection of tools, rhythms, and agreements that determine how the company functions. Every company has one — most just don't know what it is. Making it explicit makes it improvable.
 

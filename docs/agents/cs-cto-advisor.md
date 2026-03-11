@@ -5,12 +5,12 @@ description: "CTO Advisor Agent - Claude Code agent for C-Level Advisory."
 
 # CTO Advisor Agent
 
-**Type:** Agent | **Domain:** C-Level Advisory | **Source:** [`agents/c-level/cs-cto-advisor.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/c-level/cs-cto-advisor.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/c-level/cs-cto-advisor.md">Source</a></span>
+</div>
 
----
-
-
-# CTO Advisor Agent
 
 ## Purpose
 

@@ -5,12 +5,16 @@ description: "Social Media Analyzer - Claude Code skill from the Marketing domai
 
 # Social Media Analyzer
 
-**Domain:** Marketing | **Skill:** `social-media-analyzer` | **Source:** [`marketing-skill/social-media-analyzer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-media-analyzer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `social-media-analyzer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-media-analyzer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Social Media Analyzer
 
 Campaign performance analysis with engagement metrics, ROI calculations, and platform benchmarks.
 

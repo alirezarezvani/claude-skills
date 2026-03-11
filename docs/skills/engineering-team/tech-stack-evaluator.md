@@ -5,12 +5,16 @@ description: "Technology Stack Evaluator - Claude Code skill from the Engineerin
 
 # Technology Stack Evaluator
 
-**Domain:** Engineering - Core | **Skill:** `tech-stack-evaluator` | **Source:** [`engineering-team/tech-stack-evaluator/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/tech-stack-evaluator/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `tech-stack-evaluator`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/tech-stack-evaluator/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Technology Stack Evaluator
 
 Evaluate and compare technologies, frameworks, and cloud providers with data-driven analysis and actionable recommendations.
 

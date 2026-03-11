@@ -5,12 +5,12 @@ description: "cs-engineering-lead - Claude Code agent for Engineering - Core."
 
 # cs-engineering-lead
 
-**Type:** Agent | **Domain:** Engineering - Core | **Source:** [`agents/engineering-team/cs-engineering-lead.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering-team/cs-engineering-lead.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering-team/cs-engineering-lead.md">Source</a></span>
+</div>
 
----
-
-
-# cs-engineering-lead
 
 ## Role & Expertise
 

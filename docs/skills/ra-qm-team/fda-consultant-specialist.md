@@ -5,12 +5,16 @@ description: "FDA Consultant Specialist - Claude Code skill from the Regulatory 
 
 # FDA Consultant Specialist
 
-**Domain:** Regulatory & Quality | **Skill:** `fda-consultant-specialist` | **Source:** [`ra-qm-team/fda-consultant-specialist/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `fda-consultant-specialist`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# FDA Consultant Specialist
 
 FDA regulatory consulting for medical device manufacturers covering submission pathways, Quality System Regulation (QSR), HIPAA compliance, and device cybersecurity requirements.
 

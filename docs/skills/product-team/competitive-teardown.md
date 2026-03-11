@@ -5,12 +5,16 @@ description: "Competitive Teardown - Claude Code skill from the Product domain."
 
 # Competitive Teardown
 
-**Domain:** Product | **Skill:** `competitive-teardown` | **Source:** [`product-team/competitive-teardown/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/competitive-teardown/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `competitive-teardown`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/competitive-teardown/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# Competitive Teardown
 
 **Tier:** POWERFUL  
 **Category:** Product Team  

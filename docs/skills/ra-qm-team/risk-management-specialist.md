@@ -5,12 +5,16 @@ description: "Risk Management Specialist - Claude Code skill from the Regulatory
 
 # Risk Management Specialist
 
-**Domain:** Regulatory & Quality | **Skill:** `risk-management-specialist` | **Source:** [`ra-qm-team/risk-management-specialist/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `risk-management-specialist`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# Risk Management Specialist
 
 ISO 14971:2019 risk management implementation throughout the medical device lifecycle.
 

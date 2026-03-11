@@ -5,12 +5,11 @@ description: "/changelog — Claude Code slash command."
 
 # /changelog
 
-**Type:** Slash Command | **Source:** [`commands/changelog.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/changelog.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/changelog.md">Source</a></span>
+</div>
 
----
-
-
-# /changelog
 
 Generate Keep a Changelog entries from git history and validate commit message format.
 

@@ -5,12 +5,16 @@ description: "Codebase Onboarding - Claude Code skill from the Engineering - POW
 
 # Codebase Onboarding
 
-**Domain:** Engineering - POWERFUL | **Skill:** `codebase-onboarding` | **Source:** [`engineering/codebase-onboarding/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/codebase-onboarding/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `codebase-onboarding`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/codebase-onboarding/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Codebase Onboarding
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

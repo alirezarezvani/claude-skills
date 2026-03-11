@@ -5,12 +5,16 @@ description: "CI/CD Pipeline Builder - Claude Code skill from the Engineering - 
 
 # CI/CD Pipeline Builder
 
-**Domain:** Engineering - POWERFUL | **Skill:** `ci-cd-pipeline-builder` | **Source:** [`engineering/ci-cd-pipeline-builder/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `ci-cd-pipeline-builder`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# CI/CD Pipeline Builder
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

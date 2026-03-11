@@ -5,12 +5,11 @@ description: "/google-workspace — Claude Code slash command."
 
 # /google-workspace
 
-**Type:** Slash Command | **Source:** [`commands/google-workspace.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/google-workspace.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/google-workspace.md">Source</a></span>
+</div>
 
----
-
-
-# /google-workspace
 
 Google Workspace CLI administration via the `gws` CLI. Run setup diagnostics, security audits, browse and execute recipes, and analyze command output.
 

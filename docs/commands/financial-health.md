@@ -5,12 +5,11 @@ description: "/financial-health — Claude Code slash command."
 
 # /financial-health
 
-**Type:** Slash Command | **Source:** [`commands/financial-health.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/financial-health.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/financial-health.md">Source</a></span>
+</div>
 
----
-
-
-# /financial-health
 
 Analyze financial statements, build valuation models, assess budget variances, and construct forecasts.
 

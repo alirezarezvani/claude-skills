@@ -5,12 +5,16 @@ description: "A/B Test Setup - Claude Code skill from the Marketing domain."
 
 # A/B Test Setup
 
-**Domain:** Marketing | **Skill:** `ab-test-setup` | **Source:** [`marketing-skill/ab-test-setup/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `ab-test-setup`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# A/B Test Setup
 
 You are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.
 

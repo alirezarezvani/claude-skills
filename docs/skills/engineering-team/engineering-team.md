@@ -5,12 +5,16 @@ description: "Engineering Team Skills - Claude Code skill from the Engineering -
 
 # Engineering Team Skills
 
-**Domain:** Engineering - Core | **Skill:** `engineering-team` | **Source:** [`engineering-team/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `engineering-team`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Engineering Team Skills
 
 23 production-ready engineering skills organized into core engineering, AI/ML/Data, and specialized tools.
 

@@ -5,12 +5,16 @@ description: "Scenario War Room - Claude Code skill from the C-Level Advisory do
 
 # Scenario War Room
 
-**Domain:** C-Level Advisory | **Skill:** `scenario-war-room` | **Source:** [`c-level-advisor/scenario-war-room/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/scenario-war-room/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `scenario-war-room`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/scenario-war-room/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Scenario War Room
 
 Model cascading what-if scenarios across all business functions. Not single-assumption stress tests — compound adversity that shows how one problem creates the next.
 

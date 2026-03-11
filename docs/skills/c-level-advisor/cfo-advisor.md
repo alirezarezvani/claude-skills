@@ -5,12 +5,16 @@ description: "CFO Advisor - Claude Code skill from the C-Level Advisory domain."
 
 # CFO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `cfo-advisor` | **Source:** [`c-level-advisor/cfo-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cfo-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `cfo-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cfo-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# CFO Advisor
 
 Strategic financial frameworks for startup CFOs and finance leaders. Numbers-driven, decisions-focused.
 

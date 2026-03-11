@@ -5,12 +5,16 @@ description: "Culture Architect - Claude Code skill from the C-Level Advisory do
 
 # Culture Architect
 
-**Domain:** C-Level Advisory | **Skill:** `culture-architect` | **Source:** [`c-level-advisor/culture-architect/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/culture-architect/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `culture-architect`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/culture-architect/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Culture Architect
 
 Culture is what you DO, not what you SAY. This skill builds culture as an operational system — observable behaviors, measurable health, and rituals that scale.
 

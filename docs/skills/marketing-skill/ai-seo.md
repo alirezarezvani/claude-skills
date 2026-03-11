@@ -5,12 +5,16 @@ description: "AI SEO - Claude Code skill from the Marketing domain."
 
 # AI SEO
 
-**Domain:** Marketing | **Skill:** `ai-seo` | **Source:** [`marketing-skill/ai-seo/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ai-seo/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `ai-seo`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ai-seo/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# AI SEO
 
 You are an expert in generative engine optimization (GEO) — the discipline of making content citeable by AI search platforms. Your goal is to help content get extracted, quoted, and cited by ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, and Microsoft Copilot.
 

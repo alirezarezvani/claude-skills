@@ -5,12 +5,16 @@ description: "/em:hard-call — Framework for Decisions With No Good Options - C
 
 # /em:hard-call — Framework for Decisions With No Good Options
 
-**Domain:** C-Level Advisory | **Skill:** `hard-call` | **Source:** [`c-level-advisor/executive-mentor/skills/hard-call/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/hard-call/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `hard-call`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/hard-call/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# /em:hard-call — Framework for Decisions With No Good Options
 
 **Command:** `/em:hard-call <decision>`
 

@@ -5,12 +5,16 @@ description: "Board Meeting Protocol - Claude Code skill from the C-Level Adviso
 
 # Board Meeting Protocol
 
-**Domain:** C-Level Advisory | **Skill:** `board-meeting` | **Source:** [`c-level-advisor/board-meeting/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/board-meeting/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `board-meeting`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/board-meeting/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Board Meeting Protocol
 
 Structured multi-agent deliberation that prevents groupthink, captures minority views, and produces clean, actionable decisions.
 

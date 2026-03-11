@@ -83,6 +83,46 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ---
 
+## Multi-Tool Support (New)
+
+**Convert all 156 skills to 7 AI coding tools** with a single script:
+
+| Tool | Format | Install |
+|------|--------|---------|
+| **Cursor** | `.mdc` rules | `./scripts/install.sh --tool cursor --target .` |
+| **Aider** | `CONVENTIONS.md` | `./scripts/install.sh --tool aider --target .` |
+| **Kilo Code** | `.kilocode/rules/` | `./scripts/install.sh --tool kilocode --target .` |
+| **Windsurf** | `.windsurf/skills/` | `./scripts/install.sh --tool windsurf --target .` |
+| **OpenCode** | `.opencode/skills/` | `./scripts/install.sh --tool opencode --target .` |
+| **Augment** | `.augment/rules/` | `./scripts/install.sh --tool augment --target .` |
+| **Antigravity** | `~/.gemini/antigravity/skills/` | `./scripts/install.sh --tool antigravity` |
+
+**How it works:**
+
+```bash
+# 1. Convert all skills to all tools (takes ~15 seconds)
+./scripts/convert.sh --tool all
+
+# 2. Install into your project (with confirmation)
+./scripts/install.sh --tool cursor --target /path/to/project
+
+# Or use --force to skip confirmation:
+./scripts/install.sh --tool aider --target . --force
+
+# 3. Verify
+find .cursor/rules -name "*.mdc" | wc -l  # Should show 156
+```
+
+**Each tool gets:**
+- ✅ All 156 skills converted to native format
+- ✅ Per-tool README with install/verify/update steps
+- ✅ Support for scripts, references, templates where applicable
+- ✅ Zero manual conversion work
+
+See [integrations/](integrations/) for tool-specific documentation and pre-generated outputs.
+
+---
+
 ## Skills Overview
 
 **177 skills across 9 domains:**

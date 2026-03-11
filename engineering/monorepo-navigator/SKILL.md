@@ -62,6 +62,15 @@ Most modern setups: **pnpm workspaces + Turborepo + Changesets**
 ## Turborepo
 → See references/monorepo-tooling-reference.md for details
 
+## Workspace Analyzer
+
+```bash
+python3 scripts/monorepo_analyzer.py /path/to/monorepo
+python3 scripts/monorepo_analyzer.py /path/to/monorepo --json
+```
+
+Also see `references/monorepo-patterns.md` for common architecture and CI patterns.
+
 ## Common Pitfalls
 
 | Pitfall | Fix |

@@ -37,6 +37,21 @@ Systematic performance profiling for Node.js, Python, and Go applications. Ident
 
 ---
 
+## Quick Start
+
+```bash
+# Analyze a project for performance risk indicators
+python3 scripts/performance_profiler.py /path/to/project
+
+# JSON output for CI integration
+python3 scripts/performance_profiler.py /path/to/project --json
+
+# Custom large-file threshold
+python3 scripts/performance_profiler.py /path/to/project --large-file-threshold-kb 256
+```
+
+---
+
 ## Golden Rule: Measure First
 
 ```bash

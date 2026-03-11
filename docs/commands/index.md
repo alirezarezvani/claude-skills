@@ -1,17 +1,18 @@
 ---
 title: "Commands"
-description: "All 14 slash commands for quick access to common operations."
+description: "All 15 slash commands for quick access to common operations."
 ---
 
 # Slash Commands
 
-14 commands for quick access to common operations.
+15 commands for quick access to common operations.
 
 | Command | Description |
 |---------|-------------|
 | [`/changelog`](changelog.md) | Generate Keep a Changelog entries from git history and validate commit message format. |
 | [`/competitive-matrix`](competitive-matrix.md) | Build competitive matrices with weighted scoring, gap analysis, and market positioning insights. |
 | [`/financial-health`](financial-health.md) | Analyze financial statements, build valuation models, assess budget variances, and construct forecasts. |
+| [`/google-workspace`](google-workspace.md) | Google Workspace CLI administration via the `gws` CLI. Run setup diagnostics, security audits, browse and execute recipes, and analyze command output. |
 | [`/okr`](okr.md) | Generate cascaded OKR frameworks from company-level strategy down to team-level key results. |
 | [`/persona`](persona.md) | Generate structured user personas with demographics, goals, pain points, and behavioral patterns. |
 | [`/pipeline`](pipeline.md) | Detect project stack and generate CI/CD pipeline configurations for GitHub Actions or GitLab CI. |

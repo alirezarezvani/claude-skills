@@ -1,11 +1,11 @@
 # Claude Code Skills & Plugins
 
-**172 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**173 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-172-brightgreen.svg)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-14-blue.svg)](#agents)
-[![Commands](https://img.shields.io/badge/Commands-14-orange.svg)](#commands)
+[![Skills](https://img.shields.io/badge/Skills-173-brightgreen.svg)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-15-blue.svg)](#agents)
+[![Commands](https://img.shields.io/badge/Commands-15-orange.svg)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1)](https://getskillcheck.com)
 
@@ -17,7 +17,7 @@
 
 Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills. All 237 Python tools are stdlib-only and verified working.
+**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills. All 250 Python tools are stdlib-only and verified working.
 
 ---
 
@@ -44,7 +44,7 @@ cd claude-skills
 /plugin marketplace add alirezarezvani/claude-skills
 
 # Install by domain
-/plugin install engineering-skills@claude-code-skills          # 23 core engineering
+/plugin install engineering-skills@claude-code-skills          # 24 core engineering
 /plugin install engineering-advanced-skills@claude-code-skills  # 25 POWERFUL-tier
 /plugin install product-skills@claude-code-skills               # 8 product skills
 /plugin install marketing-skills@claude-code-skills             # 43 marketing skills
@@ -85,11 +85,11 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**172 skills across 9 domains:**
+**173 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
-| **🔧 Engineering — Core** | 23 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent | [engineering-team/](engineering-team/) |
+| **🔧 Engineering — Core** | 24 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent, Google Workspace CLI | [engineering-team/](engineering-team/) |
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |

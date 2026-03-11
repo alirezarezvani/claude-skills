@@ -24,7 +24,7 @@ When skills are published to **ClawHub** (clawhub.com):
 
 ### Production Agents
 
-**5 Agents Currently Available** (as of November 5, 2025):
+**6 Agents Currently Available**:
 
 | Agent | Domain | Description | Skills Used | Lines |
 |-------|--------|-------------|-------------|-------|
@@ -33,8 +33,9 @@ When skills are published to **ClawHub** (clawhub.com):
 | [cs-ceo-advisor](c-level/cs-ceo-advisor.md) | C-Level | Strategic leadership advisor for CEOs covering vision, strategy, board management | ceo-advisor | 360 |
 | [cs-cto-advisor](c-level/cs-cto-advisor.md) | C-Level | Technical leadership advisor for CTOs covering tech strategy and team scaling | cto-advisor | 412 |
 | [cs-product-manager](product/cs-product-manager.md) | Product | Product management agent for RICE prioritization and customer discovery | product-manager-toolkit | 407 |
+| [cs-workspace-admin](engineering-team/cs-workspace-admin.md) | Engineering | Google Workspace administration via gws CLI — setup, automation, security audits, recipes | google-workspace-cli | 120 |
 
-**Total**: 1,795 lines of comprehensive agent documentation
+**Total**: ~1,915 lines of comprehensive agent documentation
 
 **Template Available**: [templates/agent-template.md](../templates/agent-template.md) (318 lines) - Use this to create new agents
 

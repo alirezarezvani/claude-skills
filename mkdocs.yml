@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Plugins
 site_url: https://alirezarezvani.github.io/claude-skills
-site_description: "172 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "173 production-ready skills, 15 agents, and 15 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -124,6 +124,7 @@ nav:
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
       - "Incident Commander": skills/engineering-team/incident-commander.md
+      - "Google Workspace CLI": skills/engineering-team/google-workspace-cli.md
       - "Microsoft 365 Tenant Manager": skills/engineering-team/ms365-tenant-manager.md
       - Playwright Pro:
         - "Playwright Pro": skills/engineering-team/playwright-pro.md
@@ -322,6 +323,7 @@ nav:
     - "CS Financial Analyst": agents/cs-financial-analyst.md
     - "CS Growth Strategist": agents/cs-growth-strategist.md
     - "CS Product Manager": agents/cs-product-manager.md
+    - "CS Workspace Admin": agents/cs-workspace-admin.md
     - "CS Product Strategist": agents/cs-product-strategist.md
     - "CS Project Manager": agents/cs-project-manager.md
     - "CS Quality & Regulatory": agents/cs-quality-regulatory.md
@@ -343,3 +345,4 @@ nav:
     - "/tdd": commands/tdd.md
     - "/tech-debt": commands/tech-debt.md
     - "/user-story": commands/user-story.md
+    - "/google-workspace": commands/google-workspace.md

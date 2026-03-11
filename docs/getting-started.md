@@ -57,12 +57,82 @@ Choose your platform and follow the steps:
     bash <(curl -s https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/scripts/openclaw-install.sh)
     ```
 
+=== "Cursor"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool cursor
+    ./scripts/install.sh --tool cursor --target /path/to/project
+    ```
+
+=== "Aider"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool aider
+    ./scripts/install.sh --tool aider --target /path/to/project
+    ```
+
+=== "Windsurf"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool windsurf
+    ./scripts/install.sh --tool windsurf --target /path/to/project
+    ```
+
+=== "Kilo Code"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool kilocode
+    ./scripts/install.sh --tool kilocode --target /path/to/project
+    ```
+
+=== "OpenCode"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool opencode
+    ./scripts/install.sh --tool opencode --target /path/to/project
+    ```
+
+=== "Augment"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool augment
+    ./scripts/install.sh --tool augment --target /path/to/project
+    ```
+
+=== "Antigravity"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/convert.sh --tool antigravity
+    ./scripts/install.sh --tool antigravity
+    ```
+
 === "Manual"
 
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
     # Copy any skill folder to ~/.claude/skills/
     ```
+
+!!! tip "All 7 tools at once"
+    Convert for every supported tool in one command:
+    ```bash
+    ./scripts/convert.sh --tool all
+    ```
+    See the [Multi-Tool Integrations](integrations.md) page for detailed per-tool documentation.
 
 <hr class="section-divider">
 
@@ -182,3 +252,6 @@ See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-
 
 ??? question "Does this work with Gemini CLI?"
     Yes. Run `./scripts/gemini-install.sh` to set up skills for Gemini CLI. A sync script (`scripts/sync-gemini-skills.py`) generates the skills index automatically.
+
+??? question "Does this work with Cursor, Windsurf, Aider, or other tools?"
+    Yes. All 156 skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.

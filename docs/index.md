@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "173 production-ready skills, 15 agents, and 15 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "173 production-ready skills, 19 plugins, 15 agents, and 15 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
 hide:
   - toc
   - edit
@@ -44,6 +44,12 @@ hide:
     ---
 
     [Multi-skill agents](agents/)
+
+-   :material-puzzle-outline:{ .lg .middle } **19**
+
+    ---
+
+    [Installable plugins](plugins/)
 
 -   :material-console:{ .lg .middle } **15**
 

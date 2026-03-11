@@ -311,6 +311,8 @@ nav:
       - Overview: skills/finance/index.md
       - "Financial Analyst": skills/finance/financial-analyst.md
       - "SaaS Metrics Coach": skills/finance/saas-metrics-coach.md
+  - Plugins:
+    - Overview: plugins/index.md
   - Agents:
     - Overview: agents/index.md
     - "CS Agile Product Owner": agents/cs-agile-product-owner.md

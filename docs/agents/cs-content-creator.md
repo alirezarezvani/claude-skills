@@ -22,7 +22,7 @@ The cs-content-creator agent bridges the gap between creative content production
 
 ## Skill Integration
 
-**Skill Location:** `../../marketing-skill/content-creator/`
+**Skill Location:** [`marketing-skill/content-creator`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator)
 
 ### Python Tools
 
@@ -31,29 +31,29 @@ No Python tools — this skill relies on SKILL.md workflows, knowledge bases, an
 ### Knowledge Bases
 
 1. **Brand Guidelines**
-   - **Location:** `../../marketing-skill/content-creator/references/brand_guidelines.md`
+   - **Location:** [`references/brand_guidelines.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/references/brand_guidelines.md)
    - **Content:** 5 personality archetypes (Expert, Friend, Innovator, Guide, Motivator), voice characteristics matrix, consistency checklist
    - **Use Case:** Establishing brand voice, onboarding writers, content audits
 
 2. **Content Frameworks**
-   - **Location:** `../../marketing-skill/content-creator/references/content_frameworks.md`
+   - **Location:** [`references/content_frameworks.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/references/content_frameworks.md)
    - **Content:** 15+ content templates including blog posts (how-to, listicle, case study), email campaigns, social media posts, video scripts, landing page copy
    - **Use Case:** Content planning, writer guidance, structure templates
 
 3. **Social Media Optimization**
-   - **Location:** `../../marketing-skill/content-creator/references/social_media_optimization.md`
+   - **Location:** [`references/social_media_optimization.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/references/social_media_optimization.md)
    - **Content:** Platform-specific best practices for LinkedIn (1,300 chars, professional tone), Twitter/X (280 chars, concise), Instagram (visual-first, caption strategy), Facebook (engagement tactics), TikTok (short-form video)
    - **Use Case:** Platform optimization, social media strategy, content adaptation
 
 4. **Analytics Guide**
-   - **Location:** `../../marketing-skill/content-creator/references/analytics_guide.md`
+   - **Location:** [`references/analytics_guide.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/references/analytics_guide.md)
    - **Content:** Content performance analytics and measurement frameworks
    - **Use Case:** Content performance tracking, reporting, data-driven optimization
 
 ### Templates
 
 1. **Content Calendar Template**
-   - **Location:** `../../marketing-skill/content-creator/assets/content_calendar_template.md`
+   - **Location:** [`assets/content_calendar_template.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/assets/content_calendar_template.md)
    - **Use Case:** Planning monthly content, tracking production pipeline
 
 ## Workflows

@@ -173,7 +173,24 @@ def rewrite_relative_links(content, source_rel_path):
             return f"[{text}]({sibling})"
         return f"[{text}]({GITHUB_BASE}/{resolved})"
 
-    return re.sub(r"\[([^\]]+)\]\((\.\.[^\)]+)\)", resolve_link, content)
+    content = re.sub(r"\[([^\]]+)\]\((\.\.[^\)]+)\)", resolve_link, content)
+
+    # Also rewrite backtick code references like `../../product-team/foo/SKILL.md`
+    # Convert to clickable GitHub links
+    def resolve_backtick(match):
+        rel_target = match.group(1)
+        if not rel_target.startswith("../"):
+            return match.group(0)
+        resolved = os.path.normpath(os.path.join(source_dir, rel_target))
+        # Make the path a clickable link to the GitHub source
+        # Show parent/filename for context (e.g., product-analytics/SKILL.md)
+        parts = resolved.split("/")
+        display = "/".join(parts[-2:]) if len(parts) >= 2 else resolved
+        return f"[`{display}`]({GITHUB_BASE}/{resolved})"
+
+    content = re.sub(r"`(\.\./[^`]+)`", resolve_backtick, content)
+
+    return content
 
 
 def generate_skill_page(skill, domain_key):

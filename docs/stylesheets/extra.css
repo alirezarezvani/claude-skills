@@ -139,7 +139,7 @@
    D. Sidebar Navigation
    =========================================== */
 .md-nav {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   line-height: 1.5;
 }
 
@@ -169,7 +169,7 @@
 /* Section labels in sidebar */
 .md-nav__item--nested > .md-nav__link {
   font-weight: 600;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.03em;
   opacity: 0.8;
 }
@@ -395,7 +395,7 @@
    K. Typography
    =========================================== */
 .md-typeset {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1.7;
 }
 

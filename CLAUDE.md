@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 171 production-ready skills across 9 domains with 240 Python automation tools, 343 reference guides, 14 agents, and 14 slash commands.
+**Current Scope:** 172 production-ready skills across 9 domains with 245 Python automation tools, 344 reference guides, 14 agents, and 14 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -41,7 +41,7 @@ claude-code-skills/
 ├── engineering-team/          # 23 core engineering skills + Playwright Pro + Self-Improving Agent
 ├── engineering/               # 25 POWERFUL-tier advanced skills
 ├── product-team/              # 8 product skills + Python tools
-├── marketing-skill/           # 42 marketing skills (7 pods) + Python tools
+├── marketing-skill/           # 43 marketing skills (7 pods) + Python tools
 ├── c-level-advisor/           # 28 C-level advisory skills (10 roles + orchestration)
 ├── project-management/        # 6 PM skills + Atlassian MCP
 ├── ra-qm-team/                # 12 RA/QM compliance skills
@@ -148,9 +148,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 171 production-ready skills deployed across 9 domains
+**Phase 1-2 Complete:** 172 production-ready skills deployed across 9 domains
 - Engineering Core (23), Engineering POWERFUL (25), Product (8), Marketing (42), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
-- 240 Python automation tools, 343 reference guides, 14 agents, 14 commands
+- 245 Python automation tools, 344 reference guides, 14 agents, 14 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
 - MkDocs Material docs site with 206 indexed pages for SEO
 
@@ -163,6 +163,17 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 3. **Algorithm over AI** - Use deterministic analysis (code) vs LLM calls
 4. **Template-heavy** - Provide ready-to-use templates users customize
 5. **Platform-specific** - Specific best practices > generic advice
+
+## ClawHub Publishing Constraints
+
+This repository publishes skills to **ClawHub** (clawhub.com) as the distribution registry. The following rules are **non-negotiable**:
+
+1. **cs- prefix for slug conflicts only.** When a skill slug is already taken on ClawHub by another publisher, publish with the `cs-` prefix (e.g., `cs-copywriting`, `cs-seo-audit`). The `cs-` prefix applies **only on the ClawHub registry** — repo folder names, local skill names, and all other tools (Claude Code, Codex, Gemini CLI) remain unchanged.
+2. **Never rename repo folders or local skill names** to match ClawHub slugs. The repo is the source of truth.
+3. **No paid/commercial service dependencies.** Skills must not require paid third-party API keys or commercial services unless provided by the project itself. Free-tier APIs and BYOK (bring-your-own-key) patterns are acceptable.
+4. **Rate limit: 5 new skills per hour** on ClawHub. Batch publishes must respect this. Use the drip timer (`clawhub-drip.timer`) for bulk operations.
+5. **plugin.json schema** — ONLY these fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills: "./"`. No extra fields.
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.1.2+).
 
 ## Anti-Patterns to Avoid
 
@@ -192,4 +203,4 @@ See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
 **Last Updated:** March 10, 2026
 **Version:** v2.1.2
-**Status:** 171 skills deployed across 9 domains, 19 marketplace plugins, docs site live
+**Status:** 172 skills deployed across 9 domains, 19 marketplace plugins, docs site live

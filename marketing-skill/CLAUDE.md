@@ -2,7 +2,7 @@
 
 ## For All Agents (Claude Code, Codex CLI, OpenClaw)
 
-This directory contains 42 marketing skills organized into specialist pods.
+This directory contains 43 marketing skills organized into specialist pods.
 
 ### How to Use
 
@@ -21,10 +21,11 @@ This directory contains 42 marketing skills organized into specialist pods.
 - `page-cro/` — Conversion rate optimization
 - `pricing-strategy/` — Pricing and packaging
 - `content-humanizer/` — Fix AI-sounding content
+- `x-twitter-growth/` — X/Twitter audience growth, tweet composing, competitor analysis
 
 ### Python Tools
 
-27 scripts, all stdlib-only. Run directly:
+32 scripts, all stdlib-only. Run directly:
 ```bash
 python3 <skill>/scripts/<tool>.py [args]
 ```
@@ -32,7 +33,7 @@ No pip install needed. Scripts include embedded samples for demo mode (run with 
 
 ### Anti-Patterns
 
-❌ Don't read all 42 SKILL.md files
+❌ Don't read all 43 SKILL.md files
 ❌ Don't skip marketing-context.md if it exists
 ❌ Don't use content-creator (deprecated → use content-production)
 ❌ Don't install pip packages for Python tools

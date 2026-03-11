@@ -4,18 +4,18 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "150 production-ready skill packages for Claude AI across 9 domains: marketing (42), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (2). Includes 240 Python tools, 343 reference documents, 14 agents, and 14 slash commands.",
+  "description": "151 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (23+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (2). Includes 245 Python tools, 344 reference documents, 14 agents, and 14 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "150 production-ready skill packages across 9 domains with 240 Python tools, 343 reference documents, 14 agents, and 14 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "151 production-ready skill packages across 9 domains with 245 Python tools, 344 reference documents, 14 agents, and 14 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "description": "42 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, and Sales enablement. 46 Python tools, 72 reference docs.",
+      "description": "43 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 51 Python tools, 73 reference docs.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -30,7 +30,9 @@
         "copywriting",
         "email",
         "social-media",
-        "paid-ads"
+        "paid-ads",
+        "twitter",
+        "x-twitter"
       ],
       "category": "marketing"
     },

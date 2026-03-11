@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "171 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "172 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Claude Code Skills
 
-171 production-ready skills that transform AI coding agents into specialized professionals.
+172 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
 **Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw**
@@ -27,13 +27,13 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **171**
+-   :material-counter:{ .lg .middle } **172**
 
     ---
 
     Production-ready skills
 
--   :material-language-python:{ .lg .middle } **240**
+-   :material-language-python:{ .lg .middle } **245**
 
     ---
 
@@ -87,9 +87,9 @@ hide:
 
     ---
 
-    Content, SEO, CRO, channels, growth, intelligence, sales — 7 specialist pods with 27 Python tools
+    Content, SEO, CRO, channels, growth, intelligence, sales, X/Twitter — 7 specialist pods with 32 Python tools
 
-    [:octicons-arrow-right-24: 42 skills](skills/marketing-skill/)
+    [:octicons-arrow-right-24: 43 skills](skills/marketing-skill/)
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management**
 

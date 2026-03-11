@@ -73,7 +73,7 @@ Choose your platform and follow the steps:
 | **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 23 |
 | **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 25 |
 | **Product** | `/plugin install product-skills@claude-code-skills` | 8 |
-| **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 42 |
+| **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 43 |
 | **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 12 |
 | **Project Management** | `/plugin install pm-skills@claude-code-skills` | 6 |
 | **C-Level Advisory** | `/plugin install c-level-skills@claude-code-skills` | 28 |
@@ -112,7 +112,7 @@ AI-augmented development. Optimize for SEO.
 
 ## Python Tools
 
-All 240 tools use the standard library only — zero pip installs, all verified.
+All 245 tools use the standard library only — zero pip installs, all verified.
 
 ```bash
 # Security audit a skill before installing

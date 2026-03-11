@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 150,
+  "total_skills": 151,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -750,6 +750,12 @@
       "description": "When the user wants to develop social media strategy, plan content calendars, manage community engagement, or grow their social presence across platforms. Also use when the user mentions 'social media strategy,' 'social calendar,' 'community management,' 'social media plan,' 'grow followers,' 'engagement rate,' 'social media audit,' or 'which platforms should I use.' For writing individual social posts, see social-content. For analyzing social performance data, see social-media-analyzer."
     },
     {
+      "name": "x-twitter-growth",
+      "source": "../../marketing-skill/x-twitter-growth",
+      "category": "marketing",
+      "description": "X/Twitter growth engine for building audience, crafting viral content, and analyzing engagement. Use when the user wants to grow on X/Twitter, write tweets or threads, analyze their X profile, research competitors on X, plan a posting strategy, or optimize engagement. Complements social-content (generic multi-platform) with X-specific depth: algorithm mechanics, thread engineering, reply strategy, profile optimization, and competitive intelligence via web search."
+    },
+    {
       "name": "agile-product-owner",
       "source": "../../product-team/agile-product-owner",
       "category": "product",
@@ -933,7 +939,7 @@
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 42,
+      "count": 43,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },

@@ -1,5 +1,11 @@
 """
-Payment processing module - contains various technical debt examples
+Payment processing module - contains various technical debt examples.
+
+⚠️ DISCLAIMER: This is an INTENTIONAL example of bad code patterns for
+tech debt detection training. The hardcoded credentials, missing error
+handling, and other issues are deliberate anti-patterns used by the
+tech-debt-tracker skill to demonstrate detection capabilities.
+DO NOT use this code in production.
 """
 
 import json
@@ -13,9 +19,10 @@ class PaymentProcessor:
     
     def __init__(self):
         # TODO: These should come from environment or config
-        self.stripe_key = "sk_test_1234567890"
-        self.paypal_key = "paypal_secret_key_here"
-        self.square_key = "square_api_key"
+        # ⚠️ INTENTIONAL BAD PATTERN — hardcoded keys for tech debt detection demo
+        self.stripe_key = "sk_test_EXAMPLE_NOT_REAL"
+        self.paypal_key = "paypal_EXAMPLE_NOT_REAL"
+        self.square_key = "square_EXAMPLE_NOT_REAL"
         
     def process_payment(self, amount, currency, payment_method, customer_data, billing_address, shipping_address, items, discount_code, tax_rate, processing_fee, metadata):
         """

@@ -271,7 +271,7 @@ from typing import List
 class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql://user:pass@localhost:5432/db"
     ALLOWED_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173"]
-    SECRET_KEY: str = "change-me-in-production"
+    SECRET_KEY: str = "change-me-in-production"  # ⚠️ SCAFFOLDING PLACEHOLDER — replace before deployment
 
     class Config:
         env_file = ".env"
@@ -627,7 +627,7 @@ export default config;
 module.exports = { reactStrictMode: true };
 ''',
         ".env.example": '''DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
-SECRET_KEY="your-secret-here"
+SECRET_KEY="your-secret-here"  # ⚠️ SCAFFOLDING PLACEHOLDER — replace before deployment
 ''',
         ".gitignore": '''node_modules/
 .next/

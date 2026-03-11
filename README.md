@@ -1,11 +1,11 @@
 # Claude Code Skills & Plugins
 
-**173 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**177 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-173-brightgreen?style=for-the-badge)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-15-blue?style=for-the-badge)](#agents)
-[![Commands](https://img.shields.io/badge/Commands-15-orange?style=for-the-badge)](#commands)
+[![Skills](https://img.shields.io/badge/Skills-177-brightgreen?style=for-the-badge)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-16-blue?style=for-the-badge)](#agents)
+[![Commands](https://img.shields.io/badge/Commands-17-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
@@ -17,7 +17,7 @@
 
 Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills. All 250 Python tools are stdlib-only and verified working.
+**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills. All 254 Python tools are stdlib-only and verified working.
 
 ---
 
@@ -46,7 +46,7 @@ cd claude-skills
 # Install by domain
 /plugin install engineering-skills@claude-code-skills          # 24 core engineering
 /plugin install engineering-advanced-skills@claude-code-skills  # 25 POWERFUL-tier
-/plugin install product-skills@claude-code-skills               # 8 product skills
+/plugin install product-skills@claude-code-skills               # 12 product skills
 /plugin install marketing-skills@claude-code-skills             # 43 marketing skills
 /plugin install ra-qm-skills@claude-code-skills                 # 12 regulatory/quality
 /plugin install pm-skills@claude-code-skills                    # 6 project management
@@ -85,7 +85,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**173 skills across 9 domains:**
+**177 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -93,7 +93,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
-| **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages (TSX + Tailwind), SaaS scaffolder | [product-team/](product-team/) |
+| **🎯 Product** | 12 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder, analytics, experiment designer, discovery, roadmap communicator | [product-team/](product-team/) |
 | **📣 Marketing** | 43 | 7 pods: Content (8), SEO (5), CRO (6), Channels (6), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 32 Python tools. | [marketing-skill/](marketing-skill/) |
 | **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 12 | ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
@@ -189,7 +189,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-250 CLI tools ship with the skills (all verified, stdlib-only):
+254 CLI tools ship with the skills (all verified, stdlib-only):
 
 ```bash
 # SaaS health check

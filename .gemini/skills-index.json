@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 211,
+  "total_skills": 218,
   "skills": [
     {
       "name": "cs-agile-product-owner",
@@ -42,6 +42,11 @@
       "name": "cs-growth-strategist",
       "category": "agent",
       "description": "Growth Strategist agent for revenue operations, sales engineering, customer success, and business development. Orchestrates business-growth skills. Spawn when users need pipeline analysis, churn prevention, expansion scoring, sales demos, or proposal writing."
+    },
+    {
+      "name": "cs-product-analyst",
+      "category": "agent",
+      "description": "Product analytics agent for KPI definition, dashboard setup, experiment design, and test result interpretation."
     },
     {
       "name": "cs-product-manager",
@@ -309,6 +314,11 @@
       "description": "Detect stack and generate CI/CD pipeline configs. Usage: /pipeline <detect|generate> [options]"
     },
     {
+      "name": "prd",
+      "category": "command",
+      "description": "Quick PRD generation command. Usage: /prd <feature-or-problem>"
+    },
+    {
       "name": "project-health",
       "category": "command",
       "description": "Portfolio health dashboard and risk matrix analysis. Usage: /project-health <dashboard|risk> [options]"
@@ -332,6 +342,11 @@
       "name": "sprint-health",
       "category": "command",
       "description": "Sprint health scoring and velocity analysis for agile teams. Usage: /sprint-health <analyze|velocity> [options]"
+    },
+    {
+      "name": "sprint-plan",
+      "category": "command",
+      "description": "Sprint planning shortcut. Usage: /sprint-plan <goal> [capacity]"
     },
     {
       "name": "tdd",
@@ -924,9 +939,24 @@
       "description": "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session, responding to a competitor's new feature or pricing change, or performing a quarterly competitive review."
     },
     {
+      "name": "experiment-designer",
+      "category": "product",
+      "description": "Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor."
+    },
+    {
       "name": "landing-page-generator",
       "category": "product",
       "description": "Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP < 1s, CLS < 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page \u2014 or when they want to A/B test landing page variants or replace a static page with one designed to convert."
+    },
+    {
+      "name": "product-analytics",
+      "category": "product",
+      "description": "Use when defining product KPIs, building metric dashboards, running cohort or retention analysis, or interpreting feature adoption trends across product stages."
+    },
+    {
+      "name": "product-discovery",
+      "category": "product",
+      "description": "Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources."
     },
     {
       "name": "product-manager-toolkit",
@@ -942,6 +972,11 @@
       "name": "product-team-bundle",
       "category": "product",
       "description": "8 production-ready product skills: product manager toolkit with RICE prioritization, agile product owner, product strategist with OKR cascades, UX researcher, UI design system, competitive teardown, landing page generator, and SaaS scaffolder. Python tools included (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
+    },
+    {
+      "name": "roadmap-communicator",
+      "category": "product",
+      "description": "Use when preparing roadmap narratives, release notes, changelogs, or stakeholder updates tailored for executives, engineering teams, and customers."
     },
     {
       "name": "saas-scaffolder",
@@ -1061,7 +1096,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 15,
+      "count": 16,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -1073,7 +1108,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 15,
+      "count": 17,
       "description": "Command resources"
     },
     "engineering": {
@@ -1093,7 +1128,7 @@
       "description": "Marketing resources"
     },
     "product": {
-      "count": 9,
+      "count": 13,
       "description": "Product resources"
     },
     "project-management": {

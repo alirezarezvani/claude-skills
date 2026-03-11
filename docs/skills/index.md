@@ -93,6 +93,44 @@ Browse 173 production-ready skills across 9 domains.
 
 </div>
 
+## Quick Install
+
+=== "Claude Code"
+
+    ```bash
+    # Add the marketplace
+    /plugin marketplace add alirezarezvani/claude-skills
+
+    # Install any skill bundle
+    /plugin install engineering-skills@claude-code-skills
+    /plugin install marketing-skills@claude-code-skills
+    /plugin install c-level-skills@claude-code-skills
+    ```
+
+=== "Gemini CLI"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills && python3 scripts/sync-gemini-skills.py
+    ```
+
+=== "OpenAI Codex"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills && python3 scripts/sync-codex-skills.py
+    ```
+
+=== "OpenClaw"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills && bash scripts/openclaw-install.sh
+    ```
+
+[Full Install Guide :octicons-arrow-right-24:](../getting-started.md){ .md-button .md-button--primary }
+[GitHub :fontawesome-brands-github:](https://github.com/alirezarezvani/claude-skills){ .md-button }
+
 ---
 
 ## Architecture
@@ -449,42 +487,3 @@ pie title 250 Python Tools by Domain
 
 </div>
 
----
-
-## Quick Install
-
-=== "Claude Code"
-
-    ```bash
-    # Add the marketplace
-    /plugin marketplace add alirezarezvani/claude-skills
-
-    # Install any skill bundle
-    /plugin install engineering-skills@claude-code-skills
-    /plugin install marketing-skills@claude-code-skills
-    /plugin install c-level-skills@claude-code-skills
-    ```
-
-=== "Gemini CLI"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills && python3 scripts/sync-gemini-skills.py
-    ```
-
-=== "OpenAI Codex"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills && python3 scripts/sync-codex-skills.py
-    ```
-
-=== "OpenClaw"
-
-    ```bash
-    git clone https://github.com/alirezarezvani/claude-skills.git
-    cd claude-skills && bash scripts/openclaw-install.sh
-    ```
-
-[Full Install Guide :octicons-arrow-right-24:](../getting-started.md){ .md-button .md-button--primary }
-[GitHub :fontawesome-brands-github:](https://github.com/alirezarezvani/claude-skills){ .md-button }

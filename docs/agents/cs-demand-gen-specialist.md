@@ -22,13 +22,13 @@ The cs-demand-gen-specialist agent bridges the gap between marketing strategy an
 
 ## Skill Integration
 
-**Skill Location:** `../../marketing-skill/marketing-demand-acquisition/`
+**Skill Location:** [`marketing-skill/marketing-demand-acquisition`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition)
 
 ### Python Tools
 
 1. **CAC Calculator**
    - **Purpose:** Calculates Customer Acquisition Cost (CAC) across channels and campaigns
-   - **Path:** `../../marketing-skill/marketing-demand-acquisition/scripts/calculate_cac.py`
+   - **Path:** [`scripts/calculate_cac.py`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/scripts/calculate_cac.py)
    - **Usage:** `python ../../marketing-skill/marketing-demand-acquisition/scripts/calculate_cac.py campaign-spend.csv customer-data.csv`
    - **Features:** CAC calculation by channel, LTV:CAC ratio, payback period analysis, ROI metrics
    - **Use Cases:** Budget allocation, channel performance evaluation, campaign ROI analysis
@@ -38,22 +38,22 @@ The cs-demand-gen-specialist agent bridges the gap between marketing strategy an
 ### Knowledge Bases
 
 1. **Attribution Guide**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/attribution-guide.md`
+   - **Location:** [`references/attribution-guide.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/references/attribution-guide.md)
    - **Content:** Marketing attribution models, channel attribution, ROI measurement frameworks
    - **Use Case:** Campaign attribution, channel performance analysis, budget justification
 
 2. **Campaign Templates**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/campaign-templates.md`
+   - **Location:** [`references/campaign-templates.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/references/campaign-templates.md)
    - **Content:** Reusable campaign structures, launch checklists, multi-channel campaign blueprints
    - **Use Case:** Campaign planning, rapid campaign setup, standardized launch processes
 
 3. **HubSpot Workflows**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/hubspot-workflows.md`
+   - **Location:** [`references/hubspot-workflows.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/references/hubspot-workflows.md)
    - **Content:** HubSpot automation workflows, lead nurturing sequences, CRM integration patterns
    - **Use Case:** Marketing automation, lead scoring, nurture campaign setup
 
 4. **International Playbooks**
-   - **Location:** `../../marketing-skill/marketing-demand-acquisition/references/international-playbooks.md`
+   - **Location:** [`references/international-playbooks.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/references/international-playbooks.md)
    - **Content:** International market expansion strategies, localization best practices, regional channel optimization
    - **Use Case:** Global campaign planning, market entry strategy, cross-border demand generation
 
@@ -280,10 +280,10 @@ fi
 
 ## References
 
-- **Skill Documentation:** [../../marketing-skill/marketing-demand-acquisition/SKILL.md](../../marketing-skill/marketing-demand-acquisition/SKILL.md)
-- **Marketing Domain Guide:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
-- **Marketing Roadmap:** [../../marketing-skill/marketing_skills_roadmap.md](../../marketing-skill/marketing_skills_roadmap.md)
+- **Skill Documentation:** [../../marketing-skill/marketing-demand-acquisition/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition/SKILL.md)
+- **Marketing Domain Guide:** [../../marketing-skill/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
+- **Marketing Roadmap:** [../../marketing-skill/marketing_skills_roadmap.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing_skills_roadmap.md)
 
 ---
 

@@ -143,6 +143,56 @@ def strip_content(content):
     return content
 
 
+GITHUB_BASE = "https://github.com/alirezarezvani/claude-skills/tree/main"
+
+
+def rewrite_relative_links(content, source_rel_path):
+    """Rewrite relative markdown links (../../, ../) to absolute GitHub URLs.
+
+    Agent and command source files use relative paths like ../../product-team/SKILL.md
+    which break when rendered in the docs site. Convert them to GitHub source links.
+    """
+    source_dir = os.path.dirname(source_rel_path)
+
+    def resolve_link(match):
+        text = match.group(1)
+        rel_target = match.group(2)
+        # Only rewrite relative paths that go up (../)
+        if not rel_target.startswith("../"):
+            return match.group(0)
+        # Resolve against source directory
+        resolved = os.path.normpath(os.path.join(source_dir, rel_target))
+        # Keep links to sibling .md files in the same docs directory
+        # e.g. agents/product/cs-foo.md linking to cs-bar.md (same-level agent docs)
+        # These resolve to agents/product/cs-bar.md — only keep if they're
+        # a docs page we generate (agent .md that isn't CLAUDE.md)
+        if (resolved.startswith("agents/") and resolved.count("/") == 1
+                and resolved.endswith(".md") and "CLAUDE" not in resolved):
+            # This is a sibling agent doc link — rewrite to flat docs slug
+            sibling = os.path.basename(resolved).replace(".md", "") + ".md"
+            return f"[{text}]({sibling})"
+        return f"[{text}]({GITHUB_BASE}/{resolved})"
+
+    content = re.sub(r"\[([^\]]+)\]\((\.\.[^\)]+)\)", resolve_link, content)
+
+    # Also rewrite backtick code references like `../../product-team/foo/SKILL.md`
+    # Convert to clickable GitHub links
+    def resolve_backtick(match):
+        rel_target = match.group(1)
+        if not rel_target.startswith("../"):
+            return match.group(0)
+        resolved = os.path.normpath(os.path.join(source_dir, rel_target))
+        # Make the path a clickable link to the GitHub source
+        # Show parent/filename for context (e.g., product-analytics/SKILL.md)
+        parts = resolved.split("/")
+        display = "/".join(parts[-2:]) if len(parts) >= 2 else resolved
+        return f"[`{display}`]({GITHUB_BASE}/{resolved})"
+
+    content = re.sub(r"`(\.\./[^`]+)`", resolve_backtick, content)
+
+    return content
+
+
 def generate_skill_page(skill, domain_key):
     """Generate a docs page for a single skill."""
     skill_md_path = skill["path"]
@@ -349,6 +399,7 @@ description: "All {skill_count} {domain_name} skills for Claude Code, Codex CLI,
                     content = f.read()
 
                 content_clean = strip_content(content)
+                content_clean = rewrite_relative_links(content_clean, rel)
 
                 page = f'''---
 title: "{title}"
@@ -424,6 +475,7 @@ description: "All {agent_count} Claude Code agents — multi-skill orchestrators
                 content = f.read()
 
             content_clean = strip_content(content)
+            content_clean = rewrite_relative_links(content_clean, rel)
 
             page = f'''---
 title: "/{cmd_name}"

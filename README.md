@@ -1,6 +1,8 @@
 # Claude Code Skills & Plugins
 
-**177 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**177 production-ready skills and plugins for 11 AI coding tools** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+
+**Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-177-brightgreen?style=for-the-badge)](#skills-overview)
@@ -17,7 +19,7 @@
 
 Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
 
-**One repo, four platforms:** Works natively as Claude Code plugins, OpenAI Codex CLI and agents, Gemini CLI skills, and OpenClaw skills. All 254 Python tools are stdlib-only and verified working.
+**One repo, eleven platforms:** Works natively with Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity. All 254 Python tools are stdlib-only and verified working.
 
 ---
 
@@ -268,8 +270,8 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 **How do I install Claude Code plugins?**
 Add the marketplace with `/plugin marketplace add alirezarezvani/claude-skills`, then install any skill bundle with `/plugin install <name>@claude-code-skills`.
 
-**Do these skills work with OpenAI Codex?**
-Yes. Skills work natively with Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. See Quick Install above.
+**Do these skills work with OpenAI Codex / Cursor / Windsurf / Aider?**
+Yes. Skills work natively with 11 tools: Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` to convert for all tools, then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](https://alirezarezvani.github.io/claude-skills/integrations/) for details.
 
 **Will updating break my installation?**
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.

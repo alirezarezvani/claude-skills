@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "177 production-ready skills, 16 agents, and 17 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "177 production-ready skills for Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -115,6 +115,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Multi-Tool Integrations: integrations.md
   - Skills:
     - Overview: skills/index.md
     - Engineering - Core:

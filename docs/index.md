@@ -17,7 +17,7 @@ hide:
 177 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
-**Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw**
+**Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw** | **Cursor** | **Aider** | **Windsurf** | **Kilo Code** | **OpenCode** | **Augment** | **Antigravity**
 { .hero-platforms }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -173,7 +173,7 @@ hide:
 
     ---
 
-    Works natively with Claude Code, OpenAI Codex, and OpenClaw — same skills, any agent.
+    Works natively with 11 tools: Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity.
 
 -   :material-check-decagram:{ .lg .middle } **Production-grade**
 
@@ -196,4 +196,5 @@ hide:
 ```
 
 [Full Install Guide](getting-started.md){ .md-button .md-button--primary }
+[Multi-Tool Setup](integrations.md){ .md-button }
 [View on GitHub :fontawesome-brands-github:](https://github.com/alirezarezvani/claude-skills){ .md-button }

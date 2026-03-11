@@ -40,9 +40,9 @@ python3 scripts/interview_planner.py --role "Product Manager" --level mid --json
 ## References
 
 - `references/interview-frameworks.md`
-- `references/interview_calibration_guide.md`
-- `references/behavioral_interview_framework.md`
-- `references/technical_assessment_patterns.md`
+- `references/bias_mitigation_checklist.md`
+- `references/competency_matrix_templates.md`
+- `references/debrief_facilitation_guide.md`
 
 ## Common Pitfalls
 

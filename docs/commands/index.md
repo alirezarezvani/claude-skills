@@ -1,13 +1,13 @@
 ---
 title: "Commands"
-description: "All 15 slash commands for quick access to common operations."
+description: "All 17 slash commands for quick access to common operations."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">15 commands for quick access to common operations</p>
+<p class="domain-count">17 commands for quick access to common operations</p>
 
 </div>
 
@@ -55,6 +55,12 @@ description: "All 15 slash commands for quick access to common operations."
 
     Detect project stack and generate CI/CD pipeline configurations for GitHub Actions or GitLab CI.
 
+-   :material-console:{ .lg .middle } **[`/prd`](prd.md)**
+
+    ---
+
+    Generate a concise product requirements document for a feature, initiative, or problem statement.
+
 -   :material-console:{ .lg .middle } **[`/project-health`](project-health.md)**
 
     ---
@@ -84,6 +90,12 @@ description: "All 15 slash commands for quick access to common operations."
     ---
 
     Score sprint health across delivery, quality, and team metrics with velocity trend analysis.
+
+-   :material-console:{ .lg .middle } **[`/sprint-plan`](sprint-plan.md)**
+
+    ---
+
+    Create a sprint plan with prioritized stories and capacity guardrails.
 
 -   :material-console:{ .lg .middle } **[`/tdd`](tdd.md)**
 

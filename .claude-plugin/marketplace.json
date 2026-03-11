@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "173 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (24+25), C-level advisory (28), regulatory/QMS (12), product (8), project management (6), business growth (4), and finance (2). Includes 250 Python tools, 347 reference documents, 15 agents, and 15 slash commands.",
+  "description": "177 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (24+25), C-level advisory (28), regulatory/QMS (12), product (12), project management (6), business growth (4), and finance (2). Includes 254 Python tools, 357 reference documents, 16 agents, and 17 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "173 production-ready skill packages across 9 domains with 250 Python tools, 347 reference documents, 15 agents, and 15 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "177 production-ready skill packages across 9 domains with 254 Python tools, 357 reference documents, 16 agents, and 17 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
@@ -129,7 +129,7 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "8 product skills with 9 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher designer, UI design system, competitive teardown, landing page generator, SaaS scaffolder.",
+      "description": "12 product skills with 13 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -142,7 +142,11 @@
         "design-system",
         "competitive-analysis",
         "landing-page",
-        "saas"
+        "saas",
+        "analytics",
+        "experimentation",
+        "discovery",
+        "roadmap"
       ],
       "category": "product"
     },

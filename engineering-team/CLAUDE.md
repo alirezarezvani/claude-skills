@@ -1,6 +1,6 @@
 # Engineering Team Skills - Claude Code Guidance
 
-This guide covers the 18 production-ready engineering skills and their Python automation tools.
+This guide covers the 24 production-ready engineering skills and their Python automation tools.
 
 ## Engineering Skills Overview
 
@@ -8,7 +8,7 @@ This guide covers the 18 production-ready engineering skills and their Python au
 - senior-architect, senior-frontend, senior-backend, senior-fullstack
 - senior-qa, senior-devops, senior-secops
 - code-reviewer, senior-security
-- aws-solution-architect, ms365-tenant-manager, tdd-guide, tech-stack-evaluator
+- aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator
 
 **AI/ML/Data (5 skills):**
 - senior-data-scientist, senior-data-engineer, senior-ml-engineer
@@ -287,6 +287,6 @@ services:
 
 ---
 
-**Last Updated:** November 5, 2025
-**Skills Deployed:** 18/18 engineering skills production-ready
-**Total Tools:** 30+ Python automation tools across core + AI/ML/Data
+**Last Updated:** March 11, 2026
+**Skills Deployed:** 24 engineering skills production-ready
+**Total Tools:** 35+ Python automation tools across core + AI/ML/Data

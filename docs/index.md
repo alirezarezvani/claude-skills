@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "172 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "173 production-ready skills, 15 agents, and 15 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Claude Code Skills
 
-172 production-ready skills that transform AI coding agents into specialized professionals.
+173 production-ready skills that transform AI coding agents into specialized professionals.
 { .hero-subtitle }
 
 **Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw**
@@ -27,25 +27,25 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **172**
+-   :material-counter:{ .lg .middle } **173**
 
     ---
 
     Production-ready skills
 
--   :material-language-python:{ .lg .middle } **245**
+-   :material-language-python:{ .lg .middle } **250**
 
     ---
 
     Python CLI tools (stdlib-only, all verified)
 
--   :material-robot:{ .lg .middle } **14**
+-   :material-robot:{ .lg .middle } **15**
 
     ---
 
     [Multi-skill agents](agents/)
 
--   :material-console:{ .lg .middle } **14**
+-   :material-console:{ .lg .middle } **15**
 
     ---
 
@@ -65,7 +65,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 23 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 24 skills](skills/engineering-team/)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — POWERFUL**
 

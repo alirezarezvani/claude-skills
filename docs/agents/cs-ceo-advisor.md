@@ -346,14 +346,14 @@ esac
 ## Related Agents
 
 - [cs-cto-advisor](cs-cto-advisor.md) - Technology strategy and engineering leadership (CTO counterpart)
-- [cs-product-manager](../product/cs-product-manager.md) - Product strategy and roadmap execution (planned)
-- [cs-growth-strategist](../business-growth/cs-growth-strategist.md) - Growth strategy and market expansion (planned)
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-manager.md) - Product strategy and roadmap execution (planned)
+- [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/tree/main/agents/business-growth/cs-growth-strategist.md) - Growth strategy and market expansion (planned)
 
 ## References
 
-- **Skill Documentation:** [../../c-level-advisor/ceo-advisor/SKILL.md](../../c-level-advisor/ceo-advisor/SKILL.md)
-- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill Documentation:** [../../c-level-advisor/ceo-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ceo-advisor/SKILL.md)
+- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
 
 ---
 

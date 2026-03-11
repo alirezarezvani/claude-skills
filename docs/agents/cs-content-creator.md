@@ -237,10 +237,10 @@ cat ../../marketing-skill/content-creator/references/analytics_guide.md
 
 ## References
 
-- **Skill Documentation:** [../../marketing-skill/content-creator/SKILL.md](../../marketing-skill/content-creator/SKILL.md)
-- **Marketing Domain Guide:** [../../marketing-skill/CLAUDE.md](../../marketing-skill/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
-- **Marketing Roadmap:** [../../marketing-skill/marketing_skills_roadmap.md](../../marketing-skill/marketing_skills_roadmap.md)
+- **Skill Documentation:** [../../marketing-skill/content-creator/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/SKILL.md)
+- **Marketing Domain Guide:** [../../marketing-skill/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
+- **Marketing Roadmap:** [../../marketing-skill/marketing_skills_roadmap.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing_skills_roadmap.md)
 
 ---
 

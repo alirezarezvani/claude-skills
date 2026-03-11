@@ -518,14 +518,14 @@ echo "See: ../../product-team/ui-design-system/references/developer-handoff.md"
 
 ## References
 
-- **Primary Skill:** [../../product-team/ux-researcher-designer/SKILL.md](../../product-team/ux-researcher-designer/SKILL.md)
-- **Interview Analyzer:** [../../product-team/product-manager-toolkit/SKILL.md](../../product-team/product-manager-toolkit/SKILL.md)
-- **Persona Methodology:** [../../product-team/ux-researcher-designer/references/persona-methodology.md](../../product-team/ux-researcher-designer/references/persona-methodology.md)
-- **Journey Mapping Guide:** [../../product-team/ux-researcher-designer/references/journey-mapping-guide.md](../../product-team/ux-researcher-designer/references/journey-mapping-guide.md)
-- **Usability Testing:** [../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md](../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md)
-- **Design System:** [../../product-team/ui-design-system/SKILL.md](../../product-team/ui-design-system/SKILL.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Primary Skill:** [../../product-team/ux-researcher-designer/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer/SKILL.md)
+- **Interview Analyzer:** [../../product-team/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit/SKILL.md)
+- **Persona Methodology:** [../../product-team/ux-researcher-designer/references/persona-methodology.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer/references/persona-methodology.md)
+- **Journey Mapping Guide:** [../../product-team/ux-researcher-designer/references/journey-mapping-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer/references/journey-mapping-guide.md)
+- **Usability Testing:** [../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer/references/usability-testing-frameworks.md)
+- **Design System:** [../../product-team/ui-design-system/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ui-design-system/SKILL.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
 
 ---
 

@@ -406,11 +406,11 @@ echo "Location: ../../product-team/agile-product-owner/references/user-story-tem
 
 ## References
 
-- **Primary Skill:** [../../product-team/agile-product-owner/SKILL.md](../../product-team/agile-product-owner/SKILL.md)
-- **RICE Framework:** [../../product-team/product-manager-toolkit/SKILL.md](../../product-team/product-manager-toolkit/SKILL.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
-- **Scrum Master Skill:** [../../project-management/scrum-master/SKILL.md](../../project-management/scrum-master/SKILL.md)
+- **Primary Skill:** [../../product-team/agile-product-owner/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner/SKILL.md)
+- **RICE Framework:** [../../product-team/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit/SKILL.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
+- **Scrum Master Skill:** [../../project-management/scrum-master/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/scrum-master/SKILL.md)
 
 ---
 

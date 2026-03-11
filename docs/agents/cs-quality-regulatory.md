@@ -85,5 +85,5 @@ Regulatory affairs and quality management specialist for medical device and heal
 
 ## Related Agents
 
-- [cs-engineering-lead](../engineering-team/cs-engineering-lead.md) -- Engineering process alignment for design controls and software validation
-- [cs-product-manager](../product/cs-product-manager.md) -- Product requirements traceability and risk-benefit analysis coordination
+- [cs-engineering-lead](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering-team/cs-engineering-lead.md) -- Engineering process alignment for design controls and software validation
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-manager.md) -- Product requirements traceability and risk-benefit analysis coordination

@@ -497,19 +497,19 @@ echo "Template: ../../project-management/senior-pm/assets/executive_report_templ
 
 ## Related Agents
 
-- [cs-product-manager](../product/cs-product-manager.md) -- Product prioritization with RICE, customer discovery, PRD development
-- [cs-agile-product-owner](../product/cs-agile-product-owner.md) -- User story generation, backlog management, acceptance criteria (planned)
+- [cs-product-manager](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-manager.md) -- Product prioritization with RICE, customer discovery, PRD development
+- [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-agile-product-owner.md) -- User story generation, backlog management, acceptance criteria (planned)
 - [cs-scrum-master](cs-scrum-master.md) -- Dedicated Scrum ceremony facilitation and team coaching (planned)
 
 ## References
 
-- **Senior PM Skill:** [../../project-management/senior-pm/SKILL.md](../../project-management/senior-pm/SKILL.md)
-- **Scrum Master Skill:** [../../project-management/scrum-master/SKILL.md](../../project-management/scrum-master/SKILL.md)
-- **Jira Expert Skill:** [../../project-management/jira-expert/SKILL.md](../../project-management/jira-expert/SKILL.md)
-- **Confluence Expert Skill:** [../../project-management/confluence-expert/SKILL.md](../../project-management/confluence-expert/SKILL.md)
-- **Atlassian Admin Skill:** [../../project-management/atlassian-admin/SKILL.md](../../project-management/atlassian-admin/SKILL.md)
-- **PM Domain Guide:** [../../project-management/CLAUDE.md](../../project-management/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Senior PM Skill:** [../../project-management/senior-pm/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/senior-pm/SKILL.md)
+- **Scrum Master Skill:** [../../project-management/scrum-master/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/scrum-master/SKILL.md)
+- **Jira Expert Skill:** [../../project-management/jira-expert/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/jira-expert/SKILL.md)
+- **Confluence Expert Skill:** [../../project-management/confluence-expert/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/confluence-expert/SKILL.md)
+- **Atlassian Admin Skill:** [../../project-management/atlassian-admin/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/atlassian-admin/SKILL.md)
+- **PM Domain Guide:** [../../project-management/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
 
 ---
 

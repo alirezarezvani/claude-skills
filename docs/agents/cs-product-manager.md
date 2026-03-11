@@ -676,9 +676,9 @@ echo "Report: $QUARTER-roadmap.txt"
 
 ## References
 
-- **Skill Documentation:** [../../product-team/product-manager-toolkit/SKILL.md](../../product-team/product-manager-toolkit/SKILL.md)
-- **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill Documentation:** [../../product-team/product-manager-toolkit/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit/SKILL.md)
+- **Product Domain Guide:** [../../product-team/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
 
 ---
 

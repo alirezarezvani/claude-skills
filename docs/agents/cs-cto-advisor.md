@@ -398,14 +398,14 @@ echo "- Process improvements identified"
 ## Related Agents
 
 - [cs-ceo-advisor](cs-ceo-advisor.md) - Strategic leadership and organizational development (CEO counterpart)
-- [cs-fullstack-engineer](../engineering/cs-fullstack-engineer.md) - Fullstack development coordination (planned)
-- [cs-devops-specialist](../engineering/cs-devops-specialist.md) - DevOps and infrastructure automation (planned)
+- [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-fullstack-engineer.md) - Fullstack development coordination (planned)
+- [cs-devops-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-devops-specialist.md) - DevOps and infrastructure automation (planned)
 
 ## References
 
-- **Skill Documentation:** [../../c-level-advisor/cto-advisor/SKILL.md](../../c-level-advisor/cto-advisor/SKILL.md)
-- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
-- **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
+- **Skill Documentation:** [../../c-level-advisor/cto-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cto-advisor/SKILL.md)
+- **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/CLAUDE.md)
+- **Agent Development Guide:** [../CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/agents/CLAUDE.md)
 
 ---
 

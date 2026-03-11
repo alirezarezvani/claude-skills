@@ -38,3 +38,5 @@ archive/
 # MkDocs build output
 site/
 .playwright-mcp/
+# Generated integration files (regenerate with ./scripts/convert.sh)
+integrations/

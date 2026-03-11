@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Plugins
 site_url: https://alirezarezvani.github.io/claude-skills
-site_description: "170 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "172 production-ready skills, 14 agents, and 14 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -241,6 +241,7 @@ nav:
       - "Social Content": skills/marketing-skill/social-content.md
       - "Social Media Analyzer": skills/marketing-skill/social-media-analyzer.md
       - "Social Media Manager": skills/marketing-skill/social-media-manager.md
+      - "X/Twitter Growth": skills/marketing-skill/x-twitter-growth.md
     - Project Management:
       - Overview: skills/project-management/index.md
       - "Atlassian Admin": skills/project-management/atlassian-admin.md

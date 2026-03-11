@@ -5,7 +5,7 @@ description: "All Marketing skills for Claude Code, OpenAI Codex, and OpenClaw."
 
 # Marketing Skills
 
-43 skills in this domain.
+44 skills in this domain.
 
 | Skill | Description |
 |-------|-------------|
@@ -52,3 +52,4 @@ description: "All Marketing skills for Claude Code, OpenAI Codex, and OpenClaw."
 | [Social Content](social-content.md) | `social-content` |
 | [Social Media Analyzer](social-media-analyzer.md) | `social-media-analyzer` |
 | [Social Media Manager](social-media-manager.md) | `social-media-manager` |
+| [X/Twitter Growth Engine](x-twitter-growth.md) | `x-twitter-growth` |

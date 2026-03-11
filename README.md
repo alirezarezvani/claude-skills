@@ -1,9 +1,9 @@
 # Claude Code Skills & Plugins
 
-**171 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**172 production-ready skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-171-brightgreen.svg)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-172-brightgreen.svg)](#skills-overview)
 [![Agents](https://img.shields.io/badge/Agents-14-blue.svg)](#agents)
 [![Commands](https://img.shields.io/badge/Commands-14-orange.svg)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=flat)](https://github.com/alirezarezvani/claude-skills/stargazers)
@@ -47,7 +47,7 @@ cd claude-skills
 /plugin install engineering-skills@claude-code-skills          # 23 core engineering
 /plugin install engineering-advanced-skills@claude-code-skills  # 25 POWERFUL-tier
 /plugin install product-skills@claude-code-skills               # 8 product skills
-/plugin install marketing-skills@claude-code-skills             # 42 marketing skills
+/plugin install marketing-skills@claude-code-skills             # 43 marketing skills
 /plugin install ra-qm-skills@claude-code-skills                 # 12 regulatory/quality
 /plugin install pm-skills@claude-code-skills                    # 6 project management
 /plugin install c-level-skills@claude-code-skills               # 28 C-level advisory (full C-suite)
@@ -85,7 +85,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Skills Overview
 
-**171 skills across 9 domains:**
+**172 skills across 9 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -94,7 +94,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 25 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder | [engineering/](engineering/) |
 | **🎯 Product** | 8 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages (TSX + Tailwind), SaaS scaffolder | [product-team/](product-team/) |
-| **📣 Marketing** | 42 | 7 pods: Content (8), SEO (5), CRO (6), Channels (5), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 27 Python tools. | [marketing-skill/](marketing-skill/) |
+| **📣 Marketing** | 43 | 7 pods: Content (8), SEO (5), CRO (6), Channels (6), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 32 Python tools. | [marketing-skill/](marketing-skill/) |
 | **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 12 | ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
 | **💼 C-Level Advisory** | 28 | Full C-suite (10 roles) + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
@@ -189,7 +189,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-240 CLI tools ship with the skills (all verified, stdlib-only):
+245 CLI tools ship with the skills (all verified, stdlib-only):
 
 ```bash
 # SaaS health check
@@ -235,7 +235,7 @@ Yes. Skills work natively with Claude Code, OpenAI Codex, Gemini CLI, and OpenCl
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 240 Python CLI tools use the standard library only — zero pip installs required. Every script is verified to run with `--help`.
+Yes. All 245 Python CLI tools use the standard library only — zero pip installs required. Every script is verified to run with `--help`.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

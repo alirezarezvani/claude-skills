@@ -149,10 +149,10 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 ## Roadmap
 
 **Phase 1-2 Complete:** 173 production-ready skills deployed across 9 domains
-- Engineering Core (24), Engineering POWERFUL (25), Product (8), Marketing (42), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
+- Engineering Core (24), Engineering POWERFUL (25), Product (8), Marketing (43), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
 - 250 Python automation tools, 347 reference guides, 15 agents, 15 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
-- MkDocs Material docs site with 206 indexed pages for SEO
+- MkDocs Material docs site with 210+ indexed pages for SEO
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
@@ -201,6 +201,6 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 
 ---
 
-**Last Updated:** March 10, 2026
+**Last Updated:** March 11, 2026
 **Version:** v2.1.2
 **Status:** 173 skills deployed across 9 domains, 19 marketplace plugins, docs site live

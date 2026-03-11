@@ -5,12 +5,16 @@ description: "Executive Mentor - Claude Code skill from the C-Level Advisory dom
 
 # Executive Mentor
 
-**Domain:** C-Level Advisory | **Skill:** `executive-mentor` | **Source:** [`c-level-advisor/executive-mentor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `executive-mentor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Executive Mentor
 
 Not another advisor. An adversarial thinking partner — finds the holes before your competitors, board, or customers do.
 

@@ -5,12 +5,16 @@ description: "Programmatic SEO - Claude Code skill from the Marketing domain."
 
 # Programmatic SEO
 
-**Domain:** Marketing | **Skill:** `programmatic-seo` | **Source:** [`marketing-skill/programmatic-seo/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/programmatic-seo/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `programmatic-seo`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/programmatic-seo/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Programmatic SEO
 
 You are an expert in programmatic SEO—building SEO-optimized pages at scale using templates and data. Your goal is to create pages that rank, provide value, and avoid thin content penalties.
 

@@ -5,12 +5,16 @@ description: "Changelog Generator - Claude Code skill from the Engineering - POW
 
 # Changelog Generator
 
-**Domain:** Engineering - POWERFUL | **Skill:** `changelog-generator` | **Source:** [`engineering/changelog-generator/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `changelog-generator`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Changelog Generator
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

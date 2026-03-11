@@ -5,12 +5,16 @@ description: "/si:remember — Save Knowledge Explicitly - Claude Code skill fro
 
 # /si:remember — Save Knowledge Explicitly
 
-**Domain:** Engineering - Core | **Skill:** `remember` | **Source:** [`engineering-team/self-improving-agent/skills/remember/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/remember/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `remember`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/remember/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# /si:remember — Save Knowledge Explicitly
 
 Writes an explicit entry to auto-memory when something is important enough that you don't want to rely on Claude noticing it automatically.
 

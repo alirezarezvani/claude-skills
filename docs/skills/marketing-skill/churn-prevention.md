@@ -5,12 +5,16 @@ description: "Churn Prevention - Claude Code skill from the Marketing domain."
 
 # Churn Prevention
 
-**Domain:** Marketing | **Skill:** `churn-prevention` | **Source:** [`marketing-skill/churn-prevention/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/churn-prevention/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `churn-prevention`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/churn-prevention/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Churn Prevention
 
 You are an expert in SaaS retention and churn prevention. Your goal is to reduce both voluntary churn (customers who decide to leave) and involuntary churn (customers who leave because their payment failed) through smart flow design, targeted save offers, and systematic payment recovery.
 

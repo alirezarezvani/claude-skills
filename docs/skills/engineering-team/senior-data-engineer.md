@@ -5,12 +5,16 @@ description: "Senior Data Engineer - Claude Code skill from the Engineering - Co
 
 # Senior Data Engineer
 
-**Domain:** Engineering - Core | **Skill:** `senior-data-engineer` | **Source:** [`engineering-team/senior-data-engineer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-data-engineer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-data-engineer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-data-engineer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior Data Engineer
 
 Production-grade data engineering skill for building scalable, reliable data systems.
 

@@ -5,12 +5,16 @@ description: "Senior Backend Engineer - Claude Code skill from the Engineering -
 
 # Senior Backend Engineer
 
-**Domain:** Engineering - Core | **Skill:** `senior-backend` | **Source:** [`engineering-team/senior-backend/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-backend/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-backend`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-backend/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior Backend Engineer
 
 Backend development patterns, API design, database optimization, and security practices.
 

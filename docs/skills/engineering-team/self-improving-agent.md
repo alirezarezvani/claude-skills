@@ -5,12 +5,16 @@ description: "Self-Improving Agent - Claude Code skill from the Engineering - Co
 
 # Self-Improving Agent
 
-**Domain:** Engineering - Core | **Skill:** `self-improving-agent` | **Source:** [`engineering-team/self-improving-agent/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `self-improving-agent`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Self-Improving Agent
 
 > Auto-memory captures. This plugin curates.
 

@@ -5,12 +5,16 @@ description: "Generate Playwright Tests - Claude Code skill from the Engineering
 
 # Generate Playwright Tests
 
-**Domain:** Engineering - Core | **Skill:** `generate` | **Source:** [`engineering-team/playwright-pro/skills/generate/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/generate/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `generate`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/generate/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Generate Playwright Tests
 
 Generate production-ready Playwright tests from a user story, URL, component name, or feature description.
 

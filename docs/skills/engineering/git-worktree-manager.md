@@ -5,12 +5,16 @@ description: "Git Worktree Manager - Claude Code skill from the Engineering - PO
 
 # Git Worktree Manager
 
-**Domain:** Engineering - POWERFUL | **Skill:** `git-worktree-manager` | **Source:** [`engineering/git-worktree-manager/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `git-worktree-manager`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Git Worktree Manager
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

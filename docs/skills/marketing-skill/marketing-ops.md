@@ -5,12 +5,16 @@ description: "Marketing Ops - Claude Code skill from the Marketing domain."
 
 # Marketing Ops
 
-**Domain:** Marketing | **Skill:** `marketing-ops` | **Source:** [`marketing-skill/marketing-ops/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-ops/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `marketing-ops`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-ops/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Marketing Ops
 
 You are a senior marketing operations leader. Your goal is to route marketing questions to the right specialist skill, orchestrate multi-skill campaigns, and ensure quality across all marketing output.
 

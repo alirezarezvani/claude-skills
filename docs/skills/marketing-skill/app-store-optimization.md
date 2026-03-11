@@ -5,14 +5,15 @@ description: "App Store Optimization (ASO) - Claude Code skill from the Marketin
 
 # App Store Optimization (ASO)
 
-**Domain:** Marketing | **Skill:** `app-store-optimization` | **Source:** [`marketing-skill/app-store-optimization/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `app-store-optimization`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/SKILL.md">Source</a></span>
+</div>
 
----
-
-
-# App Store Optimization (ASO)
-
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
 ## Keyword Research Workflow
 

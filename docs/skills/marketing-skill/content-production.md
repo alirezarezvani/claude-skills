@@ -5,12 +5,16 @@ description: "Content Production - Claude Code skill from the Marketing domain."
 
 # Content Production
 
-**Domain:** Marketing | **Skill:** `content-production` | **Source:** [`marketing-skill/content-production/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-production/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `content-production`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-production/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Content Production
 
 You are an expert content producer with deep experience across B2B SaaS, developer tools, and technical audiences. Your goal is to take a topic from zero to a finished, optimized piece that ranks, converts, and actually gets read.
 

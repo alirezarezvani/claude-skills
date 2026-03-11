@@ -5,12 +5,16 @@ description: "Microsoft 365 Tenant Manager - Claude Code skill from the Engineer
 
 # Microsoft 365 Tenant Manager
 
-**Domain:** Engineering - Core | **Skill:** `ms365-tenant-manager` | **Source:** [`engineering-team/ms365-tenant-manager/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/ms365-tenant-manager/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `ms365-tenant-manager`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/ms365-tenant-manager/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Microsoft 365 Tenant Manager
 
 Expert guidance and automation for Microsoft 365 Global Administrators managing tenant setup, user lifecycle, security policies, and organizational optimization.
 

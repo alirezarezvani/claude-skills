@@ -1,9 +1,305 @@
 /* ============================================
-   Claude Code Skills — Custom Theme
-   Minimal overrides on Material's native grid
+   Claude Code Skills — GitHub Primer Theme
+   MkDocs Material custom properties override
    ============================================ */
 
-/* --- Hero Section --- */
+/* ===========================================
+   A. Light Mode — GitHub Primer Light
+   =========================================== */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0969da;
+  --md-primary-fg-color--light: #218bff;
+  --md-primary-fg-color--dark: #0550ae;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: #f6f8fa;
+  --md-accent-fg-color: #0969da;
+  --md-accent-fg-color--transparent: rgba(9, 105, 218, 0.1);
+
+  --md-default-fg-color: #1f2328;
+  --md-default-fg-color--light: #656d76;
+  --md-default-fg-color--lighter: #8b949e;
+  --md-default-fg-color--lightest: rgba(31, 35, 40, 0.12);
+  --md-default-bg-color: #ffffff;
+  --md-default-bg-color--light: #f6f8fa;
+  --md-default-bg-color--lighter: #f6f8fa;
+  --md-default-bg-color--lightest: #eaeef2;
+
+  --md-code-fg-color: #1f2328;
+  --md-code-bg-color: #f6f8fa;
+  --md-code-hl-color: rgba(9, 105, 218, 0.1);
+
+  --md-typeset-color: #1f2328;
+  --md-typeset-a-color: #0969da;
+
+  --md-footer-fg-color: #f0f6fc;
+  --md-footer-fg-color--light: rgba(240, 246, 252, 0.7);
+  --md-footer-fg-color--lighter: rgba(240, 246, 252, 0.4);
+  --md-footer-bg-color: #24292f;
+  --md-footer-bg-color--dark: #1c2128;
+}
+
+/* ===========================================
+   B. Dark Mode — GitHub Primer Dark
+   =========================================== */
+[data-md-color-scheme="slate"] {
+  --md-hue: 210;
+  --md-primary-fg-color: #1f6feb;
+  --md-primary-fg-color--light: #388bfd;
+  --md-primary-fg-color--dark: #1158c7;
+  --md-primary-bg-color: #0d1117;
+  --md-primary-bg-color--light: #161b22;
+  --md-accent-fg-color: #58a6ff;
+  --md-accent-fg-color--transparent: rgba(31, 111, 235, 0.15);
+
+  --md-default-fg-color: #f0f6fc;
+  --md-default-fg-color--light: #c9d1d9;
+  --md-default-fg-color--lighter: #8b949e;
+  --md-default-fg-color--lightest: rgba(240, 246, 252, 0.1);
+  --md-default-bg-color: #0d1117;
+  --md-default-bg-color--light: #161b22;
+  --md-default-bg-color--lighter: #161b22;
+  --md-default-bg-color--lightest: #21262d;
+
+  --md-code-fg-color: #c9d1d9;
+  --md-code-bg-color: #161b22;
+  --md-code-hl-color: rgba(31, 111, 235, 0.15);
+
+  --md-typeset-color: #f0f6fc;
+  --md-typeset-a-color: #58a6ff;
+
+  --md-footer-fg-color: #f0f6fc;
+  --md-footer-fg-color--light: rgba(240, 246, 252, 0.7);
+  --md-footer-fg-color--lighter: rgba(240, 246, 252, 0.4);
+  --md-footer-bg-color: #010409;
+  --md-footer-bg-color--dark: #010409;
+}
+
+/* ===========================================
+   C. Header & Navigation Bar
+   =========================================== */
+.md-header {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="default"] .md-header {
+  background-color: #ffffff;
+  color: #1f2328;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #161b22;
+}
+
+/* Header title color fix */
+[data-md-color-scheme="default"] .md-header .md-header__title {
+  color: #1f2328;
+}
+
+/* Header icons */
+[data-md-color-scheme="default"] .md-header .md-icon {
+  color: #656d76;
+}
+
+/* Tab bar */
+.md-tabs {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #0d1117;
+}
+
+.md-tabs__link {
+  font-weight: 500;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: #1f2328;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #c9d1d9;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+}
+
+/* ===========================================
+   D. Sidebar Navigation
+   =========================================== */
+.md-nav {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.md-nav__item {
+  padding: 0;
+}
+
+.md-nav__link {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  margin: 1px 4px;
+  font-weight: 400;
+  transition: background-color 0.15s ease;
+}
+
+.md-nav__link:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-accent-fg-color);
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* Section labels in sidebar */
+.md-nav__item--nested > .md-nav__link {
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  opacity: 0.8;
+}
+
+/* Sidebar scrollbar */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background-color: var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+}
+
+/* ===========================================
+   E. Buttons — GitHub-style
+   =========================================== */
+.md-typeset .md-button--primary {
+  background-color: var(--md-primary-fg-color);
+  color: #ffffff !important;
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  font-size: 0.82rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  box-shadow: none;
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: var(--md-primary-fg-color--dark);
+  border-color: var(--md-primary-fg-color--dark);
+  color: #ffffff !important;
+}
+
+/* Outline / secondary button */
+.md-typeset .md-button:not(.md-button--primary) {
+  color: var(--md-primary-fg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  font-size: 0.82rem;
+  background-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  box-shadow: none;
+}
+
+.md-typeset .md-button:not(.md-button--primary):hover {
+  background-color: var(--md-accent-fg-color--transparent);
+  border-color: var(--md-primary-fg-color);
+}
+
+/* ===========================================
+   F. Grid Cards
+   =========================================== */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li,
+.md-typeset .grid > .card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover,
+.md-typeset .grid > .card:hover {
+  border-color: var(--md-default-fg-color--lighter);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================================
+   G. Code Blocks
+   =========================================== */
+.md-typeset code {
+  border-radius: 6px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+}
+
+.md-typeset pre {
+  border-radius: 6px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset pre > code {
+  border: none;
+  padding: 0;
+}
+
+/* ===========================================
+   H. Tables
+   =========================================== */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-default-bg-color--light);
+  font-weight: 600;
+  font-size: 0.78rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* ===========================================
+   I. Admonitions
+   =========================================== */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+/* ===========================================
+   J. Hero Section
+   =========================================== */
 .hero {
   text-align: center;
   padding: 2.5rem 1rem 1rem;
@@ -17,14 +313,14 @@
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 0.75rem !important;
-  background: linear-gradient(135deg, #a78bfa 0%, #e879f9 50%, #f59e0b 100%);
+  background: linear-gradient(135deg, #58a6ff 0%, #1f6feb 50%, #388bfd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 [data-md-color-scheme="default"] .hero h1 {
-  background: linear-gradient(135deg, #7c3aed 0%, #c026d3 50%, #d97706 100%);
+  background: linear-gradient(135deg, #0550ae 0%, #0969da 50%, #218bff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -47,28 +343,56 @@
   margin: 0.25rem;
 }
 
-/* --- Tighter grid card spacing --- */
-.md-typeset .grid.cards > ul > li,
-.md-typeset .grid.cards > ol > li,
-.md-typeset .grid > .card {
-  border-radius: 10px;
+/* Skills page hero */
+.skills-hero {
+  text-align: center;
+  padding: 2rem 1rem 0.5rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* --- Section dividers --- */
-.md-typeset hr {
-  border-color: var(--md-default-fg-color--lightest);
+.skills-hero h1 {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.5rem !important;
+  background: linear-gradient(135deg, #58a6ff 0%, #1f6feb 50%, #388bfd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* --- Code block polish --- */
-.md-typeset code {
-  border-radius: 6px;
+[data-md-color-scheme="default"] .skills-hero h1 {
+  background: linear-gradient(135deg, #0550ae 0%, #0969da 50%, #218bff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.md-typeset pre {
-  border-radius: 8px;
+.skills-hero-sub {
+  font-size: 1.05rem;
+  opacity: 0.6;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
 }
 
-/* --- Typography --- */
+/* Skill count badge */
+.skill-count {
+  display: inline-block;
+  background: var(--md-primary-fg-color);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-left: 0.35rem;
+}
+
+/* ===========================================
+   K. Typography
+   =========================================== */
 .md-typeset {
   font-size: 0.82rem;
   line-height: 1.7;
@@ -79,7 +403,131 @@
   letter-spacing: -0.01em;
 }
 
-/* --- Mobile --- */
+/* ===========================================
+   L. Section Dividers
+   =========================================== */
+.md-typeset hr {
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+/* ===========================================
+   M. Search Dialog
+   =========================================== */
+[data-md-color-scheme="default"] .md-search__form {
+  background-color: #f6f8fa;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* ===========================================
+   N. Announcement Bar
+   =========================================== */
+.md-banner {
+  background-color: var(--md-primary-fg-color);
+  color: #ffffff;
+  font-size: 0.78rem;
+}
+
+.md-banner a {
+  color: #ffffff;
+}
+
+/* ===========================================
+   O. Page Metadata Bar (skills, agents, commands)
+   =========================================== */
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: -0.25rem 0 1.25rem;
+  font-size: 0.75rem;
+}
+
+.page-meta .meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background-color: var(--md-default-bg-color--light);
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.page-meta .meta-badge code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color);
+}
+
+.page-meta .meta-badge a {
+  color: var(--md-typeset-a-color);
+  text-decoration: none;
+}
+
+.page-meta .meta-badge a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================
+   P. Domain Index Cards
+   =========================================== */
+.domain-header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.domain-header h1 {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem !important;
+}
+
+.domain-header .domain-count {
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+/* ===========================================
+   Q. Page Install Banner
+   =========================================== */
+.install-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background-color: var(--md-default-bg-color--light);
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.install-banner code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+.install-banner .install-label {
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ===========================================
+   R. Mobile Responsive
+   =========================================== */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 1.8rem !important;
@@ -87,5 +535,28 @@
 
   .hero-subtitle {
     font-size: 0.95rem;
+  }
+
+  .skills-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .page-meta {
+    gap: 0.35rem;
+  }
+
+  .page-meta .meta-badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .install-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .domain-header h1 {
+    font-size: 1.5rem !important;
   }
 }

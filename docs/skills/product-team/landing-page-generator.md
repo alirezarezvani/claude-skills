@@ -5,12 +5,16 @@ description: "Landing Page Generator - Claude Code skill from the Product domain
 
 # Landing Page Generator
 
-**Domain:** Product | **Skill:** `landing-page-generator` | **Source:** [`product-team/landing-page-generator/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/landing-page-generator/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `landing-page-generator`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/landing-page-generator/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# Landing Page Generator
 
 Generate high-converting landing pages from a product description. Output complete Next.js/React components with multiple section variants, proven copy frameworks, SEO optimization, and performance-first patterns. Not lorem ipsum — actual copy that converts.
 

@@ -5,12 +5,16 @@ description: "Inter-Agent Protocol - Claude Code skill from the C-Level Advisory
 
 # Inter-Agent Protocol
 
-**Domain:** C-Level Advisory | **Skill:** `agent-protocol` | **Source:** [`c-level-advisor/agent-protocol/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/agent-protocol/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `agent-protocol`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/agent-protocol/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Inter-Agent Protocol
 
 How C-suite agents talk to each other. Rules that prevent chaos, loops, and circular reasoning.
 

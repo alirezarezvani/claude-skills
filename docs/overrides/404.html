@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div style="text-align: center; padding: 4rem 1rem;">
+  <h1 style="font-size: 6rem; font-weight: 800; margin-bottom: 0.5rem; opacity: 0.15; line-height: 1;">404</h1>
+  <p style="font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 600;">
+    Page not found
+  </p>
+  <p style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 2rem;">
+    The page you're looking for doesn't exist or has been moved.
+  </p>
+  <a href="{{ config.site_url }}" class="md-button md-button--primary">
+    Back to Home
+  </a>
+  <a href="{{ config.site_url }}skills/" class="md-button">
+    Browse Skills
+  </a>
+</div>
+{% endblock %}

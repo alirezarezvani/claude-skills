@@ -5,12 +5,12 @@ description: "UX Researcher Agent - Claude Code agent for Product."
 
 # UX Researcher Agent
 
-**Type:** Agent | **Domain:** Product | **Source:** [`agents/product/cs-ux-researcher.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-ux-researcher.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-ux-researcher.md">Source</a></span>
+</div>
 
----
-
-
-# UX Researcher Agent
 
 ## Purpose
 

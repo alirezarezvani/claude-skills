@@ -5,12 +5,12 @@ description: "cs-quality-regulatory - Claude Code agent for Regulatory & Quality
 
 # cs-quality-regulatory
 
-**Type:** Agent | **Domain:** Regulatory & Quality | **Source:** [`agents/ra-qm-team/cs-quality-regulatory.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/ra-qm-team/cs-quality-regulatory.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/ra-qm-team/cs-quality-regulatory.md">Source</a></span>
+</div>
 
----
-
-
-# cs-quality-regulatory
 
 ## Role & Expertise
 

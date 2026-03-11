@@ -5,12 +5,11 @@ description: "/okr — Claude Code slash command."
 
 # /okr
 
-**Type:** Slash Command | **Source:** [`commands/okr.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/okr.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/okr.md">Source</a></span>
+</div>
 
----
-
-
-# /okr
 
 Generate cascaded OKR frameworks from company-level strategy down to team-level key results.
 

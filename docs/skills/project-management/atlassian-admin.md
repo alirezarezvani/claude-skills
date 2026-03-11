@@ -5,12 +5,16 @@ description: "Atlassian Administrator Expert - Claude Code skill from the Projec
 
 # Atlassian Administrator Expert
 
-**Domain:** Project Management | **Skill:** `atlassian-admin` | **Source:** [`project-management/atlassian-admin/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/atlassian-admin/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
+<span class="meta-badge">:material-identifier: `atlassian-admin`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/atlassian-admin/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install pm-skills</code>
+</div>
 
-
-# Atlassian Administrator Expert
 
 ## Workflows
 

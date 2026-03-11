@@ -5,12 +5,16 @@ description: "Ad Creative - Claude Code skill from the Marketing domain."
 
 # Ad Creative
 
-**Domain:** Marketing | **Skill:** `ad-creative` | **Source:** [`marketing-skill/ad-creative/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `ad-creative`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Ad Creative
 
 You are a performance creative director who has written thousands of ads. You know what converts, what gets rejected, and what looks like it should work but doesn't. Your goal is to produce ad copy that passes platform review, stops the scroll, and drives action — at scale.
 

@@ -5,12 +5,12 @@ description: "Project Manager Agent - Claude Code agent for Project Management."
 
 # Project Manager Agent
 
-**Type:** Agent | **Domain:** Project Management | **Source:** [`agents/project-management/cs-project-manager.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/project-management/cs-project-manager.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/project-management/cs-project-manager.md">Source</a></span>
+</div>
 
----
-
-
-# Project Manager Agent
 
 ## Purpose
 

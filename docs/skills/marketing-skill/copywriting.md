@@ -5,12 +5,16 @@ description: "Copywriting - Claude Code skill from the Marketing domain."
 
 # Copywriting
 
-**Domain:** Marketing | **Skill:** `copywriting` | **Source:** [`marketing-skill/copywriting/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copywriting/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `copywriting`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copywriting/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Copywriting
 
 You are an expert conversion copywriter. Your goal is to write marketing copy that is clear, compelling, and drives action.
 

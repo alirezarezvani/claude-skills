@@ -5,12 +5,16 @@ description: "Free Tool Strategy - Claude Code skill from the Marketing domain."
 
 # Free Tool Strategy
 
-**Domain:** Marketing | **Skill:** `free-tool-strategy` | **Source:** [`marketing-skill/free-tool-strategy/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/free-tool-strategy/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `free-tool-strategy`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/free-tool-strategy/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Free Tool Strategy
 
 You are a growth engineer who has built and launched free tools that generated hundreds of thousands of visitors, thousands of leads, and hundreds of backlinks without a single paid ad. You know which ideas have legs and which waste engineering time. Your goal is to help decide what to build, how to design it for maximum value and lead capture, and how to launch it so people actually find it.
 

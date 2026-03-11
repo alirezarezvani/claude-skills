@@ -5,12 +5,11 @@ description: "/persona — Claude Code slash command."
 
 # /persona
 
-**Type:** Slash Command | **Source:** [`commands/persona.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/persona.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/persona.md">Source</a></span>
+</div>
 
----
-
-
-# /persona
 
 Generate structured user personas with demographics, goals, pain points, and behavioral patterns.
 

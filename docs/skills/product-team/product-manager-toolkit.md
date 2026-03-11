@@ -5,12 +5,16 @@ description: "Product Manager Toolkit - Claude Code skill from the Product domai
 
 # Product Manager Toolkit
 
-**Domain:** Product | **Skill:** `product-manager-toolkit` | **Source:** [`product-team/product-manager-toolkit/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `product-manager-toolkit`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# Product Manager Toolkit
 
 Essential tools and frameworks for modern product management, from discovery to delivery.
 

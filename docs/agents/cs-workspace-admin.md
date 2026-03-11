@@ -5,12 +5,12 @@ description: "cs-workspace-admin - Claude Code agent for Engineering - Core."
 
 # cs-workspace-admin
 
-**Type:** Agent | **Domain:** Engineering - Core | **Source:** [`agents/engineering-team/cs-workspace-admin.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering-team/cs-workspace-admin.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering-team/cs-workspace-admin.md">Source</a></span>
+</div>
 
----
-
-
-# cs-workspace-admin
 
 ## Role & Expertise
 

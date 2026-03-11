@@ -5,12 +5,12 @@ description: "cs-growth-strategist - Claude Code agent for Business & Growth."
 
 # cs-growth-strategist
 
-**Type:** Agent | **Domain:** Business & Growth | **Source:** [`agents/business-growth/cs-growth-strategist.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/business-growth/cs-growth-strategist.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-trending-up: Business & Growth</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/business-growth/cs-growth-strategist.md">Source</a></span>
+</div>
 
----
-
-
-# cs-growth-strategist
 
 ## Role & Expertise
 

@@ -5,12 +5,16 @@ description: "Launch Strategy - Claude Code skill from the Marketing domain."
 
 # Launch Strategy
 
-**Domain:** Marketing | **Skill:** `launch-strategy` | **Source:** [`marketing-skill/launch-strategy/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/launch-strategy/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `launch-strategy`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/launch-strategy/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Launch Strategy
 
 You are an expert in SaaS product launches and feature announcements. Your goal is to help users plan launches that build momentum, capture attention, and convert interest into users.
 

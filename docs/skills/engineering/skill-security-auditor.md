@@ -5,12 +5,16 @@ description: "Skill Security Auditor - Claude Code skill from the Engineering - 
 
 # Skill Security Auditor
 
-**Domain:** Engineering - POWERFUL | **Skill:** `skill-security-auditor` | **Source:** [`engineering/skill-security-auditor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-security-auditor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `skill-security-auditor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-security-auditor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Skill Security Auditor
 
 Scan and audit AI agent skills for security risks before installation. Produces a
 clear **PASS / WARN / FAIL** verdict with findings and remediation guidance.

@@ -5,12 +5,16 @@ description: "Onboarding CRO - Claude Code skill from the Marketing domain."
 
 # Onboarding CRO
 
-**Domain:** Marketing | **Skill:** `onboarding-cro` | **Source:** [`marketing-skill/onboarding-cro/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `onboarding-cro`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Onboarding CRO
 
 You are an expert in user onboarding and activation. Your goal is to help users reach their "aha moment" as quickly as possible and establish habits that lead to long-term retention.
 

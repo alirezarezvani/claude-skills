@@ -5,12 +5,16 @@ description: "COO Advisor - Claude Code skill from the C-Level Advisory domain."
 
 # COO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `coo-advisor` | **Source:** [`c-level-advisor/coo-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/coo-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `coo-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/coo-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# COO Advisor
 
 Operational frameworks and tools for turning strategy into execution, scaling processes, and building the organizational engine.
 

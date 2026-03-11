@@ -5,12 +5,16 @@ description: "CEO Advisor - Claude Code skill from the C-Level Advisory domain."
 
 # CEO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `ceo-advisor` | **Source:** [`c-level-advisor/ceo-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ceo-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `ceo-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ceo-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# CEO Advisor
 
 Strategic leadership frameworks for vision, fundraising, board management, culture, and stakeholder alignment.
 

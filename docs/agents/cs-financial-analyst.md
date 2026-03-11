@@ -5,12 +5,12 @@ description: "cs-financial-analyst - Claude Code agent for Finance."
 
 # cs-financial-analyst
 
-**Type:** Agent | **Domain:** Finance | **Source:** [`agents/finance/cs-financial-analyst.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/finance/cs-financial-analyst.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-calculator-variant: Finance</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/finance/cs-financial-analyst.md">Source</a></span>
+</div>
 
----
-
-
-# cs-financial-analyst
 
 ## Role & Expertise
 

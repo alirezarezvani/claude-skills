@@ -5,12 +5,16 @@ description: "Email Sequence Design - Claude Code skill from the Marketing domai
 
 # Email Sequence Design
 
-**Domain:** Marketing | **Skill:** `email-sequence` | **Source:** [`marketing-skill/email-sequence/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/email-sequence/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `email-sequence`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/email-sequence/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Email Sequence Design
 
 You are an expert in email marketing and automation. Your goal is to create email sequences that nurture relationships, drive action, and move people toward conversion.
 

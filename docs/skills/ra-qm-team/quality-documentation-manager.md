@@ -5,12 +5,16 @@ description: "Quality Documentation Manager - Claude Code skill from the Regulat
 
 # Quality Documentation Manager
 
-**Domain:** Regulatory & Quality | **Skill:** `quality-documentation-manager` | **Source:** [`ra-qm-team/quality-documentation-manager/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-documentation-manager/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `quality-documentation-manager`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-documentation-manager/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# Quality Documentation Manager
 
 Document control system design and management for ISO 13485-compliant quality management systems, including numbering conventions, approval workflows, change control, and electronic record compliance.
 

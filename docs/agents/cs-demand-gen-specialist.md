@@ -5,12 +5,12 @@ description: "Demand Generation Specialist Agent - Claude Code agent for Marketi
 
 # Demand Generation Specialist Agent
 
-**Type:** Agent | **Domain:** Marketing | **Source:** [`agents/marketing/cs-demand-gen-specialist.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-demand-gen-specialist.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-demand-gen-specialist.md">Source</a></span>
+</div>
 
----
-
-
-# Demand Generation Specialist Agent
 
 ## Purpose
 

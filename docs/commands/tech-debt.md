@@ -5,12 +5,11 @@ description: "/tech-debt — Claude Code slash command."
 
 # /tech-debt
 
-**Type:** Slash Command | **Source:** [`commands/tech-debt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/tech-debt.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/tech-debt.md">Source</a></span>
+</div>
 
----
-
-
-# /tech-debt
 
 Scan codebases for technical debt, score severity, and generate prioritized remediation plans.
 

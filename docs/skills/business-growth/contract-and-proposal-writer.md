@@ -5,12 +5,16 @@ description: "Contract & Proposal Writer - Claude Code skill from the Business &
 
 # Contract & Proposal Writer
 
-**Domain:** Business & Growth | **Skill:** `contract-and-proposal-writer` | **Source:** [`business-growth/contract-and-proposal-writer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/contract-and-proposal-writer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-trending-up: Business & Growth</span>
+<span class="meta-badge">:material-identifier: `contract-and-proposal-writer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/contract-and-proposal-writer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install business-growth-skills</code>
+</div>
 
-
-# Contract & Proposal Writer
 
 **Tier:** POWERFUL  
 **Category:** Business Growth  

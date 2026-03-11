@@ -5,12 +5,16 @@ description: "UX Researcher & Designer - Claude Code skill from the Product doma
 
 # UX Researcher & Designer
 
-**Domain:** Product | **Skill:** `ux-researcher-designer` | **Source:** [`product-team/ux-researcher-designer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `ux-researcher-designer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# UX Researcher & Designer
 
 Generate user personas from research data, create journey maps, plan usability tests, and synthesize research findings into actionable design recommendations.
 

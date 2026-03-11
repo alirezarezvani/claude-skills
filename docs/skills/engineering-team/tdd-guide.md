@@ -5,12 +5,16 @@ description: "TDD Guide - Claude Code skill from the Engineering - Core domain."
 
 # TDD Guide
 
-**Domain:** Engineering - Core | **Skill:** `tdd-guide` | **Source:** [`engineering-team/tdd-guide/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/tdd-guide/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `tdd-guide`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/tdd-guide/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# TDD Guide
 
 Test-driven development skill for generating tests, analyzing coverage, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, and Vitest.
 

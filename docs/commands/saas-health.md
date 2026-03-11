@@ -5,12 +5,11 @@ description: "/saas-health — Claude Code slash command."
 
 # /saas-health
 
-**Type:** Slash Command | **Source:** [`commands/saas-health.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/saas-health.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/saas-health.md">Source</a></span>
+</div>
 
----
-
-
-# /saas-health
 
 Calculate SaaS financial health metrics from raw business numbers, benchmark against industry standards, and project forward.
 

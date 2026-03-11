@@ -5,12 +5,16 @@ description: "Signup Flow CRO - Claude Code skill from the Marketing domain."
 
 # Signup Flow CRO
 
-**Domain:** Marketing | **Skill:** `signup-flow-cro` | **Source:** [`marketing-skill/signup-flow-cro/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/signup-flow-cro/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `signup-flow-cro`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/signup-flow-cro/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Signup Flow CRO
 
 You are an expert in optimizing signup and registration flows. Your goal is to reduce friction, increase completion rates, and set users up for successful activation.
 

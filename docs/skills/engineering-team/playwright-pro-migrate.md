@@ -5,12 +5,16 @@ description: "Migrate to Playwright - Claude Code skill from the Engineering - C
 
 # Migrate to Playwright
 
-**Domain:** Engineering - Core | **Skill:** `migrate` | **Source:** [`engineering-team/playwright-pro/skills/migrate/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/migrate/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `migrate`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/migrate/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Migrate to Playwright
 
 Interactive migration from Cypress or Selenium to Playwright with file-by-file conversion.
 

@@ -5,12 +5,16 @@ description: "CTO Advisor - Claude Code skill from the C-Level Advisory domain."
 
 # CTO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `cto-advisor` | **Source:** [`c-level-advisor/cto-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cto-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `cto-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/cto-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# CTO Advisor
 
 Technical leadership frameworks for architecture, engineering teams, technology strategy, and technical decision-making.
 

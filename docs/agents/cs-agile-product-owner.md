@@ -5,12 +5,12 @@ description: "Agile Product Owner Agent - Claude Code agent for Product."
 
 # Agile Product Owner Agent
 
-**Type:** Agent | **Domain:** Product | **Source:** [`agents/product/cs-agile-product-owner.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-agile-product-owner.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-agile-product-owner.md">Source</a></span>
+</div>
 
----
-
-
-# Agile Product Owner Agent
 
 ## Purpose
 

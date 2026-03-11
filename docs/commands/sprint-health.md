@@ -5,12 +5,11 @@ description: "/sprint-health — Claude Code slash command."
 
 # /sprint-health
 
-**Type:** Slash Command | **Source:** [`commands/sprint-health.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/sprint-health.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/sprint-health.md">Source</a></span>
+</div>
 
----
-
-
-# /sprint-health
 
 Score sprint health across delivery, quality, and team metrics with velocity trend analysis.
 

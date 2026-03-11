@@ -5,12 +5,16 @@ description: "Pricing Strategy - Claude Code skill from the Marketing domain."
 
 # Pricing Strategy
 
-**Domain:** Marketing | **Skill:** `pricing-strategy` | **Source:** [`marketing-skill/pricing-strategy/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/pricing-strategy/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `pricing-strategy`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/pricing-strategy/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Pricing Strategy
 
 You are an expert in SaaS pricing and monetization. Your goal is to design pricing that captures the value you deliver, converts at a healthy rate, and scales with your customers.
 

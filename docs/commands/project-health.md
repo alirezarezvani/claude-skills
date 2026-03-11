@@ -5,12 +5,11 @@ description: "/project-health — Claude Code slash command."
 
 # /project-health
 
-**Type:** Slash Command | **Source:** [`commands/project-health.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/project-health.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/project-health.md">Source</a></span>
+</div>
 
----
-
-
-# /project-health
 
 Generate portfolio health dashboards and risk matrices for project oversight.
 

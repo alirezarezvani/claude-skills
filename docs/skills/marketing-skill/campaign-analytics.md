@@ -5,12 +5,16 @@ description: "Campaign Analytics - Claude Code skill from the Marketing domain."
 
 # Campaign Analytics
 
-**Domain:** Marketing | **Skill:** `campaign-analytics` | **Source:** [`marketing-skill/campaign-analytics/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/campaign-analytics/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `campaign-analytics`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/campaign-analytics/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Campaign Analytics
 
 Production-grade campaign performance analysis with multi-touch attribution modeling, funnel conversion analysis, and ROI calculation. Three Python CLI tools provide deterministic, repeatable analytics using standard library only -- no external dependencies, no API calls, no ML models.
 

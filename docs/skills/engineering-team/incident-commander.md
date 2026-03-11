@@ -5,12 +5,16 @@ description: "Incident Commander Skill - Claude Code skill from the Engineering 
 
 # Incident Commander Skill
 
-**Domain:** Engineering - Core | **Skill:** `incident-commander` | **Source:** [`engineering-team/incident-commander/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/incident-commander/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `incident-commander`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/incident-commander/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Incident Commander Skill
 
 **Category:** Engineering Team  
 **Tier:** POWERFUL  

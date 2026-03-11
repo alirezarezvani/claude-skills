@@ -5,12 +5,16 @@ description: "CAPA Officer - Claude Code skill from the Regulatory & Quality dom
 
 # CAPA Officer
 
-**Domain:** Regulatory & Quality | **Skill:** `capa-officer` | **Source:** [`ra-qm-team/capa-officer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/capa-officer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `capa-officer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/capa-officer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# CAPA Officer
 
 Corrective and Preventive Action (CAPA) management within Quality Management Systems, focusing on systematic root cause analysis, action implementation, and effectiveness verification.
 

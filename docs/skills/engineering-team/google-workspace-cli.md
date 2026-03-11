@@ -5,12 +5,16 @@ description: "Google Workspace CLI - Claude Code skill from the Engineering - Co
 
 # Google Workspace CLI
 
-**Domain:** Engineering - Core | **Skill:** `google-workspace-cli` | **Source:** [`engineering-team/google-workspace-cli/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/google-workspace-cli/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `google-workspace-cli`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/google-workspace-cli/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Google Workspace CLI
 
 Expert guidance and automation for Google Workspace administration using the open-source `gws` CLI. Covers installation, authentication, 18+ service APIs, 43 built-in recipes, and 10 persona bundles for role-based workflows.
 

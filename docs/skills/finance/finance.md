@@ -5,12 +5,16 @@ description: "Finance Skills - Claude Code skill from the Finance domain."
 
 # Finance Skills
 
-**Domain:** Finance | **Skill:** `finance` | **Source:** [`finance/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/finance/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-calculator-variant: Finance</span>
+<span class="meta-badge">:material-identifier: `finance`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/finance/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install finance-skills</code>
+</div>
 
-
-# Finance Skills
 
 Production-ready financial analysis skill for strategic decision-making.
 

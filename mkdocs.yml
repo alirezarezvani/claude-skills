@@ -11,20 +11,18 @@ theme:
   name: material
   custom_dir: docs/overrides
   palette:
-    - media: "(prefers-color-scheme)"
-      scheme: slate
-      primary: deep purple
-      accent: deep purple
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep purple
-      accent: deep purple
+    - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   font:
     text: Inter
     code: JetBrains Mono
@@ -118,6 +116,7 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Skills:
+    - Overview: skills/index.md
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md

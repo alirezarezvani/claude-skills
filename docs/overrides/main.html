@@ -9,4 +9,55 @@
   gtag('js', new Date());
   gtag('config', 'G-VHRY2VKY9K');
 </script>
+
+{% if page and page.meta %}
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ page.meta.title or page.title }} - {{ config.site_name }}" />
+<meta property="og:description" content="{{ page.meta.description or config.site_description }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:site_name" content="{{ config.site_name }}" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ page.meta.title or page.title }} - {{ config.site_name }}" />
+<meta name="twitter:description" content="{{ page.meta.description or config.site_description }}" />
+<meta name="twitter:site" content="@nginitycloud" />
+{% endif %}
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ config.site_name }}",
+  "url": "{{ config.site_url }}",
+  "description": "{{ config.site_description }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ config.site_author }}"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Claude Code Skills",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Cross-platform",
+  "description": "{{ config.site_description }}",
+  "url": "{{ config.site_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ config.site_author }}"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
 {% endblock %}

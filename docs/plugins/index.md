@@ -120,10 +120,6 @@ graph TB
 
     MP --> Bundles
     MP --> Standalone
-
-    style Registry fill:#1f6feb,color:#fff,stroke:none
-    style Bundles fill:#161b22,color:#c9d1d9,stroke:#30363d
-    style Standalone fill:#161b22,color:#c9d1d9,stroke:#30363d
 ```
 
 ---

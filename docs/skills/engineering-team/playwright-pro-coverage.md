@@ -5,12 +5,16 @@ description: "Analyze Test Coverage Gaps - Claude Code skill from the Engineerin
 
 # Analyze Test Coverage Gaps
 
-**Domain:** Engineering - Core | **Skill:** `coverage` | **Source:** [`engineering-team/playwright-pro/skills/coverage/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/coverage/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `coverage`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/coverage/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Analyze Test Coverage Gaps
 
 Map all testable surfaces in the application and identify what's tested vs. what's missing.
 

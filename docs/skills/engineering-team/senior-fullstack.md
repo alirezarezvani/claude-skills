@@ -5,12 +5,16 @@ description: "Senior Fullstack - Claude Code skill from the Engineering - Core d
 
 # Senior Fullstack
 
-**Domain:** Engineering - Core | **Skill:** `senior-fullstack` | **Source:** [`engineering-team/senior-fullstack/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-fullstack/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-fullstack`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-fullstack/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior Fullstack
 
 Fullstack development skill with project scaffolding and code quality analysis tools.
 

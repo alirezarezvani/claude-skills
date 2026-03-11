@@ -121,6 +121,14 @@
   transition: opacity 0.15s ease;
 }
 
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: #1f2328;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: #c9d1d9;
+}
+
 .md-tabs__link:hover,
 .md-tabs__link--active {
   opacity: 1;
@@ -424,7 +432,101 @@
 }
 
 /* ===========================================
-   O. Mobile Responsive
+   O. Page Metadata Bar (skills, agents, commands)
+   =========================================== */
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: -0.25rem 0 1.25rem;
+  font-size: 0.75rem;
+}
+
+.page-meta .meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background-color: var(--md-default-bg-color--light);
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.page-meta .meta-badge code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color);
+}
+
+.page-meta .meta-badge a {
+  color: var(--md-typeset-a-color);
+  text-decoration: none;
+}
+
+.page-meta .meta-badge a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================================
+   P. Domain Index Cards
+   =========================================== */
+.domain-header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.domain-header h1 {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem !important;
+}
+
+.domain-header .domain-count {
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+/* ===========================================
+   Q. Page Install Banner
+   =========================================== */
+.install-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  background-color: var(--md-default-bg-color--light);
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.install-banner code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+.install-banner .install-label {
+  color: var(--md-default-fg-color--light);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ===========================================
+   R. Mobile Responsive
    =========================================== */
 @media (max-width: 768px) {
   .hero h1 {
@@ -437,5 +539,24 @@
 
   .skills-hero h1 {
     font-size: 1.8rem !important;
+  }
+
+  .page-meta {
+    gap: 0.35rem;
+  }
+
+  .page-meta .meta-badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .install-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .domain-header h1 {
+    font-size: 1.5rem !important;
   }
 }

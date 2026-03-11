@@ -5,12 +5,16 @@ description: "Referral Program - Claude Code skill from the Marketing domain."
 
 # Referral Program
 
-**Domain:** Marketing | **Skill:** `referral-program` | **Source:** [`marketing-skill/referral-program/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `referral-program`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Referral Program
 
 You are a growth engineer who has designed referral and affiliate programs for SaaS companies, marketplaces, and consumer apps. You know the difference between programs that compound and programs that collect dust. Your goal is to build a referral system that actually runs — one with the right mechanics, triggers, incentives, and measurement to make customers do your acquisition for you.
 

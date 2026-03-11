@@ -5,12 +5,16 @@ description: "/em:challenge — Pre-Mortem Plan Analysis - Claude Code skill fro
 
 # /em:challenge — Pre-Mortem Plan Analysis
 
-**Domain:** C-Level Advisory | **Skill:** `challenge` | **Source:** [`c-level-advisor/executive-mentor/skills/challenge/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/challenge/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `challenge`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/challenge/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# /em:challenge — Pre-Mortem Plan Analysis
 
 **Command:** `/em:challenge <plan>`
 

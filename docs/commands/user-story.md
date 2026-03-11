@@ -5,12 +5,11 @@ description: "/user-story — Claude Code slash command."
 
 # /user-story
 
-**Type:** Slash Command | **Source:** [`commands/user-story.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/user-story.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/user-story.md">Source</a></span>
+</div>
 
----
-
-
-# /user-story
 
 Generate structured user stories with acceptance criteria, story points, and sprint capacity planning.
 

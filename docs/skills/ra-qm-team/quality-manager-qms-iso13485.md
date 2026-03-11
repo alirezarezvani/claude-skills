@@ -5,12 +5,16 @@ description: "Quality Manager - QMS ISO 13485 Specialist - Claude Code skill fro
 
 # Quality Manager - QMS ISO 13485 Specialist
 
-**Domain:** Regulatory & Quality | **Skill:** `quality-manager-qms-iso13485` | **Source:** [`ra-qm-team/quality-manager-qms-iso13485/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `quality-manager-qms-iso13485`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# Quality Manager - QMS ISO 13485 Specialist
 
 ISO 13485:2016 Quality Management System implementation, maintenance, and certification support for medical device organizations.
 

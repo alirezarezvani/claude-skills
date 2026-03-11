@@ -5,12 +5,16 @@ description: "Interview System Designer - Claude Code skill from the Engineering
 
 # Interview System Designer
 
-**Domain:** Engineering - POWERFUL | **Skill:** `interview-system-designer` | **Source:** [`engineering/interview-system-designer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/interview-system-designer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `interview-system-designer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/interview-system-designer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Interview System Designer
 
 Comprehensive interview system design, competency assessment, and hiring process optimization.
 

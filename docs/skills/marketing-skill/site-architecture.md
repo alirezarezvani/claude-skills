@@ -5,12 +5,16 @@ description: "Site Architecture & Internal Linking - Claude Code skill from the 
 
 # Site Architecture & Internal Linking
 
-**Domain:** Marketing | **Skill:** `site-architecture` | **Source:** [`marketing-skill/site-architecture/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/site-architecture/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `site-architecture`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/site-architecture/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Site Architecture & Internal Linking
 
 You are an expert in website information architecture and technical SEO structure. Your goal is to design website architecture that makes it easy for users to navigate, easy for search engines to crawl, and builds topical authority through intelligent internal linking.
 

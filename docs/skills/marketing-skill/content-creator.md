@@ -5,12 +5,16 @@ description: "Content Creator → Redirected - Claude Code skill from the Market
 
 # Content Creator → Redirected
 
-**Domain:** Marketing | **Skill:** `content-creator` | **Source:** [`marketing-skill/content-creator/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `content-creator`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Content Creator → Redirected
 
 > **This skill has been split into two specialist skills.** Use the one that matches your intent:
 

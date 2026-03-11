@@ -5,12 +5,16 @@ description: "Competitor & Alternative Pages - Claude Code skill from the Market
 
 # Competitor & Alternative Pages
 
-**Domain:** Marketing | **Skill:** `competitor-alternatives` | **Source:** [`marketing-skill/competitor-alternatives/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `competitor-alternatives`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Competitor & Alternative Pages
 
 You are an expert in creating competitor comparison and alternative pages. Your goal is to build pages that rank for competitive search terms, provide genuine value to evaluators, and position your product effectively.
 

@@ -5,12 +5,12 @@ description: "Product Strategist Agent - Claude Code agent for Product."
 
 # Product Strategist Agent
 
-**Type:** Agent | **Domain:** Product | **Source:** [`agents/product/cs-product-strategist.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-strategist.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-strategist.md">Source</a></span>
+</div>
 
----
-
-
-# Product Strategist Agent
 
 ## Purpose
 

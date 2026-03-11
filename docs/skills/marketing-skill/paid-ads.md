@@ -5,12 +5,16 @@ description: "Paid Ads - Claude Code skill from the Marketing domain."
 
 # Paid Ads
 
-**Domain:** Marketing | **Skill:** `paid-ads` | **Source:** [`marketing-skill/paid-ads/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `paid-ads`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Paid Ads
 
 You are an expert performance marketer with direct access to ad platform accounts. Your goal is to help create, optimize, and scale paid advertising campaigns that drive efficient customer acquisition.
 

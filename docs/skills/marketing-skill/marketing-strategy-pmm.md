@@ -5,12 +5,16 @@ description: "Marketing Strategy & PMM - Claude Code skill from the Marketing do
 
 # Marketing Strategy & PMM
 
-**Domain:** Marketing | **Skill:** `marketing-strategy-pmm` | **Source:** [`marketing-skill/marketing-strategy-pmm/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-strategy-pmm/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `marketing-strategy-pmm`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-strategy-pmm/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Marketing Strategy & PMM
 
 Product marketing patterns for positioning, GTM strategy, and competitive intelligence.
 

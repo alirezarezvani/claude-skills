@@ -5,12 +5,16 @@ description: "QMS Audit Expert - Claude Code skill from the Regulatory & Quality
 
 # QMS Audit Expert
 
-**Domain:** Regulatory & Quality | **Skill:** `qms-audit-expert` | **Source:** [`ra-qm-team/qms-audit-expert/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/qms-audit-expert/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `qms-audit-expert`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/qms-audit-expert/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# QMS Audit Expert
 
 ISO 13485 internal audit methodology for medical device quality management systems.
 

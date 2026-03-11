@@ -5,12 +5,16 @@ description: "Agent Workflow Designer - Claude Code skill from the Engineering -
 
 # Agent Workflow Designer
 
-**Domain:** Engineering - POWERFUL | **Skill:** `agent-workflow-designer` | **Source:** [`engineering/agent-workflow-designer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agent-workflow-designer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `agent-workflow-designer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agent-workflow-designer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# Agent Workflow Designer
 
 **Tier:** POWERFUL  
 **Category:** Engineering  

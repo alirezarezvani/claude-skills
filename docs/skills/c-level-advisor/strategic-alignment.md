@@ -5,12 +5,16 @@ description: "Strategic Alignment Engine - Claude Code skill from the C-Level Ad
 
 # Strategic Alignment Engine
 
-**Domain:** C-Level Advisory | **Skill:** `strategic-alignment` | **Source:** [`c-level-advisor/strategic-alignment/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/strategic-alignment/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `strategic-alignment`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/strategic-alignment/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Strategic Alignment Engine
 
 Strategy fails at the cascade, not the boardroom. This skill detects misalignment before it becomes dysfunction and builds systems that keep strategy connected from CEO to individual contributor.
 

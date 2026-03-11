@@ -5,12 +5,16 @@ description: "Senior ML Engineer - Claude Code skill from the Engineering - Core
 
 # Senior ML Engineer
 
-**Domain:** Engineering - Core | **Skill:** `senior-ml-engineer` | **Source:** [`engineering-team/senior-ml-engineer/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-ml-engineer/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-ml-engineer`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-ml-engineer/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior ML Engineer
 
 Production ML engineering patterns for model deployment, MLOps infrastructure, and LLM integration.
 

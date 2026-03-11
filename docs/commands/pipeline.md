@@ -5,12 +5,11 @@ description: "/pipeline — Claude Code slash command."
 
 # /pipeline
 
-**Type:** Slash Command | **Source:** [`commands/pipeline.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/pipeline.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/pipeline.md">Source</a></span>
+</div>
 
----
-
-
-# /pipeline
 
 Detect project stack and generate CI/CD pipeline configurations for GitHub Actions or GitLab CI.
 

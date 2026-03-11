@@ -5,12 +5,12 @@ description: "Content Creator Agent - Claude Code agent for Marketing."
 
 # Content Creator Agent
 
-**Type:** Agent | **Domain:** Marketing | **Source:** [`agents/marketing/cs-content-creator.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-content-creator.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-content-creator.md">Source</a></span>
+</div>
 
----
-
-
-# Content Creator Agent
 
 ## Purpose
 

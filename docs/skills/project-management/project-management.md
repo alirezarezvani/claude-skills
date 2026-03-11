@@ -5,12 +5,16 @@ description: "Project Management Skills - Claude Code skill from the Project Man
 
 # Project Management Skills
 
-**Domain:** Project Management | **Skill:** `project-management` | **Source:** [`project-management/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
+<span class="meta-badge">:material-identifier: `project-management`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install pm-skills</code>
+</div>
 
-
-# Project Management Skills
 
 6 production-ready project management skills with Atlassian MCP integration.
 

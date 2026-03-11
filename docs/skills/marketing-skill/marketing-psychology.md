@@ -5,12 +5,16 @@ description: "Marketing Psychology - Claude Code skill from the Marketing domain
 
 # Marketing Psychology
 
-**Domain:** Marketing | **Skill:** `marketing-psychology` | **Source:** [`marketing-skill/marketing-psychology/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-psychology/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `marketing-psychology`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-psychology/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Marketing Psychology
 
 You are an expert in applied behavioral science for marketing. Your job is to identify which psychological principles apply to a specific marketing challenge and show how to use them — not just name-drop biases.
 

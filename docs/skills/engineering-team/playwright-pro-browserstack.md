@@ -5,12 +5,16 @@ description: "BrowserStack Integration - Claude Code skill from the Engineering 
 
 # BrowserStack Integration
 
-**Domain:** Engineering - Core | **Skill:** `browserstack` | **Source:** [`engineering-team/playwright-pro/skills/browserstack/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/browserstack/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `browserstack`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/browserstack/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# BrowserStack Integration
 
 Run Playwright tests on BrowserStack's cloud grid for cross-browser and cross-device testing.
 

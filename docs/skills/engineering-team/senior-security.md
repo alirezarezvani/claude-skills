@@ -5,12 +5,16 @@ description: "Senior Security Engineer - Claude Code skill from the Engineering 
 
 # Senior Security Engineer
 
-**Domain:** Engineering - Core | **Skill:** `senior-security` | **Source:** [`engineering-team/senior-security/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-security`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior Security Engineer
 
 Security engineering tools for threat modeling, vulnerability analysis, secure architecture design, and penetration testing.
 

@@ -8,17 +8,17 @@ import shutil
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS_DIR = os.path.join(REPO_ROOT, "docs")
 
-# Domain mapping: directory prefix -> (section name, sort order)
+# Domain mapping: directory prefix -> (section name, sort order, icon, plugin_name)
 DOMAINS = {
-    "engineering-team": ("Engineering - Core", 1),
-    "engineering": ("Engineering - POWERFUL", 2),
-    "product-team": ("Product", 3),
-    "marketing-skill": ("Marketing", 4),
-    "project-management": ("Project Management", 5),
-    "c-level-advisor": ("C-Level Advisory", 6),
-    "ra-qm-team": ("Regulatory & Quality", 7),
-    "business-growth": ("Business & Growth", 8),
-    "finance": ("Finance", 9),
+    "engineering-team": ("Engineering - Core", 1, ":material-code-braces:", "engineering-skills"),
+    "engineering": ("Engineering - POWERFUL", 2, ":material-rocket-launch:", "engineering-advanced-skills"),
+    "product-team": ("Product", 3, ":material-lightbulb-outline:", "product-skills"),
+    "marketing-skill": ("Marketing", 4, ":material-bullhorn-outline:", "marketing-skills"),
+    "project-management": ("Project Management", 5, ":material-clipboard-check-outline:", "pm-skills"),
+    "c-level-advisor": ("C-Level Advisory", 6, ":material-account-tie:", "c-level-skills"),
+    "ra-qm-team": ("Regulatory & Quality", 7, ":material-shield-check-outline:", "ra-qm-skills"),
+    "business-growth": ("Business & Growth", 8, ":material-trending-up:", "business-growth-skills"),
+    "finance": ("Finance", 9, ":material-calculator-variant:", "finance-skills"),
 }
 
 # Skills to skip (nested assets, samples, etc.)
@@ -104,6 +104,22 @@ def extract_subtitle(filepath):
     return None
 
 
+def extract_description_from_frontmatter(filepath):
+    """Extract the description field from YAML frontmatter."""
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            content = f.read()
+        match = re.match(r"^---\n(.*?)---\n", content, re.DOTALL)
+        if match:
+            fm = match.group(1)
+            desc_match = re.search(r'description:\s*["\']?(.*?)["\']?\s*$', fm, re.MULTILINE)
+            if desc_match:
+                return desc_match.group(1).strip()
+    except Exception:
+        pass
+    return None
+
+
 def slugify(name):
     """Convert a skill name to a URL-friendly slug."""
     return re.sub(r"[^a-z0-9-]", "-", name.lower()).strip("-")
@@ -112,6 +128,19 @@ def slugify(name):
 def prettify(name):
     """Convert kebab-case to Title Case."""
     return name.replace("-", " ").title()
+
+
+def strip_content(content):
+    """Strip frontmatter and first H1 from content, handling edge cases."""
+    # Strip YAML frontmatter
+    content = re.sub(r"^---\n.*?---\n", "", content, flags=re.DOTALL)
+    # Strip leading whitespace
+    content = content.lstrip()
+    # Remove the first H1 if it exists (avoid duplicate)
+    content = re.sub(r"^#\s+.+\n", "", content, count=1)
+    # Remove leading hr after title
+    content = re.sub(r"^\s*---\s*\n", "", content)
+    return content
 
 
 def generate_skill_page(skill, domain_key):
@@ -125,27 +154,36 @@ def generate_skill_page(skill, domain_key):
     # Clean title of markdown artifacts
     title = re.sub(r"[*_`]", "", title)
 
-    domain_name = DOMAINS[domain_key][0]
+    domain_name, _, domain_icon, plugin_name = DOMAINS[domain_key]
     description = f"{title} - Claude Code skill from the {domain_name} domain."
+    subtitle = extract_subtitle(skill_md_path) or ""
+    # Clean subtitle of markdown artifacts for the intro
+    subtitle_clean = re.sub(r"[*_`\[\]]", "", subtitle)
 
-    # Build the page with SEO frontmatter
-    page = f"""---
+    # Build the page with design system
+    page = f'''---
 title: "{title}"
 description: "{description}"
 ---
 
 # {title}
 
-**Domain:** {domain_name} | **Skill:** `{skill["name"]}` | **Source:** [`{skill["rel_path"]}/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/{skill["rel_path"]}/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">{domain_icon} {domain_name}</span>
+<span class="meta-badge">:material-identifier: `{skill["name"]}`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/{skill["rel_path"]}/SKILL.md">Source</a></span>
+</div>
 
----
+'''
+    # Add install banner
+    page += f'''<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install {plugin_name}</code>
+</div>
 
-"""
-    # Strip frontmatter from original content and skip the first H1 (we already added it)
-    content = re.sub(r"^---\n.*?---\n", "", content, flags=re.DOTALL)
-    # Remove the first H1 if it exists (avoid duplicate)
-    content = re.sub(r"^#\s+.+\n", "", content, count=1)
-    page += content
+'''
+
+    content_clean = strip_content(content)
+    page += content_clean
 
     return page
 
@@ -217,34 +255,55 @@ def main():
     # Generate domain index pages
     sorted_domains = sorted(skills_by_domain.items(), key=lambda x: DOMAINS[x[0]][1])
     for domain_key, skills in sorted_domains:
-        domain_name = DOMAINS[domain_key][0]
+        domain_name, _, domain_icon, plugin_name = DOMAINS[domain_key]
         top_level = sorted([s for s in skills if not s["is_sub_skill"]], key=lambda s: s["name"])
         sub_skills = [s for s in skills if s["is_sub_skill"]]
+        skill_count = len(skills)
 
-        index_content = f"""---
-title: "{domain_name} Skills"
-description: "All {domain_name} skills for Claude Code, OpenAI Codex, and OpenClaw."
----
-
-# {domain_name} Skills
-
-{len(skills)} skills in this domain.
-
-| Skill | Description |
-|-------|-------------|
-"""
+        # Build grid cards for skills
+        cards = ""
         for skill in top_level:
             slug = slugify(skill["name"])
             title = extract_title(skill["path"]) or prettify(skill["name"])
             title = re.sub(r"[*_`]", "", title)
-            index_content += f"| [{title}]({slug}.md) | `{skill['name']}` |\n"
-
+            subtitle = extract_subtitle(skill["path"]) or f"`{skill['name']}`"
+            subtitle = re.sub(r"[*_`\[\]]", "", subtitle)
+            # Truncate long subtitles
+            if len(subtitle) > 120:
+                subtitle = subtitle[:117] + "..."
             children = sorted([s for s in sub_skills if s["parent"] == skill["name"]], key=lambda s: s["name"])
-            for child in children:
-                child_slug = slugify(child["name"])
-                child_title = extract_title(child["path"]) or prettify(child["name"])
-                child_title = re.sub(r"[*_`]", "", child_title)
-                index_content += f"| &nbsp;&nbsp;[{child_title}]({slug}-{child_slug}.md) | `{child['name']}` (sub-skill of `{skill['name']}`) |\n"
+            sub_count = len(children)
+            sub_text = f" + {sub_count} sub-skills" if sub_count > 0 else ""
+
+            cards += f"""
+-   **[{title}]({slug}.md)**{sub_text}
+
+    ---
+
+    {subtitle}
+"""
+
+        index_content = f'''---
+title: "{domain_name} Skills"
+description: "All {skill_count} {domain_name} skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+---
+
+<div class="domain-header" markdown>
+
+# {domain_icon} {domain_name}
+
+<p class="domain-count">{skill_count} skills in this domain</p>
+
+</div>
+
+<div class="install-banner" markdown>
+<span class="install-label">Install all:</span> <code>claude /plugin install {plugin_name}</code>
+</div>
+
+<div class="grid cards" markdown>
+{cards}
+</div>
+'''
 
         index_path = os.path.join(DOCS_DIR, "skills", domain_key, "index.md")
         with open(index_path, "w", encoding="utf-8") as f:
@@ -259,15 +318,15 @@ description: "All {domain_name} skills for Claude Code, OpenAI Codex, and OpenCl
 
     # Agent domain mapping for display
     AGENT_DOMAINS = {
-        "business-growth": "Business & Growth",
-        "c-level": "C-Level Advisory",
-        "engineering-team": "Engineering - Core",
-        "engineering": "Engineering - POWERFUL",
-        "finance": "Finance",
-        "marketing": "Marketing",
-        "product": "Product",
-        "project-management": "Project Management",
-        "ra-qm-team": "Regulatory & Quality",
+        "business-growth": ("Business & Growth", ":material-trending-up:"),
+        "c-level": ("C-Level Advisory", ":material-account-tie:"),
+        "engineering-team": ("Engineering - Core", ":material-code-braces:"),
+        "engineering": ("Engineering - POWERFUL", ":material-rocket-launch:"),
+        "finance": ("Finance", ":material-calculator-variant:"),
+        "marketing": ("Marketing", ":material-bullhorn-outline:"),
+        "product": ("Product", ":material-lightbulb-outline:"),
+        "project-management": ("Project Management", ":material-clipboard-check-outline:"),
+        "ra-qm-team": ("Regulatory & Quality", ":material-shield-check-outline:"),
     }
 
     if os.path.isdir(agents_dir):
@@ -275,7 +334,8 @@ description: "All {domain_name} skills for Claude Code, OpenAI Codex, and OpenCl
             domain_path = os.path.join(agents_dir, domain_folder)
             if not os.path.isdir(domain_path):
                 continue
-            domain_label = AGENT_DOMAINS.get(domain_folder, prettify(domain_folder))
+            domain_info = AGENT_DOMAINS.get(domain_folder, (prettify(domain_folder), ":material-account:"))
+            domain_label, domain_icon = domain_info
             for agent_file in sorted(os.listdir(domain_path)):
                 if not agent_file.endswith(".md"):
                     continue
@@ -288,44 +348,58 @@ description: "All {domain_name} skills for Claude Code, OpenAI Codex, and OpenCl
                 with open(agent_path, "r", encoding="utf-8") as f:
                     content = f.read()
 
-                content_clean = re.sub(r"^---\n.*?---\n", "", content, flags=re.DOTALL)
-                content_clean = re.sub(r"^#\s+.+\n", "", content_clean, count=1)
+                content_clean = strip_content(content)
 
-                page = f"""---
+                page = f'''---
 title: "{title}"
 description: "{title} - Claude Code agent for {domain_label}."
 ---
 
 # {title}
 
-**Type:** Agent | **Domain:** {domain_label} | **Source:** [`{rel}`](https://github.com/alirezarezvani/claude-skills/tree/main/{rel})
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">{domain_icon} {domain_label}</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/{rel}">Source</a></span>
+</div>
 
----
-
-{content_clean}"""
+{content_clean}'''
                 slug = slugify(agent_name)
                 out_path = os.path.join(agents_docs_dir, f"{slug}.md")
                 with open(out_path, "w", encoding="utf-8") as f:
                     f.write(page)
                 agent_count += 1
-                agent_entries.append((title, slug, domain_label))
+                agent_entries.append((title, slug, domain_label, domain_icon))
 
     # Generate agents index
     if agent_entries:
-        idx = f"""---
+        agent_cards = ""
+        for title, slug, domain, icon in agent_entries:
+            agent_cards += f"""
+-   {icon}{{ .lg .middle }} **[{title}]({slug}.md)**
+
+    ---
+
+    {domain}
+"""
+
+        idx = f'''---
 title: "Agents"
 description: "All {agent_count} Claude Code agents — multi-skill orchestrators across domains."
 ---
 
-# Agents
+<div class="domain-header" markdown>
 
-{agent_count} agents that orchestrate skills across domains.
+# :material-robot: Agents
 
-| Agent | Domain |
-|-------|--------|
-"""
-        for title, slug, domain in agent_entries:
-            idx += f"| [{title}]({slug}.md) | {domain} |\n"
+<p class="domain-count">{agent_count} agents that orchestrate skills across domains</p>
+
+</div>
+
+<div class="grid cards" markdown>
+{agent_cards}
+</div>
+'''
         with open(os.path.join(agents_docs_dir, "index.md"), "w", encoding="utf-8") as f:
             f.write(idx)
 
@@ -349,21 +423,21 @@ description: "All {agent_count} Claude Code agents — multi-skill orchestrators
             with open(cmd_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
-            content_clean = re.sub(r"^---\n.*?---\n", "", content, flags=re.DOTALL)
-            content_clean = re.sub(r"^#\s+.+\n", "", content_clean, count=1)
+            content_clean = strip_content(content)
 
-            page = f"""---
+            page = f'''---
 title: "/{cmd_name}"
 description: "/{cmd_name} — Claude Code slash command."
 ---
 
 # /{cmd_name}
 
-**Type:** Slash Command | **Source:** [`{rel}`](https://github.com/alirezarezvani/claude-skills/tree/main/{rel})
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/{rel}">Source</a></span>
+</div>
 
----
-
-{content_clean}"""
+{content_clean}'''
             slug = slugify(cmd_name)
             out_path = os.path.join(commands_docs_dir, f"{slug}.md")
             with open(out_path, "w", encoding="utf-8") as f:
@@ -374,20 +448,36 @@ description: "/{cmd_name} — Claude Code slash command."
 
     # Generate commands index
     if cmd_entries:
-        idx = f"""---
+        cmd_cards = ""
+        for name, slug, title, desc in cmd_entries:
+            desc_clean = re.sub(r"[*_`\[\]]", "", desc)
+            if len(desc_clean) > 120:
+                desc_clean = desc_clean[:117] + "..."
+            cmd_cards += f"""
+-   :material-console:{{ .lg .middle }} **[`/{name}`]({slug}.md)**
+
+    ---
+
+    {desc_clean}
+"""
+
+        idx = f'''---
 title: "Commands"
 description: "All {cmd_count} slash commands for quick access to common operations."
 ---
 
-# Slash Commands
+<div class="domain-header" markdown>
 
-{cmd_count} commands for quick access to common operations.
+# :material-console: Slash Commands
 
-| Command | Description |
-|---------|-------------|
-"""
-        for name, slug, title, desc in cmd_entries:
-            idx += f"| [`/{name}`]({slug}.md) | {desc} |\n"
+<p class="domain-count">{cmd_count} commands for quick access to common operations</p>
+
+</div>
+
+<div class="grid cards" markdown>
+{cmd_cards}
+</div>
+'''
         with open(os.path.join(commands_docs_dir, "index.md"), "w", encoding="utf-8") as f:
             f.write(idx)
 

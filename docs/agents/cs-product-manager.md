@@ -5,12 +5,12 @@ description: "Product Manager Agent - Claude Code agent for Product."
 
 # Product Manager Agent
 
-**Type:** Agent | **Domain:** Product | **Source:** [`agents/product/cs-product-manager.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-manager.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-manager.md">Source</a></span>
+</div>
 
----
-
-
-# Product Manager Agent
 
 ## Purpose
 

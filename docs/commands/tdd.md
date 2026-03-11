@@ -5,12 +5,11 @@ description: "/tdd — Claude Code slash command."
 
 # /tdd
 
-**Type:** Slash Command | **Source:** [`commands/tdd.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/tdd.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/tdd.md">Source</a></span>
+</div>
 
----
-
-
-# /tdd
 
 Generate tests, analyze coverage, and validate test quality using the TDD Guide skill.
 

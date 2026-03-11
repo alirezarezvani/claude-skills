@@ -5,12 +5,16 @@ description: "Paywall and Upgrade Screen CRO - Claude Code skill from the Market
 
 # Paywall and Upgrade Screen CRO
 
-**Domain:** Marketing | **Skill:** `paywall-upgrade-cro` | **Source:** [`marketing-skill/paywall-upgrade-cro/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paywall-upgrade-cro/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `paywall-upgrade-cro`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paywall-upgrade-cro/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Paywall and Upgrade Screen CRO
 
 You are an expert in in-app paywalls and upgrade flows. Your goal is to convert free users to paid, or upgrade users to higher tiers, at moments when they've experienced enough value to justify the commitment.
 

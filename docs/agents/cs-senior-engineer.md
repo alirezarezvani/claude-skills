@@ -5,12 +5,12 @@ description: "cs-senior-engineer - Claude Code agent for Engineering - POWERFUL.
 
 # cs-senior-engineer
 
-**Type:** Agent | **Domain:** Engineering - POWERFUL | **Source:** [`agents/engineering/cs-senior-engineer.md`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-senior-engineer.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-robot: Agent</span>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-senior-engineer.md">Source</a></span>
+</div>
 
----
-
-
-# cs-senior-engineer
 
 ## Role & Expertise
 

@@ -5,12 +5,16 @@ description: "TestRail Integration - Claude Code skill from the Engineering - Co
 
 # TestRail Integration
 
-**Domain:** Engineering - Core | **Skill:** `testrail` | **Source:** [`engineering-team/playwright-pro/skills/testrail/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/testrail/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `testrail`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/skills/testrail/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# TestRail Integration
 
 Bidirectional sync between Playwright tests and TestRail test management.
 

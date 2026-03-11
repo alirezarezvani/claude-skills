@@ -5,12 +5,16 @@ description: "CISO Advisor - Claude Code skill from the C-Level Advisory domain.
 
 # CISO Advisor
 
-**Domain:** C-Level Advisory | **Skill:** `ciso-advisor` | **Source:** [`c-level-advisor/ciso-advisor/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ciso-advisor/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `ciso-advisor`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ciso-advisor/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# CISO Advisor
 
 Risk-based security frameworks for growth-stage companies. Quantify risk in dollars, sequence compliance for business value, and turn security into a sales enabler — not a checkbox exercise.
 

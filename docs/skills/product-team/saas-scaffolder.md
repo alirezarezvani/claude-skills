@@ -5,12 +5,16 @@ description: "SaaS Scaffolder - Claude Code skill from the Product domain."
 
 # SaaS Scaffolder
 
-**Domain:** Product | **Skill:** `saas-scaffolder` | **Source:** [`product-team/saas-scaffolder/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/saas-scaffolder/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `saas-scaffolder`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/saas-scaffolder/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# SaaS Scaffolder
 
 **Tier:** POWERFUL  
 **Category:** Product Team  

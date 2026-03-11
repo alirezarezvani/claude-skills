@@ -5,12 +5,16 @@ description: "Agile Product Owner - Claude Code skill from the Product domain."
 
 # Agile Product Owner
 
-**Domain:** Product | **Skill:** `agile-product-owner` | **Source:** [`product-team/agile-product-owner/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `agile-product-owner`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# Agile Product Owner
 
 Backlog management and sprint execution toolkit for product owners, including user story generation, acceptance criteria patterns, sprint planning, and velocity tracking.
 

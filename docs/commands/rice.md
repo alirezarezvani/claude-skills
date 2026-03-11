@@ -5,12 +5,11 @@ description: "/rice — Claude Code slash command."
 
 # /rice
 
-**Type:** Slash Command | **Source:** [`commands/rice.md`](https://github.com/alirezarezvani/claude-skills/tree/main/commands/rice.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-console: Slash Command</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/rice.md">Source</a></span>
+</div>
 
----
-
-
-# /rice
 
 Prioritize features using RICE scoring (Reach, Impact, Confidence, Effort) with optional capacity constraints.
 

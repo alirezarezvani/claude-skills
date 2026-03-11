@@ -5,12 +5,16 @@ description: "Product Team Skills - Claude Code skill from the Product domain."
 
 # Product Team Skills
 
-**Domain:** Product | **Skill:** `product-team` | **Source:** [`product-team/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-lightbulb-outline: Product</span>
+<span class="meta-badge">:material-identifier: `product-team`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install product-skills</code>
+</div>
 
-
-# Product Team Skills
 
 8 production-ready product skills covering product management, UX/UI design, and SaaS development.
 

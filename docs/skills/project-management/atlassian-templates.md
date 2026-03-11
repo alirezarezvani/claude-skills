@@ -5,12 +5,16 @@ description: "Atlassian Template & Files Creator Expert - Claude Code skill from
 
 # Atlassian Template & Files Creator Expert
 
-**Domain:** Project Management | **Skill:** `atlassian-templates` | **Source:** [`project-management/atlassian-templates/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/project-management/atlassian-templates/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
+<span class="meta-badge">:material-identifier: `atlassian-templates`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/atlassian-templates/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install pm-skills</code>
+</div>
 
-
-# Atlassian Template & Files Creator Expert
 
 Specialist in creating, modifying, and managing reusable templates and files for Jira and Confluence. Ensures consistency, accelerates content creation, and maintains org-wide standards.
 

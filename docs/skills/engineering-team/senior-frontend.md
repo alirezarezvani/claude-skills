@@ -5,12 +5,16 @@ description: "Senior Frontend - Claude Code skill from the Engineering - Core do
 
 # Senior Frontend
 
-**Domain:** Engineering - Core | **Skill:** `senior-frontend` | **Source:** [`engineering-team/senior-frontend/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-frontend/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `senior-frontend`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-frontend/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# Senior Frontend
 
 Frontend development patterns, performance optimization, and automation tools for React/Next.js applications.
 

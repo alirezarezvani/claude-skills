@@ -5,12 +5,16 @@ description: "/si:promote — Graduate Learnings to Rules - Claude Code skill fr
 
 # /si:promote — Graduate Learnings to Rules
 
-**Domain:** Engineering - Core | **Skill:** `promote` | **Source:** [`engineering-team/self-improving-agent/skills/promote/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/promote/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-code-braces: Engineering - Core</span>
+<span class="meta-badge">:material-identifier: `promote`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/promote/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-skills</code>
+</div>
 
-
-# /si:promote — Graduate Learnings to Rules
 
 Moves a proven pattern from Claude's auto-memory into the project's rule system, where it becomes an enforced instruction rather than a background note.
 

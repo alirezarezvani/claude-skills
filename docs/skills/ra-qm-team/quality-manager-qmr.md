@@ -5,12 +5,16 @@ description: "Senior Quality Manager Responsible Person (QMR) - Claude Code skil
 
 # Senior Quality Manager Responsible Person (QMR)
 
-**Domain:** Regulatory & Quality | **Skill:** `quality-manager-qmr` | **Source:** [`ra-qm-team/quality-manager-qmr/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
+<span class="meta-badge">:material-identifier: `quality-manager-qmr`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install ra-qm-skills</code>
+</div>
 
-
-# Senior Quality Manager Responsible Person (QMR)
 
 Quality system accountability, management review leadership, and regulatory compliance oversight per ISO 13485 Clause 5.5.2 requirements.
 

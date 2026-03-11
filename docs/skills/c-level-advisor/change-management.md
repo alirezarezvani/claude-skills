@@ -5,12 +5,16 @@ description: "Change Management Playbook - Claude Code skill from the C-Level Ad
 
 # Change Management Playbook
 
-**Domain:** C-Level Advisory | **Skill:** `change-management` | **Source:** [`c-level-advisor/change-management/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/change-management/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `change-management`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/change-management/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# Change Management Playbook
 
 Most changes fail at implementation, not design. The ADKAR model tells you why and how to fix it.
 

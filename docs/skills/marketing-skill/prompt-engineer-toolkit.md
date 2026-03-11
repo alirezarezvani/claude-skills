@@ -5,12 +5,16 @@ description: "Prompt Engineer Toolkit - Claude Code skill from the Marketing dom
 
 # Prompt Engineer Toolkit
 
-**Domain:** Marketing | **Skill:** `prompt-engineer-toolkit` | **Source:** [`marketing-skill/prompt-engineer-toolkit/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `prompt-engineer-toolkit`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Prompt Engineer Toolkit
 
 ## Overview
 

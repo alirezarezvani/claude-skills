@@ -5,12 +5,16 @@ description: "X/Twitter Growth Engine - Claude Code skill from the Marketing dom
 
 # X/Twitter Growth Engine
 
-**Domain:** Marketing | **Skill:** `x-twitter-growth` | **Source:** [`marketing-skill/x-twitter-growth/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/x-twitter-growth/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `x-twitter-growth`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/x-twitter-growth/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# X/Twitter Growth Engine
 
 X-specific growth skill. For general social media content across platforms, see `social-content`. For social strategy and calendar planning, see `social-media-manager`. This skill goes deep on X.
 

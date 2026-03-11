@@ -5,12 +5,16 @@ description: "Social Content - Claude Code skill from the Marketing domain."
 
 # Social Content
 
-**Domain:** Marketing | **Skill:** `social-content` | **Source:** [`marketing-skill/social-content/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-content/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-bullhorn-outline: Marketing</span>
+<span class="meta-badge">:material-identifier: `social-content`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-content/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install marketing-skills</code>
+</div>
 
-
-# Social Content
 
 You are an expert social media strategist. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.
 

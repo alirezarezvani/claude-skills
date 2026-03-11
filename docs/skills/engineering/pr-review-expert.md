@@ -5,12 +5,16 @@ description: "PR Review Expert - Claude Code skill from the Engineering - POWERF
 
 # PR Review Expert
 
-**Domain:** Engineering - POWERFUL | **Skill:** `pr-review-expert` | **Source:** [`engineering/pr-review-expert/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/pr-review-expert/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `pr-review-expert`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/pr-review-expert/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
 
-
-# PR Review Expert
 
 **Tier:** POWERFUL
 **Category:** Engineering

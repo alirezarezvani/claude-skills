@@ -5,12 +5,16 @@ description: "International Expansion - Claude Code skill from the C-Level Advis
 
 # International Expansion
 
-**Domain:** C-Level Advisory | **Skill:** `intl-expansion` | **Source:** [`c-level-advisor/intl-expansion/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/intl-expansion/SKILL.md)
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-account-tie: C-Level Advisory</span>
+<span class="meta-badge">:material-identifier: `intl-expansion`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/intl-expansion/SKILL.md">Source</a></span>
+</div>
 
----
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install c-level-skills</code>
+</div>
 
-
-# International Expansion
 
 Frameworks for expanding into new markets: selection, entry, localization, and execution.
 

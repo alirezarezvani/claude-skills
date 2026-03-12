@@ -344,6 +344,70 @@
   margin: 0.25rem;
 }
 
+/* ===========================================
+   J2. Tools Bar
+   =========================================== */
+.tools-bar {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  max-width: 720px;
+  margin: -0.5rem auto 0;
+}
+
+.tools-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.45;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tool-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.tool-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  text-decoration: none !important;
+}
+
+/* Tool-specific colors */
+.tool-claude { background: #D97706; color: #fff !important; }
+.tool-codex { background: #10A37F; color: #fff !important; }
+.tool-gemini { background: #4285F4; color: #fff !important; }
+.tool-cursor { background: #000; color: #fff !important; }
+.tool-aider { background: #6366F1; color: #fff !important; }
+.tool-windsurf { background: #06B6D4; color: #fff !important; }
+.tool-kilo { background: #EC4899; color: #fff !important; }
+.tool-opencode { background: #8B5CF6; color: #fff !important; }
+.tool-augment { background: #F59E0B; color: #fff !important; }
+.tool-antigravity { background: #EF4444; color: #fff !important; }
+.tool-openclaw { background: #059669; color: #fff !important; }
+
+[data-md-color-scheme="default"] .tool-cursor {
+  background: #1a1a1a;
+}
+
+[data-md-color-scheme="slate"] .tool-badge {
+  border-color: rgba(255,255,255,0.1);
+}
+
 /* Skills page hero */
 .skills-hero {
   text-align: center;
@@ -540,6 +604,15 @@
 
   .skills-hero h1 {
     font-size: 1.8rem !important;
+  }
+
+  .tools-bar {
+    padding: 1rem 0.5rem;
+  }
+
+  .tool-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.55rem;
   }
 
   .page-meta {

@@ -1,10 +1,10 @@
-site_name: Claude Code Skills & Plugins
+site_name: Agent Skills — Skills, Agents & Personas for AI Coding Tools
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "177 production-ready skills for Claude Code, Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "177 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
-edit_uri: edit/main/
+edit_uri: edit/main/docs/
 copyright: "Built by Alireza Rezvani"
 
 theme:
@@ -318,6 +318,12 @@ nav:
       - "SaaS Metrics Coach": skills/finance/saas-metrics-coach.md
   - Plugins:
     - Overview: plugins/index.md
+  - Personas:
+    - Overview: personas/index.md
+    - "Startup CTO": personas/startup-cto.md
+    - "Growth Marketer": personas/growth-marketer.md
+    - "Solo Founder": personas/solo-founder.md
+  - Orchestration: orchestration.md
   - Agents:
     - Overview: agents/index.md
     - "CS Agile Product Owner": agents/cs-agile-product-owner.md

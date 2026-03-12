@@ -1,25 +1,43 @@
 # Claude Code Skills & Plugins
 
-**177 production-ready skills and plugins for 11 AI coding tools** — reusable expertise bundles that transform AI coding agents into specialized professionals across engineering, product, marketing, compliance, and more.
+**177 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.**
+
+Reusable expertise packages that give AI coding agents domain knowledge they don't have out of the box — from architecture and security to marketing, compliance, and C-level advisory.
 
 **Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-177-brightgreen?style=for-the-badge)](#skills-overview)
 [![Agents](https://img.shields.io/badge/Agents-16-blue?style=for-the-badge)](#agents)
+[![Personas](https://img.shields.io/badge/Personas-3-purple?style=for-the-badge)](#personas)
 [![Commands](https://img.shields.io/badge/Commands-17-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
-> ⭐ **2,500+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
+> **4,400+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
 
 ---
 
-## What Are Claude Code Skills?
+## What Are Skills?
 
-Skills are modular instruction packages (plugins) that give AI coding agents domain expertise they don't have out of the box. Each skill includes a `SKILL.md` (instructions + workflows), Python CLI tools, and reference documentation — everything the agent needs to perform like a specialist.
+Skills are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
 
-**One repo, eleven platforms:** Works natively with Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, Kilo Code, OpenCode, Augment, and Antigravity. All 254 Python tools are stdlib-only and verified working.
+- **SKILL.md** — structured instructions, workflows, and decision frameworks
+- **Python tools** — 254 CLI scripts (all stdlib-only, zero pip installs)
+- **Reference docs** — templates, checklists, and domain-specific knowledge
+
+**One repo, eleven platforms.** Works natively with Claude Code, and converts to 10 other tools via `scripts/convert.sh`. All 254 Python tools run anywhere Python runs.
+
+### Skills vs Agents vs Personas
+
+| | Skills | Agents | Personas |
+|---|---|---|---|
+| **Purpose** | How to execute a task | What task to do | Who is thinking |
+| **Scope** | Single domain | Single domain | Cross-domain |
+| **Voice** | Neutral | Professional | Personality-driven |
+| **Example** | "Follow these steps for SEO" | "Run a security audit" | "Think like a startup CTO" |
+
+All three work together. See [Orchestration](#orchestration) for how to combine them.
 
 ---
 
@@ -145,7 +163,54 @@ See [integrations/](integrations/) for tool-specific documentation and pre-gener
 
 ---
 
-## ⚡ POWERFUL Tier
+## Personas
+
+Pre-configured agent identities with curated skill loadouts, workflows, and distinct communication styles. Personas go beyond "use these skills" — they define how an agent thinks, prioritizes, and communicates.
+
+| Persona | Domain | Best For |
+|---------|--------|----------|
+| [**Startup CTO**](agents/personas/startup-cto.md) | Engineering + Strategy | Architecture decisions, tech stack selection, team building, technical due diligence |
+| [**Growth Marketer**](agents/personas/growth-marketer.md) | Marketing + Growth | Content-led growth, launch strategy, channel optimization, bootstrapped marketing |
+| [**Solo Founder**](agents/personas/solo-founder.md) | Cross-domain | One-person startups, side projects, MVP building, wearing all hats |
+
+**Usage:**
+```bash
+# Claude Code
+cp agents/personas/startup-cto.md ~/.claude/agents/
+
+# Any tool
+./scripts/convert.sh --tool cursor  # Converts personas too
+```
+
+See [agents/personas/](agents/personas/) for details. Create your own with [TEMPLATE.md](agents/personas/TEMPLATE.md).
+
+---
+
+## Orchestration
+
+A lightweight protocol for coordinating personas, skills, and agents on work that crosses domain boundaries. No framework required.
+
+**Four patterns:**
+
+| Pattern | What | When |
+|---------|------|------|
+| **Solo Sprint** | Switch personas across project phases | Side projects, MVPs, solo founders |
+| **Domain Deep-Dive** | One persona + multiple stacked skills | Architecture reviews, compliance audits |
+| **Multi-Agent Handoff** | Personas review each other's output | High-stakes decisions, launch readiness |
+| **Skill Chain** | Sequential skills, no persona needed | Content pipelines, repeatable checklists |
+
+**Example: 6-week product launch**
+```
+Week 1-2: startup-cto + aws-solution-architect + senior-frontend → Build
+Week 3-4: growth-marketer + launch-strategy + copywriting + seo-audit → Prepare
+Week 5-6: solo-founder + email-sequence + analytics-tracking → Ship and iterate
+```
+
+See [orchestration/ORCHESTRATION.md](orchestration/ORCHESTRATION.md) for the full protocol and examples.
+
+---
+
+## POWERFUL Tier
 
 25 advanced skills with deep, production-grade capabilities:
 
@@ -277,7 +342,7 @@ Yes. Skills work natively with 11 tools: Claude Code, OpenAI Codex, Gemini CLI, 
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 245 Python CLI tools use the standard library only — zero pip installs required. Every script is verified to run with `--help`.
+Yes. All 254 Python CLI tools use the standard library only — zero pip installs required. Every script is verified to run with `--help`.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

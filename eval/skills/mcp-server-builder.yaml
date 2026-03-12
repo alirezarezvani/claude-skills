@@ -1,0 +1,41 @@
+# Eval: mcp-server-builder
+# Source: engineering/mcp-server-builder/SKILL.md
+
+description: "Evaluate MCP server builder skill"
+
+prompts:
+  - |
+    You are an expert AI assistant. You have the following skill loaded:
+
+    ---BEGIN SKILL---
+    {{skill_content}}
+    ---END SKILL---
+
+    Now complete this task: {{task}}
+
+providers:
+  - id: anthropic:messages:claude-sonnet-4-6
+    config:
+      max_tokens: 4096
+      temperature: 0.7
+
+tests:
+  - vars:
+      skill_content: file://../../engineering/mcp-server-builder/SKILL.md
+      task: "Build an MCP server in Python that exposes a 'search_github_repos' tool. The tool should take a query string and return top 5 repos with name, stars, and description. Use the GitHub REST API (no auth required for public search)."
+    assert:
+      - type: llm-rubric
+        value: "Output includes working Python code that follows MCP server patterns (tool registration, handler)"
+      - type: llm-rubric
+        value: "Code includes proper error handling for API failures"
+      - type: llm-rubric
+        value: "Tool definition includes proper input schema with type annotations"
+
+  - vars:
+      skill_content: file://../../engineering/mcp-server-builder/SKILL.md
+      task: "Design an MCP server architecture for a CRM system that exposes: list_contacts, get_contact, create_contact, search_contacts, and list_deals tools. Show the tool definitions and server structure."
+    assert:
+      - type: llm-rubric
+        value: "Response includes tool definitions with proper input/output schemas for all 5 tools"
+      - type: llm-rubric
+        value: "Architecture follows MCP best practices (proper transport, error handling, resource definitions)"

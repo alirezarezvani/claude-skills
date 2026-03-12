@@ -1,0 +1,41 @@
+# Eval: launch-strategy
+# Source: marketing-skill/launch-strategy/SKILL.md
+
+description: "Evaluate launch strategy skill"
+
+prompts:
+  - |
+    You are an expert AI assistant. You have the following skill loaded:
+
+    ---BEGIN SKILL---
+    {{skill_content}}
+    ---END SKILL---
+
+    Now complete this task: {{task}}
+
+providers:
+  - id: anthropic:messages:claude-sonnet-4-6
+    config:
+      max_tokens: 4096
+      temperature: 0.7
+
+tests:
+  - vars:
+      skill_content: file://../../marketing-skill/launch-strategy/SKILL.md
+      task: "Plan a Product Hunt launch for an AI writing assistant. We have 2,000 email subscribers, 500 Twitter followers, and the product has been in beta for 3 months with 200 active users. Budget: $0 (bootstrapped)."
+    assert:
+      - type: llm-rubric
+        value: "Response includes a phased timeline (pre-launch, launch day, post-launch) with specific actions"
+      - type: llm-rubric
+        value: "Strategy leverages existing assets (2K email list, 200 beta users, Twitter) concretely"
+      - type: llm-rubric
+        value: "Response includes Product Hunt-specific tactics (hunter selection, timing, asset preparation)"
+
+  - vars:
+      skill_content: file://../../marketing-skill/launch-strategy/SKILL.md
+      task: "We're launching a major feature update (AI-powered analytics) to our existing SaaS product with 5,000 paying customers. How should we announce it to maximize adoption and upsell opportunities?"
+    assert:
+      - type: llm-rubric
+        value: "Response distinguishes between existing customer communication and new user acquisition"
+      - type: llm-rubric
+        value: "Response includes specific channels and messaging for the announcement"

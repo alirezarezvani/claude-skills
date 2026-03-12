@@ -1,0 +1,235 @@
+---
+name: Skill Quality Eval (promptfoo)
+
+'on':
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**/SKILL.md'
+  workflow_dispatch:
+    inputs:
+      skill:
+        description: 'Specific skill eval config to run (e.g. copywriting)'
+        required: false
+
+concurrency:
+  group: skill-eval-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  detect-changes:
+    name: Detect changed skills
+    runs-on: ubuntu-latest
+    outputs:
+      skills: ${{ steps.find-evals.outputs.skills }}
+      has_evals: ${{ steps.find-evals.outputs.has_evals }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find eval configs for changed skills
+        id: find-evals
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ github.event.inputs.skill }}" ]]; then
+            SKILL="${{ github.event.inputs.skill }}"
+            if [[ -f "eval/skills/${SKILL}.yaml" ]]; then
+              echo "skills=[\"${SKILL}\"]" >> "$GITHUB_OUTPUT"
+              echo "has_evals=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "No eval config found for: ${SKILL}"
+              echo "has_evals=false" >> "$GITHUB_OUTPUT"
+            fi
+            exit 0
+          fi
+
+          # Get changed SKILL.md files in this PR
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- '**/SKILL.md' | grep -v '.gemini/' | grep -v '.codex/' | grep -v 'sample')
+
+          if [[ -z "$CHANGED" ]]; then
+            echo "No SKILL.md files changed."
+            echo "has_evals=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Changed SKILL.md files:"
+          echo "$CHANGED"
+
+          # Map changed skills to eval configs
+          EVALS="[]"
+          for skill_path in $CHANGED; do
+            # Extract skill name from path (e.g. marketing-skill/copywriting/SKILL.md -> copywriting)
+            skill_name=$(basename $(dirname "$skill_path"))
+            eval_config="eval/skills/${skill_name}.yaml"
+
+            if [[ -f "$eval_config" ]]; then
+              EVALS=$(echo "$EVALS" | python3 -c "
+          import json, sys
+          arr = json.load(sys.stdin)
+          name = '$skill_name'
+          if name not in arr:
+              arr.append(name)
+          print(json.dumps(arr))
+          ")
+              echo "  ✅ $skill_name → $eval_config"
+            else
+              echo "  ⏭️  $skill_name → no eval config (skipping)"
+            fi
+          done
+
+          echo "skills=$EVALS" >> "$GITHUB_OUTPUT"
+          if [[ "$EVALS" == "[]" ]]; then
+            echo "has_evals=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_evals=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  eval:
+    name: "Eval: ${{ matrix.skill }}"
+    needs: detect-changes
+    if: needs.detect-changes.outputs.has_evals == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        skill: ${{ fromJson(needs.detect-changes.outputs.skills) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run promptfoo eval
+        id: eval
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          npx promptfoo@latest eval \
+            -c "eval/skills/${{ matrix.skill }}.yaml" \
+            --no-cache \
+            --output "/tmp/${{ matrix.skill }}-results.json" \
+            --output-format json \
+            2>&1 | tee /tmp/eval-output.log
+
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Parse results
+        id: parse
+        if: always()
+        run: |
+          RESULTS_FILE="/tmp/${{ matrix.skill }}-results.json"
+          if [[ ! -f "$RESULTS_FILE" ]]; then
+            echo "summary=⚠️ No results file generated" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          python3 << 'PYEOF'
+          import json, os
+
+          with open(os.environ.get("RESULTS_FILE", f"/tmp/${{ matrix.skill }}-results.json")) as f:
+              data = json.load(f)
+
+          results = data.get("results", data.get("evalResults", []))
+          total = len(results)
+          passed = 0
+          failed = 0
+          details = []
+
+          for r in results:
+              test_pass = r.get("success", False)
+              if test_pass:
+                  passed += 1
+              else:
+                  failed += 1
+
+              prompt_vars = r.get("vars", {})
+              task = prompt_vars.get("task", "unknown")[:80]
+
+              assertions = r.get("gradingResult", {}).get("componentResults", [])
+              for a in assertions:
+                  status = "✅" if a.get("pass", False) else "❌"
+                  reason = a.get("reason", a.get("assertion", {}).get("value", ""))[:100]
+                  details.append(f"  {status} {reason}")
+
+          rate = (passed / total * 100) if total > 0 else 0
+          icon = "✅" if rate >= 80 else "⚠️" if rate >= 50 else "❌"
+
+          summary = f"{icon} **${{ matrix.skill }}**: {passed}/{total} tests passed ({rate:.0f}%)"
+
+          # Write to file for comment step
+          with open("/tmp/eval-summary.md", "w") as f:
+              f.write(f"### {summary}\n\n")
+              if details:
+                  f.write("<details><summary>Assertion details</summary>\n\n")
+                  f.write("\n".join(details))
+                  f.write("\n\n</details>\n")
+
+          # Output for workflow
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"summary={summary}\n")
+              f.write(f"pass_rate={rate:.0f}\n")
+          PYEOF
+
+        env:
+          RESULTS_FILE: "/tmp/${{ matrix.skill }}-results.json"
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '### 🧪 Skill Eval: `${{ matrix.skill }}`\n\n';
+
+            try {
+              const summary = fs.readFileSync('/tmp/eval-summary.md', 'utf8');
+              body += summary;
+            } catch {
+              body += '⚠️ Eval did not produce results. Check the workflow logs.\n';
+            }
+
+            body += '\n\n---\n*Powered by [promptfoo](https://promptfoo.dev) · [eval config](eval/skills/${{ matrix.skill }}.yaml)*';
+
+            // Find existing comment to update
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const marker = `Skill Eval: \`${{ matrix.skill }}\``;
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results-${{ matrix.skill }}
+          path: /tmp/${{ matrix.skill }}-results.json
+          retention-days: 30
+          if-no-files-found: ignore

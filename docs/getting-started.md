@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: "How to install and use Claude Code skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "How to install and use Claude Code skills and plugins for 11 AI coding tools — Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
 ---
 
 # Getting Started

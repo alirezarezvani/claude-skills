@@ -1,6 +1,6 @@
 ---
 title: "Skills Overview"
-description: "Browse all 173 production-ready skills across 9 domains — engineering, product, marketing, C-level advisory, project management, regulatory, business growth, and finance."
+description: "Browse all 177 production-ready skills across 9 domains — engineering, product, marketing, C-level advisory, project management, regulatory, business growth, and finance."
 hide:
   - edit
 ---
@@ -9,14 +9,14 @@ hide:
 
 # Skills Library
 
-Browse 173 production-ready skills across 9 domains.
+Browse 177 production-ready skills across 9 domains.
 { .skills-hero-sub }
 
 </div>
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **173 Skills**
+-   :material-counter:{ .lg .middle } **177 Skills**
 
     ---
 

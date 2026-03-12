@@ -1,0 +1,41 @@
+# Eval: content-strategy
+# Source: marketing-skill/content-strategy/SKILL.md
+
+description: "Evaluate content strategy skill"
+
+prompts:
+  - |
+    You are an expert AI assistant. You have the following skill loaded:
+
+    ---BEGIN SKILL---
+    {{skill_content}}
+    ---END SKILL---
+
+    Now complete this task: {{task}}
+
+providers:
+  - id: anthropic:messages:claude-sonnet-4-6
+    config:
+      max_tokens: 4096
+      temperature: 0.7
+
+tests:
+  - vars:
+      skill_content: file://../../marketing-skill/content-strategy/SKILL.md
+      task: "Build a 3-month content strategy for a developer tools startup that just launched. We have zero blog posts and a small Twitter following of 500. Our product is an open-source database migration tool."
+    assert:
+      - type: llm-rubric
+        value: "Response includes a phased plan with specific content types, topics, and publishing cadence"
+      - type: llm-rubric
+        value: "Strategy addresses developer audience specifically with appropriate channels (dev blogs, GitHub, HN)"
+      - type: llm-rubric
+        value: "Response includes measurable goals or KPIs for the content program"
+
+  - vars:
+      skill_content: file://../../marketing-skill/content-strategy/SKILL.md
+      task: "We have 50 blog posts but traffic has plateaued at 10K monthly visits. What should we do to 3x our organic traffic in 6 months?"
+    assert:
+      - type: llm-rubric
+        value: "Response diagnoses potential issues with existing content before prescribing new content"
+      - type: llm-rubric
+        value: "Response includes specific tactics like content refresh, internal linking, or topic clusters"

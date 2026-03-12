@@ -1,0 +1,41 @@
+# Eval: senior-frontend (replacing frontend-design which doesn't exist as standalone)
+# Source: engineering-team/senior-frontend/SKILL.md
+
+description: "Evaluate senior frontend skill"
+
+prompts:
+  - |
+    You are an expert AI assistant. You have the following skill loaded:
+
+    ---BEGIN SKILL---
+    {{skill_content}}
+    ---END SKILL---
+
+    Now complete this task: {{task}}
+
+providers:
+  - id: anthropic:messages:claude-sonnet-4-6
+    config:
+      max_tokens: 4096
+      temperature: 0.7
+
+tests:
+  - vars:
+      skill_content: file://../../engineering-team/senior-frontend/SKILL.md
+      task: "Build a responsive dashboard layout in React with TypeScript. It should have a sidebar navigation, a top bar with user menu, and a main content area with a grid of metric cards. Use Tailwind CSS."
+    assert:
+      - type: llm-rubric
+        value: "Output includes actual React/TypeScript code, not just descriptions"
+      - type: llm-rubric
+        value: "Code uses Tailwind CSS classes for responsive design (sm:, md:, lg: breakpoints)"
+      - type: llm-rubric
+        value: "Component structure follows React best practices (proper component decomposition)"
+
+  - vars:
+      skill_content: file://../../engineering-team/senior-frontend/SKILL.md
+      task: "Our Next.js app has a Core Web Vitals score of 45. LCP is 4.2s, CLS is 0.25, and INP is 350ms. Diagnose the likely causes and provide a fix plan."
+    assert:
+      - type: llm-rubric
+        value: "Response addresses each specific metric (LCP, CLS, INP) with targeted fixes"
+      - type: llm-rubric
+        value: "Response includes Next.js-specific optimizations (Image component, dynamic imports, etc.)"

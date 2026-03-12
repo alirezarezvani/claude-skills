@@ -1,6 +1,6 @@
 ---
 title: Claude Code Skills & Plugins
-description: "177 production-ready skills, 19 plugins, 16 agents, and 17 commands for Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw."
+description: "177 production-ready skills, 19 plugins, 16 agents, 3 personas, 17 commands, and an orchestration protocol for 11 AI coding tools."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Claude Code Skills
 
-177 production-ready skills that transform AI coding agents into specialized professionals.
+177 skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.
 { .hero-subtitle }
 
 **Claude Code** | **OpenAI Codex** | **Gemini CLI** | **OpenClaw** | **Cursor** | **Aider** | **Windsurf** | **Kilo Code** | **OpenCode** | **Augment** | **Antigravity**
@@ -56,6 +56,18 @@ hide:
     ---
 
     [Slash commands](commands/)
+
+-   :material-account-group:{ .lg .middle } **3**
+
+    ---
+
+    [Persona agents](personas/)
+
+-   :material-sitemap:{ .lg .middle } **4**
+
+    ---
+
+    [Orchestration patterns](orchestration.md)
 
 </div>
 

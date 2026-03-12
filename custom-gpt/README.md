@@ -8,7 +8,10 @@ Deploy claude-skills as Custom GPTs on the [OpenAI GPT Store](https://chat.opena
 |-----|------|----------|-------------|
 | [Solo Founder](solo-founder-gpt.md) | 🟢 Free | Productivity | `agents/personas/solo-founder.md` |
 | [Conversion Copywriter](copywriting-gpt.md) | 🟢 Free | Writing / Marketing | `marketing-skill/copywriting/SKILL.md` |
+| [SEO Audit Expert](seo-audit-gpt.md) | 🟢 Free | Marketing | `marketing-skill/seo-audit/SKILL.md` |
+| [Content Strategist](content-strategist-gpt.md) | 🟢 Free | Writing / Marketing | `marketing-skill/content-strategy/SKILL.md` |
 | [CTO Advisor](cto-advisor-gpt.md) | 🔒 Paid | Programming | `c-level-advisor/cto-advisor/SKILL.md` |
+| [Product Manager Toolkit](product-manager-gpt.md) | 🔒 Paid | Productivity | `product-team/product-manager-toolkit/SKILL.md` |
 
 ## How to Create a Custom GPT
 

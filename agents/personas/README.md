@@ -1,16 +1,20 @@
 # Persona-Based Agents
 
-Pre-configured agent personas with curated skill loadouts, workflows, and communication styles.
+Pre-configured agent personas with curated skill loadouts, workflows, and distinct personalities.
 
 ## What's a Persona?
 
-A **persona** is an agent definition that goes beyond "use these skills." It includes:
+A **persona** is an agent definition that goes beyond "use these skills." Each persona includes:
 
-- **Identity** — who this agent is, how they think, what they prioritize
-- **Skills** — pre-loaded skill set for their domain
-- **Workflows** — step-by-step processes for common tasks
-- **Communication** — how they talk, what they emphasize, what they avoid
-- **Handoffs** — when they escalate and to whom
+- **🧠 Identity & Memory** — who this agent is, how they think, what they've learned
+- **🎯 Core Mission** — what they optimize for, in priority order
+- **🚨 Critical Rules** — hard constraints they never violate
+- **📋 Capabilities** — domain expertise organized by area
+- **🔄 Workflows** — step-by-step processes for common tasks
+- **💭 Communication Style** — how they talk, with concrete examples
+- **🎯 Success Metrics** — measurable outcomes that define "good"
+- **🚀 Advanced Capabilities** — deeper expertise loaded on demand
+- **🔄 Learning & Memory** — what they retain and patterns they recognize
 
 ## How to Use
 
@@ -26,31 +30,44 @@ cp agents/personas/startup-cto.md ~/.claude/agents/
 # Personas convert to .cursor/rules/*.mdc
 ```
 
-### Any Tool
+### Any Supported Tool
 ```bash
 ./scripts/install.sh --tool <your-tool>
 ```
 
 ## Available Personas
 
-| Persona | Domain | Best For |
-|---------|--------|----------|
-| [startup-cto](startup-cto.md) | Engineering + Strategy | Technical co-founders, first CTOs, architecture decisions |
-| [growth-marketer](growth-marketer.md) | Marketing + Growth | Bootstrapped founders, indie hackers, content-led growth |
-| [solo-founder](solo-founder.md) | Full Stack | One-person startups, side projects, MVP building |
+| Persona | Emoji | Domain | Best For |
+|---------|-------|--------|----------|
+| [Startup CTO](startup-cto.md) | 🏗️ | Engineering + Strategy | Technical co-founders, architecture decisions, team building |
+| [Growth Marketer](growth-marketer.md) | 🚀 | Marketing + Growth | Bootstrapped founders, content-led growth, launches |
+| [Solo Founder](solo-founder.md) | 🦄 | Cross-domain | One-person startups, side projects, MVP building |
 
-## Personas vs Agents
+## Personas vs Task Agents
 
-| | Agents (`agents/`) | Personas (`agents/personas/`) |
+| | Task Agents (`agents/`) | Personas (`agents/personas/`) |
 |---|---|---|
 | **Focus** | Task execution | Role embodiment |
-| **Skills** | Domain-specific | Cross-domain curated set |
-| **Voice** | Neutral/professional | Personality-driven |
-| **Workflows** | Single-domain | Multi-step, cross-skill |
+| **Scope** | Single domain | Cross-domain curated set |
+| **Voice** | Neutral/professional | Personality-driven with backstory |
+| **Workflows** | Single-step | Multi-step with decision points |
 | **Use case** | "Do this task" | "Think like this person" |
 
-Both coexist. Use agents for focused tasks, personas for ongoing collaboration.
+Both coexist. Use task agents for focused work, personas for ongoing collaboration.
 
 ## Creating Your Own
 
-See the [persona template](TEMPLATE.md) for the format specification.
+See [TEMPLATE.md](TEMPLATE.md) for the format specification. Key elements:
+
+```yaml
+---
+name: Agent Name
+description: What this agent does and when to activate it.
+color: blue          # Agent color theme
+emoji: 🎯           # Single emoji identifier
+vibe: One sentence personality capture.
+tools: Read, Write, Bash, Grep, Glob
+---
+```
+
+Follow the section structure (Identity → Mission → Rules → Capabilities → Workflows → Communication → Metrics → Advanced → Learning) for consistency with existing personas.

@@ -1,6 +1,6 @@
 site_name: Agent Skills — Skills, Agents & Personas for AI Coding Tools
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "177 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -162,6 +162,12 @@ nav:
       - "Tech Stack Evaluator": skills/engineering-team/tech-stack-evaluator.md
     - Engineering - POWERFUL:
       - Overview: skills/engineering/index.md
+      - "Autoresearch Agent": skills/engineering/autoresearch-agent.md
+      - "Autoresearch /ar:setup": skills/engineering/autoresearch-agent-setup.md
+      - "Autoresearch /ar:run": skills/engineering/autoresearch-agent-run.md
+      - "Autoresearch /ar:loop": skills/engineering/autoresearch-agent-loop.md
+      - "Autoresearch /ar:status": skills/engineering/autoresearch-agent-status.md
+      - "Autoresearch /ar:resume": skills/engineering/autoresearch-agent-resume.md
       - "Agent Designer": skills/engineering/agent-designer.md
       - "Agent Workflow Designer": skills/engineering/agent-workflow-designer.md
       - "API Design Reviewer": skills/engineering/api-design-reviewer.md
@@ -324,6 +330,7 @@ nav:
     - "Growth Marketer": personas/growth-marketer.md
     - "Solo Founder": personas/solo-founder.md
   - Orchestration: orchestration.md
+  - Custom GPTs: custom-gpts.md
   - Agents:
     - Overview: agents/index.md
     - "CS Agile Product Owner": agents/cs-agile-product-owner.md

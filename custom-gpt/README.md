@@ -1,144 +1,128 @@
-# Custom GPTs
+# Custom GPTs — Agent Skills for ChatGPT
 
-Deploy claude-skills as Custom GPTs on the [OpenAI GPT Store](https://chat.openai.com/gpts).
+> **6 Custom GPTs** built on the Agent Skills library. Free to use in ChatGPT — no setup, no API keys, no installation.
+
+These GPTs bring production-grade expertise from the [Agent Skills](https://github.com/alirezarezvani/claude-skills) repository directly into ChatGPT. Each one packages domain-specific workflows, frameworks, and decision tools into a conversational interface.
+
+---
 
 ## Available GPTs
 
-| GPT | Tier | Category | Source Skill |
-|-----|------|----------|-------------|
-| [Solo Founder](solo-founder-gpt.md) | 🟢 Free | Productivity | `agents/personas/solo-founder.md` |
-| [Conversion Copywriter](copywriting-gpt.md) | 🟢 Free | Writing / Marketing | `marketing-skill/copywriting/SKILL.md` |
-| [SEO Audit Expert](seo-audit-gpt.md) | 🟢 Free | Marketing | `marketing-skill/seo-audit/SKILL.md` |
-| [Content Strategist](content-strategist-gpt.md) | 🟢 Free | Writing / Marketing | `marketing-skill/content-strategy/SKILL.md` |
-| [CTO Advisor](cto-advisor-gpt.md) | 🔒 Paid | Programming | `c-level-advisor/cto-advisor/SKILL.md` |
-| [Product Manager Toolkit](product-manager-gpt.md) | 🔒 Paid | Productivity | `product-team/product-manager-toolkit/SKILL.md` |
+### Solo Founder
 
-## How to Create a Custom GPT
+**Best for:** Technical founders building products alone. Covers architecture decisions, go-to-market, hiring, fundraising, and time management — all through the lens of a solo operator.
 
-### Step 1 — Open the GPT Editor
+**What it does:**
+- Product roadmap prioritization for one-person teams
+- Technical architecture decisions with build-vs-buy analysis
+- Go-to-market planning with limited budget and time
+- Fundraising prep and pitch deck review
 
-Go to [chat.openai.com/gpts/editor](https://chat.openai.com/gpts/editor) and click **"Create a GPT"**.
+[**→ Open in ChatGPT**](https://chatgpt.com/g/g-69b3157947e8819180c8e4ac609d5041-solo-founder)
 
-### Step 2 — Switch to Configure Tab
+---
 
-Click the **"Configure"** tab at the top (not "Create" — that's the conversational builder).
+### SEO Audit Expert
 
-### Step 3 — Fill in the Fields
+**Best for:** Developers, marketers, and founders who want actionable SEO improvements. Not generic advice — structured audit workflows with specific fixes.
 
-From the GPT config file (e.g., `solo-founder-gpt.md`), copy:
+**What it does:**
+- Full technical SEO audit (Core Web Vitals, crawlability, indexing)
+- On-page optimization with keyword placement strategy
+- Content gap analysis against competitors
+- Site architecture and internal linking review
 
-| Field | What to paste |
-|-------|--------------|
-| **Name** | The `## Name` value |
-| **Description** | The `## Description` text |
-| **Instructions** | Everything inside the ` ``` ` code block under `## Instructions` |
-| **Conversation Starters** | The 4 items listed under `## Conversation Starters` |
+[**→ Open in ChatGPT**](https://chatgpt.com/g/g-69b3b0a690ac819189c127be7d1deb03-seo-audit-expert)
 
-### Step 4 — Set Capabilities
+---
 
-Check the boxes as listed in the config file's `## Capabilities` section:
+### Content Strategist
 
-- ✅ Web Browsing — most GPTs need this
-- ✅ Code Interpreter — for technical GPTs (Solo Founder, CTO Advisor)
-- ⬜ DALL-E — not needed for these GPTs
-- ⬜ File Upload — not needed
+**Best for:** Content teams, solo creators, and marketers planning what to write and how to distribute it. Strategy first, writing second.
 
-### Step 5 — Profile Picture
+**What it does:**
+- Topic cluster planning with pillar and spoke content
+- Content calendar with publishing cadence
+- Audience research and persona mapping
+- Distribution strategy across channels (SEO, social, email, community)
 
-Use the prompt from `## Profile Picture Prompt` with DALL-E to generate an icon, or upload your own.
+[**→ Open in ChatGPT**](https://chatgpt.com/g/g-69b3afc41c608191a6ee30941c5bdddb-content-strategist)
 
-### Step 6 — Save and Publish
+---
 
-Click **"Save"** and choose visibility:
+### Product Manager Toolkit
 
-| Visibility | When to use |
-|------------|------------|
-| **Everyone** | Free GPTs — maximizes reach in the GPT Store |
-| **Anyone with a link** | Paid/premium GPTs — share link selectively |
-| **Only me** | Testing before publishing |
+**Best for:** Product managers and founders who need structured frameworks for product decisions, user research, and sprint planning.
 
-## Converting Other Skills to Custom GPTs
+**What it does:**
+- User story writing with acceptance criteria
+- PRD generation with clear scope and success metrics
+- Sprint planning and backlog prioritization
+- Feature impact scoring (RICE, ICE, weighted scoring)
+- Competitive analysis with positioning framework
 
-Any skill in this repo can become a Custom GPT. Here's how:
+[**→ Open in ChatGPT**](https://chatgpt.com/g/g-69b32caad22c81919522ca21062adec8-product-manager-toolkit)
 
-### 1. Pick a Skill
+---
 
-Choose a `SKILL.md` or persona from `agents/personas/`. Best candidates:
-- Self-contained (no Python tool dependencies)
-- Broad audience appeal
-- Clear, structured workflows
+### Conversion Copywriter
 
-### 2. Create the Config File
+**Best for:** Anyone writing copy that needs to convert — landing pages, pricing pages, email sequences, CTAs, headlines. Not generic writing — conversion-focused frameworks.
 
-```markdown
-# [Skill Name] GPT — Configuration
+**What it does:**
+- Landing page copy with headline variants and CTA optimization
+- Email sequence design (welcome, nurture, re-engagement)
+- Pricing page copy with objection handling
+- A/B test copy variants with rationale for each
 
-**Tier:** FREE / PAID
-**GPT Store Category:** [Pick from: Productivity, Writing, Programming, Research, Education, Lifestyle]
+[**→ Open in ChatGPT**](https://chatgpt.com/g/g-69b327d9545c8191b3711b75b4a88a94-conversion-copywriter)
 
-## Name
-[Short, memorable name — 2-3 words max]
+---
 
-## Description
-[1-2 sentences. What it does + who it's for. Include "Built on the open-source claude-skills library" for attribution.]
+### CTO Advisor
 
-## Instructions
-[Paste the SKILL.md content, adapted:]
-- Remove file paths and bash commands (GPTs can't run local tools)
-- Remove references to other skills (GPTs are standalone)
-- Keep all frameworks, workflows, and decision logic
-- Add attribution link at the bottom
+**Best for:** CTOs, VP Engineering, and technical leaders making architecture, team, and technology decisions. Frameworks for the hard calls.
 
-## Conversation Starters
-1. [Most common use case]
-2. [Second most common]
-3. [A specific scenario]
-4. [An advanced use case]
+**What it does:**
+- Tech debt assessment with prioritization matrix
+- Team scaling models (when to hire, what roles, how to structure)
+- Architecture Decision Records (ADRs) with trade-off analysis
+- Technology evaluation frameworks (build vs buy, vendor selection)
+- Engineering metrics and DORA benchmarks
 
-## Capabilities
-- [x] Web Browsing
-- [ ] DALL-E Image Generation
-- [x] Code Interpreter (if technical)
-- [ ] File Upload
+[**→ Open in ChatGPT**](https://chatgpt.com/g/g-69b32673238c8191ba3a0d1627f0e8a7-cto-advisor)
+
+---
+
+## How to Use
+
+1. Click any **"Open in ChatGPT"** link above
+2. Start a conversation — no setup needed
+3. The GPT uses structured workflows from the Agent Skills library
+
+**Works with:** ChatGPT Plus, Pro, and Team plans.
+
+## Want More?
+
+These GPTs are built from the [Agent Skills](https://github.com/alirezarezvani/claude-skills) open-source library — **177 skills, 16 agents, 3 personas** for AI coding tools.
+
+If you use Claude Code, Codex, Gemini CLI, Cursor, or other AI coding tools, you can install the full skill library directly:
+
+```bash
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills && ./scripts/install.sh
 ```
 
-### 3. Adapt the Instructions
+The GPTs above are a small sample. The full library covers engineering, product, marketing, compliance, finance, healthcare, and more.
 
-**Remove:**
-- `python scripts/...` commands (no local execution)
-- `Read file X` references (no filesystem)
-- Cross-skill references like "see the copy-editing skill"
-- Claude Code-specific features
+---
 
-**Keep:**
-- All frameworks and mental models
-- Decision trees and workflows
-- Communication style rules
-- Output format specifications
+## Links
 
-**Add:**
-- Attribution: `This GPT is powered by the open-source claude-skills library: https://github.com/alirezarezvani/claude-skills`
+- **Repository:** [github.com/alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills)
+- **Documentation:** [alirezarezvani.github.io/claude-skills](https://alirezarezvani.github.io/claude-skills/)
+- **Skills Browse:** [Full skill catalog](https://alirezarezvani.github.io/claude-skills/skills/)
 
-### 4. Test Before Publishing
+## License
 
-1. Create the GPT with visibility set to "Only me"
-2. Run each conversation starter and verify quality
-3. Try edge cases — vague inputs, complex scenarios
-4. Check that the GPT asks clarifying questions when context is missing
-5. Once satisfied, change visibility to "Everyone" or share the link
-
-## Design Principles
-
-- **No knowledge files** — instructions are self-contained for portability and faster responses
-- **No custom actions** — keeps GPTs simple and maintainable
-- **Attribution included** — every GPT links back to the repo
-- **Web browsing enabled** — allows research of current data
-- **Standalone** — each GPT works independently without other skills
-
-## Tips for GPT Store Optimization
-
-1. **Name** — use searchable terms (e.g., "CTO Advisor" not "TechLeadGPT")
-2. **Description** — front-load the value prop, include key use cases
-3. **Conversation starters** — show the range of what the GPT can do
-4. **Category** — pick the most relevant GPT Store category
-5. **Test with real users** — share the link and collect feedback before going public
+The GPT configurations are proprietary. The underlying Agent Skills library is [MIT licensed](https://github.com/alirezarezvani/claude-skills/blob/main/LICENSE).

@@ -1,6 +1,6 @@
 ---
 title: Agent Skills for AI Coding Tools
-description: "177 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools — Claude Code, OpenAI Codex, Gemini CLI, Cursor, Aider, Windsurf, and more."
+description: "177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools — Claude Code, OpenAI Codex, Gemini CLI, Cursor, Aider, Windsurf, and more."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-177 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for AI coding tools.
+177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -112,6 +112,14 @@ hide:
     Convert all skills to any supported tool's native format with a single script. No manual work.
 
     [:octicons-arrow-right-24: Multi-tool setup](integrations.md)
+
+-   :material-chat-outline:{ .lg .middle } **6 Custom GPTs**
+
+    ---
+
+    Use Agent Skills directly in ChatGPT — no setup needed. Solo Founder, SEO Audit, Content Strategy, CTO Advisor, and more.
+
+    [:octicons-arrow-right-24: Open GPTs](custom-gpts.md)
 
 </div>
 

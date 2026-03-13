@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 156,
+  "total_skills": 157,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -364,6 +364,12 @@
       "source": "../../engineering/api-test-suite-builder",
       "category": "engineering-advanced",
       "description": "API Test Suite Builder"
+    },
+    {
+      "name": "autoresearch-agent",
+      "source": "../../engineering/autoresearch-agent",
+      "category": "engineering-advanced",
+      "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
     },
     {
       "name": "changelog-generator",
@@ -959,7 +965,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 25,
+      "count": 26,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

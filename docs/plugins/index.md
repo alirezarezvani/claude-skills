@@ -464,3 +464,6 @@ domain-name/
 
 ??? question "What is ClawHub?"
     [ClawHub](https://clawhub.com) is the public registry for Claude Code plugins. Think of it like npm for AI agent skills. The `cs-` prefix is used only when a plugin slug conflicts with another publisher.
+
+??? question "Can I use skills without installing anything?"
+    Yes. We have [6 Custom GPTs for ChatGPT](../custom-gpts.md) that package Agent Skills into a conversational interface — no installation, no API keys. Just click and chat.

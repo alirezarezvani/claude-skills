@@ -27,8 +27,7 @@ from dataclasses import dataclass, field, asdict
 from typing import List, Dict, Optional, Tuple
 from datetime import datetime, timedelta
 from statistics import mean, stdev, median
-import numpy as np
-from scipy import stats
+
 
 
 @dataclass

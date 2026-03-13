@@ -1,175 +1,255 @@
 # Experiment Domains Guide
 
-## Domain 1: ML Training (Karpathy-style)
+## Domain: Engineering
 
-**Best for:** LLM/neural net training optimization on a single GPU
+### Code Speed Optimization
 
-**Requirements:**
-- NVIDIA GPU (H100 recommended, A100/RTX also work)
-- CUDA + PyTorch
-- `uv` package manager
-- ~50GB disk (training data)
-
-**Setup:**
 ```bash
-# Clone autoresearch repo (the ML training environment)
-git clone https://github.com/karpathy/autoresearch my-ml-research
-cd my-ml-research
-uv sync
-uv run prepare.py  # one-time data download + tokenizer (~2 min)
-
-# Initialize autoresearch skill
-cp -r ~/.claude/skills/autoresearch-agent/scripts ./scripts
-
-# Configure
-python scripts/setup_experiment.py --domain ml --tag mar13
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name api-speed \
+  --target src/api/search.py \
+  --eval "python -m pytest tests/bench_search.py --tb=no -q" \
+  --metric p50_ms \
+  --direction lower \
+  --evaluator benchmark_speed
 ```
 
-**Metric:** `val_bpb` — validation bits per byte. Lower = better model.
+**What the agent optimizes:** Algorithm, data structures, caching, query patterns, I/O.
+**Cost:** Free — just runs benchmarks.
+**Speed:** ~5 min/experiment, ~12/hour, ~100 overnight.
 
-**What the agent can change in `train.py`:**
-- Model depth, width, attention heads
-- Learning rate, scheduler, warmup
-- Optimizer (Muon, AdamW, variants)
-- Batch size, gradient accumulation
-- Architecture (attention patterns, FFN type)
+### Bundle Size Reduction
 
-**Tip for smaller GPUs (Mac M-series, RTX 3090 etc):**
-Karpathy recommends forks for non-H100 hardware. Lower `DEPTH` to 4, use TinyStories dataset, lower `MAX_SEQ_LEN` to 256.
+```bash
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name bundle-size \
+  --target webpack.config.js \
+  --eval "npm run build && python .autoresearch/engineering/bundle-size/evaluate.py" \
+  --metric size_bytes \
+  --direction lower \
+  --evaluator benchmark_size
+```
+
+Edit `evaluate.py` to set `TARGET_FILE = "dist/main.js"` and add `BUILD_CMD = "npm run build"`.
+
+### Test Pass Rate
+
+```bash
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name fix-flaky-tests \
+  --target src/utils/parser.py \
+  --eval "python .autoresearch/engineering/fix-flaky-tests/evaluate.py" \
+  --metric pass_rate \
+  --direction higher \
+  --evaluator test_pass_rate
+```
+
+### Docker Build Speed
+
+```bash
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name docker-build \
+  --target Dockerfile \
+  --eval "python .autoresearch/engineering/docker-build/evaluate.py" \
+  --metric build_seconds \
+  --direction lower \
+  --evaluator build_speed
+```
+
+### Memory Optimization
+
+```bash
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name memory-usage \
+  --target src/processor.py \
+  --eval "python .autoresearch/engineering/memory-usage/evaluate.py" \
+  --metric peak_mb \
+  --direction lower \
+  --evaluator memory_usage
+```
+
+### ML Training (Karpathy-style)
+
+Requires NVIDIA GPU. See [autoresearch](https://github.com/karpathy/autoresearch).
+
+```bash
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name ml-training \
+  --target train.py \
+  --eval "uv run train.py" \
+  --metric val_bpb \
+  --direction lower \
+  --time-budget 5
+```
 
 ---
 
-## Domain 2: Prompt Engineering
+## Domain: Marketing
 
-**Best for:** Optimizing system prompts for quality/accuracy/tone
+### Medium Article Headlines
 
-**Requirements:**
-- LLM API access (OpenAI, Anthropic, etc.)
-- Test cases with expected outputs
-- An LLM judge for scoring (can be same model)
-
-**Setup:**
 ```bash
-mkdir my-prompt-research && cd my-prompt-research
-git init
-
-# Create prompt.md (the thing being optimized)
-echo "You are a helpful assistant." > prompt.md
-
-# Create evaluate.py (fixed — never modify)
-cat > evaluate.py << 'EOF'
-#!/usr/bin/env python3
-# Fixed evaluation harness — DO NOT MODIFY
-import json, sys
-from pathlib import Path
-
-PROMPT = Path("prompt.md").read_text()
-# Load test cases
-TEST_CASES = json.loads(Path("tests/cases.json").read_text())
-
-# Run prompt against test cases, score with LLM judge
-# ... (customize for your LLM + scoring logic)
-total = sum(score_case(PROMPT, case) for case in TEST_CASES)
-score = total / len(TEST_CASES) * 100
-print(f"eval_score: {score:.2f}")
-EOF
-
-# Initialize
-python scripts/setup_experiment.py --domain prompt --tag mar13
+python scripts/setup_experiment.py \
+  --domain marketing \
+  --name medium-ctr \
+  --target content/titles.md \
+  --eval "python .autoresearch/marketing/medium-ctr/evaluate.py" \
+  --metric ctr_score \
+  --direction higher \
+  --evaluator llm_judge_content
 ```
 
-**Metric:** `eval_score` (0-100). Higher = better prompt.
+Edit `evaluate.py`: set `TARGET_FILE = "content/titles.md"` and `CLI_TOOL = "claude"`.
+
+**What the agent optimizes:** Title phrasing, curiosity gaps, specificity, emotional triggers.
+**Cost:** Uses your CLI subscription (Claude Max = unlimited).
+**Speed:** ~2 min/experiment, ~30/hour.
+
+### Social Media Copy
+
+```bash
+python scripts/setup_experiment.py \
+  --domain marketing \
+  --name twitter-engagement \
+  --target social/tweets.md \
+  --eval "python .autoresearch/marketing/twitter-engagement/evaluate.py" \
+  --metric engagement_score \
+  --direction higher \
+  --evaluator llm_judge_copy
+```
+
+Edit `evaluate.py`: set `PLATFORM = "twitter"` (or linkedin, instagram).
+
+### Email Subject Lines
+
+```bash
+python scripts/setup_experiment.py \
+  --domain marketing \
+  --name email-open-rate \
+  --target emails/subjects.md \
+  --eval "python .autoresearch/marketing/email-open-rate/evaluate.py" \
+  --metric engagement_score \
+  --direction higher \
+  --evaluator llm_judge_copy
+```
+
+Edit `evaluate.py`: set `PLATFORM = "email"`.
+
+### Ad Copy
+
+```bash
+python scripts/setup_experiment.py \
+  --domain marketing \
+  --name ad-copy-q2 \
+  --target ads/google-search.md \
+  --eval "python .autoresearch/marketing/ad-copy-q2/evaluate.py" \
+  --metric engagement_score \
+  --direction higher \
+  --evaluator llm_judge_copy
+```
+
+Edit `evaluate.py`: set `PLATFORM = "ad"`.
 
 ---
 
-## Domain 3: Code Performance
+## Domain: Content
 
-**Best for:** Optimizing a specific hot module for speed
+### Article Structure & Readability
 
-**Requirements:**
-- A Python module with measurable performance
-- Existing tests (correctness must not regress)
-- A benchmark harness
-
-**Setup:**
 ```bash
-cd my-project
-
-# Create benchmark.py (fixed — never modify)
-cat > benchmark.py << 'EOF'
-#!/usr/bin/env python3
-# Fixed benchmark — DO NOT MODIFY
-import time, statistics
-from src.module import your_function
-from tests.test_module import run_tests
-
-# Correctness check first
-if not run_tests():
-    print("TESTS FAILED")
-    sys.exit(1)
-
-# Benchmark
-data = generate_test_data(n=10000)
-times = []
-for _ in range(10):
-    t0 = time.perf_counter()
-    your_function(data)
-    times.append((time.perf_counter() - t0) * 1000)
-
-p50 = statistics.median(times)
-print(f"p50_ms: {p50:.2f}")
-print(f"p95_ms: {statistics.quantiles(times, n=20)[18]:.2f}")
-EOF
-
-python scripts/setup_experiment.py --domain code \
-  --target src/module.py \
-  --tag mar13
+python scripts/setup_experiment.py \
+  --domain content \
+  --name article-structure \
+  --target drafts/my-article.md \
+  --eval "python .autoresearch/content/article-structure/evaluate.py" \
+  --metric ctr_score \
+  --direction higher \
+  --evaluator llm_judge_content
 ```
 
-**Metric:** `p50_ms` — median latency. Lower = faster.
+### SEO Descriptions
+
+```bash
+python scripts/setup_experiment.py \
+  --domain content \
+  --name seo-meta \
+  --target seo/descriptions.md \
+  --eval "python .autoresearch/content/seo-meta/evaluate.py" \
+  --metric ctr_score \
+  --direction higher \
+  --evaluator llm_judge_content
+```
 
 ---
 
-## Domain 4: Agent Skill Optimization
+## Domain: Prompts
 
-**Best for:** Improving the quality of claude-skills SKILL.md files
+### System Prompt Optimization
 
-**Requirements:**
-- A SKILL.md to optimize
-- A task evaluation suite (15-20 standardized tasks)
-- An LLM judge for scoring
-
-**Setup:**
 ```bash
-# Create a new skill research project
-mkdir skill-research-{skill-name} && cd skill-research-{skill-name}
-git init
-
-# Copy the skill to optimize
-cp ~/.claude/skills/{skill-name}/SKILL.md .
-
-# Create evaluate.py
-cat > scripts/skill_evaluator.py << 'EOF'
-#!/usr/bin/env python3
-# Fixed evaluator — DO NOT MODIFY
-# Runs SKILL.md against 15 standardized tasks using LLM judge
-# Outputs: pass_rate: 0.80 (etc.)
-EOF
-
-python scripts/setup_experiment.py --domain skill --tag mar13
+python scripts/setup_experiment.py \
+  --domain prompts \
+  --name support-bot \
+  --target prompts/support-system.md \
+  --eval "python .autoresearch/prompts/support-bot/evaluate.py" \
+  --metric quality_score \
+  --direction higher \
+  --evaluator llm_judge_prompt
 ```
 
-**Metric:** `pass_rate` (0-1). Higher = better skill.
+Requires `tests/cases.json` with test inputs and expected outputs:
+
+```json
+[
+  {
+    "input": "I can't log in to my account",
+    "expected": "Ask for email, check account status, offer password reset"
+  },
+  {
+    "input": "How do I cancel my subscription?",
+    "expected": "Empathetic response, explain cancellation steps, offer retention"
+  }
+]
+```
+
+### Agent Skill Optimization
+
+```bash
+python scripts/setup_experiment.py \
+  --domain prompts \
+  --name skill-improvement \
+  --target SKILL.md \
+  --eval "python .autoresearch/prompts/skill-improvement/evaluate.py" \
+  --metric quality_score \
+  --direction higher \
+  --evaluator llm_judge_prompt
+```
 
 ---
 
 ## Choosing Your Domain
 
-| Question | Recommendation |
-|----------|---------------|
-| Do I have a GPU and want to improve an LLM? | ML Training |
-| Do I want to improve a prompt/system message? | Prompt Engineering |
-| Do I have slow Python code I want to speed up? | Code Performance |
-| Do I want to improve one of my claude-skills? | Skill Optimization |
+| I want to... | Domain | Evaluator | Cost |
+|-------------|--------|-----------|------|
+| Speed up my code | engineering | benchmark_speed | Free |
+| Shrink my bundle | engineering | benchmark_size | Free |
+| Fix flaky tests | engineering | test_pass_rate | Free |
+| Speed up Docker builds | engineering | build_speed | Free |
+| Reduce memory usage | engineering | memory_usage | Free |
+| Train ML models | engineering | (custom) | Free + GPU |
+| Write better headlines | marketing | llm_judge_content | Subscription |
+| Improve social posts | marketing | llm_judge_copy | Subscription |
+| Optimize email subjects | marketing | llm_judge_copy | Subscription |
+| Improve ad copy | marketing | llm_judge_copy | Subscription |
+| Optimize article structure | content | llm_judge_content | Subscription |
+| Improve SEO descriptions | content | llm_judge_content | Subscription |
+| Optimize system prompts | prompts | llm_judge_prompt | Subscription |
+| Improve agent skills | prompts | llm_judge_prompt | Subscription |
 
-**First time?** Start with **Prompt Engineering** — no GPU required, fast experiments (2 min each), immediately applicable results.
+**First time?** Start with an engineering experiment (free, fast, measurable). Once comfortable, try content/marketing with LLM judges.

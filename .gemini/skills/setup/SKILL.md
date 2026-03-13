@@ -1,0 +1,1 @@
+../../../engineering/autoresearch-agent/skills/setup/SKILL.md

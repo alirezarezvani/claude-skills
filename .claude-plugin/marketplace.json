@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "177 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (24+25), C-level advisory (28), regulatory/QMS (12), product (12), project management (6), business growth (4), and finance (2). Includes 254 Python tools, 357 reference documents, 16 agents, and 17 slash commands.",
+  "description": "177 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (24+25), C-level advisory (28), regulatory/QMS (12), product (12), project management (6), business growth (4), and finance (2). Includes 254 Python tools, 357 reference documents, 17 agents, and 22 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "177 production-ready skill packages across 9 domains with 254 Python tools, 357 reference documents, 16 agents, and 17 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "177 production-ready skill packages across 9 domains with 254 Python tools, 357 reference documents, 17 agents, and 22 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
@@ -241,6 +241,25 @@
         "auto-memory",
         "self-improvement",
         "learning"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "autoresearch-agent",
+      "source": "./engineering/autoresearch-agent",
+      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "autoresearch",
+        "optimization",
+        "experiments",
+        "benchmarks",
+        "loop",
+        "metrics",
+        "evaluators"
       ],
       "category": "development"
     },

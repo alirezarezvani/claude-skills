@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills"
-description: "All 26 Engineering - POWERFUL skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "All 32 Engineering - POWERFUL skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">26 skills in this domain</p>
+<p class="domain-count">32 skills in this domain</p>
 
 </div>
 
@@ -40,6 +40,12 @@ description: "All 26 Engineering - POWERFUL skills for Claude Code, Codex CLI, G
     ---
 
     Tier: POWERFUL
+
+-   **[Autoresearch Agent](autoresearch-agent.md)** + 5 sub-skills
+
+    ---
+
+    > You sleep. The agent experiments. You wake up to results.
 
 -   **[Changelog Generator](changelog-generator.md)**
 
@@ -99,7 +105,7 @@ description: "All 26 Engineering - POWERFUL skills for Claude Code, Codex CLI, G
 
     ---
 
-    Comprehensive interview system design, competency assessment, and hiring process optimization.
+    Comprehensive interview loop planning and calibration support for role-based hiring systems.
 
 -   **[MCP Server Builder](mcp-server-builder.md)**
 

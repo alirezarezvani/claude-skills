@@ -1,0 +1,13 @@
+{
+  "name": "autoresearch-agent",
+  "description": "Autonomous experiment loop that optimizes any file by a measurable metric. 5 slash commands, 8 evaluators, configurable loop intervals (10min to monthly).",
+  "version": "2.1.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

@@ -19,11 +19,9 @@ Usage:
 """
 
 import argparse
-import os
 import shutil
 import subprocess
 import sys
-import time
 from datetime import datetime
 from pathlib import Path
 
@@ -159,13 +157,19 @@ def copy_evaluator(experiment_dir, evaluator_name):
 def create_branch(path, domain, name):
     """Create and checkout the experiment branch."""
     branch = f"autoresearch/{domain}/{name}"
-    code, _, err = run_cmd(f"git checkout -b {branch}", cwd=path)
-    if code != 0:
-        if "already exists" in err:
+    result = subprocess.run(
+        ["git", "checkout", "-b", branch],
+        cwd=path, capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        if "already exists" in result.stderr:
             print(f"  Branch '{branch}' already exists. Checking out...")
-            run_cmd(f"git checkout {branch}", cwd=path)
+            subprocess.run(
+                ["git", "checkout", branch],
+                cwd=path, capture_output=True, text=True
+            )
             return branch
-        print(f"  Warning: could not create branch: {err}")
+        print(f"  Warning: could not create branch: {result.stderr}")
         return None
     print(f"  Created branch: {branch}")
     return branch
@@ -229,10 +233,17 @@ def list_evaluators():
         # Read first docstring line
         desc = ""
         for line in f.read_text().splitlines():
-            if line.strip().startswith('"""') or line.strip().startswith("'''"):
+            stripped = line.strip()
+            if stripped.startswith('"""') or stripped.startswith("'''"):
+                quote = stripped[:3]
+                # Single-line docstring: """Description."""
+                after_quote = stripped[3:]
+                if after_quote and after_quote.rstrip(quote[0]).strip():
+                    desc = after_quote.rstrip('"').rstrip("'").strip()
+                    break
                 continue
-            if line.strip() and not line.startswith("#!"):
-                desc = line.strip().strip('"').strip("'")
+            if stripped and not line.startswith("#!"):
+                desc = stripped.strip('"').strip("'")
                 break
         print(f"  {f.stem:<25} {desc}")
 
@@ -252,7 +263,6 @@ def main():
                         help="Where to store experiments: project (./) or user (~/)")
     parser.add_argument("--constraints", default="", help="Additional constraints for program.md")
     parser.add_argument("--path", default=".", help="Project root path")
-    parser.add_argument("--skip-baseline", action="store_true", help="Skip baseline run")
     parser.add_argument("--skip-branch", action="store_true", help="Don't create git branch")
     parser.add_argument("--list", action="store_true", help="List all experiments")
     parser.add_argument("--list-evaluators", action="store_true", help="List available evaluators")
@@ -288,7 +298,11 @@ def main():
     print(f"  Time: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
 
     # Check git
-    code, _, _ = run_cmd("git rev-parse --is-inside-work-tree", cwd=str(project_root))
+    result = subprocess.run(
+        ["git", "rev-parse", "--is-inside-work-tree"],
+        cwd=str(project_root), capture_output=True, text=True
+    )
+    code = result.returncode
     if code != 0:
         print("  Error: not a git repository. Run: git init && git add . && git commit -m 'initial'")
         sys.exit(1)
@@ -362,7 +376,7 @@ def main():
     if not args.skip_branch:
         print(f"  Branch: autoresearch/{args.domain}/{args.name}")
     print(f"\n  To start:")
-    print(f"  python scripts/run_experiment.py --experiment {args.domain}/{args.name} --loop")
+    print(f"  python scripts/run_experiment.py --experiment {args.domain}/{args.name} --single")
 
 
 if __name__ == "__main__":

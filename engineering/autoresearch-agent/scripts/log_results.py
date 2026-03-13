@@ -18,6 +18,7 @@ import argparse
 import csv
 import io
 import sys
+import time
 from pathlib import Path
 
 
@@ -80,7 +81,7 @@ def compute_stats(results, direction):
         best = None
 
     pct_change = None
-    if baseline and best and baseline != 0:
+    if baseline is not None and best is not None and baseline != 0:
         if direction == "lower":
             pct_change = (baseline - best) / baseline * 100
         else:
@@ -145,17 +146,16 @@ def print_dashboard(root):
             direction = config.get("metric_direction", "lower")
             stats = compute_stats(results, direction)
 
+            best_str = f"{stats['best']:.4f}" if stats["best"] is not None else "—"
+            pct_str = f"{stats['pct_change']:+.1f}%" if stats["pct_change"] is not None else "—"
+
             # Determine status
             status = "idle"
             if stats["total"] > 0:
                 tsv = exp_dir / "results.tsv"
                 if tsv.exists():
-                    import time
                     age_hours = (time.time() - tsv.stat().st_mtime) / 3600
                     status = "active" if age_hours < 1 else "paused" if age_hours < 24 else "done"
-
-            best_str = f"{stats['best']:.4f}" if stats["best"] is not None else "—"
-            pct_str = f"{stats['pct_change']:+.1f}%" if stats["pct_change"] is not None else "—"
 
             experiments.append({
                 "domain": domain_dir.name,
@@ -202,7 +202,7 @@ def export_experiment_csv(experiment_dir, experiment_path):
     if stats["baseline"] is not None:
         writer.writerow(["# Baseline", f"{stats['baseline']:.6f}"])
     if stats["best"] is not None:
-        pct = f" ({stats['pct_change']:+.1f}%)" if stats["pct_change"] else ""
+        pct = f" ({stats['pct_change']:+.1f}%)" if stats["pct_change"] is not None else ""
         writer.writerow(["# Best", f"{stats['best']:.6f}{pct}"])
     writer.writerow(["# Total", stats["total"]])
     writer.writerow(["# Keep/Discard/Crash", f"{stats['keeps']}/{stats['discards']}/{stats['crashes']}"])
@@ -216,11 +216,13 @@ def export_experiment_csv(experiment_dir, experiment_path):
     return buf.getvalue()
 
 
-def export_dashboard_csv(root):
+def export_dashboard_csv(root, domain_filter=None):
     """Export dashboard as CSV string."""
     experiments = []
     for domain_dir in sorted(root.iterdir()):
         if not domain_dir.is_dir() or domain_dir.name.startswith("."):
+            continue
+        if domain_filter and domain_dir.name != domain_filter:
             continue
         for exp_dir in sorted(domain_dir.iterdir()):
             if not exp_dir.is_dir() or not (exp_dir / "config.cfg").exists():
@@ -229,8 +231,8 @@ def export_dashboard_csv(root):
             results = load_results(exp_dir)
             direction = config.get("metric_direction", "lower")
             stats = compute_stats(results, direction)
-            best_str = f"{stats['best']:.6f}" if stats["best"] else ""
-            pct_str = f"{stats['pct_change']:+.1f}%" if stats["pct_change"] else ""
+            best_str = f"{stats['best']:.6f}" if stats["best"] is not None else ""
+            pct_str = f"{stats['pct_change']:+.1f}%" if stats["pct_change"] is not None else ""
             experiments.append([
                 domain_dir.name, exp_dir.name, config.get("metric", ""),
                 stats["total"], stats["keeps"], stats["discards"], stats["crashes"],
@@ -262,7 +264,7 @@ def export_experiment_markdown(experiment_dir, experiment_path):
     lines.append(f"**Experiments:** {stats['total']} total — {stats['keeps']} kept, {stats['discards']} discarded, {stats['crashes']} crashed\n")
 
     if stats["baseline"] is not None and stats["best"] is not None:
-        pct = f" ({stats['pct_change']:+.1f}%)" if stats["pct_change"] else ""
+        pct = f" ({stats['pct_change']:+.1f}%)" if stats["pct_change"] is not None else ""
         lines.append(f"**Progress:** `{stats['baseline']:.6f}` → `{stats['best']:.6f}`{pct}\n")
 
     lines.append(f"| Commit | Metric | Status | Description |")
@@ -275,7 +277,7 @@ def export_experiment_markdown(experiment_dir, experiment_path):
     return "\n".join(lines)
 
 
-def export_dashboard_markdown(root):
+def export_dashboard_markdown(root, domain_filter=None):
     """Export dashboard as Markdown string."""
     lines = []
     lines.append("# Autoresearch Dashboard\n")
@@ -285,6 +287,8 @@ def export_dashboard_markdown(root):
     for domain_dir in sorted(root.iterdir()):
         if not domain_dir.is_dir() or domain_dir.name.startswith("."):
             continue
+        if domain_filter and domain_dir.name != domain_filter:
+            continue
         for exp_dir in sorted(domain_dir.iterdir()):
             if not exp_dir.is_dir() or not (exp_dir / "config.cfg").exists():
                 continue
@@ -292,10 +296,9 @@ def export_dashboard_markdown(root):
             results = load_results(exp_dir)
             direction = config.get("metric_direction", "lower")
             stats = compute_stats(results, direction)
-            best = f"`{stats['best']:.4f}`" if stats["best"] else "—"
-            pct = f"{stats['pct_change']:+.1f}%" if stats["pct_change"] else "—"
+            best = f"`{stats['best']:.4f}`" if stats["best"] is not None else "—"
+            pct = f"{stats['pct_change']:+.1f}%" if stats["pct_change"] is not None else "—"
 
-            import time
             tsv = exp_dir / "results.tsv"
             status = "idle"
             if tsv.exists() and stats["total"] > 0:
@@ -356,7 +359,7 @@ def main():
                 # For CSV/MD, fall through to dashboard with domain filter
         if args.format != "terminal":
             # Use dashboard export filtered to domain
-            output_text = export_dashboard_csv(root) if args.format == "csv" else export_dashboard_markdown(root)
+            output_text = export_dashboard_csv(root, domain_filter=args.domain) if args.format == "csv" else export_dashboard_markdown(root, domain_filter=args.domain)
         else:
             return
 

@@ -37,8 +37,17 @@ Score the actual output on these criteria (each 1-10):
 Output EXACTLY: quality_score: <average of all 4>
 Nothing else."""
 
-prompt = Path(TARGET_FILE).read_text()
-test_cases = json.loads(Path(TEST_CASES_FILE).read_text())
+try:
+    prompt = Path(TARGET_FILE).read_text()
+except FileNotFoundError:
+    print(f"Target file not found: {TARGET_FILE}", file=sys.stderr)
+    sys.exit(1)
+
+try:
+    test_cases = json.loads(Path(TEST_CASES_FILE).read_text())
+except FileNotFoundError:
+    print(f"Test cases file not found: {TEST_CASES_FILE}", file=sys.stderr)
+    sys.exit(1)
 
 scores = []
 
@@ -92,7 +101,7 @@ if not scores:
     sys.exit(1)
 
 avg = sum(scores) / len(scores)
-quality = avg * 10  # Scale to 0-100
+quality = avg * 10  # 1-10 scores → 10-100 range
 
 print(f"quality_score: {quality:.2f}")
 print(f"cases_tested: {len(scores)}")

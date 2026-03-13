@@ -75,8 +75,8 @@ Maximize eval_score on the test suite. Higher is better (0-100).
 
 ## Evaluation
 - evaluate.py runs the prompt against 20 test cases
-- Each test case is scored 0-5 by GPT-4o
-- eval_score = average * 20 (maps to 0-100)
+- Each test case is scored 1-10 by your CLI tool (Claude, Codex, or Gemini)
+- quality_score = average * 10 (maps to 10-100)
 - Run log shows which test cases failed
 
 ## Stop When
@@ -144,14 +144,14 @@ Maximize pass_rate on the task evaluation suite. Higher is better (0-1).
 - Proactive trigger conditions
 
 ## What You Cannot Change
-- scripts/skill_evaluator.py (fixed evaluation)
+- your custom evaluate.py (see Custom Evaluators in SKILL.md)
 - Test tasks in tests/ (ground truth benchmark)
 - Skill name (used for routing)
 - License or metadata
 
 ## Evaluation
-- skill_evaluator.py runs SKILL.md against 15 standardized tasks
-- An AI judge scores each task: 0 (fail), 0.5 (partial), 1 (pass)
+- evaluate.py runs SKILL.md against 15 standardized tasks
+- Your CLI tool scores each task: 0 (fail), 0.5 (partial), 1 (pass)
 - pass_rate = sum(scores) / 15
 
 ## Strategy

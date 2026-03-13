@@ -1,6 +1,6 @@
 # Claude Code Skills & Plugins
 
-**177 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.**
+**177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.**
 
 Reusable expertise packages that give AI coding agents domain knowledge they don't have out of the box — from architecture and security to marketing, compliance, and C-level advisory.
 
@@ -8,9 +8,9 @@ Reusable expertise packages that give AI coding agents domain knowledge they don
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-177-brightgreen?style=for-the-badge)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-16-blue?style=for-the-badge)](#agents)
+[![Agents](https://img.shields.io/badge/Agents-17-blue?style=for-the-badge)](#agents)
 [![Personas](https://img.shields.io/badge/Personas-3-purple?style=for-the-badge)](#personas)
-[![Commands](https://img.shields.io/badge/Commands-17-orange?style=for-the-badge)](#commands)
+[![Commands](https://img.shields.io/badge/Commands-22-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 

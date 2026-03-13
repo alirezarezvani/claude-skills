@@ -43,7 +43,12 @@ ctr_score: <average of all 5 scores>
 
 Be harsh. Most content is mediocre (4-6 range). Only exceptional content scores 8+."""
 
-content = Path(TARGET_FILE).read_text()
+try:
+    content = Path(TARGET_FILE).read_text()
+except FileNotFoundError:
+    print(f"Target file not found: {TARGET_FILE}", file=sys.stderr)
+    sys.exit(1)
+
 full_prompt = f"{JUDGE_PROMPT}\n\n---\n\nContent to evaluate:\n\n{content}"
 
 # Call the user's CLI tool

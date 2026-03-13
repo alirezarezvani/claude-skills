@@ -54,6 +54,9 @@ platform_prompt = JUDGE_PROMPTS.get(PLATFORM, JUDGE_PROMPTS["twitter"])
 
 JUDGE_PROMPT = f"""{platform_prompt}
 
+IMPORTANT: You MUST use criterion_1 through criterion_5 as labels, NOT the criterion names.
+Do NOT output "hook: 7" — output "criterion_1: 7".
+
 Output EXACTLY this format:
 criterion_1: <score>
 criterion_2: <score>
@@ -64,7 +67,12 @@ engagement_score: <average of all 5>
 
 Be harsh. Most copy is mediocre (4-6). Only exceptional copy scores 8+."""
 
-content = Path(TARGET_FILE).read_text()
+try:
+    content = Path(TARGET_FILE).read_text()
+except FileNotFoundError:
+    print(f"Target file not found: {TARGET_FILE}", file=sys.stderr)
+    sys.exit(1)
+
 full_prompt = f"{JUDGE_PROMPT}\n\n---\n\nCopy to evaluate:\n\n{content}"
 
 result = subprocess.run(
@@ -77,12 +85,29 @@ if result.returncode != 0:
     sys.exit(1)
 
 output = result.stdout
+found_scores = False
 for line in output.splitlines():
     line = line.strip()
     if line.startswith("engagement_score:") or line.startswith("criterion_"):
         print(line)
+        found_scores = True
 
-if "engagement_score:" not in output:
+# Fallback: if no criterion_ lines found, try parsing any "word: digit" lines
+if not found_scores:
+    import re
+    fallback_scores = []
+    for line in output.splitlines():
+        line = line.strip()
+        match = re.match(r'^(\w[\w\s]*?):\s*(\d+(?:\.\d+)?)\s*$', line)
+        if match and match.group(1).lower() not in ("engagement_score",):
+            fallback_scores.append(float(match.group(2)))
+            print(f"criterion_{len(fallback_scores)}: {match.group(2)}")
+    if fallback_scores:
+        avg = sum(fallback_scores) / len(fallback_scores)
+        print(f"engagement_score: {avg:.1f}")
+        found_scores = True
+
+if "engagement_score:" not in output and not found_scores:
     print("Could not parse engagement_score from LLM output", file=sys.stderr)
     print(f"Raw: {output[:500]}", file=sys.stderr)
     sys.exit(1)

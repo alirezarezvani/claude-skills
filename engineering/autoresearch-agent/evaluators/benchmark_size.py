@@ -36,7 +36,11 @@ if "DOCKER_IMAGE" in dir() or "DOCKER_IMAGE" in globals():
         f"docker image inspect {DOCKER_IMAGE} --format '{{{{.Size}}}}'",
         shell=True, capture_output=True, text=True
     )
-    size_bytes = int(result.stdout.strip())
+    try:
+        size_bytes = int(result.stdout.strip())
+    except ValueError:
+        print(f"Could not parse size from: {result.stdout[:100]}", file=sys.stderr)
+        sys.exit(1)
 elif "TARGET_DIR" in dir() or "TARGET_DIR" in globals():
     size_bytes = sum(
         os.path.getsize(os.path.join(dp, f))

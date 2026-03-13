@@ -1,15 +1,20 @@
 ---
-name: "autoresearch-agent"
-description: "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
-license: MIT
-metadata:
-  version: 2.0.0
-  author: Alireza Rezvani
-  category: engineering
-  updated: 2026-03-13
+title: "Autoresearch Agent"
+description: "Autoresearch Agent - Claude Code skill from the Engineering - POWERFUL domain."
 ---
 
 # Autoresearch Agent
+
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `autoresearch-agent`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/SKILL.md">Source</a></span>
+</div>
+
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
+
 
 > You sleep. The agent experiments. You wake up to results.
 
@@ -295,7 +300,7 @@ cp -r claude-skills/engineering/autoresearch-agent ~/.claude/skills/
 
 ### OpenClaw
 ```bash
-clawhub install cs-autoresearch-agent
+clawhub install autoresearch-agent
 ```
 
 ---

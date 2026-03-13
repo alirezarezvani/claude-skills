@@ -1,13 +1,13 @@
 ---
 title: "Agents"
-description: "All 16 Claude Code agents — multi-skill orchestrators across domains."
+description: "All 21 Claude Code agents — multi-skill orchestrators across domains."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">16 agents that orchestrate skills across domains</p>
+<p class="domain-count">21 agents that orchestrate skills across domains</p>
 
 </div>
 
@@ -66,6 +66,36 @@ description: "All 16 Claude Code agents — multi-skill orchestrators across dom
     ---
 
     Marketing
+
+-   :material-account:{ .lg .middle } **[Persona-Based Agents](readme.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[Agent Name Agent Personality](template.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[Growth Marketer Agent Personality](growth-marketer.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[Solo Founder Agent Personality](solo-founder.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[Startup CTO Agent Personality](startup-cto.md)**
+
+    ---
+
+    Personas
 
 -   :material-lightbulb-outline:{ .lg .middle } **[Agile Product Owner Agent](cs-agile-product-owner.md)**
 

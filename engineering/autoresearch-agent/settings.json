@@ -1,0 +1,22 @@
+{
+  "name": "autoresearch-agent",
+  "displayName": "Autoresearch Agent",
+  "version": "2.1.2",
+  "description": "Autonomous experiment loop — optimize any file by a measurable metric.",
+  "author": "Alireza Rezvani",
+  "license": "MIT",
+  "platforms": ["claude-code", "openclaw", "codex"],
+  "category": "engineering",
+  "tags": ["optimization", "experiments", "benchmarks", "autoresearch", "loop", "metrics"],
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "commands": {
+    "setup": "/ar:setup",
+    "run": "/ar:run",
+    "loop": "/ar:loop",
+    "status": "/ar:status",
+    "resume": "/ar:resume"
+  },
+  "agents": [
+    "experiment-runner"
+  ]
+}

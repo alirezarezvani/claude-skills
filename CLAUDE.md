@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 177 production-ready skills across 9 domains with 254 Python automation tools, 357 reference guides, 16 agents, and 17 slash commands.
+**Current Scope:** 177 production-ready skills across 9 domains with 254 Python automation tools, 357 reference guides, 17 agents, and 22 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -37,7 +37,7 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
 ├── agents/                    # 15 cs-* prefixed agents across all domains
-├── commands/                  # 17 slash commands (changelog, tdd, saas-health, workspace, prd, sprint-plan, etc.)
+├── commands/                  # 22 slash commands (changelog, tdd, saas-health, workspace, prd, sprint-plan, ar:*, etc.)
 ├── engineering-team/          # 24 core engineering skills + Playwright Pro + Self-Improving Agent
 ├── engineering/               # 25 POWERFUL-tier advanced skills
 ├── product-team/              # 12 product skills + Python tools
@@ -150,7 +150,7 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 **Phase 1-2 Complete:** 177 production-ready skills deployed across 9 domains
 - Engineering Core (24), Engineering POWERFUL (25), Product (8), Marketing (43), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
-- 254 Python automation tools, 357 reference guides, 16 agents, 17 commands
+- 254 Python automation tools, 357 reference guides, 17 agents, 22 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
 - MkDocs Material docs site with 210+ indexed pages for SEO
 

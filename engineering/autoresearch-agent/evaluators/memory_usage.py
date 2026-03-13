@@ -2,7 +2,6 @@
 """Measure peak memory usage of a command.
 DO NOT MODIFY after experiment starts — this is the fixed evaluator."""
 
-import os
 import platform
 import subprocess
 import sys
@@ -41,8 +40,10 @@ elif system == "Darwin":
         if "maximum resident set size" in line.lower():
             # macOS reports in bytes
             val = int(line.strip().split()[0])
+            kb = val / 1024
             mb = val / (1024 * 1024)
             print(f"peak_mb: {mb:.1f}")
+            print(f"peak_kb: {int(kb)}")
             sys.exit(0)
     print("Could not parse memory from time output", file=sys.stderr)
     sys.exit(1)

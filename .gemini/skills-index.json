@@ -1,8 +1,18 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 218,
+  "total_skills": 229,
   "skills": [
+    {
+      "name": "README",
+      "category": "agent",
+      "description": "Agent from personas"
+    },
+    {
+      "name": "TEMPLATE",
+      "category": "agent",
+      "description": "One paragraph describing what this agent does, who it's for, and when to activate it."
+    },
     {
       "name": "cs-agile-product-owner",
       "category": "agent",
@@ -82,6 +92,21 @@
       "name": "cs-workspace-admin",
       "category": "agent",
       "description": "Google Workspace administration agent using the gws CLI. Orchestrates workspace setup, Gmail/Drive/Sheets/Calendar automation, security audits, and recipe execution. Spawn when users need Google Workspace automation, gws CLI help, or workspace administration."
+    },
+    {
+      "name": "growth-marketer",
+      "category": "agent",
+      "description": "Growth marketing specialist for bootstrapped startups and indie hackers. Builds content engines, optimizes funnels, runs launch sequences, and finds scalable acquisition channels \u2014 all on a budget that makes enterprise marketers cry."
+    },
+    {
+      "name": "solo-founder",
+      "category": "agent",
+      "description": "Your co-founder who doesn't exist yet. Covers product, engineering, marketing, and strategy for one-person startups \u2014 because nobody's stopping you from making bad decisions and somebody should."
+    },
+    {
+      "name": "startup-cto",
+      "category": "agent",
+      "description": "Technical co-founder who's been through two startups and learned what actually matters. Makes architecture decisions, selects tech stacks, builds engineering culture, and prepares for technical due diligence \u2014 all while shipping fast with a small team."
     },
     {
       "name": "business-growth-bundle",
@@ -579,6 +604,11 @@
       "description": "API Test Suite Builder"
     },
     {
+      "name": "autoresearch-agent",
+      "category": "engineering-advanced",
+      "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
+    },
+    {
       "name": "changelog-generator",
       "category": "engineering-advanced",
       "description": "Changelog Generator"
@@ -629,6 +659,11 @@
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
     },
     {
+      "name": "loop",
+      "category": "engineering-advanced",
+      "description": "Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, monthly). Uses CronCreate for scheduling."
+    },
+    {
       "name": "mcp-server-builder",
       "category": "engineering-advanced",
       "description": "MCP Server Builder"
@@ -669,6 +704,16 @@
       "description": "Release Manager"
     },
     {
+      "name": "resume",
+      "category": "engineering-advanced",
+      "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating."
+    },
+    {
+      "name": "run",
+      "category": "engineering-advanced",
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
+    },
+    {
       "name": "runbook-generator",
       "category": "engineering-advanced",
       "description": "Runbook Generator"
@@ -679,6 +724,11 @@
       "description": "Skill from engineering/skill-tester/assets/sample-skill"
     },
     {
+      "name": "setup",
+      "category": "engineering-advanced",
+      "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator."
+    },
+    {
       "name": "skill-security-auditor",
       "category": "engineering-advanced",
       "description": ">"
@@ -687,6 +737,11 @@
       "name": "skill-tester",
       "category": "engineering-advanced",
       "description": "Skill Tester"
+    },
+    {
+      "name": "skills-status",
+      "category": "engineering-advanced",
+      "description": "Show experiment dashboard with results, active loops, and progress."
     },
     {
       "name": "tech-debt-tracker",
@@ -1096,7 +1151,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 16,
+      "count": 21,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -1116,7 +1171,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 27,
+      "count": 33,
       "description": "Engineering-advanced resources"
     },
     "finance": {

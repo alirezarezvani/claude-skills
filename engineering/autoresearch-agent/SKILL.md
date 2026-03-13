@@ -1,9 +1,9 @@
 ---
 name: "autoresearch-agent"
-description: "Autonomous experiment loop that runs overnight research without human intervention. Inspired by Karpathy's autoresearch: agent modifies a target file, runs an evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when the user wants to: autonomously optimize ML training code, improve prompts by eval score, benchmark-drive code performance, or run any experiment loop with a measurable metric. Requires: a target file to modify, a fixed evaluation function, and a git repo."
+description: "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
 license: MIT
 metadata:
-  version: 1.0.0
+  version: 2.0.0
   author: Alireza Rezvani
   category: engineering
   updated: 2026-03-13
@@ -13,194 +13,233 @@ metadata:
 
 > You sleep. The agent experiments. You wake up to results.
 
-Autonomous experiment loop inspired by Andrej Karpathy's [autoresearch](https://github.com/karpathy/autoresearch). The agent proposes changes, runs a fixed-time evaluation, keeps improvements via git, discards failures, and loops indefinitely — no human in the loop.
+Autonomous experiment loop inspired by [Karpathy's autoresearch](https://github.com/karpathy/autoresearch). The agent edits one file, runs a fixed evaluation, keeps improvements, discards failures, and loops indefinitely.
 
-**Works for any domain with a measurable metric:**
-- ML training optimization (original use case — optimize `train.py` by `val_bpb`)
-- Prompt engineering (optimize system prompts by LLM-eval quality score)
-- Code performance (optimize a module by benchmark runtime/score)
-- Agent skill improvement (optimize `SKILL.md` by task completion rate)
+Not one guess — fifty measured attempts, compounding.
 
 ---
 
-## Before Starting
+## When This Skill Activates
 
-Check for `program.md` in the project root. If it exists, read it — it defines the experiment objectives, constraints, and what the agent should optimize. Only ask for what's missing.
+Recognize these patterns from the user:
 
-If no `program.md` exists, run the **Setup Wizard** below.
+- "Make this faster / smaller / better"
+- "Optimize [file] for [metric]"
+- "Improve my [headlines / copy / prompts]"
+- "Run experiments overnight"
+- "I want to get [metric] from X to Y"
+- Any request involving: optimize, benchmark, improve, experiment loop, autoresearch
 
----
-
-## Setup Wizard
-
-Answer these 5 questions to configure the experiment:
-
-### 1. What are we optimizing?
-The **target** — one file the agent is allowed to modify:
-- `train.py` — ML training loop (Karpathy-style)
-- `prompt.md` — system prompt for an LLM
-- `src/module.py` — a specific code module
-- `SKILL.md` — an agent skill definition
-
-### 2. What's the metric?
-A **single number** that defines success. Lower or higher = better:
-- `val_bpb` — validation bits per byte (ML, lower is better)
-- `eval_score` — LLM quality score 0-100 (higher is better)
-- `p50_ms` — median latency in milliseconds (lower is better)
-- `pass_rate` — test pass rate 0-1 (higher is better)
-
-### 3. What's the time budget per experiment?
-How long one experiment run takes:
-- `5m` — fast iteration (Karpathy default, ~12 experiments/hour)
-- `10m` — moderate (6/hour)
-- `30m` — slow but thorough (2/hour)
-
-### 4. What can the agent change?
-Constraints on the target file:
-- Architecture only? Hyperparameters only? Everything?
-- What packages/imports are available?
-- What's explicitly off-limits?
-
-### 5. What's the evaluation function?
-How we score each experiment:
-- Fixed script that outputs the metric (e.g. `python evaluate.py`)
-- API call that returns a score
-- Test suite with a pass rate
-
-Once answered, run: `python scripts/setup_experiment.py` to initialize.
+If the user describes a target file + a way to measure success → this skill applies.
 
 ---
 
-## The Three Files
+## Setup
 
-Every autoresearch project has the same structure:
+### First Time — Create the Experiment
 
-```
-project/
-├── program.md       ← Human writes this: objectives, constraints, strategy
-├── target.*         ← Agent modifies this: the thing being optimized
-├── evaluate.py      ← Fixed: the measurement function (never touch)
-├── results.tsv      ← Auto-generated: experiment log (git-tracked for continuity)
-└── scripts/
-    ├── setup_experiment.py   ← Initialize a new run
-    ├── run_experiment.py     ← Execute one experiment iteration
-    └── log_results.py        ← Record results to TSV
+Run the setup script. The user decides where experiments live:
+
+**Project-level** (inside repo, git-tracked, shareable with team):
+```bash
+python scripts/setup_experiment.py \
+  --domain engineering \
+  --name api-speed \
+  --target src/api/search.py \
+  --eval "pytest bench.py --tb=no -q" \
+  --metric p50_ms \
+  --direction lower \
+  --scope project
 ```
 
-### `program.md` — Your Research Directions
-Write this once. The agent reads it before every experiment. It should contain:
-- **Goal:** What you want to achieve (minimize loss, maximize score, simplify code)
-- **Strategy:** What directions to explore first
-- **Constraints:** What the agent cannot change
-- **Stopping criteria:** When a result is "good enough"
+**User-level** (personal, in `~/.autoresearch/`):
+```bash
+python scripts/setup_experiment.py \
+  --domain marketing \
+  --name medium-ctr \
+  --target content/titles.md \
+  --eval "python evaluate.py" \
+  --metric ctr_score \
+  --direction higher \
+  --evaluator llm_judge_content \
+  --scope user
+```
 
-See `references/program-template.md` for domain-specific templates.
+The `--scope` flag determines where `.autoresearch/` lives:
+- `project` (default) → `.autoresearch/` in the repo root. Experiment definitions are git-tracked. Results are gitignored.
+- `user` → `~/.autoresearch/` in the home directory. Everything is personal.
 
-### Target File — The Only File the Agent Edits
-Whatever you're optimizing. Strict scope: **one file, one metric**.
+### What Setup Creates
 
-### `evaluate.py` — Fixed Evaluation (Never Modified)
-The measurement function. Outputs the metric value to stdout. The agent reads this output — it cannot change how it's measured.
+```
+.autoresearch/
+├── config.yaml                        ← Global settings
+├── .gitignore                         ← Ignores results.tsv, *.log
+└── {domain}/{experiment-name}/
+    ├── program.md                     ← Objectives, constraints, strategy
+    ├── config.cfg                     ← Target, eval cmd, metric, direction
+    ├── results.tsv                    ← Experiment log (gitignored)
+    └── evaluate.py                    ← Evaluation script (if --evaluator used)
+```
+
+### Domains
+
+| Domain | Use Cases |
+|--------|-----------|
+| `engineering` | Code speed, memory, bundle size, test pass rate, build time |
+| `marketing` | Headlines, social copy, email subjects, ad copy, engagement |
+| `content` | Article structure, SEO descriptions, readability, CTR |
+| `prompts` | System prompts, chatbot tone, agent instructions |
+| `custom` | Anything else with a measurable metric |
+
+### If `program.md` Already Exists
+
+The user may have written their own `program.md`. If found in the experiment directory, read it. It overrides the template. Only ask for what's missing.
 
 ---
 
 ## The Experiment Loop
 
-Run: `python scripts/run_experiment.py --loop`
+### Starting an Experiment
+
+```bash
+# Run specific experiment
+python scripts/run_experiment.py --experiment engineering/api-speed --loop
+
+# Single iteration (test setup)
+python scripts/run_experiment.py --experiment engineering/api-speed --single
+
+# Resume last active experiment
+python scripts/run_experiment.py --resume --loop
+
+# Dry run (show what would happen)
+python scripts/run_experiment.py --experiment engineering/api-speed --dry-run
+```
+
+### The Loop Protocol
 
 ```
 LOOP FOREVER:
 
-1. Read program.md for current strategy
-2. Review git history: what has been tried? What worked?
-3. Propose ONE change to the target file
-4. Apply the change
-5. git commit (with descriptive message)
-6. Run evaluation: python evaluate.py > run.log 2>&1
-7. Parse metric from run.log
-8. If metric improved → ADVANCE (keep commit, log "keep")
-9. If metric equal/worse → REVERT (git reset, log "discard")
-10. If crash → attempt fix, if unfixable log "crash" and revert
-11. Update results.tsv
-12. Go to 1
+1. Read program.md for current strategy and constraints
+2. Review git log: what has been tried? What worked? What crashed?
+3. Review results.tsv: current best metric, trend, recent failures
+4. Propose ONE change to the target file
+5. Apply the change
+6. git commit -m "experiment: [short description of what changed]"
+7. Run evaluation: {eval_command} > .autoresearch/{domain}/{name}/run.log 2>&1
+8. Parse metric from run.log (grep for metric_name: value)
+9. Decision:
+   - Metric improved → KEEP (advance branch, log "keep")
+   - Metric equal or worse → REVERT (git reset --hard, log "discard")
+   - Crash/timeout/parse failure → attempt fix once, else REVERT (log "crash")
+10. Append result to results.tsv
+11. Go to 1
 ```
 
-### Rules (from Karpathy's original)
+### Rules
 
-- **NEVER STOP** — once the loop starts, do not ask the human if you should continue. They may be asleep. Run until manually interrupted.
-- **Simplicity criterion** — a small improvement that adds ugly complexity is not worth it. Removing code and getting equal results is a win.
-- **One change per experiment** — don't change 5 things at once. You won't know what worked.
-- **Crash = discard** — OOM, error, timeout → log "crash", revert, move on.
-- **Time limit** — if run exceeds 2.5× the time budget, kill it and treat as crash.
-- **No new dependencies** — only use what's already available.
+- **NEVER STOP.** The human may be asleep. Run until manually interrupted. If you run out of ideas, read papers, re-read the target, try combining previous near-misses, try radical changes.
+- **One change per experiment.** Don't change 5 things at once. You won't know what worked.
+- **Simplicity criterion.** A small improvement that adds ugly complexity is not worth it. Equal performance with simpler code is a win. Removing code that gets same results is the best outcome.
+- **Never modify the evaluator.** `evaluate.py` is the ground truth. Modifying it invalidates all comparisons. Hard stop if you catch yourself doing this.
+- **Timeout.** If a run exceeds 2.5× the time budget, kill it and treat as crash.
+- **Crash handling.** If it's a typo or missing import, fix and re-run. If the idea is fundamentally broken, revert, log "crash", move on. 5 consecutive crashes → pause and alert.
+- **No new dependencies.** Only use what's already available in the project.
 
 ---
 
-## Results Log
+## Evaluators
 
-`results.tsv` (tab-separated, not git-tracked):
+Ready-to-use evaluation scripts. Copied into the experiment directory during setup with `--evaluator`.
 
+### Free Evaluators (no API cost)
+
+| Evaluator | Metric | Use Case |
+|-----------|--------|----------|
+| `benchmark_speed` | `p50_ms` (lower) | Function/API execution time |
+| `benchmark_size` | `size_bytes` (lower) | File, bundle, Docker image size |
+| `test_pass_rate` | `pass_rate` (higher) | Test suite pass percentage |
+| `build_speed` | `build_seconds` (lower) | Build/compile/Docker build time |
+| `memory_usage` | `peak_mb` (lower) | Peak memory during execution |
+
+### LLM Judge Evaluators (uses your subscription)
+
+| Evaluator | Metric | Use Case |
+|-----------|--------|----------|
+| `llm_judge_content` | `ctr_score` 0-10 (higher) | Headlines, titles, descriptions |
+| `llm_judge_prompt` | `quality_score` 0-100 (higher) | System prompts, agent instructions |
+| `llm_judge_copy` | `engagement_score` 0-10 (higher) | Social posts, ad copy, emails |
+
+LLM judges call the CLI tool the user is already running (Claude, Codex, Gemini). The evaluation prompt is locked inside `evaluate.py` — the agent cannot modify it. This prevents the agent from gaming its own evaluator.
+
+The user's existing subscription covers the cost:
+- Claude Code Max → unlimited Claude calls for evaluation
+- Codex CLI (ChatGPT Pro) → unlimited Codex calls
+- Gemini CLI (free tier) → free evaluation calls
+
+### Custom Evaluators
+
+If no built-in evaluator fits, the user writes their own `evaluate.py`. Only requirement: it must print `metric_name: value` to stdout.
+
+```python
+#!/usr/bin/env python3
+# My custom evaluator — DO NOT MODIFY after experiment starts
+import subprocess
+result = subprocess.run(["my-benchmark", "--json"], capture_output=True, text=True)
+# Parse and output
+print(f"my_metric: {parse_score(result.stdout)}")
 ```
-commit  metric  status  description
-a1b2c3d 0.9979  keep    baseline
-b2c3d4e 0.9932  keep    increased learning rate
-c3d4e5f 1.0050  discard switched to GeLU (worse)
-d4e5f6g 0.0000  crash   doubled model width (OOM)
-```
-
-Run `python scripts/log_results.py --summary` for a visual summary.
 
 ---
 
-## Domain-Specific Configurations
+## Viewing Results
 
-### ML Training (Karpathy-style)
-```yaml
-target: train.py
-evaluate: uv run prepare.py --eval-only
-metric: val_bpb (lower is better)
-time_budget: 5m
-git_branch: autoresearch/{date}-{tag}
+```bash
+# Single experiment
+python scripts/log_results.py --experiment engineering/api-speed
+
+# All experiments in a domain
+python scripts/log_results.py --domain engineering
+
+# Cross-experiment dashboard
+python scripts/log_results.py --dashboard
+
+# Export formats
+python scripts/log_results.py --experiment engineering/api-speed --format csv --output results.csv
+python scripts/log_results.py --experiment engineering/api-speed --format markdown --output results.md
+python scripts/log_results.py --dashboard --format markdown --output dashboard.md
 ```
 
-### Prompt Engineering
-```yaml
-target: prompt.md
-evaluate: python evaluate.py --model gpt-4o --test-cases tests/
-metric: eval_score (0-100, higher is better)
-time_budget: 2m
-git_branch: prompt-research/{date}
+### Dashboard Output
+
+```
+DOMAIN          EXPERIMENT          RUNS  KEPT  BEST         Δ FROM START  STATUS
+engineering     api-speed            47    14   185ms        -76.9%        active
+engineering     bundle-size          23     8   412KB        -58.3%        paused
+marketing       medium-ctr           31    11   8.4/10       +68.0%        active
+prompts         support-tone         15     6   82/100       +46.4%        done
 ```
 
-### Code Performance
-```yaml
-target: src/hot_module.py
-evaluate: python benchmark.py --runs 5 --warmup 1
-metric: p50_ms (lower is better)
-time_budget: 10m
-git_branch: perf-research/{date}
-```
+### Export Formats
 
-### Agent Skill Optimization
-```yaml
-target: SKILL.md
-evaluate: python scripts/skill_evaluator.py --task-suite tests/
-metric: pass_rate (0-1, higher is better)
-time_budget: 5m
-git_branch: skill-research/{date}
-```
-
-See `references/experiment-domains.md` for full setup guides per domain.
+- **TSV** — default, tab-separated (compatible with spreadsheets)
+- **CSV** — comma-separated, with proper quoting
+- **Markdown** — formatted table, readable in GitHub/docs
 
 ---
 
-## Scripts
+## Proactive Triggers
 
-| Script | Purpose |
-|--------|---------|
-| `setup_experiment.py` | Initialize a new research run: create branch, verify setup, baseline run |
-| `run_experiment.py` | Execute the autonomous loop (single run or `--loop` for infinite) |
-| `log_results.py` | Record results to TSV; `--summary` prints progress table |
+Flag these without being asked:
+
+- **No evaluation command works** → Test it before starting the loop. Run once, verify output.
+- **Target file not in git** → `git init && git add . && git commit -m 'initial'` first.
+- **Metric direction unclear** → Ask: is lower or higher better? Must know before starting.
+- **Time budget too short** → If eval takes longer than budget, every run crashes.
+- **Agent modifying evaluate.py** → Hard stop. This invalidates all comparisons.
+- **5 consecutive crashes** → Pause the loop. Alert the user. Don't keep burning cycles.
+- **No improvement in 20+ runs** → Suggest changing strategy in program.md or trying a different approach.
 
 ---
 
@@ -214,7 +253,6 @@ cp -r claude-skills/engineering/autoresearch-agent ~/.claude/skills/
 
 ### Multi-tool install
 ```bash
-# Clone the repo, then use the convert script for your tool:
 ./scripts/convert.sh --skill autoresearch-agent --tool codex|gemini|cursor|windsurf|openclaw
 ```
 
@@ -225,22 +263,9 @@ clawhub install autoresearch-agent
 
 ---
 
-## Proactive Triggers
-
-Flag these issues without being asked:
-
-- **No `evaluate.py` exists** → Experiment can't run. Offer to create one from a template.
-- **Target file has no git history** → `git init` and commit baseline first.
-- **Metric direction unclear** → Ask: is lower or higher better? Agent must know before starting.
-- **Time budget too short** → If evaluation takes longer than budget, experiments will always crash.
-- **`results.tsv` in `.gitignore`** → It shouldn't be. The log must persist across sessions.
-- **Agent modifying `evaluate.py`** → Hard stop. This invalidates all comparisons.
-
----
-
 ## Related Skills
 
-- **self-improving-agent**: Use when improving an agent's own memory/rules over time. NOT for structured experiment loops with metrics.
-- **senior-ml-engineer**: Use for ML architecture decisions and training setup. NOT for autonomous overnight loops.
-- **skill-security-auditor**: Use to audit skills before publishing. NOT for optimization loops.
-- **tdd-guide**: Use when you want tests to drive development. Complementary — can use tests as the evaluation function.
+- **self-improving-agent** — improves an agent's own memory/rules over time. NOT for structured experiment loops.
+- **senior-ml-engineer** — ML architecture decisions. Complementary — use for initial design, then autoresearch for optimization.
+- **tdd-guide** — test-driven development. Complementary — tests can be the evaluation function.
+- **skill-security-auditor** — audit skills before publishing. NOT for optimization loops.

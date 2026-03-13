@@ -255,3 +255,6 @@ See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-
 
 ??? question "Does this work with Cursor, Windsurf, Aider, or other tools?"
     Yes. All 156 skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.
+
+??? question "Can I use Agent Skills in ChatGPT?"
+    Yes. We have [6 Custom GPTs](custom-gpts.md) that bring Agent Skills directly into ChatGPT — no installation needed. Just click and start chatting.

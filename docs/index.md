@@ -113,6 +113,14 @@ hide:
 
     [:octicons-arrow-right-24: Multi-tool setup](integrations.md)
 
+-   :material-chat-outline:{ .lg .middle } **6 Custom GPTs**
+
+    ---
+
+    Use Agent Skills directly in ChatGPT — no setup needed. Solo Founder, SEO Audit, Content Strategy, CTO Advisor, and more.
+
+    [:octicons-arrow-right-24: Open GPTs](custom-gpts.md)
+
 </div>
 
 ---

@@ -35,6 +35,9 @@ AUDIT_REPORT.md
 # Archive folder (historical/backup files)
 archive/
 
+# Custom GPT configurations (private — instructions not publicly exposed)
+custom-gpt/*-gpt.md
+
 # MkDocs build output
 site/
 .playwright-mcp/

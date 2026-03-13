@@ -4,17 +4,17 @@ This guide covers the 24 production-ready engineering skills and their Python au
 
 ## Engineering Skills Overview
 
-**Core Engineering (13 skills):**
+**Core Engineering (14 skills):**
 - senior-architect, senior-frontend, senior-backend, senior-fullstack
 - senior-qa, senior-devops, senior-secops
 - code-reviewer, senior-security
-- aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator
+- aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator, epic-design
 
 **AI/ML/Data (5 skills):**
 - senior-data-scientist, senior-data-engineer, senior-ml-engineer
 - senior-prompt-engineer, senior-computer-vision
 
-**Total Tools:** 30+ Python automation tools
+**Total Tools:** 32+ Python automation tools
 
 ## Core Engineering Tools
 
@@ -287,6 +287,23 @@ services:
 
 ---
 
-**Last Updated:** March 11, 2026
-**Skills Deployed:** 24 engineering skills production-ready
-**Total Tools:** 35+ Python automation tools across core + AI/ML/Data
+**Last Updated:** March 13, 2026
+**Skills Deployed:** 25 engineering skills production-ready
+**Total Tools:** 37+ Python automation tools across core + AI/ML/Data + epic-design
+
+---
+
+## epic-design
+
+Build cinematic 2.5D interactive websites with scroll storytelling, parallax depth, and premium animations. Includes asset inspection pipeline, 45+ techniques across 8 categories, and accessibility built-in.
+
+**Key features:**
+- 6-layer depth system with automatic parallax
+- 13 text animation techniques, 9 scroll patterns
+- Asset inspection with background judgment rules
+- Python tool for automated image analysis
+- WCAG 2.1 AA compliant (reduced-motion)
+
+**Use for:** Product launches, portfolio sites, SaaS marketing pages, event sites, Apple-style animations
+
+**Live demo:** [epic-design-showcase.vercel.app](https://epic-design-showcase.vercel.app/)

@@ -369,7 +369,7 @@
       "name": "autoresearch-agent",
       "source": "../../engineering/autoresearch-agent",
       "category": "engineering-advanced",
-      "description": "Autonomous experiment loop that runs overnight research without human intervention. Inspired by Karpathy's autoresearch: agent modifies a target file, runs an evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when the user wants to: autonomously optimize ML training code, improve prompts by eval score, benchmark-drive code performance, or run any experiment loop with a measurable metric. Requires: a target file to modify, a fixed evaluation function, and a git repo."
+      "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
     },
     {
       "name": "changelog-generator",

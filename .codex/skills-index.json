@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 157,
+  "total_skills": 158,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -214,6 +214,12 @@
       "source": "../../engineering-team/email-template-builder",
       "category": "engineering",
       "description": "Email Template Builder"
+    },
+    {
+      "name": "epic-design",
+      "source": "../../engineering-team/epic-design",
+      "category": "engineering",
+      "description": ">"
     },
     {
       "name": "google-workspace-cli",
@@ -960,7 +966,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 24,
+      "count": 25,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },

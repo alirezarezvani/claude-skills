@@ -1,8 +1,8 @@
-# Agent Skills & Plugins for Every Coding Agent
+# Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**192 production-ready agent skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.**
+**192 production-ready Claude Code skills, plugins, and agent skills for 11 AI coding tools.**
 
-The most comprehensive open-source library of agent skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and 7 more coding agents. Reusable expertise packages that give AI coding agents domain knowledge they don't have out of the box — from architecture and security to marketing, compliance, and C-level advisory.
+The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 7 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing, compliance, C-level advisory, and more.
 
 **Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
@@ -14,13 +14,13 @@ The most comprehensive open-source library of agent skills and plugins for Claud
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
-> **5,200+ GitHub stars** — the most comprehensive open-source agent skills & plugins library for AI coding agents.
+> **5,200+ GitHub stars** — the most comprehensive open-source Claude Code skills & agent plugins library.
 
 ---
 
-## What Are Agent Skills & Plugins?
+## What Are Claude Code Skills & Agent Plugins?
 
-Agent skills (also called coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
+Claude Code skills (also called agent skills or coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
 
 - **SKILL.md** — structured instructions, workflows, and decision frameworks
 - **Python tools** — 254 CLI scripts (all stdlib-only, zero pip installs)

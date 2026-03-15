@@ -1,6 +1,6 @@
 ---
 name: "business-growth-skills"
-description: "4 production-ready business and growth skills: customer success manager with health scoring and churn prediction, sales engineer with RFP analysis, revenue operations with pipeline and GTM metrics, and contract & proposal writer. Python tools included (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
+description: "4 business growth agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Customer success (health scoring, churn), sales engineer (RFP), revenue operations (pipeline, GTM), contract & proposal writer. Python tools (stdlib-only)."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT

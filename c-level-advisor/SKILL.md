@@ -1,6 +1,6 @@
 ---
 name: "c-level-advisor"
-description: "Provides strategic business advice by channelling the perspectives of 10 executive roles — CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, and Executive Mentor — across decisions, trade-offs, and org challenges. Runs multi-role board meetings, routes questions to the right executive voice, and delivers structured recommendations (Bottom Line → What → Why → How to Act → Your Decision). Use when a founder or executive needs business strategy advice, leadership perspective, executive decision support, board-level input, fundraising guidance, product-market fit review, hiring or culture frameworks, risk assessment, or competitive analysis."
+description: "10 C-level advisory agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor. Multi-role board meetings, strategy routing, structured recommendations. For founders needing executive-level decision support."
 license: MIT
 metadata:
   version: 2.0.0

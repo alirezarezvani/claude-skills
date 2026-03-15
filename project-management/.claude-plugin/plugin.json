@@ -1,6 +1,6 @@
 {
   "name": "pm-skills",
-  "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, and template creator for Atlassian users",
+  "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, and template creator for Atlassian users. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
   "version": "2.1.2",
   "author": {
     "name": "Alireza Rezvani",

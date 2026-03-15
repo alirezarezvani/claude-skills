@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 160,
+  "total_skills": 162,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -432,6 +432,12 @@
       "description": "Git Worktree Manager"
     },
     {
+      "name": "helm-chart-builder",
+      "source": "../../engineering/helm-chart-builder",
+      "category": "engineering-advanced",
+      "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
+    },
+    {
       "name": "interview-system-designer",
       "source": "../../engineering/interview-system-designer",
       "category": "engineering-advanced",
@@ -508,6 +514,12 @@
       "source": "../../engineering/tech-debt-tracker",
       "category": "engineering-advanced",
       "description": "Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation."
+    },
+    {
+      "name": "terraform-patterns",
+      "source": "../../engineering/terraform-patterns",
+      "category": "engineering-advanced",
+      "description": "Terraform infrastructure-as-code agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Covers module design patterns, state management strategies, provider configuration, security hardening, policy-as-code with Sentinel/OPA, and CI/CD plan/apply workflows. Use when: user wants to design Terraform modules, manage state backends, review Terraform security, implement multi-region deployments, or follow IaC best practices."
     },
     {
       "name": "financial-analyst",
@@ -983,7 +995,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 27,
+      "count": 29,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

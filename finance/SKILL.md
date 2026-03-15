@@ -1,6 +1,6 @@
 ---
 name: "finance-skills"
-description: "Production-ready financial analyst skill with ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction. 4 Python tools (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
+description: "Financial analyst agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Ratio analysis, DCF valuation, budget variance, rolling forecasts. 4 Python tools (stdlib-only)."
 version: 1.0.0
 author: Alireza Rezvani
 license: MIT

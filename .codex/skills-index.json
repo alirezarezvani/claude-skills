@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 158,
+  "total_skills": 160,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -414,6 +414,12 @@
       "description": "Dependency Auditor"
     },
     {
+      "name": "docker-development",
+      "source": "../../engineering/docker-development",
+      "category": "engineering-advanced",
+      "description": "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance, layer caching, secret management, and production-ready container patterns."
+    },
+    {
       "name": "env-secrets-manager",
       "source": "../../engineering/env-secrets-manager",
       "category": "engineering-advanced",
@@ -822,6 +828,12 @@
       "description": "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product vision documents, and team scaling proposals. Use when creating quarterly OKR documents, defining product goals or KPIs, building product roadmaps, running competitive analysis, drafting team structure or hiring plans, aligning product strategy across engineering and design, or generating cascaded goal hierarchies from company to team level."
     },
     {
+      "name": "research-summarizer",
+      "source": "../../product-team/research-summarizer",
+      "category": "product",
+      "description": "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative analyses, and produces properly formatted citations. Use when: user wants to summarize a research paper, compare multiple sources, extract citations from documents, or create structured research briefs. Plugin for Claude Code, Codex, Gemini CLI, and OpenClaw."
+    },
+    {
       "name": "roadmap-communicator",
       "source": "../../product-team/roadmap-communicator",
       "category": "product",
@@ -971,7 +983,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 26,
+      "count": 27,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
@@ -986,7 +998,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 12,
+      "count": 13,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

@@ -1,32 +1,32 @@
-# Claude Code Skills & Plugins
+# Agent Skills & Plugins for Every Coding Agent
 
-**177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.**
+**192 production-ready agent skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools.**
 
-Reusable expertise packages that give AI coding agents domain knowledge they don't have out of the box — from architecture and security to marketing, compliance, and C-level advisory.
+The most comprehensive open-source library of agent skills and plugins for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and 7 more coding agents. Reusable expertise packages that give AI coding agents domain knowledge they don't have out of the box — from architecture and security to marketing, compliance, and C-level advisory.
 
 **Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-177-brightgreen?style=for-the-badge)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-192-brightgreen?style=for-the-badge)](#skills-overview)
 [![Agents](https://img.shields.io/badge/Agents-17-blue?style=for-the-badge)](#agents)
 [![Personas](https://img.shields.io/badge/Personas-3-purple?style=for-the-badge)](#personas)
 [![Commands](https://img.shields.io/badge/Commands-22-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
-> **4,400+ GitHub stars** — the most comprehensive open-source skill library for AI coding agents.
+> **5,200+ GitHub stars** — the most comprehensive open-source agent skills & plugins library for AI coding agents.
 
 ---
 
-## What Are Skills?
+## What Are Agent Skills & Plugins?
 
-Skills are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
+Agent skills (also called coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
 
 - **SKILL.md** — structured instructions, workflows, and decision frameworks
 - **Python tools** — 254 CLI scripts (all stdlib-only, zero pip installs)
 - **Reference docs** — templates, checklists, and domain-specific knowledge
 
-**One repo, eleven platforms.** Works natively with Claude Code, and converts to 10 other tools via `scripts/convert.sh`. All 254 Python tools run anywhere Python runs.
+**One repo, eleven platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, and converts to 8 more tools via `scripts/convert.sh`. All 254 Python tools run anywhere Python runs.
 
 ### Skills vs Agents vs Personas
 

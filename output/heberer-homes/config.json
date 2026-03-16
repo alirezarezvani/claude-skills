@@ -1,0 +1,80 @@
+{
+  "brand": "Heberer Homes",
+  "title": "Sell Your House Fast for Cash | Heberer Homes",
+  "meta_description": "Heberer Homes buys houses in any condition for cash. No repairs, no agents, no fees. Get a fair cash offer in 24 hours and close in as little as 7 days.",
+  "design_style": "bold-startup",
+  "copy_framework": "PAS",
+  "nav_links": [
+    {"text": "How It Works", "url": "#how-it-works"},
+    {"text": "Why Us", "url": "#why-us"},
+    {"text": "Testimonials", "url": "#testimonials"},
+    {"text": "FAQ", "url": "#faq"}
+  ],
+  "nav_cta": {
+    "text": "Get My Cash Offer",
+    "url": "#get-offer"
+  },
+  "hero": {
+    "headline": "Sell Your House Fast — For Cash. No Repairs. No Hassle.",
+    "subheadline": "Heberer Homes buys houses in any condition. Get a fair, no-obligation cash offer within 24 hours and close on your timeline — as fast as 7 days. No agents, no commissions, no hidden fees.",
+    "primary_cta": {
+      "text": "Get My Free Cash Offer",
+      "url": "#get-offer"
+    },
+    "secondary_cta": {
+      "text": "Call Us Now: (555) 123-4567",
+      "url": "tel:5551234567"
+    }
+  },
+  "features": {
+    "title": "How It Works",
+    "subtitle": "Selling your house shouldn't take months or cost thousands in repairs and agent fees. With Heberer Homes, it takes 3 simple steps.",
+    "items": [
+      {
+        "icon": "1",
+        "title": "Tell Us About Your Property",
+        "description": "Fill out our simple form or give us a call. Tell us about your house — any condition, any situation. We buy homes others won't."
+      },
+      {
+        "icon": "2",
+        "title": "Get Your Fair Cash Offer",
+        "description": "We'll evaluate your property and present a no-obligation cash offer within 24 hours. No lowball tactics — just a fair, honest price."
+      },
+      {
+        "icon": "3",
+        "title": "Close On Your Timeline",
+        "description": "Pick your closing date — as soon as 7 days or whenever works for you. We handle all the paperwork and pay all closing costs. Walk away with cash in hand."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Homeowners Who Trusted Heberer Homes",
+    "items": [
+      {
+        "quote": "I inherited a house that needed $40K in repairs. Heberer Homes gave me a fair offer and closed in 10 days. No contractors, no stress, no surprises. I couldn't believe how easy it was.",
+        "name": "Sarah M.",
+        "title": "Inherited Property",
+        "company": "Louisville, KY"
+      },
+      {
+        "quote": "After my divorce, I needed to sell fast and move on. They made me an offer the same day I called and worked around my schedule. The whole process was respectful and professional.",
+        "name": "James T.",
+        "title": "Divorce Sale",
+        "company": "Lexington, KY"
+      },
+      {
+        "quote": "We were facing foreclosure and running out of time. Heberer Homes stepped in, made a fair cash offer, and closed in just 8 days. They literally saved our credit and gave us a fresh start.",
+        "name": "Linda & Robert K.",
+        "title": "Foreclosure Prevention",
+        "company": "Cincinnati, OH"
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Ready to Sell Your House the Easy Way?",
+    "subheadline": "No repairs. No agents. No fees. Just a fair cash offer and a closing date that works for you. Get started in under 60 seconds.",
+    "text": "Get My Free Cash Offer Now",
+    "url": "#get-offer"
+  },
+  "footer_text": "2026 Heberer Homes. All rights reserved. | We buy houses in any condition for cash."
+}

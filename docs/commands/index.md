@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "17 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "19 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">17 commands for quick access to common operations</p>
+<p class="domain-count">19 commands for quick access to common operations</p>
 
 </div>
 
@@ -18,6 +18,12 @@ description: "17 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Generate Keep a Changelog entries from git history and validate commit message format.
+
+-   :material-console:{ .lg .middle } **[`/code-to-prd`](code-to-prd.md)**
+
+    ---
+
+    Reverse-engineer a frontend codebase into a complete Product Requirements Document.
 
 -   :material-console:{ .lg .middle } **[`/competitive-matrix`](competitive-matrix.md)**
 
@@ -54,6 +60,12 @@ description: "17 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Detect project stack and generate CI/CD pipeline configurations for GitHub Actions or GitLab CI.
+
+-   :material-console:{ .lg .middle } **[`/plugin-audit`](plugin-audit.md)**
+
+    ---
+
+    Full audit pipeline for any skill, plugin, agent, or command in this repository. Runs 8 validation phases, auto-fixes...
 
 -   :material-console:{ .lg .middle } **[`/prd`](prd.md)**
 

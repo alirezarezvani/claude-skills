@@ -1,4 +1,10 @@
 ---
+Name: code-to-prd
+Tier: STANDARD
+Category: product
+Dependencies: none
+Author: Alireza Rezvani
+Version: 2.1.2
 name: code-to-prd
 description: |
   Reverse-engineer any codebase into a complete Product Requirements Document (PRD).
@@ -13,13 +19,16 @@ description: |
   or analyze backend routes.
 license: MIT
 metadata:
-  version: 2.1.2
-  author: Alireza Rezvani
-  category: product
-  tier: STANDARD
-  dependencies: none
   updated: 2026-03-17
 ---
+
+## Name
+
+Code → PRD
+
+## Description
+
+Reverse-engineer any frontend, backend, or fullstack codebase into a complete Product Requirements Document (PRD). Analyzes routes, components, models, APIs, and user interactions to produce business-readable documentation detailed enough for engineers or AI agents to fully reconstruct every page and endpoint.
 
 # Code → PRD: Reverse-Engineer Any Codebase into Product Requirements
 

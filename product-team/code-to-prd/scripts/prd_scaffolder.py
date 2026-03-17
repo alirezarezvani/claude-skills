@@ -311,30 +311,124 @@ def scaffold(analysis: Dict[str, Any], output_dir: Path, project_name: Optional[
     print(f"\n   Next: Review each page stub and fill in the TODO sections.")
 
 
+def validate_analysis(analysis: Dict[str, Any]) -> List[str]:
+    """Validate analysis JSON has the required structure. Returns list of errors."""
+    errors = []
+
+    if not isinstance(analysis, dict):
+        return ["Analysis must be a JSON object"]
+
+    if "error" in analysis:
+        errors.append(f"Analysis contains error: {analysis['error']}")
+
+    required_keys = ["project", "routes", "apis"]
+    for key in required_keys:
+        if key not in analysis:
+            errors.append(f"Missing required key: '{key}'")
+
+    if "project" in analysis:
+        proj = analysis["project"]
+        if not isinstance(proj, dict):
+            errors.append("'project' must be an object")
+        elif "framework" not in proj:
+            errors.append("'project.framework' is missing")
+
+    if "routes" in analysis:
+        routes = analysis["routes"]
+        if not isinstance(routes, dict):
+            errors.append("'routes' must be an object")
+        elif "pages" not in routes and "frontend_pages" not in routes and "backend_endpoints" not in routes:
+            errors.append("'routes' must contain 'pages', 'frontend_pages', or 'backend_endpoints'")
+
+    if "apis" in analysis:
+        apis = analysis["apis"]
+        if not isinstance(apis, dict):
+            errors.append("'apis' must be an object")
+        elif "endpoints" not in apis:
+            errors.append("'apis.endpoints' is missing")
+
+    return errors
+
+
+def print_summary(output_dir: Path, analysis: Dict[str, Any]):
+    """Print a structured summary of what was generated."""
+    routes = analysis.get("routes", {}).get("pages", [])
+    apis = analysis.get("apis", {}).get("endpoints", [])
+    enums = analysis.get("enums", {}).get("definitions", [])
+    models = analysis.get("models", {}).get("definitions", [])
+    summary = analysis.get("summary", {})
+    stack = summary.get("stack_type", "unknown")
+
+    print(f"\nPRD scaffold complete: {output_dir}/")
+    print(f"  Stack type:     {stack}")
+    print(f"  Page stubs:     {len(routes)}")
+    print(f"  API endpoints:  {len(apis)}")
+    print(f"  Enums:          {len(enums)}")
+    if models:
+        print(f"  Models:         {len(models)}")
+    print(f"\n  Next: Review each page stub and fill in the TODO sections.")
+
+
 def main():
     parser = argparse.ArgumentParser(
-        description="Scaffold PRD directory from frontend analysis"
+        description="Scaffold PRD directory from codebase analysis"
     )
-    parser.add_argument("analysis", help="Path to analysis JSON from frontend_analyzer.py")
+    parser.add_argument("analysis", help="Path to analysis JSON from codebase_analyzer.py")
     parser.add_argument("-o", "--output-dir", default="prd", help="Output directory (default: prd/)")
     parser.add_argument("-n", "--project-name", help="Override project name")
+    parser.add_argument("--validate-only", action="store_true",
+                        help="Validate analysis JSON without generating files")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Show what would be created without writing files")
     args = parser.parse_args()
 
     analysis_path = Path(args.analysis)
     if not analysis_path.exists():
-        print(f"Error: {analysis_path} not found")
-        return
+        print(f"Error: Analysis file not found: {analysis_path}")
+        raise SystemExit(2)
 
-    with open(analysis_path) as f:
-        analysis = json.load(f)
+    try:
+        with open(analysis_path) as f:
+            analysis = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in {analysis_path}: {e}")
+        raise SystemExit(2)
 
-    if "error" in analysis:
-        print(f"Error in analysis: {analysis['error']}")
+    # Validate
+    errors = validate_analysis(analysis)
+    if errors:
+        print(f"Validation errors in {analysis_path}:")
+        for err in errors:
+            print(f"  - {err}")
+        raise SystemExit(1)
+
+    if args.validate_only:
+        print(f"Analysis file is valid: {analysis_path}")
+        routes = analysis.get("routes", {}).get("pages", [])
+        print(f"  {len(routes)} routes, "
+              f"{len(analysis.get('apis', {}).get('endpoints', []))} APIs, "
+              f"{len(analysis.get('enums', {}).get('definitions', []))} enums")
         return
 
     output_dir = Path(args.output_dir)
+
+    if args.dry_run:
+        routes = analysis.get("routes", {}).get("pages", [])
+        print(f"Dry run — would create in {output_dir}/:\n")
+        print(f"  {output_dir}/README.md")
+        for i, route in enumerate(routes, 1):
+            name = route_to_page_name(route.get("path", "/"))
+            slug = slugify(name) or f"page-{i}"
+            print(f"  {output_dir}/pages/{i:02d}-{slug}.md")
+        print(f"  {output_dir}/appendix/enum-dictionary.md")
+        print(f"  {output_dir}/appendix/api-inventory.md")
+        print(f"  {output_dir}/appendix/page-relationships.md")
+        print(f"\n  Total: {len(routes) + 4} files")
+        return
+
     print(f"Scaffolding PRD in {output_dir}/...\n")
     scaffold(analysis, output_dir, args.project_name)
+    print_summary(output_dir, analysis)
 
 
 if __name__ == "__main__":

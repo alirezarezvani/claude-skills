@@ -419,6 +419,28 @@
         "express"
       ],
       "category": "product"
+    },
+    {
+      "name": "agenthub",
+      "source": "./engineering/agenthub",
+      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "multi-agent",
+        "collaboration",
+        "parallel",
+        "git-dag",
+        "orchestration",
+        "competition",
+        "worktree",
+        "content-generation",
+        "research",
+        "optimization"
+      ],
+      "category": "development"
     }
   ]
 }

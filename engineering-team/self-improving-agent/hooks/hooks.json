@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "./hooks/error-capture.sh"
+            "command": "bash -c 'f=$(find \"${HOME}/.claude/plugins\" -path \"*/self-improving-agent/*/hooks/error-capture.sh\" 2>/dev/null | sort -V | tail -1); [ -n \"$f\" ] && bash \"$f\"'"
           }
         ]
       }

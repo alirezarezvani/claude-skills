@@ -1,6 +1,6 @@
 ---
-title: "ISMS Audit Expert"
-description: "ISMS Audit Expert - Claude Code skill from the Regulatory & Quality domain."
+title: "ISMS Audit Expert — Agent Skill for Compliance"
+description: "Information Security Management System (ISMS) audit expert for ISO 27001 compliance verification, security control assessment, and certification. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # ISMS Audit Expert
@@ -111,7 +111,7 @@ Internal and external ISMS audit management for ISO 27001 compliance verificatio
 5. Evaluate control effectiveness
 6. **Validation:** Evidence supports conclusion about control status
 
-For detailed technical verification procedures by Annex A control, see [security-control-testing.md](references/security-control-testing.md).
+For detailed technical verification procedures by Annex A control, see [security-control-testing.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/references/security-control-testing.md).
 
 ---
 
@@ -219,9 +219,9 @@ python scripts/isms_audit_scheduler.py --controls controls.csv --format markdown
 
 | File | Content |
 |------|---------|
-| [iso27001-audit-methodology.md](references/iso27001-audit-methodology.md) | Audit program structure, pre-audit phase, certification support |
-| [security-control-testing.md](references/security-control-testing.md) | Technical verification procedures for ISO 27002 controls |
-| [cloud-security-audit.md](references/cloud-security-audit.md) | Cloud provider assessment, configuration security, IAM review |
+| [iso27001-audit-methodology.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/references/iso27001-audit-methodology.md) | Audit program structure, pre-audit phase, certification support |
+| [security-control-testing.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/references/security-control-testing.md) | Technical verification procedures for ISO 27002 controls |
+| [cloud-security-audit.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/references/cloud-security-audit.md) | Cloud provider assessment, configuration security, IAM review |
 
 ---
 

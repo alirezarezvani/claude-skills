@@ -1,0 +1,1 @@
+../../../agents/personas/finance-lead.md

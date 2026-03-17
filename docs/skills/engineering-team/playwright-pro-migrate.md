@@ -1,6 +1,6 @@
 ---
-title: "Migrate to Playwright"
-description: "Migrate to Playwright - Claude Code skill from the Engineering - Core domain."
+title: "Migrate to Playwright — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Migrate to Playwright

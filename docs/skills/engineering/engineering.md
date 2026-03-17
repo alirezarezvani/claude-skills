@@ -1,6 +1,6 @@
 ---
-title: "Engineering Advanced Skills (POWERFUL Tier)"
-description: "Engineering Advanced Skills (POWERFUL Tier) - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Engineering Advanced Skills (POWERFUL Tier) — Agent Skill for Codex & OpenClaw"
+description: "25 advanced engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Agent design, RAG, MCP servers, CI/CD."
 ---
 
 # Engineering Advanced Skills (POWERFUL Tier)

@@ -1,6 +1,6 @@
 ---
-title: "Changelog Generator"
-description: "Changelog Generator - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Changelog Generator — Agent Skill for Codex & OpenClaw"
+description: "Changelog Generator. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Changelog Generator
@@ -132,10 +132,10 @@ SemVer mapping:
 
 ## References
 
-- [references/ci-integration.md](references/ci-integration.md)
-- [references/changelog-formatting-guide.md](references/changelog-formatting-guide.md)
-- [references/monorepo-strategy.md](references/monorepo-strategy.md)
-- [README.md](README.md)
+- [references/ci-integration.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/references/ci-integration.md)
+- [references/changelog-formatting-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/references/changelog-formatting-guide.md)
+- [references/monorepo-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/references/monorepo-strategy.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/README.md)
 
 ## Release Governance
 

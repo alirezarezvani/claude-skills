@@ -1,6 +1,6 @@
 ---
-title: "Database Designer - POWERFUL Tier Skill"
-description: "Database Designer - POWERFUL Tier Skill - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Database Designer - POWERFUL Tier Skill — Agent Skill for Codex & OpenClaw"
+description: "Database Designer - POWERFUL Tier Skill. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Database Designer - POWERFUL Tier Skill

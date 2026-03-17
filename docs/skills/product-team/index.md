@@ -1,13 +1,13 @@
 ---
-title: "Product Skills"
-description: "All 13 Product skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "Product Skills — Agent Skills & Codex Plugins"
+description: "14 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightbulb-outline: Product
 
-<p class="domain-count">13 skills in this domain</p>
+<p class="domain-count">14 skills in this domain</p>
 
 </div>
 
@@ -70,6 +70,12 @@ description: "All 13 Product skills for Claude Code, Codex CLI, Gemini CLI, and 
     ---
 
     8 production-ready product skills covering product management, UX/UI design, and SaaS development.
+
+-   **[Research Summarizer](research-summarizer.md)**
+
+    ---
+
+    > Read less. Understand more. Cite correctly.
 
 -   **[Roadmap Communicator](roadmap-communicator.md)**
 

@@ -1,6 +1,6 @@
 ---
-title: "/financial-health"
-description: "/financial-health — Claude Code slash command."
+title: "/financial-health — Slash Command for AI Coding Agents"
+description: "Run financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecasts. Usage: /financial-health <ratios|dcf|budget|forecast>. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /financial-health

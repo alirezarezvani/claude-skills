@@ -1,6 +1,6 @@
 ---
-title: "/pipeline"
-description: "/pipeline — Claude Code slash command."
+title: "/pipeline — Slash Command for AI Coding Agents"
+description: "Detect stack and generate CI/CD pipeline configs. Usage: /pipeline <detect|generate> [options]. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /pipeline

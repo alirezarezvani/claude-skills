@@ -1,6 +1,6 @@
 ---
-title: "Agent Designer - Multi-Agent System Architecture"
-description: "Agent Designer - Multi-Agent System Architecture - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Agent Designer - Multi-Agent System Architecture — Agent Skill for Codex & OpenClaw"
+description: "Agent Designer - Multi-Agent System Architecture. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Agent Designer - Multi-Agent System Architecture

@@ -1,6 +1,6 @@
 ---
-title: "Stripe Integration Expert"
-description: "Stripe Integration Expert - Claude Code skill from the Engineering - Core domain."
+title: "Stripe Integration Expert — Agent Skill & Codex Plugin"
+description: "Stripe Integration Expert. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Stripe Integration Expert

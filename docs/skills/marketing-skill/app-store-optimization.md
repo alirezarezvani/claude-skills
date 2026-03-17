@@ -1,6 +1,6 @@
 ---
-title: "App Store Optimization (ASO)"
-description: "App Store Optimization (ASO) - Claude Code skill from the Marketing domain."
+title: "App Store Optimization (ASO) — Agent Skill for Marketing"
+description: "App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, generating metadata suggestions, and improving app. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # App Store Optimization (ASO)
@@ -64,7 +64,7 @@ Discover and evaluate keywords that drive app store visibility.
 | Short Description (Android) | High |
 | Full Description | Medium |
 
-See: [references/keyword-research-guide.md](references/keyword-research-guide.md)
+See: [references/keyword-research-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/references/keyword-research-guide.md)
 
 ---
 
@@ -136,7 +136,7 @@ PARAGRAPH 5: Call to Action (25-50 words)
 └── Reassurance (free trial, no signup)
 ```
 
-See: [references/platform-requirements.md](references/platform-requirements.md)
+See: [references/platform-requirements.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/references/platform-requirements.md)
 
 ---
 
@@ -247,7 +247,7 @@ Execute a structured launch for maximum initial visibility.
 | Seasonal | Align with relevant category seasons |
 | Competition | Avoid major competitor launch dates |
 
-See: [references/aso-best-practices.md](references/aso-best-practices.md)
+See: [references/aso-best-practices.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/references/aso-best-practices.md)
 
 ---
 
@@ -410,28 +410,28 @@ Trusted by 500,000+ professionals.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| [keyword_analyzer.py](scripts/keyword_analyzer.py) | Analyze keywords for volume and competition | `python keyword_analyzer.py --keywords "todo,task,planner"` |
-| [metadata_optimizer.py](scripts/metadata_optimizer.py) | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
-| [competitor_analyzer.py](scripts/competitor_analyzer.py) | Extract and compare competitor keywords | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
-| [aso_scorer.py](scripts/aso_scorer.py) | Calculate overall ASO health score | `python aso_scorer.py --app-id com.example.app` |
-| [ab_test_planner.py](scripts/ab_test_planner.py) | Plan tests and calculate sample sizes | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
-| [review_analyzer.py](scripts/review_analyzer.py) | Analyze review sentiment and themes | `python review_analyzer.py --app-id com.example.app` |
-| [launch_checklist.py](scripts/launch_checklist.py) | Generate platform-specific launch checklists | `python launch_checklist.py --platform ios` |
-| [localization_helper.py](scripts/localization_helper.py) | Manage multi-language metadata | `python localization_helper.py --locales "en,es,de,ja"` |
+| [keyword_analyzer.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/keyword_analyzer.py) | Analyze keywords for volume and competition | `python keyword_analyzer.py --keywords "todo,task,planner"` |
+| [metadata_optimizer.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/metadata_optimizer.py) | Validate metadata character limits and density | `python metadata_optimizer.py --platform ios --title "App Title"` |
+| [competitor_analyzer.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/competitor_analyzer.py) | Extract and compare competitor keywords | `python competitor_analyzer.py --competitors "App1,App2,App3"` |
+| [aso_scorer.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/aso_scorer.py) | Calculate overall ASO health score | `python aso_scorer.py --app-id com.example.app` |
+| [ab_test_planner.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/ab_test_planner.py) | Plan tests and calculate sample sizes | `python ab_test_planner.py --cvr 0.05 --lift 0.10` |
+| [review_analyzer.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/review_analyzer.py) | Analyze review sentiment and themes | `python review_analyzer.py --app-id com.example.app` |
+| [launch_checklist.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/launch_checklist.py) | Generate platform-specific launch checklists | `python launch_checklist.py --platform ios` |
+| [localization_helper.py](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/scripts/localization_helper.py) | Manage multi-language metadata | `python localization_helper.py --locales "en,es,de,ja"` |
 
 ### References
 
 | Document | Content |
 |----------|---------|
-| [platform-requirements.md](references/platform-requirements.md) | iOS and Android metadata specs, visual asset requirements |
-| [aso-best-practices.md](references/aso-best-practices.md) | Optimization strategies, rating management, launch tactics |
-| [keyword-research-guide.md](references/keyword-research-guide.md) | Research methodology, evaluation framework, tracking |
+| [platform-requirements.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/references/platform-requirements.md) | iOS and Android metadata specs, visual asset requirements |
+| [aso-best-practices.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/references/aso-best-practices.md) | Optimization strategies, rating management, launch tactics |
+| [keyword-research-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/references/keyword-research-guide.md) | Research methodology, evaluation framework, tracking |
 
 ### Assets
 
 | Template | Purpose |
 |----------|---------|
-| [aso-audit-template.md](assets/aso-audit-template.md) | Structured audit checklist for app store listings |
+| [aso-audit-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/app-store-optimization/assets/aso-audit-template.md) | Structured audit checklist for app store listings |
 
 ---
 
@@ -454,9 +454,9 @@ Trusted by 500,000+ professionals.
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [content-creator](../content-creator/) | App description copywriting |
-| [marketing-demand-acquisition](../marketing-demand-acquisition/) | Launch promotion campaigns |
-| [marketing-strategy-pmm](../marketing-strategy-pmm/) | Go-to-market planning |
+| [content-creator](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator) | App description copywriting |
+| [marketing-demand-acquisition](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-demand-acquisition) | Launch promotion campaigns |
+| [marketing-strategy-pmm](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-strategy-pmm) | Go-to-market planning |
 
 ## Proactive Triggers
 

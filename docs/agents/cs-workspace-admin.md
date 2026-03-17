@@ -1,9 +1,9 @@
 ---
-title: "cs-workspace-admin"
-description: "cs-workspace-admin - Claude Code agent for Engineering - Core."
+title: "Workspace Admin — AI Coding Agent & Codex Skill"
+description: "Google Workspace administration agent using the gws CLI. Orchestrates workspace setup, Gmail/Drive/Sheets/Calendar automation, security audits, and. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# cs-workspace-admin
+# Workspace Admin
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>

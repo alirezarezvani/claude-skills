@@ -1,6 +1,6 @@
 ---
-title: "Financial Analyst Skill"
-description: "Financial Analyst Skill - Claude Code skill from the Finance domain."
+title: "Financial Analyst Skill — Agent Skill for Finance"
+description: "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Financial Analyst Skill

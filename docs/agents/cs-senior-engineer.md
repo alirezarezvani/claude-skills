@@ -1,9 +1,9 @@
 ---
-title: "cs-senior-engineer"
-description: "cs-senior-engineer - Claude Code agent for Engineering - POWERFUL."
+title: "Senior Engineer — AI Coding Agent & Codex Skill"
+description: "Senior Engineer agent for architecture decisions, code review, DevOps, and API design. Orchestrates engineering and engineering-team skills for. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# cs-senior-engineer
+# Senior Engineer
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>

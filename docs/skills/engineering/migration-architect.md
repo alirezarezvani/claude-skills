@@ -1,6 +1,6 @@
 ---
-title: "Migration Architect"
-description: "Migration Architect - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Migration Architect — Agent Skill for Codex & OpenClaw"
+description: "Migration Architect. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Migration Architect

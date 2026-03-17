@@ -1,6 +1,6 @@
 ---
-title: "Campaign Analytics"
-description: "Campaign Analytics - Claude Code skill from the Marketing domain."
+title: "Campaign Analytics — Agent Skill for Marketing"
+description: "Analyzes campaign performance with multi-touch attribution, funnel conversion analysis, and ROI calculation for marketing optimization. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Campaign Analytics

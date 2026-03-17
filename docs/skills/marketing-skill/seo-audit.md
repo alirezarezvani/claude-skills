@@ -1,6 +1,6 @@
 ---
-title: "SEO Audit"
-description: "SEO Audit - Claude Code skill from the Marketing domain."
+title: "SEO Audit — Agent Skill for Marketing"
+description: "When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions 'SEO audit,' 'technical SEO,' 'why am I. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # SEO Audit
@@ -78,8 +78,8 @@ Same format as above
 
 ## References
 
-- [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
-- [AEO & GEO Patterns](references/aeo-geo-patterns.md): Content patterns optimized for answer engines and AI citation
+- [AI Writing Detection](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/seo-audit/references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
+- [AEO & GEO Patterns](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/seo-audit/references/aeo-geo-patterns.md): Content patterns optimized for answer engines and AI citation
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Site Architecture & Internal Linking"
-description: "Site Architecture & Internal Linking - Claude Code skill from the Marketing domain."
+title: "Site Architecture & Internal Linking — Agent Skill for Marketing"
+description: "When the user wants to audit, redesign, or plan their website's structure, URL hierarchy, navigation design, or internal linking strategy. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Site Architecture & Internal Linking

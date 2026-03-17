@@ -1,6 +1,6 @@
 ---
-title: "/si:remember — Save Knowledge Explicitly"
-description: "/si:remember — Save Knowledge Explicitly - Claude Code skill from the Engineering - Core domain."
+title: "/si:remember — Save Knowledge Explicitly — Agent Skill & Codex Plugin"
+description: "Explicitly save important knowledge to auto-memory with timestamp and context. Use when a discovery is too important to rely on auto-capture. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /si:remember — Save Knowledge Explicitly

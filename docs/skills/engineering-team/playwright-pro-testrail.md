@@ -1,6 +1,6 @@
 ---
-title: "TestRail Integration"
-description: "TestRail Integration - Claude Code skill from the Engineering - Core domain."
+title: "TestRail Integration — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # TestRail Integration

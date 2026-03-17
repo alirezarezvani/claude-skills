@@ -1,6 +1,6 @@
 ---
-title: "Personas"
-description: "3 persona-based agents with curated skill loadouts, workflows, and distinct communication styles."
+title: "AI Coding Personas — Startup CTO, Growth Marketer, Solo Founder"
+description: "3 persona-based AI coding agents with curated Claude Code skill loadouts, decision frameworks, and distinct communication styles for Codex, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

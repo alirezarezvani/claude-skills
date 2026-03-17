@@ -1,6 +1,6 @@
 ---
-title: "Microsoft 365 Tenant Manager"
-description: "Microsoft 365 Tenant Manager - Claude Code skill from the Engineering - Core domain."
+title: "Microsoft 365 Tenant Manager — Agent Skill & Codex Plugin"
+description: "Microsoft 365 tenant administration for Global Administrators. Automate M365 tenant setup, Office 365 admin tasks, Azure AD user management, Exchange. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Microsoft 365 Tenant Manager

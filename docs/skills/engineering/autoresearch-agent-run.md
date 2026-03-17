@@ -1,6 +1,6 @@
 ---
-title: "/ar:run — Single Experiment Iteration"
-description: "/ar:run — Single Experiment Iteration - Claude Code skill from the Engineering - POWERFUL domain."
+title: "/ar:run — Single Experiment Iteration — Agent Skill for Codex & OpenClaw"
+description: "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /ar:run — Single Experiment Iteration

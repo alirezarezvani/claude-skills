@@ -1,6 +1,6 @@
 ---
-title: "Board Deck Builder"
-description: "Board Deck Builder - Claude Code skill from the C-Level Advisory domain."
+title: "Board Deck Builder — Agent Skill for Executives"
+description: "Assembles comprehensive board and investor update decks by pulling perspectives from all C-suite roles. Use when preparing board meetings, investor. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Board Deck Builder

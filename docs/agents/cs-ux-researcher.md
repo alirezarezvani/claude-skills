@@ -1,6 +1,6 @@
 ---
-title: "UX Researcher Agent"
-description: "UX Researcher Agent - Claude Code agent for Product."
+title: "UX Researcher Agent — AI Coding Agent & Codex Skill"
+description: "UX research agent for research planning, persona generation, journey mapping, and usability test analysis. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # UX Researcher Agent

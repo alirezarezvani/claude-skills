@@ -1,6 +1,6 @@
 ---
-title: "Copywriting"
-description: "Copywriting - Claude Code skill from the Marketing domain."
+title: "Copywriting — Agent Skill for Marketing"
+description: "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Copywriting
@@ -127,9 +127,9 @@ Puns and wit make copy memorable—but only if it fits the brand and doesn't und
 - "Never {unpleasant event} again"
 - "{Question highlighting main pain point}"
 
-**For comprehensive headline formulas**: See [references/copy-frameworks.md](references/copy-frameworks.md)
+**For comprehensive headline formulas**: See [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copywriting/references/copy-frameworks.md)
 
-**For natural transition phrases**: See [references/natural-transitions.md](references/natural-transitions.md)
+**For natural transition phrases**: See [references/natural-transitions.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copywriting/references/natural-transitions.md)
 
 **Subheadline**
 - Expands on headline
@@ -151,7 +151,7 @@ Puns and wit make copy memorable—but only if it fits the brand and doesn't und
 | Objection Handling | FAQ, comparisons, guarantees |
 | Final CTA | Recap value, repeat CTA, risk reversal |
 
-**For detailed section types and page templates**: See [references/copy-frameworks.md](references/copy-frameworks.md)
+**For detailed section types and page templates**: See [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copywriting/references/copy-frameworks.md)
 
 ---
 

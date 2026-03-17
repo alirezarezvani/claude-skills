@@ -1,6 +1,6 @@
 ---
-title: "Fix Failing or Flaky Tests"
-description: "Fix Failing or Flaky Tests - Claude Code skill from the Engineering - Core domain."
+title: "Fix Failing or Flaky Tests — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Fix Failing or Flaky Tests

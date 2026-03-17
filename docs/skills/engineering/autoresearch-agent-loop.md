@@ -1,6 +1,6 @@
 ---
-title: "/ar:loop — Autonomous Experiment Loop"
-description: "/ar:loop — Autonomous Experiment Loop - Claude Code skill from the Engineering - POWERFUL domain."
+title: "/ar:loop — Autonomous Experiment Loop — Agent Skill for Codex & OpenClaw"
+description: "Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, monthly). Uses CronCreate for scheduling. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /ar:loop — Autonomous Experiment Loop

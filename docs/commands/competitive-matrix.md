@@ -1,6 +1,6 @@
 ---
-title: "/competitive-matrix"
-description: "/competitive-matrix — Claude Code slash command."
+title: "/competitive-matrix — Slash Command for AI Coding Agents"
+description: "Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /competitive-matrix

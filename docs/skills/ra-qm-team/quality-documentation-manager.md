@@ -1,6 +1,6 @@
 ---
-title: "Quality Documentation Manager"
-description: "Quality Documentation Manager - Claude Code skill from the Regulatory & Quality domain."
+title: "Quality Documentation Manager — Agent Skill for Compliance"
+description: "Document control system management for medical device QMS. Covers document numbering, version control, change management, and 21 CFR Part 11. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Quality Documentation Manager

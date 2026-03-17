@@ -1,6 +1,6 @@
 ---
-title: "Referral Program"
-description: "Referral Program - Claude Code skill from the Marketing domain."
+title: "Referral Program — Agent Skill for Marketing"
+description: "When the user wants to design, launch, or optimize a referral or affiliate program. Use when they mention 'referral program,' 'affiliate program,'. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Referral Program
@@ -215,7 +215,7 @@ Track these weekly:
 | Referral revenue contribution | Revenue from referred customers / total revenue | Business impact |
 | Virality coefficient (K) | Referrals per user × conversion rate | K >1 = viral growth |
 
-See [references/measurement-framework.md](references/measurement-framework.md) for benchmarks by industry and optimization playbook.
+See [references/measurement-framework.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/references/measurement-framework.md) for benchmarks by industry and optimization playbook.
 
 ---
 
@@ -242,7 +242,7 @@ If launching an affiliate program specifically:
 - [ ] Personalized outreach — not a generic "join our affiliate program" email
 - [ ] 10-affiliate pilot before scaling
 
-See [references/program-mechanics.md](references/program-mechanics.md) for detailed program patterns and real-world examples.
+See [references/program-mechanics.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/referral-program/references/program-mechanics.md) for detailed program patterns and real-world examples.
 
 ---
 

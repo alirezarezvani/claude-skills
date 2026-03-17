@@ -1,6 +1,6 @@
 ---
-title: "Senior Security Engineer"
-description: "Senior Security Engineer - Claude Code skill from the Engineering - Core domain."
+title: "Senior Security Engineer — Agent Skill & Codex Plugin"
+description: "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Security Engineer
@@ -79,7 +79,7 @@ Identify and analyze security threats using STRIDE methodology.
 | Data Store | | X | X | X | X | |
 | Data Flow | | X | | X | X | |
 
-See: [references/threat-modeling-guide.md](references/threat-modeling-guide.md)
+See: [references/threat-modeling-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/references/threat-modeling-guide.md)
 
 ---
 
@@ -147,7 +147,7 @@ Layer 5: DATA
 | CLI/Automation | API keys with IP allowlisting |
 | High security | FIDO2/WebAuthn hardware keys |
 
-See: [references/security-architecture-patterns.md](references/security-architecture-patterns.md)
+See: [references/security-architecture-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/references/security-architecture-patterns.md)
 
 ---
 
@@ -390,7 +390,7 @@ Respond to and contain security incidents.
 | Key exchange | X25519 | 256 bits |
 | TLS | TLS 1.3 | N/A |
 
-See: [references/cryptography-implementation.md](references/cryptography-implementation.md)
+See: [references/cryptography-implementation.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/references/cryptography-implementation.md)
 
 ---
 
@@ -400,8 +400,8 @@ See: [references/cryptography-implementation.md](references/cryptography-impleme
 
 | Script | Purpose |
 |--------|---------|
-| [threat_modeler.py](scripts/threat_modeler.py) | STRIDE threat analysis with DREAD risk scoring; JSON and text output; interactive guided mode |
-| [secret_scanner.py](scripts/secret_scanner.py) | Detect hardcoded secrets and credentials across 20+ patterns; CI/CD integration ready |
+| [threat_modeler.py](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/scripts/threat_modeler.py) | STRIDE threat analysis with DREAD risk scoring; JSON and text output; interactive guided mode |
+| [secret_scanner.py](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/scripts/secret_scanner.py) | Detect hardcoded secrets and credentials across 20+ patterns; CI/CD integration ready |
 
 For usage, see the inline code examples in [Secure Code Review Workflow](#inline-code-examples) and the script source files directly.
 
@@ -409,9 +409,9 @@ For usage, see the inline code examples in [Secure Code Review Workflow](#inline
 
 | Document | Content |
 |----------|---------|
-| [security-architecture-patterns.md](references/security-architecture-patterns.md) | Zero Trust, defense-in-depth, authentication patterns, API security |
-| [threat-modeling-guide.md](references/threat-modeling-guide.md) | STRIDE methodology, attack trees, DREAD scoring, DFD creation |
-| [cryptography-implementation.md](references/cryptography-implementation.md) | AES-GCM, RSA, Ed25519, password hashing, key management |
+| [security-architecture-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/references/security-architecture-patterns.md) | Zero Trust, defense-in-depth, authentication patterns, API security |
+| [threat-modeling-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/references/threat-modeling-guide.md) | STRIDE methodology, attack trees, DREAD scoring, DFD creation |
+| [cryptography-implementation.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/references/cryptography-implementation.md) | AES-GCM, RSA, Ed25519, password hashing, key management |
 
 ---
 
@@ -436,7 +436,7 @@ For compliance framework requirements (OWASP ASVS, CIS Benchmarks, NIST CSF, PCI
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [senior-devops](../senior-devops/) | CI/CD security, infrastructure hardening |
-| [senior-secops](../senior-secops/) | Security monitoring, incident response |
-| [senior-backend](../senior-backend/) | Secure API development |
-| [senior-architect](../senior-architect/) | Security architecture decisions |
+| [senior-devops](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-devops) | CI/CD security, infrastructure hardening |
+| [senior-secops](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-secops) | Security monitoring, incident response |
+| [senior-backend](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-backend) | Secure API development |
+| [senior-architect](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-architect) | Security architecture decisions |

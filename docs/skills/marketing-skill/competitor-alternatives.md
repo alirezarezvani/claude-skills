@@ -1,6 +1,6 @@
 ---
-title: "Competitor & Alternative Pages"
-description: "Competitor & Alternative Pages - Claude Code skill from the Marketing domain."
+title: "Competitor & Alternative Pages — Agent Skill for Marketing"
+description: "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Competitor & Alternative Pages
@@ -173,7 +173,7 @@ Be explicit about ideal customer for each option. Honest recommendations build t
 ### Migration Section
 Cover what transfers, what needs reconfiguration, support offered, and quotes from customers who switched.
 
-**For detailed templates**: See [references/templates.md](references/templates.md)
+**For detailed templates**: See [references/templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/references/templates.md)
 
 ---
 
@@ -189,7 +189,7 @@ Create a single source of truth for each competitor with:
 - Common complaints (from reviews)
 - Migration notes
 
-**For data structure and examples**: See [references/content-architecture.md](references/content-architecture.md)
+**For data structure and examples**: See [references/content-architecture.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/competitor-alternatives/references/content-architecture.md)
 
 ---
 

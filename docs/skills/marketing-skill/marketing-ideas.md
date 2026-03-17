@@ -1,6 +1,6 @@
 ---
-title: "Marketing Ideas for SaaS"
-description: "Marketing Ideas for SaaS - Claude Code skill from the Marketing domain."
+title: "Marketing Ideas for SaaS — Agent Skill for Marketing"
+description: "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Marketing Ideas for SaaS
@@ -53,7 +53,7 @@ When asked for marketing ideas:
 | Developer | 133-136 | DevRel, Certifications |
 | Audience-Specific | 137-139 | Referrals, Podcast tours, Customer language |
 
-**For the complete list with descriptions**: See [references/ideas-by-category.md](references/ideas-by-category.md)
+**For the complete list with descriptions**: See [references/ideas-by-category.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-ideas/references/ideas-by-category.md)
 
 ---
 

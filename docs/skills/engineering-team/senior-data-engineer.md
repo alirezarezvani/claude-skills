@@ -1,6 +1,6 @@
 ---
-title: "Senior Data Engineer"
-description: "Senior Data Engineer - Claude Code skill from the Engineering - Core domain."
+title: "Senior Data Engineer — Agent Skill & Codex Plugin"
+description: "Data engineering skill for building scalable data pipelines, ETL/ELT systems, and data infrastructure. Expertise in Python, SQL, Spark, Airflow, dbt. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Data Engineer

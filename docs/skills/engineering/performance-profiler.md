@@ -1,6 +1,6 @@
 ---
-title: "Performance Profiler"
-description: "Performance Profiler - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Performance Profiler — Agent Skill for Codex & OpenClaw"
+description: "Performance Profiler. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Performance Profiler
@@ -45,6 +45,21 @@ Systematic performance profiling for Node.js, Python, and Go applications. Ident
 - Bundle size increased after adding dependencies
 - Preparing for a traffic spike (load test before launch)
 - Database queries taking >100ms
+
+---
+
+## Quick Start
+
+```bash
+# Analyze a project for performance risk indicators
+python3 scripts/performance_profiler.py /path/to/project
+
+# JSON output for CI integration
+python3 scripts/performance_profiler.py /path/to/project --json
+
+# Custom large-file threshold
+python3 scripts/performance_profiler.py /path/to/project --large-file-threshold-kb 256
+```
 
 ---
 

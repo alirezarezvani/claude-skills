@@ -1,6 +1,6 @@
 ---
-title: "Senior Devops"
-description: "Senior Devops - Claude Code skill from the Engineering - Core domain."
+title: "Senior Devops — Agent Skill & Codex Plugin"
+description: "Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Devops

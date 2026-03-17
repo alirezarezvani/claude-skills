@@ -1,6 +1,6 @@
 ---
-title: "Product Manager Toolkit"
-description: "Product Manager Toolkit - Claude Code skill from the Product domain."
+title: "Product Manager Toolkit — Agent Skill for Product Teams"
+description: "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Product Manager Toolkit

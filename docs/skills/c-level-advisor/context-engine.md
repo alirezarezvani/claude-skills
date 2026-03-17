@@ -1,6 +1,6 @@
 ---
-title: "Company Context Engine"
-description: "Company Context Engine - Claude Code skill from the C-Level Advisory domain."
+title: "Company Context Engine — Agent Skill for Executives"
+description: "Loads and manages company context for all C-suite advisor skills. Reads ~/.claude/company-context.md, detects stale context (>90 days), enriches. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Company Context Engine

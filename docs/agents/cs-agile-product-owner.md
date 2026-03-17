@@ -1,6 +1,6 @@
 ---
-title: "Agile Product Owner Agent"
-description: "Agile Product Owner Agent - Claude Code agent for Product."
+title: "Agile Product Owner Agent — AI Coding Agent & Codex Skill"
+description: "Agile product owner agent for epic breakdown, sprint planning, backlog refinement, and INVEST-compliant user story generation. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # Agile Product Owner Agent

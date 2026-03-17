@@ -1,6 +1,6 @@
 ---
-title: "Self-Improving Agent"
-description: "Self-Improving Agent - Claude Code skill from the Engineering - Core domain."
+title: "Self-Improving Agent — Agent Skill & Codex Plugin"
+description: "Curate Claude Code's auto-memory into durable project knowledge. Analyze MEMORY.md for patterns, promote proven learnings to CLAUDE.md and."
 ---
 
 # Self-Improving Agent
@@ -170,4 +170,4 @@ Monitors command output for errors. When detected, appends a structured entry to
 
 - [Claude Code Memory Docs](https://code.claude.com/docs/en/memory)
 - [pskoett/self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent) — inspiration
-- [playwright-pro](../playwright-pro/) — sister plugin in this repo
+- [playwright-pro](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro) — sister plugin in this repo

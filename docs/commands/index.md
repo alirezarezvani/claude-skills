@@ -1,6 +1,6 @@
 ---
-title: "Commands"
-description: "All 17 slash commands for quick access to common operations."
+title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
+description: "17 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>

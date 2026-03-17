@@ -1,6 +1,6 @@
 ---
-title: "Customer Success Manager"
-description: "Customer Success Manager - Claude Code skill from the Business & Growth domain."
+title: "Customer Success Manager — Agent Skill for Growth"
+description: "Monitors customer health, predicts churn risk, and identifies expansion opportunities using weighted scoring models for SaaS customer success. Use. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Customer Success Manager

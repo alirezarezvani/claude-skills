@@ -1,6 +1,6 @@
 ---
-title: "Project Management Skills"
-description: "Project Management Skills - Claude Code skill from the Project Management domain."
+title: "Project Management Skills — Agent Skill for PM"
+description: "6 project management agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Senior PM, scrum master, Jira expert (JQL)."
 ---
 
 # Project Management Skills

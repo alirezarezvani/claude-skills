@@ -57,7 +57,7 @@ Both coexist. Use task agents for focused work, personas for ongoing collaborati
 
 ## Creating Your Own
 
-See [TEMPLATE.md](TEMPLATE.md) for the format specification. Key elements:
+See [TEMPLATE.md](template.md) for the format specification. Key elements:
 
 ```yaml
 ---

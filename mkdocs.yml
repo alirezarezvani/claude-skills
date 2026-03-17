@@ -212,6 +212,7 @@ nav:
       - "Experiment Designer": skills/product-team/experiment-designer.md
       - "Landing Page Generator": skills/product-team/landing-page-generator.md
       - "Product Analytics": skills/product-team/product-analytics.md
+      - "Code to PRD": skills/product-team/code-to-prd.md
       - "Product Discovery": skills/product-team/product-discovery.md
       - "Product Manager Toolkit": skills/product-team/product-manager-toolkit.md
       - "Product Strategist": skills/product-team/product-strategist.md
@@ -364,11 +365,13 @@ nav:
   - Commands:
     - Overview: commands/index.md
     - "/changelog": commands/changelog.md
+    - "/code-to-prd": commands/code-to-prd.md
     - "/competitive-matrix": commands/competitive-matrix.md
     - "/financial-health": commands/financial-health.md
     - "/okr": commands/okr.md
     - "/persona": commands/persona.md
     - "/pipeline": commands/pipeline.md
+    - "/plugin-audit": commands/plugin-audit.md
     - "/prd": commands/prd.md
     - "/project-health": commands/project-health.md
     - "/retro": commands/retro.md

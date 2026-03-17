@@ -1,13 +1,13 @@
 ---
 title: "Product Skills — Agent Skills & Codex Plugins"
-description: "14 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "15 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightbulb-outline: Product
 
-<p class="domain-count">14 skills in this domain</p>
+<p class="domain-count">15 skills in this domain</p>
 
 </div>
 
@@ -22,6 +22,12 @@ description: "14 product skills — product management agent skill and Claude Co
     ---
 
     Backlog management and sprint execution toolkit for product owners, including user story generation, acceptance crite...
+
+-   **[Code → PRD: Reverse-Engineer Any Codebase into Product Requirements](code-to-prd.md)**
+
+    ---
+
+    - 3-phase workflow: global scan → page-by-page analysis → structured document generation
 
 -   **[Competitive Teardown](competitive-teardown.md)**
 

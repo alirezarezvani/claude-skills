@@ -1,6 +1,6 @@
 {
   "name": "product-skills",
-  "description": "12 production-ready product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, and roadmap communicator. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
+  "description": "14 production-ready product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
   "version": "2.1.2",
   "author": {
     "name": "Alireza Rezvani",

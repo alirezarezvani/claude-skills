@@ -11,9 +11,65 @@ description: |
   extract product specs from code, document page logic, analyze page fields and interactions,
   create a functional inventory, write requirements from an existing codebase, document API endpoints,
   or analyze backend routes.
+license: MIT
+metadata:
+  version: 2.1.2
+  author: Alireza Rezvani
+  category: product
+  tier: STANDARD
+  dependencies: none
+  updated: 2026-03-17
 ---
 
 # Code → PRD: Reverse-Engineer Any Codebase into Product Requirements
+
+## Features
+
+- **3-phase workflow**: global scan → page-by-page analysis → structured document generation
+- **Frontend support**: React, Vue, Angular, Svelte, Next.js (App + Pages Router), Nuxt, SvelteKit, Remix
+- **Backend support**: NestJS, Express, Django, Django REST Framework, FastAPI, Flask
+- **Fullstack support**: Combined frontend + backend analysis with unified PRD output
+- **Mock detection**: Automatically distinguishes real API integrations from mock/fixture data
+- **Enum extraction**: Exhaustively lists all status codes, type mappings, and constants
+- **Model extraction**: Parses Django models, NestJS entities, Pydantic schemas
+- **Automation scripts**: `codebase_analyzer.py` for scanning, `prd_scaffolder.py` for directory generation
+- **Quality checklist**: Validation checklist for completeness, accuracy, readability
+
+## Usage
+
+```bash
+# Analyze a project and generate PRD skeleton
+python3 scripts/codebase_analyzer.py /path/to/project -o analysis.json
+python3 scripts/prd_scaffolder.py analysis.json -o prd/ -n "My App"
+
+# Or use the slash command
+/code-to-prd /path/to/project
+```
+
+## Examples
+
+### Frontend (React)
+```bash
+/code-to-prd ./src
+# → Scans components, routes, API calls, state management
+# → Generates prd/ with per-page docs, enum dictionary, API inventory
+```
+
+### Backend (Django)
+```bash
+/code-to-prd ./myproject
+# → Detects Django via manage.py, scans urls.py, views.py, models.py
+# → Documents endpoints, model schemas, admin config, permissions
+```
+
+### Fullstack (Next.js)
+```bash
+/code-to-prd .
+# → Analyzes both app/ pages and api/ routes
+# → Generates unified PRD covering UI pages and API endpoints
+```
+
+---
 
 ## Role
 

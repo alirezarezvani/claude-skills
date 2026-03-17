@@ -10,8 +10,6 @@ Usage:
     python3 codebase_analyzer.py /path/to/project --format markdown
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import os

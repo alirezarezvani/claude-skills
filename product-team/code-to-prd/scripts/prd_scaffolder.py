@@ -12,12 +12,12 @@ Usage:
     python3 prd_scaffolder.py analysis.json --output-dir ./prd --project-name "My App"
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import re
 from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, Optional
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -267,7 +267,7 @@ def generate_page_relationships(routes: List[Dict]) -> str:
     return "\n".join(lines)
 
 
-def scaffold(analysis: Dict[str, Any], output_dir: Path, project_name: str | None = None):
+def scaffold(analysis: Dict[str, Any], output_dir: Path, project_name: Optional[str] = None):
     """Create the full PRD directory structure."""
     date = datetime.now().strftime("%Y-%m-%d")
     name = project_name or analysis.get("project", {}).get("name", "Project")

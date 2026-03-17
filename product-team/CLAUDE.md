@@ -1,6 +1,6 @@
 # Product Team Skills - Claude Code Guidance
 
-This guide covers the 12 production-ready product management skills and their Python automation tools.
+This guide covers the 14 production-ready product management skills and their Python automation tools.
 
 ## Product Skills Overview
 
@@ -17,12 +17,14 @@ This guide covers the 12 production-ready product management skills and their Py
 10. **experiment-designer/** - Experiment design and sample size planning (1 tool)
 11. **product-discovery/** - Discovery frameworks and assumption mapping (1 tool)
 12. **roadmap-communicator/** - Roadmap communication and changelog generation (1 tool)
+13. **code-to-prd/** - Reverse-engineer any codebase into PRD (2 tools: codebase_analyzer, prd_scaffolder)
+14. **research-summarizer/** - Research synthesis and summarization (1 tool)
 
-**Total Tools:** 13 Python automation tools
+**Total Tools:** 16 Python automation tools
 
 **Agents:** 5 (cs-product-manager, cs-agile-product-owner, cs-product-strategist, cs-ux-researcher, cs-product-analyst)
 
-**Slash Commands:** 7 (/rice, /okr, /persona, /user-story, /competitive-matrix, /prd, /sprint-plan)
+**Slash Commands:** 8 (/rice, /okr, /persona, /user-story, /competitive-matrix, /prd, /sprint-plan, /code-to-prd)
 
 ## Python Automation Tools
 
@@ -308,7 +310,7 @@ python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to HE
 
 ---
 
-**Last Updated:** March 11, 2026
-**Skills Deployed:** 12/12 product skills production-ready
-**Total Tools:** 13 Python automation tools
-**Agents:** 5 | **Commands:** 7
+**Last Updated:** March 17, 2026
+**Skills Deployed:** 14/14 product skills production-ready
+**Total Tools:** 16 Python automation tools
+**Agents:** 5 | **Commands:** 8

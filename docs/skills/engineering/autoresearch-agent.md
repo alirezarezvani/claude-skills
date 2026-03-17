@@ -1,6 +1,6 @@
 ---
-title: "Autoresearch Agent"
-description: "Autoresearch Agent - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Autoresearch Agent — Agent Skill for Codex & OpenClaw"
+description: "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Autoresearch Agent
@@ -300,7 +300,7 @@ cp -r claude-skills/engineering/autoresearch-agent ~/.claude/skills/
 
 ### OpenClaw
 ```bash
-clawhub install autoresearch-agent
+clawhub install cs-autoresearch-agent
 ```
 
 ---

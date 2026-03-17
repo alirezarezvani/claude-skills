@@ -1,6 +1,6 @@
 ---
-title: "Generate Playwright Tests"
-description: "Generate Playwright Tests - Claude Code skill from the Engineering - Core domain."
+title: "Generate Playwright Tests — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Generate Playwright Tests

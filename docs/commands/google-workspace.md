@@ -1,6 +1,6 @@
 ---
-title: "/google-workspace"
-description: "/google-workspace — Claude Code slash command."
+title: "/google-workspace — Slash Command for AI Coding Agents"
+description: "Google Workspace CLI operations: setup diagnostics, security audit, recipe discovery, and output analysis. Usage: /google-workspace. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /google-workspace

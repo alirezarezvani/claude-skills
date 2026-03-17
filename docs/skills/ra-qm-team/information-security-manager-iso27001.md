@@ -1,6 +1,6 @@
 ---
-title: "Information Security Manager - ISO 27001"
-description: "Information Security Manager - ISO 27001 - Claude Code skill from the Regulatory & Quality domain."
+title: "Information Security Manager - ISO 27001 — Agent Skill for Compliance"
+description: "ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use for ISMS design, security risk assessment. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Information Security Manager - ISO 27001

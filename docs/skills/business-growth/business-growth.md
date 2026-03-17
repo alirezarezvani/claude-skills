@@ -1,6 +1,6 @@
 ---
-title: "Business & Growth Skills"
-description: "Business & Growth Skills - Claude Code skill from the Business & Growth domain."
+title: "Business & Growth Skills — Agent Skill for Growth"
+description: "4 business growth agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Customer success (health scoring, churn), sales."
 ---
 
 # Business & Growth Skills

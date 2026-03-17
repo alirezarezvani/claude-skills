@@ -1,6 +1,6 @@
 ---
-title: "Popup CRO"
-description: "Popup CRO - Claude Code skill from the Marketing domain."
+title: "Popup CRO — Agent Skill for Marketing"
+description: "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Popup CRO

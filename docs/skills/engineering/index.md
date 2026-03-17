@@ -1,13 +1,13 @@
 ---
-title: "Engineering - POWERFUL Skills"
-description: "All 32 Engineering - POWERFUL skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
+description: "43 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">32 skills in this domain</p>
+<p class="domain-count">43 skills in this domain</p>
 
 </div>
 
@@ -28,6 +28,12 @@ description: "All 32 Engineering - POWERFUL skills for Claude Code, Codex CLI, G
     ---
 
     Tier: POWERFUL
+
+-   **[AgentHub — Multi-Agent Collaboration](agenthub.md)** + 7 sub-skills
+
+    ---
+
+    Spawn N parallel AI agents that compete on the same task. Each agent works in an isolated git worktree. The coordinat...
 
 -   **[API Design Reviewer](api-design-reviewer.md)**
 
@@ -83,6 +89,12 @@ description: "All 32 Engineering - POWERFUL skills for Claude Code, Codex CLI, G
 
     > Skill Type: POWERFUL
 
+-   **[Docker Development](docker-development.md)**
+
+    ---
+
+    > Smaller images. Faster builds. Secure containers. No guesswork.
+
 -   **[Engineering Advanced Skills (POWERFUL Tier)](engineering.md)**
 
     ---
@@ -100,6 +112,12 @@ description: "All 32 Engineering - POWERFUL skills for Claude Code, Codex CLI, G
     ---
 
     Tier: POWERFUL
+
+-   **[Helm Chart Builder](helm-chart-builder.md)**
+
+    ---
+
+    > Production-grade Helm charts. Sensible defaults. Secure by design. No cargo-culting.
 
 -   **[Interview System Designer](interview-system-designer.md)**
 
@@ -178,5 +196,11 @@ description: "All 32 Engineering - POWERFUL skills for Claude Code, Codex CLI, G
     ---
 
     Tier: POWERFUL 🔥
+
+-   **[Terraform Patterns](terraform-patterns.md)**
+
+    ---
+
+    > Predictable infrastructure. Secure state. Modules that compose. No drift.
 
 </div>

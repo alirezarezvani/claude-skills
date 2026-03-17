@@ -1,6 +1,6 @@
 ---
-title: "Internal Narrative Builder"
-description: "Internal Narrative Builder - Claude Code skill from the C-Level Advisory domain."
+title: "Internal Narrative Builder — Agent Skill for Executives"
+description: "Build and maintain one coherent company story across all audiences — employees, investors, customers, candidates, and partners. Detects narrative. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Internal Narrative Builder

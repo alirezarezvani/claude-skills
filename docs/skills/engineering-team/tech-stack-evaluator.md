@@ -1,6 +1,6 @@
 ---
-title: "Technology Stack Evaluator"
-description: "Technology Stack Evaluator - Claude Code skill from the Engineering - Core domain."
+title: "Technology Stack Evaluator — Agent Skill & Codex Plugin"
+description: "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Technology Stack Evaluator

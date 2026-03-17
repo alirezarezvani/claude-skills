@@ -1,6 +1,6 @@
 ---
-title: "Scenario War Room"
-description: "Scenario War Room - Claude Code skill from the C-Level Advisory domain."
+title: "Scenario War Room — Agent Skill for Executives"
+description: "Cross-functional what-if modeling for cascading multi-variable scenarios. Unlike single-assumption stress testing, this models compound adversity. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Scenario War Room

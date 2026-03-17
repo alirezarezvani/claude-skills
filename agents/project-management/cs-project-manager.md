@@ -496,7 +496,7 @@ echo "Template: ../../project-management/senior-pm/assets/executive_report_templ
 
 - [cs-product-manager](../product/cs-product-manager.md) -- Product prioritization with RICE, customer discovery, PRD development
 - [cs-agile-product-owner](../product/cs-agile-product-owner.md) -- User story generation, backlog management, acceptance criteria (planned)
-- [cs-scrum-master](cs-scrum-master.md) -- Dedicated Scrum ceremony facilitation and team coaching (planned)
+- cs-scrum-master -- Dedicated Scrum ceremony facilitation and team coaching (planned)
 
 ## References
 

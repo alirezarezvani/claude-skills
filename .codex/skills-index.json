@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 162,
+  "total_skills": 164,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -358,6 +358,12 @@
       "source": "../../engineering/agent-workflow-designer",
       "category": "engineering-advanced",
       "description": "Agent Workflow Designer"
+    },
+    {
+      "name": "agenthub",
+      "source": "../../engineering/agenthub",
+      "category": "engineering-advanced",
+      "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel \u2014 code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo."
     },
     {
       "name": "api-design-reviewer",
@@ -798,6 +804,12 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "code-to-prd",
+      "source": "../../product-team/code-to-prd",
+      "category": "product",
+      "description": "|"
+    },
+    {
       "name": "competitive-teardown",
       "source": "../../product-team/competitive-teardown",
       "category": "product",
@@ -995,7 +1007,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 29,
+      "count": 30,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
@@ -1010,7 +1022,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 13,
+      "count": 14,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

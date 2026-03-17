@@ -1,6 +1,6 @@
 ---
-title: "Content Humanizer"
-description: "Content Humanizer - Claude Code skill from the Marketing domain."
+title: "Content Humanizer — Agent Skill for Marketing"
+description: "Makes AI-generated content sound genuinely human — not just cleaned up, but alive. Use when content feels robotic, uses too many AI clichés, lacks. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Content Humanizer
@@ -56,7 +56,7 @@ Run all three in one pass when you have enough context. Split them when the clie
 
 Scan the content for these categories. Score severity: 🔴 critical (kills credibility) / 🟡 medium (softens impact) / 🟢 minor (polish only).
 
-See [references/ai-tells-checklist.md](references/ai-tells-checklist.md) for the comprehensive detection list.
+See [references/ai-tells-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-humanizer/references/ai-tells-checklist.md) for the comprehensive detection list.
 
 ### The Core AI Tell Categories
 
@@ -184,7 +184,7 @@ If `marketing-context.md` is available: read the brand voice section and writing
 - Relationship stance (peer-to-peer? expert-to-student? provocateur?)
 - Signature phrases or patterns
 
-See [references/voice-techniques.md](references/voice-techniques.md) for specific techniques for each voice type.
+See [references/voice-techniques.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-humanizer/references/voice-techniques.md) for specific techniques for each voice type.
 
 ### Voice Injection Techniques
 

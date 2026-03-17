@@ -1,6 +1,6 @@
 ---
-title: "API Design Reviewer"
-description: "API Design Reviewer - Claude Code skill from the Engineering - POWERFUL domain."
+title: "API Design Reviewer — Agent Skill for Codex & OpenClaw"
+description: "API Design Reviewer. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # API Design Reviewer

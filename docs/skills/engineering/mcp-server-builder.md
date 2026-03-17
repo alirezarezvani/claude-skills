@@ -1,6 +1,6 @@
 ---
-title: "MCP Server Builder"
-description: "MCP Server Builder - Claude Code skill from the Engineering - POWERFUL domain."
+title: "MCP Server Builder — Agent Skill for Codex & OpenClaw"
+description: "MCP Server Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # MCP Server Builder
@@ -127,11 +127,11 @@ Checks include duplicate names, invalid schema shape, missing descriptions, empt
 
 ## Reference Material
 
-- [references/openapi-extraction-guide.md](references/openapi-extraction-guide.md)
-- [references/python-server-template.md](references/python-server-template.md)
-- [references/typescript-server-template.md](references/typescript-server-template.md)
-- [references/validation-checklist.md](references/validation-checklist.md)
-- [README.md](README.md)
+- [references/openapi-extraction-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/openapi-extraction-guide.md)
+- [references/python-server-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/python-server-template.md)
+- [references/typescript-server-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/typescript-server-template.md)
+- [references/validation-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/validation-checklist.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/README.md)
 
 ## Architecture Decisions
 

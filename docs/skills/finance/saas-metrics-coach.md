@@ -1,6 +1,6 @@
 ---
-title: "SaaS Metrics Coach"
-description: "SaaS Metrics Coach - Claude Code skill from the Finance domain."
+title: "SaaS Metrics Coach — Agent Skill for Finance"
+description: "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # SaaS Metrics Coach

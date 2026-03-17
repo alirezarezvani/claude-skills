@@ -1,6 +1,6 @@
 ---
-title: "CTO Advisor"
-description: "CTO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CTO Advisor — Agent Skill for Executives"
+description: "Technical leadership guidance for engineering teams, architecture decisions, and technology strategy. Use when assessing technical debt, scaling. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CTO Advisor

@@ -1,6 +1,6 @@
 ---
-title: "Copy Editing"
-description: "Copy Editing - Claude Code skill from the Marketing domain."
+title: "Copy Editing — Agent Skill for Marketing"
+description: "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Copy Editing
@@ -424,7 +424,7 @@ This iterative process ensures each edit doesn't create new problems while respe
 
 ## References
 
-- [Plain English Alternatives](references/plain-english-alternatives.md): Replace complex words with simpler alternatives
+- [Plain English Alternatives](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copy-editing/references/plain-english-alternatives.md): Replace complex words with simpler alternatives
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "/si:status — Memory Health Dashboard"
-description: "/si:status — Memory Health Dashboard - Claude Code skill from the Engineering - Core domain."
+title: "/si:status — Memory Health Dashboard — Agent Skill & Codex Plugin"
+description: "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /si:status — Memory Health Dashboard

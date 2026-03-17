@@ -1,6 +1,6 @@
 ---
-title: "/prd"
-description: "/prd — Claude Code slash command."
+title: "/prd — Slash Command for AI Coding Agents"
+description: "Quick PRD generation command. Usage: /prd <feature-or-problem>. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /prd

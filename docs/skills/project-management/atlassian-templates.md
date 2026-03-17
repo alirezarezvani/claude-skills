@@ -1,6 +1,6 @@
 ---
-title: "Atlassian Template & Files Creator Expert"
-description: "Atlassian Template & Files Creator Expert - Claude Code skill from the Project Management domain."
+title: "Atlassian Template & Files Creator Expert — Agent Skill for PM"
+description: "Atlassian Template and Files Creator/Modifier expert for creating, modifying, and managing Jira and Confluence templates, blueprints, custom layouts. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Atlassian Template & Files Creator Expert

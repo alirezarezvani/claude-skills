@@ -1,6 +1,6 @@
 ---
-title: "UI Design System"
-description: "UI Design System - Claude Code skill from the Product domain."
+title: "UI Design System — Agent Skill for Product Teams"
+description: "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # UI Design System

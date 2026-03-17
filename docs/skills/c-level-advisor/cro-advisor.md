@@ -1,6 +1,6 @@
 ---
-title: "CRO Advisor"
-description: "CRO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CRO Advisor — Agent Skill for Executives"
+description: "Revenue leadership for B2B SaaS companies. Revenue forecasting, sales model design, pricing strategy, net revenue retention, and sales team scaling. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CRO Advisor

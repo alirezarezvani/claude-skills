@@ -1,6 +1,6 @@
 ---
-title: "Social Media Manager"
-description: "Social Media Manager - Claude Code skill from the Marketing domain."
+title: "Social Media Manager — Agent Skill for Marketing"
+description: "When the user wants to develop social media strategy, plan content calendars, manage community engagement, or grow their social presence across. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Social Media Manager

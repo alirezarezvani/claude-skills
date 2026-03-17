@@ -1,6 +1,6 @@
 ---
-title: "/si:extract — Create Skills from Patterns"
-description: "/si:extract — Create Skills from Patterns - Claude Code skill from the Engineering - Core domain."
+title: "/si:extract — Create Skills from Patterns — Agent Skill & Codex Plugin"
+description: "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /si:extract — Create Skills from Patterns

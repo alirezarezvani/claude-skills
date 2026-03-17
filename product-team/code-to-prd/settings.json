@@ -1,0 +1,15 @@
+{
+  "name": "code-to-prd",
+  "displayName": "Code → PRD",
+  "version": "2.1.2",
+  "description": "Reverse-engineer any codebase into a complete PRD. Analyzes routes, components, models, APIs, and interactions. Frontend (React, Vue, Next.js), backend (NestJS, Django, FastAPI), and fullstack.",
+  "author": "Alireza Rezvani",
+  "license": "MIT",
+  "platforms": ["claude-code", "openclaw", "codex"],
+  "category": "product",
+  "tags": ["prd", "product-requirements", "reverse-engineering", "frontend", "backend", "fullstack", "documentation", "code-analysis", "react", "vue", "angular", "next-js", "nestjs", "django", "fastapi", "express"],
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "commands": {
+    "code-to-prd": "/code-to-prd"
+  }
+}

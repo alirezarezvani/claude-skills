@@ -1,6 +1,6 @@
 ---
-title: "A/B Test Setup"
-description: "A/B Test Setup - Claude Code skill from the Marketing domain."
+title: "A/B Test Setup — Agent Skill for Marketing"
+description: "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions 'A/B test,' 'split test,' 'experiment,'. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # A/B Test Setup
@@ -100,7 +100,7 @@ We'll know this is true when [metrics].
 - [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html)
 - [Optimizely's](https://www.optimizely.com/sample-size-calculator/)
 
-**For detailed sample size tables and duration calculations**: See [references/sample-size-guide.md](references/sample-size-guide.md)
+**For detailed sample size tables and duration calculations**: See [references/sample-size-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/references/sample-size-guide.md)
 
 ---
 
@@ -234,7 +234,7 @@ Document every test with:
 - Results (sample, metrics, significance)
 - Decision and learnings
 
-**For templates**: See [references/test-templates.md](references/test-templates.md)
+**For templates**: See [references/test-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/references/test-templates.md)
 
 ---
 

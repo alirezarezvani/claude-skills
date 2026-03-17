@@ -1,13 +1,13 @@
 ---
-title: "Engineering - Core Skills"
-description: "All 39 Engineering - Core skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
+description: "40 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">39 skills in this domain</p>
+<p class="domain-count">40 skills in this domain</p>
 
 </div>
 
@@ -40,6 +40,12 @@ description: "All 39 Engineering - Core skills for Claude Code, Codex CLI, Gemin
     ---
 
     23 production-ready engineering skills organized into core engineering, AI/ML/Data, and specialized tools.
+
+-   **[Epic Design Skill](epic-design.md)**
+
+    ---
+
+    You are now a world-class epic design expert. You build cinematic, immersive websites that feel premium and alive — u...
 
 -   **[Google Workspace CLI](google-workspace-cli.md)**
 

@@ -1,6 +1,6 @@
 ---
-title: "Senior Computer Vision Engineer"
-description: "Senior Computer Vision Engineer - Claude Code skill from the Engineering - Core domain."
+title: "Senior Computer Vision Engineer — Agent Skill & Codex Plugin"
+description: "Computer vision engineering skill for object detection, image segmentation, and visual AI systems. Covers CNN and Vision Transformer architectures. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Computer Vision Engineer

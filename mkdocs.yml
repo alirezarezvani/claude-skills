@@ -1,6 +1,6 @@
-site_name: Agent Skills — Skills, Agents & Personas for AI Coding Tools
+site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "204 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -193,6 +193,18 @@ nav:
       - "Skill Security Auditor": skills/engineering/skill-security-auditor.md
       - "Skill Tester": skills/engineering/skill-tester.md
       - "Tech Debt Tracker": skills/engineering/tech-debt-tracker.md
+      - "Terraform Patterns": skills/engineering/terraform-patterns.md
+      - "Helm Chart Builder": skills/engineering/helm-chart-builder.md
+      - "Docker Development": skills/engineering/docker-development.md
+      - AgentHub:
+        - "AgentHub": skills/engineering/agenthub.md
+        - "/hub:init": skills/engineering/agenthub-init.md
+        - "/hub:spawn": skills/engineering/agenthub-spawn.md
+        - "/hub:status": skills/engineering/agenthub-status.md
+        - "/hub:eval": skills/engineering/agenthub-eval.md
+        - "/hub:merge": skills/engineering/agenthub-merge.md
+        - "/hub:board": skills/engineering/agenthub-board.md
+        - "/hub:run": skills/engineering/agenthub-run.md
     - Product:
       - Overview: skills/product-team/index.md
       - "Agile Product Owner": skills/product-team/agile-product-owner.md
@@ -200,6 +212,7 @@ nav:
       - "Experiment Designer": skills/product-team/experiment-designer.md
       - "Landing Page Generator": skills/product-team/landing-page-generator.md
       - "Product Analytics": skills/product-team/product-analytics.md
+      - "Code to PRD": skills/product-team/code-to-prd.md
       - "Product Discovery": skills/product-team/product-discovery.md
       - "Product Manager Toolkit": skills/product-team/product-manager-toolkit.md
       - "Product Strategist": skills/product-team/product-strategist.md
@@ -352,11 +365,13 @@ nav:
   - Commands:
     - Overview: commands/index.md
     - "/changelog": commands/changelog.md
+    - "/code-to-prd": commands/code-to-prd.md
     - "/competitive-matrix": commands/competitive-matrix.md
     - "/financial-health": commands/financial-health.md
     - "/okr": commands/okr.md
     - "/persona": commands/persona.md
     - "/pipeline": commands/pipeline.md
+    - "/plugin-audit": commands/plugin-audit.md
     - "/prd": commands/prd.md
     - "/project-health": commands/project-health.md
     - "/retro": commands/retro.md

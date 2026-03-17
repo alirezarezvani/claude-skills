@@ -1,6 +1,6 @@
 ---
-title: "CFO Advisor"
-description: "CFO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CFO Advisor — Agent Skill for Executives"
+description: "Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CFO Advisor

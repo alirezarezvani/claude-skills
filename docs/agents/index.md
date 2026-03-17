@@ -1,19 +1,19 @@
 ---
-title: "Agents"
-description: "All 21 Claude Code agents — multi-skill orchestrators across domains."
+title: "AI Coding Agents — Agent-Native Orchestrators & Codex Skills"
+description: "25 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">21 agents that orchestrate skills across domains</p>
+<p class="domain-count">25 agents that orchestrate skills across domains</p>
 
 </div>
 
 <div class="grid cards" markdown>
 
--   :material-trending-up:{ .lg .middle } **[cs-growth-strategist](cs-growth-strategist.md)**
+-   :material-trending-up:{ .lg .middle } **[Growth Strategist](cs-growth-strategist.md)**
 
     ---
 
@@ -31,25 +31,25 @@ description: "All 21 Claude Code agents — multi-skill orchestrators across dom
 
     C-Level Advisory
 
--   :material-rocket-launch:{ .lg .middle } **[cs-senior-engineer](cs-senior-engineer.md)**
+-   :material-rocket-launch:{ .lg .middle } **[Senior Engineer](cs-senior-engineer.md)**
 
     ---
 
     Engineering - POWERFUL
 
--   :material-code-braces:{ .lg .middle } **[cs-engineering-lead](cs-engineering-lead.md)**
+-   :material-code-braces:{ .lg .middle } **[Engineering Lead](cs-engineering-lead.md)**
 
     ---
 
     Engineering - Core
 
--   :material-code-braces:{ .lg .middle } **[cs-workspace-admin](cs-workspace-admin.md)**
+-   :material-code-braces:{ .lg .middle } **[Workspace Admin](cs-workspace-admin.md)**
 
     ---
 
     Engineering - Core
 
--   :material-calculator-variant:{ .lg .middle } **[cs-financial-analyst](cs-financial-analyst.md)**
+-   :material-calculator-variant:{ .lg .middle } **[Financial Analyst](cs-financial-analyst.md)**
 
     ---
 
@@ -79,7 +79,31 @@ description: "All 21 Claude Code agents — multi-skill orchestrators across dom
 
     Personas
 
+-   :material-account:{ .lg .middle } **[Content Strategist](content-strategist.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[DevOps Engineer](devops-engineer.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[Finance Lead](finance-lead.md)**
+
+    ---
+
+    Personas
+
 -   :material-account:{ .lg .middle } **[Growth Marketer Agent Personality](growth-marketer.md)**
+
+    ---
+
+    Personas
+
+-   :material-account:{ .lg .middle } **[Product Manager](product-manager.md)**
 
     ---
 
@@ -133,7 +157,7 @@ description: "All 21 Claude Code agents — multi-skill orchestrators across dom
 
     Project Management
 
--   :material-shield-check-outline:{ .lg .middle } **[cs-quality-regulatory](cs-quality-regulatory.md)**
+-   :material-shield-check-outline:{ .lg .middle } **[Quality Regulatory](cs-quality-regulatory.md)**
 
     ---
 

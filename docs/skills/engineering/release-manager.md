@@ -1,6 +1,6 @@
 ---
-title: "Release Manager"
-description: "Release Manager - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Release Manager — Agent Skill for Codex & OpenClaw"
+description: "Release Manager. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Release Manager

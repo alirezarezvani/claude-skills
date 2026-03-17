@@ -1,6 +1,6 @@
 ---
-title: "Competitive Intelligence"
-description: "Competitive Intelligence - Claude Code skill from the C-Level Advisory domain."
+title: "Competitive Intelligence — Agent Skill for Executives"
+description: "Systematic competitor tracking that feeds CMO positioning, CRO battlecards, and CPO roadmap decisions. Use when analyzing competitors, building sales. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Competitive Intelligence

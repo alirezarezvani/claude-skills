@@ -337,3 +337,37 @@ Each page's Markdown should be **standalone** — reading just that file gives c
 | Ignoring dynamic route params | `/order/:id` = page requires an order ID to load |
 | Forgetting permission controls | Document which roles see which buttons/pages |
 | Assuming all APIs are real | Check for mock data patterns before documenting endpoints |
+
+---
+
+## Tooling
+
+### Scripts
+
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| `scripts/frontend_analyzer.py` | Scan codebase → extract routes, APIs, enums, structure | `python3 frontend_analyzer.py /path/to/project` |
+| `scripts/prd_scaffolder.py` | Generate PRD directory skeleton from analysis JSON | `python3 prd_scaffolder.py analysis.json` |
+
+**Recommended workflow:**
+```bash
+# 1. Analyze the project (JSON output)
+python3 scripts/frontend_analyzer.py /path/to/project -o analysis.json
+
+# 2. Review the analysis (markdown summary)
+python3 scripts/frontend_analyzer.py /path/to/project -f markdown
+
+# 3. Scaffold the PRD directory with stubs
+python3 scripts/prd_scaffolder.py analysis.json -o prd/ -n "My App"
+
+# 4. Fill in TODO sections page-by-page using the SKILL.md workflow
+```
+
+Both scripts are **stdlib-only** — no pip install needed.
+
+### References
+
+| File | Contents |
+|------|----------|
+| `references/prd-quality-checklist.md` | Validation checklist for completeness, accuracy, readability |
+| `references/framework-patterns.md` | Framework-specific patterns for routes, state, APIs, forms, permissions |

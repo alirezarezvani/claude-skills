@@ -392,6 +392,27 @@
         "workspace-admin"
       ],
       "category": "development"
+    },
+    {
+      "name": "code-to-prd",
+      "source": "./product-team/code-to-prd",
+      "description": "Reverse-engineer any frontend codebase into a complete PRD. Analyzes routes, components, state, APIs, and interactions. Framework-agnostic: React, Vue, Angular, Svelte, Next.js. 2 Python scripts (frontend_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "prd",
+        "product-requirements",
+        "reverse-engineering",
+        "frontend",
+        "documentation",
+        "code-analysis",
+        "react",
+        "vue",
+        "angular"
+      ],
+      "category": "product"
     }
   ]
 }

@@ -42,6 +42,17 @@ Use this checklist to validate generated PRDs before delivery.
 - [ ] `prd/appendix/page-relationships.md` exists
 - [ ] Cross-references use relative links
 
+## Backend-Specific Checks
+
+- [ ] All controller/view endpoints documented with method, path, auth
+- [ ] DTO/serializer fields listed with type, required, validation
+- [ ] Database model relationships mapped (FK, M2M, O2O)
+- [ ] Django admin customizations documented (list_display, actions, inlines)
+- [ ] Background tasks/Celery jobs documented with trigger and schedule
+- [ ] Middleware pipeline documented (auth, logging, rate limiting)
+- [ ] Environment-dependent behavior noted (dev vs prod differences)
+- [ ] Database migrations reviewed for field constraints and defaults
+
 ## Common Issues to Watch
 
 | Issue | How to Detect | Fix |

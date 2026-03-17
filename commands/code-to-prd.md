@@ -17,7 +17,7 @@ Reverse-engineer a frontend codebase into a complete Product Requirements Docume
 
 ## What It Does
 
-1. **Scan** — Run `frontend_analyzer.py` to detect framework, routes, APIs, enums, and project structure
+1. **Scan** — Run `codebase_analyzer.py` to detect framework, routes, APIs, enums, and project structure
 2. **Scaffold** — Run `prd_scaffolder.py` to create `prd/` directory with README.md, per-page stubs, and appendix files
 3. **Analyze** — Walk through each page following the Phase 2 workflow: fields, interactions, API dependencies, page relationships
 4. **Generate** — Produce the final PRD with all pages, enum dictionary, API inventory, and page relationship map
@@ -29,7 +29,7 @@ Reverse-engineer a frontend codebase into a complete Product Requirements Docume
 Determine the project path (default: current directory). Run the frontend analyzer:
 
 ```bash
-python3 {skill_path}/scripts/frontend_analyzer.py {project_path} -o .code-to-prd-analysis.json
+python3 {skill_path}/scripts/codebase_analyzer.py {project_path} -o .code-to-prd-analysis.json
 ```
 
 Display a summary of findings: framework, page count, API count, enum count.
@@ -73,6 +73,6 @@ A `prd/` directory containing:
 ## Skill Reference
 
 - `product-team/code-to-prd/SKILL.md`
-- `product-team/code-to-prd/scripts/frontend_analyzer.py`
+- `product-team/code-to-prd/scripts/codebase_analyzer.py`
 - `product-team/code-to-prd/scripts/prd_scaffolder.py`
 - `product-team/code-to-prd/references/prd-quality-checklist.md`

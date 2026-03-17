@@ -1,17 +1,19 @@
 ---
 name: code-to-prd
 description: |
-  Reverse-engineer any frontend codebase into a complete Product Requirements Document (PRD).
+  Reverse-engineer any codebase into a complete Product Requirements Document (PRD).
   Analyzes routes, components, state management, API integrations, and user interactions to produce
   business-readable documentation detailed enough for engineers or AI agents to fully reconstruct
-  every page. Framework-agnostic: works with React, Vue, Angular, Svelte, Next.js, Nuxt, and more.
+  every page and endpoint. Works with frontend frameworks (React, Vue, Angular, Svelte, Next.js, Nuxt),
+  backend frameworks (NestJS, Django, Express, FastAPI), and fullstack applications.
 
   Trigger when users mention: generate PRD, reverse-engineer requirements, code to documentation,
   extract product specs from code, document page logic, analyze page fields and interactions,
-  create a functional inventory, or write requirements from an existing codebase.
+  create a functional inventory, write requirements from an existing codebase, document API endpoints,
+  or analyze backend routes.
 ---
 
-# Code → PRD: Reverse-Engineer Frontend into Product Requirements
+# Code → PRD: Reverse-Engineer Any Codebase into Product Requirements
 
 ## Role
 
@@ -23,6 +25,16 @@ You are a senior product analyst and technical architect. Your job is to read a 
 2. **Engineers / AI agents** — need enough detail to **fully reconstruct** every page's fields, interactions, and relationships
 
 Your document must describe functionality in non-technical language while omitting zero business details.
+
+### Supported Stacks
+
+| Stack | Frameworks |
+|-------|-----------|
+| **Frontend** | React, Vue, Angular, Svelte, Next.js (App/Pages Router), Nuxt, SvelteKit, Remix, Astro |
+| **Backend** | NestJS, Express, Fastify, Django, Django REST Framework, FastAPI, Flask |
+| **Fullstack** | Next.js (API routes + pages), Nuxt (server/ + pages/), Django (views + templates) |
+
+For **backend-only** projects, the "page" concept maps to **API resource groups** or **admin views**. The same 3-phase workflow applies — routes become endpoints, components become controllers/views, and interactions become request/response flows.
 
 ---
 
@@ -37,16 +49,34 @@ Build global context before diving into pages.
 Scan the root directory and understand organization:
 
 ```
-Key directories:
+Frontend directories:
 - Pages/routes (pages/, views/, routes/, app/, src/pages/)
 - Components (components/, modules/)
 - Route config (router.ts, routes.ts, App.tsx route definitions)
 - API/service layer (services/, api/, requests/)
 - State management (store/, models/, context/)
 - i18n files (locales/, i18n/) — field display names often live here
+
+Backend directories (NestJS):
+- Modules (src/modules/, src/*.module.ts)
+- Controllers (*.controller.ts) — route handlers
+- Services (*.service.ts) — business logic
+- DTOs (dto/, *.dto.ts) — request/response shapes
+- Entities (entities/, *.entity.ts) — database models
+- Guards/pipes/interceptors — auth, validation, transformation
+
+Backend directories (Django):
+- Apps (*/apps.py, */views.py, */models.py, */urls.py)
+- URL config (urls.py, */urls.py)
+- Views (views.py, viewsets.py) — route handlers
+- Models (models.py) — database schema
+- Serializers (serializers.py) — request/response shapes
+- Forms (forms.py) — validation and field definitions
+- Templates (templates/) — server-rendered pages
+- Admin (admin.py) — admin panel configuration
 ```
 
-**Identify framework** from `package.json` (React / Vue / Angular / Svelte / etc.). Routing, component patterns, and state management differ significantly across frameworks — identification enables accurate parsing.
+**Identify framework** from `package.json` (Node.js frameworks) or project files (`manage.py` for Django, `requirements.txt`/`pyproject.toml` for Python). Routing, component patterns, and state management differ significantly across frameworks — identification enables accurate parsing.
 
 #### 2. Build Route & Page Inventory
 
@@ -61,6 +91,19 @@ Extract all pages from route config into a complete **page inventory**:
 
 For file-system routing (Next.js, Nuxt), infer from directory structure.
 
+**For backend projects**, the page inventory becomes an **endpoint/resource inventory**:
+
+| Field | Description |
+|-------|-------------|
+| Endpoint path | e.g. `/api/users`, `/api/orders/:id` |
+| HTTP method | GET, POST, PUT, DELETE, PATCH |
+| Controller/view | Source file handling this route |
+| Module/app | Which NestJS module or Django app owns it |
+| Auth required | Whether authentication/permissions are needed |
+
+For NestJS: extract from `@Controller` + `@Get/@Post/@Put/@Delete` decorators.
+For Django: extract from `urls.py` → `urlpatterns` and `viewsets.py` → router registrations.
+
 #### 3. Map Global Context
 
 Before analyzing individual pages, capture:
@@ -69,8 +112,11 @@ Before analyzing individual pages, capture:
 - **Shared components** — layout, nav, auth guards, error boundaries
 - **Enums & constants** — status codes, type mappings, role definitions
 - **API base config** — base URL, interceptors, auth headers, error handling
+- **Database models** (backend) — entity relationships, field types, constraints
+- **Middleware** (backend) — auth middleware, rate limiting, logging, CORS
+- **DTOs/Serializers** (backend) — request validation shapes, response formats
 
-These will be referenced throughout page analysis.
+These will be referenced throughout page/endpoint analysis.
 
 ---
 
@@ -309,6 +355,8 @@ Each page's Markdown should be **standalone** — reading just that file gives c
 
 ## Page Type Strategies
 
+### Frontend Pages
+
 | Page Type | Focus Areas |
 |-----------|------------|
 | **List / Table** | Search conditions, columns, row actions, pagination, bulk ops |
@@ -316,6 +364,17 @@ Each page's Markdown should be **standalone** — reading just that file gives c
 | **Detail / View** | Displayed info, tab/section organization, available actions |
 | **Modal / Drawer** | Describe as part of triggering page — not a separate file. But fully document content |
 | **Dashboard** | Data cards, charts, metrics meaning, filter dimensions, refresh frequency |
+
+### Backend Endpoints (NestJS / Django / Express)
+
+| Endpoint Type | Focus Areas |
+|---------------|------------|
+| **CRUD resource** | All fields (from DTO/serializer), validation rules, permissions, pagination, filtering, sorting |
+| **Auth endpoints** | Login/register flow, token format, refresh logic, password reset, OAuth providers |
+| **File upload** | Accepted types, size limits, storage destination, processing pipeline |
+| **Webhook / event** | Trigger conditions, payload shape, retry policy, idempotency |
+| **Background job** | Trigger, schedule, input/output, failure handling, monitoring |
+| **Admin views** (Django) | Registered models, list_display, search_fields, filters, inline models, custom actions |
 
 ---
 
@@ -337,6 +396,10 @@ Each page's Markdown should be **standalone** — reading just that file gives c
 | Ignoring dynamic route params | `/order/:id` = page requires an order ID to load |
 | Forgetting permission controls | Document which roles see which buttons/pages |
 | Assuming all APIs are real | Check for mock data patterns before documenting endpoints |
+| Skipping Django admin customization | `admin.py` often contains critical business rules (list filters, custom actions, inlines) |
+| Missing NestJS guards/pipes | `@UseGuards`, `@UsePipes` contain auth and validation logic that affects behavior |
+| Ignoring database constraints | Model field constraints (unique, max_length, choices) are validation rules for the PRD |
+| Overlooking middleware | Auth middleware, rate limiters, and CORS config define system-wide behavior |
 
 ---
 
@@ -346,16 +409,16 @@ Each page's Markdown should be **standalone** — reading just that file gives c
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `scripts/frontend_analyzer.py` | Scan codebase → extract routes, APIs, enums, structure | `python3 frontend_analyzer.py /path/to/project` |
+| `scripts/codebase_analyzer.py` | Scan codebase → extract routes, APIs, models, enums, structure | `python3 codebase_analyzer.py /path/to/project` |
 | `scripts/prd_scaffolder.py` | Generate PRD directory skeleton from analysis JSON | `python3 prd_scaffolder.py analysis.json` |
 
 **Recommended workflow:**
 ```bash
-# 1. Analyze the project (JSON output)
-python3 scripts/frontend_analyzer.py /path/to/project -o analysis.json
+# 1. Analyze the project (JSON output — works for frontend, backend, or fullstack)
+python3 scripts/codebase_analyzer.py /path/to/project -o analysis.json
 
 # 2. Review the analysis (markdown summary)
-python3 scripts/frontend_analyzer.py /path/to/project -f markdown
+python3 scripts/codebase_analyzer.py /path/to/project -f markdown
 
 # 3. Scaffold the PRD directory with stubs
 python3 scripts/prd_scaffolder.py analysis.json -o prd/ -n "My App"

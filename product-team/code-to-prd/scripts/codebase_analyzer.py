@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Analyze a frontend codebase and extract page inventory, routes, APIs, and project structure.
+"""Analyze any codebase (frontend, backend, or fullstack) and extract routes, APIs, models, and structure.
 
+Supports: React, Vue, Angular, Svelte, Next.js, Nuxt, NestJS, Express, Django, FastAPI, Flask.
 Stdlib only — no third-party dependencies. Outputs JSON for downstream PRD generation.
 
 Usage:
-    python3 frontend_analyzer.py /path/to/project
-    python3 frontend_analyzer.py /path/to/project --output prd-analysis.json
-    python3 frontend_analyzer.py /path/to/project --format markdown
+    python3 codebase_analyzer.py /path/to/project
+    python3 codebase_analyzer.py /path/to/project --output prd-analysis.json
+    python3 codebase_analyzer.py /path/to/project --format markdown
 """
 
 from __future__ import annotations
@@ -23,6 +24,8 @@ IGNORED_DIRS = {
     ".git", "node_modules", ".next", "dist", "build", "coverage",
     "venv", ".venv", "__pycache__", ".nuxt", ".output", ".cache",
     ".turbo", ".vercel", "out", "storybook-static",
+    ".tox", ".mypy_cache", ".pytest_cache", "htmlcov", "staticfiles",
+    "media", "migrations", "egg-info",
 }
 
 FRAMEWORK_SIGNALS = {
@@ -36,6 +39,16 @@ FRAMEWORK_SIGNALS = {
     "solid": ["solid-js"],
     "astro": ["astro"],
     "remix": ["@remix-run/react"],
+    "nestjs": ["@nestjs/core"],
+    "express": ["express"],
+    "fastify": ["fastify"],
+}
+
+# Python backend frameworks detected via project files (no package.json)
+PYTHON_FRAMEWORK_FILES = {
+    "django": ["manage.py", "settings.py"],
+    "fastapi": ["main.py"],  # confirmed via imports
+    "flask": ["app.py"],      # confirmed via imports
 }
 
 ROUTE_FILE_PATTERNS = [
@@ -63,6 +76,19 @@ STATE_DIR_PATTERNS = [
 I18N_DIR_PATTERNS = [
     "locales", "i18n", "lang", "translations", "messages",
     "src/locales", "src/i18n", "src/lang",
+]
+
+# Backend-specific directory patterns
+CONTROLLER_DIR_PATTERNS = [
+    "controllers", "src/controllers", "src/modules",
+]
+
+MODEL_DIR_PATTERNS = [
+    "models", "entities", "src/entities", "src/models",
+]
+
+DTO_DIR_PATTERNS = [
+    "dto", "dtos", "src/dto", "serializers",
 ]
 
 MOCK_SIGNALS = [
@@ -108,32 +134,82 @@ API_PATH_PATTERNS = [
 ]
 
 COMPONENT_EXTENSIONS = {".tsx", ".jsx", ".vue", ".svelte", ".astro"}
-CODE_EXTENSIONS = {".ts", ".tsx", ".js", ".jsx", ".vue", ".svelte", ".astro"}
+CODE_EXTENSIONS = {".ts", ".tsx", ".js", ".jsx", ".vue", ".svelte", ".astro", ".py"}
+
+# NestJS decorator patterns
+NEST_ROUTE_PATTERNS = [
+    r"@(?:Get|Post|Put|Delete|Patch|Head|Options|All)\s*\(\s*['\"]([^'\"]*)['\"]",
+    r"@Controller\s*\(\s*['\"]([^'\"]*)['\"]",
+]
+
+# Django URL patterns
+DJANGO_ROUTE_PATTERNS = [
+    r"path\s*\(\s*['\"]([^'\"]+)['\"]",
+    r"url\s*\(\s*r?['\"]([^'\"]+)['\"]",
+    r"register\s*\(\s*r?['\"]([^'\"]+)['\"]",
+]
+
+# Django/Python model patterns
+PYTHON_MODEL_PATTERNS = [
+    r"class\s+(\w+)\s*\(.*?models\.Model\)",
+    r"class\s+(\w+)\s*\(.*?BaseModel\)",  # Pydantic
+]
+
+# NestJS entity/DTO patterns
+NEST_MODEL_PATTERNS = [
+    r"@Entity\s*\(.*?\)\s*(?:export\s+)?class\s+(\w+)",
+    r"class\s+(\w+(?:Dto|DTO|Entity|Schema))\b",
+]
 
 
 def detect_framework(project_root: Path) -> Dict[str, Any]:
-    """Detect frontend framework from package.json."""
-    pkg_path = project_root / "package.json"
-    if not pkg_path.exists():
-        return {"framework": "unknown", "dependencies": {}}
-
-    try:
-        with open(pkg_path) as f:
-            pkg = json.load(f)
-    except (json.JSONDecodeError, IOError):
-        return {"framework": "unknown", "dependencies": {}}
-
-    all_deps = {}
-    for key in ("dependencies", "devDependencies", "peerDependencies"):
-        all_deps.update(pkg.get(key, {}))
-
+    """Detect framework from package.json (Node.js) or project files (Python)."""
     detected = []
-    for framework, signals in FRAMEWORK_SIGNALS.items():
-        if any(s in all_deps for s in signals):
-            detected.append(framework)
+    all_deps = {}
+    pkg_name = ""
+    pkg_version = ""
 
-    # Prefer specific over generic (next > react, nuxt > vue)
-    priority = ["sveltekit", "next", "nuxt", "remix", "astro", "angular", "svelte", "vue", "react", "solid"]
+    # Node.js detection via package.json
+    pkg_path = project_root / "package.json"
+    if pkg_path.exists():
+        try:
+            with open(pkg_path) as f:
+                pkg = json.load(f)
+            pkg_name = pkg.get("name", "")
+            pkg_version = pkg.get("version", "")
+            for key in ("dependencies", "devDependencies", "peerDependencies"):
+                all_deps.update(pkg.get(key, {}))
+            for framework, signals in FRAMEWORK_SIGNALS.items():
+                if any(s in all_deps for s in signals):
+                    detected.append(framework)
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    # Python backend detection via project files and imports
+    if (project_root / "manage.py").exists():
+        detected.append("django")
+    if (project_root / "requirements.txt").exists() or (project_root / "pyproject.toml").exists():
+        for req_file in ["requirements.txt", "pyproject.toml", "setup.py", "Pipfile"]:
+            req_path = project_root / req_file
+            if req_path.exists():
+                try:
+                    content = req_path.read_text(errors="replace").lower()
+                    if "django" in content and "django" not in detected:
+                        detected.append("django")
+                    if "fastapi" in content:
+                        detected.append("fastapi")
+                    if "flask" in content and "flask" not in detected:
+                        detected.append("flask")
+                except IOError:
+                    pass
+
+    # Prefer specific over generic
+    priority = [
+        "sveltekit", "next", "nuxt", "remix", "astro",  # fullstack JS
+        "nestjs", "express", "fastify",                   # backend JS
+        "django", "fastapi", "flask",                     # backend Python
+        "angular", "svelte", "vue", "react", "solid",     # frontend JS
+    ]
     framework = "unknown"
     for fw in priority:
         if fw in detected:
@@ -142,15 +218,17 @@ def detect_framework(project_root: Path) -> Dict[str, Any]:
 
     return {
         "framework": framework,
-        "name": pkg.get("name", ""),
-        "version": pkg.get("version", ""),
+        "name": pkg_name or project_root.name,
+        "version": pkg_version,
         "detected_frameworks": detected,
         "dependency_count": len(all_deps),
         "key_deps": {k: v for k, v in all_deps.items()
                      if any(s in k for s in ["router", "redux", "vuex", "pinia", "zustand",
                                               "mobx", "recoil", "jotai", "tanstack", "swr",
                                               "axios", "tailwind", "material", "ant",
-                                              "chakra", "shadcn", "i18n", "intl"])},
+                                              "chakra", "shadcn", "i18n", "intl",
+                                              "typeorm", "prisma", "sequelize", "mongoose",
+                                              "passport", "jwt", "class-validator"])},
     }
 
 
@@ -288,6 +366,91 @@ def extract_enums(filepath: Path) -> List[Dict[str, Any]]:
     return enums
 
 
+def extract_backend_routes(filepath: Path, framework: str) -> List[Dict[str, str]]:
+    """Extract route definitions from NestJS controllers or Django url configs."""
+    routes = []
+    try:
+        content = filepath.read_text(errors="replace")
+    except IOError:
+        return routes
+
+    patterns = []
+    if framework in ("nestjs", "express", "fastify"):
+        patterns = NEST_ROUTE_PATTERNS
+    elif framework == "django":
+        patterns = DJANGO_ROUTE_PATTERNS
+
+    # For NestJS, also grab the controller prefix
+    controller_prefix = ""
+    if framework == "nestjs":
+        m = re.search(r"@Controller\s*\(\s*['\"]([^'\"]*)['\"]", content)
+        if m:
+            controller_prefix = "/" + m.group(1).strip("/")
+
+    for pattern in patterns:
+        for match in re.finditer(pattern, content):
+            path = match.group(1)
+            if not path or path.startswith("http") or len(path) > 200:
+                continue
+            # For NestJS method decorators, prepend controller prefix
+            if framework == "nestjs" and not path.startswith("/"):
+                full_path = f"{controller_prefix}/{path}".replace("//", "/")
+            else:
+                full_path = path if path.startswith("/") else f"/{path}"
+
+            # Detect HTTP method from decorator name
+            method = "UNKNOWN"
+            ctx = content[max(0, match.start() - 30):match.start()]
+            for m_name in ["Get", "Post", "Put", "Delete", "Patch"]:
+                if f"@{m_name}" in ctx or f"@{m_name.lower()}" in ctx:
+                    method = m_name.upper()
+                    break
+
+            routes.append({
+                "path": full_path,
+                "method": method,
+                "source": str(filepath),
+                "line": content[:match.start()].count("\n") + 1,
+                "type": "backend",
+            })
+    return routes
+
+
+def extract_models(filepath: Path, framework: str) -> List[Dict[str, Any]]:
+    """Extract model/entity definitions from backend code."""
+    models = []
+    try:
+        content = filepath.read_text(errors="replace")
+    except IOError:
+        return models
+
+    patterns = PYTHON_MODEL_PATTERNS if framework in ("django", "fastapi", "flask") else NEST_MODEL_PATTERNS
+    for pattern in patterns:
+        for match in re.finditer(pattern, content):
+            name = match.group(1)
+            # Try to extract fields
+            fields = []
+            # For Django models: field_name = models.FieldType(...)
+            if framework == "django":
+                block_start = match.end()
+                block = content[block_start:block_start + 2000]
+                for fm in re.finditer(
+                    r"(\w+)\s*=\s*models\.(\w+)\s*\(([^)]*)\)", block
+                ):
+                    fields.append({
+                        "name": fm.group(1),
+                        "type": fm.group(2),
+                        "args": fm.group(3).strip()[:100],
+                    })
+            models.append({
+                "name": name,
+                "source": str(filepath),
+                "framework": framework,
+                "fields": fields,
+            })
+    return models
+
+
 def count_components(files: List[Path]) -> Dict[str, int]:
     """Count components by type."""
     counts: Dict[str, int] = defaultdict(int)
@@ -318,24 +481,35 @@ def analyze_project(project_root: Path) -> Dict[str, Any]:
     state_dirs = find_dirs(root, STATE_DIR_PATTERNS)
     i18n_dirs = find_dirs(root, I18N_DIR_PATTERNS)
 
-    # 4. Routes
+    # 4. Routes (frontend + backend)
     routes = []
-    # Config-based routes
+    fw = framework_info["framework"]
+
+    # Frontend: config-based routes
     for f in all_files:
         if any(p in f.name.lower() for p in ["router", "routes", "routing"]):
             routes.extend(extract_routes_from_file(f))
 
-    # File-system routes (Next.js, Nuxt, SvelteKit)
-    if framework_info["framework"] in ("next", "nuxt", "sveltekit", "remix", "astro"):
+    # Frontend: file-system routes (Next.js, Nuxt, SvelteKit)
+    if fw in ("next", "nuxt", "sveltekit", "remix", "astro"):
         for d in route_dirs:
             routes.extend(extract_routes_from_filesystem(d, root))
 
-    # Deduplicate routes by path
+    # Backend: NestJS controllers, Django urls
+    if fw in ("nestjs", "express", "fastify", "django"):
+        for f in all_files:
+            if fw == "django" and "urls.py" in f.name:
+                routes.extend(extract_backend_routes(f, fw))
+            elif fw in ("nestjs", "express", "fastify") and ".controller." in f.name:
+                routes.extend(extract_backend_routes(f, fw))
+
+    # Deduplicate routes by path (+ method for backend)
     seen_paths: Set[str] = set()
     unique_routes = []
     for r in routes:
-        if r["path"] not in seen_paths:
-            seen_paths.add(r["path"])
+        key = r["path"] if r.get("type") != "backend" else f"{r.get('method', '')}:{r['path']}"
+        if key not in seen_paths:
+            seen_paths.add(key)
             unique_routes.append(r)
     routes = sorted(unique_routes, key=lambda r: r["path"])
 
@@ -359,9 +533,34 @@ def analyze_project(project_root: Path) -> Dict[str, Any]:
     for f in all_files:
         enums.extend(extract_enums(f))
 
-    # 7. Summary
+    # 7. Models/entities (backend)
+    models = []
+    if fw in ("django", "fastapi", "flask", "nestjs"):
+        for f in all_files:
+            if fw == "django" and "models.py" in f.name:
+                models.extend(extract_models(f, fw))
+            elif fw == "nestjs" and (".entity." in f.name or ".dto." in f.name):
+                models.extend(extract_models(f, fw))
+
+    # Deduplicate models by name
+    seen_models: Set[str] = set()
+    unique_models = []
+    for m in models:
+        if m["name"] not in seen_models:
+            seen_models.add(m["name"])
+            unique_models.append(m)
+    models = sorted(unique_models, key=lambda m: m["name"])
+
+    # Backend-specific directories
+    controller_dirs = find_dirs(root, CONTROLLER_DIR_PATTERNS)
+    model_dirs = find_dirs(root, MODEL_DIR_PATTERNS)
+    dto_dirs = find_dirs(root, DTO_DIR_PATTERNS)
+
+    # 8. Summary
     mock_count = sum(1 for a in apis if a.get("mock_detected"))
     real_count = sum(1 for a in apis if a.get("integrated"))
+    backend_routes = [r for r in routes if r.get("type") == "backend"]
+    frontend_routes = [r for r in routes if r.get("type") != "backend"]
 
     analysis = {
         "project": {
@@ -370,6 +569,8 @@ def analyze_project(project_root: Path) -> Dict[str, Any]:
             "framework": framework_info["framework"],
             "detected_frameworks": framework_info.get("detected_frameworks", []),
             "key_dependencies": framework_info.get("key_deps", {}),
+            "stack_type": "backend" if fw in ("django", "fastapi", "flask", "nestjs", "express", "fastify") and not frontend_routes else
+                          "fullstack" if backend_routes and frontend_routes else "frontend",
         },
         "structure": {
             "total_files": len(all_files),
@@ -378,10 +579,15 @@ def analyze_project(project_root: Path) -> Dict[str, Any]:
             "api_dirs": [str(d) for d in api_dirs],
             "state_dirs": [str(d) for d in state_dirs],
             "i18n_dirs": [str(d) for d in i18n_dirs],
+            "controller_dirs": [str(d) for d in controller_dirs],
+            "model_dirs": [str(d) for d in model_dirs],
+            "dto_dirs": [str(d) for d in dto_dirs],
         },
         "routes": {
             "count": len(routes),
-            "pages": routes,
+            "frontend_pages": frontend_routes,
+            "backend_endpoints": backend_routes,
+            "pages": routes,  # backward compat
         },
         "apis": {
             "total": len(apis),
@@ -393,14 +599,22 @@ def analyze_project(project_root: Path) -> Dict[str, Any]:
             "count": len(enums),
             "definitions": enums,
         },
+        "models": {
+            "count": len(models),
+            "definitions": models,
+        },
         "summary": {
-            "pages": len(routes),
+            "pages": len(frontend_routes),
+            "backend_endpoints": len(backend_routes),
             "api_endpoints": len(apis),
             "api_integrated": real_count,
             "api_mock": mock_count,
             "enums": len(enums),
+            "models": len(models),
             "has_i18n": len(i18n_dirs) > 0,
             "has_state_management": len(state_dirs) > 0,
+            "stack_type": "backend" if fw in ("django", "fastapi", "flask", "nestjs", "express", "fastify") and not frontend_routes else
+                          "fullstack" if backend_routes and frontend_routes else "frontend",
         },
     }
 
@@ -412,15 +626,22 @@ def format_markdown(analysis: Dict[str, Any]) -> str:
     lines = []
     proj = analysis["project"]
     summary = analysis["summary"]
+    stack = summary.get("stack_type", "frontend")
 
-    lines.append(f"# Frontend Analysis: {proj['name'] or 'Project'}")
+    lines.append(f"# Codebase Analysis: {proj['name'] or 'Project'}")
     lines.append("")
     lines.append(f"**Framework:** {proj['framework']}")
+    lines.append(f"**Stack type:** {stack}")
     lines.append(f"**Total files:** {analysis['structure']['total_files']}")
-    lines.append(f"**Pages:** {summary['pages']}")
-    lines.append(f"**API endpoints:** {summary['api_endpoints']} "
+    if summary.get("pages"):
+        lines.append(f"**Frontend pages:** {summary['pages']}")
+    if summary.get("backend_endpoints"):
+        lines.append(f"**Backend endpoints:** {summary['backend_endpoints']}")
+    lines.append(f"**API calls detected:** {summary['api_endpoints']} "
                  f"({summary['api_integrated']} integrated, {summary['api_mock']} mock)")
     lines.append(f"**Enums:** {summary['enums']}")
+    if summary.get("models"):
+        lines.append(f"**Models/entities:** {summary['models']}")
     lines.append(f"**i18n:** {'Yes' if summary['has_i18n'] else 'No'}")
     lines.append(f"**State management:** {'Yes' if summary['has_state_management'] else 'No'}")
     lines.append("")
@@ -459,6 +680,18 @@ def format_markdown(analysis: Dict[str, Any]) -> str:
                     lines.append(f"| {k} | {v} |")
             lines.append("")
 
+    if analysis.get("models", {}).get("definitions"):
+        lines.append("## Models / Entities")
+        lines.append("")
+        for m in analysis["models"]["definitions"]:
+            lines.append(f"### {m['name']} ({m.get('framework', '')})")
+            if m.get("fields"):
+                lines.append("| Field | Type | Args |")
+                lines.append("|-------|------|------|")
+                for fld in m["fields"]:
+                    lines.append(f"| {fld['name']} | {fld['type']} | {fld.get('args', '')} |")
+            lines.append("")
+
     if proj.get("key_dependencies"):
         lines.append("## Key Dependencies")
         lines.append("")
@@ -471,9 +704,9 @@ def format_markdown(analysis: Dict[str, Any]) -> str:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Analyze frontend codebase for PRD generation"
+        description="Analyze any codebase (frontend, backend, fullstack) for PRD generation"
     )
-    parser.add_argument("project", help="Path to frontend project root")
+    parser.add_argument("project", help="Path to project root")
     parser.add_argument("-o", "--output", help="Output file (default: stdout)")
     parser.add_argument(
         "-f", "--format",

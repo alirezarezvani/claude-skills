@@ -396,7 +396,7 @@
     {
       "name": "code-to-prd",
       "source": "./product-team/code-to-prd",
-      "description": "Reverse-engineer any frontend codebase into a complete PRD. Analyzes routes, components, state, APIs, and interactions. Framework-agnostic: React, Vue, Angular, Svelte, Next.js. 2 Python scripts (frontend_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
+      "description": "Reverse-engineer any codebase into a complete PRD. Frontend (React, Vue, Angular, Next.js), backend (NestJS, Django, Express, FastAPI), and fullstack. 2 Python scripts (codebase_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -406,11 +406,17 @@
         "product-requirements",
         "reverse-engineering",
         "frontend",
+        "backend",
+        "fullstack",
         "documentation",
         "code-analysis",
         "react",
         "vue",
-        "angular"
+        "angular",
+        "nestjs",
+        "django",
+        "fastapi",
+        "express"
       ],
       "category": "product"
     }

@@ -394,26 +394,31 @@
       "category": "development"
     },
     {
-      "name": "agenthub",
-      "source": "./engineering/agenthub",
-      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "name": "code-to-prd",
+      "source": "./product-team/code-to-prd",
+      "description": "Reverse-engineer any codebase into a complete PRD. Frontend (React, Vue, Angular, Next.js), backend (NestJS, Django, Express, FastAPI), and fullstack. 2 Python scripts (codebase_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
       },
       "keywords": [
-        "multi-agent",
-        "collaboration",
-        "parallel",
-        "git-dag",
-        "orchestration",
-        "competition",
-        "worktree",
-        "content-generation",
-        "research",
-        "optimization"
+        "prd",
+        "product-requirements",
+        "reverse-engineering",
+        "frontend",
+        "backend",
+        "fullstack",
+        "documentation",
+        "code-analysis",
+        "react",
+        "vue",
+        "angular",
+        "nestjs",
+        "django",
+        "fastapi",
+        "express"
       ],
-      "category": "development"
+      "category": "product"
     }
   ]
 }

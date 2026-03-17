@@ -1,6 +1,6 @@
 ---
-title: "TDD Guide"
-description: "TDD Guide - Claude Code skill from the Engineering - Core domain."
+title: "TDD Guide — Agent Skill & Codex Plugin"
+description: "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # TDD Guide

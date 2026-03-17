@@ -1,6 +1,6 @@
 ---
-title: "Playwright Pro"
-description: "Playwright Pro - Claude Code skill from the Engineering - Core domain."
+title: "Playwright Pro — Agent Skill & Codex Plugin"
+description: "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Playwright Pro

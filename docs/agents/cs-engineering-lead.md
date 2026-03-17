@@ -1,9 +1,9 @@
 ---
-title: "cs-engineering-lead"
-description: "cs-engineering-lead - Claude Code agent for Engineering - Core."
+title: "Engineering Lead — AI Coding Agent & Codex Skill"
+description: "Engineering Team Lead agent for coordinating QA, security, data engineering, ML, and frontend/backend teams. Orchestrates engineering-team skills for. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# cs-engineering-lead
+# Engineering Lead
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>

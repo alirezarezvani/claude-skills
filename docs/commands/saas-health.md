@@ -1,6 +1,6 @@
 ---
-title: "/saas-health"
-description: "/saas-health — Claude Code slash command."
+title: "/saas-health — Slash Command for AI Coding Agents"
+description: "Calculate SaaS health metrics (ARR, MRR, churn, CAC, LTV, NRR) and benchmark against industry standards. Usage: /saas-health. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /saas-health

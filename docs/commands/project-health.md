@@ -1,6 +1,6 @@
 ---
-title: "/project-health"
-description: "/project-health — Claude Code slash command."
+title: "/project-health — Slash Command for AI Coding Agents"
+description: "Portfolio health dashboard and risk matrix analysis. Usage: /project-health <dashboard|risk> [options]. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /project-health

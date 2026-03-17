@@ -1,6 +1,6 @@
 ---
-title: "Prompt Engineer Toolkit"
-description: "Prompt Engineer Toolkit - Claude Code skill from the Marketing domain."
+title: "Prompt Engineer Toolkit — Agent Skill for Marketing"
+description: "Analyzes and rewrites prompts for better AI output, creates reusable prompt templates for marketing use cases (ad copy, email campaigns, social. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Prompt Engineer Toolkit
@@ -111,10 +111,10 @@ python3 scripts/prompt_versioner.py changelog --name support_classifier
 
 ## References
 
-- [references/prompt-templates.md](references/prompt-templates.md)
-- [references/technique-guide.md](references/technique-guide.md)
-- [references/evaluation-rubric.md](references/evaluation-rubric.md)
-- [README.md](README.md)
+- [references/prompt-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/references/prompt-templates.md)
+- [references/technique-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/references/technique-guide.md)
+- [references/evaluation-rubric.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/references/evaluation-rubric.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/README.md)
 
 ## Evaluation Design
 

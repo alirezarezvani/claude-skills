@@ -1,6 +1,6 @@
 ---
-title: "BrowserStack Integration"
-description: "BrowserStack Integration - Claude Code skill from the Engineering - Core domain."
+title: "BrowserStack Integration — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # BrowserStack Integration

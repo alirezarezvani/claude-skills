@@ -1,6 +1,6 @@
 ---
-title: "GDPR/DSGVO Expert"
-description: "GDPR/DSGVO Expert - Claude Code skill from the Regulatory & Quality domain."
+title: "GDPR/DSGVO Expert — Agent Skill for Compliance"
+description: "GDPR and German DSGVO compliance automation. Scans codebases for privacy risks, generates DPIA documentation, tracks data subject rights requests. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # GDPR/DSGVO Expert

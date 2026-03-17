@@ -1,6 +1,6 @@
 ---
-title: "CPO Advisor"
-description: "CPO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CPO Advisor — Agent Skill for Executives"
+description: "Product leadership for scaling companies. Product vision, portfolio strategy, product-market fit, and product org design. Use when setting product. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CPO Advisor

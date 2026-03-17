@@ -1,9 +1,9 @@
 ---
-title: "cs-financial-analyst"
-description: "cs-financial-analyst - Claude Code agent for Finance."
+title: "Financial Analyst — AI Coding Agent & Codex Skill"
+description: "Financial Analyst agent for DCF valuation, financial modeling, budgeting, forecasting, and SaaS metrics (ARR, MRR, churn, CAC, LTV, NRR). Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# cs-financial-analyst
+# Financial Analyst
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>

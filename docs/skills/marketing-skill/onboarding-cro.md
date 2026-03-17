@@ -1,6 +1,6 @@
 ---
-title: "Onboarding CRO"
-description: "Onboarding CRO - Claude Code skill from the Marketing domain."
+title: "Onboarding CRO — Agent Skill for Marketing"
+description: "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Onboarding CRO
@@ -207,7 +207,7 @@ When recommending experiments, consider tests for:
 - Personalization by role or goal
 - Support and help availability
 
-**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
+**For comprehensive experiment ideas**: See [references/experiments.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/references/experiments.md)
 
 ---
 

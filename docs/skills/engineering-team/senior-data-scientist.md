@@ -1,6 +1,6 @@
 ---
-title: "Senior Data Scientist"
-description: "Senior Data Scientist - Claude Code skill from the Engineering - Core domain."
+title: "Senior Data Scientist — Agent Skill & Codex Plugin"
+description: "World-class senior data scientist skill specialising in statistical modeling, experiment design, causal inference, and predictive analytics. Covers. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Data Scientist

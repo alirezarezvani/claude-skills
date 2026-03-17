@@ -1,6 +1,6 @@
 ---
-title: "API Test Suite Builder"
-description: "API Test Suite Builder - Claude Code skill from the Engineering - POWERFUL domain."
+title: "API Test Suite Builder — Agent Skill for Codex & OpenClaw"
+description: "API Test Suite Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # API Test Suite Builder

@@ -1,6 +1,6 @@
 ---
-title: "Plugins & Marketplace"
-description: "19 installable plugins for Claude Code, Codex CLI, Gemini CLI, and OpenClaw. Domain bundles and standalone plugins across engineering, marketing, product, and more."
+title: "Agent Plugin Marketplace — Codex & OpenClaw Plugins"
+description: "21 installable agent plugins for Claude Code, Codex CLI, Gemini CLI, and OpenClaw. One-command install for engineering, marketing, product, compliance, and finance skill bundles."
 ---
 
 <div class="skills-hero" markdown>

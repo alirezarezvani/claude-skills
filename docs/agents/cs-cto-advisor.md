@@ -1,6 +1,6 @@
 ---
-title: "CTO Advisor Agent"
-description: "CTO Advisor Agent - Claude Code agent for C-Level Advisory."
+title: "CTO Advisor Agent — AI Coding Agent & Codex Skill"
+description: "Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # CTO Advisor Agent

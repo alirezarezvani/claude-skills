@@ -1,6 +1,6 @@
 ---
-title: "Marketing Psychology"
-description: "Marketing Psychology - Claude Code skill from the Marketing domain."
+title: "Marketing Psychology — Agent Skill for Marketing"
+description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Marketing Psychology
@@ -38,7 +38,7 @@ Explain a specific mental model, bias, or principle with marketing applications 
 
 ## The 70+ Mental Models
 
-The full catalog lives in [references/mental-models-catalog.md](references/mental-models-catalog.md). Load it when you need to look up specific models or browse the full list.
+The full catalog lives in [references/mental-models-catalog.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-psychology/references/mental-models-catalog.md). Load it when you need to look up specific models or browse the full list.
 
 ### Categories at a Glance
 

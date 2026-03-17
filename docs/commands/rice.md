@@ -1,6 +1,6 @@
 ---
-title: "/rice"
-description: "/rice — Claude Code slash command."
+title: "/rice — Slash Command for AI Coding Agents"
+description: "RICE feature prioritization with scoring and capacity planning. Usage: /rice prioritize <features.csv> [options]. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /rice

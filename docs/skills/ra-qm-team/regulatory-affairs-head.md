@@ -1,6 +1,6 @@
 ---
-title: "Head of Regulatory Affairs"
-description: "Head of Regulatory Affairs - Claude Code skill from the Regulatory & Quality domain."
+title: "Head of Regulatory Affairs — Agent Skill for Compliance"
+description: "Senior Regulatory Affairs Manager for HealthTech and MedTech companies. Prepares FDA 510(k), De Novo, and PMA submission packages; analyzes. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Head of Regulatory Affairs
@@ -186,7 +186,7 @@ Prepare and submit FDA regulatory applications.
 | Software | Inadequate hazard analysis; no cybersecurity bill of materials | IEC 62304 compliance + FDA cybersecurity guidance checklist |
 | Labeling | Inconsistent claims vs. IFU; missing symbols standard | Cross-check label against IFU; cite ISO 15223-1 for symbols |
 
-See: [references/fda-submission-guide.md](references/fda-submission-guide.md)
+See: [references/fda-submission-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/fda-submission-guide.md)
 
 ---
 
@@ -241,7 +241,7 @@ Achieve CE marking under EU MDR 2017/745.
 - **Cost:** Fee structure transparency
 - **Communication:** Responsiveness and query turnaround
 
-See: [references/eu-mdr-submission-guide.md](references/eu-mdr-submission-guide.md)
+See: [references/eu-mdr-submission-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/eu-mdr-submission-guide.md)
 
 ---
 
@@ -290,7 +290,7 @@ Coordinate regulatory approvals across international markets.
 | Labeling | Master label | Translation, local requirements |
 | IFU | Master content | Translation, local symbols |
 
-See: [references/global-regulatory-pathways.md](references/global-regulatory-pathways.md)
+See: [references/global-regulatory-pathways.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/global-regulatory-pathways.md)
 
 ---
 
@@ -427,7 +427,7 @@ III  IIb  Check   Class I
 
 | Tool | Purpose | Usage |
 |------|---------|-------|
-| [regulatory_tracker.py](scripts/regulatory_tracker.py) | Track submission status and timelines | `python regulatory_tracker.py` |
+| [regulatory_tracker.py](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/scripts/regulatory_tracker.py) | Track submission status and timelines | `python regulatory_tracker.py` |
 
 **Regulatory Tracker Features:**
 - Track multiple submissions across markets
@@ -453,10 +453,10 @@ Submission Status Report — 2024-11-01
 
 | Document | Content |
 |----------|---------|
-| [fda-submission-guide.md](references/fda-submission-guide.md) | FDA pathways, requirements, review process |
-| [eu-mdr-submission-guide.md](references/eu-mdr-submission-guide.md) | MDR classification, technical documentation, clinical evidence |
-| [global-regulatory-pathways.md](references/global-regulatory-pathways.md) | Canada, Japan, China, Australia, Brazil requirements |
-| [iso-regulatory-requirements.md](references/iso-regulatory-requirements.md) | ISO 13485, 14971, 10993, IEC 62304, 62366 requirements |
+| [fda-submission-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/fda-submission-guide.md) | FDA pathways, requirements, review process |
+| [eu-mdr-submission-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/eu-mdr-submission-guide.md) | MDR classification, technical documentation, clinical evidence |
+| [global-regulatory-pathways.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/global-regulatory-pathways.md) | Canada, Japan, China, Australia, Brazil requirements |
+| [iso-regulatory-requirements.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head/references/iso-regulatory-requirements.md) | ISO 13485, 14971, 10993, IEC 62304, 62366 requirements |
 
 ### Key Performance Indicators
 
@@ -473,7 +473,7 @@ Submission Status Report — 2024-11-01
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [mdr-745-specialist](../mdr-745-specialist/) | Detailed EU MDR technical requirements |
-| [fda-consultant-specialist](../fda-consultant-specialist/) | FDA submission deep expertise |
-| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS for regulatory compliance |
-| [risk-management-specialist](../risk-management-specialist/) | ISO 14971 risk management |
+| [mdr-745-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/mdr-745-specialist) | Detailed EU MDR technical requirements |
+| [fda-consultant-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist) | FDA submission deep expertise |
+| [quality-manager-qms-iso13485](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485) | QMS for regulatory compliance |
+| [risk-management-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist) | ISO 14971 risk management |

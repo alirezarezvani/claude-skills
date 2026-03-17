@@ -1,6 +1,6 @@
 ---
-title: "Board Meeting Protocol"
-description: "Board Meeting Protocol - Claude Code skill from the C-Level Advisory domain."
+title: "Board Meeting Protocol — Agent Skill for Executives"
+description: "Multi-agent board meeting protocol for strategic decisions. Runs a structured 6-phase deliberation: context loading, independent C-suite. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Board Meeting Protocol

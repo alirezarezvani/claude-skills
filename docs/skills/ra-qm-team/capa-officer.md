@@ -1,6 +1,6 @@
 ---
-title: "CAPA Officer"
-description: "CAPA Officer - Claude Code skill from the Regulatory & Quality domain."
+title: "CAPA Officer — Agent Skill for Compliance"
+description: "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CAPA Officer

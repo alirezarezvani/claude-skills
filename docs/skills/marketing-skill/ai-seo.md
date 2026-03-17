@@ -1,6 +1,6 @@
 ---
-title: "AI SEO"
-description: "AI SEO - Claude Code skill from the Marketing domain."
+title: "AI SEO — Agent Skill for Marketing"
+description: "Optimize content to get cited by AI search engines — ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, Copilot. Use when you want your."
 ---
 
 # AI SEO
@@ -68,7 +68,7 @@ This changes everything:
 
 But here's what traditional SEO and AI SEO share: **authority still matters**. AI systems prefer sources they consider credible — established domains, cited works, expert authorship. You still need backlinks and domain trust. You just also need structure.
 
-See [references/ai-search-landscape.md](references/ai-search-landscape.md) for how each platform (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini, Copilot) selects and cites sources.
+See [references/ai-search-landscape.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ai-seo/references/ai-search-landscape.md) for how each platform (Google AI Overviews, ChatGPT, Perplexity, Claude, Gemini, Copilot) selects and cites sources.
 
 ---
 
@@ -190,7 +190,7 @@ Score: 0-3 checks = needs major restructuring. 4-5 = good baseline. 6-7 = strong
 
 These are the block types AI systems reliably extract. Add at least 2-3 per key page.
 
-See [references/content-patterns.md](references/content-patterns.md) for ready-to-use templates for each pattern.
+See [references/content-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ai-seo/references/content-patterns.md) for ready-to-use templates for each pattern.
 
 **Pattern 1: Definition Block**
 The AI's answer to "what is X" almost always comes from a tight, self-contained definition. Format:
@@ -280,7 +280,7 @@ Google Search Console now shows impressions in AI Overviews under "Search type: 
 | AI bot crawl activity | Server logs or Cloudflare | Monthly |
 | Competitor AI citations | Manual query testing | Monthly |
 
-See [references/monitoring-guide.md](references/monitoring-guide.md) for the full tracking setup and templates.
+See [references/monitoring-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ai-seo/references/monitoring-guide.md) for the full tracking setup and templates.
 
 ### When Your Citations Drop
 

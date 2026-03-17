@@ -1,6 +1,6 @@
 ---
-title: "Initialize Playwright Project"
-description: "Initialize Playwright Project - Claude Code skill from the Engineering - Core domain."
+title: "Initialize Playwright Project — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Initialize Playwright Project

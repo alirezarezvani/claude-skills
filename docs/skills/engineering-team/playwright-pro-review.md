@@ -1,6 +1,6 @@
 ---
-title: "Review Playwright Tests"
-description: "Review Playwright Tests - Claude Code skill from the Engineering - Core domain."
+title: "Review Playwright Tests — Agent Skill & Codex Plugin"
+description: ">-. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Review Playwright Tests

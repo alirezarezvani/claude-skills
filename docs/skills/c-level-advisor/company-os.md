@@ -1,6 +1,6 @@
 ---
-title: "Company Operating System"
-description: "Company Operating System - Claude Code skill from the C-Level Advisory domain."
+title: "Company Operating System — Agent Skill for Executives"
+description: "The meta-framework for how a company runs — the connective tissue between all C-suite roles. Covers operating system selection (EOS, Scaling Up. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Company Operating System

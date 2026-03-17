@@ -1,9 +1,9 @@
 ---
-title: "cs-growth-strategist"
-description: "cs-growth-strategist - Claude Code agent for Business & Growth."
+title: "Growth Strategist — AI Coding Agent & Codex Skill"
+description: "Growth Strategist agent for revenue operations, sales engineering, customer success, and business development. Orchestrates business-growth skills. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# cs-growth-strategist
+# Growth Strategist
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>

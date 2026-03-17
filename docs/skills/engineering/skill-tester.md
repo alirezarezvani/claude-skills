@@ -1,6 +1,6 @@
 ---
-title: "Skill Tester"
-description: "Skill Tester - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Skill Tester — Agent Skill for Codex & OpenClaw"
+description: "Skill Tester. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Skill Tester

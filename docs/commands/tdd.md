@@ -1,6 +1,6 @@
 ---
-title: "/tdd"
-description: "/tdd — Claude Code slash command."
+title: "/tdd — Slash Command for AI Coding Agents"
+description: "Generate tests, analyze coverage, and run TDD workflows. Usage: /tdd <generate|coverage|validate> [options]. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /tdd

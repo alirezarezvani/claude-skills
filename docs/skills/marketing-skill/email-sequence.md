@@ -1,6 +1,6 @@
 ---
-title: "Email Sequence Design"
-description: "Email Sequence Design - Claude Code skill from the Marketing domain."
+title: "Email Sequence Design — Agent Skill for Marketing"
+description: "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Email Sequence Design
@@ -91,15 +91,15 @@ What to measure and benchmarks
 
 ## Tool Integrations
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key email tools:
+For implementation, see the [tools registry](https://github.com/alirezarezvani/claude-skills/tree/main/tools/REGISTRY.md). Key email tools:
 
 | Tool | Best For | MCP | Guide |
 |------|----------|:---:|-------|
-| **Customer.io** | Behavior-based automation | - | [customer-io.md](../../tools/integrations/customer-io.md) |
-| **Mailchimp** | SMB email marketing | ✓ | [mailchimp.md](../../tools/integrations/mailchimp.md) |
-| **Resend** | Developer-friendly transactional | ✓ | [resend.md](../../tools/integrations/resend.md) |
-| **SendGrid** | Transactional email at scale | - | [sendgrid.md](../../tools/integrations/sendgrid.md) |
-| **Kit** | Creator/newsletter focused | - | [kit.md](../../tools/integrations/kit.md) |
+| **Customer.io** | Behavior-based automation | - | [customer-io.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/customer-io.md) |
+| **Mailchimp** | SMB email marketing | ✓ | [mailchimp.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/mailchimp.md) |
+| **Resend** | Developer-friendly transactional | ✓ | [resend.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/resend.md) |
+| **SendGrid** | Transactional email at scale | - | [sendgrid.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/sendgrid.md) |
+| **Kit** | Creator/newsletter focused | - | [kit.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/kit.md) |
 
 ---
 

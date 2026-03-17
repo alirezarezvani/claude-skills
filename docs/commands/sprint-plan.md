@@ -1,6 +1,6 @@
 ---
-title: "/sprint-plan"
-description: "/sprint-plan — Claude Code slash command."
+title: "/sprint-plan — Slash Command for AI Coding Agents"
+description: "Sprint planning shortcut. Usage: /sprint-plan <goal> [capacity]. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /sprint-plan

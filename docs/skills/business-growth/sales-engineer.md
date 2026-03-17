@@ -1,6 +1,6 @@
 ---
-title: "Sales Engineer Skill"
-description: "Sales Engineer Skill - Claude Code skill from the Business & Growth domain."
+title: "Sales Engineer Skill — Agent Skill for Growth"
+description: "Analyzes RFP/RFI responses for coverage gaps, builds competitive feature comparison matrices, and plans proof-of-concept (POC) engagements for. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Sales Engineer Skill
@@ -222,10 +222,10 @@ python scripts/poc_planner.py poc_data.json --format json  # JSON output
 
 ## Integration Points
 
-- **Marketing Skills** - Leverage competitive intelligence and messaging frameworks from `../../marketing-skill/`
-- **Product Team** - Coordinate on roadmap items flagged as "Planned" in RFP analysis from `../../product-team/`
-- **C-Level Advisory** - Escalate strategic deals requiring executive engagement from `../../c-level-advisor/`
-- **Customer Success** - Hand off POC results and success criteria to CSM from `../customer-success-manager/`
+- **Marketing Skills** - Leverage competitive intelligence and messaging frameworks from [`marketing-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill)
+- **Product Team** - Coordinate on roadmap items flagged as "Planned" in RFP analysis from [`product-team`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team)
+- **C-Level Advisory** - Escalate strategic deals requiring executive engagement from [`c-level-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor)
+- **Customer Success** - Hand off POC results and success criteria to CSM from [`business-growth/customer-success-manager`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/customer-success-manager)
 
 ---
 

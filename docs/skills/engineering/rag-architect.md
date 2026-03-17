@@ -1,9 +1,9 @@
 ---
-title: "RAG Architect - POWERFUL"
-description: "RAG Architect - POWERFUL - Claude Code skill from the Engineering - POWERFUL domain."
+title: "RAG Architect — Agent Skill for Codex & OpenClaw"
+description: "RAG Architect - POWERFUL. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# RAG Architect - POWERFUL
+# RAG Architect
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>

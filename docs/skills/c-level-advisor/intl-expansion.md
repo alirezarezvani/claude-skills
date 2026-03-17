@@ -1,6 +1,6 @@
 ---
-title: "International Expansion"
-description: "International Expansion - Claude Code skill from the C-Level Advisory domain."
+title: "International Expansion — Agent Skill for Executives"
+description: "International market expansion strategy. Market selection, entry modes, localization, regulatory compliance, and go-to-market by region. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # International Expansion

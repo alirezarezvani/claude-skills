@@ -1,6 +1,6 @@
 ---
-title: "Senior Quality Manager Responsible Person (QMR)"
-description: "Senior Quality Manager Responsible Person (QMR) - Claude Code skill from the Regulatory & Quality domain."
+title: "Senior Quality Manager Responsible Person (QMR) — Agent Skill for Compliance"
+description: "Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Quality Manager Responsible Person (QMR)
@@ -163,7 +163,7 @@ Prepared By: [QMR Name]
 | Quality objectives changes | Updated objectives document | QMR |
 | Process improvement needs | Improvement project charters | Process owners |
 
-See: [references/management-review-guide.md](references/management-review-guide.md)
+See: [references/management-review-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/references/management-review-guide.md)
 
 ---
 
@@ -219,7 +219,7 @@ Establish, monitor, and report quality performance indicators.
 | 80-90% of target | Below | Improvement plan required |
 | <80% of target | Critical | Immediate intervention |
 
-See: [references/quality-kpi-framework.md](references/quality-kpi-framework.md)
+See: [references/quality-kpi-framework.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/references/quality-kpi-framework.md)
 
 ---
 
@@ -438,7 +438,7 @@ immediately    Yes─┴─No
 
 | Tool | Purpose | Usage |
 |------|---------|-------|
-| [management_review_tracker.py](scripts/management_review_tracker.py) | Track review inputs, actions, metrics | `python management_review_tracker.py --help` |
+| [management_review_tracker.py](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/scripts/management_review_tracker.py) | Track review inputs, actions, metrics | `python management_review_tracker.py --help` |
 
 **Management Review Tracker Features:**
 - Track input collection status from process owners
@@ -450,8 +450,8 @@ immediately    Yes─┴─No
 
 | Document | Content |
 |----------|---------|
-| [management-review-guide.md](references/management-review-guide.md) | ISO 13485 Clause 5.6 requirements, input/output templates, action tracking |
-| [quality-kpi-framework.md](references/quality-kpi-framework.md) | KPI categories, targets, calculations, dashboard templates |
+| [management-review-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/references/management-review-guide.md) | ISO 13485 Clause 5.6 requirements, input/output templates, action tracking |
+| [quality-kpi-framework.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr/references/quality-kpi-framework.md) | KPI categories, targets, calculations, dashboard templates |
 
 ### Quick Reference: Management Review Inputs (ISO 13485 Clause 5.6.2)
 
@@ -480,7 +480,7 @@ immediately    Yes─┴─No
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS process management |
-| [capa-officer](../capa-officer/) | CAPA system oversight |
-| [qms-audit-expert](../qms-audit-expert/) | Internal audit program |
-| [quality-documentation-manager](../quality-documentation-manager/) | Document control oversight |
+| [quality-manager-qms-iso13485](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485) | QMS process management |
+| [capa-officer](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/capa-officer) | CAPA system oversight |
+| [qms-audit-expert](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/qms-audit-expert) | Internal audit program |
+| [quality-documentation-manager](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-documentation-manager) | Document control oversight |

@@ -1,6 +1,6 @@
 ---
-title: "Finance Skills"
-description: "Finance Skills - Claude Code skill from the Finance domain."
+title: "Finance Skills — Agent Skill for Finance"
+description: "Financial analyst agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Ratio analysis, DCF valuation, budget variance."
 ---
 
 # Finance Skills

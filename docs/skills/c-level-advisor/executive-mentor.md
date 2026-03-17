@@ -1,6 +1,6 @@
 ---
-title: "Executive Mentor"
-description: "Executive Mentor - Claude Code skill from the C-Level Advisory domain."
+title: "Executive Mentor — Agent Skill for Executives"
+description: "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for brutal board meetings, dissects decisions with no good. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Executive Mentor

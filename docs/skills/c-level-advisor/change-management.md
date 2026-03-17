@@ -1,6 +1,6 @@
 ---
-title: "Change Management Playbook"
-description: "Change Management Playbook - Claude Code skill from the C-Level Advisory domain."
+title: "Change Management Playbook — Agent Skill for Executives"
+description: "Framework for rolling out organizational changes without chaos. Covers the ADKAR model adapted for startups, communication templates, resistance. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Change Management Playbook

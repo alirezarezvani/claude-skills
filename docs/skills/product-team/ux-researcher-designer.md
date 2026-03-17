@@ -1,6 +1,6 @@
 ---
-title: "UX Researcher & Designer"
-description: "UX Researcher & Designer - Claude Code skill from the Product domain."
+title: "UX Researcher & Designer — Agent Skill for Product Teams"
+description: "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # UX Researcher & Designer

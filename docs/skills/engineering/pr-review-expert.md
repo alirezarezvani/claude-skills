@@ -1,6 +1,6 @@
 ---
-title: "PR Review Expert"
-description: "PR Review Expert - Claude Code skill from the Engineering - POWERFUL domain."
+title: "PR Review Expert — Agent Skill for Codex & OpenClaw"
+description: "PR Review Expert. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # PR Review Expert

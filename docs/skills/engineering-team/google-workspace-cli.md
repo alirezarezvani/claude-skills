@@ -1,6 +1,6 @@
 ---
-title: "Google Workspace CLI"
-description: "Google Workspace CLI - Claude Code skill from the Engineering - Core domain."
+title: "Google Workspace CLI — Agent Skill & Codex Plugin"
+description: "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Google Workspace CLI

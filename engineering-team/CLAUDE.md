@@ -1,22 +1,20 @@
 # Engineering Team Skills - Claude Code Guidance
 
-This guide covers the 25 production-ready engineering skills and their Python automation tools.
+This guide covers the 24 production-ready engineering skills and their Python automation tools.
 
 ## Engineering Skills Overview
 
-**Core Engineering (15 skills):**
+**Core Engineering (14 skills):**
 - senior-architect, senior-frontend, senior-backend, senior-fullstack
 - senior-qa, senior-devops, senior-secops
 - code-reviewer, senior-security
 - aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator, epic-design
-- **review-fix-a11y** — WCAG 2.2 accessibility audit and fix for React, Next.js, Vue, Angular, and HTML
-- **free-llm-api** — Free/low-cost OpenAI-compatible API setup: ChatAnywhere, Groq, Cerebras, OpenRouter, provider rotation pool
 
 **AI/ML/Data (5 skills):**
 - senior-data-scientist, senior-data-engineer, senior-ml-engineer
 - senior-prompt-engineer, senior-computer-vision
 
-**Total Tools:** 34+ Python automation tools
+**Total Tools:** 32+ Python automation tools
 
 ## Core Engineering Tools
 
@@ -289,48 +287,9 @@ services:
 
 ---
 
-**Last Updated:** March 17, 2026
-**Skills Deployed:** 27 engineering skills production-ready
-**Total Tools:** 39+ Python automation tools across core + AI/ML/Data + epic-design + a11y
-
----
-
-## review-fix-a11y
-
-Audit and fix WCAG 2.2 accessibility issues in any front-end project. Covers React, Next.js, Vue, Angular, and plain HTML — including keyboard navigation, ARIA, focus management, form labels, color contrast, and screen reader support.
-
-**Tools:**
-
-**A11y Auditor** (`review-fix-a11y/scripts/a11y_audit.py`)
-- Scans HTML, JSX, TSX, Vue, and CSS files for 17 common a11y violations
-- Severity-ranked output: critical → serious → moderate → minor
-- Exit code 1 when blocking (critical/serious) issues found — CI-friendly
-
-```bash
-# Audit a project directory
-python review-fix-a11y/scripts/a11y_audit.py /path/to/project
-
-# Only show critical and serious issues
-python review-fix-a11y/scripts/a11y_audit.py /path/to/project --severity serious
-
-# JSON output for CI integration
-python review-fix-a11y/scripts/a11y_audit.py /path/to/project --json
-```
-
-**Contrast Checker** (`review-fix-a11y/scripts/contrast_checker.py`)
-- Computes WCAG relative luminance and contrast ratio
-- Reports AA/AAA pass/fail for normal text, large text, and UI components
-- Suggests accessible background alternatives for a given foreground
-
-```bash
-# Check two colors
-python review-fix-a11y/scripts/contrast_checker.py "#1a1a2e" "#ffffff"
-
-# Suggest accessible backgrounds for a foreground color
-python review-fix-a11y/scripts/contrast_checker.py "#777777" --suggest
-```
-
-**Use for:** Accessibility audits, pre-merge a11y reviews, WCAG compliance checks, fixing specific a11y issues in components
+**Last Updated:** March 13, 2026
+**Skills Deployed:** 25 engineering skills production-ready
+**Total Tools:** 37+ Python automation tools across core + AI/ML/Data + epic-design
 
 ---
 

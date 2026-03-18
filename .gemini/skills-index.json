@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 249,
+  "total_skills": 251,
   "skills": [
     {
       "name": "README",
@@ -329,6 +329,11 @@
       "description": "Generate changelogs from git history and validate conventional commits. Usage: /changelog <generate|lint> [options]"
     },
     {
+      "name": "cmd-a11y-audit",
+      "category": "command",
+      "description": "Scan a frontend project for WCAG 2.2 accessibility violations and fix them. Usage: /a11y-audit [path]"
+    },
+    {
       "name": "cmd-code-to-prd",
       "category": "command",
       "description": "Reverse-engineer a frontend codebase into a PRD. Usage: /code-to-prd [path]"
@@ -417,6 +422,11 @@
       "name": "user-story",
       "category": "command",
       "description": "Generate user stories with acceptance criteria and sprint planning. Usage: /user-story <generate|sprint> [options]"
+    },
+    {
+      "name": "a11y-audit",
+      "category": "engineering",
+      "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
     },
     {
       "name": "aws-solution-architect",
@@ -1263,11 +1273,11 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 19,
+      "count": 20,
       "description": "Command resources"
     },
     "engineering": {
-      "count": 40,
+      "count": 41,
       "description": "Engineering resources"
     },
     "engineering-advanced": {

@@ -120,6 +120,7 @@ nav:
     - Overview: skills/index.md
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
+      - "A11y Audit": skills/engineering-team/a11y-audit.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
@@ -160,6 +161,7 @@ nav:
       - "Stripe Integration Expert": skills/engineering-team/stripe-integration-expert.md
       - "TDD Guide": skills/engineering-team/tdd-guide.md
       - "Tech Stack Evaluator": skills/engineering-team/tech-stack-evaluator.md
+      - "Epic Design": skills/engineering-team/epic-design.md
     - Engineering - POWERFUL:
       - Overview: skills/engineering/index.md
       - "Autoresearch Agent": skills/engineering/autoresearch-agent.md
@@ -216,6 +218,7 @@ nav:
       - "Product Discovery": skills/product-team/product-discovery.md
       - "Product Manager Toolkit": skills/product-team/product-manager-toolkit.md
       - "Product Strategist": skills/product-team/product-strategist.md
+      - "Research Summarizer": skills/product-team/research-summarizer.md
       - "Roadmap Communicator": skills/product-team/roadmap-communicator.md
       - "SaaS Scaffolder": skills/product-team/saas-scaffolder.md
       - "UI Design System": skills/product-team/ui-design-system.md
@@ -364,6 +367,7 @@ nav:
     - "CS UX Researcher": agents/cs-ux-researcher.md
   - Commands:
     - Overview: commands/index.md
+    - "/a11y-audit": commands/a11y-audit.md
     - "/changelog": commands/changelog.md
     - "/code-to-prd": commands/code-to-prd.md
     - "/competitive-matrix": commands/competitive-matrix.md
@@ -376,6 +380,7 @@ nav:
     - "/project-health": commands/project-health.md
     - "/retro": commands/retro.md
     - "/rice": commands/rice.md
+    - "/seo-auditor": commands/seo-auditor.md
     - "/saas-health": commands/saas-health.md
     - "/sprint-health": commands/sprint-health.md
     - "/sprint-plan": commands/sprint-plan.md

@@ -140,7 +140,7 @@ Choose your platform and follow the steps:
 
 | Bundle | Install Command | Skills |
 |--------|----------------|--------|
-| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 25 |
+| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 26 |
 | **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 30 |
 | **Product** | `/plugin install product-skills@claude-code-skills` | 14 |
 | **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 43 |

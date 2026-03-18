@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "25 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI.",
+      "description": "26 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2).",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -441,6 +441,111 @@
         "optimization"
       ],
       "category": "development"
+    },
+    {
+      "name": "a11y-audit",
+      "source": "./engineering-team/a11y-audit",
+      "description": "WCAG 2.2 accessibility audit and fix for React, Next.js, Vue, Angular, Svelte, and HTML. Static scanner detecting 20+ violation types, contrast checker with suggest mode, framework-specific fix patterns, /a11y-audit slash command.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "accessibility",
+        "a11y",
+        "wcag",
+        "aria",
+        "screen-reader",
+        "contrast",
+        "keyboard-navigation"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "executive-mentor",
+      "source": "./c-level-advisor/executive-mentor",
+      "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for board meetings, navigates hard calls, runs postmortems. 5 sub-skills with slash commands.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "executive",
+        "mentor",
+        "stress-test",
+        "board-prep",
+        "founder",
+        "leadership"
+      ],
+      "category": "leadership"
+    },
+    {
+      "name": "docker-development",
+      "source": "./engineering/docker-development",
+      "description": "Docker and container development — Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "docker",
+        "container",
+        "dockerfile",
+        "docker-compose",
+        "devops"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "helm-chart-builder",
+      "source": "./engineering/helm-chart-builder",
+      "description": "Helm chart development — chart scaffolding, values design, template patterns, dependency management, and Kubernetes deployment strategies.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "helm",
+        "kubernetes",
+        "k8s",
+        "chart",
+        "deployment"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "terraform-patterns",
+      "source": "./engineering/terraform-patterns",
+      "description": "Terraform infrastructure-as-code — module design patterns, state management, provider configuration, CI/CD integration, and multi-environment strategies.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "terraform",
+        "iac",
+        "infrastructure",
+        "devops",
+        "cloud"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "research-summarizer",
+      "source": "./product-team/research-summarizer",
+      "description": "Structured research summarization — summarize academic papers, market research, user interviews, and competitive analysis into actionable insights.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "research",
+        "summarization",
+        "analysis",
+        "insights",
+        "product"
+      ],
+      "category": "product"
     }
   ]
 }

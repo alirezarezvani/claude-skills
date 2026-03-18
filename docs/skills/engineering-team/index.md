@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "40 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "41 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">40 skills in this domain</p>
+<p class="domain-count">41 skills in this domain</p>
 
 </div>
 
@@ -16,6 +16,12 @@ description: "40 engineering - core skills — engineering agent skill and Claud
 </div>
 
 <div class="grid cards" markdown>
+
+-   **[Accessibility Audit](a11y-audit.md)**
+
+    ---
+
+    ---
 
 -   **[AWS Solution Architect](aws-solution-architect.md)**
 

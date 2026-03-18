@@ -89,7 +89,7 @@ hide:
 
     [:octicons-arrow-right-24: Getting started](getting-started.md)
 
--   :material-puzzle-outline:{ .lg .middle } **22 Plugins**
+-   :material-puzzle-outline:{ .lg .middle } **28 Plugins**
 
     ---
 
@@ -135,7 +135,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 25 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 26 skills](skills/engineering-team/)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 

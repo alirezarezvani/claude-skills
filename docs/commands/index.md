@@ -1,17 +1,23 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "19 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "21 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">19 commands for quick access to common operations</p>
+<p class="domain-count">21 commands for quick access to common operations</p>
 
 </div>
 
 <div class="grid cards" markdown>
+
+-   :material-console:{ .lg .middle } **[`/a11y-audit`](a11y-audit.md)**
+
+    ---
+
+    Scan a frontend project for WCAG 2.2 accessibility issues, show fixes, and optionally check color contrast.
 
 -   :material-console:{ .lg .middle } **[`/changelog`](changelog.md)**
 
@@ -96,6 +102,12 @@ description: "19 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Calculate SaaS financial health metrics from raw business numbers, benchmark against industry standards, and project ...
+
+-   :material-console:{ .lg .middle } **[`/seo-auditor`](seo-auditor.md)**
+
+    ---
+
+    Systematically scan, audit, and optimize documentation files for SEO. Targets README.md files and docs/ pages — fixes...
 
 -   :material-console:{ .lg .middle } **[`/sprint-health`](sprint-health.md)**
 

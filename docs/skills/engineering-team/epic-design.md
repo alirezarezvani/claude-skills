@@ -1,6 +1,6 @@
 ---
 title: "Epic Design Skill — Agent Skill & Codex Plugin"
-description: ">. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Build immersive, cinematic 2.5D interactive websites using scroll storytelling, parallax depth, text animations, and premium scroll effects — no. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Epic Design Skill

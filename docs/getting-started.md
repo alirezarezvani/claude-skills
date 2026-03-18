@@ -142,7 +142,7 @@ Choose your platform and follow the steps:
 |--------|----------------|--------|
 | **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 25 |
 | **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 30 |
-| **Product** | `/plugin install product-skills@claude-code-skills` | 13 |
+| **Product** | `/plugin install product-skills@claude-code-skills` | 14 |
 | **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 43 |
 | **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 12 |
 | **Project Management** | `/plugin install pm-skills@claude-code-skills` | 6 |

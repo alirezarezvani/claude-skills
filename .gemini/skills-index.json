@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 246,
+  "total_skills": 247,
   "skills": [
     {
       "name": "README",
@@ -607,6 +607,11 @@
       "name": "testrail",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "review-fix-a11y",
+      "category": "engineering",
+      "description": "Audit and fix WCAG 2.2 accessibility issues in React, Next.js, Vue, Angular, and plain HTML. Use when asked about a11y, accessibility, WCAG, screen readers, keyboard navigation, ARIA, focus management, color contrast, or fixing accessibility in front-end code. Includes static file scanner and contrast ratio checker."
     },
     {
       "name": "agent-designer",

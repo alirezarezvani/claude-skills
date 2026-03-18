@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "25 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI.",
+      "description": "26 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI. Added: review-fix-a11y (WCAG 2.2 a11y audit + fix).",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -102,7 +102,9 @@
         "gws",
         "gmail",
         "google-drive",
-        "google-sheets"
+        "google-sheets",
+        "accessibility",
+        "a11y"
       ],
       "category": "development"
     },
@@ -247,7 +249,7 @@
     {
       "name": "autoresearch-agent",
       "source": "./engineering/autoresearch-agent",
-      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
+      "description": "Autonomous experiment loop \u2014 optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -423,7 +425,7 @@
     {
       "name": "agenthub",
       "source": "./engineering/agenthub",
-      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "description": "Multi-agent collaboration \u2014 spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"

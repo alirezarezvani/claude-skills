@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 164,
+  "total_skills": 165,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -346,6 +346,12 @@
       "source": "../../engineering-team/tech-stack-evaluator",
       "category": "engineering",
       "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability."
+    },
+    {
+      "name": "review-fix-a11y",
+      "source": "../../engineering-team/review-fix-a11y",
+      "category": "engineering",
+      "description": "Check and fix accessibility (a11y) on front-end projects (web and mobile web), including Next.js, React, Vue, Angular. Use when the user asks about accessibility, a11y, WCAG, screen readers, voice control, keyboard navigation, focus management, ARIA, semantic HTML, color contrast, or fixing accessibility issues in HTML, React, Next.js, Vue, or other front-end code. Runs two Python CLI tools: a11y_audit.py for static file scanning and contrast_checker.py for WCAG color contrast validation."
     },
     {
       "name": "agent-designer",

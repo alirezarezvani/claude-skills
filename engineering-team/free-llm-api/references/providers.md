@@ -1,5 +1,54 @@
 # Free LLM Provider Reference
 
+## One API (Self-Hosted Gateway)
+
+**Source:** [github.com/songquanpeng/one-api](https://github.com/songquanpeng/one-api) (30k+ stars)
+
+**What it is:** A full-featured LLM API management and key redistribution system. Add all your provider API keys once, issue unified tokens to apps/users with quota limits and expiry, get a web dashboard for usage stats.
+
+**Default port:** `3000`
+
+**Quick install:**
+```bash
+docker run --name one-api -d --restart always \
+  -p 3000:3000 -v /data/one-api:/data justsong/one-api
+# Open http://localhost:3000 — login: root / 123456
+```
+
+**Supported providers (channels):**
+
+| Provider | Notes |
+|----------|-------|
+| OpenAI | All models incl. GPT-5 |
+| Azure OpenAI | API version configurable |
+| Anthropic Claude | All Claude models |
+| Google Gemini / PaLM | v1 and v1beta |
+| DeepSeek | Chat + Coder |
+| Baidu Wenxin (ERNIE) | Chinese models |
+| Alibaba Qwen | Tongyi Qianwen |
+| Zhipu ChatGLM | BigModel API |
+| Custom OpenAI-compatible | Any base URL |
+
+**Key features:**
+- Web UI: channel management, token creation, user management, quota tracking
+- Load balancing across multiple keys/channels for same model
+- Per-token quota limits and expiry dates
+- User groups with different rate multipliers
+- Auto-channel health testing
+- Usage logs per token/user/channel
+
+**Key env vars:**
+
+| Variable | Purpose |
+|----------|---------|
+| `SQL_DSN` | MySQL DSN (default: SQLite) |
+| `SESSION_SECRET` | Stable sessions across restarts |
+| `INITIAL_ROOT_TOKEN` | Pre-set root token on first start |
+| `REDIS_CONN_STRING` | Redis for rate limiting |
+| `RELAY_PROXY` | Outbound HTTP proxy |
+
+---
+
 ## llm-mux (Local Gateway)
 
 **Source:** [github.com/nghyane/llm-mux](https://github.com/nghyane/llm-mux)

@@ -1,6 +1,6 @@
 ---
 name: "free-llm-api"
-description: "Set up and use free or low-cost LLM API endpoints compatible with the OpenAI SDK. Use when the user wants to reduce API costs, access GPT/Claude/DeepSeek/Gemini for free, configure an OpenAI-compatible proxy, set up API key rotation, build a cloud provider fallback pool, or when they mention ChatAnywhere, Groq, Cerebras, OpenRouter, Mistral free tier, free ChatGPT API, llm-mux, or turning a Claude Pro/GitHub Copilot/Gemini subscription into a local API."
+description: "Set up and use free or low-cost LLM API endpoints compatible with the OpenAI SDK. Use when the user wants to reduce API costs, access GPT/Claude/DeepSeek/Gemini for free, configure an OpenAI-compatible proxy, set up API key rotation, build a cloud provider fallback pool, manage LLM API keys centrally, or when they mention ChatAnywhere, Groq, Cerebras, OpenRouter, Mistral free tier, free ChatGPT API, llm-mux, one-api, or turning a Claude Pro/GitHub Copilot/Gemini subscription into a local API."
 license: MIT
 metadata:
   version: 1.0.0
@@ -47,6 +47,7 @@ Swap base URL in existing code — no other changes required.
 | Provider | Free Tier | Models | Rate Limit | Location |
 |----------|-----------|--------|------------|----------|
 | **llm-mux** | Unlimited (uses your subscriptions) | Claude Pro, Copilot GPT-5, Gemini, Codex | Subscription quota | Local (`localhost:8317`) |
+| **One API** | Self-hosted key manager | Any provider you configure | Your quotas | Local or remote (`localhost:3000`) |
 | **ChatAnywhere** | 200 req/day (GitHub login) | GPT-4o-mini, GPT-4o, DeepSeek-v3, Claude, Gemini | 200/day/IP+Key | Global (CN relay available) |
 | **Groq** | Free tier | Llama-3.3-70b, Mixtral, Gemma | ~30 RPM | Global |
 | **Cerebras** | Free tier | Llama-3.1-8b, 70b | ~30 RPM | Global |
@@ -140,6 +141,105 @@ disable-auth: true        # No API key required for local use
 request-retry: 3
 stream-timeout: 300
 ```
+
+---
+
+## Setup: One API (Best for Teams / Multi-Provider Management)
+
+One API ([github.com/songquanpeng/one-api](https://github.com/songquanpeng/one-api), 30k+ stars) is a self-hosted LLM API gateway with a full web UI. Add all your provider API keys once, then hand out unified tokens to teammates or apps — with quota limits, usage tracking, and automatic load balancing across channels.
+
+**When to use One API vs llm-mux:**
+| | One API | llm-mux |
+|-|---------|---------|
+| Setup | Web UI + Docker | CLI binary |
+| Auth | API key tokens you issue | OAuth subscription |
+| Best for | Teams, multi-app, billing control | Personal, subscription-based |
+| Web dashboard | Yes | No |
+| User management | Yes | No |
+
+### Quick Start (Docker)
+
+```bash
+docker run --name one-api -d --restart always \
+  -p 3000:3000 \
+  -e TZ=Asia/Shanghai \
+  -v /data/one-api:/data \
+  justsong/one-api
+```
+
+Open `http://localhost:3000` — default credentials: `root` / `123456` (change immediately).
+
+### Docker Compose (with MySQL for persistence)
+
+```yaml
+version: '3'
+services:
+  one-api:
+    image: justsong/one-api
+    ports:
+      - "3000:3000"
+    environment:
+      - SQL_DSN=root:password@tcp(mysql:3306)/oneapi
+      - SESSION_SECRET=change_me
+      - INITIAL_ROOT_TOKEN=your-root-token
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: oneapi
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+```
+
+### Configuration
+
+1. **Add channels** (Channels page): Add your API keys for OpenAI, Azure, Claude, Gemini, DeepSeek, etc.
+2. **Create tokens** (Tokens page): Generate tokens with optional quota limits and expiry.
+3. **Use the token** as your API key — set base URL to your One API instance.
+
+### Use in Code
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-one-api-token",          # Token from One API Tokens page
+    base_url="http://localhost:3000/v1",   # Or your remote One API URL
+)
+
+# Works with any model you've configured in channels
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[{"role": "user", "content": "Hello"}],
+)
+```
+
+### Target a Specific Channel
+
+```bash
+# Append channel ID to token: TOKEN-CHANNEL_ID
+Authorization: Bearer sk-your-token-123
+```
+
+### Key Environment Variables
+
+| Variable | Purpose | Example |
+|----------|---------|---------|
+| `SQL_DSN` | MySQL instead of SQLite | `root:pass@tcp(localhost:3306)/oneapi` |
+| `SESSION_SECRET` | Stable session across restarts | `random_string` |
+| `INITIAL_ROOT_TOKEN` | Pre-set root token on first start | `sk-my-root-token` |
+| `REDIS_CONN_STRING` | Redis for rate limiting | `redis://localhost:6379` |
+| `RELAY_PROXY` | Outbound proxy for API calls | `http://proxy:8080` |
+
+### Supported Providers
+OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini/PaLM, Baidu Wenxin, Alibaba Qwen, Zhipu ChatGLM, DeepSeek, and more — anything with an OpenAI-compatible endpoint can be added as a custom channel.
 
 ---
 
@@ -246,7 +346,8 @@ import os, requests
 
 _CLOUD_POOL = [
     # (base_url, api_key, model)
-    ("http://localhost:8317",               "unused",                             "gpt-4o"),             # llm-mux local — tries first, falls through if not running
+    ("http://localhost:8317",               "unused",                             "gpt-4o"),             # llm-mux local — falls through if not running
+    (os.getenv("ONE_API_BASE","localhost:3000"), os.getenv("ONE_API_KEY",""),     "gpt-4o"),             # one-api self-hosted gateway
     ("https://api.groq.com/openai",        os.getenv("GROQ_API_KEY", ""),        "llama-3.3-70b-versatile"),
     ("https://api.cerebras.ai",             os.getenv("CEREBRAS_API_KEY", ""),    "llama3.1-8b"),
     ("https://api.mistral.ai",              os.getenv("MISTRAL_API_KEY", ""),     "mistral-small-latest"),

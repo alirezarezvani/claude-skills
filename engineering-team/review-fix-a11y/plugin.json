@@ -1,0 +1,7 @@
+{
+  "name": "review-fix-a11y",
+  "version": "1.0.0",
+  "description": "WCAG 2.2 accessibility audit and fix for React, Next.js, Vue, Angular, and HTML",
+  "author": "Neha",
+  "category": "engineering"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "free-llm-api",
+  "version": "1.0.0",
+  "description": "Set up free or low-cost OpenAI-compatible LLM APIs: ChatAnywhere, Groq, Cerebras, OpenRouter, llm-mux, One API",
+  "author": "Alireza Rezvani",
+  "category": "engineering"
+}

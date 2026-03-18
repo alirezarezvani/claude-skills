@@ -1,5 +1,42 @@
 # Free LLM Provider Reference
 
+## llm-mux (Local Gateway)
+
+**Source:** [github.com/nghyane/llm-mux](https://github.com/nghyane/llm-mux)
+
+**What it is:** A Go binary that turns existing AI subscriptions into a local OpenAI-compatible API server. No API keys — uses OAuth to authenticate with provider accounts you already pay for.
+
+**Install:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/nghyane/llm-mux/main/install.sh | bash
+```
+
+**Base URL:** `http://localhost:8317` (configurable via `LLM_MUX_PORT`)
+
+**Supported providers and models:**
+
+| Provider | Subscription needed | Login command | Key models |
+|----------|-------------------|--------------|-----------|
+| Claude | Claude Pro/Max | `llm-mux login claude` | claude-sonnet-4-20250514, claude-opus-4-5-20251101 |
+| GitHub Copilot | Copilot subscription | `llm-mux login copilot` | gpt-4o, gpt-4.1, gpt-5, gpt-5.1, gpt-5.2 |
+| Google Gemini | Google One AI Premium or free | `llm-mux login antigravity` | gemini-2.5-pro, gemini-2.5-flash |
+| OpenAI Codex | ChatGPT Plus/Pro | `llm-mux login codex` | gpt-5 series |
+| Qwen | Alibaba Cloud account | `llm-mux login qwen` | qwen models |
+| Kiro | AWS/Amazon Q Developer | `llm-mux login kiro` | Amazon Q models |
+| Cline | Cline subscription | `llm-mux login cline` | Cline models |
+
+**Key features:**
+- Multi-account load balancing — login multiple accounts, auto-rotates
+- Auto-retry on quota limits across accounts
+- Anthropic + Gemini + Ollama compatible endpoints (not just OpenAI)
+- Run as a background service (`llm-mux service install`)
+- Management API for usage stats
+
+**Config file:** `~/.config/llm-mux/config.yaml`
+**Token storage:** `~/.config/llm-mux/auth/`
+
+---
+
 ## ChatAnywhere
 
 **Source:** [github.com/chatanywhere/GPT_API_free](https://github.com/chatanywhere/GPT_API_free) (36k+ stars)

@@ -1,6 +1,6 @@
 ---
 name: "free-llm-api"
-description: "Set up and use free or low-cost LLM API endpoints compatible with the OpenAI SDK. Use when the user wants to reduce API costs, access GPT/Claude/DeepSeek/Gemini for free, configure an OpenAI-compatible proxy, set up API key rotation, build a cloud provider fallback pool, or when they mention ChatAnywhere, Groq, Cerebras, OpenRouter, Mistral free tier, or free ChatGPT API."
+description: "Set up and use free or low-cost LLM API endpoints compatible with the OpenAI SDK. Use when the user wants to reduce API costs, access GPT/Claude/DeepSeek/Gemini for free, configure an OpenAI-compatible proxy, set up API key rotation, build a cloud provider fallback pool, or when they mention ChatAnywhere, Groq, Cerebras, OpenRouter, Mistral free tier, free ChatGPT API, llm-mux, or turning a Claude Pro/GitHub Copilot/Gemini subscription into a local API."
 license: MIT
 metadata:
   version: 1.0.0
@@ -46,6 +46,7 @@ Swap base URL in existing code — no other changes required.
 
 | Provider | Free Tier | Models | Rate Limit | Location |
 |----------|-----------|--------|------------|----------|
+| **llm-mux** | Unlimited (uses your subscriptions) | Claude Pro, Copilot GPT-5, Gemini, Codex | Subscription quota | Local (`localhost:8317`) |
 | **ChatAnywhere** | 200 req/day (GitHub login) | GPT-4o-mini, GPT-4o, DeepSeek-v3, Claude, Gemini | 200/day/IP+Key | Global (CN relay available) |
 | **Groq** | Free tier | Llama-3.3-70b, Mixtral, Gemma | ~30 RPM | Global |
 | **Cerebras** | Free tier | Llama-3.1-8b, 70b | ~30 RPM | Global |
@@ -54,6 +55,91 @@ Swap base URL in existing code — no other changes required.
 | **Google AI Studio** | 15 RPM free | Gemini 1.5 Flash, Pro | 15 RPM | Global |
 
 All providers use the OpenAI-compatible `/v1/chat/completions` endpoint.
+
+---
+
+## Setup: llm-mux (Best if You Have Existing Subscriptions)
+
+llm-mux ([github.com/nghyane/llm-mux](https://github.com/nghyane/llm-mux)) turns existing Claude Pro, GitHub Copilot, and Gemini subscriptions into a local OpenAI-compatible API. No API keys — OAuth login only. Runs at `localhost:8317`.
+
+**Supported subscriptions:**
+| Provider | Login command | Models unlocked |
+|----------|--------------|----------------|
+| Claude Pro/Max | `llm-mux login claude` | claude-sonnet-4, claude-opus-4 |
+| GitHub Copilot | `llm-mux login copilot` | gpt-4o, gpt-4.1, gpt-5, gpt-5.1, gpt-5.2 |
+| Google Gemini | `llm-mux login antigravity` | gemini-2.5-pro, gemini-2.5-flash |
+| ChatGPT Plus/Pro | `llm-mux login codex` | gpt-5 series |
+| Alibaba Cloud | `llm-mux login qwen` | qwen models |
+| AWS/Amazon Q | `llm-mux login kiro` | Amazon Q models |
+
+### Install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/nghyane/llm-mux/main/install.sh | bash
+```
+
+### Login and Start
+
+```bash
+# Login to one or more providers
+llm-mux login claude       # Claude Pro subscription
+llm-mux login copilot      # GitHub Copilot subscription
+llm-mux login antigravity  # Google Gemini
+
+# Start the gateway (runs on localhost:8317)
+llm-mux
+```
+
+### Use in Code
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="unused",                        # llm-mux ignores API key
+    base_url="http://localhost:8317/v1",
+)
+
+response = client.chat.completions.create(
+    model="claude-sonnet-4-20250514",        # or gpt-4o, gemini-2.5-pro, etc.
+    messages=[{"role": "user", "content": "Hello"}],
+)
+```
+
+### Check Available Models
+
+```bash
+curl http://localhost:8317/v1/models
+```
+
+### Multi-Account Load Balancing
+
+Login multiple accounts — llm-mux auto-rotates and handles quota limits:
+
+```bash
+llm-mux login claude    # Account 1
+llm-mux login claude    # Account 2 (rotates automatically)
+```
+
+### Run as Background Service (macOS)
+
+```bash
+# Install as launchd service
+llm-mux service install
+llm-mux service start
+
+# Check status
+llm-mux service status
+```
+
+### Config File (`~/.config/llm-mux/config.yaml`)
+
+```yaml
+port: 8317
+disable-auth: true        # No API key required for local use
+request-retry: 3
+stream-timeout: 300
+```
 
 ---
 
@@ -160,6 +246,7 @@ import os, requests
 
 _CLOUD_POOL = [
     # (base_url, api_key, model)
+    ("http://localhost:8317",               "unused",                             "gpt-4o"),             # llm-mux local — tries first, falls through if not running
     ("https://api.groq.com/openai",        os.getenv("GROQ_API_KEY", ""),        "llama-3.3-70b-versatile"),
     ("https://api.cerebras.ai",             os.getenv("CEREBRAS_API_KEY", ""),    "llama3.1-8b"),
     ("https://api.mistral.ai",              os.getenv("MISTRAL_API_KEY", ""),     "mistral-small-latest"),

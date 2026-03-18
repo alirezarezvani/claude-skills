@@ -1,5 +1,31 @@
 # Free LLM Provider Reference
 
+## Bytez (Serverless Model API)
+
+**Source:** [github.com/Bytez-com/docs](https://github.com/Bytez-com/docs)
+
+**Get key:** `https://bytez.com/api`
+
+**OpenAI-compatible base URL:** `https://api.bytez.com/models/v2/openai/v1`
+
+**Scale:** 175k+ open-source models, 33 ML task types, plus closed-source pass-through (OpenAI, Claude, Gemini, Mistral, Cohere)
+
+**SDKs:** Python (`pip install bytez`), JavaScript (`npm i bytez.js`), Julia, HTTP
+
+**Free tier:** Available — apply for $200k AI grant at `https://docs.google.com/forms/d/e/1FAIpQLSfpm9hHTKRLTBrudOnikqM47etOhIhXiTbf0bBeFbhpqw9VZg/viewform`
+
+**Key models (open-source, free tier):**
+- `meta-llama/Llama-3.1-8B-Instruct`
+- `meta-llama/Llama-3.3-70B-Instruct`
+- `deepseek-ai/DeepSeek-R1`
+- `mistralai/Mistral-7B-Instruct-v0.3`
+- `microsoft/phi-4`
+- Any of 175k+ HuggingFace-hosted models
+
+**Auth for closed-source:** Pass `provider-key` header — Bytez routes it as a pass-through, never stored.
+
+---
+
 ## One API (Self-Hosted Gateway)
 
 **Source:** [github.com/songquanpeng/one-api](https://github.com/songquanpeng/one-api) (30k+ stars)

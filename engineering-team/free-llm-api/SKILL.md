@@ -48,6 +48,7 @@ Swap base URL in existing code — no other changes required.
 |----------|-----------|--------|------------|----------|
 | **llm-mux** | Unlimited (uses your subscriptions) | Claude Pro, Copilot GPT-5, Gemini, Codex | Subscription quota | Local (`localhost:8317`) |
 | **One API** | Self-hosted key manager | Any provider you configure | Your quotas | Local or remote (`localhost:3000`) |
+| **Bytez** | Free tier + pay-per-use | 175k+ open-source models, GPT, Claude, Gemini | Free tier available | `api.bytez.com` |
 | **ChatAnywhere** | 200 req/day (GitHub login) | GPT-4o-mini, GPT-4o, DeepSeek-v3, Claude, Gemini | 200/day/IP+Key | Global (CN relay available) |
 | **Groq** | Free tier | Llama-3.3-70b, Mixtral, Gemma | ~30 RPM | Global |
 | **Cerebras** | Free tier | Llama-3.1-8b, 70b | ~30 RPM | Global |
@@ -303,6 +304,73 @@ const client = new OpenAI({
 - `gpt-4o`, `gpt-5` — 5/day
 - `deepseek-r1`, `deepseek-v3` — 30/day
 - `text-embedding-3-small` — 200/day
+
+---
+
+## Setup: Bytez (175k+ Serverless Models)
+
+Bytez ([bytez.com](https://bytez.com)) is the largest serverless model inference API — 1 API key for 175k+ open-source models plus closed-source (OpenAI, Claude, Gemini). No infra, no cold starts to manage.
+
+**Get key:** `https://bytez.com/api`
+
+**OpenAI-compatible base URL:** `https://api.bytez.com/models/v2/openai/v1`
+
+### Open-Source Models (your Bytez key only)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="YOUR_BYTEZ_KEY",
+    base_url="https://api.bytez.com/models/v2/openai/v1",
+)
+
+response = client.chat.completions.create(
+    model="meta-llama/Llama-3.1-8B-Instruct",
+    messages=[{"role": "user", "content": "Hello"}],
+)
+```
+
+### Closed-Source Models (Bytez key + provider key)
+
+```python
+import requests
+
+requests.post(
+    "https://api.bytez.com/models/v2/openai/v1/chat/completions",
+    headers={
+        "Authorization": "YOUR_BYTEZ_KEY",
+        "provider-key": "YOUR_OPENAI_KEY",   # pass-through, never stored by Bytez
+        "Content-Type": "application/json",
+    },
+    json={"model": "gpt-4o", "messages": [{"role": "user", "content": "Hello"}]},
+)
+```
+
+### Native SDK
+
+```bash
+pip install bytez
+```
+
+```python
+from bytez import Bytez
+
+sdk = Bytez("YOUR_BYTEZ_KEY")
+model = sdk.model("meta-llama/Llama-3.1-8B-Instruct")
+result = model.run("Once upon a time")
+print(result.output)
+```
+
+### Supported Tasks (33 ML task types)
+Chat, text-generation, image-to-text, text-to-image, text-to-speech, ASR, translation, summarization, object-detection, image-classification, video-text-to-text, and more.
+
+### List Available Models
+
+```python
+result = sdk.list.models()   # 175k+ models
+result = sdk.list.tasks()    # 33 task types
+```
 
 ---
 

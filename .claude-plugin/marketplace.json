@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "26 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI. Added: review-fix-a11y (WCAG 2.2 a11y audit + fix).",
+      "description": "27 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI. Added: review-fix-a11y (WCAG 2.2 a11y audit + fix). Added: free-llm-api (ChatAnywhere + provider rotation pool).",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -104,7 +104,10 @@
         "google-drive",
         "google-sheets",
         "accessibility",
-        "a11y"
+        "a11y",
+        "llm",
+        "free-api",
+        "chatanywhere"
       ],
       "category": "development"
     },

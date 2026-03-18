@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 247,
+  "total_skills": 248,
   "skills": [
     {
       "name": "README",
@@ -1237,6 +1237,11 @@
       "name": "risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis. Use when user mentions risk management, ISO 14971, risk analysis, FMEA, fault tree analysis, hazard identification, risk control, risk matrix, benefit-risk analysis, residual risk, risk acceptability, or post-market risk."
+    },
+    {
+      "name": "free-llm-api",
+      "category": "engineering",
+      "description": "Set up free OpenAI-compatible LLM APIs: ChatAnywhere (GPT-4o free), Groq, Cerebras, OpenRouter, Mistral. Includes provider rotation pool, rate limit handling, and drop-in base_url replacement."
     }
   ],
   "categories": {

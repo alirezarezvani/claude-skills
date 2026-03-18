@@ -10,6 +10,7 @@ This guide covers the 25 production-ready engineering skills and their Python au
 - code-reviewer, senior-security
 - aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator, epic-design
 - **review-fix-a11y** — WCAG 2.2 accessibility audit and fix for React, Next.js, Vue, Angular, and HTML
+- **free-llm-api** — Free/low-cost OpenAI-compatible API setup: ChatAnywhere, Groq, Cerebras, OpenRouter, provider rotation pool
 
 **AI/ML/Data (5 skills):**
 - senior-data-scientist, senior-data-engineer, senior-ml-engineer
@@ -289,7 +290,7 @@ services:
 ---
 
 **Last Updated:** March 17, 2026
-**Skills Deployed:** 26 engineering skills production-ready
+**Skills Deployed:** 27 engineering skills production-ready
 **Total Tools:** 39+ Python automation tools across core + AI/ML/Data + epic-design + a11y
 
 ---

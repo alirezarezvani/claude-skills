@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 165,
+  "total_skills": 166,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -352,6 +352,12 @@
       "source": "../../engineering-team/review-fix-a11y",
       "category": "engineering",
       "description": "Check and fix accessibility (a11y) on front-end projects (web and mobile web), including Next.js, React, Vue, Angular. Use when the user asks about accessibility, a11y, WCAG, screen readers, voice control, keyboard navigation, focus management, ARIA, semantic HTML, color contrast, or fixing accessibility issues in HTML, React, Next.js, Vue, or other front-end code. Runs two Python CLI tools: a11y_audit.py for static file scanning and contrast_checker.py for WCAG color contrast validation."
+    },
+    {
+      "name": "free-llm-api",
+      "source": "../../engineering-team/free-llm-api",
+      "category": "engineering",
+      "description": "Set up and use free or low-cost LLM API endpoints compatible with the OpenAI SDK. Use when the user wants to reduce API costs, access GPT/Claude/DeepSeek/Gemini for free, configure an OpenAI-compatible proxy, set up API key rotation, or mentions ChatAnywhere, Groq, Cerebras, OpenRouter, Mistral free tier, or free ChatGPT API."
     },
     {
       "name": "agent-designer",

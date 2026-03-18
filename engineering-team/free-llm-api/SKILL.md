@@ -1,0 +1,293 @@
+---
+name: "free-llm-api"
+description: "Set up and use free or low-cost LLM API endpoints compatible with the OpenAI SDK. Use when the user wants to reduce API costs, access GPT/Claude/DeepSeek/Gemini for free, configure an OpenAI-compatible proxy, set up API key rotation, build a cloud provider fallback pool, or when they mention ChatAnywhere, Groq, Cerebras, OpenRouter, Mistral free tier, or free ChatGPT API."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  category: engineering
+  updated: 2026-03-17
+---
+
+# Free & Low-Cost LLM APIs
+
+You are an expert in configuring cost-effective LLM API access. Your goal is to help developers get GPT-4o, DeepSeek, Claude, and other frontier models for free or near-free — using OpenAI-compatible endpoints that drop into any existing codebase with a one-line change.
+
+## Before Starting
+
+Gather this context (ask if not provided):
+
+### 1. Current Setup
+- What SDK/library are you using? (openai Python/Node, LangChain, LiteLLM, raw HTTP)
+- Which models do you need? (GPT-4o, DeepSeek, Claude, Gemini, etc.)
+- Location: inside China or outside? (affects which relay to use)
+
+### 2. Goals
+- Zero cost, or willing to pay small amounts?
+- Need high rate limits or is 200 req/day sufficient?
+- Production or development/research use?
+
+---
+
+## How This Skill Works
+
+### Mode 1: Free Tier Setup
+Get free API access with a GitHub account — zero credit card required.
+
+### Mode 2: Provider Rotation Pool
+Build a fault-tolerant pool that rotates across free providers on rate limit errors.
+
+### Mode 3: Drop-in Replacement
+Swap base URL in existing code — no other changes required.
+
+---
+
+## Free Providers at a Glance
+
+| Provider | Free Tier | Models | Rate Limit | Location |
+|----------|-----------|--------|------------|----------|
+| **ChatAnywhere** | 200 req/day (GitHub login) | GPT-4o-mini, GPT-4o, DeepSeek-v3, Claude, Gemini | 200/day/IP+Key | Global (CN relay available) |
+| **Groq** | Free tier | Llama-3.3-70b, Mixtral, Gemma | ~30 RPM | Global |
+| **Cerebras** | Free tier | Llama-3.1-8b, 70b | ~30 RPM | Global |
+| **Mistral** | Free tier | mistral-small, mistral-7b | ~1 RPM | Global |
+| **OpenRouter** | Free models (`:free` suffix) | Llama, Mistral, Gemma variants | Varies | Global |
+| **Google AI Studio** | 15 RPM free | Gemini 1.5 Flash, Pro | 15 RPM | Global |
+
+All providers use the OpenAI-compatible `/v1/chat/completions` endpoint.
+
+---
+
+## Setup: ChatAnywhere (Best Free Option)
+
+ChatAnywhere ([github.com/chatanywhere/GPT_API_free](https://github.com/chatanywhere/GPT_API_free)) provides free API keys backed by real OpenAI/DeepSeek/Claude accounts.
+
+### 1. Get a Free Key
+1. Visit: `https://api.chatanywhere.tech/v1/oauth/free/render`
+2. Log in with GitHub
+3. Copy your free API key (starts with `sk-`)
+
+### 2. Configure
+
+```bash
+# .env
+CHATANYWHERE_API_KEY=sk-your-key-here
+
+# Base URLs
+# Inside China (lower latency):  https://api.chatanywhere.tech
+# Outside China:                  https://api.chatanywhere.org
+```
+
+### 3. Use in Code
+
+**Python (openai SDK)**
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="sk-your-key-here",
+    base_url="https://api.chatanywhere.tech/v1",
+)
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": "Hello"}],
+)
+print(response.choices[0].message.content)
+```
+
+**Environment variable method**
+```bash
+export OPENAI_API_KEY=sk-your-key-here
+export OPENAI_BASE_URL=https://api.chatanywhere.tech/v1
+# Existing code using openai.OpenAI() now routes through ChatAnywhere
+```
+
+**Node.js**
+```js
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.CHATANYWHERE_API_KEY,
+  baseURL: "https://api.chatanywhere.tech/v1",
+});
+```
+
+### Supported Models (Free Tier)
+- `gpt-4o-mini`, `gpt-3.5-turbo`, `gpt-4.1-mini` — 200/day
+- `gpt-4o`, `gpt-5` — 5/day
+- `deepseek-r1`, `deepseek-v3` — 30/day
+- `text-embedding-3-small` — 200/day
+
+---
+
+## Setup: Groq (Fastest Free Inference)
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1",
+)
+# Use: llama-3.3-70b-versatile, mixtral-8x7b-32768, gemma2-9b-it
+```
+
+Get key: `https://console.groq.com/keys`
+
+---
+
+## Setup: OpenRouter (100+ Free Models)
+
+```python
+client = OpenAI(
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+    base_url="https://openrouter.ai/api/v1",
+)
+# Free models end with :free — e.g. "meta-llama/llama-3.3-70b-instruct:free"
+```
+
+Get key: `https://openrouter.ai/keys`
+Free models list: `https://openrouter.ai/models?q=free`
+
+---
+
+## Provider Rotation Pool (Recommended)
+
+Build a fault-tolerant pool that automatically rotates on 429 rate limit errors:
+
+```python
+import os, requests
+
+_CLOUD_POOL = [
+    # (base_url, api_key, model)
+    ("https://api.groq.com/openai",        os.getenv("GROQ_API_KEY", ""),        "llama-3.3-70b-versatile"),
+    ("https://api.cerebras.ai",             os.getenv("CEREBRAS_API_KEY", ""),    "llama3.1-8b"),
+    ("https://api.mistral.ai",              os.getenv("MISTRAL_API_KEY", ""),     "mistral-small-latest"),
+    ("https://api.chatanywhere.tech",       os.getenv("CHATANYWHERE_API_KEY",""), "gpt-4o-mini"),
+    ("https://openrouter.ai/api",           os.getenv("OPENROUTER_API_KEY", ""),  "meta-llama/llama-3.3-70b-instruct:free"),
+]
+
+def llm_call(prompt: str, max_tokens: int = 100, timeout: int = 30) -> str:
+    for base_url, api_key, model in _CLOUD_POOL:
+        if not api_key:
+            continue
+        try:
+            r = requests.post(
+                f"{base_url}/v1/chat/completions",
+                headers={"Authorization": f"Bearer {api_key}",
+                         "Content-Type": "application/json"},
+                json={"model": model,
+                      "messages": [{"role": "user", "content": prompt}],
+                      "max_tokens": max_tokens,
+                      "temperature": 0},
+                timeout=timeout,
+            )
+            if r.status_code == 429:
+                continue        # rate limited — try next
+            r.raise_for_status()
+            return r.json()["choices"][0]["message"]["content"].strip()
+        except Exception:
+            continue
+    raise RuntimeError("All LLM providers failed or rate-limited")
+```
+
+---
+
+## LangChain / LiteLLM Integration
+
+**LangChain**
+```python
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    openai_api_key=os.getenv("CHATANYWHERE_API_KEY"),
+    openai_api_base="https://api.chatanywhere.tech/v1",
+)
+```
+
+**LiteLLM (universal proxy)**
+```python
+import litellm
+
+response = litellm.completion(
+    model="openai/gpt-4o-mini",
+    messages=[{"role": "user", "content": "Hello"}],
+    api_key=os.getenv("CHATANYWHERE_API_KEY"),
+    api_base="https://api.chatanywhere.tech/v1",
+)
+```
+
+---
+
+## Rate Limit Strategy
+
+| Situation | Strategy |
+|-----------|----------|
+| 429 from one provider | Rotate to next in pool immediately |
+| All providers 429 | Exponential backoff: 2s, 4s, 8s |
+| Daily limit reached | Fall back to local Ollama or next-day reset |
+| Need more than 200/day | Use Groq (higher RPM) or buy paid ChatAnywhere key |
+
+```python
+import time
+
+def llm_call_with_backoff(prompt: str, retries: int = 3) -> str:
+    for attempt in range(retries):
+        try:
+            return llm_call(prompt)
+        except RuntimeError:
+            if attempt < retries - 1:
+                time.sleep(2 ** attempt)
+    raise RuntimeError("All retries exhausted")
+```
+
+---
+
+## Proactive Triggers
+
+- **`OPENAI_API_KEY` in code with no `base_url`** → suggest ChatAnywhere or Groq to avoid billing
+- **Single provider, no fallback** → suggest rotation pool to prevent downtime
+- **Hardcoded API key in source** → flag as security issue, suggest env vars
+- **`gpt-4` or `gpt-4-turbo` on a budget** → suggest `gpt-4o-mini` (98% cheaper, similar quality for most tasks)
+- **Embedding costs** → suggest `text-embedding-3-small` via ChatAnywhere free tier
+
+---
+
+## Output Artifacts
+
+| When you ask for... | You get... |
+|---------------------|------------|
+| Quick setup | `.env` template + one-file integration code |
+| Rotation pool | Drop-in `llm_call()` function with all free providers |
+| LangChain setup | ChatOpenAI config snippet for chosen provider |
+| Cost estimate | Comparison of free vs paid tiers for your use case |
+| Troubleshooting | Diagnostic checklist for 401/429/timeout errors |
+
+---
+
+## Troubleshooting
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `401 Unauthorized` | Wrong key or key not activated | Re-generate key at provider dashboard |
+| `429 Too Many Requests` | Rate limit hit | Rotate provider or wait for reset |
+| `404 Not Found` | Wrong base URL or model name | Check model list for that provider |
+| No response / timeout | Network block or wrong endpoint | Try alternate base URL (`chatanywhere.org` vs `.tech`) |
+| `model not found` | Model not available on free tier | Check provider's free model list |
+
+---
+
+## Related Skills
+
+| Skill | Use instead when... |
+|-------|---------------------|
+| `claude-api` | Building production apps with Anthropic's Claude API directly |
+| `senior-backend` | Full API integration architecture beyond just LLM calls |
+| `env-secrets-manager` | Managing API keys securely across environments |
+
+---
+
+## Reference
+
+→ [references/providers.md](references/providers.md) — full model lists, rate limits, and pricing for each provider

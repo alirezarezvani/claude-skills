@@ -105,16 +105,37 @@ def extract_subtitle(filepath):
 
 
 def extract_description_from_frontmatter(filepath):
-    """Extract the description field from YAML frontmatter."""
+    """Extract the description field from YAML frontmatter.
+
+    Handles single-line, quoted, and multi-line (| or >) YAML descriptions.
+    """
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
         match = re.match(r"^---\n(.*?)---\n", content, re.DOTALL)
-        if match:
-            fm = match.group(1)
-            desc_match = re.search(r'description:\s*["\']?(.*?)["\']?\s*$', fm, re.MULTILINE)
-            if desc_match:
-                return desc_match.group(1).strip()
+        if not match:
+            return None
+        fm = match.group(1)
+
+        # Try quoted single-line: description: "text" or description: 'text'
+        m = re.search(r'description:\s*"([^"]+)"', fm)
+        if m:
+            return m.group(1).strip()
+        m = re.search(r"description:\s*'([^']+)'", fm)
+        if m:
+            return m.group(1).strip()
+
+        # Try multi-line block scalar: description: | or description: >
+        m = re.search(r"description:\s*[|>]-?\s*\n((?:[ \t]+.+\n?)+)", fm)
+        if m:
+            lines = m.group(1).strip().splitlines()
+            text = " ".join(line.strip() for line in lines)
+            return text
+
+        # Try unquoted single-line: description: text
+        m = re.search(r"description:\s+([^\n\"'][^\n]+)", fm)
+        if m:
+            return m.group(1).strip()
     except Exception:
         pass
     return None

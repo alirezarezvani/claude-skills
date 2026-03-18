@@ -1,6 +1,6 @@
 ---
 title: "Code → PRD: Reverse-Engineer Any Codebase into Product Requirements — Agent Skill for Product Teams"
-description: "|. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Reverse-engineer any codebase into a complete Product Requirements Document (PRD). Analyzes routes, components, state management, API integrations. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Code → PRD: Reverse-Engineer Any Codebase into Product Requirements

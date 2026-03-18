@@ -1,6 +1,6 @@
 ---
 title: "/seo-auditor — Slash Command for AI Coding Agents"
-description: "|. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "Scan and optimize documentation files for SEO. Audits README.md files and docs/ pages for meta tags, headings, keywords, readability, duplicate. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /seo-auditor

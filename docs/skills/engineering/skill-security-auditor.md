@@ -1,6 +1,6 @@
 ---
 title: "Skill Security Auditor — Agent Skill for Codex & OpenClaw"
-description: ">. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Security audit and vulnerability scanner for AI agent skills before installation. Use when: (1) evaluating a skill from an untrusted source, (2)."
 ---
 
 # Skill Security Auditor

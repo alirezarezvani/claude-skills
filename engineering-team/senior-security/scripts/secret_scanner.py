@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 """
-Secret Scanner
+Secret Scanner — powered by secrets-patterns-db (1,600+ patterns)
 
 Detects hardcoded secrets, API keys, and credentials in source code.
-Identifies exposed secrets before they reach version control.
+On first run, downloads the latest patterns from secrets-patterns-db
+(github.com/mazen160/secrets-patterns-db) and caches them locally.
+Falls back to 20 built-in patterns if download fails.
 
 Usage:
     python secret_scanner.py /path/to/project
     python secret_scanner.py /path/to/file.py
     python secret_scanner.py /path/to/project --format json
+    python secret_scanner.py /path/to/project --severity high
     python secret_scanner.py --list-patterns
+    python secret_scanner.py --update-patterns   # re-download latest db
 """
 
 import argparse
@@ -17,10 +21,85 @@ import json
 import os
 import re
 import sys
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional
 from enum import Enum
+
+# ── Secrets-Patterns-DB integration ──────────────────────────────────────────
+_DB_URL   = "https://raw.githubusercontent.com/mazen160/secrets-patterns-db/master/db/rules-stable.yml"
+_DB_CACHE = Path.home() / ".cache" / "secrets-patterns-db" / "rules-stable.yml"
+
+
+def _fetch_patterns_db(force: bool = False) -> str | None:
+    """Download secrets-patterns-db rules-stable.yml and cache locally."""
+    if _DB_CACHE.exists() and not force:
+        return _DB_CACHE.read_text()
+    try:
+        _DB_CACHE.parent.mkdir(parents=True, exist_ok=True)
+        with urllib.request.urlopen(_DB_URL, timeout=10) as r:
+            content = r.read().decode()
+        _DB_CACHE.write_text(content)
+        return content
+    except Exception:
+        return _DB_CACHE.read_text() if _DB_CACHE.exists() else None
+
+
+def _parse_rules_yml(content: str) -> list[dict]:
+    """Minimal YAML parser for secrets-patterns-db rules format.
+    Parses: pattern.name, pattern.regex, pattern.confidence → list of dicts.
+    """
+    rules = []
+    current: dict = {}
+    for line in content.splitlines():
+        stripped = line.strip()
+        if stripped == "- pattern:":
+            if current.get("regex"):
+                rules.append(current)
+            current = {}
+        elif stripped.startswith("name:"):
+            current["name"] = stripped[5:].strip().strip('"').strip("'")
+        elif stripped.startswith("regex:"):
+            current["regex"] = stripped[6:].strip().strip('"').strip("'")
+        elif stripped.startswith("confidence:"):
+            current["confidence"] = stripped[11:].strip()
+    if current.get("regex"):
+        rules.append(current)
+    return rules
+
+
+def _load_db_patterns() -> list:
+    """Load patterns from secrets-patterns-db, return as SecretPattern list."""
+    content = _fetch_patterns_db()
+    if not content:
+        return []
+    raw = _parse_rules_yml(content)
+    patterns = []
+    for i, r in enumerate(raw):
+        try:
+            re.compile(r["regex"])   # skip invalid regexes
+        except re.error:
+            continue
+        conf = r.get("confidence", "low").lower()
+        sev = Severity.HIGH if conf == "high" else Severity.MEDIUM if conf == "medium" else Severity.LOW
+        patterns.append(SecretPattern(
+            pattern_id=f"DB{i:04d}",
+            name=r["name"],
+            description=f"From secrets-patterns-db ({conf} confidence)",
+            regex=r["regex"],
+            severity=sev,
+            file_extensions=list(_ALL_EXTENSIONS),
+            recommendation="Remove secret from source, rotate credential, use env vars or secrets manager.",
+        ))
+    return patterns
+
+
+_ALL_EXTENSIONS = {
+    ".py", ".js", ".ts", ".java", ".go", ".rb", ".php", ".cs", ".cpp", ".c",
+    ".h", ".env", ".yml", ".yaml", ".json", ".xml", ".conf", ".ini", ".toml",
+    ".tf", ".sh", ".bash", ".zsh", ".ps1", ".txt", ".md", ".pem", ".key",
+}
 
 
 class Severity(Enum):
@@ -464,8 +543,28 @@ Examples:
         choices=["critical", "high", "medium", "low"],
         help="Minimum severity to report"
     )
+    parser.add_argument(
+        "--update-patterns",
+        action="store_true",
+        help="Re-download latest patterns from secrets-patterns-db"
+    )
+    parser.add_argument(
+        "--no-db",
+        action="store_true",
+        help="Skip secrets-patterns-db patterns (use built-in only)"
+    )
 
     args = parser.parse_args()
+
+    if args.update_patterns:
+        content = _fetch_patterns_db(force=True)
+        if content:
+            rules = _parse_rules_yml(content)
+            print(f"Updated secrets-patterns-db: {len(rules)} patterns cached at {_DB_CACHE}")
+        else:
+            print("Failed to download patterns. Check your internet connection.")
+            sys.exit(1)
+        return
 
     if args.list_patterns:
         list_patterns()
@@ -479,8 +578,14 @@ Examples:
         print(f"Error: Path does not exist: {path}")
         sys.exit(1)
 
-    # Filter patterns by severity
-    patterns = SECRET_PATTERNS
+    # Merge built-in + secrets-patterns-db patterns
+    patterns = list(SECRET_PATTERNS)
+    if not args.no_db:
+        db = _load_db_patterns()
+        if db:
+            print(f"[+] Loaded {len(db)} patterns from secrets-patterns-db", file=sys.stderr)
+        patterns = patterns + db
+
     if args.severity:
         severity_order = ["critical", "high", "medium", "low"]
         min_index = severity_order.index(args.severity)

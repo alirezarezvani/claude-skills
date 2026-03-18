@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 246,
+  "total_skills": 249,
   "skills": [
     {
       "name": "README",
@@ -329,6 +329,11 @@
       "description": "Generate changelogs from git history and validate conventional commits. Usage: /changelog <generate|lint> [options]"
     },
     {
+      "name": "cmd-code-to-prd",
+      "category": "command",
+      "description": "Reverse-engineer a frontend codebase into a PRD. Usage: /code-to-prd [path]"
+    },
+    {
       "name": "competitive-matrix",
       "category": "command",
       "description": "Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]"
@@ -357,6 +362,11 @@
       "name": "pipeline",
       "category": "command",
       "description": "Detect stack and generate CI/CD pipeline configs. Usage: /pipeline <detect|generate> [options]"
+    },
+    {
+      "name": "plugin-audit",
+      "category": "command",
+      "description": "|"
     },
     {
       "name": "prd",
@@ -1069,6 +1079,11 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "code-to-prd",
+      "category": "product",
+      "description": "|"
+    },
+    {
       "name": "competitive-teardown",
       "category": "product",
       "description": "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session, responding to a competitor's new feature or pricing change, or performing a quarterly competitive review."
@@ -1248,7 +1263,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 17,
+      "count": 19,
       "description": "Command resources"
     },
     "engineering": {
@@ -1268,7 +1283,7 @@
       "description": "Marketing resources"
     },
     "product": {
-      "count": 14,
+      "count": 15,
       "description": "Product resources"
     },
     "project-management": {

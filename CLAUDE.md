@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 204 production-ready skills across 9 domains with 266 Python automation tools, 382 reference guides, 16 agents, and 17 slash commands.
+**Current Scope:** 205 production-ready skills across 9 domains with 268 Python automation tools, 384 reference guides, 16 agents, and 19 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -37,7 +37,7 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
 ├── agents/                    # 16 cs-* prefixed agents across all domains
-├── commands/                  # 17 slash commands (changelog, tdd, saas-health, workspace, prd, sprint-plan, etc.)
+├── commands/                  # 19 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
 ├── engineering-team/          # 25 core engineering skills + Playwright Pro + Self-Improving Agent
 ├── engineering/               # 30 POWERFUL-tier advanced skills (incl. AgentHub)
 ├── product-team/              # 13 product skills + Python tools
@@ -149,8 +149,8 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 ## Roadmap
 
 **Phase 1-2 Complete:** 204 production-ready skills deployed across 9 domains
-- Engineering Core (25), Engineering POWERFUL (30), Product (13), Marketing (43), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
-- 266 Python automation tools, 382 reference guides, 16 agents, 17 commands
+- Engineering Core (25), Engineering POWERFUL (30), Product (14), Marketing (43), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
+- 268 Python automation tools, 384 reference guides, 16 agents, 19 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
 - MkDocs Material docs site with 210+ indexed pages for SEO
 
@@ -203,4 +203,4 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 
 **Last Updated:** March 11, 2026
 **Version:** v2.1.2
-**Status:** 204 skills deployed across 9 domains, 21 marketplace plugins, docs site live
+**Status:** 205 skills deployed across 9 domains, 22 marketplace plugins, docs site live

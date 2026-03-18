@@ -1,6 +1,6 @@
 ---
-title: 204 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "204 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
+title: 205 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "205 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-204 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for AI coding tools.
+205 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -81,7 +81,7 @@ hide:
 
     [:octicons-arrow-right-24: Learn patterns](orchestration.md)
 
--   :material-language-python:{ .lg .middle } **266 Python Tools**
+-   :material-language-python:{ .lg .middle } **268 Python Tools**
 
     ---
 
@@ -89,7 +89,7 @@ hide:
 
     [:octicons-arrow-right-24: Getting started](getting-started.md)
 
--   :material-puzzle-outline:{ .lg .middle } **21 Plugins**
+-   :material-puzzle-outline:{ .lg .middle } **22 Plugins**
 
     ---
 
@@ -97,7 +97,7 @@ hide:
 
     [:octicons-arrow-right-24: Plugin marketplace](plugins/)
 
--   :material-console:{ .lg .middle } **17 Commands**
+-   :material-console:{ .lg .middle } **19 Commands**
 
     ---
 
@@ -151,7 +151,7 @@ hide:
 
     Product manager, agile PO, strategist, UX researcher, UI design system, landing pages, SaaS scaffolder, analytics, experiment designer
 
-    [:octicons-arrow-right-24: 13 skills](skills/product-team/)
+    [:octicons-arrow-right-24: 14 skills](skills/product-team/)
 
 -   :material-bullhorn:{ .lg .middle } **Marketing**
 

@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "25 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI.",
+      "description": "26 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2).",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"

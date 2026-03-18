@@ -149,7 +149,7 @@ See [integrations/](integrations/) for tool-specific documentation and pre-gener
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
-| **🔧 Engineering — Core** | 25 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent, Google Workspace CLI | [engineering-team/](engineering-team/) |
+| **🔧 Engineering — Core** | 26 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent, Google Workspace CLI, a11y audit | [engineering-team/](engineering-team/) |
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
 | **⚡ Engineering — POWERFUL** | 30 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder, AgentHub, Helm charts, Terraform | [engineering/](engineering/) |

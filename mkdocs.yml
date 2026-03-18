@@ -120,6 +120,7 @@ nav:
     - Overview: skills/index.md
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
+      - "A11y Audit": skills/engineering-team/a11y-audit.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
@@ -364,6 +365,7 @@ nav:
     - "CS UX Researcher": agents/cs-ux-researcher.md
   - Commands:
     - Overview: commands/index.md
+    - "/a11y-audit": commands/a11y-audit.md
     - "/changelog": commands/changelog.md
     - "/code-to-prd": commands/code-to-prd.md
     - "/competitive-matrix": commands/competitive-matrix.md
@@ -376,6 +378,7 @@ nav:
     - "/project-health": commands/project-health.md
     - "/retro": commands/retro.md
     - "/rice": commands/rice.md
+    - "/seo-auditor": commands/seo-auditor.md
     - "/saas-health": commands/saas-health.md
     - "/sprint-health": commands/sprint-health.md
     - "/sprint-plan": commands/sprint-plan.md

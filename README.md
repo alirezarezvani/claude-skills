@@ -223,6 +223,7 @@ See [orchestration/ORCHESTRATION.md](orchestration/ORCHESTRATION.md) for the ful
 | **database-schema-designer** | Requirements → migrations, types, seed data, RLS policies |
 | **migration-architect** | Migration planner, compatibility checker, rollback generator |
 | **skill-security-auditor** | 🔒 Security gate — scan skills for malicious code before installation |
+| **[prism-scanner](https://github.com/aidongise-cell/prism-scanner)** | 🔒 Agent security scanner — 39+ detection rules, AST taint tracking, A-F grading for skills/plugins/MCP servers |
 | **ci-cd-pipeline-builder** | Analyze stack → generate GitHub Actions / GitLab CI configs |
 | **mcp-server-builder** | Build MCP servers from OpenAPI specs |
 | **pr-review-expert** | Blast radius analysis, security scan, coverage delta |

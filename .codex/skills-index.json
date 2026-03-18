@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 164,
+  "total_skills": 165,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -196,6 +196,12 @@
       "source": "../../c-level-advisor/strategic-alignment",
       "category": "c-level",
       "description": "Cascades strategy from boardroom to individual contributor. Detects and fixes misalignment between company goals and team execution. Covers strategy articulation, cascade mapping, orphan goal detection, silo identification, communication gap analysis, and realignment protocols. Use when teams are pulling in different directions, OKRs don't connect, departments optimize locally at company expense, or when user mentions alignment, strategy cascade, silo, conflicting OKRs, or strategy communication."
+    },
+    {
+      "name": "a11y-audit",
+      "source": "../../engineering-team/a11y-audit",
+      "category": "engineering",
+      "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
     },
     {
       "name": "aws-solution-architect",
@@ -1002,7 +1008,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 25,
+      "count": 26,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },

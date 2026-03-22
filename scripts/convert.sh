@@ -42,7 +42,7 @@ Usage:
   ./scripts/convert.sh [--tool <name>] [--out <dir>] [--help]
 
 Tools:
-  antigravity, cursor, aider, kilocode, windsurf, opencode, augment, all
+  antigravity, cursor, aider, kilocode, windsurf, opencode, augment, qwen, all
 
 Defaults:
   --tool all
@@ -52,7 +52,7 @@ USAGE
 
 is_valid_tool() {
   case "$1" in
-    antigravity|cursor|aider|kilocode|windsurf|opencode|augment|all) return 0 ;;
+    antigravity|cursor|aider|kilocode|windsurf|opencode|augment|qwen|all) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -81,6 +81,7 @@ init_count_vars() {
   converted_windsurf=0
   converted_opencode=0
   converted_augment=0
+  converted_qwen=0
 
   skipped_antigravity=0
   skipped_cursor=0
@@ -89,6 +90,7 @@ init_count_vars() {
   skipped_windsurf=0
   skipped_opencode=0
   skipped_augment=0
+  skipped_qwen=0
 }
 
 inc_converted() {
@@ -101,6 +103,7 @@ inc_converted() {
     windsurf) converted_windsurf=$((converted_windsurf + 1)) ;;
     opencode) converted_opencode=$((converted_opencode + 1)) ;;
     augment) converted_augment=$((converted_augment + 1)) ;;
+    qwen) converted_qwen=$((converted_qwen + 1)) ;;
   esac
 }
 
@@ -114,6 +117,7 @@ inc_skipped() {
     windsurf) skipped_windsurf=$((skipped_windsurf + 1)) ;;
     opencode) skipped_opencode=$((skipped_opencode + 1)) ;;
     augment) skipped_augment=$((skipped_augment + 1)) ;;
+    qwen) skipped_qwen=$((skipped_qwen + 1)) ;;
   esac
 }
 
@@ -127,6 +131,7 @@ get_converted() {
     windsurf) echo "$converted_windsurf" ;;
     opencode) echo "$converted_opencode" ;;
     augment) echo "$converted_augment" ;;
+    qwen) echo "$converted_qwen" ;;
   esac
 }
 
@@ -140,6 +145,7 @@ get_skipped() {
     windsurf) echo "$skipped_windsurf" ;;
     opencode) echo "$skipped_opencode" ;;
     augment) echo "$skipped_augment" ;;
+    qwen) echo "$skipped_qwen" ;;
   esac
 }
 
@@ -310,6 +316,7 @@ tool_title() {
     windsurf) echo "Windsurf" ;;
     opencode) echo "OpenCode" ;;
     augment) echo "Augment" ;;
+    qwen) echo "Qwen Code" ;;
   esac
 }
 
@@ -367,6 +374,12 @@ write_tool_readme() {
       verify_step='Run `find .augment/rules -name "*.md" | wc -l` and check rules appear in Augment.'
       update_step='Re-run `./scripts/convert.sh --tool augment` and reinstall with `./scripts/install.sh --tool augment --target <project-dir>`.'
       ;;
+    qwen)
+      format_line='Directory skill bundles: `skills/<skill-name>/SKILL.md` with Qwen Code-compatible SKILL frontmatter (`name`, `description`) plus copied support folders.'
+      manual_install='Copy each folder from `integrations/qwen/skills/<skill-name>/` to `.qwen/skills/<skill-name>/` in your project.'
+      verify_step='Run `find .qwen/skills -name "SKILL.md" | wc -l` and verify skills are listed in Qwen Code.'
+      update_step='Re-run `./scripts/convert.sh --tool qwen` and reinstall with `./scripts/install.sh --tool qwen --target <project-dir>`.'
+      ;;
   esac
 
   {
@@ -423,7 +436,7 @@ if ! is_valid_tool "$TOOL"; then
   exit 1
 fi
 
-TOOLS="antigravity cursor aider kilocode windsurf opencode augment"
+TOOLS="antigravity cursor aider kilocode windsurf opencode augment qwen"
 if [[ "$TOOL" != "all" ]]; then
   TOOLS="$TOOL"
 fi
@@ -449,7 +462,7 @@ for t in $TOOLS; do
   if [[ "$t" == "cursor" || "$t" == "kilocode" || "$t" == "augment" ]]; then
     mkdir -p "${OUT_BASE}/${t}/rules"
   fi
-  if [[ "$t" == "windsurf" || "$t" == "opencode" ]]; then
+  if [[ "$t" == "windsurf" || "$t" == "opencode" || "$t" == "qwen" ]]; then
     mkdir -p "${OUT_BASE}/${t}/skills"
   fi
   if [[ "$t" == "aider" ]]; then
@@ -562,6 +575,18 @@ while IFS= read -r rel_path; do
           echo "---"
           cat "$body_tmp"
         } > "$out_file"
+        ;;
+      qwen)
+        out_dir="${OUT_BASE}/qwen/skills/${name}"
+        mkdir -p "$out_dir"
+        {
+          echo "---"
+          echo "name: $(yaml_quote "$name")"
+          echo "description: $(yaml_quote "$description")"
+          echo "---"
+          cat "$body_tmp"
+        } > "${out_dir}/SKILL.md"
+        copy_supporting_dirs "$src_dir" "$out_dir"
         ;;
       *)
         err "Unhandled tool: ${t}"

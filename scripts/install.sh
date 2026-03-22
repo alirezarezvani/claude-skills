@@ -37,18 +37,19 @@ Usage:
   ./scripts/install.sh --tool <name> [--target <dir>] [--force] [--help]
 
 Tools:
-  antigravity, cursor, aider, kilocode, windsurf, opencode, augment
+  antigravity, cursor, aider, kilocode, windsurf, opencode, augment, qwen
 
 Examples:
   ./scripts/install.sh --tool cursor --target /path/to/project
   ./scripts/install.sh --tool antigravity
   ./scripts/install.sh --tool aider --force
+  ./scripts/install.sh --tool qwen --target /path/to/project
 USAGE
 }
 
 is_valid_tool() {
   case "$1" in
-    antigravity|cursor|aider|kilocode|windsurf|opencode|augment) return 0 ;;
+    antigravity|cursor|aider|kilocode|windsurf|opencode|augment|qwen) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -265,6 +266,9 @@ case "$TOOL" in
     ;;
   augment)
     install_flat_rules_tool "augment" ".augment/rules" ".md"
+    ;;
+  qwen)
+    install_skill_bundle_tool "qwen"
     ;;
   *)
     err "Unhandled tool: ${TOOL}"

@@ -534,7 +534,7 @@ Usage:
   ./scripts/convert.sh [--tool <name>] [--out <dir>] [--help]
 
 Tools:
-  antigravity, cursor, aider, kilocode, windsurf, opencode, augment, all
+    antigravity, cursor, aider, kilocode, windsurf, opencode, augment, qwen, all
 
 Options:
   --tool <name>   Convert for a specific tool (default: all)
@@ -579,6 +579,7 @@ Options:
 | Windsurf | `<target>/.windsurf/skills/` |
 | OpenCode | `<target>/.opencode/skills/` |
 | Augment | `<target>/.augment/rules/` |
+| Qwen Code | `<target>/.qwen/skills/` |
 
 <hr class="section-divider">
 

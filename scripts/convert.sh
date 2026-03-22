@@ -2,7 +2,7 @@
 # Usage:
 #   ./scripts/convert.sh [--tool <name>] [--out <dir>] [--help]
 #
-# Tools: antigravity, cursor, aider, kilocode, windsurf, opencode, augment, all
+# Tools: antigravity, cursor, aider, kilocode, windsurf, opencode, augment, qwen, all
 # Default: all
 
 set -euo pipefail

@@ -349,6 +349,18 @@ Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional 
 
 ---
 
+## Community Skills
+
+External skills built by the community:
+
+| Skill | Description | Platform | Install |
+|-------|-------------|----------|---------|
+| [**qr-bridge**](https://github.com/Vicky-v7/qr-bridge) | Decode QR codes, trace redirect chains, detect WeChat/WeCom/Taobao/Douyin/Xiaohongshu gates, and explain why links fail. macOS native (CoreImage), zero dependencies, ~10ms. | macOS | `claude install-skill https://github.com/Vicky-v7/qr-bridge` |
+
+> Want to add your skill here? Open a PR targeting `dev` — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
 ## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.

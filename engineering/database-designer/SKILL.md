@@ -1,6 +1,6 @@
 ---
 name: "database-designer"
-description: "Database Designer - POWERFUL Tier Skill"
+description: "Use when the user asks to design database schemas, plan data migrations, optimize queries, choose between SQL and NoSQL, or model data relationships."
 ---
 
 # Database Designer - POWERFUL Tier Skill

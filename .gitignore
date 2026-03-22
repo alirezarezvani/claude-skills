@@ -16,9 +16,8 @@ __pycache__/
 *.egg-info/
 .eggs/
 
-# Specific archive exclusions (NOT all .zip - skill packages are intentional)
-medium-content-pro.zip
-v1-10-2025-medium-content-pro.zip
+# Archive files
+*.zip
 
 # Project-specific exclusions
 AGENTS.md

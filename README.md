@@ -139,7 +139,7 @@ find .cursor/rules -name "*.mdc" | wc -l  # Should show 156
 - ✅ Support for scripts, references, templates where applicable
 - ✅ Zero manual conversion work
 
-See [integrations/](integrations/) for tool-specific documentation and pre-generated outputs.
+Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ---
 

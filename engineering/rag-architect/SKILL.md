@@ -1,6 +1,6 @@
 ---
 name: "rag-architect"
-description: "RAG Architect - POWERFUL"
+description: "Use when the user asks to design RAG pipelines, optimize retrieval strategies, choose embedding models, implement vector search, or build knowledge retrieval systems."
 ---
 
 # RAG Architect - POWERFUL

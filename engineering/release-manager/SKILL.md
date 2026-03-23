@@ -1,6 +1,6 @@
 ---
 name: "release-manager"
-description: "Release Manager"
+description: "Use when the user asks to plan releases, manage changelogs, coordinate deployments, create release branches, or automate versioning."
 ---
 
 # Release Manager

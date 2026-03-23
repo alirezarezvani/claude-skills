@@ -21,7 +21,7 @@ python scripts/pipeline_generator.py ./app --platform=github --stages=build,test
 python scripts/terraform_scaffolder.py ./infra --provider=aws --module=ecs-service --verbose
 
 # Script 3: Deployment Manager — orchestrates container deployments with rollback support
-python scripts/deployment_manager.py deploy --env=production --image=app:1.2.3 --strategy=blue-green
+python3 scripts/deployment_manager.py ./deploy --verbose --json
 ```
 
 ## Core Capabilities

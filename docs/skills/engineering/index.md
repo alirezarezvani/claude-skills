@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "43 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "44 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">43 skills in this domain</p>
+<p class="domain-count">44 skills in this domain</p>
 
 </div>
 
@@ -106,6 +106,12 @@ description: "43 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL
+
+-   **[Focused Fix — Deep-Dive Feature Repair](focused-fix.md)**
+
+    ---
+
+    Activate when the user asks to fix, debug, or make a specific feature/module/area work. Key triggers:
 
 -   **[Git Worktree Manager](git-worktree-manager.md)**
 

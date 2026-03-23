@@ -1,9 +1,20 @@
 ---
-name: "focused-fix"
-description: "Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z module is broken', 'focus on [area]'. Not for quick single-bug fixes — this is for systematic deep-dive repair across all files and dependencies."
+title: "Focused Fix — Deep-Dive Feature Repair — Agent Skill for Codex & OpenClaw"
+description: "Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Focused Fix — Deep-Dive Feature Repair
+
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `focused-fix`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/focused-fix/SKILL.md">Source</a></span>
+</div>
+
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
+
 
 ## When to Use
 

@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 165,
+  "total_skills": 166,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -436,6 +436,12 @@
       "source": "../../engineering/env-secrets-manager",
       "category": "engineering-advanced",
       "description": "Env & Secrets Manager"
+    },
+    {
+      "name": "focused-fix",
+      "source": "../../engineering/focused-fix",
+      "category": "engineering-advanced",
+      "description": ">"
     },
     {
       "name": "git-worktree-manager",
@@ -1013,7 +1019,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 30,
+      "count": 31,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

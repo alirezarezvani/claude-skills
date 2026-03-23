@@ -357,7 +357,7 @@
       "name": "agent-designer",
       "source": "../../engineering/agent-designer",
       "category": "engineering-advanced",
-      "description": "Agent Designer - Multi-Agent System Architecture"
+      "description": "Use when the user asks to design multi-agent systems, create agent architectures, define agent communication patterns, or build autonomous agent workflows."
     },
     {
       "name": "agent-workflow-designer",
@@ -381,7 +381,7 @@
       "name": "api-test-suite-builder",
       "source": "../../engineering/api-test-suite-builder",
       "category": "engineering-advanced",
-      "description": "API Test Suite Builder"
+      "description": "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests."
     },
     {
       "name": "autoresearch-agent",
@@ -411,13 +411,13 @@
       "name": "database-designer",
       "source": "../../engineering/database-designer",
       "category": "engineering-advanced",
-      "description": "Database Designer - POWERFUL Tier Skill"
+      "description": "Use when the user asks to design database schemas, plan data migrations, optimize queries, choose between SQL and NoSQL, or model data relationships."
     },
     {
       "name": "database-schema-designer",
       "source": "../../engineering/database-schema-designer",
       "category": "engineering-advanced",
-      "description": "Database Schema Designer"
+      "description": "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
     },
     {
       "name": "dependency-auditor",
@@ -489,19 +489,19 @@
       "name": "pr-review-expert",
       "source": "../../engineering/pr-review-expert",
       "category": "engineering-advanced",
-      "description": "PR Review Expert"
+      "description": "Use when the user asks to review pull requests, analyze code changes, check for security issues in PRs, or assess code quality of diffs."
     },
     {
       "name": "rag-architect",
       "source": "../../engineering/rag-architect",
       "category": "engineering-advanced",
-      "description": "RAG Architect - POWERFUL"
+      "description": "Use when the user asks to design RAG pipelines, optimize retrieval strategies, choose embedding models, implement vector search, or build knowledge retrieval systems."
     },
     {
       "name": "release-manager",
       "source": "../../engineering/release-manager",
       "category": "engineering-advanced",
-      "description": "Release Manager"
+      "description": "Use when the user asks to plan releases, manage changelogs, coordinate deployments, create release branches, or automate versioning."
     },
     {
       "name": "runbook-generator",

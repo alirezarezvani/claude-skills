@@ -24,6 +24,7 @@ Cross-cutting senior engineer covering architecture, backend, DevOps, security, 
 
 ### Code Quality & Review
 - `engineering/pr-review-expert` — Pull request review methodology
+- `engineering/focused-fix` — Deep-dive feature repair (5-phase: scope → trace → diagnose → fix → verify)
 - `engineering-team/code-reviewer` — Code quality analysis
 - `engineering-team/tdd-guide` — Test-driven development
 - `engineering-team/senior-qa` — Quality assurance strategy
@@ -63,7 +64,15 @@ Cross-cutting senior engineer covering architecture, backend, DevOps, security, 
 4. Configure observability via `observability-designer`
 5. Set up release process via `release-manager`
 
-### 4. Technical Debt Assessment
+### 4. Feature Repair (Deep-Dive Debugging)
+1. Identify broken feature scope via `focused-fix` Phase 1 (SCOPE)
+2. Map inbound + outbound dependencies via Phase 2 (TRACE)
+3. Diagnose across code, runtime, tests, logs, config via Phase 3 (DIAGNOSE)
+4. Fix in priority order: deps → types → logic → tests → integration
+5. Verify all consumers pass via Phase 5 (VERIFY)
+6. Escalate if 3+ fixes cascade into new issues (architecture problem)
+
+### 5. Technical Debt Assessment
 1. Scan codebase via `tech-debt-tracker`
 2. Score and prioritize debt items
 3. Create remediation plan with effort estimates

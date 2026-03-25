@@ -34,185 +34,32 @@ If the spec is not written, reviewed, and approved, implementation does not begi
 
 Every spec follows this structure. No sections are optional — if a section does not apply, write "N/A — [reason]" so reviewers know it was considered, not forgotten.
 
-### 1. Title and Context
+### Mandatory Sections
 
-```markdown
-# Spec: [Feature Name]
+| # | Section | Key Rules |
+|---|---------|-----------|
+| 1 | **Title and Metadata** | Author, date, status (Draft/In Review/Approved/Superseded), reviewers |
+| 2 | **Context** | Why this feature exists. 2-4 paragraphs with evidence (metrics, tickets). |
+| 3 | **Functional Requirements** | RFC 2119 keywords (MUST/SHOULD/MAY). Numbered FR-N. Each is atomic and testable. |
+| 4 | **Non-Functional Requirements** | Performance, security, accessibility, scalability, reliability — all with measurable thresholds. |
+| 5 | **Acceptance Criteria** | Given/When/Then format. Every AC references at least one FR-* or NFR-*. |
+| 6 | **Edge Cases** | Numbered EC-N. Cover failure modes for every external dependency. |
+| 7 | **API Contracts** | TypeScript-style interfaces. Cover success and error responses. |
+| 8 | **Data Models** | Table format with field, type, constraints. Every entity from requirements must have a model. |
+| 9 | **Out of Scope** | Explicit exclusions with reasons. Prevents scope creep during implementation. |
 
-**Author:** [name]
-**Date:** [ISO 8601]
-**Status:** Draft | In Review | Approved | Superseded
-**Reviewers:** [list]
-**Related specs:** [links]
-
-## Context
-
-[Why does this feature exist? What problem does it solve? What is the business
-motivation? Include links to user research, support tickets, or metrics that
-justify this work. 2-4 paragraphs maximum.]
-```
-
-### 2. Functional Requirements (RFC 2119)
-
-Use RFC 2119 keywords precisely:
+### RFC 2119 Keywords
 
 | Keyword | Meaning |
 |---------|---------|
-| **MUST** | Absolute requirement. Failing this means the implementation is non-conformant. |
-| **MUST NOT** | Absolute prohibition. Doing this means the implementation is broken. |
-| **SHOULD** | Recommended. May be omitted with documented justification. |
-| **SHOULD NOT** | Discouraged. May be included with documented justification. |
-| **MAY** | Optional. Purely at the implementer's discretion. |
+| **MUST** | Absolute requirement. Non-conformant without it. |
+| **MUST NOT** | Absolute prohibition. |
+| **SHOULD** | Recommended. Omit only with documented justification. |
+| **MAY** | Optional. Implementer's discretion. |
 
-```markdown
-## Functional Requirements
+See [spec_format_guide.md](references/spec_format_guide.md) for the complete template with section-by-section examples, good/bad requirement patterns, and feature-type templates (CRUD, Integration, Migration).
 
-- FR-1: The system MUST authenticate users via OAuth 2.0 PKCE flow.
-- FR-2: The system MUST reject tokens older than 24 hours.
-- FR-3: The system SHOULD support refresh token rotation.
-- FR-4: The system MAY cache user profiles for up to 5 minutes.
-- FR-5: The system MUST NOT store plaintext passwords under any circumstance.
-```
-
-Number every requirement. Use `FR-` prefix. Each requirement is a single, testable statement.
-
-### 3. Non-Functional Requirements
-
-```markdown
-## Non-Functional Requirements
-
-### Performance
-- NFR-P1: Login flow MUST complete in < 500ms (p95) under normal load.
-- NFR-P2: Token validation MUST complete in < 50ms (p99).
-
-### Security
-- NFR-S1: All tokens MUST be transmitted over TLS 1.2+.
-- NFR-S2: The system MUST rate-limit login attempts to 5/minute per IP.
-
-### Accessibility
-- NFR-A1: Login form MUST meet WCAG 2.1 AA standards.
-- NFR-A2: Error messages MUST be announced to screen readers.
-
-### Scalability
-- NFR-SC1: The system SHOULD handle 10,000 concurrent sessions.
-
-### Reliability
-- NFR-R1: The authentication service MUST maintain 99.9% uptime.
-```
-
-### 4. Acceptance Criteria (Given/When/Then)
-
-Every functional requirement maps to one or more acceptance criteria. Use Gherkin syntax:
-
-```markdown
-## Acceptance Criteria
-
-### AC-1: Successful login (FR-1)
-Given a user with valid credentials
-When they submit the login form with correct email and password
-Then they receive a valid access token
-And they are redirected to the dashboard
-And the login event is logged with timestamp and IP
-
-### AC-2: Expired token rejection (FR-2)
-Given a user with an access token issued 25 hours ago
-When they make an API request with that token
-Then they receive a 401 Unauthorized response
-And the response body contains error code "TOKEN_EXPIRED"
-And they are NOT redirected (API clients handle their own flow)
-
-### AC-3: Rate limiting (NFR-S2)
-Given an IP address that has made 5 failed login attempts in the last minute
-When a 6th login attempt arrives from that IP
-Then the request is rejected with 429 Too Many Requests
-And the response includes a Retry-After header
-```
-
-### 5. Edge Cases and Error Scenarios
-
-```markdown
-## Edge Cases
-
-- EC-1: User submits login form with empty email → Show validation error, do not hit API.
-- EC-2: OAuth provider is down → Show "Service temporarily unavailable", retry after 30s.
-- EC-3: User has account but no password (social-only) → Redirect to social login.
-- EC-4: Concurrent login from two devices → Both sessions are valid (no single-session enforcement).
-- EC-5: Token expires mid-request → Complete the current request, return warning header.
-```
-
-### 6. API Contracts
-
-Define request/response shapes using TypeScript-style notation:
-
-```markdown
-## API Contracts
-
-### POST /api/auth/login
-Request:
-```typescript
-interface LoginRequest {
-  email: string;       // MUST be valid email format
-  password: string;    // MUST be 8-128 characters
-  rememberMe?: boolean; // Default: false
-}
-```
-
-Success Response (200):
-```typescript
-interface LoginResponse {
-  accessToken: string;   // JWT, expires in 24h
-  refreshToken: string;  // Opaque, expires in 30d
-  expiresIn: number;     // Seconds until access token expires
-  user: {
-    id: string;
-    email: string;
-    displayName: string;
-  };
-}
-```
-
-Error Response (401):
-```typescript
-interface AuthError {
-  error: "INVALID_CREDENTIALS" | "TOKEN_EXPIRED" | "ACCOUNT_LOCKED";
-  message: string;
-  retryAfter?: number; // Seconds, present for rate-limited responses
-}
-```
-```
-
-### 7. Data Models
-
-```markdown
-## Data Models
-
-### User
-| Field | Type | Constraints |
-|-------|------|-------------|
-| id | UUID | Primary key, auto-generated |
-| email | string | Unique, max 255 chars, valid email format |
-| passwordHash | string | bcrypt, never exposed via API |
-| createdAt | timestamp | UTC, immutable |
-| lastLoginAt | timestamp | UTC, updated on each login |
-| loginAttempts | integer | Reset to 0 on successful login |
-| lockedUntil | timestamp | Null if not locked |
-```
-
-### 8. Out of Scope
-
-Explicit exclusions prevent scope creep:
-
-```markdown
-## Out of Scope
-
-- OS-1: Multi-factor authentication (separate spec: SPEC-042)
-- OS-2: Social login providers beyond Google and GitHub
-- OS-3: Admin impersonation of user accounts
-- OS-4: Password complexity rules beyond minimum length (deferred to v2)
-- OS-5: Session management UI (users cannot see/revoke active sessions yet)
-```
-
-If someone asks for an out-of-scope item during implementation, point them to this section. Do not build it.
+See [acceptance_criteria_patterns.md](references/acceptance_criteria_patterns.md) for a full pattern library of Given/When/Then criteria across authentication, CRUD, search, file upload, payment, notification, and accessibility scenarios.
 
 ---
 
@@ -405,107 +252,7 @@ Use `engineering/spec-driven-workflow` for:
 
 ## Examples
 
-### Full Spec: User Password Reset
-
-```markdown
-# Spec: Password Reset Flow
-
-**Author:** Engineering Team
-**Date:** 2026-03-25
-**Status:** Approved
-
-## Context
-
-Users who forget their passwords currently have no self-service recovery option.
-Support receives ~200 password reset requests per week, costing approximately
-8 hours of support time. This feature eliminates that burden entirely.
-
-## Functional Requirements
-
-- FR-1: The system MUST allow users to request a password reset via email.
-- FR-2: The system MUST send a reset link that expires after 1 hour.
-- FR-3: The system MUST invalidate all previous reset links when a new one is requested.
-- FR-4: The system MUST enforce minimum password length of 8 characters on reset.
-- FR-5: The system MUST NOT reveal whether an email exists in the system.
-- FR-6: The system SHOULD log all reset attempts for audit purposes.
-
-## Acceptance Criteria
-
-### AC-1: Request reset (FR-1, FR-5)
-Given a user on the password reset page
-When they enter any email address and submit
-Then they see "If an account exists, a reset link has been sent"
-And the response is identical whether the email exists or not
-
-### AC-2: Valid reset link (FR-2)
-Given a user who received a reset email 30 minutes ago
-When they click the reset link
-Then they see the password reset form
-
-### AC-3: Expired reset link (FR-2)
-Given a user who received a reset email 2 hours ago
-When they click the reset link
-Then they see "This link has expired. Please request a new one."
-
-### AC-4: Previous links invalidated (FR-3)
-Given a user who requested two reset emails
-When they click the link from the first email
-Then they see "This link is no longer valid."
-
-## Edge Cases
-
-- EC-1: User submits reset for non-existent email → Same success message (FR-5).
-- EC-2: User clicks reset link twice → Second click shows "already used" if password was changed.
-- EC-3: Email delivery fails → Log error, do not retry automatically.
-- EC-4: User requests reset while already logged in → Allow it, do not force logout.
-
-## Out of Scope
-
-- OS-1: Security questions as alternative reset method.
-- OS-2: SMS-based password reset.
-- OS-3: Admin-initiated password reset (separate spec).
-```
-
-### Extracted Test Cases (from above spec)
-
-```python
-# Generated by test_extractor.py --framework pytest
-
-class TestPasswordReset:
-    def test_ac1_request_reset_existing_email(self):
-        """AC-1: Request reset with existing email shows generic message."""
-        # Given a user on the password reset page
-        # When they enter a registered email and submit
-        # Then they see "If an account exists, a reset link has been sent"
-        raise NotImplementedError("Implement this test")
-
-    def test_ac1_request_reset_nonexistent_email(self):
-        """AC-1: Request reset with unknown email shows same generic message."""
-        # Given a user on the password reset page
-        # When they enter an unregistered email and submit
-        # Then they see identical response to existing email case
-        raise NotImplementedError("Implement this test")
-
-    def test_ac2_valid_reset_link(self):
-        """AC-2: Reset link works within expiry window."""
-        raise NotImplementedError("Implement this test")
-
-    def test_ac3_expired_reset_link(self):
-        """AC-3: Reset link rejected after 1 hour."""
-        raise NotImplementedError("Implement this test")
-
-    def test_ac4_previous_links_invalidated(self):
-        """AC-4: Old reset links stop working when new one is requested."""
-        raise NotImplementedError("Implement this test")
-
-    def test_ec1_nonexistent_email_same_response(self):
-        """EC-1: Non-existent email produces identical response."""
-        raise NotImplementedError("Implement this test")
-
-    def test_ec2_reset_link_used_twice(self):
-        """EC-2: Already-used reset link shows appropriate message."""
-        raise NotImplementedError("Implement this test")
-```
+A complete worked example (Password Reset spec with extracted test cases) is available in [spec_format_guide.md](references/spec_format_guide.md#full-example-password-reset). It demonstrates all 9 sections, requirement numbering, acceptance criteria, edge cases, and the corresponding pytest stubs generated by `test_extractor.py`.
 
 ---
 

@@ -191,6 +191,12 @@ description: "46 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
+-   **[Secrets Vault Manager](secrets-vault-manager.md)**
+
+    ---
+
+    Tier: POWERFUL
+
 -   **[Skill Security Auditor](skill-security-auditor.md)**
 
     ---
@@ -208,6 +214,12 @@ description: "46 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Spec-driven workflow enforces a single, non-negotiable rule: write the specification BEFORE you write any code. Not a...
+
+-   **[SQL Database Assistant - POWERFUL Tier Skill](sql-database-assistant.md)**
+
+    ---
+
+    The operational companion to database design. While database-designer focuses on schema architecture and database-sch...
 
 -   **[Tech Debt Tracker](tech-debt-tracker.md)**
 

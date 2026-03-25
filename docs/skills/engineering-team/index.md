@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "43 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "44 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">43 skills in this domain</p>
+<p class="domain-count">44 skills in this domain</p>
 
 </div>
 
@@ -58,6 +58,12 @@ description: "43 engineering - core skills — engineering agent skill and Claud
     ---
 
     You are now a world-class epic design expert. You build cinematic, immersive websites that feel premium and alive — u...
+
+-   **[GCP Cloud Architect](gcp-cloud-architect.md)**
+
+    ---
+
+    Design scalable, cost-effective Google Cloud architectures for startups and enterprises with infrastructure-as-code t...
 
 -   **[Google Workspace CLI](google-workspace-cli.md)**
 

@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 166,
+  "total_skills": 170,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -210,6 +210,12 @@
       "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
     },
     {
+      "name": "azure-cloud-architect",
+      "source": "../../engineering-team/azure-cloud-architect",
+      "category": "engineering",
+      "description": "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization."
+    },
+    {
       "name": "code-reviewer",
       "source": "../../engineering-team/code-reviewer",
       "category": "engineering",
@@ -250,6 +256,12 @@
       "source": "../../engineering-team/playwright-pro",
       "category": "engineering",
       "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting."
+    },
+    {
+      "name": "security-pen-testing",
+      "source": "../../engineering-team/security-pen-testing",
+      "category": "engineering",
+      "description": "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation."
     },
     {
       "name": "self-improving-agent",
@@ -390,6 +402,12 @@
       "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
     },
     {
+      "name": "browser-automation",
+      "source": "../../engineering/browser-automation",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screenshots, extract structured data from web pages, or build web automation workflows. NOT for testing \u2014 use playwright-pro for that."
+    },
+    {
       "name": "changelog-generator",
       "source": "../../engineering/changelog-generator",
       "category": "engineering-advanced",
@@ -526,6 +544,12 @@
       "source": "../../engineering/skill-tester",
       "category": "engineering-advanced",
       "description": "Skill Tester"
+    },
+    {
+      "name": "spec-driven-workflow",
+      "source": "../../engineering/spec-driven-workflow",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices."
     },
     {
       "name": "tech-debt-tracker",
@@ -1014,12 +1038,12 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 26,
+      "count": 28,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 31,
+      "count": 33,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

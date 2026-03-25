@@ -1,6 +1,6 @@
 ---
 name: "engineering-advanced-skills"
-description: "25 advanced engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, release management, platform ops."
+description: "26 advanced engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, release management, platform ops, testing best practices."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT
@@ -20,7 +20,7 @@ agents:
 
 # Engineering Advanced Skills (POWERFUL Tier)
 
-25 advanced engineering skills for complex architecture, automation, and platform operations.
+26 advanced engineering skills for complex architecture, automation, and platform operations.
 
 ## Quick Start
 
@@ -63,6 +63,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering
 | Skill Security Auditor | `skill-security-auditor/` | Skill vulnerability scanning |
 | Skill Tester | `skill-tester/` | Skill quality evaluation |
 | Tech Debt Tracker | `tech-debt-tracker/` | Technical debt management |
+| Testing Best Practices | `testing-best-practices/` | Testing strategies, patterns, coverage |
 
 ## Rules
 

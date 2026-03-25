@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 262,
+  "total_skills": 263,
   "skills": [
     {
       "name": "README",
@@ -892,6 +892,11 @@
       "name": "tech-debt-tracker",
       "category": "engineering-advanced",
       "description": "Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation."
+    },
+    {
+      "name": "testing-best-practices",
+      "category": "engineering-advanced",
+      "description": "Use when users ask about testing strategies, unit tests, integration tests, test coverage, test-driven development (TDD), mocking, test patterns, or improving code testability. Triggers: 'how to test', 'write tests for', 'improve test coverage', 'testing strategy', 'mock this', 'test this function'."
     },
     {
       "name": "terraform-patterns",

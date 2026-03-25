@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "205 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (25+30), C-level advisory (28), regulatory/QMS (12), product (14), project management (6), business growth (4), and finance (2). Includes 268 Python tools, 384 reference documents, 16 agents, and 19 slash commands.",
+  "description": "206 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (26+30), C-level advisory (28), regulatory/QMS (12), product (14), project management (6), business growth (4), and finance (2). Includes 268 Python tools, 384 reference documents, 16 agents, and 19 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "205 production-ready skill packages across 9 domains with 268 Python tools, 384 reference documents, 16 agents, and 19 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "206 production-ready skill packages across 9 domains with 268 Python tools, 384 reference documents, 16 agents, and 19 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "35 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, and more.",
+      "description": "36 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, testing best practices, and more.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promotions — Synergy Innovation (Mockup)</title>
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand-dark:   #0d0d0d;
+      --brand-white:  #ffffff;
+      --eyce-blue:    #0057ff;
+      --eyce-accent:  #00cfff;
+      --davinci-gold: #c8a84b;
+      --davinci-dark: #1a1a2e;
+      --davinci-mid:  #16213e;
+      --card-bg:      #f4f6fa;
+      --card-border:  #e0e4ef;
+      --tag-green:    #16a34a;
+      --tag-green-bg: #dcfce7;
+      --radius:       12px;
+      --shadow:       0 4px 24px rgba(0,0,0,0.10);
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f0f2f8;
+      color: var(--brand-dark);
+      min-height: 100vh;
+    }
+
+    /* ─── Page Header ───────────────────────────────────────── */
+    .page-header {
+      background: var(--brand-dark);
+      color: var(--brand-white);
+      text-align: center;
+      padding: 48px 24px 40px;
+    }
+    .page-header .badge {
+      display: inline-block;
+      background: var(--eyce-blue);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 1.1rem;
+      color: #aab2c8;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ─── Section Tabs / Nav ────────────────────────────────── */
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      background: var(--brand-dark);
+      padding: 0 24px 28px;
+    }
+    .section-nav a {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .section-nav a.eyce   { background: var(--eyce-blue);    color: #fff; }
+    .section-nav a.davinci { background: var(--davinci-gold); color: #1a1a2e; }
+
+    /* ─── Brand Section Wrapper ─────────────────────────────── */
+    .brand-section {
+      max-width: 1200px;
+      margin: 48px auto;
+      padding: 0 24px;
+    }
+    .brand-section-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .brand-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 10px 24px;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .brand-logo-pill.eyce    { background: var(--eyce-blue);    color: #fff; }
+    .brand-logo-pill.davinci { background: var(--davinci-gold); color: #1a1a2e; }
+    .brand-section-header .divider {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--card-border), transparent);
+    }
+
+    /* ─── Bundle Builder ────────────────────────────────────── */
+    .bundle-builder-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .bundle-builder-header {
+      background: linear-gradient(135deg, var(--eyce-blue) 0%, #003dbf 100%);
+      color: #fff;
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .bundle-builder-header h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+    .bundle-builder-header p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+    .bundle-tiers {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tier-badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .tier-badge span { display: block; font-size: 1rem; margin-top: 2px; }
+
+    /* Product selector grid */
+    .bundle-builder-body { padding: 32px; }
+    .bundle-builder-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .product-select-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .product-select-card {
+      border: 2px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      background: #fafbff;
+    }
+    .product-select-card:hover { border-color: var(--eyce-blue); box-shadow: 0 0 0 3px rgba(0,87,255,0.1); }
+    .product-select-card.selected { border-color: var(--eyce-blue); box-shadow: 0 0 0 3px rgba(0,87,255,0.15); }
+    .product-select-card .check-badge {
+      display: none;
+      position: absolute;
+      top: 10px; right: 10px;
+      background: var(--eyce-blue);
+      color: #fff;
+      border-radius: 50%;
+      width: 24px; height: 24px;
+      font-size: 13px;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+    .product-select-card.selected .check-badge { display: flex; }
+    .product-img-placeholder {
+      background: linear-gradient(135deg, #e8eeff 0%, #d0dcff 100%);
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .product-select-info { padding: 12px 14px; }
+    .product-select-info .name { font-weight: 700; font-size: 0.92rem; }
+    .product-select-info .variant {
+      font-size: 0.78rem;
+      color: #888;
+      margin-top: 2px;
+    }
+    .product-select-info .price {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--eyce-blue);
+      margin-top: 6px;
+    }
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .qty-control button {
+      width: 26px; height: 26px;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+      background: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qty-control span { font-size: 0.9rem; font-weight: 700; min-width: 20px; text-align: center; }
+
+    /* Bundle summary bar */
+    .bundle-summary {
+      background: #f4f6fa;
+      border-top: 1px solid var(--card-border);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .bundle-summary .info { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .bundle-summary .stat { text-align: center; }
+    .bundle-summary .stat .label { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+    .bundle-summary .stat .value { font-size: 1.4rem; font-weight: 800; color: var(--brand-dark); }
+    .bundle-summary .stat .value.savings { color: var(--tag-green); }
+    .bundle-summary .discount-chip {
+      background: var(--tag-green-bg);
+      color: var(--tag-green);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .btn-primary {
+      background: var(--eyce-blue);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #003dbf; transform: translateY(-1px); }
+
+    /* Color selector row */
+    .variant-row {
+      margin-bottom: 32px;
+    }
+    .variant-row h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .color-swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+    .swatch {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .swatch.active { border-color: var(--eyce-blue); box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--eyce-blue); }
+    .swatch-label { font-size: 0.78rem; margin-top: 4px; text-align: center; color: #666; }
+    .swatch-wrap { display: flex; flex-direction: column; align-items: center; }
+
+    /* ─── Promos Grid ────────────────────────────────────────── */
+    .section-subheading {
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #555;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--card-border);
+    }
+    .promos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .promo-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .promo-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.14); }
+    .promo-card-img {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .promo-card-img.blue-grad    { background: linear-gradient(135deg, #dbe8ff 0%, #b8d0ff 100%); }
+    .promo-card-img.teal-grad    { background: linear-gradient(135deg, #d0f5f5 0%, #a8e8e8 100%); }
+    .promo-card-img.purple-grad  { background: linear-gradient(135deg, #ede8ff 0%, #d0c5ff 100%); }
+    .promo-card-img.orange-grad  { background: linear-gradient(135deg, #fff3d0 0%, #ffe0a0 100%); }
+    .promo-card-img.green-grad   { background: linear-gradient(135deg, #d0ffe8 0%, #a0f0cc 100%); }
+    .promo-card-img.navy-grad    { background: linear-gradient(135deg, #d0d8ff 0%, #a0b0f0 100%); }
+    .promo-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .promo-card-body h4 { font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+    .promo-card-body p { font-size: 0.85rem; color: #666; line-height: 1.5; flex: 1; }
+    .promo-card-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .discount-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .discount-tag.eyce    { color: var(--eyce-blue); }
+    .discount-tag.free    { color: var(--tag-green); }
+    .discount-tag.bundle  { color: #7c3aed; }
+    .promo-type-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      padding: 3px 10px;
+    }
+    .pill-pop    { background: #e0eaff; color: var(--eyce-blue); }
+    .pill-bundle { background: #ede8ff; color: #7c3aed; }
+    .pill-display{ background: #fef3c7; color: #b45309; }
+
+    /* ─── DaVinci Section ────────────────────────────────────── */
+    .davinci-section-bg {
+      background: var(--davinci-dark);
+      padding: 64px 0;
+      margin-top: 0;
+    }
+    .davinci-section-bg .brand-section { margin-top: 0; margin-bottom: 0; }
+    .davinci-section-bg .brand-section-header .divider {
+      background: linear-gradient(90deg, rgba(200,168,75,0.4), transparent);
+    }
+    .davinci-section-bg .section-subheading {
+      color: #c8a84b;
+      border-bottom-color: rgba(200,168,75,0.3);
+    }
+    .davinci-section-bg .promo-card {
+      background: var(--davinci-mid);
+      border: 1px solid rgba(200,168,75,0.15);
+    }
+    .davinci-section-bg .promo-card-body h4 { color: #f0e6c8; }
+    .davinci-section-bg .promo-card-body p   { color: #8a8fa8; }
+    .davinci-section-bg .promo-card-footer   { border-top-color: rgba(200,168,75,0.15); }
+    .davinci-section-bg .discount-tag.davinci { color: var(--davinci-gold); }
+    .davinci-promo-img.black-grad {
+      background: linear-gradient(135deg, #2a2040 0%, #0d0d1a 100%);
+    }
+    .pill-davinci { background: rgba(200,168,75,0.15); color: var(--davinci-gold); }
+
+    /* DaVinci product badge */
+    .dv-model-tag {
+      display: inline-block;
+      background: rgba(200,168,75,0.12);
+      color: var(--davinci-gold);
+      border: 1px solid rgba(200,168,75,0.3);
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+
+    /* ─── Color-way indicator (Eyce bundle) ─────────────────── */
+    .color-row {
+      display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap;
+    }
+    .color-dot {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.08);
+      display: inline-block;
+    }
+
+    /* ─── Annotations (Developer Notes) ─────────────────────── */
+    .dev-note {
+      background: #fffbea;
+      border: 1px dashed #f59e0b;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      color: #92400e;
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+    }
+    .dev-note::before { content: '⚙ DEV NOTE:'; font-weight: 700; white-space: nowrap; }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .page-footer {
+      background: var(--brand-dark);
+      color: #aab2c8;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.82rem;
+    }
+    .page-footer strong { color: #fff; }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .bundle-builder-body { padding: 20px; }
+      .bundle-summary { padding: 16px 20px; }
+      .bundle-builder-header { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PAGE HEADER
+══════════════════════════════════════════ -->
+<header class="page-header">
+  <div class="badge">Synergy Innovation</div>
+  <h1>Current Promotions</h1>
+  <p>Exclusive deals and bundles across our top brands — limited time offers for authorized dealers.</p>
+</header>
+
+<!-- Section jump-links -->
+<nav class="section-nav">
+  <a href="#eyce-section"    class="eyce">Eyce Promos</a>
+  <a href="#davinci-section" class="davinci">DaVinci Promos</a>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — EYCE PROMOS
+══════════════════════════════════════════ -->
+<section id="eyce-section" class="brand-section">
+
+  <div class="brand-section-header">
+    <div class="brand-logo-pill eyce">🧊 Eyce</div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- ── 1A. PROTECK BUNDLE BUILDER ── -->
+  <div class="bundle-builder-card">
+    <div class="bundle-builder-header">
+      <div>
+        <h2>Proteck Series — Bundle Builder</h2>
+        <p>Mix and match Proteck cases. The more you buy, the more you save.</p>
+      </div>
+      <div class="bundle-tiers">
+        <div class="tier-badge">Buy 2<span>Save 10%</span></div>
+        <div class="tier-badge">Buy 3<span>Save 20%</span></div>
+        <div class="tier-badge">Buy 4<span>Save 25%</span></div>
+      </div>
+    </div>
+
+    <div class="bundle-builder-body">
+
+      <!-- Color variant selector -->
+      <div class="variant-row">
+        <h3>Step 1 — Select Color</h3>
+        <div class="color-swatches">
+          <div class="swatch-wrap">
+            <div class="swatch active" style="background:#1a1a2e;"></div>
+            <div class="swatch-label">Black</div>
+          </div>
+          <div class="swatch-wrap">
+            <div class="swatch" style="background:#2563eb;"></div>
+            <div class="swatch-label">Blue</div>
+          </div>
+          <div class="swatch-wrap">
+            <div class="swatch" style="background:#dc2626;"></div>
+            <div class="swatch-label">Red</div>
+          </div>
+          <div class="swatch-wrap">
+            <div class="swatch" style="background:#16a34a;"></div>
+            <div class="swatch-label">Green</div>
+          </div>
+          <div class="swatch-wrap">
+            <div class="swatch" style="background:#7c3aed;"></div>
+            <div class="swatch-label">Purple</div>
+          </div>
+          <div class="swatch-wrap">
+            <div class="swatch" style="background:#f59e0b;"></div>
+            <div class="swatch-label">Amber</div>
+          </div>
+          <div class="swatch-wrap">
+            <div class="swatch" style="background:#ffffff; border:2px solid #ddd;"></div>
+            <div class="swatch-label">White</div>
+          </div>
+        </div>
+        <div class="dev-note">Color swatches are per-product. In implementation, each product card has its own color selector OR a global color applies to all selected items — confirm UX with design team.</div>
+      </div>
+
+      <!-- Product grid -->
+      <h3>Step 2 — Choose Your Proteck Cases</h3>
+      <div class="product-select-grid">
+
+        <div class="product-select-card selected">
+          <div class="check-badge">✓</div>
+          <div class="product-img-placeholder">🛡️</div>
+          <div class="product-select-info">
+            <div class="name">Proteck for Rig</div>
+            <div class="variant">Silicone Sleeve</div>
+            <div class="price">$24.99</div>
+            <div class="qty-control">
+              <button>−</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-select-card selected">
+          <div class="check-badge">✓</div>
+          <div class="product-img-placeholder">🛡️</div>
+          <div class="product-select-info">
+            <div class="name">Proteck for Solo</div>
+            <div class="variant">Silicone Sleeve</div>
+            <div class="price">$22.99</div>
+            <div class="qty-control">
+              <button>−</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-select-card">
+          <div class="check-badge">✓</div>
+          <div class="product-img-placeholder">🛡️</div>
+          <div class="product-select-info">
+            <div class="name">Proteck for Beaker</div>
+            <div class="variant">Silicone Sleeve</div>
+            <div class="price">$26.99</div>
+            <div class="qty-control">
+              <button>−</button>
+              <span>0</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-select-card">
+          <div class="check-badge">✓</div>
+          <div class="product-img-placeholder">🛡️</div>
+          <div class="product-select-info">
+            <div class="name">Proteck for Spoon</div>
+            <div class="variant">Silicone Sleeve</div>
+            <div class="price">$18.99</div>
+            <div class="qty-control">
+              <button>−</button>
+              <span>0</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-select-card">
+          <div class="check-badge">✓</div>
+          <div class="product-img-placeholder">🛡️</div>
+          <div class="product-select-info">
+            <div class="name">Proteck for Sidecar</div>
+            <div class="variant">Silicone Sleeve</div>
+            <div class="price">$21.99</div>
+            <div class="qty-control">
+              <button>−</button>
+              <span>0</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-select-card">
+          <div class="check-badge">✓</div>
+          <div class="product-img-placeholder">🛡️</div>
+          <div class="product-select-info">
+            <div class="name">Proteck for Shorty</div>
+            <div class="variant">Silicone Sleeve</div>
+            <div class="price">$19.99</div>
+            <div class="qty-control">
+              <button>−</button>
+              <span>0</span>
+              <button>+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dev-note">Product cards are dynamic. Pull Proteck SKUs from inventory system. Qty-control allows multiple units of the same model. Discount tier unlocks automatically based on total quantity selected (2/3/4+).</div>
+    </div>
+
+    <!-- Summary bar -->
+    <div class="bundle-summary">
+      <div class="info">
+        <div class="stat">
+          <div class="label">Items Selected</div>
+          <div class="value">2</div>
+        </div>
+        <div class="stat">
+          <div class="label">Subtotal</div>
+          <div class="value">$47.98</div>
+        </div>
+        <div class="stat">
+          <div class="label">Discount</div>
+          <div class="value savings">−$4.80</div>
+        </div>
+        <div class="stat">
+          <div class="label">Total</div>
+          <div class="value">$43.18</div>
+        </div>
+        <div class="discount-chip">🎉 10% Off Applied</div>
+      </div>
+      <button class="btn-primary">Add Bundle to Cart</button>
+    </div>
+  </div>
+  <!-- end bundle builder -->
+
+
+  <!-- ── 1B. OTHER EYCE PROMOS ── -->
+  <p class="section-subheading">Additional Eyce Promotions</p>
+
+  <div class="promos-grid">
+
+    <!-- Gavel Spoon POP -->
+    <div class="promo-card">
+      <div class="promo-card-img blue-grad">🥄</div>
+      <div class="promo-card-body">
+        <h4>Gavel Spoon — POP Display</h4>
+        <p>20% off Gavel Spoon POP units. Perfect for point-of-purchase placement and impulse buys on the sales floor.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag eyce">20% OFF</div>
+        <span class="promo-type-pill pill-pop">POP</span>
+      </div>
+    </div>
+
+    <!-- SideCar POP -->
+    <div class="promo-card">
+      <div class="promo-card-img teal-grad">🚗</div>
+      <div class="promo-card-body">
+        <h4>SideCar — POP Display</h4>
+        <p>25% off SideCar POP units. High-visibility display drives sell-through for this fan-favorite piece.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag eyce">25% OFF</div>
+        <span class="promo-type-pill pill-pop">POP</span>
+      </div>
+    </div>
+
+    <!-- Beaker + Solo Free -->
+    <div class="promo-card">
+      <div class="promo-card-img purple-grad">🧪</div>
+      <div class="promo-card-body">
+        <h4>Beaker POP + Free Solo POP</h4>
+        <p>Buy a Beaker POP display and receive a Solo POP display at no additional cost. Bundle your floor display order for maximum value.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag free">FREE Solo POP</div>
+        <span class="promo-type-pill pill-pop">POP Bundle</span>
+      </div>
+    </div>
+
+    <!-- Proteck Bundle (summary card — builder above is the primary) -->
+    <div class="promo-card">
+      <div class="promo-card-img navy-grad">🛡️</div>
+      <div class="promo-card-body">
+        <h4>Proteck Bundle — Volume Discount</h4>
+        <p>
+          Use the <strong>Bundle Builder above</strong> to mix &amp; match Proteck series:<br>
+          Buy 2 → Save 10% &nbsp;|&nbsp; Buy 3 → Save 20% &nbsp;|&nbsp; Buy 4 → Save 25%
+        </p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag bundle">Up to 25% OFF</div>
+        <span class="promo-type-pill pill-bundle">Bundle</span>
+      </div>
+    </div>
+
+    <!-- Oraflex Shorty POP -->
+    <div class="promo-card">
+      <div class="promo-card-img orange-grad">🌀</div>
+      <div class="promo-card-body">
+        <h4>Oraflex Shorty — POP Display</h4>
+        <p>20% off Oraflex Shorty POP units. Compact and flexible — ideal for smaller shelf footprints.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag eyce">20% OFF</div>
+        <span class="promo-type-pill pill-pop">POP</span>
+      </div>
+    </div>
+
+    <!-- Countertop Displays -->
+    <div class="promo-card">
+      <div class="promo-card-img green-grad">🗄️</div>
+      <div class="promo-card-body">
+        <h4>Countertop Displays</h4>
+        <p>25% off all Eyce countertop display units. Upgrade your retail presentation and maximize product visibility at checkout counters.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag eyce">25% OFF</div>
+        <span class="promo-type-pill pill-display">Display</span>
+      </div>
+    </div>
+
+  </div>
+  <!-- end promos grid -->
+
+</section>
+<!-- end Eyce section -->
+
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — DAVINCI PROMOS
+══════════════════════════════════════════ -->
+<div class="davinci-section-bg">
+<section id="davinci-section" class="brand-section">
+
+  <div class="brand-section-header">
+    <div class="brand-logo-pill davinci">✦ DaVinci</div>
+    <div class="divider"></div>
+  </div>
+
+  <p class="section-subheading">DaVinci Vaporizer Promotions</p>
+
+  <div class="promos-grid">
+
+    <!-- IQ3 Black -->
+    <div class="promo-card">
+      <div class="promo-card-img davinci-promo-img black-grad" style="height:180px; font-size:3.5rem;">💨</div>
+      <div class="promo-card-body">
+        <div class="dv-model-tag">IQ3</div>
+        <h4>IQ3 Vaporizer — Matte Black</h4>
+        <p>20% off the IQ3 in Matte Black colorway. Precision airpath, 10-year warranty, app-enabled smart vaporizer.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag davinci">20% OFF</div>
+        <span class="promo-type-pill pill-davinci">DaVinci Promo</span>
+      </div>
+    </div>
+
+    <!-- MIQRO-C Black -->
+    <div class="promo-card">
+      <div class="promo-card-img davinci-promo-img black-grad" style="height:180px; font-size:3.5rem;">🌬️</div>
+      <div class="promo-card-body">
+        <div class="dv-model-tag">MIQRO-C</div>
+        <h4>MIQRO-C Vaporizer — Matte Black</h4>
+        <p>20% off the MIQRO-C in Matte Black. Ultra-compact form factor, precision flavor chamber, fast heat-up.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag davinci">20% OFF</div>
+        <span class="promo-type-pill pill-davinci">DaVinci Promo</span>
+      </div>
+    </div>
+
+    <!-- ARTIQ Black -->
+    <div class="promo-card">
+      <div class="promo-card-img davinci-promo-img black-grad" style="height:180px; font-size:3.5rem;">🔥</div>
+      <div class="promo-card-body">
+        <div class="dv-model-tag">ARTIQ</div>
+        <h4>ARTIQ Vaporizer — Matte Black</h4>
+        <p>20% off the ARTIQ in Matte Black. All-ceramic zirconia pathway, single button simplicity, built to perform.</p>
+      </div>
+      <div class="promo-card-footer">
+        <div class="discount-tag davinci">20% OFF</div>
+        <span class="promo-type-pill pill-davinci">DaVinci Promo</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dev-note" style="margin-top:24px;">DaVinci products: pricing and SKUs to be pulled from the DaVinci product catalog. All three models are Black colorway only for this promotion. Discount applies at line-item level — display strikethrough original price alongside discounted price.</div>
+
+</section>
+</div>
+<!-- end DaVinci section -->
+
+
+<!-- ══════════════════════════════════════
+     FOOTER / MOCKUP WATERMARK
+══════════════════════════════════════════ -->
+<footer class="page-footer">
+  <strong>Synergy Innovation — Promotions Page Mockup</strong><br>
+  This is a visual layout reference for web developers. Content, pricing, images, and colors are placeholders. Confirm all promo details, SKUs, and pricing with the sales team before implementation.
+</footer>
+
+</body>
+</html>

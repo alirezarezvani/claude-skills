@@ -322,6 +322,7 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 
 ## Related Projects
 
+| [**Claude Code SDK**](https://github.com/SeifBenayed/claude-code-sdk) | Single-file CLIs (JS, Python, Go, Rust) that run Claude Skills with any provider — zero dependencies, built-in tool loop |
 | Project | Description |
 |---------|-------------|
 | [**Claude Code Skills & Agents Factory**](https://github.com/alirezarezvani/claude-code-skills-agents-factory) | Methodology for building skills at scale |

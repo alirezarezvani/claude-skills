@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 166,
+  "total_skills": 174,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -210,6 +210,12 @@
       "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
     },
     {
+      "name": "azure-cloud-architect",
+      "source": "../../engineering-team/azure-cloud-architect",
+      "category": "engineering",
+      "description": "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization."
+    },
+    {
       "name": "code-reviewer",
       "source": "../../engineering-team/code-reviewer",
       "category": "engineering",
@@ -226,6 +232,12 @@
       "source": "../../engineering-team/epic-design",
       "category": "engineering",
       "description": ">"
+    },
+    {
+      "name": "gcp-cloud-architect",
+      "source": "../../engineering-team/gcp-cloud-architect",
+      "category": "engineering",
+      "description": "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization."
     },
     {
       "name": "google-workspace-cli",
@@ -250,6 +262,12 @@
       "source": "../../engineering-team/playwright-pro",
       "category": "engineering",
       "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting."
+    },
+    {
+      "name": "security-pen-testing",
+      "source": "../../engineering-team/security-pen-testing",
+      "category": "engineering",
+      "description": "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation."
     },
     {
       "name": "self-improving-agent",
@@ -345,7 +363,7 @@
       "name": "tdd-guide",
       "source": "../../engineering-team/tdd-guide",
       "category": "engineering",
-      "description": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit. Handles test generation from source code, coverage report parsing (LCOV/JSON/XML), quality scoring, and framework conversion for TypeScript, JavaScript, Python, and Java projects."
+      "description": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit."
     },
     {
       "name": "tech-stack-evaluator",
@@ -388,6 +406,12 @@
       "source": "../../engineering/autoresearch-agent",
       "category": "engineering-advanced",
       "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
+    },
+    {
+      "name": "browser-automation",
+      "source": "../../engineering/browser-automation",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screenshots, extract structured data from web pages, or build web automation workflows. NOT for testing \u2014 use playwright-pro for that."
     },
     {
       "name": "changelog-generator",
@@ -516,6 +540,12 @@
       "description": "Runbook Generator"
     },
     {
+      "name": "secrets-vault-manager",
+      "source": "../../engineering/secrets-vault-manager",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
+    },
+    {
       "name": "skill-security-auditor",
       "source": "../../engineering/skill-security-auditor",
       "category": "engineering-advanced",
@@ -526,6 +556,18 @@
       "source": "../../engineering/skill-tester",
       "category": "engineering-advanced",
       "description": "Skill Tester"
+    },
+    {
+      "name": "spec-driven-workflow",
+      "source": "../../engineering/spec-driven-workflow",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices."
+    },
+    {
+      "name": "sql-database-assistant",
+      "source": "../../engineering/sql-database-assistant",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
     },
     {
       "name": "tech-debt-tracker",
@@ -1000,6 +1042,12 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis. Use when user mentions risk management, ISO 14971, risk analysis, FMEA, fault tree analysis, hazard identification, risk control, risk matrix, benefit-risk analysis, residual risk, risk acceptability, or post-market risk."
+    },
+    {
+      "name": "soc2-compliance",
+      "source": "../../ra-qm-team/soc2-compliance",
+      "category": "ra-qm",
+      "description": "Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness."
     }
   ],
   "categories": {
@@ -1014,12 +1062,12 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 26,
+      "count": 29,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 31,
+      "count": 35,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
@@ -1044,7 +1092,7 @@
       "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
-      "count": 12,
+      "count": 13,
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     }

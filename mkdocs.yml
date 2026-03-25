@@ -125,6 +125,7 @@ nav:
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
       - "Incident Commander": skills/engineering-team/incident-commander.md
+      - "GCP Cloud Architect": skills/engineering-team/gcp-cloud-architect.md
       - "Google Workspace CLI": skills/engineering-team/google-workspace-cli.md
       - "Microsoft 365 Tenant Manager": skills/engineering-team/ms365-tenant-manager.md
       - Playwright Pro:
@@ -193,8 +194,10 @@ nav:
       - "RAG Architect": skills/engineering/rag-architect.md
       - "Release Manager": skills/engineering/release-manager.md
       - "Runbook Generator": skills/engineering/runbook-generator.md
+      - "Secrets Vault Manager": skills/engineering/secrets-vault-manager.md
       - "Skill Security Auditor": skills/engineering/skill-security-auditor.md
       - "Skill Tester": skills/engineering/skill-tester.md
+      - "SQL Database Assistant": skills/engineering/sql-database-assistant.md
       - "Tech Debt Tracker": skills/engineering/tech-debt-tracker.md
       - "Terraform Patterns": skills/engineering/terraform-patterns.md
       - "Helm Chart Builder": skills/engineering/helm-chart-builder.md
@@ -329,6 +332,7 @@ nav:
       - "Quality Manager - ISO 13485": skills/ra-qm-team/quality-manager-qms-iso13485.md
       - "Regulatory Affairs Head": skills/ra-qm-team/regulatory-affairs-head.md
       - "Risk Management Specialist": skills/ra-qm-team/risk-management-specialist.md
+      - "SOC 2 Compliance": skills/ra-qm-team/soc2-compliance.md
     - Business & Growth:
       - Overview: skills/business-growth/index.md
       - "Contract & Proposal Writer": skills/business-growth/contract-and-proposal-writer.md

@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "44 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "46 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">44 skills in this domain</p>
+<p class="domain-count">46 skills in this domain</p>
 
 </div>
 
@@ -185,6 +185,12 @@ description: "44 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
+-   **[Secrets Vault Manager](secrets-vault-manager.md)**
+
+    ---
+
+    Tier: POWERFUL
+
 -   **[Skill Security Auditor](skill-security-auditor.md)**
 
     ---
@@ -196,6 +202,12 @@ description: "44 engineering - powerful skills — advanced agent-native skill a
     ---
 
     ---
+
+-   **[SQL Database Assistant - POWERFUL Tier Skill](sql-database-assistant.md)**
+
+    ---
+
+    The operational companion to database design. While database-designer focuses on schema architecture and database-sch...
 
 -   **[Tech Debt Tracker](tech-debt-tracker.md)**
 

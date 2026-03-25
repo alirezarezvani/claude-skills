@@ -1,6 +1,6 @@
 ---
 title: "Release Manager — Agent Skill for Codex & OpenClaw"
-description: "Release Manager. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Use when the user asks to plan releases, manage changelogs, coordinate deployments, create release branches, or automate versioning. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Release Manager

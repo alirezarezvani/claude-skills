@@ -44,9 +44,6 @@ The Browser Automation skill provides comprehensive tools and knowledge for buil
 
 ### 1. Web Scraping Patterns
 
-#### DOM Extraction with CSS Selectors
-CSS selectors are the primary tool for element targeting. Prefer them over XPath for readability and performance.
-
 **Selector priority (most to least reliable):**
 1. `data-testid`, `data-id`, or custom data attributes — stable across redesigns
 2. `#id` selectors — unique but may change between deploys
@@ -54,365 +51,70 @@ CSS selectors are the primary tool for element targeting. Prefer them over XPath
 4. Class-based: `.product-card`, `.price` — brittle if classes are generated (e.g., CSS modules)
 5. Positional: `nth-child()`, `nth-of-type()` — last resort, breaks on layout changes
 
-**Compound selectors for precision:**
-```python
-# Product cards within a specific container
-page.query_selector_all("div.search-results > article.product-card")
+Use XPath only when CSS cannot express the relationship (e.g., ancestor traversal, text-based selection).
 
-# Price inside a product card (scoped)
-card.query_selector("span[data-field='price']")
-
-# Links with specific text content
-page.locator("a", has_text="Next Page")
-```
-
-#### XPath for Complex Traversal
-Use XPath only when CSS cannot express the relationship:
-```python
-# Find element by text content (XPath strength)
-page.locator("//td[contains(text(), 'Total')]/following-sibling::td[1]")
-
-# Navigate up the DOM tree
-page.locator("//span[@class='price']/ancestor::div[@class='product']")
-```
-
-#### Pagination Patterns
-- **Next-button pagination**: Click "Next" until disabled or absent
-- **URL-based pagination**: Increment `?page=N` or `&offset=N` in URL
-- **Infinite scroll**: Scroll to bottom, wait for new content, repeat until no change
-- **Load-more button**: Click button, wait for DOM mutation, repeat
-
-#### Infinite Scroll Handling
-```python
-async def scroll_to_bottom(page, max_scrolls=50, pause_ms=1500):
-    previous_height = 0
-    for i in range(max_scrolls):
-        current_height = await page.evaluate("document.body.scrollHeight")
-        if current_height == previous_height:
-            break
-        await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        await page.wait_for_timeout(pause_ms)
-        previous_height = current_height
-    return i + 1  # number of scrolls performed
-```
+**Pagination strategies:** next-button, URL-based (`?page=N`), infinite scroll, load-more button. See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/data_extraction_recipes.md) for complete pagination handlers and scroll patterns.
 
 ### 2. Form Filling & Multi-Step Workflows
 
-#### Login Flows
-```python
-async def login(page, url, username, password):
-    await page.goto(url)
-    await page.fill("input[name='username']", username)
-    await page.fill("input[name='password']", password)
-    await page.click("button[type='submit']")
-    # Wait for navigation to complete (post-login redirect)
-    await page.wait_for_url("**/dashboard**")
-```
+Break multi-step forms into discrete functions per step. Each function fills fields, clicks "Next"/"Continue", and waits for the next step to load (URL change or DOM element).
 
-#### Multi-Page Forms
-Break multi-step forms into discrete functions per step. Each function:
-1. Fills the fields for that step
-2. Clicks the "Next" or "Continue" button
-3. Waits for the next step to load (URL change or DOM element)
-
-```python
-async def fill_step_1(page, data):
-    await page.fill("#first-name", data["first_name"])
-    await page.fill("#last-name", data["last_name"])
-    await page.select_option("#country", data["country"])
-    await page.click("button:has-text('Continue')")
-    await page.wait_for_selector("#step-2-form")
-
-async def fill_step_2(page, data):
-    await page.fill("#address", data["address"])
-    await page.fill("#city", data["city"])
-    await page.click("button:has-text('Continue')")
-    await page.wait_for_selector("#step-3-form")
-```
-
-#### File Uploads
-```python
-# Single file
-await page.set_input_files("input[type='file']", "/path/to/file.pdf")
-
-# Multiple files
-await page.set_input_files("input[type='file']", [
-    "/path/to/file1.pdf",
-    "/path/to/file2.pdf"
-])
-
-# Drag-and-drop upload zones (no visible input element)
-async with page.expect_file_chooser() as fc_info:
-    await page.click("div.upload-zone")
-file_chooser = await fc_info.value
-await file_chooser.set_files("/path/to/file.pdf")
-```
-
-#### Dropdown and Select Handling
-```python
-# Native <select> element
-await page.select_option("#country", value="US")
-await page.select_option("#country", label="United States")
-
-# Custom dropdown (div-based)
-await page.click("div.dropdown-trigger")
-await page.click("div.dropdown-option:has-text('United States')")
-```
+Key patterns: login flows, multi-page forms, file uploads (including drag-and-drop zones), native and custom dropdown handling. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for complete API reference on `fill()`, `select_option()`, `set_input_files()`, and `expect_file_chooser()`.
 
 ### 3. Screenshot & PDF Capture
 
-#### Screenshot Strategies
-```python
-# Full page (scrolls automatically)
-await page.screenshot(path="full-page.png", full_page=True)
+- **Full page:** `await page.screenshot(path="full.png", full_page=True)`
+- **Element:** `await page.locator("div.chart").screenshot(path="chart.png")`
+- **PDF (Chromium only):** `await page.pdf(path="out.pdf", format="A4", print_background=True)`
+- **Visual regression:** Take screenshots at known states, store baselines in version control with naming: `{page}_{viewport}_{state}.png`
 
-# Viewport only (what's visible)
-await page.screenshot(path="viewport.png")
-
-# Specific element
-element = page.locator("div.chart-container")
-await element.screenshot(path="chart.png")
-
-# With custom viewport for consistency
-context = await browser.new_context(viewport={"width": 1920, "height": 1080})
-```
-
-#### PDF Generation
-```python
-# Only works in Chromium
-await page.pdf(
-    path="output.pdf",
-    format="A4",
-    margin={"top": "1cm", "right": "1cm", "bottom": "1cm", "left": "1cm"},
-    print_background=True
-)
-```
-
-#### Visual Regression Baselines
-Take screenshots at known states and compare pixel-by-pixel. Store baselines in version control. Use naming conventions: `{page}_{viewport}_{state}.png`.
+See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for full screenshot/PDF options.
 
 ### 4. Structured Data Extraction
 
-#### Tables to JSON
-```python
-async def extract_table(page, selector):
-    headers = await page.eval_on_selector_all(
-        f"{selector} thead th",
-        "elements => elements.map(e => e.textContent.trim())"
-    )
-    rows = await page.eval_on_selector_all(
-        f"{selector} tbody tr",
-        """rows => rows.map(row => {
-            return Array.from(row.querySelectorAll('td'))
-                .map(cell => cell.textContent.trim())
-        })"""
-    )
-    return [dict(zip(headers, row)) for row in rows]
-```
+Core extraction patterns:
+- **Tables to JSON** — Extract `<thead>` headers and `<tbody>` rows into dictionaries
+- **Listings to arrays** — Map repeating card elements using a field-selector map (supports `::attr()` for attributes)
+- **Nested/threaded data** — Recursive extraction for comments with replies, category trees
 
-#### Listings to Arrays
-```python
-async def extract_listings(page, container_sel, field_map):
-    """
-    field_map example: {"title": "h3.title", "price": "span.price", "url": "a::attr(href)"}
-    """
-    items = []
-    cards = await page.query_selector_all(container_sel)
-    for card in cards:
-        item = {}
-        for field, sel in field_map.items():
-            if "::attr(" in sel:
-                attr_sel, attr_name = sel.split("::attr(")
-                attr_name = attr_name.rstrip(")")
-                el = await card.query_selector(attr_sel)
-                item[field] = await el.get_attribute(attr_name) if el else None
-            else:
-                el = await card.query_selector(sel)
-                item[field] = (await el.text_content()).strip() if el else None
-        items.append(item)
-    return items
-```
-
-#### Nested Data Extraction
-For threaded content (comments with replies), use recursive extraction:
-```python
-async def extract_comments(page, parent_selector):
-    comments = []
-    elements = await page.query_selector_all(f"{parent_selector} > .comment")
-    for el in elements:
-        text = await (await el.query_selector(".comment-body")).text_content()
-        author = await (await el.query_selector(".author")).text_content()
-        replies = await extract_comments(el, ".replies")
-        comments.append({
-            "author": author.strip(),
-            "text": text.strip(),
-            "replies": replies
-        })
-    return comments
-```
+See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/data_extraction_recipes.md) for complete extraction functions, price parsing, data cleaning utilities, and output format helpers (JSON, CSV, JSONL).
 
 ### 5. Cookie & Session Management
 
-#### Save and Restore Sessions
-```python
-import json
+- **Save/restore cookies:** `context.cookies()` and `context.add_cookies()`
+- **Full storage state** (cookies + localStorage): `context.storage_state(path="state.json")` to save, `browser.new_context(storage_state="state.json")` to restore
 
-# Save cookies after login
-cookies = await context.cookies()
-with open("session.json", "w") as f:
-    json.dump(cookies, f)
-
-# Restore session in new context
-with open("session.json", "r") as f:
-    cookies = json.load(f)
-context = await browser.new_context()
-await context.add_cookies(cookies)
-```
-
-#### Storage State (Cookies + Local Storage)
-```python
-# Save full state (cookies + localStorage + sessionStorage)
-await context.storage_state(path="state.json")
-
-# Restore full state
-context = await browser.new_context(storage_state="state.json")
-```
-
-**Best practice:** Save state after login, reuse across scraping sessions. Check session validity before starting a long job — make a lightweight request to a protected page and verify you are not redirected to login.
+**Best practice:** Save state after login, reuse across scraping sessions. Check session validity before starting a long job — make a lightweight request to a protected page and verify you are not redirected to login. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for cookie and storage state API details.
 
 ### 6. Anti-Detection Patterns
 
-Modern websites detect automation through multiple vectors. Address all of them:
+Modern websites detect automation through multiple vectors. Apply these in priority order:
 
-#### User Agent Rotation
-Never use the default Playwright user agent. Rotate through real browser user agents:
-```python
-USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-]
-```
+1. **WebDriver flag removal** — Remove `navigator.webdriver = true` via init script (critical)
+2. **Custom user agent** — Rotate through real browser UAs; never use the default headless UA
+3. **Realistic viewport** — Set 1920x1080 or similar real-world dimensions (default 800x600 is a red flag)
+4. **Request throttling** — Add `random.uniform()` delays between actions
+5. **Proxy support** — Per-browser or per-context proxy configuration
 
-#### Viewport and Screen Size
-Set realistic viewport dimensions. The default 800x600 is a red flag:
-```python
-context = await browser.new_context(
-    viewport={"width": 1920, "height": 1080},
-    screen={"width": 1920, "height": 1080},
-    user_agent=random.choice(USER_AGENTS),
-)
-```
-
-#### WebDriver Flag Removal
-Playwright sets `navigator.webdriver = true`. Remove it:
-```python
-await page.add_init_script("""
-    Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
-""")
-```
-
-#### Request Throttling
-Add human-like delays between actions:
-```python
-import random
-
-async def human_delay(min_ms=500, max_ms=2000):
-    delay = random.randint(min_ms, max_ms)
-    await page.wait_for_timeout(delay)
-```
-
-#### Proxy Support
-```python
-browser = await playwright.chromium.launch(
-    proxy={"server": "http://proxy.example.com:8080"}
-)
-# Or per-context:
-context = await browser.new_context(
-    proxy={"server": "http://proxy.example.com:8080",
-           "username": "user", "password": "pass"}
-)
-```
+See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/anti_detection_patterns.md) for the complete stealth stack: navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation strategies, and detection self-test URLs.
 
 ### 7. Dynamic Content Handling
 
-#### SPA Rendering
-SPAs render content client-side. Wait for the actual content, not the page load:
-```python
-await page.goto(url)
-# Wait for the data to render, not just the shell
-await page.wait_for_selector("div.product-list article", state="attached")
-```
+- **SPA rendering:** Wait for content selectors (`wait_for_selector`), not the page load event
+- **AJAX/Fetch waiting:** Use `page.expect_response("**/api/data*")` to intercept and wait for specific API calls
+- **Shadow DOM:** Playwright pierces open Shadow DOM with `>>` operator: `page.locator("custom-element >> .inner-class")`
+- **Lazy-loaded images:** Scroll elements into view with `scroll_into_view_if_needed()` to trigger loading
 
-#### AJAX / Fetch Waiting
-Intercept and wait for specific API calls:
-```python
-async with page.expect_response("**/api/products*") as response_info:
-    await page.click("button.load-more")
-response = await response_info.value
-data = await response.json()  # You can use the API data directly
-```
-
-#### Shadow DOM Traversal
-```python
-# Playwright pierces open Shadow DOM automatically with >>
-await page.locator("custom-element >> .inner-class").click()
-```
-
-#### Lazy-Loaded Images
-Scroll elements into view to trigger lazy loading:
-```python
-images = await page.query_selector_all("img[data-src]")
-for img in images:
-    await img.scroll_into_view_if_needed()
-    await page.wait_for_timeout(200)
-```
+See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for wait strategies, network interception, and Shadow DOM details.
 
 ### 8. Error Handling & Retry Logic
 
-#### Retry Decorator Pattern
-```python
-import asyncio
+- **Retry with backoff:** Wrap page interactions in retry logic with exponential backoff (e.g., 1s, 2s, 4s)
+- **Fallback selectors:** On `TimeoutError`, try alternative selectors before failing
+- **Error-state screenshots:** Capture `page.screenshot(path="error-state.png")` on unexpected failures for debugging
+- **Rate limit detection:** Check for HTTP 429 responses and respect `Retry-After` headers
 
-async def with_retry(coro_factory, max_retries=3, backoff_base=2):
-    for attempt in range(max_retries):
-        try:
-            return await coro_factory()
-        except Exception as e:
-            if attempt == max_retries - 1:
-                raise
-            wait = backoff_base ** attempt
-            print(f"Attempt {attempt + 1} failed: {e}. Retrying in {wait}s...")
-            await asyncio.sleep(wait)
-```
-
-#### Handling Common Failures
-```python
-from playwright.async_api import TimeoutError as PlaywrightTimeout
-
-try:
-    await page.click("button.submit", timeout=5000)
-except PlaywrightTimeout:
-    # Element did not appear — page structure may have changed
-    # Try fallback selector
-    await page.click("[type='submit']", timeout=5000)
-except Exception as e:
-    # Network error, browser crash, etc.
-    await page.screenshot(path="error-state.png")
-    raise
-```
-
-#### Rate Limit Detection
-```python
-async def check_rate_limit(response):
-    if response.status == 429:
-        retry_after = response.headers.get("retry-after", "60")
-        wait_seconds = int(retry_after)
-        print(f"Rate limited. Waiting {wait_seconds}s...")
-        await asyncio.sleep(wait_seconds)
-        return True
-    return False
-```
+See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/anti_detection_patterns.md) for the complete exponential backoff implementation and rate limiter class.
 
 ## Workflows
 

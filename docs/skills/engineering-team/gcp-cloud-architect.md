@@ -420,6 +420,32 @@ Provide these details for architecture design:
 
 ---
 
+## Anti-Patterns
+
+| Anti-Pattern | Why It Fails | Better Approach |
+|---|---|---|
+| Using default VPC for production | No isolation, shared firewall rules | Create custom VPC with private subnets |
+| Over-provisioning GKE node pools | Wasted cost on idle capacity | Use GKE Autopilot or cluster autoscaler |
+| Storing secrets in environment variables | Visible in Cloud Console, logs | Use Secret Manager with Workload Identity |
+| Ignoring sustained use discounts | Missing 20-30% automatic savings | Right-size VMs for consistent baseline usage |
+| Single-region deployment for SaaS | One region outage = full downtime | Multi-region with Cloud Load Balancing |
+| BigQuery on-demand for heavy workloads | Unpredictable costs at scale | Use BigQuery slots (flat-rate) for consistent workloads |
+| Running Cloud Functions for long tasks | 9-minute timeout, cold starts | Use Cloud Run for tasks > 60 seconds |
+
+---
+
+## Cross-References
+
+| Skill | Relationship |
+|-------|-------------|
+| `engineering-team/aws-solution-architect` | AWS equivalent — same 6-step workflow, different services |
+| `engineering-team/azure-cloud-architect` | Azure equivalent — completes the cloud trifecta |
+| `engineering-team/senior-devops` | Broader DevOps scope — pipelines, monitoring, containerization |
+| `engineering/terraform-patterns` | IaC implementation — use for Terraform modules targeting GCP |
+| `engineering/ci-cd-pipeline-builder` | Pipeline construction — automates Cloud Build and deployment |
+
+---
+
 ## Reference Documentation
 
 | Document | Contents |

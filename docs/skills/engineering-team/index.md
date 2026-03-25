@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "41 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "43 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">41 skills in this domain</p>
+<p class="domain-count">43 skills in this domain</p>
 
 </div>
 
@@ -28,6 +28,12 @@ description: "41 engineering - core skills — engineering agent skill and Claud
     ---
 
     Design scalable, cost-effective AWS architectures for startups with infrastructure-as-code templates.
+
+-   **[Azure Cloud Architect](azure-cloud-architect.md)**
+
+    ---
+
+    Design scalable, cost-effective Azure architectures for startups and enterprises with Bicep infrastructure-as-code te...
 
 -   **[Code Reviewer](code-reviewer.md)**
 
@@ -76,6 +82,12 @@ description: "41 engineering - core skills — engineering agent skill and Claud
     ---
 
     Production-grade Playwright testing toolkit for AI coding agents.
+
+-   **[Security Penetration Testing](security-pen-testing.md)**
+
+    ---
+
+    Hands-on offensive security testing skill for finding vulnerabilities before attackers do. This is NOT compliance che...
 
 -   **[Self-Improving Agent](self-improving-agent.md)** + 5 sub-skills
 

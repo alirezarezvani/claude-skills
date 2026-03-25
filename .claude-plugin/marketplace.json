@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "31 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, and more.",
+      "description": "35 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, and more.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "26 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2).",
+      "description": "29 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -109,7 +109,7 @@
     {
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
-      "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation.",
+      "description": "13 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"

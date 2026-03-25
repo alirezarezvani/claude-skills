@@ -122,6 +122,7 @@ nav:
       - Overview: skills/engineering-team/index.md
       - "A11y Audit": skills/engineering-team/a11y-audit.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md
+      - "Azure Cloud Architect": skills/engineering-team/azure-cloud-architect.md
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
       - "Incident Commander": skills/engineering-team/incident-commander.md
@@ -158,6 +159,7 @@ nav:
       - "Senior QA Engineer": skills/engineering-team/senior-qa.md
       - "Senior SecOps Engineer": skills/engineering-team/senior-secops.md
       - "Senior Security Engineer": skills/engineering-team/senior-security.md
+      - "Security Pen Testing": skills/engineering-team/security-pen-testing.md
       - "Stripe Integration Expert": skills/engineering-team/stripe-integration-expert.md
       - "TDD Guide": skills/engineering-team/tdd-guide.md
       - "Tech Stack Evaluator": skills/engineering-team/tech-stack-evaluator.md

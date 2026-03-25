@@ -135,7 +135,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 26 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 29 skills](skills/engineering-team/)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 
@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 30 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 35 skills](skills/engineering/)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -183,7 +183,7 @@ hide:
 
     ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management, quality documentation
 
-    [:octicons-arrow-right-24: 12 skills](skills/ra-qm-team/)
+    [:octicons-arrow-right-24: 13 skills](skills/ra-qm-team/)
 
 -   :material-trending-up:{ .lg .middle } **Business & Growth**
 

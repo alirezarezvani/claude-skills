@@ -135,7 +135,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 29 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 30 skills](skills/engineering-team/)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 

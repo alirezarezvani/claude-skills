@@ -38,7 +38,7 @@ claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
 ├── agents/                    # 16 cs-* prefixed agents across all domains
 ├── commands/                  # 19 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
-├── engineering-team/          # 29 core engineering skills + Playwright Pro + Self-Improving Agent + A11y Audit
+├── engineering-team/          # 30 core engineering skills + Playwright Pro + Self-Improving Agent + A11y Audit
 ├── engineering/               # 35 POWERFUL-tier advanced skills (incl. AgentHub)
 ├── product-team/              # 13 product skills + Python tools
 ├── marketing-skill/           # 43 marketing skills (7 pods) + Python tools

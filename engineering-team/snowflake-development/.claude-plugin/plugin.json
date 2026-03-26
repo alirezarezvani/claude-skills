@@ -1,0 +1,13 @@
+{
+  "name": "snowflake-development",
+  "description": "Snowflake SQL, data pipelines (Dynamic Tables, Streams+Tasks), Cortex AI functions, Snowpark Python, and dbt integration. Includes query helper script, 3 reference guides, and troubleshooting.",
+  "version": "2.1.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/snowflake-development",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

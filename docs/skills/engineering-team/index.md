@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "44 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "45 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">44 skills in this domain</p>
+<p class="domain-count">45 skills in this domain</p>
 
 </div>
 
@@ -178,6 +178,12 @@ description: "44 engineering - core skills — engineering agent skill and Claud
     ---
 
     Security engineering tools for threat modeling, vulnerability analysis, secure architecture design, and penetration t...
+
+-   **[Snowflake Development](snowflake-development.md)**
+
+    ---
+
+    Snowflake SQL, data pipelines, Cortex AI, and Snowpark Python development. Covers the colon-prefix rule, semi-structu...
 
 -   **[Stripe Integration Expert](stripe-integration-expert.md)**
 

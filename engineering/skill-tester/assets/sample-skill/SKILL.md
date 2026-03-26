@@ -1,16 +1,16 @@
+---
+name: "sample-text-processor"
+description: "A simple skill demonstrating basic structure and functionality in the claude-skills ecosystem. Provides text processing capabilities including word counting, character analysis, and basic text transformations. Use as a reference implementation for BASIC tier skill requirements."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Claude Skills Engineering Team
+  category: engineering
+  tier: BASIC
+  updated: 2026-02-16
+---
+
 # Sample Text Processor
-
----
-
-**Name**: sample-text-processor
-**Tier**: BASIC
-**Category**: Text Processing
-**Dependencies**: None (Python Standard Library Only)
-**Author**: Claude Skills Engineering Team
-**Version**: 1.0.0
-**Last Updated**: 2026-02-16
-
----
 
 ## Description
 

@@ -1,3 +1,14 @@
+---
+name: "persona-based-agents"
+description: "Pre-configured agent personas with curated skill loadouts, workflows, and distinct personalities. Use when setting up agent personas, configuring role-based agents, or understanding the persona system architecture."
+license: MIT
+metadata:
+  version: 1.0.0
+  author: Claude Skills Team
+  category: agents
+  updated: 2026-03-26
+---
+
 # Persona-Based Agents
 
 Pre-configured agent personas with curated skill loadouts, workflows, and distinct personalities.

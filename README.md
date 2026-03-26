@@ -327,6 +327,7 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 | [**Claude Code Skills & Agents Factory**](https://github.com/alirezarezvani/claude-code-skills-agents-factory) | Methodology for building skills at scale |
 | [**Claude Code Tresor**](https://github.com/alirezarezvani/claude-code-tresor) | Productivity toolkit with 60+ prompt templates |
 | [**Product Manager Skills**](https://github.com/Digidai/product-manager-skills) | Senior PM agent with 6 knowledge domains, 12 templates, 30+ frameworks — discovery, strategy, delivery, SaaS metrics, career coaching, AI product craft |
+| [**HubSpot Admin Skills**](https://github.com/TomGranot/hubspot-admin-skills) | 32 Claude Code skills for auditing, cleaning, enriching, and automating HubSpot CRM — full audit → plan → execute → maintain workflow with Python scripts |
 
 ---
 

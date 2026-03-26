@@ -1,0 +1,7 @@
+{
+  "agent_slug": "behavioral-analytics",
+  "agent_name": "Behavioral Analytics (UEBA)",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

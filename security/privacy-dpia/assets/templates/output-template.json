@@ -1,0 +1,7 @@
+{
+  "agent_slug": "privacy-dpia",
+  "agent_name": "Privacy & DPIA",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

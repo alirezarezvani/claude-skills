@@ -1,0 +1,7 @@
+{
+  "agent_slug": "security-architecture",
+  "agent_name": "Security Architecture",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

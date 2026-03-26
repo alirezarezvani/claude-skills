@@ -1,0 +1,7 @@
+{
+  "agent_slug": "security-awareness",
+  "agent_name": "Security Awareness",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

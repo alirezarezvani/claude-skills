@@ -1,0 +1,7 @@
+{
+  "agent_slug": "data-security-classification",
+  "agent_name": "Data Security & Classification",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "secrets-exposure",
+  "agent_name": "Secrets Exposure",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

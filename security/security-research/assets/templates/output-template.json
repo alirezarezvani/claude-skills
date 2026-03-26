@@ -1,0 +1,7 @@
+{
+  "agent_slug": "security-research",
+  "agent_name": "Security Research",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

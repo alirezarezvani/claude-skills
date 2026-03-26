@@ -1,0 +1,7 @@
+{
+  "agent_slug": "guardrail",
+  "agent_name": "Guardrail",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

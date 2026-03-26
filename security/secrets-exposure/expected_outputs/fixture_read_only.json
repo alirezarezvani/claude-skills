@@ -1,0 +1,22 @@
+{
+  "agent_slug": "secrets-exposure",
+  "agent_name": "Secrets Exposure",
+  "action": "verify_scope",
+  "rationale": "A string matching a generic API key pattern was found in a test fixture file under __tests__/fixtures/. The variable name is EXAMPLE_API_KEY and the value contains the word PLACEHOLDER. Confidence is low (0.15) — this is a likely false positive from a test scaffold. No blast radius assessment required at this confidence level.",
+  "requires_approval": false,
+  "approver_roles": [],
+  "summary": "Possible API key pattern found in test fixture — assessed as likely false positive. Verification recommended but no immediate action required.",
+  "key_findings": [
+    "Pattern matched in __tests__/fixtures/ path — test file, not production code",
+    "Variable name EXAMPLE_API_KEY contains 'EXAMPLE' — false positive indicator",
+    "Value contains 'PLACEHOLDER' — explicit false positive indicator",
+    "Confidence: 0.15 — below the 0.70 threshold for mutating recommendation"
+  ],
+  "recommendation": "Mark as likely false positive. Verify with the committing developer that this is a test scaffold value. Consider adding this pattern to the allowlist to reduce noise.",
+  "intent_type": "read_only",
+  "mutating_category": null,
+  "confidence": 0.15,
+  "risk_score": 0.05,
+  "evidence_references": ["EV-SEC-0002", "skills/secrets-exposure/SKILL.md"],
+  "timestamp_utc": "2026-02-28T10:31:00Z"
+}

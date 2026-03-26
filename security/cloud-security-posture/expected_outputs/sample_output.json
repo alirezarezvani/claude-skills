@@ -1,0 +1,6 @@
+{
+  "agent_slug": "cloud-security-posture",
+  "agent_name": "Cloud Security Posture",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

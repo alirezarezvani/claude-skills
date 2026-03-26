@@ -1,0 +1,24 @@
+{
+  "agent_slug": "security-posture-score",
+  "intent_type": "report",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "informational",
+  "overall_score": 0,
+  "score_tier": "Poor",
+  "domain_scores": {
+    "detection": 0,
+    "response": 0,
+    "identity-access": 0,
+    "cloud-infrastructure": 0,
+    "appsec-devsecops": 0,
+    "governance-compliance": 0,
+    "red-team-resilience": 0
+  },
+  "trend": "improving | stable | degrading",
+  "key_findings": [],
+  "next_agents": ["ciso-brief-generator", "metrics-reporting"],
+  "human_approval_required": false,
+  "timestamp_utc": ""
+}

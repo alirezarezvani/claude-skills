@@ -1,0 +1,31 @@
+{
+  "agent_slug": "pipeline-security-scan",
+  "intent_type": "analyze",
+  "action": "Remove hardcoded Datadog API key from deploy.yml:23. Pin 3 unpinned actions to commit hashes. Add artifact signing stage to release pipeline.",
+  "rationale": "Hardcoded Datadog API key in deploy.yml is exposed to anyone with repository read access. 3 third-party actions using mutable tags — supply chain compromise vector. No artifact signing means build artifacts cannot be verified.",
+  "confidence": 0.91,
+  "severity": "high",
+  "scan_results": {
+    "secrets_found": 1,
+    "missing_security_stages": ["artifact-signing", "sbom-generation"],
+    "artifact_integrity_gaps": ["no cosign signing configured", "images pushed by tag not digest"],
+    "permission_issues": ["deploy.yml uses permissions: write-all"],
+    "unpinned_actions": [
+      "actions/checkout@v3",
+      "docker/build-push-action@v4",
+      "aws-actions/configure-aws-credentials@v1"
+    ]
+  },
+  "key_findings": [
+    "Hardcoded Datadog API key in .github/workflows/deploy.yml:23",
+    "3 third-party actions not pinned to commit hash",
+    "No artifact signing stage in release pipeline",
+    "deploy.yml uses permissions: write-all — overly broad"
+  ],
+  "evidence_references": [
+    {"source": "github-workflow", "ref": ".github/workflows/deploy.yml#L23", "timestamp_utc": "2026-03-08T09:00:00Z"}
+  ],
+  "next_agents": ["secrets-exposure", "build-integrity"],
+  "human_approval_required": false,
+  "timestamp_utc": "2026-03-08T09:15:00Z"
+}

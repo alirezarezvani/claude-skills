@@ -1,0 +1,6 @@
+{
+  "agent_slug": "incident-classification",
+  "agent_name": "Incident Classification",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

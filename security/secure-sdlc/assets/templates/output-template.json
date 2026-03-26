@@ -1,0 +1,7 @@
+{
+  "agent_slug": "secure-sdlc",
+  "agent_name": "Secure SDLC",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

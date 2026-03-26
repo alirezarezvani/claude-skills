@@ -1,0 +1,6 @@
+{
+  "agent_slug": "threat-intelligence",
+  "agent_name": "Threat Intelligence",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

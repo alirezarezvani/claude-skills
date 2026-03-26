@@ -1,0 +1,6 @@
+{
+  "agent_slug": "red-team-operations",
+  "agent_name": "Red Team Operations",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

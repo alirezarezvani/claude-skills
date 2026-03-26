@@ -1,0 +1,43 @@
+{
+  "agent_slug": "security-roadmap-planner",
+  "intent_type": "advise",
+  "action": "Implement the 12-month security program roadmap as prioritized below",
+  "rationale": "<evidence-based rationale citing posture score, ALE, and gap count>",
+  "confidence": 0.0,
+  "severity": "informational",
+  "key_findings": [
+    "<finding 1>",
+    "<DATA GAP: description if any input missing>"
+  ],
+  "evidence_references": [],
+  "roadmap_items": [
+    {
+      "initiative": "<initiative title>",
+      "addresses_gap": "<specific gap or risk finding this initiative closes>",
+      "gap_source": "<posture_score|enterprise_risk|compliance>",
+      "risk_reduction_score": 0,
+      "investment_band": "<S|M|L>",
+      "priority_score": 0.0,
+      "quarter": "<Q1|Q2|Q3|Q4|backlog>",
+      "owner_role": "<role>",
+      "success_metric": "<measurable outcome by quarter end>",
+      "regulatory_deadline": "<ISO date or empty string>"
+    }
+  ],
+  "investment_summary": {
+    "Q1": {"initiatives": 0, "bands": []},
+    "Q2": {"initiatives": 0, "bands": []},
+    "Q3": {"initiatives": 0, "bands": []},
+    "Q4": {"initiatives": 0, "bands": []},
+    "backlog": {"initiatives": 0}
+  },
+  "data_availability": {
+    "posture_score": false,
+    "enterprise_risk": false,
+    "compliance_gaps": false
+  },
+  "data_notes": [],
+  "next_agents": ["ciso-brief-generator", "metrics-reporting"],
+  "human_approval_required": false,
+  "timestamp_utc": "<ISO-8601-UTC>"
+}

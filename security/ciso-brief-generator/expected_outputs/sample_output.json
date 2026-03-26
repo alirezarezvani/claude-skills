@@ -1,0 +1,30 @@
+{
+  "agent_slug": "ciso-brief-generator",
+  "intent_type": "report",
+  "brief_type": "board_quarterly",
+  "action": "Review and approve the Q1 2026 board security brief before the March 15 board meeting. No board decisions required this quarter.",
+  "rationale": "Brief synthesizes Q1 security posture improvement (+4 points to 67/100), 2 incidents both fully resolved, and 1 NIS2 compliance gap with remediation plan.",
+  "confidence": 0.88,
+  "severity": "informational",
+  "key_messages": [
+    "Our security posture improved 6% this quarter — we are on track to reach the 75-point target by Q3.",
+    "We responded to 2 security incidents; neither resulted in data exposure. Average response time was 4 hours.",
+    "The EU NIS2 Directive requires 3 control updates by September 2026 — plan and budget are in place."
+  ],
+  "sections": {
+    "posture_summary": "Security posture score: 67/100 (Fair, up 4 points from Q4 2025). Identity & Access strongest domain at 80/100. Detection weakest domain at 58/100 — active improvement program underway.",
+    "key_incidents": "2 incidents in Q1: (1) Phishing campaign targeting finance team — detected in 2 hours, no accounts compromised. (2) Third-party vendor data exposure — contained in 6 hours, affected customers notified.",
+    "compliance_status": "SOC 2 Type II: Green. PCI DSS v4.0: Green. GDPR: Green. NIS2 (EU): Yellow — 3 control gaps, remediation by September 2026.",
+    "investments": "Q1 security investments: $180K on endpoint detection expansion (coverage now 97%), $45K on security awareness training (phishing click rate down 40%).",
+    "outlook": "Q2 priorities: (1) Improve Detection domain to 65+, (2) Complete NIS2 gap remediation, (3) Launch AI red teaming program for customer-facing AI features."
+  },
+  "key_findings": [
+    "Posture score: 67/100 — up 4 points from Q4 2025",
+    "2 incidents resolved with no data exposure",
+    "NIS2 compliance gap: 3 controls need remediation by September 2026",
+    "Phishing click rate reduced 40% following awareness training"
+  ],
+  "next_agents": ["security-posture-score", "metrics-reporting"],
+  "human_approval_required": true,
+  "timestamp_utc": "2026-03-08T09:00:00Z"
+}

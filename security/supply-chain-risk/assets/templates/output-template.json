@@ -1,0 +1,7 @@
+{
+  "agent_slug": "supply-chain-risk",
+  "agent_name": "Supply Chain Risk",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

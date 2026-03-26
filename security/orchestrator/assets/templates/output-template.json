@@ -1,0 +1,7 @@
+{
+  "agent_slug": "orchestrator",
+  "agent_name": "Orchestrator",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "red-team-planner",
+  "agent_name": "Red Team Planner",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

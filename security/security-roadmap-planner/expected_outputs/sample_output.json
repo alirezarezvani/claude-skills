@@ -1,0 +1,115 @@
+{
+  "agent_slug": "security-roadmap-planner",
+  "intent_type": "advise",
+  "action": "Implement the 12-month security program roadmap as prioritized below",
+  "rationale": "Roadmap derived from posture score 58, enterprise risk ALE $2,400,000, and 3 compliance gap(s). All 7 initiative(s) are traceable to a specific gap or risk finding.",
+  "confidence": 0.9,
+  "severity": "informational",
+  "key_findings": [
+    "7 initiatives identified across 4 quarters",
+    "Q1 quick wins (3 initiatives): Improve detection security domain coverage, Mitigate Ransomware via unpatched VPN appliances"
+  ],
+  "evidence_references": [],
+  "roadmap_items": [
+    {
+      "initiative": "Improve detection security domain coverage",
+      "addresses_gap": "detection posture score 48/100 — below 65 threshold",
+      "gap_source": "posture_score",
+      "risk_reduction_score": 75,
+      "investment_band": "M",
+      "priority_score": 37.5,
+      "quarter": "Q1",
+      "owner_role": "Security Manager",
+      "success_metric": "detection domain score >= 65 by end of Q1",
+      "regulatory_deadline": ""
+    },
+    {
+      "initiative": "Mitigate Ransomware via unpatched VPN appliances",
+      "addresses_gap": "ALE $2,400,000 exceeds risk appetite $500,000",
+      "gap_source": "enterprise_risk",
+      "risk_reduction_score": 88,
+      "investment_band": "M",
+      "priority_score": 44.0,
+      "quarter": "Q1",
+      "owner_role": "CISO",
+      "success_metric": "ALE reduced below risk appetite threshold of $500,000",
+      "regulatory_deadline": ""
+    },
+    {
+      "initiative": "Remediate SOC 2 gap: MFA enforcement control",
+      "addresses_gap": "Compliance gap in SOC 2 — CC6.1 MFA enforcement",
+      "gap_source": "compliance",
+      "risk_reduction_score": 55,
+      "investment_band": "S",
+      "priority_score": 55.0,
+      "quarter": "Q1",
+      "owner_role": "Compliance Officer",
+      "success_metric": "SOC 2 gap closed; control CC6.1 implemented",
+      "regulatory_deadline": "2026-06-30"
+    },
+    {
+      "initiative": "Improve identity-access security domain coverage",
+      "addresses_gap": "identity-access posture score 61/100 — below 65 threshold",
+      "gap_source": "posture_score",
+      "risk_reduction_score": 60,
+      "investment_band": "M",
+      "priority_score": 30.0,
+      "quarter": "Q2",
+      "owner_role": "Security Manager",
+      "success_metric": "identity-access domain score >= 65 by end of Q2",
+      "regulatory_deadline": ""
+    },
+    {
+      "initiative": "Remediate ISO 27001 gap: incident management procedure",
+      "addresses_gap": "Compliance gap in ISO 27001 — A.16.1.1 incident procedures",
+      "gap_source": "compliance",
+      "risk_reduction_score": 55,
+      "investment_band": "S",
+      "priority_score": 55.0,
+      "quarter": "Q2",
+      "owner_role": "Compliance Officer",
+      "success_metric": "ISO 27001 gap closed; control A.16.1.1 implemented",
+      "regulatory_deadline": "2026-09-30"
+    },
+    {
+      "initiative": "Remediate PCI DSS gap: network segmentation",
+      "addresses_gap": "Compliance gap in PCI DSS — Requirement 1.3 network segmentation",
+      "gap_source": "compliance",
+      "risk_reduction_score": 55,
+      "investment_band": "S",
+      "priority_score": 55.0,
+      "quarter": "Q3",
+      "owner_role": "Compliance Officer",
+      "success_metric": "PCI DSS gap closed; control Req 1.3 implemented",
+      "regulatory_deadline": "2026-12-31"
+    },
+    {
+      "initiative": "Improve cloud-infra security domain coverage",
+      "addresses_gap": "cloud-infra posture score 55/100 — below 65 threshold",
+      "gap_source": "posture_score",
+      "risk_reduction_score": 75,
+      "investment_band": "L",
+      "priority_score": 18.75,
+      "quarter": "Q4",
+      "owner_role": "Security Manager",
+      "success_metric": "cloud-infra domain score >= 65 by end of Q4",
+      "regulatory_deadline": ""
+    }
+  ],
+  "investment_summary": {
+    "Q1": {"initiatives": 3, "bands": ["M", "S"]},
+    "Q2": {"initiatives": 2, "bands": ["M", "S"]},
+    "Q3": {"initiatives": 1, "bands": ["S"]},
+    "Q4": {"initiatives": 1, "bands": ["L"]},
+    "backlog": {"initiatives": 0}
+  },
+  "data_availability": {
+    "posture_score": true,
+    "enterprise_risk": true,
+    "compliance_gaps": true
+  },
+  "data_notes": [],
+  "next_agents": ["ciso-brief-generator", "metrics-reporting"],
+  "human_approval_required": false,
+  "timestamp_utc": "2026-03-10T12:00:00+00:00"
+}

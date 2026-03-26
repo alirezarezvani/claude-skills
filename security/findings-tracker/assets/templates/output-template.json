@@ -1,0 +1,7 @@
+{
+  "agent_slug": "findings-tracker",
+  "agent_name": "Findings Tracker",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

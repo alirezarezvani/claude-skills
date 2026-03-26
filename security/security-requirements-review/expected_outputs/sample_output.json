@@ -1,0 +1,79 @@
+{
+  "agent_slug": "security-requirements-review",
+  "intent_type": "analyze",
+  "action": "Escalate to risk-threat-modeling and compliance-mapping. Critical gap: admin API endpoint described without authentication requirement. PCI cardholder data storage without tokenization. Rate limiting absent from payment API.",
+  "rationale": "Document classified as PRD (product requirements document). Pre-analysis detected PCI cardholder data signals and 2 critical keywords: 'no authentication' and 'admin endpoint'. Extracted 3 critical gaps, 2 design findings, and 4 missing controls against PCI DSS requirements. MITRE ATT&CK techniques T1190, T1005, and T1530 apply directly to the described design.",
+  "confidence": 0.87,
+  "severity": "critical",
+  "document_metadata": {
+    "document_type": "prd",
+    "word_count": 2341,
+    "detected_frameworks": ["PCI DSS"],
+    "has_data_flows": true,
+    "has_trust_boundaries": false,
+    "technology_keywords": ["PostgreSQL", "Node.js", "AWS S3", "REST API"],
+    "critical_keywords_found": ["no authentication", "admin endpoint"],
+    "extraction_method": "stdlib"
+  },
+  "design_analysis": {
+    "critical_gaps": [
+      "Admin endpoint /api/admin/users described without authentication requirement (Section 4.2)",
+      "Cardholder data stored in PostgreSQL without tokenization or field-level encryption (Section 6.1)",
+      "PAN transmitted to third-party processor without TLS version requirement specified (Section 6.3)"
+    ],
+    "design_findings": [
+      "Rate limiting not described on payment API endpoints — abuse and DoS vector",
+      "Error responses for payment failures described without sanitization requirement — information disclosure risk"
+    ],
+    "missing_controls": [
+      "PCI DSS Req 3.4: Render PAN unreadable anywhere it is stored — no tokenization or encryption described",
+      "PCI DSS Req 6.2: Protect all system components from known vulnerabilities — no patch management process mentioned",
+      "PCI DSS Req 7: Restrict access to system components and cardholder data — no RBAC design present",
+      "PCI DSS Req 10: Log and monitor all access to system components and cardholder data — no audit logging requirement stated"
+    ],
+    "compliance_gaps": [
+      {
+        "framework": "PCI DSS",
+        "requirement": "Req 3.4 — Render PAN unreadable",
+        "gap": "Plaintext PAN storage described in Section 6.1",
+        "recommended_control": "Implement tokenization (e.g., Stripe Token) or AES-256 field encryption"
+      },
+      {
+        "framework": "PCI DSS",
+        "requirement": "Req 6.6 — Protect public-facing web applications",
+        "gap": "No WAF or application security control described for payment API",
+        "recommended_control": "Add WAF requirement and input validation requirement to security section"
+      }
+    ]
+  },
+  "key_findings": [
+    "CRITICAL: Admin endpoint /api/admin/users described without authentication — T1190 applicable",
+    "CRITICAL: Cardholder data stored without tokenization — PCI DSS Req 3.4 violation, T1005 applicable",
+    "CRITICAL: TLS version not specified for PAN transmission — T1040 applicable",
+    "HIGH: Rate limiting absent from payment API — DoS and credential stuffing vector",
+    "HIGH: 4 PCI DSS control requirements have no matching design controls"
+  ],
+  "evidence_references": [
+    {
+      "source": "document-intake",
+      "source_document": "payment-platform-prd.md",
+      "location": "Section 4.2 — API Design",
+      "detail": "Admin endpoint /api/admin/users described: 'The admin users endpoint allows full CRUD operations on user accounts.' No authentication requirement stated."
+    },
+    {
+      "source": "document-intake",
+      "source_document": "payment-platform-prd.md",
+      "location": "Section 6.1 — Data Storage",
+      "detail": "Cardholder data storage: 'PANs will be stored in the PostgreSQL users table for recurring payments.' No encryption or tokenization mechanism described."
+    },
+    {
+      "source": "document-intake",
+      "source_document": "payment-platform-prd.md",
+      "location": "Section 6.3 — Third-Party Integration",
+      "detail": "Payment processor integration described without TLS version requirement or certificate pinning."
+    }
+  ],
+  "next_agents": ["risk-threat-modeling", "compliance-mapping"],
+  "human_approval_required": false,
+  "timestamp_utc": "2026-03-10T00:00:00Z"
+}

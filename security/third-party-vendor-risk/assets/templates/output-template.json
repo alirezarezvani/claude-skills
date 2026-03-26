@@ -1,0 +1,7 @@
+{
+  "agent_slug": "third-party-vendor-risk",
+  "agent_name": "Third-Party & Vendor Risk",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

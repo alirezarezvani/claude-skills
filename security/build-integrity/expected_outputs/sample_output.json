@@ -1,0 +1,6 @@
+{
+  "agent_slug": "build-integrity",
+  "agent_name": "Build Integrity",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

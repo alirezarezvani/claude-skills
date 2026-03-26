@@ -1,0 +1,36 @@
+{
+  "agent_slug": "security-requirements-review",
+  "intent_type": "analyze",
+  "action": "<recommended action — route to downstream skill or escalate>",
+  "rationale": "<evidence-based explanation of findings, document type, and why this severity was assigned>",
+  "confidence": 0.0,
+  "severity": "critical | high | medium | low | informational",
+  "document_metadata": {
+    "document_type": "prd | architecture | poam | project_plan | requirements_spec | unknown",
+    "word_count": 0,
+    "detected_frameworks": [],
+    "has_data_flows": false,
+    "has_trust_boundaries": false,
+    "technology_keywords": [],
+    "critical_keywords_found": [],
+    "extraction_method": "stdlib | pyyaml | pdfminer | python-docx | fallback"
+  },
+  "design_analysis": {
+    "critical_gaps": [],
+    "design_findings": [],
+    "missing_controls": [],
+    "compliance_gaps": []
+  },
+  "key_findings": [],
+  "evidence_references": [
+    {
+      "source": "document-intake",
+      "source_document": "<filename>",
+      "location": "<section or page reference>",
+      "detail": "<specific text or finding from the document>"
+    }
+  ],
+  "next_agents": [],
+  "human_approval_required": false,
+  "timestamp_utc": "<ISO8601 UTC>"
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "cloud-security-posture",
+  "agent_name": "Cloud Security Posture",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

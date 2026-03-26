@@ -1,0 +1,48 @@
+{
+  "agent_slug": "security-debt-tracker",
+  "intent_type": "analyze",
+  "action": "Immediately route critical_debt findings to cs-security-analyst and ciso-brief-generator",
+  "rationale": "Security debt analysis of 8 finding(s): 3 current, 2 overdue, 3 critical_debt",
+  "confidence": 0.9,
+  "severity": "critical",
+  "key_findings": [
+    "2 critical/high finding(s) with SLA breached 2x+ — exit code 2",
+    "SLA breach count: 5 (62.5% of total findings)",
+    "Debt accumulation rate: +2.31 net new findings/week (growing)"
+  ],
+  "evidence_references": [],
+  "debt_summary": {
+    "total_findings": 8,
+    "current_count": 3,
+    "overdue_count": 2,
+    "critical_debt_count": 3,
+    "sla_breach_count": 5,
+    "sla_breach_rate_pct": 62.5,
+    "critical_unmitigated": [
+      {"id": "F-001", "severity": "critical", "age_days": 45},
+      {"id": "F-003", "severity": "high", "age_days": 72}
+    ],
+    "accumulation_rate": 2.31,
+    "accumulation_direction": "growing"
+  },
+  "debt_buckets": {
+    "current": ["F-006", "F-007", "F-008"],
+    "overdue": ["F-004", "F-005"],
+    "critical_debt": ["F-001", "F-002", "F-003"]
+  },
+  "findings": [
+    {"id": "F-001", "severity": "critical", "age_days": 45, "sla_days": 15, "epss": 0.0, "opened_date": "2025-12-25T00:00:00Z", "status": "open"},
+    {"id": "F-002", "severity": "medium", "age_days": 130, "sla_days": 60, "epss": 0.0, "opened_date": "2025-11-01T00:00:00Z", "status": "open"},
+    {"id": "F-003", "severity": "high", "age_days": 72, "sla_days": 30, "epss": 0.1, "opened_date": "2025-12-28T00:00:00Z", "status": "open"},
+    {"id": "F-004", "severity": "high", "age_days": 38, "sla_days": 30, "epss": 0.0, "opened_date": "2026-01-31T00:00:00Z", "status": "open"},
+    {"id": "F-005", "severity": "medium", "age_days": 75, "sla_days": 60, "epss": 0.0, "opened_date": "2025-12-24T00:00:00Z", "status": "open"},
+    {"id": "F-006", "severity": "low", "age_days": 10, "sla_days": 90, "epss": 0.0, "opened_date": "2026-02-28T00:00:00Z", "status": "open"},
+    {"id": "F-007", "severity": "medium", "age_days": 14, "sla_days": 60, "epss": 0.0, "opened_date": "2026-02-24T00:00:00Z", "status": "open"},
+    {"id": "F-008", "severity": "high", "age_days": 5, "sla_days": 30, "epss": 0.0, "opened_date": "2026-03-05T00:00:00Z", "status": "open"}
+  ],
+  "exit_code": 2,
+  "exit_code_meaning": "critical",
+  "next_agents": ["cs-security-analyst", "ciso-brief-generator", "vulnerability-management"],
+  "human_approval_required": false,
+  "timestamp_utc": "2026-03-10T12:00:00+00:00"
+}

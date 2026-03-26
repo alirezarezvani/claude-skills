@@ -1,0 +1,7 @@
+{
+  "agent_slug": "build-integrity",
+  "agent_name": "Build Integrity",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

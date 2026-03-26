@@ -1,0 +1,6 @@
+{
+  "agent_slug": "secrets-exposure",
+  "agent_name": "Secrets Exposure",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

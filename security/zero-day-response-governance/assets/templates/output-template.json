@@ -1,0 +1,7 @@
+{
+  "agent_slug": "zero-day-response-governance",
+  "agent_name": "Zero-Day Response Governance",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

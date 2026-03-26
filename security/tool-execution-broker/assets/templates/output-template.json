@@ -1,0 +1,7 @@
+{
+  "agent_slug": "tool-execution-broker",
+  "agent_name": "Tool Execution Broker",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

@@ -1,0 +1,6 @@
+{
+  "agent_slug": "security-awareness",
+  "agent_name": "Security Awareness",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

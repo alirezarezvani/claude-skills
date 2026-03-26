@@ -1,0 +1,6 @@
+{
+  "agent_slug": "threat-hunting",
+  "agent_name": "Threat Hunting",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "detection-engineering",
+  "agent_name": "Detection Engineering",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

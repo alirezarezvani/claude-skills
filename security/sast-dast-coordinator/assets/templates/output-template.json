@@ -1,0 +1,7 @@
+{
+  "agent_slug": "sast-dast-coordinator",
+  "agent_name": "SAST/DAST Coordinator",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

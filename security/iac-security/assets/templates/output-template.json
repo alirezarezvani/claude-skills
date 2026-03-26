@@ -1,0 +1,7 @@
+{
+  "agent_slug": "iac-security",
+  "agent_name": "IaC Security",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

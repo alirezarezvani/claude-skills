@@ -1,0 +1,7 @@
+{
+  "agent_slug": "identity-access-risk",
+  "agent_name": "Identity & Access Risk",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

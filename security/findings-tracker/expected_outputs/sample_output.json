@@ -1,0 +1,6 @@
+{
+  "agent_slug": "findings-tracker",
+  "agent_name": "Findings Tracker",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "incident-commander",
+  "agent_name": "Incident Commander",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

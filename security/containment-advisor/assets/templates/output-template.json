@@ -1,0 +1,7 @@
+{
+  "agent_slug": "containment-advisor",
+  "agent_name": "Containment Advisor",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

@@ -1,0 +1,6 @@
+{
+  "agent_slug": "endpoint-os-security",
+  "agent_name": "Endpoint & OS Security",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

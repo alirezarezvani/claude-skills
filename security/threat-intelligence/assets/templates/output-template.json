@@ -1,0 +1,7 @@
+{
+  "agent_slug": "threat-intelligence",
+  "agent_name": "Threat Intelligence",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

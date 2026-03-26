@@ -1,0 +1,21 @@
+{
+  "agent_slug": "ciso-brief-generator",
+  "intent_type": "report",
+  "brief_type": "board_quarterly | monthly_ciso_report | incident_executive_summary | regulatory_update",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "informational",
+  "key_messages": [],
+  "sections": {
+    "posture_summary": "",
+    "key_incidents": "",
+    "compliance_status": "",
+    "investments": "",
+    "outlook": ""
+  },
+  "key_findings": [],
+  "next_agents": ["security-posture-score", "metrics-reporting"],
+  "human_approval_required": true,
+  "timestamp_utc": ""
+}

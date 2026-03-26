@@ -1,0 +1,7 @@
+{
+  "agent_slug": "network-exposure",
+  "agent_name": "Network Exposure",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

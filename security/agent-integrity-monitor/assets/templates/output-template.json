@@ -1,0 +1,7 @@
+{
+  "agent_slug": "agent-integrity-monitor",
+  "agent_name": "Agent Integrity Monitor",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

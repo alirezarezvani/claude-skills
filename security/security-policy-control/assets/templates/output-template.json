@@ -1,0 +1,7 @@
+{
+  "agent_slug": "security-policy-control",
+  "agent_name": "Security Policy & Control",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

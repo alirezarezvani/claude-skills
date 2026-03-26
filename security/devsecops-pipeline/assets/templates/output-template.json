@@ -1,0 +1,7 @@
+{
+  "agent_slug": "devsecops-pipeline",
+  "agent_name": "DevSecOps Pipeline",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

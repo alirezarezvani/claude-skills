@@ -1,0 +1,23 @@
+{
+  "agent_slug": "secrets-exposure",
+  "agent_name": "Secrets Exposure",
+  "action": "rotate_and_revoke",
+  "rationale": "An AWS access key matching pattern AKIA[0-9A-Z]{16} was found committed to the main branch of repository api-service in a .env file. Shannon entropy of the key value is 4.7, indicating a real credential. The key is associated with account ci-role-prod which has broad S3 and EC2 access, placing blast radius at full_account. The commit is recent (within 24 hours) and on the production branch, indicating the key may be in active use.",
+  "requires_approval": true,
+  "approver_roles": ["soc_lead", "ciso"],
+  "summary": "High-confidence AWS access key exposure detected in production branch commit. Immediate rotation and revocation required.",
+  "key_findings": [
+    "AWS access key pattern AKIA matched with entropy 4.7 (threshold: 3.5) — confidence: 0.97",
+    "Credential committed to main branch of api-service in .env file (not .env.example)",
+    "Associated identity ci-role-prod has S3 and EC2 permissions — blast radius: full_account",
+    "Commit timestamp within 24 hours — key likely in active use",
+    "No test or placeholder indicators found"
+  ],
+  "recommendation": "Immediately rotate and revoke the exposed AWS access key. Notify the responsible team. Audit CloudTrail for any usage of this key since the commit timestamp. Apply a pre-commit hook to prevent future secret commits.",
+  "intent_type": "mutating",
+  "mutating_category": "credential_operation",
+  "confidence": 0.97,
+  "risk_score": 0.95,
+  "evidence_references": ["EV-SEC-0001", "skills/secrets-exposure/SKILL.md", "skills/secrets-exposure/references/secret_patterns.md"],
+  "timestamp_utc": "2026-02-28T10:30:00Z"
+}

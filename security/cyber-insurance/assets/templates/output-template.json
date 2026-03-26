@@ -1,0 +1,7 @@
+{
+  "agent_slug": "cyber-insurance",
+  "agent_name": "Cyber Insurance",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

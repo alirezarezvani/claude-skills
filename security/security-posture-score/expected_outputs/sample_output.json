@@ -1,0 +1,29 @@
+{
+  "agent_slug": "security-posture-score",
+  "intent_type": "report",
+  "action": "Prioritize Detection domain improvement (58/100) and complete NIS2 control gap remediation to advance overall posture to 75+.",
+  "rationale": "Overall posture of 67/100 is Fair. Detection is the weakest domain at 58/100 — investment here yields highest marginal posture improvement. Governance-Compliance at 71/100 with 3 NIS2 gaps preventing Green status.",
+  "confidence": 0.91,
+  "severity": "informational",
+  "overall_score": 67,
+  "score_tier": "Fair",
+  "domain_scores": {
+    "detection": 58,
+    "response": 72,
+    "identity-access": 80,
+    "cloud-infrastructure": 65,
+    "appsec-devsecops": 68,
+    "governance-compliance": 71,
+    "red-team-resilience": 63
+  },
+  "trend": "improving",
+  "key_findings": [
+    "Overall posture: 67/100 (Fair) — up 4 points from Q4 2025",
+    "Detection domain weakest at 58/100 — highest improvement priority",
+    "Identity & Access strongest at 80/100",
+    "3 NIS2 control gaps in Governance-Compliance domain"
+  ],
+  "next_agents": ["ciso-brief-generator", "metrics-reporting"],
+  "human_approval_required": false,
+  "timestamp_utc": "2026-03-08T09:00:00Z"
+}

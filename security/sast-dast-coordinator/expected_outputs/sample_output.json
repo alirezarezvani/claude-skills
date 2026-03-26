@@ -1,0 +1,6 @@
+{
+  "agent_slug": "sast-dast-coordinator",
+  "agent_name": "SAST/DAST Coordinator",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

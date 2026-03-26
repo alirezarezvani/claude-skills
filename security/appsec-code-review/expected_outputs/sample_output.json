@@ -1,0 +1,39 @@
+{
+  "agent_slug": "appsec-code-review",
+  "intent_type": "analyze",
+  "gate_decision": "block",
+  "action": "Block PR #247 merge. Remediate SQL injection in user search endpoint and remove hardcoded Stripe API key from config.",
+  "rationale": "SQL injection in search.py:47 allows unauthenticated database read of all user records. Hardcoded API key in config.py:12 will be committed to repository history.",
+  "confidence": 0.93,
+  "severity": "critical",
+  "findings": [
+    {
+      "file": "api/search.py",
+      "line": 47,
+      "owasp_category": "A03: Injection",
+      "cwe": "CWE-89",
+      "severity": "critical",
+      "description": "SQL query constructed via string concatenation with unsanitized user input",
+      "remediation": "Use parameterized query: cursor.execute('SELECT * FROM users WHERE name = %s', (user_input,))"
+    },
+    {
+      "file": "config/settings.py",
+      "line": 12,
+      "owasp_category": "A02: Cryptographic Failures",
+      "cwe": "CWE-798",
+      "severity": "critical",
+      "description": "Hardcoded Stripe live API key: STRIPE_SECRET_KEY = 'sk_live_...'",
+      "remediation": "Move to environment variable: STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')"
+    }
+  ],
+  "key_findings": [
+    "SQL injection in api/search.py:47 — unauthenticated full database read",
+    "Hardcoded Stripe live API key in config/settings.py:12"
+  ],
+  "evidence_references": [
+    {"source": "pr-247-diff", "ref": "api/search.py#L47", "timestamp_utc": "2026-03-08T09:00:00Z"}
+  ],
+  "next_agents": ["sast-dast-coordinator", "secrets-exposure"],
+  "human_approval_required": false,
+  "timestamp_utc": "2026-03-08T09:15:00Z"
+}

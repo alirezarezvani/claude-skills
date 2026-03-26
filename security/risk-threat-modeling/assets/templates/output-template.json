@@ -1,0 +1,7 @@
+{
+  "agent_slug": "risk-threat-modeling",
+  "agent_name": "Risk & Threat Modeling",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "knowledge-management",
+  "agent_name": "Knowledge Management",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

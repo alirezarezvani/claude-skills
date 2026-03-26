@@ -1,0 +1,6 @@
+{
+  "agent_slug": "forensics",
+  "agent_name": "Forensics",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

@@ -1,0 +1,6 @@
+{
+  "agent_slug": "devsecops-pipeline",
+  "agent_name": "DevSecOps Pipeline",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

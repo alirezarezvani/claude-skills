@@ -1,0 +1,7 @@
+{
+  "agent_slug": "red-team-operations",
+  "agent_name": "Red Team Operations",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

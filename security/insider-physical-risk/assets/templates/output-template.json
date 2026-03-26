@@ -1,0 +1,7 @@
+{
+  "agent_slug": "insider-physical-risk",
+  "agent_name": "Insider & Physical Risk",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

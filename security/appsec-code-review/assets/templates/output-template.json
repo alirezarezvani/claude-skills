@@ -1,0 +1,25 @@
+{
+  "agent_slug": "appsec-code-review",
+  "intent_type": "analyze",
+  "gate_decision": "block | warn | pass",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "critical",
+  "findings": [
+    {
+      "file": "",
+      "line": 0,
+      "owasp_category": "",
+      "cwe": "",
+      "severity": "critical",
+      "description": "",
+      "remediation": ""
+    }
+  ],
+  "key_findings": [],
+  "evidence_references": [],
+  "next_agents": ["sast-dast-coordinator"],
+  "human_approval_required": false,
+  "timestamp_utc": ""
+}

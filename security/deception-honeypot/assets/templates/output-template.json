@@ -1,0 +1,18 @@
+{
+  "agent_slug": "deception-honeypot",
+  "intent_type": "advise",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "medium",
+  "key_findings": [],
+  "evidence_references": [],
+  "next_agents": ["threat-hunting", "incident-commander"],
+  "human_approval_required": true,
+  "deployment_plan": {
+    "honeypots": [],
+    "canary_tokens": [],
+    "lateral_movement_traps": []
+  },
+  "timestamp_utc": ""
+}

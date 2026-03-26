@@ -1,0 +1,7 @@
+{
+  "agent_slug": "telemetry-signal-quality",
+  "agent_name": "Telemetry & Signal Quality",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

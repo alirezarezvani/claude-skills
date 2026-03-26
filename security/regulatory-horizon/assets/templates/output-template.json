@@ -1,0 +1,7 @@
+{
+  "agent_slug": "regulatory-horizon",
+  "agent_name": "Regulatory Horizon",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

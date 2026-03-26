@@ -1,0 +1,7 @@
+{
+  "agent_slug": "endpoint-os-security",
+  "agent_name": "Endpoint & OS Security",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

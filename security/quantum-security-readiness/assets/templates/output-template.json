@@ -1,0 +1,7 @@
+{
+  "agent_slug": "quantum-security-readiness",
+  "agent_name": "Quantum Security Readiness",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

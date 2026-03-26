@@ -1,0 +1,7 @@
+{
+  "agent_slug": "enterprise-risk-assessment",
+  "agent_name": "Enterprise Risk Assessment",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

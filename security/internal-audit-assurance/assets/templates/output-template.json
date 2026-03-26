@@ -1,0 +1,7 @@
+{
+  "agent_slug": "internal-audit-assurance",
+  "agent_name": "Internal Audit & Assurance",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

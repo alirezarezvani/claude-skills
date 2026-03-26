@@ -1,0 +1,7 @@
+{
+  "agent_slug": "ai-ethics-governance",
+  "agent_name": "AI Ethics & Governance",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

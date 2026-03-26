@@ -1,0 +1,29 @@
+{
+  "agent_slug": "cloud-workload-protection",
+  "intent_type": "analyze",
+  "action": "Deploy CWPP agent to 12 unprotected pods in production namespace. Restrict 3 Lambda functions from AdministratorAccess to least-privilege policies.",
+  "rationale": "12 production pods (28% of fleet) have no runtime protection. 3 Lambda functions carry AdministratorAccess — any function compromise gives full AWS account access.",
+  "confidence": 0.87,
+  "severity": "high",
+  "key_findings": [
+    "CWPP coverage: 72% — 12 unprotected pods in production namespace",
+    "3 Lambda functions with AdministratorAccess execution roles",
+    "2 pods running as root with hostPath mounts",
+    "No anomalous runtime behavior detected in protected workloads (past 30d)"
+  ],
+  "evidence_references": [
+    {"source": "k8s-audit", "ref": "pod-inventory-2026-q1", "timestamp_utc": "2026-03-08T09:00:00Z"},
+    {"source": "iam-policy-review", "ref": "lambda-roles-scan", "timestamp_utc": "2026-03-08T09:00:00Z"}
+  ],
+  "next_agents": ["cloud-security-posture", "identity-access-risk"],
+  "human_approval_required": true,
+  "cwpp_coverage_pct": 72,
+  "unprotected_workloads": ["payment-processor", "auth-service", "data-pipeline"],
+  "remediation_steps": [
+    "Deploy CWPP agent to 12 unprotected pods — prioritize payment-processor",
+    "Replace AdministratorAccess on 3 Lambda roles with least-privilege policies",
+    "Migrate 2 root-running pods to non-root user context",
+    "Remove hostPath mounts from pods not requiring host filesystem access"
+  ],
+  "timestamp_utc": "2026-03-08T10:00:00Z"
+}

@@ -1,0 +1,7 @@
+{
+  "agent_slug": "ot-iot-device-security",
+  "agent_name": "OT/IoT/Device Security",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

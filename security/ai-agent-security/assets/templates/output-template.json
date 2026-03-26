@@ -1,0 +1,7 @@
+{
+  "agent_slug": "ai-agent-security",
+  "agent_name": "AI Agent Security",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

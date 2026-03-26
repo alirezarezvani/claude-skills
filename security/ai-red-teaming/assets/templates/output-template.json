@@ -1,0 +1,17 @@
+{
+  "agent_slug": "ai-red-teaming",
+  "intent_type": "analyze",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "high",
+  "key_findings": [],
+  "evidence_references": [],
+  "next_agents": ["guardrail", "agent-integrity-monitor"],
+  "human_approval_required": true,
+  "mitre_ttps": [],
+  "atlas_techniques": [],
+  "affected_assets": [],
+  "remediation_steps": [],
+  "timestamp_utc": ""
+}

@@ -1,0 +1,6 @@
+{
+  "agent_slug": "iac-security",
+  "agent_name": "IaC Security",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

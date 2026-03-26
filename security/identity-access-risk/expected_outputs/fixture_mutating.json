@@ -1,0 +1,23 @@
+{
+  "agent_slug": "identity-access-risk",
+  "agent_name": "Identity & Access Risk",
+  "action": "revoke_session_tokens",
+  "rationale": "An AssumeRole chain anomaly was detected: principal ci-role-prod assumed role arn:aws:iam::123456789012:role/AdminAccess from source IP 185.220.101.45 (Tor exit node, high threat reputation). This pattern matches lateral_movement and privilege_escalation. The target role AdminAccess grants full_account blast radius. The source IP is not in any known CI/CD IP allowlist. Confidence 0.94.",
+  "requires_approval": true,
+  "approver_roles": ["soc_lead", "ciso"],
+  "summary": "Critical IAM anomaly: unauthorized AssumeRole chain from Tor exit node to AdminAccess role. Immediate session revocation required.",
+  "key_findings": [
+    "Anomaly type: privilege_escalation via unauthorized AssumeRole chain",
+    "Principal ci-role-prod assumed AdminAccess from Tor exit node 185.220.101.45",
+    "Blast radius: full_account — AdminAccess grants unrestricted AWS access",
+    "Source IP 185.220.101.45 not in CI/CD allowlist — known Tor exit node",
+    "AssumeRole traversed 3 hops — exceeds normal CI/CD pattern (1 hop)"
+  ],
+  "recommendation": "Revoke all active sessions for ci-role-prod immediately. Attach a DenyAll inline policy as an emergency guardrail. Audit CloudTrail for all actions taken since the anomalous AssumeRole at 2026-02-28T09:15:00Z. Escalate to L2 for policy review.",
+  "intent_type": "mutating",
+  "mutating_category": "credential_operation",
+  "confidence": 0.94,
+  "risk_score": 0.96,
+  "evidence_references": ["EV-IAM-0001", "skills/identity-access-risk/SKILL.md", "skills/identity-access-risk/references/iam_risk_matrix.md"],
+  "timestamp_utc": "2026-02-28T10:35:00Z"
+}

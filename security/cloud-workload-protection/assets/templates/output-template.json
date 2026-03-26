@@ -1,0 +1,17 @@
+{
+  "agent_slug": "cloud-workload-protection",
+  "intent_type": "analyze",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "high",
+  "key_findings": [],
+  "evidence_references": [],
+  "next_agents": ["cloud-security-posture", "incident-commander"],
+  "human_approval_required": true,
+  "cwpp_coverage_pct": 0,
+  "unprotected_workloads": [],
+  "critical_findings": [],
+  "remediation_steps": [],
+  "timestamp_utc": ""
+}

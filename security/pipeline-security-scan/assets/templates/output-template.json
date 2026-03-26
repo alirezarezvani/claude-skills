@@ -1,0 +1,20 @@
+{
+  "agent_slug": "pipeline-security-scan",
+  "intent_type": "analyze",
+  "action": "",
+  "rationale": "",
+  "confidence": 0.0,
+  "severity": "high",
+  "scan_results": {
+    "secrets_found": 0,
+    "missing_security_stages": [],
+    "artifact_integrity_gaps": [],
+    "permission_issues": [],
+    "unpinned_actions": []
+  },
+  "key_findings": [],
+  "evidence_references": [],
+  "next_agents": ["secrets-exposure", "build-integrity"],
+  "human_approval_required": false,
+  "timestamp_utc": ""
+}

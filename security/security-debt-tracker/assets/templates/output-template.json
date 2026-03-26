@@ -1,0 +1,40 @@
+{
+  "agent_slug": "security-debt-tracker",
+  "intent_type": "analyze",
+  "action": "<plain-English recommended next action>",
+  "rationale": "<evidence-based explanation of debt state>",
+  "confidence": 0.0,
+  "severity": "<critical|high|medium|low|informational>",
+  "key_findings": [
+    "<finding 1>",
+    "<finding 2>"
+  ],
+  "evidence_references": [],
+  "debt_summary": {
+    "total_findings": 0,
+    "current_count": 0,
+    "overdue_count": 0,
+    "critical_debt_count": 0,
+    "sla_breach_count": 0,
+    "sla_breach_rate_pct": 0.0,
+    "critical_unmitigated": [
+      {
+        "id": "<finding-id>",
+        "severity": "<critical|high>",
+        "age_days": 0
+      }
+    ],
+    "accumulation_rate": 0.0,
+    "accumulation_direction": "<stable|growing|reducing>"
+  },
+  "debt_buckets": {
+    "current": ["<finding-id>"],
+    "overdue": ["<finding-id>"],
+    "critical_debt": ["<finding-id>"]
+  },
+  "exit_code": 0,
+  "exit_code_meaning": "<stable|accumulating|critical>",
+  "next_agents": ["<slug>"],
+  "human_approval_required": false,
+  "timestamp_utc": "<ISO-8601-UTC>"
+}

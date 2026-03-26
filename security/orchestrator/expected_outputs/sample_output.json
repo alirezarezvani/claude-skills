@@ -1,0 +1,6 @@
+{
+  "agent_slug": "orchestrator",
+  "agent_name": "Orchestrator",
+  "status": "sample",
+  "notes": "Representative output for validation and QA checks."
+}

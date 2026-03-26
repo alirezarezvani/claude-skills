@@ -1,0 +1,7 @@
+{
+  "agent_slug": "supply-chain-simulation",
+  "agent_name": "Supply Chain Simulation",
+  "recommendation": "<string>",
+  "requires_approval": true,
+  "severity": "<low|medium|high|critical>"
+}

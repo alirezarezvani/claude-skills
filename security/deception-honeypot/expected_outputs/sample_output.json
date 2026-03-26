@@ -1,0 +1,33 @@
+{
+  "agent_slug": "deception-honeypot",
+  "intent_type": "advise",
+  "action": "Deploy 3 credential honeypots near domain controller subnet, seed 47 AWS key canary tokens in all repositories and S3 buckets, and configure 5 SMB share lateral movement traps.",
+  "rationale": "Environment has zero deception coverage. Attacker lateral movement in the domain controller subnet would generate no alerts under current detection architecture. High-value S3 buckets have no canary tokens to detect exfiltration.",
+  "confidence": 0.91,
+  "severity": "medium",
+  "key_findings": [
+    "Zero existing deception assets in the environment",
+    "Domain controller subnet is a lateral movement blind spot",
+    "47 repositories and S3 buckets lack canary token coverage",
+    "No SMB share traps configured for lateral movement detection"
+  ],
+  "evidence_references": [
+    {"source": "network-topology-review", "ref": "topo-2026-q1", "timestamp_utc": "2026-03-08T09:00:00Z"}
+  ],
+  "next_agents": ["threat-hunting", "incident-commander"],
+  "human_approval_required": true,
+  "deployment_plan": {
+    "honeypots": [
+      {"type": "credential", "placement": "dc-subnet-10.0.1.x", "priority": "critical"},
+      {"type": "database", "placement": "db-segment-10.0.2.x", "priority": "high"}
+    ],
+    "canary_tokens": [
+      {"type": "aws-key", "placement": "all-repositories", "count": 47},
+      {"type": "dns", "placement": "finance-sharepoint", "count": 12}
+    ],
+    "lateral_movement_traps": [
+      {"type": "smb-share", "placement": "file-server-01", "priority": "high"}
+    ]
+  },
+  "timestamp_utc": "2026-03-08T10:00:00Z"
+}

@@ -191,36 +191,39 @@
   background-color: var(--md-primary-fg-color);
   color: #ffffff !important;
   border: 1px solid var(--md-primary-fg-color);
-  border-radius: 6px;
-  padding: 0.5rem 1.25rem;
-  font-weight: 500;
-  font-size: 0.82rem;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-  box-shadow: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 3px rgba(9, 105, 218, 0.2);
 }
 
 .md-typeset .md-button--primary:hover {
   background-color: var(--md-primary-fg-color--dark);
   border-color: var(--md-primary-fg-color--dark);
   color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.25);
 }
 
 /* Outline / secondary button */
 .md-typeset .md-button:not(.md-button--primary) {
   color: var(--md-primary-fg-color);
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 6px;
-  padding: 0.5rem 1.25rem;
-  font-weight: 500;
-  font-size: 0.82rem;
+  border-radius: 8px;
+  padding: 0.65rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
   background-color: transparent;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
   box-shadow: none;
 }
 
 .md-typeset .md-button:not(.md-button--primary):hover {
   background-color: var(--md-accent-fg-color--transparent);
   border-color: var(--md-primary-fg-color);
+  transform: translateY(-1px);
 }
 
 /* ===========================================
@@ -230,21 +233,28 @@
 .md-typeset .grid.cards > ol > li,
 .md-typeset .grid > .card {
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 6px;
-  box-shadow: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  border-radius: 8px;
+  background-color: var(--md-default-bg-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .md-typeset .grid.cards > ul > li:hover,
 .md-typeset .grid.cards > ol > li:hover,
 .md-typeset .grid > .card:hover {
-  border-color: var(--md-default-fg-color--lighter);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-color: var(--md-primary-fg-color--light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li {
+  background-color: var(--md-default-bg-color--light);
 }
 
 [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
 [data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* ===========================================
@@ -299,21 +309,36 @@
 }
 
 /* ===========================================
-   J. Hero Section
+   J. Hero Section — High Impact Landing
    =========================================== */
 .hero {
   text-align: center;
-  padding: 2.5rem 1rem 1rem;
-  max-width: 640px;
+  padding: 3.5rem 1.5rem 2rem;
+  max-width: 800px;
   margin: 0 auto;
 }
 
+/* Hero background gradient — subtle separation from content */
+[data-md-color-scheme="default"] .md-content > .md-typeset > .hero {
+  background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%);
+  border-radius: 16px;
+  margin-top: 1rem;
+  padding: 3rem 2rem 2rem;
+}
+
+[data-md-color-scheme="slate"] .md-content > .md-typeset > .hero {
+  background: linear-gradient(180deg, rgba(31, 111, 235, 0.06) 0%, transparent 100%);
+  border-radius: 16px;
+  margin-top: 1rem;
+  padding: 3rem 2rem 2rem;
+}
+
 .hero h1 {
-  font-size: 2.4rem !important;
+  font-size: 3rem !important;
   font-weight: 800 !important;
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 0.75rem !important;
+  line-height: 1.1;
+  margin-bottom: 1rem !important;
   background: linear-gradient(135deg, #58a6ff 0%, #1f6feb 50%, #388bfd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -328,20 +353,29 @@
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
-  opacity: 0.65;
-  max-width: 480px;
-  margin: 0 auto 1rem;
+  font-size: 1.15rem;
+  opacity: 0.8;
+  max-width: 540px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.6;
 }
 
 .hero-platforms {
   font-size: 0.85rem;
-  opacity: 0.5;
-  margin-bottom: 1.5rem;
+  opacity: 0.55;
+  margin-bottom: 1.75rem;
 }
 
 .hero .md-button {
-  margin: 0.25rem;
+  margin: 0.3rem;
+}
+
+/* Social proof — star count below hero */
+.hero-social-proof {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  font-weight: 500;
 }
 
 /* ===========================================
@@ -456,23 +490,41 @@
 }
 
 /* ===========================================
-   K. Typography
+   K. Typography — Improved Readability
    =========================================== */
 .md-typeset {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   line-height: 1.7;
 }
 
 .md-typeset h2 {
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  font-size: 1.4em;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset h2:first-of-type {
+  margin-top: 1.5rem;
 }
 
 /* ===========================================
-   L. Section Dividers
+   L. Section Dividers — Visual Breathing Room
    =========================================== */
 .md-typeset hr {
   border-color: var(--md-default-fg-color--lightest);
+  margin: 3rem 0;
+}
+
+/* Alternating section backgrounds on homepage */
+[data-md-color-scheme="default"] .md-typeset h2:nth-of-type(even) ~ .grid,
+[data-md-color-scheme="default"] .md-typeset h2:nth-of-type(even) ~ ul {
+  background-color: rgba(246, 248, 250, 0.5);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0 -1rem;
 }
 
 /* ===========================================
@@ -595,11 +647,21 @@
    =========================================== */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 1.8rem !important;
+    font-size: 2rem !important;
   }
 
   .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  [data-md-color-scheme="default"] .md-content > .md-typeset > .hero,
+  [data-md-color-scheme="slate"] .md-content > .md-typeset > .hero {
+    padding: 2rem 1rem 1.5rem;
+    margin-top: 0.5rem;
   }
 
   .skills-hero h1 {

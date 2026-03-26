@@ -115,6 +115,14 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Guides:
+    - Overview: guides/index.md
+    - "Skill Authoring Best Practices": guides/skill-authoring-best-practices.md
+    - "Agent Skills for Codex": guides/agent-skills-for-codex.md
+    - "Best Claude Code Plugins": guides/best-claude-code-plugins.md
+    - "Cursor Skills Guide": guides/cursor-skills-guide.md
+    - "Gemini CLI Skills Guide": guides/gemini-cli-skills-guide.md
+    - "OpenClaw Skills Guide": guides/openclaw-skills-guide.md
   - Multi-Tool Integrations: integrations.md
   - Skills:
     - Overview: skills/index.md

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 262,
+  "total_skills": 263,
   "skills": [
     {
       "name": "README",
@@ -627,6 +627,11 @@
       "name": "skills-review",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "snowflake-development",
+      "category": "engineering",
+      "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors."
     },
     {
       "name": "status",
@@ -1332,7 +1337,7 @@
       "description": "Command resources"
     },
     "engineering": {
-      "count": 44,
+      "count": 45,
       "description": "Engineering resources"
     },
     "engineering-advanced": {

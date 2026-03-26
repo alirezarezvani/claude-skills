@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 174,
+  "total_skills": 175,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -352,6 +352,12 @@
       "source": "../../engineering-team/senior-security",
       "category": "engineering",
       "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools. Use when the user asks about security reviews, threat analysis, vulnerability assessments, secure coding practices, security audits, attack surface analysis, CVE remediation, or security best practices."
+    },
+    {
+      "name": "snowflake-development",
+      "source": "../../engineering-team/snowflake-development",
+      "category": "engineering",
+      "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors."
     },
     {
       "name": "stripe-integration-expert",
@@ -1062,7 +1068,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 29,
+      "count": 30,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },

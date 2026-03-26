@@ -453,6 +453,18 @@ Provide these details for architecture design:
 
 ---
 
+## Cross-References
+
+| Skill | Relationship |
+|-------|-------------|
+| `engineering-team/aws-solution-architect` | AWS equivalent — same 6-step workflow, different services |
+| `engineering-team/gcp-cloud-architect` | GCP equivalent — completes the cloud trifecta |
+| `engineering-team/senior-devops` | Broader DevOps scope — pipelines, monitoring, containerization |
+| `engineering/terraform-patterns` | IaC implementation — use for Terraform modules targeting Azure |
+| `engineering/ci-cd-pipeline-builder` | Pipeline construction — automates Azure DevOps and GitHub Actions |
+
+---
+
 ## Reference Documentation
 
 | Document | Contents |

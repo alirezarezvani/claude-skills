@@ -38,13 +38,13 @@ claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
 ├── agents/                    # 16 cs-* prefixed agents across all domains
 ├── commands/                  # 19 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
-├── engineering-team/          # 26 core engineering skills + Playwright Pro + Self-Improving Agent + A11y Audit
-├── engineering/               # 30 POWERFUL-tier advanced skills (incl. AgentHub)
+├── engineering-team/          # 29 core engineering skills + Playwright Pro + Self-Improving Agent + A11y Audit
+├── engineering/               # 35 POWERFUL-tier advanced skills (incl. AgentHub)
 ├── product-team/              # 13 product skills + Python tools
 ├── marketing-skill/           # 43 marketing skills (7 pods) + Python tools
 ├── c-level-advisor/           # 28 C-level advisory skills (10 roles + orchestration)
 ├── project-management/        # 6 PM skills + Atlassian MCP
-├── ra-qm-team/                # 12 RA/QM compliance skills
+├── ra-qm-team/                # 13 RA/QM compliance skills
 ├── business-growth/           # 4 business & growth skills + Python tools
 ├── finance/                   # 2 finance skills + Python tools
 ├── eval-workspace/            # Skill evaluation results (Tessl)
@@ -149,7 +149,7 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 ## Roadmap
 
 **Phase 1-2 Complete:** 204 production-ready skills deployed across 9 domains
-- Engineering Core (26), Engineering POWERFUL (30), Product (14), Marketing (43), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
+- Engineering Core (29), Engineering POWERFUL (35), Product (14), Marketing (43), PM (6), C-Level (28), RA/QM (13), Business & Growth (4), Finance (2)
 - 268 Python automation tools, 384 reference guides, 16 agents, 19 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
 - MkDocs Material docs site with 210+ indexed pages for SEO

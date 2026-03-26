@@ -1,0 +1,1 @@
+../../../commands/seo-auditor.md

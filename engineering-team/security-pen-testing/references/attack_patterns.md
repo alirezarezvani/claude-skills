@@ -547,3 +547,83 @@ PUT /api/login
 ```
 
 If any of these bypass rate limiting, the implementation needs hardening.
+
+---
+
+## Static Analysis Tool Configurations
+
+### CodeQL Custom Rules
+
+Write custom CodeQL queries for project-specific vulnerability patterns:
+
+```ql
+/**
+ * Detect SQL injection via string concatenation
+ */
+import python
+import semmle.python.dataflow.new.DataFlow
+
+from Call call, StringFormatting fmt
+where
+  call.getFunc().getName() = "execute" and
+  fmt = call.getArg(0) and
+  exists(DataFlow::Node source |
+    source.asExpr() instanceof Name and
+    DataFlow::localFlow(source, DataFlow::exprNode(fmt.getAnOperand()))
+  )
+select call, "Potential SQL injection: user input flows into execute()"
+```
+
+### Semgrep Custom Rules
+
+```yaml
+rules:
+  - id: hardcoded-jwt-secret
+    pattern: |
+      jwt.encode($PAYLOAD, "...", ...)
+    message: "JWT signed with hardcoded secret"
+    severity: ERROR
+    languages: [python]
+
+  - id: unsafe-yaml-load
+    pattern: yaml.load($DATA)
+    fix: yaml.safe_load($DATA)
+    message: "Use yaml.safe_load() to prevent arbitrary code execution"
+    severity: WARNING
+    languages: [python]
+
+  - id: express-no-helmet
+    pattern: |
+      const app = express();
+      ...
+      app.listen(...)
+    pattern-not: |
+      const app = express();
+      ...
+      app.use(helmet(...));
+      ...
+      app.listen(...)
+    message: "Express app missing helmet middleware for security headers"
+    severity: WARNING
+    languages: [javascript, typescript]
+```
+
+### ESLint Security Plugins
+
+Recommended configuration:
+
+```json
+{
+  "plugins": ["security", "no-unsanitized"],
+  "extends": ["plugin:security/recommended"],
+  "rules": {
+    "security/detect-object-injection": "error",
+    "security/detect-non-literal-regexp": "warn",
+    "security/detect-unsafe-regex": "error",
+    "security/detect-buffer-noassert": "error",
+    "security/detect-eval-with-expression": "error",
+    "no-unsanitized/method": "error",
+    "no-unsanitized/property": "error"
+  }
+}
+```

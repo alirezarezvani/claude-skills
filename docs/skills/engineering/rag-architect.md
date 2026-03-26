@@ -1,6 +1,6 @@
 ---
 title: "RAG Architect — Agent Skill for Codex & OpenClaw"
-description: "RAG Architect - POWERFUL. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Use when the user asks to design RAG pipelines, optimize retrieval strategies, choose embedding models, implement vector search, or build knowledge. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # RAG Architect

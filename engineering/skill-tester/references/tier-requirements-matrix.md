@@ -1,12 +1,12 @@
 # Tier Requirements Matrix
 
-**Version**: 1.0.0  
-**Last Updated**: 2026-02-16  
+**Version**: 2.0.0  
+**Last Updated**: 2026-03-26  
 **Authority**: Claude Skills Engineering Team  
 
 ## Overview
 
-This document provides a comprehensive matrix of requirements for each skill tier within the claude-skills ecosystem. Skills are classified into three tiers based on complexity, functionality, and comprehensiveness: BASIC, STANDARD, and POWERFUL.
+This document provides a comprehensive matrix of requirements for each skill tier within the claude-skills ecosystem. Skills are classified into three tiers based on complexity, functionality, comprehensiveness, and security: BASIC, STANDARD, and POWERFUL.
 
 ## Tier Classification Philosophy
 
@@ -33,6 +33,8 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 | **Documentation Depth** | Functional | Comprehensive | Expert-level |
 | **Examples Provided** | ≥1 | ≥3 | ≥5 |
 | **Test Coverage** | Basic validation | Sample data testing | Comprehensive test suite |
+| **Security Assessment** | No critical vulnerabilities | No sensitive data exposure | Secure credential handling |
+| **Input Validation** | Basic argparse | Type checking + validation | Comprehensive validation |
 
 ## Detailed Requirements by Tier
 
@@ -59,11 +61,18 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **File Organization**: Logical file naming and structure
 - **Assets**: Optional sample data files
 
+#### Security Requirements
+- **No Hardcoded Credentials**: No passwords, API keys, or secrets in source code
+- **Basic Input Validation**: Use argparse for CLI arguments
+- **No Command Injection**: Avoid os.system() with user input
+- **Safe Error Messages**: No sensitive data in error output
+
 #### Quality Standards
 - **Code Style**: Follows basic Python conventions
 - **Documentation**: Adequate coverage of functionality
 - **Usability**: Clear usage instructions and examples
 - **Completeness**: All essential components present
+- **Security**: No critical security vulnerabilities
 
 ### STANDARD Tier Requirements
 
@@ -90,11 +99,19 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **References**: Technical specifications and API documentation
 - **Expected Outputs**: Sample results for validation
 
+#### Security Requirements
+- **No Sensitive Data Exposure**: No hardcoded credentials or secrets
+- **Safe File Operations**: Use pathlib for path handling, validate paths
+- **Command Injection Prevention**: Use subprocess with shell=False
+- **Input Validation**: Type checking and sanitization
+- **Secure Credential Management**: Environment variables for secrets
+
 #### Quality Standards
 - **Code Quality**: Advanced Python patterns and best practices
 - **Documentation**: Expert-level technical documentation
 - **Testing**: Sample data processing with validation
 - **Integration**: Consideration for CI/CD and automation use
+- **Security**: Security dimension score ≥ 50
 
 ### POWERFUL Tier Requirements
 
@@ -122,11 +139,21 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Expected Outputs**: Full test result coverage including error cases
 - **Testing**: Comprehensive validation and test coverage
 
+#### Security Requirements
+- **Secure Credential Management**: All credentials via environment variables or secure vaults
+- **Advanced Input Validation**: Comprehensive validation with type hints and assertions
+- **Safe File Operations**: All paths validated and resolved, no string concatenation
+- **Command Injection Prevention**: shlex.quote() for shell args, subprocess with shell=False
+- **Secure Logging**: No sensitive data in logs
+- **Code Injection Prevention**: No eval/exec with untrusted input
+- **Security Documentation**: Security considerations documented in SKILL.md
+
 #### Quality Standards
 - **Enterprise Grade**: Production-ready code with enterprise patterns
 - **Documentation**: Comprehensive technical documentation suitable for technical teams
 - **Integration**: Full CI/CD integration capabilities
 - **Maintainability**: Designed for long-term maintenance and extension
+- **Security**: Security dimension score ≥ 70
 
 ## Tier Assessment Criteria
 
@@ -299,15 +326,16 @@ except Exception as e:
 ## Quality Scoring by Tier
 
 ### Scoring Thresholds
-- **POWERFUL Tier**: Overall score ≥80, all dimensions ≥75
-- **STANDARD Tier**: Overall score ≥70, 3+ dimensions ≥65
+- **POWERFUL Tier**: Overall score ≥80, all dimensions ≥75, Security ≥70
+- **STANDARD Tier**: Overall score ≥70, 4+ dimensions ≥65, Security ≥50
 - **BASIC Tier**: Overall score ≥60, meets minimum requirements
 
 ### Dimension Weights (All Tiers)
-- **Documentation**: 25%
-- **Code Quality**: 25%  
-- **Completeness**: 25%
-- **Usability**: 25%
+- **Documentation**: 20%
+- **Code Quality**: 20%  
+- **Completeness**: 20%
+- **Usability**: 20%
+- **Security**: 20%
 
 ### Tier-Specific Quality Expectations
 
@@ -316,18 +344,21 @@ except Exception as e:
 - Code Quality: Clean and maintainable (60+ points expected)
 - Completeness: Essential components present (60+ points expected)
 - Usability: Easy to understand and use (60+ points expected)
+- Security: No critical vulnerabilities (50+ points expected)
 
 #### STANDARD Tier Quality Profile
 - Documentation: Professional and comprehensive (70+ points expected)
 - Code Quality: Advanced patterns and best practices (70+ points expected)
 - Completeness: All recommended components (70+ points expected)
 - Usability: Well-designed user experience (70+ points expected)
+- Security: No sensitive data exposure (50+ points expected)
 
 #### POWERFUL Tier Quality Profile
 - Documentation: Expert-level and publication-ready (80+ points expected)
 - Code Quality: Enterprise-grade implementation (80+ points expected)
 - Completeness: Comprehensive test and validation coverage (80+ points expected)
 - Usability: Exceptional user experience with extensive help (80+ points expected)
+- Security: Secure credential handling and validation (70+ points expected)
 
 ## Tier Migration Process
 

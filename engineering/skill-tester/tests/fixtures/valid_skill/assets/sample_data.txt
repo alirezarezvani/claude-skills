@@ -1,0 +1,2 @@
+Sample data for testing the example tool.
+This file contains sample data that can be processed by the example_tool.py script.

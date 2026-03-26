@@ -3,15 +3,19 @@
 Quality Scorer - Scores skills across multiple quality dimensions
 
 This script provides comprehensive quality assessment for skills in the claude-skills
-ecosystem by evaluating documentation, code quality, completeness, and usability.
+ecosystem by evaluating documentation, code quality, completeness, usability, and security.
 Generates letter grades, tier recommendations, and improvement roadmaps.
 
 Usage:
     python quality_scorer.py <skill_path> [--detailed] [--minimum-score SCORE] [--json]
 
 Author: Claude Skills Engineering Team
-Version: 1.0.0
+Version: 2.0.0
 Dependencies: Python Standard Library Only
+
+Changelog:
+  v2.0.0 - Added Security dimension (20% weight), rebalanced all dimensions to 20%
+  v1.0.0 - Initial release with 4 dimensions (25% each)
 """
 
 import argparse
@@ -148,15 +152,20 @@ class QualityReport:
         code_score = self.dimensions.get("Code Quality", QualityDimension("", 0, "")).score
         completeness_score = self.dimensions.get("Completeness", QualityDimension("", 0, "")).score
         usability_score = self.dimensions.get("Usability", QualityDimension("", 0, "")).score
+        security_score = self.dimensions.get("Security", QualityDimension("", 0, "")).score
         
-        # POWERFUL tier requirements (all dimensions must be strong)
+        all_scores = [doc_score, code_score, completeness_score, usability_score, security_score]
+        
+        # POWERFUL tier requirements (all dimensions must be strong, security must be high)
         if (self.overall_score >= 80 and 
-            all(score >= 75 for score in [doc_score, code_score, completeness_score, usability_score])):
+            all(score >= 75 for score in all_scores) and
+            security_score >= 70):
             self.tier_recommendation = "POWERFUL"
             
-        # STANDARD tier requirements (most dimensions good)
+        # STANDARD tier requirements (most dimensions good, no critical security issues)
         elif (self.overall_score >= 70 and 
-              sum(1 for score in [doc_score, code_score, completeness_score, usability_score] if score >= 65) >= 3):
+              sum(1 for score in all_scores if score >= 65) >= 4 and
+              security_score >= 50):
             self.tier_recommendation = "STANDARD"
             
         # BASIC tier (minimum viable quality)
@@ -220,11 +229,12 @@ class QualityScorer:
             if not self.skill_path.exists():
                 raise ValueError(f"Skill path does not exist: {self.skill_path}")
                 
-            # Score each dimension
+            # Score each dimension (20% weight each)
             self._score_documentation()
             self._score_code_quality()
             self._score_completeness()
             self._score_usability()
+            self._score_security()
             
             # Calculate overall metrics
             self.report.calculate_overall_score()
@@ -238,10 +248,10 @@ class QualityScorer:
         return self.report
         
     def _score_documentation(self):
-        """Score documentation quality (25% weight)"""
+        """Score documentation quality (20% weight)"""
         self.log_verbose("Scoring documentation quality...")
         
-        dimension = QualityDimension("Documentation", 0.25, "Quality of documentation and written materials")
+        dimension = QualityDimension("Documentation", 0.20, "Quality of documentation and written materials")
         
         # Score SKILL.md
         self._score_skill_md(dimension)
@@ -492,10 +502,10 @@ class QualityScorer:
                            f"Found {len(example_files)} example/sample files")
                            
     def _score_code_quality(self):
-        """Score code quality (25% weight)"""
+        """Score code quality (20% weight)"""
         self.log_verbose("Scoring code quality...")
         
-        dimension = QualityDimension("Code Quality", 0.25, "Quality of Python scripts and implementation")
+        dimension = QualityDimension("Code Quality", 0.20, "Quality of Python scripts and implementation")
         
         scripts_dir = self.skill_path / "scripts"
         if not scripts_dir.exists():
@@ -679,10 +689,10 @@ class QualityScorer:
             dimension.add_suggestion("Add support for both JSON and human-readable output formats")
             
     def _score_completeness(self):
-        """Score completeness (25% weight)"""
+        """Score completeness (20% weight)"""
         self.log_verbose("Scoring completeness...")
         
-        dimension = QualityDimension("Completeness", 0.25, "Completeness of required components and assets")
+        dimension = QualityDimension("Completeness", 0.20, "Completeness of required components and assets")
         
         # Score directory structure
         self._score_directory_structure(dimension)
@@ -801,10 +811,10 @@ class QualityScorer:
             dimension.add_suggestion("Add test files or validation scripts")
             
     def _score_usability(self):
-        """Score usability (25% weight)"""
+        """Score usability (20% weight)"""
         self.log_verbose("Scoring usability...")
         
-        dimension = QualityDimension("Usability", 0.25, "Ease of use and user experience")
+        dimension = QualityDimension("Usability", 0.20, "Ease of use and user experience")
         
         # Score installation simplicity
         self._score_installation(dimension)
@@ -935,6 +945,226 @@ class QualityScorer:
             
         dimension.add_score("practical_examples", score, 25,
                            f"Practical examples: {len(example_files)} files")
+                           
+    def _score_security(self):
+        """Score security quality (20% weight)"""
+        self.log_verbose("Scoring security quality...")
+        
+        dimension = QualityDimension("Security", 0.20, "Security practices and vulnerability prevention")
+        
+        scripts_dir = self.skill_path / "scripts"
+        if not scripts_dir.exists():
+            dimension.add_score("scripts_existence", 25, 100, "No scripts directory - no script security concerns")
+            dimension.calculate_final_score()
+            self.report.add_dimension(dimension)
+            return
+            
+        python_files = list(scripts_dir.glob("*.py"))
+        if not python_files:
+            dimension.add_score("python_scripts", 25, 100, "No Python scripts - no script security concerns")
+            dimension.calculate_final_score()
+            self.report.add_dimension(dimension)
+            return
+            
+        # Score sensitive data exposure
+        self._score_sensitive_data_exposure(python_files, dimension)
+        
+        # Score safe file operations
+        self._score_safe_file_operations(python_files, dimension)
+        
+        # Score command injection prevention
+        self._score_command_injection_prevention(python_files, dimension)
+        
+        # Score input validation
+        self._score_input_validation(python_files, dimension)
+        
+        dimension.calculate_final_score()
+        self.report.add_dimension(dimension)
+        
+    def _score_sensitive_data_exposure(self, python_files: List[Path], dimension: QualityDimension):
+        """Score sensitive data exposure prevention"""
+        total_score = 0
+        script_count = len(python_files)
+        
+        # Patterns that might indicate sensitive data exposure
+        sensitive_patterns = [
+            (r'password\s*=\s*["\'][^"\']+["\']', 'hardcoded password'),
+            (r'api_key\s*=\s*["\'][^"\']+["\']', 'hardcoded API key'),
+            (r'secret\s*=\s*["\'][^"\']+["\']', 'hardcoded secret'),
+            (r'token\s*=\s*["\'][^"\']+["\']', 'hardcoded token'),
+            (r'private_key\s*=\s*["\'][^"\']+["\']', 'hardcoded private key'),
+            (r'aws_access_key\s*=\s*["\'][^"\']+["\']', 'hardcoded AWS key'),
+            (r'aws_secret\s*=\s*["\'][^"\']+["\']', 'hardcoded AWS secret'),
+        ]
+        
+        findings = []
+        
+        for script_path in python_files:
+            try:
+                content = script_path.read_text(encoding='utf-8')
+                script_score = 25  # Start with full points
+                
+                for pattern, issue_type in sensitive_patterns:
+                    matches = re.findall(pattern, content, re.IGNORECASE)
+                    if matches:
+                        script_score -= 5  # Penalty for each type of sensitive data issue
+                        findings.append(f"{script_path.name}: {issue_type}")
+                        
+                total_score += max(script_score, 0)
+                
+            except Exception:
+                continue
+                
+        avg_score = total_score / script_count if script_count > 0 else 0
+        details = "No sensitive data exposure detected" if avg_score >= 20 else f"Issues found: {len(findings)}"
+        dimension.add_score("sensitive_data_exposure", avg_score, 25,
+                           details)
+                           
+        if findings:
+            dimension.add_suggestion("Remove hardcoded credentials and use environment variables or secure config")
+            
+    def _score_safe_file_operations(self, python_files: List[Path], dimension: QualityDimension):
+        """Score safe file operations"""
+        total_score = 0
+        script_count = len(python_files)
+        
+        # Risky patterns
+        risky_patterns = [
+            (r'open\s*\(\s*[^)]*\+', 'potential path injection via string concatenation'),
+            (r'\.join\s*\(\s*[^)]*input', 'user input in path construction'),
+            (r'os\.path\.join\s*\([^)]*request', 'request data in path'),
+            (r'\.\./', 'potential path traversal'),
+        ]
+        
+        # Safe patterns
+        safe_patterns = [
+            (r'os\.path\.basename', 'uses basename for safety'),
+            (r'pathlib\.Path\s*\(', 'uses pathlib'),
+            (r'validate.*path', 'path validation'),
+            (r'resolve\s*\(', 'path resolution'),
+        ]
+        
+        findings = []
+        
+        for script_path in python_files:
+            try:
+                content = script_path.read_text(encoding='utf-8')
+                script_score = 15  # Base score
+                
+                # Check for risky patterns
+                for pattern, issue_type in risky_patterns:
+                    if re.search(pattern, content, re.IGNORECASE):
+                        script_score -= 5
+                        findings.append(f"{script_path.name}: {issue_type}")
+                        
+                # Bonus for safe patterns
+                for pattern, _ in safe_patterns:
+                    if re.search(pattern, content, re.IGNORECASE):
+                        script_score += 2
+                        
+                total_score += min(max(script_score, 0), 25)
+                
+            except Exception:
+                continue
+                
+        avg_score = total_score / script_count if script_count > 0 else 0
+        details = "Safe file operations" if avg_score >= 15 else f"Issues found: {len(findings)}"
+        dimension.add_score("safe_file_operations", avg_score, 25, details)
+        
+        if findings:
+            dimension.add_suggestion("Validate and sanitize file paths, use pathlib for safe path handling")
+            
+    def _score_command_injection_prevention(self, python_files: List[Path], dimension: QualityDimension):
+        """Score command injection prevention"""
+        total_score = 0
+        script_count = len(python_files)
+        
+        # Dangerous patterns
+        dangerous_patterns = [
+            (r'os\.system\s*\(', 'os.system usage - potential command injection'),
+            (r'subprocess\.call\s*\([^)]*shell\s*=\s*True', 'subprocess with shell=True'),
+            (r'subprocess\.Popen\s*\([^)]*shell\s*=\s*True', 'Popen with shell=True'),
+            (r'eval\s*\(', 'eval usage - code injection risk'),
+            (r'exec\s*\(', 'exec usage - code injection risk'),
+            (r'os\.popen\s*\(', 'os.popen usage'),
+        ]
+        
+        # Safe patterns
+        safe_patterns = [
+            (r'subprocess\.run\s*\([^)]*shell\s*=\s*False', 'safe subprocess usage'),
+            (r'shlex\.quote', 'shell escaping'),
+            (r'shlex\.split', 'safe argument splitting'),
+        ]
+        
+        findings = []
+        
+        for script_path in python_files:
+            try:
+                content = script_path.read_text(encoding='utf-8')
+                script_score = 25  # Start with full points
+                
+                # Check for dangerous patterns
+                for pattern, issue_type in dangerous_patterns:
+                    if re.search(pattern, content):
+                        script_score -= 8
+                        findings.append(f"{script_path.name}: {issue_type}")
+                        
+                # Bonus for safe patterns
+                for pattern, _ in safe_patterns:
+                    if re.search(pattern, content):
+                        script_score += 3
+                        
+                total_score += min(max(script_score, 0), 25)
+                
+            except Exception:
+                continue
+                
+        avg_score = total_score / script_count if script_count > 0 else 0
+        details = "No command injection vulnerabilities" if avg_score >= 20 else f"Issues found: {len(findings)}"
+        dimension.add_score("command_injection_prevention", avg_score, 25, details)
+        
+        if findings:
+            dimension.add_suggestion("Avoid shell=True in subprocess, use shlex.quote for shell arguments")
+            
+    def _score_input_validation(self, python_files: List[Path], dimension: QualityDimension):
+        """Score input validation quality"""
+        total_score = 0
+        script_count = len(python_files)
+        
+        # Good validation patterns
+        validation_patterns = [
+            (r'argparse', 'uses argparse for CLI validation'),
+            (r'try\s*:[\s\S]*?except\s+\w*Error', 'error handling'),
+            (r'if\s+not\s+\w+\s*:', 'input presence check'),
+            (r'isinstance\s*\(', 'type checking'),
+            (r'\.isdigit\s*\(\)', 'digit validation'),
+            (r're\.match\s*\(|re\.search\s*\(', 'regex validation'),
+            (r'Validator', 'validator class'),
+            (r'validate', 'validation function'),
+            (r'sanitize', 'sanitization'),
+        ]
+        
+        for script_path in python_files:
+            try:
+                content = script_path.read_text(encoding='utf-8')
+                script_score = 10  # Base score
+                
+                # Check for validation patterns
+                for pattern, _ in validation_patterns:
+                    if re.search(pattern, content, re.IGNORECASE):
+                        script_score += 3
+                        
+                total_score += min(script_score, 25)
+                
+            except Exception:
+                continue
+                
+        avg_score = total_score / script_count if script_count > 0 else 0
+        dimension.add_score("input_validation", avg_score, 25,
+                           f"Input validation quality score")
+                           
+        if avg_score < 15:
+            dimension.add_suggestion("Add input validation with argparse, type checking, and error handling")
 
 
 class QualityReportFormatter:
@@ -1017,11 +1247,12 @@ Examples:
   python quality_scorer.py engineering/my-skill --detailed --json
   python quality_scorer.py engineering/my-skill --minimum-score 75
 
-Quality Dimensions (each 25%):
+Quality Dimensions (each 20%):
   Documentation - SKILL.md quality, README, references, examples
   Code Quality   - Script complexity, error handling, structure, output
   Completeness   - Directory structure, assets, expected outputs, tests
   Usability      - Installation simplicity, usage clarity, help accessibility
+  Security       - Sensitive data exposure, safe file ops, injection prevention
 
 Letter Grades: A+ (95+), A (90+), A- (85+), B+ (80+), B (75+), B- (70+), C+ (65+), C (60+), C- (55+), D (50+), F (<50)
         """

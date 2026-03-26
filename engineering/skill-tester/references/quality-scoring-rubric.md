@@ -1,12 +1,12 @@
 # Quality Scoring Rubric
 
-**Version**: 1.0.0  
-**Last Updated**: 2026-02-16  
+**Version**: 2.0.0  
+**Last Updated**: 2026-03-26  
 **Authority**: Claude Skills Engineering Team  
 
 ## Overview
 
-This document defines the comprehensive quality scoring methodology used to assess skills within the claude-skills ecosystem. The scoring system evaluates four key dimensions, each weighted equally at 25%, to provide an objective and consistent measure of skill quality.
+This document defines the comprehensive quality scoring methodology used to assess skills within the claude-skills ecosystem. The scoring system evaluates five key dimensions, each weighted equally at 20%, to provide an objective and consistent measure of skill quality.
 
 ## Scoring Framework
 
@@ -25,10 +25,11 @@ This document defines the comprehensive quality scoring methodology used to asse
 
 ### Dimension Weights
 Each dimension contributes equally to the overall score:
-- **Documentation Quality**: 25%
-- **Code Quality**: 25%
-- **Completeness**: 25%
-- **Usability**: 25%
+- **Documentation Quality**: 20%
+- **Code Quality**: 20%
+- **Completeness**: 20%
+- **Usability**: 20%
+- **Security**: 20%
 
 ## Documentation Quality (25% Weight)
 
@@ -202,7 +203,7 @@ Structure Score = (Required Present / Required Total) * 0.6 +
 - **Poor (40-59)**: Minimal testing support
 - **Failing (0-39)**: No testing or validation capability
 
-## Usability (25% Weight)
+## Usability (20% Weight)
 
 ### Scoring Components
 
@@ -270,6 +271,97 @@ Structure Score = (Required Present / Required Total) * 0.6 +
 - **Poor (40-59)**: 1-2 examples, limited practical value
 - **Failing (0-39)**: No examples or completely impractical
 
+## Security (20% Weight)
+
+### Scoring Components
+
+#### Sensitive Data Exposure Prevention (25% of Security Score)
+**Evaluation Criteria:**
+- Detection of hardcoded credentials
+- API keys and tokens in source code
+- Password and secret exposure
+- Private key handling
+
+**Security Checklist:**
+- [ ] No hardcoded passwords
+- [ ] No hardcoded API keys
+- [ ] No hardcoded secrets or tokens
+- [ ] Environment variables used for sensitive config
+- [ ] Secure credential management patterns
+
+**Scoring Criteria:**
+- **Excellent (90-100)**: No sensitive data exposure, secure credential handling
+- **Good (75-89)**: Minor issues, mostly secure practices
+- **Satisfactory (60-74)**: Some exposure, needs improvement
+- **Poor (40-59)**: Multiple sensitive data exposures
+- **Failing (0-39)**: Critical hardcoded credentials present
+
+#### Safe File Operations (25% of Security Score)
+**Evaluation Criteria:**
+- Path traversal vulnerability prevention
+- Safe path construction
+- User input sanitization in file operations
+- Proper use of pathlib vs string concatenation
+
+**Security Patterns:**
+- Use `os.path.basename()` for user-provided filenames
+- Use `pathlib.Path.resolve()` for safe path resolution
+- Validate paths are within expected directories
+- Avoid string concatenation with user input for paths
+
+**Scoring Criteria:**
+- **Excellent (90-100)**: All file operations use safe patterns
+- **Good (75-89)**: Most operations safe, minor concerns
+- **Satisfactory (60-74)**: Basic safety measures in place
+- **Poor (40-59)**: Potential path traversal vulnerabilities
+- **Failing (0-39)**: Critical file operation vulnerabilities
+
+#### Command Injection Prevention (25% of Security Score)
+**Evaluation Criteria:**
+- Avoidance of `os.system()` with user input
+- Safe `subprocess` usage (no `shell=True` with user input)
+- Proper shell escaping when needed
+- Avoidance of `eval()` and `exec()` with untrusted input
+
+**Dangerous Patterns to Avoid:**
+- `os.system(user_input)` - Direct command injection
+- `subprocess.call(cmd, shell=True)` with user-provided cmd
+- `eval(user_input)` - Code injection
+- `exec(user_input)` - Code injection
+
+**Safe Alternatives:**
+- Use `subprocess.run(args_list, shell=False)` 
+- Use `shlex.quote()` for shell arguments
+- Use `shlex.split()` for argument parsing
+
+**Scoring Criteria:**
+- **Excellent (90-100)**: No command injection vulnerabilities, uses safe patterns
+- **Good (75-89)**: Mostly safe, minor concerns
+- **Satisfactory (60-74)**: Basic safety measures
+- **Poor (40-59)**: Potential command injection risks
+- **Failing (0-39)**: Critical command injection vulnerabilities
+
+#### Input Validation Quality (25% of Security Score)
+**Evaluation Criteria:**
+- Use of `argparse` for CLI input validation
+- Type checking and conversion
+- Range and format validation
+- Error handling for invalid input
+
+**Validation Checklist:**
+- [ ] argparse used for CLI arguments
+- [ ] Type checking for function parameters
+- [ ] Input sanitization where needed
+- [ ] Proper error messages for invalid input
+- [ ] Edge case handling
+
+**Scoring Criteria:**
+- **Excellent (90-100)**: Comprehensive validation, all inputs validated
+- **Good (75-89)**: Good validation coverage, most inputs checked
+- **Satisfactory (60-74)**: Basic validation in place
+- **Poor (40-59)**: Minimal validation
+- **Failing (0-39)**: No input validation
+
 ## Scoring Calculations
 
 ### Dimension Score Calculation
@@ -290,11 +382,11 @@ def calculate_dimension_score(components):
 ```
 
 ### Overall Score Calculation
-The overall score combines all dimensions with equal weighting:
+The overall score combines all dimensions with equal weighting (5 dimensions × 20% = 100%):
 
 ```python
 def calculate_overall_score(dimensions):
-    return sum(dimension.score * 0.25 for dimension in dimensions.values())
+    return sum(dimension.score * 0.20 for dimension in dimensions.values())
 ```
 
 ### Letter Grade Assignment

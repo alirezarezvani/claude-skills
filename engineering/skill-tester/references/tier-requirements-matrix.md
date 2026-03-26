@@ -1,7 +1,7 @@
 # Tier Requirements Matrix
 
-**Version**: 1.0.0  
-**Last Updated**: 2026-02-16  
+**Version**: 2.0.0  
+**Last Updated**: 2026-03-26  
 **Authority**: Claude Skills Engineering Team  
 
 ## Overview
@@ -33,6 +33,9 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 | **Documentation Depth** | Functional | Comprehensive | Expert-level |
 | **Examples Provided** | ≥1 | ≥3 | ≥5 |
 | **Test Coverage** | Basic validation | Sample data testing | Comprehensive test suite |
+| **Security Score** | ≥40 | ≥50 | ≥70 |
+| **Hardcoded Secrets** | None | None | None |
+| **Input Validation** | Basic | Comprehensive | Advanced with sanitization |
 
 ## Detailed Requirements by Tier
 
@@ -65,6 +68,13 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Usability**: Clear usage instructions and examples
 - **Completeness**: All essential components present
 
+#### Security Requirements
+- **Security Score**: Minimum 40/100
+- **Hardcoded Secrets**: No hardcoded passwords, API keys, or tokens
+- **Input Validation**: Basic validation for user inputs
+- **Error Handling**: User-friendly error messages without exposing sensitive info
+- **Safe Patterns**: Avoid obvious security anti-patterns
+
 ### STANDARD Tier Requirements
 
 #### Documentation Requirements
@@ -95,6 +105,14 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Documentation**: Expert-level technical documentation
 - **Testing**: Sample data processing with validation
 - **Integration**: Consideration for CI/CD and automation use
+
+#### Security Requirements
+- **Security Score**: Minimum 50/100
+- **Hardcoded Secrets**: No hardcoded credentials (zero tolerance)
+- **Input Validation**: Comprehensive validation with error messages
+- **File Operations**: Safe path handling, no path traversal vulnerabilities
+- **Command Execution**: No shell injection risks, safe subprocess usage
+- **Security Patterns**: Use of environment variables for secrets
 
 ### POWERFUL Tier Requirements
 
@@ -127,6 +145,19 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Documentation**: Comprehensive technical documentation suitable for technical teams
 - **Integration**: Full CI/CD integration capabilities
 - **Maintainability**: Designed for long-term maintenance and extension
+
+#### Security Requirements
+- **Security Score**: Minimum 70/100
+- **Hardcoded Secrets**: Zero tolerance for hardcoded credentials
+- **Input Validation**: Advanced validation with sanitization and type checking
+- **File Operations**: All file operations use safe patterns (pathlib, validation)
+- **Command Execution**: All subprocess calls use safe patterns (no shell=True)
+- **Security Patterns**: Comprehensive security practices including:
+  - Environment variables for all secrets
+  - Input sanitization for all user inputs
+  - Safe deserialization practices
+  - Secure error handling without info leakage
+- **Security Documentation**: Security considerations documented in code and docs
 
 ## Tier Assessment Criteria
 
@@ -299,15 +330,16 @@ except Exception as e:
 ## Quality Scoring by Tier
 
 ### Scoring Thresholds
-- **POWERFUL Tier**: Overall score ≥80, all dimensions ≥75
-- **STANDARD Tier**: Overall score ≥70, 3+ dimensions ≥65
-- **BASIC Tier**: Overall score ≥60, meets minimum requirements
+- **POWERFUL Tier**: Overall score ≥80, all dimensions ≥75, Security ≥70
+- **STANDARD Tier**: Overall score ≥70, 4+ dimensions ≥65, Security ≥50
+- **BASIC Tier**: Overall score ≥60, meets minimum requirements, Security ≥40
 
 ### Dimension Weights (All Tiers)
-- **Documentation**: 25%
-- **Code Quality**: 25%  
-- **Completeness**: 25%
-- **Usability**: 25%
+- **Documentation**: 20%
+- **Code Quality**: 20%  
+- **Completeness**: 20%
+- **Security**: 20%
+- **Usability**: 20%
 
 ### Tier-Specific Quality Expectations
 
@@ -315,18 +347,21 @@ except Exception as e:
 - Documentation: Functional and clear (60+ points expected)
 - Code Quality: Clean and maintainable (60+ points expected)
 - Completeness: Essential components present (60+ points expected)
+- Security: Basic security practices (40+ points expected)
 - Usability: Easy to understand and use (60+ points expected)
 
 #### STANDARD Tier Quality Profile
 - Documentation: Professional and comprehensive (70+ points expected)
 - Code Quality: Advanced patterns and best practices (70+ points expected)
 - Completeness: All recommended components (70+ points expected)
+- Security: Good security practices, no hardcoded secrets (50+ points expected)
 - Usability: Well-designed user experience (70+ points expected)
 
 #### POWERFUL Tier Quality Profile
 - Documentation: Expert-level and publication-ready (80+ points expected)
 - Code Quality: Enterprise-grade implementation (80+ points expected)
 - Completeness: Comprehensive test and validation coverage (80+ points expected)
+- Security: Advanced security practices, comprehensive validation (70+ points expected)
 - Usability: Exceptional user experience with extensive help (80+ points expected)
 
 ## Tier Migration Process

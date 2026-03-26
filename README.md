@@ -327,6 +327,7 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 | [**Claude Code Skills & Agents Factory**](https://github.com/alirezarezvani/claude-code-skills-agents-factory) | Methodology for building skills at scale |
 | [**Claude Code Tresor**](https://github.com/alirezarezvani/claude-code-tresor) | Productivity toolkit with 60+ prompt templates |
 | [**Product Manager Skills**](https://github.com/Digidai/product-manager-skills) | Senior PM agent with 6 knowledge domains, 12 templates, 30+ frameworks — discovery, strategy, delivery, SaaS metrics, career coaching, AI product craft |
+| [**AuraKit**](https://github.com/smorky850612/Aurakit) | All-in-one Claude Code skill with 33 modes, 6-layer security, 23 hooks, 8 languages, 75% token savings. Works on Claude Code, Codex CLI, Cursor, Manus, Windsurf. ([npm](https://www.npmjs.com/package/@smorky85/aurakit)) |
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: "engineering-skills"
-description: "23 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
+description: "24 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Snowflake, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT
@@ -20,7 +20,7 @@ agents:
 
 # Engineering Team Skills
 
-23 production-ready engineering skills organized into core engineering, AI/ML/Data, and specialized tools.
+24 production-ready engineering skills organized into core engineering, AI/ML/Data, and specialized tools.
 
 ## Quick Start
 
@@ -54,7 +54,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
 | TDD Guide | `tdd-guide/` | Test-driven development workflows |
 | Tech Stack Evaluator | `tech-stack-evaluator/` | Technology comparison, TCO analysis |
 
-### AI/ML/Data (5 skills)
+### AI/ML/Data (6 skills)
 
 | Skill | Folder | Focus |
 |-------|--------|-------|
@@ -63,6 +63,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering-team
 | Senior ML Engineer | `senior-ml-engineer/` | Model deployment, MLOps, LLM integration |
 | Senior Prompt Engineer | `senior-prompt-engineer/` | Prompt optimization, RAG, agents |
 | Senior Computer Vision | `senior-computer-vision/` | Object detection, segmentation |
+| Snowflake Development | `snowflake-development/` | SQL, Dynamic Tables, Cortex AI, Snowpark |
 
 ### Specialized Tools (5 skills)
 

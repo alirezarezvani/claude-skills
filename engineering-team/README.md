@@ -47,6 +47,7 @@ npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior
 npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-ml-engineer
 npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-prompt-engineer
 npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-computer-vision
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/snowflake-development
 ```
 
 **Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex
@@ -349,6 +350,34 @@ skill-name/
 
 ---
 
+### 10. Snowflake Development (`snowflake-development`)
+
+**Purpose:** Snowflake SQL, data pipelines, Cortex AI, and Snowpark Python development
+
+**Key Capabilities:**
+- SQL best practices (MERGE, semi-structured data, window functions)
+- Dynamic Tables and Streams+Tasks pipeline design
+- Cortex AI functions (AI_COMPLETE, AI_CLASSIFY, AI_EXTRACT, agents)
+- Snowpark Python (DataFrames, UDFs, stored procedures)
+- dbt on Snowflake configuration
+- Performance optimization and troubleshooting
+
+**Scripts:**
+- `snowflake_query_helper.py` - Generate MERGE, Dynamic Table, and RBAC grant SQL patterns
+
+**References:**
+- `snowflake_sql_and_pipelines.md` - SQL patterns and pipeline deep dive
+- `cortex_ai_and_agents.md` - Cortex AI functions, agents, and Snowpark
+- `troubleshooting.md` - Error reference and debugging queries
+
+**Use When:**
+- Building Snowflake data pipelines
+- Using Cortex AI for text/document analysis
+- Writing Snowpark Python UDFs or stored procedures
+- Debugging Snowflake SQL errors or performance issues
+
+---
+
 ## 🚀 Quick Start Guide
 
 ### Installation
@@ -405,6 +434,9 @@ python scripts/architecture_diagram_generator.py --type c4 --output ./docs
 
 **Testing strategy?**
 → Use `senior-qa`
+
+**Snowflake development?**
+→ Use `snowflake-development`
 
 ---
 
@@ -565,17 +597,18 @@ Edit markdown files to add:
 
 ## 🎯 Summary
 
-You now have **9 comprehensive engineering skills** that match your tech stack:
+You now have **10 comprehensive engineering skills** that match your tech stack:
 
-1. ✅ **Senior Architect** - System design and architecture
-2. ✅ **Senior Frontend** - React/Next.js development
-3. ✅ **Senior Backend** - API and backend development
-4. ✅ **Senior Fullstack** - End-to-end development
-5. ✅ **Senior QA** - Testing and quality assurance
-6. ✅ **Senior DevOps** - CI/CD and infrastructure
-7. ✅ **Senior SecOps** - Security operations
-8. ✅ **Code Reviewer** - Code review automation
-9. ✅ **Senior Security** - Security architecture
+1. **Senior Architect** - System design and architecture
+2. **Senior Frontend** - React/Next.js development
+3. **Senior Backend** - API and backend development
+4. **Senior Fullstack** - End-to-end development
+5. **Senior QA** - Testing and quality assurance
+6. **Senior DevOps** - CI/CD and infrastructure
+7. **Senior SecOps** - Security operations
+8. **Code Reviewer** - Code review automation
+9. **Senior Security** - Security architecture
+10. **Snowflake Development** - SQL, pipelines, Cortex AI, Snowpark
 
 Each skill includes:
 - **Comprehensive SKILL.md** with quick start guide

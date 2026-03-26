@@ -321,3 +321,341 @@ export class MyComponent {
   border-width: 0;
 }
 ```
+
+## Fix Patterns Catalog
+
+### React / Next.js Fix Patterns
+
+#### Missing Alt Text (1.1.1)
+
+```tsx
+// BEFORE
+<img src={hero} />
+
+// AFTER - Informational image
+<img src={hero} alt="Team collaborating around a whiteboard" />
+
+// AFTER - Decorative image
+<img src={divider} alt="" role="presentation" />
+```
+
+#### Non-Interactive Element with Click Handler (2.1.1)
+
+```tsx
+// BEFORE
+<div onClick={handleClick}>Click me</div>
+
+// AFTER - If it navigates
+<Link href="/destination">Click me</Link>
+
+// AFTER - If it performs an action
+<button type="button" onClick={handleClick}>Click me</button>
+```
+
+#### Missing Focus Management in Modals (2.4.3)
+
+```tsx
+// BEFORE
+function Modal({ isOpen, onClose, children }) {
+  if (!isOpen) return null;
+  return <div className="modal-overlay">{children}</div>;
+}
+
+// AFTER
+import { useEffect, useRef } from 'react';
+
+function Modal({ isOpen, onClose, children, title }) {
+  const modalRef = useRef(null);
+  const previousFocus = useRef(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      previousFocus.current = document.activeElement;
+      modalRef.current?.focus();
+    } else {
+      previousFocus.current?.focus();
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeydown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'Tab') {
+        const focusable = modalRef.current?.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose} aria-hidden="true">
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+        tabIndex={-1}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close dialog"
+          className="modal-close"
+        >
+          &times;
+        </button>
+        {children}
+      </div>
+    </div>
+  );
+}
+```
+
+#### Focus Appearance (2.4.11 -- NEW in WCAG 2.2)
+
+```css
+/* BEFORE */
+button:focus {
+  outline: none; /* Removes default focus indicator */
+}
+
+/* AFTER - Meets WCAG 2.2 Focus Appearance */
+button:focus-visible {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
+}
+```
+
+```tsx
+// Tailwind CSS pattern
+<button className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
+  Submit
+</button>
+```
+
+### Vue Fix Patterns
+
+#### Missing Form Labels (1.3.1)
+
+```vue
+<!-- BEFORE -->
+<input type="text" v-model="name" placeholder="Name" />
+
+<!-- AFTER -->
+<label for="user-name">Name</label>
+<input id="user-name" type="text" v-model="name" autocomplete="name" />
+```
+
+#### Dynamic Content Without Live Region (4.1.3)
+
+```vue
+<!-- BEFORE -->
+<div v-if="status">{{ statusMessage }}</div>
+
+<!-- AFTER -->
+<div aria-live="polite" aria-atomic="true">
+  <p v-if="status">{{ statusMessage }}</p>
+</div>
+```
+
+#### Vue Router Navigation Announcements (2.4.2)
+
+```typescript
+// router/index.ts
+router.afterEach((to) => {
+  const title = to.meta.title || 'Page';
+  document.title = `${title} | My App`;
+
+  // Announce route change to screen readers
+  const announcer = document.getElementById('route-announcer');
+  if (announcer) {
+    announcer.textContent = `Navigated to ${title}`;
+  }
+});
+```
+
+```vue
+<!-- App.vue - Add announcer element -->
+<div
+  id="route-announcer"
+  role="status"
+  aria-live="assertive"
+  aria-atomic="true"
+  class="sr-only"
+></div>
+```
+
+### Angular Fix Patterns
+
+#### Missing ARIA on Custom Components (4.1.2)
+
+```typescript
+// BEFORE
+@Component({
+  selector: 'app-dropdown',
+  template: `
+    <div (click)="toggle()">{{ selected }}</div>
+    <div *ngIf="isOpen">
+      <div *ngFor="let opt of options" (click)="select(opt)">{{ opt }}</div>
+    </div>
+  `
+})
+
+// AFTER
+@Component({
+  selector: 'app-dropdown',
+  template: `
+    <button
+      role="combobox"
+      [attr.aria-expanded]="isOpen"
+      aria-haspopup="listbox"
+      [attr.aria-label]="label"
+      (click)="toggle()"
+      (keydown)="handleKeydown($event)"
+    >
+      {{ selected }}
+    </button>
+    <ul *ngIf="isOpen" role="listbox" [attr.aria-label]="label + ' options'">
+      <li
+        *ngFor="let opt of options; let i = index"
+        role="option"
+        [attr.aria-selected]="opt === selected"
+        [attr.id]="'option-' + i"
+        (click)="select(opt)"
+        (keydown)="handleOptionKeydown($event, opt, i)"
+        tabindex="-1"
+      >
+        {{ opt }}
+      </li>
+    </ul>
+  `
+})
+```
+
+#### Angular CDK A11y Module Integration
+
+```typescript
+// Use Angular CDK for focus trap in dialogs
+import { A11yModule } from '@angular/cdk/a11y';
+
+@Component({
+  template: `
+    <div cdkTrapFocus cdkTrapFocusAutoCapture>
+      <h2 id="dialog-title">Edit Profile</h2>
+      <!-- dialog content -->
+    </div>
+  `
+})
+```
+
+### Svelte Fix Patterns
+
+#### Accessible Announcements (4.1.3)
+
+```svelte
+<!-- BEFORE -->
+{#if message}
+  <p class="toast">{message}</p>
+{/if}
+
+<!-- AFTER -->
+<div aria-live="polite" class="sr-only">
+  {#if message}
+    <p>{message}</p>
+  {/if}
+</div>
+<div class="toast" aria-hidden="true">
+  {#if message}
+    <p>{message}</p>
+  {/if}
+</div>
+```
+
+#### SvelteKit Page Titles (2.4.2)
+
+```svelte
+<!-- +page.svelte -->
+<svelte:head>
+  <title>Dashboard | My App</title>
+</svelte:head>
+```
+
+### Plain HTML Fix Patterns
+
+#### Skip Navigation Link (2.4.1)
+
+```html
+<!-- BEFORE -->
+<body>
+  <nav><!-- long navigation --></nav>
+  <main><!-- content --></main>
+</body>
+
+<!-- AFTER -->
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav aria-label="Main navigation"><!-- long navigation --></nav>
+  <main id="main-content" tabindex="-1"><!-- content --></main>
+</body>
+```
+
+```css
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 16px;
+  background: #005fcc;
+  color: #fff;
+  z-index: 1000;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+```
+
+#### Accessible Data Table (1.3.1)
+
+```html
+<!-- BEFORE -->
+<table>
+  <tr><td>Name</td><td>Email</td><td>Role</td></tr>
+  <tr><td>Alice</td><td>alice@co.com</td><td>Admin</td></tr>
+</table>
+
+<!-- AFTER -->
+<table aria-label="Team members">
+  <caption class="sr-only">List of team members and their roles</caption>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Alice</th>
+      <td>alice@co.com</td>
+      <td>Admin</td>
+    </tr>
+  </tbody>
+</table>
+```

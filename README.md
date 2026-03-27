@@ -145,21 +145,22 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**205 skills across 9 domains:**
+**205 skills across 9 domains (+ new integrations domain):**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
-| **🔧 Engineering — Core** | 26 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent, Google Workspace CLI, a11y audit | [engineering-team/](engineering-team/) |
+| **🔧 Engineering — Core** | 32 | Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data, Playwright, self-improving agent, a11y audit, artifacts builder, document processors (PDF/XLSX/PPTX), file organizer | [engineering-team/](engineering-team/) |
 | **🎭 Playwright Pro** | 9+3 | Test generation, flaky fix, Cypress/Selenium migration, TestRail, BrowserStack, 55 templates | [engineering-team/playwright-pro](engineering-team/playwright-pro/) |
 | **🧠 Self-Improving Agent** | 5+2 | Auto-memory curation, pattern promotion, skill extraction, memory health | [engineering-team/self-improving-agent](engineering-team/self-improving-agent/) |
-| **⚡ Engineering — POWERFUL** | 30 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder, AgentHub, Helm charts, Terraform | [engineering/](engineering/) |
-| **🎯 Product** | 14 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder, analytics, experiment designer, discovery, roadmap communicator, code-to-prd | [product-team/](product-team/) |
-| **📣 Marketing** | 43 | 7 pods: Content (8), SEO (5), CRO (6), Channels (6), Growth (4), Intelligence (4), Sales (2) + context foundation + orchestration router. 32 Python tools. | [marketing-skill/](marketing-skill/) |
-| **📋 Project Management** | 6 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates | [project-management/](project-management/) |
+| **⚡ Engineering — POWERFUL** | 32 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder, webapp testing, LangSmith observability, AgentHub, Helm charts | [engineering/](engineering/) |
+| **🎯 Product** | 16 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder, analytics, canvas design, theme factory | [product-team/](product-team/) |
+| **📣 Marketing** | 50 | 7 pods: Content (8), SEO (5), CRO (6), Channels (6), Growth (4), Intelligence (4), Sales (2) + competitive ads, content research, domain brainstormer, image enhancer, Twitter optimizer, video downloader, Slack GIF | [marketing-skill/](marketing-skill/) |
+| **📋 Project Management** | 8 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, meeting insights, internal comms | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 12 | ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
 | **💼 C-Level Advisory** | 28 | Full C-suite (10 roles) + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
-| **📈 Business & Growth** | 4 | Customer success, sales engineer, revenue ops, contracts & proposals | [business-growth/](business-growth/) |
-| **💰 Finance** | 2 | Financial analyst (DCF, budgeting, forecasting), SaaS metrics coach (ARR, MRR, churn, LTV, CAC) | [finance/](finance/) |
+| **📈 Business & Growth** | 6 | Customer success, sales engineer, revenue ops, contracts & proposals, lead research, resume generator | [business-growth/](business-growth/) |
+| **💰 Finance** | 3 | Financial analyst (DCF, budgeting, forecasting), SaaS metrics coach (ARR, MRR, churn, LTV, CAC), invoice organizer | [finance/](finance/) |
+| **🔌 Integrations** | 835+ | Composio: 78+ SaaS apps (Slack, HubSpot, Gmail, GitHub, Jira, Salesforce, Notion, Airtable…) + connect framework | [integrations/](integrations/) |
 
 ---
 
@@ -241,6 +242,7 @@ See [orchestration/ORCHESTRATION.md](orchestration/ORCHESTRATION.md) for the ful
 | **incident-commander** | Incident response playbook, severity classifier, PIR generator |
 | **tech-debt-tracker** | Codebase debt scanner, prioritizer, trend dashboard |
 | **interview-system-designer** | Interview loop designer, question bank, calibrator |
+| **langsmith-fetch** | LangSmith trace fetching, evaluation, and LLM observability |
 
 ---
 

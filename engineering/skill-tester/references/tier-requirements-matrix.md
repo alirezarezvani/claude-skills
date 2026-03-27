@@ -1,12 +1,14 @@
 # Tier Requirements Matrix
 
 **Version**: 2.0.0  
-**Last Updated**: 2026-03-26  
+**Last Updated**: 2026-03-27  
 **Authority**: Claude Skills Engineering Team  
 
 ## Overview
 
 This document provides a comprehensive matrix of requirements for each skill tier within the claude-skills ecosystem. Skills are classified into three tiers based on complexity, functionality, and comprehensiveness: BASIC, STANDARD, and POWERFUL.
+
+**Note**: Security dimension requirements are optional and only apply when `--include-security` flag is used. By default, tier recommendations are based on 4 core dimensions (Documentation, Code Quality, Completeness, Usability) at 25% weight each.
 
 ## Tier Classification Philosophy
 
@@ -33,9 +35,9 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 | **Documentation Depth** | Functional | Comprehensive | Expert-level |
 | **Examples Provided** | ≥1 | ≥3 | ≥5 |
 | **Test Coverage** | Basic validation | Sample data testing | Comprehensive test suite |
-| **Security Score** | ≥40 | ≥50 | ≥70 |
-| **Hardcoded Secrets** | None | None | None |
-| **Input Validation** | Basic | Comprehensive | Advanced with sanitization |
+| **Security Score** *(opt-in)* | ≥40 | ≥50 | ≥70 |
+| **Hardcoded Secrets** *(opt-in)* | None | None | None |
+| **Input Validation** *(opt-in)* | Basic | Comprehensive | Advanced with sanitization |
 
 ## Detailed Requirements by Tier
 
@@ -68,7 +70,9 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Usability**: Clear usage instructions and examples
 - **Completeness**: All essential components present
 
-#### Security Requirements
+#### Security Requirements *(opt-in with --include-security)*
+**Note**: These requirements only apply when the Security dimension is enabled via `--include-security` flag.
+
 - **Security Score**: Minimum 40/100
 - **Hardcoded Secrets**: No hardcoded passwords, API keys, or tokens
 - **Input Validation**: Basic validation for user inputs
@@ -106,7 +110,9 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Testing**: Sample data processing with validation
 - **Integration**: Consideration for CI/CD and automation use
 
-#### Security Requirements
+#### Security Requirements *(opt-in with --include-security)*
+**Note**: These requirements only apply when the Security dimension is enabled via `--include-security` flag.
+
 - **Security Score**: Minimum 50/100
 - **Hardcoded Secrets**: No hardcoded credentials (zero tolerance)
 - **Input Validation**: Comprehensive validation with error messages
@@ -146,7 +152,9 @@ Advanced skills that provide comprehensive functionality with sophisticated impl
 - **Integration**: Full CI/CD integration capabilities
 - **Maintainability**: Designed for long-term maintenance and extension
 
-#### Security Requirements
+#### Security Requirements *(opt-in with --include-security)*
+**Note**: These requirements only apply when the Security dimension is enabled via `--include-security` flag.
+
 - **Security Score**: Minimum 70/100
 - **Hardcoded Secrets**: Zero tolerance for hardcoded credentials
 - **Input Validation**: Advanced validation with sanitization and type checking

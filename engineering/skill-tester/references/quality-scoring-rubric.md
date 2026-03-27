@@ -1,12 +1,27 @@
 # Quality Scoring Rubric
 
 **Version**: 2.0.0  
-**Last Updated**: 2026-03-26  
+**Last Updated**: 2026-03-27  
 **Authority**: Claude Skills Engineering Team  
 
 ## Overview
 
-This document defines the comprehensive quality scoring methodology used to assess skills within the claude-skills ecosystem. The scoring system evaluates five key dimensions, each weighted equally at 20%, to provide an objective and consistent measure of skill quality.
+This document defines the comprehensive quality scoring methodology used to assess skills within the claude-skills ecosystem. The scoring system evaluates four key dimensions by default (each weighted at 25%), with an optional fifth Security dimension (enabled via `--include-security` flag).
+
+### Dimension Configuration
+
+**Default Mode (backward compatible)**:
+- **Documentation Quality**: 25%
+- **Code Quality**: 25%
+- **Completeness**: 25%
+- **Usability**: 25%
+
+**With `--include-security` flag**:
+- **Documentation Quality**: 20%
+- **Code Quality**: 20%
+- **Completeness**: 20%
+- **Security**: 20%
+- **Usability**: 20%
 
 ## Scoring Framework
 
@@ -23,13 +38,15 @@ This document defines the comprehensive quality scoring methodology used to asse
 - **D (50-54)**: Very poor quality, fundamental issues present
 - **F (0-49)**: Failing quality, does not meet basic standards
 
-### Dimension Weights
+### Dimension Weights (Default: 4 dimensions × 25%)
+
 Each dimension contributes equally to the overall score:
-- **Documentation Quality**: 20%
-- **Code Quality**: 20%
-- **Completeness**: 20%
-- **Security**: 20%
-- **Usability**: 20%
+- **Documentation Quality**: 25%
+- **Code Quality**: 25%
+- **Completeness**: 25%
+- **Usability**: 25%
+
+When `--include-security` is used, all five dimensions are weighted at 20% each.
 
 ## Documentation Quality (20% Weight)
 
@@ -380,10 +397,19 @@ def assign_letter_grade(overall_score):
 - Create beginner-friendly tutorials
 - Add interactive examples
 
-## Security (20% Weight)
+## Security (Optional, 20% Weight when enabled)
 
 ### Overview
-The Security dimension evaluates Python scripts for security vulnerabilities and best practices. This dimension is critical for ensuring that skills do not introduce security risks into the claude-skills ecosystem.
+The Security dimension evaluates Python scripts for security vulnerabilities and best practices. This dimension is **optional** and only evaluated when the `--include-security` flag is passed to the quality scorer.
+
+**Important**: By default, the quality scorer uses 4 dimensions × 25% weights for backward compatibility. To include Security assessment, use:
+```bash
+python quality_scorer.py <skill_path> --include-security
+```
+
+When Security is enabled, all dimensions are rebalanced to 20% each (5 dimensions × 20% = 100%).
+
+This dimension is critical for ensuring that skills do not introduce security risks into the claude-skills ecosystem.
 
 ### Scoring Components
 
@@ -490,9 +516,16 @@ eval(user_input)  # VERY BAD
 ```
 
 ### Security Score Impact on Tiers
+
+**Note**: Security requirements only apply when `--include-security` is used.
+
+When Security dimension is enabled:
 - **POWERFUL Tier**: Requires Security score ≥ 70
 - **STANDARD Tier**: Requires Security score ≥ 50
 - **BASIC Tier**: No minimum Security requirement
+
+When Security dimension is not enabled (default):
+- Tier recommendations are based on the 4 core dimensions (Documentation, Code Quality, Completeness, Usability)
 
 #### Low Security Scores
 - Remove hardcoded credentials, use environment variables

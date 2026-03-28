@@ -327,6 +327,7 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 | [**Claude Code Skills & Agents Factory**](https://github.com/alirezarezvani/claude-code-skills-agents-factory) | Methodology for building skills at scale |
 | [**Claude Code Tresor**](https://github.com/alirezarezvani/claude-code-tresor) | Productivity toolkit with 60+ prompt templates |
 | [**Product Manager Skills**](https://github.com/Digidai/product-manager-skills) | Senior PM agent with 6 knowledge domains, 12 templates, 30+ frameworks — discovery, strategy, delivery, SaaS metrics, career coaching, AI product craft |
+| [**claude-dash**](https://github.com/krabat-l/claude-dash) | Real-time statusline for Claude Code showing context, cost, quota, cache, tools, and git status |
 
 ---
 

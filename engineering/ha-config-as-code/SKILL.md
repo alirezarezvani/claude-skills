@@ -44,16 +44,15 @@ Manage Home Assistant automations, scenes, dashboards, and device settings as co
 ## Quick Start
 
 ```bash
-# 1. Clone and set up env
-cp assets/.env.example .env
-# Edit .env with your HA_URL, HA_TOKEN, etc.
-
-# 2. Install dependencies
+# 1. Install dependencies
 python3 -m venv .venv
 source .venv/bin/activate
 pip install requests websocket-client urllib3 python-dotenv
 
-# 3. Validate connection and list entities
+# 2. Configure and connect (interactive wizard — sets up .env and tests connection)
+python3 scripts/ha_setup.py
+
+# 3. List entities to verify connection
 python3 scripts/ha_entity_lister.py --domain light
 
 # 4. Validate config before deploying

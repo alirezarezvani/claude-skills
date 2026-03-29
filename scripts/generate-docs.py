@@ -105,16 +105,37 @@ def extract_subtitle(filepath):
 
 
 def extract_description_from_frontmatter(filepath):
-    """Extract the description field from YAML frontmatter."""
+    """Extract the description field from YAML frontmatter.
+
+    Handles single-line, quoted, and multi-line (| or >) YAML descriptions.
+    """
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
         match = re.match(r"^---\n(.*?)---\n", content, re.DOTALL)
-        if match:
-            fm = match.group(1)
-            desc_match = re.search(r'description:\s*["\']?(.*?)["\']?\s*$', fm, re.MULTILINE)
-            if desc_match:
-                return desc_match.group(1).strip()
+        if not match:
+            return None
+        fm = match.group(1)
+
+        # Try quoted single-line: description: "text" or description: 'text'
+        m = re.search(r'description:\s*"([^"]+)"', fm)
+        if m:
+            return m.group(1).strip()
+        m = re.search(r"description:\s*'([^']+)'", fm)
+        if m:
+            return m.group(1).strip()
+
+        # Try multi-line block scalar: description: | or description: >
+        m = re.search(r"description:\s*[|>]-?\s*\n((?:[ \t]+.+\n?)+)", fm)
+        if m:
+            lines = m.group(1).strip().splitlines()
+            text = " ".join(line.strip() for line in lines)
+            return text
+
+        # Try unquoted single-line: description: text
+        m = re.search(r"description:\s+([^\n\"'][^\n]+)", fm)
+        if m:
+            return m.group(1).strip()
     except Exception:
         pass
     return None
@@ -123,6 +144,35 @@ def extract_description_from_frontmatter(filepath):
 def slugify(name):
     """Convert a skill name to a URL-friendly slug."""
     return re.sub(r"[^a-z0-9-]", "-", name.lower()).strip("-")
+
+
+# SEO keyword mapping: domain_key -> differentiating keywords for <title> tags
+# site_name already carries "Claude Code Skills" on every page,
+# so per-page suffixes emphasize complementary terms: agent skill, Codex, OpenClaw, domain
+DOMAIN_SEO_SUFFIX = {
+    "engineering-team": "Agent Skill & Codex Plugin",
+    "engineering": "Agent Skill for Codex & OpenClaw",
+    "product-team": "Agent Skill for Product Teams",
+    "marketing-skill": "Agent Skill for Marketing",
+    "project-management": "Agent Skill for PM",
+    "c-level-advisor": "Agent Skill for Executives",
+    "ra-qm-team": "Agent Skill for Compliance",
+    "business-growth": "Agent Skill for Growth",
+    "finance": "Agent Skill for Finance",
+}
+
+# Domain-specific description context for pages without frontmatter descriptions
+DOMAIN_SEO_CONTEXT = {
+    "engineering-team": "engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing",
+    "engineering": "advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation",
+    "product-team": "product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps",
+    "marketing-skill": "marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth",
+    "project-management": "project management agent skill and Claude Code plugin for sprints, Jira, and Confluence",
+    "c-level-advisor": "executive advisory agent skill and Claude Code plugin for strategic decisions and board meetings",
+    "ra-qm-team": "regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance",
+    "business-growth": "business growth agent skill and Claude Code plugin for customer success, sales, and revenue ops",
+    "finance": "finance agent skill and Claude Code plugin for DCF valuation, budgeting, and SaaS metrics",
+}
 
 
 def prettify(name):
@@ -144,6 +194,33 @@ def strip_content(content):
 
 
 GITHUB_BASE = "https://github.com/alirezarezvani/claude-skills/tree/main"
+
+
+def rewrite_skill_internal_links(content, skill_rel_path):
+    """Rewrite skill-internal relative links to GitHub source URLs.
+
+    SKILL.md files contain links like references/foo.md, scripts/bar.py,
+    assets/template.md, README.md — these exist in the repo but not in docs/.
+    Convert them to absolute GitHub URLs.
+    """
+    # Patterns that are skill-internal (not other docs pages)
+    internal_prefixes = ("references/", "scripts/", "assets/", "templates/", "tools/")
+
+    def resolve_internal(match):
+        text = match.group(1)
+        target = match.group(2)
+        # Skip anchors, absolute URLs, and links to other docs pages
+        if target.startswith(("#", "http://", "https://", "mailto:")):
+            return match.group(0)
+        # Rewrite skill-internal links
+        if (target.startswith(internal_prefixes) or target == "README.md"
+                or target.endswith((".py", ".json", ".yaml", ".yml", ".sh"))):
+            github_url = f"{GITHUB_BASE}/{skill_rel_path}/{target}"
+            return f"[{text}]({github_url})"
+        return match.group(0)
+
+    content = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", resolve_internal, content)
+    return content
 
 
 def rewrite_relative_links(content, source_rel_path):
@@ -201,18 +278,38 @@ def generate_skill_page(skill, domain_key):
 
     # Extract title or generate one
     title = extract_title(skill_md_path) or prettify(skill["name"])
-    # Clean title of markdown artifacts
+    # Clean title of markdown artifacts and strip domain labels
     title = re.sub(r"[*_`]", "", title)
+    title = re.sub(r"\s*[-—]\s*(POWERFUL|Core|Advanced)\s*$", "", title, flags=re.IGNORECASE)
 
     domain_name, _, domain_icon, plugin_name = DOMAINS[domain_key]
-    description = f"{title} - Claude Code skill from the {domain_name} domain."
+    seo_suffix = DOMAIN_SEO_SUFFIX.get(domain_key, "Claude Code Plugin & Agent Skill")
+    seo_title = f"{title} — {seo_suffix}"
+
+    fm_desc = extract_description_from_frontmatter(skill_md_path)
+    desc_platforms = "Claude Code, Codex CLI, Gemini CLI, OpenClaw"
+    if fm_desc:
+        # Strip quotes and clean
+        clean = fm_desc.strip("'\"").replace('"', "'")
+        # Check if platform keywords already present
+        has_platform = any(k in clean.lower() for k in ["claude code", "codex", "gemini"])
+        if len(clean) > 150:
+            # Truncate at last word boundary before 150 chars
+            truncated = clean[:150].rsplit(" ", 1)[0].rstrip(".,;:—-")
+            description = f"{truncated}." if has_platform else f"{truncated}. Agent skill for {desc_platforms}."
+        else:
+            desc_text = clean.rstrip(".")
+            description = f"{desc_text}." if has_platform else f"{desc_text}. Agent skill for {desc_platforms}."
+    else:
+        seo_ctx = DOMAIN_SEO_CONTEXT.get(domain_key, f"agent skill for {domain_name}")
+        description = f"{title} — {seo_ctx}. Works with {desc_platforms}."
     subtitle = extract_subtitle(skill_md_path) or ""
     # Clean subtitle of markdown artifacts for the intro
     subtitle_clean = re.sub(r"[*_`\[\]]", "", subtitle)
 
     # Build the page with design system
     page = f'''---
-title: "{title}"
+title: "{seo_title}"
 description: "{description}"
 ---
 
@@ -233,6 +330,8 @@ description: "{description}"
 '''
 
     content_clean = strip_content(content)
+    content_clean = rewrite_skill_internal_links(content_clean, skill["rel_path"])
+    content_clean = rewrite_relative_links(content_clean, os.path.join(skill["rel_path"], "SKILL.md"))
     page += content_clean
 
     return page
@@ -333,9 +432,10 @@ def main():
     {subtitle}
 """
 
+        domain_seo_ctx = DOMAIN_SEO_CONTEXT.get(domain_key, f"agent skills for {domain_name}")
         index_content = f'''---
-title: "{domain_name} Skills"
-description: "All {skill_count} {domain_name} skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "{domain_name} Skills — Agent Skills & Codex Plugins"
+description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
@@ -394,6 +494,9 @@ description: "All {skill_count} {domain_name} skills for Claude Code, Codex CLI,
                 rel = os.path.relpath(agent_path, REPO_ROOT)
                 title = extract_title(agent_path) or prettify(agent_name)
                 title = re.sub(r"[*_`]", "", title)
+                # If H1 is a raw slug (cs-foo-bar), prettify it
+                if re.match(r"^cs-[a-z-]+$", title):
+                    title = prettify(title.removeprefix("cs-"))
 
                 with open(agent_path, "r", encoding="utf-8") as f:
                     content = f.read()
@@ -401,9 +504,19 @@ description: "All {skill_count} {domain_name} skills for Claude Code, Codex CLI,
                 content_clean = strip_content(content)
                 content_clean = rewrite_relative_links(content_clean, rel)
 
+                agent_seo_title = f"{title} — AI Coding Agent & Codex Skill"
+                agent_fm_desc = extract_description_from_frontmatter(agent_path)
+                if agent_fm_desc:
+                    agent_clean = agent_fm_desc.strip("'\"").replace('"', "'")
+                    if len(agent_clean) > 150:
+                        agent_clean = agent_clean[:150].rsplit(" ", 1)[0].rstrip(".,;:—-")
+                    agent_desc = f"{agent_clean}. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
+                else:
+                    agent_desc = f"{title} — agent-native AI orchestrator for {domain_label}. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+
                 page = f'''---
-title: "{title}"
-description: "{title} - Claude Code agent for {domain_label}."
+title: "{agent_seo_title}"
+description: "{agent_desc}"
 ---
 
 # {title}
@@ -435,8 +548,8 @@ description: "{title} - Claude Code agent for {domain_label}."
 """
 
         idx = f'''---
-title: "Agents"
-description: "All {agent_count} Claude Code agents — multi-skill orchestrators across domains."
+title: "AI Coding Agents — Agent-Native Orchestrators & Codex Skills"
+description: "{agent_count} agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
 ---
 
 <div class="domain-header" markdown>
@@ -477,9 +590,18 @@ description: "All {agent_count} Claude Code agents — multi-skill orchestrators
             content_clean = strip_content(content)
             content_clean = rewrite_relative_links(content_clean, rel)
 
+            cmd_fm_desc = extract_description_from_frontmatter(cmd_path)
+            if cmd_fm_desc:
+                cmd_clean = cmd_fm_desc.strip("'\"").replace('"', "'")
+                if len(cmd_clean) > 150:
+                    cmd_clean = cmd_clean[:150].rsplit(" ", 1)[0].rstrip(".,;:—-")
+                cmd_desc = f"{cmd_clean}. Slash command for Claude Code, Codex CLI, Gemini CLI."
+            else:
+                cmd_desc = f"/{cmd_name} — slash command for Claude Code, Codex CLI, and Gemini CLI. Run directly in your AI coding agent."
+
             page = f'''---
-title: "/{cmd_name}"
-description: "/{cmd_name} — Claude Code slash command."
+title: "/{cmd_name} — Slash Command for AI Coding Agents"
+description: "{cmd_desc}"
 ---
 
 # /{cmd_name}
@@ -514,8 +636,8 @@ description: "/{cmd_name} — Claude Code slash command."
 """
 
         idx = f'''---
-title: "Commands"
-description: "All {cmd_count} slash commands for quick access to common operations."
+title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
+description: "{cmd_count} slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>

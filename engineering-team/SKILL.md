@@ -1,6 +1,6 @@
 ---
 name: "engineering-skills"
-description: "23 production-ready engineering skills covering architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, computer vision, and specialized tools like Playwright Pro, Stripe integration, AWS, and MS365. 30+ Python automation tools (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
+description: "23 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT

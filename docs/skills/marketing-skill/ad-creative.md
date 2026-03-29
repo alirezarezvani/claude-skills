@@ -1,6 +1,6 @@
 ---
-title: "Ad Creative"
-description: "Ad Creative - Claude Code skill from the Marketing domain."
+title: "Ad Creative — Agent Skill for Marketing"
+description: "When the user needs to generate, iterate, or scale ad creative for paid advertising. Use when they say 'write ad copy,' 'generate headlines,' 'create. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Ad Creative
@@ -90,7 +90,7 @@ You have a winning creative. Now multiply it for testing or for multiple audienc
 | Twitter/X | Promoted | 70 chars | 280 chars total | No deceptive tactics |
 | TikTok | In-Feed | No overlay headline | 80–100 chars caption | Hook in first 3s |
 
-See [references/platform-specs.md](references/platform-specs.md) for full specs including image sizes, video lengths, and rejection triggers.
+See [references/platform-specs.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/references/platform-specs.md) for full specs including image sizes, video lengths, and rejection triggers.
 
 ---
 
@@ -126,7 +126,7 @@ They're close. Remove the last objection.
 
 **Works well:** Social proof headlines, guarantee-first, before/after
 
-See [references/creative-frameworks.md](references/creative-frameworks.md) for the full framework catalog with examples by platform.
+See [references/creative-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ad-creative/references/creative-frameworks.md) for the full framework catalog with examples by platform.
 
 ---
 

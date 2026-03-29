@@ -1,6 +1,6 @@
 ---
-title: "Marketing Ops"
-description: "Marketing Ops - Claude Code skill from the Marketing domain."
+title: "Marketing Ops — Agent Skill for Marketing"
+description: "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Marketing Ops

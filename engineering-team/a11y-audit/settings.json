@@ -1,0 +1,15 @@
+{
+  "name": "a11y-audit",
+  "displayName": "A11y Audit",
+  "version": "2.1.2",
+  "description": "WCAG 2.2 accessibility audit and fix. Scans React, Next.js, Vue, Angular, Svelte, and HTML for 20+ violation types. Contrast checker with suggest mode. CI-friendly.",
+  "author": "Alireza Rezvani",
+  "license": "MIT",
+  "platforms": ["claude-code", "openclaw", "codex"],
+  "category": "engineering",
+  "tags": ["accessibility", "a11y", "wcag", "aria", "screen-reader", "keyboard-navigation", "contrast", "react", "vue", "angular", "nextjs", "svelte"],
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "commands": {
+    "a11y-audit": "/a11y-audit"
+  }
+}

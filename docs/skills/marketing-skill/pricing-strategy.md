@@ -1,6 +1,6 @@
 ---
-title: "Pricing Strategy"
-description: "Pricing Strategy - Claude Code skill from the Marketing domain."
+title: "Pricing Strategy — Agent Skill for Marketing"
+description: "Design, optimize, and communicate SaaS pricing — tier structure, value metrics, pricing pages, and price increase strategy. Use when building a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Pricing Strategy
@@ -149,7 +149,7 @@ Three tiers is the standard. Not because of tradition — because it anchors per
 | Admin features | — | — | SSO, audit log, SCIM |
 | SLA | — | — | ✅ |
 
-See [references/pricing-models.md](references/pricing-models.md) for model deep dives and SaaS examples.
+See [references/pricing-models.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/pricing-strategy/references/pricing-models.md) for model deep dives and SaaS examples.
 
 ---
 
@@ -278,7 +278,7 @@ Must have:
 - Show savings explicitly: "Save 20%" or "2 months free"
 - Don't hide the monthly price — hiding it builds distrust
 
-See [references/pricing-page-playbook.md](references/pricing-page-playbook.md) for design specs and copy templates.
+See [references/pricing-page-playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/pricing-strategy/references/pricing-page-playbook.md) for design specs and copy templates.
 
 ---
 

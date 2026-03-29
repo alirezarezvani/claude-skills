@@ -18,7 +18,7 @@
   },
   "hooks": {
     "PostToolUse": {
-      "Bash": "hooks/error-capture.sh"
+      "Bash": "${CLAUDE_PLUGIN_ROOT}/hooks/error-capture.sh"
     }
   },
   "agents": [

@@ -1,6 +1,6 @@
 ---
-title: "CI/CD Pipeline Builder"
-description: "CI/CD Pipeline Builder - Claude Code skill from the Engineering - POWERFUL domain."
+title: "CI/CD Pipeline Builder — Agent Skill for Codex & OpenClaw"
+description: "CI/CD Pipeline Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CI/CD Pipeline Builder
@@ -111,10 +111,10 @@ python3 scripts/pipeline_generator.py --repo . --platform gitlab --output .gitla
 
 ## References
 
-- [references/github-actions-templates.md](references/github-actions-templates.md)
-- [references/gitlab-ci-templates.md](references/gitlab-ci-templates.md)
-- [references/deployment-gates.md](references/deployment-gates.md)
-- [README.md](README.md)
+- [references/github-actions-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/references/github-actions-templates.md)
+- [references/gitlab-ci-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/references/gitlab-ci-templates.md)
+- [references/deployment-gates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/references/deployment-gates.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/README.md)
 
 ## Detection Heuristics
 

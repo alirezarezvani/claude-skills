@@ -1,6 +1,6 @@
 ---
-title: "Signup Flow CRO"
-description: "Signup Flow CRO - Claude Code skill from the Marketing domain."
+title: "Signup Flow CRO — Agent Skill for Marketing"
+description: "When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions 'signup. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Signup Flow CRO

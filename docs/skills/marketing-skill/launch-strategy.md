@@ -1,6 +1,6 @@
 ---
-title: "Launch Strategy"
-description: "Launch Strategy - Claude Code skill from the Marketing domain."
+title: "Launch Strategy — Agent Skill for Marketing"
+description: "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,'. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Launch Strategy

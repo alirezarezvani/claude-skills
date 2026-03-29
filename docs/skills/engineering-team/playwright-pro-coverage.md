@@ -1,6 +1,6 @@
 ---
-title: "Analyze Test Coverage Gaps"
-description: "Analyze Test Coverage Gaps - Claude Code skill from the Engineering - Core domain."
+title: "Analyze Test Coverage Gaps — Agent Skill & Codex Plugin"
+description: "Analyze test coverage gaps. Use when user says 'test coverage', 'what's not tested', 'coverage gaps', 'missing tests', 'coverage report', or 'what. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Analyze Test Coverage Gaps

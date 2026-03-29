@@ -1,6 +1,6 @@
 ---
-title: "Product Strategist"
-description: "Product Strategist - Claude Code skill from the Product domain."
+title: "Product Strategist — Agent Skill for Product Teams"
+description: "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Product Strategist

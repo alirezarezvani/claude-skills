@@ -1,6 +1,6 @@
 ---
-title: Multi-Tool Integrations
-description: "Use Claude Code Skills with Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Convert and install skills for 11 AI coding tools in seconds."
+title: Cursor, Aider, Windsurf & 8 More AI Coding Tools
+description: "Install Claude Code skills and agent plugins in Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. One-command conversion for 11 AI coding agents."
 ---
 
 # Multi-Tool Integrations

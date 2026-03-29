@@ -1,6 +1,6 @@
 ---
-title: "CMO Advisor"
-description: "CMO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CMO Advisor — Agent Skill for Executives"
+description: "Marketing leadership for scaling companies. Brand positioning, growth model design, marketing budget allocation, and marketing org design. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CMO Advisor

@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: "How to install and use Claude Code skills and plugins for 11 AI coding tools — Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
+title: Install Agent Skills — Codex, Gemini CLI, OpenClaw Setup
+description: "How to install Claude Code skills and agent plugins for 11 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
 ---
 
 # Getting Started
@@ -140,11 +140,11 @@ Choose your platform and follow the steps:
 
 | Bundle | Install Command | Skills |
 |--------|----------------|--------|
-| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 24 |
-| **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 25 |
-| **Product** | `/plugin install product-skills@claude-code-skills` | 12 |
+| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 30 |
+| **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 35 |
+| **Product** | `/plugin install product-skills@claude-code-skills` | 14 |
 | **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 43 |
-| **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 12 |
+| **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 13 |
 | **Project Management** | `/plugin install pm-skills@claude-code-skills` | 6 |
 | **C-Level Advisory** | `/plugin install c-level-skills@claude-code-skills` | 28 |
 | **Business & Growth** | `/plugin install business-growth-skills@claude-code-skills` | 4 |

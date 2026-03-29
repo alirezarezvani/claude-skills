@@ -1,0 +1,13 @@
+{
+  "name": "terraform-patterns",
+  "description": "Terraform infrastructure-as-code agent skill and plugin for module design patterns, state management strategies, provider configuration, security hardening, and CI/CD plan/apply workflows. Covers mono-repo vs multi-repo, workspaces, policy-as-code, and drift detection.",
+  "version": "2.1.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/terraform-patterns",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

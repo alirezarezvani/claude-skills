@@ -1,0 +1,13 @@
+{
+  "name": "helm-chart-builder",
+  "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing.",
+  "version": "2.1.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/helm-chart-builder",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

@@ -1,6 +1,6 @@
 ---
-title: "Finance Skills"
-description: "All 3 Finance skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "Finance Skills — Agent Skills & Codex Plugins"
+description: "3 finance skills — finance agent skill and Claude Code plugin for DCF valuation, budgeting, and SaaS metrics. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

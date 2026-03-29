@@ -1,6 +1,6 @@
 ---
-title: "Decision Logger"
-description: "Decision Logger - Claude Code skill from the C-Level Advisory domain."
+title: "Decision Logger — Agent Skill for Executives"
+description: "Two-layer memory architecture for board meeting decisions. Manages raw transcripts (Layer 1) and approved decisions (Layer 2). Use when logging. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Decision Logger

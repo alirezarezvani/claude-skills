@@ -1,6 +1,6 @@
 ---
-title: "FDA Consultant Specialist"
-description: "FDA Consultant Specialist - Claude Code skill from the Regulatory & Quality domain."
+title: "FDA Consultant Specialist — Agent Skill for Compliance"
+description: "FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QSR (21 CFR 820) compliance, HIPAA assessments. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # FDA Consultant Specialist
@@ -66,7 +66,7 @@ Predicate device exists?
 4. Prepare Q-Sub questions for FDA
 5. Schedule Pre-Sub meeting if needed
 
-**Reference:** See [fda_submission_guide.md](references/fda_submission_guide.md) for pathway decision matrices and submission requirements.
+**Reference:** See [fda_submission_guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist/references/fda_submission_guide.md) for pathway decision matrices and submission requirements.
 
 ---
 
@@ -180,7 +180,7 @@ Step 6: Design Transfer
 6. **Effectiveness**: Monitor for recurrence (30-90 days)
 7. **Close**: Management approval and closure
 
-**Reference:** See [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) for detailed QSR implementation guidance.
+**Reference:** See [qsr_compliance_requirements.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist/references/qsr_compliance_requirements.md) for detailed QSR implementation guidance.
 
 ---
 
@@ -231,7 +231,7 @@ Technical (§164.312)
 6. Implement controls
 7. Document residual risk
 
-**Reference:** See [hipaa_compliance_framework.md](references/hipaa_compliance_framework.md) for implementation checklists and BAA templates.
+**Reference:** See [hipaa_compliance_framework.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist/references/hipaa_compliance_framework.md) for implementation checklists and BAA templates.
 
 ---
 
@@ -280,7 +280,7 @@ Fix Development
 Coordinated Public Disclosure
 ```
 
-**Reference:** See [device_cybersecurity_guidance.md](references/device_cybersecurity_guidance.md) for SBOM format examples and threat modeling templates.
+**Reference:** See [device_cybersecurity_guidance.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/fda-consultant-specialist/references/device_cybersecurity_guidance.md) for SBOM format examples and threat modeling templates.
 
 ---
 

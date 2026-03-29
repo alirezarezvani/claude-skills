@@ -1,6 +1,6 @@
 # Installation Guide - Claude Skills Library
 
-Complete installation guide for all 170 production-ready skills across multiple AI agents and platforms.
+Complete installation guide for all 205+ production-ready skills across multiple AI agents and platforms.
 
 ## Table of Contents
 
@@ -80,7 +80,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills
 This single command installs all skills to all supported agents automatically.
 
 **What this does:**
-- ✅ Detects all 170 skills automatically
+- ✅ Detects all 205+ skills automatically
 - ✅ Installs to Claude, Cursor, Copilot, Windsurf, Cline, and 37+ other AI agents
 - ✅ Works across all skill formats
 
@@ -113,7 +113,7 @@ This adds the skills library to your available marketplaces.
 /plugin install pm-skills@claude-code-skills            # 6 project management skills
 /plugin install ra-qm-skills@claude-code-skills         # 12 regulatory/quality skills
 /plugin install business-growth-skills@claude-code-skills  # 4 business & growth skills
-/plugin install finance-skills@claude-code-skills       # 1 finance skill
+/plugin install finance-skills@claude-code-skills       # 2 finance skills
 ```
 
 ### Install Individual Skills
@@ -268,22 +268,22 @@ npx agent-skills-cli add alirezarezvani/claude-skills/product-team/ui-design-sys
 
 ```bash
 # Senior PM Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/senior-pm-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/senior-pm
 
 # Scrum Master Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/scrum-master-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/scrum-master
 
 # Atlassian Jira Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-jira-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/jira-expert
 
 # Atlassian Confluence Expert
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-confluence-expert
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/confluence-expert
 
 # Atlassian Administrator
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-administrator
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-admin
 
 # Atlassian Template Creator
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-template-creator
+npx agent-skills-cli add alirezarezvani/claude-skills/project-management/atlassian-templates
 ```
 
 ### Engineering Team Skills
@@ -436,16 +436,16 @@ cp -r engineering-team .github/skills/
 
 ```bash
 # Test marketing tools
-python marketing-skill/content-creator/scripts/brand_voice_analyzer.py --help
-python marketing-skill/content-creator/scripts/seo_optimizer.py --help
+python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py --help
+python3 marketing-skill/content-production/scripts/seo_optimizer.py --help
 
 # Test C-level tools
-python c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py --help
-python c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py --help
+python3 c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py --help
+python3 c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py --help
 
 # Test product tools
-python product-team/product-manager-toolkit/scripts/rice_prioritizer.py --help
-python product-team/ui-design-system/scripts/design_token_generator.py --help
+python3 product-team/product-manager-toolkit/scripts/rice_prioritizer.py --help
+python3 product-team/ui-design-system/scripts/design_token_generator.py --help
 ```
 
 ---
@@ -496,10 +496,10 @@ ls ~/.config/goose/skills/
 echo "Sample content for analysis" > test-article.txt
 
 # Run brand voice analysis
-python ~/.claude/skills/content-creator/scripts/brand_voice_analyzer.py test-article.txt
+python3 ~/.claude/skills/content-production/scripts/brand_voice_analyzer.py test-article.txt
 
 # Run SEO optimization
-python ~/.claude/skills/content-creator/scripts/seo_optimizer.py test-article.txt "sample keyword"
+python3 ~/.claude/skills/content-production/scripts/seo_optimizer.py test-article.txt "sample keyword"
 ```
 
 ---
@@ -674,7 +674,7 @@ rm -rf .cursor/skills/fullstack-engineer/
 
 ## Gemini CLI Installation
 
-Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 170+ skills, agents, and commands.
+Gemini CLI users can install skills using the setup script below. This repository provides Gemini CLI compatibility through a `.gemini/skills/` directory with symlinks to all 205+ skills, agents, and commands.
 
 ### Setup Instructions
 
@@ -696,7 +696,7 @@ Gemini CLI users can install skills using the setup script below. This repositor
     - Generates a `skills-index.json` manifest for discovery.
 
 3.  **Activate Skills in Gemini CLI:**
-    Gemini CLI can now activate any of these 170+ skills by name. Use the `activate_skill` tool:
+    Gemini CLI can now activate any of these 205+ skills by name. Use the `activate_skill` tool:
     ```javascript
     // Activate a core skill
     activate_skill(name="senior-architect")
@@ -792,7 +792,7 @@ head -20 ~/.openclaw/skills/senior-frontend/SKILL.md
 | Project Management | `project-management/` | 6 |
 | RA/QM Compliance | `ra-qm-team/` | 12 |
 | Business & Growth | `business-growth/` | 4 |
-| Finance | `finance/` | 1 |
+| Finance | `finance/` | 2 |
 
 ### Python Tools
 
@@ -830,7 +830,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
 
 # Generate symlinks (if not already present)
-python scripts/sync-codex-skills.py
+python3 scripts/sync-codex-skills.py
 
 # Install all skills to ~/.codex/skills/
 ./scripts/codex-install.sh
@@ -903,7 +903,7 @@ ls ~/.codex/skills/ | wc -l
 | **project-management** | 6 | scrum-master, senior-pm, jira-expert, confluence-expert |
 | **ra-qm** | 12 | regulatory-affairs-head, quality-manager-qms-iso13485, gdpr-dsgvo-expert |
 | **business-growth** | 4 | customer-success-manager, sales-engineer, revenue-operations |
-| **finance** | 1 | financial-analyst |
+| **finance** | 2 | financial-analyst, saas-metrics-coach |
 
 See `.codex/skills-index.json` for the complete manifest with descriptions.
 
@@ -944,5 +944,5 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 ---
 
 **Last Updated:** March 2026
-**Skills Version:** 2.1.1 (170 production skills across 9 domains)
+**Skills Version:** 2.1.2 (205+ production skills across 9 domains)
 **Universal Installer:** [Agent Skills CLI](https://github.com/Karanjot786/agent-skills-cli)

@@ -1,6 +1,6 @@
 ---
-title: "Product Manager Agent"
-description: "Product Manager Agent - Claude Code agent for Product."
+title: "Product Manager Agent — AI Coding Agent & Codex Skill"
+description: "Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # Product Manager Agent

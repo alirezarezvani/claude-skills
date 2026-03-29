@@ -1,6 +1,6 @@
 ---
-title: "/ar:status — Experiment Dashboard"
-description: "/ar:status — Experiment Dashboard - Claude Code skill from the Engineering - POWERFUL domain."
+title: "/ar:status — Experiment Dashboard — Agent Skill for Codex & OpenClaw"
+description: "Show experiment dashboard with results, active loops, and progress. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /ar:status — Experiment Dashboard

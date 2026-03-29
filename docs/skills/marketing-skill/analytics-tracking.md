@@ -1,6 +1,6 @@
 ---
-title: "Analytics Tracking"
-description: "Analytics Tracking - Claude Code skill from the Marketing domain."
+title: "Analytics Tracking — Agent Skill for Marketing"
+description: "Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Analytics Tracking
@@ -120,7 +120,7 @@ chat_opened
 help_article_viewed     (param: article_name)
 ```
 
-See [references/event-taxonomy-guide.md](references/event-taxonomy-guide.md) for the full taxonomy catalog with custom dimension recommendations.
+See [references/event-taxonomy-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/references/event-taxonomy-guide.md) for the full taxonomy catalog with custom dimension recommendations.
 
 ---
 
@@ -240,7 +240,7 @@ GTM Tag: GA4 Event
     page_location: {{Page URL}}
 ```
 
-See [references/gtm-patterns.md](references/gtm-patterns.md) for full configuration templates.
+See [references/gtm-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/references/gtm-patterns.md) for full configuration templates.
 
 ---
 

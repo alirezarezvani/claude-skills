@@ -1,6 +1,6 @@
 ---
-title: "CISO Advisor"
-description: "CISO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CISO Advisor — Agent Skill for Executives"
+description: "Security leadership for growth-stage companies. Risk quantification in dollars, compliance roadmap (SOC 2/ISO 27001/HIPAA/GDPR), security. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CISO Advisor

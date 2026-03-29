@@ -1,6 +1,6 @@
 ---
-title: "Skill Security Auditor"
-description: "Skill Security Auditor - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Skill Security Auditor — Agent Skill for Codex & OpenClaw"
+description: "Security audit and vulnerability scanner for AI agent skills before installation. Use when: (1) evaluating a skill from an untrusted source, (2)."
 ---
 
 # Skill Security Auditor
@@ -160,7 +160,7 @@ done
 
 ## Threat Model Reference
 
-For the complete threat model, detection patterns, and known attack vectors against AI agent skills, see [references/threat-model.md](references/threat-model.md).
+For the complete threat model, detection patterns, and known attack vectors against AI agent skills, see [references/threat-model.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-security-auditor/references/threat-model.md).
 
 ## Limitations
 

@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 177 production-ready skills across 9 domains with 254 Python automation tools, 357 reference guides, 17 agents, and 22 slash commands.
+**Current Scope:** 205 production-ready skills across 9 domains with 268 Python automation tools, 384 reference guides, 16 agents, and 19 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -36,15 +36,15 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
-├── agents/                    # 15 cs-* prefixed agents across all domains
-├── commands/                  # 22 slash commands (changelog, tdd, saas-health, workspace, prd, sprint-plan, ar:*, etc.)
-├── engineering-team/          # 24 core engineering skills + Playwright Pro + Self-Improving Agent
-├── engineering/               # 25 POWERFUL-tier advanced skills
-├── product-team/              # 12 product skills + Python tools
+├── agents/                    # 16 cs-* prefixed agents across all domains
+├── commands/                  # 19 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
+├── engineering-team/          # 30 core engineering skills + Playwright Pro + Self-Improving Agent + A11y Audit
+├── engineering/               # 35 POWERFUL-tier advanced skills (incl. AgentHub)
+├── product-team/              # 13 product skills + Python tools
 ├── marketing-skill/           # 43 marketing skills (7 pods) + Python tools
 ├── c-level-advisor/           # 28 C-level advisory skills (10 roles + orchestration)
 ├── project-management/        # 6 PM skills + Atlassian MCP
-├── ra-qm-team/                # 12 RA/QM compliance skills
+├── ra-qm-team/                # 13 RA/QM compliance skills
 ├── business-growth/           # 4 business & growth skills + Python tools
 ├── finance/                   # 2 finance skills + Python tools
 ├── eval-workspace/            # Skill evaluation results (Tessl)
@@ -148,9 +148,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 177 production-ready skills deployed across 9 domains
-- Engineering Core (24), Engineering POWERFUL (25), Product (8), Marketing (43), PM (6), C-Level (28), RA/QM (12), Business & Growth (4), Finance (2)
-- 254 Python automation tools, 357 reference guides, 17 agents, 22 commands
+**Phase 1-2 Complete:** 204 production-ready skills deployed across 9 domains
+- Engineering Core (29), Engineering POWERFUL (35), Product (14), Marketing (43), PM (6), C-Level (28), RA/QM (13), Business & Growth (4), Finance (2)
+- 268 Python automation tools, 384 reference guides, 16 agents, 19 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
 - MkDocs Material docs site with 210+ indexed pages for SEO
 
@@ -203,4 +203,4 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 
 **Last Updated:** March 11, 2026
 **Version:** v2.1.2
-**Status:** 177 skills deployed across 9 domains, 19 marketplace plugins, docs site live
+**Status:** 205 skills deployed across 9 domains, 28 marketplace plugins, docs site live

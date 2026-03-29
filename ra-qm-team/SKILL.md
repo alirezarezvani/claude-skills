@@ -1,6 +1,6 @@
 ---
 name: "ra-qm-skills"
-description: "12 production-ready regulatory affairs and quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, ISO 27001 ISMS, GDPR/DSGVO compliance, risk management (ISO 14971), CAPA, document control, and internal auditing. Python tools included (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
+description: "12 regulatory & QM agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, ISO 27001 ISMS, GDPR/DSGVO, risk management (ISO 14971), CAPA, document control, auditing. Python tools (stdlib-only)."
 version: 1.0.0
 author: Alireza Rezvani
 license: MIT

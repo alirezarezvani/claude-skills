@@ -1,0 +1,1 @@
+../../../engineering/agenthub/skills/board/SKILL.md

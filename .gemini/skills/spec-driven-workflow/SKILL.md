@@ -1,0 +1,1 @@
+../../../engineering/spec-driven-workflow/SKILL.md

@@ -1,6 +1,6 @@
 ---
-title: "Quality Manager - QMS ISO 13485 Specialist"
-description: "Quality Manager - QMS ISO 13485 Specialist - Claude Code skill from the Regulatory & Quality domain."
+title: "Quality Manager - QMS ISO 13485 Specialist — Agent Skill for Compliance"
+description: "ISO 13485 Quality Management System implementation and maintenance for medical device organizations. Provides QMS design, documentation control. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Quality Manager - QMS ISO 13485 Specialist
@@ -54,7 +54,7 @@ Implement ISO 13485:2016 compliant quality management system from gap analysis t
 7. Deploy processes with training
 8. **Validation:** Gap analysis complete; Quality Manual approved; all required procedures documented and trained
 
-> Use the Gap Analysis Matrix template in [qms-process-templates.md](references/qms-process-templates.md) to document clause-by-clause current state, gaps, priority, and actions.
+> Use the Gap Analysis Matrix template in [qms-process-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/references/qms-process-templates.md) to document clause-by-clause current state, gaps, priority, and actions.
 
 ### QMS Structure
 
@@ -147,7 +147,7 @@ Plan and execute internal audits per ISO 13485 Clause 8.2.4.
 7. Track completion and reschedule as needed
 8. **Validation:** All processes covered; auditors qualified and independent; schedule approved
 
-> Use the Audit Program Template in [qms-process-templates.md](references/qms-process-templates.md) to schedule audits by clause and quarter across processes such as Document Control (4.2.3/4.2.4), Management Review (5.6), Design Control (7.3), Production (7.5), and CAPA (8.5.2/8.5.3).
+> Use the Audit Program Template in [qms-process-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/references/qms-process-templates.md) to schedule audits by clause and quarter across processes such as Document Control (4.2.3/4.2.4), Management Review (5.6), Design Control (7.3), Production (7.5), and CAPA (8.5.2/8.5.3).
 
 ### Workflow: Individual Audit Execution
 
@@ -303,7 +303,7 @@ Evaluate and approve suppliers per ISO 13485 Clause 7.4.
 
 ## QMS Process Reference
 
-For detailed requirements and audit questions for each ISO 13485:2016 clause, see [iso13485-clause-requirements.md](references/iso13485-clause-requirements.md).
+For detailed requirements and audit questions for each ISO 13485:2016 clause, see [iso13485-clause-requirements.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/references/iso13485-clause-requirements.md).
 
 ### Management Review Required Inputs (Clause 5.6.2)
 
@@ -393,7 +393,7 @@ Nonconforming Product Identified
 
 | Tool | Purpose | Usage |
 |------|---------|-------|
-| [qms_audit_checklist.py](scripts/qms_audit_checklist.py) | Generate audit checklists by clause or process | `python qms_audit_checklist.py --help` |
+| [qms_audit_checklist.py](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/scripts/qms_audit_checklist.py) | Generate audit checklists by clause or process | `python qms_audit_checklist.py --help` |
 
 **Audit Checklist Generator Features:**
 - Generate clause-specific checklists (e.g., `--clause 7.3`)
@@ -406,8 +406,8 @@ Nonconforming Product Identified
 
 | Document | Content |
 |----------|---------|
-| [iso13485-clause-requirements.md](references/iso13485-clause-requirements.md) | Detailed requirements for each ISO 13485:2016 clause with audit questions |
-| [qms-process-templates.md](references/qms-process-templates.md) | Ready-to-use templates for gap analysis, audit program, document control, CAPA, supplier, training |
+| [iso13485-clause-requirements.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/references/iso13485-clause-requirements.md) | Detailed requirements for each ISO 13485:2016 clause with audit questions |
+| [qms-process-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485/references/qms-process-templates.md) | Ready-to-use templates for gap analysis, audit program, document control, CAPA, supplier, training |
 
 ### Quick Reference: Mandatory Documented Procedures
 
@@ -426,8 +426,8 @@ Nonconforming Product Identified
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [quality-manager-qmr](../quality-manager-qmr/) | Management review, quality policy |
-| [capa-officer](../capa-officer/) | CAPA system management |
-| [qms-audit-expert](../qms-audit-expert/) | Advanced audit techniques |
-| [quality-documentation-manager](../quality-documentation-manager/) | DHF, DMR, DHR management |
-| [risk-management-specialist](../risk-management-specialist/) | ISO 14971 integration |
+| [quality-manager-qmr](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qmr) | Management review, quality policy |
+| [capa-officer](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/capa-officer) | CAPA system management |
+| [qms-audit-expert](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/qms-audit-expert) | Advanced audit techniques |
+| [quality-documentation-manager](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-documentation-manager) | DHF, DMR, DHR management |
+| [risk-management-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist) | ISO 14971 integration |

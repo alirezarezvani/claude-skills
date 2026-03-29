@@ -1,20 +1,25 @@
 # Engineering Team Skills - Claude Code Guidance
 
-This guide covers the 24 production-ready engineering skills and their Python automation tools.
+This guide covers the 30 production-ready engineering skills and their Python automation tools.
 
 ## Engineering Skills Overview
 
-**Core Engineering (14 skills):**
+**Core Engineering (16 skills):**
 - senior-architect, senior-frontend, senior-backend, senior-fullstack
 - senior-qa, senior-devops, senior-secops
 - code-reviewer, senior-security
 - aws-solution-architect, ms365-tenant-manager, google-workspace-cli, tdd-guide, tech-stack-evaluator, epic-design
+- **a11y-audit** — WCAG 2.2 accessibility audit and fix (a11y_scanner.py, contrast_checker.py)
+- **azure-cloud-architect** — Azure infrastructure design, ARM/Bicep templates, landing zones
+- **gcp-cloud-architect** — GCP infrastructure design, Terraform modules, cloud-native patterns
+- **security-pen-testing** — Penetration testing methodology, vulnerability assessment, exploit analysis
+- **snowflake-development** — Snowflake data warehouse development, SQL optimization, data pipeline patterns
 
 **AI/ML/Data (5 skills):**
 - senior-data-scientist, senior-data-engineer, senior-ml-engineer
 - senior-prompt-engineer, senior-computer-vision
 
-**Total Tools:** 32+ Python automation tools
+**Total Tools:** 34+ Python automation tools
 
 ## Core Engineering Tools
 
@@ -287,9 +292,9 @@ services:
 
 ---
 
-**Last Updated:** March 13, 2026
-**Skills Deployed:** 25 engineering skills production-ready
-**Total Tools:** 37+ Python automation tools across core + AI/ML/Data + epic-design
+**Last Updated:** March 18, 2026
+**Skills Deployed:** 30 engineering skills production-ready
+**Total Tools:** 39+ Python automation tools across core + AI/ML/Data + epic-design + a11y
 
 ---
 

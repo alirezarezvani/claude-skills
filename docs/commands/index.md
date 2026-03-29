@@ -1,23 +1,35 @@
 ---
-title: "Commands"
-description: "All 17 slash commands for quick access to common operations."
+title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
+description: "22 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">17 commands for quick access to common operations</p>
+<p class="domain-count">22 commands for quick access to common operations</p>
 
 </div>
 
 <div class="grid cards" markdown>
+
+-   :material-console:{ .lg .middle } **[`/a11y-audit`](a11y-audit.md)**
+
+    ---
+
+    Scan a frontend project for WCAG 2.2 accessibility issues, show fixes, and optionally check color contrast.
 
 -   :material-console:{ .lg .middle } **[`/changelog`](changelog.md)**
 
     ---
 
     Generate Keep a Changelog entries from git history and validate commit message format.
+
+-   :material-console:{ .lg .middle } **[`/code-to-prd`](code-to-prd.md)**
+
+    ---
+
+    Reverse-engineer a frontend codebase into a complete Product Requirements Document.
 
 -   :material-console:{ .lg .middle } **[`/competitive-matrix`](competitive-matrix.md)**
 
@@ -30,6 +42,12 @@ description: "All 17 slash commands for quick access to common operations."
     ---
 
     Analyze financial statements, build valuation models, assess budget variances, and construct forecasts.
+
+-   :material-console:{ .lg .middle } **[`/focused-fix`](focused-fix.md)**
+
+    ---
+
+    Systematically repair an entire feature or module using the 5-phase protocol. Target: $ARGUMENTS (a feature path or m...
 
 -   :material-console:{ .lg .middle } **[`/google-workspace`](google-workspace.md)**
 
@@ -54,6 +72,12 @@ description: "All 17 slash commands for quick access to common operations."
     ---
 
     Detect project stack and generate CI/CD pipeline configurations for GitHub Actions or GitLab CI.
+
+-   :material-console:{ .lg .middle } **[`/plugin-audit`](plugin-audit.md)**
+
+    ---
+
+    Full audit pipeline for any skill, plugin, agent, or command in this repository. Runs 8 validation phases, auto-fixes...
 
 -   :material-console:{ .lg .middle } **[`/prd`](prd.md)**
 
@@ -84,6 +108,12 @@ description: "All 17 slash commands for quick access to common operations."
     ---
 
     Calculate SaaS financial health metrics from raw business numbers, benchmark against industry standards, and project ...
+
+-   :material-console:{ .lg .middle } **[`/seo-auditor`](seo-auditor.md)**
+
+    ---
+
+    Systematically scan, audit, and optimize documentation files for SEO. Targets README.md files and docs/ pages — fixes...
 
 -   :material-console:{ .lg .middle } **[`/sprint-health`](sprint-health.md)**
 

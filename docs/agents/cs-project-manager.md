@@ -1,6 +1,6 @@
 ---
-title: "Project Manager Agent"
-description: "Project Manager Agent - Claude Code agent for Project Management."
+title: "Project Manager Agent — AI Coding Agent & Codex Skill"
+description: "Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # Project Manager Agent
@@ -499,7 +499,7 @@ echo "Template: ../../project-management/senior-pm/assets/executive_report_templ
 
 - [cs-product-manager](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-product-manager.md) -- Product prioritization with RICE, customer discovery, PRD development
 - [cs-agile-product-owner](https://github.com/alirezarezvani/claude-skills/tree/main/agents/product/cs-agile-product-owner.md) -- User story generation, backlog management, acceptance criteria (planned)
-- [cs-scrum-master](cs-scrum-master.md) -- Dedicated Scrum ceremony facilitation and team coaching (planned)
+- cs-scrum-master -- Dedicated Scrum ceremony facilitation and team coaching (planned)
 
 ## References
 

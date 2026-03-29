@@ -1,6 +1,6 @@
 {
   "name": "ra-qm-skills",
-  "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, and more",
+  "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
   "version": "2.1.2",
   "author": {
     "name": "Alireza Rezvani",

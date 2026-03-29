@@ -1,6 +1,6 @@
 ---
-title: "Form CRO"
-description: "Form CRO - Claude Code skill from the Marketing domain."
+title: "Form CRO — Agent Skill for Marketing"
+description: "When the user wants to optimize any form that is NOT signup/registration — including lead capture forms, contact forms, demo request forms. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Form CRO

@@ -1,6 +1,6 @@
 ---
-title: "BrowserStack Integration"
-description: "BrowserStack Integration - Claude Code skill from the Engineering - Core domain."
+title: "BrowserStack Integration — Agent Skill & Codex Plugin"
+description: "Run tests on BrowserStack. Use when user mentions 'browserstack', 'cross-browser', 'cloud testing', 'browser matrix', 'test on safari', 'test on. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # BrowserStack Integration

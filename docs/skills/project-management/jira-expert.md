@@ -1,6 +1,6 @@
 ---
-title: "Atlassian Jira Expert"
-description: "Atlassian Jira Expert - Claude Code skill from the Project Management domain."
+title: "Atlassian Jira Expert — Agent Skill for PM"
+description: "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Atlassian Jira Expert

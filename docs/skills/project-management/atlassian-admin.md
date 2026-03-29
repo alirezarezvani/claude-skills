@@ -1,6 +1,6 @@
 ---
-title: "Atlassian Administrator Expert"
-description: "Atlassian Administrator Expert - Claude Code skill from the Project Management domain."
+title: "Atlassian Administrator Expert — Agent Skill for PM"
+description: "Atlassian Administrator for managing and organizing Atlassian products (Jira, Confluence, Bitbucket, Trello), users, permissions, security. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Atlassian Administrator Expert

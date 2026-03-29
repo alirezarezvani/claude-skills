@@ -1,6 +1,6 @@
 ---
-title: "Email Template Builder"
-description: "Email Template Builder - Claude Code skill from the Engineering - Core domain."
+title: "Email Template Builder — Agent Skill & Codex Plugin"
+description: "Email Template Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Email Template Builder

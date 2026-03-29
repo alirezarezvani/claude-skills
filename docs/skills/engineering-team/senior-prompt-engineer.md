@@ -1,6 +1,6 @@
 ---
-title: "Senior Prompt Engineer"
-description: "Senior Prompt Engineer - Claude Code skill from the Engineering - Core domain."
+title: "Senior Prompt Engineer — Agent Skill & Codex Plugin"
+description: "This skill should be used when the user asks to 'optimize prompts', 'design prompt templates', 'evaluate LLM outputs', 'build agentic systems'. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Prompt Engineer

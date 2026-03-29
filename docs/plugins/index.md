@@ -1,13 +1,13 @@
 ---
-title: "Plugins & Marketplace"
-description: "19 installable plugins for Claude Code, Codex CLI, Gemini CLI, and OpenClaw. Domain bundles and standalone plugins across engineering, marketing, product, and more."
+title: "Agent Plugin Marketplace — Codex & OpenClaw Plugins"
+description: "28 installable agent plugins for Claude Code, Codex CLI, Gemini CLI, and OpenClaw. One-command install for engineering, marketing, product, compliance, and finance skill bundles."
 ---
 
 <div class="skills-hero" markdown>
 
 # Plugins & Marketplace
 
-**19 installable plugins** — domain bundles and standalone packages distributed via Claude Code plugin registry and ClawHub.
+**28 installable plugins** — domain bundles and standalone packages distributed via Claude Code plugin registry and ClawHub.
 
 <p class="skills-hero-sub">Install entire skill domains or individual tools with a single command. Compatible with Claude Code, OpenAI Codex, Gemini CLI, and OpenClaw.</p>
 
@@ -19,7 +19,7 @@ description: "19 installable plugins for Claude Code, Codex CLI, Gemini CLI, and
 
 <div class="grid cards" markdown>
 
--   :material-puzzle-outline:{ .lg .middle } **19 Plugins**
+-   :material-puzzle-outline:{ .lg .middle } **28 Plugins**
 
     ---
 
@@ -90,7 +90,7 @@ description: "19 installable plugins for Claude Code, Codex CLI, Gemini CLI, and
 ```mermaid
 graph TB
     subgraph Registry["Plugin Registry"]
-        MP["marketplace.json<br/>19 plugins"]
+        MP["marketplace.json<br/>28 plugins"]
     end
 
     subgraph Bundles["Domain Bundles (9)"]

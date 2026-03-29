@@ -1,13 +1,13 @@
 ---
-title: "Regulatory & Quality Skills"
-description: "All 13 Regulatory & Quality skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "Regulatory & Quality Skills — Agent Skills & Codex Plugins"
+description: "14 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-shield-check-outline: Regulatory & Quality
 
-<p class="domain-count">13 skills in this domain</p>
+<p class="domain-count">14 skills in this domain</p>
 
 </div>
 
@@ -94,5 +94,11 @@ description: "All 13 Regulatory & Quality skills for Claude Code, Codex CLI, Gem
     ---
 
     ISO 14971:2019 risk management implementation throughout the medical device lifecycle.
+
+-   **[SOC 2 Compliance](soc2-compliance.md)**
+
+    ---
+
+    SOC 2 Type I and Type II compliance preparation for SaaS companies. Covers Trust Service Criteria mapping, control ma...
 
 </div>

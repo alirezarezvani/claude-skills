@@ -1,6 +1,6 @@
 ---
-title: "Chief of Staff"
-description: "Chief of Staff - Claude Code skill from the C-Level Advisory domain."
+title: "Chief of Staff — Agent Skill for Executives"
+description: "C-suite orchestration layer. Routes founder questions to the right advisor role(s), triggers multi-role board meetings for complex decisions. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Chief of Staff

@@ -1,0 +1,13 @@
+{
+  "name": "a11y-audit",
+  "description": "WCAG 2.2 accessibility audit and fix skill for React, Next.js, Vue, Angular, Svelte, and HTML. Static scanner detecting 20+ violation types, contrast checker with suggest mode, framework-specific fix patterns, CI-friendly exit codes.",
+  "version": "2.1.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/a11y-audit",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

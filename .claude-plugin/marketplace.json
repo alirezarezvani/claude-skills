@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "177 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (24+25), C-level advisory (28), regulatory/QMS (12), product (12), project management (6), business growth (4), and finance (2). Includes 254 Python tools, 357 reference documents, 17 agents, and 22 slash commands.",
+  "description": "205 production-ready skill packages for Claude AI across 9 domains: marketing (43), engineering (25+30), C-level advisory (28), regulatory/QMS (12), product (14), project management (6), business growth (4), and finance (2). Includes 268 Python tools, 384 reference documents, 16 agents, and 19 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "177 production-ready skill packages across 9 domains with 254 Python tools, 357 reference documents, 17 agents, and 22 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "205 production-ready skill packages across 9 domains with 268 Python tools, 384 reference documents, 16 agents, and 19 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.1.2"
   },
   "plugins": [
@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "25 advanced engineering skills: agent designer, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, and more.",
+      "description": "35 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, and more.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -82,7 +82,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "24 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI.",
+      "description": "30 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -109,7 +109,7 @@
     {
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
-      "description": "12 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation.",
+      "description": "13 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -129,7 +129,7 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "12 product skills with 13 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator.",
+      "description": "14 product skills with 16 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer.",
       "version": "2.1.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -392,6 +392,160 @@
         "workspace-admin"
       ],
       "category": "development"
+    },
+    {
+      "name": "code-to-prd",
+      "source": "./product-team/code-to-prd",
+      "description": "Reverse-engineer any codebase into a complete PRD. Frontend (React, Vue, Angular, Next.js), backend (NestJS, Django, Express, FastAPI), and fullstack. 2 Python scripts (codebase_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "prd",
+        "product-requirements",
+        "reverse-engineering",
+        "frontend",
+        "backend",
+        "fullstack",
+        "documentation",
+        "code-analysis",
+        "react",
+        "vue",
+        "angular",
+        "nestjs",
+        "django",
+        "fastapi",
+        "express"
+      ],
+      "category": "product"
+    },
+    {
+      "name": "agenthub",
+      "source": "./engineering/agenthub",
+      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "multi-agent",
+        "collaboration",
+        "parallel",
+        "git-dag",
+        "orchestration",
+        "competition",
+        "worktree",
+        "content-generation",
+        "research",
+        "optimization"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "a11y-audit",
+      "source": "./engineering-team/a11y-audit",
+      "description": "WCAG 2.2 accessibility audit and fix for React, Next.js, Vue, Angular, Svelte, and HTML. Static scanner detecting 20+ violation types, contrast checker with suggest mode, framework-specific fix patterns, /a11y-audit slash command.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "accessibility",
+        "a11y",
+        "wcag",
+        "aria",
+        "screen-reader",
+        "contrast",
+        "keyboard-navigation"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "executive-mentor",
+      "source": "./c-level-advisor/executive-mentor",
+      "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for board meetings, navigates hard calls, runs postmortems. 5 sub-skills with slash commands.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "executive",
+        "mentor",
+        "stress-test",
+        "board-prep",
+        "founder",
+        "leadership"
+      ],
+      "category": "leadership"
+    },
+    {
+      "name": "docker-development",
+      "source": "./engineering/docker-development",
+      "description": "Docker and container development — Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "docker",
+        "container",
+        "dockerfile",
+        "docker-compose",
+        "devops"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "helm-chart-builder",
+      "source": "./engineering/helm-chart-builder",
+      "description": "Helm chart development — chart scaffolding, values design, template patterns, dependency management, and Kubernetes deployment strategies.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "helm",
+        "kubernetes",
+        "k8s",
+        "chart",
+        "deployment"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "terraform-patterns",
+      "source": "./engineering/terraform-patterns",
+      "description": "Terraform infrastructure-as-code — module design patterns, state management, provider configuration, CI/CD integration, and multi-environment strategies.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "terraform",
+        "iac",
+        "infrastructure",
+        "devops",
+        "cloud"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "research-summarizer",
+      "source": "./product-team/research-summarizer",
+      "description": "Structured research summarization — summarize academic papers, market research, user interviews, and competitive analysis into actionable insights.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "research",
+        "summarization",
+        "analysis",
+        "insights",
+        "product"
+      ],
+      "category": "product"
     }
   ]
 }

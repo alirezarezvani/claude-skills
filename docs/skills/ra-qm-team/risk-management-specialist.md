@@ -1,6 +1,6 @@
 ---
-title: "Risk Management Specialist"
-description: "Risk Management Specialist - Claude Code skill from the Regulatory & Quality domain."
+title: "Risk Management Specialist — Agent Skill for Compliance"
+description: "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Risk Management Specialist
@@ -168,7 +168,7 @@ Identify hazards and estimate risks systematically.
 | S2 | Minor | Temporary discomfort | No treatment needed |
 | S1 | Negligible | Inconvenience | No injury |
 
-See: [references/risk-analysis-methods.md](references/risk-analysis-methods.md)
+See: [references/risk-analysis-methods.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist/references/risk-analysis-methods.md)
 
 ---
 
@@ -423,7 +423,7 @@ What is the risk level?
 
 | Tool | Purpose | Usage |
 |------|---------|-------|
-| [risk_matrix_calculator.py](scripts/risk_matrix_calculator.py) | Calculate risk levels and FMEA RPN | `python risk_matrix_calculator.py --help` |
+| [risk_matrix_calculator.py](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist/scripts/risk_matrix_calculator.py) | Calculate risk levels and FMEA RPN | `python risk_matrix_calculator.py --help` |
 
 **Risk Matrix Calculator Features:**
 - ISO 14971 5x5 risk matrix calculation
@@ -436,8 +436,8 @@ What is the risk level?
 
 | Document | Content |
 |----------|---------|
-| [iso14971-implementation-guide.md](references/iso14971-implementation-guide.md) | Complete ISO 14971:2019 implementation with templates |
-| [risk-analysis-methods.md](references/risk-analysis-methods.md) | FMEA, FTA, HAZOP, Use Error Analysis methods |
+| [iso14971-implementation-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist/references/iso14971-implementation-guide.md) | Complete ISO 14971:2019 implementation with templates |
+| [risk-analysis-methods.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/risk-management-specialist/references/risk-analysis-methods.md) | FMEA, FTA, HAZOP, Use Error Analysis methods |
 
 ### Quick Reference: ISO 14971 Process
 
@@ -456,7 +456,7 @@ What is the risk level?
 
 | Skill | Integration Point |
 |-------|-------------------|
-| [quality-manager-qms-iso13485](../quality-manager-qms-iso13485/) | QMS integration |
-| [capa-officer](../capa-officer/) | Risk-based CAPA |
-| [regulatory-affairs-head](../regulatory-affairs-head/) | Regulatory submissions |
-| [quality-documentation-manager](../quality-documentation-manager/) | Risk file management |
+| [quality-manager-qms-iso13485](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485) | QMS integration |
+| [capa-officer](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/capa-officer) | Risk-based CAPA |
+| [regulatory-affairs-head](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/regulatory-affairs-head) | Regulatory submissions |
+| [quality-documentation-manager](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-documentation-manager) | Risk file management |

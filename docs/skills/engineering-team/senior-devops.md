@@ -1,6 +1,6 @@
 ---
-title: "Senior Devops"
-description: "Senior Devops - Claude Code skill from the Engineering - Core domain."
+title: "Senior Devops — Agent Skill & Codex Plugin"
+description: "Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Senior Devops
@@ -32,7 +32,7 @@ python scripts/pipeline_generator.py ./app --platform=github --stages=build,test
 python scripts/terraform_scaffolder.py ./infra --provider=aws --module=ecs-service --verbose
 
 # Script 3: Deployment Manager — orchestrates container deployments with rollback support
-python scripts/deployment_manager.py deploy --env=production --image=app:1.2.3 --strategy=blue-green
+python3 scripts/deployment_manager.py ./deploy --verbose --json
 ```
 
 ## Core Capabilities
@@ -280,6 +280,54 @@ kubectl rollout status deployment/app -n production
 kubectl get pods -n production -l app=myapp
 curl -sf https://app.example.com/healthz || echo "ROLLBACK FAILED — escalate"
 ```
+
+## Multi-Cloud Cross-References
+
+Use these companion skills for cloud-specific deep dives:
+
+| Skill | Cloud | Use When |
+|-------|-------|----------|
+| **aws-solution-architect** | AWS | ECS/EKS, Lambda, VPC design, cost optimization |
+| **azure-cloud-architect** | Azure | AKS, App Service, Virtual Networks, Azure DevOps |
+| **gcp-cloud-architect** | GCP | GKE, Cloud Run, VPC, Cloud Build *(coming soon)* |
+
+**Multi-cloud vs single-cloud decision:**
+- **Single-cloud** (default) — lower operational complexity, deeper managed-service integration, better cost leverage with committed-use discounts
+- **Multi-cloud** — required when mandated by compliance/data residency, acquiring companies on different clouds, or needing best-of-breed services across providers (e.g., AWS for compute + GCP for ML)
+- **Hybrid** — on-prem + cloud; use when regulated workloads must stay on-prem while burst/non-sensitive workloads run in the cloud
+
+> Start single-cloud. Add a second cloud only when there is a concrete business or compliance driver — not for theoretical redundancy.
+
+---
+
+## Cloud-Agnostic IaC
+
+### Terraform / OpenTofu (Default Choice)
+
+Terraform (or its open-source fork OpenTofu) is the recommended IaC tool for most teams:
+- Single language (HCL) across AWS, Azure, GCP, and 3,000+ providers
+- State management with remote backends (S3, GCS, Azure Blob)
+- Plan-before-apply workflow prevents drift surprises
+- Cross-reference **terraform-patterns** for module structure, state isolation, and CI/CD integration
+
+### Pulumi (Programming Language IaC)
+
+Choose Pulumi when the team strongly prefers TypeScript, Python, Go, or C# over HCL:
+- Full programming language — loops, conditionals, unit tests native
+- Same cloud provider coverage as Terraform
+- Easier onboarding for dev teams that resist learning HCL
+
+### When to Use Cloud-Native IaC
+
+| Tool | Use When |
+|------|----------|
+| **CloudFormation** | AWS-only shop; need native AWS support (StackSets, Service Catalog) |
+| **Bicep** | Azure-only shop; simpler syntax than ARM templates |
+| **Cloud Deployment Manager** | GCP-only; rare — most GCP teams prefer Terraform |
+
+> **Rule of thumb:** Use Terraform/OpenTofu unless you are 100% committed to a single cloud AND the cloud-native tool offers a feature Terraform cannot replicate (e.g., AWS Service Catalog integration).
+
+---
 
 ## Troubleshooting
 

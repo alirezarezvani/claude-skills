@@ -1,6 +1,6 @@
 ---
-title: "Smart Test Reporting"
-description: "Smart Test Reporting - Claude Code skill from the Engineering - Core domain."
+title: "Smart Test Reporting — Agent Skill & Codex Plugin"
+description: "Generate test report. Use when user says 'test report', 'results summary', 'test status', 'show results', 'test dashboard', or 'how did tests go'. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Smart Test Reporting

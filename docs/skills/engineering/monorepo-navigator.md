@@ -1,6 +1,6 @@
 ---
-title: "Monorepo Navigator"
-description: "Monorepo Navigator - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Monorepo Navigator — Agent Skill for Codex & OpenClaw"
+description: "Monorepo Navigator. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Monorepo Navigator
@@ -72,6 +72,15 @@ Most modern setups: **pnpm workspaces + Turborepo + Changesets**
 
 ## Turborepo
 → See references/monorepo-tooling-reference.md for details
+
+## Workspace Analyzer
+
+```bash
+python3 scripts/monorepo_analyzer.py /path/to/monorepo
+python3 scripts/monorepo_analyzer.py /path/to/monorepo --json
+```
+
+Also see `references/monorepo-patterns.md` for common architecture and CI patterns.
 
 ## Common Pitfalls
 

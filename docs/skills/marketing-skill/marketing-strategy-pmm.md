@@ -1,6 +1,6 @@
 ---
-title: "Marketing Strategy & PMM"
-description: "Marketing Strategy & PMM - Claude Code skill from the Marketing domain."
+title: "Marketing Strategy & PMM — Agent Skill for Marketing"
+description: "Product marketing skill for positioning, GTM strategy, competitive intelligence, and product launches. Use when the user asks about product. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Marketing Strategy & PMM

@@ -1,6 +1,6 @@
 ---
-title: "Database Schema Designer"
-description: "Database Schema Designer - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Database Schema Designer — Agent Skill for Codex & OpenClaw"
+description: "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Database Schema Designer

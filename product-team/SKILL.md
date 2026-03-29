@@ -1,6 +1,6 @@
 ---
 name: "product-skills"
-description: "8 production-ready product skills: product manager toolkit with RICE prioritization, agile product owner, product strategist with OKR cascades, UX researcher, UI design system, competitive teardown, landing page generator, and SaaS scaffolder. Python tools included (all stdlib-only). Works with Claude Code, Codex CLI, and OpenClaw."
+description: "10 product agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. PM toolkit (RICE), agile PO, product strategist (OKR), UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, research summarizer. Python tools (stdlib-only)."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT

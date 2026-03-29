@@ -1,6 +1,6 @@
 ---
-title: "Marketing Skills"
-description: "All 44 Marketing skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "Marketing Skills — Agent Skills & Codex Plugins"
+description: "44 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

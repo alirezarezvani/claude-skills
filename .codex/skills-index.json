@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 158,
+  "total_skills": 175,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -198,10 +198,22 @@
       "description": "Cascades strategy from boardroom to individual contributor. Detects and fixes misalignment between company goals and team execution. Covers strategy articulation, cascade mapping, orphan goal detection, silo identification, communication gap analysis, and realignment protocols. Use when teams are pulling in different directions, OKRs don't connect, departments optimize locally at company expense, or when user mentions alignment, strategy cascade, silo, conflicting OKRs, or strategy communication."
     },
     {
+      "name": "a11y-audit",
+      "source": "../../engineering-team/a11y-audit",
+      "category": "engineering",
+      "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
+    },
+    {
       "name": "aws-solution-architect",
       "source": "../../engineering-team/aws-solution-architect",
       "category": "engineering",
       "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
+    },
+    {
+      "name": "azure-cloud-architect",
+      "source": "../../engineering-team/azure-cloud-architect",
+      "category": "engineering",
+      "description": "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization."
     },
     {
       "name": "code-reviewer",
@@ -220,6 +232,12 @@
       "source": "../../engineering-team/epic-design",
       "category": "engineering",
       "description": ">"
+    },
+    {
+      "name": "gcp-cloud-architect",
+      "source": "../../engineering-team/gcp-cloud-architect",
+      "category": "engineering",
+      "description": "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization."
     },
     {
       "name": "google-workspace-cli",
@@ -244,6 +262,12 @@
       "source": "../../engineering-team/playwright-pro",
       "category": "engineering",
       "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting."
+    },
+    {
+      "name": "security-pen-testing",
+      "source": "../../engineering-team/security-pen-testing",
+      "category": "engineering",
+      "description": "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation."
     },
     {
       "name": "self-improving-agent",
@@ -330,6 +354,12 @@
       "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools. Use when the user asks about security reviews, threat analysis, vulnerability assessments, secure coding practices, security audits, attack surface analysis, CVE remediation, or security best practices."
     },
     {
+      "name": "snowflake-development",
+      "source": "../../engineering-team/snowflake-development",
+      "category": "engineering",
+      "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors."
+    },
+    {
       "name": "stripe-integration-expert",
       "source": "../../engineering-team/stripe-integration-expert",
       "category": "engineering",
@@ -339,7 +369,7 @@
       "name": "tdd-guide",
       "source": "../../engineering-team/tdd-guide",
       "category": "engineering",
-      "description": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit. Handles test generation from source code, coverage report parsing (LCOV/JSON/XML), quality scoring, and framework conversion for TypeScript, JavaScript, Python, and Java projects."
+      "description": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit."
     },
     {
       "name": "tech-stack-evaluator",
@@ -351,13 +381,19 @@
       "name": "agent-designer",
       "source": "../../engineering/agent-designer",
       "category": "engineering-advanced",
-      "description": "Agent Designer - Multi-Agent System Architecture"
+      "description": "Use when the user asks to design multi-agent systems, create agent architectures, define agent communication patterns, or build autonomous agent workflows."
     },
     {
       "name": "agent-workflow-designer",
       "source": "../../engineering/agent-workflow-designer",
       "category": "engineering-advanced",
       "description": "Agent Workflow Designer"
+    },
+    {
+      "name": "agenthub",
+      "source": "../../engineering/agenthub",
+      "category": "engineering-advanced",
+      "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel \u2014 code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo."
     },
     {
       "name": "api-design-reviewer",
@@ -369,13 +405,19 @@
       "name": "api-test-suite-builder",
       "source": "../../engineering/api-test-suite-builder",
       "category": "engineering-advanced",
-      "description": "API Test Suite Builder"
+      "description": "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests."
     },
     {
       "name": "autoresearch-agent",
       "source": "../../engineering/autoresearch-agent",
       "category": "engineering-advanced",
       "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
+    },
+    {
+      "name": "browser-automation",
+      "source": "../../engineering/browser-automation",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screenshots, extract structured data from web pages, or build web automation workflows. NOT for testing \u2014 use playwright-pro for that."
     },
     {
       "name": "changelog-generator",
@@ -399,13 +441,13 @@
       "name": "database-designer",
       "source": "../../engineering/database-designer",
       "category": "engineering-advanced",
-      "description": "Database Designer - POWERFUL Tier Skill"
+      "description": "Use when the user asks to design database schemas, plan data migrations, optimize queries, choose between SQL and NoSQL, or model data relationships."
     },
     {
       "name": "database-schema-designer",
       "source": "../../engineering/database-schema-designer",
       "category": "engineering-advanced",
-      "description": "Database Schema Designer"
+      "description": "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
     },
     {
       "name": "dependency-auditor",
@@ -414,16 +456,34 @@
       "description": "Dependency Auditor"
     },
     {
+      "name": "docker-development",
+      "source": "../../engineering/docker-development",
+      "category": "engineering-advanced",
+      "description": "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance, layer caching, secret management, and production-ready container patterns."
+    },
+    {
       "name": "env-secrets-manager",
       "source": "../../engineering/env-secrets-manager",
       "category": "engineering-advanced",
       "description": "Env & Secrets Manager"
     },
     {
+      "name": "focused-fix",
+      "source": "../../engineering/focused-fix",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z module is broken', 'focus on [area]'. Not for quick single-bug fixes \u2014 this is for systematic deep-dive repair across all files and dependencies."
+    },
+    {
       "name": "git-worktree-manager",
       "source": "../../engineering/git-worktree-manager",
       "category": "engineering-advanced",
       "description": "Git Worktree Manager"
+    },
+    {
+      "name": "helm-chart-builder",
+      "source": "../../engineering/helm-chart-builder",
+      "category": "engineering-advanced",
+      "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
       "name": "interview-system-designer",
@@ -465,25 +525,31 @@
       "name": "pr-review-expert",
       "source": "../../engineering/pr-review-expert",
       "category": "engineering-advanced",
-      "description": "PR Review Expert"
+      "description": "Use when the user asks to review pull requests, analyze code changes, check for security issues in PRs, or assess code quality of diffs."
     },
     {
       "name": "rag-architect",
       "source": "../../engineering/rag-architect",
       "category": "engineering-advanced",
-      "description": "RAG Architect - POWERFUL"
+      "description": "Use when the user asks to design RAG pipelines, optimize retrieval strategies, choose embedding models, implement vector search, or build knowledge retrieval systems."
     },
     {
       "name": "release-manager",
       "source": "../../engineering/release-manager",
       "category": "engineering-advanced",
-      "description": "Release Manager"
+      "description": "Use when the user asks to plan releases, manage changelogs, coordinate deployments, create release branches, or automate versioning."
     },
     {
       "name": "runbook-generator",
       "source": "../../engineering/runbook-generator",
       "category": "engineering-advanced",
       "description": "Runbook Generator"
+    },
+    {
+      "name": "secrets-vault-manager",
+      "source": "../../engineering/secrets-vault-manager",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
     },
     {
       "name": "skill-security-auditor",
@@ -498,10 +564,28 @@
       "description": "Skill Tester"
     },
     {
+      "name": "spec-driven-workflow",
+      "source": "../../engineering/spec-driven-workflow",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices."
+    },
+    {
+      "name": "sql-database-assistant",
+      "source": "../../engineering/sql-database-assistant",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
+    },
+    {
       "name": "tech-debt-tracker",
       "source": "../../engineering/tech-debt-tracker",
       "category": "engineering-advanced",
       "description": "Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation."
+    },
+    {
+      "name": "terraform-patterns",
+      "source": "../../engineering/terraform-patterns",
+      "category": "engineering-advanced",
+      "description": "Terraform infrastructure-as-code agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Covers module design patterns, state management strategies, provider configuration, security hardening, policy-as-code with Sentinel/OPA, and CI/CD plan/apply workflows. Use when: user wants to design Terraform modules, manage state backends, review Terraform security, implement multi-region deployments, or follow IaC best practices."
     },
     {
       "name": "financial-analyst",
@@ -780,6 +864,12 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "code-to-prd",
+      "source": "../../product-team/code-to-prd",
+      "category": "product",
+      "description": "|"
+    },
+    {
       "name": "competitive-teardown",
       "source": "../../product-team/competitive-teardown",
       "category": "product",
@@ -820,6 +910,12 @@
       "source": "../../product-team/product-strategist",
       "category": "product",
       "description": "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product vision documents, and team scaling proposals. Use when creating quarterly OKR documents, defining product goals or KPIs, building product roadmaps, running competitive analysis, drafting team structure or hiring plans, aligning product strategy across engineering and design, or generating cascaded goal hierarchies from company to team level."
+    },
+    {
+      "name": "research-summarizer",
+      "source": "../../product-team/research-summarizer",
+      "category": "product",
+      "description": "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative analyses, and produces properly formatted citations. Use when: user wants to summarize a research paper, compare multiple sources, extract citations from documents, or create structured research briefs. Plugin for Claude Code, Codex, Gemini CLI, and OpenClaw."
     },
     {
       "name": "roadmap-communicator",
@@ -952,6 +1048,12 @@
       "source": "../../ra-qm-team/risk-management-specialist",
       "category": "ra-qm",
       "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis. Use when user mentions risk management, ISO 14971, risk analysis, FMEA, fault tree analysis, hazard identification, risk control, risk matrix, benefit-risk analysis, residual risk, risk acceptability, or post-market risk."
+    },
+    {
+      "name": "soc2-compliance",
+      "source": "../../ra-qm-team/soc2-compliance",
+      "category": "ra-qm",
+      "description": "Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness."
     }
   ],
   "categories": {
@@ -966,12 +1068,12 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 25,
+      "count": 30,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 26,
+      "count": 35,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
@@ -986,7 +1088,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 12,
+      "count": 14,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },
@@ -996,7 +1098,7 @@
       "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
-      "count": 12,
+      "count": 13,
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     }

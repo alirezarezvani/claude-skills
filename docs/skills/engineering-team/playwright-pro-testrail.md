@@ -1,6 +1,6 @@
 ---
-title: "TestRail Integration"
-description: "TestRail Integration - Claude Code skill from the Engineering - Core domain."
+title: "TestRail Integration — Agent Skill & Codex Plugin"
+description: "Sync tests with TestRail. Use when user mentions 'testrail', 'test management', 'test cases', 'test run', 'sync test cases', 'push results to. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # TestRail Integration

@@ -1,6 +1,6 @@
 ---
-title: "Skills Overview"
-description: "Browse all 177 production-ready skills across 9 domains — engineering, product, marketing, C-level advisory, project management, regulatory, business growth, and finance."
+title: "204 Agent Skills — Browse by Domain"
+description: "Browse 204 agent skills across 9 domains — engineering, product, marketing, C-level advisory, PM, regulatory, business growth, and finance. Claude Code plugins, Codex skills, and Gemini CLI skills."
 hide:
   - edit
 ---
@@ -277,12 +277,12 @@ graph LR
         |-------|-------|
         | [Content Creator](marketing-skill/content-creator.md) | SEO-optimized content |
         | [Copywriting](marketing-skill/copywriting.md) | Conversion copy frameworks |
-        | [Brand Voice Analyzer](marketing-skill/brand-voice-analyzer.md) | Voice consistency |
-        | [Content Repurposer](marketing-skill/content-repurposer.md) | Multi-format adaptation |
+        | [Brand Guidelines](marketing-skill/brand-guidelines.md) | Voice consistency |
         | [Content Strategy](marketing-skill/content-strategy.md) | Editorial calendars |
-        | [Blog Post Creator](marketing-skill/blog-post-creator.md) | Long-form content |
+        | [Content Humanizer](marketing-skill/content-humanizer.md) | Natural AI-free writing |
         | [Ad Creative](marketing-skill/ad-creative.md) | Ad copy and creative |
-        | [Email Template Builder](marketing-skill/email-template-builder.md) | Email campaigns |
+        | [Content Production](marketing-skill/content-production.md) | Content briefs and workflows |
+        | [Copy Editing](marketing-skill/copy-editing.md) | Style and grammar |
 
     ??? note "SEO & Analytics (7 skills)"
 
@@ -291,9 +291,9 @@ graph LR
         | [SEO Audit](marketing-skill/seo-audit.md) | Technical SEO analysis |
         | [AI SEO](marketing-skill/ai-seo.md) | AI-optimized search |
         | [App Store Optimization](marketing-skill/app-store-optimization.md) | ASO strategy |
-        | [Keyword Research](marketing-skill/keyword-research.md) | Keyword analysis |
+        | [Schema Markup](marketing-skill/schema-markup.md) | Structured data |
         | [Analytics Tracking](marketing-skill/analytics-tracking.md) | Tag management |
-        | [Marketing Analytics](marketing-skill/marketing-analytics.md) | Campaign metrics |
+        | [Campaign Analytics](marketing-skill/campaign-analytics.md) | Campaign metrics |
         | [A/B Test Setup](marketing-skill/ab-test-setup.md) | Experiment design |
 
     ??? note "Growth, Channels & More (28 skills)"
@@ -352,18 +352,18 @@ graph LR
 
         | Skill | Standard |
         |-------|----------|
-        | [ISO 13485 QMS](ra-qm-team/iso-13485-qms-expert.md) | Quality Management System |
-        | [MDR Expert](ra-qm-team/mdr-expert.md) | EU MDR 2017/745 |
+        | [ISO 13485 QMS](ra-qm-team/quality-manager-qms-iso13485.md) | Quality Management System |
+        | [MDR 745 Specialist](ra-qm-team/mdr-745-specialist.md) | EU MDR 2017/745 |
         | [FDA Consultant](ra-qm-team/fda-consultant-specialist.md) | 510(k), PMA submissions |
         | [GDPR/DSGVO Expert](ra-qm-team/gdpr-dsgvo-expert.md) | Data protection |
         | [ISO 27001 ISMS](ra-qm-team/information-security-manager-iso27001.md) | Information security |
         | [ISMS Audit Expert](ra-qm-team/isms-audit-expert.md) | Security auditing |
         | [CAPA Officer](ra-qm-team/capa-officer.md) | Corrective actions |
-        | [Risk Manager](ra-qm-team/risk-manager-iso14971.md) | ISO 14971 |
-        | [Clinical Evaluation](ra-qm-team/clinical-evaluation-expert.md) | CER, PMCF |
-        | [QMS Auditor](ra-qm-team/qms-auditor.md) | Internal audits |
-        | [Document Control](ra-qm-team/document-control-expert.md) | SOP management |
-        | [Regulatory Strategy](ra-qm-team/regulatory-strategy-expert.md) | Market access |
+        | [Risk Management](ra-qm-team/risk-management-specialist.md) | ISO 14971 |
+        | [QMS Audit Expert](ra-qm-team/qms-audit-expert.md) | Internal audits |
+        | [Document Control](ra-qm-team/quality-documentation-manager.md) | SOP management |
+        | [Quality Manager QMR](ra-qm-team/quality-manager-qmr.md) | Management reviews |
+        | [Regulatory Affairs](ra-qm-team/regulatory-affairs-head.md) | Market access |
 
     ??? note "Finance (2 skills)"
 

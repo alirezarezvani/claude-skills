@@ -450,7 +450,7 @@ PROMPT_INJECTION_PATTERNS = [
         "fix": "Remove data transmission directives",
     },
     {
-        "regex": r"(?i)(?:read|access|open|get)\s+(?:the\s+)?(?:contents?\s+of\s+)?(?:~|\/home|\/etc|\.ssh|\.aws|\.env|credentials?|secrets?|tokens?|api.?keys?)",
+        "regex": r"(?i)(?:read|access|open|get)\s+(?:the\s+)?(?:contents?\s+of\s+)?(?:~|\/home|\/etc|\.ssh|\.aws|\.env|credentials?|secrets?|api.?keys?)",
         "category": "PROMPT-EXFIL",
         "severity": Severity.CRITICAL,
         "risk": "Instruction to access sensitive files or credentials",
@@ -766,6 +766,7 @@ def scan_filesystem(skill_path: Path, report: AuditReport):
         if item.name.startswith(".") and item.name not in (
             ".gitignore", ".gitkeep", ".editorconfig", ".prettierrc",
             ".eslintrc", ".pylintrc", ".flake8",
+            ".claude-plugin", ".codex", ".gemini",
         ):
             severity = Severity.CRITICAL if item.name == ".env" else Severity.HIGH
             report.findings.append(

@@ -1,9 +1,9 @@
 ---
-title: "cs-quality-regulatory"
-description: "cs-quality-regulatory - Claude Code agent for Regulatory & Quality."
+title: "Quality Regulatory — AI Coding Agent & Codex Skill"
+description: "Quality & Regulatory agent for ISO 13485 QMS, MDR compliance, FDA submissions, GDPR/DSGVO, and ISMS audits. Orchestrates ra-qm-team skills. Spawn. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# cs-quality-regulatory
+# Quality Regulatory
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>

@@ -1,6 +1,6 @@
 ---
-title: "Strategic Alignment Engine"
-description: "Strategic Alignment Engine - Claude Code skill from the C-Level Advisory domain."
+title: "Strategic Alignment Engine — Agent Skill for Executives"
+description: "Cascades strategy from boardroom to individual contributor. Detects and fixes misalignment between company goals and team execution. Covers strategy. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Strategic Alignment Engine

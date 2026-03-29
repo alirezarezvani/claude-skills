@@ -413,6 +413,89 @@ app.use((req, res, next) => {
 
 ---
 
+## OWASP Top 10 Quick-Check
+
+Rapid 15-minute assessment — run through each category and note pass/fail. For deep-dive testing, hand off to the **security-pen-testing** skill.
+
+| # | Category | One-Line Check |
+|---|----------|----------------|
+| A01 | Broken Access Control | Verify role checks on every endpoint; test horizontal privilege escalation |
+| A02 | Cryptographic Failures | Confirm TLS 1.2+ everywhere; no secrets in logs or source |
+| A03 | Injection | Run parameterized query audit; check ORM raw-query usage |
+| A04 | Insecure Design | Review threat model exists for critical flows |
+| A05 | Security Misconfiguration | Check default credentials removed; error pages generic |
+| A06 | Vulnerable Components | Run `vulnerability_assessor.py`; zero critical/high CVEs |
+| A07 | Auth Failures | Verify MFA on admin; brute-force protection active |
+| A08 | Software & Data Integrity | Confirm CI/CD pipeline signs artifacts; no unsigned deps |
+| A09 | Logging & Monitoring | Validate audit logs capture auth events; alerts configured |
+| A10 | SSRF | Test internal URL filters; block metadata endpoints (169.254.169.254) |
+
+> **Deep dive needed?** Hand off to `security-pen-testing` for full OWASP Testing Guide coverage.
+
+---
+
+## Secret Scanning Tools
+
+Choose the right scanner for each stage of your workflow:
+
+| Tool | Best For | Language | Pre-commit | CI/CD | Custom Rules |
+|------|----------|----------|:----------:|:-----:|:------------:|
+| **gitleaks** | CI pipelines, full-repo scans | Go | Yes | Yes | TOML regexes |
+| **detect-secrets** | Pre-commit hooks, incremental | Python | Yes | Partial | Plugin-based |
+| **truffleHog** | Deep history scans, entropy | Go | No | Yes | Regex + entropy |
+
+**Recommended setup:** Use `detect-secrets` as a pre-commit hook (catches secrets before they enter history) and `gitleaks` in CI (catches anything that slips through).
+
+```bash
+# detect-secrets pre-commit hook (.pre-commit-config.yaml)
+- repo: https://github.com/Yelp/detect-secrets
+  rev: v1.4.0
+  hooks:
+    - id: detect-secrets
+      args: ['--baseline', '.secrets.baseline']
+
+# gitleaks in GitHub Actions
+- name: gitleaks
+  uses: gitleaks/gitleaks-action@v2
+  env:
+    GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+```
+
+---
+
+## Supply Chain Security
+
+Protect against dependency and artifact tampering with SBOM generation, artifact signing, and SLSA compliance.
+
+**SBOM Generation:**
+- **syft** — generates SBOMs from container images or source dirs (SPDX, CycloneDX formats)
+- **cyclonedx-cli** — CycloneDX-native tooling; merge multiple SBOMs for mono-repos
+
+```bash
+# Generate SBOM from container image
+syft packages ghcr.io/org/app:latest -o cyclonedx-json > sbom.json
+```
+
+**Artifact Signing (Sigstore/cosign):**
+```bash
+# Sign a container image (keyless via OIDC)
+cosign sign ghcr.io/org/app:latest
+# Verify signature
+cosign verify ghcr.io/org/app:latest --certificate-identity=ci@org.com --certificate-oidc-issuer=https://token.actions.githubusercontent.com
+```
+
+**SLSA Levels Overview:**
+| Level | Requirement | What It Proves |
+|-------|-------------|----------------|
+| 1 | Build process documented | Provenance exists |
+| 2 | Hosted build service, signed provenance | Tamper-resistant provenance |
+| 3 | Hardened build platform, non-falsifiable provenance | Tamper-proof build |
+| 4 | Two-party review, hermetic builds | Maximum supply-chain assurance |
+
+> **Cross-references:** `security-pen-testing` (vulnerability exploitation testing), `dependency-auditor` (license and CVE audit for dependencies).
+
+---
+
 ## Reference Documentation
 
 | Document | Description |

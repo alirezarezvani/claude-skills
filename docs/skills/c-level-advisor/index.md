@@ -1,6 +1,6 @@
 ---
-title: "C-Level Advisory Skills"
-description: "All 34 C-Level Advisory skills for Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+title: "C-Level Advisory Skills — Agent Skills & Codex Plugins"
+description: "34 c-level advisory skills — executive advisory agent skill and Claude Code plugin for strategic decisions and board meetings. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

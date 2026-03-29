@@ -1,6 +1,6 @@
 ---
-title: "Roadmap Communicator"
-description: "Roadmap Communicator - Claude Code skill from the Product domain."
+title: "Roadmap Communicator — Agent Skill for Product Teams"
+description: "Use when preparing roadmap narratives, release notes, changelogs, or stakeholder updates tailored for executives, engineering teams, and customers. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Roadmap Communicator

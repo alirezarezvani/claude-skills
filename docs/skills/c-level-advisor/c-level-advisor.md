@@ -1,6 +1,6 @@
 ---
-title: "C-Level Advisory Ecosystem"
-description: "C-Level Advisory Ecosystem - Claude Code skill from the C-Level Advisory domain."
+title: "C-Level Advisory Ecosystem — Agent Skill for Executives"
+description: "10 C-level advisory agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO."
 ---
 
 # C-Level Advisory Ecosystem

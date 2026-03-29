@@ -1,0 +1,13 @@
+{
+  "name": "research-summarizer",
+  "description": "Structured research summarization agent skill and plugin for Claude Code, Codex, and Gemini CLI. Summarize academic papers, compare web articles, extract citations, and produce actionable research briefs.",
+  "version": "2.1.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team/research-summarizer",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

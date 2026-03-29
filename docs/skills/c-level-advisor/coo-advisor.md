@@ -1,6 +1,6 @@
 ---
-title: "COO Advisor"
-description: "COO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "COO Advisor — Agent Skill for Executives"
+description: "Operations leadership for scaling companies. Process design, OKR execution, operational cadence, and scaling playbooks. Use when designing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # COO Advisor

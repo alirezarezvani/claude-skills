@@ -1,6 +1,6 @@
 ---
-title: "Content Strategy"
-description: "Content Strategy - Claude Code skill from the Marketing domain."
+title: "Content Strategy — Agent Skill for Marketing"
+description: "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Content Strategy

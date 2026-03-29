@@ -1,6 +1,6 @@
 ---
-title: "CEO Advisor"
-description: "CEO Advisor - Claude Code skill from the C-Level Advisory domain."
+title: "CEO Advisor — Agent Skill for Executives"
+description: "Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CEO Advisor

@@ -1,6 +1,6 @@
-site_name: Agent Skills — Skills, Agents & Personas for AI Coding Tools
+site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "177 production-ready skills, 17 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "205 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -120,10 +120,13 @@ nav:
     - Overview: skills/index.md
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
+      - "A11y Audit": skills/engineering-team/a11y-audit.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md
+      - "Azure Cloud Architect": skills/engineering-team/azure-cloud-architect.md
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
       - "Incident Commander": skills/engineering-team/incident-commander.md
+      - "GCP Cloud Architect": skills/engineering-team/gcp-cloud-architect.md
       - "Google Workspace CLI": skills/engineering-team/google-workspace-cli.md
       - "Microsoft 365 Tenant Manager": skills/engineering-team/ms365-tenant-manager.md
       - Playwright Pro:
@@ -157,9 +160,12 @@ nav:
       - "Senior QA Engineer": skills/engineering-team/senior-qa.md
       - "Senior SecOps Engineer": skills/engineering-team/senior-secops.md
       - "Senior Security Engineer": skills/engineering-team/senior-security.md
+      - "Security Pen Testing": skills/engineering-team/security-pen-testing.md
+      - "Snowflake Development": skills/engineering-team/snowflake-development.md
       - "Stripe Integration Expert": skills/engineering-team/stripe-integration-expert.md
       - "TDD Guide": skills/engineering-team/tdd-guide.md
       - "Tech Stack Evaluator": skills/engineering-team/tech-stack-evaluator.md
+      - "Epic Design": skills/engineering-team/epic-design.md
     - Engineering - POWERFUL:
       - Overview: skills/engineering/index.md
       - "Autoresearch Agent": skills/engineering/autoresearch-agent.md
@@ -172,6 +178,7 @@ nav:
       - "Agent Workflow Designer": skills/engineering/agent-workflow-designer.md
       - "API Design Reviewer": skills/engineering/api-design-reviewer.md
       - "API Test Suite Builder": skills/engineering/api-test-suite-builder.md
+      - "Browser Automation": skills/engineering/browser-automation.md
       - "Changelog Generator": skills/engineering/changelog-generator.md
       - "CI/CD Pipeline Builder": skills/engineering/ci-cd-pipeline-builder.md
       - "Codebase Onboarding": skills/engineering/codebase-onboarding.md
@@ -179,6 +186,7 @@ nav:
       - "Database Schema Designer": skills/engineering/database-schema-designer.md
       - "Dependency Auditor": skills/engineering/dependency-auditor.md
       - "Env & Secrets Manager": skills/engineering/env-secrets-manager.md
+      - "Focused Fix": skills/engineering/focused-fix.md
       - "Git Worktree Manager": skills/engineering/git-worktree-manager.md
       - "Interview System Designer": skills/engineering/interview-system-designer.md
       - "MCP Server Builder": skills/engineering/mcp-server-builder.md
@@ -190,9 +198,24 @@ nav:
       - "RAG Architect": skills/engineering/rag-architect.md
       - "Release Manager": skills/engineering/release-manager.md
       - "Runbook Generator": skills/engineering/runbook-generator.md
+      - "Secrets Vault Manager": skills/engineering/secrets-vault-manager.md
       - "Skill Security Auditor": skills/engineering/skill-security-auditor.md
       - "Skill Tester": skills/engineering/skill-tester.md
+      - "Spec-Driven Workflow": skills/engineering/spec-driven-workflow.md
+      - "SQL Database Assistant": skills/engineering/sql-database-assistant.md
       - "Tech Debt Tracker": skills/engineering/tech-debt-tracker.md
+      - "Terraform Patterns": skills/engineering/terraform-patterns.md
+      - "Helm Chart Builder": skills/engineering/helm-chart-builder.md
+      - "Docker Development": skills/engineering/docker-development.md
+      - AgentHub:
+        - "AgentHub": skills/engineering/agenthub.md
+        - "/hub:init": skills/engineering/agenthub-init.md
+        - "/hub:spawn": skills/engineering/agenthub-spawn.md
+        - "/hub:status": skills/engineering/agenthub-status.md
+        - "/hub:eval": skills/engineering/agenthub-eval.md
+        - "/hub:merge": skills/engineering/agenthub-merge.md
+        - "/hub:board": skills/engineering/agenthub-board.md
+        - "/hub:run": skills/engineering/agenthub-run.md
     - Product:
       - Overview: skills/product-team/index.md
       - "Agile Product Owner": skills/product-team/agile-product-owner.md
@@ -200,9 +223,11 @@ nav:
       - "Experiment Designer": skills/product-team/experiment-designer.md
       - "Landing Page Generator": skills/product-team/landing-page-generator.md
       - "Product Analytics": skills/product-team/product-analytics.md
+      - "Code to PRD": skills/product-team/code-to-prd.md
       - "Product Discovery": skills/product-team/product-discovery.md
       - "Product Manager Toolkit": skills/product-team/product-manager-toolkit.md
       - "Product Strategist": skills/product-team/product-strategist.md
+      - "Research Summarizer": skills/product-team/research-summarizer.md
       - "Roadmap Communicator": skills/product-team/roadmap-communicator.md
       - "SaaS Scaffolder": skills/product-team/saas-scaffolder.md
       - "UI Design System": skills/product-team/ui-design-system.md
@@ -312,6 +337,7 @@ nav:
       - "Quality Manager - ISO 13485": skills/ra-qm-team/quality-manager-qms-iso13485.md
       - "Regulatory Affairs Head": skills/ra-qm-team/regulatory-affairs-head.md
       - "Risk Management Specialist": skills/ra-qm-team/risk-management-specialist.md
+      - "SOC 2 Compliance": skills/ra-qm-team/soc2-compliance.md
     - Business & Growth:
       - Overview: skills/business-growth/index.md
       - "Contract & Proposal Writer": skills/business-growth/contract-and-proposal-writer.md
@@ -351,16 +377,21 @@ nav:
     - "CS UX Researcher": agents/cs-ux-researcher.md
   - Commands:
     - Overview: commands/index.md
+    - "/a11y-audit": commands/a11y-audit.md
     - "/changelog": commands/changelog.md
+    - "/code-to-prd": commands/code-to-prd.md
     - "/competitive-matrix": commands/competitive-matrix.md
     - "/financial-health": commands/financial-health.md
+    - "/focused-fix": commands/focused-fix.md
     - "/okr": commands/okr.md
     - "/persona": commands/persona.md
     - "/pipeline": commands/pipeline.md
+    - "/plugin-audit": commands/plugin-audit.md
     - "/prd": commands/prd.md
     - "/project-health": commands/project-health.md
     - "/retro": commands/retro.md
     - "/rice": commands/rice.md
+    - "/seo-auditor": commands/seo-auditor.md
     - "/saas-health": commands/saas-health.md
     - "/sprint-health": commands/sprint-health.md
     - "/sprint-plan": commands/sprint-plan.md

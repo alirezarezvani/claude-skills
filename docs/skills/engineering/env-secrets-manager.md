@@ -1,6 +1,6 @@
 ---
-title: "Env & Secrets Manager"
-description: "Env & Secrets Manager - Claude Code skill from the Engineering - POWERFUL domain."
+title: "Env & Secrets Manager — Agent Skill for Codex & OpenClaw"
+description: "Env & Secrets Manager. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Env & Secrets Manager
@@ -24,325 +24,248 @@ description: "Env & Secrets Manager - Claude Code skill from the Engineering - P
 
 ## Overview
 
-Complete environment and secrets management workflow: .env file lifecycle across dev/staging/prod,
-.env.example auto-generation, required-var validation, secret leak detection in git history, and
-credential rotation playbook. Integrates with HashiCorp Vault, AWS SSM, 1Password CLI, and Doppler.
-
----
+Manage environment-variable hygiene and secrets safety across local development and production workflows. This skill focuses on practical auditing, drift awareness, and rotation readiness.
 
 ## Core Capabilities
 
-- **.env lifecycle** — create, validate, sync across environments
-- **.env.example generation** — strip values, preserve keys and comments
-- **Validation script** — fail-fast on missing required vars at startup
-- **Secret leak detection** — regex scan of git history and working tree
-- **Rotation workflow** — detect → scope → rotate → deploy → verify
-- **Secret manager integrations** — Vault KV v2, AWS SSM, 1Password, Doppler
+- `.env` and `.env.example` lifecycle guidance
+- Secret leak detection for repository working trees
+- Severity-based findings for likely credentials
+- Operational pointers for rotation and containment
+- Integration-ready outputs for CI checks
 
 ---
 
 ## When to Use
 
-- Setting up a new project — scaffold .env.example and validation
-- Before every commit — scan for accidentally staged secrets
-- Post-incident response — leaked credential rotation procedure
-- Onboarding new developers — they need all vars, not just some
-- Environment drift investigation — prod behaving differently from staging
+- Before pushing commits that touched env/config files
+- During security audits and incident triage
+- When onboarding contributors who need safe env conventions
+- When validating that no obvious secrets are hardcoded
 
 ---
 
-## .env File Structure
+## Quick Start
 
-### Canonical Layout
 ```bash
-# .env.example — committed to git (no values)
-# .env.local   — developer machine (gitignored)
-# .env.staging — CI/CD or secret manager reference
-# .env.prod    — never on disk; pulled from secret manager at runtime
+# Scan a repository for likely secret leaks
+python3 scripts/env_auditor.py /path/to/repo
 
-# Application
-APP_NAME=
-APP_ENV=                    # dev | staging | prod
-APP_PORT=3000               # default port if not set
-APP_SECRET=                 # REQUIRED: JWT signing secret (min 32 chars)
-APP_URL=                    # REQUIRED: public base URL
-
-# Database
-DATABASE_URL=               # REQUIRED: full connection string
-DATABASE_POOL_MIN=2
-DATABASE_POOL_MAX=10
-
-# Auth
-AUTH_JWT_SECRET=            # REQUIRED
-AUTH_JWT_EXPIRY=3600        # seconds
-AUTH_REFRESH_SECRET=        # REQUIRED
-
-# Third-party APIs
-STRIPE_SECRET_KEY=          # REQUIRED in prod
-STRIPE_WEBHOOK_SECRET=      # REQUIRED in prod
-SENDGRID_API_KEY=
-
-# Storage
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_REGION=eu-central-1
-AWS_S3_BUCKET=
-
-# Monitoring
-SENTRY_DSN=
-DD_API_KEY=
+# JSON output for CI pipelines
+python3 scripts/env_auditor.py /path/to/repo --json
 ```
 
 ---
 
-## .gitignore Patterns
+## Recommended Workflow
 
-Add to your project's `.gitignore`:
-
-```gitignore
-# Environment files — NEVER commit these
-.env
-.env.local
-.env.development
-.env.development.local
-.env.test.local
-.env.staging
-.env.staging.local
-.env.production
-.env.production.local
-.env.prod
-.env.*.local
-
-# Secret files
-*.pem
-*.key
-*.p12
-*.pfx
-secrets.json
-secrets.yaml
-secrets.yml
-credentials.json
-service-account.json
-
-# AWS
-.aws/credentials
-
-# Terraform state (may contain secrets)
-*.tfstate
-*.tfstate.backup
-.terraform/
-
-# Kubernetes secrets
-*-secret.yaml
-*-secrets.yaml
-```
+1. Run `scripts/env_auditor.py` on the repository root.
+2. Prioritize `critical` and `high` findings first.
+3. Rotate real credentials and remove exposed values.
+4. Update `.env.example` and `.gitignore` as needed.
+5. Add or tighten pre-commit/CI secret scanning gates.
 
 ---
 
-## .env.example Auto-Generation
+## Reference Docs
 
-```bash
-#!/bin/bash
-# scripts/gen-env-example.sh
-# Strips values from .env, preserves keys, defaults, and comments
-
-INPUT="${1:-.env}"
-OUTPUT="${2:-.env.example}"
-
-if [ ! -f "$INPUT" ]; then
-  echo "ERROR: $INPUT not found"
-  exit 1
-fi
-
-python3 - "$INPUT" "$OUTPUT" << 'PYEOF'
-import sys, re
-
-input_file = sys.argv[1]
-output_file = sys.argv[2]
-lines = []
-
-with open(input_file) as f:
-    for line in f:
-        stripped = line.rstrip('\n')
-        # Keep blank lines and comments as-is
-        if stripped == '' or stripped.startswith('#'):
-            lines.append(stripped)
-            continue
-        # Match KEY=VALUE or KEY="VALUE"
-        m = re.match(r'^([A-Z_][A-Z0-9_]*)=(.*)$', stripped)
-        if m:
-            key = m.group(1)
-            value = m.group(2).strip('"\'')
-            # Keep non-sensitive defaults (ports, regions, feature flags)
-            safe_defaults = re.compile(
-                r'^(APP_PORT|APP_ENV|APP_NAME|AWS_REGION|DATABASE_POOL_|LOG_LEVEL|'
-                r'FEATURE_|CACHE_TTL|RATE_LIMIT_|PAGINATION_|TIMEOUT_)',
-                re.I
-            )
-            sensitive = re.compile(
-                r'(SECRET|KEY|TOKEN|PASSWORD|PASS|CREDENTIAL|DSN|AUTH|PRIVATE|CERT)',
-                re.I
-            )
-            if safe_defaults.match(key) and value:
-                lines.append(f"{key}={value}  # default")
-            else:
-                lines.append(f"{key}=")
-        else:
-            lines.append(stripped)
-
-with open(output_file, 'w') as f:
-    f.write('\n'.join(lines) + '\n')
-
-print(f"Generated {output_file} from {input_file}")
-PYEOF
-```
-
-Usage:
-```bash
-bash scripts/gen-env-example.sh .env .env.example
-# Commit .env.example, never .env
-git add .env.example
-```
-
----
-
-## Required Variable Validation Script
-→ See references/validation-detection-rotation.md for details
-
-## Secret Manager Integrations
-
-### HashiCorp Vault KV v2
-```bash
-# Setup
-export VAULT_ADDR="https://vault.internal.company.com"
-export VAULT_TOKEN="$(vault login -method=oidc -format=json | jq -r '.auth.client_token')"
-
-# Write secrets
-vault kv put secret/myapp/prod \
-  DATABASE_URL="postgres://user:pass@host/db" \
-  APP_SECRET="$(openssl rand -base64 32)"
-
-# Read secrets into env
-eval $(vault kv get -format=json secret/myapp/prod | \
-  jq -r '.data.data | to_entries[] | "export \(.key)=\(.value)"')
-
-# In CI/CD (GitHub Actions)
-# Use vault-action: hashicorp/vault-action@v2
-```
-
-### AWS SSM Parameter Store
-```bash
-# Write (SecureString = encrypted with KMS)
-aws ssm put-parameter \
-  --name "/myapp/prod/DATABASE_URL" \
-  --value "postgres://..." \
-  --type "SecureString" \
-  --key-id "alias/myapp-secrets"
-
-# Read all params for an app/env into shell
-eval $(aws ssm get-parameters-by-path \
-  --path "/myapp/prod/" \
-  --with-decryption \
-  --query "Parameters[*].[Name,Value]" \
-  --output text | \
-  awk '{split($1,a,"/"); print "export " a[length(a)] "=\"" $2 "\""}')
-
-# In Node.js at startup
-# Use @aws-sdk/client-ssm to pull params before server starts
-```
-
-### 1Password CLI
-```bash
-# Authenticate
-eval $(op signin)
-
-# Get a specific field
-op read "op://MyVault/MyApp Prod/STRIPE_SECRET_KEY"
-
-# Export all fields from an item as env vars
-op item get "MyApp Prod" --format json | \
-  jq -r '.fields[] | select(.value != null) | "export \(.label)=\"\(.value)\""' | \
-  grep -E "^export [A-Z_]+" | source /dev/stdin
-
-# .env injection
-op inject -i .env.tpl -o .env
-# .env.tpl uses {{ op://Vault/Item/field }} syntax
-```
-
-### Doppler
-```bash
-# Setup
-doppler setup  # interactive: select project + config
-
-# Run any command with secrets injected
-doppler run -- node server.js
-doppler run -- npm run dev
-
-# Export to .env (local dev only — never commit output)
-doppler secrets download --no-file --format env > .env.local
-
-# Pull specific secret
-doppler secrets get DATABASE_URL --plain
-
-# Sync to another environment
-doppler secrets upload --project myapp --config staging < .env.staging.example
-```
-
----
-
-## Environment Drift Detection
-
-Check if staging and prod have the same set of keys (values may differ):
-
-```bash
-#!/bin/bash
-# scripts/check-env-drift.sh
-
-# Pull key names from both environments (not values)
-STAGING_KEYS=$(doppler secrets --project myapp --config staging --format json 2>/dev/null | \
-  jq -r 'keys[]' | sort)
-PROD_KEYS=$(doppler secrets --project myapp --config prod --format json 2>/dev/null | \
-  jq -r 'keys[]' | sort)
-
-ONLY_IN_STAGING=$(comm -23 <(echo "$STAGING_KEYS") <(echo "$PROD_KEYS"))
-ONLY_IN_PROD=$(comm -13 <(echo "$STAGING_KEYS") <(echo "$PROD_KEYS"))
-
-if [ -n "$ONLY_IN_STAGING" ]; then
-  echo "Keys in STAGING but NOT in PROD:"
-  echo "$ONLY_IN_STAGING" | sed 's/^/  /'
-fi
-
-if [ -n "$ONLY_IN_PROD" ]; then
-  echo "Keys in PROD but NOT in STAGING:"
-  echo "$ONLY_IN_PROD" | sed 's/^/  /'
-fi
-
-if [ -z "$ONLY_IN_STAGING" ] && [ -z "$ONLY_IN_PROD" ]; then
-  echo "✅ No env drift detected — staging and prod have identical key sets"
-fi
-```
+- `references/validation-detection-rotation.md`
+- `references/secret-patterns.md`
 
 ---
 
 ## Common Pitfalls
 
-- **Committing .env instead of .env.example** — add `.env` to .gitignore on day 1; use pre-commit hooks
-- **Storing secrets in CI/CD logs** — never `echo $SECRET`; mask vars in CI settings
-- **Rotating only one place** — secrets often appear in Heroku, Vercel, Docker, K8s, CI — update ALL
-- **Forgetting to invalidate sessions after JWT secret rotation** — all users will be logged out; communicate this
-- **Using .env.example with real values** — example files are public; strip everything sensitive
-- **Not monitoring after rotation** — watch audit logs for 24h after rotation to catch unauthorized old-credential use
-- **Weak secrets** — `APP_SECRET=mysecret` is not a secret. Use `openssl rand -base64 32`
-
----
+- Committing real values in `.env.example`
+- Rotating one system but missing downstream consumers
+- Logging secrets during debugging or incident response
+- Treating suspected leaks as low urgency without validation
 
 ## Best Practices
 
-1. **Secret manager is source of truth** — .env files are for local dev only; never in prod
-2. **Rotate on a schedule**, not just after incidents — quarterly minimum for long-lived keys
-3. **Principle of least privilege** — each service gets its own API key with minimal permissions
-4. **Audit access** — log every secret read in Vault/SSM; alert on anomalous access
-5. **Never log secrets** — add log scrubbing middleware that redacts known secret patterns
-6. **Use short-lived credentials** — prefer OIDC/instance roles over long-lived access keys
-7. **Separate secrets per environment** — never share a key between dev and prod
-8. **Document rotation runbooks** — before an incident, not during one
+1. Use a secret manager as the production source of truth.
+2. Keep dev env files local and gitignored.
+3. Enforce detection in CI before merge.
+4. Re-test application paths immediately after credential rotation.
+
+---
+
+## Cloud Secret Store Integration
+
+Production applications should never read secrets from `.env` files or environment variables baked into container images. Use a dedicated secret store instead.
+
+### Provider Comparison
+
+| Provider | Best For | Key Feature |
+|----------|----------|-------------|
+| **HashiCorp Vault** | Multi-cloud / hybrid | Dynamic secrets, policy engine, pluggable backends |
+| **AWS Secrets Manager** | AWS-native workloads | Native Lambda/ECS/EKS integration, automatic RDS rotation |
+| **Azure Key Vault** | Azure-native workloads | Managed HSM, Azure AD RBAC, certificate management |
+| **GCP Secret Manager** | GCP-native workloads | IAM-based access, automatic replication, versioning |
+
+### Selection Guidance
+
+- **Single cloud provider** — use the cloud-native secret manager. It integrates tightly with IAM, reduces operational overhead, and costs less than self-hosting.
+- **Multi-cloud or hybrid** — use HashiCorp Vault. It provides a uniform API across environments and supports dynamic secret generation (database credentials, cloud IAM keys) that expire automatically.
+- **Kubernetes-heavy** — combine External Secrets Operator with any backend above to sync secrets into K8s `Secret` objects without hardcoding.
+
+### Application Access Patterns
+
+1. **SDK/API pull** — application fetches secret at startup or on-demand via provider SDK.
+2. **Sidecar injection** — a sidecar container (e.g., Vault Agent) writes secrets to a shared volume or injects them as environment variables.
+3. **Init container** — a Kubernetes init container fetches secrets before the main container starts.
+4. **CSI driver** — secrets mount as a filesystem volume via the Secrets Store CSI Driver.
+
+> **Cross-reference:** See `engineering/secrets-vault-manager` for production vault infrastructure patterns, HA deployment, and disaster recovery procedures.
+
+---
+
+## Secret Rotation Workflow
+
+Stale secrets are a liability. Rotation ensures that even if a credential leaks, its useful lifetime is bounded.
+
+### Phase 1: Detection
+
+- Track secret creation and expiry dates in your secret store metadata.
+- Set alerts at 30, 14, and 7 days before expiry.
+- Use `scripts/env_auditor.py` to flag secrets with no recorded rotation date.
+
+### Phase 2: Rotation
+
+1. **Generate** a new credential (API key, database password, certificate).
+2. **Deploy** the new credential to all consumers (apps, services, pipelines) in parallel.
+3. **Verify** each consumer can authenticate using the new credential.
+4. **Revoke** the old credential only after all consumers are confirmed healthy.
+5. **Update** metadata with the new rotation timestamp and next rotation date.
+
+### Phase 3: Automation
+
+- **AWS Secrets Manager** — use built-in Lambda-based rotation for RDS, Redshift, and DocumentDB.
+- **HashiCorp Vault** — configure dynamic secrets with TTLs; credentials are generated on-demand and auto-expire.
+- **Azure Key Vault** — use Event Grid notifications to trigger rotation functions.
+- **GCP Secret Manager** — use Pub/Sub notifications tied to Cloud Functions for rotation logic.
+
+### Emergency Rotation Checklist
+
+When a secret is confirmed leaked:
+
+1. **Immediately revoke** the compromised credential at the provider level.
+2. Generate and deploy a replacement credential to all consumers.
+3. Audit access logs for unauthorized usage during the exposure window.
+4. Scan git history, CI logs, and artifact registries for the leaked value.
+5. File an incident report documenting scope, timeline, and remediation steps.
+6. Review and tighten detection controls to prevent recurrence.
+
+---
+
+## CI/CD Secret Injection
+
+Secrets in CI/CD pipelines require careful handling to avoid exposure in logs, artifacts, or pull request contexts.
+
+### GitHub Actions
+
+- Use **repository secrets** or **environment secrets** via `${{ secrets.SECRET_NAME }}`.
+- Prefer **OIDC federation** (`aws-actions/configure-aws-credentials` with `role-to-assume`) over long-lived access keys.
+- Environment secrets with required reviewers add approval gates for production deployments.
+- GitHub automatically masks secrets in logs, but avoid `echo` or `toJSON()` on secret values.
+
+### GitLab CI
+
+- Store secrets as **CI/CD variables** with the `masked` and `protected` flags enabled.
+- Use **HashiCorp Vault integration** (`secrets:vault`) for dynamic secret injection without storing values in GitLab.
+- Scope variables to specific environments (`production`, `staging`) to enforce least privilege.
+
+### Universal Patterns
+
+- **Never echo or print** secret values in pipeline output, even for debugging.
+- **Use short-lived tokens** (OIDC, STS AssumeRole) instead of static credentials wherever possible.
+- **Restrict PR access** — do not expose secrets to pipelines triggered by forks or untrusted branches.
+- **Rotate CI secrets** on the same schedule as application secrets; pipeline credentials are attack vectors too.
+- **Audit pipeline logs** periodically for accidental secret exposure that masking may have missed.
+
+---
+
+## Pre-Commit Secret Detection
+
+Catching secrets before they reach version control is the most cost-effective defense. Two leading tools cover this space.
+
+### gitleaks
+
+```toml
+# .gitleaks.toml — minimal configuration
+[extend]
+useDefault = true
+
+[[rules]]
+id = "custom-internal-token"
+description = "Internal service token pattern"
+regex = '''INTERNAL_TOKEN_[A-Za-z0-9]{32}'''
+secretGroup = 0
+```
+
+- Install: `brew install gitleaks` or download from GitHub releases.
+- Pre-commit hook: `gitleaks git --pre-commit --staged`
+- Baseline scanning: `gitleaks detect --source . --report-path gitleaks-report.json`
+- Manage false positives in `.gitleaksignore` (one fingerprint per line).
+
+### detect-secrets
+
+```bash
+# Generate baseline
+detect-secrets scan --all-files > .secrets.baseline
+
+# Pre-commit hook (via pre-commit framework)
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+```
+
+- Supports **custom plugins** for organization-specific patterns.
+- Audit workflow: `detect-secrets audit .secrets.baseline` interactively marks true/false positives.
+
+### False Positive Management
+
+- Maintain `.gitleaksignore` or `.secrets.baseline` in version control so the whole team shares exclusions.
+- Review false positive lists during security audits — patterns may mask real leaks over time.
+- Prefer tightening regex patterns over broadly ignoring files.
+
+---
+
+## Audit Logging
+
+Knowing who accessed which secret and when is critical for incident investigation and compliance.
+
+### Cloud-Native Audit Trails
+
+| Provider | Service | What It Captures |
+|----------|---------|-----------------|
+| **AWS** | CloudTrail | Every `GetSecretValue`, `DescribeSecret`, `RotateSecret` API call |
+| **Azure** | Activity Log + Diagnostic Logs | Key Vault access events, including caller identity and IP |
+| **GCP** | Cloud Audit Logs | Data access logs for Secret Manager with principal and timestamp |
+| **Vault** | Audit Backend | Full request/response logging (file, syslog, or socket backend) |
+
+### Alerting Strategy
+
+- Alert on **access from unknown IP ranges** or service accounts outside the expected set.
+- Alert on **bulk secret reads** (more than N secrets accessed within a time window).
+- Alert on **access outside deployment windows** when no CI/CD pipeline is running.
+- Feed audit logs into your SIEM (Splunk, Datadog, Elastic) for correlation with other security events.
+- Review audit logs quarterly as part of access recertification.
+
+---
+
+## Cross-References
+
+This skill covers env hygiene and secret detection. For deeper coverage of related domains, see:
+
+| Skill | Path | Relationship |
+|-------|------|-------------|
+| **Secrets Vault Manager** | `engineering/secrets-vault-manager` | Production vault infrastructure, HA deployment, DR |
+| **Senior SecOps** | `engineering/senior-secops` | Security operations perspective, incident response |
+| **CI/CD Pipeline Builder** | `engineering/ci-cd-pipeline-builder` | Pipeline architecture, secret injection patterns |
+| **Infrastructure as Code** | `engineering/infrastructure-as-code` | Terraform/Pulumi secret backend configuration |
+| **Container Orchestration** | `engineering/container-orchestration` | Kubernetes secret mounting, sealed secrets |

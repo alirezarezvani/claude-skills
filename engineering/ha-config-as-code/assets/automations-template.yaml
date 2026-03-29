@@ -1,0 +1,113 @@
+# automations-template.yaml
+# Template for defining Home Assistant automations as code.
+# Use with: python3 scripts/ha_automation_diff.py --local automations-template.yaml
+#
+# Each entry requires: alias, trigger, action
+# Optional: description, condition, mode (single/restart/queued/parallel)
+
+# ─── Example: Morning routine ────────────────────────────────────────────────
+
+- alias: "Morning routine"
+  description: "Turn on lights and adjust climate on weekdays at 7am"
+  trigger:
+    - platform: time
+      at: "07:00:00"
+  condition:
+    - condition: time
+      weekday: [mon, tue, wed, thu, fri]
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.morning
+  mode: single
+
+# ─── Example: Motion lights ──────────────────────────────────────────────────
+
+- alias: "Hallway motion light"
+  description: "Turn on hallway light on motion, turn off after 5 minutes idle"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_hallway
+      to: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.hallway
+    - wait_for_trigger:
+        - platform: state
+          entity_id: binary_sensor.motion_hallway
+          to: "off"
+          for: "00:05:00"
+    - service: light.turn_off
+      target:
+        entity_id: light.hallway
+  mode: restart
+
+# ─── Example: Arrival home ───────────────────────────────────────────────────
+
+- alias: "Welcome home"
+  description: "Activate welcome scene when someone arrives"
+  trigger:
+    - platform: state
+      entity_id: person.alice
+      to: "home"
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacation_mode
+      state: "off"
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.welcome
+  mode: single
+
+# ─── Example: All away ───────────────────────────────────────────────────────
+
+- alias: "All away — power saving"
+  description: "Turn off all lights and set climate to away when everyone leaves"
+  trigger:
+    - platform: state
+      entity_id:
+        - person.alice
+        - person.bob
+      to: "not_home"
+      for: "00:05:00"
+  condition:
+    - condition: state
+      entity_id: person.alice
+      state: "not_home"
+    - condition: state
+      entity_id: person.bob
+      state: "not_home"
+  action:
+    - service: homeassistant.turn_off
+      target:
+        area_id:
+          - living_room
+          - bedroom
+          - kitchen
+  mode: single
+
+# ─── Example: Nightly lights off ─────────────────────────────────────────────
+
+- alias: "Nightly lights off"
+  description: "Turn off all lights at 23:30"
+  trigger:
+    - platform: time
+      at: "23:30:00"
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: all
+  mode: single
+
+# ─── Add your automations below ──────────────────────────────────────────────
+
+# - alias: "Your automation name"
+#   description: "What this automation does"
+#   trigger:
+#     - platform: ...
+#   condition: []
+#   action:
+#     - service: ...
+#   mode: single

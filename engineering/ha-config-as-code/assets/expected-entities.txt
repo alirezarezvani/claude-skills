@@ -1,0 +1,44 @@
+# expected-entities.txt
+# List of entity IDs that must exist in your Home Assistant instance.
+# Used by: python3 scripts/ha_config_validator.py --entities-file expected-entities.txt
+#
+# One entity_id per line. Lines starting with # are comments.
+# Replace with your actual entity IDs.
+
+# ─── Lights ───────────────────────────────────────────────────────────────────
+# light.living_room
+# light.bedroom
+# light.kitchen
+# light.hallway
+
+# ─── Switches ─────────────────────────────────────────────────────────────────
+# switch.main_switch
+# switch.bedroom_switch
+
+# ─── Sensors ──────────────────────────────────────────────────────────────────
+# sensor.temperature_living_room
+# sensor.humidity_bedroom
+# sensor.illuminance_living_room
+
+# ─── Binary Sensors ───────────────────────────────────────────────────────────
+# binary_sensor.motion_living_room
+# binary_sensor.door_front
+# binary_sensor.water_sensor_kitchen
+
+# ─── Climate ──────────────────────────────────────────────────────────────────
+# climate.main_thermostat
+
+# ─── Persons / Presence ───────────────────────────────────────────────────────
+# person.alice
+# person.bob
+
+# ─── Helpers ──────────────────────────────────────────────────────────────────
+# input_boolean.guest_mode
+# input_boolean.vacation_mode
+
+# ─── Scenes ───────────────────────────────────────────────────────────────────
+# scene.morning
+# scene.evening
+# scene.cinema
+# scene.sleep
+# scene.guest

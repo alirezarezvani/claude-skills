@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 175,
+  "total_skills": 176,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -202,6 +202,12 @@
       "source": "../../engineering-team/a11y-audit",
       "category": "engineering",
       "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
+    },
+    {
+      "name": "adversarial-reviewer",
+      "source": "../../engineering-team/adversarial-reviewer",
+      "category": "engineering",
+      "description": "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
     },
     {
       "name": "aws-solution-architect",
@@ -1068,7 +1074,7 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 30,
+      "count": 31,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },

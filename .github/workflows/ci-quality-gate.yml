@@ -50,6 +50,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install yamllint==1.35.1 check-jsonschema==0.28.4 safety==3.2.4
+          pip install -r requirements-dev.txt
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -71,9 +72,13 @@ jobs:
             ! -name "smart-sync.yml" \
             -exec check-jsonschema --builtin-schema github-workflows {} + || true
 
-      - name: Python syntax check
+      - name: Python syntax check (blocking)
         run: |
-          python -m compileall marketing-skill product-team c-level-advisor engineering-team ra-qm-team || true
+          python -m compileall marketing-skill product-team c-level-advisor engineering-team ra-qm-team engineering business-growth finance project-management scripts
+
+      - name: Run test suite
+        run: |
+          python -m pytest tests/ --tb=short -q
 
       - name: Safety dependency audit (requirements*.txt)
         run: |

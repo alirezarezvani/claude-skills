@@ -383,7 +383,7 @@ def main():
     parser.add_argument("--approve", type=str, help="Approve document (doc_id)")
     parser.add_argument("--approver", type=str, help="Approver name")
     parser.add_argument("--withdraw", type=str, help="Withdraw document (doc_id)")
-    parser.add_argument("--reason", type=str, help="Withdrawal reason")
+    parser.add_argument("--withdraw-reason", type=str, help="Withdrawal reason")
     parser.add_argument("--status", action="store_true", help="Show document status")
     parser.add_argument("--matrix", action="store_true", help="Generate document matrix")
     parser.add_argument("--output", choices=["text", "json"], default="text")
@@ -434,8 +434,8 @@ def main():
     elif args.approve and args.approver:
         success = dvc.approve_document(args.approve, args.approver, "QMS Manager")
         print(f"{'✅ Approved' if success else '❌ Failed'} document {args.approve}")
-    elif args.withdraw and args.reason:
-        success = dvc.withdraw_document(args.withdraw, args.reason, "QMS Manager")
+    elif args.withdraw and args.withdraw_reason:
+        success = dvc.withdraw_document(args.withdraw, args.withdraw_reason, "QMS Manager")
         print(f"{'✅ Withdrawn' if success else '❌ Failed'} document {args.withdraw}")
     elif args.matrix:
         matrix = dvc.generate_document_matrix()

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 263,
+  "total_skills": 264,
   "skills": [
     {
       "name": "README",
@@ -439,6 +439,11 @@
       "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
     },
     {
+      "name": "adversarial-reviewer",
+      "category": "engineering",
+      "description": "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
+    },
+    {
       "name": "aws-solution-architect",
       "category": "engineering",
       "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
@@ -507,11 +512,6 @@
       "name": "incident-commander",
       "category": "engineering",
       "description": "Incident Commander Skill"
-    },
-    {
-      "name": "init",
-      "category": "engineering",
-      "description": ">-"
     },
     {
       "name": "migrate",
@@ -624,19 +624,24 @@
       "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools. Use when the user asks about security reviews, threat analysis, vulnerability assessments, secure coding practices, security audits, attack surface analysis, CVE remediation, or security best practices."
     },
     {
+      "name": "skills-init",
+      "category": "engineering",
+      "description": ">-"
+    },
+    {
       "name": "skills-review",
       "category": "engineering",
       "description": ">-"
     },
     {
+      "name": "skills-status",
+      "category": "engineering",
+      "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
+    },
+    {
       "name": "snowflake-development",
       "category": "engineering",
       "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors."
-    },
-    {
-      "name": "status",
-      "category": "engineering",
-      "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
     },
     {
       "name": "stripe-integration-expert",
@@ -764,6 +769,11 @@
       "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
+      "name": "init",
+      "category": "engineering-advanced",
+      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria."
+    },
+    {
       "name": "interview-system-designer",
       "category": "engineering-advanced",
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
@@ -826,7 +836,7 @@
     {
       "name": "run",
       "category": "engineering-advanced",
-      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
     },
     {
       "name": "runbook-generator",
@@ -859,24 +869,14 @@
       "description": "Skill Tester"
     },
     {
-      "name": "skills-init",
-      "category": "engineering-advanced",
-      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria."
-    },
-    {
       "name": "skills-run",
       "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
+      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
     },
     {
       "name": "skills-status",
       "category": "engineering-advanced",
       "description": "Show DAG state, agent progress, and branch status for an AgentHub session."
-    },
-    {
-      "name": "skills-status",
-      "category": "engineering-advanced",
-      "description": "Show experiment dashboard with results, active loops, and progress."
     },
     {
       "name": "spawn",
@@ -892,6 +892,11 @@
       "name": "sql-database-assistant",
       "category": "engineering-advanced",
       "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
+    },
+    {
+      "name": "status",
+      "category": "engineering-advanced",
+      "description": "Show experiment dashboard with results, active loops, and progress."
     },
     {
       "name": "tech-debt-tracker",
@@ -1337,7 +1342,7 @@
       "description": "Command resources"
     },
     "engineering": {
-      "count": 45,
+      "count": 46,
       "description": "Engineering resources"
     },
     "engineering-advanced": {

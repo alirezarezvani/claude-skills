@@ -121,6 +121,7 @@ nav:
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
       - "A11y Audit": skills/engineering-team/a11y-audit.md
+      - "Adversarial Code Reviewer": skills/engineering-team/adversarial-reviewer.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md
       - "Azure Cloud Architect": skills/engineering-team/azure-cloud-architect.md
       - "Code Reviewer": skills/engineering-team/code-reviewer.md

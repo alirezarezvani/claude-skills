@@ -1,1 +1,1 @@
-../../../engineering-team/self-improving-agent/skills/status/SKILL.md
+../../../engineering/autoresearch-agent/skills/status/SKILL.md

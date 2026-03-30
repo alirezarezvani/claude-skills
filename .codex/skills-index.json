@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 176,
+  "total_skills": 182,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -210,6 +210,12 @@
       "description": "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
     },
     {
+      "name": "ai-security",
+      "source": "../../engineering-team/ai-security",
+      "category": "engineering",
+      "description": "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring."
+    },
+    {
       "name": "aws-solution-architect",
       "source": "../../engineering-team/aws-solution-architect",
       "category": "engineering",
@@ -220,6 +226,12 @@
       "source": "../../engineering-team/azure-cloud-architect",
       "category": "engineering",
       "description": "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization."
+    },
+    {
+      "name": "cloud-security",
+      "source": "../../engineering-team/cloud-security",
+      "category": "engineering",
+      "description": "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
     },
     {
       "name": "code-reviewer",
@@ -258,6 +270,12 @@
       "description": "Incident Commander Skill"
     },
     {
+      "name": "incident-response",
+      "source": "../../engineering-team/incident-response",
+      "category": "engineering",
+      "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
+    },
+    {
       "name": "ms365-tenant-manager",
       "source": "../../engineering-team/ms365-tenant-manager",
       "category": "engineering",
@@ -268,6 +286,12 @@
       "source": "../../engineering-team/playwright-pro",
       "category": "engineering",
       "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting."
+    },
+    {
+      "name": "red-team",
+      "source": "../../engineering-team/red-team",
+      "category": "engineering",
+      "description": "Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting."
     },
     {
       "name": "security-pen-testing",
@@ -382,6 +406,12 @@
       "source": "../../engineering-team/tech-stack-evaluator",
       "category": "engineering",
       "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability."
+    },
+    {
+      "name": "threat-detection",
+      "source": "../../engineering-team/threat-detection",
+      "category": "engineering",
+      "description": "Use when hunting for threats in an environment, analyzing IOCs, or detecting behavioral anomalies in telemetry. Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and MITRE ATT&CK-mapped signal prioritization."
     },
     {
       "name": "agent-designer",
@@ -556,6 +586,12 @@
       "source": "../../engineering/secrets-vault-manager",
       "category": "engineering-advanced",
       "description": "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
+    },
+    {
+      "name": "self-eval",
+      "source": "../../engineering/self-eval",
+      "category": "engineering-advanced",
+      "description": "Honestly evaluate AI work quality using a two-axis scoring system. Use after completing a task, code review, or work session to get an unbiased assessment. Detects score inflation, forces devil's advocate reasoning, and persists scores across sessions."
     },
     {
       "name": "skill-security-auditor",
@@ -1074,12 +1110,12 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 31,
+      "count": 36,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 35,
+      "count": 36,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

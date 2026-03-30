@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 264,
+  "total_skills": 270,
   "skills": [
     {
       "name": "README",
@@ -444,6 +444,11 @@
       "description": "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
     },
     {
+      "name": "ai-security",
+      "category": "engineering",
+      "description": "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring."
+    },
+    {
       "name": "aws-solution-architect",
       "category": "engineering",
       "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
@@ -457,6 +462,11 @@
       "name": "browserstack",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "cloud-security",
+      "category": "engineering",
+      "description": "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
     },
     {
       "name": "code-reviewer",
@@ -514,6 +524,11 @@
       "description": "Incident Commander Skill"
     },
     {
+      "name": "incident-response",
+      "category": "engineering",
+      "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
+    },
+    {
       "name": "migrate",
       "category": "engineering",
       "description": ">-"
@@ -532,6 +547,11 @@
       "name": "promote",
       "category": "engineering",
       "description": "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement."
+    },
+    {
+      "name": "red-team",
+      "category": "engineering",
+      "description": "Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting."
     },
     {
       "name": "remember",
@@ -662,6 +682,11 @@
       "name": "testrail",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "threat-detection",
+      "category": "engineering",
+      "description": "Use when hunting for threats in an environment, analyzing IOCs, or detecting behavioral anomalies in telemetry. Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and MITRE ATT&CK-mapped signal prioritization."
     },
     {
       "name": "agent-designer",
@@ -852,6 +877,11 @@
       "name": "secrets-vault-manager",
       "category": "engineering-advanced",
       "description": "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
+    },
+    {
+      "name": "self-eval",
+      "category": "engineering-advanced",
+      "description": "Honestly evaluate AI work quality using a two-axis scoring system. Use after completing a task, code review, or work session to get an unbiased assessment. Detects score inflation, forces devil's advocate reasoning, and persists scores across sessions."
     },
     {
       "name": "setup",
@@ -1342,11 +1372,11 @@
       "description": "Command resources"
     },
     "engineering": {
-      "count": 46,
+      "count": 51,
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 49,
+      "count": 50,
       "description": "Engineering-advanced resources"
     },
     "finance": {

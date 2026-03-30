@@ -248,5 +248,5 @@ You are likely reviewing code you just wrote or just read. Your brain (weights) 
 ## Cross-References
 
 - Related: `engineering-team/senior-security` — deep security analysis
-- Related: `engineering/code-reviewer` — general code quality review
+- Related: `engineering-team/code-reviewer` — general code quality review
 - Complementary: `ra-qm-team/` — quality management workflows

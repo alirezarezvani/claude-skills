@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 182,
+  "total_skills": 186,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -528,6 +528,12 @@
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
     },
     {
+      "name": "llm-cost-optimizer",
+      "source": "../../engineering/llm-cost-optimizer",
+      "category": "engineering-advanced",
+      "description": "Use when you need to reduce LLM API spend, control token usage, route between models by cost/quality, implement prompt caching, or build cost observability for AI features. Triggers: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching'. NOT for RAG pipeline design (use rag-architect). NOT for prompt writing quality (use senior-prompt-engineer)."
+    },
+    {
       "name": "mcp-server-builder",
       "source": "../../engineering/mcp-server-builder",
       "category": "engineering-advanced",
@@ -562,6 +568,12 @@
       "source": "../../engineering/pr-review-expert",
       "category": "engineering-advanced",
       "description": "Use when the user asks to review pull requests, analyze code changes, check for security issues in PRs, or assess code quality of diffs."
+    },
+    {
+      "name": "prompt-governance",
+      "source": "../../engineering/prompt-governance",
+      "category": "engineering-advanced",
+      "description": "Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production AI features. Triggers: 'manage prompts in production', 'prompt versioning', 'prompt regression', 'prompt A/B test', 'prompt registry', 'eval pipeline'. NOT for writing or improving individual prompts (use senior-prompt-engineer). NOT for RAG pipeline design (use rag-architect). NOT for LLM cost reduction (use llm-cost-optimizer)."
     },
     {
       "name": "rag-architect",
@@ -628,6 +640,12 @@
       "source": "../../engineering/terraform-patterns",
       "category": "engineering-advanced",
       "description": "Terraform infrastructure-as-code agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Covers module design patterns, state management strategies, provider configuration, security hardening, policy-as-code with Sentinel/OPA, and CI/CD plan/apply workflows. Use when: user wants to design Terraform modules, manage state backends, review Terraform security, implement multi-region deployments, or follow IaC best practices."
+    },
+    {
+      "name": "business-investment-advisor",
+      "source": "../../finance/business-investment-advisor",
+      "category": "finance",
+      "description": "Business investment analysis and capital allocation advisor. Use when evaluating whether to invest in equipment, real estate, a new business, hiring, technology, or any capital expenditure. Also use for ROI calculations, IRR, NPV, payback period, build vs buy decisions, lease vs buy analysis, vendor evaluation, or deciding where to allocate limited budget for maximum return."
     },
     {
       "name": "financial-analyst",
@@ -894,6 +912,12 @@
       "description": "When the user wants to develop social media strategy, plan content calendars, manage community engagement, or grow their social presence across platforms. Also use when the user mentions 'social media strategy,' 'social calendar,' 'community management,' 'social media plan,' 'grow followers,' 'engagement rate,' 'social media audit,' or 'which platforms should I use.' For writing individual social posts, see social-content. For analyzing social performance data, see social-media-analyzer."
     },
     {
+      "name": "video-content-strategist",
+      "source": "../../marketing-skill/video-content-strategist",
+      "category": "marketing",
+      "description": "Use when planning video content strategy, writing video scripts, optimizing YouTube channels, building short-form video pipelines (Reels, TikTok, Shorts), or repurposing long-form content into video. Triggers: 'start a YouTube channel', 'video content strategy', 'write a video script', 'repurpose into video', 'YouTube SEO', 'short-form video'. NOT for written blog content (use content-production). NOT for social captions without video (use social-media-manager)."
+    },
+    {
       "name": "x-twitter-growth",
       "source": "../../marketing-skill/x-twitter-growth",
       "category": "marketing",
@@ -1115,17 +1139,17 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 36,
+      "count": 38,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
     "finance": {
-      "count": 2,
+      "count": 3,
       "source": "../../finance",
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 43,
+      "count": 44,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },

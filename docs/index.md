@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 36 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 38 skills](skills/engineering/)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -159,7 +159,7 @@ hide:
 
     Content, SEO, CRO, channels, growth, intelligence, sales — 7 specialist pods with 32 Python tools
 
-    [:octicons-arrow-right-24: 43 skills](skills/marketing-skill/)
+    [:octicons-arrow-right-24: 44 skills](skills/marketing-skill/)
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management**
 

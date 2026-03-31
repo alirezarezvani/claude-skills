@@ -1,6 +1,6 @@
 {
   "name": "marketing-skills",
-  "description": "43 production-ready marketing skills across 7 pods: Content (copywriting, content strategy, content production), SEO (audits, schema markup, programmatic SEO, site architecture), CRO (A/B testing, forms, popups, signup flows, pricing, onboarding), Channels (email sequences, social media, paid ads, cold email, X/Twitter growth), Growth (launch strategy, referral programs, free tools), Intelligence (competitor analysis, marketing psychology, analytics tracking), and Sales enablement. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
+  "description": "44 production-ready marketing skills across 7 pods: Content (copywriting, content strategy, content production), SEO (audits, schema markup, programmatic SEO, site architecture), CRO (A/B testing, forms, popups, signup flows, pricing, onboarding), Channels (email sequences, social media, paid ads, cold email, X/Twitter growth), Growth (launch strategy, referral programs, free tools), Intelligence (competitor analysis, marketing psychology, analytics tracking), and Sales enablement. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
   "version": "2.1.2",
   "author": {
     "name": "Alireza Rezvani",

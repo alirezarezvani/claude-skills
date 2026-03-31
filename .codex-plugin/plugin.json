@@ -1,0 +1,46 @@
+{
+  "name": "claude-code-skills",
+  "version": "2.2.0",
+  "description": "223 production-ready skills, 23 agents, and 298 Python tools across 9 domains — engineering, marketing, product, compliance, C-level advisory, and more. The largest open-source skills library for AI coding agents.",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://alirezarezvani.github.io/claude-skills/",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "keywords": [
+    "openai-codex",
+    "codex-plugin",
+    "claude-code",
+    "agent-skills",
+    "engineering",
+    "marketing",
+    "product",
+    "compliance",
+    "devops",
+    "security",
+    "ai-agents"
+  ],
+  "skills": "./.codex/skills/",
+  "interface": {
+    "type": "cli",
+    "displayName": "Claude Code Skills",
+    "shortDescription": "223 production-ready skills for AI coding agents across 9 domains",
+    "longDescription": "The largest open-source skills library for AI coding agents. 223 skills covering engineering (architecture, DevOps, security, AI/ML), marketing (SEO, CRO, content), product management, C-level advisory, regulatory compliance (ISO 13485, SOC 2, GDPR), project management, business growth, and finance. Includes 298 stdlib-only Python CLI tools, 416 reference guides, 23 orchestration agents, and 22 slash commands. Works with Codex, Claude Code, Gemini CLI, Cursor, Aider, Windsurf, and 5 more tools.",
+    "developerName": "Alireza Rezvani",
+    "category": "Coding",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://alirezarezvani.github.io/claude-skills/",
+    "defaultPrompt": [
+      "Design an AWS architecture for my project",
+      "Run a security pen test on this codebase",
+      "Create a product requirements document",
+      "Audit this page for accessibility (WCAG 2.2)"
+    ],
+    "brandColor": "#0969da"
+  }
+}

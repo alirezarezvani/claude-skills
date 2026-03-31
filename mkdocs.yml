@@ -294,8 +294,10 @@ nav:
       - "Atlassian Templates": skills/project-management/atlassian-templates.md
       - "Confluence Expert": skills/project-management/confluence-expert.md
       - "Jira Expert": skills/project-management/jira-expert.md
+      - "Meeting Analyzer": skills/project-management/meeting-analyzer.md
       - "Scrum Master": skills/project-management/scrum-master.md
       - "Senior PM": skills/project-management/senior-pm.md
+      - "Team Communications": skills/project-management/team-communications.md
     - C-Level Advisory:
       - Overview: skills/c-level-advisor/index.md
       - "Agent Protocol": skills/c-level-advisor/agent-protocol.md

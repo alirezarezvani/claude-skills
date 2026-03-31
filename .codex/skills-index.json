@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 186,
+  "total_skills": 188,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -1032,6 +1032,12 @@
       "description": "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use for Jira project setup, configuration, advanced search, dashboard creation, workflow design, and technical Jira operations."
     },
     {
+      "name": "meeting-analyzer",
+      "source": "../../project-management/meeting-analyzer",
+      "category": "project-management",
+      "description": "Analyzes meeting transcripts and recordings to surface behavioral patterns, communication anti-patterns, and actionable coaching feedback. Use this skill whenever the user uploads or points to meeting transcripts (.txt, .md, .vtt, .srt, .docx), asks about their communication habits, wants feedback on how they run meetings, requests speaking ratio analysis, mentions filler words or conflict avoidance, or wants to compare their communication across time periods. Also trigger when users mention tools like Granola, Otter, Fireflies, or Zoom transcripts. Even if the user just says \"look at my meetings\" or \"how do I come across in meetings\" \u2014 use this skill."
+    },
+    {
       "name": "scrum-master",
       "source": "../../project-management/scrum-master",
       "category": "project-management",
@@ -1042,6 +1048,12 @@
       "source": "../../project-management/senior-pm",
       "category": "project-management",
       "description": "Senior Project Manager for enterprise software, SaaS, and digital transformation projects. Specializes in portfolio management, quantitative risk analysis, resource optimization, stakeholder alignment, and executive reporting. Uses advanced methodologies including EMV analysis, Monte Carlo simulation, WSJF prioritization, and multi-dimensional health scoring. Use when a user needs help with project plans, project status reports, risk assessments, resource allocation, project roadmaps, milestone tracking, team capacity planning, portfolio health reviews, program management, or executive-level project reporting \u2014 especially for enterprise-scale initiatives with multiple workstreams, complex dependencies, or multi-million dollar budgets."
+    },
+    {
+      "name": "team-communications",
+      "source": "../../project-management/team-communications",
+      "category": "project-management",
+      "description": "Write internal company communications \u2014 3P updates (Progress/Plans/Problems), company-wide newsletters, FAQ roundups, incident reports, leadership updates, status reports, project updates, and general internal comms. Use this skill any time the user asks to draft, edit, or format something meant for internal audiences. Trigger on keywords like \"3P\", \"weekly update\", \"newsletter\", \"FAQ\", \"internal comms\", \"status report\", \"company update\", \"team update\", \"incident report\", or any request to summarize work for leadership, teammates, or the broader company. Even casual requests like \"write my update\" or \"summarize what my team did this week\" should trigger this skill."
     },
     {
       "name": "capa-officer",
@@ -1159,7 +1171,7 @@
       "description": "Product management and design skills"
     },
     "project-management": {
-      "count": 6,
+      "count": 8,
       "source": "../../project-management",
       "description": "Project management and Atlassian skills"
     },

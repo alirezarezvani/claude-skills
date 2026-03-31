@@ -300,8 +300,8 @@ services:
 
 ---
 
-**Last Updated:** March 18, 2026
-**Skills Deployed:** 30 engineering skills production-ready
+**Last Updated:** March 31, 2026
+**Skills Deployed:** 36 engineering skills production-ready
 **Total Tools:** 39+ Python automation tools across core + AI/ML/Data + epic-design + a11y
 
 ---

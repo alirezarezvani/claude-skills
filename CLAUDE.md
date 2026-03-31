@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 205 production-ready skills across 9 domains with 268 Python automation tools, 384 reference guides, 16 agents, and 19 slash commands.
+**Current Scope:** 223 production-ready skills across 9 domains with 298 Python automation tools, 416 reference guides, 23 agents, and 22 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -36,17 +36,17 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
-├── agents/                    # 16 cs-* prefixed agents across all domains
-├── commands/                  # 19 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
-├── engineering-team/          # 30 core engineering skills + Playwright Pro + Self-Improving Agent + A11y Audit
-├── engineering/               # 35 POWERFUL-tier advanced skills (incl. AgentHub)
-├── product-team/              # 13 product skills + Python tools
-├── marketing-skill/           # 43 marketing skills (7 pods) + Python tools
-├── c-level-advisor/           # 28 C-level advisory skills (10 roles + orchestration)
-├── project-management/        # 6 PM skills + Atlassian MCP
-├── ra-qm-team/                # 13 RA/QM compliance skills
-├── business-growth/           # 4 business & growth skills + Python tools
-├── finance/                   # 2 finance skills + Python tools
+├── agents/                    # 23 agents across all domains
+├── commands/                  # 22 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
+├── engineering-team/          # 36 core engineering skills + Playwright Pro + Self-Improving Agent + Security Suite
+├── engineering/               # 36 POWERFUL-tier advanced skills (incl. AgentHub, self-eval)
+├── product-team/              # 15 product skills + Python tools
+├── marketing-skill/           # 44 marketing skills (7 pods) + Python tools
+├── c-level-advisor/           # 34 C-level advisory skills (10 roles + orchestration)
+├── project-management/        # 7 PM skills + Atlassian MCP
+├── ra-qm-team/                # 14 RA/QM compliance skills
+├── business-growth/           # 5 business & growth skills + Python tools
+├── finance/                   # 3 finance skills + Python tools
 ├── eval-workspace/            # Skill evaluation results (Tessl)
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates
@@ -124,15 +124,20 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.1.2 (latest)
+**Version:** v2.2.0 (latest)
 
-**v2.1.2 Highlights:**
+**v2.2.0 Highlights:**
+- **Security skills suite** — 6 new engineering-team skills: adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection (5 Python tools, 4 reference guides)
+- **Self-eval skill** — Honest AI work quality evaluation with two-axis scoring, score inflation detection, and session persistence
+- **Snowflake development** — Data warehouse development, SQL optimization, and data pipeline patterns
+- 223 total skills across 9 domains, 298 Python tools, 416 references, 23 agents, 22 commands
+- MkDocs docs site expanded to 269 generated pages (301 HTML pages)
+
+**v2.1.2 (2026-03-10):**
 - Landing page generator now outputs **Next.js TSX + Tailwind CSS** by default (4 design styles, 7 section generators)
 - **Brand voice integration** — landing page workflow uses marketing brand voice analyzer to match copy tone to design style
 - 25 Python scripts fixed across all domains (syntax, dependencies, argparse)
 - 237/237 scripts verified passing `--help`
-- Competitive teardown SKILL.md fixed (6 broken file references)
-- Cross-domain workflows documented (product + marketing skill integration)
 
 **v2.1.1 (2026-03-07):**
 - 18 skills optimized from 66-83% to 85-100% via Tessl quality review
@@ -148,11 +153,11 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1-2 Complete:** 204 production-ready skills deployed across 9 domains
-- Engineering Core (29), Engineering POWERFUL (35), Product (14), Marketing (43), PM (6), C-Level (28), RA/QM (13), Business & Growth (4), Finance (2)
-- 268 Python automation tools, 384 reference guides, 16 agents, 19 commands
+**Phase 1-3 Complete:** 223 production-ready skills deployed across 9 domains
+- Engineering Core (36), Engineering POWERFUL (36), Product (15), Marketing (44), PM (7), C-Level (34), RA/QM (14), Business & Growth (5), Finance (3)
+- 298 Python automation tools, 416 reference guides, 23 agents, 22 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
-- MkDocs Material docs site with 210+ indexed pages for SEO
+- MkDocs Material docs site with 269+ indexed pages for SEO
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 
@@ -173,7 +178,7 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 3. **No paid/commercial service dependencies.** Skills must not require paid third-party API keys or commercial services unless provided by the project itself. Free-tier APIs and BYOK (bring-your-own-key) patterns are acceptable.
 4. **Rate limit: 5 new skills per hour** on ClawHub. Batch publishes must respect this. Use the drip timer (`clawhub-drip.timer`) for bulk operations.
 5. **plugin.json schema** — ONLY these fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills: "./"`. No extra fields.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.1.2+).
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.2.0+).
 
 ## Anti-Patterns to Avoid
 
@@ -201,6 +206,6 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 
 ---
 
-**Last Updated:** March 11, 2026
-**Version:** v2.1.2
-**Status:** 205 skills deployed across 9 domains, 28 marketplace plugins, docs site live
+**Last Updated:** March 31, 2026
+**Version:** v2.2.0
+**Status:** 223 skills deployed across 9 domains, 28 marketplace plugins, docs site live

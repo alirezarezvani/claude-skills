@@ -1,6 +1,6 @@
 ---
 title: Install Agent Skills — Codex, Gemini CLI, OpenClaw Setup
-description: "How to install Claude Code skills and agent plugins for 11 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
+description: "How to install 223 Claude Code skills and agent plugins for 11 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
 ---
 
 # Getting Started
@@ -140,15 +140,15 @@ Choose your platform and follow the steps:
 
 | Bundle | Install Command | Skills |
 |--------|----------------|--------|
-| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 30 |
-| **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 35 |
-| **Product** | `/plugin install product-skills@claude-code-skills` | 14 |
-| **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 43 |
-| **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 13 |
-| **Project Management** | `/plugin install pm-skills@claude-code-skills` | 6 |
-| **C-Level Advisory** | `/plugin install c-level-skills@claude-code-skills` | 28 |
-| **Business & Growth** | `/plugin install business-growth-skills@claude-code-skills` | 4 |
-| **Finance** | `/plugin install finance-skills@claude-code-skills` | 2 |
+| **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 36 |
+| **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 36 |
+| **Product** | `/plugin install product-skills@claude-code-skills` | 15 |
+| **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 44 |
+| **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 14 |
+| **Project Management** | `/plugin install pm-skills@claude-code-skills` | 7 |
+| **C-Level Advisory** | `/plugin install c-level-skills@claude-code-skills` | 34 |
+| **Business & Growth** | `/plugin install business-growth-skills@claude-code-skills` | 5 |
+| **Finance** | `/plugin install finance-skills@claude-code-skills` | 3 |
 
 Or install individual skills: `/plugin install skill-name@claude-code-skills`
 
@@ -182,7 +182,7 @@ AI-augmented development. Optimize for SEO.
 
 ## Python Tools
 
-All 254 tools use the standard library only — zero pip installs, all verified.
+All 298 tools use the standard library only — zero pip installs, all verified.
 
 ```bash
 # Security audit a skill before installing
@@ -247,8 +247,8 @@ See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-
 ??? question "How do I update installed skills?"
     Re-run the install command. The plugin system fetches the latest version from the marketplace.
 
-??? question "Will upgrading to v2.1.2 break my setup?"
-    No. v2.1.2 is fully backward compatible. Existing SKILL.md files, scripts, and references are unchanged. New features (TSX output, brand voice integration) are opt-in additions.
+??? question "Will upgrading to v2.2.0 break my setup?"
+    No. v2.2.0 is fully backward compatible. Existing SKILL.md files, scripts, and references are unchanged. New skills (security suite, self-eval) are additive only.
 
 ??? question "Does this work with Gemini CLI?"
     Yes. Run `./scripts/gemini-install.sh` to set up skills for Gemini CLI. A sync script (`scripts/sync-gemini-skills.py`) generates the skills index automatically.

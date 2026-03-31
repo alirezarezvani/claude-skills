@@ -1,6 +1,6 @@
 ---
-title: 205 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "205 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
+title: 223 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "223 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-205 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for AI coding tools.
+223 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -49,7 +49,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **204 Skills**
+-   :material-toolbox:{ .lg .middle } **223 Skills**
 
     ---
 
@@ -57,7 +57,7 @@ hide:
 
     [:octicons-arrow-right-24: Browse skills](skills/)
 
--   :material-robot:{ .lg .middle } **16 Agents**
+-   :material-robot:{ .lg .middle } **23 Agents**
 
     ---
 
@@ -81,7 +81,7 @@ hide:
 
     [:octicons-arrow-right-24: Learn patterns](orchestration.md)
 
--   :material-language-python:{ .lg .middle } **268 Python Tools**
+-   :material-language-python:{ .lg .middle } **298 Python Tools**
 
     ---
 
@@ -97,7 +97,7 @@ hide:
 
     [:octicons-arrow-right-24: Plugin marketplace](plugins/)
 
--   :material-console:{ .lg .middle } **19 Commands**
+-   :material-console:{ .lg .middle } **22 Commands**
 
     ---
 
@@ -135,7 +135,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 30 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 36 skills](skills/engineering-team/)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 
@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 35 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 36 skills](skills/engineering/)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -183,7 +183,7 @@ hide:
 
     ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management, quality documentation
 
-    [:octicons-arrow-right-24: 13 skills](skills/ra-qm-team/)
+    [:octicons-arrow-right-24: 14 skills](skills/ra-qm-team/)
 
 -   :material-trending-up:{ .lg .middle } **Business & Growth**
 
@@ -199,7 +199,7 @@ hide:
 
     Financial analyst, SaaS metrics coach — DCF valuation, budgeting, forecasting, ARR/MRR/churn/LTV
 
-    [:octicons-arrow-right-24: 2 skills](skills/finance/)
+    [:octicons-arrow-right-24: 3 skills](skills/finance/)
 
 </div>
 

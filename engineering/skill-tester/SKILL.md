@@ -1,6 +1,6 @@
 ---
 name: "skill-tester"
-description: "Skill Tester"
+description: "Use when validating, scoring, or security-auditing AI agent skills. Runs structure validation, 5-dimension quality scoring (documentation, code, completeness, security, usability), security vulnerability detection, and script execution testing. Use --include-security for the security dimension."
 ---
 
 # Skill Tester

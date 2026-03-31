@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "49 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "51 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">49 skills in this domain</p>
+<p class="domain-count">51 skills in this domain</p>
 
 </div>
 
@@ -137,6 +137,12 @@ description: "49 engineering - powerful skills — advanced agent-native skill a
 
     Comprehensive interview loop planning and calibration support for role-based hiring systems.
 
+-   **[LLM Cost Optimizer](llm-cost-optimizer.md)**
+
+    ---
+
+    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
+
 -   **[MCP Server Builder](mcp-server-builder.md)**
 
     ---
@@ -172,6 +178,12 @@ description: "49 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL
+
+-   **[Prompt Governance](prompt-governance.md)**
+
+    ---
+
+    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
 
 -   **[RAG Architect - POWERFUL](rag-architect.md)**
 

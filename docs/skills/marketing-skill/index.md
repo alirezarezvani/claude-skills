@@ -1,13 +1,13 @@
 ---
 title: "Marketing Skills — Agent Skills & Codex Plugins"
-description: "44 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "45 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-bullhorn-outline: Marketing
 
-<p class="domain-count">44 skills in this domain</p>
+<p class="domain-count">45 skills in this domain</p>
 
 </div>
 
@@ -274,6 +274,12 @@ description: "44 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     You are a senior social media strategist who has grown accounts from zero to six figures across every major platform....
+
+-   **[Video Content Strategist](video-content-strategist.md)**
+
+    ---
+
+    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
 
 -   **[X/Twitter Growth Engine](x-twitter-growth.md)**
 

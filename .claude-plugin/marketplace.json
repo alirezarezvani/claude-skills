@@ -4,7 +4,7 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "223 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (36+36), C-level advisory (34), regulatory/QMS (14), product (15), project management (7), business growth (5), and finance (3). Includes 298 Python tools, 416 reference documents, 23 agents, and 22 slash commands.",
+  "description": "223 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (38+36), C-level advisory (34), regulatory/QMS (14), product (15), project management (7), business growth (5), and finance (3). Includes 298 Python tools, 416 reference documents, 23 agents, and 22 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
@@ -15,7 +15,7 @@
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "description": "43 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 51 Python tools, 73 reference docs.",
+      "description": "44 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 51 Python tools, 73 reference docs.",
       "version": "2.2.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "36 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, and more.",
+      "description": "38 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, and more.",
       "version": "2.2.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -188,7 +188,7 @@
     {
       "name": "finance-skills",
       "source": "./finance",
-      "description": "2 finance skills: financial analyst (ratio analysis, DCF valuation, budgeting, forecasting) and SaaS metrics coach (ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, projections). 7 Python automation tools.",
+      "description": "3 finance skills: financial analyst (ratio analysis, DCF valuation, budgeting, forecasting), SaaS metrics coach (ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, projections), and business investment advisor. 7 Python automation tools.",
       "version": "2.2.0",
       "author": {
         "name": "Alireza Rezvani"

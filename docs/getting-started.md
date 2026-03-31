@@ -141,7 +141,7 @@ Choose your platform and follow the steps:
 | Bundle | Install Command | Skills |
 |--------|----------------|--------|
 | **Engineering Core** | `/plugin install engineering-skills@claude-code-skills` | 36 |
-| **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 36 |
+| **Engineering POWERFUL** | `/plugin install engineering-advanced-skills@claude-code-skills` | 38 |
 | **Product** | `/plugin install product-skills@claude-code-skills` | 15 |
 | **Marketing** | `/plugin install marketing-skills@claude-code-skills` | 44 |
 | **Regulatory & Quality** | `/plugin install ra-qm-skills@claude-code-skills` | 14 |

@@ -5,6 +5,51 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-03-31
+
+### Added — Security Skills Suite & Self-Eval
+
+**6 New Security Skills (engineering-team):**
+- **adversarial-reviewer** — Adversarial code review with 3 hostile personas (Saboteur, New Hire, Security Auditor) to break self-review monoculture
+- **ai-security** — ATLAS-mapped prompt injection detection, model inversion & data poisoning risk scoring (`ai_threat_scanner.py`)
+- **cloud-security** — IAM privilege escalation paths, S3 public access checks, security group detection across AWS/Azure/GCP (`cloud_posture_check.py`)
+- **incident-response** — SEV1-SEV4 triage, 14-type incident taxonomy, NIST SP 800-61 forensics (`incident_triage.py`)
+- **red-team** — MITRE ATT&CK kill-chain planning, effort scoring, choke point identification (`engagement_planner.py`)
+- **threat-detection** — Hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection (`threat_signal_analyzer.py`)
+
+**1 New Engineering Skill (engineering/):**
+- **self-eval** — Honest AI work quality evaluation with two-axis scoring (substance + execution), score inflation detection, devil's advocate reasoning, and session persistence
+
+**1 New Engineering Skill (engineering-team/):**
+- **snowflake-development** — Snowflake data warehouse development, SQL optimization, and data pipeline patterns
+
+### Changed
+- **Total skills:** 205 → 223 across 9 domains
+- **Python tools:** 268 → 298 CLI scripts (all stdlib-only, verified)
+- **Reference guides:** 384 → 416
+- **Agents:** 16 → 23
+- **Commands:** 19 → 22
+- **Engineering Core:** 30 → 36 skills
+- **Engineering POWERFUL:** 35 → 36 skills
+- **MkDocs docs site:** 269 generated pages, 301 HTML pages
+- All domain plugin.json files updated to v2.2.0
+- Marketplace description updated with new skill counts
+- Codex CLI and Gemini CLI indexes re-synced
+
+### Documentation
+- Root CLAUDE.md, README.md, docs/index.md, docs/getting-started.md updated with new counts
+- engineering-team/CLAUDE.md updated with security skills section
+- mkdocs.yml site_description updated
+- New skill docs pages auto-generated for all 8 new skills
+
+### Backward Compatibility
+- All existing SKILL.md files, scripts, and references unchanged
+- No skill removals or renames
+- Plugin source paths unchanged — existing installations will not break
+- All new skills are additive only
+
+---
+
 ## [2.1.2] - 2026-03-10
 
 ### Changed — Product Team Quality & Cross-Domain Integration

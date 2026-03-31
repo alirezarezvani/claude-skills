@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 263,
+  "total_skills": 270,
   "skills": [
     {
       "name": "README",
@@ -439,6 +439,16 @@
       "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
     },
     {
+      "name": "adversarial-reviewer",
+      "category": "engineering",
+      "description": "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
+    },
+    {
+      "name": "ai-security",
+      "category": "engineering",
+      "description": "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring."
+    },
+    {
       "name": "aws-solution-architect",
       "category": "engineering",
       "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization."
@@ -452,6 +462,11 @@
       "name": "browserstack",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "cloud-security",
+      "category": "engineering",
+      "description": "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
     },
     {
       "name": "code-reviewer",
@@ -509,9 +524,9 @@
       "description": "Incident Commander Skill"
     },
     {
-      "name": "init",
+      "name": "incident-response",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
     },
     {
       "name": "migrate",
@@ -532,6 +547,11 @@
       "name": "promote",
       "category": "engineering",
       "description": "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement."
+    },
+    {
+      "name": "red-team",
+      "category": "engineering",
+      "description": "Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting."
     },
     {
       "name": "remember",
@@ -624,19 +644,24 @@
       "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools. Use when the user asks about security reviews, threat analysis, vulnerability assessments, secure coding practices, security audits, attack surface analysis, CVE remediation, or security best practices."
     },
     {
+      "name": "skills-init",
+      "category": "engineering",
+      "description": ">-"
+    },
+    {
       "name": "skills-review",
       "category": "engineering",
       "description": ">-"
     },
     {
+      "name": "skills-status",
+      "category": "engineering",
+      "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
+    },
+    {
       "name": "snowflake-development",
       "category": "engineering",
       "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors."
-    },
-    {
-      "name": "status",
-      "category": "engineering",
-      "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
     },
     {
       "name": "stripe-integration-expert",
@@ -657,6 +682,11 @@
       "name": "testrail",
       "category": "engineering",
       "description": ">-"
+    },
+    {
+      "name": "threat-detection",
+      "category": "engineering",
+      "description": "Use when hunting for threats in an environment, analyzing IOCs, or detecting behavioral anomalies in telemetry. Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and MITRE ATT&CK-mapped signal prioritization."
     },
     {
       "name": "agent-designer",
@@ -764,6 +794,11 @@
       "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
+      "name": "init",
+      "category": "engineering-advanced",
+      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria."
+    },
+    {
       "name": "interview-system-designer",
       "category": "engineering-advanced",
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
@@ -826,7 +861,7 @@
     {
       "name": "run",
       "category": "engineering-advanced",
-      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
     },
     {
       "name": "runbook-generator",
@@ -844,6 +879,11 @@
       "description": "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
     },
     {
+      "name": "self-eval",
+      "category": "engineering-advanced",
+      "description": "Honestly evaluate AI work quality using a two-axis scoring system. Use after completing a task, code review, or work session to get an unbiased assessment. Detects score inflation, forces devil's advocate reasoning, and persists scores across sessions."
+    },
+    {
       "name": "setup",
       "category": "engineering-advanced",
       "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator."
@@ -859,24 +899,14 @@
       "description": "Skill Tester"
     },
     {
-      "name": "skills-init",
-      "category": "engineering-advanced",
-      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria."
-    },
-    {
       "name": "skills-run",
       "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
+      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
     },
     {
       "name": "skills-status",
       "category": "engineering-advanced",
       "description": "Show DAG state, agent progress, and branch status for an AgentHub session."
-    },
-    {
-      "name": "skills-status",
-      "category": "engineering-advanced",
-      "description": "Show experiment dashboard with results, active loops, and progress."
     },
     {
       "name": "spawn",
@@ -892,6 +922,11 @@
       "name": "sql-database-assistant",
       "category": "engineering-advanced",
       "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
+    },
+    {
+      "name": "status",
+      "category": "engineering-advanced",
+      "description": "Show experiment dashboard with results, active loops, and progress."
     },
     {
       "name": "tech-debt-tracker",
@@ -1337,11 +1372,11 @@
       "description": "Command resources"
     },
     "engineering": {
-      "count": 45,
+      "count": 51,
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 49,
+      "count": 50,
       "description": "Engineering-advanced resources"
     },
     "finance": {

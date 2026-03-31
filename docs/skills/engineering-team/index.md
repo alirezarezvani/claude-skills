@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "45 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "51 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">45 skills in this domain</p>
+<p class="domain-count">51 skills in this domain</p>
 
 </div>
 
@@ -21,7 +21,19 @@ description: "45 engineering - core skills — engineering agent skill and Claud
 
     ---
 
+    WCAG 2.2 Accessibility Audit and Remediation Skill
+
+-   **[Adversarial Code Reviewer](adversarial-reviewer.md)**
+
     ---
+
+    Adversarial code review skill that forces genuine perspective shifts through three hostile reviewer personas (Saboteu...
+
+-   **[AI Security](ai-security.md)**
+
+    ---
+
+    AI and LLM security assessment skill for detecting prompt injection, jailbreak vulnerabilities, model inversion risk,...
 
 -   **[AWS Solution Architect](aws-solution-architect.md)**
 
@@ -34,6 +46,12 @@ description: "45 engineering - core skills — engineering agent skill and Claud
     ---
 
     Design scalable, cost-effective Azure architectures for startups and enterprises with Bicep infrastructure-as-code te...
+
+-   **[Cloud Security](cloud-security.md)**
+
+    ---
+
+    Cloud security posture assessment skill for detecting IAM privilege escalation, public storage exposure, network conf...
 
 -   **[Code Reviewer](code-reviewer.md)**
 
@@ -77,6 +95,12 @@ description: "45 engineering - core skills — engineering agent skill and Claud
 
     Category: Engineering Team
 
+-   **[Incident Response](incident-response.md)**
+
+    ---
+
+    Incident response skill for the full lifecycle from initial triage through forensic collection, severity declaration,...
+
 -   **[Microsoft 365 Tenant Manager](ms365-tenant-manager.md)**
 
     ---
@@ -88,6 +112,12 @@ description: "45 engineering - core skills — engineering agent skill and Claud
     ---
 
     Production-grade Playwright testing toolkit for AI coding agents.
+
+-   **[Red Team](red-team.md)**
+
+    ---
+
+    Red team engagement planning and attack path analysis skill for authorized offensive security simulations. This is NO...
 
 -   **[Security Penetration Testing](security-pen-testing.md)**
 
@@ -202,5 +232,11 @@ description: "45 engineering - core skills — engineering agent skill and Claud
     ---
 
     Evaluate and compare technologies, frameworks, and cloud providers with data-driven analysis and actionable recommend...
+
+-   **[Threat Detection](threat-detection.md)**
+
+    ---
+
+    Threat detection skill for proactive discovery of attacker activity through hypothesis-driven hunting, IOC analysis, ...
 
 </div>

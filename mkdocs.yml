@@ -195,12 +195,14 @@ nav:
       - "Focused Fix": skills/engineering/focused-fix.md
       - "Git Worktree Manager": skills/engineering/git-worktree-manager.md
       - "Interview System Designer": skills/engineering/interview-system-designer.md
+      - "LLM Cost Optimizer": skills/engineering/llm-cost-optimizer.md
       - "MCP Server Builder": skills/engineering/mcp-server-builder.md
       - "Migration Architect": skills/engineering/migration-architect.md
       - "Monorepo Navigator": skills/engineering/monorepo-navigator.md
       - "Observability Designer": skills/engineering/observability-designer.md
       - "Performance Profiler": skills/engineering/performance-profiler.md
       - "PR Review Expert": skills/engineering/pr-review-expert.md
+      - "Prompt Governance": skills/engineering/prompt-governance.md
       - "RAG Architect": skills/engineering/rag-architect.md
       - "Release Manager": skills/engineering/release-manager.md
       - "Runbook Generator": skills/engineering/runbook-generator.md
@@ -284,6 +286,7 @@ nav:
       - "Social Content": skills/marketing-skill/social-content.md
       - "Social Media Analyzer": skills/marketing-skill/social-media-analyzer.md
       - "Social Media Manager": skills/marketing-skill/social-media-manager.md
+      - "Video Content Strategist": skills/marketing-skill/video-content-strategist.md
       - "X/Twitter Growth": skills/marketing-skill/x-twitter-growth.md
     - Project Management:
       - Overview: skills/project-management/index.md
@@ -353,6 +356,7 @@ nav:
       - "Sales Engineer": skills/business-growth/sales-engineer.md
     - Finance:
       - Overview: skills/finance/index.md
+      - "Business Investment Advisor": skills/finance/business-investment-advisor.md
       - "Financial Analyst": skills/finance/financial-analyst.md
       - "SaaS Metrics Coach": skills/finance/saas-metrics-coach.md
   - Plugins:

@@ -1,12 +1,27 @@
 # Quality Scoring Rubric
 
-**Version**: 1.0.0  
-**Last Updated**: 2026-02-16  
+**Version**: 2.0.0  
+**Last Updated**: 2026-03-27  
 **Authority**: Claude Skills Engineering Team  
 
 ## Overview
 
-This document defines the comprehensive quality scoring methodology used to assess skills within the claude-skills ecosystem. The scoring system evaluates four key dimensions, each weighted equally at 25%, to provide an objective and consistent measure of skill quality.
+This document defines the comprehensive quality scoring methodology used to assess skills within the claude-skills ecosystem. The scoring system evaluates four key dimensions by default (each weighted at 25%), with an optional fifth Security dimension (enabled via `--include-security` flag).
+
+### Dimension Configuration
+
+**Default Mode (backward compatible)**:
+- **Documentation Quality**: 25%
+- **Code Quality**: 25%
+- **Completeness**: 25%
+- **Usability**: 25%
+
+**With `--include-security` flag**:
+- **Documentation Quality**: 20%
+- **Code Quality**: 20%
+- **Completeness**: 20%
+- **Security**: 20%
+- **Usability**: 20%
 
 ## Scoring Framework
 
@@ -23,14 +38,17 @@ This document defines the comprehensive quality scoring methodology used to asse
 - **D (50-54)**: Very poor quality, fundamental issues present
 - **F (0-49)**: Failing quality, does not meet basic standards
 
-### Dimension Weights
+### Dimension Weights (Default: 4 dimensions × 25%)
+
 Each dimension contributes equally to the overall score:
 - **Documentation Quality**: 25%
 - **Code Quality**: 25%
 - **Completeness**: 25%
 - **Usability**: 25%
 
-## Documentation Quality (25% Weight)
+When `--include-security` is used, all five dimensions are weighted at 20% each.
+
+## Documentation Quality (20% Weight)
 
 ### Scoring Components
 
@@ -76,7 +94,7 @@ Each dimension contributes equally to the overall score:
 - **Poor (40-59)**: 1-2 minimal examples
 - **Failing (0-39)**: No examples or unclear usage
 
-## Code Quality (25% Weight)
+## Code Quality (20% Weight)
 
 ### Scoring Components
 
@@ -142,7 +160,7 @@ Each dimension contributes equally to the overall score:
 - **Poor (40-59)**: Basic output, formatting issues
 - **Failing (0-39)**: Poor or no structured output
 
-## Completeness (25% Weight)
+## Completeness (20% Weight)
 
 ### Scoring Components
 
@@ -202,7 +220,7 @@ Structure Score = (Required Present / Required Total) * 0.6 +
 - **Poor (40-59)**: Minimal testing support
 - **Failing (0-39)**: No testing or validation capability
 
-## Usability (25% Weight)
+## Usability (20% Weight)
 
 ### Scoring Components
 
@@ -378,6 +396,142 @@ def assign_letter_grade(overall_score):
 - Enhance help text and documentation
 - Create beginner-friendly tutorials
 - Add interactive examples
+
+## Security (Optional, 20% Weight when enabled)
+
+### Overview
+The Security dimension evaluates Python scripts for security vulnerabilities and best practices. This dimension is **optional** and only evaluated when the `--include-security` flag is passed to the quality scorer.
+
+**Important**: By default, the quality scorer uses 4 dimensions × 25% weights for backward compatibility. To include Security assessment, use:
+```bash
+python quality_scorer.py <skill_path> --include-security
+```
+
+When Security is enabled, all dimensions are rebalanced to 20% each (5 dimensions × 20% = 100%).
+
+This dimension is critical for ensuring that skills do not introduce security risks into the claude-skills ecosystem.
+
+### Scoring Components
+
+#### Sensitive Data Exposure Prevention (25% of Security Score)
+**Component Breakdown:**
+- **Hardcoded Credentials Detection**: Passwords, API keys, tokens, secrets
+- **AWS Credential Detection**: Access keys and secret keys
+- **Private Key Detection**: RSA, SSH, and other private keys
+- **JWT Token Detection**: JSON Web Tokens in code
+
+**Scoring Criteria:**
+
+| Score Range | Criteria |
+|-------------|----------|
+| 90-100 | No hardcoded credentials, uses environment variables properly |
+| 75-89 | Minor issues (e.g., placeholder values that aren't real secrets) |
+| 60-74 | One or two low-severity issues |
+| 40-59 | Multiple medium-severity issues |
+| Below 40 | Critical hardcoded secrets detected |
+
+#### Safe File Operations (25% of Security Score)
+**Component Breakdown:**
+- **Path Traversal Detection**: `../`, URL-encoded variants, Unicode variants
+- **String Concatenation Risks**: `open(path + user_input)`
+- **Null Byte Injection**: `%00`, `\x00`
+- **Safe Pattern Usage**: `pathlib.Path`, `os.path.basename`
+
+**Scoring Criteria:**
+
+| Score Range | Criteria |
+|-------------|----------|
+| 90-100 | Uses pathlib/os.path safely, no path traversal vulnerabilities |
+| 75-89 | Minor issues, uses safe patterns mostly |
+| 60-74 | Some path concatenation with user input |
+| 40-59 | Path traversal patterns detected |
+| Below 40 | Critical vulnerabilities present |
+
+#### Command Injection Prevention (25% of Security Score)
+**Component Breakdown:**
+- **Dangerous Functions**: `os.system()`, `eval()`, `exec()`, `subprocess` with `shell=True`
+- **Safe Alternatives**: `subprocess.run(args, shell=False)`, `shlex.quote()`, `shlex.split()`
+
+**Scoring Criteria:**
+
+| Score Range | Criteria |
+|-------------|----------|
+| 90-100 | No command injection risks, uses subprocess safely |
+| 75-89 | Minor issues, mostly safe patterns |
+| 60-74 | Some use of shell=True or eval with safe context |
+| 40-59 | Command injection patterns detected |
+| Below 40 | Critical vulnerabilities (unfiltered user input to shell) |
+
+#### Input Validation Quality (25% of Security Score)
+**Component Breakdown:**
+- **Argparse Usage**: CLI argument validation
+- **Type Checking**: `isinstance()`, type hints
+- **Error Handling**: `try/except` blocks
+- **Input Sanitization**: Regex validation, input cleaning
+
+**Scoring Criteria:**
+
+| Score Range | Criteria |
+|-------------|----------|
+| 90-100 | Comprehensive input validation, proper error handling |
+| 75-89 | Good validation coverage, most inputs checked |
+| 60-74 | Basic validation present |
+| 40-59 | Minimal input validation |
+| Below 40 | No input validation |
+
+### Security Best Practices
+
+**Recommended Patterns:**
+```python
+# Use environment variables for secrets
+import os
+password = os.environ.get("PASSWORD")
+
+# Use pathlib for safe path operations
+from pathlib import Path
+safe_path = Path(base_dir) / user_input
+
+# Use subprocess safely
+import subprocess
+result = subprocess.run(["ls", user_input], capture_output=True)
+
+# Use shlex for shell argument safety
+import shlex
+safe_arg = shlex.quote(user_input)
+```
+
+**Patterns to Avoid:**
+```python
+# Don't hardcode secrets
+password = "my_secret_password"  # BAD
+
+# Don't use string concatenation for paths
+open(base_path + "/" + user_input)  # BAD
+
+# Don't use shell=True with user input
+os.system(f"ls {user_input}")  # BAD
+
+# Don't use eval on user input
+eval(user_input)  # VERY BAD
+```
+
+### Security Score Impact on Tiers
+
+**Note**: Security requirements only apply when `--include-security` is used.
+
+When Security dimension is enabled:
+- **POWERFUL Tier**: Requires Security score ≥ 70
+- **STANDARD Tier**: Requires Security score ≥ 50
+- **BASIC Tier**: No minimum Security requirement
+
+When Security dimension is not enabled (default):
+- Tier recommendations are based on the 4 core dimensions (Documentation, Code Quality, Completeness, Usability)
+
+#### Low Security Scores
+- Remove hardcoded credentials, use environment variables
+- Fix path traversal vulnerabilities
+- Replace dangerous functions with safe alternatives
+- Add input validation and error handling
 
 ## Quality Assurance Process
 

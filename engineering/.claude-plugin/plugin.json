@@ -1,7 +1,7 @@
 {
   "name": "engineering-advanced-skills",
-  "description": "35 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.1.2",
+  "description": "36 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, self-eval, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
+  "version": "2.2.0",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

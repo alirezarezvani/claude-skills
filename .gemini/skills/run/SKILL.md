@@ -1,1 +1,1 @@
-../../../engineering/agenthub/skills/run/SKILL.md
+../../../engineering/autoresearch-agent/skills/run/SKILL.md

@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "205 production-ready skills, 16 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "223 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -121,11 +121,15 @@ nav:
     - Engineering - Core:
       - Overview: skills/engineering-team/index.md
       - "A11y Audit": skills/engineering-team/a11y-audit.md
+      - "Adversarial Code Reviewer": skills/engineering-team/adversarial-reviewer.md
+      - "AI Security": skills/engineering-team/ai-security.md
       - "AWS Solution Architect": skills/engineering-team/aws-solution-architect.md
       - "Azure Cloud Architect": skills/engineering-team/azure-cloud-architect.md
+      - "Cloud Security": skills/engineering-team/cloud-security.md
       - "Code Reviewer": skills/engineering-team/code-reviewer.md
       - "Email Template Builder": skills/engineering-team/email-template-builder.md
       - "Incident Commander": skills/engineering-team/incident-commander.md
+      - "Incident Response": skills/engineering-team/incident-response.md
       - "GCP Cloud Architect": skills/engineering-team/gcp-cloud-architect.md
       - "Google Workspace CLI": skills/engineering-team/google-workspace-cli.md
       - "Microsoft 365 Tenant Manager": skills/engineering-team/ms365-tenant-manager.md
@@ -160,11 +164,13 @@ nav:
       - "Senior QA Engineer": skills/engineering-team/senior-qa.md
       - "Senior SecOps Engineer": skills/engineering-team/senior-secops.md
       - "Senior Security Engineer": skills/engineering-team/senior-security.md
+      - "Red Team": skills/engineering-team/red-team.md
       - "Security Pen Testing": skills/engineering-team/security-pen-testing.md
       - "Snowflake Development": skills/engineering-team/snowflake-development.md
       - "Stripe Integration Expert": skills/engineering-team/stripe-integration-expert.md
       - "TDD Guide": skills/engineering-team/tdd-guide.md
       - "Tech Stack Evaluator": skills/engineering-team/tech-stack-evaluator.md
+      - "Threat Detection": skills/engineering-team/threat-detection.md
       - "Epic Design": skills/engineering-team/epic-design.md
     - Engineering - POWERFUL:
       - Overview: skills/engineering/index.md
@@ -199,6 +205,7 @@ nav:
       - "Release Manager": skills/engineering/release-manager.md
       - "Runbook Generator": skills/engineering/runbook-generator.md
       - "Secrets Vault Manager": skills/engineering/secrets-vault-manager.md
+      - "Self-Eval": skills/engineering/self-eval.md
       - "Skill Security Auditor": skills/engineering/skill-security-auditor.md
       - "Skill Tester": skills/engineering/skill-tester.md
       - "Spec-Driven Workflow": skills/engineering/spec-driven-workflow.md

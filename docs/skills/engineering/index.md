@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "48 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "49 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">48 skills in this domain</p>
+<p class="domain-count">49 skills in this domain</p>
 
 </div>
 
@@ -196,6 +196,12 @@ description: "48 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL
+
+-   **[Self-Eval: Honest Work Evaluation](self-eval.md)**
+
+    ---
+
+    ultrathink
 
 -   **[Skill Security Auditor](skill-security-auditor.md)**
 

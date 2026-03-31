@@ -1,7 +1,7 @@
 {
   "name": "engineering-skills",
-  "description": "30 production-ready engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.1.2",
+  "description": "36 production-ready engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, security suite (adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection), Stripe integration, TDD guide, Google Workspace CLI, a11y audit, Snowflake development, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
+  "version": "2.2.0",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

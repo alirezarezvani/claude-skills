@@ -1,13 +1,13 @@
 ---
 title: "Project Management Skills — Agent Skills & Codex Plugins"
-description: "7 project management skills — project management agent skill and Claude Code plugin for sprints, Jira, and Confluence. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "9 project management skills — project management agent skill and Claude Code plugin for sprints, Jira, and Confluence. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-clipboard-check-outline: Project Management
 
-<p class="domain-count">7 skills in this domain</p>
+<p class="domain-count">9 skills in this domain</p>
 
 </div>
 
@@ -41,6 +41,12 @@ description: "7 project management skills — project management agent skill and
 
     Master-level expertise in Jira configuration, project management, JQL, workflows, automation, and reporting. Handles ...
 
+-   **[Meeting Insights Analyzer](meeting-analyzer.md)**
+
+    ---
+
+    > Originally contributed by maximcoding(https://github.com/maximcoding) — enhanced and integrated by the claude-skill...
+
 -   **[Project Management Skills](project-management.md)**
 
     ---
@@ -58,5 +64,11 @@ description: "7 project management skills — project management agent skill and
     ---
 
     Strategic project management for enterprise software, SaaS, and digital transformation initiatives. Provides portfoli...
+
+-   **[Internal Comms](team-communications.md)**
+
+    ---
+
+    > Originally contributed by maximcoding(https://github.com/maximcoding) — enhanced and integrated by the claude-skill...
 
 </div>

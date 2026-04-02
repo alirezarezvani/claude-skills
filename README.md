@@ -256,6 +256,12 @@ Scans for: command injection, code execution, data exfiltration, prompt injectio
 
 **Zero dependencies.** Works anywhere Python runs.
 
+### 🔐 Cross-Agent Skill Privacy
+
+For scenarios where skills need to be **shared between agents without exposing implementation**:
+
+- [CoWorker Protocol](https://github.com/ZiwayZhao/agent-coworker) — Skill-as-API privacy layer. Other agents call your skills but only see input/output schema, never your code or prompts. Includes `coworker wrap` for SKILL.md protection, `coworker mcp serve` for Claude Code integration, 4-tier trust with auto-downgrade, and async delegation. `pip install agent-coworker` (MIT, zero deps).
+
 ---
 
 ## Recently Enhanced Skills

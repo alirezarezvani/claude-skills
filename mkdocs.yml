@@ -184,6 +184,7 @@ nav:
       - "Agent Workflow Designer": skills/engineering/agent-workflow-designer.md
       - "API Design Reviewer": skills/engineering/api-design-reviewer.md
       - "API Test Suite Builder": skills/engineering/api-test-suite-builder.md
+      - "BeHuman": skills/engineering/behuman.md
       - "Browser Automation": skills/engineering/browser-automation.md
       - "Changelog Generator": skills/engineering/changelog-generator.md
       - "CI/CD Pipeline Builder": skills/engineering/ci-cd-pipeline-builder.md

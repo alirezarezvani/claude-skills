@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "51 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "52 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">51 skills in this domain</p>
+<p class="domain-count">52 skills in this domain</p>
 
 </div>
 
@@ -52,6 +52,12 @@ description: "51 engineering - powerful skills — advanced agent-native skill a
     ---
 
     > You sleep. The agent experiments. You wake up to results.
+
+-   **[BeHuman — Self-Mirror Consciousness Loop](behuman.md)**
+
+    ---
+
+    > Originally contributed by voidborne-d(https://github.com/voidborne-d) — enhanced and integrated by the claude-skill...
 
 -   **[Browser Automation - POWERFUL](browser-automation.md)**
 

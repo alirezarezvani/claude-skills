@@ -1,0 +1,42 @@
+[
+  {
+    "prompt": "I just got laid off and I don't know what to do",
+    "should_trigger": true,
+    "notes": "Emotional support — should activate mirror to avoid AI platitudes"
+  },
+  {
+    "prompt": "behuman mode: help me write a bio for my dating profile",
+    "should_trigger": true,
+    "notes": "Explicit activation + personal writing task"
+  },
+  {
+    "prompt": "Should I quit my job to start a business?",
+    "should_trigger": true,
+    "notes": "Life advice — emotionally charged decision"
+  },
+  {
+    "prompt": "Be real with me — how do I comfort a friend who just lost a parent?",
+    "should_trigger": true,
+    "notes": "Explicit trigger + grief scenario"
+  },
+  {
+    "prompt": "Stop being so AI about this. What do you actually think the meaning of life is?",
+    "should_trigger": true,
+    "notes": "Explicit trigger + philosophical question"
+  },
+  {
+    "prompt": "How do I sort a list in Python?",
+    "should_trigger": false,
+    "notes": "Pure technical question — no mirror needed"
+  },
+  {
+    "prompt": "What's the capital of France?",
+    "should_trigger": false,
+    "notes": "Factual lookup — no mirror needed"
+  },
+  {
+    "prompt": "Write a React component for a login form",
+    "should_trigger": false,
+    "notes": "Code generation — no mirror needed"
+  }
+]

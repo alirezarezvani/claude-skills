@@ -3,15 +3,20 @@
 Quality Scorer - Scores skills across multiple quality dimensions
 
 This script provides comprehensive quality assessment for skills in the claude-skills
-ecosystem by evaluating documentation, code quality, completeness, and usability.
+ecosystem by evaluating documentation, code quality, completeness, security, and usability.
 Generates letter grades, tier recommendations, and improvement roadmaps.
 
 Usage:
     python quality_scorer.py <skill_path> [--detailed] [--minimum-score SCORE] [--json]
 
 Author: Claude Skills Engineering Team
-Version: 1.0.0
+Version: 2.0.0
 Dependencies: Python Standard Library Only
+Changelog:
+  v2.0.0 - Added Security dimension (opt-in via --include-security flag)
+           Default: 4 dimensions × 25% (backward compatible)
+           With --include-security: 5 dimensions × 20%
+  v1.0.0 - Initial release with 4 dimensions (25% each)
 """
 
 import argparse
@@ -23,6 +28,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
+
+# Import Security Scorer module
+from security_scorer import SecurityScorer
 try:
     import yaml
 except ImportError:
@@ -148,20 +156,37 @@ class QualityReport:
         code_score = self.dimensions.get("Code Quality", QualityDimension("", 0, "")).score
         completeness_score = self.dimensions.get("Completeness", QualityDimension("", 0, "")).score
         usability_score = self.dimensions.get("Usability", QualityDimension("", 0, "")).score
+        security_score = self.dimensions.get("Security", QualityDimension("", 0, "")).score
         
-        # POWERFUL tier requirements (all dimensions must be strong)
-        if (self.overall_score >= 80 and 
-            all(score >= 75 for score in [doc_score, code_score, completeness_score, usability_score])):
-            self.tier_recommendation = "POWERFUL"
-            
-        # STANDARD tier requirements (most dimensions good)
-        elif (self.overall_score >= 70 and 
-              sum(1 for score in [doc_score, code_score, completeness_score, usability_score] if score >= 65) >= 3):
-            self.tier_recommendation = "STANDARD"
-            
-        # BASIC tier (minimum viable quality)
+        # Check if Security dimension is included
+        has_security = "Security" in self.dimensions
+        
+        # POWERFUL tier requirements
+        if has_security:
+            # With Security: all 5 dimensions must be strong
+            if (self.overall_score >= 80 and 
+                all(score >= 75 for score in [doc_score, code_score, completeness_score, usability_score]) and
+                security_score >= 70):
+                self.tier_recommendation = "POWERFUL"
+                
+            # STANDARD tier requirements (with Security)
+            elif (self.overall_score >= 70 and 
+                  sum(1 for score in [doc_score, code_score, completeness_score, usability_score, security_score] if score >= 65) >= 4 and
+                  security_score >= 50):
+                self.tier_recommendation = "STANDARD"
         else:
-            self.tier_recommendation = "BASIC"
+            # Without Security: 4 dimensions must be strong
+            if (self.overall_score >= 80 and 
+                all(score >= 75 for score in [doc_score, code_score, completeness_score, usability_score])):
+                self.tier_recommendation = "POWERFUL"
+                
+            # STANDARD tier requirements (without Security)
+            elif (self.overall_score >= 70 and 
+                  sum(1 for score in [doc_score, code_score, completeness_score, usability_score] if score >= 65) >= 3):
+                self.tier_recommendation = "STANDARD"
+                
+        # BASIC tier (minimum viable quality)
+        # Falls through to BASIC if no other tier matched
             
     def _generate_improvement_roadmap(self):
         """Generate prioritized improvement suggestions"""
@@ -200,10 +225,11 @@ class QualityReport:
 class QualityScorer:
     """Main quality scoring engine"""
     
-    def __init__(self, skill_path: str, detailed: bool = False, verbose: bool = False):
+    def __init__(self, skill_path: str, detailed: bool = False, verbose: bool = False, include_security: bool = False):
         self.skill_path = Path(skill_path).resolve()
         self.detailed = detailed
         self.verbose = verbose
+        self.include_security = include_security
         self.report = QualityReport(str(self.skill_path))
         
     def log_verbose(self, message: str):
@@ -221,10 +247,19 @@ class QualityScorer:
                 raise ValueError(f"Skill path does not exist: {self.skill_path}")
                 
             # Score each dimension
-            self._score_documentation()
-            self._score_code_quality()
-            self._score_completeness()
-            self._score_usability()
+            # Default: 4 dimensions at 25% each (backward compatible)
+            # With --include-security: 5 dimensions at 20% each
+            weight = 0.20 if self.include_security else 0.25
+            
+            self._score_documentation(weight)
+            self._score_code_quality(weight)
+            self._score_completeness(weight)
+            
+            if self.include_security:
+                self._score_security(0.20)
+                self._score_usability(0.20)
+            else:
+                self._score_usability(0.25)
             
             # Calculate overall metrics
             self.report.calculate_overall_score()
@@ -237,11 +272,11 @@ class QualityScorer:
             
         return self.report
         
-    def _score_documentation(self):
-        """Score documentation quality (25% weight)"""
+    def _score_documentation(self, weight: float = 0.25):
+        """Score documentation quality"""
         self.log_verbose("Scoring documentation quality...")
         
-        dimension = QualityDimension("Documentation", 0.25, "Quality of documentation and written materials")
+        dimension = QualityDimension("Documentation", weight, "Quality of documentation and written materials")
         
         # Score SKILL.md
         self._score_skill_md(dimension)
@@ -491,11 +526,11 @@ class QualityScorer:
         dimension.add_score("examples_availability", score, 25,
                            f"Found {len(example_files)} example/sample files")
                            
-    def _score_code_quality(self):
-        """Score code quality (25% weight)"""
+    def _score_code_quality(self, weight: float = 0.25):
+        """Score code quality"""
         self.log_verbose("Scoring code quality...")
         
-        dimension = QualityDimension("Code Quality", 0.25, "Quality of Python scripts and implementation")
+        dimension = QualityDimension("Code Quality", weight, "Quality of Python scripts and implementation")
         
         scripts_dir = self.skill_path / "scripts"
         if not scripts_dir.exists():
@@ -678,11 +713,11 @@ class QualityScorer:
         if avg_output_score < 15:
             dimension.add_suggestion("Add support for both JSON and human-readable output formats")
             
-    def _score_completeness(self):
-        """Score completeness (25% weight)"""
+    def _score_completeness(self, weight: float = 0.25):
+        """Score completeness"""
         self.log_verbose("Scoring completeness...")
         
-        dimension = QualityDimension("Completeness", 0.25, "Completeness of required components and assets")
+        dimension = QualityDimension("Completeness", weight, "Completeness of required components and assets")
         
         # Score directory structure
         self._score_directory_structure(dimension)
@@ -800,11 +835,11 @@ class QualityScorer:
         if not test_files:
             dimension.add_suggestion("Add test files or validation scripts")
             
-    def _score_usability(self):
-        """Score usability (25% weight)"""
+    def _score_usability(self, weight: float = 0.25):
+        """Score usability"""
         self.log_verbose("Scoring usability...")
         
-        dimension = QualityDimension("Usability", 0.25, "Ease of use and user experience")
+        dimension = QualityDimension("Usability", weight, "Ease of use and user experience")
         
         # Score installation simplicity
         self._score_installation(dimension)
@@ -936,6 +971,58 @@ class QualityScorer:
         dimension.add_score("practical_examples", score, 25,
                            f"Practical examples: {len(example_files)} files")
 
+    def _score_security(self, weight: float = 0.20):
+        """Score security quality"""
+        self.log_verbose("Scoring security quality...")
+        
+        dimension = QualityDimension("Security", weight, "Security practices and vulnerability prevention")
+        
+        # Find Python scripts
+        python_files = list(self.skill_path.rglob("*.py"))
+        
+        # Filter out test files and __pycache__
+        python_files = [f for f in python_files 
+                       if "__pycache__" not in str(f) and "test_" not in f.name]
+        
+        if not python_files:
+            dimension.add_score("scripts_existence", 25, 25, 
+                               "No scripts directory - no script security concerns")
+            dimension.calculate_final_score()
+            self.report.add_dimension(dimension)
+            return
+        
+        # Use SecurityScorer module
+        try:
+            scorer = SecurityScorer(python_files, verbose=self.verbose)
+            result = scorer.get_overall_score()
+            
+            # Extract scores from SecurityScorer result
+            sensitive_data_score = result.get("sensitive_data_exposure", {}).get("score", 0)
+            file_ops_score = result.get("safe_file_operations", {}).get("score", 0)
+            command_injection_score = result.get("command_injection_prevention", {}).get("score", 0)
+            input_validation_score = result.get("input_validation", {}).get("score", 0)
+            
+            dimension.add_score("sensitive_data_exposure", sensitive_data_score, 25,
+                               "Detection and prevention of hardcoded credentials")
+            dimension.add_score("safe_file_operations", file_ops_score, 25,
+                               "Prevention of path traversal vulnerabilities")
+            dimension.add_score("command_injection_prevention", command_injection_score, 25,
+                               "Prevention of command injection vulnerabilities")
+            dimension.add_score("input_validation", input_validation_score, 25,
+                               "Quality of input validation and error handling")
+            
+            # Add suggestions from SecurityScorer
+            for issue in result.get("issues", []):
+                dimension.add_suggestion(issue)
+                
+        except Exception as e:
+            self.log_verbose(f"Security scoring failed: {str(e)}")
+            dimension.add_score("security_error", 0, 100, f"Security scoring failed: {str(e)}")
+            dimension.add_suggestion("Fix security scoring module integration")
+        
+        dimension.calculate_final_score()
+        self.report.add_dimension(dimension)
+
 
 class QualityReportFormatter:
     """Formats quality reports for output"""
@@ -1016,12 +1103,16 @@ Examples:
   python quality_scorer.py engineering/my-skill
   python quality_scorer.py engineering/my-skill --detailed --json
   python quality_scorer.py engineering/my-skill --minimum-score 75
+  python quality_scorer.py engineering/my-skill --include-security
 
-Quality Dimensions (each 25%):
+Quality Dimensions (default: 4 dimensions × 25%):
   Documentation - SKILL.md quality, README, references, examples
   Code Quality   - Script complexity, error handling, structure, output
   Completeness   - Directory structure, assets, expected outputs, tests
   Usability      - Installation simplicity, usage clarity, help accessibility
+
+With --include-security (5 dimensions × 20%):
+  Security       - Sensitive data exposure, command injection, input validation
 
 Letter Grades: A+ (95+), A (90+), A- (85+), B+ (80+), B (75+), B- (70+), C+ (65+), C (60+), C- (55+), D (50+), F (<50)
         """
@@ -1042,12 +1133,15 @@ Letter Grades: A+ (95+), A (90+), A- (85+), B+ (80+), B (75+), B- (70+), C+ (65+
     parser.add_argument("--verbose",
                        action="store_true",
                        help="Enable verbose logging")
+    parser.add_argument("--include-security",
+                       action="store_true",
+                       help="Include Security dimension (switches to 5 dimensions × 20%% each)")
                        
     args = parser.parse_args()
     
     try:
         # Create scorer and assess quality
-        scorer = QualityScorer(args.skill_path, args.detailed, args.verbose)
+        scorer = QualityScorer(args.skill_path, args.detailed, args.verbose, args.include_security)
         report = scorer.assess_quality()
         
         # Format and output report

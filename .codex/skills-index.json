@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 189,
+  "total_skills": 190,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -472,6 +472,12 @@
       "source": "../../engineering/ci-cd-pipeline-builder",
       "category": "engineering-advanced",
       "description": "CI/CD Pipeline Builder"
+    },
+    {
+      "name": "code-tour",
+      "source": "../../engineering/code-tour",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to create a CodeTour .tour file \u2014 persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Trigger for: create a tour, onboarding tour, architecture tour, PR review tour, explain how X works, vibe check, RCA tour, contributor guide, or any structured code walkthrough request."
     },
     {
       "name": "codebase-onboarding",
@@ -1157,7 +1163,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 39,
+      "count": 40,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

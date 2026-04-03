@@ -23,10 +23,11 @@ A great tour is a **narrative** — a story told to a specific person about what
 ### 1. Discover the repo
 
 Before asking anything, explore the codebase:
-- List root directory, read README, check config files
-- Identify language(s), framework(s), project purpose
-- Map folder structure 1-2 levels deep
-- Find entry points — every path in the tour must be real
+
+In parallel: list root directory, read README, check config files.
+Then: identify language(s), framework(s), project purpose. Map folder structure 1-2 levels deep. Find entry points — every path in the tour must be real.
+
+If the repo has fewer than 5 source files, create a quick-depth tour regardless of persona — there's not enough to warrant a deep one.
 
 ### 2. Infer the intent
 
@@ -40,6 +41,9 @@ One message should be enough. Infer persona, depth, and focus silently.
 | "quick tour" / "vibe check" | vibecoder | quick |
 | "architecture" | architect | deep |
 | "security" / "auth review" | security-reviewer | standard |
+| (no qualifier) | new-joiner | standard |
+
+When intent is ambiguous, default to **new-joiner** persona at **standard** depth — it's the most generally useful.
 
 ### 3. Read actual files
 

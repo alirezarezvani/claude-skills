@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just hired a junior dev who starts Monday. Can you create an onboarding tour for this repo so they can get oriented on their own?",
+    "expected_output": "Agent infers new-joiner persona, standard depth (9-13 steps). Produces .tours/new-joiner-onboarding.tour with verified paths/lines, SMIG descriptions, narrative arc starting with orientation directory step.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 2,
+    "prompt": "Give me a quick vibe check tour of this codebase — I just cloned it and want to understand the shape before diving in.",
+    "expected_output": "Agent infers vibecoder persona, quick depth (5-8 steps). Tour hits entry point and main modules only. File saved to .tours/vibecoder-overview.tour.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 3,
+    "prompt": "We had an outage last night because the payment webhook handler silently swallowed errors. Can you build an RCA tour tracing how webhooks flow through the system?",
+    "expected_output": "Agent infers rca-investigator persona, standard depth. Tour follows causality chain from webhook entry point through handler to error handling. Steps anchored to specific lines showing the fault path.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 4,
+    "prompt": "Create a tour for this repo.",
+    "expected_output": "Agent defaults to new-joiner persona at standard depth without asking clarifying questions. Produces a general-purpose onboarding tour.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 5,
+    "prompt": "Make an onboarding tour for this repo, but I want it to also cover the deployment pipeline and our monitoring setup in Grafana.",
+    "expected_output": "Agent includes deployment pipeline files as normal file+line steps. Uses URI step type for Grafana link if user provides URL, or skips with explanation. Does not hallucinate files.",
+    "scenario_type": "edge_case"
+  }
+]

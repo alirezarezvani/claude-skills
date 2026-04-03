@@ -22,10 +22,17 @@ Create polished demo videos by orchestrating browser rendering, text-to-speech, 
 
 ### 1. Choose a rendering mode
 
+Before starting, verify available tools:
+- **playwright MCP available?** — needed for automated screenshots. Fallback: ask user to screenshot the HTML files manually.
+- **edge-tts available?** — needed for narration audio. Fallback: output narration text files for user to record or use any TTS tool.
+- **ffmpeg available?** — needed for compositing. Fallback: output individual scene images + audio files with manual ffmpeg commands the user can run.
+
+If none are available, produce HTML scene files + `scenes.json` manifest + narration scripts. The user can composite manually or use any video editor.
+
 | Mode | How | When |
 |------|-----|------|
-| **MCP Orchestration** | HTML -> playwright screenshots -> edge-tts audio -> ffmpeg composite | Most control |
-| **Manual** | Build HTML, screenshot, generate TTS, composite with ffmpeg | Always works |
+| **MCP Orchestration** | HTML → playwright screenshots → edge-tts audio → ffmpeg composite | Use when playwright + edge-tts + ffmpeg MCPs are all connected |
+| **Manual** | Write HTML scene files, provide ffmpeg commands for user to run | Use when MCPs are not available |
 
 ### 2. Pick a story structure
 
@@ -39,6 +46,11 @@ Before (6s) -> After (6s) -> How (10s) -> CTA (4s)
 Hook (2s) -> Demo (8s) -> Logo (3s) -> Tagline (2s)
 
 ### 3. Design scenes
+
+**If no screenshots are provided:**
+- For CLI/terminal tools: generate HTML scenes with terminal-style dark background, monospace font, and animated typing effect
+- For conceptual demos: use text-heavy scenes with the color language and typography system
+- Ask the user for screenshots only if the product is visual and descriptions are insufficient
 
 Every scene has exactly ONE primary focus:
 - Title scenes: product name
@@ -54,65 +66,23 @@ Every scene has exactly ONE primary focus:
 - No jargon. "Your tabs organize themselves" not "AI-powered tab categorization."
 - Use contrast. "24 tabs. One click. 5 groups."
 
+## Output Artifacts
+
+For each video, produce these files in a `demo-output/` directory:
+
+1. `scenes/` — one HTML file per scene (1920x1080 viewport)
+2. `narration/` — one `.txt` file per scene (for edge-tts input)
+3. `scenes.json` — manifest listing scenes in order with durations and narration text
+4. `build.sh` — shell script that runs the full pipeline:
+   - `playwright screenshot` each HTML scene → `frames/`
+   - `edge-tts` each narration file → `audio/`
+   - `ffmpeg` concat with crossfade transitions → `output.mp4`
+
+If MCPs are unavailable, still produce items 1-3. Include the ffmpeg commands in `build.sh` for the user to run manually.
+
 ## Scene Design System
 
-### Color Language
-
-| Color | Meaning | Use for |
-|-------|---------|---------|
-| `#c5d5ff` | Trust | Titles, logo |
-| `#7c6af5` | Premium | Subtitles, badges |
-| `#4ade80` | Success | "After" states |
-| `#f28b82` | Problem | "Before" states |
-| `#fbbf24` | Energy | Callouts |
-| `#0d0e12` | Background | Always dark mode |
-
-### Animation Timing
-
-```
-Element entrance:     0.5-0.8s  (cubic-bezier(0.16, 1, 0.3, 1))
-Between elements:     0.2-0.4s  gap
-Scene transition:     0.3-0.5s  crossfade
-Hold after last anim: 1.0-2.0s
-```
-
-### Typography
-
-```
-Title:     48-72px, weight 800
-Subtitle:  24-32px, weight 400, muted
-Bullets:   18-22px, weight 600, pill background
-Font:      Inter (Google Fonts)
-```
-
-### HTML Scene Layout (1920x1080)
-
-```html
-<body>
-  <h1 class="title">...</h1>      <!-- Top 15% -->
-  <div class="hero">...</div>     <!-- Middle 65% -->
-  <div class="footer">...</div>   <!-- Bottom 20% -->
-</body>
-```
-
-Background: dark with subtle purple-blue glow gradients. Screenshots: always `border-radius: 12px` with `box-shadow`. Easing: always `cubic-bezier(0.16, 1, 0.3, 1)` — never `ease` or `linear`.
-
-### Voice Options (edge-tts)
-
-| Voice | Best for |
-|-------|----------|
-| `andrew` | Product demos, launches |
-| `jenny` | Tutorials, onboarding |
-| `davis` | Enterprise, security |
-| `emma` | Consumer products |
-
-### Pacing Guide
-
-| Duration | Max words | Fill |
-|----------|-----------|------|
-| 3-4s | 8-12 | ~70% |
-| 5-6s | 15-22 | ~75% |
-| 7-8s | 22-30 | ~80% |
+See [references/scene-design-system.md](references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
 
 ## Quality Checklist
 

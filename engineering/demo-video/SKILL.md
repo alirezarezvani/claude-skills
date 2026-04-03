@@ -25,7 +25,6 @@ Create polished demo videos by orchestrating browser rendering, text-to-speech, 
 | Mode | How | When |
 |------|-----|------|
 | **MCP Orchestration** | HTML -> playwright screenshots -> edge-tts audio -> ffmpeg composite | Most control |
-| **Pipeline** | [framecraft](https://github.com/vaddisrinivas/framecraft) CLI: `uv run python framecraft.py render scenes.json --auto-duration` | Most reliable |
 | **Manual** | Build HTML, screenshot, generate TTS, composite with ffmpeg | Always works |
 
 ### 2. Pick a story structure
@@ -137,6 +136,5 @@ Background: dark with subtle purple-blue glow gradients. Screenshots: always `bo
 
 ## Cross-References
 
-- Related: `engineering/cli-demo-generator` — for terminal-based demos
-- Related: `engineering/presentation-builder` — for slide decks
-- Full tooling: [framecraft](https://github.com/vaddisrinivas/framecraft) — templates, pipeline, MCP server
+- Related: `engineering/browser-automation` — for playwright-based browser workflows
+- See also: [framecraft](https://github.com/vaddisrinivas/framecraft) — open-source scene rendering pipeline

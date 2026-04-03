@@ -54,7 +54,7 @@ Save to `.tours/<persona>-<focus>.tour`.
   "$schema": "https://aka.ms/codetour-schema",
   "title": "Descriptive Title — Persona / Goal",
   "description": "Who this is for and what they'll understand after.",
-  "ref": "main",
+  "ref": "<current-branch-or-commit>",
   "steps": []
 }
 ```
@@ -94,7 +94,7 @@ Save to `.tours/<persona>-<focus>.tour`.
 - [ ] At most 2 content-only steps
 - [ ] `nextTour` matches another tour's `title` exactly if set
 
-## The 20 Personas
+## Personas
 
 | Persona | Goal | Must cover |
 |---------|------|------------|
@@ -131,6 +131,6 @@ Save to `.tours/<persona>-<focus>.tour`.
 ## Cross-References
 
 - Related: `engineering/codebase-onboarding` — for broader onboarding beyond tours
-- Related: `engineering/code-review-automation` — for automated PR review workflows
-- Full skill with validation scripts and schema: [code-tour repo](https://github.com/vaddisrinivas/code-tour)
+- Related: `engineering/pr-review-expert` — for automated PR review workflows
+- CodeTour extension: [microsoft/codetour](https://github.com/microsoft/codetour)
 - Real-world tours: [coder/code-server](https://github.com/coder/code-server/blob/main/.tours/contributing.tour)

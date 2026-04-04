@@ -1,9 +1,20 @@
 ---
-name: "code-tour"
-description: "Use when the user asks to create a CodeTour .tour file — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Trigger for: create a tour, onboarding tour, architecture tour, PR review tour, explain how X works, vibe check, RCA tour, contributor guide, or any structured code walkthrough request."
+title: "Code Tour — Agent Skill for Codex & OpenClaw"
+description: "Use when the user asks to create a CodeTour .tour file — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Code Tour
+
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `code-tour`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/code-tour/SKILL.md">Source</a></span>
+</div>
+
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
+
 
 Create **CodeTour** files — persona-targeted, step-by-step walkthroughs of a codebase that link directly to files and line numbers. CodeTour files live in `.tours/` and work with the [VS Code CodeTour extension](https://github.com/microsoft/codetour).
 

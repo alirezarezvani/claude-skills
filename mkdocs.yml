@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "223 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "248 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -187,6 +187,9 @@ nav:
       - "BeHuman": skills/engineering/behuman.md
       - "Browser Automation": skills/engineering/browser-automation.md
       - "Changelog Generator": skills/engineering/changelog-generator.md
+      - "Code Tour": skills/engineering/code-tour.md
+      - "Data Quality Auditor": skills/engineering/data-quality-auditor.md
+      - "Demo Video": skills/engineering/demo-video.md
       - "CI/CD Pipeline Builder": skills/engineering/ci-cd-pipeline-builder.md
       - "Codebase Onboarding": skills/engineering/codebase-onboarding.md
       - "Database Designer": skills/engineering/database-designer.md

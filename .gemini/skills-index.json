@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 274,
+  "total_skills": 280,
   "skills": [
     {
       "name": "README",
@@ -719,6 +719,11 @@
       "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
     },
     {
+      "name": "behuman",
+      "category": "engineering-advanced",
+      "description": "Use when the user wants more human-like AI responses \u2014 less robotic, less listy, more authentic. Triggers: 'behuman', 'be real', 'like a human', 'more human', 'less AI', 'talk like a person', 'mirror mode', 'stop being so AI', or when conversations are emotionally charged (grief, job loss, relationship advice, fear). NOT for technical questions, code generation, or factual lookups."
+    },
+    {
       "name": "board",
       "category": "engineering-advanced",
       "description": "Read, write, and browse the AgentHub message board for agent coordination."
@@ -739,9 +744,19 @@
       "description": "CI/CD Pipeline Builder"
     },
     {
+      "name": "code-tour",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to create a CodeTour .tour file \u2014 persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Trigger for: create a tour, onboarding tour, architecture tour, PR review tour, explain how X works, vibe check, RCA tour, contributor guide, or any structured code walkthrough request."
+    },
+    {
       "name": "codebase-onboarding",
       "category": "engineering-advanced",
       "description": "Codebase Onboarding"
+    },
+    {
+      "name": "data-quality-auditor",
+      "category": "engineering-advanced",
+      "description": "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan."
     },
     {
       "name": "database-designer",
@@ -752,6 +767,11 @@
       "name": "database-schema-designer",
       "category": "engineering-advanced",
       "description": "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
+    },
+    {
+      "name": "demo-video",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content."
     },
     {
       "name": "dependency-auditor",
@@ -1289,6 +1309,11 @@
       "description": "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use for Jira project setup, configuration, advanced search, dashboard creation, workflow design, and technical Jira operations."
     },
     {
+      "name": "meeting-analyzer",
+      "category": "project-management",
+      "description": "Analyzes meeting transcripts and recordings to surface behavioral patterns, communication anti-patterns, and actionable coaching feedback. Use this skill whenever the user uploads or points to meeting transcripts (.txt, .md, .vtt, .srt, .docx), asks about their communication habits, wants feedback on how they run meetings, requests speaking ratio analysis, mentions filler words or conflict avoidance, or wants to compare their communication across time periods. Also trigger when users mention tools like Granola, Otter, Fireflies, or Zoom transcripts. Even if the user just says \"look at my meetings\" or \"how do I come across in meetings\" \u2014 use this skill."
+    },
+    {
       "name": "project-management-bundle",
       "category": "project-management",
       "description": "6 project management agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Senior PM, scrum master, Jira expert (JQL), Confluence expert, Atlassian admin, template creator. MCP integration for live Jira/Confluence automation."
@@ -1302,6 +1327,11 @@
       "name": "senior-pm",
       "category": "project-management",
       "description": "Senior Project Manager for enterprise software, SaaS, and digital transformation projects. Specializes in portfolio management, quantitative risk analysis, resource optimization, stakeholder alignment, and executive reporting. Uses advanced methodologies including EMV analysis, Monte Carlo simulation, WSJF prioritization, and multi-dimensional health scoring. Use when a user needs help with project plans, project status reports, risk assessments, resource allocation, project roadmaps, milestone tracking, team capacity planning, portfolio health reviews, program management, or executive-level project reporting \u2014 especially for enterprise-scale initiatives with multiple workstreams, complex dependencies, or multi-million dollar budgets."
+    },
+    {
+      "name": "team-communications",
+      "category": "project-management",
+      "description": "Write internal company communications \u2014 3P updates (Progress/Plans/Problems), company-wide newsletters, FAQ roundups, incident reports, leadership updates, status reports, project updates, and general internal comms. Use this skill any time the user asks to draft, edit, or format something meant for internal audiences. Trigger on keywords like \"3P\", \"weekly update\", \"newsletter\", \"FAQ\", \"internal comms\", \"status report\", \"company update\", \"team update\", \"incident report\", or any request to summarize work for leadership, teammates, or the broader company. Even casual requests like \"write my update\" or \"summarize what my team did this week\" should trigger this skill."
     },
     {
       "name": "capa-officer",
@@ -1396,7 +1426,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 52,
+      "count": 56,
       "description": "Engineering-advanced resources"
     },
     "finance": {
@@ -1412,7 +1442,7 @@
       "description": "Product resources"
     },
     "project-management": {
-      "count": 7,
+      "count": 9,
       "description": "Project-management resources"
     },
     "ra-qm": {

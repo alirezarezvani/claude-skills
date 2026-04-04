@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 190,
+  "total_skills": 192,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -486,6 +486,12 @@
       "description": "Codebase Onboarding"
     },
     {
+      "name": "data-quality-auditor",
+      "source": "../../engineering/data-quality-auditor",
+      "category": "engineering-advanced",
+      "description": "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan."
+    },
+    {
       "name": "database-designer",
       "source": "../../engineering/database-designer",
       "category": "engineering-advanced",
@@ -496,6 +502,12 @@
       "source": "../../engineering/database-schema-designer",
       "category": "engineering-advanced",
       "description": "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
+    },
+    {
+      "name": "demo-video",
+      "source": "../../engineering/demo-video",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content."
     },
     {
       "name": "dependency-auditor",
@@ -1163,7 +1175,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 40,
+      "count": 42,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

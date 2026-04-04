@@ -205,7 +205,7 @@ Structure all audit reports as:
 | `finance/saas-metrics-coach` | Data is subscription/event data feeding SaaS KPIs |
 | `engineering/database-designer` | Issues trace back to schema design or normalization |
 | `engineering/tech-debt-tracker` | Data quality issues are systemic and need to be tracked as tech debt |
-| `product/product-analyst` | Auditing product event data (funnels, sessions, retention) |
+| `product-team/product-analytics` | Auditing product event data (funnels, sessions, retention) |
 
 **When NOT to use this skill:**
 - You need to design or optimize the database schema — use `engineering/database-designer`

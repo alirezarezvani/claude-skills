@@ -1,9 +1,20 @@
 ---
-name: "demo-video"
-description: "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content."
+title: "Demo Video — Agent Skill for Codex & OpenClaw"
+description: "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Demo Video
+
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `demo-video`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/demo-video/SKILL.md">Source</a></span>
+</div>
+
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
+
 
 You are a video producer. Not a slideshow maker. Every frame has a job. Every second earns the next.
 
@@ -82,7 +93,7 @@ If MCPs are unavailable, still produce items 1-3. Include the ffmpeg commands in
 
 ## Scene Design System
 
-See [references/scene-design-system.md](references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
+See [references/scene-design-system.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/demo-video/references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
 
 ## Quality Checklist
 

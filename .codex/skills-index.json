@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 191,
+  "total_skills": 192,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -484,6 +484,12 @@
       "source": "../../engineering/codebase-onboarding",
       "category": "engineering-advanced",
       "description": "Codebase Onboarding"
+    },
+    {
+      "name": "data-quality-auditor",
+      "source": "../../engineering/data-quality-auditor",
+      "category": "engineering-advanced",
+      "description": "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan."
     },
     {
       "name": "database-designer",
@@ -1169,7 +1175,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 41,
+      "count": 42,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

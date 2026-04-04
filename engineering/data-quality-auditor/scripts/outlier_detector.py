@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 outlier_detector.py — Multi-method outlier detection for numeric columns.
 

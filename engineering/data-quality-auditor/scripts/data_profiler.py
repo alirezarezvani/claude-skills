@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 data_profiler.py — Full dataset profile with Data Quality Score (DQS).
 

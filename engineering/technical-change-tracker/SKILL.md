@@ -1,6 +1,7 @@
 ---
 name: "technical-change-tracker"
-description: "Track code changes with structured JSON records and accessible HTML output for AI session continuity"
+description: |
+  Track code changes with structured JSON records and accessible HTML output for AI session continuity. Use when user says /tc, /tc init, /tc create, /tc update, /tc status, /tc resume, /tc close, /tc export, /tc dashboard, or /tc retro.
 ---
 
 # Technical Change (TC) Tracker
@@ -26,6 +27,7 @@ git clone https://github.com/Elkidogz/technical-change-skill.git
 | `/tc close <tc-id>` | Deploy and close a TC |
 | `/tc export` | Regenerate all HTML from JSON |
 | `/tc dashboard` | Regenerate dashboard |
+| `/tc retro <changelog.json>` | Batch-create TCs from project history |
 
 ## Features
 
@@ -33,6 +35,8 @@ git clone https://github.com/Elkidogz/technical-change-skill.git
 - **State machine**: Planned > In Progress > Blocked > Implemented > Tested > Deployed
 - **Test cases** with log snippet evidence and manual approval
 - **AI session handoff**: progress, next steps, blockers, key context, decisions
+- **Non-blocking**: TC bookkeeping runs as background subagent, never interrupts coding
+- **Retroactive**: `/tc retro` batch-creates TCs from existing undocumented history
 - **WCAG AA+ HTML**: dark theme, rem-based fonts, CSS-only dashboard filters
 - **Zero dependencies**: Python stdlib only
 
@@ -44,19 +48,8 @@ planned --> in_progress --> implemented --> tested --> deployed
    +-> blocked <-+               +-> in_progress <------+
 ```
 
-## Per-Project Structure
-
-```
-{project}/docs/TC/
-  tc_config.json        # Settings
-  tc_registry.json      # Master index
-  index.html            # Dashboard
-  records/              # Individual TC JSON + HTML
-  evidence/             # Log snippets, screenshots
-```
-
 ## Repository
 
 https://github.com/Elkidogz/technical-change-skill
 
-MIT License — free for use, no warranty.
+MIT License.

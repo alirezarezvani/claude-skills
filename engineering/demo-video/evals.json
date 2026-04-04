@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just shipped a new tab management Chrome extension. I have 4 screenshots showing the before (messy tabs) and after (organized groups). Can you make a 30-second demo video I can post on Twitter?",
+    "expected_output": "Agent picks Classic Demo or Problem-Solution structure, designs 5-7 scenes using the color language and typography specs, writes narration following the pacing guide, produces demo-output/ with HTML scenes, narration files, scenes.json manifest, and build.sh.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 2,
+    "prompt": "Create a 15-second teaser video for our SaaS dashboard. Here's one hero screenshot of the analytics view. Keep it minimal.",
+    "expected_output": "Agent selects 15-Second Teaser structure (Hook 2s, Demo 8s, Logo 3s, Tagline 2s), uses a single screenshot with dark background and proper styling, produces minimal scene set in demo-output/.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 3,
+    "prompt": "Make a demo video for my CLI tool. I don't have any screenshots but I can describe what it does.",
+    "expected_output": "Agent generates terminal-style HTML scenes with dark background and monospace font from the user's descriptions. Does not ask for screenshots. Produces demo-output/ with all artifacts.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 4,
+    "prompt": "I need a product demo video but I don't have ffmpeg or any MCP servers installed. Can you still help?",
+    "expected_output": "Agent acknowledges the constraint, produces HTML scene files + scenes.json + narration text files + build.sh with manual ffmpeg commands. Tells user how to install ffmpeg and run the script.",
+    "scenario_type": "edge_case"
+  }
+]

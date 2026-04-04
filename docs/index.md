@@ -1,6 +1,6 @@
 ---
-title: 223 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "223 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
+title: 248 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "248 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-223 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for AI coding tools.
+248 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -49,7 +49,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **223 Skills**
+-   :material-toolbox:{ .lg .middle } **248 Skills**
 
     ---
 
@@ -81,7 +81,7 @@ hide:
 
     [:octicons-arrow-right-24: Learn patterns](orchestration.md)
 
--   :material-language-python:{ .lg .middle } **298 Python Tools**
+-   :material-language-python:{ .lg .middle } **332 Python Tools**
 
     ---
 
@@ -135,7 +135,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 36 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 37 skills](skills/engineering-team/)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 
@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 38 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 42 skills](skills/engineering/)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -159,7 +159,7 @@ hide:
 
     Content, SEO, CRO, channels, growth, intelligence, sales — 7 specialist pods with 32 Python tools
 
-    [:octicons-arrow-right-24: 44 skills](skills/marketing-skill/)
+    [:octicons-arrow-right-24: 45 skills](skills/marketing-skill/)
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management**
 
@@ -167,7 +167,7 @@ hide:
 
     Senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, templates
 
-    [:octicons-arrow-right-24: 6 skills](skills/project-management/)
+    [:octicons-arrow-right-24: 9 skills](skills/project-management/)
 
 -   :material-star-circle:{ .lg .middle } **C-Level Advisory**
 
@@ -199,7 +199,7 @@ hide:
 
     Financial analyst, SaaS metrics coach — DCF valuation, budgeting, forecasting, ARR/MRR/churn/LTV
 
-    [:octicons-arrow-right-24: 3 skills](skills/finance/)
+    [:octicons-arrow-right-24: 4 skills](skills/finance/)
 
 </div>
 

@@ -90,6 +90,7 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key email
 
 | Tool | Best For | MCP | Guide |
 |------|----------|:---:|-------|
+| **SigParser** | Contact list extraction from email signatures | ✓ | [sigparser.md](../../tools/integrations/sigparser.md) |
 | **Customer.io** | Behavior-based automation | - | [customer-io.md](../../tools/integrations/customer-io.md) |
 | **Mailchimp** | SMB email marketing | ✓ | [mailchimp.md](../../tools/integrations/mailchimp.md) |
 | **Resend** | Developer-friendly transactional | ✓ | [resend.md](../../tools/integrations/resend.md) |

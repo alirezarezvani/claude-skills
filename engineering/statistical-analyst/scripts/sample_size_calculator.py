@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 sample_size_calculator.py — Required sample size per variant for A/B experiments.
 

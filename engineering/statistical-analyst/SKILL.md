@@ -227,16 +227,16 @@ Structure all results as:
 
 | Skill | Use When |
 |---|---|
-| `marketing/ab-test-setup` | Designing the experiment before it runs — randomization, instrumentation, holdout |
-| `data-analysis/data-quality-auditor` | Verifying input data integrity before running any statistical test |
-| `product/experiment-designer` | Structuring the hypothesis, success metrics, and guardrail metrics |
-| `product/product-analytics` | Analyzing product funnel and retention metrics |
+| `marketing-skill/ab-test-setup` | Designing the experiment before it runs — randomization, instrumentation, holdout |
+| `engineering/data-quality-auditor` | Verifying input data integrity before running any statistical test |
+| `product-team/experiment-designer` | Structuring the hypothesis, success metrics, and guardrail metrics |
+| `product-team/product-analytics` | Analyzing product funnel and retention metrics |
 | `finance/saas-metrics-coach` | Interpreting SaaS KPIs that may feed into experiments (ARR, churn, LTV) |
-| `marketing/campaign-analytics` | Statistical analysis of marketing campaign performance |
+| `marketing-skill/campaign-analytics` | Statistical analysis of marketing campaign performance |
 
 **When NOT to use this skill:**
-- You need to design or instrument the experiment — use `marketing/ab-test-setup` or `product/experiment-designer`
-- You need to clean or validate the input data — use `data-analysis/data-quality-auditor` first
+- You need to design or instrument the experiment — use `marketing-skill/ab-test-setup` or `product-team/experiment-designer`
+- You need to clean or validate the input data — use `engineering/data-quality-auditor` first
 - You need Bayesian inference or multi-armed bandit analysis — flag that frequentist tests may not be appropriate
 
 ---

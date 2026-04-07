@@ -1,0 +1,298 @@
+---
+name: Skill Quality Review (Tessl)
+
+'on':
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**/SKILL.md'
+      - '**/scripts/*.py'
+
+concurrency:
+  group: quality-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  detect-skills:
+    name: Detect changed skills
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      skills: ${{ steps.find.outputs.skills }}
+      has_skills: ${{ steps.find.outputs.has_skills }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find changed skill directories
+        id: find
+        run: |
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD 2>/dev/null || echo "")
+          if [ -z "$CHANGED" ]; then
+            echo "skills=[]" >> "$GITHUB_OUTPUT"
+            echo "has_skills=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          SKILLS=()
+          SEEN=()
+          while IFS= read -r file; do
+            dir=$(echo "$file" | cut -d'/' -f1-2)
+            case "$dir" in
+              .github/*|.claude/*|.codex/*|.gemini/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*|medium/*) continue ;;
+            esac
+            for candidate in "$dir"; do
+              if [ -f "$candidate/SKILL.md" ] && [[ ! " ${SEEN[*]} " =~ " $candidate " ]]; then
+                SKILLS+=("$candidate")
+                SEEN+=("$candidate")
+                break
+              fi
+            done
+          done <<< "$CHANGED"
+
+          if [ ${#SKILLS[@]} -eq 0 ]; then
+            echo "skills=[]" >> "$GITHUB_OUTPUT"
+            echo "has_skills=false" >> "$GITHUB_OUTPUT"
+          else
+            JSON="["
+            for i in "${!SKILLS[@]}"; do
+              [ $i -gt 0 ] && JSON+=","
+              JSON+="\"${SKILLS[$i]}\""
+            done
+            JSON+="]"
+            echo "skills=$JSON" >> "$GITHUB_OUTPUT"
+            echo "has_skills=true" >> "$GITHUB_OUTPUT"
+            echo "Changed skills: $JSON"
+          fi
+
+  review:
+    name: Tessl quality review
+    needs: detect-skills
+    if: needs.detect-skills.outputs.has_skills == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Tessl CLI
+        run: npm install -g tessl
+
+      - name: Review changed skills
+        id: review
+        run: |
+          SKILLS='${{ needs.detect-skills.outputs.skills }}'
+          REPORT_FILE=$(mktemp)
+          OVERALL_EXIT=0
+          THRESHOLD=70
+
+          echo "## 📊 Skill Quality Review (Tessl)" > "$REPORT_FILE"
+          echo "" >> "$REPORT_FILE"
+          echo "| Skill | Score | Description | Content | Verdict |" >> "$REPORT_FILE"
+          echo "|-------|-------|-------------|---------|---------|" >> "$REPORT_FILE"
+
+          DETAILS_FILE=$(mktemp)
+
+          for skill_dir in $(echo "$SKILLS" | python3 -c "import sys,json; [print(s) for s in json.load(sys.stdin)]"); do
+            echo "::group::Reviewing $skill_dir"
+
+            JSON_OUT=$(tessl skill review "$skill_dir" --json 2>&1) && EXIT_CODE=$? || EXIT_CODE=$?
+
+            # Parse results
+            PARSED=$(echo "$JSON_OUT" | python3 -c "
+          import sys, json
+          try:
+              d = json.load(sys.stdin)
+              score = d.get('review', {}).get('reviewScore', 0)
+              ds = round(d.get('descriptionJudge', {}).get('normalizedScore', 0) * 100)
+              cs = round(d.get('contentJudge', {}).get('normalizedScore', 0) * 100)
+              passed = d.get('validation', {}).get('overallPassed', False)
+              name = d.get('validation', {}).get('skillName', 'unknown')
+
+              # Collect suggestions
+              desc_suggestions = d.get('descriptionJudge', {}).get('evaluation', {}).get('suggestions', [])
+              content_suggestions = d.get('contentJudge', {}).get('evaluation', {}).get('suggestions', [])
+
+              suggestions = []
+              for s in desc_suggestions:
+                  suggestions.append(f'[description] {s}')
+              for s in content_suggestions:
+                  suggestions.append(f'[content] {s}')
+
+              print(f'{name}|{score}|{ds}|{cs}|{\"PASS\" if passed else \"FAIL\"}|{json.dumps(suggestions)}')
+          except Exception as e:
+              print(f'unknown|0|0|0|ERROR|[]')
+          " 2>/dev/null || echo "unknown|0|0|0|ERROR|[]")
+
+            IFS='|' read -r NAME SCORE DS CS VSTATUS SUGGESTIONS <<< "$PARSED"
+
+            # Determine verdict
+            if [ "$SCORE" -ge "$THRESHOLD" ]; then
+              ICON="✅"
+              VERDICT="PASS"
+            else
+              ICON="⚠️"
+              VERDICT="NEEDS WORK"
+              OVERALL_EXIT=1
+            fi
+
+            echo "| \`$skill_dir\` | **${SCORE}/100** ${ICON} | ${DS}% | ${CS}% | ${VERDICT} |" >> "$REPORT_FILE"
+
+            # Add suggestions as details
+            SUGG_COUNT=$(echo "$SUGGESTIONS" | python3 -c "import sys,json; print(len(json.loads(sys.stdin.readline())))" 2>/dev/null || echo "0")
+            if [ "$SUGG_COUNT" -gt 0 ]; then
+              echo "" >> "$DETAILS_FILE"
+              echo "### \`$skill_dir\` — ${SCORE}/100" >> "$DETAILS_FILE"
+              echo "" >> "$DETAILS_FILE"
+              echo "$SUGGESTIONS" | python3 -c "
+          import sys, json
+          suggestions = json.loads(sys.stdin.readline())
+          for s in suggestions:
+              print(f'- {s}')
+          " >> "$DETAILS_FILE"
+            fi
+
+            echo "::endgroup::"
+          done
+
+          # Add details section
+          DETAILS_CONTENT=$(cat "$DETAILS_FILE")
+          if [ -n "$DETAILS_CONTENT" ]; then
+            echo "" >> "$REPORT_FILE"
+            echo "<details><summary>Improvement suggestions</summary>" >> "$REPORT_FILE"
+            echo "" >> "$REPORT_FILE"
+            cat "$DETAILS_FILE" >> "$REPORT_FILE"
+            echo "" >> "$REPORT_FILE"
+            echo "</details>" >> "$REPORT_FILE"
+          fi
+
+          echo "" >> "$REPORT_FILE"
+          echo "_Threshold: ${THRESHOLD}/100 — skills below this score need improvement before merge._" >> "$REPORT_FILE"
+
+          echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
+          echo "exit_code=$OVERALL_EXIT" >> "$GITHUB_OUTPUT"
+
+      - name: Run internal validators
+        id: internal
+        run: |
+          SKILLS='${{ needs.detect-skills.outputs.skills }}'
+          INTERNAL_REPORT=$(mktemp)
+          INTERNAL_EXIT=0
+
+          echo "" >> "$INTERNAL_REPORT"
+          echo "## 🔧 Internal Validation" >> "$INTERNAL_REPORT"
+          echo "" >> "$INTERNAL_REPORT"
+
+          for skill_dir in $(echo "$SKILLS" | python3 -c "import sys,json; [print(s) for s in json.load(sys.stdin)]"); do
+            # Structure validation
+            STRUCT=$(python3 engineering/skill-tester/scripts/skill_validator.py "$skill_dir" --json 2>&1 | python3 -c "
+          import sys, json
+          try:
+              d = json.load(sys.stdin)
+              print(f'{d[\"overall_score\"]}|{d[\"compliance_level\"]}')
+          except:
+              print('0|ERROR')
+          " 2>/dev/null || echo "0|ERROR")
+            IFS='|' read -r SSCORE SLEVEL <<< "$STRUCT"
+
+            # Script testing (if scripts exist)
+            SCRIPT_STATUS="N/A"
+            if [ -d "$skill_dir/scripts" ] && ls "$skill_dir/scripts/"*.py >/dev/null 2>&1; then
+              STEST=$(python3 engineering/skill-tester/scripts/script_tester.py "$skill_dir" --json 2>&1 | python3 -c "
+          import sys, json
+          text = sys.stdin.read()
+          try:
+              start = text.index('{')
+              d = json.loads(text[start:])
+              print(f'{d[\"summary\"][\"passed\"]}/{d[\"summary\"][\"total_scripts\"]} PASS')
+          except:
+              print('ERROR')
+          " 2>/dev/null || echo "ERROR")
+              SCRIPT_STATUS="$STEST"
+            fi
+
+            # Security audit
+            SEC=$(python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py "$skill_dir" --strict --json 2>&1 | python3 -c "
+          import sys, json
+          try:
+              d = json.load(sys.stdin)
+              print(f'{d[\"verdict\"]}')
+          except:
+              print('ERROR')
+          " 2>/dev/null || echo "ERROR")
+
+            if [ "$SEC" = "FAIL" ]; then
+              INTERNAL_EXIT=1
+            fi
+
+            echo "- \`$skill_dir\`: structure ${SSCORE}/100 (${SLEVEL}), scripts ${SCRIPT_STATUS}, security ${SEC}" >> "$INTERNAL_REPORT"
+          done
+
+          echo "internal_report=$INTERNAL_REPORT" >> "$GITHUB_OUTPUT"
+          echo "internal_exit=$INTERNAL_EXIT" >> "$GITHUB_OUTPUT"
+
+      - name: Post review as PR comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '';
+            try {
+              body += fs.readFileSync('${{ steps.review.outputs.report_file }}', 'utf8');
+            } catch (e) {
+              body += '## 📊 Skill Quality Review\n\nNo Tessl report generated.\n';
+            }
+            try {
+              body += '\n' + fs.readFileSync('${{ steps.internal.outputs.internal_report }}', 'utf8');
+            } catch (e) {}
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const marker = '## 📊 Skill Quality Review';
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body,
+              });
+            }
+
+      - name: Fail on low quality or security issues
+        if: steps.review.outputs.exit_code == '1' || steps.internal.outputs.internal_exit == '1'
+        run: |
+          if [ "${{ steps.internal.outputs.internal_exit }}" = "1" ]; then
+            echo "::error::Security audit found CRITICAL/HIGH findings. Merge blocked."
+          fi
+          if [ "${{ steps.review.outputs.exit_code }}" = "1" ]; then
+            echo "::error::Tessl quality review below threshold (70/100). Improve skill before merge."
+          fi
+          exit 1

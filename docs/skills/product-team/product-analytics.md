@@ -101,18 +101,58 @@ See:
 - Flattening at low level: product used occasionally, revisit value metric.
 - Improving newer cohorts: onboarding or positioning improvements are working.
 
+## Anti-Patterns
+
+| Anti-pattern | Fix |
+|---|---|
+| **Vanity metrics** — tracking pageviews or total signups without activation context | Always pair acquisition metrics with activation rate and retention |
+| **Single-point retention** — reporting "30-day retention is 20%" | Compare retention curves across cohorts, not isolated snapshots |
+| **Dashboard overload** — 30+ metrics on one screen | Executive layer: 5-7 metrics. Feature layer: per-feature only |
+| **No decision rule** — tracking a KPI with no threshold or action plan | Every KPI needs: target, threshold, owner, and "if below X, then Y" |
+| **Averaging across segments** — reporting blended metrics that hide segment differences | Always segment by cohort, plan tier, channel, or geography |
+| **Ignoring seasonality** — comparing this week to last week without adjusting | Use period-over-period with same-period-last-year context |
+
 ## Tooling
 
 ### `scripts/metrics_calculator.py`
 
-CLI utility for:
-- Retention rate calculations by cohort age
-- Cohort table generation
-- Basic funnel conversion analysis
+CLI utility for retention, cohort, and funnel analysis from CSV data. Supports text and JSON output.
 
-Examples:
 ```bash
+# Retention analysis
 python3 scripts/metrics_calculator.py retention events.csv
+python3 scripts/metrics_calculator.py retention events.csv --format json
+
+# Cohort matrix
 python3 scripts/metrics_calculator.py cohort events.csv --cohort-grain month
+python3 scripts/metrics_calculator.py cohort events.csv --cohort-grain week --format json
+
+# Funnel conversion
 python3 scripts/metrics_calculator.py funnel funnel.csv --stages visit,signup,activate,pay
+python3 scripts/metrics_calculator.py funnel funnel.csv --stages visit,signup,activate,pay --format json
 ```
+
+**CSV format for retention/cohort:**
+```csv
+user_id,cohort_date,activity_date
+u001,2026-01-01,2026-01-01
+u001,2026-01-01,2026-01-03
+u002,2026-01-02,2026-01-02
+```
+
+**CSV format for funnel:**
+```csv
+user_id,stage
+u001,visit
+u001,signup
+u001,activate
+u002,visit
+u002,signup
+```
+
+## Cross-References
+
+- Related: `product-team/experiment-designer` — for A/B test planning after identifying metric opportunities
+- Related: `product-team/product-manager-toolkit` — for RICE prioritization of metric-driven features
+- Related: `product-team/product-discovery` — for assumption mapping when metrics reveal unknowns
+- Related: `finance/saas-metrics-coach` — for SaaS-specific metrics (ARR, MRR, churn, LTV)

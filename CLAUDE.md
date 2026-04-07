@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 248 production-ready skills across 9 domains with 332 Python automation tools, 460 reference guides, 23 agents, and 22 slash commands.
+**Current Scope:** 233 production-ready skills across 9 domains with 305 Python automation tools, 424 reference guides, 25 agents, and 22 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -36,12 +36,12 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 ```
 claude-code-skills/
 ├── .claude-plugin/            # Plugin registry (marketplace.json)
-├── agents/                    # 23 agents across all domains
+├── agents/                    # 25 agents across all domains
 ├── commands/                  # 22 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
 ├── engineering-team/          # 37 core engineering skills + Playwright Pro + Self-Improving Agent + Security Suite
-├── engineering/               # 42 POWERFUL-tier advanced skills (incl. AgentHub, self-eval)
+├── engineering/               # 43 POWERFUL-tier advanced skills (incl. AgentHub, self-eval)
 ├── product-team/              # 15 product skills + Python tools
-├── marketing-skill/           # 45 marketing skills (7 pods) + Python tools
+├── marketing-skill/           # 44 marketing skills (7 pods) + Python tools
 ├── c-level-advisor/           # 34 C-level advisory skills (10 roles + orchestration)
 ├── project-management/        # 9 PM skills + Atlassian MCP
 ├── ra-qm-team/                # 14 RA/QM compliance skills
@@ -130,7 +130,7 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 - **Security skills suite** — 6 new engineering-team skills: adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection (5 Python tools, 4 reference guides)
 - **Self-eval skill** — Honest AI work quality evaluation with two-axis scoring, score inflation detection, and session persistence
 - **Snowflake development** — Data warehouse development, SQL optimization, and data pipeline patterns
-- 248 total skills across 9 domains, 332 Python tools, 460 references, 23 agents, 22 commands
+- 233 total skills across 9 domains, 305 Python tools, 424 references, 25 agents, 22 commands
 - MkDocs docs site expanded to 269 generated pages (301 HTML pages)
 
 **v2.1.2 (2026-03-10):**
@@ -153,9 +153,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Roadmap
 
-**Phase 1-3 Complete:** 248 production-ready skills deployed across 9 domains
-- Engineering Core (37), Engineering POWERFUL (42), Product (15), Marketing (45), PM (9), C-Level (34), RA/QM (14), Business & Growth (5), Finance (4)
-- 332 Python automation tools, 460 reference guides, 23 agents, 22 commands
+**Phase 1-3 Complete:** 233 production-ready skills deployed across 9 domains
+- Engineering Core (37), Engineering POWERFUL (43), Product (15), Marketing (44), PM (9), C-Level (34), RA/QM (14), Business & Growth (5), Finance (4)
+- 305 Python automation tools, 424 reference guides, 25 agents, 22 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
 - MkDocs Material docs site with 269+ indexed pages for SEO
 
@@ -208,4 +208,4 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 
 **Last Updated:** March 31, 2026
 **Version:** v2.2.0
-**Status:** 248 skills deployed across 9 domains, 28 marketplace plugins, docs site live
+**Status:** 233 skills deployed across 9 domains, 28 marketplace plugins, docs site live

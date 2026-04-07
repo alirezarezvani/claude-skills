@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 280,
+  "total_skills": 282,
   "skills": [
     {
       "name": "README",
@@ -959,6 +959,11 @@
       "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
     },
     {
+      "name": "statistical-analyst",
+      "category": "engineering-advanced",
+      "description": "Run hypothesis tests, analyze A/B experiment results, calculate sample sizes, and interpret statistical significance with effect sizes. Use when you need to validate whether observed differences are real, size an experiment correctly before launch, or interpret test results with confidence."
+    },
+    {
       "name": "tech-debt-tracker",
       "category": "engineering-advanced",
       "description": "Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation."
@@ -1279,6 +1284,11 @@
       "description": "Generates complete, production-ready SaaS project boilerplate including authentication, database schemas, billing integration, API routes, and a working dashboard using Next.js 14+ App Router, TypeScript, Tailwind CSS, shadcn/ui, Drizzle ORM, and Stripe. Use when the user wants to create a new SaaS app, start a subscription-based web project, scaffold a Next.js application, or mentions terms like starter template, boilerplate, new project, or wiring up auth and payments."
     },
     {
+      "name": "spec-to-repo",
+      "category": "product",
+      "description": "Use when the user says 'build me an app', 'create a project from this spec', 'scaffold a new repo', 'generate a starter', 'turn this idea into code', 'bootstrap a project', 'I have requirements and need a codebase', or provides a natural-language project specification and expects a complete, runnable repository. Stack-agnostic: Next.js, FastAPI, Rails, Go, Rust, Flutter, and more."
+    },
+    {
       "name": "ui-design-system",
       "category": "product",
       "description": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration."
@@ -1426,7 +1436,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 56,
+      "count": 57,
       "description": "Engineering-advanced resources"
     },
     "finance": {
@@ -1438,7 +1448,7 @@
       "description": "Marketing resources"
     },
     "product": {
-      "count": 15,
+      "count": 16,
       "description": "Product resources"
     },
     "project-management": {

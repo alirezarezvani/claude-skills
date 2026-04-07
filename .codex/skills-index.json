@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 193,
+  "total_skills": 194,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -1026,6 +1026,12 @@
       "description": "Generates complete, production-ready SaaS project boilerplate including authentication, database schemas, billing integration, API routes, and a working dashboard using Next.js 14+ App Router, TypeScript, Tailwind CSS, shadcn/ui, Drizzle ORM, and Stripe. Use when the user wants to create a new SaaS app, start a subscription-based web project, scaffold a Next.js application, or mentions terms like starter template, boilerplate, new project, or wiring up auth and payments."
     },
     {
+      "name": "spec-to-repo",
+      "source": "../../product-team/spec-to-repo",
+      "category": "product",
+      "description": "Use when the user says 'build me an app', 'create a project from this spec', 'scaffold a new repo', 'generate a starter', 'turn this idea into code', 'bootstrap a project', 'I have requirements and need a codebase', or provides a natural-language project specification and expects a complete, runnable repository. Stack-agnostic: Next.js, FastAPI, Rails, Go, Rust, Flutter, and more."
+    },
+    {
       "name": "ui-design-system",
       "source": "../../product-team/ui-design-system",
       "category": "product",
@@ -1196,7 +1202,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 14,
+      "count": 15,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

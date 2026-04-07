@@ -1,13 +1,13 @@
 ---
 title: "Product Skills — Agent Skills & Codex Plugins"
-description: "15 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "16 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightbulb-outline: Product
 
-<p class="domain-count">15 skills in this domain</p>
+<p class="domain-count">16 skills in this domain</p>
 
 </div>
 
@@ -94,6 +94,12 @@ description: "15 product skills — product management agent skill and Claude Co
     ---
 
     Tier: POWERFUL
+
+-   **[Spec to Repo](spec-to-repo.md)**
+
+    ---
+
+    Turn a natural-language project specification into a complete, runnable starter repository. Not a template filler — a...
 
 -   **[UI Design System](ui-design-system.md)**
 

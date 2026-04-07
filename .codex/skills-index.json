@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 192,
+  "total_skills": 193,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -654,6 +654,12 @@
       "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
     },
     {
+      "name": "statistical-analyst",
+      "source": "../../engineering/statistical-analyst",
+      "category": "engineering-advanced",
+      "description": "Run hypothesis tests, analyze A/B experiment results, calculate sample sizes, and interpret statistical significance with effect sizes. Use when you need to validate whether observed differences are real, size an experiment correctly before launch, or interpret test results with confidence."
+    },
+    {
       "name": "tech-debt-tracker",
       "source": "../../engineering/tech-debt-tracker",
       "category": "engineering-advanced",
@@ -1175,7 +1181,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 42,
+      "count": 43,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

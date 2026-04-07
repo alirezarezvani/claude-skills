@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "55 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "56 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">55 skills in this domain</p>
+<p class="domain-count">56 skills in this domain</p>
 
 </div>
 
@@ -262,6 +262,12 @@ description: "55 engineering - powerful skills — advanced agent-native skill a
     ---
 
     The operational companion to database design. While database-designer focuses on schema architecture and database-sch...
+
+-   **[Z-test for two proportions (A/B conversion rates)](statistical-analyst.md)**
+
+    ---
+
+    python3 scripts/hypothesistester.py --test ztest \
 
 -   **[Tech Debt Tracker](tech-debt-tracker.md)**
 

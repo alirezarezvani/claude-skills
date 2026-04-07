@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "248 production-ready skill packages for Claude AI across 9 domains: marketing (45), engineering (42+37), C-level advisory (34), regulatory/QMS (14), product (15), project management (9), business growth (5), and finance (4). Includes 332 Python tools, 460 reference documents, 23 agents, and 22 slash commands.",
+  "description": "233 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (43+37), C-level advisory (34), regulatory/QMS (14), product (15), project management (9), business growth (5), and finance (4). Includes 305 Python tools, 424 reference documents, 25 agents, and 22 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "248 production-ready skill packages across 9 domains with 332 Python tools, 460 reference documents, 23 agents, and 22 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
+    "description": "233 production-ready skill packages across 9 domains with 305 Python tools, 424 reference documents, 25 agents, and 22 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
     "version": "2.2.0"
   },
   "plugins": [
@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "42 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, and more.",
+      "description": "43 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, and more.",
       "version": "2.2.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -596,6 +596,23 @@
         "outlier-detection",
         "missing-values",
         "data-audit"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "statistical-analyst",
+      "source": "./engineering/statistical-analyst",
+      "description": "Hypothesis testing, A/B experiment analysis, sample size calculation, and confidence intervals. 3 stdlib-only Python tools: Z-test/t-test/chi-square with effect sizes, sample size calculator with power tradeoffs, and Wilson score confidence intervals.",
+      "version": "2.2.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "statistics",
+        "hypothesis-testing",
+        "ab-testing",
+        "sample-size",
+        "confidence-interval"
       ],
       "category": "development"
     }

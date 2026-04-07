@@ -1,6 +1,6 @@
 ---
-title: 248 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "248 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
+title: 233 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "233 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-248 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for AI coding tools.
+233 production-ready skills, 25 agents, 3 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -49,7 +49,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **248 Skills**
+-   :material-toolbox:{ .lg .middle } **233 Skills**
 
     ---
 
@@ -57,7 +57,7 @@ hide:
 
     [:octicons-arrow-right-24: Browse skills](skills/)
 
--   :material-robot:{ .lg .middle } **23 Agents**
+-   :material-robot:{ .lg .middle } **25 Agents**
 
     ---
 
@@ -81,7 +81,7 @@ hide:
 
     [:octicons-arrow-right-24: Learn patterns](orchestration.md)
 
--   :material-language-python:{ .lg .middle } **332 Python Tools**
+-   :material-language-python:{ .lg .middle } **305 Python Tools**
 
     ---
 
@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 42 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 43 skills](skills/engineering/)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -151,7 +151,7 @@ hide:
 
     Product manager, agile PO, strategist, UX researcher, UI design system, landing pages, SaaS scaffolder, analytics, experiment designer
 
-    [:octicons-arrow-right-24: 14 skills](skills/product-team/)
+    [:octicons-arrow-right-24: 15 skills](skills/product-team/)
 
 -   :material-bullhorn:{ .lg .middle } **Marketing**
 
@@ -159,7 +159,7 @@ hide:
 
     Content, SEO, CRO, channels, growth, intelligence, sales — 7 specialist pods with 32 Python tools
 
-    [:octicons-arrow-right-24: 45 skills](skills/marketing-skill/)
+    [:octicons-arrow-right-24: 44 skills](skills/marketing-skill/)
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management**
 
@@ -175,7 +175,7 @@ hide:
 
     Full C-suite (10 roles), orchestration, board meetings, culture frameworks, strategic alignment
 
-    [:octicons-arrow-right-24: 28 skills](skills/c-level-advisor/)
+    [:octicons-arrow-right-24: 34 skills](skills/c-level-advisor/)
 
 -   :material-shield-check:{ .lg .middle } **Regulatory & Quality**
 
@@ -191,7 +191,7 @@ hide:
 
     Customer success, sales engineer, revenue operations, contracts & proposals
 
-    [:octicons-arrow-right-24: 4 skills](skills/business-growth/)
+    [:octicons-arrow-right-24: 5 skills](skills/business-growth/)
 
 -   :material-currency-usd:{ .lg .middle } **Finance**
 

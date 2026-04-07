@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "248 production-ready skills, 23 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "233 production-ready skills, 25 agents, 3 personas, and an orchestration protocol for 11 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -214,6 +214,7 @@ nav:
       - "Self-Eval": skills/engineering/self-eval.md
       - "Skill Security Auditor": skills/engineering/skill-security-auditor.md
       - "Skill Tester": skills/engineering/skill-tester.md
+      - "Statistical Analyst": skills/engineering/statistical-analyst.md
       - "Spec-Driven Workflow": skills/engineering/spec-driven-workflow.md
       - "SQL Database Assistant": skills/engineering/sql-database-assistant.md
       - "Tech Debt Tracker": skills/engineering/tech-debt-tracker.md

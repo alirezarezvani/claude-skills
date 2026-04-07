@@ -1,0 +1,13 @@
+{
+  "name": "statistical-analyst",
+  "description": "Hypothesis testing, A/B experiment analysis, sample size calculation, and confidence intervals. 3 stdlib-only Python tools with Z-test, t-test, chi-square, effect sizes, power analysis, and Wilson score intervals.",
+  "version": "2.2.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/statistical-analyst",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

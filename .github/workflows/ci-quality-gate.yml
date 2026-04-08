@@ -77,7 +77,10 @@ jobs:
 
       - name: Python syntax check (blocking)
         run: |
-          python -m compileall marketing-skill product-team c-level-advisor engineering-team ra-qm-team engineering business-growth finance project-management scripts
+          python -m compileall \
+            marketing-skill product-team c-level-advisor \
+            engineering-team ra-qm-team engineering \
+            business-growth finance project-management scripts
 
       - name: Run test suite
         run: |

@@ -114,6 +114,7 @@ jobs:
 
       - name: Post fallback review note (quota/timeout)
         if: steps.claude-review.outcome != 'success'
+        continue-on-error: true  # Fork PRs have read-only GITHUB_TOKEN
         uses: actions/github-script@v7
         with:
           script: |
@@ -129,3 +130,13 @@ jobs:
               - Proceed with manual review to unblock
               `
             })
+
+      - name: Write review status to job summary
+        if: steps.claude-review.outcome != 'success'
+        run: |
+          echo "## ⚠️ Automated Review Skipped" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "The Claude review could not complete." >> "$GITHUB_STEP_SUMMARY"
+          echo "For fork PRs this is expected — OIDC tokens are unavailable." >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Retry from the Actions tab, or proceed with manual review." >> "$GITHUB_STEP_SUMMARY"

@@ -31,6 +31,9 @@ jobs:
             echo "target_ref=${{ github.event.inputs.ref }}" >> "$GITHUB_OUTPUT"
           elif [[ "${{ github.event_name }}" == "repository_dispatch" && -n "${{ github.event.client_payload.ref }}" ]]; then
             echo "target_ref=${{ github.event.client_payload.ref }}" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            # Use commit SHA for PRs — branch names from forks don't exist in the base repo
+            echo "target_ref=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
           else
             echo "target_ref=${{ github.head_ref || github.ref_name }}" >> "$GITHUB_OUTPUT"
           fi

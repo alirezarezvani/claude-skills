@@ -1,0 +1,13 @@
+{
+  "name": "llm-wiki",
+  "description": "Turn Claude Code + Obsidian into a second brain. The LLM incrementally ingests sources into a persistent, interlinked markdown wiki — building entity/concept/source pages, flagging contradictions, maintaining an index and log. Knowledge compounds instead of being re-derived by RAG on every query. Inspired by Karpathy's LLM Wiki gist. Ships SKILL, 3 sub-agents, 5 slash commands, 8 Python tools (stdlib only), full vault templates, and cross-tool compatibility (Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, Gemini CLI).",
+  "version": "2.3.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/llm-wiki",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

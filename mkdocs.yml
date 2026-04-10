@@ -417,3 +417,8 @@ nav:
     - "/tech-debt": commands/tech-debt.md
     - "/user-story": commands/user-story.md
     - "/google-workspace": commands/google-workspace.md
+    - "/wiki-init": commands/wiki-init.md
+    - "/wiki-ingest": commands/wiki-ingest.md
+    - "/wiki-query": commands/wiki-query.md
+    - "/wiki-lint": commands/wiki-lint.md
+    - "/wiki-log": commands/wiki-log.md

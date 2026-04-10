@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 195,
+  "total_skills": 196,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -966,6 +966,12 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "apple-hig-expert",
+      "source": "../../product-team/apple-hig-expert",
+      "category": "product",
+      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with 2026 Liquid Glass aesthetics and accessibility-first design."
+    },
+    {
       "name": "code-to-prd",
       "source": "../../product-team/code-to-prd",
       "category": "product",
@@ -1208,7 +1214,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 15,
+      "count": 16,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

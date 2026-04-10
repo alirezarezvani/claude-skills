@@ -4,11 +4,11 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "234 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (44+37), C-level advisory (34), regulatory/QMS (14), product (15), project management (9), business growth (5), and finance (4). Includes 313 Python tools, 432 reference documents, 28 agents, and 27 slash commands.",
+  "description": "235 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (45+37), C-level advisory (34), regulatory/QMS (14), product (16), project management (9), business growth (5), and finance (4). Includes 314 Python tools, 435 reference documents, 28 agents, and 27 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "234 production-ready skill packages across 9 domains with 313 Python tools, 432 reference documents, 28 agents, and 27 slash commands. Compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, Gemini CLI, and OpenClaw.",
+    "description": "235 production-ready skill packages across 9 domains with 314 Python tools, 435 reference documents, 28 agents, and 27 slash commands. Compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, Gemini CLI, and OpenClaw.",
     "version": "2.3.0"
   },
   "plugins": [
@@ -129,7 +129,7 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "14 product skills with 16 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer.",
+      "description": "15 product skills with 17 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer, apple-hig-expert.",
       "version": "2.2.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -146,7 +146,10 @@
         "analytics",
         "experimentation",
         "discovery",
-        "roadmap"
+        "discovery",
+        "roadmap",
+        "apple-hig",
+        "design-guidelines"
       ],
       "category": "product"
     },
@@ -615,6 +618,26 @@
         "confidence-interval"
       ],
       "category": "development"
+    },
+    {
+      "name": "apple-hig-expert",
+      "source": "./product-team/apple-hig-expert",
+      "description": "Master Apple's Human Interface Guidelines (HIG) with focus on 2026 Liquid Glass aesthetics. Design and audit iOS, macOS, and visionOS apps for full compliance and premium feel. Includes hig_checker Python tool for tap targets and contrast.",
+      "version": "2.2.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "apple-hig",
+        "design-guidelines",
+        "ios-design",
+        "macos-design",
+        "visionos",
+        "liquid-glass",
+        "accessibility",
+        "ui-design"
+      ],
+      "category": "design"
     },
     {
       "name": "llm-wiki",

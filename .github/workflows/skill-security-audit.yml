@@ -191,8 +191,17 @@ jobs:
           echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
           echo "exit_code=$OVERALL_EXIT" >> "$GITHUB_OUTPUT"
 
+      - name: Post audit results to job summary
+        if: always()
+        run: |
+          REPORT_FILE="${{ steps.audit.outputs.report_file }}"
+          if [ -f "$REPORT_FILE" ]; then
+            cat "$REPORT_FILE" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Post audit results as PR comment
         if: always()
+        continue-on-error: true  # Fork PRs have read-only GITHUB_TOKEN
         uses: actions/github-script@v7
         with:
           script: |

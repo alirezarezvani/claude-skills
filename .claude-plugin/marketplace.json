@@ -619,8 +619,8 @@
     {
       "name": "llm-wiki",
       "source": "./engineering/llm-wiki",
-      "description": "A second brain for Claude Code + Obsidian inspired by Karpathy's LLM Wiki gist. Turn any LLM CLI into a disciplined wiki maintainer: incrementally ingest sources into a persistent, interlinked markdown vault; update entity/concept/source pages; flag contradictions; maintain index and append-only log. Knowledge compounds instead of being re-derived by RAG on every query. Ships 3 sub-agents (wiki-ingestor, wiki-librarian, wiki-linter), 5 slash commands (/wiki-init, /wiki-ingest, /wiki-query, /wiki-lint, /wiki-log), 8 Python tools (stdlib only: init_vault, ingest_source, update_index, append_log, wiki_search BM25, lint_wiki, graph_analyzer, export_marp), 8 reference docs, full vault templates (CLAUDE.md, AGENTS.md, .cursorrules, 5 page templates), and a worked example vault. Cross-tool compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, and Gemini CLI.",
-      "version": "1.0.0",
+      "description": "A second brain for Claude Code + Obsidian inspired by Karpathy's LLM Wiki gist. Turn any LLM CLI into a disciplined wiki maintainer: incrementally ingest sources into a persistent, interlinked markdown vault; update entity/concept/source pages; flag contradictions; maintain index and append-only log. Knowledge compounds instead of being re-derived by RAG on every query. Ships 3 sub-agents (wiki-ingestor, wiki-librarian, wiki-linter), 5 slash commands (/wiki-init, /wiki-ingest, /wiki-query, /wiki-lint, /wiki-log), 8 Python tools (stdlib only: init_vault, ingest_source, update_index, append_log, wiki_search BM25, lint_wiki, graph_analyzer, export_marp), 8 reference docs, full vault templates (CLAUDE.md, AGENTS.md, cursorrules, 5 page templates), and a worked example vault. Cross-tool compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, and Gemini CLI.",
+      "version": "2.3.0",
       "author": {
         "name": "Alireza Rezvani"
       },

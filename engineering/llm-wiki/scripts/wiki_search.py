@@ -12,7 +12,6 @@ Usage:
     python wiki_search.py --vault . --query "monosemanticity" --limit 5 --json
 """
 from __future__ import annotations
-
 import argparse
 import json
 import math

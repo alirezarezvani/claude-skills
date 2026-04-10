@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 282,
+  "total_skills": 291,
   "skills": [
     {
       "name": "README",
@@ -92,6 +92,21 @@
       "name": "cs-ux-researcher",
       "category": "agent",
       "description": "UX research agent for research planning, persona generation, journey mapping, and usability test analysis"
+    },
+    {
+      "name": "cs-wiki-ingestor",
+      "category": "agent",
+      "description": "Dispatched sub-agent that ingests a new source into an LLM Wiki vault. Reads the source, proposes TL;DR and key claims, identifies which entity/concept/synthesis pages will be touched, flags contradictions with existing pages, and \u2014 after user confirmation \u2014 writes the source summary, updates cross-references across 5-15 pages, regenerates the index, and appends a standardized log entry. Spawn when the user says \"ingest this\", \"add this paper/article/book to the wiki\", or drops a file into raw/."
+    },
+    {
+      "name": "cs-wiki-librarian",
+      "category": "agent",
+      "description": "Dispatched sub-agent that answers queries against an LLM Wiki vault. Reads index.md first, drills into 3-10 relevant pages across categories, synthesizes an answer with inline [[wikilink]] citations, and offers to file the answer back into the wiki as a new comparison or synthesis page. Spawn when the user asks a substantive question the wiki might answer, says \"what does the wiki say about X\", \"compare A and B across my sources\", or wants to explore a topic."
+    },
+    {
+      "name": "cs-wiki-linter",
+      "category": "agent",
+      "description": "Dispatched sub-agent that runs a periodic health check on an LLM Wiki vault. Runs mechanical checks via scripts (orphans, broken links, stale pages, missing frontmatter, duplicate titles, log gaps), does semantic checks (contradictions, stale claims, cross-reference gaps, concepts missing their own page), and produces a markdown report with suggested actions. Spawn weekly, after batch ingests, or when the user says \"check the wiki\" / \"lint my wiki\" / \"audit the vault\"."
     },
     {
       "name": "cs-workspace-admin",
@@ -432,6 +447,31 @@
       "name": "user-story",
       "category": "command",
       "description": "Generate user stories with acceptance criteria and sprint planning. Usage: /user-story <generate|sprint> [options]"
+    },
+    {
+      "name": "wiki-ingest",
+      "category": "command",
+      "description": "Ingest a source file from raw/ into the LLM Wiki \u2014 read, discuss, write summary page, update cross-references across 5-15 pages, regenerate index, append to log. Usage /wiki-ingest <path-to-source>"
+    },
+    {
+      "name": "wiki-init",
+      "category": "command",
+      "description": "Bootstrap a fresh LLM Wiki vault with the three-layer structure, schema files, and starter templates. Usage /wiki-init <path> --topic \"<topic>\" [--tool all|claude-code|codex|cursor|antigravity]"
+    },
+    {
+      "name": "wiki-lint",
+      "category": "command",
+      "description": "Run a health check on the LLM Wiki vault \u2014 mechanical checks (orphans, broken links, stale pages, missing frontmatter, log gap, duplicates) plus semantic checks (contradictions, cross-reference gaps, concepts missing their own page). Outputs a markdown report with suggested actions. Usage /wiki-lint [--stale-days N] [--log-gap-days N]"
+    },
+    {
+      "name": "wiki-log",
+      "category": "command",
+      "description": "Show recent entries from the LLM Wiki log (wiki/log.md). Uses the standardized ## [YYYY-MM-DD] header format so grep + tail works. Usage /wiki-log [--last N] [--op ingest|query|lint|...]"
+    },
+    {
+      "name": "wiki-query",
+      "category": "command",
+      "description": "Query the LLM Wiki \u2014 reads index.md first, drills into 3-10 relevant pages, synthesizes an answer with inline [[wikilink]] citations, and offers to file the answer back as a new comparison or synthesis page. Usage /wiki-query \"<question>\""
     },
     {
       "name": "a11y-audit",
@@ -822,6 +862,11 @@
       "name": "llm-cost-optimizer",
       "category": "engineering-advanced",
       "description": "Use when you need to reduce LLM API spend, control token usage, route between models by cost/quality, implement prompt caching, or build cost observability for AI features. Triggers: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching'. NOT for RAG pipeline design (use rag-architect). NOT for prompt writing quality (use senior-prompt-engineer)."
+    },
+    {
+      "name": "llm-wiki",
+      "category": "engineering-advanced",
+      "description": "Use when building or maintaining a persistent personal knowledge base (second brain) in Obsidian where an LLM incrementally ingests sources, updates entity/concept pages, maintains cross-references, and keeps a synthesis current. Triggers include \"second brain\", \"Obsidian wiki\", \"personal knowledge management\", \"ingest this paper/article/book\", \"build a research wiki\", \"compound knowledge\", \"Memex\", or whenever the user wants knowledge to accumulate across sessions instead of being re-derived by RAG on every query."
     },
     {
       "name": "loop",
@@ -1416,7 +1461,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 25,
+      "count": 28,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -1428,7 +1473,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 22,
+      "count": 27,
       "description": "Command resources"
     },
     "engineering": {
@@ -1436,7 +1481,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 57,
+      "count": 58,
       "description": "Engineering-advanced resources"
     },
     "finance": {

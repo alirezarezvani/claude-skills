@@ -11,7 +11,6 @@ Usage:
     python graph_analyzer.py --vault . --top 20
 """
 from __future__ import annotations
-
 import argparse
 import json
 import re

@@ -12,8 +12,8 @@ Usage:
     python export_marp.py --vault . --page wiki/concepts/ --theme gaia --out slides/
 """
 from __future__ import annotations
-
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -54,35 +54,92 @@ def to_marp(text: str, theme: str) -> str:
     return MARP_HEADER.format(theme=theme) + "\n".join(out).strip() + "\n"
 
 
-def render_one(src: Path, out_path: Path, theme: str) -> None:
-    text = src.read_text(encoding="utf-8", errors="replace")
+def render_one(src, out_path, theme, verbose=True):
+    """Render a single markdown page as a Marp slide deck."""
+    try:
+        text = src.read_text(encoding="utf-8", errors="replace")
+    except OSError as e:
+        raise RuntimeError(f"failed to read {src}: {e}")
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(to_marp(text, theme), encoding="utf-8")
-    print(f"[ok] {src.name} -> {out_path}")
+    try:
+        out_path.write_text(to_marp(text, theme), encoding="utf-8")
+    except OSError as e:
+        raise RuntimeError(f"failed to write {out_path}: {e}")
+    if verbose:
+        print(f"[ok] {src.name} -> {out_path}")
+    return out_path
 
 
-def main() -> None:
-    p = argparse.ArgumentParser(description="Render a wiki page (or subtree) to Marp")
-    p.add_argument("--vault", required=True)
-    p.add_argument("--page", required=True, help="Page or directory (relative to vault)")
-    p.add_argument("--theme", default="default", choices=["default", "gaia", "uncover"])
-    p.add_argument("--out", default="slides", help="Output directory (relative to vault)")
+def _error(message, as_json=False):
+    if as_json:
+        print(json.dumps({"status": "error", "message": message}))
+    else:
+        print(f"[error] {message}", file=sys.stderr)
+    sys.exit(1)
+
+
+def main():
+    p = argparse.ArgumentParser(
+        description="Render a wiki page (or subtree) to a Marp slide deck.",
+        epilog="Marp is a Markdown-based slide format supported by an Obsidian plugin.",
+    )
+    p.add_argument("--vault", required=True, help="Vault root directory")
+    p.add_argument(
+        "--page",
+        required=True,
+        help="Page or directory relative to the vault (e.g. wiki/synthesis/overview.md)",
+    )
+    p.add_argument(
+        "--theme", default="default", choices=["default", "gaia", "uncover"], help="Marp theme"
+    )
+    p.add_argument(
+        "--out", default="slides", help="Output directory relative to vault (default: slides)"
+    )
+    p.add_argument(
+        "--json", action="store_true", help="Emit result as JSON instead of human-readable"
+    )
     args = p.parse_args()
 
     vault = Path(args.vault).expanduser().resolve()
+    if not vault.exists():
+        _error(f"vault does not exist: {vault}", args.json)
+
     src = (vault / args.page).resolve()
     if not src.exists():
-        print(f"[error] not found: {src}", file=sys.stderr)
-        sys.exit(1)
+        _error(f"page not found: {src}", args.json)
 
     out_root = vault / args.out
-    if src.is_file():
-        render_one(src, out_root / src.name.replace(".md", ".marp.md"), args.theme)
-    else:
-        for md in sorted(src.rglob("*.md")):
-            rel = md.relative_to(src)
-            dest = out_root / rel.with_suffix(".marp.md")
-            render_one(md, dest, args.theme)
+    rendered = []
+
+    try:
+        if src.is_file():
+            dest = out_root / src.name.replace(".md", ".marp.md")
+            render_one(src, dest, args.theme, verbose=not args.json)
+            rendered.append(str(dest.relative_to(vault)))
+        else:
+            for md in sorted(src.rglob("*.md")):
+                rel = md.relative_to(src)
+                dest = out_root / rel.with_suffix(".marp.md")
+                render_one(md, dest, args.theme, verbose=not args.json)
+                rendered.append(str(dest.relative_to(vault)))
+    except RuntimeError as e:
+        _error(str(e), args.json)
+
+    if args.json:
+        print(
+            json.dumps(
+                {
+                    "status": "ok",
+                    "vault": str(vault),
+                    "source": str(src.relative_to(vault)),
+                    "theme": args.theme,
+                    "output_dir": args.out,
+                    "rendered_count": len(rendered),
+                    "rendered": rendered,
+                },
+                indent=2,
+            )
+        )
 
 
 if __name__ == "__main__":

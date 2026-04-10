@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 194,
+  "total_skills": 195,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -556,6 +556,12 @@
       "source": "../../engineering/llm-cost-optimizer",
       "category": "engineering-advanced",
       "description": "Use when you need to reduce LLM API spend, control token usage, route between models by cost/quality, implement prompt caching, or build cost observability for AI features. Triggers: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching'. NOT for RAG pipeline design (use rag-architect). NOT for prompt writing quality (use senior-prompt-engineer)."
+    },
+    {
+      "name": "llm-wiki",
+      "source": "../../engineering/llm-wiki",
+      "category": "engineering-advanced",
+      "description": "Use when building or maintaining a persistent personal knowledge base (second brain) in Obsidian where an LLM incrementally ingests sources, updates entity/concept pages, maintains cross-references, and keeps a synthesis current. Triggers include \"second brain\", \"Obsidian wiki\", \"personal knowledge management\", \"ingest this paper/article/book\", \"build a research wiki\", \"compound knowledge\", \"Memex\", or whenever the user wants knowledge to accumulate across sessions instead of being re-derived by RAG on every query."
     },
     {
       "name": "mcp-server-builder",
@@ -1187,7 +1193,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 43,
+      "count": 44,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

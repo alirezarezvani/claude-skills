@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 283,
+  "total_skills": 294,
   "skills": [
     {
       "name": "README",
@@ -92,6 +92,21 @@
       "name": "cs-ux-researcher",
       "category": "agent",
       "description": "UX research agent for research planning, persona generation, journey mapping, and usability test analysis"
+    },
+    {
+      "name": "cs-wiki-ingestor",
+      "category": "agent",
+      "description": "Dispatched sub-agent that ingests a new source into an LLM Wiki vault. Reads the source, proposes TL;DR and key claims, identifies which entity/concept/synthesis pages will be touched, flags contradictions with existing pages, and \u2014 after user confirmation \u2014 writes the source summary, updates cross-references across 5-15 pages, regenerates the index, and appends a standardized log entry. Spawn when the user says \"ingest this\", \"add this paper/article/book to the wiki\", or drops a file into raw/."
+    },
+    {
+      "name": "cs-wiki-librarian",
+      "category": "agent",
+      "description": "Dispatched sub-agent that answers queries against an LLM Wiki vault. Reads index.md first, drills into 3-10 relevant pages across categories, synthesizes an answer with inline [[wikilink]] citations, and offers to file the answer back into the wiki as a new comparison or synthesis page. Spawn when the user asks a substantive question the wiki might answer, says \"what does the wiki say about X\", \"compare A and B across my sources\", or wants to explore a topic."
+    },
+    {
+      "name": "cs-wiki-linter",
+      "category": "agent",
+      "description": "Dispatched sub-agent that runs a periodic health check on an LLM Wiki vault. Runs mechanical checks via scripts (orphans, broken links, stale pages, missing frontmatter, duplicate titles, log gaps), does semantic checks (contradictions, stale claims, cross-reference gaps, concepts missing their own page), and produces a markdown report with suggested actions. Spawn weekly, after batch ingests, or when the user says \"check the wiki\" / \"lint my wiki\" / \"audit the vault\"."
     },
     {
       "name": "cs-workspace-admin",
@@ -419,6 +434,11 @@
       "description": "Sprint planning shortcut. Usage: /sprint-plan <goal> [capacity]"
     },
     {
+      "name": "tc",
+      "category": "command",
+      "description": "Track technical changes with structured records, a state machine, and session handoff. Usage: /tc <init|create|update|status|resume|close|export|dashboard> [args]"
+    },
+    {
       "name": "tdd",
       "category": "command",
       "description": "Generate tests, analyze coverage, and run TDD workflows. Usage: /tdd <generate|coverage|validate> [options]"
@@ -432,6 +452,31 @@
       "name": "user-story",
       "category": "command",
       "description": "Generate user stories with acceptance criteria and sprint planning. Usage: /user-story <generate|sprint> [options]"
+    },
+    {
+      "name": "wiki-ingest",
+      "category": "command",
+      "description": "Ingest a source file from raw/ into the LLM Wiki \u2014 read, discuss, write summary page, update cross-references across 5-15 pages, regenerate index, append to log. Usage /wiki-ingest <path-to-source>"
+    },
+    {
+      "name": "wiki-init",
+      "category": "command",
+      "description": "Bootstrap a fresh LLM Wiki vault with the three-layer structure, schema files, and starter templates. Usage /wiki-init <path> --topic \"<topic>\" [--tool all|claude-code|codex|cursor|antigravity]"
+    },
+    {
+      "name": "wiki-lint",
+      "category": "command",
+      "description": "Run a health check on the LLM Wiki vault \u2014 mechanical checks (orphans, broken links, stale pages, missing frontmatter, log gap, duplicates) plus semantic checks (contradictions, cross-reference gaps, concepts missing their own page). Outputs a markdown report with suggested actions. Usage /wiki-lint [--stale-days N] [--log-gap-days N]"
+    },
+    {
+      "name": "wiki-log",
+      "category": "command",
+      "description": "Show recent entries from the LLM Wiki log (wiki/log.md). Uses the standardized ## [YYYY-MM-DD] header format so grep + tail works. Usage /wiki-log [--last N] [--op ingest|query|lint|...]"
+    },
+    {
+      "name": "wiki-query",
+      "category": "command",
+      "description": "Query the LLM Wiki \u2014 reads index.md first, drills into 3-10 relevant pages, synthesizes an answer with inline [[wikilink]] citations, and offers to file the answer back as a new comparison or synthesis page. Usage /wiki-query \"<question>\""
     },
     {
       "name": "a11y-audit",
@@ -824,6 +869,11 @@
       "description": "Use when you need to reduce LLM API spend, control token usage, route between models by cost/quality, implement prompt caching, or build cost observability for AI features. Triggers: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching'. NOT for RAG pipeline design (use rag-architect). NOT for prompt writing quality (use senior-prompt-engineer)."
     },
     {
+      "name": "llm-wiki",
+      "category": "engineering-advanced",
+      "description": "Use when building or maintaining a persistent personal knowledge base (second brain) in Obsidian where an LLM incrementally ingests sources, updates entity/concept pages, maintains cross-references, and keeps a synthesis current. Triggers include \"second brain\", \"Obsidian wiki\", \"personal knowledge management\", \"ingest this paper/article/book\", \"build a research wiki\", \"compound knowledge\", \"Memex\", or whenever the user wants knowledge to accumulate across sessions instead of being re-derived by RAG on every query."
+    },
+    {
       "name": "loop",
       "category": "engineering-advanced",
       "description": "Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, monthly). Uses CronCreate for scheduling."
@@ -962,6 +1012,11 @@
       "name": "statistical-analyst",
       "category": "engineering-advanced",
       "description": "Run hypothesis tests, analyze A/B experiment results, calculate sample sizes, and interpret statistical significance with effect sizes. Use when you need to validate whether observed differences are real, size an experiment correctly before launch, or interpret test results with confidence."
+    },
+    {
+      "name": "tc-tracker",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to track technical changes, create change records, manage TC lifecycles, or hand off work between AI sessions. Covers init/create/update/status/resume/close/export workflows for structured code change documentation."
     },
     {
       "name": "tech-debt-tracker",
@@ -1224,6 +1279,11 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "apple-hig-expert",
+      "category": "product",
+      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with 2026 Liquid Glass aesthetics and accessibility-first design."
+    },
+    {
       "name": "code-to-prd",
       "category": "product",
       "description": "|"
@@ -1297,11 +1357,6 @@
       "name": "ux-researcher-designer",
       "category": "product",
       "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation."
-    },
-    {
-      "name": "apple-hig-expert",
-      "category": "product",
-      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with focus on 2026 Liquid Glass aesthetics and accessibility-first design."
     },
     {
       "name": "atlassian-admin",
@@ -1421,7 +1476,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 25,
+      "count": 28,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -1433,7 +1488,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 22,
+      "count": 28,
       "description": "Command resources"
     },
     "engineering": {
@@ -1441,7 +1496,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 57,
+      "count": 59,
       "description": "Engineering-advanced resources"
     },
     "finance": {
@@ -1453,7 +1508,7 @@
       "description": "Marketing resources"
     },
     "product": {
-      "count": 16,
+      "count": 17,
       "description": "Product resources"
     },
     "project-management": {

@@ -966,6 +966,12 @@
       "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
     },
     {
+      "name": "apple-hig-expert",
+      "source": "../../product-team/apple-hig-expert",
+      "category": "product",
+      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with 2026 Liquid Glass aesthetics and accessibility-first design."
+    },
+    {
       "name": "code-to-prd",
       "source": "../../product-team/code-to-prd",
       "category": "product",
@@ -1048,12 +1054,6 @@
       "source": "../../product-team/ux-researcher-designer",
       "category": "product",
       "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation."
-    },
-    {
-      "name": "apple-hig-expert",
-      "source": "../../product-team/apple-hig-expert",
-      "category": "product",
-      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with focus on 2026 Liquid Glass aesthetics and accessibility-first design."
     },
     {
       "name": "atlassian-admin",
@@ -1214,7 +1214,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 15,
+      "count": 16,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

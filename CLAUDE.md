@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 233 production-ready skills across 9 domains with 305 Python automation tools, 424 reference guides, 25 agents, and 22 slash commands.
+**Current Scope:** 234 production-ready skills across 9 domains with 313 Python automation tools, 432 reference guides, 28 agents, and 27 slash commands.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -39,7 +39,7 @@ claude-code-skills/
 ├── agents/                    # 25 agents across all domains
 ├── commands/                  # 22 slash commands (changelog, tdd, saas-health, prd, code-to-prd, plugin-audit, sprint-plan, etc.)
 ├── engineering-team/          # 37 core engineering skills + Playwright Pro + Self-Improving Agent + Security Suite
-├── engineering/               # 43 POWERFUL-tier advanced skills (incl. AgentHub, self-eval)
+├── engineering/               # 44 POWERFUL-tier advanced skills (incl. AgentHub, self-eval, llm-wiki)
 ├── product-team/              # 15 product skills + Python tools
 ├── marketing-skill/           # 44 marketing skills (7 pods) + Python tools
 ├── c-level-advisor/           # 34 C-level advisory skills (10 roles + orchestration)
@@ -124,7 +124,13 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.2.0 (latest)
+**Version:** v2.3.0 (latest)
+
+**v2.3.0 Highlights:**
+- **llm-wiki plugin** — new POWERFUL-tier skill implementing Karpathy's LLM Wiki pattern. Second brain for Claude Code + Obsidian where the LLM incrementally ingests sources into a persistent, interlinked markdown vault. Ships SKILL.md (with `context: fork`), 3 sub-agents (wiki-ingestor, wiki-librarian, wiki-linter), 5 slash commands (/wiki-init, /wiki-ingest, /wiki-query, /wiki-lint, /wiki-log), 8 stdlib-only Python tools, 8 reference guides, full vault templates, and a worked example. Cross-tool compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, Gemini CLI.
+- 234 total skills, 313 Python tools, 432 references, 28 agents, 27 commands
+
+**Version:** v2.2.0
 
 **v2.2.0 Highlights:**
 - **Security skills suite** — 6 new engineering-team skills: adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection (5 Python tools, 4 reference guides)
@@ -206,6 +212,6 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 
 ---
 
-**Last Updated:** March 31, 2026
-**Version:** v2.2.0
-**Status:** 233 skills deployed across 9 domains, 28 marketplace plugins, docs site live
+**Last Updated:** April 11, 2026
+**Version:** v2.3.0
+**Status:** 234 skills deployed across 9 domains, 29 marketplace plugins, docs site live

@@ -4,12 +4,12 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "233 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (43+37), C-level advisory (34), regulatory/QMS (14), product (15), project management (9), business growth (5), and finance (4). Includes 305 Python tools, 424 reference documents, 25 agents, and 22 slash commands.",
+  "description": "234 production-ready skill packages for Claude AI across 9 domains: marketing (44), engineering (44+37), C-level advisory (34), regulatory/QMS (14), product (15), project management (9), business growth (5), and finance (4). Includes 313 Python tools, 432 reference documents, 28 agents, and 27 slash commands.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "233 production-ready skill packages across 9 domains with 305 Python tools, 424 reference documents, 25 agents, and 22 slash commands. Compatible with Claude Code, Codex CLI, Gemini CLI, and OpenClaw.",
-    "version": "2.2.0"
+    "description": "234 production-ready skill packages across 9 domains with 313 Python tools, 432 reference documents, 28 agents, and 27 slash commands. Compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, Gemini CLI, and OpenClaw.",
+    "version": "2.3.0"
   },
   "plugins": [
     {
@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "43 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, and more.",
+      "description": "44 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, llm-wiki (second brain for Obsidian + Claude Code, Karpathy pattern), and more.",
       "version": "2.2.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -615,6 +615,28 @@
         "confidence-interval"
       ],
       "category": "development"
+    },
+    {
+      "name": "llm-wiki",
+      "source": "./engineering/llm-wiki",
+      "description": "A second brain for Claude Code + Obsidian inspired by Karpathy's LLM Wiki gist. Turn any LLM CLI into a disciplined wiki maintainer: incrementally ingest sources into a persistent, interlinked markdown vault; update entity/concept/source pages; flag contradictions; maintain index and append-only log. Knowledge compounds instead of being re-derived by RAG on every query. Ships 3 sub-agents (wiki-ingestor, wiki-librarian, wiki-linter), 5 slash commands (/wiki-init, /wiki-ingest, /wiki-query, /wiki-lint, /wiki-log), 8 Python tools (stdlib only: init_vault, ingest_source, update_index, append_log, wiki_search BM25, lint_wiki, graph_analyzer, export_marp), 8 reference docs, full vault templates (CLAUDE.md, AGENTS.md, .cursorrules, 5 page templates), and a worked example vault. Cross-tool compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, and Gemini CLI.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "knowledge-management",
+        "obsidian",
+        "second-brain",
+        "pkm",
+        "wiki",
+        "rag-alternative",
+        "karpathy",
+        "memex",
+        "incremental-knowledge",
+        "cross-tool"
+      ],
+      "category": "knowledge"
     }
   ]
 }

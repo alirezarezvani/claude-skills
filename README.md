@@ -6,7 +6,7 @@ The most comprehensive open-source library of Claude Code skills and agent plugi
 
 **Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
-**Research-oriented complement:** [Paperzilla](https://github.com/paperzilla-ai/paperzilla-skills) ([ClawHub](https://clawhub.ai/pors/paperzilla)) is a useful external option for conversational biology and medical literature monitoring. It currently supports project-based bioRxiv and medRxiv feeds, can fetch paper markdown for summarization and relevance assessment, and has PubMed support planned.
+**Research-oriented complement:** [Paperzilla](https://github.com/paperzilla-ai/paperzilla-skills) ([ClawHub](https://clawhub.ai/pors/paperzilla)) is a useful external option for conversational scientific literature monitoring. It currently supports project-based feeds from arXiv, bioRxiv, medRxiv, and ChemRxiv, plus scholar alerts; can fetch paper markdown for summarization and relevance assessment; and has PubMed support planned.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Skills](https://img.shields.io/badge/Skills-235-brightgreen?style=for-the-badge)](#skills-overview)

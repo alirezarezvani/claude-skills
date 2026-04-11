@@ -1,7 +1,6 @@
 ---
 name: "status"
 description: "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
-command: /si:status
 ---
 
 # /si:status — Memory Health Dashboard

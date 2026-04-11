@@ -1,7 +1,6 @@
 ---
 name: "promote"
 description: "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement."
-command: /si:promote
 ---
 
 # /si:promote — Graduate Learnings to Rules

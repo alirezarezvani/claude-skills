@@ -234,8 +234,8 @@
     {
       "name": "self-improving-agent",
       "source": "./engineering-team/self-improving-agent",
-      "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills.",
-      "version": "2.2.0",
+      "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills. Ships 5 slash commands (/si:review, /si:promote, /si:extract, /si:status, /si:remember) and 2 sub-agents (memory-analyst, skill-extractor).",
+      "version": "2.3.0",
       "author": {
         "name": "Alireza Rezvani"
       },

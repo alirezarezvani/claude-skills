@@ -1,7 +1,6 @@
 ---
 name: "extract"
 description: "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples."
-command: /si:extract
 ---
 
 # /si:extract — Create Skills from Patterns

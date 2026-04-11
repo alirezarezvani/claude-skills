@@ -1,7 +1,6 @@
 ---
 name: "remember"
 description: "Explicitly save important knowledge to auto-memory with timestamp and context. Use when a discovery is too important to rely on auto-capture."
-command: /si:remember
 ---
 
 # /si:remember — Save Knowledge Explicitly

@@ -3,18 +3,27 @@
 # Fires on PostToolUse (Bash) to detect command failures.
 # Zero output on success — only captures when errors are detected.
 #
-# Install: Add to .claude/settings.json:
-# {
-#   "hooks": {
-#     "PostToolUse": [{
-#       "matcher": "Bash",
-#       "hooks": [{
-#         "type": "command",
-#         "command": "./skills/self-improving-agent/hooks/error-capture.sh"
+# When installed via `/plugin install self-improving-agent@claude-code-skills`
+# this hook is registered automatically from the plugin's hooks.json. No
+# manual wiring is required.
+#
+# If you need to wire it up manually, use ${CLAUDE_PLUGIN_ROOT} — a relative
+# path like ./hooks/error-capture.sh resolves against your current working
+# directory, not the plugin root, and will silently fail in every session
+# started outside the plugin install dir.
+#
+#   .claude/settings.json:
+#   {
+#     "hooks": {
+#       "PostToolUse": [{
+#         "matcher": "Bash",
+#         "hooks": [{
+#           "type": "command",
+#           "command": "${CLAUDE_PLUGIN_ROOT}/hooks/error-capture.sh"
+#         }]
 #       }]
-#     }]
+#     }
 #   }
-# }
 
 set -e
 

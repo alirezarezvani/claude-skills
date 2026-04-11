@@ -221,6 +221,8 @@ nav:
       - "Terraform Patterns": skills/engineering/terraform-patterns.md
       - "Helm Chart Builder": skills/engineering/helm-chart-builder.md
       - "Docker Development": skills/engineering/docker-development.md
+      - "LLM Wiki": skills/engineering/llm-wiki.md
+      - "TC Tracker": skills/engineering/tc-tracker.md
       - AgentHub:
         - "AgentHub": skills/engineering/agenthub.md
         - "/hub:init": skills/engineering/agenthub-init.md
@@ -246,6 +248,8 @@ nav:
       - "SaaS Scaffolder": skills/product-team/saas-scaffolder.md
       - "UI Design System": skills/product-team/ui-design-system.md
       - "UX Researcher & Designer": skills/product-team/ux-researcher-designer.md
+      - "Apple HIG Expert": skills/product-team/apple-hig-expert.md
+      - "Spec to Repo": skills/product-team/spec-to-repo.md
     - Marketing:
       - Overview: skills/marketing-skill/index.md
       - "A/B Test Setup": skills/marketing-skill/ab-test-setup.md
@@ -422,3 +426,4 @@ nav:
     - "/wiki-query": commands/wiki-query.md
     - "/wiki-lint": commands/wiki-lint.md
     - "/wiki-log": commands/wiki-log.md
+    - "/tc": commands/tc.md

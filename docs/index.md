@@ -1,6 +1,6 @@
 ---
-title: 233 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "233 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
+title: 235 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "235 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,7 +14,7 @@ hide:
 
 # Agent Skills
 
-233 production-ready skills, 25 agents, 3 personas, and an orchestration protocol for AI coding tools.
+235 production-ready skills, 28 agents, 3 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
@@ -49,7 +49,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **233 Skills**
+-   :material-toolbox:{ .lg .middle } **235 Skills**
 
     ---
 
@@ -57,7 +57,7 @@ hide:
 
     [:octicons-arrow-right-24: Browse skills](skills/)
 
--   :material-robot:{ .lg .middle } **25 Agents**
+-   :material-robot:{ .lg .middle } **28 Agents**
 
     ---
 
@@ -81,7 +81,7 @@ hide:
 
     [:octicons-arrow-right-24: Learn patterns](orchestration.md)
 
--   :material-language-python:{ .lg .middle } **305 Python Tools**
+-   :material-language-python:{ .lg .middle } **314 Python Tools**
 
     ---
 
@@ -89,7 +89,7 @@ hide:
 
     [:octicons-arrow-right-24: Getting started](getting-started.md)
 
--   :material-puzzle-outline:{ .lg .middle } **28 Plugins**
+-   :material-puzzle-outline:{ .lg .middle } **30 Plugins**
 
     ---
 
@@ -97,7 +97,7 @@ hide:
 
     [:octicons-arrow-right-24: Plugin marketplace](plugins/)
 
--   :material-console:{ .lg .middle } **22 Commands**
+-   :material-console:{ .lg .middle } **27 Commands**
 
     ---
 
@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 43 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 45 skills](skills/engineering/)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -151,7 +151,7 @@ hide:
 
     Product manager, agile PO, strategist, UX researcher, UI design system, landing pages, SaaS scaffolder, analytics, experiment designer
 
-    [:octicons-arrow-right-24: 15 skills](skills/product-team/)
+    [:octicons-arrow-right-24: 16 skills](skills/product-team/)
 
 -   :material-bullhorn:{ .lg .middle } **Marketing**
 

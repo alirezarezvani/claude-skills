@@ -1,0 +1,13 @@
+{
+  "name": "apple-hig-expert",
+  "description": "Master Apple's Human Interface Guidelines (HIG) with focus on 2026 Liquid Glass aesthetics. Design and audit iOS, macOS, and visionOS apps for full compliance and premium feel. Includes hig_checker Python tool for tap targets, contrast, and accessibility validation. Reference docs cover visual design, platform specifics (iOS/macOS/visionOS), and accessibility best practices.",
+  "version": "2.3.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

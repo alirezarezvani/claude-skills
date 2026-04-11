@@ -1,6 +1,6 @@
 ---
 title: Install Agent Skills — Codex, Gemini CLI, OpenClaw Setup
-description: "How to install 233 Claude Code skills and agent plugins for 11 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
+description: "How to install 235 Claude Code skills and agent plugins for 11 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
 ---
 
 # Getting Started
@@ -182,7 +182,7 @@ AI-augmented development. Optimize for SEO.
 
 ## Python Tools
 
-All 305 tools use the standard library only — zero pip installs, all verified.
+All 314 tools use the standard library only — zero pip installs, all verified.
 
 ```bash
 # Security audit a skill before installing
@@ -254,7 +254,7 @@ See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-
     Yes. Run `./scripts/gemini-install.sh` to set up skills for Gemini CLI. A sync script (`scripts/sync-gemini-skills.py`) generates the skills index automatically.
 
 ??? question "Does this work with Cursor, Windsurf, Aider, or other tools?"
-    Yes. All 233 skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.
+    Yes. All 235 skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.
 
 ??? question "Can I use Agent Skills in ChatGPT?"
     Yes. We have [6 Custom GPTs](custom-gpts.md) that bring Agent Skills directly into ChatGPT — no installation needed. Just click and start chatting.

@@ -1,6 +1,6 @@
 # Product Team Skills - Claude Code Guidance
 
-This guide covers the 15 production-ready product management skills and their Python automation tools.
+This guide covers the 16 production-ready product management skills and their Python automation tools.
 
 ## Product Skills Overview
 
@@ -20,6 +20,7 @@ This guide covers the 15 production-ready product management skills and their Py
 13. **code-to-prd/** - Reverse-engineer any codebase into PRD (2 tools: codebase_analyzer, prd_scaffolder)
 14. **research-summarizer/** - Research synthesis and summarization (1 tool)
 15. **apple-hig-expert/** - Apple Human Interface Guidelines compliance and design (1 tool: hig_checker)
+16. **spec-to-repo/** - Convert a spec document into a scaffolded repository
 
 **Total Tools:** 17 Python automation tools
 
@@ -312,6 +313,6 @@ python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to HE
 ---
 
 **Last Updated:** April 9, 2026
-**Skills Deployed:** 15/15 product skills production-ready
+**Skills Deployed:** 16/16 product skills production-ready
 **Total Tools:** 17 Python automation tools
 **Agents:** 5 | **Commands:** 8

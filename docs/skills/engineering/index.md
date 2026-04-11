@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "56 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "58 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">56 skills in this domain</p>
+<p class="domain-count">58 skills in this domain</p>
 
 </div>
 
@@ -167,6 +167,12 @@ description: "56 engineering - powerful skills — advanced agent-native skill a
 
     > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
 
+-   **[LLM Wiki — Second Brain for Claude Code + Obsidian](llm-wiki.md)**
+
+    ---
+
+    Inspired by Andrej Karpathy's LLM Wiki pattern (gist(https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94...
+
 -   **[MCP Server Builder](mcp-server-builder.md)**
 
     ---
@@ -268,6 +274,12 @@ description: "56 engineering - powerful skills — advanced agent-native skill a
     ---
 
     python3 scripts/hypothesistester.py --test ztest \
+
+-   **[TC Tracker](tc-tracker.md)**
+
+    ---
+
+    Track every code change with structured JSON records, an enforced state machine, and a session handoff format that le...
 
 -   **[Tech Debt Tracker](tech-debt-tracker.md)**
 

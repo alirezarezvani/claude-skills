@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "22 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "28 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">22 commands for quick access to common operations</p>
+<p class="domain-count">28 commands for quick access to common operations</p>
 
 </div>
 
@@ -127,6 +127,12 @@ description: "22 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Create a sprint plan with prioritized stories and capacity guardrails.
 
+-   :material-console:{ .lg .middle } **[`/tc`](tc.md)**
+
+    ---
+
+    Dispatch a TC (Technical Change) command. Arguments: $ARGUMENTS.
+
 -   :material-console:{ .lg .middle } **[`/tdd`](tdd.md)**
 
     ---
@@ -144,5 +150,35 @@ description: "22 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Generate structured user stories with acceptance criteria, story points, and sprint capacity planning.
+
+-   :material-console:{ .lg .middle } **[`/wiki-ingest`](wiki-ingest.md)**
+
+    ---
+
+    Ingest a new source into the LLM Wiki. This is the most-used command.
+
+-   :material-console:{ .lg .middle } **[`/wiki-init`](wiki-init.md)**
+
+    ---
+
+    Bootstrap a new LLM Wiki vault. Creates raw/, wiki/{entities,concepts,sources,comparisons,synthesis}, the index and l...
+
+-   :material-console:{ .lg .middle } **[`/wiki-lint`](wiki-lint.md)**
+
+    ---
+
+    Health-check the wiki. Surfaces orphan pages, broken wikilinks, stale claims, missing frontmatter, contradictions, an...
+
+-   :material-console:{ .lg .middle } **[`/wiki-log`](wiki-log.md)**
+
+    ---
+
+    Show recent entries from wiki/log.md. Every LLM operation on the wiki leaves a standardized entry:
+
+-   :material-console:{ .lg .middle } **[`/wiki-query`](wiki-query.md)**
+
+    ---
+
+    Ask the wiki a question. The librarian reads index.md first, picks relevant pages across categories, synthesizes an a...
 
 </div>

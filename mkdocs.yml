@@ -223,6 +223,7 @@ nav:
       - "Docker Development": skills/engineering/docker-development.md
       - "LLM Wiki": skills/engineering/llm-wiki.md
       - "TC Tracker": skills/engineering/tc-tracker.md
+      - "Karpathy Coder": skills/engineering/karpathy-coder.md
       - AgentHub:
         - "AgentHub": skills/engineering/agenthub.md
         - "/hub:init": skills/engineering/agenthub-init.md
@@ -427,3 +428,4 @@ nav:
     - "/wiki-lint": commands/wiki-lint.md
     - "/wiki-log": commands/wiki-log.md
     - "/tc": commands/tc.md
+    - "/karpathy-check": commands/karpathy-check.md

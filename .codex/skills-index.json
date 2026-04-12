@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 197,
+  "total_skills": 198,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -550,6 +550,12 @@
       "source": "../../engineering/interview-system-designer",
       "category": "engineering-advanced",
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
+    },
+    {
+      "name": "karpathy-coder",
+      "source": "../../engineering/karpathy-coder",
+      "category": "engineering-advanced",
+      "description": "Use when writing, reviewing, or committing code to enforce Karpathy's 4 coding principles \u2014 surface assumptions before coding, keep it simple, make surgical changes, define verifiable goals. Triggers on \"review my diff\", \"check complexity\", \"am I overcomplicating this\", \"karpathy check\", \"before I commit\", or any code quality concern where the LLM might be overcoding."
     },
     {
       "name": "llm-cost-optimizer",
@@ -1205,7 +1211,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 45,
+      "count": 46,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

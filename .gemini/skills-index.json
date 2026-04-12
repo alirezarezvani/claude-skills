@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 294,
+  "total_skills": 297,
   "skills": [
     {
       "name": "README",
@@ -57,6 +57,11 @@
       "name": "cs-growth-strategist",
       "category": "agent",
       "description": "Growth Strategist agent for revenue operations, sales engineering, customer success, and business development. Orchestrates business-growth skills. Spawn when users need pipeline analysis, churn prevention, expansion scoring, sales demos, or proposal writing."
+    },
+    {
+      "name": "cs-karpathy-reviewer",
+      "category": "agent",
+      "description": "Reviews staged git changes against Karpathy's 4 coding principles. Runs complexity_checker on changed files, diff_surgeon on the diff, and produces a verdict with specific fix recommendations. Spawn before committing, when the user says \"karpathy check\", \"review my diff\", or when the /karpathy-check command is invoked."
     },
     {
       "name": "cs-product-analyst",
@@ -372,6 +377,11 @@
       "name": "google-workspace",
       "category": "command",
       "description": "Google Workspace CLI operations: setup diagnostics, security audit, recipe discovery, and output analysis. Usage: /google-workspace <setup|audit|recipe|analyze> [options]"
+    },
+    {
+      "name": "karpathy-check",
+      "category": "command",
+      "description": "Run Karpathy's 4-principle review on staged changes or the last commit. Checks complexity, diff noise, hidden assumptions, and goal verification. Usage /karpathy-check [--last-commit]"
     },
     {
       "name": "okr",
@@ -862,6 +872,11 @@
       "name": "interview-system-designer",
       "category": "engineering-advanced",
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
+    },
+    {
+      "name": "karpathy-coder",
+      "category": "engineering-advanced",
+      "description": "Use when writing, reviewing, or committing code to enforce Karpathy's 4 coding principles \u2014 surface assumptions before coding, keep it simple, make surgical changes, define verifiable goals. Triggers on \"review my diff\", \"check complexity\", \"am I overcomplicating this\", \"karpathy check\", \"before I commit\", or any code quality concern where the LLM might be overcoding."
     },
     {
       "name": "llm-cost-optimizer",
@@ -1476,7 +1491,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 28,
+      "count": 29,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -1488,7 +1503,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 28,
+      "count": 29,
       "description": "Command resources"
     },
     "engineering": {
@@ -1496,7 +1511,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 59,
+      "count": 60,
       "description": "Engineering-advanced resources"
     },
     "finance": {

@@ -660,6 +660,26 @@
         "cross-tool"
       ],
       "category": "knowledge"
+    },
+    {
+      "name": "karpathy-coder",
+      "source": "./engineering/karpathy-coder",
+      "description": "Active coding discipline enforcer based on Karpathy's 4 principles: surface assumptions, simplify, make surgical changes, define verifiable goals. Ships 4 Python tools (complexity_checker, diff_surgeon, assumption_linter, goal_verifier), a review agent, /karpathy-check command, and pre-commit hook. All stdlib-only.",
+      "version": "2.3.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "code-quality",
+        "karpathy",
+        "simplicity",
+        "surgical-changes",
+        "complexity",
+        "anti-patterns",
+        "review",
+        "discipline"
+      ],
+      "category": "development"
     }
   ]
 }

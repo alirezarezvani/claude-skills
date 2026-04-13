@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "58 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "59 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">58 skills in this domain</p>
+<p class="domain-count">59 skills in this domain</p>
 
 </div>
 
@@ -160,6 +160,12 @@ description: "58 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Comprehensive interview loop planning and calibration support for role-based hiring systems.
+
+-   **[Karpathy Coder — Active Coding Discipline](karpathy-coder.md)**
+
+    ---
+
+    Derived from Andrej Karpathy's observations(https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls...
 
 -   **[LLM Cost Optimizer](llm-cost-optimizer.md)**
 

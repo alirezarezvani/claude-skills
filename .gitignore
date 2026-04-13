@@ -23,8 +23,8 @@ v1-10-2025-medium-content-pro.zip
 # Project-specific exclusions
 AGENTS.md
 PROMPTS.md
-medium-content-pro/*
-medium-content-pro 2/*
+medium-content-pro/
+medium-content-pro 2/
 documentation/GIST_CONTENT.md
 documentation/implementation/*__pycache__/
 ARTICLE-FEEDBACK-AND-OPTIMIZED-VERSION.md
@@ -43,3 +43,5 @@ site/
 .playwright-mcp/
 # Generated integration files (regenerate with ./scripts/convert.sh)
 integrations/
+documentation/implementation/craighewitt-mattpocock-reimplementation-plan.md
+medium/

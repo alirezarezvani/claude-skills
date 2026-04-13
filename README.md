@@ -25,6 +25,7 @@ Claude Code skills (also called agent skills or coding agent plugins) are modula
 - **SKILL.md** — structured instructions, workflows, and decision frameworks
 - **Python tools** — 305 CLI scripts (all stdlib-only, zero pip installs)
 - **Reference docs** — templates, checklists, and domain-specific knowledge
+- [CCHub](https://github.com/Moresl/cchub) - A desktop control panel for the Claude Code / Codex / Gemini CLI ecosystem. Manage MCP servers, config profiles, agent skills, CLAUDE.md, hooks, and workflow templates from a single Tauri app (Windows / macOS / Linux).
 
 **One repo, eleven platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, and converts to 8 more tools via `scripts/convert.sh`. All 305 Python tools run anywhere Python runs.
 

@@ -1,6 +1,6 @@
 ---
 title: Install Agent Skills — Codex, Gemini CLI, OpenClaw Setup
-description: "How to install 235 Claude Code skills and agent plugins for 11 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
+description: "How to install 235 Claude Code skills and agent plugins for 12 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, OpenClaw, Cursor, Aider, Windsurf, and more."
 ---
 
 # Getting Started
@@ -55,6 +55,26 @@ Choose your platform and follow the steps:
 
     ```bash
     bash <(curl -s https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/scripts/openclaw-install.sh)
+    ```
+
+=== "Hermes Agent"
+
+    [Hermes Agent](https://github.com/NousResearch/hermes-agent) uses the same agentskills.io SKILL.md standard — no format conversion needed.
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    python scripts/sync-hermes-skills.py --verbose
+    ```
+
+    Skills install to `~/.hermes/skills/claude-skills/` and are automatically discovered by Hermes via `/skills` or `/<skill-name>`.
+
+    Sync options:
+
+    ```bash
+    python scripts/sync-hermes-skills.py --domain engineering  # one domain only
+    python scripts/sync-hermes-skills.py --copy                # copy instead of symlink
+    python scripts/sync-hermes-skills.py --dry-run             # preview
     ```
 
 === "Cursor"

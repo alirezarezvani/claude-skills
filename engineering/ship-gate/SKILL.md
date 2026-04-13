@@ -7,6 +7,7 @@ description: >
   Stack-agnostic. Use for "run ship gate", "am I ready to ship",
   "pre-launch audit", "can I deploy", "push to production", "go live
   checklist", "preflight check". Not for CI/CD setup or infra provisioning.
+license: MIT
 metadata:
   author: Rajaraman Arumugam
   version: 1.0.0
@@ -183,8 +184,8 @@ This skill does not:
 
 ## Integration Points
 
-- **app-planner**: ship-gate runs after the build plan is complete
-- **subagent-orchestrator**: ship-gate is the final gate before deploy
-- **backend-patterns**: fixes for DB and security findings
-- **shadcn-stack / heroui-stack**: fixes for frontend findings
-- **systematic-debugging**: deep investigation of flagged issues
+- **karpathy-coder**: run ship-gate after karpathy-check passes — simplicity first, then production readiness
+- **adversarial-reviewer**: deep security review for items ship-gate flags as critical
+- **security-pen-testing**: penetration testing methodology for SEC-category findings
+- **code-reviewer**: general code quality review complements ship-gate's automated checks
+- **focused-fix**: deep investigation and systematic repair of flagged issues

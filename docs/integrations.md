@@ -1,11 +1,11 @@
 ---
-title: Cursor, Aider, Windsurf & 8 More AI Coding Tools
-description: "Install Claude Code skills and agent plugins in Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. One-command conversion for 11 AI coding agents."
+title: Cursor, Aider, Windsurf, Hermes & 9 More AI Coding Tools
+description: "Install Claude Code skills and agent plugins in Hermes Agent, Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. One-command conversion for 12 AI coding agents."
 ---
 
 # Multi-Tool Integrations
 
-All 156 skills in this repository can be converted to work natively with **7 AI coding tools** beyond Claude Code, Codex, and Gemini CLI. The conversion preserves skill instructions, workflows, and supporting files — adapting only the format each tool expects.
+All 235 skills in this repository work natively with **8 AI coding tools** beyond Claude Code, Codex, Gemini CLI, and OpenClaw. Hermes Agent uses the same agentskills.io SKILL.md standard — no conversion needed. For the other 7 tools, a conversion script adapts the format each tool expects while preserving skill instructions, workflows, and supporting files.
 
 <div class="grid cards" markdown>
 
@@ -64,6 +64,14 @@ All 156 skills in this repository can be converted to work natively with **7 AI 
     `SKILL.md` bundles in `~/.gemini/antigravity/skills/`
 
     [:octicons-arrow-right-24: Jump to Antigravity](#antigravity)
+
+-   :material-medical-bag:{ .lg .middle } **Hermes Agent**
+
+    ---
+
+    Native `SKILL.md` in `~/.hermes/skills/` — no conversion needed
+
+    [:octicons-arrow-right-24: Jump to Hermes Agent](#hermes-agent)
 
 </div>
 
@@ -525,6 +533,98 @@ find ~/.gemini/antigravity/skills -name "SKILL.md" | wc -l
 
 <hr class="section-divider">
 
+## Hermes Agent
+
+[Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research is a self-improving AI agent with a built-in learning loop. It uses the [agentskills.io](https://agentskills.io) standard — **the same SKILL.md format our repo uses** — so no conversion is needed.
+
+### Why Hermes is different
+
+Unlike other tools that need format conversion, Hermes reads `SKILL.md` files natively with the exact same YAML frontmatter (`name`, `description`, `version`, `license`), the same directory layout (`references/`, `templates/`, `assets/`), and the same `AGENTS.md` project context. Our skills are plug-and-play.
+
+### Install
+
+=== "Sync script (recommended)"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    python scripts/sync-hermes-skills.py --verbose
+    ```
+
+    This symlinks all 198+ skills into `~/.hermes/skills/claude-skills/` where Hermes discovers them automatically.
+
+=== "Single domain"
+
+    ```bash
+    python scripts/sync-hermes-skills.py --domain engineering --verbose
+    ```
+
+=== "Copy mode (portable)"
+
+    ```bash
+    python scripts/sync-hermes-skills.py --copy --verbose
+    ```
+
+    Creates full copies instead of symlinks. Use this on systems where symlinks across filesystems don't work, or to share with Docker containers.
+
+=== "Manual (any single skill)"
+
+    ```bash
+    # Symlink
+    ln -s /path/to/claude-skills/engineering/karpathy-coder ~/.hermes/skills/karpathy-coder
+
+    # Or copy
+    cp -r /path/to/claude-skills/engineering/llm-wiki ~/.hermes/skills/llm-wiki
+    ```
+
+### Using skills in Hermes
+
+Once installed, skills are available through Hermes's standard discovery:
+
+```
+/skills                    # Browse all installed skills (ours show up under claude-skills/)
+/<skill-name>              # Invoke any skill directly as a slash command
+/skills search karpathy    # Search by keyword
+```
+
+Hermes's skill_view tool loads the SKILL.md content into the conversation context, just like Claude Code does. Python scripts in `scripts/` subdirectories run natively since Hermes has a full Python runtime.
+
+### What works
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| SKILL.md loading | ✅ | Identical frontmatter format (agentskills.io) |
+| Python scripts (`scripts/`) | ✅ | All stdlib-only, Hermes has Python runtime |
+| References / templates / assets | ✅ | Same directory convention |
+| `AGENTS.md` project context | ✅ | Hermes reads AGENTS.md natively |
+| Slash commands (`/<name>`) | ✅ | Auto-discovered from SKILL.md |
+| Sub-agents | ⚠️ | Hermes uses its own `delegate_tool`, not Claude Code's Agent tool — agent .md files load as context but dispatch mechanism differs |
+| Claude Code plugin.json | ➖ | Hermes ignores this — not needed, it scans SKILL.md directly |
+| Hooks (settings.json) | ⚠️ | Different hook system — manual wiring for Hermes's config.yaml |
+
+### Verify
+
+```bash
+# Check how many skills Hermes can see
+find ~/.hermes/skills/claude-skills -name "SKILL.md" | wc -l
+# Expected: 198+
+
+# Or in Hermes CLI
+hermes
+> /skills search claude-skills
+```
+
+### Updating
+
+```bash
+cd claude-skills
+git pull origin main
+python scripts/sync-hermes-skills.py --verbose
+# Existing symlinks are preserved, new skills are added
+```
+
+<hr class="section-divider">
+
 ## Script Reference
 
 ### convert.sh
@@ -572,6 +672,7 @@ Options:
 
 | Tool | Default Target |
 |------|---------------|
+| Hermes Agent | `~/.hermes/skills/claude-skills/` |
 | Antigravity | `~/.gemini/antigravity/skills/` |
 | Cursor | `<target>/.cursor/rules/` |
 | Aider | `<target>/CONVENTIONS.md` |
@@ -604,4 +705,7 @@ Options:
     Not yet via CLI flags, but you can run `convert.sh` and then copy only the skills you want from `integrations/<tool>/`.
 
 ??? question "Do supporting files (scripts, references) work in all tools?"
-    Only tools that support subdirectories per skill (Antigravity, Windsurf, OpenCode) get the full bundle. Flat-file tools (Cursor, Aider, Kilo Code, Augment) get the SKILL.md content only.
+    Only tools that support subdirectories per skill (Hermes Agent, Antigravity, Windsurf, OpenCode) get the full bundle. Flat-file tools (Cursor, Aider, Kilo Code, Augment) get the SKILL.md content only.
+
+??? question "Does Hermes Agent need format conversion?"
+    No. Hermes uses the same agentskills.io SKILL.md format as our repo. Just run `python scripts/sync-hermes-skills.py --verbose` to symlink skills into `~/.hermes/skills/`. No conversion step needed.

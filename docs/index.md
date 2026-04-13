@@ -1,6 +1,6 @@
 ---
 title: 235 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "235 production-ready Claude Code skills and agent plugins for 11 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Cursor, and OpenClaw."
+description: "235 production-ready Claude Code skills and agent plugins for 12 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -105,7 +105,7 @@ hide:
 
     [:octicons-arrow-right-24: View commands](commands/)
 
--   :material-swap-horizontal:{ .lg .middle } **11 Tool Support**
+-   :material-swap-horizontal:{ .lg .middle } **12 Tool Support**
 
     ---
 
@@ -225,7 +225,7 @@ hide:
 
     ---
 
-    Plugin marketplace for Claude Code. Conversion script for 10 other tools. No manual file management.
+    Plugin marketplace for Claude Code. Sync scripts for Codex, Gemini, and Hermes Agent. Conversion script for 8 more tools.
 
 -   :material-puzzle:{ .lg .middle } **Self-contained**
 
@@ -237,7 +237,7 @@ hide:
 
     ---
 
-    Native support for 11 AI coding tools. Write once, convert to any tool's format automatically.
+    Native support for 12 AI coding tools. Write once, convert to any tool's format automatically.
 
 -   :material-check-decagram:{ .lg .middle } **Production-grade**
 
@@ -272,6 +272,15 @@ hide:
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
     cd claude-skills && ./scripts/gemini-install.sh
+    ```
+
+=== "Hermes Agent"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    python scripts/sync-hermes-skills.py --verbose
+    # Skills appear in /skills and /<skill-name> automatically
     ```
 
 === "Cursor / Windsurf / Aider"

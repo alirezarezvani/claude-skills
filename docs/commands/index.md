@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "28 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">28 commands for quick access to common operations</p>
+<p class="domain-count">29 commands for quick access to common operations</p>
 
 </div>
 
@@ -54,6 +54,12 @@ description: "28 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Google Workspace CLI administration via the gws CLI. Run setup diagnostics, security audits, browse and execute recip...
+
+-   :material-console:{ .lg .middle } **[`/karpathy-check`](karpathy-check.md)**
+
+    ---
+
+    Review your staged changes (or last commit) against Karpathy's 4 coding principles.
 
 -   :material-console:{ .lg .middle } **[`/okr`](okr.md)**
 

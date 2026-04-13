@@ -188,4 +188,3 @@ This skill does not:
 - **adversarial-reviewer**: deep security review for items ship-gate flags as critical
 - **security-pen-testing**: penetration testing methodology for SEC-category findings
 - **code-reviewer**: general code quality review complements ship-gate's automated checks
-- **focused-fix**: deep investigation and systematic repair of flagged issues

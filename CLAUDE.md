@@ -155,17 +155,17 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 **v2.0.0 (2026-02-16):**
 - 25 POWERFUL-tier engineering skills added (engineering/ folder)
 - Plugin marketplace infrastructure (.claude-plugin/marketplace.json)
-- Multi-platform support: Claude Code, OpenAI Codex, OpenClaw
+- Multi-platform support: Claude Code, OpenAI Codex, OpenClaw, Hermes Agent, Gemini CLI, Cursor, and 6 more
 
 **Past Sprints:** See [documentation/delivery/](documentation/delivery/) and [CHANGELOG.md](CHANGELOG.md) for history.
 
 ## Roadmap
 
-**Phase 1-3 Complete:** 233 production-ready skills deployed across 9 domains
-- Engineering Core (37), Engineering POWERFUL (43), Product (16), Marketing (44), PM (9), C-Level (34), RA/QM (14), Business & Growth (5), Finance (4)
-- 306 Python automation tools, 427 reference guides, 25 agents, 22 commands
+**Phase 1-3 Complete:** 235 production-ready skills deployed across 9 domains
+- Engineering Core (37), Engineering POWERFUL (45), Product (16), Marketing (44), PM (9), C-Level (34), RA/QM (14), Business & Growth (5), Finance (4)
+- 314 Python automation tools, 435 reference guides, 28 agents, 27 commands
 - Complete enterprise coverage from engineering through regulatory compliance, sales, customer success, and finance
-- MkDocs Material docs site with 269+ indexed pages for SEO
+- MkDocs Material docs site with 293+ indexed pages for SEO
 
 See domain-specific roadmaps in each skill folder's README.md or roadmap files.
 

@@ -9,5 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": "skills"
 }

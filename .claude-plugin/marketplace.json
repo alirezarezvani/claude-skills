@@ -268,7 +268,7 @@
     },
     {
       "name": "content-creator",
-      "source": "./marketing-skill/content-creator",
+      "source": "./marketing-skill/skills/content-creator",
       "description": "SEO-optimized marketing content with brand voice analysis, content frameworks, and social media templates.",
       "version": "2.2.0",
       "author": {
@@ -284,7 +284,7 @@
     },
     {
       "name": "demand-gen",
-      "source": "./marketing-skill/marketing-demand-acquisition",
+      "source": "./marketing-skill/skills/marketing-demand-acquisition",
       "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs.",
       "version": "2.2.0",
       "author": {
@@ -331,7 +331,7 @@
     },
     {
       "name": "product-manager",
-      "source": "./product-team/product-manager-toolkit",
+      "source": "./product-team/skills/product-manager-toolkit",
       "description": "Product management toolkit with RICE scoring, customer interview analysis, and PRD generation.",
       "version": "2.2.0",
       "author": {
@@ -347,7 +347,7 @@
     },
     {
       "name": "scrum-master",
-      "source": "./project-management/scrum-master",
+      "source": "./project-management/skills/scrum-master",
       "description": "Sprint health analysis, velocity tracking, and retrospective facilitation.",
       "version": "2.2.0",
       "author": {
@@ -398,7 +398,7 @@
     },
     {
       "name": "code-to-prd",
-      "source": "./product-team/code-to-prd",
+      "source": "./product-team/skills/code-to-prd",
       "description": "Reverse-engineer any codebase into a complete PRD. Frontend (React, Vue, Angular, Next.js), backend (NestJS, Django, Express, FastAPI), and fullstack. 2 Python scripts (codebase_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
       "version": "2.2.0",
       "author": {
@@ -466,7 +466,7 @@
     },
     {
       "name": "executive-mentor",
-      "source": "./c-level-advisor/executive-mentor",
+      "source": "./c-level-advisor/skills/executive-mentor",
       "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for board meetings, navigates hard calls, runs postmortems. 5 sub-skills with slash commands.",
       "version": "2.2.0",
       "author": {
@@ -535,7 +535,7 @@
     },
     {
       "name": "research-summarizer",
-      "source": "./product-team/research-summarizer",
+      "source": "./product-team/skills/research-summarizer",
       "description": "Structured research summarization — summarize academic papers, market research, user interviews, and competitive analysis into actionable insights.",
       "version": "2.2.0",
       "author": {
@@ -621,7 +621,7 @@
     },
     {
       "name": "apple-hig-expert",
-      "source": "./product-team/apple-hig-expert",
+      "source": "./product-team/skills/apple-hig-expert",
       "description": "Master Apple's Human Interface Guidelines (HIG) with focus on 2026 Liquid Glass aesthetics. Design and audit iOS, macOS, and visionOS apps for full compliance and premium feel. Includes hig_checker Python tool for tap targets and contrast.",
       "version": "2.3.0",
       "author": {

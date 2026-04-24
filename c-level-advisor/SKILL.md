@@ -1,5 +1,5 @@
 ---
-name: "c-level-advisor"
+name: "c-level-skills"
 description: "10 C-level advisory agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor. Multi-role board meetings, strategy routing, structured recommendations. For founders needing executive-level decision support."
 license: MIT
 metadata:

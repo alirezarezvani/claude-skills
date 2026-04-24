@@ -1,21 +1,22 @@
 ---
 name: "engineering-skills"
 description: "23 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
-version: 1.1.0
-author: Alireza Rezvani
 license: MIT
-tags:
-  - engineering
-  - frontend
-  - backend
-  - devops
-  - security
-  - ai-ml
-  - data-engineering
-agents:
-  - claude-code
-  - codex-cli
-  - openclaw
+metadata:
+  version: 1.1.0
+  author: Alireza Rezvani
+  tags:
+    - engineering
+    - frontend
+    - backend
+    - devops
+    - security
+    - ai-ml
+    - data-engineering
+  compatible_agents:
+    - claude-code
+    - codex-cli
+    - openclaw
 ---
 
 # Engineering Team Skills

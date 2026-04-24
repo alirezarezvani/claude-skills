@@ -1,21 +1,22 @@
 ---
 name: "ra-qm-skills"
 description: "12 regulatory & QM agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, ISO 27001 ISMS, GDPR/DSGVO, risk management (ISO 14971), CAPA, document control, auditing. Python tools (stdlib-only)."
-version: 1.0.0
-author: Alireza Rezvani
 license: MIT
-tags:
-  - regulatory
-  - quality-management
-  - iso-13485
-  - mdr
-  - fda
-  - iso-27001
-  - gdpr
-agents:
-  - claude-code
-  - codex-cli
-  - openclaw
+metadata:
+  version: 1.0.0
+  author: Alireza Rezvani
+  tags:
+    - regulatory
+    - quality-management
+    - iso-13485
+    - mdr
+    - fda
+    - iso-27001
+    - gdpr
+  compatible_agents:
+    - claude-code
+    - codex-cli
+    - openclaw
 ---
 
 # Regulatory Affairs & Quality Management Skills

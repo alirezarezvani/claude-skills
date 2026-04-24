@@ -1,0 +1,13 @@
+{
+  "name": "skill-security-auditor",
+  "description": "Security audit and vulnerability scanner for AI agent skills. Scans for malicious patterns, prompt injection, data exfiltration, and unsafe file operations.",
+  "version": "2.2.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-security-auditor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./"
+}

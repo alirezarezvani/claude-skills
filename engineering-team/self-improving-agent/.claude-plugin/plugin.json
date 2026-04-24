@@ -1,5 +1,5 @@
 {
-  "name": "si",
+  "name": "self-improving-agent",
   "version": "2.3.0",
   "description": "Self-Improving Agent: curate auto-memory, promote learnings to CLAUDE.md and rules, extract proven patterns into reusable skills. Provides /si:review, /si:promote, /si:extract, /si:status, and /si:remember slash commands.",
   "author": {

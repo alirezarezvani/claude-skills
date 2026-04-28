@@ -17,8 +17,6 @@ name: Skill Security Audit
       - 'ra-qm-team/**'
       - 'agents/**'
       - 'templates/**'
-    paths-ignore:
-      - '**/.claude-plugin/**'
 
 concurrency:
   group: security-audit-${{ github.event.pull_request.number }}
@@ -60,6 +58,7 @@ jobs:
             # Skip non-skill paths
             case "$dir" in
               .github/*|.claude/*|.codex/*|.gemini/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*) continue ;;
+              */.claude-plugin) continue ;;
             esac
             # Check if this directory has a SKILL.md (is a skill)
             skill_root=$(echo "$file" | cut -d'/' -f1)

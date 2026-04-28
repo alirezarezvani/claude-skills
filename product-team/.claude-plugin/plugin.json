@@ -8,6 +8,5 @@
   },
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "license": "MIT",
-  "skills": "./"
+  "license": "MIT"
 }

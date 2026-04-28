@@ -362,9 +362,9 @@ write_tool_readme() {
       update_step='Re-run `./scripts/convert.sh --tool opencode` and reinstall with `./scripts/install.sh --tool opencode --target <project-dir>`.'
       ;;
     augment)
-      format_line='Flat Augment rules: `rules/<skill-name>.md` with Augment frontmatter (`type: auto`, `description`).'
-      manual_install='Copy `integrations/augment/rules/*.md` into your project `.augment/rules/` directory.'
-      verify_step='Run `find .augment/rules -name "*.md" | wc -l` and check rules appear in Augment.'
+      format_line='Directory skill bundles: `skills/<skill-name>/SKILL.md` with Augment-compatible SKILL frontmatter (`name`, `description`) plus copied support folders.'
+      manual_install='Copy each folder from `integrations/augment/skills/<skill-name>/` to `.augment/skills/<skill-name>/` in your project.'
+      verify_step='Run `find .augment/skills -name "SKILL.md" | wc -l` and verify skills are listed in Augment.'
       update_step='Re-run `./scripts/convert.sh --tool augment` and reinstall with `./scripts/install.sh --tool augment --target <project-dir>`.'
       ;;
   esac
@@ -446,10 +446,10 @@ info "Found ${TOTAL_CANDIDATES} candidate skills"
 for t in $TOOLS; do
   rm -rf "${OUT_BASE}/${t}"
   mkdir -p "${OUT_BASE}/${t}"
-  if [[ "$t" == "cursor" || "$t" == "kilocode" || "$t" == "augment" ]]; then
+  if [[ "$t" == "cursor" || "$t" == "kilocode" ]]; then
     mkdir -p "${OUT_BASE}/${t}/rules"
   fi
-  if [[ "$t" == "windsurf" || "$t" == "opencode" ]]; then
+  if [[ "$t" == "windsurf" || "$t" == "opencode" || "$t" == "augment" ]]; then
     mkdir -p "${OUT_BASE}/${t}/skills"
   fi
   if [[ "$t" == "aider" ]]; then
@@ -554,14 +554,16 @@ while IFS= read -r rel_path; do
         copy_supporting_dirs "$src_dir" "$out_dir"
         ;;
       augment)
-        out_file="${OUT_BASE}/augment/rules/${name}.md"
+        out_dir="${OUT_BASE}/augment/skills/${name}"
+        mkdir -p "$out_dir"
         {
           echo "---"
-          echo "type: auto"
+          echo "name: $(yaml_quote "$name")"
           echo "description: $(yaml_quote "$description")"
           echo "---"
           cat "$body_tmp"
-        } > "$out_file"
+        } > "${out_dir}/SKILL.md"
+        copy_supporting_dirs "$src_dir" "$out_dir"
         ;;
       *)
         err "Unhandled tool: ${t}"

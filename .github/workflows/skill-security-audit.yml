@@ -17,6 +17,8 @@ name: Skill Security Audit
       - 'ra-qm-team/**'
       - 'agents/**'
       - 'templates/**'
+    paths-ignore:
+      - '**/.claude-plugin/**'
 
 concurrency:
   group: security-audit-${{ github.event.pull_request.number }}

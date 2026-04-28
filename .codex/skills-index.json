@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 198,
+  "total_skills": 199,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -532,6 +532,12 @@
       "source": "../../engineering/focused-fix",
       "category": "engineering-advanced",
       "description": "Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z module is broken', 'focus on [area]'. Not for quick single-bug fixes \u2014 this is for systematic deep-dive repair across all files and dependencies."
+    },
+    {
+      "name": "full-page-screenshot",
+      "source": "../../engineering/full-page-screenshot",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to capture a full-page screenshot, long screenshot, or complete page capture of a web page. Handles SPA scroll containers, lazy-loaded images, and very tall pages via Chrome DevTools Protocol with zero external dependencies."
     },
     {
       "name": "git-worktree-manager",
@@ -1211,7 +1217,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 46,
+      "count": 47,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

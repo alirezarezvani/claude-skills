@@ -160,7 +160,7 @@ skill-name/
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": "."
 }
 ```
 **Only these fields. Nothing else.**

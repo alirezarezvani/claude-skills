@@ -383,7 +383,7 @@ Every plugin follows the same minimal schema for maximum portability:
   "homepage": "https://...",
   "repository": "https://...",
   "license": "MIT",
-  "skills": "./"
+  "skills": "."
 }
 ```
 

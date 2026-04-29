@@ -9,5 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team/code-to-prd",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": "."
 }

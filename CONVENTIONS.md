@@ -99,7 +99,7 @@ If your skill includes a `.claude-plugin/plugin.json`, use this **exact schema**
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/<domain>/<skill>",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": "."
 }
 ```
 

@@ -9,5 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/helm-chart-builder",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": "."
 }

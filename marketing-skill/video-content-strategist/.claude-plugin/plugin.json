@@ -9,5 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/video-content-strategist",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": "."
 }

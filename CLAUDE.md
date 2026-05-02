@@ -185,7 +185,10 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 2. **Never rename repo folders or local skill names** to match ClawHub slugs. The repo is the source of truth.
 3. **No paid/commercial service dependencies.** Skills must not require paid third-party API keys or commercial services unless provided by the project itself. Free-tier APIs and BYOK (bring-your-own-key) patterns are acceptable.
 4. **Rate limit: 5 new skills per hour** on ClawHub. Batch publishes must respect this. Use the drip timer (`clawhub-drip.timer`) for bulk operations.
-5. **plugin.json schema** — ONLY these fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills: "./"`. No extra fields.
+5. **plugin.json schema** — ONLY these fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills`. No extra fields. The `skills` value depends on the plugin layout (Claude Code v2.1.107+ rejects bare `"./"`):
+   - Single-skill plugin (SKILL.md at root): `"skills": ["./"]` (array form required).
+   - Plugin with `./skills/` subdir: `"skills": "./skills"`.
+   - Multi-skill domain plugin (skills are subfolders at root): `"skills": ["./sub1", "./sub2", ...]` (explicit list, omit `"./"` to avoid namespace collision with the index SKILL.md).
 6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.2.0+).
 
 ## Anti-Patterns to Avoid

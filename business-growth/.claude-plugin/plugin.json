@@ -9,5 +9,10 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/business-growth",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": [
+    "./contract-and-proposal-writer",
+    "./customer-success-manager",
+    "./revenue-operations",
+    "./sales-engineer"
+  ]
 }

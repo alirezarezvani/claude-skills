@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "ra-qm-team", "gdpr-dsgvo-expert", "scripts"
+    os.path.dirname(__file__), "..", "ra-qm-team", "skills", "gdpr-dsgvo-expert", "scripts"
 ))
 from gdpr_compliance_checker import (
     PERSONAL_DATA_PATTERNS,

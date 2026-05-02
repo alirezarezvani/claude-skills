@@ -6,7 +6,7 @@ import os
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "marketing-skill", "campaign-analytics", "scripts"
+    os.path.dirname(__file__), "..", "marketing-skill", "skills", "campaign-analytics", "scripts"
 ))
 from funnel_analyzer import analyze_funnel, compare_segments, safe_divide
 

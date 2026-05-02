@@ -6,7 +6,7 @@ import os
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "marketing-skill", "campaign-analytics", "scripts"
+    os.path.dirname(__file__), "..", "marketing-skill", "skills", "campaign-analytics", "scripts"
 ))
 from campaign_roi_calculator import (
     safe_divide,

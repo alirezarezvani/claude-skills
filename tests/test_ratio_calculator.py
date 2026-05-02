@@ -6,7 +6,7 @@ import os
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "finance", "financial-analyst", "scripts"
+    os.path.dirname(__file__), "..", "finance", "skills", "financial-analyst", "scripts"
 ))
 from ratio_calculator import FinancialRatioCalculator, safe_divide
 

@@ -6,7 +6,7 @@ import os
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "product-team", "product-manager-toolkit", "scripts"
+    os.path.dirname(__file__), "..", "product-team", "skills", "product-manager-toolkit", "scripts"
 ))
 from rice_prioritizer import RICECalculator
 

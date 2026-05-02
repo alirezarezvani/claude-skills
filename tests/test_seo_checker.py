@@ -6,7 +6,7 @@ import os
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "marketing-skill", "seo-audit", "scripts"
+    os.path.dirname(__file__), "..", "marketing-skill", "skills", "seo-audit", "scripts"
 ))
 from seo_checker import SEOParser, analyze_html, compute_overall_score
 

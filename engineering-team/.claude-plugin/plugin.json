@@ -1,7 +1,7 @@
 {
   "name": "engineering-skills",
   "description": "36 production-ready engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, security suite (adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection), Stripe integration, TDD guide, Google Workspace CLI, a11y audit, Snowflake development, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.2.1",
+  "version": "2.2.3",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,41 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./a11y-audit",
-    "./adversarial-reviewer",
-    "./ai-security",
-    "./aws-solution-architect",
-    "./azure-cloud-architect",
-    "./cloud-security",
-    "./code-reviewer",
-    "./email-template-builder",
-    "./epic-design",
-    "./gcp-cloud-architect",
-    "./google-workspace-cli",
-    "./incident-commander",
-    "./incident-response",
-    "./ms365-tenant-manager",
-    "./playwright-pro",
-    "./red-team",
-    "./security-pen-testing",
-    "./senior-architect",
-    "./senior-backend",
-    "./senior-computer-vision",
-    "./senior-data-engineer",
-    "./senior-data-scientist",
-    "./senior-devops",
-    "./senior-frontend",
-    "./senior-fullstack",
-    "./senior-ml-engineer",
-    "./senior-prompt-engineer",
-    "./senior-qa",
-    "./senior-secops",
-    "./senior-security",
-    "./snowflake-development",
-    "./stripe-integration-expert",
-    "./tdd-guide",
-    "./tech-stack-evaluator",
-    "./threat-detection"
-  ]
+  "skills": "./skills"
 }

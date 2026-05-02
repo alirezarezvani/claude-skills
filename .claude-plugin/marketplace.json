@@ -16,7 +16,7 @@
       "name": "marketing-skills",
       "source": "./marketing-skill",
       "description": "44 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 51 Python tools, 73 reference docs.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -40,7 +40,7 @@
       "name": "c-level-skills",
       "source": "./c-level-advisor",
       "description": "28 C-level advisory skills: virtual board of directors (CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO), executive mentor, founder coach, orchestration (Chief of Staff, board meetings, decision logger), strategic capabilities (board deck builder, scenario war room, competitive intel, M&A playbook), and culture frameworks.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -60,7 +60,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "44 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, llm-wiki (second brain for Obsidian + Claude Code, Karpathy pattern), and more.",
-      "version": "2.3.1",
+      "version": "2.3.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -83,7 +83,7 @@
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "36 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -110,7 +110,7 @@
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
       "description": "13 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -130,7 +130,7 @@
       "name": "product-skills",
       "source": "./product-team",
       "description": "15 product skills with 17 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer, apple-hig-expert.",
-      "version": "2.3.1",
+      "version": "2.3.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -157,7 +157,7 @@
       "name": "pm-skills",
       "source": "./project-management",
       "description": "6 project management skills with 12 Python tools: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -175,7 +175,7 @@
       "name": "business-growth-skills",
       "source": "./business-growth",
       "description": "4 business & growth skills: customer success manager, sales engineer, revenue operations, contract & proposal writer.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -192,7 +192,7 @@
       "name": "finance-skills",
       "source": "./finance",
       "description": "3 finance skills: financial analyst (ratio analysis, DCF valuation, budgeting, forecasting), SaaS metrics coach (ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, projections), and business investment advisor. 7 Python automation tools.",
-      "version": "2.2.1",
+      "version": "2.2.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -216,7 +216,7 @@
       "name": "pw",
       "source": "./engineering-team/playwright-pro",
       "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, TestRail + BrowserStack MCP integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -251,7 +251,7 @@
       "name": "autoresearch-agent",
       "source": "./engineering/autoresearch-agent",
       "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -267,121 +267,10 @@
       "category": "development"
     },
     {
-      "name": "content-creator",
-      "source": "./marketing-skill/content-creator",
-      "description": "SEO-optimized marketing content with brand voice analysis, content frameworks, and social media templates.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "content",
-        "marketing",
-        "seo",
-        "brand-voice"
-      ],
-      "category": "marketing"
-    },
-    {
-      "name": "demand-gen",
-      "source": "./marketing-skill/marketing-demand-acquisition",
-      "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "demand-gen",
-        "paid-media",
-        "acquisition"
-      ],
-      "category": "marketing"
-    },
-    {
-      "name": "fullstack-engineer",
-      "source": "./engineering-team/senior-fullstack",
-      "description": "Full-stack engineering with React, Node, databases, and deployment.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "fullstack",
-        "react",
-        "node",
-        "engineering"
-      ],
-      "category": "development"
-    },
-    {
-      "name": "aws-architect",
-      "source": "./engineering-team/aws-solution-architect",
-      "description": "AWS serverless architecture design with IaC templates, cost optimization, and CI/CD pipelines.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "aws",
-        "serverless",
-        "cloud",
-        "architecture"
-      ],
-      "category": "development"
-    },
-    {
-      "name": "product-manager",
-      "source": "./product-team/product-manager-toolkit",
-      "description": "Product management toolkit with RICE scoring, customer interview analysis, and PRD generation.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "product",
-        "prd",
-        "rice",
-        "prioritization"
-      ],
-      "category": "product"
-    },
-    {
-      "name": "scrum-master",
-      "source": "./project-management/scrum-master",
-      "description": "Sprint health analysis, velocity tracking, and retrospective facilitation.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "scrum",
-        "agile",
-        "sprint",
-        "velocity"
-      ],
-      "category": "project-management"
-    },
-    {
-      "name": "skill-security-auditor",
-      "source": "./engineering/skill-security-auditor",
-      "description": "Security audit and vulnerability scanner for AI agent skills. Scans for malicious patterns, prompt injection, data exfiltration, and unsafe file operations.",
-      "version": "2.2.0",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "security",
-        "audit",
-        "vulnerability",
-        "scanner"
-      ],
-      "category": "development"
-    },
-    {
       "name": "google-workspace-cli",
       "source": "./engineering-team/google-workspace-cli",
       "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. 5 Python tools, 3 reference guides, 43 built-in recipes, 10 persona bundles.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -400,7 +289,7 @@
       "name": "code-to-prd",
       "source": "./product-team/code-to-prd",
       "description": "Reverse-engineer any codebase into a complete PRD. Frontend (React, Vue, Angular, Next.js), backend (NestJS, Django, Express, FastAPI), and fullstack. 2 Python scripts (codebase_analyzer, prd_scaffolder), 2 reference guides, /code-to-prd slash command.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -427,7 +316,7 @@
       "name": "agenthub",
       "source": "./engineering/agenthub",
       "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -449,7 +338,7 @@
       "name": "a11y-audit",
       "source": "./engineering-team/a11y-audit",
       "description": "WCAG 2.2 accessibility audit and fix for React, Next.js, Vue, Angular, Svelte, and HTML. Static scanner detecting 20+ violation types, contrast checker with suggest mode, framework-specific fix patterns, /a11y-audit slash command.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -468,7 +357,7 @@
       "name": "executive-mentor",
       "source": "./c-level-advisor/executive-mentor",
       "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for board meetings, navigates hard calls, runs postmortems. 5 sub-skills with slash commands.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -486,7 +375,7 @@
       "name": "docker-development",
       "source": "./engineering/docker-development",
       "description": "Docker and container development — Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -503,7 +392,7 @@
       "name": "helm-chart-builder",
       "source": "./engineering/helm-chart-builder",
       "description": "Helm chart development — chart scaffolding, values design, template patterns, dependency management, and Kubernetes deployment strategies.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -520,7 +409,7 @@
       "name": "terraform-patterns",
       "source": "./engineering/terraform-patterns",
       "description": "Terraform infrastructure-as-code — module design patterns, state management, provider configuration, CI/CD integration, and multi-environment strategies.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -537,7 +426,7 @@
       "name": "research-summarizer",
       "source": "./product-team/research-summarizer",
       "description": "Structured research summarization — summarize academic papers, market research, user interviews, and competitive analysis into actionable insights.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -554,7 +443,7 @@
       "name": "code-tour",
       "source": "./engineering/code-tour",
       "description": "Create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. 10 developer personas, all CodeTour step types, SMIG description formula.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -571,7 +460,7 @@
       "name": "demo-video",
       "source": "./engineering/demo-video",
       "description": "Create polished demo videos from screenshots and scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts with story structure, scene design system, and narration guidance.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -589,7 +478,7 @@
       "name": "data-quality-auditor",
       "source": "./engineering/data-quality-auditor",
       "description": "Audit datasets for completeness, consistency, accuracy, and validity. 3 stdlib-only Python tools: data profiler with DQS scoring, missing value analyzer with MCAR/MAR/MNAR classification, and multi-method outlier detector.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -606,7 +495,7 @@
       "name": "statistical-analyst",
       "source": "./engineering/statistical-analyst",
       "description": "Hypothesis testing, A/B experiment analysis, sample size calculation, and confidence intervals. 3 stdlib-only Python tools: Z-test/t-test/chi-square with effect sizes, sample size calculator with power tradeoffs, and Wilson score confidence intervals.",
-      "version": "2.2.1",
+      "version": "2.2.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -623,7 +512,7 @@
       "name": "apple-hig-expert",
       "source": "./product-team/apple-hig-expert",
       "description": "Master Apple's Human Interface Guidelines (HIG) with focus on 2026 Liquid Glass aesthetics. Design and audit iOS, macOS, and visionOS apps for full compliance and premium feel. Includes hig_checker Python tool for tap targets and contrast.",
-      "version": "2.3.1",
+      "version": "2.3.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -643,7 +532,7 @@
       "name": "llm-wiki",
       "source": "./engineering/llm-wiki",
       "description": "A second brain for Claude Code + Obsidian inspired by Karpathy's LLM Wiki gist. Turn any LLM CLI into a disciplined wiki maintainer: incrementally ingest sources into a persistent, interlinked markdown vault; update entity/concept/source pages; flag contradictions; maintain index and append-only log. Knowledge compounds instead of being re-derived by RAG on every query. Ships 3 sub-agents (wiki-ingestor, wiki-librarian, wiki-linter), 5 slash commands (/wiki-init, /wiki-ingest, /wiki-query, /wiki-lint, /wiki-log), 8 Python tools (stdlib only: init_vault, ingest_source, update_index, append_log, wiki_search BM25, lint_wiki, graph_analyzer, export_marp), 8 reference docs, full vault templates (CLAUDE.md, AGENTS.md, cursorrules, 5 page templates), and a worked example vault. Cross-tool compatible with Claude Code, Codex CLI, Cursor, Antigravity, OpenCode, and Gemini CLI.",
-      "version": "2.3.1",
+      "version": "2.3.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -665,7 +554,7 @@
       "name": "karpathy-coder",
       "source": "./engineering/karpathy-coder",
       "description": "Active coding discipline enforcer based on Karpathy's 4 principles: surface assumptions, simplify, make surgical changes, define verifiable goals. Ships 4 Python tools (complexity_checker, diff_surgeon, assumption_linter, goal_verifier), a review agent, /karpathy-check command, and pre-commit hook. All stdlib-only.",
-      "version": "2.3.1",
+      "version": "2.3.2",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -685,7 +574,7 @@
       "name": "agile-product-owner",
       "source": "./product-team/agile-product-owner",
       "description": "Agile product ownership for backlog management and sprint execution. INVEST-compliant user story generation, acceptance criteria patterns (Given/When/Then, rule-based, checklist), epic breakdown with 5 split techniques, sprint planning with velocity-based capacity math, and weighted backlog prioritization. Includes user_story_generator Python tool and 2 reference guides.",
-      "version": "2.3.1",
+      "version": "2.3.2",
       "author": {
         "name": "Alireza Rezvani"
       },

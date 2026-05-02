@@ -1,7 +1,7 @@
 {
   "name": "prompt-governance",
   "description": "Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,7 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/prompt-governance",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./"
-  ]
+  "skills": "./skills"
 }

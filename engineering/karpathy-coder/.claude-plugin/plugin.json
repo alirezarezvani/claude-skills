@@ -1,7 +1,7 @@
 {
   "name": "karpathy-coder",
   "description": "Active coding discipline enforcer based on Karpathy's 4 principles: surface assumptions, keep it simple, make surgical changes, define verifiable goals. Ships 4 Python tools (complexity_checker, diff_surgeon, assumption_linter, goal_verifier), a review agent, /karpathy-check slash command, and a pre-commit hook. All tools stdlib-only.",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,7 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/karpathy-coder",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./"
-  ]
+  "skills": "./skills"
 }

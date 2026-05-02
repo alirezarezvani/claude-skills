@@ -1,7 +1,7 @@
 {
   "name": "pm-skills",
   "description": "6 project management skills: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, and template creator for Atlassian users. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.2.1",
+  "version": "2.2.3",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,14 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/project-management",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./atlassian-admin",
-    "./atlassian-templates",
-    "./confluence-expert",
-    "./jira-expert",
-    "./meeting-analyzer",
-    "./scrum-master",
-    "./senior-pm",
-    "./team-communications"
-  ]
+  "skills": "./skills"
 }

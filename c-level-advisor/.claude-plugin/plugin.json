@@ -1,7 +1,7 @@
 {
   "name": "c-level-skills",
   "description": "28 C-level advisory skills: complete virtual board of directors with CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO advisors, executive mentor, founder coach, Chief of Staff router, board meetings, decision logger, board deck builder, scenario war room, competitive intel, org health diagnostic, M&A playbook, international expansion, culture architect, change management, strategic alignment, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.2.1",
+  "version": "2.2.3",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,34 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./agent-protocol",
-    "./board-deck-builder",
-    "./board-meeting",
-    "./ceo-advisor",
-    "./cfo-advisor",
-    "./change-management",
-    "./chief-of-staff",
-    "./chro-advisor",
-    "./ciso-advisor",
-    "./cmo-advisor",
-    "./company-os",
-    "./competitive-intel",
-    "./context-engine",
-    "./coo-advisor",
-    "./cpo-advisor",
-    "./cro-advisor",
-    "./cs-onboard",
-    "./cto-advisor",
-    "./culture-architect",
-    "./decision-logger",
-    "./executive-mentor",
-    "./founder-coach",
-    "./internal-narrative",
-    "./intl-expansion",
-    "./ma-playbook",
-    "./org-health-diagnostic",
-    "./scenario-war-room",
-    "./strategic-alignment"
-  ]
+  "skills": "./skills"
 }

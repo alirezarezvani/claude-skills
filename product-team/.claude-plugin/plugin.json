@@ -1,7 +1,7 @@
 {
   "name": "product-skills",
   "description": "16 production-ready product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer, apple-hig-expert (Apple Human Interface Guidelines), spec-to-repo. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.3.1",
+  "version": "2.3.3",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,22 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./agile-product-owner",
-    "./apple-hig-expert",
-    "./code-to-prd",
-    "./competitive-teardown",
-    "./experiment-designer",
-    "./landing-page-generator",
-    "./product-analytics",
-    "./product-discovery",
-    "./product-manager-toolkit",
-    "./product-strategist",
-    "./research-summarizer",
-    "./roadmap-communicator",
-    "./saas-scaffolder",
-    "./spec-to-repo",
-    "./ui-design-system",
-    "./ux-researcher-designer"
-  ]
+  "skills": "./skills"
 }

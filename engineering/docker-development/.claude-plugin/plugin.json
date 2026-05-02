@@ -9,5 +9,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/docker-development",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": [
+    "./"
+  ]
 }

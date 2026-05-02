@@ -9,5 +9,9 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/finance",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": [
+    "./business-investment-advisor",
+    "./financial-analyst",
+    "./saas-metrics-coach"
+  ]
 }

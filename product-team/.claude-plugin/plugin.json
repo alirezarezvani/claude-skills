@@ -9,5 +9,22 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": [
+    "./agile-product-owner",
+    "./apple-hig-expert",
+    "./code-to-prd",
+    "./competitive-teardown",
+    "./experiment-designer",
+    "./landing-page-generator",
+    "./product-analytics",
+    "./product-discovery",
+    "./product-manager-toolkit",
+    "./product-strategist",
+    "./research-summarizer",
+    "./roadmap-communicator",
+    "./saas-scaffolder",
+    "./spec-to-repo",
+    "./ui-design-system",
+    "./ux-researcher-designer"
+  ]
 }

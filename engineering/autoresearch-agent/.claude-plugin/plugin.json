@@ -1,7 +1,7 @@
 {
   "name": "autoresearch-agent",
   "description": "Autonomous experiment loop that optimizes any file by a measurable metric. 5 slash commands, 8 evaluators, configurable loop intervals (10min to monthly).",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

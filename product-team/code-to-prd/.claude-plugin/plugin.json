@@ -1,7 +1,7 @@
 {
   "name": "code-to-prd",
   "description": "Reverse-engineer any codebase into a complete Product Requirements Document (PRD). Analyzes routes, components, models, APIs, and interactions for frontend (React, Vue, Angular, Next.js), backend (NestJS, Django, Express, FastAPI), and fullstack applications.",
-  "version": "2.1.2",
+  "version": "2.2.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -1,7 +1,7 @@
 {
   "name": "code-tour",
   "description": "Create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Supports 10 developer personas (vibecoder, new joiner, architect, security reviewer, etc.), all CodeTour step types, and SMIG description formula.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

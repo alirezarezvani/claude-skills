@@ -1,7 +1,7 @@
 {
   "name": "behuman",
   "description": "Self-Mirror consciousness loop for human-like AI responses. Adds inner dialogue (Self → Mirror → Conscious Response) to make AI output feel authentic, not robotic. Zero dependencies — pure prompt technique.",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,7 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/behuman",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": [
-    "./"
-  ]
+  "skills": "./skills"
 }

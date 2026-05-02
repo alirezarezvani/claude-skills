@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 199,
+  "total_skills": 178,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -198,12 +198,6 @@
       "description": "Cascades strategy from boardroom to individual contributor. Detects and fixes misalignment between company goals and team execution. Covers strategy articulation, cascade mapping, orphan goal detection, silo identification, communication gap analysis, and realignment protocols. Use when teams are pulling in different directions, OKRs don't connect, departments optimize locally at company expense, or when user mentions alignment, strategy cascade, silo, conflicting OKRs, or strategy communication."
     },
     {
-      "name": "a11y-audit",
-      "source": "../../engineering-team/a11y-audit",
-      "category": "engineering",
-      "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines."
-    },
-    {
       "name": "adversarial-reviewer",
       "source": "../../engineering-team/adversarial-reviewer",
       "category": "engineering",
@@ -256,12 +250,6 @@
       "source": "../../engineering-team/gcp-cloud-architect",
       "category": "engineering",
       "description": "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization."
-    },
-    {
-      "name": "google-workspace-cli",
-      "source": "../../engineering-team/google-workspace-cli",
-      "category": "engineering",
-      "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits, execute 43 built-in recipes, and use 10 persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
     },
     {
       "name": "incident-commander",
@@ -378,12 +366,6 @@
       "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools. Use when the user asks about security reviews, threat analysis, vulnerability assessments, secure coding practices, security audits, attack surface analysis, CVE remediation, or security best practices."
     },
     {
-      "name": "snowflake-development",
-      "source": "../../engineering-team/snowflake-development",
-      "category": "engineering",
-      "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors."
-    },
-    {
       "name": "stripe-integration-expert",
       "source": "../../engineering-team/stripe-integration-expert",
       "category": "engineering",
@@ -444,12 +426,6 @@
       "description": "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
     },
     {
-      "name": "behuman",
-      "source": "../../engineering/behuman",
-      "category": "engineering-advanced",
-      "description": "Use when the user wants more human-like AI responses \u2014 less robotic, less listy, more authentic. Triggers: 'behuman', 'be real', 'like a human', 'more human', 'less AI', 'talk like a person', 'mirror mode', 'stop being so AI', or when conversations are emotionally charged (grief, job loss, relationship advice, fear). NOT for technical questions, code generation, or factual lookups."
-    },
-    {
       "name": "browser-automation",
       "source": "../../engineering/browser-automation",
       "category": "engineering-advanced",
@@ -468,12 +444,6 @@
       "description": "CI/CD Pipeline Builder"
     },
     {
-      "name": "code-tour",
-      "source": "../../engineering/code-tour",
-      "category": "engineering-advanced",
-      "description": "Use when the user asks to create a CodeTour .tour file \u2014 persona-targeted, step-by-step walkthroughs that link to real files and line numbers. Trigger for: create a tour, onboarding tour, architecture tour, PR review tour, explain how X works, vibe check, RCA tour, contributor guide, or any structured code walkthrough request."
-    },
-    {
       "name": "codebase-onboarding",
       "source": "../../engineering/codebase-onboarding",
       "category": "engineering-advanced",
@@ -484,12 +454,6 @@
       "source": "../../engineering/command-guide",
       "category": "engineering-advanced",
       "description": ">"
-    },
-    {
-      "name": "data-quality-auditor",
-      "source": "../../engineering/data-quality-auditor",
-      "category": "engineering-advanced",
-      "description": "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan."
     },
     {
       "name": "database-designer",
@@ -504,22 +468,10 @@
       "description": "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
     },
     {
-      "name": "demo-video",
-      "source": "../../engineering/demo-video",
-      "category": "engineering-advanced",
-      "description": "Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content."
-    },
-    {
       "name": "dependency-auditor",
       "source": "../../engineering/dependency-auditor",
       "category": "engineering-advanced",
       "description": "Dependency Auditor"
-    },
-    {
-      "name": "docker-development",
-      "source": "../../engineering/docker-development",
-      "category": "engineering-advanced",
-      "description": "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance, layer caching, secret management, and production-ready container patterns."
     },
     {
       "name": "env-secrets-manager",
@@ -546,34 +498,10 @@
       "description": "Git Worktree Manager"
     },
     {
-      "name": "helm-chart-builder",
-      "source": "../../engineering/helm-chart-builder",
-      "category": "engineering-advanced",
-      "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
-    },
-    {
       "name": "interview-system-designer",
       "source": "../../engineering/interview-system-designer",
       "category": "engineering-advanced",
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
-    },
-    {
-      "name": "karpathy-coder",
-      "source": "../../engineering/karpathy-coder",
-      "category": "engineering-advanced",
-      "description": "Use when writing, reviewing, or committing code to enforce Karpathy's 4 coding principles \u2014 surface assumptions before coding, keep it simple, make surgical changes, define verifiable goals. Triggers on \"review my diff\", \"check complexity\", \"am I overcomplicating this\", \"karpathy check\", \"before I commit\", or any code quality concern where the LLM might be overcoding."
-    },
-    {
-      "name": "llm-cost-optimizer",
-      "source": "../../engineering/llm-cost-optimizer",
-      "category": "engineering-advanced",
-      "description": "Use proactively whenever LLM API costs come up -- or should. Triggers include: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching', 'we're about to launch an AI feature', 'build me an AI endpoint'. Don't wait for an explicit cost complaint -- if someone is building an AI feature, designing an LLM endpoint, or choosing between models, cost architecture belongs in the conversation. Apply immediately when any of these are true: a system prompt appears that exceeds a few hundred tokens, all requests are hitting the same model, max_tokens is not set, or no per-feature cost logging exists. NOT for RAG pipeline design (use rag-architect). NOT for improving prompt quality or effectiveness (use senior-prompt-engineer)."
-    },
-    {
-      "name": "llm-wiki",
-      "source": "../../engineering/llm-wiki",
-      "category": "engineering-advanced",
-      "description": "Use when building or maintaining a persistent personal knowledge base (second brain) in Obsidian where an LLM incrementally ingests sources, updates entity/concept pages, maintains cross-references, and keeps a synthesis current. Triggers include \"second brain\", \"Obsidian wiki\", \"personal knowledge management\", \"ingest this paper/article/book\", \"build a research wiki\", \"compound knowledge\", \"Memex\", or whenever the user wants knowledge to accumulate across sessions instead of being re-derived by RAG on every query."
     },
     {
       "name": "mcp-server-builder",
@@ -610,12 +538,6 @@
       "source": "../../engineering/pr-review-expert",
       "category": "engineering-advanced",
       "description": "Use when the user asks to review pull requests, analyze code changes, check for security issues in PRs, or assess code quality of diffs."
-    },
-    {
-      "name": "prompt-governance",
-      "source": "../../engineering/prompt-governance",
-      "category": "engineering-advanced",
-      "description": "Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production AI features. Triggers: 'manage prompts in production', 'prompt versioning', 'prompt regression', 'prompt A/B test', 'prompt registry', 'eval pipeline'. NOT for writing or improving individual prompts (use senior-prompt-engineer). NOT for RAG pipeline design (use rag-architect). NOT for LLM cost reduction (use llm-cost-optimizer)."
     },
     {
       "name": "rag-architect",
@@ -672,12 +594,6 @@
       "description": "Use when the user asks to write SQL queries, optimize database performance, generate migrations, explore database schemas, or work with ORMs like Prisma, Drizzle, TypeORM, or SQLAlchemy."
     },
     {
-      "name": "statistical-analyst",
-      "source": "../../engineering/statistical-analyst",
-      "category": "engineering-advanced",
-      "description": "Run hypothesis tests, analyze A/B experiment results, calculate sample sizes, and interpret statistical significance with effect sizes. Use when you need to validate whether observed differences are real, size an experiment correctly before launch, or interpret test results with confidence."
-    },
-    {
       "name": "tc-tracker",
       "source": "../../engineering/tc-tracker",
       "category": "engineering-advanced",
@@ -688,18 +604,6 @@
       "source": "../../engineering/tech-debt-tracker",
       "category": "engineering-advanced",
       "description": "Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation."
-    },
-    {
-      "name": "terraform-patterns",
-      "source": "../../engineering/terraform-patterns",
-      "category": "engineering-advanced",
-      "description": "Terraform infrastructure-as-code agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Covers module design patterns, state management strategies, provider configuration, security hardening, policy-as-code with Sentinel/OPA, and CI/CD plan/apply workflows. Use when: user wants to design Terraform modules, manage state backends, review Terraform security, implement multi-region deployments, or follow IaC best practices."
-    },
-    {
-      "name": "business-investment-advisor",
-      "source": "../../finance/business-investment-advisor",
-      "category": "finance",
-      "description": "Business investment analysis and capital allocation advisor. Use when evaluating whether to invest in equipment, real estate, a new business, hiring, technology, or any capital expenditure. Also use for ROI calculations, IRR, NPV, payback period, build vs buy decisions, lease vs buy analysis, vendor evaluation, or deciding where to allocate limited budget for maximum return."
     },
     {
       "name": "financial-analyst",
@@ -966,34 +870,10 @@
       "description": "When the user wants to develop social media strategy, plan content calendars, manage community engagement, or grow their social presence across platforms. Also use when the user mentions 'social media strategy,' 'social calendar,' 'community management,' 'social media plan,' 'grow followers,' 'engagement rate,' 'social media audit,' or 'which platforms should I use.' For writing individual social posts, see social-content. For analyzing social performance data, see social-media-analyzer."
     },
     {
-      "name": "video-content-strategist",
-      "source": "../../marketing-skill/video-content-strategist",
-      "category": "marketing",
-      "description": "Use when planning video content strategy, writing video scripts, optimizing YouTube channels, building short-form video pipelines (Reels, TikTok, Shorts), or repurposing long-form content into video. Triggers: 'start a YouTube channel', 'video content strategy', 'write a video script', 'repurpose into video', 'YouTube SEO', 'short-form video'. NOT for written blog content (use content-production). NOT for social captions without video (use social-media-manager)."
-    },
-    {
       "name": "x-twitter-growth",
       "source": "../../marketing-skill/x-twitter-growth",
       "category": "marketing",
       "description": "X/Twitter growth engine for building audience, crafting viral content, and analyzing engagement. Use when the user wants to grow on X/Twitter, write tweets or threads, analyze their X profile, research competitors on X, plan a posting strategy, or optimize engagement. Complements social-content (generic multi-platform) with X-specific depth: algorithm mechanics, thread engineering, reply strategy, profile optimization, and competitive intelligence via web search."
-    },
-    {
-      "name": "agile-product-owner",
-      "source": "../../product-team/agile-product-owner",
-      "category": "product",
-      "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
-    },
-    {
-      "name": "apple-hig-expert",
-      "source": "../../product-team/apple-hig-expert",
-      "category": "product",
-      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with 2026 Liquid Glass aesthetics and accessibility-first design."
-    },
-    {
-      "name": "code-to-prd",
-      "source": "../../product-team/code-to-prd",
-      "category": "product",
-      "description": "|"
     },
     {
       "name": "competitive-teardown",
@@ -1036,12 +916,6 @@
       "source": "../../product-team/product-strategist",
       "category": "product",
       "description": "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product vision documents, and team scaling proposals. Use when creating quarterly OKR documents, defining product goals or KPIs, building product roadmaps, running competitive analysis, drafting team structure or hiring plans, aligning product strategy across engineering and design, or generating cascaded goal hierarchies from company to team level."
-    },
-    {
-      "name": "research-summarizer",
-      "source": "../../product-team/research-summarizer",
-      "category": "product",
-      "description": "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative analyses, and produces properly formatted citations. Use when: user wants to summarize a research paper, compare multiple sources, extract citations from documents, or create structured research briefs. Plugin for Claude Code, Codex, Gemini CLI, and OpenClaw."
     },
     {
       "name": "roadmap-communicator",
@@ -1212,27 +1086,27 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 35,
+      "count": 32,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 48,
+      "count": 36,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
     "finance": {
-      "count": 3,
+      "count": 2,
       "source": "../../finance",
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 44,
+      "count": 43,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 16,
+      "count": 12,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

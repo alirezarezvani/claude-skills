@@ -264,7 +264,7 @@ case "$TOOL" in
     install_skill_bundle_tool "opencode"
     ;;
   augment)
-    install_flat_rules_tool "augment" ".augment/rules" ".md"
+    install_skill_bundle_tool "augment"
     ;;
   *)
     err "Unhandled tool: ${TOOL}"

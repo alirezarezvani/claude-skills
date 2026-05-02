@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 198,
+  "total_skills": 199,
   "skills": [
     {
       "name": "contract-and-proposal-writer",
@@ -300,12 +300,6 @@
       "description": "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation."
     },
     {
-      "name": "self-improving-agent",
-      "source": "../../engineering-team/self-improving-agent",
-      "category": "engineering",
-      "description": "Curate Claude Code's auto-memory into durable project knowledge. Analyze MEMORY.md for patterns, promote proven learnings to CLAUDE.md and .claude/rules/, extract recurring solutions into reusable skills. Use when: (1) reviewing what Claude has learned about your project, (2) graduating a pattern from notes to enforced rules, (3) turning a debugging solution into a skill, (4) checking memory health and capacity."
-    },
-    {
       "name": "senior-architect",
       "source": "../../engineering-team/senior-architect",
       "category": "engineering",
@@ -486,6 +480,12 @@
       "description": "Codebase Onboarding"
     },
     {
+      "name": "command-guide",
+      "source": "../../engineering/command-guide",
+      "category": "engineering-advanced",
+      "description": ">"
+    },
+    {
       "name": "data-quality-auditor",
       "source": "../../engineering/data-quality-auditor",
       "category": "engineering-advanced",
@@ -534,6 +534,12 @@
       "description": "Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z module is broken', 'focus on [area]'. Not for quick single-bug fixes \u2014 this is for systematic deep-dive repair across all files and dependencies."
     },
     {
+      "name": "full-page-screenshot",
+      "source": "../../engineering/full-page-screenshot",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to capture a full-page screenshot, long screenshot, or complete page capture of a web page. Handles SPA scroll containers, lazy-loaded images, and very tall pages via Chrome DevTools Protocol with zero external dependencies."
+    },
+    {
       "name": "git-worktree-manager",
       "source": "../../engineering/git-worktree-manager",
       "category": "engineering-advanced",
@@ -561,7 +567,7 @@
       "name": "llm-cost-optimizer",
       "source": "../../engineering/llm-cost-optimizer",
       "category": "engineering-advanced",
-      "description": "Use when you need to reduce LLM API spend, control token usage, route between models by cost/quality, implement prompt caching, or build cost observability for AI features. Triggers: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching'. NOT for RAG pipeline design (use rag-architect). NOT for prompt writing quality (use senior-prompt-engineer)."
+      "description": "Use proactively whenever LLM API costs come up -- or should. Triggers include: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching', 'we're about to launch an AI feature', 'build me an AI endpoint'. Don't wait for an explicit cost complaint -- if someone is building an AI feature, designing an LLM endpoint, or choosing between models, cost architecture belongs in the conversation. Apply immediately when any of these are true: a system prompt appears that exceeds a few hundred tokens, all requests are hitting the same model, max_tokens is not set, or no per-feature cost logging exists. NOT for RAG pipeline design (use rag-architect). NOT for improving prompt quality or effectiveness (use senior-prompt-engineer)."
     },
     {
       "name": "llm-wiki",
@@ -1206,12 +1212,12 @@
       "description": "Executive leadership and advisory skills"
     },
     "engineering": {
-      "count": 36,
+      "count": 35,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 46,
+      "count": 48,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

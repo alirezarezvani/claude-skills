@@ -1,7 +1,7 @@
 {
   "name": "behuman",
   "description": "Self-Mirror consciousness loop for human-like AI responses. Adds inner dialogue (Self → Mirror → Conscious Response) to make AI output feel authentic, not robotic. Zero dependencies — pure prompt technique.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

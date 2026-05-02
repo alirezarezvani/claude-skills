@@ -1,7 +1,7 @@
 {
   "name": "demo-video",
   "description": "Create polished demo videos from screenshots and scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts to produce product walkthroughs, feature showcases, and marketing teasers with story structure, scene design system, and narration guidance.",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

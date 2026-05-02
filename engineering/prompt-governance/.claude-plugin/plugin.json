@@ -1,7 +1,7 @@
 {
   "name": "prompt-governance",
   "description": "Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

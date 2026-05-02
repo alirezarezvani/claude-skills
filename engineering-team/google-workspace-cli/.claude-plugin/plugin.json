@@ -8,6 +8,8 @@
   },
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./",
+  "skills": [
+    "./"
+  ],
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/google-workspace-cli"
 }

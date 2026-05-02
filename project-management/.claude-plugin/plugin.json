@@ -9,5 +9,14 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/project-management",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": [
+    "./atlassian-admin",
+    "./atlassian-templates",
+    "./confluence-expert",
+    "./jira-expert",
+    "./meeting-analyzer",
+    "./scrum-master",
+    "./senior-pm",
+    "./team-communications"
+  ]
 }

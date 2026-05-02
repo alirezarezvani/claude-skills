@@ -7,7 +7,7 @@ import tempfile
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "engineering", "changelog-generator", "scripts"
+    os.path.dirname(__file__), "..", "engineering", "skills", "changelog-generator", "scripts"
 ))
 from commit_linter import lint, CONVENTIONAL_RE, lines_from_file, CLIError
 

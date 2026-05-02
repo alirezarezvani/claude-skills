@@ -6,7 +6,7 @@ import os
 import pytest
 
 sys.path.insert(0, os.path.join(
-    os.path.dirname(__file__), "..", "c-level-advisor", "coo-advisor", "scripts"
+    os.path.dirname(__file__), "..", "c-level-advisor", "skills", "coo-advisor", "scripts"
 ))
 from okr_tracker import calculate_kr_score, get_kr_status
 

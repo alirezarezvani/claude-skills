@@ -15,7 +15,6 @@ Exit codes:
 
 import argparse
 import json
-import os
 import re
 import stat
 import subprocess
@@ -764,9 +763,17 @@ def scan_filesystem(skill_path: Path, report: AuditReport):
 
         # Hidden files (except common ones)
         if item.name.startswith(".") and item.name not in (
-            ".gitignore", ".gitkeep", ".editorconfig", ".prettierrc",
-            ".eslintrc", ".pylintrc", ".flake8",
-            ".claude-plugin", ".codex", ".gemini",
+            ".gitignore",
+            ".gitkeep",
+            ".editorconfig",
+            ".prettierrc",
+            ".eslintrc",
+            ".pylintrc",
+            ".flake8",
+            ".claude-plugin",
+            ".codex",
+            ".gemini",
+            ".mcp.json",
         ):
             severity = Severity.CRITICAL if item.name == ".env" else Severity.HIGH
             report.findings.append(
@@ -783,8 +790,17 @@ def scan_filesystem(skill_path: Path, report: AuditReport):
 
         # Binary files
         if item.is_file() and item.suffix.lower() in (
-            ".exe", ".dll", ".so", ".dylib", ".bin", ".elf",
-            ".com", ".msi", ".deb", ".rpm", ".apk",
+            ".exe",
+            ".dll",
+            ".so",
+            ".dylib",
+            ".bin",
+            ".elf",
+            ".com",
+            ".msi",
+            ".deb",
+            ".rpm",
+            ".apk",
         ):
             report.findings.append(
                 Finding(

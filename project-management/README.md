@@ -258,12 +258,21 @@ This project management skills collection provides world-class Atlassian experti
 
 ### Setup
 
-Configure Atlassian MCP server in your Claude Code settings with:
-- Jira/Confluence instance URL
-- API token or OAuth credentials
-- Project/space access permissions
+The plugin bundles a pre-configured `.mcp.json` pointing at Atlassian's official Remote MCP server (`https://mcp.atlassian.com/v1/sse`). When you enable the plugin:
+
+1. Claude Code reads `.mcp.json` and registers the `atlassian` SSE server automatically.
+2. On first tool call, you're redirected to Atlassian in your browser to authenticate (OAuth) and select which Cloud sites to grant access to.
+3. Tokens are managed by Claude Code — no API keys in environment variables, no credentials in the repo.
+
+**Prerequisites:**
+- An Atlassian Cloud account (free tier is sufficient — Jira Free or Confluence Free both work)
+- Access to at least one Jira project or Confluence space
+
+**No environment variables required** — the SSE transport handles OAuth automatically.
 
 ### Example Operations
+
+> **Note:** Tool names below are shown in simplified form for readability. The actual Claude Code prefix for plugin-bundled MCP tools is `mcp__plugin_pm-skills_atlassian__<tool>` — e.g. `mcp__plugin_pm-skills_atlassian__create_issue`. Both the simplified and fully-qualified forms refer to the same tool.
 
 ```bash
 # Create Jira issue

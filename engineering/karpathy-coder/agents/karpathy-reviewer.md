@@ -4,7 +4,8 @@ description: Reviews staged git changes against Karpathy's 4 coding principles. 
 skills: engineering/karpathy-coder
 domain: engineering
 model: sonnet
-tools: [Read, Bash, Grep, Glob]
+tools: [Read, Grep, Glob, Bash(git diff *), Bash(git log *), Bash(git status *), Bash(python *)]
+disallowedTools: [Bash(rm *), Bash(rmdir *), Bash(curl *), Bash(wget *), Bash(git push *), Bash(git reset --hard *)]
 context: fork
 ---
 

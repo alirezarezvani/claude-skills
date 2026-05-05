@@ -3,6 +3,7 @@ name: memory-analyst
 description: Read-only analyst for `~/.claude/projects/<project>/memory/`. Identifies promotion candidates (entries proven enough for CLAUDE.md), stale references, consolidation opportunities, conflicts with existing CLAUDE.md rules, and reports health metrics (capacity, freshness, organization). Spawned by `/si:review`.
 tools: Read, Glob, Grep
 model: inherit
+maxTurns: 30
 ---
 
 # Memory Analyst Agent

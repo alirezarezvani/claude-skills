@@ -2,7 +2,9 @@
 name: skill-extractor
 description: Transforms a proven pattern or debugging solution into a standalone, portable skill package. Generates `SKILL.md` with proper frontmatter, reference docs, and examples that work in any project (no hardcoded paths or project-specific values). Spawned by `/si:extract` when a recurring solution should become reusable.
 tools: Read, Write, Edit, Glob, Grep
+disallowedTools: Bash(rm *), Bash(rmdir *), Bash(curl *), Bash(wget *)
 model: inherit
+maxTurns: 30
 ---
 
 # Skill Extractor Agent

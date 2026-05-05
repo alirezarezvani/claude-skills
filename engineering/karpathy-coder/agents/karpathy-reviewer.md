@@ -1,11 +1,13 @@
 ---
 name: karpathy-reviewer
 description: Reviews staged git changes against Karpathy's 4 coding principles. Runs complexity_checker on changed files, diff_surgeon on the diff, and produces a verdict with specific fix recommendations. Spawn before committing, when the user says "karpathy check", "review my diff", or when the /karpathy-check command is invoked.
-skills: engineering/karpathy-coder
 domain: engineering
 model: sonnet
+maxTurns: 30
 tools: [Read, Grep, Glob, Bash(git diff *), Bash(git log *), Bash(git status *), Bash(python *)]
 disallowedTools: [Bash(rm *), Bash(rmdir *), Bash(curl *), Bash(wget *), Bash(git push *), Bash(git reset --hard *)]
+skills:
+  - karpathy-coder:karpathy-coder
 context: fork
 ---
 

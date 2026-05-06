@@ -58,6 +58,7 @@ jobs:
             # Skip non-skill paths
             case "$dir" in
               .github/*|.claude/*|.codex/*|.gemini/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*) continue ;;
+              */.claude-plugin) continue ;;
             esac
             # Check if this directory has a SKILL.md (is a skill)
             skill_root=$(echo "$file" | cut -d'/' -f1)

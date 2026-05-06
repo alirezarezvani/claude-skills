@@ -12,6 +12,7 @@ The most comprehensive open-source library of Claude Code skills and agent plugi
 [![Personas](https://img.shields.io/badge/Personas-3-purple?style=for-the-badge)](#personas)
 [![Commands](https://img.shields.io/badge/Commands-27-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
+[![Available on ClawHup](https://img.shields.io/badge/ClawHup-Browse%20%26%20Install-blue?style=for-the-badge)](https://www.clawhup.com/skills)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
 > **5,200+ GitHub stars** — the most comprehensive open-source Claude Code skills & agent plugins library.
@@ -38,6 +39,17 @@ Claude Code skills (also called agent skills or coding agent plugins) are modula
 | **Example** | "Follow these steps for SEO" | "Run a security audit" | "Think like a startup CTO" |
 
 All three work together. See [Orchestration](#orchestration) for how to combine them.
+
+---
+
+
+## Third-Party Marketplaces
+
+These skills are also available through:
+
+| Platform | URL |
+|----------|-----|
+| **ClawHup** | Browse and install at [clawhup.com/skills](https://www.clawhup.com/skills) — Chinese-market AI platform with 88+ skills from this collection |
 
 ---
 

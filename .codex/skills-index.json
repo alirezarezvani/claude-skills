@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 187,
+  "total_skills": 188,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -606,6 +606,12 @@
       "description": "Skill Tester"
     },
     {
+      "name": "slo-architect",
+      "source": "../../engineering/skills/slo-architect",
+      "category": "engineering-advanced",
+      "description": "Use when defining, reviewing, or operating SLOs/SLIs/error budgets. Triggers on \"define an SLO\", \"what should our SLO be\", \"error budget\", \"burn rate\", \"SLI\", \"service level objective\", \"Google SRE workbook\", \"multi-window burn-rate alert\", or any reliability-target question. Ships SLO designer, error-budget calculator with multi-window burn-rate thresholds, and SLO reviewer that catches the common bugs (target too aggressive, window too short, conflicting SLOs, no SLI definition). 4 references on SLO principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. NOT a generic observability skill \u2014 specifically the SLO discipline."
+    },
+    {
       "name": "spec-driven-workflow",
       "source": "../../engineering/skills/spec-driven-workflow",
       "category": "engineering-advanced",
@@ -1145,7 +1151,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 39,
+      "count": 40,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 308,
+  "total_skills": 312,
   "skills": [
     {
       "name": "README",
@@ -447,6 +447,11 @@
       "name": "seo-auditor",
       "category": "command",
       "description": "|"
+    },
+    {
+      "name": "slo-design",
+      "category": "command",
+      "description": "Interactive wizard to design an SLO with SLI, target, error budget, and burn-rate alerts"
     },
     {
       "name": "sprint-health",
@@ -1024,6 +1029,11 @@
       "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator."
     },
     {
+      "name": "ship-gate",
+      "category": "engineering-advanced",
+      "description": ">"
+    },
+    {
       "name": "skill-security-auditor",
       "category": "engineering-advanced",
       "description": ">"
@@ -1054,9 +1064,19 @@
       "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
     },
     {
+      "name": "skills-slo-architect",
+      "category": "engineering-advanced",
+      "description": "Use when defining, reviewing, or operating SLOs/SLIs/error budgets. Triggers on \"define an SLO\", \"what should our SLO be\", \"error budget\", \"burn rate\", \"SLI\", \"service level objective\", \"Google SRE workbook\", \"multi-window burn-rate alert\", or any reliability-target question. Ships SLO designer, error-budget calculator with multi-window burn-rate thresholds, and SLO reviewer that catches the common bugs (target too aggressive, window too short, conflicting SLOs, no SLI definition). 4 references on SLO principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. NOT a generic observability skill \u2014 specifically the SLO discipline."
+    },
+    {
       "name": "skills-status",
       "category": "engineering-advanced",
       "description": "Show DAG state, agent progress, and branch status for an AgentHub session."
+    },
+    {
+      "name": "slo-architect",
+      "category": "engineering-advanced",
+      "description": "Use when defining, reviewing, or operating SLOs/SLIs/error budgets. Triggers on \"define an SLO\", \"what should our SLO be\", \"error budget\", \"burn rate\", \"SLI\", \"service level objective\", \"Google SRE workbook\", \"multi-window burn-rate alert\", or any reliability-target question. Ships SLO designer, error-budget calculator with multi-window burn-rate thresholds, and SLO reviewer that catches the common bugs (target too aggressive, window too short, conflicting SLOs, no SLI definition). 4 references on SLO principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. NOT a generic observability skill \u2014 specifically the SLO discipline."
     },
     {
       "name": "spawn",
@@ -1558,7 +1578,7 @@
       "description": "C-level resources"
     },
     "command": {
-      "count": 32,
+      "count": 33,
       "description": "Command resources"
     },
     "engineering": {
@@ -1566,7 +1586,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 68,
+      "count": 71,
       "description": "Engineering-advanced resources"
     },
     "finance": {

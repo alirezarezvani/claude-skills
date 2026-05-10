@@ -59,7 +59,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "49 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, llm-wiki (second brain for Obsidian + Claude Code, Karpathy pattern), feature-flags-architect (flag debt scanner, rollout planner, kill-switch audit), kubernetes-operator (CRD validator, reconcile linter, capability auditor), chaos-engineering (experiment designer, blast-radius calculator, postmortem generator), ship-gate (pre-production 8-category audit with deploy-intent intercept), and more.",
+      "description": "50 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, llm-wiki (second brain for Obsidian + Claude Code, Karpathy pattern), feature-flags-architect (flag debt scanner, rollout planner, kill-switch audit), kubernetes-operator (CRD validator, reconcile linter, capability auditor), chaos-engineering (experiment designer, blast-radius calculator, postmortem generator), ship-gate (pre-production 8-category audit with deploy-intent intercept), slo-architect (SLO designer, error-budget calculator with multi-window burn-rate alerts, SLO reviewer per Google SRE Workbook), and more.",
       "version": "2.4.3",
       "author": {
         "name": "Alireza Rezvani"
@@ -633,6 +633,27 @@
         "litmus",
         "gremlin",
         "aws-fis"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "slo-architect",
+      "source": "./engineering/slo-architect",
+      "description": "End-to-end SLO/SLI/error-budget discipline per Google SRE Workbook. Ships SLO designer (refuses to render without required fields), error-budget calculator with multi-window burn-rate alert thresholds (PromQL-shaped), and SLO reviewer that catches the 7 common bugs. 4 references on principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. Asset templates for SLO YAML and error budget policy. /slo-design slash command. NOT a generic observability skill.",
+      "version": "2.4.4",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "slo",
+        "sli",
+        "sla",
+        "error-budget",
+        "burn-rate",
+        "sre",
+        "reliability",
+        "google-sre-workbook",
+        "observability"
       ],
       "category": "development"
     },

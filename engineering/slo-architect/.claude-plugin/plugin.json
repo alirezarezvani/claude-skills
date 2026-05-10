@@ -1,0 +1,13 @@
+{
+  "name": "slo-architect",
+  "description": "End-to-end SLO/SLI/error-budget discipline per Google SRE Workbook. Ships SLO designer (refuses to render without required fields), error-budget calculator with multi-window burn-rate alert thresholds (PromQL-shaped), and SLO reviewer that catches the 7 common bugs (target too high, window too short, no SLI definition, CPU-as-SLI, etc.). 4 references on principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. Asset templates for SLO YAML and error budget policy. /slo-design slash command. NOT a generic observability skill.",
+  "version": "2.4.4",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/slo-architect",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": "./skills"
+}

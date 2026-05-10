@@ -227,6 +227,7 @@ nav:
       - "Feature Flags Architect": skills/engineering/feature-flags-architect.md
       - "Kubernetes Operator": skills/engineering/kubernetes-operator.md
       - "Chaos Engineering": skills/engineering/chaos-engineering.md
+      - "SLO Architect": skills/engineering/slo-architect.md
       - AgentHub:
         - "AgentHub": skills/engineering/agenthub.md
         - "/hub:init": skills/engineering/agenthub-init.md
@@ -435,3 +436,4 @@ nav:
     - "/flag-cleanup": commands/flag-cleanup.md
     - "/operator-audit": commands/operator-audit.md
     - "/chaos-experiment": commands/chaos-experiment.md
+    - "/slo-design": commands/slo-design.md

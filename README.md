@@ -329,6 +329,9 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 | [**Claude Code Tresor**](https://github.com/alirezarezvani/claude-code-tresor) | Productivity toolkit with 60+ prompt templates |
 | [**Product Manager Skills**](https://github.com/Digidai/product-manager-skills) | Senior PM agent with 6 knowledge domains, 12 templates, 30+ frameworks — discovery, strategy, delivery, SaaS metrics, career coaching, AI product craft |
 | [**toprank**](https://github.com/nowork-studio/toprank) | 9 SEO and Google Ads skills for Claude Code — connects Google Search Console, PageSpeed Insights, and Google Ads API; ships meta tag, schema markup, and keyword bid fixes to source or CMS. MIT, 107 stars |
+| [**hormozi-offer-audit**](https://github.com/johnericforte/claude-skill-hormozi-offer-audit) | Audit sales offers (landing pages, pricing tiers, lead magnets) using Alex Hormozi's frameworks from $100M Offers and $100M Leads. Scores Value Equation + Grand Slam checklist. Returns Top 3 Fixes with before/after. MIT |
+| [**cialdini-influence-audit**](https://github.com/johnericforte/claude-skill-cialdini-influence-audit) | Audit persuasive copy (landing pages, emails, sales sequences) for missing influence principles using Robert Cialdini's seven principles + Pre-Suasion. Scores each principle PRESENT/WEAK/MISSING with anti-overstacking check. MIT |
+| [**claude-blog-assistant**](https://github.com/johnericforte/claude-skill-blog-assistant) | Dual-mode blog publishing assistant. Ship new posts via 8-step lifecycle OR retroactively audit existing posts and return prioritized retrofit list. Wraps AgriciDaniel/claude-blog. MIT |
 
 ---
 

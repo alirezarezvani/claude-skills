@@ -116,6 +116,8 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Multi-Tool Integrations: integrations.md
+  - Monetization Execution: monetization-execution.md
+  - Metrics: metrics.md
   - Skills:
     - Overview: skills/index.md
     - Engineering - Core:

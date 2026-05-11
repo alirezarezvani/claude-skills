@@ -1,0 +1,4638 @@
+{
+  "generated_at": "2026-05-11T14:29:09Z",
+  "method": "static top-200 prioritization: domain impact + support assets + scripts + documentation completeness",
+  "top200_count": 200,
+  "passing_skills": 194,
+  "top200_quality_pass_rate": 0.97,
+  "checks": [
+    "metadata_valid",
+    "structure_valid",
+    "references_integrity",
+    "script_help",
+    "security_audit"
+  ],
+  "thresholds": {
+    "passing": "metadata_valid && structure_valid && references_integrity && quality_score >= 75",
+    "day_90_target": ">=95%"
+  },
+  "skills": [
+    {
+      "rank": 1,
+      "skill_id": "engineering-team.skills.incident-commander",
+      "name": "incident-commander",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/incident-commander",
+      "rank_score": 147,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 6,
+        "references": 18,
+        "skill_md_bytes": 15473
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 2,
+      "skill_id": "engineering-team.skills.tdd-guide",
+      "name": "tdd-guide",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/tdd-guide",
+      "rank_score": 145,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 8,
+        "references": 7,
+        "skill_md_bytes": 13707
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 3,
+      "skill_id": "engineering.skills.skill-tester",
+      "name": "skill-tester",
+      "domain": "engineering",
+      "path": "engineering/skills/skill-tester",
+      "rank_score": 142,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 5,
+        "references": 11,
+        "skill_md_bytes": 16475
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 4,
+      "skill_id": "engineering.skills.dependency-auditor",
+      "name": "dependency-auditor",
+      "domain": "engineering",
+      "path": "engineering/skills/dependency-auditor",
+      "rank_score": 136,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 9,
+        "skill_md_bytes": 12384
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 5,
+      "skill_id": "engineering.skills.migration-architect",
+      "name": "migration-architect",
+      "domain": "engineering",
+      "path": "engineering/skills/migration-architect",
+      "rank_score": 136,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 15,
+        "skill_md_bytes": 17016
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 6,
+      "skill_id": "engineering.skills.observability-designer",
+      "name": "observability-designer",
+      "domain": "engineering",
+      "path": "engineering/skills/observability-designer",
+      "rank_score": 136,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 8,
+        "skill_md_bytes": 13179
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 7,
+      "skill_id": "engineering.llm-wiki.skills.llm-wiki",
+      "name": "llm-wiki",
+      "domain": "engineering",
+      "path": "engineering/llm-wiki/skills/llm-wiki",
+      "rank_score": 134,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 8,
+        "references": 34,
+        "skill_md_bytes": 10346
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 8,
+      "skill_id": "engineering-team.google-workspace-cli.skills.google-workspace-cli",
+      "name": "google-workspace-cli",
+      "domain": "engineering-team",
+      "path": "engineering-team/google-workspace-cli/skills/google-workspace-cli",
+      "rank_score": 133,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 5,
+        "references": 5,
+        "skill_md_bytes": 10362
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 9,
+      "skill_id": "engineering-team.skills.tech-stack-evaluator",
+      "name": "tech-stack-evaluator",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/tech-stack-evaluator",
+      "rank_score": 132,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 7,
+        "references": 7,
+        "skill_md_bytes": 4348
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 10,
+      "skill_id": "engineering-team.a11y-audit.skills.a11y-audit",
+      "name": "a11y-audit",
+      "domain": "engineering-team",
+      "path": "engineering-team/a11y-audit/skills/a11y-audit",
+      "rank_score": 130,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 13,
+        "skill_md_bytes": 9780
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 11,
+      "skill_id": "engineering.skills.tc-tracker",
+      "name": "tc-tracker",
+      "domain": "engineering",
+      "path": "engineering/skills/tc-tracker",
+      "rank_score": 130,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 5,
+        "references": 3,
+        "skill_md_bytes": 10325
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 12,
+      "skill_id": "engineering-team.skills.epic-design",
+      "name": "epic-design",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/epic-design",
+      "rank_score": 129,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 9,
+        "skill_md_bytes": 16427
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 13,
+      "skill_id": "engineering.skills.tech-debt-tracker",
+      "name": "tech-debt-tracker",
+      "domain": "engineering",
+      "path": "engineering/skills/tech-debt-tracker",
+      "rank_score": 129,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 13,
+        "skill_md_bytes": 4408
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 14,
+      "skill_id": "engineering-team.skills.senior-qa",
+      "name": "senior-qa",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-qa",
+      "rank_score": 128,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 8578
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 15,
+      "skill_id": "engineering-team.skills.aws-solution-architect",
+      "name": "aws-solution-architect",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/aws-solution-architect",
+      "rank_score": 127,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 5,
+        "skill_md_bytes": 10079
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 16,
+      "skill_id": "engineering-team.skills.senior-computer-vision",
+      "name": "senior-computer-vision",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-computer-vision",
+      "rank_score": 127,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 4,
+        "skill_md_bytes": 12944
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 17,
+      "skill_id": "engineering.skills.agent-designer",
+      "name": "agent-designer",
+      "domain": "engineering",
+      "path": "engineering/skills/agent-designer",
+      "rank_score": 127,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 9,
+        "skill_md_bytes": 12145
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 18,
+      "skill_id": "engineering.skills.release-manager",
+      "name": "release-manager",
+      "domain": "engineering",
+      "path": "engineering/skills/release-manager",
+      "rank_score": 127,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 10,
+        "skill_md_bytes": 16122
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 19,
+      "skill_id": "engineering.skills.database-designer",
+      "name": "database-designer",
+      "domain": "engineering",
+      "path": "engineering/skills/database-designer",
+      "rank_score": 126,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 10,
+        "skill_md_bytes": 12010
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 20,
+      "skill_id": "engineering-team.skills.azure-cloud-architect",
+      "name": "azure-cloud-architect",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/azure-cloud-architect",
+      "rank_score": 125,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 13702
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 21,
+      "skill_id": "engineering-team.skills.gcp-cloud-architect",
+      "name": "gcp-cloud-architect",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/gcp-cloud-architect",
+      "rank_score": 125,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 12905
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 22,
+      "skill_id": "engineering-team.skills.security-pen-testing",
+      "name": "security-pen-testing",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/security-pen-testing",
+      "rank_score": 125,
+      "quality_score": 66,
+      "passing": false,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": false,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 13923
+      },
+      "broken_references_sample": [
+        "../../engineering/dependency-auditor/SKILL.md"
+      ]
+    },
+    {
+      "rank": 23,
+      "skill_id": "engineering-team.skills.senior-secops",
+      "name": "senior-secops",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-secops",
+      "rank_score": 125,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 16062
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 24,
+      "skill_id": "engineering.karpathy-coder.skills.karpathy-coder",
+      "name": "karpathy-coder",
+      "domain": "engineering",
+      "path": "engineering/karpathy-coder/skills/karpathy-coder",
+      "rank_score": 125,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 4,
+        "references": 7,
+        "skill_md_bytes": 5746
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 25,
+      "skill_id": "engineering.kubernetes-operator.skills.kubernetes-operator",
+      "name": "kubernetes-operator",
+      "domain": "engineering",
+      "path": "engineering/kubernetes-operator/skills/kubernetes-operator",
+      "rank_score": 125,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 6,
+        "skill_md_bytes": 11238
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 26,
+      "skill_id": "engineering.skills.kubernetes-operator",
+      "name": "kubernetes-operator",
+      "domain": "engineering",
+      "path": "engineering/skills/kubernetes-operator",
+      "rank_score": 125,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 6,
+        "skill_md_bytes": 11238
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 27,
+      "skill_id": "engineering-team.skills.senior-architect",
+      "name": "senior-architect",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-architect",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 10972
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 28,
+      "skill_id": "engineering-team.skills.senior-frontend",
+      "name": "senior-frontend",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-frontend",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 10999
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 29,
+      "skill_id": "engineering-team.skills.senior-prompt-engineer",
+      "name": "senior-prompt-engineer",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-prompt-engineer",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 12155
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 30,
+      "skill_id": "engineering.chaos-engineering.skills.chaos-engineering",
+      "name": "chaos-engineering",
+      "domain": "engineering",
+      "path": "engineering/chaos-engineering/skills/chaos-engineering",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 6,
+        "skill_md_bytes": 10690
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 31,
+      "skill_id": "engineering.skills.chaos-engineering",
+      "name": "chaos-engineering",
+      "domain": "engineering",
+      "path": "engineering/skills/chaos-engineering",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 6,
+        "skill_md_bytes": 10690
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 32,
+      "skill_id": "engineering.skills.slo-architect",
+      "name": "slo-architect",
+      "domain": "engineering",
+      "path": "engineering/skills/slo-architect",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 6,
+        "skill_md_bytes": 10514
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 33,
+      "skill_id": "engineering.slo-architect.skills.slo-architect",
+      "name": "slo-architect",
+      "domain": "engineering",
+      "path": "engineering/slo-architect/skills/slo-architect",
+      "rank_score": 124,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 6,
+        "skill_md_bytes": 10514
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 34,
+      "skill_id": "engineering-team.skills.senior-backend",
+      "name": "senior-backend",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-backend",
+      "rank_score": 123,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 10156
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 35,
+      "skill_id": "engineering-team.skills.senior-data-engineer",
+      "name": "senior-data-engineer",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-data-engineer",
+      "rank_score": 123,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 5,
+        "skill_md_bytes": 6046
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 36,
+      "skill_id": "engineering-team.skills.senior-devops",
+      "name": "senior-devops",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-devops",
+      "rank_score": 123,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 10547
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 37,
+      "skill_id": "marketing-skill.skills.app-store-optimization",
+      "name": "app-store-optimization",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/app-store-optimization",
+      "rank_score": 123,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 8,
+        "references": 4,
+        "skill_md_bytes": 16917
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 38,
+      "skill_id": "engineering-team.skills.ms365-tenant-manager",
+      "name": "ms365-tenant-manager",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/ms365-tenant-manager",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 9256
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 39,
+      "skill_id": "engineering-team.skills.senior-data-scientist",
+      "name": "senior-data-scientist",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-data-scientist",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 9124
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 40,
+      "skill_id": "engineering-team.skills.senior-ml-engineer",
+      "name": "senior-ml-engineer",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-ml-engineer",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 9119
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 41,
+      "skill_id": "engineering-team.skills.senior-security",
+      "name": "senior-security",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-security",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 15390
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 42,
+      "skill_id": "engineering.agenthub.skills.agenthub",
+      "name": "agenthub",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/agenthub",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 6,
+        "references": 3,
+        "skill_md_bytes": 7902
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 43,
+      "skill_id": "engineering.feature-flags-architect.skills.feature-flags-architect",
+      "name": "feature-flags-architect",
+      "domain": "engineering",
+      "path": "engineering/feature-flags-architect/skills/feature-flags-architect",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 5,
+        "skill_md_bytes": 9795
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 44,
+      "skill_id": "engineering.skills.feature-flags-architect",
+      "name": "feature-flags-architect",
+      "domain": "engineering",
+      "path": "engineering/skills/feature-flags-architect",
+      "rank_score": 122,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 5,
+        "skill_md_bytes": 9795
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 45,
+      "skill_id": "engineering.skills.skill-tester.assets.sample-skill",
+      "name": "sample-skill",
+      "domain": "engineering",
+      "path": "engineering/skills/skill-tester/assets/sample-skill",
+      "rank_score": 122,
+      "quality_score": 61,
+      "passing": false,
+      "checks": {
+        "metadata_valid": false,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 7,
+        "skill_md_bytes": 5423
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 46,
+      "skill_id": "engineering.skills.interview-system-designer",
+      "name": "interview-system-designer",
+      "domain": "engineering",
+      "path": "engineering/skills/interview-system-designer",
+      "rank_score": 121,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 10,
+        "skill_md_bytes": 2270
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 47,
+      "skill_id": "engineering-team.playwright-pro.skills.pw",
+      "name": "playwright-pro",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/pw",
+      "rank_score": 120,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 56,
+        "skill_md_bytes": 5164
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 48,
+      "skill_id": "engineering.skills.browser-automation",
+      "name": "browser-automation",
+      "domain": "engineering",
+      "path": "engineering/skills/browser-automation",
+      "rank_score": 120,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 13816
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 49,
+      "skill_id": "engineering.skills.secrets-vault-manager",
+      "name": "secrets-vault-manager",
+      "domain": "engineering",
+      "path": "engineering/skills/secrets-vault-manager",
+      "rank_score": 120,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 14586
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 50,
+      "skill_id": "engineering.skills.spec-driven-workflow",
+      "name": "spec-driven-workflow",
+      "domain": "engineering",
+      "path": "engineering/skills/spec-driven-workflow",
+      "rank_score": 120,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 15646
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 51,
+      "skill_id": "engineering.skills.sql-database-assistant",
+      "name": "sql-database-assistant",
+      "domain": "engineering",
+      "path": "engineering/skills/sql-database-assistant",
+      "rank_score": 120,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 16077
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 52,
+      "skill_id": "engineering-team.snowflake-development.skills.snowflake-development",
+      "name": "snowflake-development",
+      "domain": "engineering-team",
+      "path": "engineering-team/snowflake-development/skills/snowflake-development",
+      "rank_score": 119,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 3,
+        "skill_md_bytes": 12795
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 53,
+      "skill_id": "engineering.skills.mcp-server-builder",
+      "name": "mcp-server-builder",
+      "domain": "engineering",
+      "path": "engineering/skills/mcp-server-builder",
+      "rank_score": 119,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 4,
+        "skill_md_bytes": 5734
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 54,
+      "skill_id": "engineering-team.skills.code-reviewer",
+      "name": "code-reviewer",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/code-reviewer",
+      "rank_score": 118,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 4707
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 55,
+      "skill_id": "engineering-team.skills.senior-fullstack",
+      "name": "senior-fullstack",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/senior-fullstack",
+      "rank_score": 118,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 8189
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 56,
+      "skill_id": "engineering.autoresearch-agent.skills.autoresearch-agent",
+      "name": "autoresearch-agent",
+      "domain": "engineering",
+      "path": "engineering/autoresearch-agent/skills/autoresearch-agent",
+      "rank_score": 118,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 2,
+        "skill_md_bytes": 12315
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 57,
+      "skill_id": "engineering.skills.api-design-reviewer",
+      "name": "api-design-reviewer",
+      "domain": "engineering",
+      "path": "engineering/skills/api-design-reviewer",
+      "rank_score": 117,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 2,
+        "skill_md_bytes": 11964
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 58,
+      "skill_id": "engineering.skills.changelog-generator",
+      "name": "changelog-generator",
+      "domain": "engineering",
+      "path": "engineering/skills/changelog-generator",
+      "rank_score": 117,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 4963
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 59,
+      "skill_id": "engineering.skills.ci-cd-pipeline-builder",
+      "name": "ci-cd-pipeline-builder",
+      "domain": "engineering",
+      "path": "engineering/skills/ci-cd-pipeline-builder",
+      "rank_score": 116,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 4756
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 60,
+      "skill_id": "engineering.skills.git-worktree-manager",
+      "name": "git-worktree-manager",
+      "domain": "engineering",
+      "path": "engineering/skills/git-worktree-manager",
+      "rank_score": 116,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 6681
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 61,
+      "skill_id": "product-team.code-to-prd.skills.code-to-prd",
+      "name": "code-to-prd",
+      "domain": "product-team",
+      "path": "product-team/code-to-prd/skills/code-to-prd",
+      "rank_score": 116,
+      "quality_score": 66,
+      "passing": false,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": false,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 6,
+        "skill_md_bytes": 19739
+      },
+      "broken_references_sample": [
+        "./pages/01-user-mgmt-list.md"
+      ]
+    },
+    {
+      "rank": 62,
+      "skill_id": "engineering-team.skills.ai-security",
+      "name": "ai-security",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/ai-security",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 17955
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 63,
+      "skill_id": "engineering-team.skills.cloud-security",
+      "name": "cloud-security",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/cloud-security",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 16626
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 64,
+      "skill_id": "engineering-team.skills.incident-response",
+      "name": "incident-response",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/incident-response",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 15390
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 65,
+      "skill_id": "engineering-team.skills.red-team",
+      "name": "red-team",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/red-team",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 15879
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 66,
+      "skill_id": "engineering-team.skills.threat-detection",
+      "name": "threat-detection",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/threat-detection",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 14163
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 67,
+      "skill_id": "engineering.helm-chart-builder.skills.helm-chart-builder",
+      "name": "helm-chart-builder",
+      "domain": "engineering",
+      "path": "engineering/helm-chart-builder/skills/helm-chart-builder",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 15439
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 68,
+      "skill_id": "engineering.terraform-patterns.skills.terraform-patterns",
+      "name": "terraform-patterns",
+      "domain": "engineering",
+      "path": "engineering/terraform-patterns/skills/terraform-patterns",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 22318
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 69,
+      "skill_id": "marketing-skill.skills.campaign-analytics",
+      "name": "campaign-analytics",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/campaign-analytics",
+      "rank_score": 115,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 8,
+        "skill_md_bytes": 8406
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 70,
+      "skill_id": "engineering.docker-development.skills.docker-development",
+      "name": "docker-development",
+      "domain": "engineering",
+      "path": "engineering/docker-development/skills/docker-development",
+      "rank_score": 114,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 11876
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 71,
+      "skill_id": "engineering.statistical-analyst.skills.statistical-analyst",
+      "name": "statistical-analyst",
+      "domain": "engineering",
+      "path": "engineering/statistical-analyst/skills/statistical-analyst",
+      "rank_score": 114,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 1,
+        "skill_md_bytes": 10115
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 72,
+      "skill_id": "marketing-skill.skills.content-production",
+      "name": "content-production",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/content-production",
+      "rank_score": 114,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 4,
+        "references": 5,
+        "skill_md_bytes": 10434
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 73,
+      "skill_id": "engineering.data-quality-auditor.skills.data-quality-auditor",
+      "name": "data-quality-auditor",
+      "domain": "engineering",
+      "path": "engineering/data-quality-auditor/skills/data-quality-auditor",
+      "rank_score": 113,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 1,
+        "skill_md_bytes": 8980
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 74,
+      "skill_id": "product-team.skills.product-manager-toolkit",
+      "name": "product-manager-toolkit",
+      "domain": "product-team",
+      "path": "product-team/skills/product-manager-toolkit",
+      "rank_score": 112,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 5,
+        "skill_md_bytes": 10083
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 75,
+      "skill_id": "engineering.skills.rag-architect",
+      "name": "rag-architect",
+      "domain": "engineering",
+      "path": "engineering/skills/rag-architect",
+      "rank_score": 111,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 3,
+        "skill_md_bytes": 15690
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 76,
+      "skill_id": "engineering-team.skills.email-template-builder",
+      "name": "email-template-builder",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/email-template-builder",
+      "rank_score": 110,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 15171
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 77,
+      "skill_id": "engineering-team.skills.stripe-integration-expert",
+      "name": "stripe-integration-expert",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/stripe-integration-expert",
+      "rank_score": 110,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 14531
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 78,
+      "skill_id": "engineering.skills.env-secrets-manager",
+      "name": "env-secrets-manager",
+      "domain": "engineering",
+      "path": "engineering/skills/env-secrets-manager",
+      "rank_score": 110,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 10385
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 79,
+      "skill_id": "marketing-skill.skills.paid-ads",
+      "name": "paid-ads",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/paid-ads",
+      "rank_score": 110,
+      "quality_score": 66,
+      "passing": false,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": false,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 5,
+        "skill_md_bytes": 12619
+      },
+      "broken_references_sample": [
+        "../../tools/REGISTRY.md",
+        "../../tools/integrations/google-ads.md",
+        "../../tools/integrations/meta-ads.md",
+        "../../tools/integrations/linkedin-ads.md",
+        "../../tools/integrations/tiktok-ads.md"
+      ]
+    },
+    {
+      "rank": 80,
+      "skill_id": "product-team.skills.ux-researcher-designer",
+      "name": "ux-researcher-designer",
+      "domain": "product-team",
+      "path": "product-team/skills/ux-researcher-designer",
+      "rank_score": 110,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 5,
+        "skill_md_bytes": 11962
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 81,
+      "skill_id": "engineering-team.skills.adversarial-reviewer",
+      "name": "adversarial-reviewer",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/adversarial-reviewer",
+      "rank_score": 109,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 11900
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 82,
+      "skill_id": "product-team.agile-product-owner.skills.agile-product-owner",
+      "name": "agile-product-owner",
+      "domain": "product-team",
+      "path": "product-team/agile-product-owner/skills/agile-product-owner",
+      "rank_score": 109,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 12688
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 83,
+      "skill_id": "product-team.skills.ui-design-system",
+      "name": "ui-design-system",
+      "domain": "product-team",
+      "path": "product-team/skills/ui-design-system",
+      "rank_score": 109,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 5,
+        "skill_md_bytes": 10741
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 84,
+      "skill_id": "marketing-skill.skills.x-twitter-growth",
+      "name": "x-twitter-growth",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/x-twitter-growth",
+      "rank_score": 108,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 5,
+        "references": 1,
+        "skill_md_bytes": 8674
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 85,
+      "skill_id": "engineering.skills.ship-gate",
+      "name": "ship-gate",
+      "domain": "engineering",
+      "path": "engineering/skills/ship-gate",
+      "rank_score": 107,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 6606
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 86,
+      "skill_id": "product-team.skills.landing-page-generator",
+      "name": "landing-page-generator",
+      "domain": "product-team",
+      "path": "product-team/skills/landing-page-generator",
+      "rank_score": 107,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 10632
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 87,
+      "skill_id": "product-team.skills.saas-scaffolder",
+      "name": "saas-scaffolder",
+      "domain": "product-team",
+      "path": "product-team/skills/saas-scaffolder",
+      "rank_score": 107,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 10805
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 88,
+      "skill_id": "engineering.skills.skill-security-auditor",
+      "name": "skill-security-auditor",
+      "domain": "engineering",
+      "path": "engineering/skills/skill-security-auditor",
+      "rank_score": 106,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 8005
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 89,
+      "skill_id": "marketing-skill.skills.prompt-engineer-toolkit",
+      "name": "prompt-engineer-toolkit",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/prompt-engineer-toolkit",
+      "rank_score": 106,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 5088
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 90,
+      "skill_id": "engineering-team.self-improving-agent.skills.self-improving-agent",
+      "name": "self-improving-agent",
+      "domain": "engineering-team",
+      "path": "engineering-team/self-improving-agent/skills/self-improving-agent",
+      "rank_score": 105,
+      "quality_score": 80,
+      "passing": false,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": false,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 7025
+      },
+      "broken_references_sample": [
+        "../playwright-pro/"
+      ]
+    },
+    {
+      "rank": 91,
+      "skill_id": "engineering.skills.focused-fix",
+      "name": "focused-fix",
+      "domain": "engineering",
+      "path": "engineering/skills/focused-fix",
+      "rank_score": 105,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 13778
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 92,
+      "skill_id": "engineering.skills.monorepo-navigator",
+      "name": "monorepo-navigator",
+      "domain": "engineering",
+      "path": "engineering/skills/monorepo-navigator",
+      "rank_score": 105,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 4545
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 93,
+      "skill_id": "product-team.research-summarizer.skills.research-summarizer",
+      "name": "research-summarizer",
+      "domain": "product-team",
+      "path": "product-team/research-summarizer/skills/research-summarizer",
+      "rank_score": 105,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 9489
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 94,
+      "skill_id": "product-team.skills.competitive-teardown",
+      "name": "competitive-teardown",
+      "domain": "product-team",
+      "path": "product-team/skills/competitive-teardown",
+      "rank_score": 105,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 8424
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 95,
+      "skill_id": "product-team.skills.product-strategist",
+      "name": "product-strategist",
+      "domain": "product-team",
+      "path": "product-team/skills/product-strategist",
+      "rank_score": 105,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 7325
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 96,
+      "skill_id": "project-management.skills.senior-pm",
+      "name": "senior-pm",
+      "domain": "project-management",
+      "path": "project-management/skills/senior-pm",
+      "rank_score": 105,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 8,
+        "skill_md_bytes": 16595
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 97,
+      "skill_id": "engineering-team.self-improving-agent.skills.extract",
+      "name": "extract",
+      "domain": "engineering-team",
+      "path": "engineering-team/self-improving-agent/skills/extract",
+      "rank_score": 104,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 5612
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 98,
+      "skill_id": "engineering.llm-cost-optimizer.skills.llm-cost-optimizer",
+      "name": "llm-cost-optimizer",
+      "domain": "engineering",
+      "path": "engineering/llm-cost-optimizer/skills/llm-cost-optimizer",
+      "rank_score": 104,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 11294
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 99,
+      "skill_id": "engineering.prompt-governance.skills.prompt-governance",
+      "name": "prompt-governance",
+      "domain": "engineering",
+      "path": "engineering/prompt-governance/skills/prompt-governance",
+      "rank_score": 104,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 11215
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 100,
+      "skill_id": "engineering.skills.command-guide",
+      "name": "command-guide",
+      "domain": "engineering",
+      "path": "engineering/skills/command-guide",
+      "rank_score": 104,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 11199
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 101,
+      "skill_id": "engineering.skills.performance-profiler",
+      "name": "performance-profiler",
+      "domain": "engineering",
+      "path": "engineering/skills/performance-profiler",
+      "rank_score": 104,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 5078
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 102,
+      "skill_id": "engineering.skills.pr-review-expert",
+      "name": "pr-review-expert",
+      "domain": "engineering",
+      "path": "engineering/skills/pr-review-expert",
+      "rank_score": 104,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 11862
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 103,
+      "skill_id": "marketing-skill.skills.copy-editing",
+      "name": "copy-editing",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/copy-editing",
+      "rank_score": 104,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 15948
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 104,
+      "skill_id": "engineering-team.playwright-pro.skills.browserstack",
+      "name": "browserstack",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/browserstack",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4516
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 105,
+      "skill_id": "engineering-team.playwright-pro.skills.generate",
+      "name": "generate",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/generate",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4543
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 106,
+      "skill_id": "engineering-team.playwright-pro.skills.init",
+      "name": "init",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/init",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4694
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 107,
+      "skill_id": "engineering-team.playwright-pro.skills.migrate",
+      "name": "migrate",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/migrate",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4222
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 108,
+      "skill_id": "engineering-team.self-improving-agent.skills.promote",
+      "name": "promote",
+      "domain": "engineering-team",
+      "path": "engineering-team/self-improving-agent/skills/promote",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4510
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 109,
+      "skill_id": "engineering-team.self-improving-agent.skills.review",
+      "name": "review",
+      "domain": "engineering-team",
+      "path": "engineering-team/self-improving-agent/skills/review",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4099
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 110,
+      "skill_id": "engineering.behuman.skills.behuman",
+      "name": "behuman",
+      "domain": "engineering",
+      "path": "engineering/behuman/skills/behuman",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 1,
+        "skill_md_bytes": 8115
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 111,
+      "skill_id": "engineering.skills.codebase-onboarding",
+      "name": "codebase-onboarding",
+      "domain": "engineering",
+      "path": "engineering/skills/codebase-onboarding",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 2325
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 112,
+      "skill_id": "engineering.skills.database-schema-designer",
+      "name": "database-schema-designer",
+      "domain": "engineering",
+      "path": "engineering/skills/database-schema-designer",
+      "rank_score": 103,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 1,
+        "skill_md_bytes": 7502
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 113,
+      "skill_id": "marketing-skill.skills.analytics-tracking",
+      "name": "analytics-tracking",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/analytics-tracking",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 3,
+        "skill_md_bytes": 14552
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 114,
+      "skill_id": "marketing-skill.skills.cold-email",
+      "name": "cold-email",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/cold-email",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 3,
+        "skill_md_bytes": 14101
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 115,
+      "skill_id": "marketing-skill.skills.marketing-demand-acquisition",
+      "name": "marketing-demand-acquisition",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/marketing-demand-acquisition",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 9777
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 116,
+      "skill_id": "marketing-skill.skills.seo-audit",
+      "name": "seo-audit",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/seo-audit",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 4,
+        "skill_md_bytes": 6311
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 117,
+      "skill_id": "marketing-skill.skills.social-media-analyzer",
+      "name": "social-media-analyzer",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/social-media-analyzer",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 8500
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 118,
+      "skill_id": "product-team.skills.spec-to-repo",
+      "name": "spec-to-repo",
+      "domain": "product-team",
+      "path": "product-team/skills/spec-to-repo",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 11296
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 119,
+      "skill_id": "project-management.skills.scrum-master",
+      "name": "scrum-master",
+      "domain": "project-management",
+      "path": "project-management/skills/scrum-master",
+      "rank_score": 103,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 8,
+        "skill_md_bytes": 9699
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 120,
+      "skill_id": "engineering-team.playwright-pro.skills.coverage",
+      "name": "coverage",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/coverage",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2715
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 121,
+      "skill_id": "engineering-team.playwright-pro.skills.fix",
+      "name": "fix",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/fix",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3057
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 122,
+      "skill_id": "engineering-team.playwright-pro.skills.report",
+      "name": "report",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/report",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2931
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 123,
+      "skill_id": "engineering-team.playwright-pro.skills.review",
+      "name": "review",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/review",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3091
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 124,
+      "skill_id": "engineering-team.playwright-pro.skills.testrail",
+      "name": "testrail",
+      "domain": "engineering-team",
+      "path": "engineering-team/playwright-pro/skills/testrail",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3308
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 125,
+      "skill_id": "engineering-team.self-improving-agent.skills.remember",
+      "name": "remember",
+      "domain": "engineering-team",
+      "path": "engineering-team/self-improving-agent/skills/remember",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3147
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 126,
+      "skill_id": "engineering-team.self-improving-agent.skills.status",
+      "name": "status",
+      "domain": "engineering-team",
+      "path": "engineering-team/self-improving-agent/skills/status",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2742
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 127,
+      "skill_id": "engineering-team.skills.engineering-skills",
+      "name": "engineering-skills",
+      "domain": "engineering-team",
+      "path": "engineering-team/skills/engineering-skills",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3390
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 128,
+      "skill_id": "engineering.skills.api-test-suite-builder",
+      "name": "api-test-suite-builder",
+      "domain": "engineering",
+      "path": "engineering/skills/api-test-suite-builder",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 1,
+        "skill_md_bytes": 6309
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 129,
+      "skill_id": "engineering.skills.self-eval",
+      "name": "self-eval",
+      "domain": "engineering",
+      "path": "engineering/skills/self-eval",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 8457
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 130,
+      "skill_id": "marketing-skill.skills.marketing-strategy-pmm",
+      "name": "marketing-strategy-pmm",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/marketing-strategy-pmm",
+      "rank_score": 102,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 4,
+        "skill_md_bytes": 12376
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 131,
+      "skill_id": "product-team.apple-hig-expert.skills.apple-hig-expert",
+      "name": "apple-hig-expert",
+      "domain": "product-team",
+      "path": "product-team/apple-hig-expert/skills/apple-hig-expert",
+      "rank_score": 102,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 4,
+        "skill_md_bytes": 3805
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 132,
+      "skill_id": "engineering.demo-video.skills.demo-video",
+      "name": "demo-video",
+      "domain": "engineering",
+      "path": "engineering/demo-video/skills/demo-video",
+      "rank_score": 101,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 1,
+        "skill_md_bytes": 5173
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 133,
+      "skill_id": "engineering.skills.agent-workflow-designer",
+      "name": "agent-workflow-designer",
+      "domain": "engineering",
+      "path": "engineering/skills/agent-workflow-designer",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 2379
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 134,
+      "skill_id": "engineering.skills.runbook-generator",
+      "name": "runbook-generator",
+      "domain": "engineering",
+      "path": "engineering/skills/runbook-generator",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 1826
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 135,
+      "skill_id": "marketing-skill.skills.content-humanizer",
+      "name": "content-humanizer",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/content-humanizer",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 14058
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 136,
+      "skill_id": "marketing-skill.skills.free-tool-strategy",
+      "name": "free-tool-strategy",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/free-tool-strategy",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 12260
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 137,
+      "skill_id": "marketing-skill.skills.pricing-strategy",
+      "name": "pricing-strategy",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/pricing-strategy",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 14430
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 138,
+      "skill_id": "marketing-skill.skills.referral-program",
+      "name": "referral-program",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/referral-program",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 13852
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 139,
+      "skill_id": "marketing-skill.skills.site-architecture",
+      "name": "site-architecture",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/site-architecture",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 14008
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 140,
+      "skill_id": "ra-qm-team.skills.fda-consultant-specialist",
+      "name": "fda-consultant-specialist",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/fda-consultant-specialist",
+      "rank_score": 101,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 5,
+        "skill_md_bytes": 10283
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 141,
+      "skill_id": "engineering.code-tour.skills.code-tour",
+      "name": "code-tour",
+      "domain": "engineering",
+      "path": "engineering/code-tour/skills/code-tour",
+      "rank_score": 100,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 6332
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 142,
+      "skill_id": "marketing-skill.skills.ad-creative",
+      "name": "ad-creative",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/ad-creative",
+      "rank_score": 100,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 11258
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 143,
+      "skill_id": "marketing-skill.skills.ai-seo",
+      "name": "ai-seo",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/ai-seo",
+      "rank_score": 100,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 3,
+        "skill_md_bytes": 16056
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 144,
+      "skill_id": "marketing-skill.skills.churn-prevention",
+      "name": "churn-prevention",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/churn-prevention",
+      "rank_score": 100,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 11088
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 145,
+      "skill_id": "marketing-skill.skills.schema-markup",
+      "name": "schema-markup",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/schema-markup",
+      "rank_score": 100,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 11645
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 146,
+      "skill_id": "c-level-advisor.skills.cfo-advisor",
+      "name": "cfo-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/cfo-advisor",
+      "rank_score": 99,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 7296
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 147,
+      "skill_id": "c-level-advisor.skills.cto-advisor",
+      "name": "cto-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/cto-advisor",
+      "rank_score": 99,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 11979
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 148,
+      "skill_id": "engineering.skills.full-page-screenshot",
+      "name": "full-page-screenshot",
+      "domain": "engineering",
+      "path": "engineering/skills/full-page-screenshot",
+      "rank_score": 99,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 5508
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 149,
+      "skill_id": "marketing-skill.skills.competitor-alternatives",
+      "name": "competitor-alternatives",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/competitor-alternatives",
+      "rank_score": 99,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 10653
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 150,
+      "skill_id": "marketing-skill.skills.copywriting",
+      "name": "copywriting",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/copywriting",
+      "rank_score": 99,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 9783
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 151,
+      "skill_id": "marketing-skill.skills.social-content",
+      "name": "social-content",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/social-content",
+      "rank_score": 99,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 3,
+        "skill_md_bytes": 11257
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 152,
+      "skill_id": "product-team.skills.product-analytics",
+      "name": "product-analytics",
+      "domain": "product-team",
+      "path": "product-team/skills/product-analytics",
+      "rank_score": 99,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 5501
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 153,
+      "skill_id": "ra-qm-team.skills.soc2-compliance",
+      "name": "soc2-compliance",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/soc2-compliance",
+      "rank_score": 99,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 18896
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 154,
+      "skill_id": "business-growth.skills.customer-success-manager",
+      "name": "customer-success-manager",
+      "domain": "business-growth",
+      "path": "business-growth/skills/customer-success-manager",
+      "rank_score": 98,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 9,
+        "skill_md_bytes": 9222
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 155,
+      "skill_id": "business-growth.skills.revenue-operations",
+      "name": "revenue-operations",
+      "domain": "business-growth",
+      "path": "business-growth/skills/revenue-operations",
+      "rank_score": 98,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 10,
+        "skill_md_bytes": 9435
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 156,
+      "skill_id": "business-growth.skills.sales-engineer",
+      "name": "sales-engineer",
+      "domain": "business-growth",
+      "path": "business-growth/skills/sales-engineer",
+      "rank_score": 98,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 8,
+        "skill_md_bytes": 9381
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 157,
+      "skill_id": "engineering.agenthub.skills.run",
+      "name": "run",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/run",
+      "rank_score": 98,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3687
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 158,
+      "skill_id": "engineering.autoresearch-agent.skills.loop",
+      "name": "loop",
+      "domain": "engineering",
+      "path": "engineering/autoresearch-agent/skills/loop",
+      "rank_score": 98,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 4117
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 159,
+      "skill_id": "marketing-skill.skills.ab-test-setup",
+      "name": "ab-test-setup",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/ab-test-setup",
+      "rank_score": 98,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 9471
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 160,
+      "skill_id": "ra-qm-team.skills.regulatory-affairs-head",
+      "name": "regulatory-affairs-head",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/regulatory-affairs-head",
+      "rank_score": 98,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 4,
+        "skill_md_bytes": 20196
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 161,
+      "skill_id": "c-level-advisor.skills.cmo-advisor",
+      "name": "cmo-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/cmo-advisor",
+      "rank_score": 97,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 8520
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 162,
+      "skill_id": "c-level-advisor.skills.cpo-advisor",
+      "name": "cpo-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/cpo-advisor",
+      "rank_score": 97,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 9087
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 163,
+      "skill_id": "c-level-advisor.skills.cro-advisor",
+      "name": "cro-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/cro-advisor",
+      "rank_score": 97,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 8873
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 164,
+      "skill_id": "engineering.agenthub.skills.init",
+      "name": "init",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/init",
+      "rank_score": 97,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2723
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 165,
+      "skill_id": "engineering.agenthub.skills.spawn",
+      "name": "spawn",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/spawn",
+      "rank_score": 97,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 3224
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 166,
+      "skill_id": "engineering.autoresearch-agent.skills.run",
+      "name": "run",
+      "domain": "engineering",
+      "path": "engineering/autoresearch-agent/skills/run",
+      "rank_score": 97,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2435
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 167,
+      "skill_id": "engineering.autoresearch-agent.skills.setup",
+      "name": "setup",
+      "domain": "engineering",
+      "path": "engineering/autoresearch-agent/skills/setup",
+      "rank_score": 97,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2867
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 168,
+      "skill_id": "engineering.skills.engineering-advanced-skills",
+      "name": "engineering-advanced-skills",
+      "domain": "engineering",
+      "path": "engineering/skills/engineering-advanced-skills",
+      "rank_score": 97,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2893
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 169,
+      "skill_id": "product-team.skills.experiment-designer",
+      "name": "experiment-designer",
+      "domain": "product-team",
+      "path": "product-team/skills/experiment-designer",
+      "rank_score": 97,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 3129
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 170,
+      "skill_id": "product-team.skills.roadmap-communicator",
+      "name": "roadmap-communicator",
+      "domain": "product-team",
+      "path": "product-team/skills/roadmap-communicator",
+      "rank_score": 97,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 2,
+        "skill_md_bytes": 2590
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 171,
+      "skill_id": "c-level-advisor.skills.ceo-advisor",
+      "name": "ceo-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/ceo-advisor",
+      "rank_score": 96,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 8186
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 172,
+      "skill_id": "c-level-advisor.skills.ciso-advisor",
+      "name": "ciso-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/ciso-advisor",
+      "rank_score": 96,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 7272
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 173,
+      "skill_id": "engineering.agenthub.skills.board",
+      "name": "board",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/board",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2324
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 174,
+      "skill_id": "engineering.agenthub.skills.eval",
+      "name": "eval",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/eval",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2369
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 175,
+      "skill_id": "engineering.agenthub.skills.merge",
+      "name": "merge",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/merge",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2256
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 176,
+      "skill_id": "engineering.agenthub.skills.status",
+      "name": "status",
+      "domain": "engineering",
+      "path": "engineering/agenthub/skills/status",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2396
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 177,
+      "skill_id": "engineering.autoresearch-agent.skills.resume",
+      "name": "resume",
+      "domain": "engineering",
+      "path": "engineering/autoresearch-agent/skills/resume",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 2009
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 178,
+      "skill_id": "engineering.autoresearch-agent.skills.status",
+      "name": "status",
+      "domain": "engineering",
+      "path": "engineering/autoresearch-agent/skills/status",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 0,
+        "skill_md_bytes": 1835
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 179,
+      "skill_id": "marketing-skill.skills.content-creator",
+      "name": "content-creator",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/content-creator",
+      "rank_score": 96,
+      "quality_score": 100,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "not_applicable",
+        "security_audit": "pass_no_scripts"
+      },
+      "counts": {
+        "scripts": 0,
+        "references": 5,
+        "skill_md_bytes": 2871
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 180,
+      "skill_id": "marketing-skill.skills.signup-flow-cro",
+      "name": "signup-flow-cro",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/signup-flow-cro",
+      "rank_score": 96,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 9163
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 181,
+      "skill_id": "ra-qm-team.skills.risk-management-specialist",
+      "name": "risk-management-specialist",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/risk-management-specialist",
+      "rank_score": 96,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 15493
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 182,
+      "skill_id": "c-level-advisor.executive-mentor.skills.executive-mentor",
+      "name": "executive-mentor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/executive-mentor/skills/executive-mentor",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 7199
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 183,
+      "skill_id": "c-level-advisor.skills.chro-advisor",
+      "name": "chro-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/chro-advisor",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 7238
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 184,
+      "skill_id": "c-level-advisor.skills.coo-advisor",
+      "name": "coo-advisor",
+      "domain": "c-level-advisor",
+      "path": "c-level-advisor/skills/coo-advisor",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 6449
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 185,
+      "skill_id": "finance.skills.financial-analyst",
+      "name": "financial-analyst",
+      "domain": "finance",
+      "path": "finance/skills/financial-analyst",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 4,
+        "references": 9,
+        "skill_md_bytes": 6404
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 186,
+      "skill_id": "marketing-skill.skills.form-cro",
+      "name": "form-cro",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/form-cro",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 8144
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 187,
+      "skill_id": "marketing-skill.skills.programmatic-seo",
+      "name": "programmatic-seo",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/programmatic-seo",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 0,
+        "skill_md_bytes": 10156
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 188,
+      "skill_id": "product-team.skills.product-discovery",
+      "name": "product-discovery",
+      "domain": "product-team",
+      "path": "product-team/skills/product-discovery",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 3312
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 189,
+      "skill_id": "ra-qm-team.skills.gdpr-dsgvo-expert",
+      "name": "gdpr-dsgvo-expert",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/gdpr-dsgvo-expert",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 3,
+        "references": 3,
+        "skill_md_bytes": 7927
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 190,
+      "skill_id": "ra-qm-team.skills.information-security-manager-iso27001",
+      "name": "information-security-manager-iso27001",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/information-security-manager-iso27001",
+      "rank_score": 95,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 3,
+        "skill_md_bytes": 11648
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 191,
+      "skill_id": "marketing-skill.skills.marketing-context",
+      "name": "marketing-context",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/marketing-context",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 7019
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 192,
+      "skill_id": "marketing-skill.skills.marketing-ops",
+      "name": "marketing-ops",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/marketing-ops",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 0,
+        "skill_md_bytes": 9305
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 193,
+      "skill_id": "marketing-skill.skills.onboarding-cro",
+      "name": "onboarding-cro",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/onboarding-cro",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 0,
+        "skill_md_bytes": 8676
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 194,
+      "skill_id": "marketing-skill.skills.page-cro",
+      "name": "page-cro",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/page-cro",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 0,
+        "skill_md_bytes": 9170
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 195,
+      "skill_id": "marketing-skill.skills.social-media-manager",
+      "name": "social-media-manager",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/social-media-manager",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 0,
+        "skill_md_bytes": 9139
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 196,
+      "skill_id": "ra-qm-team.skills.capa-officer",
+      "name": "capa-officer",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/capa-officer",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 14850
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 197,
+      "skill_id": "ra-qm-team.skills.quality-documentation-manager",
+      "name": "quality-documentation-manager",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/quality-documentation-manager",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 14055
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 198,
+      "skill_id": "ra-qm-team.skills.quality-manager-qmr",
+      "name": "quality-manager-qmr",
+      "domain": "ra-qm-team",
+      "path": "ra-qm-team/skills/quality-manager-qmr",
+      "rank_score": 94,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 2,
+        "references": 2,
+        "skill_md_bytes": 18053
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 199,
+      "skill_id": "marketing-skill.skills.content-strategy",
+      "name": "content-strategy",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/content-strategy",
+      "rank_score": 93,
+      "quality_score": 86,
+      "passing": true,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": true,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 5707
+      },
+      "broken_references_sample": []
+    },
+    {
+      "rank": 200,
+      "skill_id": "marketing-skill.skills.email-sequence",
+      "name": "email-sequence",
+      "domain": "marketing-skill",
+      "path": "marketing-skill/skills/email-sequence",
+      "rank_score": 93,
+      "quality_score": 66,
+      "passing": false,
+      "checks": {
+        "metadata_valid": true,
+        "structure_valid": true,
+        "references_integrity": false,
+        "script_help": "unverified",
+        "security_audit": "unverified"
+      },
+      "counts": {
+        "scripts": 1,
+        "references": 1,
+        "skill_md_bytes": 5779
+      },
+      "broken_references_sample": [
+        "../../tools/REGISTRY.md",
+        "../../tools/integrations/customer-io.md",
+        "../../tools/integrations/mailchimp.md",
+        "../../tools/integrations/resend.md",
+        "../../tools/integrations/sendgrid.md"
+      ]
+    }
+  ]
+}

@@ -9,5 +9,5 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": ["./skills/compliance-os", "./skills/compliance-readiness", "./skills/aims-audit", "./skills/ai-act-readiness", "./skills/iso27001-audit-prep", "./skills/iso13485-audit-prep", "./skills/gdpr-audit-prep", "./skills/soc2-audit-prep", "./skills/fda-qsr-audit-prep"]
+  "skills": ["skills/compliance-os", "skills/compliance-readiness", "skills/aims-audit", "skills/ai-act-readiness", "skills/iso27001-audit-prep", "skills/iso13485-audit-prep", "skills/gdpr-audit-prep", "skills/soc2-audit-prep", "skills/fda-qsr-audit-prep"]
 }

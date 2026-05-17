@@ -1,6 +1,6 @@
 ---
 name: "ui-design-system"
-description: UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration.
+description: "When the user wants to design or maintain a UI design system: design tokens, color palettes, typography scales, component documentation, responsive grids, or design-to-developer handoff. Triggers include \"design system,\" \"design tokens,\" \"color palette,\" \"typography scale,\" \"component library,\" \"shadcn/ui setup,\" \"design handoff,\" \"design-to-dev,\" \"Figma to code,\" \"responsive grid,\" \"design tokens Tailwind,\" \"system documentation.\" Distinct from senior-frontend (implementation) and brand-guidelines (visual brand rules and logo lockups). Critical for Mo: Curb design system (consumer iOS, brand-isolated from Momentus, gold and pearl-white palette is Momentus-specific and must stay out of Curb), askminimo agent-facing UI tokens, Mo platform broker-owner UI tokens (psychology-first product framing per locked rule, NOT CRM/automation styling), maureencappallo.com Doors palette, Momentus custom Sanity-plus-Next.js rebuild. Pair with senior-frontend for implementation and brand-guidelines for visual identity rules."
 ---
 
 # UI Design System

@@ -1,6 +1,6 @@
 ---
 name: roadmap-communicator
-description: Use when preparing roadmap narratives, release notes, changelogs, or stakeholder updates tailored for executives, engineering teams, and customers.
+description: "When the user wants to prepare roadmap narratives, release notes, changelogs, internal updates, customer announcements, or stakeholder updates tailored for different audiences. Triggers include \"roadmap narrative,\" \"release notes,\" \"changelog,\" \"stakeholder update,\" \"product update,\" \"internal announcement,\" \"customer announcement,\" \"executive roadmap,\" \"engineering roadmap,\" \"product communication,\" \"now next later,\" \"board roadmap update.\" Tailors voice and depth for executives, engineering teams, customers, and investors. Critical for Mo: Mo platform investor update cadence (monthly, focused on operator-as-first-customer narrative and waitlist growth), Curb release notes for the App Store (consumer iOS, plain-language, no Mo-platform cross-contamination), askminimo agent-facing changelog ($19.99/mo SaaS), Lighthouse internal weekly digest. Voice precedence: maureen-personal-brand for investor-facing, curb-app-builder for consumer-facing, mo for Mo Inc investor materials. Pair with internal-comms for tone matching."
 ---
 
 # Roadmap Communicator

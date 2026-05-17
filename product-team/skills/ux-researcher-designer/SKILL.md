@@ -1,6 +1,6 @@
 ---
 name: "ux-researcher-designer"
-description: UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation.
+description: "When the user wants to do UX research and design work: data-driven personas, journey mapping, usability test planning, research synthesis, or design validation. Triggers include \"UX research,\" \"persona generation,\" \"journey map,\" \"usability test,\" \"user interview,\" \"research synthesis,\" \"design validation,\" \"qualitative research,\" \"user observation,\" \"customer journey,\" \"empathy map,\" \"task analysis,\" \"design research.\" Distinct from product-discovery (validating opportunities before build) and ui-design-system (visual system, not research). Relevant for Mo: Mo platform broker-owner persona development (operator pain points around onboarding, agent matching, retention), Curb consumer homeowner journey mapping (pre-listing prep, Sell-Ready Date mechanic, score-to-action), askminimo agent persona research (workflow vs hype expectations), Door 01 founding-cohort interview synthesis. Pair with product-discovery upstream and competitive-teardown for context."
 ---
 
 # UX Researcher & Designer

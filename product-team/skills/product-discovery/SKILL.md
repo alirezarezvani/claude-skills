@@ -1,6 +1,6 @@
 ---
 name: product-discovery
-description: Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources.
+description: "When the user wants to validate product opportunities, map assumptions, plan discovery sprints, or test problem-solution fit before committing delivery resources. Triggers include \"product discovery,\" \"validate opportunity,\" \"assumption mapping,\" \"discovery sprint,\" \"problem-solution fit,\" \"de-risk product bet,\" \"Teresa Torres,\" \"continuous discovery,\" \"opportunity solution tree,\" \"customer interview,\" \"JTBD interview,\" \"riskiest assumption test.\" Distinct from product-strategist (long-range positioning and OKR work) and ux-researcher-designer (focused on research methods and synthesis). Relevant for Mo: Mo platform broker-owner discovery interviews (validating psychology-first matching as the wedge before scaling beta), Curb consumer feature discovery (which home-prep mechanic surfaces drive the most virality), askminimo agent discovery (which AI workflow do agents actually want vs. tolerate), Door 01 cohort discovery (rebuild intensive value-prop testing). Pair with experiment-designer once hypotheses are sharp enough to test and competitive-teardown for market context."
 ---
 
 # Product Discovery

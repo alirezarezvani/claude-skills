@@ -1,6 +1,6 @@
 ---
 name: spec-to-repo
-description: "Use when the user says 'build me an app', 'create a project from this spec', 'scaffold a new repo', 'generate a starter', 'turn this idea into code', 'bootstrap a project', 'I have requirements and need a codebase', or provides a natural-language project specification and expects a complete, runnable repository. Stack-agnostic: Next.js, FastAPI, Rails, Go, Rust, Flutter, and more."
+description: "When the user says \"build me an app,\" \"create a project from this spec,\" \"scaffold a new repo,\" \"generate a starter,\" \"turn this idea into code,\" \"bootstrap a project,\" \"I have requirements and need a codebase,\" or provides a natural-language project specification and expects a complete, runnable repository. Stack-agnostic: Next.js, FastAPI, Rails, Go, Rust, Flutter, Capacitor, and more. Triggers include \"spec to repo,\" \"generate starter,\" \"scaffold from spec,\" \"build from requirements,\" \"new repo from PRD.\" Distinct from saas-scaffolder (opinionated SaaS template, not freeform spec) and from product-manager-toolkit (RICE and roadmap, not code). Relevant for Mo: prototyping new internal tools for Lighthouse or Momentus ops, fast-tracking Door 03 client side-projects when needed, generating throwaway test repos to validate stack choices. Pair with tech-stack-evaluator before committing to the stack and senior-architect when the starter graduates into a real product."
 ---
 
 # Spec to Repo

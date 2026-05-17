@@ -1,6 +1,6 @@
 ---
 name: "product-skills"
-description: "10 product agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. PM toolkit (RICE), agile PO, product strategist (OKR), UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, research summarizer. Python tools (stdlib-only)."
+description: "Plugin index and orchestration router for the 10-skill product-team family covering PM toolkit (RICE), agile PO, product strategist (OKR), UX researcher/designer, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, product discovery, roadmap communicator, spec-to-repo, and research summarizer. Triggers include \"product-skills overview,\" \"what product skills are available,\" \"list product tools,\" \"product capabilities,\" \"product plugin help,\" \"what can the product plugin do.\" Relevant for Mo: this is the umbrella under which product decisions for Mo platform (psychology-first matching, broker-owner SaaS, founder-tier pricing), Curb (consumer iOS, dual SKU, home-readiness score), askminimo ($19.99/mo agent AI tool), and Maureen Personal (Door 01/02/03 founder-led offerings) get routed. Pair with marketing-skills for GTM execution and engineering-skills for build."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT

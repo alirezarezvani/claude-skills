@@ -1,6 +1,6 @@
 ---
 name: "social-media-analyzer"
-description: Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards.
+description: "When the user wants to analyze social media campaign performance: engagement rates, ROI, platform benchmarks, post-level performance, or cross-platform comparison. Triggers include \"analyze social media,\" \"engagement rate,\" \"social media ROI,\" \"campaign performance,\" \"social benchmark,\" \"which post worked,\" \"viral analysis,\" \"post-level performance,\" \"cross-platform comparison,\" \"social analytics,\" \"LinkedIn engagement,\" \"IG engagement,\" \"TikTok performance.\" Distinct from campaign-analytics (which covers all marketing channels including paid, email, web) and from social-media-manager (which covers ops and scheduling). Critical for Mo: Buffer post-level analytics across Momentus, Curb, askminimo, Maureen Personal, and Mo platform; which Reels are converting; LinkedIn long-form post performance for Maureen Personal; FB Page engagement on the Momentus page. Pair with content-strategy when patterns emerge that should reshape the calendar, and with social-content for next-week iteration."
 triggers:
   - analyze social media
   - calculate engagement rate

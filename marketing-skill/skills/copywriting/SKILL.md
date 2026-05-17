@@ -1,6 +1,6 @@
 ---
 name: "copywriting"
-description: "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro."
+description: "When the user wants to write, rewrite, or improve marketing copy for any page: homepage, landing page, pricing page, feature page, about page, product page, or paywall. Triggers include \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" \"CTA copy,\" \"value prop,\" \"hero copy,\" \"pricing copy,\" \"website copy,\" \"sales copy.\" For email copy, see email-sequence. For popup copy, see popup-cro. For blog or article writing, see content-production. Critical for Mo: Lighthouse work across Momentus, Curb, askminimo, Maureen Personal, and Mo platform: work-with-me CTA, About page rewrites, paywall/pricing copy, signup pages, hero copy, investor deck slide copy, App Store description sections. Voice precedence: momentus-voice-updated-skill, maureen-personal-brand, curb-app-builder, mo, mo-writing-rules own final voice. This is the tactical copy layer underneath. Pair with brand-guidelines for visual lockup rules."
 license: MIT
 metadata:
   version: 1.0.0

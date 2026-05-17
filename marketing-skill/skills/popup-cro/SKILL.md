@@ -1,6 +1,6 @@
 ---
 name: "popup-cro"
-description: When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions "exit intent," "popup conversions," "modal optimization," "lead capture popup," "email popup," "announcement banner," or "overlay." For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.
+description: "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion. Triggers include \"popup,\" \"modal,\" \"overlay,\" \"slide-in,\" \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" \"newsletter popup,\" \"sticky bar,\" \"cookie banner CRO.\" For forms outside of popups, see form-cro. For general page conversion, see page-cro. For paywall/upgrade modals inside an app, see paywall-upgrade-cro. Critical for Mo: askminimo.com email-capture popups for the agent waitlist, Momentus website Ready or Not? session prompt (light touch only; brand rule is no urgency language and no pressure framing), maureencappallo.com Doors capture, Curb web paywall and trial conversion (consumer iOS, dual SKU). Voice skill always gates. Triggers include \"capture popup for [brand],\" \"exit intent on [page],\" \"newsletter capture.\""
 license: MIT
 metadata:
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: "marketing-psychology"
-description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application."
+description: "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Triggers include \"psychology,\" \"mental models,\" \"cognitive bias,\" \"persuasion,\" \"behavioral science,\" \"why people buy,\" \"decision-making,\" \"consumer behavior,\" \"loss aversion,\" \"social proof,\" \"anchoring,\" \"objection handling,\" \"price psychology,\" \"conversion psychology.\" Provides 70+ mental models organized for marketing application. Critical for Mo: Door 01/02/03 pricing pages, Curb $39.99 paywall, askminimo $19.99/mo signup, Mo investor deck framing (operator-as-first-customer narrative), Ready-or-Not? session positioning (People first. Houses second.), objection handling on work-with-me CTAs. Triggers include \"why isn't [page] converting,\" \"pricing psychology for [brand],\" \"apply behavioral science to [asset],\" \"objection handling for [persona].\""
 license: MIT
 metadata:
   version: 1.1.0

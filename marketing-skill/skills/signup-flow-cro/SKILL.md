@@ -1,6 +1,6 @@
 ---
 name: "signup-flow-cro"
-description: When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions "signup conversions," "registration friction," "signup form optimization," "free trial signup," "reduce signup dropoff," or "account creation flow." For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.
+description: "When the user wants to optimize signup, registration, account creation, or trial activation flows. Triggers include \"signup flow,\" \"signup conversions,\" \"registration friction,\" \"signup form optimization,\" \"free trial signup,\" \"reduce signup dropoff,\" \"account creation flow,\" \"signup CRO,\" \"shorten signup,\" \"signup field reduction,\" \"social signup,\" \"magic link signup.\" For post-signup onboarding, see onboarding-cro. For lead capture forms that are not account creation, see form-cro. Critical for Mo: askminimo agent signup ($19.99/mo, agent-facing, FUB-compatible), Curb signup flow (consumer iOS, dual SKU, Apple IAP for iOS plus Stripe for web; 7-day free trial), Mo platform beta-invite flow (psychology-first matching, founder-tier $299 plus $29/agent), Door 01 application form (founding cohort, by application). Pair with form-cro for field design specifics and onboarding-cro for the first-session experience after signup."
 license: MIT
 metadata:
   version: 1.0.0

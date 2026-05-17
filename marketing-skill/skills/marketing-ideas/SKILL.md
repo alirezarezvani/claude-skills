@@ -1,6 +1,6 @@
 ---
 name: "marketing-ideas"
-description: "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the user asks for 'marketing ideas,' 'growth ideas,' 'how to market,' 'marketing strategies,' 'marketing tactics,' 'ways to promote,' or 'ideas to grow.' This skill provides 139 proven marketing approaches organized by category."
+description: "When the user needs marketing ideas, inspiration, brainstorm prompts, or fresh tactics. Triggers include \"marketing ideas,\" \"growth ideas,\" \"how to market,\" \"marketing strategies,\" \"marketing tactics,\" \"ways to promote,\" \"ideas to grow,\" \"brainstorm marketing,\" \"give me ideas,\" \"need inspiration,\" \"campaign brainstorm,\" \"what would work for [brand].\" Provides 139 proven approaches organized by category (content, channels, partnerships, viral loops, paid, organic, retention, referral). Critical for Mo: brainstorm starting point for Lighthouse weekly content planning, Door 01 founding cohort acquisition tactics, Curb consumer growth experiments, askminimo agent acquisition ideas, Mo platform broker-owner outreach plays. NOT a substitute for strategy (use marketing-strategy-pmm or content-strategy for plans), but the spark layer that feeds them. Pair with pillar-planner for weekly content slotting once ideas are picked."
 license: MIT
 metadata:
   version: 1.0.0

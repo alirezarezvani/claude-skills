@@ -1,6 +1,6 @@
 ---
 name: "campaign-analytics"
-description: Analyzes campaign performance with multi-touch attribution, funnel conversion analysis, and ROI calculation for marketing optimization. Use when analyzing marketing campaigns, ad performance, attribution models, conversion rates, or calculating marketing ROI, ROAS, CPA, and campaign metrics across channels.
+description: "When the user wants to analyze marketing campaign performance: multi-touch attribution, funnel conversion analysis, ROI calculation, channel comparison, or campaign optimization decisions. Triggers include \"campaign performance,\" \"attribution,\" \"marketing ROI,\" \"ROAS,\" \"CPA,\" \"CAC analysis,\" \"funnel conversion,\" \"channel performance,\" \"campaign metrics,\" \"marketing dashboard,\" \"which channel is working,\" \"what's converting,\" \"end-of-month marketing review.\" Critical for Mo: Lighthouse routine performance review (Saturday Fun Fact, Tuesday Fun Fact, GBP, DFW Events Thursday, Monday blog), Buffer post-level engagement, MailerLite open and click analysis, Door 01/02/03 page funnel tracking, askminimo signup conversion by source, Curb App Store impression to install. Pair with analytics-tracking for instrumentation gaps, marketing-ops for channel mix decisions, and ab-test-setup if performance gaps suggest a test."
 license: MIT
 metadata:
   version: 1.0.0

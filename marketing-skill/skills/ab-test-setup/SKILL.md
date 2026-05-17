@@ -1,6 +1,6 @@
 ---
 name: "ab-test-setup"
-description: When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "conversion experiment," "statistical significance," or "test this." For tracking implementation, see analytics-tracking.
+description: "When the user wants to plan, design, or implement an A/B test or experiment on a marketing asset. Triggers include \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"conversion experiment,\" \"statistical significance,\" \"sample size calculator,\" \"test this CTA,\" \"test this headline,\" \"test this paywall.\" For tracking implementation, see analytics-tracking. For experiment design within product, see experiment-designer. Critical for Mo: Curb paywall A/B testing (Apple IAP iOS plus Stripe web dual SKU; trial length, headline, social proof, price anchor), askminimo signup hero variants, Door 02 retainer pricing page testing, Momentus website hero A/B once Sanity rebuild ships. Small-sample reality note: most Mo properties are pre-scale, so significance often requires longer windows than enterprise SaaS. Pair with marketing-psychology for hypothesis priors."
 license: MIT
 metadata:
   version: 1.0.0

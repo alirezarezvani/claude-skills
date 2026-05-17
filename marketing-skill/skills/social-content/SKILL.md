@@ -1,6 +1,6 @@
 ---
 name: "social-content"
-description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies."
+description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, YouTube, or other platforms. Triggers include \"LinkedIn post,\" \"Twitter thread,\" \"IG caption,\" \"TikTok caption,\" \"Reel hook,\" \"social media post,\" \"content calendar,\" \"social scheduling,\" \"viral content,\" \"hashtag research,\" \"carousel post,\" \"FB Page post.\" Covers content creation, repurposing, and platform-specific strategies. Critical for Mo: Buffer-bound captions across Momentus, Curb, askminimo, Maureen Personal, and Mo platform: Saturday Fun Fact, Tuesday Fun Fact, DFW Events Thursday, Curb 22-second mechanic-surface video captions, Reels hooks, IG carousel copy, LinkedIn posts, FB Page posts. Voice skill always gates. Hashtag max is 5 across all channels. Pair with content-humanizer to strip AI tells before scheduling."
 license: MIT
 metadata:
   version: 1.0.0

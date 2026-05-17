@@ -1,6 +1,6 @@
 ---
 name: "marketing-skills"
-description: "42 marketing agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more coding agents. 7 pods: content, SEO, CRO, channels, growth, intelligence, sales. Foundation context + orchestration router. 27 Python tools (stdlib-only)."
+description: "Plugin index and orchestration router for the marketing-skill family (45+ skills) covering 8 pods: content, SEO, AEO, CRO, channels, growth, intelligence, and sales. Triggers include \"marketing-skills overview,\" \"what marketing skills are available,\" \"list marketing tools,\" \"marketing capabilities,\" \"marketing plugin help,\" \"what can the marketing plugin do,\" \"orchestrate the marketing pipeline.\" Critical for Mo: this is the umbrella under which Lighthouse drafters and pillar-planning routines invoke tactical skills (copywriting, social-content, content-humanizer, copy-editing, marketing-psychology, page-cro, popup-cro, signup-flow-cro, paywall-upgrade-cro, schema-markup, ai-seo, seo-audit, programmatic-seo, content-strategy, content-production). 27 Python tools, stdlib-only, no paid API dependencies. Pair with marketing-ops for tactical routing and marketing-context if a brand context file is present in the working directory."
 version: 2.0.0
 author: Alireza Rezvani
 license: MIT

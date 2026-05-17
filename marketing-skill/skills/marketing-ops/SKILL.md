@@ -1,6 +1,6 @@
 ---
 name: "marketing-ops"
-description: "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, and analytics. Also use when the user mentions 'marketing help,' 'campaign plan,' 'what should I do next,' 'marketing priorities,' or 'coordinate marketing.'"
+description: "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, growth, intelligence, and analytics. Triggers include \"marketing help,\" \"campaign plan,\" \"what should I do next,\" \"marketing priorities,\" \"coordinate marketing,\" \"which skill should I use,\" \"marketing routing,\" \"end-to-end campaign,\" \"marketing workflow,\" \"orchestrate marketing,\" \"multi-channel plan.\" Critical for Mo: Lighthouse week planning (Saturday Fun Fact, Tuesday Fun Fact, Monday blog, Thursday GBP, DFW Events Thursday, Curb 22s video, MailerLite send, LinkedIn long-form), cross-brand calendar reconciliation across Momentus, Curb, askminimo, Maureen Personal, Mo platform. Pair with pillar-planner agent for per-brand 7-day execution. Voice skill plus content-humanizer plus final-checker always gate the output."
 license: MIT
 metadata:
   version: 1.0.0

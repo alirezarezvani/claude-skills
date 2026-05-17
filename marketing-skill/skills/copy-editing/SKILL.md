@@ -1,6 +1,6 @@
 ---
 name: "copy-editing"
-description: "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes."
+description: "When the user wants to edit, review, or improve existing marketing copy. Triggers include \"edit this copy,\" \"review my copy,\" \"copy feedback,\" \"proofread,\" \"polish this,\" \"make this better,\" \"copy sweep,\" \"tighten this,\" \"editorial pass,\" \"final read,\" \"final edit,\" \"clean this up.\" Provides a systematic approach to editing through multiple focused passes. Critical for Mo: Lighthouse editorial pass before scheduling: Saturday Fun Fact captions, Tuesday Fun Fact captions, GBP posts, Reels captions, blog drafts, MailerLite emails, LinkedIn posts. Triggers include \"tighten this caption,\" \"polish before Buffer,\" \"editorial sweep on the [brand] post,\" \"final read before sending,\" \"clean up this draft.\" Voice skills plus mo-writing-rules (no em dashes, banned-words list) own final voice. This is the mechanics/copyediting layer underneath. Pair with content-humanizer for AI-tell removal first, then this for the polish pass."
 license: MIT
 metadata:
   version: 1.0.0

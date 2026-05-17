@@ -1,6 +1,6 @@
 ---
 name: "paid-ads"
-description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization."
+description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, TikTok, YouTube, or other ad platforms. Triggers include \"paid ads,\" \"PPC,\" \"paid media,\" \"ad copy,\" \"ad creative,\" \"ROAS,\" \"CPA,\" \"ad campaign,\" \"retargeting,\" \"audience targeting,\" \"lookalike audience,\" \"Google Ads,\" \"Meta Ads,\" \"LinkedIn Ads,\" \"TikTok Ads.\" Covers campaign strategy, ad creation, audience targeting, bidding, and optimization. Critical context for Mo: paid ads are NOT currently in the Lighthouse plan. Mo is in organic-only mode while the brokerage rebuilds and the Mo platform raise closes. If a paid ads conversation starts, first confirm budget exists and that organic plays (LinkedIn long-form, Reels, Sat Fun Fact, GBP posts, MailerLite) are running. When budget IS approved, Curb is the most ad-ready surface (consumer iOS, Apple Search Ads, Meta Ads). Pair with ad-creative for the creative layer and campaign-analytics for measurement."
 license: MIT
 metadata:
   version: 1.0.0

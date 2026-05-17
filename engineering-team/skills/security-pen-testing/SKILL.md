@@ -1,6 +1,6 @@
 ---
 name: "security-pen-testing"
-description: "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation."
+description: "When the user wants to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Triggers include \"pen test,\" \"penetration test,\" \"security audit,\" \"vulnerability scan,\" \"OWASP Top 10,\" \"static analysis,\" \"SAST,\" \"DAST,\" \"dependency scan,\" \"SBOM,\" \"secret detection,\" \"API security test,\" \"pen test report,\" \"security findings.\" Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation. Distinct from senior-secops (compliance and policy) and senior-security (security architecture). Relevant for Mo: pre-merge SAST on Curb, askminimo, Mo platform, and Lighthouse repos; dependency CVE sweeps before Curb App Store submission; API security testing on Supabase edge functions; secret detection across all 5 marketing site repos. Pair with red-team for adversary scenarios and cloud-security for infrastructure posture."
 ---
 
 # Security Penetration Testing

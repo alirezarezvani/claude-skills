@@ -1,6 +1,6 @@
 ---
 name: "senior-prompt-engineer"
-description: This skill should be used when the user asks to "optimize prompts", "design prompt templates", "evaluate LLM outputs", "build agentic systems", "implement RAG", "create few-shot examples", "analyze token usage", or "design AI workflows". Use for prompt engineering patterns, LLM evaluation frameworks, agent architectures, and structured output design.
+description: "When the user wants to optimize prompts, design prompt templates, evaluate LLM outputs, build agentic systems, implement RAG, create few-shot examples, analyze token usage, or design AI workflows. Triggers include \"optimize prompt,\" \"prompt template,\" \"LLM eval,\" \"agentic system,\" \"RAG implementation,\" \"few-shot,\" \"token analysis,\" \"AI workflow,\" \"system prompt,\" \"agent architecture,\" \"structured output,\" \"tool use,\" \"chain of thought,\" \"prompt caching.\" Covers prompt patterns, LLM evaluation frameworks, agent architectures, and structured output design. Critical for Mo: Mo platform (psychology-first matching engine; LLM-backed; broker-owner SaaS), askminimo (LLM-backed agent education product, $19.99/mo), Lighthouse drafter agents (momentus-drafter, curb-drafter, askminimo-drafter, mo-drafter, maureen-drafter, final-checker), Curb home-readiness AI features. Pair with ai-security for guardrail design and claude-api for SDK-specific patterns."
 ---
 
 # Senior Prompt Engineer

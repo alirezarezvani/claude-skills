@@ -1,6 +1,6 @@
 ---
 name: "senior-frontend"
-description: Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Use when building React components, optimizing Next.js performance, analyzing bundle sizes, scaffolding frontend projects, implementing accessibility, or reviewing frontend code quality.
+description: "Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Triggers include \"React component,\" \"Next.js,\" \"TypeScript,\" \"Tailwind,\" \"frontend performance,\" \"bundle size,\" \"Lighthouse score,\" \"Core Web Vitals,\" \"a11y,\" \"accessibility,\" \"scaffold frontend,\" \"server components,\" \"client components,\" \"App Router,\" \"shadcn/ui,\" \"frontend review.\" Covers component patterns, performance optimization, bundle analysis, accessibility, and project scaffolding. Critical for Mo: Mo's entire web stack is Next.js plus TypeScript plus Tailwind across askminimo, Mo platform (moaihq.com), maureencappallo.com, and the upcoming Momentus custom Sanity-plus-Next.js rebuild. Curb web wrapper also rides this stack. Pair with ui-design-system for token alignment, code-reviewer for pre-merge gates, and senior-fullstack when backend changes accompany the frontend work."
 ---
 
 # Senior Frontend

@@ -1,6 +1,6 @@
 ---
 name: "engineering-skills"
-description: "23 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
+description: "Plugin index and orchestration router for the 23-skill engineering-team family covering architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, Azure, GCP, and MS365. Triggers include \"engineering-skills overview,\" \"what engineering skills are available,\" \"list engineering tools,\" \"engineering capabilities,\" \"engineering plugin help,\" \"what can the engineering plugin do,\" \"orchestrate engineering review.\" Relevant for Mo: this is the umbrella under which technical work for Curb (iOS plus web, dual SKU), Mo platform (Next.js plus Supabase, psychology-first matching), askminimo (Next.js, $19.99/mo agent SaaS), Lighthouse (TypeScript marketing automation), and the Personal-Website- repo (maureencappallo.com) gets routed. 30+ Python tools, stdlib-only, no paid API dependencies. Pair with senior-architect for cross-cutting design decisions and tdd-guide for the discipline layer underneath."
 version: 1.1.0
 author: Alireza Rezvani
 license: MIT

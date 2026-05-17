@@ -1,6 +1,6 @@
 ---
 name: "gcp-cloud-architect"
-description: "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization."
+description: "When the user wants to design GCP architectures for startups or enterprises with infrastructure-as-code templates. Triggers include \"GCP architecture,\" \"Google Cloud,\" \"GKE,\" \"Cloud Run,\" \"Cloud Functions,\" \"BigQuery,\" \"Cloud SQL,\" \"Firestore,\" \"GCP cost optimization,\" \"migrate to GCP,\" \"Anthos,\" \"Dataflow,\" \"GCP IAM,\" \"VPC service controls.\" Covers Cloud Run, GKE, Functions, Cloud SQL, BigQuery, and cost-aware design. Context for Mo: GCP is NOT in Mo's current stack (Vercel plus Supabase). This skill is relevant if a side-project needs BigQuery (e.g., DFW real-estate market analysis at scale), if a partner integration runs on GCP, or when evaluating a migration scenario. Distinct from aws-solution-architect and azure-cloud-architect. Pair with senior-data-engineer if BigQuery pipelines are in scope and tech-stack-evaluator for build-vs-buy framing."
 ---
 
 # GCP Cloud Architect

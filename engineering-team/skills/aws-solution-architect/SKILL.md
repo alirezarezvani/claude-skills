@@ -1,6 +1,6 @@
 ---
 name: "aws-solution-architect"
-description: Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization.
+description: "When the user wants to design AWS architectures using serverless patterns and infrastructure-as-code templates. Triggers include \"AWS architecture,\" \"serverless design,\" \"Lambda,\" \"API Gateway,\" \"DynamoDB,\" \"ECS,\" \"Aurora,\" \"CloudFormation,\" \"CDK,\" \"AWS cost optimization,\" \"CI/CD on AWS,\" \"migrate to AWS,\" \"AWS startup stack,\" \"VPC design,\" \"AWS SAM.\" Covers serverless-first patterns, IaC templates, and startup-friendly cost optimization. Context for Mo: Mo's production stack runs on Vercel plus Supabase, not AWS. This skill is relevant when evaluating migration scenarios, when an enterprise integration partner runs on AWS, or when a side-project specifically requires AWS (e.g., S3 for large file storage, SES for transactional email at scale). Distinct from azure-cloud-architect and gcp-cloud-architect. Pair with senior-devops for pipeline integration and tech-stack-evaluator for build-vs-buy decisions."
 ---
 
 # AWS Solution Architect

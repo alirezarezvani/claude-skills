@@ -1,6 +1,6 @@
 ---
 name: "azure-cloud-architect"
-description: "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization."
+description: "When the user wants to design Azure architectures for startups or enterprises with Bicep or ARM templates. Triggers include \"Azure architecture,\" \"Bicep,\" \"ARM templates,\" \"AKS,\" \"App Service,\" \"Azure Functions,\" \"Cosmos DB,\" \"Azure DevOps,\" \"Azure cost optimization,\" \"migrate to Azure,\" \"Azure Active Directory,\" \"Azure SQL,\" \"AKS design,\" \"Azure CI/CD.\" Covers AKS, App Service, Functions, Cosmos DB, and cost-aware design. Context for Mo: Azure is NOT in Mo's current stack (Vercel plus Supabase plus Cloudflare). This skill is relevant when a partner integration runs on Azure, when Microsoft 365 tenant work overlaps with Azure AD, or when evaluating a migration scenario. Distinct from aws-solution-architect and gcp-cloud-architect. Pair with ms365-tenant-manager when M365 integration is in scope and senior-devops for CI/CD."
 ---
 
 # Azure Cloud Architect

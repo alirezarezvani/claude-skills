@@ -1,6 +1,6 @@
 ---
 name: "code-reviewer"
-description: Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists.
+description: "When the user wants automated code review on TypeScript, JavaScript, Python, Go, Swift, or Kotlin. Triggers include \"review this PR,\" \"code review,\" \"check this code,\" \"complexity analysis,\" \"SOLID violations,\" \"code smell check,\" \"PR risk score,\" \"review checklist,\" \"audit this commit,\" \"refactor opportunities,\" \"static analysis,\" \"lint findings.\" Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, and generates review reports. Distinct from adversarial-reviewer (which interrogates assumptions and edge cases at design level) and tdd-guide (which enforces test-first discipline). Relevant for Mo: pre-merge gates on Curb (Swift/TypeScript), askminimo (Next.js), Mo platform (TypeScript/Next.js), Lighthouse (TypeScript). Pair with adversarial-reviewer for higher-stakes changes and senior-fullstack when refactor scope grows beyond a single PR."
 ---
 
 # Code Reviewer

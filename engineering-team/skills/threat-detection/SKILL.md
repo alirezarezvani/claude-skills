@@ -1,6 +1,6 @@
 ---
 name: "threat-detection"
-description: "Use when hunting for threats in an environment, analyzing IOCs, or detecting behavioral anomalies in telemetry. Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and MITRE ATT&CK-mapped signal prioritization."
+description: "When the user wants to hunt for threats in an environment, analyze indicators of compromise (IOCs), or detect behavioral anomalies in telemetry. Triggers include \"threat hunting,\" \"IOC sweep,\" \"behavioral anomaly,\" \"anomaly detection,\" \"z-score anomaly,\" \"telemetry analysis,\" \"MITRE ATT&CK detection,\" \"signal prioritization,\" \"detection engineering,\" \"SIEM rule,\" \"log analysis,\" \"hypothesis-driven hunt.\" Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and ATT&CK-mapped signal prioritization. Distinct from incident-response (post-detection handling) and red-team (adversary simulation). Relevant for Mo: behavioral monitoring on Mo platform once broker-owner data lands (failed-login patterns, off-hours access, unusual data export), Curb in-app purchase fraud signals, Supabase auth anomalies, Vercel function abuse detection. Pair with cloud-security for posture and ai-security if LLM-targeted attacks are in scope."
 ---
 
 # Threat Detection

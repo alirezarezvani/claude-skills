@@ -1,6 +1,6 @@
 ---
 name: "tech-stack-evaluator"
-description: Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability.
+description: "When the user wants to evaluate or compare technology stacks, frameworks, languages, databases, or cloud providers with data-driven analysis. Triggers include \"tech stack comparison,\" \"framework evaluation,\" \"build vs buy,\" \"TCO analysis,\" \"migration assessment,\" \"ecosystem health,\" \"language choice,\" \"database comparison,\" \"cloud provider comparison,\" \"stack audit,\" \"vendor lock-in analysis,\" \"OSS vs SaaS,\" \"alternatives to [tool].\" Covers framework comparison, TCO calculation, security assessment, and ecosystem viability scoring. Relevant for Mo: build-vs-buy decisions on Mo platform infrastructure (Supabase vs self-hosted Postgres, Vercel vs alternative host, Sanity vs Contentful for the Momentus rebuild), Curb storage and media pipeline evaluation, askminimo LLM provider comparison (Claude, OpenAI, Anthropic-via-Vercel-AI SDK). Pair with senior-architect when the decision is system-level and senior-devops when CI/CD migration cost is in scope."
 ---
 
 # Technology Stack Evaluator

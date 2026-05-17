@@ -1,6 +1,6 @@
 ---
 name: "incident-commander"
-description: "Comprehensive incident response framework from detection through resolution and post-incident review. Battle-tested SRE/DevOps practices: severity classification, timeline reconstruction, structured post-incident analysis. Use when declaring an incident, coordinating multi-team response during an outage, leading a post-mortem, or setting up on-call practices for a new service."
+description: "Comprehensive incident response framework from detection through resolution and post-incident review. Triggers include \"declare incident,\" \"incident command,\" \"outage,\" \"production down,\" \"sev1,\" \"sev2,\" \"on-call,\" \"post-mortem,\" \"post-incident review,\" \"runbook,\" \"escalation path,\" \"war room,\" \"incident timeline,\" \"customer-facing outage.\" Covers severity classification, timeline reconstruction, structured post-incident analysis, and on-call practice setup. Battle-tested SRE/DevOps patterns. Distinct from incident-response (security-specific lifecycle) and threat-detection (proactive hunting). Relevant for Mo: customer-facing outages on Curb (consumer iOS, in-app purchase impact), askminimo (agent-facing $19.99/mo SaaS, FUB-integrated), Mo platform (broker-owner SaaS, beta cohort), and the 5 marketing sites. Pair with senior-devops for fix path and senior-secops if the incident is security-related."
 ---
 
 # Incident Commander Skill

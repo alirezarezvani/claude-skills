@@ -1,6 +1,6 @@
 ---
 name: "cloud-security"
-description: "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
+description: "When the user wants to assess cloud infrastructure for security misconfigurations, IAM privilege escalation paths, public storage exposure, open network rules, or IaC security gaps. Triggers include \"cloud security audit,\" \"IAM review,\" \"S3 exposure,\" \"security group audit,\" \"IaC security,\" \"cloud misconfiguration,\" \"CSPM,\" \"AWS security,\" \"Azure security,\" \"GCP security,\" \"posture assessment,\" \"public bucket scan.\" Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping. Distinct from incident-response (active breach handling) and security-pen-testing (application vulnerability scanning). Relevant for Mo: Supabase IAM policy review before broker-owner data lands in Mo platform, Vercel environment variable hygiene across all 5 sites (momentusrealestategroup.com, askminimo.com, maureencappallo.com, moaihq.com, curbapp.co), Curb storage access policies for user-uploaded home photos. Pair with senior-secops for policy framing and threat-detection if anomalies surface."
 ---
 
 # Cloud Security

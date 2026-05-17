@@ -1,6 +1,6 @@
 ---
 name: "ai-security"
-description: "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring."
+description: "When the user wants to assess AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Triggers include \"prompt injection,\" \"jailbreak,\" \"LLM security,\" \"AI red team,\" \"agent abuse,\" \"model inversion,\" \"data poisoning,\" \"adversarial robustness,\" \"MITRE ATLAS,\" \"AI/ML threat model,\" \"LLM security audit,\" \"AI assessment.\" Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring. Distinct from security-pen-testing (general app vulnerabilities) and threat-detection (infrastructure behavioral anomalies). Relevant for Mo: Mo platform (psychology-first matching engine, LLM-powered, broker-owner SaaS) needs ATLAS-mapped review before public launch; askminimo (LLM-backed agent education tool) needs prompt-injection hardening on user-submitted prompts; Curb home-readiness AI features need input validation. Pair with senior-prompt-engineer for guardrail design and red-team for adversary simulation."
 ---
 
 # AI Security

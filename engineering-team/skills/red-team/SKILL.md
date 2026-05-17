@@ -1,6 +1,6 @@
 ---
 name: "red-team"
-description: "Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting."
+description: "When the user is planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Triggers include \"red team,\" \"attack simulation,\" \"MITRE ATT&CK kill chain,\" \"adversary emulation,\" \"OPSEC review,\" \"choke point analysis,\" \"crown jewel targeting,\" \"purple team,\" \"detection engineering test,\" \"breach simulation,\" \"adversary playbook.\" Covers ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting. Distinct from security-pen-testing (vulnerability discovery via authorized testing) and incident-response (post-incident handling). Relevant for Mo: pre-launch adversary simulation on Mo platform (broker-owner data is the crown jewel; psychology-first matching engine plus client roster), Curb in-app-purchase abuse paths, askminimo prompt-exfiltration scenarios. Pair with ai-security for LLM-specific attacks and threat-detection for downstream signal design."
 ---
 
 # Red Team

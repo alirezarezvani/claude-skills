@@ -1,6 +1,6 @@
 ---
 name: "incident-response"
-description: "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
+description: "When a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Triggers include \"security incident,\" \"breach,\" \"unauthorized access,\" \"credential leak,\" \"data exfiltration,\" \"malware detected,\" \"incident triage,\" \"SEV1 security,\" \"forensic collection,\" \"NIST 800-61,\" \"incident classification,\" \"compromise indicator.\" Covers SEV1-SEV4 classification, false-positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle. Distinct from threat-detection (proactive hunting before incident) and incident-commander (general operational outage management). Relevant for Mo: account credential exposure on FUB, MailerLite, Buffer, or GitHub; Supabase row-level-security regression that exposes broker-owner data; Curb in-app purchase fraud; askminimo API key leakage. Pair with cloud-security for posture review post-incident and senior-secops for compliance mapping."
 ---
 
 # Incident Response

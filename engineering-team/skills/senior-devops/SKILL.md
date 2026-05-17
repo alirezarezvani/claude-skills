@@ -1,6 +1,6 @@
 ---
 name: "senior-devops"
-description: Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes.
+description: "Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure, Vercel). Triggers include \"CI/CD,\" \"GitHub Actions,\" \"deployment pipeline,\" \"infrastructure as code,\" \"Terraform,\" \"Docker,\" \"Kubernetes,\" \"deploy automation,\" \"monitoring setup,\" \"observability,\" \"rollback strategy,\" \"deployment friction,\" \"build optimization,\" \"pipeline failure.\" Covers pipeline setup, IaC, deployment automation, and monitoring. Relevant for Mo: GitHub Actions across curb-appeal-pro, ask-minimo, mo-ai, lighthouse, and Personal-Website-; Vercel deploy hygiene; Capacitor build pipeline for Curb iOS; Supabase migration automation; preview deployment policy on all 5 sites. Pair with code-reviewer for pre-merge gates, incident-commander when deploys cause outages, and senior-architect for system-level CI/CD design decisions."
 ---
 
 # Senior Devops

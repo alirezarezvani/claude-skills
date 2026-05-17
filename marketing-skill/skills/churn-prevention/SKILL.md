@@ -1,6 +1,6 @@
 ---
 name: "churn-prevention"
-description: "Reduce voluntary and involuntary churn through cancel flow design, save offers, exit surveys, and dunning sequences. Use when designing or optimizing a cancel flow, building save offers, setting up dunning emails, or reducing failed-payment churn. Trigger keywords: cancel flow, churn reduction, save offers, dunning, exit survey, payment recovery, win-back, involuntary churn, failed payments, cancel page. NOT for customer health scoring or expansion revenue — use customer-success-manager for that."
+description: "When the user wants to reduce voluntary or involuntary churn through cancel flow design, save offers, exit surveys, dunning sequences, win-back emails, or failed-payment recovery. Triggers include \"cancel flow,\" \"churn reduction,\" \"save offers,\" \"dunning,\" \"exit survey,\" \"payment recovery,\" \"win-back,\" \"involuntary churn,\" \"failed payments,\" \"cancel page,\" \"reduce cancellations,\" \"keep subscribers.\" NOT for customer health scoring or expansion revenue. Critical for Mo: Curb monthly subscription retention ($9.99/mo, 7-day trial), askminimo agent retention ($19.99/mo), Mo platform brokerage seat retention (post-launch). Pair with curb-app-builder for Curb voice. Pair with marketing-skills:email-sequence for win-back drips. Pair with engineering-skills:stripe-integration-expert for Stripe dunning configuration."
 license: MIT
 metadata:
   version: 1.0.0

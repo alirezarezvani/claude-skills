@@ -1,6 +1,6 @@
 ---
 name: "programmatic-seo"
-description: When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," or "building many pages for SEO." For auditing existing SEO issues, see seo-audit.
+description: "When the user wants to create SEO-driven pages at scale using templates and data: city pages, neighborhood pages, [keyword] x [location] pages, directory pages, comparison pages, integration pages, or any template-based page set. Triggers include \"programmatic SEO,\" \"pSEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"city pages,\" \"neighborhood pages,\" \"build many pages for SEO,\" \"automated landing pages,\" \"data-driven pages.\" For auditing existing SEO issues, see seo-audit. For structured data on each page, see schema-markup. For URL hierarchy decisions, see site-architecture. Critical for Mo: Momentus city + county + neighborhood pages across the 8-county DFW service area (Collin, Denton, Tarrant, Dallas, Ellis, Kaufman, Rockwall, Grayson) when the custom Sanity + Next.js Momentus site is built, askminimo prompt-library template pages (\"AI prompts for [agent specialty]\"), Curb home-prep guides by region. Pair with momentus-website-seo-executor for Momentus execution. Pair with content-production for body copy on each template variant."
 license: MIT
 metadata:
   version: 1.0.0
@@ -87,6 +87,8 @@ Better to have 100 great pages than 10,000 thin ones.
 | Translations | Content in multiple languages | Localized content |
 | Directory | "[category] tools" | "ai copywriting tools" |
 | Profiles | "[entity name]" | "stripe ceo" |
+
+**For detailed playbook implementation**: See [references/playbooks.md](references/playbooks.md)
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: "content-strategy"
-description: "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" or \"content planning.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit."
+description: "When the user wants to plan a content strategy, decide what content to create, build a content calendar, or figure out which topics to cover. Triggers include \"content strategy,\" \"what should I write about,\" \"content ideas,\" \"blog strategy,\" \"topic clusters,\" \"content planning,\" \"editorial calendar,\" \"content roadmap,\" \"pillar plan,\" \"content audit.\" For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For tactical content production, see content-production. Mo's brands: Lighthouse pillar planning across all 5 brands, Momentus 10-pillar reconciliation, askminimo agent education roadmap, Curb ASO content strategy, Mo investor content sequence (deck, one-pager, patent narrative, investor site). Triggers include \"pillar plan for [brand],\" \"topic cluster around [keyword],\" \"content calendar for [month],\" \"what should [brand] post this week.\""
 license: MIT
 metadata:
   version: 1.0.0

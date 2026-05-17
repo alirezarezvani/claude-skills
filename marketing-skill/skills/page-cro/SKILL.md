@@ -1,6 +1,6 @@
 ---
 name: "page-cro"
-description: When the user wants to optimize, improve, or increase conversions on any marketing page — including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says "CRO," "conversion rate optimization," "this page isn't converting," "improve conversions," or "why isn't this page working." For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.
+description: "When the user wants to optimize a marketing page for conversion: homepage, landing page, pricing page, feature page, sales page, About page, work-with-me page, or blog post. Triggers include \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" \"why isn't this page working,\" \"landing page CRO,\" \"homepage CRO,\" \"pricing page CRO,\" \"sales page CRO,\" \"page audit,\" \"conversion audit,\" \"hero rewrite,\" \"CTA optimization.\" For signup or registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups or modals, see popup-cro. For in-app paywalls, see paywall-upgrade-cro. Critical for Mo: maureencappallo.com /work-with-me Door 01 + Door 02 + Door 03 conversion (post-doors-v5-live audit), momentusrealestategroup.com homepage (once custom Sanity + Next.js rebuild ships), askminimo.com signup + pricing pages, moaihq.com Mo platform marketing page, curbapp.co web paywall, Mo investor deck slide-1 + exec-summary cover page. Pair with marketing-skills:copywriting for hero + CTA copy rewrites. Pair with marketing-skills:marketing-psychology for objection handling. Pair with cro-checker agent for pre-publish audits."
 license: MIT
 metadata:
   version: 1.0.0
@@ -162,6 +162,8 @@ When recommending experiments, consider tests for:
 - Pricing presentation
 - Form optimization
 - Navigation and UX
+
+**For comprehensive experiment ideas by page type**: See [references/experiments.md](references/experiments.md)
 
 ---
 

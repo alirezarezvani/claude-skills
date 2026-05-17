@@ -1,6 +1,6 @@
 ---
 name: "paywall-upgrade-cro"
-description: When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration screen," "limit reached screen," "plan upgrade prompt," or "in-app pricing." Distinct from public pricing pages (see page-cro) — this skill focuses on in-product upgrade moments where the user has already experienced value.
+description: "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, feature gates, trial expiration screens, or in-product price asks. Triggers include \"paywall,\" \"upgrade screen,\" \"upgrade modal,\" \"upsell,\" \"feature gate,\" \"convert free to paid,\" \"freemium conversion,\" \"trial expiration screen,\" \"limit reached screen,\" \"plan upgrade prompt,\" \"in-app pricing,\" \"paywall conversion.\" Distinct from public pricing pages (see page-cro): this skill focuses on in-product moments where the user has already experienced value. Critical for Mo: Curb paywall (DL to paid is the leak, see docs/paywall-diagnostic), askminimo upgrade flow ($19.99/mo agent tier), Mo platform tier-upgrade screens. Pair with curb-app-builder voice for Curb. Pair with mo identity skill for Mo platform. Pair with engineering-skills:adversarial-reviewer for paywall code review."
 license: MIT
 metadata:
   version: 1.0.0
@@ -192,6 +192,8 @@ What you've accomplished:
 - Completion rate
 - Revenue per user
 - Churn rate post-upgrade
+
+**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
 
 ---
 

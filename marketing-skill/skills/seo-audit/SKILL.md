@@ -1,6 +1,6 @@
 ---
 name: "seo-audit"
-description: When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO audit," "technical SEO," "why am I not ranking," "SEO issues," "on-page SEO," "meta tags review," or "SEO health check." For building pages at scale to target keywords, see programmatic-seo. For adding structured data, see schema-markup.
+description: "When the user wants an SEO audit, technical SEO review, on-page audit, or pre-publish ranking check on any page. Triggers include \"SEO audit,\" \"audit this page,\" \"why isn't this ranking,\" \"meta tag review,\" \"on-page SEO,\" \"technical SEO,\" \"SEO health check,\" \"pre-publish SEO check.\" For building pages at scale, see programmatic-seo. For structured data, see schema-markup. For AI search citations, see ai-seo. Mo's 5 sites covered: momentusrealestategroup.com, askminimo.com, maureencappallo.com, moaihq.com, curbapp.co. Pair with momentus-website-seo-executor for Momentus WordPress and AgentFire execution. Triggers include \"audit [domain],\" \"SEO health check on [site],\" \"why isn't [page] ranking,\" \"on-page audit before publish,\" \"meta tag review.\" Voice skills always gate; this is the tactical SEO layer."
 license: MIT
 metadata:
   version: 1.0.0
@@ -73,10 +73,8 @@ Same format as above
 
 ## References
 
-- [SEO Audit Reference](references/seo-audit-reference.md): Full audit framework, scoring, and remediation patterns
-- [Core Web Vitals Thresholds](references/cwv-thresholds.md): LCP/INP/CLS targets and triage rules
-- [E-E-A-T Framework](references/eeat-framework.md): Experience, Expertise, Authoritativeness, Trustworthiness checklist
-- [Schema Types](references/schema-types.md): Structured data patterns by content type
+- [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
+- [AEO & GEO Patterns](references/aeo-geo-patterns.md): Content patterns optimized for answer engines and AI citation
 
 ---
 

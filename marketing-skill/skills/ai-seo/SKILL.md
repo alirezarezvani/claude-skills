@@ -1,6 +1,6 @@
 ---
 name: "ai-seo"
-description: "Optimize content to get cited by AI search engines — ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, Copilot. Use when you want your content to appear in AI-generated answers, not just ranked in blue links. Triggers: 'optimize for AI search', 'get cited by ChatGPT', 'AI Overviews', 'Perplexity citations', 'AI SEO', 'generative search', 'LLM visibility', 'GEO' (generative engine optimization). NOT for traditional SEO ranking (use seo-audit). NOT for content creation (use content-production)."
+description: "When the user wants to optimize content to get cited by AI search engines like ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, or Copilot. Use when content needs to appear in AI-generated answers, not just blue-link rankings. Triggers include \"AI SEO,\" \"AEO,\" \"GEO,\" \"generative engine optimization,\" \"optimize for AI search,\" \"get cited by ChatGPT,\" \"Perplexity citations,\" \"AI Overviews,\" \"LLM visibility,\" \"AI search audit.\" NOT for traditional SEO ranking (use seo-audit). NOT for content creation (use content-production). Critical for Mo's 5-site AEO and GEO workstream across momentusrealestategroup.com, askminimo.com, maureencappallo.com, moaihq.com, curbapp.co. Pair with schema-markup. The trigger phrase \"let's run the AEO audit\" is reserved for the dedicated AEO execution session."
 license: MIT
 metadata:
   version: 1.0.0

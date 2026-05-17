@@ -1,6 +1,6 @@
 ---
 name: "app-store-optimization"
-description: App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, generating metadata suggestions, and improving app visibility on Apple App Store and Google Play Store. Use when the user asks about ASO, app store rankings, app metadata, app titles and descriptions, app store listings, app visibility, or mobile app marketing on iOS or Android. Supports keyword research and scoring, competitor keyword analysis, metadata optimization, A/B test planning, launch checklists, and tracking ranking changes.
+description: "When the user wants App Store Optimization work: keyword research, competitor ranking analysis, metadata suggestions, app titles, app descriptions, screenshot order, ASO scoring, or visibility improvements on Apple App Store and Google Play. Triggers include \"ASO,\" \"app store optimization,\" \"app store ranking,\" \"app keywords,\" \"app metadata,\" \"play store optimization,\" \"iTunes Connect listing,\" \"App Store Connect listing,\" \"app screenshots,\" \"app subtitle.\" Curb-specific for Mo: only use alongside curb-app-builder skill, never cross with Momentus or Maureen personal brand. Curb is global iOS, $9.99 a month or $39.99 lifetime, Apple Small Business Program at 15 percent. Triggers include \"Curb ASO,\" \"App Store keywords for Curb,\" \"Curb metadata,\" \"optimize Curb screenshots,\" \"v1.X App Store listing.\""
 triggers:
   - ASO
   - app store optimization
@@ -14,6 +14,12 @@ triggers:
   - app store SEO
   - mobile app marketing
   - app conversion rate
+  - Curb ASO
+  - Curb keywords
+  - Curb App Store
+  - iTunes Connect Curb
+  - Curb screenshots
+  - Curb metadata
 ---
 
 # App Store Optimization (ASO)

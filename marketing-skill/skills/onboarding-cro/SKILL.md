@@ -1,6 +1,6 @@
 ---
 name: "onboarding-cro"
-description: When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions "onboarding flow," "activation rate," "user activation," "first-run experience," "empty states," "onboarding checklist," "aha moment," or "new user experience." For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.
+description: "When the user wants to optimize an onboarding flow, first-run experience, time-to-value, activation rate, or aha-moment delivery for an app or SaaS product. Triggers include \"onboarding,\" \"onboarding CRO,\" \"first-run experience,\" \"activation rate,\" \"time to value,\" \"aha moment,\" \"signup completion,\" \"day-1 retention,\" \"empty state design,\" \"new user flow.\" Distinct from signup-flow-cro (which optimizes signup conversion before the user is in the product). This skill is for what happens AFTER signup. Critical for Mo: Curb quiz to first-score flow (currently 27.5% PV-to-DL strong, but DL-to-paid 0% suggests onboarding-to-paywall handoff is broken), askminimo agent first-prompt experience, Mo platform broker-first-login flow, Maureen Personal Door 01 client onboarding handoff. Pair with marketing-skills:paywall-upgrade-cro for the paywall moment. Pair with product-skills:experiment-designer for A/B testing onboarding variants."
 license: MIT
 metadata:
   version: 1.0.0
@@ -201,6 +201,8 @@ When recommending experiments, consider tests for:
 - Progress and motivation mechanics
 - Personalization by role or goal
 - Support and help availability
+
+**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
 
 ---
 

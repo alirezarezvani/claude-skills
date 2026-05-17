@@ -1,6 +1,6 @@
 ---
 name: "tdd-guide"
-description: "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit."
+description: "When the user wants to apply test-driven development discipline to a feature, bugfix, or refactor: write the failing test first, implement until green, refactor with confidence. Triggers include \"TDD,\" \"test-driven development,\" \"red green refactor,\" \"write the test first,\" \"failing test,\" \"test coverage,\" \"unit tests,\" \"integration tests,\" \"testing strategy,\" \"how do I test this.\" Pair with superpowers:test-driven-development which provides the Claude Code workflow loop. Critical for Mo: Mo platform already has 294 tests across 13 suites, maintaining that bar through new feature work matters. Curb tests are lighter, opportunity to expand. askminimo and Lighthouse have minimal test surface today. Pair with engineering-skills:adversarial-reviewer to assess test quality, not just count. Pair with senior-qa skill for test strategy decisions."
 ---
 
 # TDD Guide

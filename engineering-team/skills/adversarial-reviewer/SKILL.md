@@ -1,7 +1,6 @@
 ---
 name: "adversarial-reviewer"
-description: "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
-tier: "STANDARD"
+description: "When the user wants a hostile-perspective code review, security review, or pre-merge audit. Use when the user mentions \"adversarial review,\" \"hostile review,\" \"red team this PR,\" \"pre-merge audit,\" \"poke holes in this,\" \"what could go wrong,\" \"break this code,\" \"security review,\" \"production-readiness review,\" \"sharp eye on this PR.\" Adversarial reviewer takes a deliberately skeptical stance: assumes attackers, considers edge cases, looks for footguns, surfaces unstated assumptions. Distinct from code-reviewer (constructive review). Critical for Mo: Curb paywall changes (paying users), Mo platform multi-tenant RLS changes, askminimo Stripe webhook handlers, Lighthouse drafter routine commits before they fire to Buffer or Notion. Pair with engineering-skills:tdd-guide for test coverage assessment. Pair with engineering-skills:stripe-integration-expert when payment code is involved."
 category: "Engineering / Code Quality"
 dependencies: "None (prompt-only, no external tools required)"
 author: "ekreloff"

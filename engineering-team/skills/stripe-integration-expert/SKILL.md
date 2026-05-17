@@ -1,6 +1,6 @@
 ---
 name: "stripe-integration-expert"
-description: "Production-grade Stripe integrations: subscriptions with trials and proration, one-time payments, usage-based billing, checkout sessions, idempotent webhook handlers, customer portal, and invoicing. Covers Next.js, Express, and Django patterns. Use when integrating Stripe for the first time, debugging webhook reliability issues, migrating from a different payment provider, or adding usage-based billing to an existing subscription product."
+description: "When the user wants to design, debug, or harden a Stripe integration: webhooks, subscriptions, payment intents, customer portal, products and prices, checkout sessions, dunning, or refund flows. Triggers include \"Stripe integration,\" \"Stripe webhook,\" \"Stripe subscription,\" \"Stripe checkout,\" \"Stripe products,\" \"Stripe prices,\" \"Stripe debugging,\" \"webhook signature verification,\" \"Stripe portal,\" \"failed payment recovery,\" \"Stripe test mode,\" \"Stripe live mode.\" Critical for Mo: Curb web Stripe rails (curb_lifetime, curb_monthly, edge functions create-checkout-session, stripe-webhook, verify-payment, create-portal-session), askminimo agent tier ($19.99/mo, live), Mo platform future tier transitions. iOS purchases use RevenueCat, NOT Stripe (hard rule from Curb CLAUDE.md). Pair with engineering-skills:adversarial-reviewer for webhook handler security. Pair with marketing-skills:churn-prevention for dunning sequence design."
 ---
 
 # Stripe Integration Expert

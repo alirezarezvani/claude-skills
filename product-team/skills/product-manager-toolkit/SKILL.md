@@ -1,6 +1,6 @@
 ---
 name: "product-manager-toolkit"
-description: Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development.
+description: "When the user wants product management tools: RICE prioritization, customer interview analysis, opportunity sizing, feature scoping, MVP definition, or PM-style decision frameworks. Triggers include \"RICE prioritization,\" \"prioritize features,\" \"customer interview analysis,\" \"product manager toolkit,\" \"PRD,\" \"product requirements,\" \"feature scoping,\" \"MVP definition,\" \"build vs buy,\" \"reach impact confidence effort,\" \"opportunity sizing.\" Critical for Mo: Mo platform feature roadmap decisions (what does the first engineering hire build first), Curb v1.3 candidate scoping, askminimo Sprint 4 prioritization (Script Vault, Walk Me Through This, Field Notes digest), Maureen Personal Door 01 vs Door 02 vs Door 03 capacity calls. Pair with product-skills:experiment-designer for measuring whether prioritized work moved the needle. Pair with product-skills:product-discovery for upstream assumption testing."
 ---
 
 # Product Manager Toolkit

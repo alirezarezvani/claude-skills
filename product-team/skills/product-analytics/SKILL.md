@@ -1,6 +1,6 @@
 ---
 name: product-analytics
-description: Use when defining product KPIs, building metric dashboards, running cohort or retention analysis, or interpreting feature adoption trends across product stages.
+description: "When the user wants to analyze product usage data: retention curves, cohort analysis, funnel breakdown, activation metrics, north-star metrics, or behavior segmentation. Triggers include \"product analytics,\" \"retention analysis,\" \"cohort analysis,\" \"funnel analysis,\" \"activation rate,\" \"north star metric,\" \"engagement metrics,\" \"DAU MAU,\" \"stickiness,\" \"feature usage,\" \"PostHog query,\" \"event analytics.\" Critical for Mo: Curb funnel diagnosed at PV-to-DL 27.5 percent strong but DL-to-paid 0 percent leaking (PostHog events live), askminimo agent activation, Mo platform multi-tenant usage by brokerage, Maureen Personal LinkedIn engagement vs profile views. Pair with product-skills:experiment-designer when running tests. Pair with marketing-skills:campaign-analytics for paid-channel attribution."
 ---
 
 # Product Analytics

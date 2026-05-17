@@ -1,6 +1,6 @@
 ---
 name: experiment-designer
-description: Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor.
+description: "When the user wants to design an A/B test, calculate sample size, define minimum detectable effect, set primary and guardrail metrics, or build an experiment plan. Triggers include \"A/B test,\" \"AB test,\" \"experiment design,\" \"sample size,\" \"MDE,\" \"minimum detectable effect,\" \"primary metric,\" \"guardrail metric,\" \"statistical power,\" \"test variants,\" \"experiment plan,\" \"hypothesis test.\" Critical for Mo: Curb paywall changes (PostHog events wired, currently shipping personalization PR, follow-up bullets-rewrite is the next variant), askminimo signup conversion, Maureen Personal /work-with-me CTA variants, Mo platform onboarding flow. Pair with product-skills:product-analytics for measuring results. Pair with marketing-skills:ab-test-setup for tactical execution. PostHog feature flags are already wired in Curb at src/lib/posthog.ts."
 ---
 
 # Experiment Designer

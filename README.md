@@ -235,6 +235,7 @@ See [orchestration/ORCHESTRATION.md](orchestration/ORCHESTRATION.md) for the ful
 | **api-design-reviewer** | REST API linter, breaking change detector, design scorecard |
 | **api-test-suite-builder** | Scan API routes → generate complete test suites |
 | **dependency-auditor** | Multi-language scanner, license compliance, upgrade planner |
+| **cca-audit** | 6 parallel LLM auditors (code quality, bugs, security, performance, docs, config) with non-overlapping scopes. Dedup, P1/P2/P3 priority, auto-fix, test gate, architect review. [GitHub](https://github.com/GiulioDER/cca-audit) |
 | **release-manager** | Changelog generator, semantic version bumper, readiness checker |
 | **observability-designer** | SLO designer, alert optimizer, dashboard generator |
 | **performance-profiler** | Node/Python/Go profiling, bundle analysis, load testing |

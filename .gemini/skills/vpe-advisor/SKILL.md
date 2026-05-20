@@ -1,1 +1,1 @@
-../../../c-level-advisor/skills/vpe-advisor/SKILL.md
+../../../c-level-advisor/vpe-advisor/skills/vpe-advisor/SKILL.md

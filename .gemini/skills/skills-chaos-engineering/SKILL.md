@@ -1,1 +1,1 @@
-../../../engineering/chaos-engineering/skills/chaos-engineering/SKILL.md
+../../../engineering/skills/chaos-engineering/SKILL.md

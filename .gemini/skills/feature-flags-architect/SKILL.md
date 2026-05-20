@@ -1,1 +1,1 @@
-../../../engineering/skills/feature-flags-architect/SKILL.md
+../../../engineering/feature-flags-architect/skills/feature-flags-architect/SKILL.md

@@ -1,1 +1,1 @@
-../../../ra-qm-team/compliance-team-eu-ai-act/skills/eu-ai-act-specialist/SKILL.md
+../../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md

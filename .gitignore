@@ -1,7 +1,7 @@
 # IDE and OS
 .vscode
 .DS_Store
-
+venv
 # Environment files
 .env
 .env.*

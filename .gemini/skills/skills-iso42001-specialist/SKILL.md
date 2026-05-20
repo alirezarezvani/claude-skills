@@ -1,1 +1,1 @@
-../../../ra-qm-team/compliance-team-iso42001/skills/iso42001-specialist/SKILL.md
+../../../ra-qm-team/skills/iso42001-specialist/SKILL.md

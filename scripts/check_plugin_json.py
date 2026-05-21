@@ -8,15 +8,22 @@ Two approved extension fields (documented in CLAUDE.md, stripped at ClawHub-publ
   source, attribution
 
 skills layouts (Claude Code tightens its path validator regularly — be explicit):
-  - Single-skill plugin (SKILL.md at root):       "skills": ["./"]   (array form)
-  - Plugin with skills/ subdir:                   "skills": "skills" (NO "./" prefix — #686)
+  - Single-skill plugin (SKILL.md at root):       "skills": ["./"]      (array form)
+  - Plugin with skills/ subdir (CC v2.1.107-v2.1.132):
+                                                   "skills": "./skills"  (WITH "./" prefix)
+  - Plugin with skills/ subdir (CC v2.1.133+):    "skills": "skills"    (NO "./" prefix)
   - Multi-skill domain plugin (subfolders at root):
                                                    "skills": ["./sub1", "./sub2", ...]
 
+CURRENT INSTALLED VERSION: CC v2.1.119 → use "./skills" form (WITH "./" prefix).
+
 REJECTED forms and why:
   - "skills": "./"     — Claude Code v2.1.107+ rejects ("Path escapes plugin directory")
-  - "skills": "./skills" — Claude Code v2.1.133+ rejects (issue #686)
-  - Any string starting with "./" (lifted out of array context)
+  - "skills": "skills" — Claude Code v2.1.119 rejects (prefix-less form requires v2.1.133+)
+
+When CC is upgraded past v2.1.133:
+  - Change "./skills" → "skills" in all 47 string-format plugin.json files
+  - Update this docstring and _check_skills_string() below
 """
 import argparse
 import json
@@ -76,12 +83,17 @@ def _check_author(data):
 def _check_skills_string(s):
     if s in ("./", ""):
         return ['skills: bare "./" is rejected by Claude Code v2.1.107+; '
-                'use ["./"] (array) for single-skill at root, or "skills" for subdir layout']
+                'use ["./"] (array) for single-skill at root, or "./skills" for subdir layout']
+    if s == "./skills":
+        # Valid for CC v2.1.107–v2.1.132. When CC v2.1.133+ is installed, drop the "./" prefix.
+        return []
     if s.startswith("./"):
-        return [f'skills: {s!r} starts with "./" — Claude Code v2.1.133+ rejects this as '
-                f'"Path escapes plugin directory" (issue #686). Drop the "./" prefix: '
-                f'"{s[2:]}". (For single-skill plugins, use ["./"] in an array instead.)']
-    return []
+        return [f'skills: {s!r} starts with "./" — only "./skills" is an approved string value. '
+                f'Use "./skills" for subdir layout, ["./"] for single-skill at root, '
+                f'or ["./sub1", "./sub2"] for multi-skill plugins.']
+    # Bare string without "./" (e.g. "skills") requires CC v2.1.133+ — rejected on v2.1.119.
+    return [f'skills: {s!r} has no "./" prefix — this form requires CC v2.1.133+. '
+            f'Current installed CC is v2.1.119. Use "./skills" instead.']
 
 
 def _check_skills_array(s):

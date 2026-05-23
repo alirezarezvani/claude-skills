@@ -1,6 +1,7 @@
+---
 name: Jarvis Brain Sync
 
-on:
+'on':
   push:
     branches: [main]
   schedule:

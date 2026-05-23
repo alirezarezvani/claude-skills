@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unified Tool Hub — Google Antigravity UI</title>
+<title>HaMm3r's Unified Tool Hub — Google Antigravity UI</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,7 +27,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── HEADER ─────────────────────────────────────── */
 header {
   position: sticky;
   top: 0;
@@ -137,7 +136,6 @@ header {
   50%       { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
 }
 
-/* ── STATS BAR ───────────────────────────────────── */
 .stats-bar {
   display: flex;
   gap: 28px;
@@ -163,7 +161,6 @@ header {
   color: var(--muted);
 }
 
-/* ── MAIN ────────────────────────────────────────── */
 main { padding: 28px; }
 
 .section-label {
@@ -189,7 +186,6 @@ main { padding: 28px; }
   font-size: 15px;
 }
 
-/* ── TOOL CARD ───────────────────────────────────── */
 .tool-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -246,24 +242,10 @@ main { padding: 28px; }
   flex-shrink: 0;
 }
 
-.tool-name {
-  font-size: 15px;
-  font-weight: 650;
-  letter-spacing: -0.2px;
-}
+.tool-name { font-size: 15px; font-weight: 650; letter-spacing: -0.2px; }
+.tool-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-.tool-sub {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 2px;
-}
-
-.tool-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 12px;
-}
+.tool-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
 
 .pill {
   background: var(--surface2);
@@ -281,7 +263,6 @@ main { padding: 28px; }
   color: var(--card-accent, var(--accent));
 }
 
-/* ── PARTICLES CANVAS ────────────────────────────── */
 #canvas {
   position: fixed;
   inset: 0;
@@ -292,7 +273,6 @@ main { padding: 28px; }
 }
 #canvas.active { opacity: 1; }
 
-/* ── GRAVITY BANNER ──────────────────────────────── */
 .gravity-banner {
   position: fixed;
   bottom: 24px;
@@ -326,7 +306,6 @@ main { padding: 28px; }
 
 @keyframes blink { 50% { opacity: 0.3; } }
 
-/* ── MODAL ───────────────────────────────────────── */
 .overlay {
   position: fixed;
   inset: 0;
@@ -341,10 +320,7 @@ main { padding: 28px; }
   transition: opacity 0.2s;
 }
 
-.overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
+.overlay.open { opacity: 1; pointer-events: all; }
 
 .modal {
   background: var(--surface);
@@ -361,87 +337,51 @@ main { padding: 28px; }
 
 .overlay.open .modal { transform: scale(1); }
 
-.modal-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-}
-
-.modal-title {
-  font-size: 17px;
-  font-weight: 700;
-}
+.modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.modal-title { font-size: 17px; font-weight: 700; }
 
 .modal-x {
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-size: 22px;
-  cursor: pointer;
-  line-height: 1;
-  padding: 2px 6px;
-  border-radius: 6px;
+  background: none; border: none; color: var(--muted);
+  font-size: 22px; cursor: pointer; line-height: 1;
+  padding: 2px 6px; border-radius: 6px;
   transition: background 0.15s, color 0.15s;
 }
 .modal-x:hover { background: var(--surface2); color: var(--text); }
 
 .modal-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+  margin-bottom: 20px; padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
 }
 
 .modal-section { margin-bottom: 18px; }
 
 .modal-section-label {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--muted);
-  margin-bottom: 10px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--muted); margin-bottom: 10px;
 }
 
 .cap-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 9px 0;
-  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
 }
 .cap-item:last-child { border-bottom: none; }
-
 .cap-icon { font-size: 15px; padding-top: 1px; flex-shrink: 0; }
 .cap-name { font-size: 13px; font-weight: 500; font-family: monospace; }
 .cap-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-.modal-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
+.modal-pills { display: flex; flex-wrap: wrap; gap: 7px; }
 
 .modal-pill {
-  border-radius: 14px;
-  padding: 5px 14px;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: default;
-  border: 1px solid;
-  transition: opacity 0.15s;
+  border-radius: 14px; padding: 5px 14px; font-size: 12px;
+  font-weight: 500; cursor: default; border: 1px solid; transition: opacity 0.15s;
 }
 .modal-pill:hover { opacity: 0.8; }
 
-/* ── SCROLLBAR ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-/* ── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 700px) {
   header { padding: 12px 14px; }
   main { padding: 14px; }
@@ -456,7 +396,7 @@ main { padding: 28px; }
 <header>
   <div class="logo">
     <div class="logo-icon">🚀</div>
-    <span>Unified Tool Hub</span>
+    <span>HaMm3r's Unified Tool Hub</span>
   </div>
   <div class="search-wrap">
     <span class="search-icon">⌕</span>
@@ -505,7 +445,6 @@ main { padding: 28px; }
 </div>
 
 <script>
-// ─── TOOL DATA ────────────────────────────────────────────────────────────────
 const TOOLS = [
   {
     id:'gmail', name:'Gmail', sub:'Email automation & management',
@@ -671,7 +610,6 @@ const TOOLS = [
   },
 ];
 
-// ─── RENDER ───────────────────────────────────────────────────────────────────
 function render(q = '') {
   const grid = document.getElementById('grid');
   const lq = q.toLowerCase();
@@ -681,7 +619,6 @@ function render(q = '') {
     t.actions.some(a => a.toLowerCase().includes(lq)) ||
     t.caps.some(c => c.n.toLowerCase().includes(lq) || c.d.toLowerCase().includes(lq))
   ) : TOOLS;
-
   grid.innerHTML = list.length ? list.map(t => `
     <div class="tool-card" data-id="${t.id}"
          style="--card-accent:${t.color};--card-accent-bg:${t.bg};"
@@ -689,223 +626,114 @@ function render(q = '') {
       <div class="tool-dot"></div>
       <div class="tool-header">
         <div class="tool-icon" style="background:${t.bg}">${t.icon}</div>
-        <div>
-          <div class="tool-name">${t.name}</div>
-          <div class="tool-sub">${t.sub}</div>
-        </div>
+        <div><div class="tool-name">${t.name}</div><div class="tool-sub">${t.sub}</div></div>
       </div>
-      <div class="tool-pills">
-        ${t.actions.map(a=>`<span class="pill">${a}</span>`).join('')}
-      </div>
+      <div class="tool-pills">${t.actions.map(a=>`<span class="pill">${a}</span>`).join('')}</div>
     </div>
   `).join('') : '<div class="no-results">No tools match your search.</div>';
 }
 
-// ─── MODAL ────────────────────────────────────────────────────────────────────
 function openModal(id) {
   if (gravActive) return;
-  const t = TOOLS.find(x => x.id === id);
-  if (!t) return;
+  const t = TOOLS.find(x => x.id === id); if (!t) return;
   document.getElementById('mTitle').textContent = t.icon + ' ' + t.name;
   document.getElementById('mDesc').textContent = t.sub + ' — ' + t.caps.length + ' capabilities connected and ready.';
-  document.getElementById('mCaps').innerHTML = t.caps.map(c => `
-    <div class="cap-item">
-      <span class="cap-icon">${c.i}</span>
-      <div><div class="cap-name">${c.n}</div><div class="cap-desc">${c.d}</div></div>
-    </div>`).join('');
-  document.getElementById('mPills').innerHTML = t.actions.map(a => `
-    <span class="modal-pill" style="background:${t.bg};color:${t.color};border-color:${t.color}40">${a}</span>`
+  document.getElementById('mCaps').innerHTML = t.caps.map(c =>
+    `<div class="cap-item"><span class="cap-icon">${c.i}</span><div><div class="cap-name">${c.n}</div><div class="cap-desc">${c.d}</div></div></div>`
+  ).join('');
+  document.getElementById('mPills').innerHTML = t.actions.map(a =>
+    `<span class="modal-pill" style="background:${t.bg};color:${t.color};border-color:${t.color}40">${a}</span>`
   ).join('');
   document.getElementById('overlay').classList.add('open');
 }
 
-function closeModal() {
-  document.getElementById('overlay').classList.remove('open');
-}
-
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
 document.getElementById('mClose').onclick = closeModal;
 document.getElementById('overlay').onclick = e => { if (e.target === document.getElementById('overlay')) closeModal(); };
-
-// ─── SEARCH ───────────────────────────────────────────────────────────────────
 document.getElementById('search').addEventListener('input', e => render(e.target.value));
 
-// ─── ANTIGRAVITY ENGINE ───────────────────────────────────────────────────────
-let gravActive = false;
-let objs = [], parts = [], raf, canvas, ctx, dragging = null, mx = 0, my = 0;
-
-const G = 0.07;      // upward gravity magnitude
-const DAMP = 0.996;  // velocity damping
-const BNC = 0.45;    // boundary bounce
+let gravActive = false, objs = [], parts = [], raf, canvas, ctx, dragging = null, mx = 0, my = 0;
+const G = 0.07, DAMP = 0.996, BNC = 0.45;
+const COLS = ['#4f8ef7','#a78bfa','#22c55e','#f59e0b','#ec4899','#00c4cc','#fb923c'];
 
 function toggleGravity() {
-  const btn = document.getElementById('gravBtn');
-  const banner = document.getElementById('banner');
+  const btn = document.getElementById('gravBtn'), banner = document.getElementById('banner');
   gravActive = !gravActive;
-
-  if (gravActive) {
-    btn.classList.add('active');
-    btn.textContent = '⬇ Restore Gravity';
-    banner.classList.add('show');
-    launch();
-  } else {
-    btn.classList.remove('active');
-    btn.textContent = '⬆ Antigravity';
-    banner.classList.remove('show');
-    land();
-  }
+  if (gravActive) { btn.classList.add('active'); btn.textContent = '⬇ Restore Gravity'; banner.classList.add('show'); launch(); }
+  else { btn.classList.remove('active'); btn.textContent = '⬆ Antigravity'; banner.classList.remove('show'); land(); }
 }
-
 document.getElementById('gravBtn').onclick = toggleGravity;
 
 function launch() {
   canvas = document.getElementById('canvas');
-  canvas.width = innerWidth;
-  canvas.height = innerHeight;
-  ctx = canvas.getContext('2d');
-  canvas.classList.add('active');
-
-  const cards = [...document.querySelectorAll('.tool-card')];
-  objs = cards.map(el => {
+  canvas.width = innerWidth; canvas.height = innerHeight;
+  ctx = canvas.getContext('2d'); canvas.classList.add('active');
+  objs = [...document.querySelectorAll('.tool-card')].map(el => {
     const r = el.getBoundingClientRect();
     el.style.cssText += `;position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;margin:0;z-index:150;cursor:grab;transition:none;`;
     el.addEventListener('mousedown', startDrag);
-    return {
-      el, x: r.left, y: r.top, w: r.width, h: r.height,
-      vx: (Math.random()-.5)*2, vy: -(Math.random()*3+1),
-      rot: 0, rotV: (Math.random()-.5)*0.4
-    };
+    return { el, x:r.left, y:r.top, w:r.width, h:r.height, vx:(Math.random()-.5)*2, vy:-(Math.random()*3+1), rot:0, rotV:(Math.random()-.5)*0.4 };
   });
-
   document.getElementById('grid').style.visibility = 'hidden';
-  seedParticles();
+  for(let i=0;i<80;i++) parts.push(newP());
   window.addEventListener('mousemove', trackMouse);
   window.addEventListener('mouseup', stopDrag);
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('resize', () => { canvas.width=innerWidth; canvas.height=innerHeight; });
   loop();
 }
 
 function land() {
-  cancelAnimationFrame(raf);
-  canvas.classList.remove('active');
+  cancelAnimationFrame(raf); canvas.classList.remove('active');
   objs.forEach(o => {
     o.el.style.cssText = o.el.style.cssText
-      .replace(/position:[^;]+;/g,'')
-      .replace(/left:[^;]+;/g,'')
-      .replace(/top:[^;]+;/g,'')
-      .replace(/width:[^;]+;/g,'')
-      .replace(/margin:[^;]+;/g,'')
-      .replace(/z-index:[^;]+;/g,'')
-      .replace(/cursor:[^;]+;/g,'')
-      .replace(/transition:[^;]+;/g,'');
-    o.el.style.transform = '';
-    o.el.removeEventListener('mousedown', startDrag);
+      .replace(/position:[^;]+;/g,'').replace(/left:[^;]+;/g,'').replace(/top:[^;]+;/g,'')
+      .replace(/width:[^;]+;/g,'').replace(/margin:[^;]+;/g,'').replace(/z-index:[^;]+;/g,'')
+      .replace(/cursor:[^;]+;/g,'').replace(/transition:[^;]+;/g,'');
+    o.el.style.transform = ''; o.el.removeEventListener('mousedown', startDrag);
   });
   document.getElementById('grid').style.visibility = '';
-  window.removeEventListener('mousemove', trackMouse);
-  window.removeEventListener('mouseup', stopDrag);
-  window.removeEventListener('resize', resizeCanvas);
+  window.removeEventListener('mousemove', trackMouse); window.removeEventListener('mouseup', stopDrag);
   objs = []; parts = [];
 }
 
-function seedParticles() {
-  const COLS = ['#4f8ef7','#a78bfa','#22c55e','#f59e0b','#ec4899','#00c4cc','#fb923c'];
-  for (let i=0; i<80; i++) parts.push(newParticle(COLS));
-}
-
-function newParticle(COLS) {
-  return {
-    x: Math.random()*innerWidth, y: innerHeight + Math.random()*60,
-    vx: (Math.random()-.5)*1.5, vy: -(Math.random()*2+0.4),
-    r: Math.random()*3+1, op: Math.random()*.7+.2, life: 0,
-    col: COLS[Math.floor(Math.random()*COLS.length)]
-  };
-}
-
-function trackMouse(e) { mx = e.clientX; my = e.clientY; }
-
-function startDrag(e) {
-  const o = objs.find(x => x.el === e.currentTarget);
-  if (!o) return;
-  dragging = o;
-  o._dx = e.clientX - o.x;
-  o._dy = e.clientY - o.y;
-  o.el.style.cursor = 'grabbing';
-  e.preventDefault();
-}
-
-function stopDrag() {
-  if (dragging) { dragging.el.style.cursor = 'grab'; dragging = null; }
-}
-
-function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
+function newP() { return { x:Math.random()*innerWidth, y:innerHeight+Math.random()*60, vx:(Math.random()-.5)*1.5, vy:-(Math.random()*2+0.4), r:Math.random()*3+1, op:Math.random()*.7+.2, life:0, col:COLS[Math.floor(Math.random()*COLS.length)] }; }
+function trackMouse(e) { mx=e.clientX; my=e.clientY; }
+function startDrag(e) { const o=objs.find(x=>x.el===e.currentTarget); if(!o) return; dragging=o; o._dx=e.clientX-o.x; o._dy=e.clientY-o.y; o.el.style.cursor='grabbing'; e.preventDefault(); }
+function stopDrag() { if(dragging){dragging.el.style.cursor='grab';dragging=null;} }
 
 function loop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const W = innerWidth, H = innerHeight;
-  const COLS = ['#4f8ef7','#a78bfa','#22c55e','#f59e0b','#ec4899','#00c4cc','#fb923c'];
-
-  // Particles
-  parts.forEach((p,i) => {
-    p.x += p.vx; p.y += p.vy; p.life = Math.min(1, p.life + 0.006);
-    if (p.y < -20) parts[i] = newParticle(COLS);
-    const a = Math.sin(p.life * Math.PI) * p.op;
-    if (a <= 0) return;
-    ctx.save();
-    ctx.globalAlpha = a;
-    ctx.fillStyle = p.col;
-    ctx.shadowBlur = 10; ctx.shadowColor = p.col;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
-    ctx.restore();
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const W=innerWidth, H=innerHeight;
+  parts.forEach((p,i)=>{
+    p.x+=p.vx; p.y+=p.vy; p.life=Math.min(1,p.life+0.006);
+    if(p.y<-20) parts[i]=newP();
+    const a=Math.sin(p.life*Math.PI)*p.op; if(a<=0) return;
+    ctx.save(); ctx.globalAlpha=a; ctx.fillStyle=p.col; ctx.shadowBlur=10; ctx.shadowColor=p.col;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
   });
-  if (Math.random() < .25 && parts.length < 150) parts.push(newParticle(COLS));
-
-  // Physics objects
-  objs.forEach(o => {
-    if (dragging === o) {
-      const px = o.x, py = o.y;
-      o.x = mx - o._dx; o.y = my - o._dy;
-      o.vx = (o.x - px) * .8; o.vy = (o.y - py) * .8;
-    } else {
-      o.vy -= G;
-      o.vx *= DAMP; o.vy *= DAMP;
-
-      // Mouse repulsion
-      const dx = (o.x + o.w/2) - mx, dy = (o.y + o.h/2) - my;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 220 && dist > 1) {
-        const f = ((220 - dist) / 220) * 0.6;
-        o.vx += (dx/dist)*f; o.vy += (dy/dist)*f;
-      }
-
-      o.x += o.vx; o.y += o.vy;
-      o.rot += o.rotV;
-
-      // Horizontal walls
-      if (o.x < 0)         { o.x = 0;       o.vx *= -BNC; }
-      if (o.x+o.w > W)     { o.x = W-o.w;   o.vx *= -BNC; }
-      // Vertical wrap
-      if (o.y + o.h < -60) { o.y = H + 10;  o.vx=(Math.random()-.5)*2; o.vy=-(Math.random()*3+1); o.rot=0; }
-      if (o.y > H + 60)    { o.y = -o.h - 10; }
+  if(Math.random()<.25&&parts.length<150) parts.push(newP());
+  objs.forEach(o=>{
+    if(dragging===o){ const px=o.x,py=o.y; o.x=mx-o._dx; o.y=my-o._dy; o.vx=(o.x-px)*.8; o.vy=(o.y-py)*.8; }
+    else {
+      o.vy-=G; o.vx*=DAMP; o.vy*=DAMP;
+      const dx=(o.x+o.w/2)-mx, dy=(o.y+o.h/2)-my, dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<220&&dist>1){const f=((220-dist)/220)*.6; o.vx+=(dx/dist)*f; o.vy+=(dy/dist)*f;}
+      o.x+=o.vx; o.y+=o.vy; o.rot+=o.rotV;
+      if(o.x<0){o.x=0;o.vx*=-BNC;} if(o.x+o.w>W){o.x=W-o.w;o.vx*=-BNC;}
+      if(o.y+o.h<-60){o.y=H+10;o.vx=(Math.random()-.5)*2;o.vy=-(Math.random()*3+1);o.rot=0;}
+      if(o.y>H+60){o.y=-o.h-10;}
     }
-    o.el.style.left = o.x + 'px';
-    o.el.style.top  = o.y + 'px';
-    o.el.style.transform = `rotate(${o.rot}deg)`;
+    o.el.style.left=o.x+'px'; o.el.style.top=o.y+'px'; o.el.style.transform=`rotate(${o.rot}deg)`;
   });
-
-  raf = requestAnimationFrame(loop);
+  raf=requestAnimationFrame(loop);
 }
 
-// ─── KEYBOARD ─────────────────────────────────────────────────────────────────
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeModal(); if (gravActive) toggleGravity(); }
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'g') { e.preventDefault(); toggleGravity(); }
-  if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
-    e.preventDefault();
-    document.getElementById('search').focus();
-  }
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){closeModal();if(gravActive)toggleGravity();}
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='g'){e.preventDefault();toggleGravity();}
+  if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('search').focus();}
 });
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
 render();
 </script>
 </body>

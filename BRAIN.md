@@ -11,7 +11,6 @@
 | [Gemma 3 Metal Formula + Chat UI](#gemma3-metal-macos) | homebrew-tap | Draft PR #1 | gemma3, metal, macos, ollama, ui |
 | [Apex Agent Formula](#apex-agent) | homebrew-tap | Active | agent, homebrew |
 | [Claude Skills Library (205+)](#claude-skills-library) | claude-skills | Active | skills, ai, engineering, marketing |
-| [No Man's Sky Mod Template](#no-mans-sky-mod-template) | symmetrical-octo-goggles | Active | nms, mod, dotnet |
 | [Jarvis Brain](#jarvis-brain) | claude-skills | Active | brain, meta, knowledge |
 
 ---
@@ -51,16 +50,6 @@
 
 ---
 
-### no-mans-sky-mod-template
-**No Man's Sky Mod Template (.NET)**
-- **Repo:** lordhammer11/symmetrical-octo-goggles · branch `main`
-- **Created:** 2026-05-18
-- **Tags:** `no-mans-sky` `mod` `dotnet` `game`
-- **Summary:** C# / .NET mod template for No Man's Sky.
-- **Files:** `NoMansSky.ModTemplate.sln` `NoMansSky.ModTemplate/`
-
----
-
 ### jarvis-brain
 **Jarvis Brain — persistent knowledge index**
 - **Repo:** lordhammer11/claude-skills · branch `claude/gemma-metal-macos-elEwl`
@@ -77,7 +66,6 @@
 |------|------|-------------|
 | Native macOS SwiftUI app for Gemma 3 | macos, swift, ui, gemma3 | A polished SwiftUI wrapper around the gemma3 CLI — app-store quality |
 | Web dashboard for the Jarvis brain | web, brain, dashboard | GitHub Pages site rendering brain/index.json as a visual knowledge map — timeline, tag cloud, repo graph |
-| AI companion mod for No Man's Sky | nms, ai, mod, gemma3 | In-game AI companion powered by local Gemma 3 via the NMS mod template |
 
 ---
 
@@ -85,10 +73,10 @@
 
 | Metric | Count |
 |--------|-------|
-| Total entries | 5 |
-| Active | 4 |
+| Total entries | 4 |
+| Active | 3 |
 | Draft PR | 1 |
-| Ideas backlog | 3 |
+| Ideas backlog | 2 |
 | Repos tracked | 4 |
 
 ---

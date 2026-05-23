@@ -58,21 +58,6 @@
       "notes": "See INSTALLATION.md for per-agent install commands."
     },
     {
-      "id": "no-mans-sky-mod-template",
-      "title": "No Man's Sky Mod Template (.NET)",
-      "type": "game-mod",
-      "repo": "lordhammer11/symmetrical-octo-goggles",
-      "branch": "main",
-      "pr": null,
-      "created": "2026-05-18",
-      "updated": "2026-05-18",
-      "status": "active",
-      "tags": ["no-mans-sky", "mod", "dotnet", "game"],
-      "summary": "C# / .NET mod template for No Man's Sky. Solution file NoMansSky.ModTemplate.sln.",
-      "files": ["NoMansSky.ModTemplate.sln", "NoMansSky.ModTemplate/"],
-      "notes": ""
-    },
-    {
       "id": "jarvis-brain",
       "title": "Jarvis Brain — persistent knowledge index",
       "type": "meta-system",
@@ -105,13 +90,5 @@
       "tags": ["web", "brain", "dashboard", "visualization"],
       "description": "A GitHub Pages site that renders brain/index.json as a visual knowledge map — timeline, tag cloud, repo graph."
     },
-    {
-      "id": "idea-nms-mod-ai-companion",
-      "title": "AI companion mod for No Man's Sky",
-      "status": "idea",
-      "created": "2026-05-18",
-      "tags": ["no-mans-sky", "ai", "mod", "gemma3"],
-      "description": "Use the Gemma 3 formula + NMS mod template to build an in-game AI companion powered by a local LLM."
-    }
   ]
 }

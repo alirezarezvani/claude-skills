@@ -1,0 +1,60 @@
+---
+name: Jarvis Brain Sync
+
+'on':
+  push:
+    branches: [main]
+  schedule:
+    # Daily at 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (no file writes)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync-brain:
+    name: Sync knowledge index
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run brain_update.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DRY_RUN=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY_RUN="--dry-run"
+          fi
+          python3 scripts/brain_update.py --token "$GITHUB_TOKEN" $DRY_RUN
+
+      - name: Commit updated brain
+        if: inputs.dry_run != 'true'
+        run: |
+          git config user.name  "Jarvis Brain Bot"
+          git config user.email "brain-bot@users.noreply.github.com"
+          git add brain/index.json BRAIN.md
+          if git diff --cached --quiet; then
+            echo "No brain changes to commit."
+          else
+            git commit -m "brain: auto-sync $(date -u +%Y-%m-%d)"
+            git push
+          fi

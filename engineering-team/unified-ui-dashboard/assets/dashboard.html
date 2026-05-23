@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HaMm3r's Unified Tool Hub — Google Antigravity UI</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --surface2: #1c1c28;
+  --border: rgba(255,255,255,0.08);
+  --text: #e8e8f0;
+  --muted: #6b6b8a;
+  --accent: #4f8ef7;
+  --accent2: #a78bfa;
+  --glow: rgba(79,142,247,0.25);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Google Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: -0.3px;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--glow);
+}
+
+.search-wrap {
+  flex: 1;
+  position: relative;
+  max-width: 520px;
+}
+
+.search-wrap input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 9px 18px 9px 40px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.search-wrap input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--glow);
+}
+
+.search-wrap input::placeholder { color: var(--muted); }
+
+.search-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.btn-gravity {
+  background: linear-gradient(135deg, #6366f1, #a78bfa);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.btn-gravity:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.45);
+}
+
+.btn-gravity.active {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  animation: pulse-grav 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-grav {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
+}
+
+.stats-bar {
+  display: flex;
+  gap: 28px;
+  padding: 10px 28px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stat { display: flex; align-items: center; gap: 5px; }
+.stat strong { color: var(--text); font-weight: 600; }
+
+.kbd {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--muted);
+}
+
+main { padding: 28px; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+}
+
+.no-results {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.tool-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, var(--card-accent-bg, rgba(79,142,247,0.06)), transparent 60%);
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.tool-card:hover {
+  border-color: var(--card-accent, var(--accent));
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35), 0 0 0 1px var(--card-accent, var(--accent)) inset;
+  transform: translateY(-3px);
+}
+
+.tool-dot {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.tool-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.tool-name { font-size: 15px; font-weight: 650; letter-spacing: -0.2px; }
+.tool-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.tool-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+
+.pill {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 9px;
+  font-size: 11px;
+  color: var(--muted);
+  transition: all 0.15s;
+  line-height: 1.5;
+}
+
+.tool-card:hover .pill {
+  border-color: var(--card-accent, var(--accent));
+  color: var(--card-accent, var(--accent));
+}
+
+#canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+#canvas.active { opacity: 1; }
+
+.gravity-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: rgba(99,102,241,0.95);
+  backdrop-filter: blur(12px);
+  color: white;
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(99,102,241,0.4);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  white-space: nowrap;
+}
+
+.gravity-banner.show { transform: translateX(-50%) translateY(0); }
+
+.banner-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #86efac;
+  box-shadow: 0 0 6px #86efac;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0.3; } }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 540px;
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 26px;
+  transform: scale(0.95);
+  transition: transform 0.2s cubic-bezier(0.34,1.4,0.64,1);
+}
+
+.overlay.open .modal { transform: scale(1); }
+
+.modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.modal-title { font-size: 17px; font-weight: 700; }
+
+.modal-x {
+  background: none; border: none; color: var(--muted);
+  font-size: 22px; cursor: pointer; line-height: 1;
+  padding: 2px 6px; border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+.modal-x:hover { background: var(--surface2); color: var(--text); }
+
+.modal-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+  margin-bottom: 20px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-section { margin-bottom: 18px; }
+
+.modal-section-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--muted); margin-bottom: 10px;
+}
+
+.cap-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.cap-item:last-child { border-bottom: none; }
+.cap-icon { font-size: 15px; padding-top: 1px; flex-shrink: 0; }
+.cap-name { font-size: 13px; font-weight: 500; font-family: monospace; }
+.cap-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.modal-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.modal-pill {
+  border-radius: 14px; padding: 5px 14px; font-size: 12px;
+  font-weight: 500; cursor: default; border: 1px solid; transition: opacity 0.15s;
+}
+.modal-pill:hover { opacity: 0.8; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@media (max-width: 700px) {
+  header { padding: 12px 14px; }
+  main { padding: 14px; }
+  .tools-grid { grid-template-columns: 1fr; }
+  .logo span { display: none; }
+  .stats-bar { gap: 14px; padding: 8px 14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🚀</div>
+    <span>HaMm3r's Unified Tool Hub</span>
+  </div>
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="search" type="text" placeholder="Search tools and capabilities… (press / to focus)" autocomplete="off">
+  </div>
+  <div class="header-actions">
+    <button class="btn-gravity" id="gravBtn">⬆ Antigravity</button>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat">🔧 <strong>11</strong>&nbsp;tool categories</div>
+  <div class="stat">⚡ <strong>80+</strong>&nbsp;capabilities</div>
+  <div class="stat">🟢 All systems connected</div>
+  <div class="stat" style="margin-left:auto;"><kbd class="kbd">Ctrl+G</kbd> antigravity &nbsp;·&nbsp; <kbd class="kbd">/</kbd> search &nbsp;·&nbsp; <kbd class="kbd">Esc</kbd> exit</div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<main>
+  <div class="section-label">Connected Integrations</div>
+  <div class="tools-grid" id="grid"></div>
+</main>
+
+<div class="gravity-banner" id="banner">
+  <span class="banner-dot"></span>
+  Antigravity active — drag cards &amp; move cursor to repel!
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="mTitle"></div>
+      <button class="modal-x" id="mClose">×</button>
+    </div>
+    <div class="modal-desc" id="mDesc"></div>
+    <div class="modal-section">
+      <div class="modal-section-label">Capabilities</div>
+      <div id="mCaps"></div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Quick Actions</div>
+      <div class="modal-pills" id="mPills"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOOLS = [
+  {
+    id:'gmail', name:'Gmail', sub:'Email automation & management',
+    icon:'📧', color:'#ea4335', bg:'rgba(234,67,53,0.14)',
+    actions:['Search Threads','Create Draft','List Labels','Get Thread','Label Message','List Drafts'],
+    caps:[
+      {i:'🔍',n:'search_threads',d:'Full-text search across all emails with filters'},
+      {i:'📝',n:'create_draft',d:'Compose and save email drafts'},
+      {i:'🏷️',n:'list_labels',d:'View all Gmail labels and categories'},
+      {i:'📬',n:'get_thread',d:'Retrieve full email conversation'},
+      {i:'✅',n:'label_message',d:'Apply labels to individual messages'},
+      {i:'🗂️',n:'label_thread',d:'Organize entire threads with labels'},
+      {i:'📋',n:'list_drafts',d:'View all saved draft emails'},
+      {i:'🔓',n:'unlabel_message',d:'Remove labels from messages'},
+    ]
+  },
+  {
+    id:'drive', name:'Google Drive', sub:'File storage & document management',
+    icon:'📁', color:'#fbbc04', bg:'rgba(251,188,4,0.14)',
+    actions:['List Files','Search Files','Create File','Download','Get Metadata','Copy File'],
+    caps:[
+      {i:'📋',n:'list_recent_files',d:'Browse recently accessed files'},
+      {i:'🔍',n:'search_files',d:'Search across all Drive files by name or content'},
+      {i:'📄',n:'read_file_content',d:'Read file contents directly in chat'},
+      {i:'⬇️',n:'download_file_content',d:'Download file bytes to local storage'},
+      {i:'📊',n:'get_file_metadata',d:'Get file info, permissions, and size'},
+      {i:'✨',n:'create_file',d:'Create new documents or folders'},
+      {i:'📋',n:'copy_file',d:'Duplicate any existing file'},
+      {i:'🔒',n:'get_file_permissions',d:'Inspect sharing and access permissions'},
+    ]
+  },
+  {
+    id:'calendar', name:'Google Calendar', sub:'Scheduling & event management',
+    icon:'📅', color:'#1a73e8', bg:'rgba(26,115,232,0.14)',
+    actions:['List Events','Create Event','Suggest Time','Update Event','RSVP','Delete Event'],
+    caps:[
+      {i:'📋',n:'list_calendars',d:'View all connected calendars'},
+      {i:'📅',n:'list_events',d:'Get upcoming events and schedule'},
+      {i:'🔍',n:'get_event',d:'Get detailed information about an event'},
+      {i:'✨',n:'create_event',d:'Schedule new meetings and events with attendees'},
+      {i:'✏️',n:'update_event',d:'Modify existing event details'},
+      {i:'🗑️',n:'delete_event',d:'Remove events from calendar'},
+      {i:'✅',n:'respond_to_event',d:'Accept, decline or tentatively accept invitations'},
+      {i:'⏰',n:'suggest_time',d:'AI-powered meeting time finder for multiple attendees'},
+    ]
+  },
+  {
+    id:'zoom', name:'Zoom', sub:'Meeting recordings & transcripts',
+    icon:'🎥', color:'#2d8cff', bg:'rgba(45,140,255,0.14)',
+    actions:['List Recordings','Search Meetings','Get Assets','Get Transcript','Search Zoom'],
+    caps:[
+      {i:'🎬',n:'recordings_list',d:'Browse all recorded meetings'},
+      {i:'🔍',n:'search_meetings',d:'Search past meetings by topic or attendee'},
+      {i:'📦',n:'get_meeting_assets',d:'Download recordings and supplemental materials'},
+      {i:'📄',n:'get_recording_resource',d:'Get specific recording files (video, audio, transcript)'},
+      {i:'🌐',n:'search_zoom',d:'Global search across all Zoom data'},
+      {i:'📝',n:'get_file_content',d:'Read meeting transcript text'},
+      {i:'📋',n:'create_file_with_markdown',d:'Export meeting notes and summaries to Markdown'},
+    ]
+  },
+  {
+    id:'github', name:'GitHub', sub:'Code, PRs, issues & repositories',
+    icon:'🐙', color:'#a78bfa', bg:'rgba(167,139,250,0.14)',
+    actions:['List PRs','List Issues','Search Code','Get File','Create Branch','Push Files'],
+    caps:[
+      {i:'🔀',n:'list_pull_requests',d:'View open and closed pull requests'},
+      {i:'🐛',n:'list_issues',d:'Browse issues filtered by state and label'},
+      {i:'🔍',n:'search_code',d:'Search code across all repositories'},
+      {i:'📁',n:'get_file_contents',d:'Read any file from any repository'},
+      {i:'🌿',n:'create_branch',d:'Create new feature branches'},
+      {i:'⬆️',n:'push_files',d:'Commit and push multiple files at once'},
+      {i:'🔀',n:'create_pull_request',d:'Open pull requests with full description'},
+      {i:'💬',n:'add_issue_comment',d:'Comment on issues and pull requests'},
+    ]
+  },
+  {
+    id:'shopify', name:'Shopify', sub:'E-commerce store management',
+    icon:'🛍️', color:'#96bf48', bg:'rgba(150,191,72,0.14)',
+    actions:['Get Product','List Orders','Run Analytics','Check Inventory','Create Product'],
+    caps:[
+      {i:'📦',n:'get_product',d:'View product details and variants'},
+      {i:'🔍',n:'search_products',d:'Search across the product catalog'},
+      {i:'📋',n:'list_orders',d:'Browse recent orders with details'},
+      {i:'👥',n:'list_customers',d:'View and search the customer database'},
+      {i:'📊',n:'run_analytics_query',d:'Run ShopifyQL analytics queries'},
+      {i:'📦',n:'get_inventory_levels',d:'Check stock levels at each location'},
+      {i:'✨',n:'create_product',d:'Add new products to the store'},
+      {i:'💰',n:'create_discount',d:'Create promotional discount codes'},
+    ]
+  },
+  {
+    id:'adobe', name:'Adobe Creative', sub:'Image editing & design automation',
+    icon:'🎨', color:'#ff4b4b', bg:'rgba(255,75,75,0.12)',
+    actions:['Remove BG','Crop & Resize','Generative Fill','Search Assets','Vectorize'],
+    caps:[
+      {i:'✂️',n:'image_remove_background',d:'AI-powered background removal'},
+      {i:'📐',n:'image_crop_and_resize',d:'Resize and crop to any dimension'},
+      {i:'🪄',n:'image_fill_area',d:'Generative fill empty or masked areas with AI'},
+      {i:'🔍',n:'asset_search',d:'Search Adobe Stock and your asset library'},
+      {i:'🖋️',n:'image_vectorize',d:'Convert raster images to clean SVG vectors'},
+      {i:'🎭',n:'image_select_subject',d:'AI-powered subject selection'},
+      {i:'✨',n:'image_generative_expand',d:'Outpaint beyond original image borders'},
+      {i:'🌫️',n:'image_apply_gaussian_blur',d:'Apply various blur and texture effects'},
+    ]
+  },
+  {
+    id:'canva', name:'Canva', sub:'Graphic design & presentations',
+    icon:'✏️', color:'#00c4cc', bg:'rgba(0,196,204,0.14)',
+    actions:['Generate Design','Search Designs','Export','List Brand Kits','Resize Design'],
+    caps:[
+      {i:'✨',n:'generate_design',d:'AI-powered design generation from prompt'},
+      {i:'🔍',n:'search_designs',d:'Find existing designs in your workspace'},
+      {i:'📤',n:'export_design',d:'Export to PNG, PDF, MP4, and more formats'},
+      {i:'🎨',n:'list_brand_kits',d:'View brand colors, fonts, and logos'},
+      {i:'📋',n:'create_design_from_brand_template',d:'Use branded templates for consistency'},
+      {i:'📏',n:'resize_design',d:'Resize design for any platform automatically'},
+      {i:'📝',n:'list_comments',d:'View and reply to design feedback'},
+      {i:'🔗',n:'get_design_pages',d:'Get all pages from a multi-page design'},
+    ]
+  },
+  {
+    id:'docusign', name:'DocuSign', sub:'Document signing & workflow automation',
+    icon:'✍️', color:'#f59e0b', bg:'rgba(245,158,11,0.14)',
+    actions:['List Envelopes','Create Envelope','Get Templates','Send Reminder','Trigger Workflow'],
+    caps:[
+      {i:'📋',n:'getEnvelopes',d:'List all document envelopes and their status'},
+      {i:'✨',n:'createEnvelope',d:'Send documents out for signature'},
+      {i:'📄',n:'getTemplates',d:'Browse reusable signing templates'},
+      {i:'🔔',n:'sendReminder',d:'Send follow-up reminders to pending signers'},
+      {i:'⚙️',n:'triggerWorkflow',d:'Start automated signing workflows'},
+      {i:'📊',n:'getAllAgreements',d:'View all agreements across accounts'},
+      {i:'👥',n:'listRecipients',d:'See all recipients on an envelope'},
+      {i:'📈',n:'getWorkflowsList',d:'Browse available workflow definitions'},
+    ]
+  },
+  {
+    id:'hf', name:'Hugging Face', sub:'AI models, datasets & research papers',
+    icon:'🤗', color:'#ff9a00', bg:'rgba(255,154,0,0.14)',
+    actions:['Search Models','Search Papers','Search Spaces','Hub Query','Repo Details'],
+    caps:[
+      {i:'🔍',n:'hub_repo_search',d:'Search models and datasets on the Hub'},
+      {i:'📄',n:'paper_search',d:'Find AI/ML research papers on arXiv'},
+      {i:'🔧',n:'hf_hub_query',d:'Advanced Hub API queries with filters'},
+      {i:'🚀',n:'space_search',d:'Find interactive demo Spaces'},
+      {i:'📊',n:'hub_repo_details',d:'Detailed repo info, downloads, and stats'},
+      {i:'📚',n:'hf_doc_search',d:'Search Hugging Face documentation'},
+      {i:'🌐',n:'dynamic_space',d:'Interact with live Gradio Spaces'},
+    ]
+  },
+  {
+    id:'ideabrowser', name:'Ideabrowser', sub:'Startup ideas, market trends & research',
+    icon:'💡', color:'#ec4899', bg:'rgba(236,72,153,0.14)',
+    actions:['Browse Ideas','Market Insights','List Trends','List Projects','Research Idea'],
+    caps:[
+      {i:'💡',n:'browse_ideas',d:'Explore curated startup ideas with filters'},
+      {i:'📊',n:'browse_platform_insights',d:'Platform-specific market insights'},
+      {i:'📈',n:'list_trends',d:'Emerging market trends and signals'},
+      {i:'📋',n:'list_projects',d:'Your saved startup projects'},
+      {i:'🔬',n:'start_idea_research',d:'Deep-dive validation research on an idea'},
+      {i:'🎯',n:'get_market_insight_detail',d:'Detailed market size and opportunity analysis'},
+      {i:'💾',n:'save_idea',d:'Save and react to interesting ideas'},
+    ]
+  },
+];
+
+function render(q = '') {
+  const grid = document.getElementById('grid');
+  const lq = q.toLowerCase();
+  const list = q ? TOOLS.filter(t =>
+    t.name.toLowerCase().includes(lq) ||
+    t.sub.toLowerCase().includes(lq) ||
+    t.actions.some(a => a.toLowerCase().includes(lq)) ||
+    t.caps.some(c => c.n.toLowerCase().includes(lq) || c.d.toLowerCase().includes(lq))
+  ) : TOOLS;
+  grid.innerHTML = list.length ? list.map(t => `
+    <div class="tool-card" data-id="${t.id}"
+         style="--card-accent:${t.color};--card-accent-bg:${t.bg};"
+         onclick="openModal('${t.id}')">
+      <div class="tool-dot"></div>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:${t.bg}">${t.icon}</div>
+        <div><div class="tool-name">${t.name}</div><div class="tool-sub">${t.sub}</div></div>
+      </div>
+      <div class="tool-pills">${t.actions.map(a=>`<span class="pill">${a}</span>`).join('')}</div>
+    </div>
+  `).join('') : '<div class="no-results">No tools match your search.</div>';
+}
+
+function openModal(id) {
+  if (gravActive) return;
+  const t = TOOLS.find(x => x.id === id); if (!t) return;
+  document.getElementById('mTitle').textContent = t.icon + ' ' + t.name;
+  document.getElementById('mDesc').textContent = t.sub + ' — ' + t.caps.length + ' capabilities connected and ready.';
+  document.getElementById('mCaps').innerHTML = t.caps.map(c =>
+    `<div class="cap-item"><span class="cap-icon">${c.i}</span><div><div class="cap-name">${c.n}</div><div class="cap-desc">${c.d}</div></div></div>`
+  ).join('');
+  document.getElementById('mPills').innerHTML = t.actions.map(a =>
+    `<span class="modal-pill" style="background:${t.bg};color:${t.color};border-color:${t.color}40">${a}</span>`
+  ).join('');
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeModal() { document.getElementById('overlay').classList.remove('open'); }
+document.getElementById('mClose').onclick = closeModal;
+document.getElementById('overlay').onclick = e => { if (e.target === document.getElementById('overlay')) closeModal(); };
+document.getElementById('search').addEventListener('input', e => render(e.target.value));
+
+let gravActive = false, objs = [], parts = [], raf, canvas, ctx, dragging = null, mx = 0, my = 0;
+const G = 0.07, DAMP = 0.996, BNC = 0.45;
+const COLS = ['#4f8ef7','#a78bfa','#22c55e','#f59e0b','#ec4899','#00c4cc','#fb923c'];
+
+function toggleGravity() {
+  const btn = document.getElementById('gravBtn'), banner = document.getElementById('banner');
+  gravActive = !gravActive;
+  if (gravActive) { btn.classList.add('active'); btn.textContent = '⬇ Restore Gravity'; banner.classList.add('show'); launch(); }
+  else { btn.classList.remove('active'); btn.textContent = '⬆ Antigravity'; banner.classList.remove('show'); land(); }
+}
+document.getElementById('gravBtn').onclick = toggleGravity;
+
+function launch() {
+  canvas = document.getElementById('canvas');
+  canvas.width = innerWidth; canvas.height = innerHeight;
+  ctx = canvas.getContext('2d'); canvas.classList.add('active');
+  objs = [...document.querySelectorAll('.tool-card')].map(el => {
+    const r = el.getBoundingClientRect();
+    el.style.cssText += `;position:fixed;left:${r.left}px;top:${r.top}px;width:${r.width}px;margin:0;z-index:150;cursor:grab;transition:none;`;
+    el.addEventListener('mousedown', startDrag);
+    return { el, x:r.left, y:r.top, w:r.width, h:r.height, vx:(Math.random()-.5)*2, vy:-(Math.random()*3+1), rot:0, rotV:(Math.random()-.5)*0.4 };
+  });
+  document.getElementById('grid').style.visibility = 'hidden';
+  for(let i=0;i<80;i++) parts.push(newP());
+  window.addEventListener('mousemove', trackMouse);
+  window.addEventListener('mouseup', stopDrag);
+  window.addEventListener('resize', () => { canvas.width=innerWidth; canvas.height=innerHeight; });
+  loop();
+}
+
+function land() {
+  cancelAnimationFrame(raf); canvas.classList.remove('active');
+  objs.forEach(o => {
+    o.el.style.cssText = o.el.style.cssText
+      .replace(/position:[^;]+;/g,'').replace(/left:[^;]+;/g,'').replace(/top:[^;]+;/g,'')
+      .replace(/width:[^;]+;/g,'').replace(/margin:[^;]+;/g,'').replace(/z-index:[^;]+;/g,'')
+      .replace(/cursor:[^;]+;/g,'').replace(/transition:[^;]+;/g,'');
+    o.el.style.transform = ''; o.el.removeEventListener('mousedown', startDrag);
+  });
+  document.getElementById('grid').style.visibility = '';
+  window.removeEventListener('mousemove', trackMouse); window.removeEventListener('mouseup', stopDrag);
+  objs = []; parts = [];
+}
+
+function newP() { return { x:Math.random()*innerWidth, y:innerHeight+Math.random()*60, vx:(Math.random()-.5)*1.5, vy:-(Math.random()*2+0.4), r:Math.random()*3+1, op:Math.random()*.7+.2, life:0, col:COLS[Math.floor(Math.random()*COLS.length)] }; }
+function trackMouse(e) { mx=e.clientX; my=e.clientY; }
+function startDrag(e) { const o=objs.find(x=>x.el===e.currentTarget); if(!o) return; dragging=o; o._dx=e.clientX-o.x; o._dy=e.clientY-o.y; o.el.style.cursor='grabbing'; e.preventDefault(); }
+function stopDrag() { if(dragging){dragging.el.style.cursor='grab';dragging=null;} }
+
+function loop() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const W=innerWidth, H=innerHeight;
+  parts.forEach((p,i)=>{
+    p.x+=p.vx; p.y+=p.vy; p.life=Math.min(1,p.life+0.006);
+    if(p.y<-20) parts[i]=newP();
+    const a=Math.sin(p.life*Math.PI)*p.op; if(a<=0) return;
+    ctx.save(); ctx.globalAlpha=a; ctx.fillStyle=p.col; ctx.shadowBlur=10; ctx.shadowColor=p.col;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); ctx.restore();
+  });
+  if(Math.random()<.25&&parts.length<150) parts.push(newP());
+  objs.forEach(o=>{
+    if(dragging===o){ const px=o.x,py=o.y; o.x=mx-o._dx; o.y=my-o._dy; o.vx=(o.x-px)*.8; o.vy=(o.y-py)*.8; }
+    else {
+      o.vy-=G; o.vx*=DAMP; o.vy*=DAMP;
+      const dx=(o.x+o.w/2)-mx, dy=(o.y+o.h/2)-my, dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<220&&dist>1){const f=((220-dist)/220)*.6; o.vx+=(dx/dist)*f; o.vy+=(dy/dist)*f;}
+      o.x+=o.vx; o.y+=o.vy; o.rot+=o.rotV;
+      if(o.x<0){o.x=0;o.vx*=-BNC;} if(o.x+o.w>W){o.x=W-o.w;o.vx*=-BNC;}
+      if(o.y+o.h<-60){o.y=H+10;o.vx=(Math.random()-.5)*2;o.vy=-(Math.random()*3+1);o.rot=0;}
+      if(o.y>H+60){o.y=-o.h-10;}
+    }
+    o.el.style.left=o.x+'px'; o.el.style.top=o.y+'px'; o.el.style.transform=`rotate(${o.rot}deg)`;
+  });
+  raf=requestAnimationFrame(loop);
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){closeModal();if(gravActive)toggleGravity();}
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='g'){e.preventDefault();toggleGravity();}
+  if(e.key==='/'&&document.activeElement.tagName!=='INPUT'){e.preventDefault();document.getElementById('search').focus();}
+});
+
+render();
+</script>
+</body>
+</html>

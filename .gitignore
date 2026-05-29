@@ -62,3 +62,4 @@ tests/
 
 # Autoresearch agent workspace
 .autoresearch/
+.idea/

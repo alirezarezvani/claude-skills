@@ -1336,6 +1336,25 @@
       "category": "commercial"
     },
     {
+      "name": "universal-scraping-architect",
+      "source": "./engineering/universal-scraping-architect",
+      "description": "A universal scraping skill with intelligent routing, token budget tracking, and quota awareness. Supports Firecrawl (BYOK, free-tier compatible) and local Python extraction via requests/BeautifulSoup/pandas.",
+      "version": "2.1.2",
+      "author": {
+        "name": "Mehansh Barthwal",
+        "url": "https://github.com/mehanshbarthwal-lab"
+      },
+      "keywords": [
+        "scraping",
+        "data-extraction",
+        "firecrawl",
+        "beautifulsoup4",
+        "pandas",
+        "automation"
+      ],
+      "category": "development"
+    },
+    {
       "name": "research-ops-skills",
       "source": "./research-ops",
       "description": "Enterprise / cross-functional Research Operations domain — the managed counterpart to the academic research/ domain. v2.9.0 ships 5 skills: orchestrator (context: fork) + clinical-research (study design: protocol synopsis + endpoint selection + sample-size/power for means/proportions/survival + phase-gate feasibility) + research-finance (R&D program budgeting with F&A split + burn/runway + capitalize-vs-expense routing + portfolio ROI) + market-research (TAM/SAM/SOM computed both top-down and bottoms-up + survey sampling with FPC and per-segment minima + Kotler segmentation scoring) + product-research (goal-matched study design + method-based saturation with confidence + insight synthesis that flags single-source anecdotes). Hard rules: clinical outputs are estimates with a named clinical owner (never fact), finance outputs surface assumptions and route capex-vs-opex to a named finance owner (never auto-decide), market sizes show method + assumptions (never a single number), product insights require recurrence across independent participants. Each sub-skill ships per-skill onboarding questions (onboard.py), a customization config consumed by every tool, and an isolated opt-in autoresearch evaluator (ar_evaluator.py) bridging to engineering/autoresearch-agent. 24 stdlib Python tools (12 analysis + 12 onboarding/customization/autoresearch), 12 reference docs. Distinct from ra-qm-team (regulatory/QM submission), finance (corporate close/valuation), research/grants (funding discovery), product-team (persona/journey/live experiments), marketing-skill (campaign analytics).",

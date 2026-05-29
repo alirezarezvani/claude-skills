@@ -89,6 +89,6 @@
       "created": "2026-05-18",
       "tags": ["web", "brain", "dashboard", "visualization"],
       "description": "A GitHub Pages site that renders brain/index.json as a visual knowledge map — timeline, tag cloud, repo graph."
-    },
+    }
   ]
 }

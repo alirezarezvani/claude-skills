@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧠 Jarvis Brain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0d1117;
+      --bg-2:       #161b22;
+      --bg-3:       #1c2128;
+      --bg-4:       #21262d;
+      --border:     #30363d;
+      --border-2:   #21262d;
+      --text:       #e6edf3;
+      --text-2:     #8b949e;
+      --text-3:     #6e7681;
+      --cyan:       #00d4ff;
+      --cyan-dim:   rgba(0,212,255,0.12);
+      --cyan-glow:  rgba(0,212,255,0.25);
+      --green:      #3fb950;
+      --green-dim:  rgba(63,185,80,0.15);
+      --yellow:     #d29922;
+      --yellow-dim: rgba(210,153,34,0.15);
+      --blue:       #58a6ff;
+      --blue-dim:   rgba(88,166,255,0.15);
+      --grey:       #6e7681;
+      --grey-dim:   rgba(110,118,129,0.15);
+      --red:        #f85149;
+      --red-dim:    rgba(248,81,73,0.12);
+      --purple:     #bc8cff;
+      --purple-dim: rgba(188,140,255,0.15);
+      --radius:     10px;
+      --radius-sm:  6px;
+      --shadow:     0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3);
+      --shadow-lg:  0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--cyan), #7b5ea7);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .last-updated {
+      font-size: 12px;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 var(--cyan-glow);
+      animation: pulse 2s infinite;
+      display: inline-block;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 var(--cyan-glow); }
+      70%  { box-shadow: 0 0 0 8px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+
+    /* ── Stats row ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 28px 0 20px;
+    }
+
+    .stat-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent-color, var(--cyan));
+      opacity: 0.7;
+    }
+
+    .stat-card:hover {
+      border-color: var(--border-2);
+      transform: translateY(-1px);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-color, var(--cyan));
+      line-height: 1;
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--text-3);
+      margin-top: 4px;
+    }
+
+    /* ── Controls ── */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-3);
+      pointer-events: none;
+      display: flex;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 9px 13px 9px 38px;
+      color: var(--text);
+      font-size: 13.5px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input::placeholder { color: var(--text-3); }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px var(--cyan-dim);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-3);
+      cursor: pointer;
+      padding: 2px;
+      display: none;
+      align-items: center;
+      border-radius: 4px;
+      transition: color 0.15s;
+    }
+
+    .search-clear:hover { color: var(--text); }
+    .search-clear.visible { display: flex; }
+
+    /* ── Tag pills ── */
+    .tags-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .tags-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--text-3);
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      user-select: none;
+    }
+
+    .tag-pill:hover {
+      background: var(--bg-4);
+      border-color: var(--text-3);
+      color: var(--text);
+    }
+
+    .tag-pill.active {
+      background: var(--cyan-dim);
+      border-color: rgba(0,212,255,0.35);
+      color: var(--cyan);
+    }
+
+    .tag-pill .tag-count {
+      background: var(--bg-4);
+      border-radius: 10px;
+      padding: 0 5px;
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-3);
+    }
+
+    .tag-pill.active .tag-count {
+      background: rgba(0,212,255,0.2);
+      color: var(--cyan);
+    }
+
+    /* ── Section header ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 28px 0 14px;
+      gap: 12px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .section-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .section-count {
+      font-size: 12px;
+      color: var(--text-3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Entries grid ── */
+    .entries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 14px;
+    }
+
+    /* ── Entry card ── */
+    .entry-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      overflow: hidden;
+    }
+
+    .entry-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+      background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%), rgba(0,212,255,0.04) 0%, transparent 60%);
+    }
+
+    .entry-card:hover {
+      border-color: #3d444d;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .entry-card:hover::after { opacity: 1; }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .entry-card:hover .card-actions { opacity: 1; }
+
+    .copy-btn {
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      font-size: 10.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .copy-btn:hover {
+      background: var(--bg-4);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .copy-btn.copied {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 20px;
+      padding: 2px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .status-active   { color: var(--green);  background: var(--green-dim);  border-color: rgba(63,185,80,0.25); }
+    .status-draft-pr { color: var(--yellow); background: var(--yellow-dim); border-color: rgba(210,153,34,0.25); }
+    .status-open-pr  { color: var(--blue);   background: var(--blue-dim);   border-color: rgba(88,166,255,0.25); }
+    .status-done     { color: var(--grey);   background: var(--grey-dim);   border-color: rgba(110,118,129,0.25); }
+    .status-archived { color: var(--red);    background: var(--red-dim);    border-color: rgba(248,81,73,0.2); }
+    .status-idea     { color: var(--purple); background: var(--purple-dim); border-color: rgba(188,140,255,0.25); }
+
+    .repo-chip {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-3);
+      background: var(--bg-3);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-sm);
+      padding: 2px 7px;
+      max-width: 180px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-summary {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .card-tag {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--text-3);
+      background: var(--bg-3);
+      border: 1px solid var(--border-2);
+      border-radius: 4px;
+      padding: 1px 6px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .card-tag:hover {
+      color: var(--cyan);
+      border-color: rgba(0,212,255,0.3);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-2);
+    }
+
+    .card-date {
+      font-size: 11px;
+      color: var(--text-3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .pr-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 3px 8px;
+      background: var(--blue-dim);
+      border: 1px solid rgba(88,166,255,0.2);
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .pr-link:hover {
+      background: rgba(88,166,255,0.22);
+      border-color: rgba(88,166,255,0.4);
+    }
+
+    /* ── Ideas section ── */
+    .ideas-section {
+      margin-top: 40px;
+    }
+
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .idea-card {
+      background: var(--bg-2);
+      border: 1px solid rgba(188,140,255,0.15);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .idea-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), transparent);
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .idea-card:hover {
+      border-color: rgba(188,140,255,0.35);
+      transform: translateY(-2px);
+    }
+
+    .idea-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .idea-desc {
+      font-size: 12.5px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+
+    .idea-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-2);
+      gap: 8px;
+    }
+
+    /* ── Empty / error ── */
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 48px;
+      text-align: center;
+      color: var(--text-3);
+    }
+
+    .empty-state .empty-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .empty-state h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+
+    .empty-state p { font-size: 13px; }
+
+    .error-card {
+      background: var(--red-dim);
+      border: 1px solid rgba(248,81,73,0.25);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 40px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .error-icon { font-size: 22px; flex-shrink: 0; }
+
+    .error-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .error-card p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    .error-card code {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg-2);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 12px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    /* ── Skeleton loader ── */
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-2) 25%, var(--bg-3) 50%, var(--bg-2) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 6px;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .skeleton-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* ── No results ── */
+    .no-results-msg {
+      grid-column: 1 / -1;
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .entries-grid { grid-template-columns: 1fr; }
+      .ideas-grid { grid-template-columns: 1fr; }
+      .header-meta .last-updated { display: none; }
+      .controls { flex-direction: column; }
+      .tags-wrap { order: 2; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .page { padding: 0 12px 40px; }
+    }
+
+    /* ── Glow accents ── */
+    .glow-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      margin: 0 0 28px;
+      opacity: 0.25;
+    }
+
+    /* ── Tooltip ── */
+    [data-tooltip] {
+      position: relative;
+    }
+
+    [data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-4);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      font-size: 11px;
+      white-space: nowrap;
+      color: var(--text);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 20;
+    }
+
+    [data-tooltip]:hover::after { opacity: 1; }
+
+    /* ── Filter active bar ── */
+    .filter-bar {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--cyan-dim);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .filter-bar.visible { display: flex; }
+
+    .filter-bar-clear {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--cyan);
+      cursor: pointer;
+      font-size: 12px;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .filter-bar-clear:hover {
+      background: rgba(0,212,255,0.15);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🧠</div>
+      <span>Jarvis Brain</span>
+    </div>
+    <div class="header-meta">
+      <span class="pulse" title="Live data"></span>
+      <span class="last-updated" id="lastUpdated">Loading…</span>
+      <span class="badge" id="entryCountBadge">
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 3.5v3l2 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span id="entryCount">—</span> entries
+      </span>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+  <div id="root">
+    <!-- Loading skeletons -->
+    <div class="stats-row" id="statsRow">
+      <div class="skeleton-card"><div class="skeleton" style="height:12px;width:60%;"></div><div class="skeleton" style="height:36px;width:50%;margin-top:8px;"></div></div>
+      <div class="skeleton-card"><div class="skeleton" style="height:12px;width:60%;"></div><div class="skeleton" style="height:36px;width:50%;margin-top:8px;"></div></div>
+      <div class="skeleton-card"><div class="skeleton" style="height:12px;width:60%;"></div><div class="skeleton" style="height:36px;width:50%;margin-top:8px;"></div></div>
+      <div class="skeleton-card"><div class="skeleton" style="height:12px;width:60%;"></div><div class="skeleton" style="height:36px;width:50%;margin-top:8px;"></div></div>
+    </div>
+    <div class="controls">
+      <div class="search-wrap">
+        <div class="search-icon"><svg width="14" height="14" fill="none" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="skeleton" style="height:38px;width:100%;border-radius:6px;"></div>
+      </div>
+    </div>
+    <div class="entries-grid">
+      <div class="skeleton-card" style="height:180px;"></div>
+      <div class="skeleton-card" style="height:180px;"></div>
+      <div class="skeleton-card" style="height:180px;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── State ──
+  let allEntries = [];
+  let allIdeas   = [];
+  let activeTags = new Set();
+  let searchQuery = '';
+
+  // ── Helpers ──
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '—';
+    try {
+      const d = new Date(iso);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    } catch { return iso; }
+  }
+
+  function statusClass(status) {
+    const map = {
+      'active':   'status-active',
+      'draft-pr': 'status-draft-pr',
+      'open-pr':  'status-open-pr',
+      'done':     'status-done',
+      'archived': 'status-archived',
+      'idea':     'status-idea',
+    };
+    return map[status] || 'status-done';
+  }
+
+  function statusLabel(status) {
+    const map = {
+      'active':   'Active',
+      'draft-pr': 'Draft PR',
+      'open-pr':  'Open PR',
+      'done':     'Done',
+      'archived': 'Archived',
+      'idea':     'Idea',
+    };
+    return map[status] || status;
+  }
+
+  function collectTags(entries) {
+    const counts = {};
+    for (const e of entries) {
+      for (const t of (e.tags || [])) {
+        counts[t] = (counts[t] || 0) + 1;
+      }
+    }
+    return Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  }
+
+  function matchesFilters(entry) {
+    const q = searchQuery.toLowerCase();
+    if (q) {
+      const haystack = [
+        entry.title,
+        entry.summary,
+        ...(entry.tags || []),
+        entry.repo,
+        entry.id,
+      ].join(' ').toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+    if (activeTags.size > 0) {
+      const entryTags = new Set(entry.tags || []);
+      for (const t of activeTags) {
+        if (!entryTags.has(t)) return false;
+      }
+    }
+    return true;
+  }
+
+  // ── Build tag pills HTML ──
+  function buildTagPills(tagCounts) {
+    if (!tagCounts.length) return '';
+    return tagCounts.map(([tag, count]) => `
+      <span class="tag-pill${activeTags.has(tag) ? ' active' : ''}" data-tag="${escapeHtml(tag)}">
+        ${escapeHtml(tag)}<span class="tag-count">${count}</span>
+      </span>
+    `).join('');
+  }
+
+  // ── Build a card ──
+  function buildCard(entry) {
+    const tags = (entry.tags || []).map(t =>
+      `<span class="card-tag" data-tag="${escapeHtml(t)}">#${escapeHtml(t)}</span>`
+    ).join('');
+
+    const prLink = entry.pr
+      ? `<a class="pr-link" href="https://github.com/${escapeHtml(entry.repo)}/pull/${entry.pr}" target="_blank" rel="noopener">
+           <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"/></svg>
+           PR #${entry.pr}
+         </a>`
+      : '';
+
+    const repoShort = (entry.repo || '').replace('lordhammer11/', '');
+
+    return `
+      <div class="entry-card" data-id="${escapeHtml(entry.id)}" role="article">
+        <div class="card-top">
+          <h3 class="card-title">${escapeHtml(entry.title)}</h3>
+          <div class="card-actions">
+            <button class="copy-btn" data-copy="${escapeHtml(entry.id)}" title="Copy entry ID">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M3 11H2a1 1 0 01-1-1V2a1 1 0 011-1h8a1 1 0 011 1v1"/></svg>
+              Copy ID
+            </button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="status-badge ${statusClass(entry.status)}">${escapeHtml(statusLabel(entry.status))}</span>
+          ${repoShort ? `<span class="repo-chip" title="${escapeHtml(entry.repo)}">${escapeHtml(repoShort)}</span>` : ''}
+        </div>
+        ${entry.summary ? `<p class="card-summary">${escapeHtml(entry.summary)}</p>` : ''}
+        ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+        <div class="card-footer">
+          <span class="card-date">${formatDate(entry.updated || entry.created)}</span>
+          ${prLink}
+        </div>
+      </div>
+    `;
+  }
+
+  function buildIdeaCard(idea) {
+    const tags = (idea.tags || []).map(t =>
+      `<span class="card-tag" data-tag="${escapeHtml(t)}">#${escapeHtml(t)}</span>`
+    ).join('');
+
+    return `
+      <div class="idea-card" data-id="${escapeHtml(idea.id)}">
+        <div class="card-top">
+          <h3 class="idea-title">${escapeHtml(idea.title)}</h3>
+          <div class="card-actions">
+            <button class="copy-btn" data-copy="${escapeHtml(idea.id)}" title="Copy idea ID">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="9" height="9" rx="2"/><path d="M3 11H2a1 1 0 01-1-1V2a1 1 0 011-1h8a1 1 0 011 1v1"/></svg>
+              Copy ID
+            </button>
+          </div>
+        </div>
+        ${idea.description ? `<p class="idea-desc">${escapeHtml(idea.description)}</p>` : ''}
+        ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+        <div class="idea-footer">
+          <span class="card-date">${formatDate(idea.created)}</span>
+          <span class="status-badge status-idea">Idea</span>
+        </div>
+      </div>
+    `;
+  }
+
+  // ── Main render ──
+  function render(data) {
+    const { meta, entries, ideas } = data;
+
+    // Header
+    document.getElementById('lastUpdated').textContent =
+      'Updated ' + formatDate(meta.last_updated);
+    document.getElementById('entryCount').textContent = entries.length;
+
+    // Stats
+    const active  = entries.filter(e => e.status === 'active').length;
+    const draftPr = entries.filter(e => e.status === 'draft-pr').length;
+    const ideaCount = (ideas || []).length;
+
+    const statsRow = document.getElementById('statsRow');
+    statsRow.innerHTML = `
+      <div class="stat-card" style="--accent-color:var(--cyan)">
+        <div class="stat-label">Total Entries</div>
+        <div class="stat-value">${entries.length}</div>
+        <div class="stat-sub">across ${meta.repos?.length ?? '?'} repos</div>
+      </div>
+      <div class="stat-card" style="--accent-color:var(--green)">
+        <div class="stat-label">Active</div>
+        <div class="stat-value">${active}</div>
+        <div class="stat-sub">in progress</div>
+      </div>
+      <div class="stat-card" style="--accent-color:var(--yellow)">
+        <div class="stat-label">Draft PR</div>
+        <div class="stat-value">${draftPr}</div>
+        <div class="stat-sub">awaiting review</div>
+      </div>
+      <div class="stat-card" style="--accent-color:var(--purple)">
+        <div class="stat-label">Ideas</div>
+        <div class="stat-value">${ideaCount}</div>
+        <div class="stat-sub">waiting to build</div>
+      </div>
+    `;
+
+    // Tag counts from all entries
+    const tagCounts = collectTags(entries);
+
+    const root = document.getElementById('root');
+
+    // Build full UI
+    root.innerHTML = `
+      <!-- Stats placeholder is outside root; skip here -->
+
+      <div class="controls">
+        <div class="search-wrap">
+          <div class="search-icon">
+            <svg width="14" height="14" fill="none" viewBox="0 0 16 16">
+              <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <input
+            id="searchInput"
+            class="search-input"
+            type="text"
+            placeholder="Search entries by title, tag, or summary…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="search-clear" id="searchClear" title="Clear search">
+            <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="tags-wrap" id="tagPills">
+        <span class="tags-label">Filter by tag</span>
+        ${buildTagPills(tagCounts)}
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M2 4h12M5 8h6M7 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span id="filterBarText">Filters active</span>
+        <button class="filter-bar-clear" id="filterBarClear">
+          <svg width="10" height="10" fill="none" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Clear all
+        </button>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">
+          <span class="dot" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan)"></span>
+          Entries
+        </div>
+        <span class="section-count" id="entriesCount">${entries.length} entries</span>
+      </div>
+
+      <div class="entries-grid" id="entriesGrid">
+        ${entries.map(buildCard).join('')}
+      </div>
+
+      ${ideas && ideas.length ? `
+        <div class="divider"></div>
+        <div class="ideas-section">
+          <div class="section-header">
+            <div class="section-title">
+              <span class="dot" style="background:var(--purple);box-shadow:0 0 6px var(--purple)"></span>
+              Ideas &amp; Future Work
+            </div>
+            <span class="section-count">${ideas.length} ideas</span>
+          </div>
+          <div class="ideas-grid">
+            ${ideas.map(buildIdeaCard).join('')}
+          </div>
+        </div>
+      ` : ''}
+    `;
+
+    // ── Wire up events ──
+
+    // Search
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim();
+      searchClear.classList.toggle('visible', searchQuery.length > 0);
+      applyFilters(entries);
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      searchClear.classList.remove('visible');
+      applyFilters(entries);
+    });
+
+    // Tag pills
+    const tagPillsContainer = document.getElementById('tagPills');
+    tagPillsContainer.addEventListener('click', e => {
+      const pill = e.target.closest('.tag-pill');
+      if (!pill) return;
+      const tag = pill.dataset.tag;
+      if (activeTags.has(tag)) {
+        activeTags.delete(tag);
+        pill.classList.remove('active');
+      } else {
+        activeTags.add(tag);
+        pill.classList.add('active');
+      }
+      applyFilters(entries);
+    });
+
+    // Filter bar clear
+    document.getElementById('filterBarClear').addEventListener('click', () => {
+      activeTags.clear();
+      searchQuery = '';
+      searchInput.value = '';
+      searchClear.classList.remove('visible');
+      document.querySelectorAll('.tag-pill.active').forEach(p => p.classList.remove('active'));
+      applyFilters(entries);
+    });
+
+    // Card tag clicks
+    document.getElementById('entriesGrid').addEventListener('click', e => {
+      const tag = e.target.closest('.card-tag')?.dataset.tag;
+      if (tag) {
+        activeTags.add(tag);
+        // Sync pill UI
+        document.querySelectorAll('.tag-pill').forEach(p => {
+          if (p.dataset.tag === tag) p.classList.add('active');
+        });
+        applyFilters(entries);
+        tagPillsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      const copyBtn = e.target.closest('.copy-btn');
+      if (copyBtn) {
+        const id = copyBtn.dataset.copy;
+        navigator.clipboard.writeText(id).then(() => {
+          const orig = copyBtn.innerHTML;
+          copyBtn.innerHTML = `<svg width="10" height="10" fill="none" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M3 8l4 4 6-8" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!`;
+          copyBtn.classList.add('copied');
+          setTimeout(() => {
+            copyBtn.innerHTML = orig;
+            copyBtn.classList.remove('copied');
+          }, 1600);
+        }).catch(() => {
+          // fallback
+          const ta = document.createElement('textarea');
+          ta.value = id;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+        });
+      }
+    });
+
+    // Idea section tag clicks and copy buttons
+    const ideasSection = document.querySelector('.ideas-section');
+    if (ideasSection) {
+      ideasSection.addEventListener('click', e => {
+        const tag = e.target.closest('.card-tag')?.dataset.tag;
+        if (tag) {
+          activeTags.add(tag);
+          document.querySelectorAll('.tag-pill').forEach(p => {
+            if (p.dataset.tag === tag) p.classList.add('active');
+          });
+          applyFilters(entries);
+        }
+
+        const copyBtn = e.target.closest('.copy-btn');
+        if (copyBtn) {
+          const id = copyBtn.dataset.copy;
+          navigator.clipboard.writeText(id).catch(() => {});
+          const orig = copyBtn.innerHTML;
+          copyBtn.innerHTML = `<svg width="10" height="10" fill="none" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M3 8l4 4 6-8" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!`;
+          copyBtn.classList.add('copied');
+          setTimeout(() => {
+            copyBtn.innerHTML = orig;
+            copyBtn.classList.remove('copied');
+          }, 1600);
+        }
+      });
+    }
+
+    // Mouse-tracked glow on cards
+    document.querySelectorAll('.entry-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
+    });
+  }
+
+  function applyFilters(entries) {
+    const filtered = entries.filter(matchesFilters);
+    const grid = document.getElementById('entriesGrid');
+    const countEl = document.getElementById('entriesCount');
+    const filterBar = document.getElementById('filterBar');
+    const filterBarText = document.getElementById('filterBarText');
+
+    const hasFilters = searchQuery.length > 0 || activeTags.size > 0;
+    filterBar.classList.toggle('visible', hasFilters);
+
+    if (hasFilters) {
+      const parts = [];
+      if (searchQuery) parts.push(`"${searchQuery}"`);
+      if (activeTags.size) parts.push([...activeTags].map(t => `#${t}`).join(', '));
+      filterBarText.textContent = `Showing ${filtered.length} of ${entries.length} — ${parts.join(' · ')}`;
+    }
+
+    countEl.textContent = `${filtered.length} of ${entries.length}`;
+
+    if (!filtered.length) {
+      grid.innerHTML = `
+        <div class="no-results-msg empty-state">
+          <div class="empty-icon">🔍</div>
+          <h3>No entries found</h3>
+          <p>Try a different search term or clear the active filters.</p>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = filtered.map(buildCard).join('');
+
+    // Re-wire copy buttons after re-render
+    grid.addEventListener('click', e => {
+      const copyBtn = e.target.closest('.copy-btn');
+      if (copyBtn) {
+        const id = copyBtn.dataset.copy;
+        navigator.clipboard.writeText(id).catch(() => {});
+        const orig = copyBtn.innerHTML;
+        copyBtn.innerHTML = `<svg width="10" height="10" fill="none" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M3 8l4 4 6-8" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied!`;
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.innerHTML = orig;
+          copyBtn.classList.remove('copied');
+        }, 1600);
+      }
+    }, { once: true });
+
+    // Re-wire glow
+    grid.querySelectorAll('.entry-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+      });
+    });
+  }
+
+  function showError(message) {
+    document.getElementById('statsRow').innerHTML = '';
+    document.getElementById('root').innerHTML = `
+      <div class="error-card">
+        <span class="error-icon">⚠️</span>
+        <div>
+          <h3>Could not load brain data</h3>
+          <p>${escapeHtml(message)}</p>
+          <p style="margin-top:8px;">Make sure <code>index.json</code> exists in the same directory and this page is served via HTTP (not <code>file://</code>).</p>
+        </div>
+      </div>
+    `;
+    document.getElementById('lastUpdated').textContent = 'Unavailable';
+    document.getElementById('entryCount').textContent = '0';
+  }
+
+  // ── Bootstrap ──
+  fetch('./index.json')
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status} ${r.statusText}`);
+      return r.json();
+    })
+    .then(data => {
+      allEntries = data.entries || [];
+      allIdeas   = data.ideas   || [];
+      render(data);
+    })
+    .catch(err => {
+      showError(err.message || 'Unknown error');
+    });
+
+})();
+</script>
+</body>
+</html>

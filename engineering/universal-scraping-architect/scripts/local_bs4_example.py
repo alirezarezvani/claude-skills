@@ -17,13 +17,24 @@ Usage:
   python scripts/local_bs4_example.py
 """
 
+from __future__ import annotations  # defer annotation eval so --help works without deps
+
+import argparse
 import sys
 import time
+import urllib.robotparser
 from datetime import datetime
 
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
+# Third-party deps are imported lazily/guarded so `--help` and `--sample` work
+# even when pandas/requests/bs4 aren't installed (repo smoke-test convention).
+try:
+    import pandas as pd
+    import requests
+    from bs4 import BeautifulSoup
+    _DEPS_OK = True
+except ImportError:
+    pd = requests = BeautifulSoup = None
+    _DEPS_OK = False
 
 # =============================================================================
 # CONFIG — Edit these for your task
@@ -36,7 +47,8 @@ LOG_FILE = "local_scrape_run.log"
 USER_AGENT = "UniversalScrapingArchitect/1.0 (contact: your@email.com)"
 TIMEOUT_SECONDS = 15
 MAX_RETRIES = 3
-RETRY_DELAY_SECONDS = 2
+RETRY_BASE_DELAY_SECONDS = 1     # exponential backoff: 1s, 2s, 4s, ...
+RESPECT_ROBOTS = True            # Set False only for targets you know are safe to fetch
 
 # Validation
 REQUIRED_COLUMNS = ["date", "price_index", "yoy_change"]
@@ -56,9 +68,35 @@ def log(message: str, level: str = "INFO"):
         f.write(line + "\n")
 
 
+def check_robots(url: str) -> bool:
+    """
+    Courtesy robots.txt check using the stdlib (RFC 9309). Returns True if the
+    fetch is allowed (or robots.txt is unreachable, which we treat as allowed
+    but log). The skill mandates this — model the correct behaviour by default.
+    """
+    if not RESPECT_ROBOTS:
+        log("robots.txt check skipped (RESPECT_ROBOTS=False).", level="WARNING")
+        return True
+    try:
+        parts = url.split("/")
+        robots_url = f"{parts[0]}//{parts[2]}/robots.txt"
+        rp = urllib.robotparser.RobotFileParser()
+        rp.set_url(robots_url)
+        rp.read()
+        allowed = rp.can_fetch(USER_AGENT, url)
+        log("robots.txt allows this fetch." if allowed
+            else f"robots.txt DISALLOWS fetching {url}. Aborting.",
+            level="INFO" if allowed else "ERROR")
+        return allowed
+    except Exception as e:
+        log(f"Could not read robots.txt ({e}); proceeding with caution.", level="WARNING")
+        return True
+
+
 def safe_get(url: str) -> str:
     """
-    Fetches HTML from a URL with polite headers, a timeout, and retry logic.
+    Fetches HTML from a URL with polite headers, a timeout, and retry logic
+    using exponential backoff (RETRY_BASE_DELAY_SECONDS * 2**n).
     Raises on non-2xx status.
     """
     headers = {"User-Agent": USER_AGENT}
@@ -80,8 +118,9 @@ def safe_get(url: str) -> str:
             log(f"Request failed on attempt {attempt}: {e}", level="ERROR")
 
         if attempt < MAX_RETRIES:
-            log(f"Waiting {RETRY_DELAY_SECONDS}s before retry...")
-            time.sleep(RETRY_DELAY_SECONDS)
+            delay = RETRY_BASE_DELAY_SECONDS * (2 ** (attempt - 1))
+            log(f"Waiting {delay}s before retry (exponential backoff)...")
+            time.sleep(delay)
 
     raise RuntimeError(f"All {MAX_RETRIES} attempts failed for URL: {url}")
 
@@ -178,7 +217,17 @@ def main():
     log("Universal Scraping Architect — Traditional / Local Scraping")
     log("=" * 60)
 
-    # Step 1: Fetch
+    if not _DEPS_OK:
+        log(
+            "Missing dependencies (requests, beautifulsoup4, pandas). "
+            "Install them from the skill's requirements.txt before running.",
+            level="ERROR"
+        )
+        sys.exit(1)
+
+    # Step 1: robots.txt courtesy check (the skill mandates this), then fetch
+    if not check_robots(TARGET_URL):
+        sys.exit(1)
     try:
         html = safe_get(TARGET_URL)
     except RuntimeError as e:
@@ -222,5 +271,23 @@ def main():
     log("Customisable: TARGET_URL, OUTPUT_FILE, TABLE_SELECTOR, REQUIRED_COLUMNS.")
 
 
+def _print_sample():
+    """Prints a non-network sample of what this template does (for smoke tests)."""
+    print("Local BS4 example (template). Edit the CONFIG block, install deps, then run.")
+    print(f"  TARGET_URL       = {TARGET_URL}")
+    print(f"  OUTPUT_FILE      = {OUTPUT_FILE}")
+    print(f"  TABLE_SELECTOR   = {TABLE_SELECTOR}")
+    print(f"  REQUIRED_COLUMNS = {REQUIRED_COLUMNS}")
+    print("  Pipeline: robots.txt -> fetch(retry+backoff) -> find table -> "
+          "parse -> normalize -> clean -> validate -> save CSV")
+    print(f"  Dependencies installed: {_DEPS_OK}")
+
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Local BeautifulSoup/pandas scraping example (editable runner template).")
+    parser.add_argument("--sample", action="store_true", help="Print a sample summary and exit (no network).")
+    args = parser.parse_args()
+    if args.sample:
+        _print_sample()
+        sys.exit(0)
     main()

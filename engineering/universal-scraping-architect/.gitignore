@@ -1,0 +1,4 @@
+# Runtime artifacts produced by the example scripts — never commit these.
+*.log
+clean_extraction.md
+energy_price_data.csv

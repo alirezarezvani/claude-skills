@@ -200,7 +200,7 @@ jobs:
 
           for skill_dir in $(echo "$SKILLS" | python3 -c "import sys,json; [print(s) for s in json.load(sys.stdin)]"); do
             # Structure validation
-            STRUCT=$(python3 engineering/skill-tester/scripts/skill_validator.py "$skill_dir" --json 2>&1 | python3 -c "
+            STRUCT=$(python3 engineering/skills/skill-tester/scripts/skill_validator.py "$skill_dir" --json 2>&1 | python3 -c "
           import sys, json
           try:
               d = json.load(sys.stdin)
@@ -213,7 +213,7 @@ jobs:
             # Script testing (if scripts exist)
             SCRIPT_STATUS="N/A"
             if [ -d "$skill_dir/scripts" ] && ls "$skill_dir/scripts/"*.py >/dev/null 2>&1; then
-              STEST=$(python3 engineering/skill-tester/scripts/script_tester.py "$skill_dir" --json 2>&1 | python3 -c "
+              STEST=$(python3 engineering/skills/skill-tester/scripts/script_tester.py "$skill_dir" --json 2>&1 | python3 -c "
           import sys, json
           text = sys.stdin.read()
           try:
@@ -227,7 +227,7 @@ jobs:
             fi
 
             # Security audit
-            SEC=$(python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py "$skill_dir" --strict --json 2>&1 | python3 -c "
+            SEC=$(python3 engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py "$skill_dir" --strict --json 2>&1 | python3 -c "
           import sys, json
           try:
               d = json.load(sys.stdin)

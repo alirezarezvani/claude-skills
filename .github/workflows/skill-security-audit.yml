@@ -108,7 +108,7 @@ jobs:
       - name: Run security auditor on changed skills
         id: audit
         run: |
-          AUDITOR="engineering/skill-security-auditor/scripts/skill_security_auditor.py"
+          AUDITOR="engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py"
           SKILLS='${{ needs.detect-changes.outputs.skills }}'
           REPORT_FILE=$(mktemp)
           OVERALL_EXIT=0

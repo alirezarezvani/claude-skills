@@ -1,1 +1,1 @@
-../../../marketing-skill/social-media-manager/SKILL.md
+../../../marketing-skill/skills/social-media-manager/SKILL.md

@@ -1,1 +1,1 @@
-../../../engineering/terraform-patterns/SKILL.md
+../../../engineering/terraform-patterns/skills/terraform-patterns/SKILL.md

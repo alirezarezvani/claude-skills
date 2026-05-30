@@ -8,7 +8,7 @@ description: "Use when validating product opportunities, mapping assumptions, pl
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `product-discovery`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-discovery/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/skills/product-discovery/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -8,7 +8,7 @@ description: "Use when assessing cloud infrastructure for security misconfigurat
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `cloud-security`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/cloud-security/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/cloud-security/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -348,7 +348,7 @@ aws s3api get-bucket-policy --bucket "${BUCKET}" | jq '.Policy | fromjson' | \
 
 | Skill | Relationship |
 |-------|-------------|
-| [incident-response](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/incident-response/SKILL.md) | Critical findings (public S3, privilege escalation confirmed active) may trigger incident classification |
-| [threat-detection](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/threat-detection/SKILL.md) | Cloud posture findings create hunting targets — over-permissioned roles are likely lateral movement destinations |
-| [red-team](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/red-team/SKILL.md) | Red team exercises specifically test exploitability of cloud misconfigurations found in posture assessment |
-| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/SKILL.md) | Cloud posture findings feed into the infrastructure security section of pen test assessments |
+| [incident-response](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/incident-response/SKILL.md) | Critical findings (public S3, privilege escalation confirmed active) may trigger incident classification |
+| [threat-detection](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/threat-detection/SKILL.md) | Cloud posture findings create hunting targets — over-permissioned roles are likely lateral movement destinations |
+| [red-team](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/red-team/SKILL.md) | Red team exercises specifically test exploitability of cloud misconfigurations found in posture assessment |
+| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/SKILL.md) | Cloud posture findings feed into the infrastructure security section of pen test assessments |

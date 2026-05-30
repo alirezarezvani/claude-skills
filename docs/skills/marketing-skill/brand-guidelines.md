@@ -8,7 +8,7 @@ description: "When the user wants to apply, document, or enforce brand guideline
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `brand-guidelines`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/brand-guidelines/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/brand-guidelines/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

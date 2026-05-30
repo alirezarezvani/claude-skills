@@ -88,8 +88,6 @@ Better to have 100 great pages than 10,000 thin ones.
 | Directory | "[category] tools" | "ai copywriting tools" |
 | Profiles | "[entity name]" | "stripe ceo" |
 
-**For detailed playbook implementation**: See [references/playbooks.md](references/playbooks.md)
-
 ---
 
 ## Choosing Your Playbook

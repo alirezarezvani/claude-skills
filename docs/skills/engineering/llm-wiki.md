@@ -8,7 +8,7 @@ description: "Use when building or maintaining a persistent personal knowledge b
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `llm-wiki`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/llm-wiki/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/llm-wiki/skills/llm-wiki/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

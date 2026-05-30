@@ -8,7 +8,7 @@ description: "Use when the user asks to set up secret management infrastructure,
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `secrets-vault-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/secrets-vault-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/secrets-vault-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

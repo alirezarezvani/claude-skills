@@ -8,7 +8,7 @@ description: "ISO 27001 ISMS implementation and cybersecurity governance for Hea
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `information-security-manager-iso27001`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/information-security-manager-iso27001/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

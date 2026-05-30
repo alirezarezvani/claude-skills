@@ -8,7 +8,7 @@ description: "Use when the user asks to fix, debug, or make a specific feature/m
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `focused-fix`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/focused-fix/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/focused-fix/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

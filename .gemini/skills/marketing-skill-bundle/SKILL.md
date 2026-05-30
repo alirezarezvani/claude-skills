@@ -1,1 +1,0 @@
-../../../marketing-skill/SKILL.md

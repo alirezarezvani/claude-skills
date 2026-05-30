@@ -82,9 +82,9 @@ jobs:
             engineering-team ra-qm-team engineering \
             business-growth finance project-management scripts
 
-      - name: Run test suite
+      - name: Validate plugin.json manifests (blocking — guards #539 + #686)
         run: |
-          python -m pytest tests/ --tb=short -q
+          python scripts/check_plugin_json.py --all
 
       - name: Safety dependency audit (requirements*.txt)
         run: |

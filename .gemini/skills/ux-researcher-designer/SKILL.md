@@ -1,1 +1,1 @@
-../../../product-team/ux-researcher-designer/SKILL.md
+../../../product-team/skills/ux-researcher-designer/SKILL.md

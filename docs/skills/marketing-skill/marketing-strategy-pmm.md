@@ -8,7 +8,7 @@ description: "Product marketing skill for positioning, GTM strategy, competitive
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `marketing-strategy-pmm`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-strategy-pmm/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/marketing-strategy-pmm/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

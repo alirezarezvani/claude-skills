@@ -1,1 +1,1 @@
-../../../engineering-team/gcp-cloud-architect/SKILL.md
+../../../engineering-team/skills/gcp-cloud-architect/SKILL.md

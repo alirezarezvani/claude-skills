@@ -8,7 +8,7 @@ description: "Design AWS architectures for startups using serverless patterns an
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `aws-solution-architect`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/aws-solution-architect/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/aws-solution-architect/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

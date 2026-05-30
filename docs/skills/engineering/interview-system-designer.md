@@ -8,7 +8,7 @@ description: "This skill should be used when the user asks to 'design interview 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `interview-system-designer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/interview-system-designer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/interview-system-designer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -25,6 +25,7 @@
   "skills": "./.codex/skills/",
   "interface": {
     "type": "cli",
+    "composerIcon": "./assets/icon.png",
     "displayName": "Claude Code Skills",
     "shortDescription": "223 production-ready skills for AI coding agents across 9 domains",
     "longDescription": "The largest open-source skills library for AI coding agents. 223 skills covering engineering (architecture, DevOps, security, AI/ML), marketing (SEO, CRO, content), product management, C-level advisory, regulatory compliance (ISO 13485, SOC 2, GDPR), project management, business growth, and finance. Includes 298 stdlib-only Python CLI tools, 416 reference guides, 23 orchestration agents, and 22 slash commands. Works with Codex, Claude Code, Gemini CLI, Cursor, Aider, Windsurf, and 5 more tools.",

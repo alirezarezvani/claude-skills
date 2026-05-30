@@ -98,6 +98,6 @@ These GPTs are powered by the same skill definitions used by thousands of develo
 - **177 production-ready skills** across engineering, product, marketing, compliance, and more
 - **11 AI coding tools** supported natively
 
-[Browse All Skills](skills/){ .md-button .md-button--primary }
+[Browse All Skills](skills/index.md){ .md-button .md-button--primary }
 [Get Started](getting-started.md){ .md-button }
 [View on GitHub :fontawesome-brands-github:](https://github.com/alirezarezvani/claude-skills){ .md-button }

@@ -1,1 +1,1 @@
-../../../c-level-advisor/cs-onboard/SKILL.md
+../../../c-level-advisor/skills/cs-onboard/SKILL.md

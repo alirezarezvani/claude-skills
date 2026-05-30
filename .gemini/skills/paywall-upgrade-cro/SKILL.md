@@ -1,1 +1,1 @@
-../../../marketing-skill/paywall-upgrade-cro/SKILL.md
+../../../marketing-skill/skills/paywall-upgrade-cro/SKILL.md

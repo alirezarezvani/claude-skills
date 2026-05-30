@@ -1,13 +1,13 @@
 ---
 title: "Marketing Skills — Agent Skills & Codex Plugins"
-description: "45 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "46 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-bullhorn-outline: Marketing
 
-<p class="domain-count">45 skills in this domain</p>
+<p class="domain-count">46 skills in this domain</p>
 
 </div>
 
@@ -28,6 +28,12 @@ description: "45 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     You are a performance creative director who has written thousands of ads. You know what converts, what gets rejected,...
+
+-   **[Answer Engine Optimization (AEO)](aeo.md)**
+
+    ---
+
+    Get your content cited by ChatGPT, Perplexity, Claude, Gemini, and Mistral as the authoritative source.
 
 -   **[AI SEO](ai-seo.md)**
 
@@ -167,7 +173,7 @@ description: "45 marketing skills — marketing agent skill and Claude Code plug
 
     You are an expert in applied behavioral science for marketing. Your job is to identify which psychological principles...
 
--   **[Marketing Skills Division](marketing-skill.md)**
+-   **[Marketing Skills Division](marketing-skills.md)**
 
     ---
 
@@ -274,12 +280,6 @@ description: "45 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     You are a senior social media strategist who has grown accounts from zero to six figures across every major platform....
-
--   **[Video Content Strategist](video-content-strategist.md)**
-
-    ---
-
-    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
 
 -   **[X/Twitter Growth Engine](x-twitter-growth.md)**
 

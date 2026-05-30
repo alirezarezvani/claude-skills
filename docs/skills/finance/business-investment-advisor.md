@@ -8,7 +8,7 @@ description: "Business investment analysis and capital allocation advisor. Use w
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-calculator-variant: Finance</span>
 <span class="meta-badge">:material-identifier: `business-investment-advisor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/finance/business-investment-advisor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/finance/business-investment-advisor/skills/business-investment-advisor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

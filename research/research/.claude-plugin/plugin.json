@@ -1,0 +1,28 @@
+{
+  "name": "research",
+  "description": "Default entry point for any research request \u2014 a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Triggers: 'research [topic]', 'look into [topic]', 'what do we know about [topic]', 'investigate [topic]', 'find me information on [topic]', 'do some research on [topic]', 'I need to understand [topic]', or any research request that doesn't obviously match a more-specific specialist skill. Output is a markdown briefing (default) or .docx document (on request) with full citations and an audit log.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/research/research",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/research"
+  ],
+  "source": {
+    "spec": "megaprompts/13-research-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Hybrid router + fallback (Architecture C) \u2014 deterministic classification \u2192 specialist delegation OR own fallback workflow. The runtime orchestrator for the research domain.",
+    "distinct_from": "engineering/autoresearch-agent \u2014 that skill is Karpathy's autonomous file-optimization experiment loop; this skill is a research-query router. Different use cases, no overlap.",
+    "routing_targets": [
+      "research/pulse",
+      "research/litreview",
+      "research/grants",
+      "research/dossier",
+      "research/patent",
+      "research/syllabus"
+    ]
+  }
+}

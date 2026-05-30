@@ -8,7 +8,7 @@ description: "ML engineering skill for productionizing models, building MLOps pi
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `senior-ml-engineer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-ml-engineer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-ml-engineer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -1,1 +1,1 @@
-../../../c-level-advisor/ciso-advisor/SKILL.md
+../../../c-level-advisor/skills/ciso-advisor/SKILL.md

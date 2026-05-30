@@ -8,7 +8,7 @@ description: "Build immersive, cinematic 2.5D interactive websites using scroll 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `epic-design`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/epic-design/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/epic-design/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -60,6 +60,7 @@ Before writing a single line of code, do ALL of the following in order.
 ### B. Inspect every uploaded image asset
 
 Run `scripts/inspect-assets.py` on every image the user has provided.
+> **Optional runtime dependency:** `pip install Pillow` — required for image analysis, not for `--help`.
 For each image, determine:
 
 1. **Format** — JPEG never has a real alpha channel. PNG may have a fake one.

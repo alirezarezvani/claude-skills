@@ -1,1 +1,1 @@
-../../../engineering/api-design-reviewer/SKILL.md
+../../../engineering/skills/api-design-reviewer/SKILL.md

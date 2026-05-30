@@ -8,7 +8,7 @@ description: "When the user wants to edit, review, or improve existing marketing
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `copy-editing`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copy-editing/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/copy-editing/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -424,7 +424,7 @@ This iterative process ensures each edit doesn't create new problems while respe
 
 ## References
 
-- [Plain English Alternatives](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/copy-editing/references/plain-english-alternatives.md): Replace complex words with simpler alternatives
+- [Plain English Alternatives](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/copy-editing/references/plain-english-alternatives.md): Replace complex words with simpler alternatives
 
 ---
 

@@ -1,0 +1,21 @@
+{
+  "name": "caveman",
+  "description": "Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Enhanced from Matt Pocock's MIT-licensed caveman skill (https://github.com/mattpocock/skills) with: (1) stdlib Python tools (text compressor, token-savings estimator, caveman-style linter), (2) 3 reference docs citing 5+ authoritative sources each (compression principles, technical communication patterns, when caveman backfires), (3) cs-caveman-mode persona agent + /cs:caveman slash command. Matt's voice and persistence rules preserved verbatim per MIT. Use when user says \"caveman mode\", \"talk like caveman\", \"use caveman\", \"less tokens\", \"be brief\", or invokes /caveman.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/caveman"
+  ],
+  "attribution": {
+    "derived_from": "https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman",
+    "original_author": "Matt Pocock (@mattpocock)",
+    "original_license": "MIT",
+    "derivation_note": "Matt's SKILL.md content reproduced under MIT. Additions: stdlib compression + lint tools, deep references, cs-* persona agent + /cs:* command wrapper. Matt's voice and persistence rules preserved verbatim."
+  }
+}

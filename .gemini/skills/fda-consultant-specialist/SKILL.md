@@ -1,1 +1,1 @@
-../../../ra-qm-team/fda-consultant-specialist/SKILL.md
+../../../ra-qm-team/skills/fda-consultant-specialist/SKILL.md

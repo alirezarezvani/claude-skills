@@ -8,7 +8,7 @@ description: "When the user needs marketing ideas, inspiration, or strategies fo
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `marketing-ideas`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-ideas/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/marketing-ideas/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -53,7 +53,7 @@ When asked for marketing ideas:
 | Developer | 133-136 | DevRel, Certifications |
 | Audience-Specific | 137-139 | Referrals, Podcast tours, Customer language |
 
-**For the complete list with descriptions**: See [references/ideas-by-category.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/marketing-ideas/references/ideas-by-category.md)
+**For the complete list with descriptions**: See [references/ideas-by-category.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/marketing-ideas/references/ideas-by-category.md)
 
 ---
 

@@ -8,7 +8,7 @@ description: "International market expansion strategy. Market selection, entry m
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `intl-expansion`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/intl-expansion/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/intl-expansion/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

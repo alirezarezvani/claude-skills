@@ -1,1 +1,1 @@
-../../../engineering/mcp-server-builder/SKILL.md
+../../../engineering/skills/mcp-server-builder/SKILL.md

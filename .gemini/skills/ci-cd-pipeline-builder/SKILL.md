@@ -1,1 +1,1 @@
-../../../engineering/ci-cd-pipeline-builder/SKILL.md
+../../../engineering/skills/ci-cd-pipeline-builder/SKILL.md

@@ -1,1 +1,1 @@
-../../../marketing-skill/popup-cro/SKILL.md
+../../../marketing-skill/skills/popup-cro/SKILL.md

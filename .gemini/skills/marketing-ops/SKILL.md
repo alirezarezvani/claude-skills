@@ -1,1 +1,1 @@
-../../../marketing-skill/marketing-ops/SKILL.md
+../../../marketing-skill/skills/marketing-ops/SKILL.md

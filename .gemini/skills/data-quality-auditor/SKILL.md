@@ -1,1 +1,1 @@
-../../../engineering/data-quality-auditor/SKILL.md
+../../../engineering/data-quality-auditor/skills/data-quality-auditor/SKILL.md

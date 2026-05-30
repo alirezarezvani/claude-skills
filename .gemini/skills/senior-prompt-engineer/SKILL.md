@@ -1,1 +1,1 @@
-../../../engineering-team/senior-prompt-engineer/SKILL.md
+../../../engineering-team/skills/senior-prompt-engineer/SKILL.md

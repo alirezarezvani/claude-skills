@@ -1,13 +1,13 @@
 ---
 title: "Regulatory & Quality Skills — Agent Skills & Codex Plugins"
-description: "14 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "18 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-shield-check-outline: Regulatory & Quality
 
-<p class="domain-count">14 skills in this domain</p>
+<p class="domain-count">18 skills in this domain</p>
 
 </div>
 
@@ -22,6 +22,12 @@ description: "14 regulatory & quality skills — regulatory and quality manageme
     ---
 
     Corrective and Preventive Action (CAPA) management within Quality Management Systems, focusing on systematic root cau...
+
+-   **[EU AI Act Compliance Specialist](eu-ai-act-specialist.md)**
+
+    ---
+
+    Article-cited operational skill for Regulation (EU) 2024/1689. Three decisions, no executive AI strategy:
 
 -   **[FDA Consultant Specialist](fda-consultant-specialist.md)**
 
@@ -46,6 +52,12 @@ description: "14 regulatory & quality skills — regulatory and quality manageme
     ---
 
     Internal and external ISMS audit management for ISO 27001 compliance verification, security control assessment, and c...
+
+-   **[ISO/IEC 42001 AI Management System Specialist](iso42001-specialist.md)**
+
+    ---
+
+    Internal-audit-grade operating skill for ISO/IEC 42001:2023. Three decisions, no executive AI strategy:
 
 -   **[MDR 2017/745 Specialist](mdr-745-specialist.md)**
 
@@ -77,7 +89,7 @@ description: "14 regulatory & quality skills — regulatory and quality manageme
 
     ISO 13485:2016 Quality Management System implementation, maintenance, and certification support for medical device or...
 
--   **[Regulatory Affairs & Quality Management Skills](ra-qm-team.md)**
+-   **[Regulatory Affairs & Quality Management Skills](ra-qm-skills.md)**
 
     ---
 

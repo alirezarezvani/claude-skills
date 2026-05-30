@@ -1,1 +1,1 @@
-../../../engineering/env-secrets-manager/SKILL.md
+../../../engineering/skills/env-secrets-manager/SKILL.md

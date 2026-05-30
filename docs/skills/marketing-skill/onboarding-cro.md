@@ -8,7 +8,7 @@ description: "When the user wants to optimize post-signup onboarding, user activ
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `onboarding-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/onboarding-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -206,8 +206,6 @@ When recommending experiments, consider tests for:
 - Progress and motivation mechanics
 - Personalization by role or goal
 - Support and help availability
-
-**For comprehensive experiment ideas**: See [references/experiments.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/onboarding-cro/references/experiments.md)
 
 ---
 

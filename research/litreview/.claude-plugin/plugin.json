@@ -1,0 +1,20 @@
+{
+  "name": "litreview",
+  "description": "Academic literature orientation skill. Turns a research question into a strategically planned mini literature review, delivered as a researcher-friendly Word document (.docx). Grill-me intake (research question + framework hint + tentative depth) before recon search; second forcing checkpoint after Phase 2 confirms framework + sub-areas + depth. Configurable depth (5/10/20 Consensus queries) controls coverage vs. speed. Output is a 'launching pad' \u2014 orientation guide, not a finished review. Implements research-pack Agent Integrity Rules: 1 q/sec Consensus rate limit, sequential execution, plan-tier detection, three-count tracking (sent/received/cited). Source spec: megaprompts/09-litreview-megaprompt.md (PR #657). Sibling of pulse (research-pack shape).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/litreview"
+  ],
+  "source": {
+    "spec": "megaprompts/09-litreview-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Research-pack shape. Implements Agent Integrity Rules + cross-search intelligence + interactive checkpoint per megaprompt spec.",
+    "sibling_of": "research/pulse (research-pack shape; pulse currently lives in engineering/ and will move to research/ in a future cleanup PR)"
+  }
+}

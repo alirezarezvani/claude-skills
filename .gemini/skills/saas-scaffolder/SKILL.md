@@ -1,1 +1,1 @@
-../../../product-team/saas-scaffolder/SKILL.md
+../../../product-team/skills/saas-scaffolder/SKILL.md

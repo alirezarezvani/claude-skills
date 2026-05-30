@@ -8,7 +8,7 @@ description: "Strategic product leadership toolkit for Head of Product covering 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `product-strategist`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-strategist/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/skills/product-strategist/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

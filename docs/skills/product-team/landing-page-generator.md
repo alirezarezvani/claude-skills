@@ -8,7 +8,7 @@ description: "Generates high-converting landing pages as complete Next.js/React 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `landing-page-generator`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/landing-page-generator/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/skills/landing-page-generator/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -1,0 +1,15 @@
+{
+  "name": "compliance-team-iso42001",
+  "description": "ISO/IEC 42001:2023 AI Management System (AIMS) specialist for compliance teams: AIMS gap analyzer (Clauses 4-10 coverage scoring + remediation priority), AI risk register builder (Annex A 38 controls + risk-to-treatment map per ISO 23894), AIMS audit scheduler (Clause 9.2 internal audit cadence + 12-month plan + auditor independence checks). 4 in-depth references: ISO 42001 Clauses 4-10 walkthrough, Annex A controls A.1-A.10, AIMS implementation maturity model, cross-framework mapping (42001 \u2194 EU AI Act \u2194 NIST AI RMF \u2194 ISO 23894). Stdlib-only. Standalone-installable; also bundled in ra-qm-skills. Built for compliance officers running internal AIMS audits, not for executive AI strategy decisions (see chief-ai-officer-advisor for those).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/compliance-team-iso42001",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

@@ -1,1 +1,1 @@
-../../../project-management/confluence-expert/SKILL.md
+../../../project-management/skills/confluence-expert/SKILL.md

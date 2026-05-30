@@ -8,7 +8,7 @@ description: "When the user wants to optimize signup, registration, account crea
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `signup-flow-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/signup-flow-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/signup-flow-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

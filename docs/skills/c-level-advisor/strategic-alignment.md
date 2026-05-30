@@ -8,7 +8,7 @@ description: "Cascades strategy from boardroom to individual contributor. Detect
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `strategic-alignment`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/strategic-alignment/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/strategic-alignment/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

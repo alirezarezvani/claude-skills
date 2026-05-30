@@ -1,6 +1,6 @@
 ---
 title: "Git Worktree Manager — Agent Skill for Codex & OpenClaw"
-description: "Git Worktree Manager. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Run parallel feature work safely with Git worktrees. Standardizes branch isolation, port allocation, environment sync, and cleanup so each worktree. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Git Worktree Manager
@@ -8,7 +8,7 @@ description: "Git Worktree Manager. Agent skill for Claude Code, Codex CLI, Gemi
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `git-worktree-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/git-worktree-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -95,7 +95,7 @@ python scripts/worktree_cleanup.py --repo . --remove-merged --format text
 
 Use per-worktree override files mapped from allocated ports. The script outputs a deterministic port map; apply it to `docker-compose.worktree.yml`.
 
-See [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/references/docker-compose-patterns.md) for concrete templates.
+See [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/git-worktree-manager/references/docker-compose-patterns.md) for concrete templates.
 
 ### 5. Port Allocation Strategy
 
@@ -106,7 +106,7 @@ Default strategy is `base + (index * stride)` with collision checks:
 - Redis: `6379`
 - Stride: `10`
 
-See [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/references/port-allocation-strategy.md) for the full strategy and edge cases.
+See [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/git-worktree-manager/references/port-allocation-strategy.md) for the full strategy and edge cases.
 
 ## Script Interfaces
 
@@ -154,9 +154,9 @@ Before claiming setup complete:
 
 ## References
 
-- [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/references/port-allocation-strategy.md)
-- [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/references/docker-compose-patterns.md)
-- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/git-worktree-manager/README.md) for quick start and installation details
+- [port-allocation-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/git-worktree-manager/references/port-allocation-strategy.md)
+- [docker-compose-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/git-worktree-manager/references/docker-compose-patterns.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/git-worktree-manager/README.md) for quick start and installation details
 
 ## Decision Matrix
 

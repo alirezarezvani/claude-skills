@@ -1,0 +1,15 @@
+{
+  "name": "kubernetes-operator",
+  "description": "End-to-end Kubernetes Operator discipline: CRD design, reconcile-loop patterns, and OperatorHub Capability Levels. Ships CRD validator, reconcile-loop linter, and capability auditor (3 stdlib Python tools), 4 references on the operator pattern + CRD design + reconcile patterns + framework comparison (controller-runtime/kubebuilder/operator-sdk/metacontroller/KOPF), CRD + Go controller skeletons, and /operator-audit slash command. NOT a generic k8s skill \u2014 specifically the Operator pattern.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/kubernetes-operator",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

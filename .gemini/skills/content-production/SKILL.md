@@ -1,1 +1,1 @@
-../../../marketing-skill/content-production/SKILL.md
+../../../marketing-skill/skills/content-production/SKILL.md

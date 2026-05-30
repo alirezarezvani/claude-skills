@@ -8,7 +8,7 @@ description: "When the user wants to develop social media strategy, plan content
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `social-media-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-media-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/social-media-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

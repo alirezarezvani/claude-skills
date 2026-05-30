@@ -8,7 +8,7 @@ description: "Adversarial thinking partner for founders and executives. Stress-t
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `executive-mentor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/executive-mentor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

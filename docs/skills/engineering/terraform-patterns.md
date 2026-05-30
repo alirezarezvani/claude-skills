@@ -8,7 +8,7 @@ description: "Terraform infrastructure-as-code agent skill and plugin for Claude
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `terraform-patterns`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/terraform-patterns/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/terraform-patterns/skills/terraform-patterns/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -608,7 +608,7 @@ jobs:
 
 ```yaml
 # infracost.yml — policy file
-version: 0.1
+version: 2.9.0
 policies:
   - path: "*"
     max_monthly_cost: "5000"    # Fail PR if estimated cost exceeds $5,000/month

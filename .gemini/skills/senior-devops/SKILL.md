@@ -1,1 +1,1 @@
-../../../engineering-team/senior-devops/SKILL.md
+../../../engineering-team/skills/senior-devops/SKILL.md

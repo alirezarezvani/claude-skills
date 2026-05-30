@@ -1,0 +1,19 @@
+{
+  "name": "capture",
+  "description": "Brain-dump organizer. Ingests an unstructured stream of mixed thoughts, tasks, ideas and transforms it into a clean four-section actionable system (Projects/Ideas, Tasks, Connections, How I Can Help) with zero information loss. Fast-to-action by design \u2014 no upfront intake. Asks at most one mid-organization clarifying question when a single item is genuinely ambiguous between task and project. Workspace detection is real (Glob/Grep) \u2014 never fabricates connections. Source spec: megaprompts/05-capture-megaprompt.md (PR #657).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/capture"
+  ],
+  "source": {
+    "spec": "megaprompts/05-capture-megaprompt.md",
+    "build_pattern": "Path B (direct conversion) \u2014 megaprompt body extracted into SKILL.md with deterministic structure preservation. Wrapper additions (3 stdlib scripts, 3 references, cs-capture agent, /cs:capture command) layered on top per repo convention."
+  }
+}

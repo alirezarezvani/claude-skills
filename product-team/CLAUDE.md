@@ -1,6 +1,6 @@
 # Product Team Skills - Claude Code Guidance
 
-This guide covers the 16 production-ready product management skills and their Python automation tools.
+This guide covers the 13 production-ready product management skills and their Python automation tools.
 
 ## Product Skills Overview
 
@@ -312,7 +312,7 @@ python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to HE
 
 ---
 
-**Last Updated:** April 9, 2026
-**Skills Deployed:** 16/16 product skills production-ready
+**Last Updated:** May 10, 2026
+**Skills Deployed:** 13/13 product skills production-ready
 **Total Tools:** 17 Python automation tools
 **Agents:** 5 | **Commands:** 8

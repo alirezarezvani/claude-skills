@@ -1,1 +1,1 @@
-../../../marketing-skill/competitor-alternatives/SKILL.md
+../../../marketing-skill/skills/competitor-alternatives/SKILL.md

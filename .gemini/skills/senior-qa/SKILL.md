@@ -1,1 +1,1 @@
-../../../engineering-team/senior-qa/SKILL.md
+../../../engineering-team/skills/senior-qa/SKILL.md

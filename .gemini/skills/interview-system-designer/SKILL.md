@@ -1,1 +1,1 @@
-../../../engineering/interview-system-designer/SKILL.md
+../../../engineering/skills/interview-system-designer/SKILL.md

@@ -1,0 +1,15 @@
+{
+  "name": "chief-ai-officer-advisor",
+  "description": "Chief AI Officer advisory: model build-vs-buy calculator (API vs fine-tune vs build with 3-year TCO across 6 paths + breakeven balancing economics with practical feasibility), AI risk classifier (EU AI Act tier with 7 Article citations + US state patchwork: NYC LL 144, CO AI Act, IL HB 53, CA SB 1001, IL BIPA + industry overlays for FDA AI/ML, CFPB Circular 2023-03, NYDFS Reg 23, NAIC, ECOA, Fed SR 11-7), AI cost economics (API vs self-hosted breakeven with 2026 pricing across A100/H100, utilization reality, hidden costs). 4 in-depth references each citing 5+ authoritative sources. Stdlib-only. Standalone-installable; also bundled in c-level-skills. Strategic only - does not duplicate engineering AI/ML skills.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/chief-ai-officer-advisor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

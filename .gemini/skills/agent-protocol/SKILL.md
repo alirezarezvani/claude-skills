@@ -1,1 +1,1 @@
-../../../c-level-advisor/agent-protocol/SKILL.md
+../../../c-level-advisor/skills/agent-protocol/SKILL.md

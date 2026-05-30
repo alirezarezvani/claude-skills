@@ -1,1 +1,1 @@
-../../../engineering-team/senior-frontend/SKILL.md
+../../../engineering-team/skills/senior-frontend/SKILL.md

@@ -1,0 +1,20 @@
+{
+  "name": "landing",
+  "description": "Premium single-file HTML landing page generator with GSAP 3D animations, scroll-triggered effects, and mouse-parallax depth. Forcing 3-4 question grill-me intake (product+pitch, audience register, brand overrides, tone) locks down positioning before any copy or markup is written. Outputs a single self-contained HTML file (Claude Code) or HTML artifact (Claude.ai) with all CSS/JS inline \u2014 only externals are Google Fonts + GSAP via CDN. Configurable brand colors via CSS custom property overrides. Source spec: megaprompts/04-landing-megaprompt.md (PR #657). Distinct from product-team/skills/landing-page-generator (which outputs Next.js TSX for conversion-optimized lead-gen) \u2014 this skill is for premium visual one-pagers with motion design.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/marketing/landing",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/landing"
+  ],
+  "source": {
+    "spec": "megaprompts/04-landing-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Generator shape \u2014 produces a single .html artifact (not multi-file scaffolding). Wrapper additions (3 stdlib validators, 3 references, cs-landing agent, /cs:landing command) layered on top per repo convention.",
+    "distinct_from": "product-team/skills/landing-page-generator/ \u2014 different output format (HTML vs TSX), different optimization target (visual premium vs conversion), different motion approach (GSAP vs static)."
+  }
+}

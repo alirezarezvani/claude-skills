@@ -1,6 +1,6 @@
 ---
 title: "MCP Server Builder — Agent Skill for Codex & OpenClaw"
-description: "MCP Server Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Design and ship production-ready MCP (Model Context Protocol) servers from OpenAPI contracts instead of hand-written tool wrappers. Python and."
 ---
 
 # MCP Server Builder
@@ -8,7 +8,7 @@ description: "MCP Server Builder. Agent skill for Claude Code, Codex CLI, Gemini
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `mcp-server-builder`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/mcp-server-builder/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -127,11 +127,11 @@ Checks include duplicate names, invalid schema shape, missing descriptions, empt
 
 ## Reference Material
 
-- [references/openapi-extraction-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/openapi-extraction-guide.md)
-- [references/python-server-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/python-server-template.md)
-- [references/typescript-server-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/typescript-server-template.md)
-- [references/validation-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/references/validation-checklist.md)
-- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mcp-server-builder/README.md)
+- [references/openapi-extraction-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/mcp-server-builder/references/openapi-extraction-guide.md)
+- [references/python-server-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/mcp-server-builder/references/python-server-template.md)
+- [references/typescript-server-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/mcp-server-builder/references/typescript-server-template.md)
+- [references/validation-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/mcp-server-builder/references/validation-checklist.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/mcp-server-builder/README.md)
 
 ## Architecture Decisions
 

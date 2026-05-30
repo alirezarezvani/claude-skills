@@ -1,1 +1,1 @@
-../../../engineering-team/ms365-tenant-manager/SKILL.md
+../../../engineering-team/skills/ms365-tenant-manager/SKILL.md

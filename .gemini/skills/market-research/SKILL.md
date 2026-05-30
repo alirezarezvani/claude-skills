@@ -1,0 +1,1 @@
+../../../research-ops/skills/market-research/SKILL.md

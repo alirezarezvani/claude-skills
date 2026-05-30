@@ -1,1 +1,1 @@
-../../../engineering-team/threat-detection/SKILL.md
+../../../engineering-team/skills/threat-detection/SKILL.md

@@ -8,7 +8,7 @@ description: "Monitors customer health, predicts churn risk, and identifies expa
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-trending-up: Business & Growth</span>
 <span class="meta-badge">:material-identifier: `customer-success-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/customer-success-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/customer-success-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

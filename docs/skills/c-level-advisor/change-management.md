@@ -8,7 +8,7 @@ description: "Framework for rolling out organizational changes without chaos. Co
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `change-management`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/change-management/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/change-management/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

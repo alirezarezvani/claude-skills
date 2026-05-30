@@ -28,8 +28,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install MkDocs Material
-        run: pip install mkdocs-material
+      - name: Install MkDocs Material + plugins
+        run: pip install mkdocs-material mkdocs-redirects
 
       - name: Generate skill pages
         run: python scripts/generate-docs.py

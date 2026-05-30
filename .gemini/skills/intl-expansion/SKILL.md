@@ -1,1 +1,1 @@
-../../../c-level-advisor/intl-expansion/SKILL.md
+../../../c-level-advisor/skills/intl-expansion/SKILL.md

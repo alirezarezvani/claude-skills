@@ -8,7 +8,7 @@ description: "Deprecated redirect skill that routes legacy 'content creator' req
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `content-creator`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-creator/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-creator/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -20,11 +20,11 @@ description: "Deprecated redirect skill that routes legacy 'content creator' req
 
 | You want to... | Use this instead |
 |----------------|-----------------|
-| **Write** a blog post, article, or guide | [content-production](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-production) |
-| **Plan** what content to create, topic clusters, calendar | [content-strategy](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-strategy) |
-| **Analyze brand voice** | [content-production](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-production) (includes `brand_voice_analyzer.py`) |
-| **Optimize SEO** for existing content | [content-production](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/content-production) (includes `seo_optimizer.py`) |
-| **Create social media content** | [social-content](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-content) |
+| **Write** a blog post, article, or guide | [content-production](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-production) |
+| **Plan** what content to create, topic clusters, calendar | [content-strategy](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-strategy) |
+| **Analyze brand voice** | [content-production](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-production) (includes `brand_voice_analyzer.py`) |
+| **Optimize SEO** for existing content | [content-production](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-production) (includes `seo_optimizer.py`) |
+| **Create social media content** | [social-content](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/social-content) |
 
 ## Why the Change
 

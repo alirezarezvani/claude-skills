@@ -8,7 +8,7 @@ description: "When the user wants to build a free tool for marketing — lead ge
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `free-tool-strategy`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/free-tool-strategy/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/free-tool-strategy/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -85,7 +85,7 @@ You've built it. Now distribute it and track whether it's working.
 | **Template** | Pre-built fillable documents | Very Low | Contracts, briefs, decks, roadmaps |
 | **Interactive Visualization** | Shows data or concepts visually | High | Market maps, comparison charts, trend data |
 
-See [references/tool-types-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/free-tool-strategy/references/tool-types-guide.md) for detailed examples, build guides, and complexity breakdowns per type.
+See [references/tool-types-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/free-tool-strategy/references/tool-types-guide.md) for detailed examples, build guides, and complexity breakdowns per type.
 
 ---
 

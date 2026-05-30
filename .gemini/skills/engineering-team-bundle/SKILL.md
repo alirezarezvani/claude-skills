@@ -1,1 +1,0 @@
-../../../engineering-team/SKILL.md

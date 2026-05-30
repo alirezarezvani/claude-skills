@@ -8,7 +8,7 @@ description: "C-suite orchestration layer. Routes founder questions to the right
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `chief-of-staff`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/chief-of-staff/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

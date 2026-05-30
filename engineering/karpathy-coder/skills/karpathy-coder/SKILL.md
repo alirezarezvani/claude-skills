@@ -2,7 +2,7 @@
 name: karpathy-coder
 description: Use when writing, reviewing, or committing code to enforce Karpathy's 4 coding principles — surface assumptions before coding, keep it simple, make surgical changes, define verifiable goals. Triggers on "review my diff", "check complexity", "am I overcomplicating this", "karpathy check", "before I commit", or any code quality concern where the LLM might be overcoding.
 context: fork
-version: 2.3.0
+version: 2.9.0
 author: claude-code-skills
 license: MIT
 tags: [code-quality, discipline, karpathy, simplicity, surgical-changes, anti-patterns, review]

@@ -8,7 +8,7 @@ description: "World-class senior data scientist skill specialising in statistica
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `senior-data-scientist`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-data-scientist/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-data-scientist/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

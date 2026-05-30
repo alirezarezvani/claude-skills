@@ -8,7 +8,7 @@ description: "This skill should be used when the user asks to 'optimize prompts'
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `senior-prompt-engineer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-prompt-engineer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-prompt-engineer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

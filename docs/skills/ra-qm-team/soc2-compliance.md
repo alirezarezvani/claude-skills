@@ -8,7 +8,7 @@ description: "Use when the user asks to prepare for SOC 2 audits, map Trust Serv
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `soc2-compliance`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/soc2-compliance/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -415,14 +415,14 @@ python scripts/gap_analyzer.py --controls current_controls.json --type type2 --j
 
 ## References
 
-- [Trust Service Criteria Reference](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/soc2-compliance/references/trust_service_criteria.md) — All 5 TSC categories with sub-criteria, control objectives, and evidence examples
-- [Evidence Collection Guide](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/soc2-compliance/references/evidence_collection_guide.md) — Evidence types per control, automation tools, documentation requirements
-- [Type I vs Type II Comparison](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/soc2-compliance/references/type1_vs_type2.md) — Detailed comparison, timeline, cost analysis, and upgrade path
+- [Trust Service Criteria Reference](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance/references/trust_service_criteria.md) — All 5 TSC categories with sub-criteria, control objectives, and evidence examples
+- [Evidence Collection Guide](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance/references/evidence_collection_guide.md) — Evidence types per control, automation tools, documentation requirements
+- [Type I vs Type II Comparison](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance/references/type1_vs_type2.md) — Detailed comparison, timeline, cost analysis, and upgrade path
 
 ---
 
 ## Cross-References
 
-- **[gdpr-dsgvo-expert](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/gdpr-dsgvo-expert/SKILL.md)** — SOC 2 Privacy criteria overlaps significantly with GDPR requirements; use together when processing EU personal data
-- **[information-security-manager-iso27001](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/information-security-manager-iso27001/SKILL.md)** — ISO 27001 Annex A controls map closely to SOC 2 Security criteria; organizations pursuing both can share evidence
-- **[isms-audit-expert](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/isms-audit-expert/SKILL.md)** — Audit methodology and finding management patterns transfer directly to SOC 2 audit preparation
+- **[gdpr-dsgvo-expert](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)** — SOC 2 Privacy criteria overlaps significantly with GDPR requirements; use together when processing EU personal data
+- **[information-security-manager-iso27001](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/information-security-manager-iso27001/SKILL.md)** — ISO 27001 Annex A controls map closely to SOC 2 Security criteria; organizations pursuing both can share evidence
+- **[isms-audit-expert](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/isms-audit-expert/SKILL.md)** — Audit methodology and finding management patterns transfer directly to SOC 2 audit preparation

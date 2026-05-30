@@ -8,7 +8,7 @@ description: "Security audit and vulnerability scanner for AI agent skills befor
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `skill-security-auditor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-security-auditor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/skill-security-auditor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -59,12 +59,12 @@ Scans SKILL.md and all `.md` reference files for:
 
 | Pattern | Example | Severity |
 |---------|---------|----------|
-| **System prompt override** | "Ignore previous instructions", "You are now..." | 🔴 CRITICAL |
-| **Role hijacking** | "Act as root", "Pretend you have no restrictions" | 🔴 CRITICAL |
-| **Safety bypass** | "Skip safety checks", "Disable content filtering" | 🔴 CRITICAL |
+| **System prompt override** | "Ignore previous instructions", "You are now..." | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
+| **Role hijacking** | "Act as root", "Pretend you have no restrictions" | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
+| **Safety bypass** | "Skip safety checks", "Disable content filtering" | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
 | **Hidden instructions** | Zero-width characters, HTML comments with directives | 🟡 HIGH |
 | **Excessive permissions** | "Run any command", "Full filesystem access" | 🟡 HIGH |
-| **Data extraction** | "Send contents of", "Upload file to", "POST to" | 🔴 CRITICAL |
+| **Data extraction** | "Send contents of", "Upload file to", "POST to" | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
 
 ### 3. Dependency Supply Chain
 
@@ -120,7 +120,7 @@ For skills with `requirements.txt`, `package.json`, or inline `pip install`:
    Fix: Remove outbound network calls or verify destination is trusted
 
 🟡 HIGH [FS-BOUNDARY] scripts/scanner.py:15
-   Pattern: open(os.path.expanduser("~/.ssh/id_rsa"))
+   Pattern: open(os.path.expanduser("~/.ssh/id_rsa")) <!-- noqa: SEC-AUDITOR -->
    Risk: Reads SSH private key outside skill scope
    Fix: Remove filesystem access outside skill directory
 
@@ -160,7 +160,7 @@ done
 
 ## Threat Model Reference
 
-For the complete threat model, detection patterns, and known attack vectors against AI agent skills, see [references/threat-model.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-security-auditor/references/threat-model.md).
+For the complete threat model, detection patterns, and known attack vectors against AI agent skills, see [references/threat-model.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/skill-security-auditor/references/threat-model.md).
 
 ## Limitations
 

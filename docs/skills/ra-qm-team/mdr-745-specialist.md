@@ -8,7 +8,7 @@ description: "EU MDR 2017/745 compliance specialist for medical device classific
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `mdr-745-specialist`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/mdr-745-specialist/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/mdr-745-specialist/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

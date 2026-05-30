@@ -1,1 +1,1 @@
-../../../business-growth/contract-and-proposal-writer/SKILL.md
+../../../business-growth/skills/contract-and-proposal-writer/SKILL.md

@@ -28,7 +28,14 @@ DOMAIN_MAP = {
     "project-management": "project-management",
     "ra-qm-team": "ra-qm",
     "business-growth": "business-growth",
-    "finance": "finance"
+    "finance": "finance",
+    "productivity": "productivity",
+    "marketing": "marketing-top-level",
+    "research": "research",
+    "business-operations": "business-operations",
+    "commercial": "commercial",
+    "research-ops": "research-ops",
+    "compliance-os": "compliance-os"
 }
 
 
@@ -67,10 +74,18 @@ def find_skills(repo_root: Path) -> List[Dict]:
         else:
             skill_name = skill_dir.name
 
-        # Handle duplicates by appending parent name
+        # Handle duplicates by appending parent name; if that still collides
+        # (e.g. three sources whose parent dir is "skills"), suffix with -2, -3, ...
+        # so each entry has a unique name in the index.
         if skill_name in seen_names:
-            skill_name = f"{skill_dir.parent.name}-{skill_name}"
-        
+            candidate = f"{skill_dir.parent.name}-{skill_name}"
+            n = 2
+            base = candidate
+            while candidate in seen_names:
+                candidate = f"{base}-{n}"
+                n += 1
+            skill_name = candidate
+
         seen_names.add(skill_name)
         
         # Determine category based on top-level folder

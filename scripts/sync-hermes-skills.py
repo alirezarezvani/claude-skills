@@ -43,28 +43,86 @@ DOMAIN_DIRS = [
     "ra-qm-team",
     "business-growth",
     "finance",
+    "productivity",  # v2.7.0 — capture, email-pair, reflect
+    "marketing",     # v2.7.0 — landing (top-level, distinct from marketing-skill/)
+    "research",      # v2.7.0 — pulse, litreview, grants, dossier, patent, syllabus, notebooklm, research orchestrator
+    "business-operations",  # v2.8.0 — process-mapper, vendor-management, capacity-planner, internal-comms, knowledge-ops, procurement-optimizer + orchestrator
+    "commercial",    # v2.8.0 — pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster + orchestrator
+    "research-ops",  # v2.9.0 — clinical-research, research-finance, market-research, product-research + orchestrator
+    "compliance-os",  # ISO 13485/27001, SOC 2, GDPR, FDA QSR, EU AI Act audit-prep + orchestrator
 ]
 
 
 def discover_skills(repo_root, domains=None):
-    """Find all skills across specified domains."""
+    """Find all skills across specified domains.
+
+    Supports three discovery patterns (same as sync-codex-skills.py):
+      1. <domain>/<skill>/SKILL.md         — flat-domain pattern (legacy)
+      2. <domain>/skills/<skill>/SKILL.md  — flat-with-skills-dir pattern (e.g., c-level-advisor/skills/)
+      3. <domain>/<plugin>/skills/<skill>/SKILL.md — nested plugin pattern (e.g., research/research/skills/research/)
+
+    Dedupes by SKILL.md path so a skill discovered under multiple patterns is only counted once.
+    """
     skills = []
+    seen_paths: set = set()
     search_domains = domains or DOMAIN_DIRS
+
     for domain in search_domains:
         domain_path = repo_root / domain
         if not domain_path.is_dir():
             continue
-        for skill_dir in sorted(domain_path.iterdir()):
-            if not skill_dir.is_dir():
+
+        # Pattern 2: <domain>/skills/<skill>/SKILL.md
+        skills_subdir = domain_path / "skills"
+        if skills_subdir.is_dir():
+            for skill_dir in sorted(skills_subdir.iterdir()):
+                if not skill_dir.is_dir():
+                    continue
+                skill_md = skill_dir / "SKILL.md"
+                if skill_md.exists() and str(skill_md) not in seen_paths:
+                    seen_paths.add(str(skill_md))
+                    skills.append({
+                        "domain": domain,
+                        "name": skill_dir.name,
+                        "source": skill_dir,
+                        "skill_md": skill_md,
+                    })
+
+        # Pattern 1: <domain>/<skill>/SKILL.md (flat)
+        # Pattern 3: <domain>/<plugin>/skills/<skill>/SKILL.md (nested plugin)
+        for entry in sorted(domain_path.iterdir()):
+            if not entry.is_dir() or entry.name in {"skills", ".claude-plugin", ".codex-plugin"}:
                 continue
-            skill_md = skill_dir / "SKILL.md"
-            if skill_md.exists():
+
+            # Pattern 1
+            skill_md = entry / "SKILL.md"
+            if skill_md.exists() and str(skill_md) not in seen_paths:
+                seen_paths.add(str(skill_md))
                 skills.append({
                     "domain": domain,
-                    "name": skill_dir.name,
-                    "source": skill_dir,
+                    "name": entry.name,
+                    "source": entry,
                     "skill_md": skill_md,
                 })
+                continue
+
+            # Pattern 3: nested plugin with skills/ subdir
+            nested_skills = entry / "skills"
+            if not nested_skills.is_dir():
+                continue
+            for inner in sorted(nested_skills.iterdir()):
+                if not inner.is_dir():
+                    continue
+                inner_skill_md = inner / "SKILL.md"
+                if inner_skill_md.exists() and str(inner_skill_md) not in seen_paths:
+                    seen_paths.add(str(inner_skill_md))
+                    skills.append({
+                        "domain": domain,
+                        "name": inner.name,
+                        "source": inner,
+                        "skill_md": inner_skill_md,
+                    })
+
     return skills
 
 
@@ -106,7 +164,14 @@ def sync_skill(skill, target_root, use_copy, verbose, dry_run):
     if use_copy:
         shutil.copytree(skill["source"], target, dirs_exist_ok=True)
     else:
-        target.symlink_to(skill["source"])
+        # Prefer relative symlinks so the tree is portable when committed to the repo.
+        # Falls back to absolute if target is outside the source tree (e.g., ~/.hermes/).
+        try:
+            rel = os.path.relpath(skill["source"], target.parent)
+            target.symlink_to(rel)
+        except ValueError:
+            # Cross-device or unrelated tree — use absolute
+            target.symlink_to(skill["source"])
 
     if verbose:
         print(f"  {'copied' if use_copy else 'linked'}: {skill['domain']}/{skill['name']}")

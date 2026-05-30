@@ -202,8 +202,6 @@ When recommending experiments, consider tests for:
 - Personalization by role or goal
 - Support and help availability
 
-**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
-
 ---
 
 ## Task-Specific Questions

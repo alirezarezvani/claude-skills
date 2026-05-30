@@ -1,1 +1,1 @@
-../../../engineering/git-worktree-manager/SKILL.md
+../../../engineering/skills/git-worktree-manager/SKILL.md

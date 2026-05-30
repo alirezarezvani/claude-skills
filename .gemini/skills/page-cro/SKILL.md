@@ -1,1 +1,1 @@
-../../../marketing-skill/page-cro/SKILL.md
+../../../marketing-skill/skills/page-cro/SKILL.md

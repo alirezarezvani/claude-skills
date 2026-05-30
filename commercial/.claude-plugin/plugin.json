@@ -1,0 +1,27 @@
+{
+  "name": "commercial-skills",
+  "description": "7 Commercial skills + 1 orchestrator: pricing-strategist (Van Westendorp WTP + packaging + model picker), deal-desk (margin + discount routing + redline scoring), partnerships-architect (5-tier classifier + joint GTM + revshare modeler), channel-economics (cost-to-serve + ROI + channel mix optimizer), commercial-policy (data-backed discount matrix + exception flow + policy linter), rfp-responder (Shipley-method structured RFP/RFI/RFQ response + win-theme + winrate predictor; context: fork for heavy intake), commercial-forecaster (4Q-weighted bookings + cohort NRR/GRR + funnel-confidence with mandatory assumption disclosure). Orchestrator skill uses context: fork. 21 stdlib-only Python tools, 28+ reference docs. Distinct from business-growth (sales execution), c-level-advisor/cro-advisor (strategic CRO), finance (close-and-report).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/commercial",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/commercial-skills",
+    "./skills/pricing-strategist",
+    "./skills/deal-desk",
+    "./skills/partnerships-architect",
+    "./skills/channel-economics",
+    "./skills/commercial-policy",
+    "./skills/rfp-responder",
+    "./skills/commercial-forecaster"
+  ],
+  "source": {
+    "spec": "documentation/implementation/bizops-commercial-expansion-plan.md",
+    "build_pattern": "Path B (direct conversion) — orchestrator skill uses context: fork. Sprint 1 shipped orchestrator + 2 sub-skills (pricing-strategist, deal-desk). Sprint 2 adds partnerships-architect (5-tier + joint GTM + revshare), channel-economics (cost-to-serve + ROI + mix), commercial-policy (discount matrix + exception flow + linter), rfp-responder (Shipley structured response, context: fork for heavy intake), commercial-forecaster (4Q-weighted with mandatory assumption disclosure). Every SKILL.md ships a Forcing-question library section per Matt Pocock grill-with-docs discipline.",
+    "distinct_from": "business-growth/sales-engineer (technical sale: demos, POCs). business-growth/revenue-operations (lead routing, SDR motion). business-growth/contract-and-proposal-writer (free-form authoring, not buyer-dictated structured response). c-level-advisor/cro-advisor (strategic 'when to hire VP Sales' calls, not per-deal approval). finance/financial-analysis (close + report, not forward forecast or per-deal economics)."
+  }
+}

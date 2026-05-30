@@ -1,1 +1,1 @@
-../../../c-level-advisor/chro-advisor/SKILL.md
+../../../c-level-advisor/skills/chro-advisor/SKILL.md

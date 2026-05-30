@@ -1,0 +1,15 @@
+{
+  "name": "feature-flags-architect",
+  "description": "End-to-end feature-flag discipline: classify, ship, ramp, retire. Detects stale flags as debt, generates phased rollout plans (ring/linear/log/cohort), and audits every flag for a documented kill switch. 3 stdlib Python tools, 4 references on flag taxonomy + provider trade-offs (LaunchDarkly/GrowthBook/Statsig/Unleash/Flipt/DIY) + rollout strategies + lifecycle. /flag-cleanup slash command. Cross-tool compatible.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/feature-flags-architect",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

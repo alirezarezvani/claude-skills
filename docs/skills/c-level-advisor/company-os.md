@@ -8,7 +8,7 @@ description: "The meta-framework for how a company runs — the connective tissu
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `company-os`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/company-os/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/company-os/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

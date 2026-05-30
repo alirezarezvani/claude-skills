@@ -5,7 +5,7 @@ tier: "STANDARD"
 category: "Engineering / Code Quality"
 dependencies: "None (prompt-only, no external tools required)"
 author: "ekreloff"
-version: "1.0.0"
+version: "2.9.0"
 license: "MIT"
 ---
 

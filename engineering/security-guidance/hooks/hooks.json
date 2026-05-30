@@ -1,0 +1,16 @@
+{
+  "description": "Security reminder hook that warns about security anti-patterns in Edit/Write/MultiEdit operations before they happen. Catches command injection, XSS, SQL injection, unsafe deserialization, GitHub Actions injection, and 12 other common vulnerability patterns.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/security_reminder_hook.py"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ description: "Use when the user asks to design database schemas, plan data migra
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `database-designer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/database-designer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/database-designer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

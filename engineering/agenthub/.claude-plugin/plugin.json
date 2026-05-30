@@ -1,7 +1,7 @@
 {
   "name": "agenthub",
   "description": "Multi-agent collaboration plugin for Claude Code. Spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any problem that benefits from diverse solutions. Evaluate by metric or LLM judge, merge the winner. 7 slash commands, agent templates, git DAG orchestration, message board coordination.",
-  "version": "2.2.2",
+  "version": "2.9.0",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,5 +9,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./skills"
+  "skills": [
+    "./skills"
+  ]
 }

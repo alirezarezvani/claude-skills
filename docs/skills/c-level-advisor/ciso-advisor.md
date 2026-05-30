@@ -8,7 +8,7 @@ description: "Security leadership for growth-stage companies. Risk quantificatio
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `ciso-advisor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ciso-advisor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

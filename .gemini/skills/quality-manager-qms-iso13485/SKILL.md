@@ -1,1 +1,1 @@
-../../../ra-qm-team/quality-manager-qms-iso13485/SKILL.md
+../../../ra-qm-team/skills/quality-manager-qms-iso13485/SKILL.md

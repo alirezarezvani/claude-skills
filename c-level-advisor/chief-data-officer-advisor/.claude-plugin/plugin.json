@@ -1,0 +1,15 @@
+{
+  "name": "chief-data-officer-advisor",
+  "description": "Chief Data Officer advisory: AI training data audit (origin x class x use-case matrix with GDPR Art. 6 + EU AI Act citations -> GO/MITIGATE/NO-GO per source), data product strategy picker (warehouse vs lakehouse vs mesh + 6-layer build-vs-buy + 12-month sequencing), data asset valuator (strategic value 0-10 + M&A multiplier with carve-out penalties + 3 ranked productization paths). 4 references answering one decision each: training rights, data product strategy, customer-data-as-asset, data team org evolution. Stdlib-only. Standalone-installable; also bundled in c-level-skills. Strategic only - does not duplicate engineering data skills.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/chief-data-officer-advisor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

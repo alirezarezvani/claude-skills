@@ -1,1 +1,1 @@
-../../../engineering/code-tour/SKILL.md
+../../../engineering/code-tour/skills/code-tour/SKILL.md

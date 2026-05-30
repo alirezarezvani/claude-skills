@@ -471,3 +471,102 @@ function List<T>({ items, renderItem }: ListProps<T>) {
 - React Patterns: `references/react_patterns.md`
 - Next.js Optimization: `references/nextjs_optimization_guide.md`
 - Best Practices: `references/frontend_best_practices.md`
+- Forcing-question library (Matt Pocock grill): `references/forcing_questions.md`
+- Composition map (which specialist to fork into): `references/composition_map.md`
+
+---
+
+## Assumptions and Verifiable Success Criteria (Karpathy discipline)
+
+Before this skill scaffolds a component, recommends a framework, or audits a bundle, the following four assumptions MUST be surfaced.
+
+1. **Primary user device + network** — mobile-4G, desktop-fiber, low-end-Android, or corporate-network. Drives every perf decision.
+2. **LCP target in milliseconds** — a single number, not "fast." Drives bundle budget and rendering choice.
+3. **SEO-dependent vs. auth-walled** — drives rendering (SSR/SSG/RSC vs. SPA).
+4. **WCAG target + named a11y owner** — AA, AAA, or best-effort. Drives a11y investment and CI gates.
+
+**Verifiable success criteria** (Karpathy #4) — every recommendation must include:
+
+- Core Web Vitals targets (LCP, INP, CLS) at p75 on the primary device
+- A per-route JS bundle budget in KB-gzip
+- A Lighthouse a11y floor + perf floor
+
+If any of those three is not stated, the recommendation is incomplete — return to Q2 of the forcing-question library.
+
+The `scripts/frontend_decision_engine.py` tool encodes these checks: it refuses to recommend a profile without the four assumption inputs and prints the verifiable thresholds for the matched profile.
+
+---
+
+## Customization profiles
+
+Four built-in profiles in `profiles/` calibrate every recommendation:
+
+| Profile | When to pick | LCP target (mobile-4G p75) | Bundle budget |
+|---|---|---|---|
+| `next-app-router` | SaaS customer-facing, SEO + dynamic, RSC-first | 2000ms | 150 KB-gzip / route |
+| `remix-or-sveltekit` | Mobile-4G primary, low-JS-first, progressive enhancement | 1500ms | 80 KB-gzip / route |
+| `vite-spa` | Auth-walled app, desktop/corporate primary | 2500ms | 200 KB init + 80 KB / route |
+| `astro-or-static` | Marketing / docs / blog, near-zero write, SEO-critical | 1200ms | 30 KB JS / page |
+
+Pick a profile via:
+
+```bash
+python scripts/frontend_decision_engine.py \
+  --primary-device mobile-4g --lcp-target-ms 2000 \
+  --seo-dependent true --auth-walled false --team-size 5
+```
+
+The tool returns the best-fit profile, the runner-up tradeoff (if within 15%), the stack picks, the anti-patterns to avoid on that profile, and the required CI gates.
+
+To add a custom profile (e.g., your org's internal-tool defaults): copy `profiles/vite-spa.json` to `profiles/<your-org>.json` and adjust `constraints` + `success_thresholds`.
+
+---
+
+## Composition map
+
+This skill does NOT reimplement scope owned by the POWERFUL-tier specialists. It forks into them. See `references/composition_map.md` for the full routing table. Key forks:
+
+| Concern | Fork into |
+|---|---|
+| WCAG audit, contrast, screen-reader | `engineering-team/skills/a11y-audit/` |
+| Bundle profiling + runtime perf | `engineering/skills/performance-profiler/` |
+| Cinematic / scroll-storytelling landing | `engineering-team/skills/epic-design/` |
+| Apple HIG (iOS / macOS / visionOS) | `product-team/skills/apple-hig-expert/` |
+| Pre-commit Karpathy review | `engineering/karpathy-coder/` |
+| Pre-flight architecture grill | `engineering/grill-me/` |
+
+The `cs-frontend-engineer` agent orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-frontend-engineer", prompt: "..."})` or via `/cs:frontend-review <your problem>`.
+
+---
+
+## Forcing-question library (Matt Pocock grill)
+
+Before locking any framework or rendering decision, walk the seven forcing questions in `references/forcing_questions.md`. Discipline:
+
+1. One question per turn. No bundling.
+2. Always recommend the answer with cited canon.
+3. Track answers in `/tmp/frontend-grill-<date>.md`.
+4. If a kill criterion trips, stop. Don't scaffold around an unresolved gap.
+5. After Q7, run `frontend_decision_engine.py` with the seven answers.
+
+Summary:
+
+1. Primary device + network?
+2. LCP target in ms (and INP, CLS)?
+3. RSC / SPA / SSR / SSG — pick and defend?
+4. JS bundle budget per route?
+5. SEO-dependent or auth-walled?
+6. Design-system source of truth?
+7. WCAG target + named a11y owner?
+
+---
+
+## Invocation from other agents and skills
+
+Three surfaces:
+
+1. **Slash command:** `/cs:frontend-review <prompt>` — full grill + decision engine + composition routing.
+2. **Agent subagent:** `Agent({subagent_type: "cs-frontend-engineer", prompt: "..."})` — forks context, returns ≤ 200-word digest.
+3. **Direct tool call:** `python scripts/frontend_decision_engine.py ...` — deterministic profile match when inputs are known.
+
+See `agents/engineering/cs-frontend-engineer.md` for the full invocation contract.

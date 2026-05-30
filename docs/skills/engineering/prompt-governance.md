@@ -8,7 +8,7 @@ description: "Use when managing prompts in production at scale: versioning promp
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `prompt-governance`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/prompt-governance/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/prompt-governance/skills/prompt-governance/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

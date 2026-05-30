@@ -8,7 +8,7 @@ description: "ISO 13485 internal audit expertise for medical device QMS. Covers 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `qms-audit-expert`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/qms-audit-expert/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/qms-audit-expert/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

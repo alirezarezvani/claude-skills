@@ -8,7 +8,7 @@ description: "Data engineering skill for building scalable data pipelines, ETL/E
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `senior-data-engineer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-data-engineer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-data-engineer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -23,9 +23,6 @@ Production-grade data engineering skill for building scalable, reliable data sys
 1. [Trigger Phrases](#trigger-phrases)
 2. [Quick Start](#quick-start)
 3. [Workflows](#workflows)
-   - [Building a Batch ETL Pipeline](#workflow-1-building-a-batch-etl-pipeline)
-   - [Implementing Real-Time Streaming](#workflow-2-implementing-real-time-streaming)
-   - [Data Quality Framework Setup](#workflow-3-data-quality-framework-setup)
 4. [Architecture Decision Framework](#architecture-decision-framework)
 5. [Tech Stack](#tech-stack)
 6. [Reference Documentation](#reference-documentation)

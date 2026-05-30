@@ -8,7 +8,7 @@ description: "Social media campaign analysis and performance tracking. Calculate
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `social-media-analyzer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/social-media-analyzer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/social-media-analyzer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

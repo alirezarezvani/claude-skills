@@ -8,7 +8,7 @@ description: "Structured research summarization agent skill for non-dev users. H
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `research-summarizer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/research-summarizer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/research-summarizer/skills/research-summarizer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

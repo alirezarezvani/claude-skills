@@ -3,11 +3,12 @@ name: migration-planner
 description: >-
   Analyzes Cypress or Selenium test suites and creates a file-by-file
   migration plan. Invoked by /pw:migrate before conversion starts.
-allowed-tools:
+tools:
   - Read
   - Grep
   - Glob
   - LS
+model: inherit
 ---
 
 # Migration Planner Agent

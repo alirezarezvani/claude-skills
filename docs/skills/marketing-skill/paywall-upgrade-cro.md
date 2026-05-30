@@ -8,7 +8,7 @@ description: "When the user wants to create or optimize in-app paywalls, upgrade
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `paywall-upgrade-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paywall-upgrade-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paywall-upgrade-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -197,8 +197,6 @@ What you've accomplished:
 - Completion rate
 - Revenue per user
 - Churn rate post-upgrade
-
-**For comprehensive experiment ideas**: See [references/experiments.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paywall-upgrade-cro/references/experiments.md)
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Agent Workflow Designer — Agent Skill for Codex & OpenClaw"
-description: "Agent Workflow Designer. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Design production-grade multi-agent workflows with clear pattern choice (sequential, parallel, hierarchical), handoff contracts, failure handling. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Agent Workflow Designer
@@ -8,7 +8,7 @@ description: "Agent Workflow Designer. Agent skill for Claude Code, Codex CLI, G
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `agent-workflow-designer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agent-workflow-designer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/agent-workflow-designer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

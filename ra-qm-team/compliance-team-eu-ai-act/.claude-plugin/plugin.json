@@ -1,0 +1,15 @@
+{
+  "name": "compliance-team-eu-ai-act",
+  "description": "EU AI Act (Regulation (EU) 2024/1689) operational compliance specialist for compliance teams. Three deterministic tools: AI system risk classifier (Article 5 prohibited / Article 6 + Annex III high-risk / Article 50 limited-risk / minimal-risk per the binding regulation), conformity assessment planner (Article 43 Module A vs Module H + notified-body routing + Annex IV technical documentation checklist), obligation tracker (provider/deployer/importer/distributor obligations matrix per Title III Chapter 3 + GPAI obligations per Articles 51-55). 4 in-depth references: Titles I-XII Article-by-Article walkthrough, Annex III 8 high-risk categories with Article 6(2) carve-outs, GPAI obligations including systemic-risk threshold, cross-framework mapping to ISO 42001 + NIST AI RMF + GDPR. Stdlib-only. Built for compliance officers executing Article-level conformity work \u2014 not for executive AI strategy (see chief-ai-officer-advisor for that).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/compliance-team-eu-ai-act",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

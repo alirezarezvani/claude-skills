@@ -1,5 +1,19 @@
 # Threat Hunt Playbooks
 
+> **Defensive documentation — not malware.** This file lists detection queries
+> and indicators-of-attack for blue-team threat hunting. It cites legitimate
+> Windows binaries (`certutil.exe`, `regsvr32.exe`, `mshta.exe`, `msiexec.exe`,
+> `rundll32.exe`) and the LOLBin command-line patterns associated with their
+> abuse. No executable code is shipped here.
+>
+> Some endpoint AV/EDR products (Bitdefender, Defender, etc.) heuristically
+> flag plain-text documents that contain these strings. If your scanner
+> quarantines this file, allow-list the path
+> `engineering-team/skills/threat-detection/references/hunt-playbooks.md`
+> or exclude the `claude-skills` checkout. The strings appear inside markdown
+> code spans / tables; they cannot execute from a `.md` file. Tracking issue:
+> [#533](https://github.com/alirezarezvani/claude-skills/issues/533).
+
 Reference playbooks for common high-value hunt hypotheses. Each playbook defines the hypothesis, required data sources, query approach, and confirmation criteria.
 
 ---

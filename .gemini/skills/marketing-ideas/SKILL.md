@@ -1,1 +1,1 @@
-../../../marketing-skill/marketing-ideas/SKILL.md
+../../../marketing-skill/skills/marketing-ideas/SKILL.md

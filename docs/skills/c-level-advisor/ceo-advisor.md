@@ -8,7 +8,7 @@ description: "Executive leadership guidance for strategic decision-making, organ
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `ceo-advisor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/ceo-advisor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ceo-advisor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

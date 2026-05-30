@@ -1,0 +1,21 @@
+{
+  "name": "grill-me",
+  "description": "Relentless plan-and-design interrogator. Walks the decision tree of a plan one branch at a time, asking forcing questions sequentially with recommended answers. Explores codebase to resolve answers where possible. Enhanced from Matt Pocock's MIT-licensed grill-me skill (https://github.com/mattpocock/skills) with: (1) stdlib Python tools (decision-tree extractor, question generator, session-state tracker), (2) 3 reference docs citing 5+ authoritative sources each (forcing-question patterns, decision-tree completeness, when to stop grilling), (3) cs-grill-master persona agent + /cs:grill-me slash command. Matt's relentless one-at-a-time interview discipline preserved verbatim per MIT. Use when user wants to stress-test a plan, get grilled on their design, or says \"grill me\".",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/grill-me"
+  ],
+  "attribution": {
+    "derived_from": "https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me",
+    "original_author": "Matt Pocock (@mattpocock)",
+    "original_license": "MIT",
+    "derivation_note": "Matt's SKILL.md content reproduced under MIT. Additions: stdlib decision-tree + question + session tools, deep references, cs-* persona agent + /cs:* command wrapper. Matt's relentless one-at-a-time interview discipline preserved verbatim."
+  }
+}

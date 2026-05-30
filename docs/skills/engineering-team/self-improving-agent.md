@@ -8,7 +8,7 @@ description: "Curate Claude Code's auto-memory into durable project knowledge. A
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `self-improving-agent`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/self-improving-agent/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -170,4 +170,4 @@ Monitors command output for errors. When detected, appends a structured entry to
 
 - [Claude Code Memory Docs](https://code.claude.com/docs/en/memory)
 - [pskoett/self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent) — inspiration
-- [playwright-pro](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro) — sister plugin in this repo
+- [playwright-pro](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/playwright-pro) — sister plugin in this repo

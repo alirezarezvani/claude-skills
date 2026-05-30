@@ -34,6 +34,34 @@ Use this skill when you hear:
 
 ## Tools
 
+### Decision Engine
+
+Deterministic profile picker. Given four assumptions (team-size, cadence, user-facing, budget) plus optional traffic/sensitivity inputs, ranks the four built-in profiles and returns the matched profile with SLO floor and named approver chain. Refuses to recommend a profile without the four required inputs.
+
+**Usage:**
+
+```bash
+# See all options
+python scripts/fullstack_decision_engine.py --help
+
+# Run against a sample input
+python scripts/fullstack_decision_engine.py --sample
+
+# Pick a profile from real inputs
+python scripts/fullstack_decision_engine.py \
+    --team-size-12mo 8 --cadence daily --user-facing true --budget 5000 \
+    --traffic-p99-rps 50 --data-sensitivity pii-only
+
+# JSON output for downstream tools
+python scripts/fullstack_decision_engine.py --sample --output json
+```
+
+Returns: matched profile name, score, matched/violated constraints, stack recommendation, anti-recommendations, SLO floor, named-approver chain, and canon references.
+
+The engine encodes the same matrix the conversational grill walks through — use it directly when inputs are already known, or via the `cs-fullstack-engineer` agent for the question-by-question grill.
+
+---
+
 ### Project Scaffolder
 
 Generates fullstack project structures with boilerplate code.
@@ -283,3 +311,102 @@ See `references/tech_stack_guide.md` for detailed comparison.
 | Auth complexity | Use Auth.js or Clerk |
 | Type errors | Enable strict mode in tsconfig |
 | CORS issues | Configure middleware properly |
+
+---
+
+## Assumptions and Verifiable Success Criteria (Karpathy discipline)
+
+Before this skill scaffolds, recommends, or modifies any code, the following four assumptions MUST be surfaced. If any are unknown, the skill stops and walks the [Forcing-question library](#forcing-question-library-matt-pocock-grill) instead.
+
+1. **Team size today + 12-month headcount** — drives architecture (monolith / modular / services). Sam Newman: "MonolithFirst."
+2. **Deployment cadence target** — drives CI/CD spend and feature-flag investment. *Accelerate* (Forsgren et al. 2018).
+3. **User-facing vs. internal vs. marketing-site** — drives stack pick and a11y/perf budget.
+4. **Monthly cloud + SaaS budget ceiling** — drives the build-vs-managed-service split.
+
+**Verifiable success criteria** (Karpathy #4) — every recommendation this skill emits must include three machine-checkable numbers:
+
+- An API latency target (p50, p95, p99 in ms)
+- A frontend perf target (LCP, INP, CLS on mobile-4G)
+- An uptime / SLO target
+
+If any of those three is not stated, the recommendation is incomplete — go back to Q7 of the forcing-question library.
+
+The `scripts/fullstack_decision_engine.py` tool encodes these checks: it refuses to recommend a profile without all four assumption inputs and prints the verifiable thresholds for the matched profile.
+
+---
+
+## Customization profiles
+
+Four built-in profiles in `profiles/` calibrate every recommendation:
+
+| Profile | When to pick | Cloud ceiling | Pattern |
+|---|---|---|---|
+| `saas-startup` | < 10 eng, customer-facing, daily+ cadence | $8K/mo | Modular monolith on Next.js + Postgres |
+| `enterprise-scale` | 50+ eng, regulated, per-PR with gates | $250K/mo | Domain-bounded services + platform team |
+| `internal-tool` | ≤ 5 eng, auth-walled, < 100 DAU | $500/mo | Retool-first; thin custom stack if forced |
+| `marketing-site` | SEO-dependent, near-zero write | $200/mo | Static-first (Astro / 11ty / Next-static) |
+
+Pick a profile via:
+
+```bash
+python scripts/fullstack_decision_engine.py \
+  --team-size 6 --team-size-12mo 12 \
+  --cadence daily --user-facing true --budget 5000 \
+  --traffic-p99-rps 45 --data-sensitivity pii-only
+```
+
+The tool returns the best-fit profile, the tradeoff against the runner-up (if within 15%), the stack recommendation, the anti-patterns to avoid on that profile, and the named-approver chain. **This tool never auto-approves.**
+
+To add a custom profile: copy `profiles/saas-startup.json` to `profiles/<your-org>.json`, adjust the `constraints` and `stack_recommendations` blocks, and rerun. The JSON is the customization surface — no code changes needed.
+
+---
+
+## Composition map
+
+This skill does NOT reimplement scope owned by the POWERFUL-tier specialists. It forks into them. See `references/composition_map.md` for the full routing table. Key forks:
+
+| Concern | Fork into |
+|---|---|
+| API contract review | `engineering/skills/api-design-reviewer/` |
+| Database schema design | `engineering/skills/database-designer/` |
+| Reliability / SLO design | `engineering/slo-architect/` |
+| CI/CD pipeline | `engineering/skills/ci-cd-pipeline-builder/` |
+| Performance profiling | `engineering/skills/performance-profiler/` |
+| Pre-commit Karpathy review | `engineering/karpathy-coder/` |
+| Pre-flight architecture grill | `engineering/grill-me/` |
+
+The `cs-fullstack-engineer` agent (in `agents/engineering/cs-fullstack-engineer.md`) orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-fullstack-engineer", prompt: "..."})` or via the slash command `/cs:fullstack-review <your problem>`.
+
+---
+
+## Forcing-question library (Matt Pocock grill)
+
+Before locking any architecture or stack decision, walk the seven forcing questions in `references/forcing_questions.md`. Each has a recommended answer, canon citation, and kill criterion. The discipline:
+
+1. One question per turn. No bundling.
+2. Always recommend the answer with cited canon.
+3. Track answers in a working file (e.g., `/tmp/fullstack-grill-<date>.md`).
+4. If a kill criterion trips, stop. Do not scaffold around an unresolved gap.
+5. After Q7, run `fullstack_decision_engine.py` with the seven answers as inputs.
+
+Summary of the seven questions (full content in the reference):
+
+1. Team size today + 12-month headcount?
+2. Deployment cadence — per-PR, daily, weekly, quarterly?
+3. Customer-facing, internal tool, or marketing site?
+4. One-year p50 / p99 traffic forecast?
+5. Hiring against the stack or training the team?
+6. Year-one monthly cloud + SaaS ceiling?
+7. Three verifiable success criteria with numeric targets?
+
+---
+
+## Invocation from other agents and skills
+
+This skill is invokable by any other agent or skill via three surfaces:
+
+1. **Slash command:** `/cs:fullstack-review <prompt>` — runs the full grill + decision engine + composition routing.
+2. **Agent subagent:** `Agent({subagent_type: "cs-fullstack-engineer", prompt: "..."})` — forks context, returns ≤ 200-word digest.
+3. **Direct tool call:** `python scripts/fullstack_decision_engine.py ...` — deterministic profile match without the conversational grill (use when inputs are already known).
+
+See `agents/engineering/cs-fullstack-engineer.md` for the full invocation contract.

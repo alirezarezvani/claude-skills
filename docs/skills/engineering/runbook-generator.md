@@ -1,6 +1,6 @@
 ---
 title: "Runbook Generator — Agent Skill for Codex & OpenClaw"
-description: "Runbook Generator. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Generate operational runbooks from a service name — deployment, incident response, maintenance, and rollback workflows. Templated structure. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Runbook Generator
@@ -8,7 +8,7 @@ description: "Runbook Generator. Agent skill for Claude Code, Codex CLI, Gemini 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `runbook-generator`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/runbook-generator/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/runbook-generator/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

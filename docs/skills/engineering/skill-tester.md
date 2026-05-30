@@ -1,6 +1,6 @@
 ---
 title: "Skill Tester — Agent Skill for Codex & OpenClaw"
-description: "Skill Tester. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensive meta-skill: structure validation, Python script. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Skill Tester
@@ -8,7 +8,7 @@ description: "Skill Tester. Agent skill for Claude Code, Codex CLI, Gemini CLI, 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `skill-tester`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-tester/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/skill-tester/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

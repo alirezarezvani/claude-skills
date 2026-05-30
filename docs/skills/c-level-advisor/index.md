@@ -1,13 +1,13 @@
 ---
 title: "C-Level Advisory Skills — Agent Skills & Codex Plugins"
-description: "34 c-level advisory skills — executive advisory agent skill and Claude Code plugin for strategic decisions and board meetings. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "61 c-level advisory skills — executive advisory agent skill and Claude Code plugin for strategic decisions and board meetings. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-account-tie: C-Level Advisory
 
-<p class="domain-count">34 skills in this domain</p>
+<p class="domain-count">61 skills in this domain</p>
 
 </div>
 
@@ -35,7 +35,7 @@ description: "34 c-level advisory skills — executive advisory agent skill and 
 
     Structured multi-agent deliberation that prevents groupthink, captures minority views, and produces clean, actionable...
 
--   **[C-Level Advisory Ecosystem](c-level-advisor.md)**
+-   **[C-Level Advisory Ecosystem](c-level-skills.md)**
 
     ---
 
@@ -58,6 +58,24 @@ description: "34 c-level advisory skills — executive advisory agent skill and 
     ---
 
     Most changes fail at implementation, not design. The ADKAR model tells you why and how to fix it.
+
+-   **[Chief AI Officer Advisor](chief-ai-officer-advisor.md)**
+
+    ---
+
+    Strategic AI leadership for startup CAIOs and founders without one. Four decisions, no AI hype:
+
+-   **[Chief Customer Officer Advisor](chief-customer-officer-advisor.md)**
+
+    ---
+
+    Strategic customer leadership for startup CCOs and founders without one. Four decisions, no generic CS survey:
+
+-   **[Chief Data Officer Advisor](chief-data-officer-advisor.md)**
+
+    ---
+
+    Strategic data leadership for startup CDOs and founders without one. Four decisions, no surveys:
 
 -   **[Chief of Staff](chief-of-staff.md)**
 
@@ -143,17 +161,17 @@ description: "34 c-level advisory skills — executive advisory agent skill and 
 
     Two-layer memory system. Layer 1 stores everything. Layer 2 stores only what the founder approved. Future meetings re...
 
--   **[Executive Mentor](executive-mentor.md)** + 5 sub-skills
-
-    ---
-
-    Not another advisor. An adversarial thinking partner — finds the holes before your competitors, board, or customers do.
-
 -   **[Founder Development Coach](founder-coach.md)**
 
     ---
 
     Your company can only grow as fast as you do. This skill treats founder development as a strategic priority — not a p...
+
+-   **[General Counsel Advisor](general-counsel-advisor.md)**
+
+    ---
+
+    Strategic legal frameworks for startup General Counsels and founders without one. Contract risk, IP strategy, term sh...
 
 -   **[Internal Narrative Builder](internal-narrative.md)**
 
@@ -190,5 +208,11 @@ description: "34 c-level advisory skills — executive advisory agent skill and 
     ---
 
     Strategy fails at the cascade, not the boardroom. This skill detects misalignment before it becomes dysfunction and b...
+
+-   **[VP of Engineering Advisor](vpe-advisor.md)**
+
+    ---
+
+    Strategic engineering operations leadership for startup VPEs and founders without one. Four decisions, no generic eng...
 
 </div>

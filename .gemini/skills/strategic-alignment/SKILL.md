@@ -1,1 +1,1 @@
-../../../c-level-advisor/strategic-alignment/SKILL.md
+../../../c-level-advisor/skills/strategic-alignment/SKILL.md

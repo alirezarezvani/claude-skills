@@ -8,7 +8,7 @@ description: "Analyzes sales pipeline health, revenue forecasting accuracy, and 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-trending-up: Business & Growth</span>
 <span class="meta-badge">:material-identifier: `revenue-operations`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -267,9 +267,9 @@ Combine all three tools for a comprehensive QBR analysis.
 
 | Reference | Description |
 |-----------|-------------|
-| [RevOps Metrics Guide](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/references/revops-metrics-guide.md) | Complete metrics hierarchy, definitions, formulas, and interpretation |
-| [Pipeline Management Framework](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/references/pipeline-management-framework.md) | Pipeline best practices, stage definitions, conversion benchmarks |
-| [GTM Efficiency Benchmarks](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/references/gtm-efficiency-benchmarks.md) | SaaS benchmarks by stage, industry standards, improvement strategies |
+| [RevOps Metrics Guide](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/references/revops-metrics-guide.md) | Complete metrics hierarchy, definitions, formulas, and interpretation |
+| [Pipeline Management Framework](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/references/pipeline-management-framework.md) | Pipeline best practices, stage definitions, conversion benchmarks |
+| [GTM Efficiency Benchmarks](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/references/gtm-efficiency-benchmarks.md) | SaaS benchmarks by stage, industry standards, improvement strategies |
 
 ---
 
@@ -277,8 +277,8 @@ Combine all three tools for a comprehensive QBR analysis.
 
 | Template | Use Case |
 |----------|----------|
-| [Pipeline Review Template](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/assets/pipeline_review_template.md) | Weekly/monthly pipeline inspection documentation |
-| [Forecast Report Template](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/assets/forecast_report_template.md) | Forecast accuracy reporting and trend analysis |
-| [GTM Dashboard Template](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/assets/gtm_dashboard_template.md) | GTM efficiency dashboard for leadership review |
-| [Sample Pipeline Data](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/assets/sample_pipeline_data.json) | Example input for pipeline_analyzer.py |
-| [Expected Output](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/revenue-operations/assets/expected_output.json) | Reference output from pipeline_analyzer.py |
+| [Pipeline Review Template](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/assets/pipeline_review_template.md) | Weekly/monthly pipeline inspection documentation |
+| [Forecast Report Template](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/assets/forecast_report_template.md) | Forecast accuracy reporting and trend analysis |
+| [GTM Dashboard Template](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/assets/gtm_dashboard_template.md) | GTM efficiency dashboard for leadership review |
+| [Sample Pipeline Data](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/assets/sample_pipeline_data.json) | Example input for pipeline_analyzer.py |
+| [Expected Output](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/revenue-operations/assets/expected_output.json) | Reference output from pipeline_analyzer.py |

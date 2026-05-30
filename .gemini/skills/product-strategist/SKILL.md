@@ -1,1 +1,1 @@
-../../../product-team/product-strategist/SKILL.md
+../../../product-team/skills/product-strategist/SKILL.md

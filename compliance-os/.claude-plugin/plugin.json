@@ -1,0 +1,23 @@
+{
+  "name": "compliance-os",
+  "description": "Compliance OS \u2014 meta-orchestrator for multi-framework compliance programs. Configure-then-operate four stdlib Python tools: framework_selector.py (input: company profile across industry/geography/AI/medical/financial/headcount; output: applicable frameworks ranked across all 9 supported: ISO 27001, 13485, 42001, 14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR), cross_framework_mapper.py (input: 1+ framework control libraries; output: unified control matrix with overlap percentage + mapping confidence + unified evidence requirements per merged control), audit_simulator.py (input: framework scope; output: mock internal audit with 8-15 finding scenarios across 5 severity levels + interview questions per control), evidence_pool_generator.py (input: enabled framework configs; output: consolidated evidence checklist with reuse map). 4 in-depth references citing ISO 19011, IIA Standards, AICPA AT-C, NIST CSF, COSO ERM. Plus 3 cs-* persona agents (cs-compliance-officer, cs-aims-iso42001, cs-ai-act-compliance) + 3 /cs:* slash commands (/cs:compliance-readiness, /cs:aims-audit, /cs:ai-act-readiness). Reuses the 14 existing ra-qm-team skills and the 2 new compliance-team-* plugins.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/compliance-os",
+    "./skills/compliance-readiness",
+    "./skills/aims-audit",
+    "./skills/ai-act-readiness",
+    "./skills/iso27001-audit-prep",
+    "./skills/iso13485-audit-prep",
+    "./skills/gdpr-audit-prep",
+    "./skills/soc2-audit-prep",
+    "./skills/fda-qsr-audit-prep"
+  ]
+}

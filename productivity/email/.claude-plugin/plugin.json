@@ -1,0 +1,24 @@
+{
+  "name": "email",
+  "description": "Email triage system \u2014 paired skills (inbox-setup + inbox-triage) for personalized recurring email triage. inbox-setup runs once via interactive interview to build a knowledge base of 7 files (taxonomy, patterns, evaluation-framework, rate-card, blocklist, tracker, triage-log/) in ${WORKSPACE}/Email/. inbox-triage runs on recurring cadence (1-3x daily) or on demand: classifies recent emails, researches new senders, generates recommendations, drafts replies (NEVER sends), delivers a report, and updates the KB with learnings. The two skills share a strict file contract \u2014 PR #657's cross-skill consistency audit verified the 7 KB filenames align verbatim between the two megaprompts. Source specs: megaprompts/06-inbox-setup-megaprompt.md + megaprompts/07-inbox-triage-megaprompt.md.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/inbox-setup",
+    "./skills/inbox-triage"
+  ],
+  "source": {
+    "specs": [
+      "megaprompts/06-inbox-setup-megaprompt.md",
+      "megaprompts/07-inbox-triage-megaprompt.md"
+    ],
+    "build_pattern": "Path B (direct conversion). Workflow-pair shape \u2014 coupled skills sharing a 7-file KB contract verified verbatim-aligned by PR #657 audit. Both skills ship as ONE plugin with multi-skill layout per CLAUDE.md plugin-schema rule.",
+    "shared_contract": "${WORKSPACE}/Email/ \u2014 7 files: email-taxonomy.md, email-patterns.md, evaluation-framework.md (conditional), rate-card.md (conditional), blocklist.md, tracker.md, triage-log/. inbox-setup writes; inbox-triage reads + appends."
+  }
+}

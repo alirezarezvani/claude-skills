@@ -1,0 +1,1 @@
+../../../commercial/skills/rfp-responder/SKILL.md

@@ -1,6 +1,6 @@
 ---
 title: "Observability Designer (POWERFUL) — Agent Skill for Codex & OpenClaw"
-description: "Observability Designer (POWERFUL). Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Design production-ready observability strategies combining metrics, logs, and traces. Includes SLI/SLO design, golden-signals monitoring, alert. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Observability Designer (POWERFUL)
@@ -8,7 +8,7 @@ description: "Observability Designer (POWERFUL). Agent skill for Claude Code, Co
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `observability-designer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/observability-designer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/observability-designer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

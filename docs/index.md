@@ -1,6 +1,6 @@
 ---
-title: 235 Agent Skills for Codex, Gemini CLI & OpenClaw
-description: "235 production-ready Claude Code skills and agent plugins for 12 AI coding tools. Engineering, product, marketing, compliance, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Cursor, and OpenClaw."
+title: 338 Agent Skills for Codex, Gemini CLI & OpenClaw
+description: "338 production-ready Claude Code skills and agent plugins across 16 domains for 13 AI coding tools — v2.9.0 adds the research-ops domain (enterprise Research Operations: clinical-research + research-finance + market-research + product-research) with per-skill onboarding, customization, and an opt-in autoresearch bridge; v2.8.x added business-operations + commercial domains, productivity/handoff + andreessen; v2.7.3 added AEO (Answer Engine Optimization for ChatGPT / Perplexity / Claude / Gemini / Mistral citation) + security-guidance PreToolUse hook. Engineering, product, marketing, compliance, research, and finance agent skills for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, Cursor, and OpenClaw."
 hide:
   - toc
   - edit
@@ -14,11 +14,11 @@ hide:
 
 # Agent Skills
 
-235 production-ready skills, 28 agents, 3 personas, and an orchestration protocol for AI coding tools.
+338 production-ready skills across 16 domains, 51+ cs-* agents (incl. founder-mode C-suite, the v2.9.0 research-ops orchestrator, Matt Pocock productivity quartet, v2.8.0 business-operations + commercial, and v2.7.3 cs-aeo), 7 personas, and an orchestration protocol for AI coding tools.
 { .hero-subtitle }
 
 [Get Started](getting-started.md){ .md-button .md-button--primary }
-[Browse Skills](skills/){ .md-button }
+[Browse Skills](skills/index.md){ .md-button }
 [GitHub :fontawesome-brands-github:](https://github.com/alirezarezvani/claude-skills){ .md-button }
 
 </div>
@@ -49,21 +49,21 @@ hide:
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **235 Skills**
+-   :material-toolbox:{ .lg .middle } **338 Skills**
 
     ---
 
-    Production-ready instruction packages with structured workflows, Python automation tools, and reference documentation across 9 domains.
+    Production-ready instruction packages with structured workflows, 533 Python automation tools, and 676 reference docs across 16 domains. v2.9.0 adds the research-ops domain — enterprise Research Operations (clinical-research, research-finance, market-research, product-research) with per-skill onboarding, a customization config every tool reads, and an opt-in autoresearch bridge. v2.8.0 added business-operations + commercial; v2.7.3 added AEO + security-guidance PreToolUse hook.
 
-    [:octicons-arrow-right-24: Browse skills](skills/)
+    [:octicons-arrow-right-24: Browse skills](skills/index.md)
 
--   :material-robot:{ .lg .middle } **28 Agents**
+-   :material-robot:{ .lg .middle } **51+ Agents**
 
     ---
 
-    Multi-skill orchestrators that combine domain expertise for complex tasks — from engineering leads to financial analysts.
+    Multi-skill orchestrators that combine domain expertise for complex tasks — from engineering leads to financial analysts to research-pack routers.
 
-    [:octicons-arrow-right-24: View agents](agents/)
+    [:octicons-arrow-right-24: View agents](agents/index.md)
 
 -   :material-account-group:{ .lg .middle } **3 Personas**
 
@@ -71,7 +71,7 @@ hide:
 
     Role-based identities with curated skill loadouts, decision frameworks, and distinct communication styles.
 
-    [:octicons-arrow-right-24: Meet personas](personas/)
+    [:octicons-arrow-right-24: Meet personas](personas/index.md)
 
 -   :material-sitemap:{ .lg .middle } **Orchestration**
 
@@ -81,7 +81,7 @@ hide:
 
     [:octicons-arrow-right-24: Learn patterns](orchestration.md)
 
--   :material-language-python:{ .lg .middle } **314 Python Tools**
+-   :material-language-python:{ .lg .middle } **533 Python Tools**
 
     ---
 
@@ -89,21 +89,21 @@ hide:
 
     [:octicons-arrow-right-24: Getting started](getting-started.md)
 
--   :material-puzzle-outline:{ .lg .middle } **30 Plugins**
+-   :material-puzzle-outline:{ .lg .middle } **62 Plugins**
 
     ---
 
-    One-command installable bundles for Claude Code, Codex CLI, Gemini CLI, and OpenClaw.
+    One-command installable bundles for Claude Code, Codex CLI, Gemini CLI, Hermes Agent, Mistral Vibe, and OpenClaw.
 
-    [:octicons-arrow-right-24: Plugin marketplace](plugins/)
+    [:octicons-arrow-right-24: Plugin marketplace](plugins/index.md)
 
--   :material-console:{ .lg .middle } **27 Commands**
+-   :material-console:{ .lg .middle } **87+ Commands**
 
     ---
 
     Slash commands for common operations — sprint planning, tech debt analysis, PRDs, OKRs, and more.
 
-    [:octicons-arrow-right-24: View commands](commands/)
+    [:octicons-arrow-right-24: View commands](commands/index.md)
 
 -   :material-swap-horizontal:{ .lg .middle } **12 Tool Support**
 
@@ -135,7 +135,7 @@ hide:
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 37 skills](skills/engineering-team/)
+    [:octicons-arrow-right-24: 51 skills](skills/engineering-team/index.md)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 
@@ -143,7 +143,7 @@ hide:
 
     Agent designer, RAG architect, database designer, CI/CD builder, MCP server builder, security auditor, tech debt tracker
 
-    [:octicons-arrow-right-24: 45 skills](skills/engineering/)
+    [:octicons-arrow-right-24: 78 skills](skills/engineering/index.md)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -151,7 +151,7 @@ hide:
 
     Product manager, agile PO, strategist, UX researcher, UI design system, landing pages, SaaS scaffolder, analytics, experiment designer
 
-    [:octicons-arrow-right-24: 16 skills](skills/product-team/)
+    [:octicons-arrow-right-24: 17 skills](skills/product-team/index.md)
 
 -   :material-bullhorn:{ .lg .middle } **Marketing**
 
@@ -159,7 +159,7 @@ hide:
 
     Content, SEO, CRO, channels, growth, intelligence, sales — 7 specialist pods with 32 Python tools
 
-    [:octicons-arrow-right-24: 44 skills](skills/marketing-skill/)
+    [:octicons-arrow-right-24: 46 skills](skills/marketing-skill/index.md)
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management**
 
@@ -167,7 +167,7 @@ hide:
 
     Senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, templates
 
-    [:octicons-arrow-right-24: 9 skills](skills/project-management/)
+    [:octicons-arrow-right-24: 9 skills](skills/project-management/index.md)
 
 -   :material-star-circle:{ .lg .middle } **C-Level Advisory**
 
@@ -175,7 +175,7 @@ hide:
 
     Full C-suite (10 roles), orchestration, board meetings, culture frameworks, strategic alignment
 
-    [:octicons-arrow-right-24: 34 skills](skills/c-level-advisor/)
+    [:octicons-arrow-right-24: 66 skills](skills/c-level-advisor/index.md)
 
 -   :material-shield-check:{ .lg .middle } **Regulatory & Quality**
 
@@ -183,7 +183,7 @@ hide:
 
     ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management, quality documentation
 
-    [:octicons-arrow-right-24: 14 skills](skills/ra-qm-team/)
+    [:octicons-arrow-right-24: 18 skills](skills/ra-qm-team/index.md)
 
 -   :material-trending-up:{ .lg .middle } **Business & Growth**
 
@@ -191,7 +191,7 @@ hide:
 
     Customer success, sales engineer, revenue operations, contracts & proposals
 
-    [:octicons-arrow-right-24: 5 skills](skills/business-growth/)
+    [:octicons-arrow-right-24: 5 skills](skills/business-growth/index.md)
 
 -   :material-currency-usd:{ .lg .middle } **Finance**
 
@@ -199,7 +199,15 @@ hide:
 
     Financial analyst, SaaS metrics coach — DCF valuation, budgeting, forecasting, ARR/MRR/churn/LTV
 
-    [:octicons-arrow-right-24: 4 skills](skills/finance/)
+    [:octicons-arrow-right-24: 4 skills](skills/finance/index.md)
+
+-   :material-flask:{ .lg .middle } **Research Operations** ✨v2.9.0
+
+    ---
+
+    Enterprise Research Operations — clinical study design, R&D program finance, market sizing/survey methodology, product/user research. Per-skill onboarding + customization + opt-in autoresearch bridge.
+
+    [:octicons-arrow-right-24: 5 skills](skills/research-ops/index.md)
 
 </div>
 
@@ -225,7 +233,7 @@ hide:
 
     ---
 
-    Plugin marketplace for Claude Code. Sync scripts for Codex, Gemini, and Hermes Agent. Conversion script for 8 more tools.
+    Plugin marketplace for Claude Code. Sync scripts for Codex, Gemini, Hermes Agent, and Mistral Vibe. Conversion script for 7 more tools.
 
 -   :material-puzzle:{ .lg .middle } **Self-contained**
 
@@ -237,7 +245,7 @@ hide:
 
     ---
 
-    Native support for 12 AI coding tools. Write once, convert to any tool's format automatically.
+    Native support for 13 AI coding tools. Write once, convert to any tool's format automatically.
 
 -   :material-check-decagram:{ .lg .middle } **Production-grade**
 
@@ -281,6 +289,15 @@ hide:
     cd claude-skills
     python scripts/sync-hermes-skills.py --verbose
     # Skills appear in /skills and /<skill-name> automatically
+    ```
+
+=== "Mistral Vibe"
+
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ./scripts/vibe-install.sh
+    # 306 skills install to ~/.vibe/skills/claude-skills/; same SKILL.md standard
     ```
 
 === "Cursor / Windsurf / Aider"

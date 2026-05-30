@@ -57,12 +57,12 @@ Scans SKILL.md and all `.md` reference files for:
 
 | Pattern | Example | Severity |
 |---------|---------|----------|
-| **System prompt override** | "Ignore previous instructions", "You are now..." | 🔴 CRITICAL |
-| **Role hijacking** | "Act as root", "Pretend you have no restrictions" | 🔴 CRITICAL |
-| **Safety bypass** | "Skip safety checks", "Disable content filtering" | 🔴 CRITICAL |
+| **System prompt override** | "Ignore previous instructions", "You are now..." | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
+| **Role hijacking** | "Act as root", "Pretend you have no restrictions" | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
+| **Safety bypass** | "Skip safety checks", "Disable content filtering" | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
 | **Hidden instructions** | Zero-width characters, HTML comments with directives | 🟡 HIGH |
 | **Excessive permissions** | "Run any command", "Full filesystem access" | 🟡 HIGH |
-| **Data extraction** | "Send contents of", "Upload file to", "POST to" | 🔴 CRITICAL |
+| **Data extraction** | "Send contents of", "Upload file to", "POST to" | 🔴 CRITICAL | <!-- noqa: SEC-AUDITOR -->
 
 ### 3. Dependency Supply Chain
 
@@ -118,7 +118,7 @@ For skills with `requirements.txt`, `package.json`, or inline `pip install`:
    Fix: Remove outbound network calls or verify destination is trusted
 
 🟡 HIGH [FS-BOUNDARY] scripts/scanner.py:15
-   Pattern: open(os.path.expanduser("~/.ssh/id_rsa"))
+   Pattern: open(os.path.expanduser("~/.ssh/id_rsa")) <!-- noqa: SEC-AUDITOR -->
    Risk: Reads SSH private key outside skill scope
    Fix: Remove filesystem access outside skill directory
 

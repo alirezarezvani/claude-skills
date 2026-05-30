@@ -1,0 +1,20 @@
+{
+  "name": "notebooklm",
+  "description": "Browser automation skill for controlling Google's NotebookLM. Handles reading and querying notebooks, adding sources (URLs, text, files, YouTube links, synthesized content), generating Studio outputs (Audio Overview, infographics, slide decks, study guides, briefing docs, mind maps, timelines, FAQs), and creating new notebooks. Triggers on any phrase involving NotebookLM \u2014 'open NotebookLM', 'check my [name] notebook', 'pull info from NotebookLM', 'ask my notebook about X', 'add [source] to NotebookLM', 'create an infographic in NotebookLM', 'use NotebookLM Studio', 'generate a slide deck from my notebook', or any variation where the goal involves NotebookLM. Requires browser automation environment \u2014 fails gracefully when unavailable.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/research/notebooklm",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/notebooklm"
+  ],
+  "source": {
+    "spec": "megaprompts/03-notebooklm-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Browser-automation shape \u2014 distinct from research-pack convention. Action-routing intake (Q1 picks one of 4 actions: read/extract, add source, generate studio output, create new). CLI-only portability with graceful failure in web context.",
+    "sibling_of": "research/pulse, litreview, grants, dossier, patent, syllabus (semantic domain) but DIFFERENT SHAPE (browser-automation, not research-pack)"
+  }
+}

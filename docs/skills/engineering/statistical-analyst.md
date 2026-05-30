@@ -8,7 +8,7 @@ description: "Run hypothesis tests, analyze A/B experiment results, calculate sa
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `statistical-analyst`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/statistical-analyst/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/statistical-analyst/skills/statistical-analyst/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

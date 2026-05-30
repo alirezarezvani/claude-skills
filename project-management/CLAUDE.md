@@ -1,6 +1,6 @@
 # Project Management Skills - Claude Code Guidance
 
-This guide covers the 6 production-ready project management skills, 12 Python automation tools, and Atlassian MCP integration.
+This guide covers the 9 production-ready project management skills, 12 Python automation tools, and bundled Atlassian Remote MCP integration (`.mcp.json` ships with the plugin — OAuth handled by Claude Code, no env vars required).
 
 ## PM Skills Overview
 
@@ -175,8 +175,8 @@ python atlassian-templates/scripts/template_scaffolder.py meeting-notes
 
 ---
 
-**Last Updated:** March 9, 2026
-**Skills Deployed:** 6/6 PM skills production-ready
+**Last Updated:** May 10, 2026
+**Skills Deployed:** 9/9 PM skills production-ready
 **Total Tools:** 12 Python automation tools
 **Agent:** cs-project-manager | **Commands:** 3
-**Integration:** Atlassian MCP Server for Jira/Confluence automation
+**Integration:** Atlassian Remote MCP Server (bundled via `.mcp.json`) for Jira/Confluence automation

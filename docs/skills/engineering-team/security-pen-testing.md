@@ -8,7 +8,7 @@ description: "Use when the user asks to perform security audits, penetration tes
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `security-pen-testing`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -92,7 +92,7 @@ python scripts/dependency_auditor.py --file package.json --severity high
 python scripts/dependency_auditor.py --file requirements.txt --json
 ```
 
-See [owasp_top_10_checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/references/owasp_top_10_checklist.md) for detailed test procedures, code patterns to detect, remediation steps, and CVSS scoring guidance for each category.
+See [owasp_top_10_checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/references/owasp_top_10_checklist.md) for detailed test procedures, code patterns to detect, remediation steps, and CVSS scoring guidance for each category.
 
 ---
 
@@ -102,7 +102,7 @@ See [owasp_top_10_checklist.md](https://github.com/alirezarezvani/claude-skills/
 
 Key patterns to detect: SQL injection via string concatenation, hardcoded JWT secrets, unsafe YAML/pickle deserialization, missing security middleware (e.g., Express without Helmet).
 
-See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/references/attack_patterns.md) for code patterns and detection payloads across injection types.
+See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/references/attack_patterns.md) for code patterns and detection payloads across injection types.
 
 ---
 
@@ -157,7 +157,7 @@ trufflehog filesystem . --json
 - **Rate limiting:** Rapid-fire requests to auth endpoints; expect 429 after threshold
 - **GraphQL:** Test introspection (should be disabled in prod), query depth attacks, batch mutations bypassing rate limits
 
-See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/references/attack_patterns.md) for complete JWT manipulation payloads, IDOR testing methodology, BFLA endpoint lists, GraphQL introspection/depth/batch attack patterns, and rate limiting bypass techniques.
+See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/references/attack_patterns.md) for complete JWT manipulation payloads, IDOR testing methodology, BFLA endpoint lists, GraphQL introspection/depth/batch attack patterns, and rate limiting bypass techniques.
 
 ---
 
@@ -169,9 +169,9 @@ See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/ma
 | **CSRF** | Replay without token (expect 403), cross-session token replay, check SameSite cookie attribute |
 | **SQL Injection** | Error-based (`' OR 1=1--`), union-based enumeration, time-based blind (`SLEEP(5)`), boolean-based blind |
 | **SSRF** | Internal IPs, cloud metadata endpoints (AWS/GCP/Azure), IPv6/hex/decimal encoding bypasses |
-| **Path Traversal** | [`etc/passwd`](https://github.com/alirezarezvani/claude-skills/tree/main/../etc/passwd), URL encoding, double encoding bypasses |
+| **Path Traversal** | [`etc/passwd`](https://github.com/alirezarezvani/claude-skills/tree/main/etc/passwd), URL encoding, double encoding bypasses |
 
-See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/references/attack_patterns.md) for complete test payloads (XSS filter bypasses, context-specific XSS, SQL injection per database engine, SSRF bypass techniques, and DOM-based XSS source/sink pairs).
+See [attack_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/references/attack_patterns.md) for complete test payloads (XSS filter bypasses, context-specific XSS, SQL injection per database engine, SSRF bypass techniques, and DOM-based XSS source/sink pairs).
 
 ---
 
@@ -234,7 +234,7 @@ Responsible disclosure is **mandatory** for any vulnerability found during autho
 
 **Key principles:** Never exploit beyond proof of concept, encrypt all communications, do not access real user data, document everything with timestamps.
 
-See [responsible_disclosure.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/references/responsible_disclosure.md) for full disclosure timelines (standard 90-day, accelerated 30-day, extended 120-day), communication templates, legal considerations, bug bounty program integration, and CVE request process.
+See [responsible_disclosure.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/references/responsible_disclosure.md) for full disclosure timelines (standard 90-day, accelerated 30-day, extended 120-day), communication templates, legal considerations, bug bounty program integration, and CVE request process.
 
 ---
 
@@ -311,7 +311,7 @@ Automated security checks on every PR: secret scanning (TruffleHog), dependency 
 
 | Skill | Relationship |
 |-------|-------------|
-| [senior-secops](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-secops/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
-| [senior-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
-| [dependency-auditor](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
-| [code-reviewer](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/code-reviewer/SKILL.md) | Code review practices — includes security review checklist |
+| [senior-secops](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-secops/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
+| [senior-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-security/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
+| [dependency-auditor](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/engineering/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
+| [code-reviewer](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/code-reviewer/SKILL.md) | Code review practices — includes security review checklist |

@@ -8,7 +8,7 @@ description: "Set up, audit, and debug analytics tracking implementation — GA4
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `analytics-tracking`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/analytics-tracking/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -120,7 +120,7 @@ chat_opened
 help_article_viewed     (param: article_name)
 ```
 
-See [references/event-taxonomy-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/references/event-taxonomy-guide.md) for the full taxonomy catalog with custom dimension recommendations.
+See [references/event-taxonomy-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/analytics-tracking/references/event-taxonomy-guide.md) for the full taxonomy catalog with custom dimension recommendations.
 
 ---
 
@@ -240,7 +240,7 @@ GTM Tag: GA4 Event
     page_location: {{Page URL}}
 ```
 
-See [references/gtm-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/analytics-tracking/references/gtm-patterns.md) for full configuration templates.
+See [references/gtm-patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/analytics-tracking/references/gtm-patterns.md) for full configuration templates.
 
 ---
 

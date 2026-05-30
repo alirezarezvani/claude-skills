@@ -1,1 +1,1 @@
-../../../engineering/karpathy-coder/SKILL.md
+../../../engineering/karpathy-coder/skills/karpathy-coder/SKILL.md

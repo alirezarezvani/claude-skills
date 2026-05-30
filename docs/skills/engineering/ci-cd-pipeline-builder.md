@@ -1,6 +1,6 @@
 ---
 title: "CI/CD Pipeline Builder — Agent Skill for Codex & OpenClaw"
-description: "CI/CD Pipeline Builder. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Generate pragmatic CI/CD pipelines from detected project stack signals — fast baseline generation, repeatable checks, environment-aware deployment. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # CI/CD Pipeline Builder
@@ -8,7 +8,7 @@ description: "CI/CD Pipeline Builder. Agent skill for Claude Code, Codex CLI, Ge
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `ci-cd-pipeline-builder`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/ci-cd-pipeline-builder/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -111,10 +111,10 @@ python3 scripts/pipeline_generator.py --repo . --platform gitlab --output .gitla
 
 ## References
 
-- [references/github-actions-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/references/github-actions-templates.md)
-- [references/gitlab-ci-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/references/gitlab-ci-templates.md)
-- [references/deployment-gates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/references/deployment-gates.md)
-- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/ci-cd-pipeline-builder/README.md)
+- [references/github-actions-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/ci-cd-pipeline-builder/references/github-actions-templates.md)
+- [references/gitlab-ci-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/ci-cd-pipeline-builder/references/gitlab-ci-templates.md)
+- [references/deployment-gates.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/ci-cd-pipeline-builder/references/deployment-gates.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/ci-cd-pipeline-builder/README.md)
 
 ## Detection Heuristics
 

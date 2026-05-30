@@ -73,8 +73,10 @@ Same format as above
 
 ## References
 
-- [AI Writing Detection](references/ai-writing-detection.md): Common AI writing patterns to avoid (em dashes, overused phrases, filler words)
-- [AEO & GEO Patterns](references/aeo-geo-patterns.md): Content patterns optimized for answer engines and AI citation
+- [SEO Audit Reference](references/seo-audit-reference.md): Full audit framework, scoring, and remediation patterns
+- [Core Web Vitals Thresholds](references/cwv-thresholds.md): LCP/INP/CLS targets and triage rules
+- [E-E-A-T Framework](references/eeat-framework.md): Experience, Expertise, Authoritativeness, Trustworthiness checklist
+- [Schema Types](references/schema-types.md): Structured data patterns by content type
 
 ---
 

@@ -8,7 +8,7 @@ description: "Write internal company communications — 3P updates (Progress/Pla
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
 <span class="meta-badge">:material-identifier: `team-communications`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/team-communications/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/skills/team-communications/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

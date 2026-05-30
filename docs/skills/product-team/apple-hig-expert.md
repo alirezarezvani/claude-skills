@@ -8,7 +8,7 @@ description: "Expert guidance on Apple Human Interface Guidelines (HIG). Covers 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `apple-hig-expert`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/skills/apple-hig-expert/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -36,7 +36,7 @@ This skill supports 2 primary modes:
 When starting fresh. Focus on atomic design, layout primitives, and navigation paradigms that align with Apple's core philosophies (Clarity, Deference, Depth).
 
 ### Mode 2: HIG Audit 
-When reviewing mockups or code. Use the [templates/hig-audit-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/templates/hig-audit-template.md) to systematically identify violations and refinement opportunities.
+When reviewing mockups or code. Use the [templates/hig-audit-template.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/skills/apple-hig-expert/templates/hig-audit-template.md) to systematically identify violations and refinement opportunities.
 
 ## Core Design Principles (2026)
 
@@ -56,11 +56,11 @@ Design for everyone from Day 1.
 
 ### Phase 1: Navigation & Layout
 Choose the right navigation pattern (Sidebars for macOS, Tab Bars for iOS, Ornaments for visionOS).
-See [references/platform-specifics.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/references/platform-specifics.md) for details.
+See [references/platform-specifics.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/skills/apple-hig-expert/references/platform-specifics.md) for details.
 
 ### Phase 2: Visual Styling
 Apply typography (San Francisco family) and semantic colors. 
-See [references/visual-design.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/references/visual-design.md).
+See [references/visual-design.md](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/apple-hig-expert/skills/apple-hig-expert/references/visual-design.md).
 
 ### Phase 3: Final Audit
 Run the `hig_checker.py` tool to automate contrast and layout checks.

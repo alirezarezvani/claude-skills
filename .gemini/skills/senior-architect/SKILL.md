@@ -1,1 +1,1 @@
-../../../engineering-team/senior-architect/SKILL.md
+../../../engineering-team/skills/senior-architect/SKILL.md

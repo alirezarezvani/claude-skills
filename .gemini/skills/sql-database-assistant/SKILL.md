@@ -1,1 +1,1 @@
-../../../engineering/sql-database-assistant/SKILL.md
+../../../engineering/skills/sql-database-assistant/SKILL.md

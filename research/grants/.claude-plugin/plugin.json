@@ -1,0 +1,20 @@
+{
+  "name": "grants",
+  "description": "NIH grant research skill for clinical researchers. Grill-me intake (research idea + career stage + preliminary data + environment + submission posture + known institute targets) locks down the funding strategy before any search runs. Runs a 5-facet Consensus positioning analysis (with draft Significance/Innovation language), maps the research to the right NIH institutes and study sections via RePORTER, finds NOSIs and funded overlap, and produces an editable Word document (.docx) with budget/scope-aware mechanism recommendations, submission timelines, and a mandatory program officer recommendation. Triggers: 'grants for [topic]', 'find grants for my research idea', 'what grants match my research', 'help me find NIH funding', 'grant opportunities for my research', or any grant-related request. NIH-only scope \u2014 non-NIH funders (PCORI, DOD CDMRP, VA, foundations) are out of scope and flagged at intake.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/research/grants",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/grants"
+  ],
+  "source": {
+    "spec": "megaprompts/08-grants-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Research-pack shape \u2014 sibling of pulse + litreview. Multi-source (Consensus + RePORTER POST + NOSI fetch) with DOCX output via Node.js docx library.",
+    "sibling_of": "research/litreview, research/pulse (pulse currently in engineering/ \u2014 cleanup PR queued)"
+  }
+}

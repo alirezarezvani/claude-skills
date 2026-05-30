@@ -8,7 +8,7 @@ description: "Use when the user asks to review pull requests, analyze code chang
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `pr-review-expert`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/pr-review-expert/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/pr-review-expert/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -4,12 +4,25 @@ description: >-
   Diagnoses flaky or failing Playwright tests using systematic taxonomy.
   Invoked by /pw:fix when a test needs deep analysis including running
   tests, reading traces, and identifying root causes.
-allowed-tools:
+tools:
   - Read
   - Grep
   - Glob
   - LS
-  - Bash
+  - Bash(npx playwright test *)
+  - Bash(npx playwright show-trace *)
+  - Bash(npx playwright codegen *)
+  - Bash(node *)
+  - Bash(npm test *)
+  - Bash(npm run *)
+disallowedTools:
+  - Bash(rm *)
+  - Bash(rmdir *)
+  - Bash(curl *)
+  - Bash(wget *)
+  - Bash(git push *)
+  - Bash(git reset --hard *)
+model: inherit
 ---
 
 # Test Debugger Agent

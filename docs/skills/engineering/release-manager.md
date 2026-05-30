@@ -8,7 +8,7 @@ description: "Use when the user asks to plan releases, manage changelogs, coordi
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `release-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/release-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/release-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

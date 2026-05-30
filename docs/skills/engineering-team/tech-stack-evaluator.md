@@ -8,7 +8,7 @@ description: "Technology stack evaluation and comparison with TCO analysis, secu
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `tech-stack-evaluator`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/tech-stack-evaluator/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/tech-stack-evaluator/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

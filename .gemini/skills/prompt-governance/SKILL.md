@@ -1,1 +1,1 @@
-../../../engineering/prompt-governance/SKILL.md
+../../../engineering/prompt-governance/skills/prompt-governance/SKILL.md

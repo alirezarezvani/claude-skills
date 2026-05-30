@@ -8,7 +8,7 @@ description: "Comprehensive toolkit for product managers including RICE prioriti
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `product-manager-toolkit`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/skills/product-manager-toolkit/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

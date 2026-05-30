@@ -8,7 +8,7 @@ description: "Analyzes and rewrites prompts for better AI output, creates reusab
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `prompt-engineer-toolkit`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -111,10 +111,10 @@ python3 scripts/prompt_versioner.py changelog --name support_classifier
 
 ## References
 
-- [references/prompt-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/references/prompt-templates.md)
-- [references/technique-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/references/technique-guide.md)
-- [references/evaluation-rubric.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/references/evaluation-rubric.md)
-- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/prompt-engineer-toolkit/README.md)
+- [references/prompt-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/prompt-templates.md)
+- [references/technique-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/technique-guide.md)
+- [references/evaluation-rubric.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/evaluation-rubric.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/README.md)
 
 ## Evaluation Design
 

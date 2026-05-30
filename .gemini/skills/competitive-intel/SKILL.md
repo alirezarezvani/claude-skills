@@ -1,1 +1,1 @@
-../../../c-level-advisor/competitive-intel/SKILL.md
+../../../c-level-advisor/skills/competitive-intel/SKILL.md

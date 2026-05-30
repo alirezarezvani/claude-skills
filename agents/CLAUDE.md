@@ -40,6 +40,9 @@ When skills are published to **ClawHub** (clawhub.com):
 | [cs-engineering-lead](engineering-team/cs-engineering-lead.md) | Engineering | Engineering team coordination and incident management |
 | [cs-workspace-admin](engineering-team/cs-workspace-admin.md) | Engineering | Google Workspace administration via gws CLI |
 | [cs-senior-engineer](engineering/cs-senior-engineer.md) | Engineering | Architecture decisions, code review, CI/CD setup |
+| [cs-fullstack-engineer](engineering/cs-fullstack-engineer.md) | Engineering | Fullstack orchestrator (v2.8.1): walks 7 Matt Pocock forcing questions, picks profile via deterministic engine, forks (`context: fork`) into api-design-reviewer / database-designer / slo-architect / ci-cd-pipeline-builder. Invokable via `/cs:fullstack-review` or `Agent({subagent_type:"cs-fullstack-engineer"})`. |
+| [cs-frontend-engineer](engineering/cs-frontend-engineer.md) | Engineering | Frontend orchestrator (v2.8.1): walks 7 forcing questions (device, LCP target, rendering, bundle, SEO, design system, WCAG), picks framework profile, forks into a11y-audit / performance-profiler / epic-design / apple-hig-expert. Invokable via `/cs:frontend-review`. |
+| [cs-backend-engineer](engineering/cs-backend-engineer.md) | Engineering | Backend orchestrator (v2.8.1): walks 7 forcing questions (read/write + QPS, tenancy, sync vs async, sensitivity, pattern, RPO/RTO, SLO), picks language + pattern profile, forks into api-design-reviewer / database-designer / migration-architect / slo-architect / observability-designer. Invokable via `/cs:backend-review`. |
 | [cs-growth-strategist](business-growth/cs-growth-strategist.md) | Business | Growth strategy and revenue optimization |
 | [cs-financial-analyst](finance/cs-financial-analyst.md) | Finance | Financial analysis, DCF valuation, SaaS metrics |
 | [cs-project-manager](project-management/cs-project-manager.md) | PM | Project management with Atlassian integration |

@@ -1,6 +1,6 @@
 ---
 title: "Migration Architect — Agent Skill for Codex & OpenClaw"
-description: "Migration Architect. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Zero-downtime migration planning, compatibility validation, and rollback strategy generation. Tools for system, database, and infrastructure. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Migration Architect
@@ -8,7 +8,7 @@ description: "Migration Architect. Agent skill for Claude Code, Codex CLI, Gemin
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `migration-architect`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/migration-architect/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/migration-architect/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

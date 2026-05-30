@@ -8,7 +8,7 @@ description: "Agile product ownership for backlog management and sprint executio
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightbulb-outline: Product</span>
 <span class="meta-badge">:material-identifier: `agile-product-owner`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/product-team/agile-product-owner/skills/agile-product-owner/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -22,6 +22,7 @@ Backlog management and sprint execution toolkit for product owners, including us
 
 ## Table of Contents
 
+- [What Makes This Skill Different](#what-makes-this-skill-different)
 - [User Story Generation Workflow](#user-story-generation-workflow)
 - [Acceptance Criteria Patterns](#acceptance-criteria-patterns)
 - [Epic Breakdown Workflow](#epic-breakdown-workflow)
@@ -31,6 +32,14 @@ Backlog management and sprint execution toolkit for product owners, including us
 - [Tools](#tools)
 
 ---
+
+## What Makes This Skill Different
+
+- **Capacity math that aligns with reality:** sprint capacity is based on velocity × availability factor, not hope.
+- **Acceptance criteria scaled by story size:** minimum AC counts map to story points to avoid under-spec'ing large items.
+- **Weighted prioritization that stays consistent:** value 40%, impact 30%, risk 15%, effort 15% keeps tradeoffs explicit.
+- **Systematic epic splitting techniques:** five concrete split patterns prevent oversized stories.
+- **INVEST validation baked into workflows:** every story includes a validation step, not just guidance.
 
 ## User Story Generation Workflow
 

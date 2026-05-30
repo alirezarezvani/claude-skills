@@ -1,0 +1,15 @@
+{
+  "name": "c-level-agents",
+  "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) plus 21 /cs:* slash commands for forcing-question office hours (incl. /cs:vpe-review), multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Wraps the 33 c-level skills (including vpe-advisor with delivery throughput DORA analyzer + eng hiring funnel calculator + eng team structure designer) with cognitive gearing and artifact handoffs.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

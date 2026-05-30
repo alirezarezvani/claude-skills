@@ -17,7 +17,6 @@ Production computer vision engineering skill for object detection, image segment
 - [Workflow 3: Custom Dataset Preparation](#workflow-3-custom-dataset-preparation)
 - [Architecture Selection Guide](#architecture-selection-guide)
 - [Reference Documentation](#reference-documentation)
-- [Common Commands](#common-commands)
 
 ## Quick Start
 

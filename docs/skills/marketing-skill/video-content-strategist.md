@@ -8,7 +8,7 @@ description: "Use when planning video content strategy, writing video scripts, o
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `video-content-strategist`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/video-content-strategist/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/video-content-strategist/skills/video-content-strategist/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

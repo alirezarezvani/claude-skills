@@ -1,6 +1,6 @@
 ---
 title: "Performance Profiler — Agent Skill for Codex & OpenClaw"
-description: "Performance Profiler. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Systematic performance profiling for Node.js, Python, and Go applications. Identifies CPU, memory, and I/O bottlenecks, generates flamegraphs. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Performance Profiler
@@ -8,7 +8,7 @@ description: "Performance Profiler. Agent skill for Claude Code, Codex CLI, Gemi
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `performance-profiler`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/performance-profiler/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/performance-profiler/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

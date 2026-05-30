@@ -65,6 +65,7 @@ Before writing a single line of code, do ALL of the following in order.
 ### B. Inspect every uploaded image asset
 
 Run `scripts/inspect-assets.py` on every image the user has provided.
+> **Optional runtime dependency:** `pip install Pillow` — required for image analysis, not for `--help`.
 For each image, determine:
 
 1. **Format** — JPEG never has a real alpha channel. PNG may have a fake one.

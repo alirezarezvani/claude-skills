@@ -8,7 +8,7 @@ description: "Audit datasets for completeness, consistency, accuracy, and validi
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `data-quality-auditor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/data-quality-auditor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/data-quality-auditor/skills/data-quality-auditor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

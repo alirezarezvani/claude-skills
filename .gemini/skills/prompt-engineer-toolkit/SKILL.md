@@ -1,1 +1,1 @@
-../../../marketing-skill/prompt-engineer-toolkit/SKILL.md
+../../../marketing-skill/skills/prompt-engineer-toolkit/SKILL.md

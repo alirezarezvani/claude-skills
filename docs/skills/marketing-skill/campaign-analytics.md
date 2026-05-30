@@ -8,7 +8,7 @@ description: "Analyzes campaign performance with multi-touch attribution, funnel
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `campaign-analytics`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/campaign-analytics/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/campaign-analytics/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

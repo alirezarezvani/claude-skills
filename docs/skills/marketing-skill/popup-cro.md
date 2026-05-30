@@ -8,7 +8,7 @@ description: "When the user wants to create or optimize popups, modals, overlays
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `popup-cro`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/popup-cro/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/popup-cro/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -8,7 +8,7 @@ description: "Use when assessing AI/ML systems for prompt injection, jailbreak v
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `ai-security`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/ai-security/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/ai-security/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -369,7 +369,7 @@ fi
 
 | Skill | Relationship |
 |-------|-------------|
-| [threat-detection](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/threat-detection/SKILL.md) | Anomaly detection in LLM inference API logs can surface model inversion attacks and systematic prompt injection probing |
-| [incident-response](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/incident-response/SKILL.md) | Confirmed prompt injection exploitation or data extraction from a model should be classified as a security incident |
-| [cloud-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/cloud-security/SKILL.md) | LLM API keys and model endpoints are cloud resources — IAM misconfiguration enables unauthorized model access (AML.T0012) |
-| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/SKILL.md) | Application-layer security testing covers the web interface and API layer; ai-security covers the model and agent layer |
+| [threat-detection](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/threat-detection/SKILL.md) | Anomaly detection in LLM inference API logs can surface model inversion attacks and systematic prompt injection probing |
+| [incident-response](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/incident-response/SKILL.md) | Confirmed prompt injection exploitation or data extraction from a model should be classified as a security incident |
+| [cloud-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/cloud-security/SKILL.md) | LLM API keys and model endpoints are cloud resources — IAM misconfiguration enables unauthorized model access (AML.T0012) |
+| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/SKILL.md) | Application-layer security testing covers the web interface and API layer; ai-security covers the model and agent layer |

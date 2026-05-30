@@ -1,7 +1,7 @@
 ---
 name: cs-ceo-advisor
 description: Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture
-skills: c-level-advisor/ceo-advisor
+skills: c-level-advisor/skills/ceo-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -19,38 +19,38 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/ceo-advisor/`
+**Skill Location:** `../../c-level-advisor/skills/ceo-advisor/`
 
 ### Python Tools
 
 1. **Strategy Analyzer**
    - **Purpose:** Analyzes strategic position using multiple frameworks (SWOT, Porter's Five Forces) and generates actionable recommendations
-   - **Path:** `../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py`
-   - **Usage:** `python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py`
+   - **Path:** `../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py`
+   - **Usage:** `python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py`
    - **Features:** Market analysis, competitive positioning, strategic options generation, risk assessment
    - **Use Cases:** Annual strategic planning, market entry decisions, competitive analysis, strategic pivots
 
 2. **Financial Scenario Analyzer**
    - **Purpose:** Models different business scenarios with risk-adjusted financial projections and capital allocation recommendations
-   - **Path:** `../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py`
-   - **Usage:** `python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py`
+   - **Path:** `../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py`
+   - **Usage:** `python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py`
    - **Features:** Scenario modeling, capital allocation optimization, runway analysis, valuation projections
    - **Use Cases:** Fundraising planning, budget allocation, M&A evaluation, strategic investment decisions
 
 ### Knowledge Bases
 
 1. **Executive Decision Framework**
-   - **Location:** `../../c-level-advisor/ceo-advisor/references/executive_decision_framework.md`
+   - **Location:** `../../c-level-advisor/skills/ceo-advisor/references/executive_decision_framework.md`
    - **Content:** Structured decision-making process for go/no-go decisions, major pivots, M&A opportunities, crisis response
    - **Use Case:** High-stakes decision making, option evaluation, stakeholder alignment
 
 2. **Board Governance & Investor Relations**
-   - **Location:** `../../c-level-advisor/ceo-advisor/references/board_governance_investor_relations.md`
+   - **Location:** `../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md`
    - **Content:** Board meeting preparation, board package templates, investor communication cadence, fundraising playbooks
    - **Use Case:** Board management, quarterly reporting, fundraising execution, investor updates
 
 3. **Leadership & Organizational Culture**
-   - **Location:** `../../c-level-advisor/ceo-advisor/references/leadership_organizational_culture.md`
+   - **Location:** `../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md`
    - **Content:** Culture transformation frameworks, leadership development, change management, organizational design
    - **Use Case:** Culture building, organizational change, leadership team development, transformation management
 
@@ -63,11 +63,11 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
 **Steps:**
 1. **Environmental Scan** - Analyze market trends, competitive landscape, regulatory changes
    ```bash
-   python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py
+   python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
    ```
 2. **Reference Strategic Frameworks** - Review executive decision-making best practices
    ```bash
-   cat ../../c-level-advisor/ceo-advisor/references/executive_decision_framework.md
+   cat ../../c-level-advisor/skills/ceo-advisor/references/executive_decision_framework.md
    ```
 3. **Strategic Options Development** - Generate and evaluate strategic alternatives:
    - Market expansion opportunities
@@ -76,11 +76,11 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
    - Partnership strategies
 4. **Financial Modeling** - Run scenario analysis for each strategic option
    ```bash
-   python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py
+   python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
    ```
 5. **Create Board Package** - Reference governance best practices for presentation
    ```bash
-   cat ../../c-level-advisor/ceo-advisor/references/board_governance_investor_relations.md
+   cat ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md
    ```
 6. **Strategy Communication** - Cascade strategic priorities to organization
 
@@ -95,7 +95,7 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
 **Steps:**
 1. **Review Board Best Practices** - Study board governance frameworks
    ```bash
-   cat ../../c-level-advisor/ceo-advisor/references/board_governance_investor_relations.md
+   cat ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md
    ```
 2. **Preparation Timeline** (T-4 weeks to meeting):
    - **T-4 weeks**: Develop agenda with board chair
@@ -110,7 +110,7 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
    - Risk Register (2 pages): Top risks and mitigation plans
 4. **Run Financial Scenarios** - Model different growth paths for board discussion
    ```bash
-   python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py
+   python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
    ```
 5. **Meeting Execution** - Lead discussion, address questions, secure decisions
 6. **Post-Meeting Follow-Up** - Action items, decisions documented, communication to team
@@ -126,11 +126,11 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
 **Steps:**
 1. **Reference Investor Relations Playbook** - Study fundraising best practices
    ```bash
-   cat ../../c-level-advisor/ceo-advisor/references/board_governance_investor_relations.md
+   cat ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md
    ```
 2. **Financial Scenario Planning** - Model different raise amounts and runway scenarios
    ```bash
-   python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py
+   python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
    ```
 3. **Develop Fundraising Materials**:
    - Pitch deck (10-12 slides): Problem, solution, market, product, business model, GTM, competition, team, financials, ask
@@ -139,7 +139,7 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
    - Data room: Customer metrics, financial details, legal documents
 4. **Strategic Positioning** - Use strategy analyzer to articulate competitive advantage
    ```bash
-   python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py
+   python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
    ```
 5. **Investor Outreach** - Target list, warm intros, meeting scheduling
 6. **Pitch Refinement** - Practice, feedback, iteration
@@ -154,8 +154,8 @@ The cs-ceo-advisor agent bridges the gap between strategic intent and operationa
 **Example:**
 ```bash
 # Complete fundraising planning workflow
-python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py > scenarios.txt
-python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py > competitive-position.txt
+python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py > scenarios.txt
+python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py > competitive-position.txt
 # Use outputs to build compelling pitch deck and financial model
 ```
 
@@ -171,7 +171,7 @@ python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py > competit
    - Cultural artifacts review (meetings, rituals, symbols)
 2. **Reference Culture Frameworks** - Study transformation best practices
    ```bash
-   cat ../../c-level-advisor/ceo-advisor/references/leadership_organizational_culture.md
+   cat ../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md
    ```
 3. **Define Target Culture**:
    - Core values (3-5 values)
@@ -213,12 +213,12 @@ echo "=================================================="
 # Strategic analysis
 echo ""
 echo "🎯 Strategic Position:"
-python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py
+python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
 
 # Financial scenarios
 echo ""
 echo "💰 Financial Scenarios:"
-python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py
+python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
 
 # Board package reminder
 echo ""
@@ -231,8 +231,8 @@ echo "✓ Risk Register (2 pages)"
 
 echo ""
 echo "📚 Reference Materials:"
-echo "- Board governance: ../../c-level-advisor/ceo-advisor/references/board_governance_investor_relations.md"
-echo "- Culture frameworks: ../../c-level-advisor/ceo-advisor/references/leadership_organizational_culture.md"
+echo "- Board governance: ../../c-level-advisor/skills/ceo-advisor/references/board_governance_investor_relations.md"
+echo "- Culture frameworks: ../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md"
 ```
 
 ### Example 2: Strategic Decision Evaluation
@@ -244,15 +244,15 @@ echo "🔍 Strategic Decision Analysis"
 echo "================================"
 
 # Analyze strategic position
-python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py > strategic-position.txt
+python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py > strategic-position.txt
 
 # Model financial scenarios
-python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py > financial-scenarios.txt
+python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py > financial-scenarios.txt
 
 # Reference decision framework
 echo ""
 echo "📖 Applying Executive Decision Framework:"
-cat ../../c-level-advisor/ceo-advisor/references/executive_decision_framework.md
+cat ../../c-level-advisor/skills/ceo-advisor/references/executive_decision_framework.md
 
 # Decision checklist
 echo ""
@@ -283,7 +283,7 @@ case $DAY_OF_WEEK in
     echo "- Executive team meeting"
     echo "- Metrics review"
     echo "- Week planning"
-    python ../../c-level-advisor/ceo-advisor/scripts/strategy_analyzer.py
+    python ../../c-level-advisor/skills/ceo-advisor/scripts/strategy_analyzer.py
     ;;
   Tuesday)
     echo "🤝 External Focus"
@@ -302,14 +302,14 @@ case $DAY_OF_WEEK in
     echo "- 1-on-1s with directs"
     echo "- Talent reviews"
     echo "- Culture initiatives"
-    cat ../../c-level-advisor/ceo-advisor/references/leadership_organizational_culture.md
+    cat ../../c-level-advisor/skills/ceo-advisor/references/leadership_organizational_culture.md
     ;;
   Friday)
     echo "🚀 Innovation & Future Focus"
     echo "- Strategic projects"
     echo "- Learning time"
     echo "- Planning ahead"
-    python ../../c-level-advisor/ceo-advisor/scripts/financial_scenario_analyzer.py
+    python ../../c-level-advisor/skills/ceo-advisor/scripts/financial_scenario_analyzer.py
     ;;
 esac
 ```
@@ -348,7 +348,7 @@ esac
 
 ## References
 
-- **Skill Documentation:** [../../c-level-advisor/ceo-advisor/SKILL.md](../../c-level-advisor/ceo-advisor/SKILL.md)
+- **Skill Documentation:** [../../c-level-advisor/skills/ceo-advisor/SKILL.md](../../c-level-advisor/skills/ceo-advisor/SKILL.md)
 - **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
 - **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
 

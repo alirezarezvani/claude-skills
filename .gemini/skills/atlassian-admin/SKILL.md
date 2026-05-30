@@ -1,1 +1,1 @@
-../../../project-management/atlassian-admin/SKILL.md
+../../../project-management/skills/atlassian-admin/SKILL.md

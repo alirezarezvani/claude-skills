@@ -1,1 +1,1 @@
-../../../marketing-skill/ad-creative/SKILL.md
+../../../marketing-skill/skills/ad-creative/SKILL.md

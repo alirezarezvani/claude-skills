@@ -8,7 +8,7 @@ description: "Senior Project Manager for enterprise software, SaaS, and digital 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
 <span class="meta-badge">:material-identifier: `senior-pm`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/senior-pm/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/skills/senior-pm/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

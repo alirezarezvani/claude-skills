@@ -1,6 +1,6 @@
 ---
 title: "Env & Secrets Manager — Agent Skill for Codex & OpenClaw"
-description: "Env & Secrets Manager. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Manage environment-variable hygiene and secrets safety across local development and production. Practical auditing, drift awareness, rotation. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Env & Secrets Manager
@@ -8,7 +8,7 @@ description: "Env & Secrets Manager. Agent skill for Claude Code, Codex CLI, Gem
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `env-secrets-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/env-secrets-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/env-secrets-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

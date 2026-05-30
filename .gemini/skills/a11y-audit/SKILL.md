@@ -1,1 +1,1 @@
-../../../engineering-team/a11y-audit/SKILL.md
+../../../engineering-team/a11y-audit/skills/a11y-audit/SKILL.md

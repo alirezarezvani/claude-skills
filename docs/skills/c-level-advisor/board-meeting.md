@@ -8,7 +8,7 @@ description: "Multi-agent board meeting protocol for strategic decisions. Runs a
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `board-meeting`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/board-meeting/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/board-meeting/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

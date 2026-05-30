@@ -54,6 +54,20 @@ Rules for naming:
 - Descriptive but concise (2-4 words)
 - Examples: `docker-m1-fixes`, `api-timeout-patterns`, `pnpm-workspace-setup`
 
+**Reserved fragments — must NOT appear in the skill name:**
+- `claude`
+- `anthropic`
+
+For skills about Claude Code itself, use the `cc-` prefix instead:
+- ❌ `claude-code-settings` → ✅ `cc-settings`
+- ❌ `claude-code-maintenance` → ✅ `cc-maintenance`
+- ❌ `claude-mcp-tools` → ✅ `cc-mcp-tools`
+- ❌ `claude-plugin-development` → ✅ `cc-plugin-development`
+
+Before writing the skill directory, check the proposed name against this list.
+If a reserved fragment is present, transform it (drop the fragment or replace
+the `claude*`/`anthropic*` prefix with `cc-`) and confirm with the user.
+
 ### Step 4: Create the skill files
 
 **Spawn the `skill-extractor` agent** for the actual file generation.
@@ -122,6 +136,7 @@ Before finalizing, verify:
 
 - [ ] SKILL.md has valid YAML frontmatter with `name` and `description`
 - [ ] `name` matches the folder name (lowercase, hyphens)
+- [ ] `name` does NOT contain reserved fragments `claude` or `anthropic` (use `cc-` prefix for Claude Code skills)
 - [ ] Description includes "Use when:" trigger conditions
 - [ ] Solutions are self-contained (no external context needed)
 - [ ] Code examples are complete and copy-pasteable

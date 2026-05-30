@@ -8,7 +8,7 @@ description: "SaaS financial health advisor. Use when a user shares revenue or c
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-calculator-variant: Finance</span>
 <span class="meta-badge">:material-identifier: `saas-metrics-coach`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/finance/saas-metrics-coach/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/finance/skills/saas-metrics-coach/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

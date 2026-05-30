@@ -1,6 +1,6 @@
 # Engineering Team Skills - Claude Code Guidance
 
-This guide covers the 36 production-ready engineering skills and their Python automation tools.
+This guide covers the 32 production-ready engineering skills and their Python automation tools.
 
 ## Engineering Skills Overview
 
@@ -300,8 +300,8 @@ services:
 
 ---
 
-**Last Updated:** March 31, 2026
-**Skills Deployed:** 36 engineering skills production-ready
+**Last Updated:** May 10, 2026
+**Skills Deployed:** 32 engineering skills production-ready
 **Total Tools:** 39+ Python automation tools across core + AI/ML/Data + epic-design + a11y
 
 ---

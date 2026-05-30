@@ -1,7 +1,7 @@
 ---
 name: cs-cto-advisor
 description: Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence
-skills: c-level-advisor/cto-advisor
+skills: c-level-advisor/skills/cto-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -19,38 +19,38 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/cto-advisor/`
+**Skill Location:** `../../c-level-advisor/skills/cto-advisor/`
 
 ### Python Tools
 
 1. **Tech Debt Analyzer**
    - **Purpose:** Analyzes system architecture, identifies technical debt, and provides prioritized reduction plan
-   - **Path:** `../../c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py`
-   - **Usage:** `python ../../c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py`
+   - **Path:** `../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py`
+   - **Usage:** `python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py`
    - **Features:** Debt categorization (critical/high/medium/low), capacity allocation recommendations, remediation roadmap
    - **Use Cases:** Quarterly planning, architecture reviews, resource allocation, legacy system assessment
 
 2. **Team Scaling Calculator**
    - **Purpose:** Calculates optimal hiring plan and team structure based on growth projections and engineering ratios
-   - **Path:** `../../c-level-advisor/cto-advisor/scripts/team_scaling_calculator.py`
-   - **Usage:** `python ../../c-level-advisor/cto-advisor/scripts/team_scaling_calculator.py`
+   - **Path:** `../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py`
+   - **Usage:** `python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py`
    - **Features:** Team size modeling, ratio optimization (manager:engineer, senior:mid:junior), capacity planning
    - **Use Cases:** Annual planning, rapid growth scaling, team reorg, hiring roadmap development
 
 ### Knowledge Bases
 
 1. **Architecture Decision Records (ADR)**
-   - **Location:** `../../c-level-advisor/cto-advisor/references/architecture_decision_records.md`
+   - **Location:** `../../c-level-advisor/skills/cto-advisor/references/architecture_decision_records.md`
    - **Content:** ADR templates, examples, decision-making frameworks, architectural patterns
    - **Use Case:** Technology selection, architecture changes, documenting technical decisions, stakeholder alignment
 
 2. **Engineering Metrics**
-   - **Location:** `../../c-level-advisor/cto-advisor/references/engineering_metrics.md`
+   - **Location:** `../../c-level-advisor/skills/cto-advisor/references/engineering_metrics.md`
    - **Content:** DORA metrics implementation, quality metrics (test coverage, code review), team health indicators
    - **Use Case:** Performance measurement, continuous improvement, board reporting, benchmarking
 
 3. **Technology Evaluation Framework**
-   - **Location:** `../../c-level-advisor/cto-advisor/references/technology_evaluation_framework.md`
+   - **Location:** `../../c-level-advisor/skills/cto-advisor/references/technology_evaluation_framework.md`
    - **Content:** Vendor selection criteria, build vs buy analysis, technology assessment templates
    - **Use Case:** Technology stack decisions, vendor evaluation, platform selection, procurement
 
@@ -63,7 +63,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
 **Steps:**
 1. **Run Debt Analysis** - Identify and categorize technical debt across systems
    ```bash
-   python ../../c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py
+   python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py
    ```
 2. **Categorize Debt** - Sort debt by severity:
    - **Critical**: System failure risk, blocking new features
@@ -78,7 +78,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
 4. **Create Remediation Roadmap** - Prioritize debt items by business impact
 5. **Reference Architecture Frameworks** - Document decisions using ADR template
    ```bash
-   cat ../../c-level-advisor/cto-advisor/references/architecture_decision_records.md
+   cat ../../c-level-advisor/skills/cto-advisor/references/architecture_decision_records.md
    ```
 6. **Communicate Plan** - Present to executive team and engineering org
 
@@ -98,7 +98,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
    - Key skill gaps
 2. **Run Scaling Calculator** - Model team growth scenarios
    ```bash
-   python ../../c-level-advisor/cto-advisor/scripts/team_scaling_calculator.py
+   python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py
    ```
 3. **Optimize Ratios** - Maintain healthy team structure:
    - Manager:Engineer = 1:8 (avoid too many managers)
@@ -107,7 +107,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
    - QA:Engineering = 1.5:10 (quality coverage)
 4. **Reference Engineering Metrics** - Ensure team health indicators support scaling
    ```bash
-   cat ../../c-level-advisor/cto-advisor/references/engineering_metrics.md
+   cat ../../c-level-advisor/skills/cto-advisor/references/engineering_metrics.md
    ```
 5. **Create Hiring Roadmap**:
    - Q1-Q4 hiring targets by role
@@ -133,7 +133,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
    - Timeline considerations
 2. **Reference Evaluation Framework** - Use systematic assessment criteria
    ```bash
-   cat ../../c-level-advisor/cto-advisor/references/technology_evaluation_framework.md
+   cat ../../c-level-advisor/skills/cto-advisor/references/technology_evaluation_framework.md
    ```
 3. **Market Research** (Weeks 1-2):
    - Identify vendor options (3-5 candidates)
@@ -148,7 +148,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
    - Cost modeling (TCO over 3 years)
 5. **Document Decision** - Create ADR for transparency
    ```bash
-   cat ../../c-level-advisor/cto-advisor/references/architecture_decision_records.md
+   cat ../../c-level-advisor/skills/cto-advisor/references/architecture_decision_records.md
    # Use template to document:
    # - Context and problem statement
    # - Options considered (with pros/cons)
@@ -165,7 +165,7 @@ The cs-cto-advisor agent bridges the gap between technical vision and operationa
 **Example:**
 ```bash
 # Complete technology evaluation workflow
-cat ../../c-level-advisor/cto-advisor/references/technology_evaluation_framework.md > evaluation-criteria.txt
+cat ../../c-level-advisor/skills/cto-advisor/references/technology_evaluation_framework.md > evaluation-criteria.txt
 # Create comparison spreadsheet using criteria
 # Document final decision in ADR format
 ```
@@ -177,7 +177,7 @@ cat ../../c-level-advisor/cto-advisor/references/technology_evaluation_framework
 **Steps:**
 1. **Reference Metrics Framework** - Study industry standards
    ```bash
-   cat ../../c-level-advisor/cto-advisor/references/engineering_metrics.md
+   cat ../../c-level-advisor/skills/cto-advisor/references/engineering_metrics.md
    ```
 2. **Select Metrics Categories**:
    - **DORA Metrics** (industry standard for DevOps performance):
@@ -236,12 +236,12 @@ echo "=========================================================="
 # Technical debt assessment
 echo ""
 echo "⚠️ Technical Debt Status:"
-python ../../c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py
+python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py
 
 # Team scaling status
 echo ""
 echo "👥 Team Scaling & Capacity:"
-python ../../c-level-advisor/cto-advisor/scripts/team_scaling_calculator.py
+python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py
 
 # Engineering metrics
 echo ""
@@ -264,7 +264,7 @@ case $DAY_OF_WEEK in
     echo ""
     echo "🏗️ Tuesday: Architecture & Technical"
     echo "- Architecture review"
-    cat ../../c-level-advisor/cto-advisor/references/architecture_decision_records.md | grep -A 5 "Template"
+    cat ../../c-level-advisor/skills/cto-advisor/references/architecture_decision_records.md | grep -A 5 "Template"
     ;;
   Friday)
     echo ""
@@ -286,24 +286,24 @@ echo "================================================================"
 # Technical debt assessment
 echo ""
 echo "1. Technical Debt Assessment:"
-python ../../c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py > q$(date +%q)-debt-report.txt
+python ../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py > q$(date +%q)-debt-report.txt
 cat q$(date +%q)-debt-report.txt
 
 # Team scaling analysis
 echo ""
 echo "2. Team Scaling & Organization:"
-python ../../c-level-advisor/cto-advisor/scripts/team_scaling_calculator.py > q$(date +%q)-team-scaling.txt
+python ../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py > q$(date +%q)-team-scaling.txt
 cat q$(date +%q)-team-scaling.txt
 
 # Engineering metrics review
 echo ""
 echo "3. Engineering Metrics Review:"
-cat ../../c-level-advisor/cto-advisor/references/engineering_metrics.md
+cat ../../c-level-advisor/skills/cto-advisor/references/engineering_metrics.md
 
 # Technology evaluation status
 echo ""
 echo "4. Technology Evaluation Framework:"
-cat ../../c-level-advisor/cto-advisor/references/technology_evaluation_framework.md
+cat ../../c-level-advisor/skills/cto-advisor/references/technology_evaluation_framework.md
 
 # Board package reminder
 echo ""
@@ -400,7 +400,7 @@ echo "- Process improvements identified"
 
 ## References
 
-- **Skill Documentation:** [../../c-level-advisor/cto-advisor/SKILL.md](../../c-level-advisor/cto-advisor/SKILL.md)
+- **Skill Documentation:** [../../c-level-advisor/skills/cto-advisor/SKILL.md](../../c-level-advisor/skills/cto-advisor/SKILL.md)
 - **C-Level Domain Guide:** [../../c-level-advisor/CLAUDE.md](../../c-level-advisor/CLAUDE.md)
 - **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
 

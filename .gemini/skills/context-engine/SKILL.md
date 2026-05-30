@@ -1,1 +1,1 @@
-../../../c-level-advisor/context-engine/SKILL.md
+../../../c-level-advisor/skills/context-engine/SKILL.md

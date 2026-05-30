@@ -1,1 +1,1 @@
-../../../engineering/focused-fix/SKILL.md
+../../../engineering/skills/focused-fix/SKILL.md

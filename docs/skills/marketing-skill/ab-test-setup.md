@@ -8,7 +8,7 @@ description: "When the user wants to plan, design, or implement an A/B test or e
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `ab-test-setup`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/ab-test-setup/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -100,7 +100,7 @@ We'll know this is true when [metrics].
 - [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html)
 - [Optimizely's](https://www.optimizely.com/sample-size-calculator/)
 
-**For detailed sample size tables and duration calculations**: See [references/sample-size-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/references/sample-size-guide.md)
+**For detailed sample size tables and duration calculations**: See [references/sample-size-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/ab-test-setup/references/sample-size-guide.md)
 
 ---
 
@@ -234,7 +234,7 @@ Document every test with:
 - Results (sample, metrics, significance)
 - Decision and learnings
 
-**For templates**: See [references/test-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup/references/test-templates.md)
+**For templates**: See [references/test-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/ab-test-setup/references/test-templates.md)
 
 ---
 

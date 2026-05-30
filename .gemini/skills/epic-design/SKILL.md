@@ -1,1 +1,1 @@
-../../../engineering-team/epic-design/SKILL.md
+../../../engineering-team/skills/epic-design/SKILL.md

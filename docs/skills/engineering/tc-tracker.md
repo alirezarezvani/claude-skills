@@ -8,7 +8,7 @@ description: "Use when the user asks to track technical changes, create change r
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `tc-tracker`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -65,7 +65,7 @@ planned -> in_progress -> implemented -> tested -> deployed
         +-> planned
 ```
 
-> See [references/lifecycle.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/references/lifecycle.md) for the full transition table and recovery flows.
+> See [references/lifecycle.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/references/lifecycle.md) for the full transition table and recovery flows.
 
 ## Workflow Commands
 
@@ -133,7 +133,7 @@ python3 scripts/tc_validator.py --registry docs/TC/tc_registry.json
 
 Validator enforces the schema, checks state-machine legality, verifies sequential `R<n>` and `T<n>` IDs, and asserts approval consistency (`approved=true` requires `approved_by` and `approved_date`).
 
-> See [references/tc-schema.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/references/tc-schema.md) for the full schema.
+> See [references/tc-schema.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/references/tc-schema.md) for the full schema.
 
 ## Slash-Command Dispatcher
 
@@ -163,7 +163,7 @@ The handoff block lives at `session_context.handoff` inside each TC and is the s
 - `files_in_progress` — files being edited and their state (`editing`, `needs_review`, `partially_done`, `ready`)
 - `decisions_made` — architectural decisions with rationale and timestamp
 
-> See [references/handoff-format.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/references/handoff-format.md) for the full structure and fill-out rules.
+> See [references/handoff-format.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/references/handoff-format.md) for the full structure and fill-out rules.
 
 ## Validation Rules (Always Enforced)
 
@@ -213,6 +213,6 @@ For onboarding an existing project with undocumented history, build a `retro_cha
 
 ## References in This Skill
 
-- [references/tc-schema.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/references/tc-schema.md) — Full JSON schema for TC records and the registry.
-- [references/lifecycle.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/references/lifecycle.md) — State machine, valid transitions, and recovery flows.
-- [references/handoff-format.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/tc-tracker/references/handoff-format.md) — Session handoff structure and best practices.
+- [references/tc-schema.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/references/tc-schema.md) — Full JSON schema for TC records and the registry.
+- [references/lifecycle.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/references/lifecycle.md) — State machine, valid transitions, and recovery flows.
+- [references/handoff-format.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/tc-tracker/references/handoff-format.md) — Session handoff structure and best practices.

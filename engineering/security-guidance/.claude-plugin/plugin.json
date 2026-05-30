@@ -1,0 +1,19 @@
+{
+  "name": "security-guidance",
+  "description": "PreToolUse security reminder hook for Claude Code. Catches 12 common security anti-patterns in Edit/Write/MultiEdit operations BEFORE they happen — command injection (exec, os.system, subprocess shell=True), XSS (innerHTML, dangerouslySetInnerHTML, document.write), SQL injection (f-string queries, .format), unsafe deserialization (pickle, yaml.unsafe_load), code injection (eval, new Function), and GitHub Actions workflow injection. Session-state caching prevents duplicate warnings; 30-day auto-cleanup of stale state files. Disable per-session with ENABLE_SECURITY_REMINDER=0. Ported from David Dworken's MIT-licensed plugin at github.com/alirezarezvani/aeo-box.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/security-guidance",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": ["./skills/security-guidance"],
+  "attribution": {
+    "upstream": "https://github.com/alirezarezvani/aeo-box/tree/main/.claude/plugins/security-guidance",
+    "upstream_author": "David Dworken (dworken@anthropic.com)",
+    "upstream_license": "MIT",
+    "modifications": "12 patterns preserved verbatim. Added 3 patterns (subprocess shell=True, SQL injection via f-string/.format, yaml.unsafe_load). Debug log moved from /tmp to ~/.claude/security-warnings-log.txt for persistence. Added documentation reference under skills/security-guidance/."
+  }
+}

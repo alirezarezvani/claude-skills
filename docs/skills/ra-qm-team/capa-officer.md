@@ -8,7 +8,7 @@ description: "CAPA system management for medical device QMS. Covers root cause a
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `capa-officer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/capa-officer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/capa-officer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -1,0 +1,1 @@
+../../../commercial/skills/partnerships-architect/SKILL.md

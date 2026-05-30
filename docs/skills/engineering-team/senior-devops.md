@@ -8,7 +8,7 @@ description: "Comprehensive DevOps skill for CI/CD, infrastructure automation, c
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `senior-devops`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-devops/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-devops/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

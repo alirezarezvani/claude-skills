@@ -1,1 +1,1 @@
-../../../engineering/helm-chart-builder/SKILL.md
+../../../engineering/helm-chart-builder/skills/helm-chart-builder/SKILL.md

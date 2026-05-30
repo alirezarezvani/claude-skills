@@ -1,0 +1,18 @@
+{
+  "name": "handoff",
+  "description": "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', or any variation signaling intent to pass work to a fresh agent.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": ["./skills/handoff"],
+  "source": {
+    "build_pattern": "Path B (direct conversion). Productivity-shaped wrapper around Matt Pocock's MIT-licensed handoff prompt: triggers + first-run setup + redaction enforcement + SessionStart auto-load.",
+    "sibling_of": "engineering/handoff (code/PR-focused). This productivity variant adds first-run setup, configurable save location, redaction linter, and SessionStart auto-load.",
+    "distinct_from": "engineering/handoff differs by being optimized for code/PR handoffs without first-run setup, configurable save paths, or SessionStart auto-load."
+  }
+}

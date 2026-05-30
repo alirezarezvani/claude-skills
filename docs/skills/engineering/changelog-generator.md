@@ -1,6 +1,6 @@
 ---
 title: "Changelog Generator — Agent Skill for Codex & OpenClaw"
-description: "Changelog Generator. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Changelog Generator
@@ -8,7 +8,7 @@ description: "Changelog Generator. Agent skill for Claude Code, Codex CLI, Gemin
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `changelog-generator`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/changelog-generator/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -132,10 +132,10 @@ SemVer mapping:
 
 ## References
 
-- [references/ci-integration.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/references/ci-integration.md)
-- [references/changelog-formatting-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/references/changelog-formatting-guide.md)
-- [references/monorepo-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/references/monorepo-strategy.md)
-- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/changelog-generator/README.md)
+- [references/ci-integration.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/changelog-generator/references/ci-integration.md)
+- [references/changelog-formatting-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/changelog-generator/references/changelog-formatting-guide.md)
+- [references/monorepo-strategy.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/changelog-generator/references/monorepo-strategy.md)
+- [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/changelog-generator/README.md)
 
 ## Release Governance
 

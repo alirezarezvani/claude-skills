@@ -17,13 +17,7 @@ description: "4 finance skills — finance agent skill and Claude Code plugin fo
 
 <div class="grid cards" markdown>
 
--   **[Business Investment Advisor](business-investment-advisor.md)**
-
-    ---
-
-    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
-
--   **[Finance Skills](finance.md)**
+-   **[Finance Skills](finance-skills.md)**
 
     ---
 

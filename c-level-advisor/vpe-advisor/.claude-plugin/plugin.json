@@ -1,0 +1,15 @@
+{
+  "name": "vpe-advisor",
+  "description": "VP of Engineering advisory: delivery throughput analyzer (DORA 4 metrics + cycle-time bottleneck identification), eng hiring funnel calculator (7-stage conversion + pipeline gap + weakest-stage fixes), eng team structure designer (squad/tribe model + manager-trigger + director-trigger + span-of-control). 4 in-depth references: DORA framework, eng hiring funnel, eng team structure (Conway's Law), production discipline (on-call, incidents, deployment, SLOs). Stdlib-only. Standalone-installable; also bundled in c-level-skills. NOT a CTO skill \u2014 VPE owns how the team ships, CTO owns what to build.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/vpe-advisor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "name": "c-level-skills",
-  "description": "28 C-level advisory skills: complete virtual board of directors with CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO advisors, executive mentor, founder coach, Chief of Staff router, board meetings, decision logger, board deck builder, scenario war room, competitive intel, org health diagnostic, M&A playbook, international expansion, culture architect, change management, strategic alignment, and more. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.2.3",
+  "description": "33 C-level advisory skills + c-level-agents plugin layer (13 cs-* persona agents + 21 /cs:* slash commands). Complete virtual board of directors with CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO advisors plus General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, and VP of Engineering (delivery throughput DORA analyzer, eng hiring funnel calculator, eng team structure designer), executive mentor, founder coach, Chief of Staff router, board meetings, decision logger, board deck builder, scenario war room, competitive intel, org health diagnostic, M&A playbook, international expansion, culture architect, change management, strategic alignment, and the founder-mode plugin (office-hours, boardroom, brief/decide/execute/post-mortem pipeline, cross-model consensus, decision freeze).",
+  "version": "2.9.0",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -9,5 +9,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./skills"
+  "skills": [
+    "./skills"
+  ]
 }

@@ -8,7 +8,7 @@ description: "Use when planning or executing authorized red team engagements, at
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `red-team`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/red-team/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/red-team/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -340,7 +340,7 @@ done
 
 | Skill | Relationship |
 |-------|-------------|
-| [threat-detection](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/threat-detection/SKILL.md) | Red team technique execution generates realistic TTPs that validate threat hunting hypotheses |
-| [incident-response](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/incident-response/SKILL.md) | Red team activity should trigger incident response procedures — detection and response quality is a primary success metric |
-| [cloud-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/cloud-security/SKILL.md) | Cloud posture findings (IAM misconfigs, S3 exposure) become red team attack path targets |
-| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/security-pen-testing/SKILL.md) | Pen testing focuses on specific vulnerability exploitation; red team focuses on end-to-end kill-chain simulation to crown jewels |
+| [threat-detection](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/threat-detection/SKILL.md) | Red team technique execution generates realistic TTPs that validate threat hunting hypotheses |
+| [incident-response](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/incident-response/SKILL.md) | Red team activity should trigger incident response procedures — detection and response quality is a primary success metric |
+| [cloud-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/cloud-security/SKILL.md) | Cloud posture findings (IAM misconfigs, S3 exposure) become red team attack path targets |
+| [security-pen-testing](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/security-pen-testing/SKILL.md) | Pen testing focuses on specific vulnerability exploitation; red team focuses on end-to-end kill-chain simulation to crown jewels |

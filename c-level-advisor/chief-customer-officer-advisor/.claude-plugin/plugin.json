@@ -1,0 +1,15 @@
+{
+  "name": "chief-customer-officer-advisor",
+  "description": "Chief Customer Officer advisory for startups: retention decomposition analyzer (honest GRR vs NRR + 7-category churn taxonomy), customer segmentation designer (4-tier framework + ICP fit scoring + kill list), CS coverage calculator (pooled vs named CSM models + ratio math + 12-month hiring plan). 4 in-depth references: retention decomposition, customer segmentation strategy, CS coverage model, CS team org evolution (CSM vs Support vs AM vs IM vs CS Ops). Stdlib-only. Standalone-installable; also bundled in c-level-skills. Strategic only - does not duplicate business-growth tactical CS skills.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/chief-customer-officer-advisor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

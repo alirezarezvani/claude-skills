@@ -603,7 +603,7 @@ jobs:
 
 ```yaml
 # infracost.yml — policy file
-version: 0.1
+version: 2.9.0
 policies:
   - path: "*"
     max_monthly_cost: "5000"    # Fail PR if estimated cost exceeds $5,000/month

@@ -8,7 +8,7 @@ description: "When the user wants help with paid advertising campaigns on Google
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `paid-ads`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -113,7 +113,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 **Social Proof Lead:**
 > [Impressive stat or testimonial] → [What you do] → [CTA]
 
-**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/references/ad-copy-templates.md)
+**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/ad-copy-templates.md)
 
 ---
 
@@ -133,7 +133,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 - **Retargeting**: Segment by funnel stage (visitors vs. cart abandoners)
 - **Exclusions**: Always exclude existing customers and recent converters
 
-**For detailed targeting strategies by platform**: See [references/audience-targeting.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/references/audience-targeting.md)
+**For detailed targeting strategies by platform**: See [references/audience-targeting.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/audience-targeting.md)
 
 ---
 
@@ -252,7 +252,7 @@ LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
 
 Before launching campaigns, ensure proper tracking and account setup.
 
-**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/paid-ads/references/platform-setup-checklists.md)
+**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/paid-ads/references/platform-setup-checklists.md)
 
 ### Universal Pre-Launch Checklist
 - [ ] Conversion tracking tested with real conversion
@@ -302,16 +302,16 @@ Before launching campaigns, ensure proper tracking and account setup.
 
 ## Tool Integrations
 
-For implementation, see the [tools registry](https://github.com/alirezarezvani/claude-skills/tree/main/tools/REGISTRY.md). Key advertising platforms:
+For implementation, see the [tools registry](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/REGISTRY.md). Key advertising platforms:
 
 | Platform | Best For | MCP | Guide |
 |----------|----------|:---:|-------|
-| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/google-ads.md) |
-| **Meta Ads** | Demand gen, visual products, B2C | - | [meta-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/meta-ads.md) |
-| **LinkedIn Ads** | B2B, job title targeting | - | [linkedin-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/linkedin-ads.md) |
-| **TikTok Ads** | Younger demographics, video | - | [tiktok-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/tiktok-ads.md) |
+| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/google-ads.md) |
+| **Meta Ads** | Demand gen, visual products, B2C | - | [meta-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/meta-ads.md) |
+| **LinkedIn Ads** | B2B, job title targeting | - | [linkedin-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/linkedin-ads.md) |
+| **TikTok Ads** | Younger demographics, video | - | [tiktok-ads.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/tiktok-ads.md) |
 
-For tracking, see also: [ga4.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/ga4.md), [segment.md](https://github.com/alirezarezvani/claude-skills/tree/main/tools/integrations/segment.md)
+For tracking, see also: [ga4.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/ga4.md), [segment.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/segment.md)
 
 ---
 

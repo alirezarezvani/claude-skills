@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">29 commands for quick access to common operations</p>
+<p class="domain-count">84 commands for quick access to common operations</p>
 
 </div>
 
@@ -25,6 +25,12 @@ description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Generate Keep a Changelog entries from git history and validate commit message format.
 
+-   :material-console:{ .lg .middle } **[`/chaos-experiment`](chaos-experiment.md)**
+
+    ---
+
+    Step through the design of a chaos engineering experiment using the chaos-engineering skill. Produces a plan, calcula...
+
 -   :material-console:{ .lg .middle } **[`/code-to-prd`](code-to-prd.md)**
 
     ---
@@ -37,11 +43,47 @@ description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Build competitive matrices with weighted scoring, gap analysis, and market positioning insights.
 
+-   :material-console:{ .lg .middle } **[`/cs-aeo`](cs-aeo.md)**
+
+    ---
+
+    Command: /cs:aeo action args
+
+-   :material-console:{ .lg .middle } **[`/cs-backend-review`](cs-backend-review.md)**
+
+    ---
+
+    Use the cs-backend-engineer agent (uses context: fork) to handle this inquiry:
+
+-   :material-console:{ .lg .middle } **[`/cs-engineer-grill`](cs-engineer-grill.md)**
+
+    ---
+
+    Walk the user through the Matt Pocock forcing-question discipline before they lock any engineering decision. This is ...
+
+-   :material-console:{ .lg .middle } **[`/cs-frontend-review`](cs-frontend-review.md)**
+
+    ---
+
+    Use the cs-frontend-engineer agent (uses context: fork) to handle this inquiry:
+
+-   :material-console:{ .lg .middle } **[`/cs-fullstack-review`](cs-fullstack-review.md)**
+
+    ---
+
+    Use the cs-fullstack-engineer agent (which uses context: fork to keep the parent thread clean) to handle this inquiry:
+
 -   :material-console:{ .lg .middle } **[`/financial-health`](financial-health.md)**
 
     ---
 
     Analyze financial statements, build valuation models, assess budget variances, and construct forecasts.
+
+-   :material-console:{ .lg .middle } **[`/flag-cleanup`](flag-cleanup.md)**
+
+    ---
+
+    Run the full feature-flag cleanup workflow:
 
 -   :material-console:{ .lg .middle } **[`/focused-fix`](focused-fix.md)**
 
@@ -66,6 +108,12 @@ description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Generate cascaded OKR frameworks from company-level strategy down to team-level key results.
+
+-   :material-console:{ .lg .middle } **[`/operator-audit`](operator-audit.md)**
+
+    ---
+
+    Run the full audit on a Kubernetes Operator repository:
 
 -   :material-console:{ .lg .middle } **[`/persona`](persona.md)**
 
@@ -120,6 +168,12 @@ description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Systematically scan, audit, and optimize documentation files for SEO. Targets README.md files and docs/ pages — fixes...
+
+-   :material-console:{ .lg .middle } **[`/slo-design`](slo-design.md)**
+
+    ---
+
+    Step through SLO design using the slo-architect skill. Produces an SLO definition, computes error budget + multi-wind...
 
 -   :material-console:{ .lg .middle } **[`/sprint-health`](sprint-health.md)**
 
@@ -186,5 +240,281 @@ description: "29 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Ask the wiki a question. The librarian reads index.md first, picks relevant pages across categories, synthesizes an a...
+
+-   :material-console:{ .lg .middle } **[`/cs-caveman`](cs-caveman.md)**
+
+    ---
+
+    Command: /cs:caveman
+
+-   :material-console:{ .lg .middle } **[`/cs-claude-coach`](cs-claude-coach.md)**
+
+    ---
+
+    Activates the claude-coach skill. From this point on, the conversation gains:
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-me`](cs-grill-me.md)**
+
+    ---
+
+    Command: /cs:grill-me <path-to-plan>
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-with-docs`](cs-grill-with-docs.md)**
+
+    ---
+
+    Command: /cs:grill-with-docs <path-to-plan>
+
+-   :material-console:{ .lg .middle } **[`/cs-handoff`](cs-handoff.md)**
+
+    ---
+
+    Command: /cs:handoff <next-session-focus>
+
+-   :material-console:{ .lg .middle } **[`/cs-workflow-build`](cs-workflow-build.md)**
+
+    ---
+
+    Command: /cs:workflow-build <task-description>
+
+-   :material-console:{ .lg .middle } **[`/cs-write-a-skill`](cs-write-a-skill.md)**
+
+    ---
+
+    Command: /cs:write-a-skill <name-or-description>
+
+-   :material-console:{ .lg .middle } **[`/cs-andreessen`](cs-andreessen.md)**
+
+    ---
+
+    Command: /cs:andreessen
+
+-   :material-console:{ .lg .middle } **[`/cs-pmf-check`](cs-pmf-check.md)**
+
+    ---
+
+    Command: /cs:pmf-check
+
+-   :material-console:{ .lg .middle } **[`/cs-capture`](cs-capture.md)**
+
+    ---
+
+    Command: /cs:capture <dump-text-or-path>
+
+-   :material-console:{ .lg .middle } **[`/cs-inbox-setup`](cs-inbox-setup.md)**
+
+    ---
+
+    Command: /cs:inbox-setup
+
+-   :material-console:{ .lg .middle } **[`/cs-inbox-triage`](cs-inbox-triage.md)**
+
+    ---
+
+    Command: /cs:inbox-triage
+
+-   :material-console:{ .lg .middle } **[`/cs-handoff-setup`](cs-handoff-setup.md)**
+
+    ---
+
+    Configure the handoff skill. Walks 5 questions (plus 1-2 optional) and writes the config. Re-run any time.
+
+-   :material-console:{ .lg .middle } **[`/cs-reflect`](cs-reflect.md)**
+
+    ---
+
+    Command: /cs:reflect
+
+-   :material-console:{ .lg .middle } **[`/cs-landing`](cs-landing.md)**
+
+    ---
+
+    Command: /cs:landing <product-or-brief>
+
+-   :material-console:{ .lg .middle } **[`/cs-dossier`](cs-dossier.md)**
+
+    ---
+
+    Command: /cs:dossier <entity>
+
+-   :material-console:{ .lg .middle } **[`/cs-grants`](cs-grants.md)**
+
+    ---
+
+    Command: /cs:grants <research-idea>
+
+-   :material-console:{ .lg .middle } **[`/cs-litreview`](cs-litreview.md)**
+
+    ---
+
+    Command: /cs:litreview <research question>
+
+-   :material-console:{ .lg .middle } **[`/cs-notebooklm`](cs-notebooklm.md)**
+
+    ---
+
+    Command: /cs:notebooklm
+
+-   :material-console:{ .lg .middle } **[`/cs-patent`](cs-patent.md)**
+
+    ---
+
+    Command: /cs:patent <invention description>
+
+-   :material-console:{ .lg .middle } **[`/cs-pulse`](cs-pulse.md)**
+
+    ---
+
+    Command: /cs:pulse <topic>
+
+-   :material-console:{ .lg .middle } **[`/cs-research`](cs-research.md)**
+
+    ---
+
+    Command: /cs:research <research question>
+
+-   :material-console:{ .lg .middle } **[`/cs-syllabus`](cs-syllabus.md)**
+
+    ---
+
+    Command: /cs:syllabus <syllabus-file-or-paste>
+
+-   :material-console:{ .lg .middle } **[`/cs-bizops`](cs-bizops.md)**
+
+    ---
+
+    Use the cs-bizops-orchestrator agent + business-operations-skills orchestrator skill to handle this inquiry:
+
+-   :material-console:{ .lg .middle } **[`/cs-capacity-plan`](cs-capacity-plan.md)**
+
+    ---
+
+    Run the capacity-planner skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-bizops`](cs-grill-bizops.md)**
+
+    ---
+
+    Apply Matt Pocock's grill-with-docs discipline to this BizOps plan / problem:
+
+-   :material-console:{ .lg .middle } **[`/cs-internal-comms`](cs-internal-comms.md)**
+
+    ---
+
+    Run the internal-comms skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-knowledge-ops`](cs-knowledge-ops.md)**
+
+    ---
+
+    Run the knowledge-ops skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-process-map`](cs-process-map.md)**
+
+    ---
+
+    Run the process-mapper skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-procurement`](cs-procurement.md)**
+
+    ---
+
+    Run the procurement-optimizer skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-vendor-review`](cs-vendor-review.md)**
+
+    ---
+
+    Run the vendor-management skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-channel-econ`](cs-channel-econ.md)**
+
+    ---
+
+    Run the channel-economics skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-commercial-forecast`](cs-commercial-forecast.md)**
+
+    ---
+
+    Run the commercial-forecaster skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-commercial-policy`](cs-commercial-policy.md)**
+
+    ---
+
+    Run the commercial-policy skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-commercial`](cs-commercial.md)**
+
+    ---
+
+    Use the cs-commercial-orchestrator agent + commercial-skills orchestrator skill to handle this inquiry:
+
+-   :material-console:{ .lg .middle } **[`/cs-deal-review`](cs-deal-review.md)**
+
+    ---
+
+    Run the deal-desk skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-commercial`](cs-grill-commercial.md)**
+
+    ---
+
+    Apply Matt Pocock's grill-with-docs discipline to this Commercial plan / problem:
+
+-   :material-console:{ .lg .middle } **[`/cs-partner-tier`](cs-partner-tier.md)**
+
+    ---
+
+    Run the partnerships-architect skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-pricing-strategy`](cs-pricing-strategy.md)**
+
+    ---
+
+    Run the pricing-strategist skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-rfp-respond`](cs-rfp-respond.md)**
+
+    ---
+
+    Run the rfp-responder skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-clinical-research`](cs-clinical-research.md)**
+
+    ---
+
+    Run the clinical-research skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-research-ops`](cs-grill-research-ops.md)**
+
+    ---
+
+    Apply Matt Pocock's grill-with-docs discipline to this plan / problem:
+
+-   :material-console:{ .lg .middle } **[`/cs-market-research`](cs-market-research.md)**
+
+    ---
+
+    Run the market-research skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-product-research`](cs-product-research.md)**
+
+    ---
+
+    Run the product-research skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-research-finance`](cs-research-finance.md)**
+
+    ---
+
+    Run the research-finance skill on this input:
+
+-   :material-console:{ .lg .middle } **[`/cs-research-ops`](cs-research-ops.md)**
+
+    ---
+
+    Route this inquiry through the research-ops-skills orchestrator:
 
 </div>

@@ -1,0 +1,125 @@
+---
+# Auto-tag + GitHub Release from CHANGELOG.md.
+#
+# Trigger: every push to main. Parses CHANGELOG.md, takes the latest version
+# entry, and creates a git tag (v<version>) + GitHub Release with notes
+# extracted from that section. Idempotent — if the tag already exists, the
+# workflow skips with a notice. Manual re-runs via workflow_dispatch can
+# target a specific version.
+#
+# CHANGELOG.md header format expected:
+#     ## [X.Y.Z] - YYYY-MM-DD — optional subtitle
+#
+# To cut a new release: add a new version entry to the top of CHANGELOG.md
+# and push to main. The workflow will fire on that push and create the tag.
+
+name: Release
+
+'on':
+  push:
+    branches: [main]
+    paths:
+      - 'CHANGELOG.md'
+      - '.github/workflows/release.yml'
+      - 'scripts/extract_release_notes.py'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Specific version to release (e.g. 2.8.0). Default: latest in CHANGELOG.'
+        required: false
+
+permissions:
+  contents: write  # needed to push tag + create release
+
+jobs:
+  release:
+    name: Tag + GitHub Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # need full history to push tags
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Parse target version from CHANGELOG
+        id: parse
+        run: |
+          set -euo pipefail
+          if [[ -n "${{ github.event.inputs.version }}" ]]; then
+            VERSION="${{ github.event.inputs.version }}"
+            python3 scripts/extract_release_notes.py --version "$VERSION" --format json > /tmp/release.json
+          else
+            python3 scripts/extract_release_notes.py --format json > /tmp/release.json
+            VERSION=$(python3 -c "import json; print(json.load(open('/tmp/release.json'))['version'])")
+          fi
+          DATE=$(python3 -c "import json; print(json.load(open('/tmp/release.json'))['date'])")
+          SUBTITLE=$(python3 -c "import json; print(json.load(open('/tmp/release.json'))['subtitle'])")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+          echo "subtitle=$SUBTITLE" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Parsed: v$VERSION ($DATE) — $SUBTITLE"
+
+      - name: Check if tag already exists
+        id: tagcheck
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.parse.outputs.tag }}"
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Tag $TAG already exists locally."
+          elif git ls-remote --tags origin "$TAG" | grep -q "$TAG"; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Tag $TAG already exists on remote."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Tag $TAG does not exist — will create."
+          fi
+
+      - name: Prepare release body
+        if: steps.tagcheck.outputs.exists == 'false'
+        run: |
+          python3 scripts/extract_release_notes.py \
+            --version "${{ steps.parse.outputs.version }}" \
+            --format github-release > /tmp/release-body.md
+          echo "=== Release body preview ==="
+          head -50 /tmp/release-body.md
+
+      - name: Create and push tag
+        if: steps.tagcheck.outputs.exists == 'false'
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.parse.outputs.tag }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$TAG" -m "Release $TAG — ${{ steps.parse.outputs.subtitle }}"
+          git push origin "$TAG"
+
+      - name: Create GitHub Release
+        if: steps.tagcheck.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.parse.outputs.tag }}"
+          SUBTITLE="${{ steps.parse.outputs.subtitle }}"
+          if [[ -n "$SUBTITLE" ]]; then
+            TITLE="$TAG — $SUBTITLE"
+          else
+            TITLE="$TAG"
+          fi
+          gh release create "$TAG" \
+            --title "$TITLE" \
+            --notes-file /tmp/release-body.md \
+            --verify-tag
+
+      - name: Skip (tag exists)
+        if: steps.tagcheck.outputs.exists == 'true'
+        run: |
+          echo "::notice::Tag ${{ steps.parse.outputs.tag }} already exists. Skipping release creation."

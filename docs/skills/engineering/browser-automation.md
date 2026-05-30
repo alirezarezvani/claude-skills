@@ -8,7 +8,7 @@ description: "Use when the user asks to automate browser tasks, scrape websites,
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `browser-automation`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -53,13 +53,13 @@ The Browser Automation skill provides comprehensive tools and knowledge for buil
 
 Use XPath only when CSS cannot express the relationship (e.g., ancestor traversal, text-based selection).
 
-**Pagination strategies:** next-button, URL-based (`?page=N`), infinite scroll, load-more button. See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/data_extraction_recipes.md) for complete pagination handlers and scroll patterns.
+**Pagination strategies:** next-button, URL-based (`?page=N`), infinite scroll, load-more button. See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/data_extraction_recipes.md) for complete pagination handlers and scroll patterns.
 
 ### 2. Form Filling & Multi-Step Workflows
 
 Break multi-step forms into discrete functions per step. Each function fills fields, clicks "Next"/"Continue", and waits for the next step to load (URL change or DOM element).
 
-Key patterns: login flows, multi-page forms, file uploads (including drag-and-drop zones), native and custom dropdown handling. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for complete API reference on `fill()`, `select_option()`, `set_input_files()`, and `expect_file_chooser()`.
+Key patterns: login flows, multi-page forms, file uploads (including drag-and-drop zones), native and custom dropdown handling. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/playwright_browser_api.md) for complete API reference on `fill()`, `select_option()`, `set_input_files()`, and `expect_file_chooser()`.
 
 ### 3. Screenshot & PDF Capture
 
@@ -68,7 +68,7 @@ Key patterns: login flows, multi-page forms, file uploads (including drag-and-dr
 - **PDF (Chromium only):** `await page.pdf(path="out.pdf", format="A4", print_background=True)`
 - **Visual regression:** Take screenshots at known states, store baselines in version control with naming: `{page}_{viewport}_{state}.png`
 
-See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for full screenshot/PDF options.
+See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/playwright_browser_api.md) for full screenshot/PDF options.
 
 ### 4. Structured Data Extraction
 
@@ -77,14 +77,14 @@ Core extraction patterns:
 - **Listings to arrays** — Map repeating card elements using a field-selector map (supports `::attr()` for attributes)
 - **Nested/threaded data** — Recursive extraction for comments with replies, category trees
 
-See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/data_extraction_recipes.md) for complete extraction functions, price parsing, data cleaning utilities, and output format helpers (JSON, CSV, JSONL).
+See [data_extraction_recipes.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/data_extraction_recipes.md) for complete extraction functions, price parsing, data cleaning utilities, and output format helpers (JSON, CSV, JSONL).
 
 ### 5. Cookie & Session Management
 
 - **Save/restore cookies:** `context.cookies()` and `context.add_cookies()`
 - **Full storage state** (cookies + localStorage): `context.storage_state(path="state.json")` to save, `browser.new_context(storage_state="state.json")` to restore
 
-**Best practice:** Save state after login, reuse across scraping sessions. Check session validity before starting a long job — make a lightweight request to a protected page and verify you are not redirected to login. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for cookie and storage state API details.
+**Best practice:** Save state after login, reuse across scraping sessions. Check session validity before starting a long job — make a lightweight request to a protected page and verify you are not redirected to login. See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/playwright_browser_api.md) for cookie and storage state API details.
 
 ### 6. Anti-Detection Patterns
 
@@ -96,7 +96,7 @@ Modern websites detect automation through multiple vectors. Apply these in prior
 4. **Request throttling** — Add `random.uniform()` delays between actions
 5. **Proxy support** — Per-browser or per-context proxy configuration
 
-See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/anti_detection_patterns.md) for the complete stealth stack: navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation strategies, and detection self-test URLs.
+See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/anti_detection_patterns.md) for the complete stealth stack: navigator property hardening, WebGL/canvas fingerprint evasion, behavioral simulation (mouse movement, typing speed, scroll patterns), proxy rotation strategies, and detection self-test URLs.
 
 ### 7. Dynamic Content Handling
 
@@ -105,7 +105,7 @@ See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills
 - **Shadow DOM:** Playwright pierces open Shadow DOM with `>>` operator: `page.locator("custom-element >> .inner-class")`
 - **Lazy-loaded images:** Scroll elements into view with `scroll_into_view_if_needed()` to trigger loading
 
-See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/playwright_browser_api.md) for wait strategies, network interception, and Shadow DOM details.
+See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/playwright_browser_api.md) for wait strategies, network interception, and Shadow DOM details.
 
 ### 8. Error Handling & Retry Logic
 
@@ -114,7 +114,7 @@ See [playwright_browser_api.md](https://github.com/alirezarezvani/claude-skills/
 - **Error-state screenshots:** Capture `page.screenshot(path="error-state.png")` on unexpected failures for debugging
 - **Rate limit detection:** Check for HTTP 429 responses and respect `Retry-After` headers
 
-See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/browser-automation/references/anti_detection_patterns.md) for the complete exponential backoff implementation and rate limiter class.
+See [anti_detection_patterns.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/browser-automation/references/anti_detection_patterns.md) for the complete exponential backoff implementation and rate limiter class.
 
 ## Workflows
 

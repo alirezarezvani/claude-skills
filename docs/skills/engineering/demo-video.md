@@ -8,7 +8,7 @@ description: "Use when the user asks to create a demo video, product walkthrough
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `demo-video`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/demo-video/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/demo-video/skills/demo-video/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -93,7 +93,7 @@ If MCPs are unavailable, still produce items 1-3. Include the ffmpeg commands in
 
 ## Scene Design System
 
-See [references/scene-design-system.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/demo-video/references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
+See [references/scene-design-system.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/demo-video/skills/demo-video/references/scene-design-system.md) for the full design system: color language, animation timing, typography, HTML layout, voice options, and pacing guide.
 
 ## Quality Checklist
 

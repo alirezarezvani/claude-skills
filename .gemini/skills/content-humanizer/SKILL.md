@@ -1,1 +1,1 @@
-../../../marketing-skill/content-humanizer/SKILL.md
+../../../marketing-skill/skills/content-humanizer/SKILL.md

@@ -8,7 +8,7 @@ description: "Use when the user asks to create ERD diagrams, normalize database 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `database-schema-designer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/database-schema-designer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/database-schema-designer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

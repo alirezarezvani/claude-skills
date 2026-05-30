@@ -8,7 +8,7 @@ description: "When the user wants to implement, audit, or validate structured da
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `schema-markup`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/schema-markup/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/schema-markup/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

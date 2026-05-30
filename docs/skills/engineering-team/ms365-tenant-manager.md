@@ -8,7 +8,7 @@ description: "Microsoft 365 tenant administration for Global Administrators. Aut
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `ms365-tenant-manager`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/ms365-tenant-manager/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/ms365-tenant-manager/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

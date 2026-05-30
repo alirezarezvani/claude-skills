@@ -1,1 +1,1 @@
-../../../engineering-team/stripe-integration-expert/SKILL.md
+../../../engineering-team/skills/stripe-integration-expert/SKILL.md

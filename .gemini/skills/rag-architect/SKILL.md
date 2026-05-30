@@ -1,1 +1,1 @@
-../../../engineering/rag-architect/SKILL.md
+../../../engineering/skills/rag-architect/SKILL.md

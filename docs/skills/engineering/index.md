@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "59 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "74 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">59 skills in this domain</p>
+<p class="domain-count">74 skills in this domain</p>
 
 </div>
 
@@ -29,12 +29,6 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[AgentHub — Multi-Agent Collaboration](agenthub.md)** + 7 sub-skills
-
-    ---
-
-    Spawn N parallel AI agents that compete on the same task. Each agent works in an isolated git worktree. The coordinat...
-
 -   **[API Design Reviewer](api-design-reviewer.md)**
 
     ---
@@ -46,18 +40,6 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL
-
--   **[Autoresearch Agent](autoresearch-agent.md)** + 5 sub-skills
-
-    ---
-
-    > You sleep. The agent experiments. You wake up to results.
-
--   **[BeHuman — Self-Mirror Consciousness Loop](behuman.md)**
-
-    ---
-
-    > Originally contributed by voidborne-d(https://github.com/voidborne-d) — enhanced and integrated by the claude-skill...
 
 -   **[Browser Automation - POWERFUL](browser-automation.md)**
 
@@ -71,17 +53,17 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
+-   **[Chaos Engineering](chaos-engineering.md)**
+
+    ---
+
+    Design experiments that surface real weaknesses in production systems — without becoming outages. Most "chaos enginee...
+
 -   **[CI/CD Pipeline Builder](ci-cd-pipeline-builder.md)**
 
     ---
 
     Tier: POWERFUL
-
--   **[Code Tour](code-tour.md)**
-
-    ---
-
-    Create CodeTour files — persona-targeted, step-by-step walkthroughs of a codebase that link directly to files and lin...
 
 -   **[Codebase Onboarding](codebase-onboarding.md)**
 
@@ -89,11 +71,11 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Profile from CSV](data-quality-auditor.md)**
+-   **[Claude Code Command Selection Guide](command-guide.md)**
 
     ---
 
-    python3 scripts/dataprofiler.py --file data.csv
+    This skill helps you choose the most appropriate command, agent, or skill for different scenarios.
 
 -   **[Database Designer - POWERFUL Tier Skill](database-designer.md)**
 
@@ -107,25 +89,13 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Demo Video](demo-video.md)**
-
-    ---
-
-    You are a video producer. Not a slideshow maker. Every frame has a job. Every second earns the next.
-
 -   **[Dependency Auditor](dependency-auditor.md)**
 
     ---
 
     > Skill Type: POWERFUL
 
--   **[Docker Development](docker-development.md)**
-
-    ---
-
-    > Smaller images. Faster builds. Secure containers. No guesswork.
-
--   **[Engineering Advanced Skills (POWERFUL Tier)](engineering.md)**
+-   **[Engineering Advanced Skills (POWERFUL Tier)](engineering-advanced-skills.md)**
 
     ---
 
@@ -137,11 +107,23 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
+-   **[Feature Flags Architect](feature-flags-architect.md)**
+
+    ---
+
+    End-to-end discipline for feature flags: classify them, ship them, ramp them, and retire them. Most teams treat flags...
+
 -   **[Focused Fix — Deep-Dive Feature Repair](focused-fix.md)**
 
     ---
 
     Activate when the user asks to fix, debug, or make a specific feature/module/area work. Key triggers:
+
+-   **[Full Page Screenshot](full-page-screenshot.md)**
+
+    ---
+
+    Capture a full-page screenshot of any web page via Chrome DevTools Protocol. Produces a single PNG that includes all ...
 
 -   **[Git Worktree Manager](git-worktree-manager.md)**
 
@@ -149,35 +131,17 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Helm Chart Builder](helm-chart-builder.md)**
-
-    ---
-
-    > Production-grade Helm charts. Sensible defaults. Secure by design. No cargo-culting.
-
 -   **[Interview System Designer](interview-system-designer.md)**
 
     ---
 
     Comprehensive interview loop planning and calibration support for role-based hiring systems.
 
--   **[Karpathy Coder — Active Coding Discipline](karpathy-coder.md)**
+-   **[Kubernetes Operator](kubernetes-operator.md)**
 
     ---
 
-    Derived from Andrej Karpathy's observations(https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls...
-
--   **[LLM Cost Optimizer](llm-cost-optimizer.md)**
-
-    ---
-
-    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
-
--   **[LLM Wiki — Second Brain for Claude Code + Obsidian](llm-wiki.md)**
-
-    ---
-
-    Inspired by Andrej Karpathy's LLM Wiki pattern (gist(https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94...
+    Build operators that reconcile correctly. Most operator bugs are not Kubernetes bugs — they are reconcile-loop bugs: ...
 
 -   **[MCP Server Builder](mcp-server-builder.md)**
 
@@ -215,12 +179,6 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Prompt Governance](prompt-governance.md)**
-
-    ---
-
-    > Originally contributed by chad848(https://github.com/chad848) — enhanced and integrated by the claude-skills team.
-
 -   **[RAG Architect - POWERFUL](rag-architect.md)**
 
     ---
@@ -251,6 +209,12 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     ultrathink
 
+-   **[Ship Gate](ship-gate.md)**
+
+    ---
+
+    Pre-production audit that scans a codebase and reports pass/fail/manual
+
 -   **[Skill Security Auditor](skill-security-auditor.md)**
 
     ---
@@ -262,6 +226,12 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
     ---
 
     ---
+
+-   **[SLO Architect](slo-architect.md)**
+
+    ---
+
+    Define SLOs that mean something. Most "SLOs" in the wild are arbitrary numbers no one believes — 99.9% on every endpo...
 
 -   **[Spec-Driven Workflow — POWERFUL](spec-driven-workflow.md)**
 
@@ -275,12 +245,6 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
 
     The operational companion to database design. While database-designer focuses on schema architecture and database-sch...
 
--   **[Z-test for two proportions (A/B conversion rates)](statistical-analyst.md)**
-
-    ---
-
-    python3 scripts/hypothesistester.py --test ztest \
-
 -   **[TC Tracker](tc-tracker.md)**
 
     ---
@@ -292,11 +256,5 @@ description: "59 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL 🔥
-
--   **[Terraform Patterns](terraform-patterns.md)**
-
-    ---
-
-    > Predictable infrastructure. Secure state. Modules that compose. No drift.
 
 </div>

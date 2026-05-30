@@ -17,24 +17,6 @@ description: "17 product skills — product management agent skill and Claude Co
 
 <div class="grid cards" markdown>
 
--   **[Agile Product Owner](agile-product-owner.md)**
-
-    ---
-
-    Backlog management and sprint execution toolkit for product owners, including user story generation, acceptance crite...
-
--   **[Apple HIG Expert](apple-hig-expert.md)**
-
-    ---
-
-    You are a Senior Apple Design Lead with decades of experience shipping award-winning apps on the App Store. Your goal...
-
--   **[Code → PRD: Reverse-Engineer Any Codebase into Product Requirements](code-to-prd.md)**
-
-    ---
-
-    - 3-phase workflow: global scan → page-by-page analysis → structured document generation
-
 -   **[Competitive Teardown](competitive-teardown.md)**
 
     ---
@@ -71,23 +53,17 @@ description: "17 product skills — product management agent skill and Claude Co
 
     Essential tools and frameworks for modern product management, from discovery to delivery.
 
--   **[Product Strategist](product-strategist.md)**
-
-    ---
-
-    Strategic toolkit for Head of Product to drive vision, alignment, and organizational excellence.
-
--   **[Product Team Skills](product-team.md)**
+-   **[Product Team Skills](product-skills.md)**
 
     ---
 
     8 production-ready product skills covering product management, UX/UI design, and SaaS development.
 
--   **[Research Summarizer](research-summarizer.md)**
+-   **[Product Strategist](product-strategist.md)**
 
     ---
 
-    > Read less. Understand more. Cite correctly.
+    Strategic toolkit for Head of Product to drive vision, alignment, and organizational excellence.
 
 -   **[Roadmap Communicator](roadmap-communicator.md)**
 

@@ -8,7 +8,7 @@ description: "Atlassian Confluence expert for creating and managing spaces, know
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
 <span class="meta-badge">:material-identifier: `confluence-expert`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/confluence-expert/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/project-management/skills/confluence-expert/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

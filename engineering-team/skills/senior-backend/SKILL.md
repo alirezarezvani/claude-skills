@@ -363,3 +363,105 @@ python scripts/database_migration_tool.py --connection $DATABASE_URL --migrate f
 python scripts/api_load_tester.py https://api.example.com/endpoint --concurrency 50
 python scripts/api_load_tester.py https://api.example.com/endpoint --compare baseline.json
 ```
+
+---
+
+## Assumptions and Verifiable Success Criteria (Karpathy discipline)
+
+Before this skill scaffolds, recommends a pattern, or modifies a schema, the following four assumptions MUST be surfaced. If any are unknown, the skill stops and walks the [Forcing-question library](#forcing-question-library-matt-pocock-grill) instead.
+
+1. **Read/write ratio + one-year p99 QPS** — drives DB, cache, queue, and partitioning choices. Kleppmann, *DDIA* (2017).
+2. **Tenancy model** — single-tenant, shared multi-tenant, isolated multi-tenant. Drives data-access pattern.
+3. **Data sensitivity tier** — public / internal / PII / PHI / PCI. Drives compliance floor.
+4. **SLO + named error-budget consumer** — Google SRE Workbook canon. No SLO = no reliability work prioritization.
+
+**Verifiable success criteria** (Karpathy #4) — every recommendation this skill emits must include:
+
+- Latency targets (p50, p95, p99 in ms)
+- Uptime / SLO target
+- RPO + RTO
+
+If any of those three is not stated, the recommendation is incomplete — return to Q7 of the forcing-question library.
+
+The `scripts/backend_decision_engine.py` tool encodes these checks: it refuses to recommend a profile without read/write ratio + QPS + tenancy + data sensitivity + pattern preference.
+
+---
+
+## Customization profiles
+
+Four built-in profiles in `profiles/` calibrate every recommendation:
+
+| Profile | When to pick | Pattern | Latency floor (p99) |
+|---|---|---|---|
+| `node-express` | TS team, < 15 eng, customer-facing SaaS | Modular monolith on Postgres | 600ms |
+| `fastapi-python` | Python team, < 20 eng, ML-adjacent | Modular monolith on Postgres (async) | 500ms |
+| `django-monolith` | Content-heavy CRUD + admin, < 25 eng | Modular monolith on Postgres | 800ms |
+| `go-or-rust-microservice` | Extracted service, ≥ 30 eng, platform team, QPS ≥ 1000 | Extracted service | 200ms |
+
+Pick a profile via:
+
+```bash
+python scripts/backend_decision_engine.py \
+  --team-size 8 --qps-p99 50 --read-write-ratio 20 \
+  --tenancy shared-multi-tenant --data-sensitivity pii \
+  --pattern modular-monolith --language-preference typescript
+```
+
+The tool returns the best-fit profile, runner-up tradeoff (if within 15%), stack picks, anti-patterns, named approvers, and SLO floor. **This tool never auto-approves.**
+
+To add a custom profile: copy `profiles/node-express.json` to `profiles/<your-org>.json` and adjust `constraints` + `success_thresholds` + `named_approver_chain`.
+
+---
+
+## Composition map
+
+This skill does NOT reimplement scope owned by the POWERFUL-tier specialists. It forks into them. See `references/composition_map.md` for the full routing table. Key forks:
+
+| Concern | Fork into |
+|---|---|
+| API contract / breaking-change risk | `engineering/skills/api-design-reviewer/` |
+| Schema design + ERD + indexing | `engineering/skills/database-designer/` |
+| Zero-downtime schema migration | `engineering/skills/migration-architect/` |
+| SLO + SLI + error-budget | `engineering/slo-architect/` |
+| Observability / golden signals | `engineering/skills/observability-designer/` |
+| CI/CD pipeline | `engineering/skills/ci-cd-pipeline-builder/` |
+| Security / threat model | `engineering-team/skills/senior-security/`, `adversarial-reviewer` |
+| Compliance evidence (HIPAA / ISO 27001) | `ra-qm-team/` |
+| Pre-commit Karpathy review | `engineering/karpathy-coder/` |
+| Pre-flight architecture grill | `engineering/grill-me/` |
+
+The `cs-backend-engineer` agent orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-backend-engineer", prompt: "..."})` or via `/cs:backend-review <your problem>`.
+
+---
+
+## Forcing-question library (Matt Pocock grill)
+
+Before locking any backend decision, walk the seven forcing questions in `references/forcing_questions.md`. Discipline:
+
+1. One question per turn. No bundling.
+2. Always recommend the answer with cited canon.
+3. Track answers in `/tmp/backend-grill-<date>.md`.
+4. If a kill criterion trips, stop. Don't scaffold around an unresolved gap.
+5. After Q7, run `backend_decision_engine.py` with the seven answers.
+
+Summary:
+
+1. Read/write ratio + p99 QPS forecast?
+2. Tenancy model — single / shared / isolated?
+3. Sync / async / event-driven — default + exceptions?
+4. Data sensitivity tier — PII / PHI / PCI?
+5. Monolith / modular monolith / microservices — team-size justification?
+6. RPO + RTO?
+7. SLO + named error-budget consumer?
+
+---
+
+## Invocation from other agents and skills
+
+Three surfaces:
+
+1. **Slash command:** `/cs:backend-review <prompt>` — full grill + decision engine + composition routing.
+2. **Agent subagent:** `Agent({subagent_type: "cs-backend-engineer", prompt: "..."})` — forks context, returns ≤ 200-word digest.
+3. **Direct tool call:** `python scripts/backend_decision_engine.py ...` — deterministic profile match when inputs are known.
+
+See `agents/engineering/cs-backend-engineer.md` for the full invocation contract.

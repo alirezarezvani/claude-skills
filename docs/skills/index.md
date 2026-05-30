@@ -116,7 +116,7 @@ graph LR
 
     **30+ Python tools** | 3 sub-skill trees
 
-    [:octicons-arrow-right-24: Browse skills](engineering-team/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](engineering-team/index.md){ .md-button .md-button--primary }
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — POWERFUL** <span class="skill-count">25</span>
 
@@ -126,7 +126,7 @@ graph LR
 
     **Platform-level tools** for building infrastructure
 
-    [:octicons-arrow-right-24: Browse skills](engineering/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](engineering/index.md){ .md-button .md-button--primary }
 
 -   :material-bullhorn:{ .lg .middle } **Marketing** <span class="skill-count">43</span>
 
@@ -136,7 +136,7 @@ graph LR
 
     **32 Python tools** | Foundation context system
 
-    [:octicons-arrow-right-24: Browse skills](marketing-skill/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](marketing-skill/index.md){ .md-button .md-button--primary }
 
 -   :material-star-circle:{ .lg .middle } **C-Level Advisory** <span class="skill-count">28</span>
 
@@ -146,7 +146,7 @@ graph LR
 
     **10 executive roles** | Strategic alignment engine
 
-    [:octicons-arrow-right-24: Browse skills](c-level-advisor/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](c-level-advisor/index.md){ .md-button .md-button--primary }
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product** <span class="skill-count">8</span>
 
@@ -156,7 +156,7 @@ graph LR
 
     **9 Python tools** | Next.js TSX + Tailwind output
 
-    [:octicons-arrow-right-24: Browse skills](product-team/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](product-team/index.md){ .md-button .md-button--primary }
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management** <span class="skill-count">6</span>
 
@@ -166,7 +166,7 @@ graph LR
 
     **12 Python tools** | Atlassian MCP integration
 
-    [:octicons-arrow-right-24: Browse skills](project-management/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](project-management/index.md){ .md-button .md-button--primary }
 
 -   :material-shield-check:{ .lg .middle } **Regulatory & Quality** <span class="skill-count">12</span>
 
@@ -176,7 +176,7 @@ graph LR
 
     **Enterprise compliance** | Audit-ready documentation
 
-    [:octicons-arrow-right-24: Browse skills](ra-qm-team/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](ra-qm-team/index.md){ .md-button .md-button--primary }
 
 -   :material-trending-up:{ .lg .middle } **Business & Growth** <span class="skill-count">4</span>
 
@@ -186,7 +186,7 @@ graph LR
 
     **9 Python tools** | GTM strategy support
 
-    [:octicons-arrow-right-24: Browse skills](business-growth/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](business-growth/index.md){ .md-button .md-button--primary }
 
 -   :material-currency-usd:{ .lg .middle } **Finance** <span class="skill-count">2</span>
 
@@ -196,7 +196,7 @@ graph LR
 
     **7 Python tools** | Industry benchmarks built-in
 
-    [:octicons-arrow-right-24: Browse skills](finance/){ .md-button .md-button--primary }
+    [:octicons-arrow-right-24: Browse skills](finance/index.md){ .md-button .md-button--primary }
 
 </div>
 
@@ -298,7 +298,7 @@ graph LR
 
     ??? note "Growth, Channels & More (28 skills)"
 
-        Includes CRO, demand generation, social media, paid ads, PR, partnerships, competitive intelligence, sales enablement, X/Twitter growth, and more. [Browse all marketing skills :octicons-arrow-right-24:](marketing-skill/)
+        Includes CRO, demand generation, social media, paid ads, PR, partnerships, competitive intelligence, sales enablement, X/Twitter growth, and more. [Browse all marketing skills :octicons-arrow-right-24:](marketing-skill/index.md)
 
 === ":material-star-circle: C-Level"
 
@@ -321,7 +321,7 @@ graph LR
 
     ??? note "Orchestration & Strategy (18)"
 
-        Board meetings, Chief of Staff, decision logger, board deck builder, scenario war room, competitive intelligence, M&A playbook, culture architect, founder coach, and more. [Browse all C-level skills :octicons-arrow-right-24:](c-level-advisor/)
+        Board meetings, Chief of Staff, decision logger, board deck builder, scenario war room, competitive intelligence, M&A playbook, culture architect, founder coach, and more. [Browse all C-level skills :octicons-arrow-right-24:](c-level-advisor/index.md)
 
 === ":material-bullseye-arrow: Product & PM"
 

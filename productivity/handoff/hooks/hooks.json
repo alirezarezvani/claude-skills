@@ -1,0 +1,25 @@
+{
+  "description": "SessionStart and SessionEnd hooks for the handoff skill. SessionStart surfaces the latest handoff (within retention window) as <handoff_from_previous_session> data. SessionEnd reminds the user to write a handoff if none exists from the last 30 minutes. Disable per-session with HANDOFF_SESSIONSTART=0 or HANDOFF_SESSIONEND=0.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_start.py"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_end.py"
+          }
+        ]
+      }
+    ]
+  }
+}

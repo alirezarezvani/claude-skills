@@ -8,7 +8,7 @@ description: "Reduce voluntary and involuntary churn through cancel flow design,
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-bullhorn-outline: Marketing</span>
 <span class="meta-badge">:material-identifier: `churn-prevention`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/churn-prevention/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/churn-prevention/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -133,7 +133,7 @@ Match the offer to the reason. Each offer type has a right and wrong time to use
 - No countdown timers unless it's genuinely expiring
 - Clear CTA: "Claim this offer" vs. "Continue cancelling"
 
-See [references/cancel-flow-playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/churn-prevention/references/cancel-flow-playbook.md) for full decision trees and flow templates.
+See [references/cancel-flow-playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/churn-prevention/references/cancel-flow-playbook.md) for full decision trees and flow templates.
 
 ---
 
@@ -170,7 +170,7 @@ Don't retry immediately — failed cards often recover within 3-7 days:
 - No guilt. No shame. Card failures happen — treat customers like adults.
 - Every email links directly to the payment update page — not the dashboard
 
-See [references/dunning-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/churn-prevention/references/dunning-guide.md) for full email sequences and retry configuration examples.
+See [references/dunning-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/churn-prevention/references/dunning-guide.md) for full email sequences and retry configuration examples.
 
 ---
 

@@ -1,0 +1,15 @@
+{
+  "name": "claude-coach",
+  "description": "Personal Claude power-user coach. On first activation, delivers a personalized, ranked cheat-code glossary filtered to the user's use cases. On every subsequent turn, scans for missed power-user opportunities and surfaces at most ONE \u26a1 tip when a tip would genuinely 10x the next attempt. Silence is the default. Ships SKILL.md, cheat-codes glossary, coaching-rules decision tree, and three stdlib Python tools (cheat-code filter, prompt rater, 5-gate tip classifier). Includes cs-claude-coach agent persona and /cs:claude-coach slash command.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/claude-coach",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/claude-coach"
+  ]
+}

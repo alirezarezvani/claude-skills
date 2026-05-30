@@ -15,17 +15,18 @@ The AI reads this output and uses it to inform the user.
 The script NEVER modifies images — inspect only.
 """
 
+import argparse
+import json
 import sys
 import os
 
-try:
-    from PIL import Image
-except ImportError:
-    print("PIL not found. Install with: pip install Pillow")
-    sys.exit(1)
-
 
 def analyse_image(path):
+    try:
+        from PIL import Image
+    except ImportError:
+        print("Error: Pillow not installed. Install with: pip install Pillow")
+        sys.exit(2)
     result = {
         "path": path,
         "filename": os.path.basename(path),
@@ -234,21 +235,35 @@ def collect_paths(args):
     return paths
 
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2 or sys.argv[1] in ('-h', '--help'):
-        print("\nUsage:")
-        print("  python scripts/inspect-assets.py image.png")
-        print("  python scripts/inspect-assets.py image1.jpg image2.png")
-        print("  python scripts/inspect-assets.py path/to/folder/\n")
-        if len(sys.argv) < 2:
-            sys.exit(1)
-        else:
-            sys.exit(0)
+def main():
+    parser = argparse.ArgumentParser(
+        description="2.5D Asset Inspector — checks images for background type, "
+        "transparency, and depth-level recommendations."
+    )
+    parser.add_argument(
+        "paths",
+        nargs="+",
+        help="Image files or directories to inspect",
+    )
+    parser.add_argument(
+        "--json",
+        action="store_true",
+        help="Output results as JSON",
+    )
+    args = parser.parse_args()
 
-    paths = collect_paths(sys.argv[1:])
+    paths = collect_paths(args.paths)
     if not paths:
         print("No valid image files found.")
         sys.exit(1)
 
     results = [analyse_image(p) for p in paths]
-    print_report(results)
+
+    if args.json:
+        print(json.dumps(results, indent=2, default=str))
+    else:
+        print_report(results)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "235 production-ready skills, 28 agents, 3 personas, and an orchestration protocol for 12 AI coding tools. Reusable expertise for engineering, product, marketing, compliance, and more."
+site_description: "338 production-ready skills across 16 domains, 51+ cs-* agents (incl. founder-mode C-suite: GC, CDO, CAIO, CCO, VPE + Matt Pocock-derived productivity quartet + v2.9.0 research-ops orchestrator + v2.8.4 productivity/andreessen + v2.8.0 business-operations + commercial + v2.7.3 cs-aeo), 7 personas, 87+ /cs:* slash commands, and an orchestration protocol for 13 AI coding tools (Claude Code · Codex · Gemini CLI · Hermes Agent · Mistral Vibe · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity). v2.9.0 adds the research-ops domain — enterprise Research Operations (clinical-research + research-finance + market-research + product-research) with per-skill onboarding, customization, and an opt-in autoresearch bridge."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -55,6 +55,16 @@ plugins:
   - search:
       separator: '[\s\-\.]+'
   - tags
+  - redirects:
+      redirect_maps:
+        # Dual-publish duplicate cleanup (v2.5.6 docs refresh).
+        # The auto-generator created <name>-<name>.md alongside the canonical
+        # <name>.md for engineering plugins that publish both standalone and
+        # bundled. Redirect old URLs to the canonical page to preserve SEO.
+        'skills/engineering/chaos-engineering-chaos-engineering.md': 'skills/engineering/chaos-engineering.md'
+        'skills/engineering/feature-flags-architect-feature-flags-architect.md': 'skills/engineering/feature-flags-architect.md'
+        'skills/engineering/kubernetes-operator-kubernetes-operator.md': 'skills/engineering/kubernetes-operator.md'
+        'skills/engineering/slo-architect-slo-architect.md': 'skills/engineering/slo-architect.md'
 
 extra:
   social:
@@ -211,6 +221,7 @@ nav:
       - "Release Manager": skills/engineering/release-manager.md
       - "Runbook Generator": skills/engineering/runbook-generator.md
       - "Secrets Vault Manager": skills/engineering/secrets-vault-manager.md
+      - "Security Guidance": skills/engineering/security-guidance.md
       - "Self-Eval": skills/engineering/self-eval.md
       - "Skill Security Auditor": skills/engineering/skill-security-auditor.md
       - "Skill Tester": skills/engineering/skill-tester.md
@@ -224,6 +235,16 @@ nav:
       - "LLM Wiki": skills/engineering/llm-wiki.md
       - "TC Tracker": skills/engineering/tc-tracker.md
       - "Karpathy Coder": skills/engineering/karpathy-coder.md
+      - "Feature Flags Architect": skills/engineering/feature-flags-architect.md
+      - "Kubernetes Operator": skills/engineering/kubernetes-operator.md
+      - "Chaos Engineering": skills/engineering/chaos-engineering.md
+      - "SLO Architect": skills/engineering/slo-architect.md
+      - "Ship Gate": skills/engineering/ship-gate.md
+      - "Write a Skill (Matt Pocock-derived)": skills/engineering/write-a-skill.md
+      - "Caveman Mode (Matt Pocock-derived)": skills/engineering/caveman.md
+      - "Grill Me (Matt Pocock-derived)": skills/engineering/grill-me.md
+      - "Handoff (Matt Pocock-derived)": skills/engineering/handoff.md
+      - "Workflow Builder": skills/engineering/workflow-builder.md
       - AgentHub:
         - "AgentHub": skills/engineering/agenthub.md
         - "/hub:init": skills/engineering/agenthub-init.md
@@ -255,6 +276,7 @@ nav:
       - Overview: skills/marketing-skill/index.md
       - "A/B Test Setup": skills/marketing-skill/ab-test-setup.md
       - "Ad Creative": skills/marketing-skill/ad-creative.md
+      - "AEO (Answer Engine Optimization)": skills/marketing-skill/aeo.md
       - "AI SEO": skills/marketing-skill/ai-seo.md
       - "Analytics Tracking": skills/marketing-skill/analytics-tracking.md
       - "App Store Optimization": skills/marketing-skill/app-store-optimization.md
@@ -331,6 +353,34 @@ nav:
       - "CTO Advisor": skills/c-level-advisor/cto-advisor.md
       - "Culture Architect": skills/c-level-advisor/culture-architect.md
       - "Decision Logger": skills/c-level-advisor/decision-logger.md
+      - "General Counsel Advisor": skills/c-level-advisor/general-counsel-advisor.md
+      - "Chief Data Officer Advisor": skills/c-level-advisor/chief-data-officer-advisor.md
+      - "Chief AI Officer Advisor": skills/c-level-advisor/chief-ai-officer-advisor.md
+      - "Chief Customer Officer Advisor": skills/c-level-advisor/chief-customer-officer-advisor.md
+      - "VP Engineering Advisor": skills/c-level-advisor/vpe-advisor.md
+      - Founder-Mode Commands (c-level-agents):
+        - "c-level-agents Index": skills/c-level-advisor/c-level-agents.md
+        - "/cs:office-hours": skills/c-level-advisor/c-level-agents-office-hours.md
+        - "/cs:cfo-review": skills/c-level-advisor/c-level-agents-cfo-review.md
+        - "/cs:cmo-review": skills/c-level-advisor/c-level-agents-cmo-review.md
+        - "/cs:cpo-review": skills/c-level-advisor/c-level-agents-cpo-review.md
+        - "/cs:cro-review": skills/c-level-advisor/c-level-agents-cro-review.md
+        - "/cs:cto-review": skills/c-level-advisor/c-level-agents-cto-review.md
+        - "/cs:ciso-review": skills/c-level-advisor/c-level-agents-ciso-review.md
+        - "/cs:gc-review": skills/c-level-advisor/c-level-agents-gc-review.md
+        - "/cs:cdo-review": skills/c-level-advisor/c-level-agents-cdo-review.md
+        - "/cs:caio-review": skills/c-level-advisor/c-level-agents-caio-review.md
+        - "/cs:cco-review": skills/c-level-advisor/c-level-agents-cco-review.md
+        - "/cs:vpe-review": skills/c-level-advisor/c-level-agents-vpe-review.md
+        - "/cs:brief": skills/c-level-advisor/c-level-agents-brief.md
+        - "/cs:boardroom": skills/c-level-advisor/c-level-agents-boardroom.md
+        - "/cs:decide": skills/c-level-advisor/c-level-agents-decide.md
+        - "/cs:execute": skills/c-level-advisor/c-level-agents-execute.md
+        - "/cs:post-mortem": skills/c-level-advisor/c-level-agents-post-mortem.md
+        - "/cs:founder-mode": skills/c-level-advisor/c-level-agents-founder-mode.md
+        - "/cs:onboard": skills/c-level-advisor/c-level-agents-onboard.md
+        - "/cs:cross-eval": skills/c-level-advisor/c-level-agents-cross-eval.md
+        - "/cs:freeze": skills/c-level-advisor/c-level-agents-freeze.md
       - Executive Mentor:
         - "Executive Mentor": skills/c-level-advisor/executive-mentor.md
         - "Board Prep": skills/c-level-advisor/executive-mentor-board-prep.md
@@ -371,6 +421,64 @@ nav:
       - "Business Investment Advisor": skills/finance/business-investment-advisor.md
       - "Financial Analyst": skills/finance/financial-analyst.md
       - "SaaS Metrics Coach": skills/finance/saas-metrics-coach.md
+    - Productivity:
+      - Overview: skills/productivity/index.md
+      - "Capture (Brain-Dump-to-Action)": skills/productivity/capture.md
+      - "Inbox Setup (KB Builder)": skills/productivity/email-inbox-setup.md
+      - "Inbox Triage (Drafts-Only)": skills/productivity/email-inbox-triage.md
+      - "Reflect (Light-Prompt Journal)": skills/productivity/reflect.md
+      - "Handoff (Matt Pocock-inspired)": skills/productivity/handoff.md
+      - "Andreessen (Market-First Decisions)": skills/productivity/andreessen.md
+    - Marketing (Landing Pages):
+      - Overview: skills/marketing/index.md
+      - "Landing Page Generator (HTML)": skills/marketing/landing.md
+    - Research:
+      - Overview: skills/research/index.md
+      - "Research Orchestrator (Hybrid Router)": skills/research/research.md
+      - "Pulse (Recency + Sentiment)": skills/research/pulse.md
+      - "LitReview (Academic)": skills/research/litreview.md
+      - "Grants (NIH)": skills/research/grants.md
+      - "Dossier (Entity Research)": skills/research/dossier.md
+      - "Patent (Prior Art + IP Landscape)": skills/research/patent.md
+      - "Syllabus (Course Reading List)": skills/research/syllabus.md
+      - "NotebookLM (Browser Automation)": skills/research/notebooklm.md
+    - Business Operations:
+      - Overview: skills/business-operations/index.md
+      - "Business Operations Skills (Orchestrator)": skills/business-operations/business-operations-skills.md
+      - "Process Mapper (BPMN + Bottleneck + Cycle-Time)": skills/business-operations/process-mapper.md
+      - "Vendor Management (Scorecard + SLA + Risk)": skills/business-operations/vendor-management.md
+      - "Capacity Planner (Erlang-C for Ops Teams)": skills/business-operations/capacity-planner.md
+      - "Internal Comms (ADKAR + Kotter 8-Step)": skills/business-operations/internal-comms.md
+      - "Knowledge Ops (SOP + Runbook + KB Hygiene)": skills/business-operations/knowledge-ops.md
+      - "Procurement Optimizer (UNSPSC Spend + Consolidation)": skills/business-operations/procurement-optimizer.md
+    - Commercial:
+      - Overview: skills/commercial/index.md
+      - "Commercial Skills (Orchestrator)": skills/commercial/commercial-skills.md
+      - "Pricing Strategist (Model Picker + Van Westendorp + Packaging)": skills/commercial/pricing-strategist.md
+      - "Deal Desk (Scorer + Approval Router + Redline)": skills/commercial/deal-desk.md
+      - "Partnerships Architect (5-Tier + Joint GTM + Revshare)": skills/commercial/partnerships-architect.md
+      - "Channel Economics (Cost-to-Serve + ROI + Mix)": skills/commercial/channel-economics.md
+      - "Commercial Policy (Matrix + Exception + Linter)": skills/commercial/commercial-policy.md
+      - "RFP Responder (Shipley Method + Win-Theme + Winrate)": skills/commercial/rfp-responder.md
+      - "Commercial Forecaster (4Q-Weighted + Cohort + Confidence)": skills/commercial/commercial-forecaster.md
+    - "Research Operations (v2.9.0)":
+      - Overview: skills/research-ops/index.md
+      - "Research Ops Skills (Orchestrator)": skills/research-ops/research-ops-skills.md
+      - "Clinical Research (Study Design + Endpoints + Power + Phase-Gate)": skills/research-ops/clinical-research.md
+      - "Research Finance (R&D Budget + Burn/Runway + CapEx-vs-OpEx)": skills/research-ops/research-finance.md
+      - "Market Research (TAM/SAM/SOM + Survey + Segmentation)": skills/research-ops/market-research.md
+      - "Product Research (Study Design + Saturation + Insight Synthesis)": skills/research-ops/product-research.md
+    - "Compliance OS":
+      - Overview: skills/compliance-os/index.md
+      - "Compliance OS (Orchestrator)": skills/compliance-os/compliance-os.md
+      - "Compliance Readiness": skills/compliance-os/compliance-readiness.md
+      - "ISO 13485 Audit Prep": skills/compliance-os/iso13485-audit-prep.md
+      - "ISO 27001 Audit Prep": skills/compliance-os/iso27001-audit-prep.md
+      - "SOC 2 Audit Prep": skills/compliance-os/soc2-audit-prep.md
+      - "GDPR Audit Prep": skills/compliance-os/gdpr-audit-prep.md
+      - "FDA QSR Audit Prep": skills/compliance-os/fda-qsr-audit-prep.md
+      - "EU AI Act Readiness": skills/compliance-os/ai-act-readiness.md
+      - "AIMS Audit (ISO 42001)": skills/compliance-os/aims-audit.md
   - Plugins:
     - Overview: plugins/index.md
   - Personas:
@@ -382,6 +490,7 @@ nav:
   - Custom GPTs: custom-gpts.md
   - Agents:
     - Overview: agents/index.md
+    - "CS AEO (Answer Engine Optimization)": agents/cs-aeo.md
     - "CS Agile Product Owner": agents/cs-agile-product-owner.md
     - "CS CEO Advisor": agents/cs-ceo-advisor.md
     - "CS Content Creator": agents/cs-content-creator.md
@@ -398,6 +507,36 @@ nav:
     - "CS Quality & Regulatory": agents/cs-quality-regulatory.md
     - "CS Senior Engineer": agents/cs-senior-engineer.md
     - "CS UX Researcher": agents/cs-ux-researcher.md
+    - "CS CFO Advisor": agents/cs-cfo-advisor.md
+    - "CS CMO Advisor": agents/cs-cmo-advisor.md
+    - "CS CRO Advisor": agents/cs-cro-advisor.md
+    - "CS CPO Advisor": agents/cs-cpo-advisor.md
+    - "CS COO Advisor": agents/cs-coo-advisor.md
+    - "CS CHRO Advisor": agents/cs-chro-advisor.md
+    - "CS CISO Advisor": agents/cs-ciso-advisor.md
+    - "CS Chief of Staff": agents/cs-chief-of-staff.md
+    - "CS General Counsel Advisor": agents/cs-general-counsel-advisor.md
+    - "CS CDO Advisor (Chief Data Officer)": agents/cs-cdo-advisor.md
+    - "CS CAIO Advisor (Chief AI Officer)": agents/cs-caio-advisor.md
+    - "CS CCO Advisor (Chief Customer Officer)": agents/cs-cco-advisor.md
+    - "CS VPE Advisor (VP Engineering)": agents/cs-vpe-advisor.md
+    - "CS Skill Author (Matt Pocock-derived)": agents/cs-skill-author.md
+    - "CS Caveman Mode (Matt Pocock-derived)": agents/cs-caveman-mode.md
+    - "CS Grill Master (Matt Pocock-derived)": agents/cs-grill-master.md
+    - "CS Handoff Author (Matt Pocock-derived)": agents/cs-handoff-author.md
+    - "CS Workflow Architect": agents/cs-workflow-architect.md
+    - "CS BizOps Orchestrator (v2.8.0)": agents/cs-bizops-orchestrator.md
+    - "CS Commercial Orchestrator (v2.8.0)": agents/cs-commercial-orchestrator.md
+    - "CS Research Ops Orchestrator (v2.9.0)": agents/cs-research-ops-orchestrator.md
+    - "CS Compliance Officer": agents/cs-compliance-officer.md
+    - "CS CQM (ISO 13485)": agents/cs-cqm-iso13485.md
+    - "CS CISO (ISO 27001)": agents/cs-ciso-iso27001.md
+    - "CS SOC 2 Auditor": agents/cs-soc2-auditor.md
+    - "CS DPO (GDPR)": agents/cs-dpo-gdpr.md
+    - "CS FDA QSR Auditor": agents/cs-fda-qsr-auditor.md
+    - "CS AI Act Compliance": agents/cs-ai-act-compliance.md
+    - "CS AIMS (ISO 42001)": agents/cs-aims-iso42001.md
+    - "CS Andreessen (Market-First Operator)": agents/cs-andreessen.md
   - Commands:
     - Overview: commands/index.md
     - "/a11y-audit": commands/a11y-audit.md
@@ -429,3 +568,34 @@ nav:
     - "/wiki-log": commands/wiki-log.md
     - "/tc": commands/tc.md
     - "/karpathy-check": commands/karpathy-check.md
+    - "/flag-cleanup": commands/flag-cleanup.md
+    - "/operator-audit": commands/operator-audit.md
+    - "/chaos-experiment": commands/chaos-experiment.md
+    - "/slo-design": commands/slo-design.md
+    - "/cs:aeo": commands/cs-aeo.md
+    - "/cs:workflow-build": commands/cs-workflow-build.md
+    - "/cs:bizops (v2.8.0 — BizOps router)": commands/cs-bizops.md
+    - "/cs:grill-bizops (v2.8.0 — Matt grill bizops)": commands/cs-grill-bizops.md
+    - "/cs:process-map (v2.8.0)": commands/cs-process-map.md
+    - "/cs:vendor-review (v2.8.0)": commands/cs-vendor-review.md
+    - "/cs:capacity-plan (v2.8.0)": commands/cs-capacity-plan.md
+    - "/cs:internal-comms (v2.8.0)": commands/cs-internal-comms.md
+    - "/cs:knowledge-ops (v2.8.0)": commands/cs-knowledge-ops.md
+    - "/cs:procurement (v2.8.0)": commands/cs-procurement.md
+    - "/cs:commercial (v2.8.0 — Commercial router)": commands/cs-commercial.md
+    - "/cs:grill-commercial (v2.8.0 — Matt grill commercial)": commands/cs-grill-commercial.md
+    - "/cs:pricing-strategy (v2.8.0)": commands/cs-pricing-strategy.md
+    - "/cs:deal-review (v2.8.0)": commands/cs-deal-review.md
+    - "/cs:partner-tier (v2.8.0)": commands/cs-partner-tier.md
+    - "/cs:channel-econ (v2.8.0)": commands/cs-channel-econ.md
+    - "/cs:commercial-policy (v2.8.0)": commands/cs-commercial-policy.md
+    - "/cs:rfp-respond (v2.8.0)": commands/cs-rfp-respond.md
+    - "/cs:commercial-forecast (v2.8.0)": commands/cs-commercial-forecast.md
+    - "/cs:andreessen (Market-First Verdict)": commands/cs-andreessen.md
+    - "/cs:pmf-check (Product/Market Fit)": commands/cs-pmf-check.md
+    - "/cs:research-ops (v2.9.0 — Research Ops router)": commands/cs-research-ops.md
+    - "/cs:grill-research-ops (v2.9.0 — Matt grill research-ops)": commands/cs-grill-research-ops.md
+    - "/cs:clinical-research (v2.9.0)": commands/cs-clinical-research.md
+    - "/cs:research-finance (v2.9.0)": commands/cs-research-finance.md
+    - "/cs:market-research (v2.9.0)": commands/cs-market-research.md
+    - "/cs:product-research (v2.9.0)": commands/cs-product-research.md

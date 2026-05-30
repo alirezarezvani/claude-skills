@@ -1,0 +1,26 @@
+{
+  "name": "business-operations-skills",
+  "description": "6 BizOps skills + 1 orchestrator: process-mapper (BPMN + bottleneck + cycle-time), vendor-management (SLA + risk + scorecard), capacity-planner (Erlang-C queueing math for ops teams), internal-comms (ADKAR + Kotter 8-step change comms), knowledge-ops (SOP + runbook authoring with 5W2H validation, context: fork), procurement-optimizer (UNSPSC-aligned spend categorization + supplier consolidation). Orchestrator skill uses context: fork to route inquiries to the right sub-skill via Matt Pocock grill discipline. 18 stdlib-only Python tools, 24+ reference docs each citing ≥7 authoritative sources, asset templates per skill. Distinct from business-growth (external sales) and c-level-advisor (strategic).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/business-operations",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/business-operations-skills",
+    "./skills/process-mapper",
+    "./skills/vendor-management",
+    "./skills/capacity-planner",
+    "./skills/internal-comms",
+    "./skills/knowledge-ops",
+    "./skills/procurement-optimizer"
+  ],
+  "source": {
+    "spec": "documentation/implementation/bizops-commercial-expansion-plan.md",
+    "build_pattern": "Path B (direct conversion) — orchestrator skill uses context: fork to chain sub-skills without polluting parent context. Sprint 1 shipped orchestrator + 2 sub-skills (process-mapper, vendor-management). Sprint 2 adds capacity-planner (Erlang-C), internal-comms (ADKAR+Kotter), knowledge-ops (5W2H SOP+runbook with context: fork for heavy multi-doc KB intake), procurement-optimizer (UNSPSC spend categorization + supplier consolidation). Every SKILL.md ships a Forcing-question library section per Matt Pocock grill-with-docs discipline.",
+    "distinct_from": "business-growth (external sales motion: CSM, sales engineering, RevOps, contracts). c-level-advisor (strategic executive judgment, not operational tactics). engineering/slo-architect (system reliability, not business-process reliability). engineering/llm-wiki (personal PKM, not company SOPs)."
+  }
+}

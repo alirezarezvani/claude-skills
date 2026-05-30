@@ -1,0 +1,15 @@
+{
+  "name": "chaos-engineering",
+  "description": "End-to-end chaos engineering discipline: design experiments with hypothesis + steady-state metric + blast radius + abort criteria, calculate risk score against error budget, and generate blameless postmortems. 3 stdlib Python tools (experiment_designer, blast_radius_calculator, experiment_postmortem), 4 references on chaos principles + experiment design + 7-attack taxonomy + tooling landscape (Chaos Toolkit/Mesh/Litmus/Gremlin/AWS FIS/DIY), templates for plans + postmortems, and a /chaos-experiment slash command. Composes with feature-flags-architect (kill switches as abort triggers) and kubernetes-operator (chaos targets).",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/chaos-engineering",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills"
+  ]
+}

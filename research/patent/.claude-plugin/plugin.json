@@ -1,0 +1,20 @@
+{
+  "name": "patent",
+  "description": "Patent prior-art and landscape intelligence skill \u2014 not generic patent help. Commits to one of five sub-use-cases via forcing intake (novelty search / freedom-to-operate / competitive landscape / acquisition diligence / litigation prior-art) before any search runs. Searches Google Patents, Espacenet, USPTO, and optionally Lens.org for citation-graph signals. Output is an editable Word document (.docx) with verdict, ranked closest art (claim-text extracted), CPC-class-aware landscape, family-resolved hits, geographic coverage, FTO flags where applicable, strategy recommendations, and full audit log. Triggers: 'prior art search for [invention]', 'patent search on [topic]', 'freedom to operate analysis', 'FTO for [product]', 'patent landscape for [field]', 'is [invention] novel', 'patents on [topic]', 'competitive patent analysis', 'prior art for litigation', 'patent diligence on [company]'. Produces search signal, not legal advice \u2014 always recommends consulting a patent attorney before filing or licensing decisions. Trademark, copyright, and trade-secret questions are out of scope.",
+  "version": "2.9.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/research/patent",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/patent"
+  ],
+  "source": {
+    "spec": "megaprompts/11-patent-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Research-pack shape, sub-use-case-routing variant. 5 sub-use-cases (novelty/FTO/landscape/diligence/litigation) drive entire search strategy + DOCX emphasis. Multi-source: Google Patents + Espacenet + USPTO + optional Lens.org BYOK.",
+    "sibling_of": "research/litreview, research/grants, research/dossier, research/pulse"
+  }
+}

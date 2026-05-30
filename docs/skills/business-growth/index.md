@@ -17,7 +17,7 @@ description: "5 business & growth skills — business growth agent skill and Cla
 
 <div class="grid cards" markdown>
 
--   **[Business & Growth Skills](business-growth.md)**
+-   **[Business & Growth Skills](business-growth-skills.md)**
 
     ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Codebase Onboarding — Agent Skill for Codex & OpenClaw"
-description: "Codebase Onboarding. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Analyze a codebase and generate onboarding documentation for engineers, tech leads, and contractors. Fast fact-gathering and repeatable onboarding. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Codebase Onboarding
@@ -8,7 +8,7 @@ description: "Codebase Onboarding. Agent skill for Claude Code, Codex CLI, Gemin
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `codebase-onboarding`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/codebase-onboarding/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/codebase-onboarding/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

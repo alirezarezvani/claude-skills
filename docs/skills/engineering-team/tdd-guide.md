@@ -8,7 +8,7 @@ description: "Test-driven development skill for writing unit tests, generating t
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `tdd-guide`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/tdd-guide/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/tdd-guide/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

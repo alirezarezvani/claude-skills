@@ -1,1 +1,1 @@
-../../../product-team/apple-hig-expert/SKILL.md
+../../../product-team/apple-hig-expert/skills/apple-hig-expert/SKILL.md

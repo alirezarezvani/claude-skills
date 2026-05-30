@@ -8,7 +8,7 @@ description: "GDPR and German DSGVO compliance automation. Scans codebases for p
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-check-outline: Regulatory & Quality</span>
 <span class="meta-badge">:material-identifier: `gdpr-dsgvo-expert`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/gdpr-dsgvo-expert/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

@@ -8,7 +8,7 @@ description: "Operations leadership for scaling companies. Process design, OKR e
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `coo-advisor`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/coo-advisor/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/coo-advisor/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

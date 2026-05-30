@@ -8,7 +8,7 @@ description: "Adversarial code review that breaks the self-review monoculture. U
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `adversarial-reviewer`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/adversarial-reviewer/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/adversarial-reviewer/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

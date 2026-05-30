@@ -1,6 +1,6 @@
 ---
 title: "Incident Commander Skill — Agent Skill & Codex Plugin"
-description: "Incident Commander Skill. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Comprehensive incident response framework from detection through resolution and post-incident review. Battle-tested SRE/DevOps practices: severity. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Incident Commander Skill
@@ -8,7 +8,7 @@ description: "Incident Commander Skill. Agent skill for Claude Code, Codex CLI, 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-code-braces: Engineering - Core</span>
 <span class="meta-badge">:material-identifier: `incident-commander`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/incident-commander/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/incident-commander/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

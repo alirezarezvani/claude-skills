@@ -1,0 +1,1 @@
+../../../research/patent/skills/patent/SKILL.md

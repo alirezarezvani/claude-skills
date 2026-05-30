@@ -8,7 +8,7 @@ description: "Use when writing, reviewing, or committing code to enforce Karpath
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `karpathy-coder`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/karpathy-coder/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/karpathy-coder/skills/karpathy-coder/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>

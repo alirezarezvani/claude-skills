@@ -9,6 +9,7 @@ Complete installation guide for all 205+ production-ready skills across multiple
 - [Universal Installer](#universal-installer)
 - [OpenAI Codex Installation](#openai-codex-installation)
 - [Gemini CLI Installation](#gemini-cli-installation)
+- [Mistral Vibe Installation](#mistral-vibe-installation)
 - [OpenClaw Installation](#openclaw-installation)
 - [Per-Skill Installation](#per-skill-installation)
 - [Multi-Agent Setup](#multi-agent-setup)
@@ -55,6 +56,17 @@ cd claude-skills
 ```
 
 Skills install to `.gemini/skills/` and are activated via `activate_skill(name="skill-name")`.
+
+### For Mistral Vibe Users
+
+```bash
+# Setup script for Mistral Vibe
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+./scripts/vibe-install.sh
+```
+
+Skills install to `~/.vibe/skills/claude-skills/` (symlinked) and are discovered automatically by Vibe via the standard `SKILL.md` + YAML frontmatter contract. See [Mistral Vibe Installation](#mistral-vibe-installation) for details.
 
 Skills install to `~/.codex/skills/`. See [OpenAI Codex Installation](#openai-codex-installation) for detailed instructions.
 
@@ -725,6 +737,99 @@ python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py artic
 
 ---
 
+## Mistral Vibe Installation
+
+[Mistral Vibe](https://github.com/mistralai/mistral-vibe) is Mistral AI's open-source CLI coding agent (Apache-2.0). It uses the same [`SKILL.md` + YAML frontmatter](https://docs.mistral.ai/mistral-vibe/agents-skills) standard as Claude Code and Hermes, so this repo installs into Vibe with **zero format conversion** — just symlinks.
+
+Vibe discovers skills from three paths (per the [official docs](https://docs.mistral.ai/mistral-vibe/agents-skills)):
+
+- `~/.vibe/skills/` — user-global (what this script writes to)
+- `.vibe/skills/` — project-local
+- `.agents/skills/` — Agent Skills standard path
+
+### Setup Instructions
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/alirezarezvani/claude-skills.git
+    cd claude-skills
+    ```
+
+2.  **Run the Vibe setup script:**
+    ```bash
+    ./scripts/vibe-install.sh
+    ```
+    This installs all skills as symlinks under `~/.vibe/skills/claude-skills/<domain>/<skill-name>/`, namespaced to avoid collisions with Vibe built-ins. It also writes a `skills-index.json` manifest for discovery.
+
+3.  **Use skills in Vibe:**
+    ```text
+    > /skills                    # list all installed skills
+    > /senior-architect          # invoke a skill by slug
+    > review my API design       # auto-loads matching skills via SKILL.md description
+    ```
+
+### Direct Python invocation
+
+For finer-grained control (one domain at a time, copy instead of symlink, JSON output for tooling):
+
+```bash
+# Preview without writing
+python3 scripts/sync-vibe-skills.py --dry-run --verbose
+
+# Sync only one domain
+python3 scripts/sync-vibe-skills.py --domain engineering
+
+# Copy (instead of symlink) — useful for portable installs
+python3 scripts/sync-vibe-skills.py --copy
+
+# JSON output (for CI / scripting)
+python3 scripts/sync-vibe-skills.py --json
+
+# Custom target (instead of ~/.vibe/skills/)
+python3 scripts/sync-vibe-skills.py --target /opt/team-vibe/skills/
+```
+
+### What gets installed
+
+| Layout | Path | Count |
+|--------|------|-------|
+| Skill folders (symlinked) | `~/.vibe/skills/claude-skills/<domain>/<skill>/` | 306 |
+| Domain directories | `~/.vibe/skills/claude-skills/<domain>/` | 14 |
+| Index manifest | `~/.vibe/skills/claude-skills/skills-index.json` | 1 |
+
+A pre-generated copy of the same tree is also committed at `.vibe/skills/claude-skills/` in this repo for reference and for users who want to inspect what will land before running the installer.
+
+### Verify Installation
+
+```bash
+# Count installed skills
+ls ~/.vibe/skills/claude-skills/*/ | wc -l
+
+# Inspect the manifest
+cat ~/.vibe/skills/claude-skills/skills-index.json | python3 -m json.tool | head -20
+
+# Verify a skill's frontmatter resolved correctly through the symlink
+head -10 ~/.vibe/skills/claude-skills/engineering/senior-architect/SKILL.md
+```
+
+### Uninstall
+
+```bash
+rm -rf ~/.vibe/skills/claude-skills/
+```
+
+The namespaced subdirectory means uninstalling never touches Vibe's built-in skills or any skills you installed from other sources.
+
+### Python CLI Tools
+
+Every skill includes deterministic Python CLI tools in its `scripts/` folder. These use the standard library only and run anywhere Python runs — Vibe can invoke them via its shell tool, or you can run them directly:
+
+```bash
+python3 ~/.vibe/skills/claude-skills/marketing-skill/content-production/scripts/brand_voice_analyzer.py article.txt
+```
+
+---
+
 ## OpenClaw Installation
 
 OpenClaw loads skills via YAML frontmatter in `SKILL.md` files. Every skill in this repository includes OpenClaw-compatible frontmatter with `name`, `description`, and `tags` fields.
@@ -923,6 +1028,7 @@ See `.codex/skills-index.json` for the complete manifest with descriptions.
 | **OpenCode** | Platform-specific | `--agent opencode` | Varies by platform |
 | **OpenClaw** | `~/.openclaw/skills/` | `clawhub install` | YAML frontmatter triggers |
 | **Gemini CLI** | `.gemini/skills/` | `gemini-install.sh` | Symlink-based discovery |
+| **Mistral Vibe** | `~/.vibe/skills/` | `vibe-install.sh` | Same `SKILL.md` standard, no conversion |
 | **Project** | `.skills/` | `--agent project` | Portable, project-specific |
 
 ---

@@ -20,11 +20,11 @@ Data-driven Scrum Master skill combining sprint analytics, probabilistic forecas
 
 ## Table of Contents
 
-- [Analysis Tools & Usage](#analysis-tools--usage)
+- [Analysis Tools & Usage](#analysis-tools-usage)
 - [Input Requirements](#input-requirements)
 - [Sprint Execution Workflows](#sprint-execution-workflows)
 - [Team Development Workflow](#team-development-workflow)
-- [Key Metrics & Targets](#key-metrics--targets)
+- [Key Metrics & Targets](#key-metrics-targets)
 - [Limitations](#limitations)
 
 ---

@@ -1,0 +1,15 @@
+{
+  "name": "collab-proof",
+  "description": "Infers AI collaboration evidence from development sessions. Runs a Vela 3-layer signal pipeline × ADHD 4-frame analysis to capture decisions, alternatives, and exact AI contribution — then exports a self-contained HTML proof artifact. Use when you want to document what Claude contributed vs what you decided, or generate a shareable proof of AI collaboration. Zero external dependencies. SessionEnd hook for full automation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "dong7812",
+    "url": "https://github.com/dong7812"
+  },
+  "homepage": "https://github.com/dong7812/collab-proof",
+  "repository": "https://github.com/dong7812/collab-proof",
+  "license": "MIT",
+  "skills": [
+    "./skills/collab-proof"
+  ]
+}

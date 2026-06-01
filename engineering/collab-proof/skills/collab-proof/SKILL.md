@@ -146,9 +146,9 @@ YYYY-MM-DD HH:MM | [intent] | HIGH | <verb phrase> — <why it mattered>
 
 **Run HTML renderer** (bash):
 ```
-python3 ~/.claude/skills/collab-proof/render.py
+python3 "$(dirname "$0")/../scripts/render.py"
 ```
-If not found: `python3 render.py`
+If not found: `python3 scripts/render.py`
 
 ---
 

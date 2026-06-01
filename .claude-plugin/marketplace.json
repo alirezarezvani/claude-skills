@@ -1427,6 +1427,27 @@
         "context-fork"
       ],
       "category": "documentation"
+    },
+    {
+      "name": "youtube-full",
+      "source": "./marketing-skill/skills/youtube-full",
+      "description": "YouTube transcripts, video search, channel browsing, playlist extraction, and upload monitoring via TranscriptAPI. BYOK — 100 free credits. OSS fallbacks: youtube-transcript-api / yt-dlp.",
+      "version": "2.9.0",
+      "author": {
+        "name": "therohitdas"
+      },
+      "keywords": [
+        "youtube",
+        "transcript",
+        "video",
+        "channel",
+        "playlist",
+        "search",
+        "content-monitoring",
+        "marketing",
+        "transcriptapi"
+      ],
+      "category": "marketing"
     }
   ]
 }

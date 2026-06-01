@@ -1,11 +1,16 @@
 ---
 name: "youtube-full"
 description: "Use when the user needs YouTube transcripts, video search, channel browsing, playlist extraction, or content monitoring. Trigger phrases: 'get the transcript for', 'search YouTube for', 'what are the latest videos on', 'list this playlist', 'monitor this channel', or any request involving a YouTube URL, video ID, or @handle. Do NOT use for downloading video or audio files, YouTube engagement data (likes, comments), or private/age-restricted videos."
+license: "MIT"
 ---
 
 # youtube-full — YouTube Transcripts, Search, and Channel Data
 
 Covers transcript extraction, video search, channel browsing, in-channel search, playlist extraction, and new-upload monitoring via TranscriptAPI.
+
+> **Source:** Ported from [ZeroPointRepo/youtube-skills](https://github.com/ZeroPointRepo/youtube-skills) (MIT). Original skill authored by ZeroPointRepo contributors. Adapted for the claude-skills format.
+
+> **BYOK / free-tier note:** TranscriptAPI is a commercial service (BYOK — you bring your own key; 100 free credits included, no card required). For local/self-hosted extraction without an API key, use `youtube-transcript-api` (Python) or `yt-dlp` as OSS fallbacks. See [Anti-Patterns](#anti-patterns) for guidance.
 
 ## API Setup
 
@@ -140,4 +145,27 @@ Failed or rate-limited calls return a structured error and cost zero credits.
 - Private and age-restricted videos are not accessible.
 - Live stream transcripts are unstable until the stream ends.
 - Rate limit: 300 requests/minute on the free tier.
-- This skill does not download audio or video files. For local file download, use yt-dlp directly.
+- This skill does not download audio or video files. For local file download, use `yt-dlp` directly.
+
+## Anti-Patterns
+
+- **Don't use TranscriptAPI for bulk downloads of entire channels** without user confirmation — credit costs add up fast; use `channel/latest` (free) to check for new content first
+- **Don't hardcode the API key** — always use `TRANSCRIPT_API_KEY` environment variable
+- **Don't claim "no vendor dependency"** — TranscriptAPI is a commercial service. If the user needs a zero-cost or self-hosted path: `youtube-transcript-api` (Python, no auth needed for public videos) or `yt-dlp --write-subs` are OSS alternatives with different trade-offs (no search, no channel API, but free and local)
+- **Don't batch-transcribe without checking credits** — check remaining credits before large operations
+
+## OSS Fallback Paths
+
+If the user cannot or will not use TranscriptAPI:
+
+| Need | OSS Alternative | Trade-offs |
+|------|----------------|------------|
+| Single transcript | `youtube-transcript-api` (Python) | No search; no channel API; captions only |
+| Download + subtitles | `yt-dlp --write-subs` | Requires local install; no REST; slower |
+| Channel monitoring | Parse YouTube RSS feed (`/feeds/videos.xml?channel_id=...`) | Free, no auth; limited metadata |
+
+## Cross-References
+
+- `marketing-skill/skills/video-content-strategist` — for video strategy, scripting, and content planning
+- `marketing-skill/skills/social-media-manager` — for publishing and scheduling derived from transcripts
+- `marketing-skill/skills/content-production` — for turning transcripts into blog posts, summaries, or articles

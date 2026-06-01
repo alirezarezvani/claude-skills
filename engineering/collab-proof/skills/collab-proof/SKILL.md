@@ -1,3 +1,9 @@
+---
+name: "collab-proof"
+description: "Use when you want to capture AI collaboration evidence from the current session — generates DECISIONS.md entries, session narrative, and a shareable HTML proof artifact. Trigger for: /collab-proof, generate AI proof, what did Claude contribute, session evidence, AI collaboration record."
+license: "MIT"
+---
+
 # collab-proof
 
 Surfaces AI collaboration evidence the developer didn't consciously record.

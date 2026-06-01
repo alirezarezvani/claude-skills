@@ -220,9 +220,18 @@ Write the complete HTML to the file — do not ask the user for confirmation.
 ```bash
 PROOF=$(ls -t session-history/*-proof.html 2>/dev/null | head -1)
 if [ -n "$PROOF" ]; then
-  HASH=$(python3 -c "import hashlib,sys; print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$PROOF")
-  git notes append -m "collab-proof sha256: $HASH file: $(basename $PROOF)" HEAD 2>/dev/null || \
-  git notes add   -m "collab-proof sha256: $HASH file: $(basename $PROOF)" HEAD 2>/dev/null || true
+  if command -v shasum >/dev/null 2>&1; then
+    HASH=$(shasum -a 256 "$PROOF" | awk '{print $1}')
+  elif command -v sha256sum >/dev/null 2>&1; then
+    HASH=$(sha256sum "$PROOF" | awk '{print $1}')
+  else
+    HASH=$(python3 -c "import hashlib,sys; print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$PROOF")
+  fi
+  NOTE="[collab-proof] sha256: $HASH file: $(basename $PROOF)"
+  git notes --ref=collab-proof append -m "$NOTE" HEAD 2>/dev/null || \
+  git notes --ref=collab-proof add    -m "$NOTE" HEAD 2>/dev/null || true
+  echo "  proof anchored → git notes --ref=collab-proof show"
+  echo "  share → git push origin refs/notes/collab-proof"
 fi
 ```
 

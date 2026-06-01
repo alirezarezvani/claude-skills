@@ -6,7 +6,7 @@ A DECISIONS.md file in a git repo can be backdated, edited, or fabricated. Witho
 
 ## Git Notes: Metadata Without File Tree Pollution
 
-Git notes (`git notes`) attach arbitrary text to any git object (commit, blob, tree) without modifying the object itself. Notes live in `refs/notes/commits` — a parallel namespace that doesn't appear in `git log` by default and doesn't affect `git status`.
+Git notes (`git notes`) attach arbitrary text to any git object (commit, blob, tree) without modifying the object itself. Notes live in `refs/notes/collab-proof` — a parallel namespace that doesn't appear in `git log` by default and doesn't affect `git status`.
 
 ```bash
 # Attach a note to the current commit
@@ -17,10 +17,10 @@ git notes show HEAD
 git log --show-notes
 
 # Share notes with collaborators
-git push origin refs/notes/commits
+git push origin refs/notes/collab-proof
 
 # Fetch collaborators' notes
-git fetch origin refs/notes/commits:refs/notes/commits
+git fetch origin refs/notes/collab-proof:refs/notes/collab-proof
 ```
 
 Source: [Git Notes documentation](https://git-scm.com/docs/git-notes), [Pro Git: Git Notes](https://git-scm.com/book/en/v2/Git-Internals-The-Refspec)
@@ -58,7 +58,7 @@ Source: [git-notes man page](https://git-scm.com/docs/git-notes#_commands)
 
 ## Limitations
 
-- Notes are not included in a standard `git clone` — collaborators must explicitly `git fetch origin refs/notes/commits`
+- Notes are not included in a standard `git clone` — collaborators must explicitly `git fetch origin refs/notes/collab-proof`
 - Notes can still be deleted with `git notes remove` — they are tamper-evident, not tamper-proof
 - The proof is only as strong as the git history itself (rebasing changes commit hashes)
 

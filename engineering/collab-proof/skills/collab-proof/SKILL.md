@@ -258,3 +258,32 @@ Tell user: "Signal: LOW — Routine session, nothing recorded."
 - "inferred:" prefix when reasoning is reconstructed
 - Frame D must be calibrated — neither overclaim nor dismiss
 - If all frames score < 0.4 → write nothing
+
+---
+
+## PreCompact snapshot (context compaction defence)
+
+When context compaction is about to happen, run a lightweight checkpoint before context is lost:
+
+1. Compute current Layer 01 signal from available context
+2. Score all four frames against what's visible now
+3. Write to `session-history/.tmp-TIMESTAMP.json`:
+
+```json
+{
+  "timestamp": "YYYY-MM-DD HH:MM:SS",
+  "trigger": "pre-compact",
+  "signal": "HIGH / MEDIUM / LOW",
+  "frames": { "technical": 0.0, "uncertainty": 0.0, "fork": 0.0, "ai_contribution": 0.0 },
+  "intent": "FEATURE_BUILDING",
+  "key_moments": [
+    "one-line description of the most important decision or finding so far"
+  ]
+}
+```
+
+When `/collab-proof` runs at session end:
+- Read all `session-history/.tmp-*.json` files
+- Merge frame scores (take max per frame across all snapshots)
+- Combine `key_moments` arrays
+- Delete `.tmp-*.json` after merging

@@ -39,31 +39,71 @@ Show the user: `Signal: HIGH / MEDIUM / LOW — [one-line reason]`
 
 ---
 
-## Layer 02 — Intent + ADHD frames
+## Layer 02 — WorkIntentClassifier
 
-Run all four frames simultaneously. Score each 0.0–1.0. Prune frames < 0.4.
+Run all four frames simultaneously against conversation context + git diff.
+Score each frame 0.0–1.0 using the rubric below. Then apply pruning and classification rules.
 
-**Pruning rule exception**: Frame A (Technical) is never pruned if Layer 01 classified HIGH signal.
-A boilerplate-heavy session (lots of code generated, no discussion) will naturally score Frame B/C near 0 —
-but Frame A still has substance. Pruning Frame A in this case would discard the only evidence that anything
-happened. Let Frame A survive alone and classify intent as FEATURE_BUILDING or FLOW_STATE accordingly.
+### Frame scoring rubric
 
-**Frame A — Technical** (What choices were made in the code?)
-Look at: git diff, file names, function signatures, new interfaces
+**Frame A — Technical** (code churn complexity)
+- `1.0` New module/file created, complex logic added (state machine, Lua script, novel algorithm)
+- `0.5` Existing function logic modified, simple API endpoint added
+- `0.1` Typo fix, comment change, plain text edit
 
-**Frame B — Uncertainty** (Where was the developer unsure?)
-Look at: conversation direction changes, repeated edits to same area, hedging language, reverts
+**Frame B — Uncertainty** (developer doubt signals)
+- `1.0` Code written then fully rolled back, explicit doubt expressed, `git revert`
+- `0.5` Advice sought from Claude mid-implementation, 2+ revision requests on same area
+- `0.0` Uninterrupted directive execution — developer knew exactly what to build
 
-**Frame C — Fork** (What could have gone differently?)
-Look at: alternatives mentioned in conversation, constraints that ruled options out
+**Frame C — Fork** (decision branch presence)
+- `1.0` Two or more alternatives explicitly compared in conversation (A vs B)
+- `0.5` No explicit comparison but tradeoff mentioned (performance vs readability)
+- `0.0` Single standard approach applied, no alternatives considered
 
-**Frame D — AI contribution** (Where did Claude actually change the outcome?)
-Look at: moments Claude's output changed what the developer did next, suggestions adopted or overridden
+**Frame D — AI contribution** (Claude's actual impact)
+- `1.0` Claude identified a bug/edge case the developer hadn't noticed and proposed the fix
+- `0.6` Claude generated structural boilerplate/skeleton that significantly accelerated execution
+- `0.2` Claude reformatted or transcribed developer-directed code without independent contribution
 
-Show each frame's score and one-line finding. Show which were pruned.
+---
 
-Classify dominant intent from survivors:
-`FEATURE_BUILDING` · `BUG_FIXING` · `REFACTORING` · `EXPLORING` · `STUCK` · `FLOW_STATE`
+### Pruning rule
+
+Prune any frame scoring < 0.4.
+
+**Exception — High-Speed Execution Guard:**
+If `Frame A >= 0.8` AND `Frame D >= 0.6`, do NOT prune and do NOT silence the session,
+even if Frame B = 0.0 and Frame C = 0.0.
+Classify immediately as `FEATURE_BUILDING` with `HIGH` signal.
+
+---
+
+### Intent classification
+
+| Surviving frames | Dominant intent |
+|---|---|
+| A high + D mid-high (B, C low) | `FEATURE_BUILDING` |
+| B high + A/D high | `BUG_FIXING` or `STUCK` |
+| C high + A high | `REFACTORING` or `EXPLORING` |
+| All frames < 0.4 | `FLOW_STATE` or LOW |
+
+### Internal output format (show to user before Layer 03)
+
+```json
+{
+  "frames": {
+    "technical": 0.0,
+    "uncertainty": 0.0,
+    "fork": 0.0,
+    "ai_contribution": 0.0
+  },
+  "pruned": ["list of pruned frame names"],
+  "intent": "FEATURE_BUILDING",
+  "signal": "HIGH",
+  "calibration_note": "one sentence explaining any exception rule applied"
+}
+```
 
 ---
 

@@ -176,6 +176,16 @@ Footer
 Inline all CSS. Use dark background (#0d1117), card background (#161b22), border (#30363d).
 Write the complete HTML to the file — do not ask the user for confirmation.
 
+**Anchor proof to git** (run after HTML is written):
+```bash
+PROOF=$(ls -t session-history/*-proof.html 2>/dev/null | head -1)
+if [ -n "$PROOF" ]; then
+  HASH=$(python3 -c "import hashlib,sys; print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())" "$PROOF")
+  git notes append -m "collab-proof sha256: $HASH file: $(basename $PROOF)" HEAD 2>/dev/null || \
+  git notes add   -m "collab-proof sha256: $HASH file: $(basename $PROOF)" HEAD 2>/dev/null || true
+fi
+```
+
 ---
 
 ### If MEDIUM signal

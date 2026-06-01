@@ -1,0 +1,16 @@
+{
+  "evals": [
+    {
+      "input": "Run collab-proof on this session",
+      "expected_skill": "collab-proof"
+    },
+    {
+      "input": "Generate AI collaboration evidence for what we built today",
+      "expected_skill": "collab-proof"
+    },
+    {
+      "input": "What did Claude contribute vs what did I decide?",
+      "expected_skill": "collab-proof"
+    }
+  ]
+}

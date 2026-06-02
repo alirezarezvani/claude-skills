@@ -49,10 +49,10 @@ def find_skill_files():
     for root, dirs, files in os.walk(REPO_ROOT):
         if "SKILL.md" not in files:
             continue
-        rel_path = os.path.relpath(root, REPO_ROOT)
+        rel_path = os.path.relpath(root, REPO_ROOT).replace(os.sep, "/")
         if any(skip in rel_path for skip in SKIP_PATTERNS):
             continue
-        parts = rel_path.split(os.sep)
+        parts = rel_path.split("/")
         domain_key = parts[0]
         if domain_key not in DOMAINS:
             continue
@@ -92,7 +92,7 @@ def find_skill_files():
             skills.setdefault(domain_key, []).append({
                 "name": skill_name,
                 "path": skill_path,
-                "rel_path": os.path.relpath(root, REPO_ROOT),
+                "rel_path": os.path.relpath(root, REPO_ROOT).replace(os.sep, "/"),
                 "is_sub_skill": is_sub_skill,
                 "parent": parent,
             })
@@ -283,7 +283,7 @@ def rewrite_relative_links(content, source_rel_path):
         if not rel_target.startswith("../"):
             return match.group(0)
         # Resolve against source directory
-        resolved = os.path.normpath(os.path.join(source_dir, rel_target))
+        resolved = os.path.normpath(os.path.join(source_dir, rel_target)).replace(os.sep, "/")
         # Keep links to sibling .md files in the same docs directory
         # e.g. agents/product/cs-foo.md linking to cs-bar.md (same-level agent docs)
         # These resolve to agents/product/cs-bar.md — only keep if they're
@@ -303,7 +303,7 @@ def rewrite_relative_links(content, source_rel_path):
         rel_target = match.group(1)
         if not rel_target.startswith("../"):
             return match.group(0)
-        resolved = os.path.normpath(os.path.join(source_dir, rel_target))
+        resolved = os.path.normpath(os.path.join(source_dir, rel_target)).replace(os.sep, "/")
         # Make the path a clickable link to the GitHub source
         # Show parent/filename for context (e.g., product-analytics/SKILL.md)
         parts = resolved.split("/")
@@ -570,7 +570,7 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
                     continue
                 agent_name = agent_file.replace(".md", "")
                 agent_path = os.path.join(domain_path, agent_file)
-                rel = os.path.relpath(agent_path, REPO_ROOT)
+                rel = os.path.relpath(agent_path, REPO_ROOT).replace(os.sep, "/")
                 title = extract_title(agent_path) or prettify(agent_name)
                 title = re.sub(r"[*_`]", "", title)
                 # If H1 is a raw slug (cs-foo-bar), prettify it
@@ -661,7 +661,7 @@ description: "{agent_desc}"
                 if slug in seen_slugs:
                     continue
                 agent_path = os.path.join(plugin_agents_dir, agent_file)
-                rel = os.path.relpath(agent_path, REPO_ROOT)
+                rel = os.path.relpath(agent_path, REPO_ROOT).replace(os.sep, "/")
                 title = extract_title(agent_path) or prettify(agent_name)
                 title = re.sub(r"[*_`]", "", title)
                 if re.match(r"^cs-[a-z-]+$", title):
@@ -749,7 +749,7 @@ description: "{agent_count} agent-native orchestrators for Claude Code, Codex CL
                 continue
             cmd_name = cmd_file.replace(".md", "")
             cmd_path = os.path.join(commands_dir, cmd_file)
-            rel = os.path.relpath(cmd_path, REPO_ROOT)
+            rel = os.path.relpath(cmd_path, REPO_ROOT).replace(os.sep, "/")
             title = extract_title(cmd_path) or prettify(cmd_name)
             title = re.sub(r"[*_`]", "", title)
 
@@ -820,7 +820,7 @@ description: "{cmd_desc}"
             if slug in seen_cmd_slugs:
                 continue
             cmd_path = os.path.join(cmd_dir, cmd_file)
-            rel = os.path.relpath(cmd_path, REPO_ROOT)
+            rel = os.path.relpath(cmd_path, REPO_ROOT).replace(os.sep, "/")
             title = extract_title(cmd_path) or prettify(cmd_name)
             title = re.sub(r"[*_`]", "", title)
 

@@ -33,7 +33,7 @@ Not all sessions deserve documentation. Vela's 3-layer pipeline (signal detectio
 
 This prevents the "everything is documented" anti-pattern where signal-to-noise ratio collapses.
 
-Reference: Vela pipeline design at `/Users/dongkyu/learning/vela` (local reference implementation)
+Reference: Signal-filtering pipeline pattern — see [collab-proof SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/collab-proof/skills/collab-proof/SKILL.md)
 
 ## ADHD Tree-of-Thought in Layer 02
 

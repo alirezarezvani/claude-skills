@@ -4,12 +4,12 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "343 production-ready skill packages for Claude AI across 17 domains: engineering advanced (78, incl. v2.9.0 workflow-builder for Claude Code Workflow-tool authoring), engineering core (51), marketing (46 — incl. AEO/Answer Engine Optimization), c-level advisory (66), product (17), regulatory/QMS (18), compliance-os (9), project management (9), business growth (5), finance (4), productivity (6), marketing top-level (1), research (8), research-ops (5, v2.9.0), business-operations (7), commercial (8), and markdown-html (5, v2.10.3 — markdown-to-interactive-HTML converter complete: orchestrator + design-system + md-document long-form + md-review code-review + md-slides slide-deck). Includes 548 Python tools, 691 reference documents, 51+ agents, 90+ slash commands across 64 marketplace plugins.",
+  "description": "338 production-ready skill packages for Claude AI across 16 domains: engineering advanced (78, incl. v2.9.0 workflow-builder for Claude Code Workflow-tool authoring), engineering core (51), marketing (46 \u2014 incl. AEO/Answer Engine Optimization), c-level advisory (66), product (17), regulatory/QMS (18), compliance-os (9), project management (9), business growth (5), finance (4), productivity (6), marketing top-level (1), research (8), research-ops (5, v2.9.0), business-operations (7), and commercial (8). Includes 533 Python tools, 676 reference documents, 51+ agents, 87+ slash commands across 63 marketplace plugins.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "343 production-ready skills across 17 domains (engineering, engineering-core, marketing, product, c-level, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, plus standards). 548 Python tools, 691 reference guides, 51+ agents (cs-* + personas), 90+ slash commands across 64 marketplace plugins. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
-    "version": "2.10.3"
+    "description": "338 production-ready skills across 16 domains (engineering, engineering-core, marketing, product, c-level, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing (top-level), research, research-ops, business-operations, commercial, plus standards). 533 Python tools, 676 reference guides, 51+ agents (cs-* + personas), 87+ slash commands across 63 marketplace plugins. v2.9.0 adds the research-ops domain \u2014 enterprise Research Operations (clinical-research + research-finance + market-research + product-research + orchestrator) with per-skill onboarding, customization config, and an opt-in autoresearch bridge, plus the engineering workflow-builder skill (intake-first authoring of deterministic multi-agent .js workflows for Claude Code's Workflow tool). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "version": "2.9.0"
   },
   "plugins": [
     {
@@ -61,7 +61,7 @@
     {
       "name": "c-level-agents",
       "source": "./c-level-advisor/c-level-agents",
-      "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) with distinct cognitive voices, plus 21 /cs:* slash commands — forcing-question office hours (CFO/CMO/CPO/CRO/CTO/CISO/GC/CDO/CAIO/CCO/VPE reviews), strategic sprint pipeline (brief → boardroom → decide → execute → post-mortem), and meta routing (/cs:founder-mode auto-router, /cs:onboard, /cs:cross-eval multi-model consensus, /cs:freeze cooldown lock). Wraps the 33 c-level skills with cognitive gearing, persona voice, and artifact-driven handoffs. The business-domain answer to YC Garry Tan's gstack.",
+      "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) with distinct cognitive voices, plus 21 /cs:* slash commands \u2014 forcing-question office hours (CFO/CMO/CPO/CRO/CTO/CISO/GC/CDO/CAIO/CCO/VPE reviews), strategic sprint pipeline (brief \u2192 boardroom \u2192 decide \u2192 execute \u2192 post-mortem), and meta routing (/cs:founder-mode auto-router, /cs:onboard, /cs:cross-eval multi-model consensus, /cs:freeze cooldown lock). Wraps the 33 c-level skills with cognitive gearing, persona voice, and artifact-driven handoffs. The business-domain answer to YC Garry Tan's gstack.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -111,7 +111,7 @@
     {
       "name": "general-counsel-advisor",
       "source": "./c-level-advisor/general-counsel-advisor",
-      "description": "General Counsel advisory for startups: contract risk scanner (12 founder-killer patterns: auto-renew traps, uncapped indemnity, vague IP, MFN pricing, missing DPA, one-sided venue, broad non-solicit, perpetual license-back, etc.) and term sheet analyzer (0-100 founder-friendliness across 12 dimensions). 3 in-depth references: contracts playbook (7 startup contract types), IP + regulatory landscape mapping (HIPAA, GDPR, FDA, fintech, EU AI Act, SOC 2 → ISO sequencing), term sheet decoder (full glossary + founder-friendly defaults). Standalone-installable; also bundled in c-level-skills. Stdlib-only. NOT a substitute for licensed counsel.",
+      "description": "General Counsel advisory for startups: contract risk scanner (12 founder-killer patterns: auto-renew traps, uncapped indemnity, vague IP, MFN pricing, missing DPA, one-sided venue, broad non-solicit, perpetual license-back, etc.) and term sheet analyzer (0-100 founder-friendliness across 12 dimensions). 3 in-depth references: contracts playbook (7 startup contract types), IP + regulatory landscape mapping (HIPAA, GDPR, FDA, fintech, EU AI Act, SOC 2 \u2192 ISO sequencing), term sheet decoder (full glossary + founder-friendly defaults). Standalone-installable; also bundled in c-level-skills. Stdlib-only. NOT a substitute for licensed counsel.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -133,7 +133,7 @@
     {
       "name": "chief-data-officer-advisor",
       "source": "./c-level-advisor/chief-data-officer-advisor",
-      "description": "Chief Data Officer advisory for startups: AI training data audit (origin × class × use-case matrix with GDPR Art. 6 + EU AI Act citations), data product strategy picker (warehouse vs lakehouse vs mesh + 6-layer build-vs-buy + 12-month sequencing), data asset valuator (strategic value 0-10 + M&A multiplier with carve-out penalties + 3 ranked productization paths). 4 references answering one decision each: training rights, data product strategy, customer-data-as-asset, data team org evolution. Standalone-installable; also bundled in c-level-skills. Strategic only — does not duplicate engineering data skills.",
+      "description": "Chief Data Officer advisory for startups: AI training data audit (origin \u00d7 class \u00d7 use-case matrix with GDPR Art. 6 + EU AI Act citations), data product strategy picker (warehouse vs lakehouse vs mesh + 6-layer build-vs-buy + 12-month sequencing), data asset valuator (strategic value 0-10 + M&A multiplier with carve-out penalties + 3 ranked productization paths). 4 references answering one decision each: training rights, data product strategy, customer-data-as-asset, data team org evolution. Standalone-installable; also bundled in c-level-skills. Strategic only \u2014 does not duplicate engineering data skills.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -155,7 +155,7 @@
     {
       "name": "vpe-advisor",
       "source": "./c-level-advisor/vpe-advisor",
-      "description": "VP of Engineering advisory: delivery throughput analyzer (DORA 4 metrics + cycle-time bottleneck identification with typical fixes per stage), engineering hiring funnel calculator (7-stage conversion + pipeline gap + weakest-stage fixes from sourcing to offer-accept), engineering team structure designer (squad/tribe model + manager-trigger + director-trigger + span-of-control). 4 in-depth references citing DORA / Spotify / Conway / Google SRE / Larson / Fournier. Standalone-installable; also bundled in c-level-skills. NOT a CTO skill — VPE owns how the team ships; CTO owns what to build.",
+      "description": "VP of Engineering advisory: delivery throughput analyzer (DORA 4 metrics + cycle-time bottleneck identification with typical fixes per stage), engineering hiring funnel calculator (7-stage conversion + pipeline gap + weakest-stage fixes from sourcing to offer-accept), engineering team structure designer (squad/tribe model + manager-trigger + director-trigger + span-of-control). 4 in-depth references citing DORA / Spotify / Conway / Google SRE / Larson / Fournier. Standalone-installable; also bundled in c-level-skills. NOT a CTO skill \u2014 VPE owns how the team ships; CTO owns what to build.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -179,7 +179,7 @@
     {
       "name": "chief-customer-officer-advisor",
       "source": "./c-level-advisor/chief-customer-officer-advisor",
-      "description": "Chief Customer Officer advisory: retention decomposition analyzer (honest GRR vs NRR; 7-category churn taxonomy with preventable% scoring), customer segmentation designer (4-tier framework, ICP fit scoring across 7 weighted signals, kill list + upgrade candidates), CS coverage calculator (pooled vs named CSM ratio math + 12-month hiring plan with quarterly sequencing). 4 in-depth references each citing 5+ authoritative sources. Standalone-installable; also bundled in c-level-skills. Strategic only — does not duplicate business-growth tactical CS skills.",
+      "description": "Chief Customer Officer advisory: retention decomposition analyzer (honest GRR vs NRR; 7-category churn taxonomy with preventable% scoring), customer segmentation designer (4-tier framework, ICP fit scoring across 7 weighted signals, kill list + upgrade candidates), CS coverage calculator (pooled vs named CSM ratio math + 12-month hiring plan with quarterly sequencing). 4 in-depth references each citing 5+ authoritative sources. Standalone-installable; also bundled in c-level-skills. Strategic only \u2014 does not duplicate business-growth tactical CS skills.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -201,7 +201,7 @@
     {
       "name": "chief-ai-officer-advisor",
       "source": "./c-level-advisor/chief-ai-officer-advisor",
-      "description": "Chief AI Officer advisory for startups: model build-vs-buy calculator (API vs fine-tune vs build with 3-year TCO across 6 paths + breakeven that balances economics with practical feasibility), AI risk classifier (EU AI Act tier with 7 Article citations + US state patchwork: NYC LL 144, CO AI Act, IL HB 53, CA SB 1001, IL BIPA + industry overlays for FDA AI/ML, CFPB Circular 2023-03, NYDFS Reg 23, NAIC, ECOA, Fed SR 11-7), AI cost economics (API vs self-hosted breakeven with 2026 pricing across A100/H100, utilization reality, hidden costs). 4 in-depth references each citing 5+ authoritative sources. Standalone-installable; also bundled in c-level-skills. Strategic only — does not duplicate engineering AI/ML skills.",
+      "description": "Chief AI Officer advisory for startups: model build-vs-buy calculator (API vs fine-tune vs build with 3-year TCO across 6 paths + breakeven that balances economics with practical feasibility), AI risk classifier (EU AI Act tier with 7 Article citations + US state patchwork: NYC LL 144, CO AI Act, IL HB 53, CA SB 1001, IL BIPA + industry overlays for FDA AI/ML, CFPB Circular 2023-03, NYDFS Reg 23, NAIC, ECOA, Fed SR 11-7), AI cost economics (API vs self-hosted breakeven with 2026 pricing across A100/H100, utilization reality, hidden costs). 4 in-depth references each citing 5+ authoritative sources. Standalone-installable; also bundled in c-level-skills. Strategic only \u2014 does not duplicate engineering AI/ML skills.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -247,7 +247,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock — each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs:fullstack-review, /cs:frontend-review, /cs:backend-review, /cs:engineer-grill slash commands.",
+      "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock \u2014 each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs:fullstack-review, /cs:frontend-review, /cs:backend-review, /cs:engineer-grill slash commands.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -415,7 +415,7 @@
     {
       "name": "autoresearch-agent",
       "source": "./engineering/autoresearch-agent",
-      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
+      "description": "Autonomous experiment loop \u2014 optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -480,7 +480,7 @@
     {
       "name": "agenthub",
       "source": "./engineering/agenthub",
-      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "description": "Multi-agent collaboration \u2014 spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -539,7 +539,7 @@
     {
       "name": "docker-development",
       "source": "./engineering/docker-development",
-      "description": "Docker and container development — Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
+      "description": "Docker and container development \u2014 Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -556,7 +556,7 @@
     {
       "name": "helm-chart-builder",
       "source": "./engineering/helm-chart-builder",
-      "description": "Helm chart development — chart scaffolding, values design, template patterns, dependency management, and Kubernetes deployment strategies.",
+      "description": "Helm chart development \u2014 chart scaffolding, values design, template patterns, dependency management, and Kubernetes deployment strategies.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -573,7 +573,7 @@
     {
       "name": "terraform-patterns",
       "source": "./engineering/terraform-patterns",
-      "description": "Terraform infrastructure-as-code — module design patterns, state management, provider configuration, CI/CD integration, and multi-environment strategies.",
+      "description": "Terraform infrastructure-as-code \u2014 module design patterns, state management, provider configuration, CI/CD integration, and multi-environment strategies.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -590,7 +590,7 @@
     {
       "name": "research-summarizer",
       "source": "./product-team/research-summarizer",
-      "description": "Structured research summarization — summarize academic papers, market research, user interviews, and competitive analysis into actionable insights.",
+      "description": "Structured research summarization \u2014 summarize academic papers, market research, user interviews, and competitive analysis into actionable insights.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -607,7 +607,7 @@
     {
       "name": "code-tour",
       "source": "./engineering/code-tour",
-      "description": "Create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. 10 developer personas, all CodeTour step types, SMIG description formula.",
+      "description": "Create CodeTour .tour files \u2014 persona-targeted, step-by-step walkthroughs that link to real files and line numbers. 10 developer personas, all CodeTour step types, SMIG description formula.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -760,7 +760,7 @@
     {
       "name": "kubernetes-operator",
       "source": "./engineering/kubernetes-operator",
-      "description": "End-to-end Kubernetes Operator discipline: CRD design, reconcile-loop patterns, and OperatorHub Capability Levels. Ships CRD validator, reconcile-loop linter, and capability auditor (3 stdlib Python tools), 4 references on the operator pattern + CRD design + reconcile patterns + framework comparison (controller-runtime/kubebuilder/operator-sdk/metacontroller/KOPF), CRD + Go controller skeletons, and /operator-audit slash command. NOT a generic k8s skill — specifically the Operator pattern.",
+      "description": "End-to-end Kubernetes Operator discipline: CRD design, reconcile-loop patterns, and OperatorHub Capability Levels. Ships CRD validator, reconcile-loop linter, and capability auditor (3 stdlib Python tools), 4 references on the operator pattern + CRD design + reconcile patterns + framework comparison (controller-runtime/kubebuilder/operator-sdk/metacontroller/KOPF), CRD + Go controller skeletons, and /operator-audit slash command. NOT a generic k8s skill \u2014 specifically the Operator pattern.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -825,7 +825,7 @@
     {
       "name": "write-a-skill",
       "source": "./engineering/write-a-skill",
-      "description": "Skill-author skill: create new agent skills with proper structure, progressive disclosure, and bundled resources. Derived from Matt Pocock's MIT-licensed write-a-skill with: (1) 3 stdlib Python validation tools (description validator, structure validator, review-checklist runner — all enforcing Matt's 6-item checklist), (2) 4 references citing 7-8 authoritative sources each (progressive disclosure principles, description design patterns, quality gates, companion tooling), (3) cs-skill-author persona agent + /cs:write-a-skill slash command. Matt's voice and 3-phase workflow (Gather → Draft → Review) preserved verbatim per MIT.",
+      "description": "Skill-author skill: create new agent skills with proper structure, progressive disclosure, and bundled resources. Derived from Matt Pocock's MIT-licensed write-a-skill with: (1) 3 stdlib Python validation tools (description validator, structure validator, review-checklist runner \u2014 all enforcing Matt's 6-item checklist), (2) 4 references citing 7-8 authoritative sources each (progressive disclosure principles, description design patterns, quality gates, companion tooling), (3) cs-skill-author persona agent + /cs:write-a-skill slash command. Matt's voice and 3-phase workflow (Gather \u2192 Draft \u2192 Review) preserved verbatim per MIT.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -902,7 +902,7 @@
     {
       "name": "handoff-engineering",
       "source": "./engineering/handoff",
-      "description": "Conversation-handoff document generator. Compacts the current session into a markdown handoff for a fresh agent — references existing artifacts (PRDs, plans, ADRs, issues, commits) by path/URL instead of duplicating them. Derived from Matt Pocock's MIT-licensed handoff with: (1) 3 stdlib Python tools (template generator tailored to 5 next-session emphases, artifact deduplicator across 5 categories of duplication, skill recommender matching content to 14 skills in this repo), (2) 4 references citing 7-8 sources (handoff structure, deduplication discipline, next-session skill matching, companion tooling), (3) cs-handoff-author persona agent + /cs:handoff slash command. Matt's no-duplication discipline + mktemp convention preserved verbatim per MIT.",
+      "description": "Conversation-handoff document generator. Compacts the current session into a markdown handoff for a fresh agent \u2014 references existing artifacts (PRDs, plans, ADRs, issues, commits) by path/URL instead of duplicating them. Derived from Matt Pocock's MIT-licensed handoff with: (1) 3 stdlib Python tools (template generator tailored to 5 next-session emphases, artifact deduplicator across 5 categories of duplication, skill recommender matching content to 14 skills in this repo), (2) 4 references citing 7-8 sources (handoff structure, deduplication discipline, next-session skill matching, companion tooling), (3) cs-handoff-author persona agent + /cs:handoff slash command. Matt's no-duplication discipline + mktemp convention preserved verbatim per MIT.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -940,7 +940,7 @@
     {
       "name": "capture-skill",
       "source": "./productivity/capture",
-      "description": "Brain-dump-to-action workspace skill. Routes vague captures into discoverable actions via classify→cluster→connect→clarify intake. Path-B from megaprompt 05.",
+      "description": "Brain-dump-to-action workspace skill. Routes vague captures into discoverable actions via classify\u2192cluster\u2192connect\u2192clarify intake. Path-B from megaprompt 05.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1214,7 +1214,7 @@
     {
       "name": "aeo",
       "source": "./marketing-skill/skills/aeo",
-      "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO (which optimizes for search rankings), AEO optimizes for citation in LLM-generated responses. 3 stdlib Python tools (aeo_audit, aeo_optimizer, citation_tracker), 3 references citing 8 sources each, industry-aware thresholds for 8 industries (saas/healthcare/finance/legal/ecommerce/b2b/media/education). Ported from alirezarezvani/aeo-box.",
+      "description": "Answer Engine Optimization (AEO) skill \u2014 optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO (which optimizes for search rankings), AEO optimizes for citation in LLM-generated responses. 3 stdlib Python tools (aeo_audit, aeo_optimizer, citation_tracker), 3 references citing 8 sources each, industry-aware thresholds for 8 industries (saas/healthcare/finance/legal/ecommerce/b2b/media/education). Ported from alirezarezvani/aeo-box.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1236,7 +1236,7 @@
     {
       "name": "security-guidance",
       "source": "./engineering/security-guidance",
-      "description": "PreToolUse security reminder hook for Claude Code. Catches 12 common security anti-patterns in Edit/Write/MultiEdit operations BEFORE they happen — command injection (exec, os.system, subprocess shell=True), XSS (innerHTML, dangerouslySetInnerHTML, document.write), SQL injection (f-string queries, .format), unsafe deserialization (pickle, yaml.unsafe_load), code injection (eval, new Function), and GitHub Actions workflow injection. Session-state caching prevents duplicate warnings; 30-day auto-cleanup. Disable per-session with ENABLE_SECURITY_REMINDER=0. Ported from David Dworken at Anthropic.",
+      "description": "PreToolUse security reminder hook for Claude Code. Catches 12 common security anti-patterns in Edit/Write/MultiEdit operations BEFORE they happen \u2014 command injection (exec, os.system, subprocess shell=True), XSS (innerHTML, dangerouslySetInnerHTML, document.write), SQL injection (f-string queries, .format), unsafe deserialization (pickle, yaml.unsafe_load), code injection (eval, new Function), and GitHub Actions workflow injection. Session-state caching prevents duplicate warnings; 30-day auto-cleanup. Disable per-session with ENABLE_SECURITY_REMINDER=0. Ported from David Dworken at Anthropic.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1357,7 +1357,7 @@
     {
       "name": "research-ops-skills",
       "source": "./research-ops",
-      "description": "Enterprise / cross-functional Research Operations domain — the managed counterpart to the academic research/ domain. v2.9.0 ships 5 skills: orchestrator (context: fork) + clinical-research (study design: protocol synopsis + endpoint selection + sample-size/power for means/proportions/survival + phase-gate feasibility) + research-finance (R&D program budgeting with F&A split + burn/runway + capitalize-vs-expense routing + portfolio ROI) + market-research (TAM/SAM/SOM computed both top-down and bottoms-up + survey sampling with FPC and per-segment minima + Kotler segmentation scoring) + product-research (goal-matched study design + method-based saturation with confidence + insight synthesis that flags single-source anecdotes). Hard rules: clinical outputs are estimates with a named clinical owner (never fact), finance outputs surface assumptions and route capex-vs-opex to a named finance owner (never auto-decide), market sizes show method + assumptions (never a single number), product insights require recurrence across independent participants. Each sub-skill ships per-skill onboarding questions (onboard.py), a customization config consumed by every tool, and an isolated opt-in autoresearch evaluator (ar_evaluator.py) bridging to engineering/autoresearch-agent. 24 stdlib Python tools (12 analysis + 12 onboarding/customization/autoresearch), 12 reference docs. Distinct from ra-qm-team (regulatory/QM submission), finance (corporate close/valuation), research/grants (funding discovery), product-team (persona/journey/live experiments), marketing-skill (campaign analytics).",
+      "description": "Enterprise / cross-functional Research Operations domain \u2014 the managed counterpart to the academic research/ domain. v2.9.0 ships 5 skills: orchestrator (context: fork) + clinical-research (study design: protocol synopsis + endpoint selection + sample-size/power for means/proportions/survival + phase-gate feasibility) + research-finance (R&D program budgeting with F&A split + burn/runway + capitalize-vs-expense routing + portfolio ROI) + market-research (TAM/SAM/SOM computed both top-down and bottoms-up + survey sampling with FPC and per-segment minima + Kotler segmentation scoring) + product-research (goal-matched study design + method-based saturation with confidence + insight synthesis that flags single-source anecdotes). Hard rules: clinical outputs are estimates with a named clinical owner (never fact), finance outputs surface assumptions and route capex-vs-opex to a named finance owner (never auto-decide), market sizes show method + assumptions (never a single number), product insights require recurrence across independent participants. Each sub-skill ships per-skill onboarding questions (onboard.py), a customization config consumed by every tool, and an isolated opt-in autoresearch evaluator (ar_evaluator.py) bridging to engineering/autoresearch-agent. 24 stdlib Python tools (12 analysis + 12 onboarding/customization/autoresearch), 12 reference docs. Distinct from ra-qm-team (regulatory/QM submission), finance (corporate close/valuation), research/grants (funding discovery), product-team (persona/journey/live experiments), marketing-skill (campaign analytics).",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1404,7 +1404,7 @@
     {
       "name": "markdown-html-skills",
       "source": "./markdown-html",
-      "description": "Convert long markdown files into world-class single-file interactive HTML — DOMAIN COMPLETE at v2.10.3 (5 skills). v2.10.3 adds md-slides — the slide-deck converter (arrow-key / Space / PgDn / Home / End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 + @media print page-per-slide for browser-native PDF export; reuses md-document's markdown parser; vanilla JS only; Prism.js opt-in via --syntax for code-heavy decks). Joins md-review (v2.10.2 code-review converter: 2-col diff + severity-tagged margin annotations + WCAG-1.4.1 badges + mandatory named reviewer footer), md-document (v2.10.1 long-form converter: sticky TOC + scrollspy + search + code-copy + Prism autoloader), markdown-html-orchestrator (v2.10.0 context: fork; deterministic doc-type classifier; refuses < 100 lines per Shihipar; refuses without onboarding), and design-system (v2.10.0 10-question onboarding wizard; WCAG-AA 12-token palette; project > global > defaults precedence; MARKDOWN_HTML_NO_CONFIG=1 bypass). 15 stdlib-only Python tools, 15 references citing 5-7 sources each, 4 template/schema assets. Inspired by Thariq Shihipar's Claude Code HTML output essay (Medium, 2026).",
+      "description": "Convert long markdown files into world-class single-file interactive HTML \u2014 DOMAIN COMPLETE at v2.10.3 (5 skills). v2.10.3 adds md-slides \u2014 the slide-deck converter (arrow-key / Space / PgDn / Home / End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 + @media print page-per-slide for browser-native PDF export; reuses md-document's markdown parser; vanilla JS only; Prism.js opt-in via --syntax for code-heavy decks). Joins md-review (v2.10.2 code-review converter: 2-col diff + severity-tagged margin annotations + WCAG-1.4.1 badges + mandatory named reviewer footer), md-document (v2.10.1 long-form converter: sticky TOC + scrollspy + search + code-copy + Prism autoloader), markdown-html-orchestrator (v2.10.0 context: fork; deterministic doc-type classifier; refuses < 100 lines per Shihipar; refuses without onboarding), and design-system (v2.10.0 10-question onboarding wizard; WCAG-AA 12-token palette; project > global > defaults precedence; MARKDOWN_HTML_NO_CONFIG=1 bypass). 15 stdlib-only Python tools, 15 references citing 5-7 sources each, 4 template/schema assets. Inspired by Thariq Shihipar's Claude Code HTML output essay (Medium, 2026).",
       "version": "2.10.3",
       "author": {
         "name": "Alireza Rezvani"
@@ -1429,25 +1429,21 @@
       "category": "documentation"
     },
     {
-      "name": "youtube-full",
-      "source": "./marketing-skill/skills/youtube-full",
-      "description": "YouTube transcripts, video search, channel browsing, playlist extraction, and upload monitoring via TranscriptAPI. BYOK — 100 free credits. OSS fallbacks: youtube-transcript-api / yt-dlp.",
-      "version": "2.9.0",
+      "name": "collab-proof",
+      "source": "./engineering/collab-proof",
+      "description": "Assisted retrospective: after a session, calibrates what Claude contributed vs what the developer drove. LLM-assessed 4-frame analysis with explicit rubric, zero dependencies.",
+      "version": "1.0.0",
       "author": {
-        "name": "therohitdas"
+        "name": "dong7812"
       },
       "keywords": [
-        "youtube",
-        "transcript",
-        "video",
-        "channel",
-        "playlist",
-        "search",
-        "content-monitoring",
-        "marketing",
-        "transcriptapi"
+        "ai-collaboration",
+        "session-retrospective",
+        "git-analysis",
+        "decision-logging",
+        "collab-proof"
       ],
-      "category": "marketing"
+      "category": "engineering"
     }
   ]
 }

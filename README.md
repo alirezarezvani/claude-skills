@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/alirezarezvani-claude-skills-badge.png)](https://mseep.ai/app/alirezarezvani-claude-skills)
+
 # Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
 **338 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**

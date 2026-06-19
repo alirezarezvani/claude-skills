@@ -1,6 +1,6 @@
 # Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**345 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
+**346 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
 
 The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing (incl. AEO — Answer Engine Optimization for LLM citation), security (PreToolUse hooks), compliance, C-level advisory (incl. founder-mode CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE personas + 21 /cs:* slash commands), productivity (capture/email/reflect), an academic research stack (litreview/grants/dossier/patent/syllabus/pulse/notebooklm + hybrid router), and enterprise Research Operations (clinical-research/research-finance/market-research/product-research, v2.9.0).
 
@@ -79,7 +79,7 @@ cd claude-skills
 
 # Or install individual skills
 /plugin install skill-security-auditor@claude-code-skills       # Security scanner
-/plugin install playwright-pro@claude-code-skills                  # Playwright testing toolkit
+/plugin install playwright-pro@claude-code-skills               # Playwright testing toolkit
 /plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
 /plugin install content-creator@claude-code-skills              # Single skill
 ```
@@ -108,7 +108,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Multi-Tool Support (New)
 
-**Convert all 345 skills to 9 AI coding tools** with a single script:
+**Convert all 346 skills to 13 AI coding tools** with a single script:
 
 | Tool | Format | Install |
 |------|--------|---------|
@@ -139,7 +139,7 @@ find .cursor/rules -name "*.mdc" | wc -l  # Should show 346
 ```
 
 **Each tool gets:**
-- ✅ All 345 skills converted to native format
+- ✅ All 346 skills converted to native format
 - ✅ Per-tool README with install/verify/update steps
 - ✅ Support for scripts, references, templates where applicable
 - ✅ Zero manual conversion work
@@ -150,7 +150,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**345 skills across 17 domains:**
+**346 skills across 17 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|

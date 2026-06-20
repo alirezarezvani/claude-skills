@@ -1,236 +1,381 @@
-# Contributing to Claude Code Skills
+# Contributing to Claude Skills Collection
 
-Thank you for your interest in contributing! This repository is the largest open-source Claude Code skills & agent plugins library (6,800+ stars, 205 production-ready skills).
+Katkılarınız için teşekkür ederiz! 🙏
 
-**Before you start:** Read [CONVENTIONS.md](CONVENTIONS.md) — it contains the mandatory technical rules that every contribution must follow. PRs that violate conventions will be closed.
+Bu repository'ye katılmak istediğiniz takdirde, lütfen bu rehberi takip edin.
 
 ---
 
-## Target Branch: `dev`
+## 🤝 Nasıl Katkı Yapabilirim?
 
-**All PRs must target the `dev` branch.** PRs targeting `main` will be closed automatically.
+### 1. Skills Eklemek
+
+Yeni bir skill eklemek istiyorsanız:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/claude-skills.git
-cd claude-skills
-git remote add upstream https://github.com/alirezarezvani/claude-skills.git
-git fetch upstream dev
-git checkout -b feature/my-skill upstream/dev
+# Feature branch oluştur
+git checkout -b feature/add-skill-name
+
+# skills/ klasöründe yeni dosya oluştur
+# Format: SKILL.md (Anthropic specification)
+
+# İçeriği ekle
+# - Description
+# - Usage examples
+# - Requirements
+# - Attribution
+
+# Commit et
+git add skills/X-collection/skill-name.md
+git commit -m "Add: skill-name description"
+
+# Push et
+git push origin feature/add-skill-name
+
+# Pull request aç
 ```
 
----
+### 2. Belgeleri İyileştirmek
 
-## What We Accept
-
-### New Skills
-
-Add domain expertise that doesn't already exist in the repo:
-- Engineering tools and workflows
-- Marketing, sales, customer success patterns
-- Product management frameworks
-- Regulatory and compliance (ISO, SOC, GDPR, FDA)
-- Business functions (finance, HR, operations)
-
-**Before building:** Check existing skills to avoid overlap. Open an issue to discuss if unsure.
-
-### Improvements to Existing Skills
-
-- Better workflows and actionable patterns
-- Additional Python automation scripts
-- New reference material
-- More code examples and cross-references
-- Bug fixes in scripts or documentation
-
-### Bug Fixes
-
-- Python scripts that fail `--help`
-- Broken cross-references between skills
-- Incorrect information in reference docs
-
----
-
-## What We Do NOT Accept
-
-| Type | Reason |
-|------|--------|
-| Links to external repos/tools in README | No 3rd party promotion |
-| Skills requiring paid API keys | Must work without external services |
-| Scripts with pip dependencies | stdlib-only Python |
-| PRs that change the skill count (205) | Curated number |
-| PRs modifying `.codex/`, `.gemini/`, `marketplace.json` | Auto-generated files |
-| Bloated diffs with fork merge history | Rebase on `dev` first |
-| Generic advice without actionable frameworks | Must be executable by an AI agent |
-
----
-
-## Skill Creation Guide
-
-### 1. Create the directory
+Dokümantasyonda hata bulduysanız:
 
 ```bash
-# Example: new engineering skill
-mkdir -p engineering/my-new-skill/scripts
-mkdir -p engineering/my-new-skill/references
+git checkout -b fix/documentation-improvement
+
+# Dosyayı düzenle
+# docs/ klasöründe değişiklik yap
+
+git add docs/filename.md
+git commit -m "Fix: Documentation improvement description"
+
+git push origin fix/documentation-improvement
 ```
 
-### 2. Write SKILL.md
-
-**Frontmatter — only `name` and `description`:**
-
-```yaml
----
-name: "my-new-skill"
-description: "Use when the user asks to [specific trigger]. Covers [key capabilities]."
----
-```
-
-> **Important:** Do NOT add `license`, `metadata`, `triggers`, `version`, `author`, or any other fields. See [CONVENTIONS.md](CONVENTIONS.md) for the full specification.
-
-**Content must be:**
-- Under 500 lines (move detailed content to `references/`)
-- Opinionated (recommend specific approaches)
-- Actionable (agent can execute, not just advise)
-- Include anti-patterns and cross-references sections
-
-### 3. Write Python scripts (optional but valuable)
-
-```python
-#!/usr/bin/env python3
-"""Tool Name — brief description."""
-
-import argparse
-import json
-import sys
-
-def main():
-    parser = argparse.ArgumentParser(description="Tool description")
-    parser.add_argument("input", help="Input file or value")
-    parser.add_argument("--json", action="store_true", help="Output as JSON")
-    parser.add_argument("--verbose", action="store_true", help="Verbose output")
-    args = parser.parse_args()
-
-    # Your logic here
-    result = {"status": "ok"}
-
-    if args.json:
-        print(json.dumps(result, indent=2))
-    else:
-        print(f"Result: {result['status']}")
-
-if __name__ == "__main__":
-    main()
-```
-
-**Script rules:** stdlib-only, argparse, `--help`, `--json`, proper exit codes (0/1/2). See [CONVENTIONS.md](CONVENTIONS.md) for full requirements.
-
-### 4. Add reference docs (optional)
-
-Place detailed material in `references/`:
-```
-my-new-skill/references/
-├── patterns.md          # Detailed patterns and examples
-├── best-practices.md    # Best practices guide
-└── decision-matrix.md   # Comparison tables
-```
-
-Reference them from SKILL.md:
-```markdown
-> See [references/patterns.md](references/patterns.md) for detailed patterns.
-```
-
-### 5. Validate before submitting
+### 3. Scripti Geliştirmek
 
 ```bash
-# Structure validation
-python3 engineering/skill-tester/scripts/skill_validator.py <your-skill-path>
+git checkout -b feature/script-enhancement
 
-# Script testing
-python3 engineering/skill-tester/scripts/script_tester.py <your-skill-path> --verbose
+# scripts/ klasöründe değişiklik yap
 
-# Security audit
-python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <your-skill-path> --strict
+git add scripts/script-name.sh
+git commit -m "Improve: script enhancement description"
+
+git push origin feature/script-enhancement
 ```
 
 ---
 
-## PR Checklist
+## 📋 PULL REQUEST CHECKLIST
 
-Before submitting your PR, verify:
-
-- [ ] **Targets `dev` branch** (not `main`)
-- [ ] **SKILL.md frontmatter** has only `name` + `description`
-- [ ] **SKILL.md under 500 lines** (detailed content in `references/`)
-- [ ] **All scripts pass** `python3 script.py --help`
-- [ ] **Scripts use stdlib only** (no pip dependencies)
-- [ ] **Scripts support `--json` output**
-- [ ] **Anti-patterns section** included in SKILL.md
-- [ ] **Cross-references** to related skills included
-- [ ] **No modifications** to `.codex/`, `.gemini/`, `marketplace.json`, or index files
-- [ ] **No 3rd party links** added to README
-- [ ] **Clean diff** — rebased on `dev`, no merge commit history
-- [ ] **Security audit passes** with zero CRITICAL/HIGH findings
-
----
-
-## Commit Messages
-
-[Conventional Commits](https://www.conventionalcommits.org/) format:
+PR açmadan önce lütfen kontrol edin:
 
 ```
-feat(engineering): add browser-automation skill
-fix(self-improving-agent): use absolute path for hooks
-improve(tdd-guide): add per-language examples
-docs: update CONTRIBUTING.md
+[ ] Branching convention takip edildi? (feature/, fix/, docs/)
+[ ] Commit message açıklayıcı mı? (50 char title + body)
+[ ] İlgili documentation updated?
+[ ] Code/files tested?
+[ ] No merge conflicts?
+[ ] Attribution added (if external source)?
 ```
 
 ---
 
-## PR Description Template
+## 🔒 SECURITY CONSIDERATIONS
+
+Skill eklerken:
+
+```
+[ ] Code reviewed for malicious patterns?
+[ ] External dependencies documented?
+[ ] Permissions/capabilities listed?
+[ ] License compatible with MIT?
+[ ] Original author credited?
+```
+
+---
+
+## 📝 COMMIT MESSAGE CONVENTION
+
+### Format:
+
+```
+Type: Subject (50 chars max)
+
+Body (72 char wrapping):
+- What changed
+- Why it changed
+- Any relevant context
+
+Footer (if needed):
+Closes #123
+Related-To #456
+```
+
+### Types:
+
+- `Add:` Yeni skill/feature
+- `Fix:` Bug fix
+- `Update:` İmprovement/enhancement
+- `Docs:` Documentation only
+- `Refactor:` Code reorganization
+- `Remove:` Deprecated content
+
+### Examples:
+
+```
+Add: Production-ready React component skill
+
+Adds a comprehensive skill for creating production-grade
+React components with TypeScript, testing, and documentation.
+Includes examples and best practices.
+
+Closes #42
+
+---
+
+Fix: Security checklist formatting issue
+
+Fixed incorrect markdown formatting in SECURITY_CHECKLIST.md
+that prevented proper rendering on GitHub.
+
+---
+
+Update: Execution plan timeline
+
+Extended Day 3 timeline based on community feedback.
+More realistic estimation for skill installation.
+```
+
+---
+
+## 📂 FOLDER STRUCTURE RULES
+
+```
+skills/
+├── 1-awesome-agent-skills/
+├── 2-claude-command-suite/
+├── 3-production-ready-commands/
+├── 4-awesome-claude-skills/
+└── 5-claude-code-settings/
+
+Rules:
+✓ Use numbered prefixes (1-, 2-, etc)
+✓ Use lowercase-with-hyphens for folders
+✓ One skill = one .md file
+✓ Include INDEX.md in each folder
+✓ Maintain METADATA.json
+```
+
+---
+
+## 📄 SKILL TEMPLATE
+
+Yeni skill eklerken bu template'i kullan:
 
 ```markdown
-## Summary
-- What: [What does this add/change/fix?]
-- Why: [Why is this valuable?]
+---
+name: skill-name
+description: What this skill does and when to use it
+author: Your Name
+license: MIT
+---
 
-## Checklist
-- [x] Targets dev branch
-- [x] SKILL.md frontmatter: name + description only
-- [x] Under 500 lines
-- [x] Scripts pass --help
-- [x] Security audit: 0 critical/high findings
+# Skill Name
+
+## Description
+[What the skill does, why it's useful]
+
+## Usage
+[How to use it]
+
+## Examples
+[Real examples]
+
+## Requirements
+[Dependencies, prerequisites]
+
+## Notes
+[Important considerations]
+
+## Attribution
+[Original source if applicable]
 ```
 
 ---
 
-## After Your PR is Merged
+## 🔄 REVIEW PROCESS
 
-Maintainers will handle:
-1. Running sync scripts (Codex, Gemini, integrations)
-2. Generating docs pages
-3. Updating mkdocs.yml navigation
-4. Updating domain plugin.json counts
-5. Updating marketplace.json
-6. Merging dev → main for deployment
+1. **Your PR** → Opens on GitHub
+2. **Automated Checks** → Format, links, structure
+3. **Manual Review** → Content, security, alignment
+4. **Feedback** → Comments, suggestions
+5. **Revision** → You update PR
+6. **Approval** → Merged to main
 
-You do NOT need to do any of these steps in your PR.
-
----
-
-## Recognition
-
-Contributors are credited via:
-- `Co-Authored-By:` in commit messages
-- PR merge messages and changelogs
-- Attribution in SKILL.md when skills are improved from community submissions
+**Average time:** 2-7 days
 
 ---
 
-## Questions?
+## ✅ TESTING BEFORE PR
 
-- **General:** Open a [discussion](https://github.com/alirezarezvani/claude-skills/discussions)
-- **Bugs:** Use the [issue tracker](https://github.com/alirezarezvani/claude-skills/issues)
-- **Contact:** [alirezarezvani.com](https://alirezarezvani.com)
+```bash
+# Security check
+bash scripts/check-skill-security.sh skills/path/to/skill.md
+
+# Format validation
+# Check .md is valid markdown
+
+# Link validation
+# Verify all links work
+
+# Attribution check
+# Verify sources cited
+```
 
 ---
 
-**Full technical conventions:** [CONVENTIONS.md](CONVENTIONS.md)
+## 🎯 PRIORITY AREAS
+
+Katkılardan özellikle şunlara açığız:
+
+1. **Missing Documentation**
+   - Gaps in execution plan
+   - Unclear procedures
+   - Missing examples
+
+2. **Security Improvements**
+   - Better verification procedures
+   - Additional malicious pattern checks
+   - Testing recommendations
+
+3. **New Skills**
+   - Production-ready tools
+   - Enterprise patterns
+   - Best practices
+
+4. **Translations**
+   - Turkish improvements
+   - Other languages
+   - Terminology clarification
+
+5. **Automation**
+   - Better scripts
+   - CI/CD improvement
+   - Testing tools
+
+---
+
+## ❌ WHAT NOT TO DO
+
+```
+✗ Don't commit to main directly
+✗ Don't merge your own PR (wait for review)
+✗ Don't include large binary files
+✗ Don't remove other people's work
+✗ Don't change license without discussion
+✗ Don't add commercial/proprietary skills
+✗ Don't ignore CONTRIBUTING.md
+```
+
+---
+
+## 💬 COMMUNICATION
+
+- **Questions?** Open a GitHub Issue
+- **Feature idea?** Create Discussion
+- **Bug report?** Open Issue with details
+- **Documentation?** Comment on relevant MD file
+
+---
+
+## 🏆 RECOGNITION
+
+Katkıda bulunanlar:
+
+- README.md'de yer alacaklar
+- CONTRIBUTORS.md'de listelecekler
+- Commit history'de kalacaklar
+- Release notes'da acknowledge edilecekler
+
+---
+
+## 📊 CONTRIBUTION LEVELS
+
+```
+Level 1: Typo fixes, small improvements
+         → Auto-merged after check
+
+Level 2: Documentation updates
+         → 2-3 days review
+
+Level 3: New skills, features
+         → Full review (5-7 days)
+
+Level 4: Major changes, refactoring
+         → Discussion + planning before PR
+```
+
+---
+
+## 🚀 GETTING STARTED
+
+```bash
+# 1. Fork repository
+# 2. Clone your fork
+git clone https://github.com/YOUR_USERNAME/claude-skills-collection.git
+
+# 3. Create feature branch
+git checkout -b feature/your-feature
+
+# 4. Make changes
+# 5. Test locally
+# 6. Commit
+git add .
+git commit -m "Add: your feature description"
+
+# 7. Push to your fork
+git push origin feature/your-feature
+
+# 8. Create Pull Request on GitHub
+# 9. Wait for review
+# 10. Address feedback
+# 11. Merge! 🎉
+```
+
+---
+
+## 📞 HELP & SUPPORT
+
+Takılırsanız:
+
+1. **Check existing issues/discussions**
+2. **Review CONTRIBUTING.md** (this file)
+3. **Ask in Issues** with details
+4. **Check documentation** in docs/
+
+---
+
+## 📋 CODE OF CONDUCT
+
+Bu repository'ye katkı yapan herkes:
+
+- ✅ Respectful olacak
+- ✅ Inclusive olacak
+- ✅ Professional olacak
+- ✅ Diğer katkıcılara saygılı olacak
+
+Harassment, discrimination, inappropriate behavior → **WILL BE BANNED**
+
+---
+
+## 🎉 THANK YOU!
+
+Katkılarınız bu repository'yi daha iyi yapmaktadır.
+
+**Happy contributing!** 🚀
+
+---
+
+*CONTRIBUTING.md - Contribution Guidelines*  
+*Last Updated: June 2026*

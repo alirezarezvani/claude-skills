@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Alireza Rezvani
+Copyright (c) 2026 Claude Skills Collection Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+THIRD-PARTY LICENSES
+
+This repository includes and references skills from multiple sources.
+Please see THIRD_PARTY_NOTICES.md for complete attribution.
+
+Key sources:
+- anthropics/skills (Anthropic) - MIT License
+- Awesome Agent Skills - Mixed (see individual skills)
+- Claude Command Suite - Source-available
+- Production-Ready Commands - Apache 2.0
+- Awesome Claude Skills - MIT License
+
+For commercial use or licensing questions, please:
+1. Review individual skill licenses
+2. Check THIRD_PARTY_NOTICES.md
+3. Consult with Anthropic if needed

@@ -1,65 +1,155 @@
-# IDE and OS
-.vscode
-.DS_Store
-
-# Environment files
-.env
-.env.*
-!.env.example
-
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-*.egg-info/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
 .eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Specific archive exclusions (NOT all .zip - skill packages are intentional)
-medium-content-pro.zip
-v1-10-2025-medium-content-pro.zip
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
 
-# Project-specific exclusions
-AGENTS.md
-PROMPTS.md
-medium-content-pro/
-medium-content-pro 2/
-documentation/GIST_CONTENT.md
-documentation/implementation/*__pycache__/
-ARTICLE-FEEDBACK-AND-OPTIMIZED-VERSION.md
-CLAUDE-CODE-LOCAL-MAC-PROMPT.md
-CLAUDE-CODE-SEO-FIX-COPYPASTE.md
-GITHUB_ISSUE_RESPONSES.md
-AUDIT_REPORT.md
-# Archive folder (historical/backup files)
-archive/
-
-# Custom GPT configurations (private — instructions not publicly exposed)
-custom-gpt/*-gpt.md
-
-# MkDocs build output
-site/
-.playwright-mcp/
-# Generated integration files (regenerate with ./scripts/convert.sh)
-integrations/
-documentation/implementation/craighewitt-mattpocock-reimplementation-plan.md
-medium/
-
-# === Internal dev artifacts (maintainer-only — hidden from cloners) ===
-# Sprint plans, strategy docs, implementation roadmaps, audits
-documentation/
-
-# Tessl evaluation outputs (includes anthropic-skill-creator third-party clone
-# and per-version trigger-eval workspaces, e.g. eval-workspace/v2.8.0-trigger-eval/)
-eval-workspace/
-
-# Pre-skill draft specs (Path-B source material)
-megaprompts/
-
-# Pytest suite (maintainer quality gate; not user-consumable)
-tests/
-
-# Autoresearch agent workspace
-.autoresearch/
+# IDEs
+.vscode/
 .idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# IDE specific files
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Node (if any)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Local environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+~*
+
+# OS specific
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Private configs (if using)
+config.private.json
+secrets.json
+credentials.json
+
+# Large files (optional)
+*.zip
+*.tar.gz
+
+# IDE configs that shouldn't be shared
+.vscode/settings.json
+.idea/workspace.xml
+.idea/misc.xml
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+
+# Virtual environments
+venv/
+ENV/
+
+# Installation logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Sphinx documentation
+docs/_build/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Local config
+.claude/
+.claude-settings/
+local-config.json
+
+# Keep docs folder
+!docs/
+!skills/
+!scripts/
+!templates/

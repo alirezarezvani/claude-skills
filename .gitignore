@@ -1,5 +1,6 @@
 # IDE and OS
-.vscode
+.vscode/*
+!.vscode/mcp.json
 .DS_Store
 
 # Environment files
@@ -63,3 +64,12 @@ tests/
 # Autoresearch agent workspace
 .autoresearch/
 .idea/
+
+# Homelab session artifacts — not part of the skills library
+/admin-e2e-test.js
+/crm-server.js
+/crm-*.png
+/*.png
+/design-research/
+/claude-design/
+/*.code-workspace

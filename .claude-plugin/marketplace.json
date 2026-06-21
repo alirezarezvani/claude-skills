@@ -331,8 +331,7 @@
         "scrum",
         "agile",
         "jira",
-        "confluence",
-        "atlassian"
+        "confluence"
       ],
       "category": "project-management"
     },
@@ -1448,6 +1447,37 @@
         "transcriptapi"
       ],
       "category": "marketing"
+    },
+    {
+      "name": "panroot-web-dev",
+      "source": "./engineering/panroot-web-dev",
+      "description": "Premium website development skill for Panroot Security Ghana. Senior UI/UX engineer + creative director persona. Next.js 14, Tailwind CSS v3, Framer Motion, GSAP ScrollTrigger, Three.js + GLSL shaders, mouse-reactive effects, scroll-driven animations. Full company profile, design system (navy/cyan/orange), page architecture spec, and MCP integrations (Figma, 21st.dev, paper.design, stitch). Benchmarks against igloo.inc, Ring, ADT, Vivint. Ships cs-web-dev agent + /cs:web-dev slash command. Triggers on any website development request.",
+      "version": "1.0.0",
+      "author": {
+        "name": "yawdeals"
+      },
+      "keywords": [
+        "website",
+        "web-development",
+        "frontend",
+        "nextjs",
+        "tailwind",
+        "framer-motion",
+        "gsap",
+        "three-js",
+        "webgl",
+        "shaders",
+        "scroll-animation",
+        "panroot",
+        "ghana",
+        "security",
+        "landing-page",
+        "ui-ux",
+        "premium-design",
+        "figma-mcp",
+        "21st-dev"
+      ],
+      "category": "development"
     }
   ]
 }

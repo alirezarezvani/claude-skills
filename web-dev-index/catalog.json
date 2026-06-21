@@ -1,0 +1,57 @@
+{
+  "source_repository": "https://github.com/travisvn/awesome-claude-skills",
+  "status": "indexed_only",
+  "reason": "Upstream repository has no declared license; do not vendor skill contents without reuse permission.",
+  "skills": [
+    {
+      "name": "frontend-design",
+      "source": "https://github.com/anthropics/skills/blob/main/skills/frontend-design",
+      "focus": "Frontend design direction for React and Tailwind projects"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "source": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+      "focus": "Build HTML artifacts with React, Tailwind CSS, and shadcn/ui"
+    },
+    {
+      "name": "webapp-testing",
+      "source": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+      "focus": "Web application testing with Playwright"
+    },
+    {
+      "name": "mcp-builder",
+      "source": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
+      "focus": "Build MCP servers for external APIs and services"
+    },
+    {
+      "name": "canvas-design",
+      "source": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+      "focus": "Design-oriented visual output and creative layout work"
+    },
+    {
+      "name": "brand-guidelines",
+      "source": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
+      "focus": "Apply consistent brand styling to web-facing artifacts"
+    },
+    {
+      "name": "playwright-skill",
+      "source": "https://github.com/lackeyjb/playwright-skill",
+      "focus": "Browser automation with Playwright"
+    },
+    {
+      "name": "web-asset-generator",
+      "source": "https://github.com/alonw0/web-asset-generator",
+      "focus": "Favicons, app icons, and social sharing assets"
+    },
+    {
+      "name": "frontend-slides",
+      "source": "https://github.com/zarazhangrui/frontend-slides",
+      "focus": "Animation-rich HTML presentations"
+    },
+    {
+      "name": "shadcn/ui",
+      "source": "https://ui.shadcn.com/docs/skills",
+      "focus": "shadcn/ui component context and pattern enforcement"
+    }
+  ]
+}

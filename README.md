@@ -1,10 +1,10 @@
 # Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**338 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
+**338 production-ready Claude Code skills, plugins, and agent skills for 14 AI coding tools.**
 
 The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing (incl. AEO — Answer Engine Optimization for LLM citation), security (PreToolUse hooks), compliance, C-level advisory (incl. founder-mode CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE personas + 21 /cs:* slash commands), productivity (capture/email/reflect), an academic research stack (litreview/grants/dossier/patent/syllabus/pulse/notebooklm + hybrid router), and enterprise Research Operations (clinical-research/research-finance/market-research/product-research, v2.9.0).
 
-**Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Hermes Agent[^hermes] · Mistral Vibe[^vibe] · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
+**Works with:** Claude Code · GitHub Copilot · OpenAI Codex · Gemini CLI · OpenClaw · Hermes Agent[^hermes] · Mistral Vibe[^vibe] · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
 [^hermes]: Hermes Agent is **BYO-sync tier**: the repo ships a pre-generated `.hermes/skills/claude-skills/` tree, but you run `python scripts/sync-hermes-skills.py` once locally to install into `~/.hermes/skills/`. Uses the same agentskills.io SKILL.md standard — no format conversion.
 [^vibe]: Mistral Vibe is also **BYO-sync tier**: the repo ships a pre-generated `.vibe/skills/claude-skills/` tree, run `./scripts/vibe-install.sh` once locally to install into `~/.vibe/skills/`. Same agentskills.io SKILL.md standard — no format conversion. Docs: <https://docs.mistral.ai/mistral-vibe/agents-skills>.
@@ -29,7 +29,7 @@ Claude Code skills (also called agent skills or coding agent plugins) are modula
 - **Python tools** — 533 CLI scripts (all stdlib-only, zero pip installs)
 - **Reference docs** — 676 templates, checklists, and domain-specific knowledge files
 
-**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 533 Python tools run anywhere Python runs.
+**One repo, fourteen platforms.** Works natively as Claude Code plugins, GitHub Copilot workspace customizations, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 533 Python tools run anywhere Python runs.
 
 ### Skills vs Agents vs Personas
 
@@ -83,6 +83,29 @@ cd claude-skills
 /plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
 /plugin install content-creator@claude-code-skills              # Single skill
 ```
+
+### GitHub Copilot (Workspace)
+
+```bash
+# Clone the repository
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills
+
+# Open the repo in your IDE with GitHub Copilot enabled
+code .
+```
+
+Copilot now picks up repository customizations from:
+
+- `.github/copilot-instructions.md` — repo-wide guidance
+- `.github/instructions/*.instructions.md` — path-specific rules for agents, skills, and commands
+- `.github/prompts/*.prompt.md` — reusable workspace prompts
+- `.github/agents/*.agent.md` — reusable GitHub Copilot workspace agents
+- `.vscode/mcp.json` — shared MCP server config for VS Code / GitHub Copilot workspace use
+
+This mirrors the repo's existing `.claude/` workspace customizations instead of replacing them.
+
+For repo-level MCP integrations, Claude reads `.mcp.json` and VS Code / GitHub Copilot can use `.vscode/mcp.json`. The shared workspace MCPs now include Atlassian, Tessl, a web fetch server for reading webpages, and optional Playwright Pro integrations. Optional credentials for TestRail and BrowserStack are documented in `.env.example`; keep real values in your local `.env`.
 
 ### OpenAI Codex
 

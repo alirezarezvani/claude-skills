@@ -21,6 +21,7 @@ A minted receipt is an ASCII-only, JSON-safe dict:
 | `ml_dsa_signature_b64` | ML-DSA-65 (FIPS 204) leg, present when `[pq]` is installed |
 | `slh_dsa_signature_b64` | SLH-DSA (FIPS 205) leg, present when `[pq]` is installed |
 | `signature_alg` | names every leg actually on the receipt |
+| `kid` | `sha256(verify_pubkey_b64)[:32]` -- 128-bit key identifier. Lets a verifier comparing two receipts answer "signed by the same notary?" offline, without any registry. |
 
 ## Canonicalization (why the hash reproduces anywhere)
 
@@ -60,3 +61,27 @@ authenticity from whichever leg it can check. This is post-quantum *cryptography
 resistant signatures on classical computers), not quantum computing -- label it precisely.
 
 Install both legs: `pip install "openagentontology[pq]"`.
+
+## PQ-required verification (strict mode, recommended)
+
+A verifier that accepts Ed25519-only receipts can be fooled by an attacker who strips the
+post-quantum legs from a hybrid-signed receipt -- the residual Ed25519 leg still verifies,
+but the long-lived guarantee is gone. The standing pattern across the CWN distribution:
+
+```python
+def verify_strict(receipt, *, require_pq: bool | None = None):
+    must = require_pq if require_pq is not None else (
+        os.environ.get("TRUST_GATE_REQUIRE_PQ", "true").lower() in ("1","true","yes","on"))
+    out = oao.verify_receipt(receipt)
+    if must and out.get("ok") and out.get("signed"):
+        legs = out.get("legs", {})
+        missing = [n for n in ("ml_dsa", "slh_dsa") if legs.get(n) != "ok"]
+        if missing:
+            out["ok"] = False
+            out["reason"] = f"PQ-required: missing {missing}"
+    return out
+```
+
+`TRUST_GATE_REQUIRE_PQ` defaults to `true`. Set it to `false` only when you must verify
+legacy Ed25519-only receipts (e.g. archival data). The same gate is built into the SalesGPT,
+OpenOutreach, and Trust Gate MCP integrations.

@@ -5,7 +5,7 @@ description: "Code review through the lens of real engineers' documented philoso
 
 # Named-Persona Adversarial Review
 
-> **TL;DR:** Abstract roles find abstract problems. Named people with searchable, citable philosophies find problems you would actually fix. This upgrades your review beyond what bots and generic reviewers can provide.
+> **TL;DR:** Abstract roles find abstract problems. Named people with searchable, citable philosophies find problems you would actually fix.
 
 **Triggers:** "review this PR with real engineers" | "named persona review" | "用真人的哲学审查这个PR"
 
@@ -21,7 +21,7 @@ Verdict: CONCERNS — fix CRITICAL before merge.
 
 ## Problem
 
-Generic adversarial review produces generic findings. This grounds each persona in real, searchable philosophy — what Linus Torvalds actually said about good taste, not what an AI thinks a "security auditor" might say.
+Abstract adversarial review can produce generic findings when personas lack grounding. This skill grounds each persona in real, searchable philosophy — what Linus Torvalds actually said about good taste, not what an AI imagines a reviewer might say.
 
 **Before/after:** `adversarial-reviewer` → "Consider adding error handling here." Named-persona → "Linus would ask: why is this even a special case? Eliminate the special case and the error handling disappears."
 
@@ -100,7 +100,6 @@ Merge duplicates. Cross-persona → severity upgrade. Post report as PR comment 
 - Low-impact PR (cosmetic only, no logic changes, no new behavior) → use `adversarial-reviewer`
 - Target has active review bots → still usable, but redundant for basic issues
 - Throwaway/prototype code
-- You have Anthropic Code Review Plugin → use multi-agent audit instead
 
 ## Anti-Patterns
 
@@ -119,4 +118,3 @@ Inherits all from `adversarial-reviewer`. Plus:
 - **Extends:** `engineering-team/adversarial-reviewer`
 - Related: `engineering-team/code-reviewer`, `engineering-team/senior-security`
 - Theory: de Bono "Six Thinking Hats" (1985), Kahneman "Thinking Fast and Slow" (2011)
-- Advanced: For personal/strategy tasks with curated persona pools, see `named-persona-pool` methodology (article, forthcoming)

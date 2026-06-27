@@ -1,6 +1,6 @@
 ---
 name: "named-persona-adversarial-review"
-description: "Code review with real engineers' philosophies, not abstract roles. Catches what automated bots and generic reviewers miss."
+description: "Code review through the lens of real engineers' documented philosophies. Complements automated review with named-philosopher perspectives. Use when automated review findings feel generic, when the PR has architectural or UX impact, or when the author wants pre-submit hardening beyond standard checks."
 ---
 
 # Named-Persona Adversarial Review
@@ -33,20 +33,6 @@ Generic adversarial review produces generic findings. This grounds each persona 
 - **Each persona MUST find ≥1 issue.** Zero findings = look harder or switch persona.
 - **Product persona mandatory every round.** Engineers miss UX. Always include one.
 - **Honesty over quantity.** Don't fabricate findings. Clean dimensions get reported clean.
-
-## TL;DR (Quick Start)
-
-**Starter:** Ken Thompson + Linus Torvalds + Steve Jobs. Works today.
-
-```
-1. Search "[Name] engineering philosophy" — extract 3-5 criteria from actual quotes
-2. Role-play all 3 — MUST find ≥1 issue each
-3. Deduplicate — 2+ hits → severity upgrade
-4. Output: structured report + post to PR as comment (or save to file)
-5. Feynman check: "Would they actually say this?"
-```
-
-> **Then read the full process below** (Step 0-3) for the detailed workflow.
 
 ## Persona Pools
 

@@ -132,6 +132,5 @@ Inherits all from `adversarial-reviewer`. Plus:
 
 - **Extends:** `engineering-team/adversarial-reviewer`
 - Related: `engineering-team/code-reviewer`, `engineering-team/senior-security`
-- External: [Anthropic Code Review Plugin](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review)
 - Theory: de Bono "Six Thinking Hats" (1985), Kahneman "Thinking Fast and Slow" (2011)
 - Advanced: For personal/strategy tasks with curated persona pools, see `named-persona-pool` methodology (article, forthcoming)

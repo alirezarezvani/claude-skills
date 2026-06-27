@@ -23,7 +23,7 @@ Verdict: CONCERNS — fix CRITICAL before merge.
 
 Abstract adversarial review can produce generic findings when personas lack grounding. This skill grounds each persona in real, searchable philosophy — what Linus Torvalds actually said about good taste, not what an AI imagines a reviewer might say.
 
-**Before/after:** `adversarial-reviewer` → "Consider adding error handling here." Named-persona → "Linus would ask: why is this even a special case? Eliminate the special case and the error handling disappears."
+**How it differs from abstract adversarial review:** Abstract roles produce surface-level findings. Named personas produce findings grounded in documented philosophy — Linus on eliminating special cases, Thompson on doing one thing well, Carmack on performance as craft.
 
 **Cost:** 1 round ≈ 8-12 min. Comparable to waiting for CI.
 
@@ -89,7 +89,7 @@ Merge duplicates. Cross-persona → severity upgrade. Post report as PR comment 
 
 ## When to Use
 
-- You want review quality beyond what automated bots can provide
+- You want deeper review coverage than standard automated checks alone
 - Self-authored PR needs pre-submit hardening
 - `adversarial-reviewer` findings feel generic
 - Reviewing methodologies or docs (product personas excel)

@@ -27,7 +27,7 @@ Generic adversarial review produces generic findings. This grounds each persona 
 
 **Cost:** 1 round ≈ 8-12 min. Comparable to waiting for CI.
 
-## Rules (Alireza's "hard problems" standard)
+## Rules
 
 - **Search before role-play.** Never impersonate without searching first. Generic = invalid.
 - **Each persona MUST find ≥1 issue.** Zero findings = look harder or switch persona.

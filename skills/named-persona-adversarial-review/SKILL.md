@@ -1,6 +1,8 @@
 ---
 name: "named-persona-adversarial-review"
 description: "Web-grounded multi-persona adversarial code review using real engineers' documented principles. Use when the target repo has no automated review bots and you need pre-submit hardening. Use when you want diverse perspectives from named experts (Thompson, Torvalds, Carmack, Feynman, etc.) rather than abstract roles. Use for reviewing code, docs, or methodologies."
+version: 1.0.0
+tags: [review, adversarial, code-review, methodology]
 ---
 
 # Named-Persona Adversarial Review

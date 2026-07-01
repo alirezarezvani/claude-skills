@@ -1,0 +1,86 @@
+[
+  {
+    "instance_id": "matplotlib__matplotlib-25287",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: offsetText is colored based on tick.color instead of tick.labelcolor\n### Bug summary\n\nIn vers",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug title: offsetText is colored based on tick.color instead of tick.labelcolor",
+        "Bug summary: setting ytick.labelcolor / xtick.labelcolor in styles/rcParams does not change color of exponent label (offsetText); exponent label uses xtick.color/ytick.color instead",
+        "Reproduction code provided: uses plt.rcParams.update({'ytick.labelcolor': 'red'}) and plots large numbers (1.01e9, etc.) to trigger offsetText (exponent) display",
+        "Images referenced: 'wrong_color' and 'correct_color' show visual difference (exponent label color mismatch vs expected)",
+        "Patch provided: modifies axis.py lines 2203 and 2456 to conditionally use xtick.labelcolor/ytick.labelcolor unless it's 'inherit' (default), then fall back to tick.color",
+        "Matplotlib version: 3.6.3",
+        "Affected components: axis.XAxis and axis.YAxis offset_text initialization (likely in matplotlib.axis)",
+        "Referenced files/lines: axis.py lines ~2203 and ~2456 (in _init_offset_text method for XAxis and YAxis)",
+        "Error type: configuration/rcParams not applied correctly to offsetText color"
+      ],
+      "causal_hypothesis": "The offsetText (exponent label) color is hardcoded to use tick.color rcParam instead of checking tick.labelcolor rcParam, except when tick.labelcolor is explicitly set to a non-inherit value.",
+      "confidence": 0.95,
+      "missing_info": [
+        "actual runtime behavior beyond provided images",
+        "screenshots/visual evidence (images are linked but not embedded)",
+        "exact configuration values for default rcParams (tick.labelcolor default is 'inherit')",
+        "whether the bug affects other tick‑related text (minor ticks, secondary axis)",
+        "operating system, backend, Python version, installation details (all marked 'No response' or 'None')",
+        "whether the patch works for all use cases (only 'simple usecases' tested)"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "source": "image",
+      "observations": [
+        ""
+      ],
+      "causal_hypothesis": "",
+      "confidence": 0.0,
+      "missing_info": [
+        "JSON parse failed — see raw observations"
+      ]
+    },
+    "c3_tns": {
+      "shared_observations": [],
+      "text_only_observations": [
+        "Bug title: offsetText is colored based on tick.color instead of tick.labelcolor",
+        "Bug summary: setting ytick.labelcolor / xtick.labelcolor in styles/rcParams does not change color of exponent label (offsetText); exponent label uses xtick.color/ytick.color instead",
+        "Reproduction code provided: uses plt.rcParams.update({'ytick.labelcolor': 'red'}) and plots large numbers (1.01e9, etc.) to trigger offsetText (exponent) display",
+        "Images referenced: 'wrong_color' and 'correct_color' show visual difference (exponent label color mismatch vs expected)",
+        "Patch provided: modifies axis.py lines 2203 and 2456 to conditionally use xtick.labelcolor/ytick.labelcolor unless it's 'inherit' (default), then fall back to tick.color",
+        "Matplotlib version: 3.6.3",
+        "Affected components: axis.XAxis and axis.YAxis offset_text initialization (likely in matplotlib.axis)",
+        "Referenced files/lines: axis.py lines ~2203 and ~2456 (in _init_offset_text method for XAxis and YAxis)",
+        "Error type: configuration/rcParams not applied correctly to offsetText color"
+      ],
+      "image_only_observations": [
+        "JSON parse failed — see raw observations"
+      ],
+      "contradictions": [
+        "The text agent references visual evidence ('wrong_color' and 'correct_color' images) that the image agent failed to parse or observe, creating a data availability contradiction"
+      ],
+      "causal_hypothesis": "The offsetText (exponent label) color incorrectly hardcodes to tick.color rcParam instead of checking tick.labelcolor rcParam in axis.XAxis and axis.YAxis initialization methods, except when tick.labelcolor is explicitly set to a non-inherit value.",
+      "confidence": 0.85,
+      "modal_weights": {
+        "text": 0.95,
+        "image": 0.05
+      },
+      "synthesis_narrative": "The text agent provided a detailed bug report with code analysis showing that matplotlib's offsetText (exponent label) incorrectly uses tick.color instead of tick.labelcolor rcParams, supported by referenced visual evidence of color mismatch. The image agent failed to parse or provide the visual confirmation, leaving the text modality as the primary evidence source. The synthesis confirms a configuration implementation error in matplotlib's axis initialization methods where color inheritance logic is flawed.",
+      "missing_info": [
+        "Actual runtime behavior beyond provided images",
+        "Screenshots/visual evidence (images are linked but not embedded in analysis)",
+        "Exact configuration values for default rcParams",
+        "Whether the bug affects other tick‑related text (minor ticks, secondary axis)",
+        "Operating system, backend, Python version, installation details",
+        "Whether the patch works for all use cases beyond simple test cases",
+        "Why the image agent failed to parse the visual data referenced by the text agent"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  }
+]

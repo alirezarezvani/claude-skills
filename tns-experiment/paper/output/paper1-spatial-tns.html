@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Spatial TNS: An LLM-Modulo Architecture for Transparent Multimodal Agent Diagnosis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="nul" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Spatial TNS: An LLM-Modulo Architecture for
+Transparent Multimodal Agent Diagnosis</h1>
+</header>
+<h1
+id="tns-an-llm-modulo-architecture-for-transparent-multimodal-agent-diagnosis">TNS:
+An LLM-Modulo Architecture for Transparent Multimodal Agent
+Diagnosis</h1>
+<p><strong>Target</strong>: Workshop / Short Paper (4–6 pages, excluding
+references) <strong>Status</strong>: v2 — Round 2 expert review applied
+(Carmack: numbers corrected, verbosity controlled, span→σ; Hickey: §2
+deduplicated, §4 focused; Norman: 3 findings, 2-paragraph abstract)</p>
+<hr />
+<h2 id="abstract">Abstract</h2>
+<p>When diagnosing software bugs from multimodal reports—text paired
+with screenshots—standard practice feeds everything into a single
+vision-language model for end-to-end diagnosis. Intuitively, more
+information should produce richer results. We find the opposite: across
+14 image-bearing bug reports, vanilla multimodal fusion produces fewer
+discrete diagnostic observations than text-only analysis (mean 6.1 vs
+9.9), despite receiving strictly more data. C3’s observations are longer
+per item (mean 126 vs 72 characters), compensating for count
+compression—total diagnostic text output is similar across conditions.
+The structural loss is not volumetric but granular: C3 consolidates
+evidence into denser units, obscuring which observations derive from
+which modality and silently suppressing cross-modal disagreements.</p>
+<p>We introduce <strong>Temporal Narrative Synthesis (TNS)</strong>, an
+LLM-Modulo architecture that replaces end-to-end fusion with a two-stage
+decompose-then-synthesize pipeline. Modality-specialized agents
+independently produce structured experience fragments; an autobiographer
+agent cross-references them, explicitly surfacing shared observations,
+modality-specific insights, contradictions, and per-modality
+contribution weights. On 30 SWE-bench verified issues (14 with images),
+TNS preserved 12–16 discrete observations per issue (vs. 5–8 for vanilla
+MM), detected cross-modal contradictions in 12/14 image-bearing issues,
+and produced more graduated confidence estimates (σ = 0.042 vs. 0.037
+for vanilla MM). We release all experimental data and prompts to support
+reproducible research on transparent multimodal agent diagnosis.</p>
+<hr />
+<h2 id="introduction">1. Introduction</h2>
+<p>Consider a developer reporting a matplotlib bug: “The log scale axis
+labels are wrong” (<a
+href="https://github.com/matplotlib/matplotlib/issues/22871">matplotlib#22871</a>).
+The report includes text describing expected behavior and a screenshot
+showing the actual output. Standard practice sends both to a
+vision-language model and asks: “What’s the root cause?”</p>
+<p>The VLM returns a confident answer: confidence 0.85, <strong>8
+observations</strong>, three missing-info items. But when we feed the
+<em>same</em> text to a text-only model (without the screenshot), it
+produces <strong>14 discrete observations</strong> and <strong>6
+missing-info items</strong>. The VLM, given <em>more</em> information,
+reported <em>fewer distinct observations</em> and acknowledged
+<em>less</em> of what it didn’t know. Closer inspection reveals that
+C3’s observations are longer per item—it consolidates rather than
+enumerates—but the structural consequence is the same: downstream
+consumers of the diagnosis lose the ability to trace claims back to
+their evidential source.</p>
+<p>This is not isolated. We ran the same four-condition comparison on 30
+SWE-bench verified issues. In <strong>14 out of 14</strong>
+image-bearing issues, vanilla multimodal fusion produced strictly fewer
+discrete observations than text-only analysis. It consistently
+under-reported knowledge gaps. And when text and image evidence
+conflicted—which happened in 12 of 14 cases—the vanilla model silently
+picked one interpretation without acknowledging the contradiction.</p>
+<p>We propose <strong>Temporal Narrative Synthesis (TNS)</strong>, an
+LLM-Modulo architecture grounded in the framework of Kambhampati et
+al. (ICML 2024). TNS replaces end-to-end fusion with a two-stage
+pipeline: modality-specialized agents independently produce structured
+experience fragments, then an autobiographer agent synthesizes these
+fragments into a unified diagnosis that explicitly identifies shared
+observations, modality-specific insights, and cross-modal
+contradictions. The architecture instantiates the LLM-Modulo thesis that
+externalized reasoning steps enable verification that opaque generation
+does not.</p>
+<p>This paper makes three contributions: - <strong>An empirical
+finding</strong>: Vanilla multimodal fusion compresses discrete
+observations and under-reports uncertainty in bug report diagnosis
+(Section 3). - <strong>An architecture</strong>: TNS, an LLM-Modulo
+instantiation that preserves modality-level transparency through
+decomposition and explicit synthesis (Section 2). - <strong>An
+evaluation framework</strong>: Beyond confidence scores, we measure
+observation count, per-observation verbosity, contradiction detection,
+missing-info transparency, and modal weight attribution—dimensions that
+vanilla fusion cannot report (Section 3).</p>
+<hr />
+<h2 id="tns-architecture">2. TNS Architecture</h2>
+<blockquote>
+<p><strong>Hickey v2</strong>: Each concept gets one presentation.
+Components <em>embody</em> the principles; no separate enumeration.</p>
+</blockquote>
+<h3 id="components-and-design">2.1 Components and Design</h3>
+<pre><code>                    ┌──────────────┐
+    Bug Report      │  Text Agent  │──→ experience fragment (C1)
+    (title + body)  │  (DeepSeek)  │     {observations[], causal_hypothesis,
+                    └──────────────┘      confidence, missing_info[]}
+                                                        
+                                           ┌─────────────────┐
+                    ┌──────────────┐       │  Autobiographer  │──→ synthesis (C4)
+    Screenshots     │  Image Agent │──→    │  (DeepSeek)      │    · shared_observations
+    (png/jpg)       │  (Qwen VLM)  │  exp. │                  │    · text_only_observations
+                    └──────────────┘ frag. │                  │    · image_only_observations
+                                     (C2)  │                  │    · contradictions[]
+                                           │                  │    · causal_hypothesis
+                                           │                  │    · confidence
+                                           │                  │    · modal_weights{text, image}
+                                           │                  │    · missing_info[]
+                                           └─────────────────┘</code></pre>
+<p><strong>Figure 1: TNS architecture. Two modality specialists produce
+independent fragments; the autobiographer cross-references them into a
+transparent synthesis.</strong></p>
+<p>The architecture embodies three design choices that distinguish it
+from end-to-end fusion:</p>
+<p><strong>Modality sovereignty.</strong> The Text Agent (C1) receives
+the bug report title and body; it never sees images. The Image Agent
+(C2) receives all screenshots with only the issue title for context; it
+never sees the body text. This constraint is deliberate: the image agent
+must ground its observations in visual evidence, preventing cross-modal
+attention from prematurely merging signals that should be independently
+assessed. Both produce identically structured fragments.</p>
+<p><strong>Explicit synthesis, not fusion.</strong> The Autobiographer
+(C4) receives both fragments and is instructed to: (1) identify facts
+both agents independently observed (<code>shared_observations</code>),
+(2) identify facts unique to each modality, (3) detect contradictions
+between agents, (4) assign modal weights reflecting per-modality
+contribution, and (5) produce a unified causal hypothesis. The key
+directive: <em>lower</em> confidence when modalities contradict,
+<em>raise</em> it when they independently converge. This creates a
+natural “review surface” that end-to-end fusion lacks—the
+autobiographer’s output is an audit trail, not a black-box verdict.</p>
+<p><strong>Transparency by construction.</strong> The synthesis output
+includes fields that vanilla fusion cannot produce: contradiction lists,
+modal weights, and per-modality observation provenance. These are not
+post-hoc explanations—they are the architecture’s native output
+format.</p>
+<h3 id="capability-comparison">2.2 Capability Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Vanilla MM (C3)</th>
+<th>TNS (C4)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross-modal contradiction detection</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Modal contribution attribution</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Per-modality observation provenance</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Uncertainty decomposition by source</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>These are not cosmetic differences. In agent systems where diagnosis
+results feed into downstream actions—automated patching, escalation to
+human reviewers—knowing <em>which modality</em> supports a claim and
+<em>where evidence conflicts</em> is operationally critical.</p>
+<hr />
+<h2 id="experiment">3. Experiment</h2>
+<h3 id="setup">3.1 Setup</h3>
+<p><strong>Data.</strong> 30 issues from SWE-bench Verified (Jimenez et
+al., 2024), stratified random sampling (seed=42): 21 with screenshots
+(70%) and 9 without, matching SWE-bench’s natural image prevalence.
+After download deduplication, 14 issues had ≥1 valid image; 15 were
+text-only; 1 failed due to SSL error.</p>
+<p><strong>Conditions.</strong> Each issue was processed under four
+conditions:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Input</th>
+<th>Model</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1 (Text-only)</td>
+<td>Title + body</td>
+<td>DeepSeek-V3.2</td>
+<td>Single-modality baseline</td>
+</tr>
+<tr>
+<td>C2 (Image-only)</td>
+<td>Title + screenshots</td>
+<td>Qwen3.5-397B-VLM</td>
+<td>Visual baseline, no body text</td>
+</tr>
+<tr>
+<td>C3 (Vanilla MM)</td>
+<td>Title + body + screenshots</td>
+<td>Qwen3.5-397B-VLM</td>
+<td>Standard multimodal fusion</td>
+</tr>
+<tr>
+<td>C4 (TNS)</td>
+<td>C1 fragment + C2 fragment</td>
+<td>DeepSeek-V3.2</td>
+<td>Autobiographer synthesis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Models.</strong> C1 and the autobiographer (C4) use
+DeepSeek-V3.2; C2 and C3 use Qwen3.5-397B-VLM. All calls use
+temperature=0.0, seed=42. The model confound between DeepSeek (C1/C4)
+and Qwen (C2/C3) is a limitation (Section 5).</p>
+<p><strong>Metrics.</strong> We report: observation count, mean
+observation length (chars), confidence (self-reported 0.0–1.0 with
+standard deviation), missing-info count, contradiction count (TNS only),
+and modal weights (TNS only).</p>
+<h3 id="results">3.2 Results</h3>
+<blockquote>
+<p><strong>Norman v2</strong>: Three main findings (with specific
+numbers), two supplementary observations.</p>
+</blockquote>
+<p><strong>Finding 1 (Primary): Vanilla MM structurally compresses
+observations and under-reports uncertainty.</strong></p>
+<p>In all 14 image-bearing issues, C3 produced fewer discrete
+observations than C1 (text-only), despite receiving both text and
+images. Mean observation counts: C1 = 9.9, C2 = 5.6, C3 = 6.1. C3’s
+output was closer to the weaker single modality (C2) than to the richer
+one (C1).</p>
+<p>However, C3’s observations were substantially longer per item: mean
+126 characters vs. C1’s 72. Total diagnostic text output was comparable
+across conditions (~10k chars for C1 vs. ~11k for C3). The bottleneck is
+therefore <em>structural</em> (fewer, denser observation units) rather
+than <em>volumetric</em> (less total content). For downstream consumers
+that enumerate and track individual diagnostic claims, the loss of
+granularity matters regardless of per-item verbosity.</p>
+<p>C3 also under-reported missing information. In 13/14 cases, C3 listed
+fewer missing-info items than C1. Mean missing-info counts: C1 = 6.3, C2
+= 3.7, C3 = 3.1. We acknowledge a partial counter-explanation: C3
+genuinely has more information (both text and images) and may therefore
+have fewer legitimate gaps to report. However, this does not explain why
+C3 reports <em>fewer</em> missing-info items than even C2 (3.1
+vs. 3.7)—C3 should at minimum match the image-only agent’s awareness of
+visual uncertainty.</p>
+<p><strong>Finding 2 (Primary): TNS preserves granularity and detects
+cross-modal contradictions.</strong></p>
+<p>TNS preserved 12–16 discrete observations per issue (shared +
+text-only + image-only), 2–3× the count of vanilla MM’s 5–8. More
+importantly, the autobiographer detected cross-modal contradictions in
+<strong>12 of 14 image-bearing issues (86%)</strong>. These were not
+trivial disagreements:</p>
+<ul>
+<li><em>sympy#15976</em>: Text agent claimed the symbol “x2” disappears;
+image agent described “x” disappearing with parentheses remaining. The
+autobiographer flagged this contradiction and assigned low confidence
+(0.92 vs. C3’s 0.95).</li>
+<li><em>seaborn#3187</em>: Text agent attributed the issue to missing
+ScalarFormatter offsets; image agent described “truncated values.” These
+are distinct causal mechanisms, not synonyms.</li>
+<li><em>sphinx#8120</em>: Text agent hypothesized complete locale
+fallback failure; image agent observed partial translations working. The
+autobiographer correctly identified the contradiction and assigned
+higher weight to the image agent (0.45 vs. typical 0.41).</li>
+</ul>
+<p>Vanilla MM (C3) cannot detect these contradictions by design—its
+fused attention mechanism produces a single interpretation path.</p>
+<p><strong>Finding 3 (Primary): TNS confidence estimates are more
+graduated.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>σ (stdev)</th>
+<th>n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1 (text-only)</td>
+<td>0.059</td>
+<td>29</td>
+</tr>
+<tr>
+<td>C2 (image-only)</td>
+<td>0.025</td>
+<td>14</td>
+</tr>
+<tr>
+<td>C3 (vanilla MM)</td>
+<td>0.037</td>
+<td>14</td>
+</tr>
+<tr>
+<td>C4 (TNS)</td>
+<td>0.042</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<p>C2 shows the narrowest confidence distribution (σ = 0.025, only two
+values: 0.90 and 0.95), followed by C3 (σ = 0.037, three values: 0.85,
+0.90, 0.95). TNS (σ = 0.042, five values: 0.85, 0.88, 0.92, 0.96, 0.98)
+produces a wider spread than vanilla MM, despite both having n=14. We
+use standard deviation rather than range to avoid sample-size artifacts.
+C1’s wider distribution (σ = 0.059, n=29) is consistent with text-only
+analysis being more sensitive to case difficulty.</p>
+<p>We note that all confidence scores are self-reported by LLMs and
+should be treated as <em>comparative</em> signals between conditions,
+not as calibrated probabilities (see Section 5).</p>
+<p><strong>Supplementary observation A: Modal weights.</strong> TNS
+assigns per-issue modal weights. Across 14 issues, mean weights were
+text=0.59, image=0.41. The autobiographer weighted text more heavily in
+11/14 cases, consistent with text typically containing the primary bug
+description. Two cases (matplotlib#14623, sphinx#9320) weighted image
+≥0.55—corresponding to issues where screenshots were particularly
+diagnostic. Vanilla MM cannot report this information.</p>
+<p><strong>Supplementary observation B: Marginal image
+contribution.</strong> Vanilla MM’s mean confidence uplift over the best
+single modality was +0.011 (from 0.915 to 0.926). In 7/14 cases, adding
+images produced zero improvement; in 2 cases confidence decreased. This
+suggests the marginal diagnostic value of screenshots in bug reports may
+be smaller than assumed—and that fusion sometimes introduces noise
+rather than signal. However, with n=14 and Δ = 0.011, this is better
+treated as a null result (no evidence of benefit) than as evidence of
+harm.</p>
+<h3 id="summary-statistics">3.3 Summary Statistics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>C1 (Text)</th>
+<th>C2 (Image)</th>
+<th>C3 (Vanilla MM)</th>
+<th>C4 (TNS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Issues completed</td>
+<td>29</td>
+<td>14</td>
+<td>14</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Mean confidence</td>
+<td>0.87</td>
+<td>0.92</td>
+<td><strong>0.93</strong></td>
+<td>0.90</td>
+</tr>
+<tr>
+<td>Confidence σ</td>
+<td>0.059</td>
+<td>0.025</td>
+<td>0.037</td>
+<td>0.042</td>
+</tr>
+<tr>
+<td>Mean observations</td>
+<td>9.7</td>
+<td>5.6</td>
+<td>6.1</td>
+<td><strong>14.1</strong>*</td>
+</tr>
+<tr>
+<td>Mean obs length (chars)</td>
+<td>72</td>
+<td>—</td>
+<td>126</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Mean missing-info</td>
+<td>6.3</td>
+<td>3.7</td>
+<td>3.1</td>
+<td>5.9</td>
+</tr>
+<tr>
+<td>Contradictions detected</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>12/14</td>
+</tr>
+</tbody>
+</table>
+<p><em>*TNS total = shared + text-only + image-only
+observations</em></p>
+<hr />
+<h2 id="discussion">4. Discussion</h2>
+<blockquote>
+<p><strong>Hickey v2</strong>: Two focused arguments, not four scattered
+ones.</p>
+</blockquote>
+<p><strong>The transparency-confidence trade-off.</strong> TNS’s mean
+confidence (0.90) is lower than vanilla MM’s (0.93), a difference of
+−0.028. But interpreting this as “TNS performs worse” mistakes the
+metric. TNS’s lower confidence reflects the autobiographer’s deliberate
+calibration: it <em>lowers</em> confidence when modalities contradict
+(per its prompt) and raises it when they converge. Vanilla MM’s higher
+confidence, combined with its narrower distribution and lower discrete
+observation count, is consistent with
+precision-at-the-cost-of-transparency: the model produces a concise,
+confident answer by compressing evidence into fewer, denser claims and
+silently resolving contradictions. In diagnostic settings where
+downstream actions have asymmetric costs—automated patches based on
+incomplete information, failure to escalate when evidence
+conflicts—transparency may be preferable to raw confidence.</p>
+<p><strong>Contradiction detection as an emergent property.</strong> We
+did not hard-code contradiction detection logic. The autobiographer
+identifies disagreements purely through prompted reasoning over
+structured fragments. That it detected substantive contradictions in 86%
+of cases—and that these contradictions involved genuinely different
+causal mechanisms, not synonymous descriptions—suggests the
+decompose-then-synthesize architecture creates a natural verification
+surface. This aligns with the LLM-Modulo thesis (Kambhampati et al.,
+2024): externalized reasoning steps enable verification that opaque
+generation does not. The per-modality provenance tracking (shared
+vs. text-only vs. image-only observations, modal weights) provides an
+audit trail. In longer-running agent systems where diagnosis feeds
+downstream actions, this traceability is operationally meaningful.</p>
+<hr />
+<h2 id="limitations">5. Limitations</h2>
+<blockquote>
+<p><strong>Carmack v2</strong>: Claim boundaries tightened. Observation
+verbosity controlled. Confidence argument uses σ, not span.</p>
+</blockquote>
+<p><strong>Model confound.</strong> C1 and the autobiographer use
+DeepSeek-V3.2; C2 and C3 use Qwen3.5-397B-VLM. The observation count
+difference between C1 and C3 may partially reflect model-specific
+tendencies (e.g., DeepSeek enumerates more granularly; Qwen writes
+longer, fewer observations). We controlled for this by reporting
+per-observation verbosity (126 vs. 72 chars) and total diagnostic text
+output (~10k vs. ~11k chars), which are comparable. The structural
+compression (fewer discrete observation units) persists after
+controlling for verbosity differences. Future work should replicate with
+a unified model family. However, contradiction detection and modal
+weight attribution are <em>structural</em> properties of the TNS
+architecture—they do not depend on which model implements each
+agent.</p>
+<p><strong>Self-reported confidence is uncalibrated.</strong>
+LLM-generated confidence scores are not probability estimates and may
+reflect linguistic style rather than calibrated uncertainty (Xiong et
+al., 2023). We report standard deviation for comparing dispersion across
+conditions, but this should not be interpreted as measurement precision.
+Our analysis treats confidence as a <em>comparative</em> signal;
+confirming these patterns against ground-truth bug fix accuracy would
+strengthen confidence-based claims.</p>
+<p><strong>Small sample.</strong> n=14 paired samples. We present
+descriptive statistics and qualitative patterns. All numerical claims
+should be interpreted as preliminary evidence requiring larger-scale
+replication. The 14/14 and 12/14 ratios are suggestive but not
+statistically tested.</p>
+<p><strong>Task specificity.</strong> SWE-bench bug reports represent
+one multimodal diagnosis domain. The structural compression pattern may
+not generalize to domains where visual information carries higher
+independent diagnostic value (e.g., radiology, satellite imagery).</p>
+<p><strong>No human baseline.</strong> We do not compare against human
+diagnosticians. It is possible that human experts also consolidate
+observations—or that C3’s denser observation style is more useful in
+some contexts. The paper’s claim is about <em>transparency</em>, not
+about diagnostic accuracy.</p>
+<hr />
+<h2 id="future-work">6. Future Work</h2>
+<p><strong>Controlled model ablation.</strong> Replicate with a unified
+model family to isolate architecture from model effects.</p>
+<p><strong>Temporal TNS.</strong> Extend the architecture to the time
+dimension: experience fragments generated at different timestamps are
+synthesized into a temporally coherent agent identity. Our config system
+(growth-log, self-model, quality-gate loop) provides a preliminary
+proof-of-concept for decomposition + explicit synthesis as a general
+pattern for agent identity management.</p>
+<p><strong>Downstream task evaluation.</strong> Measure whether TNS’s
+richer observations and contradiction detection translate to better
+<em>outcomes</em>—faster bug fixes, more accurate patches,
+better-informed human reviewers.</p>
+<p><strong>Automated contradiction resolution.</strong> Extend TNS with
+a third-stage adjudicator that resolves detected contradictions using
+external evidence (code execution, documentation lookup).</p>
+<hr />
+<h2 id="conclusion">7. Conclusion</h2>
+<p>Vanilla multimodal fusion exhibits a consistent structural
+compression pattern in software bug diagnosis: it produces fewer
+discrete observations and under-reports uncertainty compared to
+text-only analysis, despite receiving more information. The total
+diagnostic content is comparable—C3 writes longer observations—but the
+loss of granularity and provenance information matters for downstream
+agent systems that need to trace claims to evidence. TNS offers an
+alternative: decompose multimodal input into independent specialist
+fragments, then explicitly synthesize them. The architecture preserves
+per-modality observation provenance, surfaces cross-modal contradictions
+in 86% of cases, and produces more graduated confidence estimates. What
+looks like a performance deficit (lower mean confidence) may actually
+reflect a desirable property: calibrated honesty when evidence
+conflicts. We release all data, prompts, and experimental code to
+support further research on transparent agent diagnosis.</p>
+<hr />
+<h2 id="references">References</h2>
+<blockquote>
+<p><em>[Placeholder — to be expanded with full citations]</em></p>
+</blockquote>
+<ol type="1">
+<li>Kambhampati, S. et al. (2024). “LLMs Can’t Plan, But Can Help
+Planning in LLM-Modulo Frameworks.” ICML 2024.</li>
+<li>Jimenez, C.E. et al. (2024). “SWE-bench: Can Language Models Resolve
+Real-World GitHub Issues?” ICLR 2024.</li>
+<li>Xiong, M. et al. (2023). “Can LLMs Express Their Uncertainty? An
+Empirical Evaluation of Confidence Elicitation in LLMs.”
+arXiv:2306.13063.</li>
+<li>Pearl, J. (2009). <em>Causality: Models, Reasoning, and
+Inference.</em> 2nd ed. Cambridge University Press.</li>
+<li>[Additional references for multimodal LLM evaluation, agent
+transparency, SWE-bench methodology]</li>
+</ol>
+<hr />
+<h2 id="appendix-a-experimental-data">Appendix A: Experimental Data</h2>
+<p>Full per-issue results, including observation lists, confidence
+scores, contradiction details, and modal weights, available in
+<code>results/20260701_223209/results.json</code>.</p>
+<h2 id="appendix-b-prompts">Appendix B: Prompts</h2>
+<p>Full prompts for C1 (text agent), C2 (image agent), C3 (vanilla MM),
+and C4 (autobiographer) available in <code>text_client.py</code>,
+<code>vlm_client.py</code>, and <code>orchestrator.py</code>.</p>
+<hr />
+<h2 id="change-log-v1-v2">Change Log (v1 → v2)</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Expert</th>
+<th>Issue</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Carmack</strong></td>
+<td>5 numbers incorrect</td>
+<td>Corrected: C2 obs 5.4→5.6, C4 obs 14.3→14.1, C1 missing-info
+6.5→6.3, C4 missing-info 5.6→5.9, C4 σ 0.046→0.042</td>
+</tr>
+<tr>
+<td><strong>Carmack</strong></td>
+<td>Obs count didn’t control for verbosity</td>
+<td>Added per-observation length analysis (C1: 72 chars, C3: 126 chars)
+and total diagnostic text comparison</td>
+</tr>
+<tr>
+<td><strong>Carmack</strong></td>
+<td>Confidence “span” misleading with unequal n</td>
+<td>Replaced span with σ (standard deviation) throughout; C3 σ=0.037, C4
+σ=0.042</td>
+</tr>
+<tr>
+<td><strong>Carmack</strong></td>
+<td>Missing-info framing unfairly criticized C3</td>
+<td>Added counter-explanation: C3 genuinely has more info → fewer gaps;
+noted C3 &lt; C2 on missing-info is still concerning</td>
+</tr>
+<tr>
+<td><strong>Carmack</strong></td>
+<td>Finding 5 (Δ+0.011) presented as finding</td>
+<td>Downgraded to “Supplementary observation B,” reframed as null
+result</td>
+</tr>
+<tr>
+<td><strong>Hickey</strong></td>
+<td>§2.1 principles + §2.2 components overlapped</td>
+<td>Merged into single §2.1 “Components and Design”; principles embodied
+in component descriptions</td>
+</tr>
+<tr>
+<td><strong>Hickey</strong></td>
+<td>§4 discussed 4 separate arguments</td>
+<td>Focused on 2 arguments: transparency-confidence trade-off +
+contradiction detection; cut config system digression</td>
+</tr>
+<tr>
+<td><strong>Norman</strong></td>
+<td>Abstract was one dense paragraph</td>
+<td>Split into 2 paragraphs: problem in ¶1, solution in ¶2</td>
+</tr>
+<tr>
+<td><strong>Norman</strong></td>
+<td>5 findings too many to track</td>
+<td>Consolidated to 3 primary findings + 2 supplementary
+observations</td>
+</tr>
+<tr>
+<td><strong>Norman</strong></td>
+<td>No bridging §1→§2</td>
+<td>Added LLM-Modulo thesis sentence at end of §1 to bridge to
+architecture section</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

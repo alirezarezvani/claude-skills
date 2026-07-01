@@ -1,0 +1,954 @@
+[
+  {
+    "instance_id": "matplotlib__matplotlib-25287",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: offsetText is colored based on tick.color instead of tick.labelcolor\n### Bug summary\n\nIn vers",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug title: offsetText is colored based on tick.color instead of tick.labelcolor",
+        "Matplotlib version 3.6.3",
+        "Setting ytick.labelcolor or xtick.labelcolor in styles/rcParams does not change exponent label color",
+        "Exponent label (offsetText) incorrectly uses xtick.color/ytick.color instead of labelcolor",
+        "Reproduction code: uses plt.rcParams.update({'ytick.labelcolor': 'red'}) and plots large numbers (1.01e9, etc.) to trigger offsetText display",
+        "User provided visual examples: 'wrong_color' and 'correct_color' images (links to GitHub user content)",
+        "User provided a patch modifying axis.py lines 2203 and 2456",
+        "Patch logic: uses tick.color if tick.labelcolor == 'inherit', else uses tick.labelcolor",
+        "Bug appears in both XAxis and YAxis offset_text initialization",
+        "No OS, backend, Python version, Jupyter version, or installation details provided"
+      ],
+      "causal_hypothesis": "The offsetText (exponent label) color is hardcoded to use rcParams['xtick.color']/['ytick.color'] instead of checking rcParams['xtick.labelcolor']/['ytick.labelcolor'] and respecting the 'inherit' default.",
+      "confidence": 0.95,
+      "missing_info": [
+        "actual runtime behavior beyond images",
+        "screenshots/visual evidence (only links provided)",
+        "exact configuration values for rcParams beyond the snippet",
+        "operating system",
+        "matplotlib backend",
+        "Python version",
+        "Jupyter version",
+        "installation method",
+        "whether the bug occurs in other matplotlib versions",
+        "edge cases: interaction with other rcParams, custom styles, or per-axis labelcolor settings"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Y-axis tick labels (numbers) are red",
+        "Y-axis offset text '1e9' is black",
+        "X-axis ticks and labels are black"
+      ],
+      "causal_hypothesis": "The offset text color property is incorrectly linked to the tick color rather than the tick label color",
+      "confidence": 0.95,
+      "missing_info": [
+        "source code",
+        "matplotlib version"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "The offset text (exponent label) color is incorrectly linked to tick color rather than tick label color",
+        "Visual evidence shows mismatched colors between tick labels and offset text"
+      ],
+      "text_only_observations": [
+        "Matplotlib version 3.6.3",
+        "Bug title: offsetText is colored based on tick.color instead of tick.labelcolor",
+        "Reproduction code using plt.rcParams.update({'ytick.labelcolor': 'red'})",
+        "User provided patch modifying axis.py lines 2203 and 2456",
+        "Patch logic: uses tick.color if tick.labelcolor == 'inherit', else uses tick.labelcolor",
+        "Bug appears in both XAxis and YAxis offset_text initialization",
+        "Setting ytick.labelcolor or xtick.labelcolor in styles/rcParams does not change exponent label color"
+      ],
+      "image_only_observations": [
+        "Y-axis tick labels (numbers) are red",
+        "Y-axis offset text '1e9' is black",
+        "X-axis ticks and labels are black"
+      ],
+      "contradictions": [],
+      "causal_hypothesis": "The offsetText initialization in matplotlib's axis.py incorrectly hardcodes color inheritance from tick.color rather than checking tick.labelcolor and respecting the 'inherit' default behavior, causing exponent labels to ignore rcParams['xtick.labelcolor']/['ytick.labelcolor'] settings.",
+      "confidence": 0.97,
+      "modal_weights": {
+        "text": 0.7,
+        "image": 0.3
+      },
+      "synthesis_narrative": "The text agent identified a specific bug in matplotlib 3.6.3 where offsetText color inheritance was incorrectly implemented in axis.py, while the image agent visually confirmed the symptom: red y-axis tick labels with a black exponent label ('1e9'), demonstrating the color mismatch. Together, they reveal a code-level implementation error where the exponent label incorrectly references tick.color instead of properly checking tick.labelcolor's inheritance chain.",
+      "missing_info": [
+        "Actual runtime behavior beyond static images",
+        "Exact configuration values for rcParams beyond the snippet",
+        "Operating system and matplotlib backend details",
+        "Python and Jupyter versions",
+        "Whether the bug occurs in other matplotlib versions",
+        "Edge cases with custom styles or per-axis labelcolor settings",
+        "Interactive behavior with different plot configurations"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "scikit-learn__scikit-learn-26194",
+    "repo": "scikit-learn/scikit-learn",
+    "title": "Thresholds can exceed 1 in `roc_curve` while providing probability estimate\nWhile working on https:/",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Bug title: Thresholds can exceed 1 in `roc_curve` while providing probability estimate",
+        "Found while working on PR #26120",
+        "Non-regression test proposed: asserts thresholds are <=1 or >=0 when y_score is random floats in [0,1]",
+        "Root cause identified in source file: sklearn/metrics/_ranking.py line 1086",
+        "Line adds a point for fpr=0 and tpr=0 using a '+ 1' rule",
+        "The '+ 1' rule is problematic when y_score is a probability estimate (should be in [0,1])",
+        "Thresholds array includes values >1, which is invalid for probabilities",
+        "Potential workaround mentioned: check thresholds.max() <= 1 and clip",
+        "Affected component: sklearn.metrics.roc_curve function",
+        "Environment: scikit-learn repository (version not specified, but recent enough for PR)"
+      ],
+      "causal_hypothesis": "The `roc_curve` function adds an extra threshold value by taking max(y_score) + 1 to ensure a (0,0) point on the ROC curve, but this breaks the assumption that thresholds should be within the range of y_score when y_score represents probabilities in [0,1].",
+      "confidence": 0.95,
+      "missing_info": [
+        "Exact version of scikit-learn where this occurs",
+        "Whether y_score is always expected to be probabilities or can be any score",
+        "Historical context: whether this was intentional for non-probability scores",
+        "Any existing tests that might rely on thresholds >1",
+        "Full impact: how many users or downstream code might be affected",
+        "Whether there are other similar issues in precision_recall_curve or other metrics",
+        "Detailed reproduction steps beyond the provided test snippet",
+        "Actual runtime behavior with real datasets"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  },
+  {
+    "instance_id": "sympy__sympy-15976",
+    "repo": "sympy/sympy",
+    "title": "A symbol ending with a number is made invisible when printing with MathML\nA variable with a number, ",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Symbol ending with a number (e.g., x2) becomes invisible when printed as MathML presentation markup",
+        "Example: y = x2*z + x2**3 renders invisibly in Safari",
+        "Using a symbol without trailing number (e.g., x) works fine",
+        "Bug occurs with SymPy 1.3, Python 3.7, macOS 10.14.2, Safari 12.0.2",
+        "Reproduction code provided: uses sympy.printing.mathml.mathml with printer='presentation'",
+        "Output saved to HTML file and viewed in browser",
+        "Screenshots show missing 'x2' but visible 'z' and operators",
+        "Issue likely in MathML generation, not just rendering, because same HTML works for 'x'"
+      ],
+      "causal_hypothesis": "The MathML presentation printer incorrectly handles symbol names ending with digits, possibly omitting or misformatting the <mi> element for such symbols.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Exact MathML output for the faulty case to inspect generated markup",
+        "Whether the issue occurs in other browsers or only Safari",
+        "If the bug exists in other SymPy printing modules (e.g., content MathML)",
+        "Whether symbols with internal digits (e.g., x12) or starting with digits are affected",
+        "SymPy source code of the MathML printer to confirm parsing/rendering logic"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Empty parentheses () acting as the base",
+        "Superscript 3 indicating a cubic power",
+        "Plus sign and variable z visible",
+        "Missing base variable inside parentheses"
+      ],
+      "causal_hypothesis": "MathML renderer fails to display variables containing numbers, leaving empty parentheses.",
+      "confidence": 0.9,
+      "missing_info": [
+        "Original MathML code",
+        "Specific variable name intended",
+        "Browser/Renderer version",
+        "Full expression context"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "MathML rendering issue involving a variable with a number",
+        "Empty parentheses where a variable should appear",
+        "Superscript/power notation visible while base variable is missing",
+        "The problem occurs in a browser rendering context"
+      ],
+      "text_only_observations": [
+        "Specific bug trigger: symbol names ending with digits (e.g., x2)",
+        "Technical environment: SymPy 1.3, Python 3.7, macOS 10.14.2, Safari 12.0.2",
+        "Reproduction code using sympy.printing.mathml.mathml with printer='presentation'",
+        "Observation that symbols without trailing digits (e.g., x) work fine",
+        "Hypothesis about <mi> element misformatting in MathML generation",
+        "Knowledge that the issue is likely in MathML generation, not just rendering"
+      ],
+      "image_only_observations": [
+        "Visual appearance of empty parentheses as base",
+        "Visible superscript 3 indicating cubic power",
+        "Visible plus sign and variable z",
+        "Direct observation of missing content within parentheses"
+      ],
+      "contradictions": [
+        "Text agent specifies the issue is with symbols ending with digits; image agent only observes missing variable without specifying naming pattern",
+        "Text agent has environment details; image agent lacks browser/renderer context",
+        "Text agent suspects MathML generation bug; image agent observes rendering failure without specifying origin"
+      ],
+      "causal_hypothesis": "SymPy's MathML presentation printer incorrectly generates or formats the <mi> element for symbol names ending with digits, causing browsers to render empty parentheses where the variable should appear.",
+      "confidence": 0.92,
+      "modal_weights": {
+        "text": 0.7,
+        "image": 0.3
+      },
+      "synthesis_narrative": "The text agent identified a specific SymPy bug where symbols ending with digits (like x2) are incorrectly processed by the MathML presentation printer, likely generating malformed <mi> elements. The image agent visually confirmed the rendering consequence: empty parentheses where 'x2' should appear as the base for a cubic power, with other elements (operators, variable z) displaying correctly. Together, they reveal a MathML generation flaw that manifests as a visual rendering failure in browsers.",
+      "missing_info": [
+        "Exact MathML markup generated for the faulty symbol",
+        "Whether the bug occurs in browsers other than Safari",
+        "If SymPy's content MathML printer has the same issue",
+        "Whether symbols with internal digits (x12) or leading digits are affected",
+        "Specific renderer/browser version in the image",
+        "The full original expression context from the image"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-14623",
+    "repo": "matplotlib/matplotlib",
+    "title": "Inverting an axis using its limits does not work for log scale\n### Bug report\r\n\r\n**Bug summary**\r\nSt",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug introduced in matplotlib 3.1.0",
+        "Setting axis limits with higher value first (ax.set_ylim(y.max(), y.min())) inverts axis for linear scale but not for log scale",
+        "Code reproduction provided with clear loop over 'linear' and 'log' scales",
+        "Images (URLs) show visual evidence: linear axis inverted, log axis not inverted",
+        "Affected component: axis scaling/inversion logic, specifically for log scale",
+        "Environment: Linux and MacOS, Python 3.7.3, matplotlib 3.1.0 installed via conda",
+        "Bug summary indicates regression from earlier versions"
+      ],
+      "causal_hypothesis": "The axis inversion logic for log scale in matplotlib 3.1.0 fails to handle swapped limits correctly, possibly due to a change in limit validation or transformation order that prevents the intended inversion.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Exact matplotlib source code changes in 3.1.0 related to axis limits or log scale",
+        "Internal state of axis limits after set_yscale('log') and set_ylim() call",
+        "Error messages or warnings in console output",
+        "Whether the bug affects other scale types (symlog, logit)",
+        "Behavior in matplotlib versions before 3.1.0 for comparison",
+        "Whether the issue is in limit setting, scale transformation, or rendering"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Y-axis displays a '1e5' offset text at the top left",
+        "Y-axis ticks are linearly spaced (0.2, 0.4, ... 1.0) increasing downwards",
+        "The axis appears inverted (values increase from top to bottom)",
+        "X-axis shows standard linear ticks from 0.4 to 1.0"
+      ],
+      "causal_hypothesis": "Setting inverted limits (high, low) on a logarithmic axis causes the formatter to incorrectly revert to linear scaling with a large offset.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Code snippet used to set limits and scale",
+        "Matplotlib library version",
+        "Intended data range"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "Axis inversion behavior differs between linear and log scales when setting limits with high value first",
+        "Visual evidence shows linear axis inverted while log axis appears not inverted"
+      ],
+      "text_only_observations": [
+        "Bug introduced in matplotlib 3.1.0",
+        "Environment: Linux and MacOS, Python 3.7.3",
+        "Regression from earlier versions",
+        "Code reproduction provided with clear loop over 'linear' and 'log' scales",
+        "Affected component: axis scaling/inversion logic"
+      ],
+      "image_only_observations": [
+        "Y-axis displays '1e5' offset text at top left",
+        "Y-axis ticks are linearly spaced (0.2, 0.4, ... 1.0) increasing downwards",
+        "X-axis shows standard linear ticks from 0.4 to 1.0"
+      ],
+      "contradictions": [
+        "Text agent states log axis 'not inverted' while image agent observes the axis 'appears inverted (values increase from top to bottom)' - this is actually consistent if the image shows linear scaling with offset rather than proper log inversion"
+      ],
+      "causal_hypothesis": "In matplotlib 3.1.0, when setting inverted limits (high, low) on a logarithmic axis, the limit validation or transformation logic fails to properly handle the swapped order, causing the axis to fall back to linear scaling with an offset instead of correctly inverting the logarithmic scale.",
+      "confidence": 0.88,
+      "modal_weights": {
+        "text": 0.65,
+        "image": 0.35
+      },
+      "synthesis_narrative": "The text agent identified a regression in matplotlib 3.1.0 where setting axis limits with higher value first correctly inverts linear axes but fails for log scales. The image agent's observation of a '1e5' offset and linearly spaced ticks on what should be a log axis confirms this failure mode - rather than properly inverting the logarithmic scale, the system appears to revert to linear scaling with an offset, explaining why the log axis doesn't visually invert as expected.",
+      "missing_info": [
+        "Exact matplotlib source code changes in 3.1.0 related to axis limits or log scale",
+        "Internal state of axis limits after set_yscale('log') and set_ylim() call",
+        "Whether the bug affects other scale types (symlog, logit)",
+        "Behavior in matplotlib versions before 3.1.0 for direct comparison",
+        "Whether the issue is in limit validation, scale transformation, or rendering pipeline"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "mwaskom__seaborn-3187",
+    "repo": "mwaskom/seaborn",
+    "title": "Wrong legend values of large ranges\nAs of 0.12.1, legends describing large numbers that were created",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Legends describing large numbers created using ScalarFormatter with an offset are formatted without their multiplicative offset value.",
+        "Example uses seaborn.objects with a derived column 'body_mass_mg' (body_mass_g*1000), values ~1E6.",
+        "Issue reproduces with both seaborn.objects Plot and scatterplot.",
+        "Bug introduced in version 0.12.1.",
+        "Referenced code lines 377-382 in seaborn/_core/scales.py.",
+        "Issue likely depends on matplotlib rcParams: axes.formatter.useoffset and axes.formatter.offset_threshold.",
+        "Offset value can be retrieved from formatters and used for legend title/labels."
+      ],
+      "causal_hypothesis": "The legend formatting code in seaborn/_core/scales.py fails to incorporate the multiplicative offset from ScalarFormatter when generating legend labels for large numeric ranges.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Exact matplotlib version and rcParam settings during failure",
+        "Whether the issue occurs with other formatter types",
+        "Detailed traceback or error logs",
+        "Behavior with other plot types beyond Dot and scatterplot",
+        "Testing results with the mentioned rcParams"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Scatter plot displays penguin bill measurements colored by species",
+        "Legend includes a size scale for 'body_mass_g'",
+        "The size scale labels are '3, 4, 5, 6'",
+        "Penguin body mass is typically 3000-6000 grams, making the labels orders of magnitude too small",
+        "Point sizes visually correspond to mass differences (green points are larger), indicating the scale mapping is correct but labels are wrong"
+      ],
+      "causal_hypothesis": "The legend label formatter is incorrectly truncating large numbers or applying a scale factor (like dividing by 1000) without updating the unit label or format.",
+      "confidence": 0.95,
+      "missing_info": [
+        "Source code for the plot generation",
+        "Raw data values for body mass",
+        "Library configuration for number formatting",
+        "Expected label format (e.g. '3000' vs '3k')"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "Legend labels for numeric data are incorrectly formatted",
+        "The issue involves scaling/large numbers (body mass data)",
+        "The problem is in legend generation/formatting"
+      ],
+      "text_only_observations": [
+        "Bug introduced in seaborn v0.12.1",
+        "Specific file/lines: seaborn/_core/scales.py lines 377-382",
+        "Involves ScalarFormatter with offset",
+        "Depends on matplotlib rcParams: axes.formatter.useoffset and axes.formatter.offset_threshold",
+        "Bug reproduces with seaborn.objects Plot and scatterplot"
+      ],
+      "image_only_observations": [
+        "Scatter plot of penguin bill measurements",
+        "Legend shows size scale labels '3, 4, 5, 6'",
+        "Actual body mass values are 3000-6000 grams",
+        "Point sizes visually correspond to mass differences",
+        "Green points are larger (correct mapping)"
+      ],
+      "contradictions": [
+        "Text agent mentions multiplicative offset missing, image agent suggests division by 1000 without unit update - these are actually complementary aspects of the same scaling issue"
+      ],
+      "causal_hypothesis": "The seaborn legend formatting code fails to properly handle ScalarFormatter's multiplicative offset when generating labels, causing large numbers (like 3000-6000) to be displayed with incorrectly scaled values (like 3-6) without the appropriate offset annotation.",
+      "confidence": 0.92,
+      "modal_weights": {
+        "text": 0.65,
+        "image": 0.35
+      },
+      "synthesis_narrative": "A seaborn scatter plot visualizing penguin data with point sizes mapped to body mass (3000-6000g) displayed legend labels as '3, 4, 5, 6' instead of the correct values. This occurred because version 0.12.1 introduced a bug in scales.py where the ScalarFormatter's multiplicative offset (1000x scaling) wasn't incorporated into legend labels, while the visual size mapping remained correct. The text agent identified the exact code location and version regression, while the image agent confirmed the visual symptom of values being divided by 1000 without proper unit annotation.",
+      "missing_info": [
+        "Exact matplotlib version and rcParam settings during failure",
+        "Whether the issue occurs with other formatter types",
+        "Detailed traceback or error logs",
+        "Behavior with other plot types",
+        "Source code for the specific plot generation",
+        "Expected label format preference"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-9591",
+    "repo": "sphinx-doc/sphinx",
+    "title": "Cross-references don't work in property's type annotations\n### Describe the bug\r\n\r\nA documented type",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Cross-references fail for documented types in property return type annotations",
+        "Example shows classes Point, Square, Rectangle with attributes and properties",
+        "Property 'end' in Square and Rectangle has return type annotation 'Point'",
+        "Expected cross-reference to Point class does not appear in generated docs",
+        "Issue reproduced via provided git repository and build steps",
+        "Sphinx version 4.1.2, Python 3.7-3.9, OS Windows 10/Ubuntu 18.04",
+        "Only extension used: sphinx.ext.autodoc",
+        "Generated documentation link provided for visual confirmation",
+        "Regular class attributes (start, width, height) may work but property return type does not"
+      ],
+      "causal_hypothesis": "Sphinx's autodoc extension fails to resolve type annotations in property return types for cross-referencing, likely due to missing or incorrect handling of property objects during annotation processing.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Exact internal Sphinx autodoc processing steps for properties",
+        "Whether other type annotations (e.g., class attributes) work correctly",
+        "Detailed error logs from Sphinx build",
+        "Whether the issue occurs with other Sphinx versions",
+        "Configuration of intersphinx or other cross-reference settings",
+        "Whether the issue is specific to properties or also affects other callables"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-10323",
+    "repo": "sphinx-doc/sphinx",
+    "title": "Use of literalinclude prepend results in incorrect indent formatting for code eamples\n### Describe t",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Bug title: 'Use of literalinclude prepend results in incorrect indent formatting for code eamples'",
+        "User reports that leading whitespace in the `:prepend:` option is removed, causing poor indentation in output.",
+        "Reproduction steps: Provided an RST file using `.. literalinclude::` with `:prepend:` containing leading spaces, `:start-at:`, `:end-at:`.",
+        "Example shows `:prepend:       </plugin>` (with 7 spaces) but output shows `<plugin>` with no leading spaces before it.",
+        "Expected behavior: Leading whitespace in `:prepend:` should be preserved to match indentation of included code.",
+        "Environment: Mac, Python 3.9.10, Sphinx 4.4.0, extensions: sphinx.ext.todo, sphinx.ext.extlinks.",
+        "Project: GeoServer documentation (GitHub repo provided).",
+        "User attempted workaround using `:dedent:` combined with `:prepend: _____</plugin>` (underscores for spaces) but got warning 'non-whitespace stripped by dedent'.",
+        "User suggests dedent should apply only to literalinclude content, not to prepend/append content.",
+        "Bug affects code example formatting in documentation."
+      ],
+      "causal_hypothesis": "Sphinx's literalinclude directive strips leading whitespace from the `prepend` (and likely `append`) option values before inserting them into the output, likely due to a whitespace normalization step in the directive's processing.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Actual Sphinx source code for literalinclude directive handling of prepend/append",
+        "Whether the same issue occurs with `append` option",
+        "Exact version of docutils being used",
+        "Whether there are any configuration settings affecting whitespace handling",
+        "Full traceback or debug logs from Sphinx build",
+        "Whether the issue is specific to XML language highlighting or general"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-22865",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: Colorbar with drawedges=True and extend='both' does not draw edges at extremities\n### Bug sum",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug title: Colorbar with drawedges=True and extend='both' does not draw edges at extremities",
+        "Symptom: Black lines (edges) at extremities of colorbar missing when extend='both'",
+        "Reproduction code provided using matplotlib.colorbar.ColorbarBase with custom colormap/norm",
+        "Custom colormap created via from_levels_and_colors with extend='both'",
+        "Colorbar orientation horizontal, drawedges=True",
+        "Matplotlib version: 3.5.1",
+        "Images referenced (actual vs expected) show missing black lines at ends of extended colorbar",
+        "Affected component: matplotlib.colorbar.ColorbarBase (or colorbar drawing logic)",
+        "No OS, backend, Python version, Jupyter version, or installation details provided"
+      ],
+      "causal_hypothesis": "The colorbar edge drawing logic likely excludes the extended regions (triangles) when extend='both' is set, either by miscalculating the edge positions or by intentionally not drawing edges on extended portions.",
+      "confidence": 0.85,
+      "missing_info": [
+        "actual runtime behavior beyond images",
+        "screenshots/visual evidence for other extend modes",
+        "exact matplotlib backend used",
+        "whether bug occurs with other colorbar creation methods (e.g., fig.colorbar)",
+        "operating system details",
+        "Python version",
+        "whether bug exists in other matplotlib versions",
+        "source code of ColorbarBase.drawedges method"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Triangular extensions present at both ends (0 and 9)",
+        "Vertical segment lines visible between integer ticks",
+        "Outer slanted edges of the triangular extensions lack black outlines",
+        "Top and bottom horizontal borders of the main colorbar body are missing"
+      ],
+      "causal_hypothesis": "The drawedges rendering logic fails to apply edge paths to the extension triangles when extend is set to 'both'.",
+      "confidence": 0.9,
+      "missing_info": [
+        "matplotlib version",
+        "backend renderer",
+        "code snippet used"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "Missing black edges at extremities of colorbar when extend='both'",
+        "Triangular extensions present at both ends",
+        "Outer slanted edges of triangular extensions lack black outlines"
+      ],
+      "text_only_observations": [
+        "Bug title and reproduction code provided",
+        "Matplotlib version: 3.5.1",
+        "Affected component: matplotlib.colorbar.ColorbarBase",
+        "Custom colormap created via from_levels_and_colors",
+        "Colorbar orientation horizontal",
+        "drawedges=True parameter set"
+      ],
+      "image_only_observations": [
+        "Vertical segment lines visible between integer ticks",
+        "Top and bottom horizontal borders of the main colorbar body are missing"
+      ],
+      "contradictions": [],
+      "causal_hypothesis": "The matplotlib.colorbar.ColorbarBase edge-drawing algorithm incorrectly excludes the extended triangular regions from edge path calculations when extend='both' is set, likely due to boundary coordinate miscalculations or intentional omission of extended portions.",
+      "confidence": 0.92,
+      "modal_weights": {
+        "text": 0.6,
+        "image": 0.4
+      },
+      "synthesis_narrative": "A matplotlib user created a horizontal colorbar with extend='both' and drawedges=True, expecting black outlines around the entire colorbar including the triangular extensions. The text agent identified the specific code conditions (ColorbarBase, custom colormap, matplotlib 3.5.1) while the image agent visually confirmed that edges were missing specifically on the slanted sides of the extensions and horizontal borders of the main body. Together they reveal a systematic rendering failure where the edge-drawing logic doesn't account for extended regions.",
+      "missing_info": [
+        "Exact matplotlib backend used",
+        "Whether bug occurs with other colorbar creation methods (e.g., fig.colorbar)",
+        "Source code of ColorbarBase.drawedges method",
+        "Whether bug exists in other matplotlib versions",
+        "Runtime behavior beyond static images",
+        "Screenshots for other extend modes"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "pydata__xarray-7233",
+    "repo": "pydata/xarray",
+    "title": "ds.Coarsen.construct demotes non-dimensional coordinates to variables\n### What happened?\n\n`ds.Coarse",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Bug title: ds.Coarsen.construct demotes non-dimensional coordinates to variables",
+        "Issue: After applying ds.coarsen(time=12).construct(time=(\"year\", \"month\")), the coordinate 'day' becomes a data variable (no longer listed under Coordinates in the output)",
+        "Expected behavior: All variables that were coordinates before coarsen.construct should remain coordinates after",
+        "Minimal example provided: xarray DataArray with coordinate 'day' (non-dimensional coordinate) on dimension 'time'",
+        "Input dataset ds shows 'day' as a coordinate (non-dimensional coordinate) under Coordinates section",
+        "Output dataset shows 'day' listed under Data variables, not under Coordinates",
+        "Environment: xarray main branch (development version)",
+        "No error messages or tracebacks; behavior is incorrect metadata handling",
+        "Reproduction steps are clear and copy-paste executable",
+        "Affected component: xarray's coarsen.construct method"
+      ],
+      "causal_hypothesis": "The coarsen.construct method fails to preserve the coordinate attribute of non-dimensional coordinates when reshaping dimensions, incorrectly moving them to data variables.",
+      "confidence": 0.9,
+      "missing_info": [
+        "Exact xarray version or commit hash beyond 'main'",
+        "Whether other coordinate types (e.g., multi-dimensional coordinates) are affected",
+        "Internal xarray code path for coarsen.construct",
+        "Any related issues or PRs in xarray repository",
+        "Behavior with other coarsening factors or dimension constructions"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-9698",
+    "repo": "sphinx-doc/sphinx",
+    "title": "An index entry with parens was registered for `py:method` directive with `:property:` option\n### Des",
+    "has_image": true,
+    "n_image_urls": 1,
+    "c1_text": {
+      "observations": [
+        "Bug title and description: index entry with parentheses incorrectly registered for py:method directive with :property: option",
+        "Expected behavior: index entry for property should not have parentheses",
+        "Reproduction steps: minimal RST snippet with py:method directive using :property: option and py:property directive",
+        "Screenshot shows index entries: 'Foo.bar()' (incorrect, has parentheses) and 'Foo.baz' (correct, no parentheses)",
+        "Environment: macOS, Python 3.9.6, Sphinx HEAD of 4.x branch",
+        "Affected component: Sphinx's Python domain index generation for py:method with :property: option",
+        "Referenced directives: py:method, py:property",
+        "Bug likely in Sphinx's handling of :property: option on py:method directive"
+      ],
+      "causal_hypothesis": "Sphinx's Python domain is incorrectly applying the 'method' index entry formatting (which adds parentheses) to a py:method directive when the :property: option is set, instead of treating it as a property entry without parentheses.",
+      "confidence": 0.85,
+      "missing_info": [
+        "actual runtime behavior beyond screenshot",
+        "exact Sphinx commit/version from HEAD of 4.x",
+        "whether other index entry types are affected",
+        "whether this occurs with other directive options",
+        "full traceback or debug logs",
+        "configuration settings that might influence indexing",
+        "whether the issue exists in other Sphinx versions"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Index entry 'bar()' includes parentheses indicating a method signature",
+        "Index entry 'baz' lacks parentheses, appearing as a standard attribute or property",
+        "Both entries are suffixed with the text '(Foo property)'",
+        "The page layout is a standard documentation Index sorted alphabetically"
+      ],
+      "causal_hypothesis": "The py:method directive fails to strip parentheses from the name in the index when the :property: option is used.",
+      "confidence": 0.9,
+      "missing_info": [
+        "RST source code defining 'bar' and 'baz'",
+        "Sphinx version and configuration settings",
+        "Definition type used for the 'baz' entry"
+      ],
+      "source": "image"
+    },
+    "c3_tns": null,
+    "error": "API error 429: {\"code\":50609,\"message\":\"Request was rejected due to rate limiting. Details: System is too busy now.\",\"data\":null}"
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-21568",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: Datetime axis with usetex is unclear\n### Bug summary\n\nThe spacing for a datetime axis when us",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug title indicates datetime axis with usetex is unclear",
+        "Spacing issue when using usetex=True in matplotlib version 3.4 compared to 3.3",
+        "Reproduction code sets text.usetex = True, uses pd.date_range for datetime axis, random data, and saves figure with version name",
+        "Images referenced: 3.3.4.png and 3.4.3.png (URLs provided but not visible content)",
+        "Expected outcome: spacing from version 3.3 in tex format",
+        "Operating system: Windows",
+        "Matplotlib version: 3.4.3 (compared to 3.3.4)",
+        "Installation via conda, conda-forge channel",
+        "Bug likely involves text rendering/positioning with LaTeX and datetime tick labels",
+        "No backend, Python version, Jupyter version, or other library details provided"
+      ],
+      "causal_hypothesis": "A change in matplotlib 3.4's text layout or bounding box calculation when usetex=True interacts with datetime tick labels causes incorrect spacing compared to 3.3.",
+      "confidence": 0.7,
+      "missing_info": [
+        "Actual visual appearance of the images (only URLs given)",
+        "Exact nature of 'unclear spacing' (overlap, crowding, offset, alignment)",
+        "Backend used for rendering",
+        "Python version and other library versions",
+        "Whether issue occurs with other date ranges or tick densities",
+        "Presence of any error messages or warnings in console",
+        "Configuration of LaTeX installation and packages"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "X-axis labels display datetime values like '01 00:00' with significant spacing between date and time",
+        "Tick labels appear crowded and potentially misaligned along the bottom axis",
+        "Y-axis ranges from 0.0 to 1.0 with standard 0.2 intervals",
+        "Plot line shows high-frequency fluctuation typical of noise or random data"
+      ],
+      "causal_hypothesis": "The usetex configuration is interfering with the datetime formatter's spacing or layout calculations.",
+      "confidence": 0.85,
+      "missing_info": [
+        "matplotlib rcParams settings",
+        "source code for plot generation",
+        "intended datetime label format"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "Issue involves matplotlib's usetex=True with datetime axis",
+        "Spacing problem with tick labels when using LaTeX rendering",
+        "Comparison between matplotlib versions 3.3 and 3.4",
+        "Problem occurs with datetime tick labels"
+      ],
+      "text_only_observations": [
+        "Bug title specifically mentions 'datetime axis with usetex is unclear'",
+        "Operating system is Windows",
+        "Installation via conda/conda-forge channel",
+        "Reproduction code uses pd.date_range and random data",
+        "Expected outcome is spacing from version 3.3 in tex format",
+        "No backend, Python version, or Jupyter details provided"
+      ],
+      "image_only_observations": [
+        "X-axis labels show format '01 00:00' with significant spacing between date and time",
+        "Tick labels appear crowded along bottom axis",
+        "Y-axis ranges 0.0-1.0 with 0.2 intervals",
+        "Plot line shows high-frequency fluctuation typical of random data"
+      ],
+      "contradictions": [
+        "Text agent mentions 'unclear spacing' but doesn't specify crowding; image agent observes crowding specifically",
+        "Text agent references two image files but cannot see them; image agent sees plot but lacks version context"
+      ],
+      "causal_hypothesis": "A regression in matplotlib 3.4's text layout engine when usetex=True interacts with datetime tick formatters causes improper bounding box calculations, leading to crowded and misaligned axis labels compared to version 3.3.",
+      "confidence": 0.8,
+      "modal_weights": {
+        "text": 0.45,
+        "image": 0.55
+      },
+      "synthesis_narrative": "A user on Windows with matplotlib 3.4.3 (conda-forge) created a plot with datetime x-axis using usetex=True, expecting spacing identical to version 3.3.4. The resulting visualization shows crowded datetime labels (e.g., '01 00:00') with improper spacing between date and time components, confirming a regression in LaTeX text rendering specifically affecting datetime tick layout.",
+      "missing_info": [
+        "Exact matplotlib code change causing regression",
+        "Whether issue affects other tick formatters or only datetime",
+        "LaTeX installation configuration and packages",
+        "Backend used for rendering",
+        "Python and pandas versions",
+        "Console warnings or errors during rendering"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "sphinx-doc__sphinx-9711",
+    "repo": "sphinx-doc/sphinx",
+    "title": "needs_extensions checks versions using strings\n### Describe the bug\r\n\r\nThe `needs_extensions` check ",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": null,
+    "c2_image": null,
+    "c3_tns": null,
+    "error": "API error 429: {\"code\":50609,\"message\":\"Request was rejected due to rate limiting. Details: System is too busy now.\",\"data\":null}"
+  },
+  {
+    "instance_id": "django__django-13410",
+    "repo": "django/django",
+    "title": "Bug in posix implementation of django/core/files/locks.py\nDescription\n\t\nThe posix version of locks (",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Bug is in posix implementation of django/core/files/locks.py",
+        "Code uses import fcntl",
+        "Current code attempts to return True on success, False on failure, but always returns False",
+        "Reason: cpython fcntl.flock returns None on success, raises OSError on failure",
+        "Non-blocking locks (locks.LOCKS_NB) require a valid return value to know if lock acquisition succeeded",
+        "Patch provided: wrap fcntl.flock in try-except, return True on success (no exception), return False on OSError",
+        "Affects both lock() and unlock() functions",
+        "File referenced: django/core/files/locks.py lines around 107",
+        "Environment: POSIX systems with fcntl support"
+      ],
+      "causal_hypothesis": "The code incorrectly checks if fcntl.flock's return value equals 0, but it returns None on success, causing the comparison to always be False.",
+      "confidence": 0.95,
+      "missing_info": [
+        "Exact Django version (only git commit hash index shown)",
+        "Full error traceback or logs",
+        "Specific OS and Python version where observed",
+        "Test cases or reproduction script",
+        "Whether the bug affects any other lock flags besides LOCKS_NB",
+        "Any existing tests that might have missed this"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-22871",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: ConciseDateFormatter not showing year anywhere when plotting <12 months\n### Bug summary\n\nWhen",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Bug title: ConciseDateFormatter not showing year anywhere when plotting <12 months",
+        "Bug summary: When plotting <1 year and January is not included in the x-axis, the year doesn't show up anywhere.",
+        "Bug is different from previously fixed bug #21670 (fixed in #21785).",
+        "Reproduction code provided: uses matplotlib.dates.ConciseDateFormatter with AutoDateLocator, plotting 200 days starting from Feb 14, 2021.",
+        "Actual outcome: year \"2021\" missing from offset (right of x-axis) in screenshot.",
+        "Expected outcome: year \"2021\" should appear in the offset.",
+        "Environment: Windows 10, Spyder IDE v5.1.5.",
+        "Matplotlib version: 3.4.3.",
+        "Backend: Qt5Agg.",
+        "Python version: 3.9.1.",
+        "Installation: conda.",
+        "Referenced files/lines: none explicitly, but bug involves ConciseDateFormatter and AutoDateLocator in matplotlib.dates."
+      ],
+      "causal_hypothesis": "ConciseDateFormatter's offset formatting logic likely omits the year when the plotted date range is less than a full year and does not include January, because it incorrectly determines that the year is already indicated elsewhere (e.g., in month labels).",
+      "confidence": 0.85,
+      "missing_info": [
+        "actual runtime behavior beyond screenshot",
+        "exact logic inside ConciseDateFormatter._format_offset function",
+        "whether the bug occurs with other date ranges or only with this specific example",
+        "whether the bug is present in other matplotlib versions",
+        "any console errors or warnings"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "X-axis labels show only month abbreviations (Mar, Apr, etc.)",
+        "No year is visible anywhere on the x-axis",
+        "The plotted time range spans March to September (less than 12 months)",
+        "Y-axis is labeled Temperature (°C) with negative values"
+      ],
+      "causal_hypothesis": "The ConciseDateFormatter logic suppresses year display for time ranges shorter than one year.",
+      "confidence": 0.95,
+      "missing_info": [
+        "Matplotlib version",
+        "Code snippet initializing the formatter",
+        "Expected behavior for year display"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "Time range plotted is less than 12 months",
+        "No year is visible on the x-axis",
+        "Bug involves ConciseDateFormatter"
+      ],
+      "text_only_observations": [
+        "Bug title and summary",
+        "Reproduction code specifics (200 days starting Feb 14, 2021)",
+        "Matplotlib version 3.4.3",
+        "Environment details (Windows 10, Spyder)",
+        "Reference to previous bug #21670",
+        "Expected outcome: year should appear in offset"
+      ],
+      "image_only_observations": [
+        "X-axis shows month abbreviations (Mar, Apr, etc.)",
+        "Visible time range spans March to September",
+        "Y-axis labeled Temperature (°C) with negative values"
+      ],
+      "contradictions": [
+        "Text agent specifies start date as Feb 14, 2021 while image agent observes March-September range (consistent if Feb data point not visible in cropped plot)"
+      ],
+      "causal_hypothesis": "ConciseDateFormatter's offset formatting logic incorrectly suppresses year display when plotting date ranges shorter than one year that don't include January, failing to provide year context in the offset position.",
+      "confidence": 0.92,
+      "modal_weights": {
+        "text": 0.65,
+        "image": 0.35
+      },
+      "synthesis_narrative": "A user plotted 200 days of temperature data starting February 14, 2021 using ConciseDateFormatter with AutoDateLocator. The resulting visualization showed month abbreviations from March to September on the x-axis but completely omitted the year 2021 from the offset position, violating the expectation that temporal context should be preserved even for sub-year ranges. This occurred because the formatter's logic incorrectly determined the year was redundant when January wasn't in the visible range.",
+      "missing_info": [
+        "Exact logic inside ConciseDateFormatter._format_offset function",
+        "Whether bug occurs with other date ranges beyond the specific example",
+        "Presence of the bug in other matplotlib versions",
+        "Any console errors or warnings during execution",
+        "Full code snippet initializing the formatter"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "astropy__astropy-13398",
+    "repo": "astropy/astropy",
+    "title": "A direct approach to ITRS to Observed transformations that stays within the ITRS.\n<!-- This comments",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Title and initial description are identical and vague, appear to be placeholder text.",
+        "User describes recurring issues with ITRS to AltAz transform accuracy for satellite/airplane observation.",
+        "Problem involves geocentric vs topocentric aberration.",
+        "User references existing solution in `test_intermediate_transformations.test_straight_overhead()` as nonintuitive.",
+        "User proposes new direct approach staying entirely within ITRS, converting between ITRS, AltAz, HADec.",
+        "Key feature: treats ITRS position as time invariant, adopts output frame's `obstime` (or None default).",
+        "Motivation: current ITRS->ITRS transform refers to SSB rather than rotating ITRF, causing large positional errors when times differ.",
+        "User has working prototype code (partial Python snippet shown).",
+        "Code defines transformation matrices using rotation matrices, handles AltAz (left-handed) and HADec frames.",
+        "User mentions refraction not yet added but can be included.",
+        "This appears to be a feature proposal/discussion rather than a bug report.",
+        "Referenced issue #13319 (likely a previous user report).",
+        "User is asking for community feedback before submitting pull request."
+      ],
+      "causal_hypothesis": "The current ITRS to AltAz/HADec transformation uses an indirect approach that introduces significant positional errors when transforming between different observation times, because ITRS positions are incorrectly referenced to the Solar System Barycenter (SSB) instead of the rotating Earth-fixed ITRF.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Actual error messages or numerical examples showing inaccuracy",
+        "Specific user reports or data demonstrating the problem",
+        "Complete transformation code implementation",
+        "Test results comparing old vs new approach",
+        "Impact analysis on existing codebase",
+        "Performance implications of new approach",
+        "Whether refraction is required for correct behavior",
+        "Edge cases and validation against known benchmarks"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "instance_id": "matplotlib__matplotlib-25287",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: offsetText is colored based on tick.color instead of tick.labelcolor\n### Bug summary\n\nIn vers",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug in matplotlib version 3.6.3",
+        "Setting ytick.labelcolor or xtick.labelcolor via rcParams does not affect exponent label (offsetText) color",
+        "Exponent label incorrectly uses tick.color instead of tick.labelcolor",
+        "Reproduction code provided: uses plt.rcParams.update({'ytick.labelcolor': 'red'}) and plots large numbers to trigger offsetText",
+        "Images referenced but not shown: 'wrong_color' and 'correct_color' from GitHub user content",
+        "Patch provided modifying axis.py lines 2203 and 2456",
+        "Patch logic: use tick.color only if tick.labelcolor == 'inherit', else use tick.labelcolor",
+        "Affected components: XAxis and YAxis offsetText color assignment",
+        "No OS, backend, Python version, Jupyter version, or installation details provided"
+      ],
+      "causal_hypothesis": "The offsetText (exponent label) is hardcoded to use rcParams['xtick.color']/['ytick.color'] instead of checking rcParams['xtick.labelcolor']/['ytick.labelcolor'] for non-inherit values.",
+      "confidence": 0.95,
+      "missing_info": [
+        "actual runtime behavior (only images referenced)",
+        "screenshots/visual evidence (links not inspected)",
+        "exact configuration values beyond rcParams snippet",
+        "operating system",
+        "matplotlib backend",
+        "Python version",
+        "Jupyter version",
+        "installation method",
+        "whether bug occurs in other matplotlib versions",
+        "any edge cases or side effects of the patch"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "image download/analysis failed: HTTPSConnectionPool(host='api.siliconflow.cn', port=443): Read timed out. (read timeout=120)"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  }
+]

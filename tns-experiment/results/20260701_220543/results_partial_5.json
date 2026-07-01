@@ -1,0 +1,287 @@
+[
+  {
+    "instance_id": "matplotlib__matplotlib-25287",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: offsetText is colored based on tick.color instead of tick.labelcolor\n### Bug summary\n\nIn vers",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug title: offsetText is colored based on tick.color instead of tick.labelcolor",
+        "Symptom: Setting ytick.labelcolor / xtick.labelcolor in styles / rcParams does not change the color of the exponent label (offsetText).",
+        "The exponent label incorrectly uses xtick.color / ytick.color instead of the labelcolor.",
+        "Reproduction code provided: uses plt.rcParams.update({'ytick.labelcolor': 'red'}) and plots large numbers that trigger scientific notation.",
+        "Images referenced: wrong_color and correct_color show visual difference.",
+        "Patch provided: modifies axis.py lines 2203 and 2456 to conditionally use labelcolor unless it is 'inherit'.",
+        "Affected components: matplotlib.axis (XAxis and YAxis offset_text initialization).",
+        "Version: Matplotlib 3.6.3.",
+        "Files/lines: axis.py lines around 2203 and 2456 (offset text color assignment)."
+      ],
+      "causal_hypothesis": "The offsetText (exponent label) is hardcoded to use tick.color instead of checking if tick.labelcolor is set to a non-inherit value.",
+      "confidence": 0.95,
+      "missing_info": [
+        "actual runtime behavior beyond provided images",
+        "screenshots/visual evidence for other backends or configurations",
+        "exact configuration values of tick.color and tick.labelcolor in default rcParams",
+        "whether the bug occurs in all matplotlib backends",
+        "operating system, Python version, backend details",
+        "any edge cases where labelcolor is set via other methods (e.g., Axes.tick_params)"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Y-axis tick labels (1.0100-1.0300) are colored red",
+        "Y-axis offset text ('1e9') is black",
+        "Y-axis tick marks are black"
+      ],
+      "causal_hypothesis": "The offset text color property is incorrectly inheriting the tick mark color instead of the tick label color.",
+      "confidence": 0.95,
+      "missing_info": [
+        "Matplotlib version number",
+        "Code snippet used to generate the plot"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "The offset text (exponent label) color is incorrect",
+        "The offset text appears to be using the wrong color property (tick.color instead of tick.labelcolor)",
+        "Y-axis tick labels are colored red while offset text is black"
+      ],
+      "text_only_observations": [
+        "Bug title: offsetText is colored based on tick.color instead of tick.labelcolor",
+        "Reproduction code provided using plt.rcParams.update({'ytick.labelcolor': 'red'})",
+        "Patch modifies axis.py lines 2203 and 2456",
+        "Affected components: matplotlib.axis (XAxis and YAxis offset_text initialization)",
+        "Version: Matplotlib 3.6.3",
+        "Files/lines: axis.py lines around 2203 and 2456"
+      ],
+      "image_only_observations": [
+        "Y-axis tick labels (1.0100-1.0300) are colored red",
+        "Y-axis offset text ('1e9') is black",
+        "Y-axis tick marks are black"
+      ],
+      "contradictions": [],
+      "causal_hypothesis": "The offsetText (exponent label) in matplotlib's axis module is hardcoded to inherit tick.color property instead of conditionally checking tick.labelcolor, causing it to ignore user-specified labelcolor settings in rcParams or styles.",
+      "confidence": 0.97,
+      "modal_weights": {
+        "text": 0.6,
+        "image": 0.4
+      },
+      "synthesis_narrative": "The text agent identified a specific bug in matplotlib's axis.py where offsetText incorrectly uses tick.color instead of tick.labelcolor, providing code evidence and patch details. The image agent visually confirmed this discrepancy by showing red tick labels alongside black offset text, demonstrating the real-world manifestation of the bug. Together, they provide both the underlying code defect and its visual consequence in plotted output.",
+      "missing_info": [
+        "Whether the bug occurs in all matplotlib backends",
+        "Operating system, Python version, and backend details",
+        "Exact configuration values of tick.color and tick.labelcolor in default rcParams",
+        "Edge cases where labelcolor is set via other methods (e.g., Axes.tick_params)",
+        "Runtime behavior beyond the provided images"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "scikit-learn__scikit-learn-26194",
+    "repo": "scikit-learn/scikit-learn",
+    "title": "Thresholds can exceed 1 in `roc_curve` while providing probability estimate\nWhile working on https:/",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": null,
+    "c2_image": null,
+    "c3_tns": null,
+    "error": "API error 429: {\"code\":50609,\"message\":\"Request was rejected due to rate limiting. Details: System is too busy now.\",\"data\":null}"
+  },
+  {
+    "instance_id": "sympy__sympy-15976",
+    "repo": "sympy/sympy",
+    "title": "A symbol ending with a number is made invisible when printing with MathML\nA variable with a number, ",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Symbols ending with a number (e.g., x2) become invisible when printed as MathML with presentation printer",
+        "Example: x2*z + x2**3 renders invisibly in Safari",
+        "Symbol without trailing number (e.g., x) renders correctly",
+        "Bug reproduced with SymPy 1.3, Python 3.7, macOS 10.14.2",
+        "Output viewed in Safari 12.0.2",
+        "Code uses sympy.printing.mathml.mathml with printer='presentation'",
+        "HTML file generated includes MathML output",
+        "Two screenshots provided showing invisible vs visible rendering"
+      ],
+      "causal_hypothesis": "The MathML presentation printer likely generates invalid markup for symbol names ending with digits, possibly due to incorrect handling of XML/HTML numeric character references or MathML token element content.",
+      "confidence": 0.8,
+      "missing_info": [
+        "Exact MathML markup generated for x2 vs x",
+        "Browser console errors or warnings",
+        "Whether other symbols with trailing digits (e.g., y3, a10) exhibit same issue",
+        "Behavior in other browsers or MathML renderers",
+        "SymPy source code for mathml presentation printer",
+        "Whether content MathML printer is affected",
+        "If the issue is in symbol serialization or MathML element construction"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Expression displays empty parentheses raised to the power of 3",
+        "The term '+ z' is visible to the right",
+        "The base of the exponent appears to have missing content"
+      ],
+      "causal_hypothesis": "The MathML renderer is incorrectly hiding variable names that end with a digit, leaving empty parentheses.",
+      "confidence": 0.9,
+      "missing_info": [
+        "Original variable name",
+        "Full MathML source code",
+        "Browser or renderer version"
+      ],
+      "source": "image"
+    },
+    "c3_tns": null,
+    "error": "API error 429: {\"code\":50609,\"message\":\"Request was rejected due to rate limiting. Details: System is too busy now.\",\"data\":null}"
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-14623",
+    "repo": "matplotlib/matplotlib",
+    "title": "Inverting an axis using its limits does not work for log scale\n### Bug report\r\n\r\n**Bug summary**\r\nSt",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug introduced in matplotlib 3.1.0",
+        "Inverting axis via set_ylim(high, low) works for linear scale but fails for log scale",
+        "Reproduction code provided: loops over 'linear' and 'log' scales, sets ylim with reversed order",
+        "Visual evidence: two screenshots show linear axis inverted, log axis not inverted",
+        "Environment: Linux and MacOS, matplotlib 3.1.0, Python 3.7.3, conda install",
+        "Affected component: axis scaling logic, likely in log scale transformation or limit setting",
+        "Error is silent; no exception, just incorrect visual behavior"
+      ],
+      "causal_hypothesis": "The log scale axis transformation or limit-setting logic in matplotlib 3.1.0 incorrectly ignores or reorders the provided limits when the first value is greater than the second.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Internal matplotlib code changes between 3.0.x and 3.1.0 related to axis limits or log scaling",
+        "Whether the issue also affects other scale types (symlog, logit)",
+        "Exact line of code where limit ordering is handled for log scale",
+        "Stack trace or debug output from matplotlib internals",
+        "User's conda environment details (other package versions)"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "Y-axis tick labels show linear increments (0.2, 0.4, 0.6...)",
+        "Y-axis physical spacing is logarithmic (ticks get closer together as values increase)",
+        "Scientific notation offset '1e5' is displayed at the top, typical of linear scalar formatting",
+        "Y-axis is inverted with smaller values at the top and larger at the bottom"
+      ],
+      "causal_hypothesis": "Inverting a logarithmic axis by setting limits causes the ticker to default to linear formatting (ScalarFormatter) instead of logarithmic formatting.",
+      "confidence": 0.9,
+      "missing_info": [
+        "source code used to set axis limits and scale",
+        "matplotlib version number",
+        "expected tick label format"
+      ],
+      "source": "image"
+    },
+    "c3_tns": null,
+    "error": "API error 429: {\"code\":50609,\"message\":\"Request was rejected due to rate limiting. Details: System is too busy now.\",\"data\":null}"
+  },
+  {
+    "instance_id": "mwaskom__seaborn-3187",
+    "repo": "mwaskom/seaborn",
+    "title": "Wrong legend values of large ranges\nAs of 0.12.1, legends describing large numbers that were created",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Bug title: 'Wrong legend values of large ranges'",
+        "Version: As of 0.12.1",
+        "Component: Legends describing large numbers created using `ScalarFormatter` with an offset",
+        "Symptom: Legends are formatted without their multiplicative offset value",
+        "Example: Plot with variable 'body_mass_mg' in order of 1E6 shows wrong legend values",
+        "Reproduction steps: Provided code using seaborn.objects.Plot with pointsize='body_mass_mg'",
+        "Also reproduces with seaborn.scatterplot",
+        "Referenced file: seaborn/_core/scales.py lines 377-382",
+        "Hypothesized root cause: Not using the offset value of the ScalarFormatter when generating legend labels",
+        "Mentioned rcParams: axes.formatter.useoffset, axes.formatter.offset_threshold may affect behavior",
+        "User suggests offset value can be safely retrieved from formatters and used for legend title/labels"
+      ],
+      "causal_hypothesis": "The legend generation code in seaborn's scales.py fails to incorporate the multiplicative offset value from ScalarFormatter when formatting large numbers, causing legends to display raw values instead of offset-scaled values.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Exact matplotlib version and configuration",
+        "Whether the issue occurs with all formatters or only ScalarFormatter",
+        "Specific rcParam settings in user's environment",
+        "Whether offset is missing from legend title, labels, or both",
+        "Behavior with other seaborn plot types beyond Dot and scatterplot",
+        "Error logs or stack traces",
+        "Testing results with the mentioned rcParams"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "observations": [
+        "The legend for 'body_mass_g' displays values 3, 4, 5, 6",
+        "Penguin body mass is typically 3000-6000g, indicating the labels are off by a factor of 1000",
+        "The scatter points vary in size, implying the underlying data has a large range",
+        "The 'species' legend correctly displays categorical color mapping"
+      ],
+      "causal_hypothesis": "The legend formatter is automatically scaling down large numbers (likely dividing by 1000) but failing to append a unit suffix or display the full integer values.",
+      "confidence": 0.95,
+      "missing_info": [
+        "Raw data values for the body_mass_g column",
+        "The specific scale configuration code used to generate the plot"
+      ],
+      "source": "image"
+    },
+    "c3_tns": {
+      "shared_observations": [
+        "Legend values for large numeric ranges are incorrectly displayed",
+        "The issue involves scaling of large numbers (likely by a factor of 1000)",
+        "The problem manifests in seaborn legends for continuous size mappings"
+      ],
+      "text_only_observations": [
+        "Bug title: 'Wrong legend values of large ranges'",
+        "Version: As of 0.12.1",
+        "Component: Legends describing large numbers created using `ScalarFormatter` with an offset",
+        "Referenced file: seaborn/_core/scales.py lines 377-382",
+        "Hypothesized root cause: Not using the offset value of the ScalarFormatter",
+        "Mentioned rcParams: axes.formatter.useoffset, axes.formatter.offset_threshold",
+        "Reproduces with seaborn.objects.Plot and seaborn.scatterplot"
+      ],
+      "image_only_observations": [
+        "Legend displays values 3, 4, 5, 6 for 'body_mass_g'",
+        "Penguin body mass is typically 3000-6000g",
+        "Scatter points vary in size appropriately",
+        "The 'species' legend (categorical) displays correctly"
+      ],
+      "contradictions": [
+        "Text agent suggests offset is missing entirely, while image agent shows offset is applied but unit suffix is missing (values are divided by 1000 but 'g' remains)"
+      ],
+      "causal_hypothesis": "Seaborn's legend generation extracts formatted tick labels from ScalarFormatter but fails to incorporate the multiplicative offset value when creating legend labels, causing divided values to appear without proper scaling notation.",
+      "confidence": 0.92,
+      "modal_weights": {
+        "text": 0.65,
+        "image": 0.35
+      },
+      "synthesis_narrative": "When seaborn creates a size-based legend for large numeric ranges (like penguin body mass in grams), it uses matplotlib's ScalarFormatter with offset notation to handle scale. The image shows legend values of 3-6g instead of 3000-6000g, confirming the text agent's hypothesis: the formatter divides values by 1000 but the legend fails to incorporate the offset multiplier (1e3) in its labels. Both modalities agree this is a formatting failure in seaborn's scale processing, not a data transformation error.",
+      "missing_info": [
+        "Exact matplotlib version and rcParam configuration",
+        "Whether offset is missing from legend title, labels, or both",
+        "Raw data values for the body_mass_g column in the example plot",
+        "Specific scale configuration code used to generate the plot",
+        "Testing results with the mentioned rcParams"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  }
+]

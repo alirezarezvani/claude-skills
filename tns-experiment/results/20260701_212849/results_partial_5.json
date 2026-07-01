@@ -1,0 +1,292 @@
+[
+  {
+    "instance_id": "matplotlib__matplotlib-25287",
+    "repo": "matplotlib/matplotlib",
+    "title": "[Bug]: offsetText is colored based on tick.color instead of tick.labelcolor\n### Bug summary\n\nIn vers",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": null,
+    "c2_image": null,
+    "c3_tns": null,
+    "error": "API error 429: {\"code\":50609,\"message\":\"Request was rejected due to rate limiting. Details: System is too busy now.\",\"data\":null}"
+  },
+  {
+    "instance_id": "scikit-learn__scikit-learn-26194",
+    "repo": "scikit-learn/scikit-learn",
+    "title": "Thresholds can exceed 1 in `roc_curve` while providing probability estimate\nWhile working on https:/",
+    "has_image": false,
+    "n_image_urls": 0,
+    "c1_text": {
+      "observations": [
+        "Bug title: 'Thresholds can exceed 1 in `roc_curve` while providing probability estimate'",
+        "Found while working on PR #26120",
+        "Non-regression test provided: asserts thresholds are <=1 or >=0 when y_score is random uniform (0-1)",
+        "Root cause location: sklearn/metrics/_ranking.py line 1086",
+        "Cause: '+ 1' rule to add a point for fpr=0 and tpr=0",
+        "Issue: '+ 1' rule doesn't make sense when y_score is a probability estimate (should be in [0,1])",
+        "Potential workaround: check thresholds.max() <= 1 and clip thresholds",
+        "Affected component: sklearn.metrics.roc_curve",
+        "Test file suggestion: sklearn/metrics/tests/test_ranking.py"
+      ],
+      "causal_hypothesis": "The `roc_curve` function adds 1 to thresholds to include a (0,0) point, but when y_score contains probability estimates (range [0,1]), this addition can push thresholds above 1.",
+      "confidence": 0.9,
+      "missing_info": [
+        "Exact behavior of the '+ 1' rule in the source code context",
+        "Whether y_score is guaranteed to be a probability estimate in all uses",
+        "Whether other edge cases exist (e.g., y_score values already at 1)",
+        "Historical reason for the '+ 1' rule",
+        "Whether clipping is the accepted fix or if a different adjustment is needed"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "skipped": true,
+      "reason": "no images in issue"
+    },
+    "c3_tns": {
+      "skipped": true,
+      "reason": "C1 or C2 unavailable — need both modalities for TNS"
+    },
+    "error": null
+  },
+  {
+    "instance_id": "sympy__sympy-15976",
+    "repo": "sympy/sympy",
+    "title": "A symbol ending with a number is made invisible when printing with MathML\nA variable with a number, ",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Symbols ending with a number (e.g., x2) become invisible when printed as MathML (presentation format).",
+        "Example: expression x2*z + x2**3 renders invisibly in Safari.",
+        "Symbols without trailing numbers (e.g., x) render correctly.",
+        "Bug demonstrated with SymPy 1.3, Python 3.7, macOS 10.14.2, Safari 12.0.2.",
+        "Code snippet uses sympy.printing.mathml.mathml with printer='presentation'.",
+        "Output saved to HTML file and viewed in browser; screenshot shows missing x2.",
+        "Reproduction steps are clear: create symbol ending with digit, generate MathML, view in browser."
+      ],
+      "causal_hypothesis": "The MathML presentation printer likely generates an invalid element (e.g., <mi> tag with incorrect content or attributes) for symbols ending with digits, causing browsers to not render them.",
+      "confidence": 0.8,
+      "missing_info": [
+        "Exact MathML output generated for x2 vs x",
+        "Browser console errors or warnings",
+        "Whether the issue occurs in browsers other than Safari",
+        "SymPy source code for mathml printer handling of symbol names with digits",
+        "If the issue is specific to presentation MathML or also affects content MathML"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "source": "image",
+      "observations": [
+        ""
+      ],
+      "causal_hypothesis": "",
+      "confidence": 0.0,
+      "missing_info": [
+        "JSON parse failed — see raw observations"
+      ]
+    },
+    "c3_tns": {
+      "shared_observations": [],
+      "text_only_observations": [
+        "Symbols ending with a number (e.g., x2) become invisible when printed as MathML (presentation format).",
+        "Example: expression x2*z + x2**3 renders invisibly in Safari.",
+        "Symbols without trailing numbers (e.g., x) render correctly.",
+        "Bug demonstrated with SymPy 1.3, Python 3.7, macOS 10.14.2, Safari 12.0.2.",
+        "Code snippet uses sympy.printing.mathml.mathml with printer='presentation'.",
+        "Output saved to HTML file and viewed in browser; screenshot shows missing x2.",
+        "Reproduction steps are clear: create symbol ending with digit, generate MathML, view in browser."
+      ],
+      "image_only_observations": [
+        "JSON parse failed — see raw observations"
+      ],
+      "contradictions": [
+        "The image agent provided no usable observations or hypothesis, while the text agent provided detailed technical observations and a hypothesis."
+      ],
+      "causal_hypothesis": "The SymPy MathML presentation printer generates invalid or malformed markup (likely in the <mi> element structure or attributes) for symbol names ending with digits, causing Safari's MathML renderer to fail silently.",
+      "confidence": 0.65,
+      "modal_weights": {
+        "text": 0.95,
+        "image": 0.05
+      },
+      "synthesis_narrative": "The text agent reported a reproducible bug where SymPy-generated MathML for symbols ending with digits (like x2) renders invisibly in Safari, while the image agent's data was corrupted and provided no visual confirmation. Despite the missing visual evidence, the text agent's clear reproduction steps and technical details strongly point to a printer-specific markup generation issue. The corrupted image data prevents visual validation but doesn't contradict the textual evidence.",
+      "missing_info": [
+        "Exact MathML output generated for x2 vs x",
+        "Browser console errors or warnings",
+        "Whether the issue occurs in browsers other than Safari",
+        "SymPy source code for mathml printer handling of symbol names with digits",
+        "If the issue is specific to presentation MathML or also affects content MathML",
+        "Any visual evidence from the screenshot referenced by the text agent"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "matplotlib__matplotlib-14623",
+    "repo": "matplotlib/matplotlib",
+    "title": "Inverting an axis using its limits does not work for log scale\n### Bug report\r\n\r\n**Bug summary**\r\nSt",
+    "has_image": true,
+    "n_image_urls": 4,
+    "c1_text": {
+      "observations": [
+        "Bug introduced in matplotlib 3.1.0",
+        "Inverting axis by setting limits with higher value first (ax.set_ylim(y.max(), y.min())) works for linear scale but not for log scale",
+        "Code reproduction provided with clear loop over 'linear' and 'log' scales",
+        "Visual evidence (images) shows linear axis inverted, log axis not inverted",
+        "Affected component: axis scaling/inversion logic, specifically for log scale",
+        "Environment: Linux and MacOS, Python 3.7.3, matplotlib 3.1.0, installed via conda",
+        "Bug summary indicates regression from earlier version"
+      ],
+      "causal_hypothesis": "The axis inversion logic in matplotlib 3.1.0 does not correctly handle the case where limits are set in descending order for a log-scale axis, likely due to a missing or incorrect transformation of the limit values before applying the log scale.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Exact internal matplotlib code changes in 3.1.0 related to axis limits or log scaling",
+        "Whether the issue occurs with other scale types (symlog, logit)",
+        "Any error messages or warnings in the console",
+        "Behavior in matplotlib versions prior to 3.1.0",
+        "Whether the issue is specific to y-axis or also affects x-axis inversion",
+        "Detailed stack trace or internal state of the axis object during limit setting"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "source": "image",
+      "observations": [
+        ""
+      ],
+      "causal_hypothesis": "",
+      "confidence": 0.0,
+      "missing_info": [
+        "JSON parse failed — see raw observations"
+      ]
+    },
+    "c3_tns": {
+      "shared_observations": [],
+      "text_only_observations": [
+        "Bug introduced in matplotlib 3.1.0",
+        "Inverting axis by setting limits with higher value first (ax.set_ylim(y.max(), y.min())) works for linear scale but not for log scale",
+        "Code reproduction provided with clear loop over 'linear' and 'log' scales",
+        "Visual evidence (images) shows linear axis inverted, log axis not inverted",
+        "Affected component: axis scaling/inversion logic, specifically for log scale",
+        "Environment: Linux and MacOS, Python 3.7.3, matplotlib 3.1.0, installed via conda",
+        "Bug summary indicates regression from earlier version"
+      ],
+      "image_only_observations": [
+        "JSON parse failed — see raw observations"
+      ],
+      "contradictions": [
+        "The image agent provided no usable observations or hypothesis, while the text agent provided a detailed technical analysis. This is not a direct contradiction of facts, but a contradiction in data availability and agent functionality."
+      ],
+      "causal_hypothesis": "A regression in matplotlib 3.1.0's axis limit-setting logic fails to properly transform user-provided descending limit values before applying the logarithmic scale transformation, causing the axis inversion to fail for log-scale axes.",
+      "confidence": 0.68,
+      "modal_weights": {
+        "text": 0.95,
+        "image": 0.05
+      },
+      "synthesis_narrative": "The text agent identified a specific regression bug in matplotlib 3.1.0 where axis inversion via descending limits fails on log-scale axes but works on linear scales, supported by code examples and noted visual evidence. The image agent failed to parse its input, providing no complementary visual analysis, leaving the diagnosis reliant almost entirely on the textual technical description. The synthesis therefore centers on a code logic failure in handling pre-scale transformations for inverted log axes.",
+      "missing_info": [
+        "Exact internal matplotlib code changes in 3.1.0 related to axis limits or log scaling",
+        "Whether the issue occurs with other scale types (symlog, logit)",
+        "Any error messages or warnings in the console",
+        "Behavior in matplotlib versions prior to 3.1.0",
+        "Whether the issue is specific to y-axis or also affects x-axis inversion",
+        "Detailed stack trace or internal state of the axis object during limit setting",
+        "Direct visual confirmation or detailed breakdown from the image modality due to its parse failure"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  },
+  {
+    "instance_id": "mwaskom__seaborn-3187",
+    "repo": "mwaskom/seaborn",
+    "title": "Wrong legend values of large ranges\nAs of 0.12.1, legends describing large numbers that were created",
+    "has_image": true,
+    "n_image_urls": 2,
+    "c1_text": {
+      "observations": [
+        "Bug title: 'Wrong legend values of large ranges'",
+        "Version: As of 0.12.1",
+        "Issue: Legends describing large numbers created using ScalarFormatter with an offset are formatted without their multiplicative offset value",
+        "Example: Plot with variable 'body_mass_mg' (order 1E6) shows legend values without offset (e.g., 3000 instead of 3e6?)",
+        "Reproduces with seaborn.objects (so.Plot) and scatterplot",
+        "Referenced code lines: seaborn/_core/scales.py lines 377-382",
+        "Issue depends on matplotlib rcParams: axes.formatter.useoffset, axes.formatter.offset_threshold",
+        "Offset value can be retrieved from formatters and used for legend title/labels"
+      ],
+      "causal_hypothesis": "The legend generation code in seaborn's scales.py does not incorporate the offset value from ScalarFormatter when formatting legend labels for large numbers, causing labels to display raw scaled values instead of the offset-applied representation.",
+      "confidence": 0.85,
+      "missing_info": [
+        "Actual runtime behavior of the formatter in the legend context",
+        "Screenshots/visual evidence of the exact wrong legend values",
+        "Exact configuration values of rcParams during reproduction",
+        "Whether the issue occurs with other formatter types",
+        "Specific version of matplotlib being used",
+        "Error messages or stack traces if any"
+      ],
+      "source": "text"
+    },
+    "c2_image": {
+      "source": "image",
+      "observations": [
+        ""
+      ],
+      "causal_hypothesis": "",
+      "confidence": 0.0,
+      "missing_info": [
+        "JSON parse failed — see raw observations"
+      ]
+    },
+    "c3_tns": {
+      "shared_observations": [],
+      "text_only_observations": [
+        "Bug title: 'Wrong legend values of large ranges'",
+        "Version: As of 0.12.1",
+        "Issue: Legends describing large numbers created using ScalarFormatter with an offset are formatted without their multiplicative offset value",
+        "Example: Plot with variable 'body_mass_mg' (order 1E6) shows legend values without offset (e.g., 3000 instead of 3e6?)",
+        "Reproduces with seaborn.objects (so.Plot) and scatterplot",
+        "Referenced code lines: seaborn/_core/scales.py lines 377-382",
+        "Issue depends on matplotlib rcParams: axes.formatter.useoffset, axes.formatter.offset_threshold",
+        "Offset value can be retrieved from formatters and used for legend title/labels"
+      ],
+      "image_only_observations": [
+        "JSON parse failed — see raw observations"
+      ],
+      "contradictions": [
+        "The image agent provided no valid observations or hypothesis, while the text agent provided a detailed technical analysis. There is no substantive content to contradict."
+      ],
+      "causal_hypothesis": "The seaborn legend generation code (scales.py lines 377-382) fails to retrieve and apply the multiplicative offset value from matplotlib's ScalarFormatter when formatting legend labels for large-number ranges, causing labels to display raw scaled values instead of the offset-applied scientific notation representation.",
+      "confidence": 0.68,
+      "modal_weights": {
+        "text": 0.95,
+        "image": 0.05
+      },
+      "synthesis_narrative": "The text agent provided a complete technical diagnosis of a seaborn visualization bug where legend labels for large numeric ranges display incorrect values (e.g., showing 3000 instead of 3e6) due to missing offset handling in the scales.py code. The image agent failed to parse its input, providing no visual evidence to either confirm or challenge the textual analysis. This creates a diagnosis based almost entirely on the textual code analysis, lacking the visual confirmation that would strengthen the conclusion.",
+      "missing_info": [
+        "Actual runtime behavior of the formatter in the legend context",
+        "Screenshots/visual evidence of the exact wrong legend values",
+        "Exact configuration values of rcParams during reproduction",
+        "Whether the issue occurs with other formatter types",
+        "Specific version of matplotlib being used",
+        "Error messages or stack traces if any",
+        "Any visual patterns in the bug manifestation across different plot types"
+      ],
+      "source": "tns",
+      "modalities": [
+        "text",
+        "image"
+      ]
+    },
+    "error": null
+  }
+]

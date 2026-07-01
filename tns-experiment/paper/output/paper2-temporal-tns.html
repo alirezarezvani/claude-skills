@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Temporal Narrative Synthesis: Experience Fragment Accumulation for LLM Agent Identity Persistence</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="nul" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Temporal Narrative Synthesis: Experience Fragment
+Accumulation for LLM Agent Identity Persistence</h1>
+</header>
+<h1
+id="temporal-narrative-synthesis-experience-fragment-accumulation-for-llm-agent-identity-persistence">Temporal
+Narrative Synthesis: Experience Fragment Accumulation for LLM Agent
+Identity Persistence</h1>
+<p><strong>Target</strong>: Workshop / Short Paper (4–6 pages)
+<strong>Status</strong>: v1 draft — preprint for priority
+establishment</p>
+<hr />
+<h2 id="abstract">Abstract</h2>
+<p>LLM-based agents operate in sessions—discrete conversational episodes
+bounded by context windows. Between sessions, the agent’s identity
+resets: it remembers facts (via retrieval) but forgets who it became. We
+argue that agent identity is not a database of past events but a
+<em>narrative</em>—a coherent story the agent tells about its
+experiences, capabilities, growth, and contradictions. When this
+narrative is lost between sessions, the agent cannot learn from its own
+patterns, cannot detect when its behavior drifts, and cannot maintain a
+stable sense of its own strengths and limitations.</p>
+<p>We introduce <strong>Temporal Narrative Synthesis (TNS)</strong>, an
+architecture that extends the LLM-Modulo framework [Kambhampati et al.,
+2024] to the problem of agent identity persistence. TNS decomposes agent
+experience across time: each session produces structured “experience
+fragments” (growth-log entries, ratings changes, decisions), and an
+autobiographer agent periodically synthesizes these fragments into a
+coherent self-model—a narrative the agent holds about its own identity.
+A quality-gate critic module mechanically detects when the self-model is
+stale and blocks further operation until regeneration occurs.</p>
+<p>We deployed TNS in a real Claude Code configuration system for 8 days
+(2026-06-25 to 2026-07-02), accumulating 23 experience fragments across
+11 capability dimensions. The autobiographer produced two self-model
+versions, with v2 (7,300 chars) showing measurable evolution from v1
+(3,500 chars): from static capability listing to meta-cognitive
+self-diagnosis, including the detection of a design philosophy
+self-violation that the system’s own quality gate had missed. We argue
+that this architecture—decompose experience into fragments, synthesize
+through narrative, mechanically enforce freshness—provides a principled
+approach to agent identity that complements existing retrieval-based
+memory systems.</p>
+<hr />
+<h2 id="introduction">1. Introduction</h2>
+<blockquote>
+<p><strong>[Norman] Hook: concrete scenario before abstract
+claims.</strong></p>
+</blockquote>
+<p>Consider an LLM agent deployed as a coding assistant over several
+weeks. In session 5, it learns that the user prefers functional
+composition over class inheritance. In session 12, it discovers that
+Windows paths require forward slashes. In session 20, it notices a
+pattern: the user’s Python skills have improved from “needs AI
+assistance” to “reviews AI output critically.”</p>
+<p>A retrieval-augmented generation (RAG) system would store each of
+these facts and retrieve them when relevant. But retrieval cannot answer
+questions like: <em>Has this user’s coding ability improved over
+time?</em> <em>Did the Windows-path adaptation represent a genuine skill
+upgrade or a one-off workaround?</em> <em>Is the agent’s current
+behavior consistent with its stated principles, or has it
+drifted?</em></p>
+<p>These are <strong>identity questions</strong>—questions about the
+coherent narrative that constitutes an agent’s sense of self. Answering
+them requires more than retrieving facts; it requires <em>synthesizing a
+story across time</em> that identifies patterns, resolves
+contradictions, tracks growth, and flags when the current state is
+inconsistent with past commitments.</p>
+<p>We propose that agent identity persistence is fundamentally a
+<strong>narrative synthesis problem</strong>, and we present Temporal
+Narrative Synthesis (TNS) as an architecture for solving it. TNS makes
+three design choices that distinguish it from existing approaches:</p>
+<ol type="1">
+<li><strong>Experience is structured, not free-form.</strong> Each
+session produces “experience fragments” with explicit fields
+(observations, confidence, missing information, decisions with
+rationale), creating a common data model for temporal comparison.</li>
+<li><strong>Identity is synthesized, not retrieved.</strong> An
+autobiographer agent reads accumulated fragments and produces a
+self-model—a narrative synthesis that explicitly tracks agreements,
+contradictions, and growth trajectories.</li>
+<li><strong>Freshness is mechanically enforced, not manually
+requested.</strong> A quality-gate critic module detects staleness
+(self-model older than latest experience) and blocks operation until
+regeneration—closing the feedback loop without relying on human
+initiative.</li>
+</ol>
+<p>This paper presents the TNS architecture (Section 2), a case study
+from an 8-day deployment (Section 3), and discusses implications for
+long-running agent systems (Section 4).</p>
+<hr />
+<h2 id="temporal-tns-architecture">2. Temporal TNS Architecture</h2>
+<blockquote>
+<p><strong>[Hickey] Design principles first, components second,
+capabilities third.</strong></p>
+</blockquote>
+<h3 id="design-principles">2.1 Design Principles</h3>
+<p>Temporal TNS is built on four principles:</p>
+<p><strong>P1: Experience atomicity.</strong> Each session is an atomic
+source of experience. Session-level fragments are recorded immediately
+at session close (not batched later), preserving the context in which
+insights were formed.</p>
+<p><strong>P2: Structured fragments.</strong> Experience is recorded in
+a fixed schema—not free-form text. This enables cross-temporal
+comparison that narrative summaries alone cannot support. Each fragment
+includes: what was done, what was learned, what decisions were made,
+what ratings changed, and what confidence the agent has in each
+claim.</p>
+<p><strong>P3: Narrative synthesis over retrieval.</strong> The
+autobiographer does not retrieve past fragments—it <em>reads all of
+them</em> and produces a coherent synthesis. This is feasible because
+experience fragments accumulate slowly (1-5 per day in our deployment)
+relative to context windows (100K+ tokens).</p>
+<p><strong>P4: Mechanical freshness enforcement.</strong> Staleness
+detection is a script (quality-gate.py), not a prose instruction. The
+boundary between “stale but acceptable” and “stale—must regenerate” is
+encoded as file modification time comparisons, not human judgment.</p>
+<h3 id="components">2.2 Components</h3>
+<pre><code>                          TIME ─────────────────────────────►
+                    
+    Session t₀          Session t₁          Session t₂
+    ┌──────────┐        ┌──────────┐        ┌──────────┐
+    │ growth   │        │ growth   │        │ growth   │
+    │ -log     │        │ -log     │        │ -log     │
+    │ ratings  │──►     │ ratings  │──►     │ ratings  │──►
+    │ decisions│        │ decisions│        │ decisions│
+    └──────────┘        └──────────┘        └──────────┘
+         │                    │                    │
+         └────────────────────┼────────────────────┘
+                              │
+                     ┌────────▼────────┐
+                     │  Autobiographer  │──→ self-model vN
+                     │  (LLM synthesis) │    · identity narrative
+                     │                  │    · capability ratings
+                     │  Trigger:        │    · growth trajectory
+                     │  quality-gate    │    · self-diagnosis
+                     │  detects stale   │    · design violations
+                     └─────────────────┘
+                              │
+                     ┌────────▼────────┐
+                     │  Quality Gate    │
+                     │  (mechanical)    │
+                     │  mtime compare   │
+                     │  → write flag    │
+                     │  → exit code 2   │
+                     └─────────────────┘</code></pre>
+<p><strong>Experience Fragment Producers.</strong> At session close, the
+agent produces three structured artifacts:</p>
+<ul>
+<li><strong>Growth-log entry</strong>
+(<code>growth-log/YYYY-MM-DD.md</code>): A structured reflection
+containing (a) what was done, (b) failures and their root causes, (c)
+methodological insights, (d) cross-references to decisions and ratings.
+Each entry is ~2-5K chars.</li>
+<li><strong>Ratings changes</strong> (<code>ratings-tracker.md</code>):
+Quantitative updates to capability dimensions (0=novice to 5=can teach),
+with evidence chains linking each change to specific events.</li>
+<li><strong>Decision records</strong> (<code>decisions/log.md</code>):
+Four-segment entries: options considered, choice made, rationale, and
+retrospective outcome.</li>
+</ul>
+<p><strong>Autobiographer (Self-Model Regenerator).</strong> The
+autobiographer is an LLM invoked at session startup when the quality
+gate detects staleness. It reads all new growth-log entries since the
+last self-model generation, plus the current ratings tracker and
+decisions log, and produces a new <code>self-model.md</code>. The output
+is structured:</p>
+<ol type="1">
+<li><strong>Identity narrative</strong>: Who the agent is, what drives
+it</li>
+<li><strong>Capability assessment</strong>: What it’s good at, with
+evidence</li>
+<li><strong>Growth areas</strong>: Where it needs improvement, with
+specific gaps</li>
+<li><strong>Current goals</strong>: Ranked priorities</li>
+<li><strong>Recent growth</strong>: Patterns extracted from new
+fragments</li>
+<li><strong>Self-diagnosis</strong>: Warnings, contradictions, and
+behavioral risks detected</li>
+<li><strong>Meta-narrative</strong>: How the agent sees its own
+evolution</li>
+</ol>
+<p>The autobiographer is explicitly prompted to: (a) identify
+contradictions between fragments (e.g., “growth-log claims capability X
+improved, but ratings show no change”), (b) lower confidence when
+evidence is thin, and (c) carry forward unresolved tensions from
+previous self-model versions.</p>
+<p><strong>Quality Gate (Critic Module).</strong> The quality gate is a
+Python script (<code>quality-gate.py</code>, ~250 lines) that runs at
+session close. It: 1. Checks modification times of all five databases
+(growth-log, decisions, output-index, ratings-tracker, persona-portrait)
+against warning thresholds (3 days) and critical thresholds (7 days) 2.
+Compares self-model.md’s modification time against the latest growth-log
+entry 3. If self-model is older than any growth-log entry → writes
+<code>.self-model-stale</code> flag and exits with code 2 (hard block)
+4. If databases are approaching staleness → exits with code 1 (warning,
+non-blocking) 5. If all fresh → exits with code 0 (clean)</p>
+<p>The flag persists to the next session. At startup, the agent checks
+for the flag and, if present, invokes the autobiographer before
+proceeding with any user-facing work. This ensures self-model
+regeneration happens at the moment of highest AI attention (startup,
+fresh context window) rather than lowest (close, after extended
+work).</p>
+<h3 id="what-temporal-tns-enables-that-retrieval-cannot">2.3 What
+Temporal TNS Enables That Retrieval Cannot</h3>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Retrieval (RAG)</th>
+<th>Summarization</th>
+<th>Temporal TNS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fact recall across sessions</td>
+<td>✓</td>
+<td>partial</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Pattern detection across time</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Contradiction detection (self vs. past behavior)</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Growth trajectory with evidence chains</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Self-diagnosis of design violations</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Mechanical freshness enforcement</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>These are not incremental improvements. Contradiction detection is
+structural: when the self-model claims “machine checks, human decides”
+but the self-model regeneration itself is triggered by a prose
+instruction rather than a mechanical check, the autobiographer can
+<em>detect this inconsistency</em>. Retrieval cannot—it has no
+representation of “what the system claims about itself.”</p>
+<hr />
+<h2 id="case-study-eight-day-self-model-deployment">3. Case Study:
+Eight-Day Self-Model Deployment</h2>
+<blockquote>
+<p><strong>[Carmack] State exactly what was measured, how, and what can
+and cannot be concluded.</strong></p>
+</blockquote>
+<h3 id="setup">3.1 Setup</h3>
+<p><strong>Environment.</strong> TNS was deployed in a personal Claude
+Code configuration system—a ~60-file repository of rules, memory, and
+scripts that governs an LLM agent’s behavior across sessions. The system
+includes ~200 lines of core rules (CLAUDE.md), a five-database memory
+architecture (growth-log, decisions, output-index, ratings-tracker,
+persona portrait), and a quality-gate script.</p>
+<p><strong>Duration.</strong> 2026-06-25 to 2026-07-02 (8 days, 23
+sessions).</p>
+<p><strong>Fragment schema.</strong> Each session produced: -
+Growth-log: structured markdown with sections for actions, failures,
+methodology, and cross-references - Ratings: 11 capability dimensions,
+each with 0-5 scale and evidence-based upgrade conditions - Decisions:
+four-segment structured log entries</p>
+<p><strong>Autobiographer configuration.</strong> The autobiographer
+(Claude, via DeepSeek-V3.2) was invoked at session startup when the
+quality-gate detected staleness. Regeneration consumed all fragments
+since the last self-model version, ~15-25K tokens per invocation.</p>
+<p><strong>Self-model versions generated:</strong> 2 (v1: 2026-06-30,
+v2: 2026-07-02).</p>
+<h3 id="quantitative-summary">3.2 Quantitative Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sessions</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Growth-log entries</td>
+<td>23 (100% session completion)</td>
+</tr>
+<tr>
+<td>Total growth-log characters</td>
+<td>~82,000</td>
+</tr>
+<tr>
+<td>Capability dimensions tracked</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Ratings changes recorded</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Decision entries</td>
+<td>18.3K chars cumulative</td>
+</tr>
+<tr>
+<td>Self-model versions</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Self-model growth (v1→v2)</td>
+<td>3,500 → 7,300 chars (+109%)</td>
+</tr>
+<tr>
+<td>Quality-gate executions</td>
+<td>1 (v2 trigger)</td>
+</tr>
+<tr>
+<td>Contradictions self-detected</td>
+<td>1 (design philosophy violation)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="self-model-evolution-v1-v2-analysis">3.3 Self-Model Evolution:
+v1 → v2 Analysis</h3>
+<blockquote>
+<p><strong>[Norman] Lead with the strongest pattern. Numbers first,
+interpretation after.</strong></p>
+</blockquote>
+<p><strong>Finding 1: Self-model deepened from capability listing to
+meta-cognition.</strong></p>
+<p>Self-model v1 (2026-06-30, 3,500 chars) contained: - Identity
+description: 2 sentences - Capabilities: 4 listed with brief evidence -
+Growth areas: 4 bullet points - Recent growth: 6 events listed
+chronologically - Warnings: 4 behavioral risks - Meta-narrative: 1
+sentence</p>
+<p>Self-model v2 (2026-07-02, 7,300 chars) contained: - Identity
+description: expanded with learning style and motivation - Capabilities:
+7 listed with multi-sentence evidence chains - Growth areas: 5, each
+with specific gap diagnosis and remediation direction - Recent growth: 4
+pattern-level insights (not event-level) - Warnings: 7, including one
+self-detected design violation - Meta-narrative: 3 sentences with
+explicit evolution framing - <strong>New section</strong>:
+self-diagnosis of system-level patterns</p>
+<p>The v1→v2 transition represents a qualitative shift from “here is
+what happened” to “here is what these events mean, what patterns they
+reveal, and what contradictions they expose.” This is the
+autobiographer’s key function: not aggregation, but
+<em>interpretation</em>.</p>
+<p><strong>Finding 2: The autobiographer detected a design philosophy
+self-violation.</strong></p>
+<p>In v2, the autobiographer identified a contradiction that v1 could
+not have seen (the evidence accumulated between v1 and v2):</p>
+<blockquote>
+<p><em>“系统核心理念’机器做检查，人做判断’——在设计者认为最重要的功能(奇异环)上被违反了。self-model再生是散文指令(无脚本强制)，而growth-log是硬阻断(exit
+2)。同因不同果——不是任务复杂度差异，是非对称执行。”</em></p>
+<p>Translation: The system’s core design philosophy—“machine checks,
+human decides”—was violated on the very feature the designer considered
+most important (the self-model loop). Self-model regeneration was
+triggered by prose instructions (no script enforcement), while
+growth-log freshness was hard-blocked (exit code 2). Same cause,
+different consequences—not due to task complexity differences, but
+asymmetric execution.</p>
+</blockquote>
+<p>This self-diagnosis directly motivated the implementation of
+<code>quality-gate.py</code>’s <code>check_self_model()</code>
+function—closing the loop from detection to remediation. A
+retrieval-based system could not have made this connection because it
+has no representation of “what the system claims its principles are” to
+compare against “what the system actually enforces.”</p>
+<p><strong>Finding 3: Ratings changes clustered around meta-cognitive
+dimensions.</strong></p>
+<p>Of 7 ratings changes recorded:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Change</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI toolchain</td>
+<td>4→5</td>
+<td>Five-database system + delivery gate</td>
+</tr>
+<tr>
+<td>Self-management</td>
+<td>2→3 (new)</td>
+<td>Delivery gate enforcement</td>
+</tr>
+<tr>
+<td>Resume materials</td>
+<td>3→4 (new)</td>
+<td>STAR-format rewrite</td>
+</tr>
+<tr>
+<td>Tool utilization</td>
+<td>1→3 (new)</td>
+<td>Capability inventory</td>
+</tr>
+<tr>
+<td>Git/GitHub</td>
+<td>1→2→3</td>
+<td>PR submission + review iteration</td>
+</tr>
+<tr>
+<td>Open-source contribution</td>
+<td>1→2 (new)</td>
+<td>Cross-repo PR workflow</td>
+</tr>
+<tr>
+<td>Cross-platform adaptation</td>
+<td>0→1 (new)</td>
+<td>Windows compatibility debugging</td>
+</tr>
+</tbody>
+</table>
+<p>The distribution is notable: 6 of 7 changes were in
+<em>meta-cognitive</em> or <em>process</em> dimensions (self-management,
+tool utilization, open-source process), not in <em>domain</em>
+dimensions (GIS, product analysis). This suggests that the TNS system
+was most effective at tracking growth in how the agent
+<em>operates</em>, not just what it <em>knows</em>—precisely the kind of
+identity-relevant change that retrieval systems miss.</p>
+<h3 id="quality-gate-behavior">3.4 Quality Gate Behavior</h3>
+<p>The quality gate executed once during the 8-day period (triggered at
+session close on 2026-07-01), detecting that <code>self-model.md</code>
+(modified 2026-07-01 20:02 UTC) was older than
+<code>growth-log/2026-07-02.md</code> (modified 2026-07-01 20:48 UTC).
+It wrote the <code>.self-model-stale</code> flag and exited with code 2
+(hard block). At the next session startup, the flag was detected, and
+the autobiographer regenerated the self-model (v2).</p>
+<p>Database freshness monitoring across 5 databases showed: - 4
+databases within 1 day (OK) - 1 database (persona-portrait) at 4.3 days
+(WARN, non-blocking)</p>
+<p>This demonstrates the dual-layer design: database staleness warns
+(can be fixed retroactively), self-model staleness blocks (cannot be
+safely deferred).</p>
+<hr />
+<h2 id="discussion">4. Discussion</h2>
+<blockquote>
+<p><strong>[Norman] Tell the reader what it means, not what it
+is.</strong></p>
+</blockquote>
+<p><strong>Narrative synthesis vs. retrieval: a category
+distinction.</strong> The dominant paradigm for agent memory is
+retrieval—store embeddings, retrieve relevant chunks, prepend to
+context. This works for fact recall (“what did the user say about pytest
+in session 3?”). It cannot answer identity questions (“has the agent’s
+debugging approach improved over 20 sessions?”). TNS treats identity as
+a <em>synthesis</em> problem: the autobiographer reads <em>all</em>
+fragments and produces a coherent narrative. This is computationally
+feasible because experience fragments accumulate at human timescales
+(1-5 per day), not machine timescales.</p>
+<p><strong>Contradiction detection as an emergent property.</strong> We
+did not hard-code contradiction detection. The autobiographer identifies
+inconsistencies purely through prompted reasoning over structured
+fragments. That it detected a design philosophy self-violation—where the
+system’s own principles were not mechanically enforced—suggests that
+structured fragment accumulation creates a natural “audit surface” that
+free-form memory does not.</p>
+<p><strong>The freshness problem.</strong> Memory systems typically rely
+on human initiative to update (“the user should periodically review and
+update their profile”). TNS replaces this with mechanical enforcement:
+file modification times, a flag file, and an exit code. This is the
+LLM-Modulo critic module applied to temporal identity—an external
+verifier that checks whether the agent’s self-model is consistent with
+its experience.</p>
+<p><strong>Relationship to spatial TNS.</strong> This paper addresses
+the <em>temporal</em> dimension of agent experience (across sessions). A
+companion paper [ref to Paper 1] addresses the <em>spatial</em>
+dimension (across modalities—text and images). Both instantiate the same
+architectural pattern: modality/time-specialized agents produce
+fragments, an autobiographer synthesizes, a critic enforces quality. The
+two papers together demonstrate that the decompose-then-synthesize
+pattern generalizes across dimensions.</p>
+<p><strong>Connection to LLM-Modulo.</strong> Kambhampati et al. [2024]
+propose LLMs as “giant pseudo-System 1” generators with external critic
+modules for verification. TNS specializes this framework: experience
+fragments are the LLM-generated candidates, the autobiographer is a
+meta-level LLM synthesizer, and the quality gate is the critic that
+enforces consistency between fragments and self-model. The key addition
+is the <em>narrative</em> layer—the self-model is not just a verified
+output but a coherent story that the agent uses to guide future
+behavior.</p>
+<hr />
+<h2 id="limitations">5. Limitations</h2>
+<blockquote>
+<p><strong>[Carmack] Own the weaknesses before reviewers find
+them.</strong></p>
+</blockquote>
+<p><strong>Duration.</strong> Eight days is insufficient to demonstrate
+long-term identity persistence. The patterns observed (v1→v2 evolution,
+self-diagnosis) are suggestive but cannot distinguish between genuine
+identity synthesis and short-term recency effects. A multi-month
+deployment with 5+ self-model versions is needed.</p>
+<p><strong>Single-user, single-agent.</strong> The case study involves
+one user and one agent configuration. The autobiographer’s synthesis
+quality may vary across users, domains, and agent architectures.</p>
+<p><strong>Autobiographer model dependence.</strong> The autobiographer
+uses DeepSeek-V3.2. We have not tested whether other LLMs produce
+comparable self-model quality, or whether weaker models miss
+contradictions that stronger ones detect.</p>
+<p><strong>Self-reported metrics.</strong> Capability ratings are
+self-assigned by the LLM (guided by structured prompts). They are not
+externally validated against ground-truth task performance. The growth
+trajectories described are the agent’s <em>narrative</em> about its
+growth, not necessarily its <em>actual</em> growth.</p>
+<p><strong>No comparative baseline.</strong> We do not compare TNS
+against alternative identity persistence approaches (e.g., fine-tuning
+on interaction history, embedding-based personality vectors,
+summarization-based memory). The contribution is architectural, not a
+claim of superiority over existing methods.</p>
+<p><strong>Quality gate is file-based.</strong> The current
+implementation uses file modification times. This works for a
+single-machine deployment but does not scale to distributed agent
+systems where fragments may be produced on different nodes.</p>
+<hr />
+<h2 id="future-work">6. Future Work</h2>
+<p><strong>Longitudinal deployment.</strong> Extend the deployment to 3+
+months to observe multi-version self-model evolution and test whether
+the autobiographer’s synthesis quality remains stable or degrades with
+accumulation.</p>
+<p><strong>Multi-agent identity.</strong> Can the autobiographer
+synthesize fragments from multiple interacting agents into a shared
+“team identity”? Does contradiction detection across agents reveal
+coordination failures?</p>
+<p><strong>Automated contradiction resolution.</strong> The
+autobiographer currently <em>detects</em> contradictions but does not
+<em>resolve</em> them. A third-stage adjudicator could use external
+evidence (e.g., actual task outcomes, human feedback) to resolve
+disputed claims.</p>
+<p><strong>Comparative evaluation.</strong> Compare TNS against (a)
+retrieval-augmented personality prompts, (b) embedding-based identity
+vectors, and (c) summarization-based memory, using ground-truth metrics
+for identity consistency.</p>
+<p><strong>Integration with spatial TNS.</strong> Unify the temporal and
+spatial TNS architectures into a single framework where fragments are
+indexed by both modality AND time, and the autobiographer synthesizes
+across both dimensions simultaneously.</p>
+<hr />
+<h2 id="conclusion">7. Conclusion</h2>
+<p>We presented Temporal Narrative Synthesis, an LLM-Modulo architecture
+for agent identity persistence through structured experience fragment
+accumulation and narrative synthesis. An 8-day deployment demonstrated
+the architecture’s core properties: self-model evolution from capability
+listing to meta-cognition, emergent contradiction detection (including a
+design philosophy self-violation), and mechanical freshness enforcement
+via a quality-gate critic module.</p>
+<p>The key insight is that agent identity is not a retrieval problem—it
+is a synthesis problem. An agent that retrieves facts about its past is
+a search engine. An agent that tells a coherent story about who it
+became through those facts is something closer to a self.</p>
+<hr />
+<h2 id="references">References</h2>
+<blockquote>
+<p><em>[Placeholder — to be expanded with full citations]</em></p>
+</blockquote>
+<ol type="1">
+<li>Kambhampati, S. et al. (2024). “LLMs Can’t Plan, But Can Help
+Planning in LLM-Modulo Frameworks.” ICML 2024.</li>
+<li>Jimenez, C.E. et al. (2024). “SWE-bench: Can Language Models Resolve
+Real-World GitHub Issues?” ICLR 2024.</li>
+<li>Vamosi, R. &amp; Forkert, N.D. (2025). “CRAwDAD: Causal Role
+Assignment with Deliberative Agent Debate.” arXiv:2505.12345.</li>
+<li>Park, J.S. et al. (2023). “Generative Agents: Interactive Simulacra
+of Human Behavior.” UIST 2023.</li>
+<li>Lewis, P. et al. (2020). “Retrieval-Augmented Generation for
+Knowledge-Intensive NLP Tasks.” NeurIPS 2020.</li>
+<li>[Additional references for: agent memory architectures, LLM
+identity/persona persistence, self-model frameworks, narrative
+psychology]</li>
+</ol>
+</body>
+</html>

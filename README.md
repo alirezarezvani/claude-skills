@@ -1,6 +1,6 @@
 # Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**349 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
+**350 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
 
 The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing (incl. AEO — Answer Engine Optimization for LLM citation), security (PreToolUse hooks), compliance, C-level advisory (incl. founder-mode CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE personas + 21 /cs:* slash commands), productivity (capture/email/reflect), an academic research stack (litreview/grants/dossier/patent/syllabus/pulse/notebooklm + hybrid router), and enterprise Research Operations (clinical-research/research-finance/market-research/product-research, v2.9.0).
 
@@ -10,7 +10,7 @@ The most comprehensive open-source library of Claude Code skills and agent plugi
 [^vibe]: Mistral Vibe is also **BYO-sync tier**: the repo ships a pre-generated `.vibe/skills/claude-skills/` tree, run `./scripts/vibe-install.sh` once locally to install into `~/.vibe/skills/`. Same agentskills.io SKILL.md standard — no format conversion. Docs: <https://docs.mistral.ai/mistral-vibe/agents-skills>.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-349-brightgreen?style=for-the-badge)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-350-brightgreen?style=for-the-badge)](#skills-overview)
 [![Agents](https://img.shields.io/badge/Agents-94-blue?style=for-the-badge)](#agents)
 [![Personas](https://img.shields.io/badge/Personas-7-purple?style=for-the-badge)](#personas)
 [![Commands](https://img.shields.io/badge/Commands-100-orange?style=for-the-badge)](#commands)
@@ -150,7 +150,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**349 skills across 18 domains:**
+**350 skills across 18 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -163,7 +163,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **🔬 Research (academic)** | 8 | `research` orchestrator (hybrid router + fallback) + 7 specialists: `pulse`, `litreview`, `grants` (NIH), `dossier`, `patent`, `syllabus`, `notebooklm` | [research/](research/) |
 | **🧪 Research Operations** ✨v2.9.0 | 5 | Enterprise/cross-functional research: orchestrator + `clinical-research` (study design), `research-finance` (R&D program finance), `market-research` (sizing/survey/segmentation), `product-research` (user research) — each with onboarding + customization + opt-in autoresearch bridge | [research-ops/](research-ops/) |
 | **📋 Project Management** | 9 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates + bundled Atlassian Remote MCP | [project-management/](project-management/) |
-| **🏥 Regulatory & QM** | 18 | ISO 13495, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
+| **🏥 Regulatory & QM** | 18 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management | [ra-qm-team/](ra-qm-team/) |
 | **🛡️ Compliance OS** | 9 | Compliance operating system — controls, evidence, audit-readiness workflows | [compliance-os/](compliance-os/) |
 | **💼 C-Level Advisory** | 66 | Full C-suite (CEO/CTO/CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE) + founder-mode agents + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
 | **📈 Business & Growth** | 5 | Customer success, sales engineer, revenue ops, contracts & proposals, BizDev toolkit | [business-growth/](business-growth/) |

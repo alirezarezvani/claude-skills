@@ -386,3 +386,5 @@ MIT — see [LICENSE](LICENSE) for details.
 ---
 
 **Built by [Alireza Rezvani](https://alirezarezvani.com)** · [Medium](https://alirezarezvani.medium.com) · [Twitter](https://twitter.com/nginitycloud)
+
+draw|- [excalidraw-skill](https://github.com/xiaoshuai1024/excalidraw-skill) - An agent skill that renders 64 types of hand-drawn Excalidraw diagrams (UML, ER, sequence, architecture) to editable SVG/PNG using the real Excalidraw engine. Works in Claude Code, Cursor, ZCode and 70+ agents.

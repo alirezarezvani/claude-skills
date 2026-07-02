@@ -108,7 +108,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Multi-Tool Support (New)
 
-**Convert all 345 skills to 9 AI coding tools** with a single script:
+**Convert all 355 skills to 9 AI coding tools** with a single script:
 
 | Tool | Format | Install |
 |------|--------|---------|
@@ -139,7 +139,7 @@ find .cursor/rules -name "*.mdc" | wc -l  # Should show 346
 ```
 
 **Each tool gets:**
-- ✅ All 345 skills converted to native format
+- ✅ All 355 skills converted to native format
 - ✅ Per-tool README with install/verify/update steps
 - ✅ Support for scripts, references, templates where applicable
 - ✅ Zero manual conversion work
@@ -150,7 +150,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**354 skills across 18 domains:**
+**355 skills across 18 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -158,7 +158,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **⚡ Engineering — POWERFUL** | 80 | Agent designer, RAG architect, database designer, CI/CD builder, security auditor, MCP builder, AgentHub, Helm charts, Terraform, self-eval, llm-wiki, tc-tracker, autoresearch-agent, **reliability portfolio** (feature-flags-architect, kubernetes-operator, chaos-engineering, slo-architect), ship-gate, security-guidance PreToolUse hook, **Matt Pocock skills** (write-a-skill, caveman, grill-me, handoff, grill-with-docs), **zero-hallucination-coder** (Discuss→Map→Decompose→Execute→Verify) | [engineering/](engineering/) |
 | **🎯 Product** | 17 | Product manager, agile PO, strategist, UX researcher, UI design, landing pages, SaaS scaffolder, analytics, experiment designer, discovery, roadmap communicator, code-to-prd, apple-hig-expert | [product-team/](product-team/) |
 | **📣 Marketing** | 48 | 8 pods: Content, SEO + AEO (`aeo` — E-E-A-T audit, citation tracking across 5 LLMs) + local (`local-seo-manager` — GBP/NAP/Map-Pack), CRO, Channels, Growth, Intelligence, Sales + context foundation + orchestration router | [marketing-skill/](marketing-skill/) |
-| **🚀 Productivity** | 7 | `capture` (brain-dump-to-action), `email` pair (inbox-setup + inbox-triage), `reflect` (journal), `handoff` (Matt Pocock-inspired), `andreessen` (market-first decision mode), `roast` (5-angle idea panel → GO/RESHAPE/KILL) | [productivity/](productivity/) |
+| **🚀 Productivity** | 8 | `capture` (brain-dump-to-action), `email` pair (inbox-setup + inbox-triage), `reflect` (journal), `handoff` (Matt Pocock-inspired), `andreessen` (market-first decision mode), `roast` (5-angle idea panel → GO/RESHAPE/KILL), `self-model-regeneration` (AI identity persistence across sessions — SessionStart→Stop lifecycle) | [productivity/](productivity/) |
 | **🎨 Marketing (top-level)** | 1 | `landing` — single-file HTML landing-page generator (4 design styles, GSAP patterns, brand palette validator) | [marketing/](marketing/) |
 | **🔬 Research (academic)** | 9 | `research` orchestrator (hybrid router + fallback) + 8 specialists: `pulse`, `litreview`, `grants` (NIH), `dossier`, `patent`, `syllabus`, `notebooklm`, `deep-research` (rigor-first meta-research) | [research/](research/) |
 | **🧪 Research Operations** ✨v2.9.0 | 5 | Enterprise/cross-functional research: orchestrator + `clinical-research` (study design), `research-finance` (R&D program finance), `market-research` (sizing/survey/segmentation), `product-research` (user research) — each with onboarding + customization + opt-in autoresearch bridge | [research-ops/](research-ops/) |

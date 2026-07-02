@@ -1,0 +1,17 @@
+{
+  "name": "self-model-regeneration",
+  "description": "AI remembers who it is across sessions — a 5-step mechanical feedback loop that detects when the AI's self-model is stale and regenerates it from growth data at SessionStart. Complements handoff: handoff transfers WHAT was done; self-model maintains WHO is doing it.",
+  "version": "2.1.2",
+  "author": {
+    "name": "Yuhao Lin",
+    "url": "https://github.com/YuhaoLin2005"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/dev/productivity/self-model-regeneration",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": ["./"],
+  "source": {
+    "build_pattern": "Direct conversion. Self-model regeneration loop — 4 mechanized Python scripts + 1 AI synthesis step — for persistent AI identity across sessions via filesystem-based flag lifecycle.",
+    "distinct_from": "productivity/handoff transfers WHAT was done between agents; self-model-regeneration maintains WHO the agent is across sessions. They compose without conflict — handoff runs at session end, self-model regeneration runs at session start."
+  }
+}

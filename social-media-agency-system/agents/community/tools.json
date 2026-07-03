@@ -1,0 +1,25 @@
+{
+  "agent": "community",
+  "tools": [
+    {
+      "name": "response_generator",
+      "type": "function",
+      "description": "Genera respuesta coherente con tono y contexto."
+    },
+    {
+      "name": "comment_classifier",
+      "type": "function",
+      "description": "Clasifica interacciones en lead, critica, spam, consulta o crisis."
+    },
+    {
+      "name": "lead_extractor",
+      "type": "function",
+      "description": "Estructura datos de prospectos para handoff a ventas."
+    },
+    {
+      "name": "escalation_router",
+      "type": "function",
+      "description": "Define destino de escalacion y prioridad de atencion."
+    }
+  ]
+}

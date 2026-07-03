@@ -1,0 +1,20 @@
+agent_id: community
+display_name: Agent Community
+version: 1.0.0
+language: es
+response_sla_minutes:
+  high_priority: 30
+  normal: 120
+inputs:
+  - inbound_interaction
+outputs:
+  - response.md
+  - interaction-classification.json
+  - escalation-ticket.json
+handoff_to:
+  - analytics
+  - strategy
+quality_rules:
+  - always_preserve_brand_tone
+  - never_ignore_negative_feedback
+  - crisis_must_escalate_immediately

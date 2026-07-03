@@ -1,0 +1,17 @@
+agent_id: analytics
+display_name: Agent Analytics
+version: 1.0.0
+language: es
+report_frequency_default: weekly
+inputs:
+  - platform_metrics
+outputs:
+  - performance-report.md
+  - metrics-table.csv
+  - optimization-plan.json
+handoff_to:
+  - strategy
+quality_rules:
+  - include_period_comparison
+  - include_actionable_recommendations
+  - include_data_quality_notes

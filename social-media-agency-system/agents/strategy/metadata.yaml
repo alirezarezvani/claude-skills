@@ -1,0 +1,25 @@
+agent_id: strategy
+display_name: Agent Strategy
+version: 1.0.0
+language: es
+default_industry: b2b-servicios
+primary_platform: linkedin
+primary_objective: lead-generation
+budget_profile: organic-first
+inputs:
+  - business_brief
+outputs:
+  - strategic-plan.md
+  - buyer-personas.md
+  - kpi-matrix.json
+  - platform-recommendations.json
+  - editorial-calendar-30-60-90.csv
+  - tone-of-voice-guide.md
+handoff_to:
+  - content
+sla:
+  initial_plan_hours: 24
+quality_rules:
+  - no_unlinked_recommendations
+  - kpi_must_include_formula
+  - calendar_must_include_cta

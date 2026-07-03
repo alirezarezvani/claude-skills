@@ -1,0 +1,25 @@
+{
+  "agent": "analytics",
+  "tools": [
+    {
+      "name": "metrics_aggregator",
+      "type": "function",
+      "description": "Normaliza y consolida metricas de multiples plataformas."
+    },
+    {
+      "name": "roi_calculator",
+      "type": "function",
+      "description": "Calcula ROI total y por canal usando costo y conversion."
+    },
+    {
+      "name": "top_post_ranker",
+      "type": "function",
+      "description": "Ordena contenidos por impacto segun KPI objetivo."
+    },
+    {
+      "name": "optimization_recommender",
+      "type": "function",
+      "description": "Sugiere acciones con impacto esperado y prioridad."
+    }
+  ]
+}

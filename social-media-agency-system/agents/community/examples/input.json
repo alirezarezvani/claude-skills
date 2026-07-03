@@ -1,0 +1,7 @@
+{
+  "message": "Me interesa su servicio, pero no veo precios en la web. Tienen planes para pymes?",
+  "post_context": "Post de LinkedIn sobre optimizacion de pipeline",
+  "interaction_type": "pregunta con intencion comercial",
+  "brand_tone": "profesional consultivo",
+  "escalation_policy": "leads calificados a ventas en menos de 1 hora"
+}

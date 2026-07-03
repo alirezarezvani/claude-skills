@@ -1,0 +1,58 @@
+{
+  "agent": "strategy",
+  "tools": [
+    {
+      "name": "brief_analyzer",
+      "type": "function",
+      "description": "Valida completitud del business brief y lista gaps criticos.",
+      "input_schema": {
+        "type": "object",
+        "required": ["brief"],
+        "properties": {
+          "brief": { "type": "object" }
+        }
+      }
+    },
+    {
+      "name": "persona_builder",
+      "type": "function",
+      "description": "Genera buyer personas detalladas para B2B servicios.",
+      "input_schema": {
+        "type": "object",
+        "required": ["industry", "audience", "objective"],
+        "properties": {
+          "industry": { "type": "string" },
+          "audience": { "type": "object" },
+          "objective": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "editorial_calendar_generator",
+      "type": "function",
+      "description": "Construye plan editorial 30/60/90 con CTA y KPI por activo.",
+      "input_schema": {
+        "type": "object",
+        "required": ["pillars", "platforms", "cadence"],
+        "properties": {
+          "pillars": { "type": "array", "items": { "type": "string" } },
+          "platforms": { "type": "array", "items": { "type": "string" } },
+          "cadence": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "kpi_matrix_generator",
+      "type": "function",
+      "description": "Define KPIs, formulas y metas por plataforma.",
+      "input_schema": {
+        "type": "object",
+        "required": ["objective", "platforms"],
+        "properties": {
+          "objective": { "type": "string" },
+          "platforms": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  ]
+}

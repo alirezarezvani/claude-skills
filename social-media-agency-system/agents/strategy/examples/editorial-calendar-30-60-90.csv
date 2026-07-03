@@ -1,0 +1,7 @@
+phase,week,platform,content_pillar,topic,format,cta,kpi_target
+30,1,LinkedIn,Autoridad,"3 errores comunes en pipeline B2B",Post,"Comenta 'CHECKLIST' para recibir recurso",CTR >= 1.5%
+30,2,LinkedIn,Prueba social,"Mini caso: +22% reuniones calificadas",Post,"Solicita diagnostico de 20 minutos",MQL >= 3
+60,5,LinkedIn,Educacion,"Como calificar leads sin perder velocidad",Documento,"Descargar plantilla de scoring",CTR >= 2.0%
+60,7,LinkedIn,Objeciones,"No tenemos presupuesto: como responder",Post,"Enviar DM para guion de objeciones",Tasa DM >= 15%
+90,10,LinkedIn,Conversion,"Framework para reducir ciclo comercial",Carrusel,"Agenda llamada diagnostico",SQL >= 4
+90,12,LinkedIn,Prueba social,"Caso completo antes/despues",Articulo,"Pedir auditoria comercial",Conversion >= 4%

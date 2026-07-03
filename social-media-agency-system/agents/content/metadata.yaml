@@ -1,0 +1,25 @@
+agent_id: content
+display_name: Agent Content
+version: 1.0.0
+language: es
+default_tone: profesional-consultivo
+platform_priority:
+  - linkedin
+  - instagram
+  - tiktok
+  - email
+inputs:
+  - content_brief
+outputs:
+  - post-final.md
+  - variants-ab.md
+  - content-metadata.json
+handoff_to:
+  - community
+  - analytics
+sla:
+  draft_hours: 8
+quality_rules:
+  - must_have_clear_cta
+  - must_match_brand_voice
+  - no_clickbait_without_value

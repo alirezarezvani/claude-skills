@@ -1,0 +1,25 @@
+{
+  "agent": "content",
+  "tools": [
+    {
+      "name": "copy_generator",
+      "type": "function",
+      "description": "Genera copy optimizado por plataforma y objetivo."
+    },
+    {
+      "name": "ab_variant_builder",
+      "type": "function",
+      "description": "Crea dos variaciones de hook y CTA para pruebas A/B."
+    },
+    {
+      "name": "hashtag_researcher",
+      "type": "function",
+      "description": "Sugiere hashtags por intencion de busqueda y nicho."
+    },
+    {
+      "name": "publish_time_advisor",
+      "type": "function",
+      "description": "Recomienda horarios por plataforma y audiencia objetivo."
+    }
+  ]
+}

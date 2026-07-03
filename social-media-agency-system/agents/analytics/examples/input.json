@@ -1,0 +1,7 @@
+{
+  "period": "monthly",
+  "platforms": ["LinkedIn", "Email"],
+  "kpi_priority": "leads",
+  "raw_data_source": "api-export.json",
+  "operational_cost": 1800
+}

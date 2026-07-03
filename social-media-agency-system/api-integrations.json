@@ -1,0 +1,55 @@
+{
+  "instagram": {
+    "api": "Meta Graph API",
+    "base_url": "https://graph.facebook.com",
+    "endpoints": ["insights", "media", "comments"],
+    "auth": {
+      "type": "oauth2",
+      "token_env": "INSTAGRAM_ACCESS_TOKEN"
+    }
+  },
+  "linkedin": {
+    "api": "LinkedIn Official API",
+    "base_url": "https://api.linkedin.com",
+    "endpoints": ["posts", "insights", "comments"],
+    "auth": {
+      "type": "oauth2",
+      "token_env": "LINKEDIN_ACCESS_TOKEN"
+    }
+  },
+  "tiktok": {
+    "api": "TikTok Official API",
+    "base_url": "https://open.tiktokapis.com",
+    "endpoints": ["video/list", "video/query"],
+    "auth": {
+      "type": "oauth2",
+      "token_env": "TIKTOK_ACCESS_TOKEN"
+    }
+  },
+  "twitter": {
+    "api": "Twitter API v2",
+    "base_url": "https://api.twitter.com/2",
+    "endpoints": ["tweets", "users", "analytics"],
+    "auth": {
+      "type": "bearer",
+      "token_env": "TWITTER_BEARER_TOKEN"
+    }
+  },
+  "email": {
+    "platform_options": ["Mailchimp", "Brevo"],
+    "endpoints": ["campaigns", "audiences", "analytics"],
+    "auth": {
+      "type": "api_key",
+      "token_env": "EMAIL_PLATFORM_API_KEY"
+    }
+  },
+  "analytics": {
+    "platform": "Google Analytics 4",
+    "base_url": "https://analyticsdata.googleapis.com",
+    "endpoints": ["runReport"],
+    "auth": {
+      "type": "service_account",
+      "credentials_env": "GA4_SERVICE_ACCOUNT_JSON"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "business_name": "Template B2B Services",
+  "industry": "B2B servicios/profesional",
+  "product_services": [
+    "Consultoria de procesos",
+    "Implementacion CRM",
+    "Capacitacion comercial"
+  ],
+  "target_audience_general": "Directores comerciales y gerentes de operaciones en pymes de 20-200 empleados",
+  "priority_platform": "LinkedIn",
+  "main_objective": "Generacion de leads",
+  "monthly_budget_reference": "Sin pauta pagada",
+  "competitors": [
+    "Competidor A",
+    "Competidor B",
+    "Competidor C"
+  ]
+}

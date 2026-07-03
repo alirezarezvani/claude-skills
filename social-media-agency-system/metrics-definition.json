@@ -1,0 +1,32 @@
+{
+  "global": {
+    "lead_conversion_rate": "leads / clicks",
+    "content_output_rate": "publicaciones_publicadas / publicaciones_planificadas",
+    "response_sla_compliance": "respuestas_en_tiempo / respuestas_totales"
+  },
+  "instagram": {
+    "engagement_rate": "(likes + comments + saves + shares) / followers / posts",
+    "reach": "usuarios_unicos_impactados",
+    "impressions": "total_de_visualizaciones",
+    "virality_coefficient": "shares / impressions"
+  },
+  "linkedin": {
+    "engagement_rate": "(reactions + comments + reposts) / impressions",
+    "ctr": "clicks / impressions",
+    "lead_rate": "leads / link_clicks",
+    "follower_growth_rate": "nuevos_followers / followers_inicio_periodo"
+  },
+  "tiktok": {
+    "completion_rate": "views_completas / views_totales",
+    "avg_watch_time": "tiempo_total_visto / views_totales",
+    "engagement_rate": "(likes + comments + shares) / views",
+    "viral_score": "views / followers"
+  },
+  "email": {
+    "open_rate": "opens / delivered",
+    "click_rate": "unique_clicks / delivered",
+    "conversion_rate": "conversions / unique_clicks",
+    "unsubscribe_rate": "unsubscribes / delivered",
+    "revenue_per_email": "ingreso_total / emails_enviados"
+  }
+}

@@ -339,6 +339,7 @@ python3 product-team/landing-page-generator/scripts/landing_page_scaffolder.py c
 | [**Claude Code Tresor**](https://github.com/alirezarezvani/claude-code-tresor) | Productivity toolkit with 60+ prompt templates |
 | [**Product Manager Skills**](https://github.com/Digidai/product-manager-skills) | Senior PM agent with 6 knowledge domains, 12 templates, 30+ frameworks — discovery, strategy, delivery, SaaS metrics, career coaching, AI product craft |
 | [**toprank**](https://github.com/nowork-studio/toprank) | 9 SEO and Google Ads skills for Claude Code — connects Google Search Console, PageSpeed Insights, and Google Ads API; ships meta tag, schema markup, and keyword bid fixes to source or CMS. MIT, 107 stars |
+| [**LinkedIn Skills**](https://github.com/sergebulaev/linkedin-skills) | 10 LinkedIn skills for Claude Code and Codex: post writer with 16 tested hook formulas, humanizer that scrubs AI tells, pre-publish audit, comment and reply drafting, hook extractor, content planner, profile optimizer, engager analytics, and thread monitoring. MIT, 303 stars |
 
 ---
 

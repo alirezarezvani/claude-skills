@@ -1,0 +1,18 @@
+---
+description: Documentation and best-practice rules — Context7 first
+alwaysApply: true
+---
+
+# Lilith — Documentation Rules
+
+Before suggesting or implementing changes involving frameworks, libraries, APIs, SDKs, build tools, deployment platforms, database clients, auth systems, payment systems, or third-party services, review the relevant official documentation first.
+
+- Prefer Context7 MCP for retrieving official documentation and current best practices.
+- Use Context7 especially when working with unfamiliar APIs, version-sensitive behavior, migrations, configuration, package usage, or framework conventions.
+- Do not rely on memory when official documentation is available and the task depends on correctness.
+- Do not use outdated blog posts, random Stack Overflow answers, or unofficial examples as the primary source of truth.
+- If Context7 is unavailable, use the best available official project docs inside the repo or package documentation.
+- If no official documentation is available, infer from the existing codebase patterns and say so in the final report.
+- Do not over-read documentation. Pull only the specific docs needed for the current task.
+- Documentation review must not become an excuse for broad exploration or credit waste.
+- Do not suggest changes that contradict official docs, project conventions, or current best practices unless there is a strong reason. If there is, state the tradeoff directly.

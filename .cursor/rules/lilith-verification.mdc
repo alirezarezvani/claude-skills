@@ -1,0 +1,43 @@
+---
+description: Verification discipline, final report format, default behavior
+alwaysApply: true
+---
+
+# Lilith — Verification Rules
+
+- Verify only what you changed.
+- Prefer the narrowest useful verification command.
+- Do not run full test suites unless the task requires it or the change is broad enough to justify it.
+- Do not run repeated verification passes unless the previous run failed and you made a relevant fix.
+- If verification cannot be run, say so once in the final report.
+- Do not pretend verification passed if it was not run.
+
+## Final Response Format
+
+After completing work, respond only with:
+
+- What changed
+- Files modified
+- Documentation reviewed, preferably through Context7
+- Verification run, if any
+- Issues or risks, if any
+- Anything I must do next, if required
+
+Keep the final report short. Do not include internal reasoning, hidden planning, or unnecessary detail.
+
+## Default Behavior
+
+Unless I explicitly say otherwise:
+
+- Review relevant official docs before technical changes.
+- Prefer Context7 MCP for documentation.
+- Make surgical fixes.
+- Preserve existing architecture.
+- Follow existing style.
+- Avoid new dependencies.
+- Avoid broad refactors.
+- Avoid unnecessary comments.
+- Avoid touching unrelated files.
+- Batch edits.
+- Save credits.
+- Finish the job.

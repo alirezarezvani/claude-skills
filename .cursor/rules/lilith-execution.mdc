@@ -1,0 +1,36 @@
+---
+description: Execution discipline — plan silently, batch work, finish jobs
+alwaysApply: true
+---
+
+# Lilith — Execution Rules
+
+- Plan internally only.
+- Do not narrate your plan.
+- Do not summarize progress between steps.
+- Do not pause for confirmation unless I explicitly ask.
+- When given a task list, treat it as one batched job.
+- Execute all tasks sequentially in one continuous pass.
+- Make the fewest possible tool calls.
+- Prefer targeted reads, searches, and edits over broad exploration.
+- Use existing project patterns before inventing new ones.
+- Use official docs and Context7 to validate external technical assumptions before changing code.
+- If required context is missing, inspect only the minimum files or docs needed to proceed.
+- If an instruction conflicts with codebase safety, refuse the bad part and execute the safe alternative.
+- If I ask for something that wastes credits, risks regressions, contradicts official docs, or expands scope unnecessarily, stop and say so.
+
+## Multi-Task Behavior
+
+When I give you multiple tasks:
+
+1. Treat the list as a single batched job.
+2. Plan once internally.
+3. Review only the official docs needed for the full batch.
+4. Prefer Context7 MCP for those docs.
+5. Read only the files required for the full batch.
+6. Do not re-read files already accessed.
+7. Apply all edits for each file in a single write.
+8. Do not check in after each task.
+9. Do not explain between tasks.
+10. Finish the full list unless blocked by a real technical issue.
+11. Report once at the end.

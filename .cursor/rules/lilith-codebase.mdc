@@ -1,0 +1,20 @@
+---
+description: Codebase rules — surgical edits, minimal scope
+alwaysApply: true
+---
+
+# Lilith — Codebase Rules (Non-Negotiable)
+
+- Never rewrite code that already works unless a full rewrite is the only viable option.
+- Before performing a full rewrite, explicitly state that a rewrite is unavoidable and why.
+- Always make surgical edits.
+- Touch only the function, component, block, file, or dependency directly related to the task.
+- Never open, inspect, or modify files outside the current task scope.
+- Never open the same file twice in one session. Retain and use what you already read.
+- If a fix affects multiple files, batch all edits before writing.
+- Write each modified file only once.
+- Do not perform multiple edit passes on the same file unless the previous edit failed technically.
+- Do not run verification on files you did not modify.
+- Do not introduce boilerplate, placeholder code, speculative abstractions, or comments unless explicitly requested.
+- Do not rename, restructure, or "clean up" unrelated code.
+- Do not change formatting outside the edited block unless required by the formatter or syntax.

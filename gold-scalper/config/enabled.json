@@ -1,0 +1,22 @@
+{
+  "london_breakout": true,
+  "ny_open_momentum": true,
+  "orb_ny": true,
+  "asian_range_break": true,
+  "vol_expansion": true,
+  "vwap_reversion": true,
+  "bollinger_fade": true,
+  "rsi_extreme_fade": true,
+  "round_number_bounce": true,
+  "pivot_reversion": true,
+  "news_spike_fade": true,
+  "tick_velocity_ignition": true,
+  "spread_aware_liquidity": true,
+  "dxy_divergence": true,
+  "liquidity_sweep_reversal": true,
+  "ema_ribbon_pullback": true,
+  "stoch_trend_scalp": true,
+  "macd_zero_cross": true,
+  "keltner_supertrend_ride": true,
+  "heikin_ashi_atr": true
+}

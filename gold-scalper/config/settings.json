@@ -1,0 +1,22 @@
+{
+  "symbol": "XAUUSD",
+  "magic_base": 770000,
+  "mt5": {
+    "login": null,
+    "password": "",
+    "server": "",
+    "terminal_path": null
+  },
+  "risk": {
+    "max_risk_per_trade_pct": 0.5,
+    "max_daily_loss_pct": 2.0,
+    "max_weekly_loss_pct": 5.0,
+    "max_open_positions": 6,
+    "max_same_direction": 4,
+    "max_total_volume_lots": 3.0,
+    "min_equity": 100.0,
+    "news_blackout": true
+  },
+  "calendar_path": "config/calendar.json",
+  "i_understand_this_is_real_money": false
+}

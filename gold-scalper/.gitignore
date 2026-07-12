@@ -1,0 +1,4 @@
+logs/
+__pycache__/
+HALT
+config/calendar.json

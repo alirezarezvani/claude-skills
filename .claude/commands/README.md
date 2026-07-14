@@ -302,7 +302,7 @@ These commands work seamlessly with the GitHub automation:
 ## 🔗 Related Documentation
 
 - **Automation Setup**: `.github/AUTOMATION_SETUP.md`
-- **PR Template**: `.github/pull_request_template.md`
+- **PR Template**: `.github/PULL_REQUEST_TEMPLATE.md`
 - **Commit Template**: `.github/commit-template.txt`
 - **Workflow Guide**: See factory project for detailed reference
 

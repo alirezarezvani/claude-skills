@@ -2,6 +2,7 @@
 name: wiki-init
 description: Bootstrap a fresh LLM Wiki vault with the three-layer structure, schema files, and starter templates. Usage /wiki-init <path> --topic "<topic>" [--tool all|claude-code|codex|cursor|antigravity]
 ---
+<!-- canonical copy: engineering/llm-wiki/commands/wiki-init.md — keep in sync -->
 
 # /wiki-init
 
@@ -53,8 +54,8 @@ After init:
 
 ## Script
 
-- `engineering/llm-wiki/scripts/init_vault.py`
+- `engineering/llm-wiki/skills/llm-wiki/scripts/init_vault.py`
 
 ## Skill Reference
 
-→ `engineering/llm-wiki/SKILL.md`
+→ `engineering/llm-wiki/skills/llm-wiki/SKILL.md`

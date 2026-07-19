@@ -1,7 +1,7 @@
 {
   "name": "si",
-  "version": "2.9.0",
-  "description": "Self-Improving Agent: curate auto-memory, promote learnings to CLAUDE.md and rules, extract proven patterns into reusable skills. Provides /si:review, /si:promote, /si:extract, /si:status, and /si:remember slash commands.",
+  "version": "2.9.1",
+  "description": "Self-Improving Agent: curate auto-memory, promote learnings to CLAUDE.md and rules, extract proven patterns into reusable skills. Provides /si:memory-review, /si:promote, /si:extract, /si:memory-status, and /si:remember slash commands.",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -1,6 +1,6 @@
 ---
 title: "Prompt Engineer Toolkit — Agent Skill for Marketing"
-description: "Analyzes and rewrites prompts for better AI output, creates reusable prompt templates for marketing use cases (ad copy, email campaigns, social. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Turns marketing prompts into tested, versioned production assets: A/B prompt evaluation against structured test cases, immutable prompt version. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Prompt Engineer Toolkit
@@ -111,9 +111,9 @@ python3 scripts/prompt_versioner.py changelog --name support_classifier
 
 ## References
 
-- [references/prompt-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/prompt-templates.md)
-- [references/technique-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/technique-guide.md)
-- [references/evaluation-rubric.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/evaluation-rubric.md)
+- [references/prompt-templates.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/prompt-templates.md) — 6 production marketing templates (ad copy, email sequence, social repurposing, landing sections, SEO meta, brand-voice rewrite) plus generic building blocks; each written to be graded by `prompt_tester.py`
+- [references/technique-guide.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/technique-guide.md) — technique-selection table for marketing tasks + the LLM-governance stack for marketing teams (claim discipline, disclosure rules, data boundaries, human-review gates)
+- [references/evaluation-rubric.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/references/evaluation-rubric.md) — mechanical scoring weights, acceptance gates, marketing quality dimensions, test-suite design, and eval anti-patterns
 - [README.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/prompt-engineer-toolkit/README.md)
 
 ## Evaluation Design

@@ -75,10 +75,12 @@ Establish risk management process per ISO 14971.
 
 | Level | Acceptable | Action Required |
 |-------|------------|-----------------|
-| Low | Yes | Document and accept |
-| Medium | ALARP | Reduce if practicable; document rationale |
-| High | ALARP | Reduction required; demonstrate ALARP |
+| Low | Yes | Document and accept; still reduce as far as possible (EU MDR) |
+| Medium | After reduction AFAP | Reduce as far as possible; document why further reduction is impossible |
+| High | After reduction AFAP | Reduction required; demonstrate all further options exhausted |
 | Unacceptable | No | Design change mandatory |
+
+> **EU MDR — AFAP, not ALARP:** For CE-marked devices, risks must be reduced **as far as possible (AFAP)** without economic considerations (MDR Annex I, GSPR 1–4; EN ISO 14971:2019/A11:2021 Z-annexes deviation). ALARP ("as low as reasonably practicable"), which permits cost-benefit weighing in acceptability decisions, is **not an acceptable criterion under the EU MDR** — a notified body will flag it. ISO 14971:2019 itself removed ALARP from the normative text. ALARP may persist in some non-EU jurisdictions (e.g., the UK HSE tradition); if used outside the EU, flag the deviation from EU requirements explicitly.
 
 ---
 
@@ -170,8 +172,8 @@ Evaluate risks against acceptability criteria.
 1. Calculate initial risk level from probability × severity
 2. Compare to risk acceptability criteria
 3. For each risk, determine:
-   - Acceptable: Document and accept
-   - ALARP: Proceed to risk control
+   - Acceptable: Document and accept (EU MDR: still reduce as far as possible)
+   - Reduction required (AFAP): Proceed to risk control
    - Unacceptable: Mandatory risk control
 4. Document evaluation rationale
 5. Identify risks requiring benefit-risk analysis
@@ -189,16 +191,16 @@ Apply Acceptability Criteria
       │
       ├── Low Risk ──────────► Accept and document
       │
-      ├── Medium Risk ───────► Consider risk reduction
-      │   │                    Document ALARP if not reduced
+      ├── Medium Risk ───────► Reduce as far as possible (AFAP)
+      │   │                    Document why further reduction impossible
       │   ▼
-      │   Practicable to reduce?
+      │   Further reduction possible?
       │   │
       │   Yes──► Implement control
-      │   No───► Document ALARP rationale
+      │   No───► Document AFAP rationale (no economic considerations)
       │
       ├── High Risk ─────────► Risk reduction required
-      │   │                    Must demonstrate ALARP
+      │   │                    Must demonstrate reduction AFAP
       │   ▼
       │   Implement control
       │   Verify residual risk
@@ -207,14 +209,16 @@ Apply Acceptability Criteria
                                Cannot proceed without control
 ```
 
-### ALARP Demonstration Requirements
+### AFAP Demonstration Requirements (EU MDR)
 
 | Criterion | Evidence Required |
 |-----------|-------------------|
-| Technical feasibility | Analysis of alternative controls |
-| Proportionality | Cost-benefit of further reduction |
-| State of the art | Comparison to similar devices |
+| All control options considered | Analysis of every feasible control per the hierarchy (design, protective measures, information) |
+| Further reduction impossible | Evidence each remaining option is technically infeasible or does not further reduce risk |
+| State of the art | Comparison to similar devices and current standards |
 | Stakeholder input | Clinical/user perspectives |
+
+> Economic considerations (cost of further risk reduction) **must not** enter the EU acceptability decision (MDR Annex I GSPR 2; EN ISO 14971:2019/A11:2021). Cost may inform business decisions about whether to market the device — never whether a risk is acceptable.
 
 ### Benefit-Risk Analysis Triggers
 
@@ -297,7 +301,7 @@ VERIFICATION:
 | After Control | Action |
 |---------------|--------|
 | Acceptable | Document, proceed |
-| ALARP achieved | Document rationale, proceed |
+| Reduced AFAP | Document rationale (no economic considerations), proceed |
 | Still unacceptable | Additional control or design change |
 | New hazard introduced | Analyze and control new hazard |
 
@@ -400,8 +404,8 @@ What is the risk level?
 | Condition | Decision |
 |-----------|----------|
 | All risks Low | Acceptable |
-| Medium risks with ALARP | Acceptable |
-| High risks with ALARP documented | Acceptable if benefits outweigh |
+| Medium risks reduced AFAP | Acceptable |
+| High risks reduced AFAP, documented | Acceptable if benefits outweigh |
 | Any Unacceptable residual | Not acceptable - redesign |
 
 ---
@@ -434,7 +438,7 @@ What is the risk level?
 |-------|----------------|--------|
 | Planning | Define scope, criteria, responsibilities | Risk Management Plan |
 | Analysis | Identify hazards, estimate risk | Hazard Analysis |
-| Evaluation | Compare to criteria, ALARP assessment | Risk Evaluation |
+| Evaluation | Compare to criteria, AFAP assessment (EU) | Risk Evaluation |
 | Control | Implement hierarchy, verify | Risk Control Records |
 | Residual | Overall assessment, benefit-risk | Risk Management Report |
 | Production | Monitor, review, update | Updated RM File |

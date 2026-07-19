@@ -32,8 +32,8 @@ This is the agent the founder talks to **first**. It pulls company-context.md, p
 
 ### Knowledge Bases
 
-- [`references/routing_logic.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/references/routing_logic.md) — keywords → role mapping, multi-role triggers
-- [`references/synthesis_patterns.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/references/synthesis_patterns.md) — how to combine inputs from multiple advisors
+- [`references/routing-matrix.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/references/routing-matrix.md) — keywords → role mapping, multi-role triggers
+- [`references/synthesis-framework.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/references/synthesis-framework.md) — how to combine inputs from multiple advisors
 
 ### Coordination Skills
 
@@ -122,7 +122,7 @@ echo "Decision logged to ~/.claude/decisions/raw/$(date +%Y-%m-%d)-$RANDOM.md"
 ## Related Agents
 
 - All cs-* C-level advisors (routes to them)
-- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/c-level/cs-ceo-advisor.md) — primary upward report
+- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/agents/c-level/cs-ceo-advisor.md) — primary upward report
 - [executive-mentor / devils-advocate](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/agents/devils-advocate.md) — pre-decision adversarial check
 
 ## References

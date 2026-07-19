@@ -1,6 +1,6 @@
 ---
 name: "engineering-skills"
-description: "23 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
+description: "Index of the engineering-team skills bundle for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365 (stdlib-only Python tools). Use when browsing or choosing among engineering-team role skills — load only the one specialist SKILL.md you need, never bulk-load the bundle."
 version: 2.9.0
 author: Alireza Rezvani
 license: MIT
@@ -20,13 +20,13 @@ agents:
 
 # Engineering Team Skills
 
-23 production-ready engineering skills organized into core engineering, AI/ML/Data, and specialized tools.
+32 production-ready engineering skills organized into core engineering, security, AI/ML/Data, and specialized tools.
 
 ## Quick Start
 
 ### Claude Code
 ```
-/read engineering-team/senior-fullstack/SKILL.md
+/read engineering-team/skills/senior-fullstack/SKILL.md
 ```
 
 ### Codex CLI
@@ -86,6 +86,6 @@ No pip install needed. Scripts include embedded samples for demo mode.
 
 ## Rules
 
-- Load only the specific skill SKILL.md you need — don't bulk-load all 23
+- Load only the specific skill SKILL.md you need — don't bulk-load all 32
 - Use Python tools for analysis and scaffolding, not manual judgment
 - Check CLAUDE.md for tool usage examples and workflows

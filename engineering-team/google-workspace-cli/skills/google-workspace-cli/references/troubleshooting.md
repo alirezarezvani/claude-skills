@@ -1,6 +1,8 @@
 # Google Workspace CLI Troubleshooting
 
-Common errors, fixes, and platform-specific guidance for the `gws` CLI.
+Common errors, fixes, and platform-specific guidance for the `gws` CLI ([github.com/googleworkspace/cli](https://github.com/googleworkspace/cli)).
+
+> **Verify against your installed version.** `gws` is pre-v1.0 and generates its command surface dynamically from Google's Discovery Service. Confirm any `gws` command below with `gws --help` / `gws auth --help` before relying on it.
 
 ---
 
@@ -13,11 +15,11 @@ Common errors, fixes, and platform-specific guidance for the `gws` CLI.
 **Fixes:**
 ```bash
 # Check if installed
-npm list -g @anthropic/gws 2>/dev/null || echo "Not installed via npm"
+npm list -g @googleworkspace/cli 2>/dev/null || echo "Not installed via npm"
 which gws || echo "Not on PATH"
 
 # Install via npm
-npm install -g @anthropic/gws
+npm install -g @googleworkspace/cli
 
 # If npm global bin not on PATH
 export PATH="$(npm config get prefix)/bin:$PATH"
@@ -36,7 +38,7 @@ npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 
 # Option 2: Use npx without installing
-npx @anthropic/gws --version
+npx @googleworkspace/cli --version
 ```
 
 ### Cargo build failures
@@ -49,7 +51,7 @@ npx @anthropic/gws --version
 rustup update stable
 
 # Clean build
-cargo clean && cargo install gws-cli
+cargo clean && cargo install --git https://github.com/googleworkspace/cli --locked
 ```
 
 ---
@@ -64,9 +66,9 @@ cargo clean && cargo install gws-cli
 
 **Fix:**
 ```bash
-gws auth refresh
-# If refresh fails:
-gws auth setup  # Re-authenticate
+gws auth login   # Re-authenticate (see: gws auth --help)
+# If that fails, redo setup:
+gws auth setup
 ```
 
 ### Insufficient scopes
@@ -75,11 +77,8 @@ gws auth setup  # Re-authenticate
 
 **Fix:**
 ```bash
-# Check current scopes
-gws auth status --json | grep scopes
-
-# Re-auth with additional scopes
-gws auth setup --scopes gmail,drive,calendar,sheets,tasks
+# Re-auth requesting the scopes you need
+gws auth login -s gmail,drive,calendar,sheets,tasks
 
 # Or list required scopes for a service
 python3 scripts/auth_setup_guide.py --scopes gmail,drive
@@ -98,7 +97,7 @@ security unlock-keychain ~/Library/Keychains/login.keychain-db
 sudo apt install gnome-keyring  # or libsecret
 
 # Fallback: Use file-based token storage
-export GWS_TOKEN_PATH=~/.config/gws/token.json
+export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json  # from: gws auth export --unmasked
 gws auth setup
 ```
 
@@ -110,13 +109,12 @@ gws auth setup
 1. Verify domain-wide delegation is enabled on the service account
 2. Verify client ID is authorized in Admin Console > Security > API Controls
 3. Verify scopes match exactly (no trailing slashes)
-4. Verify `GWS_DELEGATED_USER` is a valid admin account
+4. Verify the delegated user is a valid admin account
 
 ```bash
-# Debug
-echo $GWS_SERVICE_ACCOUNT_KEY  # Should point to valid JSON key file
-echo $GWS_DELEGATED_USER       # Should be admin@yourdomain.com
-gws auth status --json          # Check auth details
+# Debug — confirm how your gws version configures service accounts first:
+gws auth --help
+echo $GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE  # Should point to valid credentials JSON
 ```
 
 ---
@@ -218,7 +216,7 @@ gws drive files list --page-all --json
 gws drive files list --limit 1000 --json
 
 # Check if more pages exist (look for nextPageToken in output)
-gws drive files list --limit 100 --json | grep nextPageToken
+gws drive files list --params '{"pageSize": 100}' | grep nextPageToken
 ```
 
 ### Empty response
@@ -226,14 +224,14 @@ gws drive files list --limit 100 --json | grep nextPageToken
 **Problem:** Command returns empty or `{}`.
 
 ```bash
-# Check auth
-gws auth status
+# Check auth (see: gws auth --help for your version's status command)
+gws auth login
 
-# Try with verbose output
-gws drive files list --verbose --json
+# Enable debug logging
+GOOGLE_WORKSPACE_CLI_LOG=debug gws drive files list --params '{"pageSize": 1}'
 
-# Check if the service is accessible
-gws drive about get --json
+# Check if the service is accessible (verify: gws schema drive.about.get)
+gws drive about get --params '{"fields": "*"}'
 ```
 
 ---
@@ -248,7 +246,7 @@ gws drive about get --json
 # In Keychain Access.app, find "gws" entries and set "Allow all applications"
 
 # Or use file-based storage
-export GWS_TOKEN_PATH=~/.config/gws/token.json
+export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json  # from: gws auth export --unmasked
 ```
 
 **Browser not opening for OAuth:**
@@ -266,9 +264,9 @@ gws auth setup --no-browser
 gws auth setup --no-browser
 # Prints a URL — open on another machine, paste code back
 
-# Or use service account (no browser needed)
-export GWS_SERVICE_ACCOUNT_KEY=/path/to/key.json
-export GWS_DELEGATED_USER=admin@domain.com
+# Or export credentials from an interactive machine (documented headless flow)
+gws auth export --unmasked > credentials.json
+export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json
 ```
 
 **Missing keyring backend:**
@@ -277,7 +275,7 @@ export GWS_DELEGATED_USER=admin@domain.com
 sudo apt install gnome-keyring libsecret-1-dev
 
 # Or use file-based storage
-export GWS_TOKEN_PATH=~/.config/gws/token.json
+export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json  # from: gws auth export --unmasked
 ```
 
 ### Windows
@@ -288,7 +286,7 @@ export GWS_TOKEN_PATH=~/.config/gws/token.json
 $env:PATH += ";$(npm config get prefix)\bin"
 
 # Or use npx
-npx @anthropic/gws --version
+npx @googleworkspace/cli --version
 ```
 
 **PowerShell quoting:**

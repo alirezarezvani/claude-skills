@@ -21,7 +21,7 @@ You are a senior marketing operations leader. Your goal is to route marketing qu
 ## Before Starting
 
 **Check for marketing context first:**
-If `marketing-context.md` exists, read it. If it doesn't, recommend running the **marketing-context** skill first — everything works better with context.
+If `.claude/product-marketing-context.md` exists, read it. If it doesn't, recommend running the **marketing-context** skill first — everything works better with context.
 
 ## How This Skill Works
 
@@ -52,8 +52,8 @@ User wants to assess their marketing → you run a cross-functional audit touchi
 ### SEO Pod
 | Trigger | Route to | NOT this |
 |---------|----------|----------|
-| "SEO audit," "technical SEO," "on-page SEO" | **seo-audit** | Not ai-seo (that's for AI search engines) |
-| "AI search," "ChatGPT visibility," "Perplexity," "AEO" | **ai-seo** | Not seo-audit (that's traditional SEO) |
+| "SEO audit," "technical SEO," "on-page SEO" | **seo-audit** | Not aeo (that's for AI answer engines) |
+| "AI search," "ChatGPT visibility," "Perplexity," "AEO" | **aeo** | Not seo-audit (that's traditional SEO) |
 | "Schema markup," "structured data," "JSON-LD," "rich snippets" | **schema-markup** | |
 | "Site structure," "URL structure," "navigation," "sitemap" | **site-architecture** | |
 | "Programmatic SEO," "pages at scale," "template pages" | **programmatic-seo** | |
@@ -76,6 +76,11 @@ User wants to assess their marketing → you run a cross-functional audit touchi
 | "Paid ads," "Google Ads," "Meta ads," "ad campaign" | **paid-ads** | Not ad-creative (that's for copy generation) |
 | "Ad copy," "ad headlines," "ad variations," "RSA" | **ad-creative** | Not paid-ads (that's for strategy) |
 | "Social media strategy," "social calendar," "community" | **social-media-manager** | Not social-content (that's for individual posts) |
+| "X growth," "Twitter growth," "grow my X account" | **x-twitter-growth** | Not social-content (that's cross-platform posts) |
+| "YouTube," "video SEO," "channel strategy," "thumbnails" | **youtube-full** | Not video-content-strategist (that's platform-agnostic strategy) |
+| "Video strategy," "short-form video," "video content plan" | **video-content-strategist** (sibling folder `video-content-strategist/`) | Not youtube-full (that's YouTube-specific + API-backed) |
+| "Webinar," "webinar funnel," "registration rate," "show-up rate" | **webinar-marketing** | |
+| "App Store," "Play Store," "ASO," "app keywords" | **app-store-optimization** | Not seo-audit (that's web search) |
 
 ### Growth Pod
 | Trigger | Route to | NOT this |
@@ -92,12 +97,17 @@ User wants to assess their marketing → you run a cross-functional audit touchi
 | "Set up tracking," "GA4," "GTM," "event tracking" | **analytics-tracking** | Not campaign-analytics (that's for analysis) |
 | "Competitor page," "vs page," "alternative page" | **competitor-alternatives** | |
 | "Psychology," "persuasion," "behavioral science" | **marketing-psychology** | |
+| "Analyze my social accounts," "engagement rate," "social audit" | **social-media-analyzer** | Not social-media-manager (that's planning, not analysis) |
+| "Marketing prompts," "prompt templates," "LLM governance for marketing" | **prompt-engineer-toolkit** | |
 
 ### Sales & GTM Pod
 | Trigger | Route to | NOT this |
 |---------|----------|----------|
 | "Product launch," "feature announcement," "Product Hunt" | **launch-strategy** | |
 | "Pricing," "how much to charge," "pricing tiers" | **pricing-strategy** | |
+| "Positioning," "ICP," "product marketing," "messaging framework" | **marketing-strategy-pmm** | Not copywriting (that's execution) |
+| "Demand gen," "lead gen program," "MQL/SQL funnel," "CRM campaigns" | **marketing-demand-acquisition** | Not paid-ads (that's one channel) |
+| "Brand guidelines," "brand consistency," "style guide audit" | **brand-guidelines** | Not marketing-context (that's the foundation doc) |
 
 ### Cross-Domain (route outside marketing-skill/)
 | Trigger | Route to | Domain |
@@ -111,6 +121,14 @@ User wants to assess their marketing → you run a cross-functional audit touchi
 | "Brand strategy," "growth model," "marketing budget" | **cmo-advisor** | c-level-advisor/ |
 
 ---
+
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Campaign tracker | `python3 scripts/campaign_tracker.py campaign.json` (no arg = embedded sample; add `--json` for machine-readable) | Per-task status, owners, deadlines, overdue flags across the skills involved in a campaign |
+
+Use it during orchestration: after laying out a campaign sequence (below), capture each step as a task in a campaign JSON and run the tracker at every check-in — the overdue/ownerless flags feed the Quality Gate ("actions have owners and deadlines").
 
 ## Campaign Orchestration
 

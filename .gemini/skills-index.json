@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 410,
+  "total_skills": 434,
   "skills": [
     {
       "name": "README",
@@ -16,7 +16,7 @@
     {
       "name": "content-strategist",
       "category": "agent",
-      "description": "Builds content engines that rank, convert, and compound. Thinks in systems \u2014 topic clusters, not individual posts. Every piece earns its place or gets killed."
+      "description": "Builds content engines that rank, convert, and compound. Thinks in systems \u2014 topic clusters, not individual posts. Every piece earns its place or gets killed. Use when content needs to behave like a system rather than a stream of posts \u2014 e.g., designing a topic-cluster plan to grow organic traffic from zero, or auditing an editorial calendar and killing pieces that don't convert after 90 days. (For single-asset, on-brand copy production, see cs-content-creator.)"
     },
     {
       "name": "cs-aeo",
@@ -26,7 +26,7 @@
     {
       "name": "cs-agile-product-owner",
       "category": "agent",
-      "description": "Agile product owner agent for epic breakdown, sprint planning, backlog refinement, and INVEST-compliant user story generation"
+      "description": "Agile product owner agent for epic breakdown, sprint planning, backlog refinement, and INVEST-compliant user story generation. Use when preparing work for a development team \u2014 e.g., decomposing a large epic into INVEST-compliant stories with acceptance criteria, or refining a messy backlog ahead of sprint planning."
     },
     {
       "name": "cs-backend-engineer",
@@ -36,22 +36,22 @@
     {
       "name": "cs-ceo-advisor",
       "category": "agent",
-      "description": "Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture"
+      "description": "Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture. Use when a founder or CEO faces a company-level strategic decision \u2014 e.g., preparing the narrative and metrics for a quarterly board meeting, or stress-testing a pivot or market-expansion decision against vision, runway, and stakeholder expectations."
     },
     {
       "name": "cs-content-creator",
       "category": "agent",
-      "description": "AI-powered content creation specialist for brand voice consistency, SEO optimization, and multi-platform content strategy"
+      "description": "Long-form marketing content producer orchestrating the content-production skill (research \u2192 brief \u2192 draft \u2192 optimize \u2192 gate). Use when content must be written, scored, or made publish-ready \u2014 e.g., drafting a 2,000-word blog post against a target keyword and blocking publish until content_quality_gates.py passes, or auditing a draft for brand-voice drift with brand_voice_analyzer.py before it ships. Routes planning requests (topic clusters, calendars) to content-strategy. Supersedes the deprecated content-creator skill."
     },
     {
       "name": "cs-cto-advisor",
       "category": "agent",
-      "description": "Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence"
+      "description": "Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence. Use when a CTO or technical founder needs company-level technology judgment \u2014 e.g., deciding build-vs-buy for a core platform component, or planning how to scale the engineering org from 5 to 30 engineers without losing delivery velocity."
     },
     {
       "name": "cs-demand-gen-specialist",
       "category": "agent",
-      "description": "Demand generation and customer acquisition specialist for lead generation, conversion optimization, and multi-channel acquisition campaigns"
+      "description": "Demand generation and acquisition-funnel specialist orchestrating the marketing-demand-acquisition, paid-ads, and email-sequence skills. Use when building or fixing the acquisition engine \u2014 e.g., comparing channel CAC against B2B SaaS benchmarks before reallocating a $40k/month budget, scoring paid-ads account health with ad_health_scorer.py before scaling spend, or designing a nurture sequence that must score 70+ on sequence_analyzer.py before launch. Covers channel mix, CAC/ROAS math, MQL\u2192SQL workflows, attribution, and nurture design."
     },
     {
       "name": "cs-engineering-lead",
@@ -86,22 +86,22 @@
     {
       "name": "cs-product-analyst",
       "category": "agent",
-      "description": "Product analytics agent for KPI definition, dashboard setup, experiment design, and test result interpretation."
+      "description": "Product analytics agent for KPI definition, dashboard setup, experiment design, and test result interpretation. Use when a product question needs numbers \u2014 e.g., defining activation/retention KPIs and a dashboard spec for a new feature, or sizing an A/B test and judging whether the result is significant enough to ship."
     },
     {
       "name": "cs-product-manager",
       "category": "agent",
-      "description": "Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework"
+      "description": "Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework. Use when a product decision needs structure and evidence \u2014 e.g., RICE-scoring a backlog of 20 feature requests before quarterly planning, or drafting a PRD from raw customer-interview notes."
     },
     {
       "name": "cs-product-strategist",
       "category": "agent",
-      "description": "Product strategy agent for quarterly OKR planning, competitive landscape analysis, product vision development, and strategy pivot evaluation"
+      "description": "Product strategy agent for quarterly OKR planning, competitive landscape analysis, product vision development, and strategy pivot evaluation. Use when the question is direction rather than delivery \u2014 e.g., cascading company OKRs into product-team objectives for next quarter, or running a competitive teardown to decide whether to enter an adjacent market."
     },
     {
       "name": "cs-project-manager",
       "category": "agent",
-      "description": "Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management skills."
+      "description": "Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management skills. Use when running delivery operations \u2014 e.g., planning a sprint with capacity and carry-over math in Jira, or assembling a portfolio health report for stakeholders from ticket and velocity data."
     },
     {
       "name": "cs-quality-regulatory",
@@ -116,7 +116,12 @@
     {
       "name": "cs-ux-researcher",
       "category": "agent",
-      "description": "UX research agent for research planning, persona generation, journey mapping, and usability test analysis"
+      "description": "UX research agent for research planning, persona generation, journey mapping, and usability test analysis. Use when product decisions need user evidence \u2014 e.g., planning interview scripts and recruiting criteria for a discovery study, or synthesizing usability-test sessions into prioritized findings and updated personas."
+    },
+    {
+      "name": "cs-webinar-marketer",
+      "category": "agent",
+      "description": "Webinar & virtual-event marketing specialist agent. Use when planning, promoting, running, or rescuing a webinar, virtual event, live demo, workshop, masterclass, fireside chat, or virtual summit. Orchestrates the webinar-marketing skill \u2014 sizes the funnel backward from the business goal, builds the promotion runway, designs the show-up and live-to-close sequences, scores an existing funnel to find the broken stage, and plans evergreen/on-demand automation. Treats a webinar as a funnel, not an event. Voice \u2014 outcome-obsessed demand operator; refuses to celebrate registrations when nobody shows up or buys; fixes the stage that's actually broken instead of rewriting the landing page by reflex."
     },
     {
       "name": "cs-wiki-ingestor",
@@ -141,37 +146,37 @@
     {
       "name": "devops-engineer",
       "category": "agent",
-      "description": "Builds infrastructure that scales without babysitting. Automates everything worth automating. Monitors before it breaks. Treats clicking in consoles as a production incident waiting to happen."
+      "description": "Builds infrastructure that scales without babysitting. Automates everything worth automating. Monitors before it breaks. Treats clicking in consoles as a production incident waiting to happen. Use when infrastructure or delivery needs automation and observability \u2014 e.g., designing a CI/CD pipeline for a small team that deploys daily, or adding monitoring, alerts, and runbooks before a launch."
     },
     {
       "name": "finance-lead",
       "category": "agent",
-      "description": "Startup CFO who builds models that survive contact with reality. Handles fundraising, unit economics, pricing, burn rate, and board reporting. Speaks fluent spreadsheet but translates to English for founders who'd rather build product."
+      "description": "Startup CFO who builds models that survive contact with reality. Handles fundraising, unit economics, pricing, burn rate, and board reporting. Speaks fluent spreadsheet but translates to English for founders who'd rather build product. Use when a money question needs a model, not a vibe \u2014 e.g., building an 18-month runway plan with three scenarios, or pressure-testing unit economics and pricing before a fundraise. (For DCF and SaaS-metrics tooling, see cs-financial-analyst.)"
     },
     {
       "name": "growth-marketer",
       "category": "agent",
-      "description": "Growth marketing specialist for bootstrapped startups and indie hackers. Builds content engines, optimizes funnels, runs launch sequences, and finds scalable acquisition channels \u2014 all on a budget that makes enterprise marketers cry."
+      "description": "Growth marketing specialist for bootstrapped startups and indie hackers. Builds content engines, optimizes funnels, runs launch sequences, and finds scalable acquisition channels \u2014 all on a budget that makes enterprise marketers cry. Use when growth has to come before budget \u2014 e.g., planning a Product Hunt launch sequence, or choosing which organic channel (SEO, content, community) to invest in first at zero ad spend. (For funnel diagnostics with paid budget, see cs-demand-gen-specialist.)"
     },
     {
       "name": "product-manager",
       "category": "agent",
-      "description": "Ships outcomes, not features. Writes specs engineers actually read. Prioritizes ruthlessly. Kills darlings when the data says so. Operates at the intersection of user needs, business goals, and engineering reality."
+      "description": "Ships outcomes, not features. Writes specs engineers actually read. Prioritizes ruthlessly. Kills darlings when the data says so. Operates at the intersection of user needs, business goals, and engineering reality. Use when product work needs ruthless prioritization and a success metric \u2014 e.g., turning vague stakeholder asks into a 2-page spec, or deciding which of three competing roadmap bets to fund this quarter. (For framework-heavy RICE/PRD tooling, see cs-product-manager.)"
     },
     {
       "name": "solo-founder",
       "category": "agent",
-      "description": "Your co-founder who doesn't exist yet. Covers product, engineering, marketing, and strategy for one-person startups \u2014 because nobody's stopping you from making bad decisions and somebody should."
+      "description": "Your co-founder who doesn't exist yet. Covers product, engineering, marketing, and strategy for one-person startups \u2014 because nobody's stopping you from making bad decisions and somebody should. Use when a solo founder or indie hacker needs a cross-functional thinking partner \u2014 e.g., deciding what to cut from an MVP to ship this month, or choosing between building one more feature and talking to ten users."
     },
     {
       "name": "startup-cto",
       "category": "agent",
-      "description": "Technical co-founder who's been through two startups and learned what actually matters. Makes architecture decisions, selects tech stacks, builds engineering culture, and prepares for technical due diligence \u2014 all while shipping fast with a small team."
+      "description": "Technical co-founder who's been through two startups and learned what actually matters. Makes architecture decisions, selects tech stacks, builds engineering culture, and prepares for technical due diligence \u2014 all while shipping fast with a small team. Use when an early-stage team needs pragmatic, ship-first technical leadership \u2014 e.g., picking a boring-but-fast stack for an MVP with two engineers, or prepping architecture answers for investor due diligence. (For company-scale CTO strategy, see cs-cto-advisor.)"
     },
     {
       "name": "business-growth-skills",
       "category": "business-growth",
-      "description": "4 business growth agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Customer success (health scoring, churn), sales engineer (RFP), revenue operations (pipeline, GTM), contract & proposal writer. Python tools (stdlib-only)."
+      "description": "Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manager (health scoring, churn risk, expansion), sales-engineer (RFP analysis, competitive matrices, PoC planning), revenue-operations (pipeline, forecast accuracy, GTM efficiency), and contract-and-proposal-writer. Use when a growth/revenue request doesn't obviously match one skill and you need to pick the right one (e.g., 'which accounts are at risk', 'should we bid on this RFP')."
     },
     {
       "name": "contract-and-proposal-writer",
@@ -206,12 +211,12 @@
     {
       "name": "internal-comms",
       "category": "business-operations",
-      "description": "Use when a Head of People Ops, BizOps lead, or Internal Communications owner needs to draft and sequence an internal-only change-management communication \u2014 a re-org announcement, a tool rollout, a policy change, a benefit change, a leadership transition, a layoff, an acquisition close, or an internal product launch \u2014 and the audience is employees (not customers). Triggers on \"all-hands announcement\", \"town-hall script\", \"change comms\", \"internal newsletter\", \"rollout comms\", \"policy change announcement\", \"re-org announcement\", \"internal FAQ\", \"manager talking points\", \"Prosci ADKAR\", \"Kotter 8-step\", \"layoff comms\", \"RIF comms\", \"internal memo\". Pairs Prosci ADKAR (Awareness / Desire / Knowledge / Ability / Reinforcement) and Kotter's 8-step change model with deterministic stdlib-only Python tools to produce a sequenced touchpoint calendar, a Kotter-compliant primary announcement, an audience-segmented FAQ, and manager cascade talking points. Industry-tuned via --profile {tech-startup, scaleup, enterprise, public-company, non-profit}. Distinct from marketing-skill/* (external/customer-facing), c-level-advisor/internal-narrative (strategic framing, not tactical drafts), and c-level-advisor/change-management (executive change strategy, not the comms package itself)."
+      "description": "Use when a Head of People Ops, BizOps lead, or Internal Communications owner needs to draft and sequence an internal-only change-management communication \u2014 a re-org announcement, a tool rollout, a policy change, a leadership transition, a layoff, an acquisition close, or an internal product launch \u2014 and the audience is employees (not customers). Pairs Prosci ADKAR and Kotter's 8-step change model with deterministic stdlib-only Python tools to produce a sequenced touchpoint calendar, a Kotter-compliant primary announcement, an audience-segmented FAQ, and manager cascade talking points; industry-tuned via --profile {tech-startup, scaleup, enterprise, public-company, non-profit}. Triggers on \"all-hands announcement\", \"change comms\", \"rollout comms\", \"re-org announcement\", \"manager talking points\", \"layoff comms\"."
     },
     {
       "name": "knowledge-ops",
       "category": "business-operations",
-      "description": "Use when a Head of Ops, Knowledge Manager, or TPM-Internal needs to author, validate, or clean up company SOPs and internal runbooks (procurement intake, vendor offboarding, incident-comms cascade, employee onboarding, expense reimbursement, system-access provisioning, customer-escalation playbook) \u2014 including 5W2H completeness checks (Who-What-When-Where-Why-How-HowMuch), cross-link and orphan-page validation across a sprawling Notion/Confluence/Obsidian wiki, KB ingestion + hygiene reporting, ops onboarding doc generation, and runbook step verification (named owner, expected duration, observable success signal, rollback path, escalation contact). Pairs Kaoru Ishikawa's 5W2H method, Atul Gawande's *The Checklist Manifesto*, ISO 9001, ITIL v4 Service Operation, FDA 21 CFR Part 211, and Google SRE Workbook runbook discipline with deterministic stdlib-only Python tools that score completeness, detect anti-patterns, and emit prioritized cleanup lists. Distinct from `engineering/llm-wiki` (Karpathy-style personal PKM second brain), `engineering-team/runbook-generator` (system-ops production debugging runbook), `project-management/*` (Jira/Confluence delivery + ticket tracking), and sibling `business-operations/process-mapper` (BPMN process *design*, while knowledge-ops is process *documentation*)."
+      "description": "Use when a Head of Ops, Knowledge Manager, or TPM-Internal needs to author, validate, or clean up company SOPs and internal runbooks (procurement intake, vendor offboarding, incident-comms cascade, employee onboarding) \u2014 including 5W2H completeness checks (Who-What-When-Where-Why-How-HowMuch), cross-link and orphan-page validation across a sprawling Notion/Confluence/Obsidian wiki, KB ingestion + hygiene reporting, and runbook step verification (named owner, expected duration, observable success signal, rollback path, escalation contact). Pairs Ishikawa's 5W2H method, Gawande's *The Checklist Manifesto*, ISO 9001, ITIL v4, and Google SRE Workbook runbook discipline with deterministic stdlib-only Python tools that score completeness, detect anti-patterns, and emit prioritized cleanup lists (e.g., \"validate this runbook before it goes into rotation\", \"audit our Confluence wiki for stale and orphaned SOPs\")."
     },
     {
       "name": "process-mapper",
@@ -221,17 +226,22 @@
     {
       "name": "procurement-optimizer",
       "category": "business-operations",
-      "description": "Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base \u2014 when the user needs to do a spend audit, spend categorization (UNSPSC-aligned), purchasing-cycle analysis, or risk-balanced supplier consolidation. Triggers on \"spend audit\", \"SaaS audit\", \"spend categorization\", \"supplier rationalization\", \"supplier consolidation\", \"purchasing cycle\", \"procurement review\", \"category strategy\", \"duplicate SaaS\", \"renewal cluster\". Ships 3 stdlib-only Python tools (UNSPSC-aligned spend categorizer with Pareto breakdown and industry profiles, purchasing-cycle analyzer that surfaces bottleneck categories per Goldratt's Theory of Constraints, supplier-consolidation planner that refuses single-source recommendations for tier-1 categories without a documented break-glass plan), 3 reference docs each citing 7+ authoritative sources (A.T. Kearney / Hackett / Spend Matters / UNSPSC / Productiv / Vendr / Tropic / IACCM / ISM / BCG), and a 20-minute spend-intake template. Distinct from sibling vendor-management (performance scoring of vendors you keep paying), finance/financial-analysis (close + report, not category strategy), and c-level-advisor/general-counsel-advisor (contract law, not category rationalization)."
+      "description": "Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base \u2014 when the user needs a spend audit, spend categorization (UNSPSC-aligned with Pareto breakdown and industry profiles), purchasing-cycle analysis (bottleneck categories per Goldratt's Theory of Constraints), or risk-balanced supplier consolidation that refuses single-source recommendations for tier-1 categories without a documented break-glass plan. Triggers on \"spend audit\", \"SaaS audit\", \"spend categorization\", \"supplier rationalization\", \"supplier consolidation\", \"category strategy\", \"duplicate SaaS\", \"renewal cluster\"."
     },
     {
       "name": "vendor-management",
       "category": "business-operations",
-      "description": "Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships \u2014 running a vendor scorecard, tracking SLA compliance, classifying third-party risk, preparing a tier-1 vendor review, or auditing the SaaS portfolio. Triggers on \"vendor SLA\", \"vendor scorecard\", \"third-party risk\", \"TPRM\", \"vendor review\", \"SaaS audit\", \"supplier performance\", \"vendor health check\", \"renewal review\". Forks context so large vendor catalogs (50-500 line items) and SLA logs don't pollute the parent thread. Ships 3 stdlib-only Python tools (vendor scorer with industry tuning, SLA compliance tracker with credit-claim flags, vendor risk classifier across 4 risk vectors), 3 reference docs each citing 7+ authoritative sources (Gartner / Shared Assessments / NIST / ISO 27036 / breach post-mortems), and a 5-vendor catalog template. Distinct from c-level-advisor/general-counsel-advisor (contract law, not operational management), business-growth/contract-and-proposal-writer (outbound proposals, not inbound vendor scoring), and sibling procurement-optimizer (spend categorization, not vendor performance)."
+      "description": "Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships \u2014 running a vendor scorecard with industry tuning, tracking SLA compliance with credit-claim flags, classifying third-party risk across 4 risk vectors, preparing a tier-1 vendor review, or auditing the SaaS portfolio. Forks context so large vendor catalogs (50-500 line items) and SLA logs don't pollute the parent thread. Triggers on \"vendor SLA\", \"vendor scorecard\", \"third-party risk\", \"TPRM\", \"vendor review\", \"supplier performance\", \"vendor health check\", \"renewal review\"."
     },
     {
       "name": "agent-protocol",
       "category": "c-level",
       "description": "Inter-agent communication protocol for C-suite agent teams. Defines invocation syntax, loop prevention, isolation rules, and response formats. Use when C-suite agents need to query each other, coordinate cross-functional analysis, or run board meetings with multiple agent roles."
+    },
+    {
+      "name": "arquiteto-de-empresa",
+      "category": "c-level",
+      "description": "Company Architect: builds a business from scratch as an OKF (Open Knowledge Format) bundle \u2014 a tree of version-controllable .md files with frontmatter type, links forming a graph, and reserved index.md/log.md, readable by humans and agents. Guides the founder through a 12-phase interview (foundation, strategy, market, financial, sales, marketing, product, operations, tech, people, legal, governance), one phase at a time, few questions per block, and generates the concepts as conformant markdown. Trigger when the user wants to create, structure, or document an entire company in folders and .md files; when they mention build my company from scratch, company as code, company knowledge base for AI to read, company wiki for agents, OKF, or knowledge bundle. In English."
     },
     {
       "name": "board-deck-builder",
@@ -241,7 +251,7 @@
     {
       "name": "board-meeting",
       "category": "c-level",
-      "description": "Multi-agent board meeting protocol for strategic decisions. Runs a structured 6-phase deliberation: context loading, independent C-suite contributions (isolated, no cross-pollination), critic analysis, synthesis, founder review, and decision extraction. Use when the user invokes /cs:board, calls a board meeting, or wants structured multi-perspective executive deliberation on a strategic question."
+      "description": "Multi-agent board meeting protocol for strategic decisions. Runs a structured 6-phase deliberation: context loading, independent C-suite contributions (isolated, no cross-pollination), critic analysis, synthesis, founder review, and decision extraction. Use when the user invokes /cs:boardroom, calls a board meeting, or wants structured multi-perspective executive deliberation on a strategic question."
     },
     {
       "name": "board-prep",
@@ -251,37 +261,37 @@
     {
       "name": "boardroom",
       "category": "c-level",
-      "description": "/cs:boardroom <brief> \u2014 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo."
+      "description": "/cs:boardroom <brief> \u2014 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo. Use when a decision spans multiple executive domains \u2014 e.g. a pricing change touching finance, positioning, and product, or a raise-vs-cut runway call."
     },
     {
       "name": "brief",
       "category": "c-level",
-      "description": "/cs:brief <topic> \u2014 Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline."
+      "description": "/cs:brief <topic> \u2014 Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation \u2014 e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
     },
     {
       "name": "c-level-agents",
       "category": "c-level",
-      "description": "Founder-mode executive team. 8 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) and 17 /cs:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /cs:* commands, or when orchestrating multi-role decisions."
+      "description": "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /cs:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /cs:* commands, or when orchestrating multi-role decisions."
     },
     {
       "name": "c-level-skills",
       "category": "c-level",
-      "description": "10 C-level advisory agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor. Multi-role board meetings, strategy routing, structured recommendations. For founders needing executive-level decision support."
+      "description": "Index and router for the C-level advisory bundle: 33 skills covering 14 C-suite roles, orchestration, cross-cutting capabilities, and culture. Use when exploring what the c-level-advisor bundle contains, deciding which advisor skill fits a question, or finding the entry points (cs-onboard interview, chief-of-staff routing, board-meeting protocol)."
     },
     {
       "name": "caio-review",
       "category": "c-level",
-      "description": "/cs:caio-review <plan> \u2014 Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring."
+      "description": "/cs:caio-review <plan> \u2014 Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring. Use when shipping an AI feature without an eval set, choosing between API, fine-tune, and self-hosted, or classifying a use case under the EU AI Act."
     },
     {
       "name": "cco-review",
       "category": "c-level",
-      "description": "/cs:cco-review <plan> \u2014 Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring."
+      "description": "/cs:cco-review <plan> \u2014 Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire."
     },
     {
       "name": "cdo-review",
       "category": "c-level",
-      "description": "/cs:cdo-review <plan> \u2014 Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring."
+      "description": "/cs:cdo-review <plan> \u2014 Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring. Use when validating training-data rights before model work, choosing warehouse vs lakehouse vs mesh, or valuing data assets for productization or M&A."
     },
     {
       "name": "ceo-advisor",
@@ -296,7 +306,7 @@
     {
       "name": "cfo-review",
       "category": "c-level",
-      "description": "/cs:cfo-review <plan> \u2014 Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation."
+      "description": "/cs:cfo-review <plan> \u2014 Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when a plan commits meaningful spend \u2014 e.g. a hiring wave, a fundraise decision, or a new channel budget."
     },
     {
       "name": "challenge",
@@ -326,7 +336,7 @@
     {
       "name": "chief-of-staff",
       "category": "c-level",
-      "description": "C-suite orchestration layer. Routes founder questions to the right advisor role(s), triggers multi-role board meetings for complex decisions, synthesizes outputs, and tracks decisions. Every C-suite interaction starts here. Loads company context automatically."
+      "description": "C-suite orchestration layer. Routes founder questions to the right advisor role(s), triggers multi-role board meetings for complex decisions, synthesizes outputs, and tracks decisions. Every C-suite interaction starts here. Loads company context automatically. Use when a founder question needs routing to the right advisor \u2014 e.g. 'should we raise now or cut burn?' \u2014 or when a multi-domain decision needs a board meeting convened."
     },
     {
       "name": "chro-advisor",
@@ -341,7 +351,7 @@
     {
       "name": "ciso-review",
       "category": "c-level",
-      "description": "/cs:ciso-review <plan> \u2014 Risk-paranoid interrogation of any plan that touches data, compliance, or production access."
+      "description": "/cs:ciso-review <plan> \u2014 Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features that handle customer data, before a SOC 2 / ISO audit, or after any incident or near-miss."
     },
     {
       "name": "cmo-advisor",
@@ -351,7 +361,7 @@
     {
       "name": "cmo-review",
       "category": "c-level",
-      "description": "/cs:cmo-review <plan> \u2014 Narrative-first interrogation of positioning, ICP, message house, and channel mix."
+      "description": "/cs:cmo-review <plan> \u2014 Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or repositioning, or when CAC is rising and the one-sentence positioning test fails."
     },
     {
       "name": "company-os",
@@ -366,7 +376,7 @@
     {
       "name": "context-engine",
       "category": "c-level",
-      "description": "Loads and manages company context for all C-suite advisor skills. Reads ~/.claude/company-context.md, detects stale context (>90 days), enriches context during conversations, and enforces privacy/anonymization rules before external API calls."
+      "description": "Loads and manages company context for all C-suite advisor skills. Reads ~/.claude/company-context.md, detects stale context (>90 days), enriches context during conversations, and enforces privacy/anonymization rules before external API calls. Use when starting any C-suite advisor session, when context looks stale or missing, or before sending company data to an external service."
     },
     {
       "name": "coo-advisor",
@@ -381,7 +391,7 @@
     {
       "name": "cpo-review",
       "category": "c-level",
-      "description": "/cs:cpo-review <plan> \u2014 JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus."
+      "description": "/cs:cpo-review <plan> \u2014 JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap, deciding whether to kill a feature, or claiming PMF without a retention curve."
     },
     {
       "name": "cro-advisor",
@@ -391,17 +401,17 @@
     {
       "name": "cro-review",
       "category": "c-level",
-      "description": "/cs:cro-review <plan> \u2014 Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time."
+      "description": "/cs:cro-review <plan> \u2014 Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team."
     },
     {
       "name": "cross-eval",
       "category": "c-level",
-      "description": "/cs:cross-eval <memo> \u2014 Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation."
+      "description": "/cs:cross-eval <memo> \u2014 Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom \u2014 e.g. a bet-the-company pivot or fundraise terms."
     },
     {
       "name": "cs-onboard",
       "category": "c-level",
-      "description": "Founder onboarding interview that captures company context across 7 dimensions. Invoke with /cs:setup for initial interview or /cs:update for quarterly refresh. Generates ~/.claude/company-context.md used by all C-suite advisor skills."
+      "description": "Founder onboarding interview that captures company context across 7 dimensions. Invoke with /cs:setup for initial interview or /cs:update for quarterly refresh. Generates ~/.claude/company-context.md used by all C-suite advisor skills. Use when setting up the C-suite advisors for the first time, or when company context is missing or more than 90 days old \u2014 e.g. after a fundraise or pivot."
     },
     {
       "name": "cto-advisor",
@@ -411,7 +421,7 @@
     {
       "name": "cto-review",
       "category": "c-level",
-      "description": "/cs:cto-review <plan> \u2014 Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy."
+      "description": "/cs:cto-review <plan> \u2014 Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor."
     },
     {
       "name": "culture-architect",
@@ -421,7 +431,7 @@
     {
       "name": "decide",
       "category": "c-level",
-      "description": "/cs:decide <memo> \u2014 Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference."
+      "description": "/cs:decide <memo> \u2014 Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Use when the founder has approved a boardroom memo and the decision must become durable company memory \u2014 e.g. right after /cs:boardroom concludes."
     },
     {
       "name": "decision-logger",
@@ -431,7 +441,7 @@
     {
       "name": "execute",
       "category": "c-level",
-      "description": "/cs:execute <decision> \u2014 Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision."
+      "description": "/cs:execute <decision> \u2014 Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a logged decision needs to become an operating plan \u2014 e.g. turning an approved market-entry call into weekly milestones with DRIs."
     },
     {
       "name": "executive-mentor",
@@ -446,17 +456,17 @@
     {
       "name": "founder-mode",
       "category": "c-level",
-      "description": "/cs:founder-mode <question> \u2014 Auto-routes any founder question to the right C-role advisor or to /cs:boardroom for multi-role topics. The single-command entry point."
+      "description": "/cs:founder-mode <question> \u2014 Auto-routes any founder question to the right C-role advisor or to /cs:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits \u2014 e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO."
     },
     {
       "name": "freeze",
       "category": "c-level",
-      "description": "/cs:freeze <decision> <days> \u2014 Lock a strategic decision for a cooldown period to prevent impulse reversal. Mirrors gstack's safety primitives for the business layer."
+      "description": "/cs:freeze <decision> <days> \u2014 Lock a strategic decision for a cooldown period to prevent impulse reversal. Mirrors gstack's safety primitives for the business layer. Use when an irreversible decision was made under pressure \u2014 e.g. a layoff plan or multi-year contract \u2014 and deserves a cooling-off lock before execution."
     },
     {
       "name": "gc-review",
       "category": "c-level",
-      "description": "/cs:gc-review <plan> \u2014 General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface."
+      "description": "/cs:gc-review <plan> \u2014 General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
     },
     {
       "name": "general-counsel-advisor",
@@ -466,7 +476,7 @@
     {
       "name": "hard-call",
       "category": "c-level",
-      "description": "/em -hard-call \u2014 Framework for Decisions With No Good Options"
+      "description": "/em:hard-call \u2014 Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass is needed \u2014 e.g. choosing between a layoff and a down round, or killing a beloved product line."
     },
     {
       "name": "internal-narrative",
@@ -486,12 +496,12 @@
     {
       "name": "office-hours",
       "category": "c-level",
-      "description": "/cs:office-hours <topic> \u2014 YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit."
+      "description": "/cs:office-hours <topic> \u2014 YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route \u2014 e.g. 'should we grow faster?' \u2014 or before drafting a strategy brief."
     },
     {
       "name": "onboard",
       "category": "c-level",
-      "description": "/cs:onboard \u2014 Founder interview that populates ~/.claude/company-context.md. The first command to run when starting with c-level-agents."
+      "description": "/cs:onboard \u2014 Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context \u2014 e.g. before a first /cs:boardroom or after a fundraise changes the numbers."
     },
     {
       "name": "org-health-diagnostic",
@@ -501,17 +511,22 @@
     {
       "name": "post-mortem",
       "category": "c-level",
-      "description": "/cs:post-mortem <decision> \u2014 Honest retrospective on an executed decision, scored against original assumptions and dissent. Closes the strategic sprint loop."
+      "description": "/cs:post-mortem <decision> \u2014 Honest retrospective on an executed decision, scored against original assumptions and dissent. Closes the strategic sprint loop. Use when a decision hits its 90-day review checkpoint or its kill criteria trigger \u2014 e.g. scoring last quarter's pricing change against its pre-committed success metrics."
     },
     {
       "name": "postmortem",
       "category": "c-level",
-      "description": "/em -postmortem \u2014 Honest Analysis of What Went Wrong"
+      "description": "/em:postmortem \u2014 Honest analysis of what went wrong. Use after a failed launch, missed quarter, or bad hire to run a blameless 5-Whys retrospective with a change register \u2014 e.g. dissecting why the Q3 release slipped six weeks."
     },
     {
       "name": "scenario-war-room",
       "category": "c-level",
       "description": "Cross-functional what-if modeling for cascading multi-variable scenarios. Unlike single-assumption stress testing, this models compound adversity across all business functions simultaneously. Use when facing complex risk scenarios, strategic decisions with major downside, or when the user asks 'what if X AND Y both happen?'"
+    },
+    {
+      "name": "skills-arquiteto-de-empresa",
+      "category": "c-level",
+      "description": "Company Architect: builds a business from scratch as an OKF (Open Knowledge Format) bundle \u2014 a tree of version-controllable .md files with frontmatter type, links forming a graph, and reserved index.md/log.md, readable by humans and agents. Guides the founder through a 12-phase interview (foundation, strategy, market, financial, sales, marketing, product, operations, tech, people, legal, governance), one phase at a time, few questions per block, and generates the concepts as conformant markdown. Trigger when the user wants to create, structure, or document an entire company in folders and .md files; when they mention build my company from scratch, company as code, company knowledge base for AI to read, company wiki for agents, OKF, or knowledge bundle. In English."
     },
     {
       "name": "skills-chief-ai-officer-advisor",
@@ -546,7 +561,7 @@
     {
       "name": "stress-test",
       "category": "c-level",
-      "description": "/em -stress-test \u2014 Business Assumption Stress Testing"
+      "description": "/em:stress-test \u2014 Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated \u2014 e.g. stress-testing 'enterprise buyers will tolerate a 6-month pilot' or a hockey-stick revenue model."
     },
     {
       "name": "vpe-advisor",
@@ -556,7 +571,7 @@
     {
       "name": "vpe-review",
       "category": "c-level",
-      "description": "/cs:vpe-review <plan> \u2014 Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline."
+      "description": "/cs:vpe-review <plan> \u2014 Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline. Use when cycle time balloons, DORA metrics slide, or before committing to an eng hiring wave or a reorg."
     },
     {
       "name": "changelog",
@@ -614,6 +629,11 @@
       "description": "Fullstack engineering review \u2014 walks the 7 Matt Pocock forcing questions, picks the profile, forks into POWERFUL specialists (api-design-reviewer, database-designer, slo-architect). Invokes the cs-fullstack-engineer agent with context fork."
     },
     {
+      "name": "cs-webinar",
+      "category": "command",
+      "description": "/cs:webinar \u2014 Webinar & virtual-event marketing workflow. Plan a webinar from scratch (sized backward from the business goal), rescue one whose numbers disappointed (score the funnel, fix the broken stage), or turn a past webinar into an evergreen on-demand lead engine. Covers the full funnel: registration, promotion runway, show-up, live engagement, live-to-close, and segmented follow-up. Treats a webinar as a funnel, not an event."
+    },
+    {
       "name": "financial-health",
       "category": "command",
       "description": "Run financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecasts. Usage: /financial-health <ratios|dcf|budget|forecast> <data.json>"
@@ -661,7 +681,7 @@
     {
       "name": "prd",
       "category": "command",
-      "description": "Quick PRD generation command. Usage: /prd <feature-or-problem>"
+      "description": "Gated PRD generation \u2014 interrogates problem, user, and metric before drafting; refuses to draft on unknowns. Usage: /prd <feature-or-problem>"
     },
     {
       "name": "project-health",
@@ -701,7 +721,7 @@
     {
       "name": "sprint-plan",
       "category": "command",
-      "description": "Sprint planning shortcut. Usage: /sprint-plan <goal> [capacity]"
+      "description": "Capacity-gated sprint planning \u2014 runs capacity math, carry-over check, and a definition-of-ready gate before committing scope. Usage: /sprint-plan <goal> [capacity]"
     },
     {
       "name": "tc",
@@ -711,7 +731,7 @@
     {
       "name": "tdd",
       "category": "command",
-      "description": "Generate tests, analyze coverage, and run TDD workflows. Usage: /tdd <generate|coverage|validate> [options]"
+      "description": "Run a red-green-refactor TDD workflow \u2014 generate failing tests first, implement to green, then check coverage gaps. Usage: /tdd <generate|coverage|validate> [target]"
     },
     {
       "name": "tech-debt",
@@ -751,7 +771,7 @@
     {
       "name": "channel-economics",
       "category": "commercial",
-      "description": "Use when reviewing or rebalancing direct vs. partner-led channel economics \u2014 computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts (DOUBLE-DOWN / MAINTAIN / DEFUND / EXIT), a sensitivity-tested channel-mix recommendation, and the diminishing-returns inflection. Not channel structure (that's partnerships-architect \u2014 tiers, joint GTM, revshare). Not RevOps process (that's business-growth/revenue-operations \u2014 lead routing, SDR motion). Not strategic CRO judgment (that's c-level-advisor/cro-advisor \u2014 comp plans, when-to-hire-a-VP-Sales). Not historical close-and-report (that's finance/financial-analysis). This skill answers: direct vs partner profitability, channel profitability, channel mix, channel economics."
+      "description": "Use when reviewing or rebalancing direct vs. partner-led channel economics \u2014 computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts (DOUBLE-DOWN / MAINTAIN / DEFUND / EXIT), a sensitivity-tested channel-mix recommendation, and the diminishing-returns inflection (e.g., 'which channel actually makes money \u2014 direct or partner?')."
     },
     {
       "name": "commercial-forecaster",
@@ -886,7 +906,7 @@
     {
       "name": "engineering-skills",
       "category": "engineering",
-      "description": "23 engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365. 30+ Python tools (stdlib-only)."
+      "description": "Index of the engineering-team skills bundle for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365 (stdlib-only Python tools). Use when browsing or choosing among engineering-team role skills \u2014 load only the one specialist SKILL.md you need, never bulk-load the bundle."
     },
     {
       "name": "epic-design",
@@ -896,7 +916,7 @@
     {
       "name": "extract",
       "category": "engineering",
-      "description": "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples."
+      "description": "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Use when the user runs /si:extract or asks to package a recurring solution from memory into a skill."
     },
     {
       "name": "fix",
@@ -916,7 +936,7 @@
     {
       "name": "google-workspace-cli",
       "category": "engineering",
-      "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits, execute 43 built-in recipes, and use 10 persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
+      "description": "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits and use local recipe templates and persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
     },
     {
       "name": "incident-commander",
@@ -929,6 +949,16 @@
       "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
     },
     {
+      "name": "memory-review",
+      "category": "engineering",
+      "description": "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics. Use when the user runs /si:memory-review or asks what has been learned and what should be promoted or pruned."
+    },
+    {
+      "name": "memory-status",
+      "category": "engineering",
+      "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations. Use when the user runs /si:memory-status or asks how full or healthy the agent memory is."
+    },
+    {
       "name": "migrate",
       "category": "engineering",
       "description": ">-"
@@ -939,9 +969,14 @@
       "description": "Microsoft 365 tenant administration for Global Administrators. Automate M365 tenant setup, Office 365 admin tasks, Azure AD user management, Exchange Online configuration, Teams administration, and security policies. Generate PowerShell scripts for bulk operations, Conditional Access policies, license management, and compliance reporting. Use for M365 tenant manager, Office 365 admin, Azure AD users, Global Administrator, tenant configuration, or Microsoft 365 automation."
     },
     {
+      "name": "named-persona-adversarial-review",
+      "category": "engineering",
+      "description": "Code review through the lens of real engineers' documented philosophies (Torvalds, Thompson, Carmack, Kent Beck, Jobs, Cagan). Complements abstract-role adversarial review with named, sourced perspectives. Use when automated review findings feel generic, when a PR has architectural or UX impact, or when the author wants pre-submit hardening beyond standard checks."
+    },
+    {
       "name": "promote",
       "category": "engineering",
-      "description": "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement."
+      "description": "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement. Use when the user runs /si:promote or asks to make a learned behavior permanent."
     },
     {
       "name": "pw",
@@ -966,7 +1001,7 @@
     {
       "name": "review",
       "category": "engineering",
-      "description": "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics."
+      "description": ">-"
     },
     {
       "name": "security-pen-testing",
@@ -1026,7 +1061,7 @@
     {
       "name": "senior-prompt-engineer",
       "category": "engineering",
-      "description": "This skill should be used when the user asks to \"optimize prompts\", \"design prompt templates\", \"evaluate LLM outputs\", \"build agentic systems\", \"implement RAG\", \"create few-shot examples\", \"analyze token usage\", or \"design AI workflows\". Use for prompt engineering patterns, LLM evaluation frameworks, agent architectures, and structured output design."
+      "description": "Use when the user asks to optimize prompts, design prompt templates, evaluate LLM outputs with an eval set, measure RAG retrieval quality, validate agent/tool configurations, analyze token usage, or design structured-output contracts. Covers eval-driven prompt iteration, RAG metrics (relevance, faithfulness, coverage), agent workflow validation, and token/cost budgeting \u2014 all model-agnostic, with three stdlib Python tools."
     },
     {
       "name": "senior-qa",
@@ -1041,22 +1076,12 @@
     {
       "name": "senior-security",
       "category": "engineering",
-      "description": "Security engineering toolkit for threat modeling, vulnerability analysis, secure architecture, and penetration testing. Includes STRIDE analysis, OWASP guidance, cryptography patterns, and security scanning tools. Use when the user asks about security reviews, threat analysis, vulnerability assessments, secure coding practices, security audits, attack surface analysis, CVE remediation, or security best practices."
+      "description": "Use when the user asks for STRIDE threat modeling, DREAD risk scoring, data-flow-diagram threat analysis, or a quick secret scan \u2014 or when a security request needs routing to the right specialist skill (pen-testing, incident response, cloud posture, red team, AI security, threat hunting, secure code review). This skill owns threat modeling; everything else routes to a sibling."
     },
     {
       "name": "skills-init",
       "category": "engineering",
       "description": ">-"
-    },
-    {
-      "name": "skills-review",
-      "category": "engineering",
-      "description": ">-"
-    },
-    {
-      "name": "skills-status-2",
-      "category": "engineering",
-      "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations."
     },
     {
       "name": "snowflake-development",
@@ -1091,7 +1116,12 @@
     {
       "name": "agent-designer",
       "category": "engineering-advanced",
-      "description": "Use when the user asks to design multi-agent systems, create agent architectures, define agent communication patterns, or build autonomous agent workflows."
+      "description": "Use when the user asks to design a multi-agent system, pick an orchestration pattern (supervisor/swarm/pipeline), generate tool schemas for agents, or evaluate agent execution logs for cost, latency, and failure bottlenecks. Examples: 'design an agent architecture for research automation', 'generate Anthropic tool schemas from these tool descriptions', 'analyze these agent run logs for bottlenecks'. NOT for Claude Code workflow files (use workflow-builder) or single-agent prompt design (use agent-workflow-designer)."
+    },
+    {
+      "name": "agent-harness",
+      "category": "engineering-advanced",
+      "description": "Turn any domain folder of skills into a bounded agentic loop: compile a goal into a verifiable task plan, execute tasks with the domain's own tools, verify every task with machine-run checks, retry with caps, escalate to a human when budgets exhaust, and refuse to close until everything is verified or explicitly waived. Use when you want an agent or subagent to pick up a goal and drive it to a verified close across one of this repo's 18 domains ('run this goal through the engineering harness', 'set up an agentic loop for marketing work', 'make the finance domain self-verifying'). NOT for authoring Claude Code Workflow-tool .js scripts (workflow-builder), N-agent tournaments on one task (agenthub), single-file metric optimization (autoresearch-agent), or discovering published loop recipes (loop-library)."
     },
     {
       "name": "agent-workflow-designer",
@@ -1126,7 +1156,7 @@
     {
       "name": "board",
       "category": "engineering-advanced",
-      "description": "Read, write, and browse the AgentHub message board for agent coordination."
+      "description": "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
     },
     {
       "name": "browser-automation",
@@ -1141,7 +1171,7 @@
     {
       "name": "changelog-generator",
       "category": "engineering-advanced",
-      "description": "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, or automating release notes in CI."
+      "description": "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, computing the next semantic version from commits, automating release notes in CI, or planning a hotfix/rollback. Examples: 'generate the changelog for v1.4.0', 'what version bump do these commits require', 'we need an emergency hotfix process'."
     },
     {
       "name": "chaos-engineering",
@@ -1169,14 +1199,14 @@
       "description": "Analyze a codebase and generate onboarding documentation for engineers, tech leads, and contractors. Fast fact-gathering and repeatable onboarding outputs. Use when onboarding a new engineer, writing architecture-overview docs for a new project, or producing tech-lead briefings for unfamiliar repos."
     },
     {
-      "name": "command-guide",
+      "name": "collab-proof",
       "category": "engineering-advanced",
-      "description": ">"
+      "description": "Use when you want to understand what Claude contributed vs what you drove in a session. Triggers on: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
     },
     {
       "name": "data-quality-auditor",
       "category": "engineering-advanced",
-      "description": "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan."
+      "description": "Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan. Use when the user asks to check data quality, profile a dataset, hunt outliers or missing values, or validate data before analysis or model training."
     },
     {
       "name": "database-designer",
@@ -1196,7 +1226,7 @@
     {
       "name": "dependency-auditor",
       "category": "engineering-advanced",
-      "description": "Audit and manage dependencies across multi-language projects. Identifies vulnerabilities, license conflicts, transitive dependency risks, and safe-upgrade paths. Use when auditing third-party packages before release, investigating a CVE, planning a major version bump, or running a license-compliance review."
+      "description": "Audit and manage dependencies across multi-language projects. Identifies vulnerabilities, license conflicts, transitive dependency risks, and safe-upgrade paths. Use when auditing third-party packages before release, investigating a CVE, planning a major version bump, or running a license-compliance review. Examples: 'audit our npm dependencies', 'do we have GPL contamination', 'plan the upgrade to React 19'."
     },
     {
       "name": "docker-development",
@@ -1206,7 +1236,7 @@
     {
       "name": "engineering-advanced-skills",
       "category": "engineering-advanced",
-      "description": "25 advanced engineering agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, release management, platform ops."
+      "description": "Index of 37 advanced engineering agent skills for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Use when browsing or choosing among the POWERFUL-tier engineering skills: agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, changelog/release automation, reliability (SLO/chaos/flags/operators), platform ops."
     },
     {
       "name": "env-secrets-manager",
@@ -1216,7 +1246,7 @@
     {
       "name": "eval",
       "category": "engineering-advanced",
-      "description": "Evaluate and rank agent results by metric or LLM judge for an AgentHub session."
+      "description": "Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /hub:eval or asks to score, compare, or pick a winner among completed AgentHub agents."
     },
     {
       "name": "feature-flags-architect",
@@ -1256,7 +1286,7 @@
     {
       "name": "init",
       "category": "engineering-advanced",
-      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria."
+      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a multi-agent competition on a task."
     },
     {
       "name": "interview-system-designer",
@@ -1286,7 +1316,7 @@
     {
       "name": "loop",
       "category": "engineering-advanced",
-      "description": "Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, monthly). Uses CronCreate for scheduling."
+      "description": "Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, monthly). Uses CronCreate for scheduling. Use when the user runs /ar:loop or asks to run an autoresearch experiment continuously on a schedule."
     },
     {
       "name": "mcp-server-builder",
@@ -1296,12 +1326,17 @@
     {
       "name": "merge",
       "category": "engineering-advanced",
-      "description": "Merge the winning agent's branch into base, archive losers, and clean up worktrees."
+      "description": "Merge the winning agent's branch into base, archive losers, and clean up worktrees. Use when the user runs /hub:merge or asks to land the winning AgentHub result and tidy the session."
     },
     {
       "name": "migration-architect",
       "category": "engineering-advanced",
       "description": "Zero-downtime migration planning, compatibility validation, and rollback strategy generation. Tools for system, database, and infrastructure migrations with minimal business impact. Use when planning a database migration, infrastructure cutover, system replacement, or any high-risk transition that needs explicit rollback paths."
+    },
+    {
+      "name": "minimalist",
+      "category": "engineering-advanced",
+      "description": "Use when the user asks to write code efficiently, avoid over-engineering, reduce dependencies, or prevent unnecessary abstractions. Enforces a strict efficiency ladder: YAGNI, reuse, stdlib, native platform, existing deps \u2014 before writing any new code."
     },
     {
       "name": "monorepo-navigator",
@@ -1331,22 +1366,17 @@
     {
       "name": "rag-architect",
       "category": "engineering-advanced",
-      "description": "Use when the user asks to design RAG pipelines, optimize retrieval strategies, choose embedding models, implement vector search, or build knowledge retrieval systems."
-    },
-    {
-      "name": "release-manager",
-      "category": "engineering-advanced",
-      "description": "Use when the user asks to plan releases, manage changelogs, coordinate deployments, create release branches, or automate versioning."
+      "description": "Use when the user asks to design a RAG pipeline, choose a chunking strategy or embedding model, pick a vector database, or evaluate retrieval quality (precision@k, recall@k, NDCG). Examples: 'design a RAG system for our docs', 'what chunk size should I use for this corpus', 'evaluate my retriever against ground truth'. NOT for general LLM cost tuning (use llm-cost-optimizer) or agent loops over retrieval (use agenthub)."
     },
     {
       "name": "resume",
       "category": "engineering-advanced",
-      "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating."
+      "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:resume or asks to pick up a previously started autoresearch experiment."
     },
     {
       "name": "run",
       "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard."
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
     },
     {
       "name": "runbook-generator",
@@ -1376,7 +1406,7 @@
     {
       "name": "setup",
       "category": "engineering-advanced",
-      "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator."
+      "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user runs /ar:setup or asks to start optimizing a file with the autoresearch loop."
     },
     {
       "name": "ship-gate",
@@ -1392,6 +1422,11 @@
       "name": "skill-tester",
       "category": "engineering-advanced",
       "description": "Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensive meta-skill: structure validation, Python script testing (syntax + imports + runtime + output format), multi-dimensional quality scoring with letter grades and tier classification (BASIC/STANDARD/POWERFUL). Use when authoring a new skill, auditing existing skills for tier promotion, setting up pre-commit hooks for skill quality, or integrating skill QA into CI."
+    },
+    {
+      "name": "skillopt-sleep",
+      "category": "engineering-advanced",
+      "description": "Use when the user wants their Claude agent to self-improve from past usage, asks about a nightly/offline 'sleep' or 'dream' cycle, memory/skill consolidation, or says things like 'make my agent better the more I use it', 'review my past sessions', 'learn my preferences', 'consolidate what you learned', 'run the sleep cycle', or wants to schedule offline self-optimization. Drives the skillopt_sleep engine: harvest past sessions -> mine recurring tasks -> replay offline -> consolidate validated CLAUDE.md and SKILL.md behind a held-out gate."
     },
     {
       "name": "skills-chaos-engineering",
@@ -1416,7 +1451,7 @@
     {
       "name": "skills-run",
       "category": "engineering-advanced",
-      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation."
+      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
     },
     {
       "name": "skills-slo-architect",
@@ -1426,7 +1461,7 @@
     {
       "name": "skills-status",
       "category": "engineering-advanced",
-      "description": "Show DAG state, agent progress, and branch status for an AgentHub session."
+      "description": "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:status or asks how the AgentHub agents are doing."
     },
     {
       "name": "slo-architect",
@@ -1436,7 +1471,7 @@
     {
       "name": "spawn",
       "category": "engineering-advanced",
-      "description": "Launch N parallel subagents in isolated git worktrees to compete on the session task."
+      "description": "Launch N parallel subagents in isolated git worktrees to compete on the session task. Use when the user runs /hub:spawn or asks to start the competing agents for an initialized AgentHub session."
     },
     {
       "name": "spec-driven-workflow",
@@ -1456,7 +1491,12 @@
     {
       "name": "status",
       "category": "engineering-advanced",
-      "description": "Show experiment dashboard with results, active loops, and progress."
+      "description": "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:status or asks how an autoresearch experiment is going."
+    },
+    {
+      "name": "strict-api",
+      "category": "engineering-advanced",
+      "description": "Use when the user says 'no hallucinations', 'verify APIs', 'reality check', or 'don't invent functions'. Prevents the agent from calling methods, imports, or variables that do not provably exist in the user's installed version."
     },
     {
       "name": "tc-tracker",
@@ -1474,6 +1514,11 @@
       "description": "Terraform infrastructure-as-code agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Covers module design patterns, state management strategies, provider configuration, security hardening, policy-as-code with Sentinel/OPA, and CI/CD plan/apply workflows. Use when: user wants to design Terraform modules, manage state backends, review Terraform security, implement multi-region deployments, or follow IaC best practices."
     },
     {
+      "name": "universal-scraping-architect",
+      "category": "engineering-advanced",
+      "description": "Use for web scraping, crawling, document extraction, API parsing, or building validation-heavy data pipelines using Firecrawl or local Python scripts."
+    },
+    {
       "name": "workflow-builder",
       "category": "engineering-advanced",
       "description": "Design and write deterministic multi-agent workflow scripts (.js files in .claude/workflows/) for Claude Code's Workflow tool. Use when a user wants to build, create, author, scaffold, or run a custom Claude Code workflow, orchestrate sub-agents (fan-out, pipeline, loop, judge-panel), or automate a repeatable multi-step task across fresh-context agents."
@@ -1484,6 +1529,11 @@
       "description": "Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, build, or author a new skill."
     },
     {
+      "name": "zero-hallucination-coder",
+      "category": "engineering-advanced",
+      "description": "Runs a disciplined Discuss -> Map -> Decompose -> Execute -> Verify loop that grounds code in verified structure \u2014 no invented APIs, no assumed imports, no placeholder code \u2014 with a lazy-senior-dev YAGNI ladder that deletes unnecessary code before it is written. Use when a coding task is high-stakes, complex, or spans existing code (auth, databases, migrations, multi-file features), or when the user explicitly asks to plan carefully before coding, avoid hallucinated code, or work rigorously. Not for trivial edits, typos, or throwaway one-off scripts \u2014 those do not need the full loop."
+    },
+    {
       "name": "business-investment-advisor",
       "category": "finance",
       "description": "Business investment analysis and capital allocation advisor. Use when evaluating whether to invest in equipment, real estate, a new business, hiring, technology, or any capital expenditure. Also use for ROI calculations, IRR, NPV, payback period, build vs buy decisions, lease vs buy analysis, vendor evaluation, or deciding where to allocate limited budget for maximum return."
@@ -1491,7 +1541,7 @@
     {
       "name": "finance-skills",
       "category": "finance",
-      "description": "Financial analyst agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Ratio analysis, DCF valuation, budget variance, rolling forecasts. 4 Python tools (stdlib-only)."
+      "description": "Router/index for the 2 finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts) and saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics')."
     },
     {
       "name": "financial-analyst",
@@ -1502,6 +1552,31 @@
       "name": "saas-metrics-coach",
       "category": "finance",
       "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing."
+    },
+    {
+      "name": "design-system",
+      "category": "markdown-html",
+      "description": "Captures the user's brand identity once via a 10-question onboarding wizard (primary/accent HEX + heading + body Google Fonts + design style editorial/technical/minimal/playful + default output directory + syntax theme + TOC behavior + optional logo/company), validates body-text and link contrast against WCAG 2.2 AA, derives 12 CSS custom properties in HSL space, and stores the result for every markdown-html converter to consume. Use before any markdown-html conversion. Triggers on first-run onboarding (\"set up the brand\", \"configure markdown-html\", \"run onboarding\"), on explicit reset (\"reset the design system\", \"re-onboard\"), and is checked by every converter via config_loader.py before rendering. Refuses to save if body-text contrast fails AA 4.5:1 or the output dir isn't writable. Precedence: project (./.markdown-html/) > global (~/.config/markdown-html/) > built-in defaults; MARKDOWN_HTML_NO_CONFIG=1 bypasses."
+    },
+    {
+      "name": "markdown-html-orchestrator",
+      "category": "markdown-html",
+      "description": "Use when a user wants to convert any markdown file in their Claude project into a single-file, lightly-interactive HTML \u2014 long-form documents (specs, plans, RFCs, reports, explainers), code reviews with diffs and severity-tagged annotations, or slide decks. Triggers on \"convert this markdown to HTML\", \"make this an HTML file\", \"turn this into an interactive document\", \"render this report as HTML\", \"PR writeup as HTML\", \"slides from this markdown\". Forks context to route to one of three converter sub-skills (md-document, md-review, md-slides) based on a deterministic doctype classifier, after the user has run the design-system onboarding once. Refuses if input is under 100 lines (per Shihipar \u2014 markdown still wins below the threshold) or design-system isn't onboarded. Distinct from Anthropic's official Playground plugin (which is interactive prompt-tuning controls with sliders/knobs/prompt-copy-back) and from marketing/landing/ (which is a landing-page generator)."
+    },
+    {
+      "name": "md-document",
+      "category": "markdown-html",
+      "description": "Converts long-form markdown (specs, RFCs, reports, plans, explainers) into a single-file, lightly-interactive HTML document with sticky TOC, scrollspy, search filter, code-copy buttons, and design-system-driven brand tokens. Triggers when the markdown-html-orchestrator classifies an input as DOCUMENT, or when invoked directly via /cs:md-document. Reads the design-system config via config_loader.py and inlines the user's 12 derived CSS custom properties; refuses to render if onboarding hasn't run. Single-file output \u2014 Google Fonts + Prism.js CDN are the only externals; no framework runtime, no build step. Use after orchestrator routing or after design-system onboarding is confirmed."
+    },
+    {
+      "name": "md-review",
+      "category": "markdown-html",
+      "description": "Converts a markdown PR writeup or code review (one with ```diff fenced blocks and severity-tagged > [!BLOCKER]/[!MAJOR]/[!MINOR]/[!NIT] callouts) into a single-file 2-column HTML review \u2014 unified-diff on the left, severity-tagged annotation cards on the right, top jump-nav listing every finding, mandatory named reviewer footer. Triggers when the markdown-html-orchestrator classifies an input as REVIEW, or when invoked directly via /cs:md-review. Refuses without explicit --reviewer (a code review must name a human), refuses if no diff hunks present (route to md-document instead), and refuses to encode severity in color only (every badge ships color + icon + aria-label per WCAG 1.4.1). Use after orchestrator routing."
+    },
+    {
+      "name": "md-slides",
+      "category": "markdown-html",
+      "description": "Converts a markdown deck (slides separated by `"
     },
     {
       "name": "ab-test-setup",
@@ -1517,11 +1592,6 @@
       "name": "aeo",
       "category": "marketing",
       "description": "Answer Engine Optimization (AEO) skill \u2014 optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO \u2014 AEO optimizes for citation in LLM-generated responses, not search rankings. Use when planning content for AI-first search audiences, auditing existing content for E-E-A-T signals, tracking which pages get cited by which LLMs, or building a citation-friendly content strategy. Triggers \u2014 'AEO audit', 'optimize for ChatGPT', 'get cited by Perplexity', 'LLM citation strategy', 'answer engine optimization', 'content for AI search', 'E-E-A-T audit'. Output is a markdown audit report (default) or JSON for pipeline integration. Stdlib-only Python tools."
-    },
-    {
-      "name": "ai-seo",
-      "category": "marketing",
-      "description": "Optimize content to get cited by AI search engines \u2014 ChatGPT, Perplexity, Google AI Overviews, Claude, Gemini, Copilot. Use when you want your content to appear in AI-generated answers, not just ranked in blue links. Triggers: 'optimize for AI search', 'get cited by ChatGPT', 'AI Overviews', 'Perplexity citations', 'AI SEO', 'generative search', 'LLM visibility', 'GEO' (generative engine optimization). NOT for traditional SEO ranking (use seo-audit). NOT for content creation (use content-production)."
     },
     {
       "name": "analytics-tracking",
@@ -1609,6 +1679,11 @@
       "description": "When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' 'product update,' 'GTM plan,' 'launch checklist,' or 'launch momentum.' This skill covers phased launches, channel strategy, and ongoing launch momentum."
     },
     {
+      "name": "local-seo-manager",
+      "category": "marketing",
+      "description": "Manage local SEO for service-area businesses \u2014 appliance repair, HVAC, plumbing, cleaning, and any business that serves customers at their location. Use when the user wants to: audit Google Business Profile, generate neighborhood service area pages, check NAP consistency across directories, create LocalBusiness schema, or write review responses. Triggers: 'local SEO', 'Google Business Profile', 'GBP', 'service area page', 'NAP consistency', 'local citations', 'LocalBusiness schema', 'review responses', 'Google Maps ranking'. NOT for national SEO (use seo-audit). NOT for general schema (use schema-markup). NOT for AI answer-engine visibility (use aeo)."
+    },
+    {
       "name": "marketing-context",
       "category": "marketing",
       "description": "Create and maintain the marketing context document that all marketing skills read before starting. Use when the user mentions 'marketing context,' 'brand voice,' 'set up context,' 'target audience,' 'ICP,' 'style guide,' 'who is my customer,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Run this at the start of any new project before using other marketing skills."
@@ -1616,7 +1691,7 @@
     {
       "name": "marketing-demand-acquisition",
       "category": "marketing",
-      "description": "Creates demand generation campaigns, optimizes paid ad spend across LinkedIn, Google, and Meta, develops SEO strategies, and structures partnership programs for Series A+ startups scaling internationally. Use when planning marketing strategy, growth marketing, advertising campaigns, PPC optimization, lead generation, pipeline generation, or startup marketing budgets. Covers multi-channel acquisition (Google Ads, LinkedIn Ads, Meta Ads), CAC analysis, MQL/SQL workflows, attribution modeling, technical SEO, and co-marketing partnerships for hybrid PLG/Sales-Led motions in EU/US/Canada markets."
+      "description": "Creates demand generation campaigns, optimizes paid ad spend across LinkedIn, Google, and Meta, develops SEO strategies, and structures partnership programs. Use when planning demand gen strategy, growth marketing, advertising campaigns, PPC optimization, lead generation, pipeline generation, or marketing budgets. Covers multi-channel acquisition (Google Ads, LinkedIn Ads, Meta Ads), CAC analysis, MQL/SQL workflows, attribution modeling, technical SEO, and co-marketing partnerships. Default calibration profile is a Series A+ B2B SaaS scaling internationally (EU/US/Canada, hybrid PLG/Sales-Led) \u2014 adapt benchmarks for other stages and motions rather than skipping the skill."
     },
     {
       "name": "marketing-ideas",
@@ -1636,7 +1711,7 @@
     {
       "name": "marketing-skills",
       "category": "marketing",
-      "description": "42 marketing agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more coding agents. 7 pods: content, SEO, CRO, channels, growth, intelligence, sales. Foundation context + orchestration router. 27 Python tools (stdlib-only)."
+      "description": "Directory and router for the marketing skills library. Use when you need to find the right marketing skill for a task, see what marketing capabilities exist, or get oriented in this plugin. 44 specialist skills across 8 pods (content, SEO + AEO, CRO, channels, growth, intelligence, sales enablement, ops), 59 stdlib Python tools. Routes to one skill \u2014 it does not execute marketing work itself."
     },
     {
       "name": "marketing-strategy-pmm",
@@ -1681,7 +1756,7 @@
     {
       "name": "prompt-engineer-toolkit",
       "category": "marketing",
-      "description": "Analyzes and rewrites prompts for better AI output, creates reusable prompt templates for marketing use cases (ad copy, email campaigns, social media), and structures end-to-end AI content workflows. Use when the user wants to improve prompts for AI-assisted marketing, build prompt templates, or optimize AI content workflows. Also use when the user mentions 'prompt engineering,' 'improve my prompts,' 'AI writing quality,' 'prompt templates,' or 'AI content workflow.'"
+      "description": "Turns marketing prompts into tested, versioned production assets: A/B prompt evaluation against structured test cases, immutable prompt version history with diffs, ready-to-use marketing prompt templates (ad copy, email campaigns, social posts, landing pages, SEO meta), and an LLM-governance playbook for marketing teams (claim discipline, disclosure rules, human-review gates). Use when a marketing team relies on AI-generated content and needs prompt quality to be measurable and safe \u2014 or when the user mentions 'prompt engineering,' 'improve my prompts,' 'prompt templates,' 'prompt versioning,' 'AI content workflow,' or 'AI governance for marketing.'"
     },
     {
       "name": "referral-program",
@@ -1716,7 +1791,7 @@
     {
       "name": "social-media-analyzer",
       "category": "marketing",
-      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards."
+      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use when analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. Also use when the user mentions \"social media audit,\" \"engagement rate,\" or \"which platform performs best.\""
     },
     {
       "name": "social-media-manager",
@@ -1729,9 +1804,19 @@
       "description": "Use when planning video content strategy, writing video scripts, optimizing YouTube channels, building short-form video pipelines (Reels, TikTok, Shorts), or repurposing long-form content into video. Triggers: 'start a YouTube channel', 'video content strategy', 'write a video script', 'repurpose into video', 'YouTube SEO', 'short-form video'. NOT for written blog content (use content-production). NOT for social captions without video (use social-media-manager)."
     },
     {
+      "name": "webinar-marketing",
+      "category": "marketing",
+      "description": "When the user wants to plan, promote, run, or improve a webinar or virtual event to generate and convert demand. Use when the user mentions 'webinar,' 'virtual event,' 'online event,' 'live demo,' 'virtual summit,' 'workshop,' 'masterclass,' 'fireside chat,' 'roundtable,' 'registration funnel,' 'show-up rate,' 'attendance rate,' 'webinar promotion,' 'webinar follow-up,' or 'on-demand webinar.' Also use when they have a webinar that isn't converting \u2014 low registrations, low show-up, or attendees who don't buy \u2014 and want to diagnose and fix it. Covers the full funnel: registration, promotion, show-up, live engagement, live-to-close, and post-event nurture. Distinct from launch-strategy (full product launches) and email-sequence (lifecycle nurture) \u2014 this is the end-to-end webinar/event motion. NOT for in-person field events logistics, and NOT for generic lifecycle email (use email-sequence)."
+    },
+    {
       "name": "x-twitter-growth",
       "category": "marketing",
       "description": "X/Twitter growth engine for building audience, crafting viral content, and analyzing engagement. Use when the user wants to grow on X/Twitter, write tweets or threads, analyze their X profile, research competitors on X, plan a posting strategy, or optimize engagement. Complements social-content (generic multi-platform) with X-specific depth: algorithm mechanics, thread engineering, reply strategy, profile optimization, and competitive intelligence via web search."
+    },
+    {
+      "name": "youtube-full",
+      "category": "marketing",
+      "description": "Use when the user needs YouTube transcripts, video search, channel browsing, playlist extraction, or content monitoring. Trigger phrases: 'get the transcript for', 'search YouTube for', 'what are the latest videos on', 'list this playlist', 'monitor this channel', or any request involving a YouTube URL, video ID, or @handle. Do NOT use for downloading video or audio files, YouTube engagement data (likes, comments), or private/age-restricted videos."
     },
     {
       "name": "landing",
@@ -1741,17 +1826,17 @@
     {
       "name": "agile-product-owner",
       "category": "product",
-      "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use for writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing backlog."
+      "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use when writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing the backlog."
     },
     {
       "name": "apple-hig-expert",
       "category": "product",
-      "description": "Expert guidance on Apple Human Interface Guidelines (HIG). Covers iOS, macOS, and visionOS with 2026 Liquid Glass aesthetics and accessibility-first design."
+      "description": "Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human Interface Guidelines, including the Liquid Glass design language (announced WWDC25, shipped with iOS 26/macOS Tahoe, Sept 2025). Use when reviewing an Apple-platform mockup or app for HIG compliance, checking contrast or tap-target sizes, or designing native-feeling Apple UI (e.g., 'audit my iOS app against the HIG', 'is this text readable on Liquid Glass?')."
     },
     {
       "name": "code-to-prd",
       "category": "product",
-      "description": "|"
+      "description": "Reverse-engineer any codebase into a complete Product Requirements Document (PRD). Analyzes routes, components, state management, API integrations, and user interactions to produce business-readable documentation detailed enough for engineers or AI agents to fully reconstruct every page and endpoint. Works with frontend frameworks (React, Vue, Angular, Svelte, Next.js, Nuxt), backend frameworks (NestJS, Django, Express, FastAPI), and fullstack applications. Use when users mention: generate PRD, reverse-engineer requirements, code to documentation, extract product specs from code, document page logic, analyze page fields and interactions, create a functional inventory, write requirements from an existing codebase, document API endpoints, or analyze backend routes."
     },
     {
       "name": "competitive-teardown",
@@ -1781,12 +1866,12 @@
     {
       "name": "product-manager-toolkit",
       "category": "product",
-      "description": "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development."
+      "description": "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use when prioritizing features, synthesizing user research, writing requirement documentation, or developing product strategy."
     },
     {
       "name": "product-skills",
       "category": "product",
-      "description": "10 product agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. PM toolkit (RICE), agile PO, product strategist (OKR), UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, research summarizer. Python tools (stdlib-only)."
+      "description": "Use when coordinating product work across the 12 bundled product sub-skills (RICE, OKRs, UX research, design tokens, competitive teardown, analytics, experiments, discovery, roadmaps, spec-to-repo, landing pages, SaaS scaffolding) or the 4 standalone product-team plugins (user stories, Apple HIG, code-to-PRD, research summarizer). Triggers on 'help me prioritize', 'plan a product experiment', 'we ship features nobody uses', 'run the discovery loop', 'is our OST sound'. Forks context to route to one sub-skill via a deterministic signal router and returns a digest; can also drive a continuous-discovery loop (Torres cadence tracker + OST linter as machine gates) or a full goal\u2192plan\u2192execute\u2192verify\u2192close run through the repo-wide agent-harness. Distinct from project-management (how to deliver vs what to build), marketing/landing (from-scratch pages), and engineering/agent-harness (the generic loop engine this orchestrator plugs into)."
     },
     {
       "name": "product-strategist",
@@ -1816,12 +1901,12 @@
     {
       "name": "ui-design-system",
       "category": "product",
-      "description": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use for creating design systems, maintaining visual consistency, and facilitating design-dev collaboration."
+      "description": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use when creating design systems, generating design tokens, maintaining visual consistency, or facilitating design-dev collaboration and developer handoff."
     },
     {
       "name": "ux-researcher-designer",
       "category": "product",
-      "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use for user research, persona creation, journey mapping, and design validation."
+      "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use when conducting user research, creating personas, mapping user journeys, planning usability tests, or validating designs."
     },
     {
       "name": "andreessen",
@@ -1832,6 +1917,16 @@
       "name": "capture",
       "category": "productivity",
       "description": "Captures and organizes chaotic brain dumps into a structured, actionable system with zero information loss. Use this skill whenever the user says 'capture this', 'brain dump', 'let me dump some ideas', 'I've got a bunch of thoughts', 'here's everything on my mind', 'idea dump', 'let me get this out of my head', 'I need to organize my thoughts', 'here's what I'm thinking', or any variation where someone is unloading a messy stream of ideas, tasks, thoughts, and plans wanting them turned into something coherent. Also trigger when the user pastes or dictates a long, unstructured block of mixed ideas \u2014 even without the exact phrase \u2014 the intent is the same. Fast-to-action by design: no upfront intake. Output is four sections (Projects/Ideas, Tasks, Connections, How I Can Help) ending with a directive question. Asks at most one mid-organization clarifying question when a single item is genuinely ambiguous between task and project."
+    },
+    {
+      "name": "deep-work",
+      "category": "productivity",
+      "description": "Use when someone wants to plan a deep work day, time-block their calendar or task list, budget or cut shallow work, protect focus hours, track deep-work sessions and streaks, run an end-of-day shutdown ritual, or says \"/deep-work\" or \"/time-block\". Classifies tasks deep vs shallow, builds an energy-first time-blocked schedule that refuses deep demand past the 4-hour ceiling, batches shallow work into at most two windows, and logs focus sessions against a weekly target."
+    },
+    {
+      "name": "fable-goal",
+      "category": "productivity",
+      "description": "Convert a rambling description of a desired outcome into one polished, autonomous /goal prompt ready to paste into a fresh session. Use when the user says \"/fable-goal\", \"turn this into a goal prompt\", \"write me a fable prompt\", \"write the prompt that builds X\", or rambles about something they want made and asks for the prompt that makes it happen. The output is a single copy-paste prompt, never the build itself. Do NOT use when the user wants the thing built right now in this session \u2014 only when they want the PROMPT that will make it happen in a fresh session."
     },
     {
       "name": "handoff",
@@ -1846,12 +1941,27 @@
     {
       "name": "inbox-triage",
       "category": "productivity",
-      "description": "Runs a full inbox triage using the knowledge base created by the 'inbox-setup' skill. Light-intake by design (most invocations skip questions and run with KB-default preferences); asks at most 2 grill-me override questions when invocation is outside normal cadence or includes category-skip intent. Searches recent emails, classifies them via the user's taxonomy, researches new senders, generates recommendations, drafts replies (NEVER sends), delivers a report in the user's preferred format, and updates the knowledge base with learnings. Designed to run on a recurring schedule (1-3x daily) or on demand. Triggers: 'triage my inbox', 'inbox triage', 'check my email', 'run email triage', 'process my inbox', 'what's new in my email', 'handle my email', 'email triage', or any variation where the user wants their inbox processed. Requires the inbox-setup skill to have been run first."
+      "description": "Runs a full inbox triage using the knowledge base created by the 'inbox-setup' skill. Light-intake by design (most invocations skip questions and run with KB-default preferences); asks at most 2 grill-me override questions when invocation is outside normal cadence or includes category-skip intent. Searches recent emails, classifies them via the user's taxonomy, researches new senders, generates recommendations, drafts replies (NEVER sends), delivers a report in the user's preferred format, and updates the knowledge base with learnings. Designed to run on a recurring schedule (1-3x daily) or on demand. Use when the user wants their inbox processed, in any variation (e.g., 'triage my inbox', 'inbox triage', 'check my email', 'run email triage', 'process my inbox', 'what's new in my email', 'handle my email', 'email triage'). Requires the inbox-setup skill to have been run first."
+    },
+    {
+      "name": "meetings",
+      "category": "productivity",
+      "description": "Use when someone wants to decide whether a meeting is worth calling, price a meeting in dollars, build a timeboxed agenda with desired outcomes, or turn messy meeting notes into owned action items \u2014 or says \"should this be a meeting\", \"/cs:meeting-prep\", or \"/cs:meeting-actions\". Runs a cost gate (ASYNC / NOT-READY / MEET), builds a decision-first agenda, and extracts an owner + due-date checklist that flags every orphan."
     },
     {
       "name": "reflect",
       "category": "productivity",
       "description": "Mid-conversation reflection skill that pauses execution and zooms out from detail-mode to honestly reassess direction, assumptions, and bias. Use when the user says 'reflect', 'take a step back', 'step back', 'zoom out', 'are we missing something', 'bigger picture', 'sanity check this', 'are we on track', 'are we overthinking this', 'forest for the trees', or any variation signaling intent to break out of detail-mode and reassess. Also trigger when the conversation has gone deep on implementation details without strategic check-in, or when the user shows signs of being stuck \u2014 that's often a signal the framing needs a reset, not more detail work. Intentionally low-intake: runs the 5-dimension analysis immediately when prior context is rich enough; asks one forcing clarifier only when invocation context is too thin to reassess from."
+    },
+    {
+      "name": "roast",
+      "category": "productivity",
+      "description": "Use when someone asks to roast an idea, pressure-test or stress-test an idea, validate a business idea, \"convene the panel\", get a brutal second opinion before building something, or says \"/roast\". Spins up a 5-angle panel (Critic, Champion, Analyst, Investigator, Customer) that attacks the idea from every angle, then a Judge returns one GO / RESHAPE / KILL verdict with the cheapest test to de-risk it."
+    },
+    {
+      "name": "weekly-review",
+      "category": "productivity",
+      "description": "Use when someone wants to run a weekly review, close open loops, audit stalled projects and commitments, get their system back to trusted, restart a lapsed review habit, or says \"/cs:weekly-review\". Walks David Allen's three-phase loop \u2014 GET CLEAR, GET CURRENT, GET CREATIVE \u2014 with deterministic scripts that inventory open loops, gate the checklist with named gaps, and score commitment health 0-100."
     },
     {
       "name": "atlassian-admin",
@@ -1871,7 +1981,7 @@
     {
       "name": "jira-expert",
       "category": "project-management",
-      "description": "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use for Jira project setup, configuration, advanced search, dashboard creation, workflow design, and technical Jira operations."
+      "description": "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use when setting up or configuring Jira projects, writing JQL and advanced searches, creating dashboards, designing workflows, or performing technical Jira operations."
     },
     {
       "name": "meeting-analyzer",
@@ -1881,7 +1991,7 @@
     {
       "name": "pm-skills",
       "category": "project-management",
-      "description": "6 project management agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Senior PM, scrum master, Jira expert (JQL), Confluence expert, Atlassian admin, template creator. MCP integration for live Jira/Confluence automation."
+      "description": "Use when coordinating project-delivery work across the 8 project-management sub-skills \u2014 sprint/velocity analytics, portfolio health, Jira/JQL, Confluence, Atlassian admin, templates, meeting analysis, team comms. Triggers on 'our sprints feel off', 'project health report', 'audit our Jira permissions', 'when will it be done', 'run the delivery loop'. Forks context to route to one sub-skill via a deterministic signal router and returns a digest; can also drive a full goal\u2192plan\u2192execute\u2192verify\u2192close delivery loop through the repo-wide agent-harness with Jira MCP data bridged into the domain's analytics tools. Distinct from product-team (what to build vs how to deliver it), business-operations (internal ops), and engineering/agent-harness (the generic loop engine this orchestrator plugs into)."
     },
     {
       "name": "scrum-master",
@@ -1899,9 +2009,14 @@
       "description": "Write internal company communications \u2014 3P updates (Progress/Plans/Problems), company-wide newsletters, FAQ roundups, incident reports, leadership updates, status reports, project updates, and general internal comms. Use this skill any time the user asks to draft, edit, or format something meant for internal audiences. Trigger on keywords like \"3P\", \"weekly update\", \"newsletter\", \"FAQ\", \"internal comms\", \"status report\", \"company update\", \"team update\", \"incident report\", or any request to summarize work for leadership, teammates, or the broader company. Even casual requests like \"write my update\" or \"summarize what my team did this week\" should trigger this skill."
     },
     {
+      "name": "agent-decision-receipts",
+      "category": "ra-qm",
+      "description": "Mint a tamper-evident, post-quantum-signed receipt for a consequential agent action (deploy, delete, pay, grant-access, model decision) so it can be verified later from the certificate alone. Use when an autonomous agent takes a side-effecting action that may need to be proven later, or when satisfying EU AI Act Article 12 record-keeping. Three decisions: whether an action needs a receipt, minting it, verifying it. Signing is delegated to the open-source OpenAgentOntology package. Not after-the-fact log analysis; not a hosted notary; not a legal opinion."
+    },
+    {
       "name": "capa-officer",
       "category": "ra-qm",
-      "description": "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use for CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
+      "description": "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
     },
     {
       "name": "eu-ai-act-specialist",
@@ -1911,17 +2026,17 @@
     {
       "name": "fda-consultant-specialist",
       "category": "ra-qm",
-      "description": "FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QSR (21 CFR 820) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QSR, premarket, predicate device, substantial equivalence, HIPAA medical device, or FDA cybersecurity."
+      "description": "FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QMSR (21 CFR 820, which incorporates ISO 13485:2016 by reference since 2026-02-02; formerly QSR) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QMSR, QSR, ISO 13485 for FDA, premarket, predicate device, substantial equivalence, HIPAA medical device, or FDA cybersecurity."
     },
     {
       "name": "gdpr-dsgvo-expert",
       "category": "ra-qm",
-      "description": "GDPR and German DSGVO compliance automation. Scans codebases for privacy risks, generates DPIA documentation, tracks data subject rights requests. Use for GDPR compliance assessments, privacy audits, data protection planning, DPIA generation, and data subject rights management."
+      "description": "GDPR and German DSGVO compliance automation. Scans codebases for privacy risks, generates DPIA documentation, tracks data subject rights requests with Art. 12(3) one-month deadlines. Use when running GDPR compliance assessments, privacy audits, data protection planning, DPIA generation, or data subject rights (DSAR) management (e.g., 'check this service for GDPR risks', 'track an access request deadline'). Final compliance determinations route to the DPO or legal counsel."
     },
     {
       "name": "information-security-manager-iso27001",
       "category": "ra-qm",
-      "description": "ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use for ISMS design, security risk assessment, control implementation, ISO 27001 certification, security audits, incident response, and compliance verification. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity."
+      "description": "ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use when designing an ISMS, running security risk assessments, implementing controls, pursuing ISO 27001 certification, preparing security audits, responding to security incidents, or verifying compliance. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity."
     },
     {
       "name": "isms-audit-expert",
@@ -1936,22 +2051,22 @@
     {
       "name": "mdr-745-specialist",
       "category": "ra-qm",
-      "description": "EU MDR 2017/745 compliance specialist for medical device classification, technical documentation, clinical evidence, and post-market surveillance. Covers Annex VIII classification rules, Annex II/III technical files, Annex XIV clinical evaluation, and EUDAMED integration."
+      "description": "EU MDR 2017/745 compliance specialist for medical device classification, technical documentation, clinical evidence, and post-market surveillance. Covers Annex VIII classification rules, Annex II/III technical files, Annex XIV clinical evaluation, Art. 86 PSUR schedules, and EUDAMED integration. Use when classifying a medical device under MDR, building or gap-checking a technical file, planning clinical evaluation or PMS/PSUR cadence, or preparing for notified body review (e.g., 'what class is my device under MDR', 'review my PSUR schedule')."
     },
     {
       "name": "qms-audit-expert",
       "category": "ra-qm",
-      "description": "ISO 13485 internal audit expertise for medical device QMS. Covers audit planning, execution, nonconformity classification, and CAPA verification. Use for internal audit planning, audit execution, finding classification, external audit preparation, or audit program management."
+      "description": "ISO 13485 internal audit expertise for medical device QMS. Covers audit planning, execution, nonconformity classification, and CAPA verification. Use when planning internal audits, executing audits, classifying findings, preparing for external audits, or managing an audit program."
     },
     {
       "name": "quality-documentation-manager",
       "category": "ra-qm",
-      "description": "Document control system management for medical device QMS. Covers document numbering, version control, change management, and 21 CFR Part 11 compliance. Use for document control procedures, change control workflow, document numbering, version management, electronic signature compliance, or regulatory documentation review."
+      "description": "Document control system management for medical device QMS. Covers document numbering, version control, change management, and 21 CFR Part 11 compliance. Use when working on document control procedures, change control workflows, document numbering, version management, electronic signature compliance, or regulatory documentation review."
     },
     {
       "name": "quality-manager-qmr",
       "category": "ra-qm",
-      "description": "Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review leadership, regulatory compliance oversight, and quality performance monitoring per ISO 13485 Clause 5.5.2."
+      "description": "Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review leadership, regulatory compliance oversight, and quality performance monitoring per ISO 13485 Clause 5.5.2. Use when leading management reviews, setting quality policy and objectives, monitoring quality KPIs and cost of quality, or exercising QMR governance and regulatory oversight responsibilities."
     },
     {
       "name": "quality-manager-qms-iso13485",
@@ -1961,7 +2076,7 @@
     {
       "name": "ra-qm-skills",
       "category": "ra-qm",
-      "description": "12 regulatory & QM agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, ISO 27001 ISMS, GDPR/DSGVO, risk management (ISO 14971), CAPA, document control, auditing. Python tools (stdlib-only)."
+      "description": "Router/index for the 15 regulatory & quality-management skills bundled in this plugin (ISO 13485 QMS, EU MDR 2017/745, FDA submissions under QMSR, ISO 14971 risk, CAPA, document control, ISO 27001/ISMS, ISO 42001 AIMS, EU AI Act, GDPR/DSGVO, SOC 2, auditing). Use when a compliance request doesn't obviously match one skill and you need to pick the right one (e.g., 'prepare us for an ISO 13485 audit', 'is my AI system high-risk under the AI Act')."
     },
     {
       "name": "regulatory-affairs-head",
@@ -1989,44 +2104,49 @@
       "description": "Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness."
     },
     {
+      "name": "deep-research",
+      "category": "research",
+      "description": "Run a disciplined, multi-source research investigation for a high-stakes question or decision \u2014 fan-out web search across many channels, parallel sub-agents, source triangulation (each claim backed by \u22653 independent sources), an adversarial review pass, and every source saved to its own file with verbatim quotes for reuse. Use when a low-quality answer is expensive: strategy work, comparing N products/methods/markets, validating a hypothesis with external data, or mapping how a field works. NOT for quick fact-checks (answer directly), structured 12-dimension competitor scoring (use competitive-teardown), or fast topic overviews where the decision risk is low (use the research router instead)."
+    },
+    {
       "name": "dossier",
       "category": "research",
-      "description": "Decision-grade entity research skill \u2014 produces a hypothesis-tested dossier on a specific company, person, nonprofit, or government org, not a generic profile. Forcing intake makes the user state their hypothesis upfront (what they already believe and want to verify or disprove) so the dossier tests it rather than confirms it. Output is an editable Word document (.docx) with verdict on the hypothesis, identity facts, 12-month activity timeline, network signals, reputation signals, red flags, 3-5 conversation hooks tied to specific findings, and source-provenance audit log. Uses WebSearch + WebFetch + free APIs (SEC EDGAR, GitHub, ProPublica Nonprofit Explorer) as workhorses; optional BYOK MCPs (LinkedIn, Crunchbase, Apollo, Pitchbook, SimilarWeb) enhance coverage. Triggers: 'research [company]', 'dossier on [person/company]', 'background check on [entity]', 'prep me for a meeting with [person/company]', 'due diligence on [company]', 'what should I know about [entity]', 'research [person] before I [meet/hire/invest]', 'competitor research on [company]', 'investor diligence [company]', 'interview prep for [company]'. Honors sensitivity exclusions for journalism + personal-vetting contexts."
+      "description": "Decision-grade entity research skill \u2014 produces a hypothesis-tested dossier on a specific company, person, nonprofit, or government org, not a generic profile. Forcing intake makes the user state their hypothesis upfront (what they already believe and want to verify or disprove) so the dossier tests it rather than confirms it. Output is an editable Word document (.docx) with verdict on the hypothesis, identity facts, 12-month activity timeline, network and reputation signals, red flags, conversation hooks tied to specific findings, and source-provenance audit log. Uses WebSearch + WebFetch + free APIs (SEC EDGAR, GitHub, ProPublica) as workhorses; optional BYOK MCPs enhance coverage. Use when the user asks for background research, diligence, or meeting prep on a specific entity (e.g., 'prep me for a meeting with [person/company]', 'due diligence on [company]'). Honors sensitivity exclusions for journalism + personal-vetting contexts."
     },
     {
       "name": "grants",
       "category": "research",
-      "description": "NIH grant research skill for clinical researchers. Grill-me intake (research idea + career stage + preliminary data + environment + submission posture + known institute targets) locks down the funding strategy before any search runs. Runs a 5-facet Consensus positioning analysis (with draft Significance/Innovation language), maps the research to the right NIH institutes and study sections via RePORTER, finds NOSIs and funded overlap, and produces an editable Word document (.docx) with budget/scope-aware mechanism recommendations, submission timelines, and a mandatory program officer recommendation. Triggers: 'grants for [topic]', 'find grants for my research idea', 'what grants match my research', 'help me find NIH funding', 'grant opportunities for my research', or any grant-related request. NIH-only scope \u2014 non-NIH funders (PCORI, DOD CDMRP, VA, foundations) are out of scope and flagged at intake."
+      "description": "NIH grant research skill for clinical researchers. Grill-me intake (research idea + career stage + preliminary data + environment + submission posture + known institute targets) locks down the funding strategy before any search runs. Runs a 5-facet Consensus positioning analysis (with draft Significance/Innovation language), maps the research to the right NIH institutes and study sections via RePORTER, finds NOSIs and funded overlap, and produces an editable Word document (.docx) with budget/scope-aware mechanism recommendations, submission timelines, and a mandatory program officer recommendation. Use when the user asks about research funding or makes any grant-related request (e.g., 'grants for [topic]', 'find grants for my research idea', 'what grants match my research', 'help me find NIH funding', 'grant opportunities for my research'). NIH-only scope \u2014 non-NIH funders (PCORI, DOD CDMRP, VA, foundations) are out of scope and flagged at intake."
     },
     {
       "name": "litreview",
       "category": "research",
-      "description": "Academic literature orientation skill that searches papers via Consensus, builds a strategic search plan using PICO (default) or SPIDER / Decomposition / hybrid as fallbacks, and synthesizes findings into a professionally formatted Word document (.docx) research guide. Grill-me intake (research question specificity + framework hint + tentative depth) before the recon search; a second forcing checkpoint after Phase 2 confirms framework + sub-areas + depth before searches consume budget. Configurable depth (5/10/20 queries) controls coverage vs. speed. Output is a 'launching pad' \u2014 not a finished review, but an orientation guide that lets a researcher dive in confidently. Triggers: 'litreview on [topic]', 'literature review on [topic]', 'I'm starting a literature review on X', 'I'm writing a paper on X', 'help me research X', 'I'm doing research on X', 'can you help me research X'. Do NOT trigger for single one-off paper searches where the user just wants a quick list \u2014 that's a plain Consensus search."
+      "description": "Academic literature orientation skill that searches papers via free keyless APIs (PubMed E-utilities + OpenAlex) by default \u2014 with the Consensus MCP as an optional enhancement lane when connected \u2014 builds a strategic search plan using PICO (default) or SPIDER / Decomposition / hybrid as fallbacks, and synthesizes findings into a formatted Word (.docx) research guide. Grill-me intake (research question specificity + framework hint + tentative depth) before the recon search; a second forcing checkpoint after Phase 2 confirms framework + sub-areas + depth before searches consume budget. Configurable depth (5/10/20 queries) controls coverage vs. speed. Output is a 'launching pad' \u2014 an orientation guide that lets a researcher dive in confidently, not a finished review. Use when the user starts literature-oriented research (e.g., 'litreview on [topic]', 'literature review on [topic]', 'I'm starting a literature review on X', 'I'm writing a paper on X', 'help me research X', 'I'm doing research on X', 'can you help me research X'). Do NOT use for single one-off paper searches wanting a quick list \u2014 that's a plain PubMed/OpenAlex (or Consensus) query."
     },
     {
       "name": "notebooklm",
       "category": "research",
-      "description": "Browser automation skill for controlling Google's NotebookLM. Handles reading and querying notebooks, adding sources (URLs, text, files, YouTube links, synthesized content), generating Studio outputs (Audio Overview, infographics, slide decks, study guides, briefing docs, mind maps, timelines, FAQs), and creating new notebooks. Triggers on any phrase involving NotebookLM \u2014 'open NotebookLM', 'check my [name] notebook', 'pull info from NotebookLM', 'ask my notebook about X', 'add [source] to NotebookLM', 'create an infographic in NotebookLM', 'use NotebookLM Studio', 'generate a slide deck from my notebook', or any variation where the goal involves NotebookLM. Requires browser automation environment \u2014 fails gracefully when unavailable."
+      "description": "Browser automation skill for controlling Google's NotebookLM. Use when the user wants anything done in NotebookLM (e.g., 'open NotebookLM', 'check my [name] notebook', 'ask my notebook about X', 'add [source] to NotebookLM', 'generate a Video Overview from my notebook', 'use NotebookLM Studio'). Handles reading and querying notebooks, adding sources (URLs, text, files, YouTube links, synthesized content), generating Studio outputs (Audio/Video Overviews, Mind Maps, Reports incl. Briefing Doc/Study Guide/FAQ, Flashcards, Quiz, slide decks, infographics \u2014 discover the exact set from the live Studio panel; the UI evolves fast), and creating new notebooks. Requires browser automation environment \u2014 fails gracefully when unavailable."
     },
     {
       "name": "patent",
       "category": "research",
-      "description": "Patent prior-art and landscape intelligence skill \u2014 not generic patent help. Commits to one of five sub-use-cases via forcing intake (novelty search / freedom-to-operate / competitive landscape / acquisition diligence / litigation prior-art) before any search runs. Searches Google Patents, Espacenet, USPTO, and optionally Lens.org for citation-graph signals. Output is an editable Word document (.docx) with verdict, ranked closest art (claim-text extracted), CPC-class-aware landscape, family-resolved hits, geographic coverage, FTO flags where applicable, strategy recommendations, and full audit log. Triggers: 'prior art search for [invention]', 'patent search on [topic]', 'freedom to operate analysis', 'FTO for [product]', 'patent landscape for [field]', 'is [invention] novel', 'patents on [topic]', 'competitive patent analysis', 'prior art for litigation', 'patent diligence on [company]'. Produces search signal, not legal advice \u2014 always recommends consulting a patent attorney before filing or licensing decisions. Trademark, copyright, and trade-secret questions are out of scope."
+      "description": "Patent prior-art and landscape intelligence skill \u2014 not generic patent help. Commits to one of five sub-use-cases via forcing intake (novelty search / freedom-to-operate / competitive landscape / acquisition diligence / litigation prior-art) before any search runs. Searches Google Patents, Espacenet, USPTO, and optionally Lens.org for citation-graph signals. Output is an editable Word document (.docx) with verdict, ranked closest art (claim-text extracted), CPC-class-aware landscape, family-resolved hits, geographic coverage, FTO flags where applicable, strategy recommendations, and full audit log. Use when the user asks for patent searching or analysis (e.g., 'prior art search for [invention]', 'freedom to operate analysis for [product]'). Produces search signal, not legal advice \u2014 always recommends consulting a patent attorney before filing or licensing decisions. Trademark, copyright, and trade-secret questions are out of scope."
     },
     {
       "name": "pulse",
       "category": "research",
-      "description": "Multi-source recency research skill that takes the pulse of any topic across Reddit, Hacker News, the open web, and optionally X/Twitter within a configurable recent window (default 30 days). Forcing intake clarifies topic specificity, angle (trend/sentiment/problems/opportunities/comparison), time window, and platform scope before searching. Returns a synthesized briefing with citations, engagement metrics, and cross-platform pattern analysis. Triggers: 'pulse on [topic]', 'what's happening with [topic]', 'what are people saying about [topic]', 'current conversation about [topic]', 'take the pulse of [topic]', 'trending: [topic]', 'find me info on [topic]', or any variation requesting multi-source recency intelligence on a topic. Also use for competitor research, trend discovery, tool comparisons, and audience sentiment analysis."
+      "description": "Multi-source recency research skill that takes the pulse of any topic across Reddit, Hacker News, the open web, and optionally X/Twitter within a configurable recent window (default 30 days). Forcing intake clarifies topic specificity, angle (trend/sentiment/problems/opportunities/comparison), time window, and platform scope before searching. Returns a synthesized briefing with citations, engagement metrics, and cross-platform pattern analysis. Use when the user requests multi-source recency intelligence on a topic (e.g., 'pulse on [topic]', 'what's happening with [topic]', 'what are people saying about [topic]', 'current conversation about [topic]', 'take the pulse of [topic]', 'trending: [topic]', 'find me info on [topic]'), and for competitor research, trend discovery, tool comparisons, and audience sentiment analysis."
     },
     {
       "name": "research-bundle",
       "category": "research",
-      "description": "Default entry point for any research request \u2014 a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Triggers \u2014 \"research [topic]\", \"look into [topic]\", \"what do we know about [topic]\", \"investigate [topic]\", \"find me information on [topic]\", \"do some research on [topic]\", \"I need to understand [topic]\", or any research request that doesn't obviously match a more-specific specialist skill. Output is a markdown briefing (default) or .docx document (on request) with full citations and an audit log."
+      "description": "Default entry point for any research request \u2014 a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Use when the user makes any research request that doesn't obviously match a more-specific specialist skill (e.g., \"research [topic]\", \"look into [topic]\", \"what do we know about [topic]\", \"investigate [topic]\", \"find me information on [topic]\", \"do some research on [topic]\", \"I need to understand [topic]\"). Output is a markdown briefing (default) or .docx document (on request) with full citations and an audit log."
     },
     {
       "name": "syllabus",
       "category": "research",
-      "description": "Generates a curated supplementary reading list from any course syllabus using Consensus academic search. Grill-me intake (syllabus input format + course audience + year range) plus a grouping forcing-options checkpoint before any search runs \u2014 so the reading list matches the course's level and recency need. Parses the syllabus to extract topics and learning outcomes, searches Consensus for recent peer-reviewed papers per topic, and produces a professionally formatted .docx with clickable Consensus links, plain-language summaries calibrated to audience level, and Bloom-higher-order discussion questions tied to course learning goals. Triggers whenever a user uploads a syllabus, course outline, or curriculum document and wants supplementary readings. Also triggers on: 'syllabus reading list', 'find papers for my course', 'create a reading list from this syllabus', 'recent research for my class', 'supplementary readings', 'find journal articles for these topics', 'what recent papers cover this material', 'any new research on these course topics', 'update my syllabus with recent papers'. Even casual mentions when a syllabus is attached should trigger this skill."
+      "description": "Generates a curated supplementary reading list from any course syllabus using Consensus academic search. Grill-me intake (syllabus input format + course audience + year range) plus a grouping forcing-options checkpoint before any search runs \u2014 so the reading list matches the course's level and recency need. Parses the syllabus to extract topics and learning outcomes, searches Consensus for recent peer-reviewed papers per topic, and produces a professionally formatted .docx with clickable Consensus links, plain-language summaries calibrated to audience level, and Bloom-higher-order discussion questions tied to course learning goals. Use when the user uploads a syllabus, course outline, or curriculum document and wants supplementary readings (e.g., 'create a reading list from this syllabus', 'find recent papers for my course') \u2014 even casual mentions with a syllabus attached should trigger this skill."
     },
     {
       "name": "clinical-research",
@@ -2056,7 +2176,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 33,
+      "count": 34,
       "description": "Agent resources"
     },
     "business-growth": {
@@ -2068,11 +2188,11 @@
       "description": "Business-operations resources"
     },
     "c-level": {
-      "count": 66,
+      "count": 68,
       "description": "C-level resources"
     },
     "command": {
-      "count": 38,
+      "count": 39,
       "description": "Command resources"
     },
     "commercial": {
@@ -2084,19 +2204,23 @@
       "description": "Compliance-os resources"
     },
     "engineering": {
-      "count": 51,
+      "count": 52,
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 79,
+      "count": 84,
       "description": "Engineering-advanced resources"
     },
     "finance": {
       "count": 4,
       "description": "Finance resources"
     },
+    "markdown-html": {
+      "count": 5,
+      "description": "Markdown-html resources"
+    },
     "marketing": {
-      "count": 46,
+      "count": 48,
       "description": "Marketing resources"
     },
     "marketing-top-level": {
@@ -2108,7 +2232,7 @@
       "description": "Product resources"
     },
     "productivity": {
-      "count": 6,
+      "count": 11,
       "description": "Productivity resources"
     },
     "project-management": {
@@ -2116,11 +2240,11 @@
       "description": "Project-management resources"
     },
     "ra-qm": {
-      "count": 18,
+      "count": 19,
       "description": "Ra-qm resources"
     },
     "research": {
-      "count": 8,
+      "count": 9,
       "description": "Research resources"
     },
     "research-ops": {

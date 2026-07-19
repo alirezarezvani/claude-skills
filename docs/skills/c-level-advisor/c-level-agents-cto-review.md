@@ -1,6 +1,6 @@
 ---
 title: "/cs:cto-review — CTO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cto-review <plan> — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:cto-review <plan> — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:cto-review — CTO Forcing Questions

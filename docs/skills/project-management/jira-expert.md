@@ -20,25 +20,36 @@ Master-level expertise in Jira configuration, project management, JQL, workflows
 
 ## Quick Start — Most Common Operations
 
-**Create a project**:
+All MCP examples in this skill use the real Atlassian Remote MCP tools (camelCase, surfaced as `mcp__atlassian__<toolName>`). The canonical tool list is `project-management/references/atlassian-mcp-tools.md` — never invent tool names; if a capability isn't listed there, it is not available via MCP.
+
+**Create an issue** (call `getAccessibleAtlassianResources` once first to obtain `cloudId`):
 ```
-mcp jira create_project --name "My Project" --key "MYPROJ" --type scrum --lead "user@example.com"
+mcp__atlassian__createJiraIssue (cloudId, projectKey="MYPROJ", issueTypeName="Story", summary="My new story")
 ```
 
-**Run a JQL query**:
+**Run a JQL query** (build the JQL from natural language with the bundled script, then execute):
+```bash
+python3 scripts/jql_query_builder.py "high priority bugs assigned to me"
+# → emits validated JQL, e.g.: assignee = currentUser() AND type = Bug AND status != Done
 ```
-mcp jira search_issues --jql "project = MYPROJ AND status != Done AND dueDate < now()" --maxResults 50
+```
+mcp__atlassian__searchJiraIssuesUsingJql (cloudId, jql="project = MYPROJ AND status != Done AND dueDate < now()")
 ```
 
-For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integration). For JQL functions, see [JQL Functions Reference](#jql-functions-reference). For report templates, see [Reporting Templates](#reporting-templates).
+**Create a project**: NOT available via MCP. Use the Jira web UI (`Projects > Create project`) or REST API (`POST /rest/api/3/project`).
+
+For the full tool reference, see [Atlassian MCP Integration](#atlassian-mcp-integration). For JQL functions, see [JQL Functions Reference](#jql-functions-reference). For report templates, see [Reporting Templates](#reporting-templates).
 
 ---
 
 ## Workflows
 
 ### Project Creation
+
+> Project creation is **not available via MCP** — perform steps 2-6 in the Jira web UI (`Projects > Create project`) or via REST API (`POST /rest/api/3/project`). After creation, verify visibility with `mcp__atlassian__getVisibleJiraProjects` and inspect issue types with `mcp__atlassian__getJiraProjectIssueTypesMetadata`.
+
 1. Determine project type (Scrum, Kanban, Bug Tracking, etc.)
-2. Create project with appropriate template
+2. Create project with appropriate template (web UI / REST)
 3. Configure project settings:
    - Name, key, description
    - Project lead and default assignee
@@ -50,15 +61,30 @@ For full command reference, see [Atlassian MCP Integration](#atlassian-mcp-integ
 7. **HANDOFF TO**: Scrum Master for team onboarding
 
 ### Workflow Design
+
+> Workflow/scheme editing is **not available via MCP** — configure in `Jira Settings > Issues > Workflows`. Use the bundled validator to catch anti-patterns before deploying.
+
 1. Map out process states (To Do → In Progress → Done)
 2. Define transitions and conditions
-3. Add validators, post-functions, and conditions
-4. Configure workflow scheme
+3. Lint the design before building it in Jira:
+   ```bash
+   python3 scripts/workflow_validator.py workflow.json --format json
+   ```
+   Input: a JSON file with the workflow's `states` and `transitions`. Consume the output: fix every reported anti-pattern (dead-end states, unreachable states, missing transitions) in the design before touching Jira.
+4. Add validators, post-functions, and conditions; configure the workflow scheme (web UI)
 5. **Validate**: Deploy to a test project first; verify all transitions, conditions, and post-functions behave as expected before associating with production projects
 6. Associate workflow with project
-7. Test workflow with sample issues
+7. Test workflow with sample issues — via MCP: `mcp__atlassian__getTransitionsForJiraIssue` on a sample issue to confirm expected transitions surface, then `mcp__atlassian__transitionJiraIssue` to walk it through the flow
 
 ### JQL Query Building
+
+**Start with the bundled builder** — it pattern-matches natural language to validated JQL:
+```bash
+python3 scripts/jql_query_builder.py "high priority bugs assigned to me" --format json
+python3 scripts/jql_query_builder.py --patterns   # list all supported query patterns
+```
+Consume the output: take the `jql` field from the JSON result (or the GENERATED JQL block in text mode) and execute it with `mcp__atlassian__searchJiraIssuesUsingJql (cloudId, jql=<generated>)`. If the builder reports no pattern match, compose JQL manually using the reference below.
+
 **Basic Structure**: `field operator value`
 
 **Common Operators**:
@@ -275,34 +301,43 @@ assignee in (user1, user2) AND sprint in openSprints()
 
 ## Atlassian MCP Integration
 
-**Primary Tool**: Jira MCP Server
+**Primary Tool**: Atlassian Remote MCP server (bundled `.mcp.json`, server key `atlassian`). Tools surface as `mcp__atlassian__<toolName>`. **Canonical tool list**: `project-management/references/atlassian-mcp-tools.md`. Never invent tool names — if a capability isn't in that list, route to the web UI/REST API.
 
-**Key Operations with Example Commands**:
+**Key Operations with Example Calls** (obtain `cloudId` once via `mcp__atlassian__getAccessibleAtlassianResources`):
 
-Create a project:
+Create an issue (check required fields first with `getJiraIssueTypeMetaWithFields`):
 ```
-mcp jira create_project --name "My Project" --key "MYPROJ" --type scrum --lead "user@example.com"
+mcp__atlassian__createJiraIssue (cloudId, projectKey="MYPROJ", issueTypeName="Story", summary="My new story")
 ```
 
 Execute a JQL query:
 ```
-mcp jira search_issues --jql "project = MYPROJ AND status != Done AND dueDate < now()" --maxResults 50
+mcp__atlassian__searchJiraIssuesUsingJql (cloudId, jql="project = MYPROJ AND status != Done AND dueDate < now()")
 ```
 
 Update an issue field:
 ```
-mcp jira update_issue --issue "MYPROJ-42" --field "status" --value "In Progress"
+mcp__atlassian__editJiraIssue (cloudId, issueIdOrKey="MYPROJ-42", fields=<payload — discover via tool schema>)
 ```
 
-Create a sprint:
+Transition an issue (status changes go through transitions, not field edits):
 ```
-mcp jira create_sprint --board 10 --name "Sprint 5" --startDate "2024-06-01" --endDate "2024-06-14"
+mcp__atlassian__getTransitionsForJiraIssue (cloudId, issueIdOrKey="MYPROJ-42")
+mcp__atlassian__transitionJiraIssue (cloudId, issueIdOrKey="MYPROJ-42", transition=<id from previous call>)
 ```
 
-Create a board filter:
+Comment / log work / link issues:
 ```
-mcp jira create_filter --name "Open Blockers" --jql "priority = Blocker AND status != Done" --shareWith "project-team"
+mcp__atlassian__addCommentToJiraIssue (cloudId, issueIdOrKey="MYPROJ-42", body="...")
+mcp__atlassian__addWorklogToJiraIssue (cloudId, issueIdOrKey="MYPROJ-42", timeSpent=<discover via tool schema>)
+mcp__atlassian__createIssueLink (cloudId, link type from mcp__atlassian__getIssueLinkTypes)
 ```
+
+**Not available via MCP — use the web UI or REST API instead:**
+- Create a **project** → Jira UI `Projects > Create project` or `POST /rest/api/3/project`
+- Create a **sprint** or configure boards → Jira Software UI or `POST /rest/agile/1.0/sprint`
+- Create/share a **filter** → Jira UI `Filters > Save as` or `POST /rest/api/3/filter`
+- Custom fields, screens, workflow/permission schemes → Jira admin UI
 
 **Integration Points**:
 - Pull metrics for Senior PM reporting

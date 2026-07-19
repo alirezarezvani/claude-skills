@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">84 commands for quick access to common operations</p>
+<p class="domain-count">92 commands for quick access to common operations</p>
 
 </div>
 
@@ -73,6 +73,12 @@ description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Use the cs-fullstack-engineer agent (which uses context: fork to keep the parent thread clean) to handle this inquiry:
 
+-   :material-console:{ .lg .middle } **[`/cs-webinar`](cs-webinar.md)**
+
+    ---
+
+    Command: /cs:webinar mode args
+
 -   :material-console:{ .lg .middle } **[`/financial-health`](financial-health.md)**
 
     ---
@@ -137,7 +143,7 @@ description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     ---
 
-    Generate a concise product requirements document for a feature, initiative, or problem statement.
+    Generate a concise, evidence-gated product requirements document for $ARGUMENTS.
 
 -   :material-console:{ .lg .middle } **[`/project-health`](project-health.md)**
 
@@ -185,7 +191,7 @@ description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     ---
 
-    Create a sprint plan with prioritized stories and capacity guardrails.
+    Create a sprint plan for $ARGUMENTS with explicit capacity math, a carry-over check, and a definition-of-ready gate. ...
 
 -   :material-console:{ .lg .middle } **[`/tc`](tc.md)**
 
@@ -197,7 +203,7 @@ description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     ---
 
-    Generate tests, analyze coverage, and validate test quality using the TDD Guide skill.
+    Drive a test-first workflow for $ARGUMENTS using the TDD Guide skill. The first word of $ARGUMENTS selects the mode (...
 
 -   :material-console:{ .lg .middle } **[`/tech-debt`](tech-debt.md)**
 
@@ -270,6 +276,12 @@ description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Command: /cs:handoff <next-session-focus>
+
+-   :material-console:{ .lg .middle } **[`/cs-scrape`](cs-scrape.md)**
+
+    ---
+
+    Run a gated extraction pipeline for $ARGUMENTS using skills/universal-scraping-architect/SKILL.md.
 
 -   :material-console:{ .lg .middle } **[`/cs-workflow-build`](cs-workflow-build.md)**
 
@@ -516,5 +528,41 @@ description: "84 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Route this inquiry through the research-ops-skills orchestrator:
+
+-   :material-console:{ .lg .middle } **[`/cs-design-system`](cs-design-system.md)**
+
+    ---
+
+    Run the design-system wizard:
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-markdown-html`](cs-grill-markdown-html.md)**
+
+    ---
+
+    Walk the user through 5 forcing questions before routing to the converter. One question per turn, with a recommended ...
+
+-   :material-console:{ .lg .middle } **[`/cs-markdown-html`](cs-markdown-html.md)**
+
+    ---
+
+    Route this conversion through the markdown-html-orchestrator skill:
+
+-   :material-console:{ .lg .middle } **[`/cs-md-document`](cs-md-document.md)**
+
+    ---
+
+    Convert the markdown at $ARGUMENTS into a single-file interactive HTML document.
+
+-   :material-console:{ .lg .middle } **[`/cs-md-review`](cs-md-review.md)**
+
+    ---
+
+    Convert the review markdown at $ARGUMENTS into a single-file 2-column HTML review.
+
+-   :material-console:{ .lg .middle } **[`/cs-md-slides`](cs-md-slides.md)**
+
+    ---
+
+    Convert the markdown deck at $ARGUMENTS into a single-file interactive HTML presentation.
 
 </div>

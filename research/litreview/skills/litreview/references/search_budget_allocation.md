@@ -6,22 +6,17 @@ Pair with `scripts/cross_search_aggregator.py` for the deterministic implementat
 
 ## The Core Constraint
 
-Consensus has a **1 query/second rate limit**. NEVER parallelize. Sequential execution is the only mode that doesn't break the rate limit. This is the same rule pulse uses for Reddit/HN/Web — research-pack convention.
+The default search lane is **free keyless APIs** — PubMed E-utilities (≤3 requests/second keyless etiquette) and OpenAlex (polite pool via `mailto`). If the Consensus MCP is connected, it adds an enhancement lane with a **1 query/second rate limit**. Litreview's discipline across all lanes: **sequential, 1 query/sec, NEVER parallelize.** This is the same rule pulse uses for Reddit/HN/Web — research-pack convention.
 
-Plus a **plan-tier cap**: free tier returns ~10 results per query; Pro returns ~20. Detected at first search response.
+At ~20 results per query per source (`retmax=20` / `per-page=20`), the budget ceilings are:
 
-The combination produces hard budget ceilings:
+| Tier | Theoretical max papers (per source) |
+|---|---|
+| Quick scan (5 q) | 100 |
+| Standard (10 q) | 200 |
+| Deep dive (20 q) | 400 |
 
-| Tier | Plan | Theoretical max papers |
-|---|---|---|
-| Quick scan (5 q) | Free | 50 |
-| Quick scan (5 q) | Pro | 100 |
-| Standard (10 q) | Free | 100 |
-| Standard (10 q) | Pro | 200 |
-| Deep dive (20 q) | Free | 200 |
-| Deep dive (20 q) | Pro | 400 |
-
-These are *theoretical* — deduplication reduces the actual unique paper count by 30-50% in practice.
+These are *theoretical* — deduplication (by DOI/title, across sources and across queries) reduces the actual unique paper count by 30-50% in practice.
 
 ## Why Three Tiers (Not One Adaptive Budget)
 
@@ -44,7 +39,7 @@ Budget allocation:
 Use when:
 - User wants a fast orientation (~30s with 1 q/sec)
 - Topic is well-known to user; they just need pointers
-- Plan tier is free + topic is reasonably narrow
+- Topic is reasonably narrow
 
 **Note in audit:** "Quick scan tier — review articles + era-gated comparisons omitted. Bibliography may be thin on foundational older work."
 
@@ -63,7 +58,6 @@ Budget allocation:
 
 Use when (default tier):
 - User has some familiarity but wants depth
-- Plan tier allows reasonable coverage
 - Time budget is 1-2 minutes total
 
 ## Deep Dive (20 searches)
@@ -80,7 +74,7 @@ Budget allocation:
 Use when:
 - Topic is genuinely new to user
 - Comprehensive orientation is the goal
-- Plan tier is Pro (free tier deep-dive is bottlenecked at ~200 papers)
+- User accepts the longer run time (20 sequential queries ≈ 2+ minutes)
 
 ## Cross-Search Intelligence
 
@@ -131,7 +125,7 @@ A literature review WITHOUT cross-search intelligence is just a list of papers. 
 
 ## Sequential Execution Discipline
 
-Each Consensus call must wait for the prior response. NEVER parallelize:
+Each search call (free lane or Consensus) must wait for the prior response. NEVER parallelize:
 
 ```
 search_1 → wait response → record → 1 second pause → search_2 → ...
@@ -141,23 +135,19 @@ If parallel: rate limit triggers 429, error counter increments, after 3 consecut
 
 `scripts/citation_tracker.py --action record_search` enforces the timestamp gap (rejects calls within 1s of prior).
 
-## Plan-Tier Detection
+## Lane Check (Replaces Plan-Tier Detection)
 
-After search 1, parse the response:
+One runtime check at session start: **are the Consensus MCP tools available in this session?**
 
-| Signal | Tier |
-|---|---|
-| "Showing top 10" / "upgrade for more" | Free (10/search cap) |
-| 20 papers returned | Pro (20/search cap) |
-| Auth-failure response | API key missing or invalid |
+- **No** → use the free lane (PubMed E-utilities + OpenAlex via `scripts/free_search.py`). Do not attempt tier detection. Do not parse response text for marketing copy ("Showing top 10" / "upgrade"). There is nothing to detect — the free lane has no tiers.
+- **Yes** → run Consensus queries *in addition to* the free lane; merge and dedupe by DOI/title.
 
-Surface tier at checkpoint:
+Surface the lane at the checkpoint:
 
-> Detected free tier (~10 results per search). Calibrating budget:
->   Quick scan: 5 × 10 = ~50 papers
->   Standard: 10 × 10 = ~100 papers
->   Deep dive: 20 × 10 = ~200 papers
-> If you want deeper coverage, Consensus Pro unlocks 20/search.
+> Search lane: free (PubMed + OpenAlex, ~20 results per query per source).
+>   Quick scan: 5 × 20 = ~100 papers per source
+>   Standard: 10 × 20 = ~200 papers per source
+>   Deep dive: 20 × 20 = ~400 papers per source
 
 User chooses depth after seeing the constraint.
 
@@ -167,25 +157,25 @@ User chooses depth after seeing the constraint.
 - **Adaptive "just one more" extensions** — bias-prone; commit to tier upfront
 - **Skipping era-gated searches in standard/deep tiers** — misses terminology shifts
 - **Skipping cross-search aggregation** — reduces review to a paper list
-- **Hardcoding plan tier** — detect at runtime; don't assume free/Pro
+- **Attempting plan-tier detection** — deleted; the only runtime check is whether the Consensus MCP tools are available
 - **Reporting raw citation count without per-year** — over-weights older papers
 - **Counting repeat-hits at threshold 2** — too noisy; 3 is the minimum signal
 
 ## Operational Checklist
 
-- [ ] Plan tier detected from search 1 response
+- [ ] Lane check done at session start (Consensus MCP available or not — no tier detection)
 - [ ] Theoretical ceiling reported at checkpoint
 - [ ] Search budget allocated per tier (5/10/20)
 - [ ] Era-gated searches included in standard/deep
 - [ ] Follow-ups on highest-cited papers included
-- [ ] 1 second wait between each Consensus call (timestamp-enforced)
+- [ ] 1 second wait between each search call (timestamp-enforced)
 - [ ] All search results passed through `cross_search_aggregator.py` after Phase 3
 - [ ] Repeat-hit threshold = 3 sub-areas (not 2)
 - [ ] Citation-per-year computed (not raw citation count)
 
 ## Citations (7 sources)
 
-1. **Consensus.app documentation — consensus.app/help.** Authoritative source for plan-tier caps (free: 10/search, Pro: 20/search) and 1 q/sec rate limit. The skill detects from response rather than hardcoding because documented values evolve.
+1. **NCBI E-utilities documentation — eutils.ncbi.nlm.nih.gov (NLM, *Entrez Programming Utilities Help*) + OpenAlex API documentation — docs.openalex.org.** Authoritative sources for the free lane: PubMed keyless etiquette (≤3 requests/second), esearch/esummary JSON shapes, and OpenAlex's keyless polite pool (`mailto` param) + `cited_by_count`. Consensus.app documentation (consensus.app/help) is the source for the optional enhancement lane's 1 q/sec rate limit.
 
 2. **Higgins, J. P. T. & Green, S. (eds.), *Cochrane Handbook for Systematic Reviews of Interventions* (Wiley, 2019).** Chapter 4 on search strategy. Source for the era-gated + review-specific + follow-up search categories. The 5/10/20 tier structure is litreview's compression of Cochrane's exhaustive-search methodology.
 

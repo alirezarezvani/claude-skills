@@ -1,6 +1,6 @@
 ---
 title: "Research Operations Skills — Agent Skills & Codex Plugins"
-description: "5 research operations skills — agent skills for Research Operations. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "5 research operations skills — enterprise research operations agent skill and Claude Code plugin for clinical study design, R&D finance, market sizing, and product research. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

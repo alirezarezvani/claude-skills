@@ -1,6 +1,6 @@
 ---
 title: "Commercial Skills — Agent Skills & Codex Plugins"
-description: "8 commercial skills — agent skills for Commercial. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "8 commercial skills — commercial agent skill and Claude Code plugin for pricing strategy, deal desk, partnerships, and RFP response. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

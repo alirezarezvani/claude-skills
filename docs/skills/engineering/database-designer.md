@@ -44,6 +44,38 @@ A comprehensive database design skill that provides expert-level analysis, optim
 - **Rollback Strategy**: Complete reversal capabilities with validation
 - **Execution Planning**: Ordered migration steps with dependency resolution
 
+## Tool Workflow (run these — do not analyze schemas by hand)
+
+All paths relative to this skill folder; sample inputs in `assets/`.
+
+### 1. Analyze the schema
+
+```bash
+python3 schema_analyzer.py --input schema.sql --generate-erd --output-format json -o analysis.json
+```
+
+Accepts SQL DDL or JSON schema (`assets/sample_schema.sql` / `sample_schema.json`). Output includes normalization findings, missing constraints, naming issues, and a Mermaid ERD — show the ERD to the user and fix flagged issues before optimizing.
+
+### 2. Optimize indexes against real query patterns
+
+```bash
+python3 index_optimizer.py --schema assets/sample_schema.json --queries assets/sample_query_patterns.json --analyze-existing --format json -o indexes.json
+```
+
+Write the user's hot queries into a query-patterns JSON first (copy `assets/sample_query_patterns.json`). Output is a priority-ordered list of CREATE INDEX recommendations plus redundant-index removals.
+
+### 3. Generate the migration
+
+```bash
+python3 migration_generator.py --current current_schema.json --target target_schema.json --zero-downtime --format sql -o migration.sql
+```
+
+`--zero-downtime` emits an expand-contract plan; `--validate-only` checks feasibility without generating SQL.
+
+### 4. Verification loop
+
+Re-run step 1 on the *target* schema and assert the issues found in the first pass are gone; run `migration_generator.py --validate-only` before handing over the migration.
+
 ## Database Design Principles
 → See references/database-design-reference.md for details
 
@@ -291,10 +323,3 @@ Fixes:
 - **senior-backend** — application-layer patterns (connection pooling, ORM best practices)
 - **senior-devops** — infrastructure provisioning for database clusters and replicas
 
----
-
-## Conclusion
-
-Effective database design requires balancing multiple competing concerns: performance, scalability, maintainability, and business requirements. This skill provides the tools and knowledge to make informed decisions throughout the database lifecycle, from initial schema design through production optimization and evolution.
-
-The included tools automate common analysis and optimization tasks, while the comprehensive guides provide the theoretical foundation for making sound architectural decisions. Whether building a new system or optimizing an existing one, these resources provide expert-level guidance for creating robust, scalable database solutions.

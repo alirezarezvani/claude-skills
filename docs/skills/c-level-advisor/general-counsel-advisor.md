@@ -144,11 +144,11 @@ See `references/ip_and_regulatory.md` for sequencing.
 
 ## Adjacent Skills
 
-- [`skills/ciso-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor) — Compliance overlap (SOC 2, ISO 27001, HIPAA technical safeguards)
-- [`skills/cfo-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cfo-advisor) — Term sheet → dilution math
-- [`skills/ma-playbook`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ma-playbook) — Acquisition agreements, integration playbooks
-- [`ra-qm-team`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team) — ISO 13485, MDR, FDA 510(k), GDPR execution
-- [`gc-review/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/gc-review/SKILL.md) — `/cs:gc-review` slash command
+- `c-level-advisor/skills/ciso-advisor/` — Compliance overlap (SOC 2, ISO 27001, HIPAA technical safeguards)
+- `c-level-advisor/skills/cfo-advisor/` — Term sheet → dilution math
+- `c-level-advisor/skills/ma-playbook/` — Acquisition agreements, integration playbooks
+- `ra-qm-team/` — ISO 13485, MDR, FDA 510(k), GDPR execution
+- `c-level-advisor/c-level-agents/skills/gc-review/SKILL.md` — `/cs:gc-review` slash command
 
 ## References
 

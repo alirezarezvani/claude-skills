@@ -211,9 +211,9 @@ python scripts/poc_planner.py poc_data.json --format json  # JSON output
 
 ## Integration Points
 
-- **Marketing Skills** - Leverage competitive intelligence and messaging frameworks from `../../marketing-skill/`
-- **Product Team** - Coordinate on roadmap items flagged as "Planned" in RFP analysis from `../../product-team/`
-- **C-Level Advisory** - Escalate strategic deals requiring executive engagement from `../../c-level-advisor/`
+- **Marketing Skills** - Leverage competitive intelligence and messaging frameworks from `marketing-skill/`
+- **Product Team** - Coordinate on roadmap items flagged as "Planned" in RFP analysis from `product-team/`
+- **C-Level Advisory** - Escalate strategic deals requiring executive engagement from `c-level-advisor/`
 - **Customer Success** - Hand off POC results and success criteria to CSM from `../customer-success-manager/`
 
 ---

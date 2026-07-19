@@ -158,7 +158,7 @@ python ../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py worklo
 ## Related Agents
 
 - [cs-cdo-advisor](cs-cdo-advisor.md) — Training data rights, data strategy (chains directly to model decisions)
-- [cs-cto-advisor](../../../../agents/c-level/cs-cto-advisor.md) — Architecture capacity, scaling cliffs
+- [cs-cto-advisor](../../../agents/c-level/cs-cto-advisor.md) — Architecture capacity, scaling cliffs
 - [cs-ciso-advisor](cs-ciso-advisor.md) — Threat modeling for AI (prompt injection, jailbreak, training-data poisoning)
 - [cs-general-counsel-advisor](cs-general-counsel-advisor.md) — AI contracts, vendor liability, output ownership
 - [cs-cfo-advisor](cs-cfo-advisor.md) — Build-vs-buy TCO, multi-year vendor commitments

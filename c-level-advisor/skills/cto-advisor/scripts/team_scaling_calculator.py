@@ -3,8 +3,10 @@
 Engineering Team Scaling Calculator - Optimize team growth and structure
 """
 
+import argparse
 import json
 import math
+import sys
 from typing import Dict, List, Tuple
 
 class TeamScalingCalculator:
@@ -514,9 +516,27 @@ def calculate_team_scaling(current_state: Dict, growth_targets: Dict) -> str:
     
     return '\n'.join(output)
 
-if __name__ == "__main__":
-    import argparse
+# Embedded sample fixture (also the documented default when no input file
+# is given — silent fallback is intentional, pre-existing behavior).
+SAMPLE_CURRENT_STATE = {
+    'headcount': 25,
+    'velocity': 450,
+    'roles': {
+        'engineering_manager': 2,
+        'tech_lead': 3,
+        'senior_engineer': 8,
+        'mid_engineer': 10,
+        'junior_engineer': 2
+    },
+    'attrition_rate': 12,
+    'location': 'US'
+}
+SAMPLE_GROWTH_TARGETS = {
+    'target_headcount': 75,
+    'timeline_quarters': 4
+}
 
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Engineering Team Scaling Calculator - Optimize team growth and structure"
     )
@@ -528,31 +548,36 @@ if __name__ == "__main__":
         "--json", action="store_true",
         help="Output raw JSON instead of formatted report"
     )
+    parser.add_argument(
+        "--sample", action="store_true",
+        help="Run with the embedded sample data (ignores input_file)"
+    )
     args = parser.parse_args()
 
-    if args.input_file:
-        with open(args.input_file) as f:
-            data = json.load(f)
-        current_state = data["current_state"]
-        growth_targets = data["growth_targets"]
+    if args.sample:
+        if args.input_file:
+            print("Warning: --sample specified; ignoring input_file", file=sys.stderr)
+        current_state = SAMPLE_CURRENT_STATE
+        growth_targets = SAMPLE_GROWTH_TARGETS
+    elif args.input_file:
+        try:
+            with open(args.input_file) as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            print(f"Error: File not found: {args.input_file}", file=sys.stderr)
+            sys.exit(1)
+        except json.JSONDecodeError as e:
+            print(f"Error: Invalid JSON in {args.input_file}: {e}", file=sys.stderr)
+            sys.exit(1)
+        try:
+            current_state = data["current_state"]
+            growth_targets = data["growth_targets"]
+        except KeyError as e:
+            print(f"Error: Missing required field {e} in {args.input_file}", file=sys.stderr)
+            sys.exit(1)
     else:
-        current_state = {
-            'headcount': 25,
-            'velocity': 450,
-            'roles': {
-                'engineering_manager': 2,
-                'tech_lead': 3,
-                'senior_engineer': 8,
-                'mid_engineer': 10,
-                'junior_engineer': 2
-            },
-            'attrition_rate': 12,
-            'location': 'US'
-        }
-        growth_targets = {
-            'target_headcount': 75,
-            'timeline_quarters': 4
-        }
+        current_state = SAMPLE_CURRENT_STATE
+        growth_targets = SAMPLE_GROWTH_TARGETS
 
     if args.json:
         calculator = TeamScalingCalculator()

@@ -1,6 +1,7 @@
 ---
 name: code-to-prd
-description: Reverse-engineer a frontend codebase into a PRD. Usage: /code-to-prd [path]
+description: "Reverse-engineer a frontend codebase into a PRD. Usage: /code-to-prd [path]"
+argument-hint: "[path]"
 ---
 
 # /code-to-prd
@@ -72,7 +73,7 @@ A `prd/` directory containing:
 
 ## Skill Reference
 
-- `product-team/code-to-prd/SKILL.md`
-- `product-team/code-to-prd/scripts/codebase_analyzer.py`
-- `product-team/code-to-prd/scripts/prd_scaffolder.py`
-- `product-team/code-to-prd/references/prd-quality-checklist.md`
+- `product-team/code-to-prd/skills/code-to-prd/SKILL.md`
+- `product-team/code-to-prd/skills/code-to-prd/scripts/codebase_analyzer.py`
+- `product-team/code-to-prd/skills/code-to-prd/scripts/prd_scaffolder.py`
+- `product-team/code-to-prd/skills/code-to-prd/references/prd-quality-checklist.md`

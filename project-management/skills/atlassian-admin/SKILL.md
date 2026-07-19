@@ -214,21 +214,17 @@ description: Atlassian Administrator for managing and organizing Atlassian produ
 **TO Scrum Master**: Team access provisioned, board configuration options, automation rules, integrations enabled
 **FROM All Roles**: User access requests, permission changes, app installation requests, configuration support, incident reports
 
-## Atlassian MCP Integration
+## Atlassian MCP Integration — scope limits
 
-**Primary Tools**: Jira MCP, Confluence MCP
+**Admin operations are NOT available via the Atlassian Remote MCP server** (bundled `.mcp.json`, server key `atlassian`). The canonical tool list (`project-management/references/atlassian-mcp-tools.md`) contains no tools for user/group management, permission schemes, field/workflow configuration, SSO, app management, or org settings. Never invent tool names — every admin workflow in this skill runs through `admin.atlassian.com` or the REST APIs cited inline above.
 
-**Admin Operations**:
-- User and group management via API
-- Bulk permission updates
-- Configuration audits
-- Usage reporting
-- System health monitoring
-- Automated compliance checks
+**What MCP CAN contribute to admin work** (read-mostly support):
+- `mcp__atlassian__lookupJiraAccountId` — resolve users to `accountId` before deprovisioning audits
+- `mcp__atlassian__searchJiraIssuesUsingJql` — find a leaver's open issues (`assignee = <accountId>`) for reassignment
+- `mcp__atlassian__getVisibleJiraProjects` / `mcp__atlassian__getConfluenceSpaces` — inventory inputs for access reviews
+- `mcp__atlassian__atlassianUserInfo` / `mcp__atlassian__getAccessibleAtlassianResources` — verify the acting identity and accessible sites
 
 **Integration Points**:
-- Support all roles with admin capabilities
-- Enable Jira Expert with global configurations
-- Provide Confluence Expert with template management
-- Ensure Senior PM has visibility into org health
-- Enable Scrum Master with team provisioning
+- Support Jira/Confluence Experts by performing UI/REST admin changes they cannot do via MCP
+- Ensure Senior PM has visibility into org health (exports from admin.atlassian.com)
+- Enable Scrum Master with team provisioning (admin console)

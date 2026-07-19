@@ -1,1 +1,0 @@
-../../../engineering/skills/release-manager/SKILL.md

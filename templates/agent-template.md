@@ -1,6 +1,6 @@
 ---
 name: cs-agent-name
-description: One-line description of what this agent does (keep under 150 characters)
+description: What this agent does, followed by trigger phrasing. MUST include a "Use when…" (or "Spawn when…" / "Invoke via…") clause plus at least 1 concrete trigger example. Up to 1024 characters allowed — completeness of triggers beats brevity. Example — "Senior backend engineer agent. Use when designing APIs, picking a database, or extracting a service from a monolith (e.g., 'help me choose between Postgres and DynamoDB')."
 skills: skill-folder-name
 domain: domain-name
 model: sonnet
@@ -14,6 +14,9 @@ tools: [Read, Write, Bash, Grep, Glob]
 
   1. Replace "cs-agent-name" with your agent's name (use kebab-case with cs- prefix)
   2. Replace "Agent Name" with the display name (Title Case)
+  2b. Write the description with trigger phrasing: a "Use when…" clause + at least
+      1 concrete example invocation. Descriptions may be up to 1024 characters —
+      do NOT compress triggers away to save space.
   3. Fill in all sections below following the structure
   4. Test all relative paths (../../) before committing
   5. Ensure minimum 3 workflows documented
@@ -289,7 +292,7 @@ python ../../domain-skill/skill-name/scripts/tool.py current-data.csv > report-$
   Explain how agents complement each other.
 -->
 
-- [cs-related-agent](../domain/cs-related-agent.md) - How this agent relates (e.g., "Provides strategic context for tactical execution")
+- [cs-related-agent](../<domain>/cs-related-agent.md) - How this agent relates (e.g., "Provides strategic context for tactical execution")
 - [cs-another-agent](cs-another-agent.md) - How this agent relates (same directory)
 - [cs-future-agent](cs-future-agent.md) - Planned agent (mark as "planned")
 
@@ -301,7 +304,7 @@ python ../../domain-skill/skill-name/scripts/tool.py current-data.csv > report-$
 -->
 
 - **Skill Documentation:** [../../domain-skill/skill-name/SKILL.md](../../domain-skill/skill-name/SKILL.md)
-- **Domain Guide:** [../../domain-skill/CLAUDE.md](../../domain-skill/CLAUDE.md)
+- **Domain Guide:** [../../<domain-skill>/CLAUDE.md](../../<domain-skill>/CLAUDE.md)
 - **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
 
 ---

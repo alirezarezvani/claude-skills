@@ -104,7 +104,7 @@ python ../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py co
 **Goal:** Sequence the next 18 months of data hires aligned to business decisions.
 
 1. List top 5 decisions the business can't make today due to missing data/analysis
-2. Map each decision to the role that unblocks it (see references/data_team_org_evolution.md)
+2. Map each decision to the role that unblocks it (see ../../skills/chief-data-officer-advisor/references/data_team_org_evolution.md)
 3. Sequence hires (one at a time, ramp before next)
 4. Cross-check with cs-chro-advisor on comp bands + leveling
 5. Identify centralize-vs-embed trigger date
@@ -144,7 +144,7 @@ echo "Kill criteria + checkpoint dates in each output."
 
 ## Related Agents
 
-- [cs-cto-advisor](../../../../agents/c-level/cs-cto-advisor.md) — architecture capacity
+- [cs-cto-advisor](../../../agents/c-level/cs-cto-advisor.md) — architecture capacity
 - [cs-ciso-advisor](cs-ciso-advisor.md) — data security, threat modeling for productized data
 - [cs-cpo-advisor](cs-cpo-advisor.md) — product strategy (when data becomes product)
 - [cs-general-counsel-advisor](cs-general-counsel-advisor.md) — contractual constraints, DPA, training-rights

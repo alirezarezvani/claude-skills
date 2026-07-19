@@ -22,7 +22,7 @@ This repo provides **both formats** — every skill includes a `.claude-plugin` 
 ## Quick Install
 
 ```bash
-# Install the full marketplace (all 192 skills as Claude Code plugins)
+# Install the full marketplace (all 345 skills as Claude Code plugins)
 claude /plugin install https://github.com/alirezarezvani/claude-skills
 
 # Install by domain
@@ -110,7 +110,7 @@ Every plugin in this collection works across multiple AI coding agents:
 
 ## Related Resources
 
-- [Full Skill Catalog](https://github.com/alirezarezvani/claude-skills) — all 192 skills
+- [Full Skill Catalog](https://github.com/alirezarezvani/claude-skills) — all 345 skills
 - [Agent Skills for Codex](./agent-skills-for-codex.md) — Codex-specific guide
 - [Gemini CLI Skills Guide](./gemini-cli-skills-guide.md) — Gemini CLI setup
 - [Cursor Skills Guide](./cursor-skills-guide.md) — Cursor integration

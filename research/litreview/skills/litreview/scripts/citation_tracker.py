@@ -2,14 +2,15 @@
 """citation_tracker.py — JSON-backed three-count audit for litreview runs.
 
 Stdlib-only. Mirrors pulse's citation_tracker.py (research-pack convention)
-but adapted for Consensus-based academic search:
+but adapted for academic search (free lane: PubMed E-utilities + OpenAlex;
+optional enhancement lane: Consensus MCP when connected):
 
-  - searches executed       (Consensus queries issued)
+  - searches executed       (queries issued, any lane)
   - unique papers received  (deduplicated across all searches)
   - papers cited             (made it into the DOCX guide)
 
 Enforces sequential discipline by rejecting record_search calls within 1
-second of the prior (Consensus rate limit).
+second of the prior (research-pack 1 q/sec convention across all lanes).
 
 Session state persists in ~/.litreview_sessions/<session>.json.
 
@@ -24,9 +25,9 @@ Actions:
 
 Usage:
     python citation_tracker.py --action start --session litreview-20260515 --topic "LLM clinical reasoning"
-    python citation_tracker.py --action record_search --session ... --query "..." --tier free
+    python citation_tracker.py --action record_search --session ... --query "..." --lane free
     python citation_tracker.py --action record_papers_received --session ... --count 10 --unique 8
-    python citation_tracker.py --action record_cited --session ... --url "https://consensus.app/..."
+    python citation_tracker.py --action record_cited --session ... --url "https://pubmed.ncbi.nlm.nih.gov/<PMID>/"
     python citation_tracker.py --action status --session ...
     python citation_tracker.py --action list
     python citation_tracker.py --action close --session ...
@@ -41,7 +42,7 @@ from typing import Any, Dict, List, Optional
 
 
 SESSIONS_DIR = Path.home() / ".litreview_sessions"
-MIN_SEARCH_GAP_SECONDS = 1.0  # Consensus rate limit
+MIN_SEARCH_GAP_SECONDS = 1.0  # research-pack 1 q/sec convention (all lanes)
 
 
 def session_path(name: str) -> Path:
@@ -158,7 +159,7 @@ def render_status_human(data: Dict[str, Any]) -> str:
     out: List[str] = []
     out.append(f"Session:           {data['session']}")
     out.append(f"Topic:             {data.get('topic', '(unset)')}")
-    out.append(f"Plan tier:         {data.get('plan_tier') or '(not detected)'}")
+    out.append(f"Search lane:       {data.get('plan_tier') or 'free'}")
     out.append(f"Started:           {data['started_at']}")
     out.append(f"Ended:             {data.get('ended_at') or '(active)'}")
     out.append("")
@@ -173,7 +174,7 @@ def render_status_human(data: Dict[str, Any]) -> str:
         f"  Searches executed: {c['searches']}. "
         f"Unique papers received: {c['papers_received_unique']}. "
         f"Papers cited in guide: {c['papers_cited']}. "
-        f"Plan tier: {data.get('plan_tier') or 'undetected'}."
+        f"Search lane: {data.get('plan_tier') or 'free'}."
     )
     return "\n".join(out)
 
@@ -182,12 +183,12 @@ def render_list_human(rows: List[Dict[str, Any]]) -> str:
     if not rows:
         return "(no sessions)"
     out: List[str] = []
-    out.append(f"{'session':<40s}  {'tier':<6s}  {'srch':>4s}  {'uniq':>4s}  {'cited':>5s}  status")
+    out.append(f"{'session':<40s}  {'lane':<6s}  {'srch':>4s}  {'uniq':>4s}  {'cited':>5s}  status")
     out.append("-" * 78)
     for r in rows:
         c = r["counts"]
         status = "closed" if r["ended_at"] else "active"
-        tier = r.get("plan_tier") or "—"
+        tier = r.get("plan_tier") or "free"
         out.append(
             f"{r['session']:<40s}  {tier:<6s}  "
             f"{c.get('searches', 0):>4d}  {c.get('papers_received_unique', 0):>4d}  "
@@ -205,11 +206,11 @@ def main(argv: List[str]) -> int:
     )
     parser.add_argument("--session", help="Session name")
     parser.add_argument("--topic", help="(start only) topic string")
-    parser.add_argument("--query", help="(record_search only) Consensus query text")
-    parser.add_argument("--tier", help="(record_search only) detected tier: free | pro")
+    parser.add_argument("--query", help="(record_search only) search query text (any lane)")
+    parser.add_argument("--tier", "--lane", dest="tier", help="(record_search only) search lane: free | free+consensus")
     parser.add_argument("--count", type=int, help="(record_papers_received only) raw paper count")
     parser.add_argument("--unique", type=int, help="(record_papers_received only) unique count after dedup")
-    parser.add_argument("--url", help="(record_cited only) Consensus URL of cited paper")
+    parser.add_argument("--url", help="(record_cited only) source URL of cited paper (PubMed/DOI/OpenAlex/Consensus)")
     parser.add_argument("--title", help="(record_cited only) paper title for the log")
     parser.add_argument("--output", choices=["human", "json"], default="human")
     args = parser.parse_args(argv)

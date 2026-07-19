@@ -164,7 +164,7 @@ def render_human(d: Decision) -> str:
     return "\n".join(out)
 
 
-def sample_run() -> int:
+def sample_run(as_json: bool = False) -> int:
     cases = [
         ("Can you help me with my email?", False),
         ("Write a 200-word product description for a noise-cancelling headphone targeting remote workers, focused on the focus-time benefit, no marketing fluff.", False),
@@ -172,8 +172,11 @@ def sample_run() -> int:
         ("Can you make this better?", True),
         ("stop with the tips, just rewrite it", False),
     ]
-    for prompt, prev in cases:
-        d = classify(prompt, previous_tip_given=prev)
+    decisions = [classify(prompt, previous_tip_given=prev) for prompt, prev in cases]
+    if as_json:
+        print(json.dumps([asdict(d) for d in decisions], indent=2))
+        return 0
+    for d in decisions:
         print(render_human(d))
         print("-" * 60)
     return 0
@@ -188,7 +191,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.sample:
-        return sample_run()
+        return sample_run(args.json)
 
     if not args.prompt:
         parser.error("--prompt is required unless --sample is passed")

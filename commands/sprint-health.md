@@ -1,6 +1,7 @@
 ---
 name: sprint-health
-description: Sprint health scoring and velocity analysis for agile teams. Usage: /sprint-health <analyze|velocity> [options]
+description: "Sprint health scoring and velocity analysis for agile teams. Usage: /sprint-health <analyze|velocity> [options]"
+argument-hint: "<analyze|velocity> [options]"
 ---
 
 # /sprint-health
@@ -36,8 +37,8 @@ Score sprint health across delivery, quality, and team metrics with velocity tre
 ```
 
 ## Scripts
-- `project-management/scrum-master/scripts/sprint_health_scorer.py` — Sprint health scorer (`<data_file> [--format text|json]`)
-- `project-management/scrum-master/scripts/velocity_analyzer.py` — Velocity analyzer (`<data_file> [--format text|json]`)
+- `project-management/skills/scrum-master/scripts/sprint_health_scorer.py` — Sprint health scorer (`<data_file> [--format text|json]`)
+- `project-management/skills/scrum-master/scripts/velocity_analyzer.py` — Velocity analyzer (`<data_file> [--format text|json]`)
 
 ## Skill Reference
-> `project-management/scrum-master/SKILL.md`
+> `project-management/skills/scrum-master/SKILL.md`

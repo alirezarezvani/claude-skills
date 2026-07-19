@@ -29,14 +29,18 @@ The router (via `cs-chief-of-staff`) does keyword + intent matching:
 | Signal in question | Route |
 |---|---|
 | burn, runway, fundraise, dilution, model, LTV, CAC | `cs-cfo-advisor` |
-| pipeline, win rate, forecast, NRR, churn, ramp | `cs-cro-advisor` |
+| pipeline, win rate, forecast, quota, ramp, sales motion | `cs-cro-advisor` |
 | positioning, ICP, message, brand, channel, campaign | `cs-cmo-advisor` |
 | roadmap, PMF, JTBD, North Star, RICE, kill | `cs-cpo-advisor` |
 | cadence, OKR, scorecard, DRI, operating system, rhythm | `cs-coo-advisor` |
 | hiring, comp, ladder, level, attrition, eNPS, equity | `cs-chro-advisor` |
 | security, threat, breach, compliance, audit, SOC 2 | `cs-ciso-advisor` |
 | architecture, scaling, tech debt, SLO, latency | `cs-cto-advisor` |
-| contract, IP, term sheet, regulator, license | `/cs:gc-review` |
+| contract, IP, term sheet, regulator, license | `cs-general-counsel-advisor` |
+| retention, GRR, NRR, churn, customer success, CSM, time-to-value, renewals | `cs-cco-advisor` |
+| training data, data rights, consent, data asset, warehouse, lakehouse, data mesh | `cs-cdo-advisor` |
+| model selection, eval, hallucination, AI risk, EU AI Act, fine-tune, build vs buy AI | `cs-caio-advisor` |
+| DORA, cycle time, deploy frequency, eng hiring funnel, team topology, delivery throughput | `cs-vpe-advisor` |
 | strategy, vision, board, M&A, raise, exit | `cs-ceo-advisor` |
 | **2+ signals from different roles** | `/cs:boardroom` |
 | **ambiguous** | `/cs:office-hours` first, then route |
@@ -93,6 +97,9 @@ gstack requires the founder to know all 23 slash commands and pick the right one
 
 /cs:founder-mode "the win rate dropped 20% this month"
    → cs-cro-advisor
+
+/cs:founder-mode "gross retention dropped 5 points this quarter"
+   → cs-cco-advisor
 
 /cs:founder-mode "let's hire a VP Marketing"
    → boardroom (CHRO + CMO + CFO touched)

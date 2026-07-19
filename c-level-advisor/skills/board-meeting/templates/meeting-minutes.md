@@ -2,9 +2,9 @@
 
 This is the Layer 2 output — the founder-approved record of what was decided.
 Written by Chief of Staff after Phase 5 (founder approval).
-Appended to `memory/board-meetings/decisions.md`.
+Appended to the Layer 2 index `~/.claude/decisions/approved/decisions.md`.
 
-Do NOT include raw agent debate here. That lives in `YYYY-MM-DD-raw.md` (Layer 1).
+Do NOT include raw agent debate here. That lives in `~/.claude/decisions/raw/YYYY-MM-DD-<slug>.md` (Layer 1).
 
 ---
 
@@ -88,4 +88,4 @@ These were not resolved in this meeting. They carry forward.
 ---
 
 *Minutes approved by: [Founder name] on [DATE]*
-*Raw transcript: `memory/board-meetings/[DATE]-raw.md`*
+*Raw transcript: `~/.claude/decisions/raw/[DATE]-<slug>.md`*

@@ -263,6 +263,16 @@ Proactively offer competitor page creation when:
 
 ---
 
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Comparison matrix builder | `python3 scripts/comparison_matrix_builder.py --input competitors.json --markdown` (no input = embedded demo; `--json` for pipelines) | Feature-by-feature comparison matrix ready to paste into the vs-page comparison table |
+
+Feed it the Competitor Intelligence File data (features + pricing per competitor); its markdown output is the canonical comparison table for every Vs Page below — don't hand-build the table.
+
+---
+
 ## Output Artifacts
 
 | Artifact | Format | Description |

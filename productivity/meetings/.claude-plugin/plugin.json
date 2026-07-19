@@ -1,0 +1,19 @@
+{
+  "name": "meetings",
+  "description": "Personal meeting hygiene, end to end. Before the meeting: a cost gate that prices the meeting in real dollars (attendees x minutes x rate, optionally + the 23-minute refocus overhead per attendee) and refuses to let it exist without a decision, an agenda, and a named owner — verdicts are ASYNC / NOT-READY / MEET, never a shrug. Then a timeboxed agenda builder that rejects any topic without a desired outcome, orders decision topics first, enforces a 5-minute closing actions-recap buffer, and refuses overflowing agendas by name. After the meeting: a deterministic action-item extractor that turns raw notes into an owner + due-date checklist and flags ORPHAN (no owner) and NO-DUE items, because an action item without an owner and a date is theater. Built on the Rogelberg / HBR / Grove meeting-science canon with stdlib-only scripts.",
+  "version": "2.11.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/meetings",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/meetings"
+  ],
+  "source": {
+    "build_pattern": "Path-B discipline skill — Rogelberg/HBR meeting-science canon + deterministic cost-gate/agenda/action-extraction scripts",
+    "distinct_from": "project-management (team ceremonies, sprint planning, Jira delivery flow — this is personal meeting hygiene for the individual calling or attending the meeting); business-operations/internal-comms (org-level communication channel design — this gates one meeting at a time and never auto-sends anything); productivity/capture (personal brain-dump triage — this extracts owned actions from a shared meeting's notes)"
+  }
+}

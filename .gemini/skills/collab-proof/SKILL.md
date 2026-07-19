@@ -1,0 +1,1 @@
+../../../engineering/collab-proof/skills/collab-proof/SKILL.md

@@ -1,6 +1,7 @@
 ---
 name: changelog
-description: Generate changelogs from git history and validate conventional commits. Usage: /changelog <generate|lint> [options]
+description: "Generate changelogs from git history and validate conventional commits. Usage: /changelog <generate|lint> [options]"
+argument-hint: "<generate|lint> [options]"
 ---
 
 # /changelog
@@ -23,8 +24,8 @@ Generate Keep a Changelog entries from git history and validate commit message f
 ```
 
 ## Scripts
-- `engineering/changelog-generator/scripts/generate_changelog.py` — Parse commits, render changelog (`--from-tag`, `--to-tag`, `--from-ref`, `--to-ref`, `--format markdown|json`)
-- `engineering/changelog-generator/scripts/commit_linter.py` — Validate conventional commit format (`--from-ref`, `--to-ref`, `--strict`, `--format text|json`)
+- `engineering/skills/changelog-generator/scripts/generate_changelog.py` — Parse commits, render changelog (`--from-tag`, `--to-tag`, `--from-ref`, `--to-ref`, `--format markdown|json`)
+- `engineering/skills/changelog-generator/scripts/commit_linter.py` — Validate conventional commit format (`--from-ref`, `--to-ref`, `--strict`, `--format text|json`)
 
 ## Skill Reference
-→ `engineering/changelog-generator/SKILL.md`
+→ `engineering/skills/changelog-generator/SKILL.md`

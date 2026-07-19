@@ -17,11 +17,11 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
 <div class="grid cards" markdown>
 
--   **[Agent Designer - Multi-Agent System Architecture](agent-designer.md)**
+-   **[Agent Designer — Multi-Agent System Architecture](agent-designer.md)**
 
     ---
 
-    Tier: POWERFUL
+    Design, schema-generate, and evaluate multi-agent systems with three deterministic tools. The scripts are the workflo...
 
 -   **[Agent Workflow Designer](agent-workflow-designer.md)**
 
@@ -71,12 +71,6 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Claude Code Command Selection Guide](command-guide.md)**
-
-    ---
-
-    This skill helps you choose the most appropriate command, agent, or skill for different scenarios.
-
 -   **[Database Designer - POWERFUL Tier Skill](database-designer.md)**
 
     ---
@@ -93,13 +87,13 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
     ---
 
-    > Skill Type: POWERFUL
+    > Skill Type: POWERFUL · Category: Engineering · Domain: Dependency Management & Security
 
 -   **[Engineering Advanced Skills (POWERFUL Tier)](engineering-advanced-skills.md)**
 
     ---
 
-    25 advanced engineering skills for complex architecture, automation, and platform operations.
+    37 advanced engineering skills for complex architecture, automation, reliability, and platform operations.
 
 -   **[Env & Secrets Manager](env-secrets-manager.md)**
 
@@ -147,7 +141,7 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
     ---
 
-    Tier: POWERFUL
+    Tier: POWERFUL · Category: Engineering · Domain: AI / API Integration
 
 -   **[Migration Architect](migration-architect.md)**
 
@@ -179,17 +173,11 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[RAG Architect - POWERFUL](rag-architect.md)**
+-   **[RAG Architect](rag-architect.md)**
 
     ---
 
-    The RAG (Retrieval-Augmented Generation) Architect skill provides comprehensive tools and knowledge for designing, im...
-
--   **[Release Manager](release-manager.md)**
-
-    ---
-
-    Tier: POWERFUL
+    Design, tune, and evaluate production RAG pipelines with three deterministic tools. Run the tools against the actual ...
 
 -   **[Runbook Generator](runbook-generator.md)**
 
@@ -225,7 +213,7 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
     ---
 
-    ---
+    Tier: POWERFUL · Category: Engineering Quality Assurance · Dependencies: None (Python stdlib only)
 
 -   **[SLO Architect](slo-architect.md)**
 

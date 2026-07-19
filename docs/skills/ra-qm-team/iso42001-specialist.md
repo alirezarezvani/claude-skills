@@ -175,14 +175,14 @@ python scripts/aims_audit_scheduler.py audit_scope.json
 
 ## Adjacent Skills
 
-- [`skills/information-security-manager-iso27001`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/information-security-manager-iso27001) — ISO 27001 ISMS implementation (many controls reusable for AIMS A.7 data controls)
-- [`skills/quality-manager-qms-iso13485`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/quality-manager-qms-iso13485) — ISO 13485 QMS (provides CAPA + management-review machinery the AIMS reuses)
-- [`skills/gdpr-dsgvo-expert`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert) — GDPR DPIA process (input to AIMS A.5 impact assessment for personal-data systems)
-- [`skills/isms-audit-expert`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/isms-audit-expert) — ISO 27001 internal audit pattern (the audit scheduler mirrors this for AIMS)
-- [`skills/soc2-compliance`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance) — SOC 2 trust services (reusable controls for AIMS A.10 third-party relationships)
-- [`compliance-team-eu-ai-act`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-team-eu-ai-act) — EU AI Act Article-level compliance (binding regulation companion to voluntary 42001)
-- [`../compliance-os`](https://github.com/alirezarezvani/claude-skills/tree/main/../compliance-os) — Meta-orchestrator for multi-framework programs (run AIMS as one framework among 9)
-- [`c-level-advisor/chief-ai-officer-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/../c-level-advisor/chief-ai-officer-advisor) — Executive AI strategy (build-vs-buy, cost economics — different audience)
+- `ra-qm-team/skills/information-security-manager-iso27001/` — ISO 27001 ISMS implementation (many controls reusable for AIMS A.7 data controls)
+- `ra-qm-team/skills/quality-manager-qms-iso13485/` — ISO 13485 QMS (provides CAPA + management-review machinery the AIMS reuses)
+- `ra-qm-team/skills/gdpr-dsgvo-expert/` — GDPR DPIA process (input to AIMS A.5 impact assessment for personal-data systems)
+- `ra-qm-team/skills/isms-audit-expert/` — ISO 27001 internal audit pattern (the audit scheduler mirrors this for AIMS)
+- `ra-qm-team/skills/soc2-compliance/` — SOC 2 trust services (reusable controls for AIMS A.10 third-party relationships)
+- `ra-qm-team/compliance-team-eu-ai-act/` — EU AI Act Article-level compliance (binding regulation companion to voluntary 42001)
+- `compliance-os/` — Meta-orchestrator for multi-framework programs (run AIMS as one framework among 9)
+- `c-level-advisor/chief-ai-officer-advisor/` — Executive AI strategy (build-vs-buy, cost economics — different audience)
 
 ## References
 

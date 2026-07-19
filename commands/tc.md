@@ -1,6 +1,6 @@
 ---
 name: tc
-description: Track technical changes with structured records, a state machine, and session handoff. Usage: /tc <init|create|update|status|resume|close|export|dashboard> [args]
+description: "Track technical changes with structured records, a state machine, and session handoff. Usage: /tc <init|create|update|status|resume|close|export|dashboard> [args]"
 ---
 
 # /tc — Technical Change Tracker
@@ -28,7 +28,7 @@ Otherwise, parse `$ARGUMENTS` as `<subcommand> <rest>` and dispatch to the match
 
 1. Run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_init.py --root . --json
+   python3 engineering/skills/tc-tracker/scripts/tc_init.py --root . --json
    ```
 2. If status is `already_initialized`, report current statistics and stop.
 3. Otherwise report what was created and suggest `/tc create <name>` as the next step.
@@ -44,7 +44,7 @@ Otherwise, parse `$ARGUMENTS` as `<subcommand> <rest>` and dispatch to the match
    - Motivation
 3. Run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_create.py --root . \
+   python3 engineering/skills/tc-tracker/scripts/tc_create.py --root . \
      --name "<slug>" --title "<title>" --scope <scope> --priority <priority> \
      --summary "<summary>" --motivation "<motivation>" --json
    ```
@@ -62,7 +62,7 @@ Otherwise, parse `$ARGUMENTS` as `<subcommand> <rest>` and dispatch to the match
    - **Add a tag** → `--tag <tag>`
 3. Run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_update.py --root . --tc-id <tc-id> [flags] --json
+   python3 engineering/skills/tc-tracker/scripts/tc_update.py --root . --tc-id <tc-id> [flags] --json
    ```
 4. If exit code is non-zero, surface the error verbatim. The state machine and validator will reject invalid moves — do not retry blindly.
 
@@ -70,24 +70,24 @@ Otherwise, parse `$ARGUMENTS` as `<subcommand> <rest>` and dispatch to the match
 
 - If `<tc-id>` is provided:
   ```bash
-  python3 engineering/tc-tracker/scripts/tc_status.py --root . --tc-id <tc-id>
+  python3 engineering/skills/tc-tracker/scripts/tc_status.py --root . --tc-id <tc-id>
   ```
 - Otherwise:
   ```bash
-  python3 engineering/tc-tracker/scripts/tc_status.py --root . --all
+  python3 engineering/skills/tc-tracker/scripts/tc_status.py --root . --all
   ```
 
 ### `resume <tc-id>`
 
 1. Run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_status.py --root . --tc-id <tc-id> --json
+   python3 engineering/skills/tc-tracker/scripts/tc_status.py --root . --tc-id <tc-id> --json
    ```
 2. Display the handoff block prominently: `progress_summary`, `next_steps` (numbered), `blockers`, `key_context`.
 3. Ask: "Resume <tc-id> and pick up at next step 1? (y/n)"
 4. If yes, run an update to record the resumption:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_update.py --root . --tc-id <tc-id> \
+   python3 engineering/skills/tc-tracker/scripts/tc_update.py --root . --tc-id <tc-id> \
      --note "Session resumed" --reason "session handoff"
    ```
 5. Begin executing the first item in `next_steps`. Do NOT re-derive context — trust the handoff.
@@ -103,7 +103,7 @@ Otherwise, parse `$ARGUMENTS` as `<subcommand> <rest>` and dispatch to the match
    - "Test coverage status: none / partial / full"
 5. Run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_update.py --root . --tc-id <tc-id> \
+   python3 engineering/skills/tc-tracker/scripts/tc_update.py --root . --tc-id <tc-id> \
      --set-status deployed --reason "Approved by <approver>" --note "Approval: <approver> — <notes>"
    ```
    Then directly edit the `approval` block via a follow-up update if your script version supports it; otherwise instruct the user to record approval in `notes`.
@@ -116,11 +116,11 @@ There is no automatic HTML export in this skill. Re-validate everything instead:
 1. Read the registry.
 2. For each record, run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_validator.py --record <path> --json
+   python3 engineering/skills/tc-tracker/scripts/tc_validator.py --record <path> --json
    ```
 3. Run:
    ```bash
-   python3 engineering/tc-tracker/scripts/tc_validator.py --registry docs/TC/tc_registry.json --json
+   python3 engineering/skills/tc-tracker/scripts/tc_validator.py --registry docs/TC/tc_registry.json --json
    ```
 4. Report: total records validated, any errors, paths to anything invalid.
 
@@ -128,7 +128,7 @@ There is no automatic HTML export in this skill. Re-validate everything instead:
 
 Run the all-records summary:
 ```bash
-python3 engineering/tc-tracker/scripts/tc_status.py --root . --all
+python3 engineering/skills/tc-tracker/scripts/tc_status.py --root . --all
 ```
 
 ## Iron Rules

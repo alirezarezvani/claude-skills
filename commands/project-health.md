@@ -1,6 +1,7 @@
 ---
 name: project-health
-description: Portfolio health dashboard and risk matrix analysis. Usage: /project-health <dashboard|risk> [options]
+description: "Portfolio health dashboard and risk matrix analysis. Usage: /project-health <dashboard|risk> [options]"
+argument-hint: "<dashboard|risk> [options]"
 ---
 
 # /project-health
@@ -36,8 +37,8 @@ Generate portfolio health dashboards and risk matrices for project oversight.
 ```
 
 ## Scripts
-- `project-management/senior-pm/scripts/project_health_dashboard.py` — Health dashboard (`<data_file> [--format text|json]`)
-- `project-management/senior-pm/scripts/risk_matrix_analyzer.py` — Risk matrix analyzer (`<data_file> [--format text|json]`)
+- `project-management/skills/senior-pm/scripts/project_health_dashboard.py` — Health dashboard (`<data_file> [--format text|json]`)
+- `project-management/skills/senior-pm/scripts/risk_matrix_analyzer.py` — Risk matrix analyzer (`<data_file> [--format text|json]`)
 
 ## Skill Reference
-> `project-management/senior-pm/SKILL.md`
+> `project-management/skills/senior-pm/SKILL.md`

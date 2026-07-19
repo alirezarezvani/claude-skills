@@ -1,6 +1,6 @@
 ---
 name: "business-growth-skills"
-description: "4 business growth agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Customer success (health scoring, churn), sales engineer (RFP), revenue operations (pipeline, GTM), contract & proposal writer. Python tools (stdlib-only)."
+description: "Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manager (health scoring, churn risk, expansion), sales-engineer (RFP analysis, competitive matrices, PoC planning), revenue-operations (pipeline, forecast accuracy, GTM efficiency), and contract-and-proposal-writer. Use when a growth/revenue request doesn't obviously match one skill and you need to pick the right one (e.g., 'which accounts are at risk', 'should we bid on this RFP')."
 version: 2.9.0
 author: Alireza Rezvani
 license: MIT
@@ -16,41 +16,30 @@ agents:
   - openclaw
 ---
 
-# Business & Growth Skills
+# Business & Growth Skills — Router
 
-4 production-ready skills for customer success, sales, and revenue operations.
+This plugin bundles **4 skills** (this router is the 5th folder under `business-growth/skills/`). Each skill is self-contained.
 
-## Quick Start
+## Routing table
 
-### Claude Code
-```
-/read business-growth/customer-success-manager/SKILL.md
-```
+Match the request, then load `business-growth/skills/<skill>/SKILL.md`. If multiple rows match, ask one clarifying question first.
 
-### Codex CLI
-```bash
-npx agent-skills-cli add alirezarezvani/claude-skills/business-growth
-```
+| Request signals | Skill | Path |
+|---|---|---|
+| Customer health scores, churn risk, expansion plays | customer-success-manager | `skills/customer-success-manager/` |
+| RFP/RFI coverage, competitive positioning, PoC plans | sales-engineer | `skills/sales-engineer/` |
+| Pipeline coverage, forecast accuracy (MAPE), GTM efficiency | revenue-operations | `skills/revenue-operations/` |
+| Proposals, contracts, statements of work, DPAs | contract-and-proposal-writer | `skills/contract-and-proposal-writer/` |
 
-## Skills Overview
-
-| Skill | Folder | Focus |
-|-------|--------|-------|
-| Customer Success Manager | `customer-success-manager/` | Health scoring, churn prediction, expansion |
-| Sales Engineer | `sales-engineer/` | RFP analysis, competitive matrices, PoC planning |
-| Revenue Operations | `revenue-operations/` | Pipeline analysis, forecast accuracy, GTM metrics |
-| Contract & Proposal Writer | `contract-and-proposal-writer/` | Proposal generation, contract templates |
-
-## Python Tools
-
-9 scripts, all stdlib-only:
+## Quick start
 
 ```bash
-python3 customer-success-manager/scripts/health_score_calculator.py --help
-python3 revenue-operations/scripts/pipeline_analyzer.py --help
+# Example: route an account-health request
+cat business-growth/skills/customer-success-manager/SKILL.md
+python3 business-growth/skills/customer-success-manager/scripts/health_score_calculator.py --help
 ```
 
 ## Rules
 
-- Load only the specific skill SKILL.md you need
-- Use Python tools for scoring and metrics, not manual estimates
+- Route to exactly one skill, then follow that skill's workflow. This router ships no tools of its own.
+- Use the skills' Python scorers for metrics, not manual estimates; deal/contract outputs are drafts for human legal/commercial review.

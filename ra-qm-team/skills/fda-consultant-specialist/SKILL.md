@@ -1,17 +1,17 @@
 ---
 name: "fda-consultant-specialist"
-description: FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QSR (21 CFR 820) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QSR, premarket, predicate device, substantial equivalence, HIPAA medical device, or FDA cybersecurity.
+description: FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QMSR (21 CFR 820, which incorporates ISO 13485:2016 by reference since 2026-02-02; formerly QSR) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QMSR, QSR, ISO 13485 for FDA, premarket, predicate device, substantial equivalence, HIPAA medical device, or FDA cybersecurity.
 ---
 
 # FDA Consultant Specialist
 
-FDA regulatory consulting for medical device manufacturers covering submission pathways, Quality System Regulation (QSR), HIPAA compliance, and device cybersecurity requirements.
+FDA regulatory consulting for medical device manufacturers covering submission pathways, the Quality Management System Regulation (QMSR, 21 CFR Part 820 — formerly the QSR), HIPAA compliance, and device cybersecurity requirements.
 
 ## Table of Contents
 
 - [FDA Pathway Selection](#fda-pathway-selection)
 - [510(k) Submission Process](#510k-submission-process)
-- [QSR Compliance](#qsr-compliance)
+- [QMSR Compliance (formerly QSR)](#qmsr-compliance-formerly-qsr)
 - [HIPAA for Medical Devices](#hipaa-for-medical-devices)
 - [Device Cybersecurity](#device-cybersecurity)
 - [Resources](#resources)
@@ -39,13 +39,15 @@ Predicate device exists?
 
 ### Pathway Comparison
 
-| Pathway | When to Use | Timeline | Cost |
-|---------|-------------|----------|------|
-| 510(k) Traditional | Predicate exists, design changes | 90 days | $21,760 |
-| 510(k) Special | Manufacturing changes only | 30 days | $21,760 |
-| 510(k) Abbreviated | Guidance/standard conformance | 30 days | $21,760 |
-| De Novo | Novel, low-moderate risk | 150 days | $134,676 |
-| PMA | Class III, no predicate | 180+ days | $425,000+ |
+| Pathway | When to Use | Timeline | User Fee (FY2024) |
+|---------|-------------|----------|-------------------|
+| 510(k) Traditional | Predicate exists, design changes | 90 days | $21,760 (FY2024) |
+| 510(k) Special | Manufacturing changes only | 30 days | $21,760 (FY2024) |
+| 510(k) Abbreviated | Guidance/standard conformance | 30 days | $21,760 (FY2024) |
+| De Novo | Novel, low-moderate risk | 150 days | $134,676 (FY2024) |
+| PMA | Class III, no predicate | 180+ days | $425,000+ (FY2024) |
+
+> User fees are set annually under MDUFA. Verify current-fiscal-year fees at fda.gov (MDUFA user fee schedule) before budgeting; small-business rates differ.
 
 ### Pre-Submission Strategy
 
@@ -115,23 +117,25 @@ Phase 4: Review
 
 ---
 
-## QSR Compliance
+## QMSR Compliance (formerly QSR)
 
-Quality System Regulation (21 CFR Part 820) requirements for medical device manufacturers.
+Quality Management System Regulation (QMSR) requirements for medical device manufacturers under 21 CFR Part 820.
 
-### Key Subsystems
+> **QMSR transition (effective 2026-02-02):** FDA's QMSR final rule (89 FR 7496) amended 21 CFR Part 820 to incorporate **ISO 13485:2016 by reference** and removed the legacy QSR subsection structure (820.20–820.198). Those subsection numbers are **historical** and no longer exist in the CFR; the corresponding requirements now flow from ISO 13485:2016 clauses plus the retained/renumbered sections 820.10 (requirements, incl. the ISO 13485 incorporation), 820.35 (records), and 820.45 (device labeling and packaging controls). 21 CFR Parts 801, 803, 806, and 830 are unchanged. Legacy QSR numbers below are kept only as a familiar index, each mapped to its current ISO 13485 clause.
 
-| Section | Title | Focus |
-|---------|-------|-------|
-| 820.20 | Management Responsibility | Quality policy, org structure, management review |
-| 820.30 | Design Controls | Input, output, review, verification, validation |
-| 820.40 | Document Controls | Approval, distribution, change control |
-| 820.50 | Purchasing Controls | Supplier qualification, purchasing data |
-| 820.70 | Production Controls | Process validation, environmental controls |
-| 820.100 | CAPA | Root cause analysis, corrective actions |
-| 820.181 | Device Master Record | Specifications, procedures, acceptance criteria |
+### Key Quality Subsystems (legacy QSR index → current ISO 13485:2016 clause)
 
-### Design Controls Workflow (820.30)
+| Legacy QSR Section (historical, pre-2026) | Title | Current authority under QMSR | Focus |
+|-------------------------------------------|-------|------------------------------|-------|
+| 820.20 | Management Responsibility | ISO 13485 §5.1, 5.5, 5.6 | Quality policy, org structure, management review |
+| 820.30 | Design Controls | ISO 13485 §7.3 | Input, output, review, verification, validation |
+| 820.40 | Document Controls | ISO 13485 §4.2.4 | Approval, distribution, change control |
+| 820.50 | Purchasing Controls | ISO 13485 §7.4 | Supplier qualification, purchasing data |
+| 820.70 | Production Controls | ISO 13485 §6.3, 6.4, 7.5 | Process validation, environmental controls |
+| 820.100 | CAPA | ISO 13485 §8.5.2, 8.5.3 | Root cause analysis, corrective actions |
+| 820.181 | Device Master Record | ISO 13485 §4.2.3 (medical device file) + 21 CFR 820.35 | Specifications, procedures, acceptance criteria |
+
+### Design Controls Workflow (ISO 13485 §7.3; legacy QSR 820.30)
 
 ```
 Step 1: Design Input
@@ -159,7 +163,7 @@ Step 6: Design Transfer
     Verification: Transfer checklist complete?
 ```
 
-### CAPA Process (820.100)
+### CAPA Process (ISO 13485 §8.5.2/8.5.3; legacy QSR 820.100)
 
 1. **Identify**: Document nonconformity or potential problem
 2. **Investigate**: Perform root cause analysis (5 Whys, Fishbone)
@@ -169,7 +173,7 @@ Step 6: Design Transfer
 6. **Effectiveness**: Monitor for recurrence (30-90 days)
 7. **Close**: Management approval and closure
 
-**Reference:** See [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) for detailed QSR implementation guidance.
+**Reference:** See [qsr_compliance_requirements.md](references/qsr_compliance_requirements.md) for the historical QSR structure with full QMSR/ISO 13485:2016 clause mapping.
 
 ---
 
@@ -280,7 +284,7 @@ Coordinated Public Disclosure
 | Script | Purpose |
 |--------|---------|
 | `fda_submission_tracker.py` | Track 510(k)/PMA/De Novo submission milestones and timelines |
-| `qsr_compliance_checker.py` | Assess 21 CFR 820 compliance against project documentation |
+| `qsr_compliance_checker.py` | Assess QMS documentation against the legacy-QSR checklist mapped to ISO 13485:2016 (QMSR) |
 | `hipaa_risk_assessment.py` | Evaluate HIPAA safeguards in medical device software |
 
 ### references/
@@ -288,7 +292,7 @@ Coordinated Public Disclosure
 | File | Content |
 |------|---------|
 | `fda_submission_guide.md` | 510(k), De Novo, PMA submission requirements and checklists |
-| `qsr_compliance_requirements.md` | 21 CFR 820 implementation guide with templates |
+| `qsr_compliance_requirements.md` | Historical QSR structure with QMSR/ISO 13485:2016 mapping, implementation templates |
 | `hipaa_compliance_framework.md` | HIPAA Security Rule safeguards and BAA requirements |
 | `device_cybersecurity_guidance.md` | FDA cybersecurity requirements, SBOM, threat modeling |
 | `fda_capa_requirements.md` | CAPA process, root cause analysis, effectiveness verification |
@@ -299,8 +303,8 @@ Coordinated Public Disclosure
 # Track FDA submission status
 python scripts/fda_submission_tracker.py /path/to/project --type 510k
 
-# Assess QSR compliance
-python scripts/qsr_compliance_checker.py /path/to/project --section 820.30
+# Assess QMS documentation (legacy QSR section keys, mapped to ISO 13485 under QMSR)
+python scripts/qsr_compliance_checker.py /path/to/project --section 820.30  # legacy checklist key = ISO 13485 §7.3 (design & development)
 
 # Run HIPAA risk assessment
 python scripts/hipaa_risk_assessment.py /path/to/project --category technical

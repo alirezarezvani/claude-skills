@@ -10,6 +10,9 @@ description: "Bootstrap a fresh LLM Wiki vault with the three-layer structure, s
 <span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/wiki-init.md">Source</a></span>
 </div>
 
+<!-- canonical copy: engineering/llm-wiki/commands/wiki-init.md — keep in sync -->
+
+# /wiki-init
 
 Bootstrap a new LLM Wiki vault. Creates `raw/`, `wiki/{entities,concepts,sources,comparisons,synthesis}`, the index and log, and installs the schema file(s) for your LLM CLI of choice.
 
@@ -59,8 +62,8 @@ After init:
 
 ## Script
 
-- `engineering/llm-wiki/scripts/init_vault.py`
+- `engineering/llm-wiki/skills/llm-wiki/scripts/init_vault.py`
 
 ## Skill Reference
 
-→ `engineering/llm-wiki/SKILL.md`
+→ `engineering/llm-wiki/skills/llm-wiki/SKILL.md`

@@ -40,13 +40,13 @@ And rules in:
 4. Gap / controversy paper — 1 (surfaces what's contested)
 
 **Per paper:**
-- Hyperlinked title (clickable to Consensus)
+- Hyperlinked title (clickable — PubMed URL or DOI from the free lane; Consensus URL if Consensus-sourced)
 - Authors + year
 - One sentence: contribution
 - One sentence: "what to look for"
 
 **Example entry:**
-> 1. **[A systematic review of LLM clinical reasoning](https://consensus.app/...)** — Singhal et al. 2024 — Most comprehensive synthesis of LLM diagnostic performance through 2023. Look for: section on prompting strategy (the field's main tunable variable).
+> 1. **[A systematic review of LLM clinical reasoning](https://pubmed.ncbi.nlm.nih.gov/<PMID>/)** — Singhal et al. 2024 — Most comprehensive synthesis of LLM diagnostic performance through 2023. Look for: section on prompting strategy (the field's main tunable variable).
 
 ## Section 3: How the Field Got Here
 
@@ -102,7 +102,7 @@ Every fact is hyperlinked. Every inline citation matches a bibliography entry (S
 ("clinical reasoning" OR "diagnostic reasoning") AND ("large language model" OR LLM OR GPT) AND (evaluation OR benchmark)
 ```
 
-User pastes into Consensus / PubMed / Scopus to continue searching beyond what the skill ran.
+User pastes into PubMed / OpenAlex / Scopus (or Consensus, if they use it) to continue searching beyond what the skill ran.
 
 ## Section 5: Key Research Groups
 
@@ -145,14 +145,14 @@ The "why it matters" sentence is what distinguishes a gap list from a complaint 
 
 **Per entry:**
 - Full citation (author list, title, journal, year, volume/issue, pages)
-- Hyperlinked "View on Consensus" link (full URL, never truncated)
+- Hyperlinked source link, full URL never truncated (PubMed URL or DOI from the free lane; "View on Consensus" for Consensus-sourced papers)
 - Inline-citation key matching Section 4 references (e.g., "Singhal et al. 2024")
 
 **Discipline:**
 - Every inline citation in Sections 1-6 appears in Bibliography
 - Every Bibliography entry is cited at least once
 - No phantom entries (cited but no bib) or orphan entries (bib but never cited)
-- Consensus URLs preserved in full (never `...` truncation)
+- Source URLs preserved in full (never `...` truncation)
 
 ## Section 8: Audit Log
 
@@ -173,13 +173,13 @@ The "why it matters" sentence is what distinguishes a gap list from a complaint 
 Searches executed: 10
 Unique papers received: 47 (after deduplication)
 Papers cited in this guide: 22
-Plan tier detected: Free (10/search cap)
-Theoretical ceiling: 100 papers; received 47 unique (typical deduplication)
+Search lane: free (PubMed + OpenAlex; ~20 results per query per source)
+Theoretical ceiling: 200 papers per source; received 47 unique (typical deduplication)
 ```
 
 **Coverage notes:**
 - Which sub-areas surfaced thin results
-- Plan-tier impact on coverage
+- Search-lane impact on coverage (free lane vs free+Consensus)
 - Suggested manual supplementation (PubMed, Scholar, etc.)
 - Era-gated search yields (terminology shifts detected)
 
@@ -212,7 +212,7 @@ new Paragraph({
 
 ```js
 new ExternalHyperlink({
-  link: "https://consensus.app/full-url-never-truncated/...",
+  link: "https://pubmed.ncbi.nlm.nih.gov/full-url-never-truncated/",
   children: [new TextRun({ text: paperTitle, style: "Hyperlink" })],
 });
 ```
@@ -236,7 +236,7 @@ new Table({
 
 After save:
 ```bash
-python scripts/office/validate.py output.docx
+python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx
 ```
 
 If validation fails: unpack DOCX (it's a ZIP), fix the offending XML, repack.
@@ -245,7 +245,7 @@ Reference the **docx skill** (`docx/SKILL.md` in this repo if installed) for ful
 
 ## Anti-Patterns
 
-- **Truncating Consensus URLs in hyperlinks** — breaks reproducibility
+- **Truncating source URLs in hyperlinks** — breaks reproducibility
 - **Phantom bibliography entries** — cited paper missing from bib
 - **Generic "Future Work" section** — Section 6 must be *specific* gaps, not "more research is needed"
 - **No timeline table in Section 3** — narrative-only loses the milestone structure
@@ -264,11 +264,11 @@ Reference the **docx skill** (`docx/SKILL.md` in this repo if installed) for ful
 - [ ] Section 5: 3-5 groups from cross-search aggregator
 - [ ] Section 6: 3 categories with "why it matters" per gap
 - [ ] Section 7: alphabetical, hyperlinked, no phantoms / orphans
-- [ ] Section 8: search table + counts + tier + coverage notes
-- [ ] All Consensus URLs full (no truncation)
+- [ ] Section 8: search table + counts + search lane + coverage notes
+- [ ] All source URLs full (no truncation)
 - [ ] `LevelFormat.BULLET` for lists (no unicode bullets)
 - [ ] Tables have both `columnWidths` AND cell `width`
-- [ ] `python scripts/office/validate.py output.docx` PASSes
+- [ ] `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx` PASSes
 
 ## Citations (7 sources)
 

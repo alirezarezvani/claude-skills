@@ -18,10 +18,10 @@ Promoting a pattern from memory to rules fundamentally changes how Claude treats
 
 | Command | What it does |
 |---------|-------------|
-| `/si:review` | Analyze auto-memory — find promotion candidates, stale entries, health metrics |
+| `/si:memory-review` | Analyze auto-memory — find promotion candidates, stale entries, health metrics |
 | `/si:promote` | Graduate a pattern from MEMORY.md → CLAUDE.md or `.claude/rules/` |
 | `/si:extract` | Turn a recurring pattern into a standalone reusable skill |
-| `/si:status` | Memory health dashboard — line counts, capacity, recommendations |
+| `/si:memory-status` | Memory health dashboard — line counts, capacity, recommendations |
 | `/si:remember` | Explicitly save important knowledge to auto-memory |
 
 ## Install
@@ -47,7 +47,7 @@ clawhub install self-improving-agent
 ```
 Claude discovers pattern → auto-memory (MEMORY.md)
          ↓
-Pattern recurs 2-3x → /si:review flags it
+Pattern recurs 2-3x → /si:memory-review flags it
          ↓
 You approve → /si:promote graduates it to CLAUDE.md
          ↓

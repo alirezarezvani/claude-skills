@@ -353,6 +353,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Show example output with sample color pairs",
     )
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="Run with embedded sample color pairs (alias for --demo)",
+    )
     return parser
 
 
@@ -360,8 +365,8 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
-    # --demo mode
-    if args.demo:
+    # --demo / --sample mode
+    if args.demo or args.sample:
         run_demo(args.json_output)
         return 0
 

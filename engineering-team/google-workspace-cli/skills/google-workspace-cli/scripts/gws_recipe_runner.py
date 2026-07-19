@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """
-Google Workspace CLI Recipe Runner — Catalog, search, and execute gws recipes.
+Google Workspace CLI Recipe Runner — Catalog, search, and execute gws command templates.
 
-Browse 43 built-in recipes, filter by persona, search by keyword,
-and run with dry-run support.
+Browse 43 recipe command templates (a LOCAL catalog shipped with this skill —
+NOT built into the gws CLI), filter by persona, search by keyword, and run
+with dry-run support.
+
+IMPORTANT: The gws CLI (github.com/googleworkspace/cli) generates its command
+surface dynamically from Google's Discovery Service. Command strings in this
+catalog are templates — verify each against `gws --help`, `gws <service> --help`,
+or `gws schema <service>.<resource>.<method>` before relying on it.
 
 Usage:
     python3 gws_recipe_runner.py --list
@@ -20,6 +26,10 @@ import subprocess
 import sys
 from dataclasses import dataclass, field, asdict
 from typing import List, Dict, Optional
+
+
+TEMPLATE_NOTE = ("NOTE: Recipe commands are templates from this local catalog (not shipped by "
+                 "the gws CLI). Verify each against 'gws --help' / 'gws schema' before use.")
 
 
 @dataclass
@@ -76,22 +86,22 @@ RECIPES: Dict[str, Recipe] = {
                                "gws calendar events insert primary --summary {title} "
                                "--start {start} --end {end} --attendees {attendees}"
                            ]),
-    "quick-event": Recipe("quick-event", "Create event from natural language", "calendar",
-                          ["calendar"], ["gws helpers quick-event {text}"]),
-    "find-time": Recipe("find-time", "Find available time slots for a meeting", "calendar",
-                        ["calendar"], ["gws helpers find-time --attendees {attendees} --duration {minutes} --within {date_range}"]),
+    "quick-event": Recipe("quick-event", "Create an event via the calendar helper", "calendar",
+                          ["calendar"], ["gws calendar +insert {details}  # see: gws calendar +insert --help"]),
+    "find-time": Recipe("find-time", "Find available time slots via free/busy", "calendar",
+                        ["calendar"], ["gws calendar freebusy query --json '<freebusy-request>'  # verify: gws schema calendar.freebusy.query"]),
     "today-schedule": Recipe("today-schedule", "Show today's calendar events", "calendar",
                              ["calendar"], ["gws calendar events list primary --timeMin {today_start} --timeMax {today_end} --json"]),
     "meeting-prep": Recipe("meeting-prep", "Prepare for an upcoming meeting (agenda + attendees)", "calendar",
-                           ["calendar"], ["gws recipes meeting-prep --event-id {event_id}"]),
+                           ["calendar"], ["gws workflow +meeting-prep"]),
     "reschedule": Recipe("reschedule", "Move an event to a new time", "calendar",
                          ["calendar"], ["gws calendar events patch primary {event_id} --start {new_start} --end {new_end}"]),
 
     # Reporting (5)
     "standup-report": Recipe("standup-report", "Generate daily standup from calendar and tasks", "reporting",
-                             ["calendar", "tasks"], ["gws recipes standup-report --json"]),
+                             ["calendar", "tasks"], ["gws workflow +standup-report"]),
     "weekly-summary": Recipe("weekly-summary", "Summarize week's emails, events, and tasks", "reporting",
-                             ["gmail", "calendar", "tasks"], ["gws recipes weekly-summary --json"]),
+                             ["gmail", "calendar", "tasks"], ["gws workflow +weekly-digest"]),
     "drive-activity": Recipe("drive-activity", "Report on Drive file activity", "reporting",
                              ["drive"], ["gws drive activities list --json"]),
     "email-stats": Recipe("email-stats", "Email volume statistics", "reporting",
@@ -294,6 +304,7 @@ def describe_recipe(name: str, output_json: bool):
     print(f"\n  Commands:")
     for i, cmd in enumerate(recipe.commands, 1):
         print(f"    {i}. {cmd}")
+    print(f"\n  {TEMPLATE_NOTE}")
     print(f"\n{'='*60}\n")
 
 
@@ -308,10 +319,12 @@ def run_recipe(name: str, dry_run: bool):
         print(f"\n  [DRY RUN] Recipe: {recipe.name}\n")
         for i, cmd in enumerate(recipe.commands, 1):
             print(f"  {i}. {cmd}")
+        print(f"\n  {TEMPLATE_NOTE}")
         print(f"\n  (No commands executed)")
         return
 
-    print(f"\n  Executing recipe: {recipe.name}\n")
+    print(f"\n  Executing recipe: {recipe.name}")
+    print(f"  {TEMPLATE_NOTE}\n")
     for cmd in recipe.commands:
         if cmd.startswith("#"):
             print(f"  {cmd}")

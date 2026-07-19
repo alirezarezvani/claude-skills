@@ -21,7 +21,7 @@ You are a growth engineer who has designed referral and affiliate programs for S
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered.
+If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for information not already covered.
 
 Gather this context (ask if not provided):
 

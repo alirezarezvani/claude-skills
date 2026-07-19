@@ -13,7 +13,9 @@ description: "Comprehensive incident response framework from detection through r
 
 ## Overview
 
-The Incident Commander skill provides a comprehensive incident response framework for managing technology incidents from detection through resolution and post-incident review. This skill implements battle-tested practices from SRE and DevOps teams at scale, providing structured tools for severity classification, timeline reconstruction, and thorough post-incident analysis.
+Incident response framework for **availability/reliability incidents** (outages, degradations, failed deploys): severity classification, timeline reconstruction, and post-incident review.
+
+**This is NOT security incident triage.** For security events (ransomware, intrusion, data exfiltration, IOC analysis, NIST SP 800-61 forensics), route to `incident-response`. Both skills use SEV1-SEV4 labels; this one scores operational impact (users, revenue, SLA), while `incident-response` classifies attack types and forensic handling.
 
 ## Key Features
 
@@ -380,10 +382,10 @@ Status page: {link}
 echo '{"description": "Users reporting 500 errors, database connections timing out", "affected_users": "80%", "business_impact": "high"}' | python scripts/incident_classifier.py
 
 # Reconstruct timeline from logs
-python scripts/timeline_reconstructor.py --input assets/db_incident_events.json --output timeline.md
+python scripts/timeline_reconstructor.py --input assets/sample_timeline_events.json --output timeline.md
 
 # Generate PIR after resolution
-python scripts/pir_generator.py --incident assets/db_incident_data.json --timeline timeline.md --output pir.md
+python scripts/pir_generator.py --incident assets/sample_incident_data.json --timeline timeline.md --output pir.md
 ```
 
 ### Example 2: API Rate Limiting Incident
@@ -393,10 +395,10 @@ python scripts/pir_generator.py --incident assets/db_incident_data.json --timeli
 echo "API rate limits causing customer API calls to fail" | python scripts/incident_classifier.py --format text
 
 # Build timeline from multiple sources
-python scripts/timeline_reconstructor.py --input assets/api_incident_logs.json --detect-phases --gap-analysis
+python scripts/timeline_reconstructor.py --input assets/simple_timeline_events.json --detect-phases --gap-analysis
 
 # Generate comprehensive PIR
-python scripts/pir_generator.py --incident assets/api_incident_summary.json --rca-method fishbone --action-items
+python scripts/pir_generator.py --incident assets/sample_incident_pir_data.json --rca-method fishbone --action-items
 ```
 
 ## Best Practices
@@ -467,10 +469,3 @@ python scripts/pir_generator.py --incident assets/api_incident_summary.json --rc
 - Deployment tracking systems
 - Feature flag platforms for quick rollbacks
 
-## Conclusion
-
-The Incident Commander skill provides a comprehensive framework for managing incidents from detection through post-incident review. By implementing structured processes, clear communication templates, and thorough analysis tools, teams can improve their incident response capabilities and build more resilient systems.
-
-The key to successful incident management is preparation, practice, and continuous learning. Use this framework as a starting point, but adapt it to your organization's specific needs, culture, and technical environment.
-
-Remember: The goal isn't to prevent all incidents (which is impossible), but to detect them quickly, respond effectively, communicate clearly, and learn continuously.

@@ -1,6 +1,6 @@
 ---
 name: "onboard"
-description: "/cs:onboard — Founder interview that populates ~/.claude/company-context.md. The first command to run when starting with c-level-agents."
+description: "/cs:onboard — Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context — e.g. before a first /cs:boardroom or after a fundraise changes the numbers."
 ---
 
 # /cs:onboard — Founder Interview
@@ -40,7 +40,9 @@ The first command to run when adopting c-level-agents. A structured founder inte
 
 ## Output Format
 
-Saved to `~/.claude/company-context.md`:
+**Canonical schema:** `~/.claude/company-context.md` is owned by the [`cs-onboard`](../../../skills/cs-onboard/SKILL.md) skill and follows its 7-dimension schema (`../../../skills/cs-onboard/templates/company-context-template.md`): Company Identity, Stage & Scale, Founder Profile, Team & Culture, Market & Competition, Current Challenges, Goals & Ambition. The 12 questions above are a faster structured intake that populates that same file — Identity/Business/Financial → Stage & Scale, Team → Team & Culture, Quarter priorities/risks → Current Challenges + Goals & Ambition. Write `[not captured]` for dimensions the quick intake doesn't reach (Founder Profile, Market & Competition); run the full `cs-onboard` interview to fill them. Never create a second context file or a divergent layout.
+
+The intake summary captured by the 12 questions:
 
 ```markdown
 # Company Context

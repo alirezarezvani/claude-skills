@@ -169,14 +169,20 @@ Signup → Step 1 → Step 2 → Activation → Retention
 100%      80%       60%       40%         25%
 ```
 
-Identify biggest drops and focus there.
+Run the bundled analyzer on your step counts instead of eyeballing:
+
+```bash
+python3 scripts/activation_funnel_analyzer.py funnel.json --json   # no arg = embedded demo
+```
+
+It computes per-step drop-off, an activation score 0-100, and names the biggest-loss step. That step is where the audit focuses first.
 
 ---
 
 ## Output Format
 
 ### Onboarding Audit
-For each issue: Finding → Impact → Recommendation → Priority
+Lead with the analyzer's output: activation score + the named biggest-drop step. Then, for each issue: Finding → Impact → Recommendation → Priority
 
 ### Onboarding Flow Design
 - Activation goal

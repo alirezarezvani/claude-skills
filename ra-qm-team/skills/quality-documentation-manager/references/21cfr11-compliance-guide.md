@@ -45,7 +45,7 @@ Part 11 does not create new record requirements. It governs HOW records are main
 
 | Predicate Rule | Record Type |
 |----------------|-------------|
-| 21 CFR 820 (QSR) | Device Master Records, Device History Records |
+| 21 CFR 820 (QMSR — incorporates ISO 13485:2016 by reference since 2026-02-02; formerly the QSR) | Device Master Records, Device History Records |
 | 21 CFR 211 (cGMP) | Batch records, laboratory records |
 | 21 CFR 58 (GLP) | Study records, raw data |
 | 21 CFR 11.10(e) | Records required to be maintained |

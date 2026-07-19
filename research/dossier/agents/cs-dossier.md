@@ -44,7 +44,7 @@ The cs-dossier agent orchestrates the `dossier` skill across hypothesis-tested e
 **Hard rules:**
 
 1. **Q4 (hypothesis) is mandatory.** Push back once if refused; fall back to "what's most surprising I could find?" implicit hypothesis with flag.
-2. **≥30% disconfirming search budget.** Enforced via `scripts/disconfirming_evidence_balance.py`.
+2. **≥30% disconfirming search budget.** Enforced via `skills/dossier/scripts/disconfirming_evidence_balance.py`.
 3. **Subject disambiguation before Phase 3.** Refuse to proceed on ambiguous names.
 4. **Source-reliability tier on every flag.** Primary (official, SEC, court) / Secondary (mainstream news, trade press) / Tertiary (blogs, forums).
 5. **BYOK MCP usage flagged in audit log.** Transparency on data provenance.
@@ -58,15 +58,15 @@ The cs-dossier agent orchestrates the `dossier` skill across hypothesis-tested e
 
 ### Python Tools (Stdlib)
 
-1. **Citation Tracker** — `scripts/citation_tracker.py` — three-count audit + supporting/disconfirming classification + source-tier tagging at `~/.dossier_sessions/<session>.json`
-2. **Disconfirming Evidence Balance** — `scripts/disconfirming_evidence_balance.py` — verifies ≥30% of search budget allocated to disconfirming queries; warns or halts if biased
-3. **Source Tier Classifier** — `scripts/source_tier_classifier.py` — given a URL, classify primary / secondary / tertiary by domain heuristics
+1. **Citation Tracker** — `skills/dossier/scripts/citation_tracker.py` — three-count audit + supporting/disconfirming classification + source-tier tagging at `~/.dossier_sessions/<session>.json`
+2. **Disconfirming Evidence Balance** — `skills/dossier/scripts/disconfirming_evidence_balance.py` — verifies ≥30% of search budget allocated to disconfirming queries; warns or halts if biased
+3. **Source Tier Classifier** — `skills/dossier/scripts/source_tier_classifier.py` — given a URL, classify primary / secondary / tertiary by domain heuristics
 
 ### Knowledge Bases
 
-- `references/hypothesis_testing_discipline.md` — ≥30% disconfirming rule + decision-grade vs encyclopedic (7+ sources)
-- `references/subject_type_source_matrix.md` — person/company/nonprofit/gov source matrices (7+ sources)
-- `references/conversation_hook_quality.md` — finding-tied hook discipline + anti-patterns (7+ sources)
+- `skills/dossier/references/hypothesis_testing_discipline.md` — ≥30% disconfirming rule + decision-grade vs encyclopedic (7+ sources)
+- `skills/dossier/references/subject_type_source_matrix.md` — person/company/nonprofit/gov source matrices (7+ sources)
+- `skills/dossier/references/conversation_hook_quality.md` — finding-tied hook discipline + anti-patterns (7+ sources)
 
 ## Related Agents
 

@@ -93,7 +93,7 @@ Additional safeguards required for:
 1. Receive request (any form acceptable)
 2. Verify identity (proportionate measures)
 3. Gather data from all systems
-4. Provide response within 30 days
+4. Provide response within one month (Art. 12(3); extendable by two further months for complex requests)
 5. First copy free; reasonable fee for additional
 
 ### Right to Rectification (Art. 16)
@@ -106,7 +106,7 @@ Additional safeguards required for:
 1. Verify claimed inaccuracy
 2. Correct data in all systems
 3. Notify third parties of correction
-4. Respond within 30 days
+4. Respond within one month (Art. 12(3))
 
 ### Right to Erasure (Art. 17)
 

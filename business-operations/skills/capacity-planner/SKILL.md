@@ -83,6 +83,13 @@ It produces three artifacts:
 All three accept `--input <path>` (JSON), `--output {markdown,json}`,
 `--sample` (built-in example), and `--help`. Stdlib only.
 
+## Quick example
+
+```bash
+# Emits an Erlang-C capacity model (required headcount + P50/P90/P99 breach probabilities) for the built-in example
+cd business-operations/skills/capacity-planner && python3 scripts/capacity_modeler.py --sample
+```
+
 ## References
 
 - `references/queueing_theory_canon.md` — Erlang, Little, Hopp &

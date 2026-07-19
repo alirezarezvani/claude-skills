@@ -127,6 +127,15 @@ Puns and wit make copy memorable—but only if it fits the brand and doesn't und
 - "Never {unpleasant event} again"
 - "{Question highlighting main pain point}"
 
+**Score every headline candidate** with the bundled scorer before picking one:
+
+```bash
+python3 scripts/headline_scorer.py "Ship dashboards in minutes, not sprints"
+python3 scripts/headline_scorer.py --file headlines.txt --json   # batch-score a list
+```
+
+It rates 0-100 across 6 dimensions (length, specificity, power words, clarity, emotional pull, format). Write 5-10 candidates, score them all, present the top 2-3 with their scores and dimension breakdowns — never present a sub-60 headline as the primary recommendation.
+
 **For comprehensive headline formulas**: See [references/copy-frameworks.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/copywriting/references/copy-frameworks.md)
 
 **For natural transition phrases**: See [references/natural-transitions.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/copywriting/references/natural-transitions.md)

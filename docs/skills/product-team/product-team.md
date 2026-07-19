@@ -22,7 +22,7 @@ description: "10 product agent skills and plugins for Claude Code, Codex, Gemini
 
 ### Claude Code
 ```
-/read product-team/product-manager-toolkit/SKILL.md
+/read product-team/skills/product-manager-toolkit/SKILL.md
 ```
 
 ### Codex CLI

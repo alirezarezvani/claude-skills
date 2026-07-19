@@ -1,0 +1,47 @@
+# check_paths.py allowlist — known FALSE POSITIVES only.
+# Format: <file-glob> :: <candidate-glob>   (fnmatch on both sides)
+# Every entry must be a teaching example, hypothetical user-project path, or
+# example tool output — never a real path contract. Keep entries narrow.
+
+# Example commands inside a hypothetical ML project workflow (user's repo, not ours).
+engineering-team/skills/senior-data-scientist/SKILL.md :: scripts/train.py
+engineering-team/skills/senior-data-scientist/SKILL.md :: scripts/evaluate.py
+engineering-team/skills/senior-data-scientist/SKILL.md :: scripts/health_check.py
+
+# TS import statements in generated-test / seed-script code examples (user's repo).
+engineering-team/skills/senior-qa/SKILL.md :: ../src/components/Button
+engineering/skills/database-schema-designer/SKILL.md :: ../src/lib/auth
+engineering-team/skills/email-template-builder/SKILL.md :: ../components/layout/email-layout
+engineering-team/skills/email-template-builder/SKILL.md :: ../templates/welcome
+engineering-team/skills/email-template-builder/SKILL.md :: ../templates/invoice
+engineering-team/skills/email-template-builder/SKILL.md :: ../i18n
+
+# Terragrunt/Terraform source/config_path examples (user's infra repo layout).
+engineering/terraform-patterns/skills/terraform-patterns/SKILL.md :: ../../modules/vpc
+engineering/terraform-patterns/skills/terraform-patterns/SKILL.md :: ../vpc
+
+# Example audit-report output: file names inside a fictitious audited skill.
+engineering/skills/skill-security-auditor/SKILL.md :: scripts/helper.py
+engineering/skills/skill-security-auditor/SKILL.md :: scripts/analyzer.py
+engineering/skills/skill-security-auditor/SKILL.md :: scripts/scanner.py
+
+# Anti-pattern teaching example ("No references/category/subtopic.md").
+engineering/write-a-skill/commands/cs-write-a-skill.md :: references/category/subtopic.md
+
+# Example names of skills the extract workflow would GENERATE in the user's tree.
+engineering-team/self-improving-agent/skills/extract/SKILL.md :: docker-m1-fixes/SKILL.md
+engineering-team/self-improving-agent/skills/extract/SKILL.md :: api-client-regen/SKILL.md
+
+# Path-traversal attack payload in a pen-testing teaching table, not a real
+# file reference. Would point outside the repo root if resolved literally;
+# allowlisted as a teaching example, not an actual file.
+engineering-team/skills/security-pen-testing/SKILL.md :: ../../../etc/passwd
+
+# arquiteto-de-empresa (OKF bundle builder, PT-BR) teaching examples:
+# the identidade.md link is shown inside a markdown code-example demonstrating
+# how OKF bundle links look in the USER's generated output, not a repo file;
+# the command's references/phase_playbook.md points at its sibling skill's
+# references/ dir (the file exists under the skill, not under commands/).
+c-level-advisor/arquiteto-de-empresa/skills/arquiteto-de-empresa/SKILL.md :: ../00-fundacao/identidade.md
+c-level-advisor/skills/arquiteto-de-empresa/SKILL.md :: ../00-fundacao/identidade.md
+c-level-advisor/arquiteto-de-empresa/commands/cs-arquiteto.md :: references/phase_playbook.md

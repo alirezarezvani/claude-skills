@@ -1,6 +1,6 @@
 ---
 title: "Business Operations Skills — Agent Skills & Codex Plugins"
-description: "7 business operations skills — agent skills for Business Operations. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "7 business operations skills — business operations agent skill and Claude Code plugin for process mapping, vendor management, capacity planning, and internal comms. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

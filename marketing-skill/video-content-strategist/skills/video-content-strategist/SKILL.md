@@ -13,7 +13,7 @@ Video is the highest-trust content format. A viewer who watches 10 minutes of yo
 
 ## Before Starting
 
-**Check for context first:** If marketing-context.md exists, read it before asking questions. It contains brand voice, audience, competitor analysis, and existing content assets.
+**Check for context first:** If `.claude/product-marketing-context.md` exists, read it before asking questions. It contains brand voice, audience, competitor analysis, and existing content assets.
 
 Gather this context (ask in one shot):
 

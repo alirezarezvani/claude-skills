@@ -72,14 +72,14 @@ Differentiates from siblings:
 
 ### Reference docs (each cites 7+ sources)
 
-- `references/aeo_eeat_canon.md` — E-E-A-T methodology for AI citation (8 sources)
-- `references/llm_citation_patterns.md` — How each major LLM chooses sources (8 sources)
-- `references/aeo_vs_seo.md` — The two disciplines, overlap, and strategic choice (8 sources)
+- `marketing-skill/skills/aeo/references/aeo_eeat_canon.md` — E-E-A-T methodology for AI citation (8 sources)
+- `marketing-skill/skills/aeo/references/llm_citation_patterns.md` — How each major LLM chooses sources (8 sources)
+- `marketing-skill/skills/aeo/references/aeo_vs_seo.md` — The two disciplines, overlap, and strategic choice (8 sources)
 
 ## Related Agents
 
-- [cs-content-creator](../../agents/cs-content-creator.md) — marketing-domain content writer
-- [cs-seo-audit](../../agents/cs-seo-audit.md) — companion SEO audit (often run together)
+- [cs-content-creator](cs-content-creator.md) — marketing-domain content writer
+- [seo-audit skill](../../marketing-skill/skills/seo-audit/SKILL.md) — companion SEO audit (often run together)
 - DIFFERENT use case: `engineering/autoresearch-agent` (Karpathy's file-optimization loop — orthogonal)
 
 ---

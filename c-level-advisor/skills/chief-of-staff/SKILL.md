@@ -1,6 +1,6 @@
 ---
 name: "chief-of-staff"
-description: "C-suite orchestration layer. Routes founder questions to the right advisor role(s), triggers multi-role board meetings for complex decisions, synthesizes outputs, and tracks decisions. Every C-suite interaction starts here. Loads company context automatically."
+description: "C-suite orchestration layer. Routes founder questions to the right advisor role(s), triggers multi-role board meetings for complex decisions, synthesizes outputs, and tracks decisions. Every C-suite interaction starts here. Loads company context automatically. Use when a founder question needs routing to the right advisor — e.g. 'should we raise now or cut burn?' — or when a multi-domain decision needs a board meeting convened."
 license: MIT
 metadata:
   version: 1.0.0
@@ -81,6 +81,11 @@ Full rules in `references/routing-matrix.md`.
 | Company direction, investor relations | CEO | Board |
 | Market strategy, positioning | CMO | CRO |
 | M&A, pivots | CEO | Board |
+| Contracts, term sheets, legal exposure, IP | GC | CEO |
+| Data strategy, training-data rights, data assets | CDO | CAIO |
+| AI strategy, model selection, evals, AI risk | CAIO | CTO |
+| Retention, churn, customer success, NRR/GRR | CCO | CRO |
+| Eng delivery, DORA metrics, eng hiring, team structure | VPE | CTO |
 
 ---
 
@@ -133,7 +138,10 @@ Full framework in `references/synthesis-framework.md`.
 
 ## Decision Log
 
-Track decisions to `~/.claude/decision-log.md`.
+Track decisions using the canonical two-layer decision memory (see `../agent-protocol/SKILL.md` → "Decision Memory (Canonical Layout)"):
+
+- **Layer 1 (raw):** `~/.claude/decisions/raw/YYYY-MM-DD-{slug}.md` — full deliberation transcript
+- **Layer 2 (approved):** `~/.claude/decisions/approved/YYYY-MM-DD-{slug}.md` — founder-approved decisions only
 
 ```
 ## Decision: [Name]
@@ -144,14 +152,16 @@ Owner: [Who executes]
 Review: [When to check back]
 ```
 
-At session start: if a review date has passed, flag it: *"You decided [X] on [date]. Worth a check-in?"*
+At session start: scan `~/.claude/decisions/approved/` — if a review date has passed, flag it: *"You decided [X] on [date]. Worth a check-in?"*
+
+Migration: a legacy single-file log at `~/.claude/decision-log.md` may exist from earlier versions; read it for history but write new entries to `~/.claude/decisions/`.
 
 ---
 
 ## Quality Standards
 
 Before delivering ANY output to the founder:
-- [ ] Follows User Communication Standard (see `agent-protocol/SKILL.md`)
+- [ ] Follows User Communication Standard (see `../agent-protocol/SKILL.md`)
 - [ ] Bottom line is first — no preamble, no process narration
 - [ ] Company context loaded (not generic advice)
 - [ ] Every finding has WHAT + WHY + HOW
@@ -166,9 +176,9 @@ Before delivering ANY output to the founder:
 
 ## Ecosystem Awareness
 
-The Chief of Staff routes to **28 skills total**:
-- **10 C-suite roles** — CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, Executive Mentor
-- **6 orchestration skills** — cs-onboard, context-engine, board-meeting, decision-logger, agent-protocol
+The Chief of Staff routes to **33 skills total**:
+- **15 C-suite roles** — CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO, General Counsel, CDO, CAIO, CCO, VPE, Executive Mentor
+- **6 orchestration skills** — cs-onboard, context-engine, board-meeting, decision-logger, agent-protocol, chief-of-staff
 - **6 cross-cutting skills** — board-deck-builder, scenario-war-room, competitive-intel, org-health-diagnostic, ma-playbook, intl-expansion
 - **6 culture & collaboration skills** — culture-architect, company-os, founder-coach, strategic-alignment, change-management, internal-narrative
 

@@ -1,0 +1,20 @@
+{
+  "name": "collab-proof",
+  "description": "Assisted retrospective: after a session, calibrates what Claude contributed vs what the developer drove. LLM-assessed 4-frame analysis, zero dependencies.",
+  "version": "1.0.0",
+  "author": {
+    "name": "dong7812",
+    "url": "https://github.com/dong7812"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/collab-proof",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "attribution": {
+    "source_repo": "https://github.com/dong7812/collab-proof",
+    "author": "dong7812",
+    "license": "MIT"
+  },
+  "skills": [
+    "./skills/collab-proof"
+  ]
+}

@@ -43,8 +43,8 @@ Pairs with `cs-cpo-advisor` (positioning ↔ product), `cs-cro-advisor` (positio
 ### Knowledge Bases
 
 - [`references/brand_positioning.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cmo-advisor/references/brand_positioning.md) — category design, message house, narrative arcs
-- [`references/growth_playbooks.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cmo-advisor/references/growth_playbooks.md) — channel-specific motions, PLG vs sales-led
-- [`references/marketing_operations.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cmo-advisor/references/marketing_operations.md) — attribution, cadence, content ops
+- [`references/growth_frameworks.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cmo-advisor/references/growth_frameworks.md) — channel-specific motions, PLG vs sales-led
+- [`references/marketing_org.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cmo-advisor/references/marketing_org.md) — attribution, cadence, content ops
 
 ### Adjacent Execution
 
@@ -114,8 +114,8 @@ echo "📚 Reference: positioning + playbooks"
 
 - [cs-cpo-advisor](cs-cpo-advisor.md) — positioning ↔ product alignment
 - [cs-cro-advisor](cs-cro-advisor.md) — pipeline contribution
-- [cs-content-creator](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/marketing/cs-content-creator.md) — execution
-- [cs-demand-gen-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/marketing/cs-demand-gen-specialist.md) — execution
+- [cs-content-creator](https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-content-creator.md) — execution
+- [cs-demand-gen-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-demand-gen-specialist.md) — execution
 
 ## References
 

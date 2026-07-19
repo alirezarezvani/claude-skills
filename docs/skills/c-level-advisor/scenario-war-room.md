@@ -27,12 +27,11 @@ scenario planning, war room, what-if analysis, risk modeling, cascading effects,
 python scripts/scenario_modeler.py   # Interactive scenario builder with cascade modeling
 ```
 
-Or describe the scenario:
-```
-/war-room "What if we lose our top customer AND miss the Q3 fundraise?"
-/war-room "What if 3 engineers quit AND we need to ship by Q3?"
-/war-room "What if our market shrinks 30% AND a competitor raises $50M?"
-```
+Or describe the scenario in natural language:
+
+> "What if we lose our top customer AND miss the Q3 fundraise?"
+> "What if 3 engineers quit AND we need to ship by Q3?"
+> "What if our market shrinks 30% AND a competitor raises $50M?"
 
 ## What This Is Not
 

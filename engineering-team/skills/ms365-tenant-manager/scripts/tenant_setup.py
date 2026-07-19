@@ -445,3 +445,43 @@ Disconnect-MicrosoftTeams
             'estimated_monthly_cost': round(estimated_monthly_cost, 2),
             'estimated_annual_cost': round(estimated_monthly_cost * 12, 2)
         }
+
+
+def main():
+    """CLI entry point."""
+    import argparse
+    import json
+
+    parser = argparse.ArgumentParser(
+        description="Generate M365 tenant setup checklist, DNS records, license plan, and PowerShell setup script"
+    )
+    parser.add_argument("--config", required=True,
+                        help="Tenant config JSON file (top-level 'tenant_config' key or the config object itself)")
+    parser.add_argument("--format", choices=["json", "powershell"], default="json",
+                        help="json = checklist + DNS + license plan; powershell = setup script")
+    parser.add_argument("--output", "-o", help="Output file (default: stdout)")
+    args = parser.parse_args()
+
+    with open(args.config, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    config = data.get("tenant_config", data)
+    manager = TenantSetupManager(config)
+
+    if args.format == "powershell":
+        result = manager.generate_powershell_setup_script()
+    else:
+        result = json.dumps({
+            "setup_checklist": manager.generate_setup_checklist(),
+            "dns_records": manager.generate_dns_records(),
+            "license_recommendations": manager.get_license_recommendations(),
+        }, indent=2)
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            f.write(result)
+    else:
+        print(result)
+
+
+if __name__ == "__main__":
+    main()

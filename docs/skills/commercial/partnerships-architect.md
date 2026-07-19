@@ -95,6 +95,13 @@ when triggered.
 
 All scripts: stdlib only. `--help` and `--sample` work on all three.
 
+## Quick example
+
+```bash
+# Emits a 5-tier partner classification with deterministic floors per tier for the built-in sample partner
+cd commercial/skills/partnerships-architect && python3 scripts/partner_tier_classifier.py --sample
+```
+
 ## References
 
 - `references/channel_partner_canon.md` — Caro on HP indirect channels, Chintagunta on channel economics, Hessling on partner programs, Forrester channel software stack, IDC channel research, Tien Tzuo subscription-channel models, Geoffrey Moore whole-product partnerships

@@ -1,6 +1,6 @@
 ---
 title: "Social Media Analyzer — Agent Skill for Marketing"
-description: "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use for analyzing social. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use when analyzing social. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Social Media Analyzer

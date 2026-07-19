@@ -182,14 +182,14 @@ python scripts/data_product_strategy_picker.py profile.json
 
 ## Adjacent Skills
 
-- `../cto-advisor/` — architecture capacity, scaling cliffs
-- `../ciso-advisor/` — data security, threat modeling for productized data
-- `../general-counsel-advisor/` — contractual constraints, DPA, training-data rights
-- `../cfo-advisor/` — build-vs-buy TCO, M&A valuation math
-- `../chro-advisor/` — data team hiring, leveling, comp
-- `../../../engineering/database-designer/` — tactical schema design
-- `../../../engineering/rag-architect/` — tactical AI/RAG implementation
-- `../../../engineering/llm-cost-optimizer/` — model cost management
+- `c-level-advisor/skills/cto-advisor/` — architecture capacity, scaling cliffs
+- `c-level-advisor/skills/ciso-advisor/` — data security, threat modeling for productized data
+- `c-level-advisor/skills/general-counsel-advisor/` — contractual constraints, DPA, training-data rights
+- `c-level-advisor/skills/cfo-advisor/` — build-vs-buy TCO, M&A valuation math
+- `c-level-advisor/skills/chro-advisor/` — data team hiring, leveling, comp
+- `engineering/skills/database-designer/` — tactical schema design
+- `engineering/skills/rag-architect/` — tactical AI/RAG implementation
+- `engineering/llm-cost-optimizer/` — model cost management
 
 ## References
 

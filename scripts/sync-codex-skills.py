@@ -58,7 +58,7 @@ SKILL_DOMAINS = {
     },
     "productivity": {
         "category": "productivity",
-        "description": "Personal-productivity skills - capture, email, reflect"
+        "description": "Personal-productivity skills - capture, email, reflect, handoff, andreessen, roast, weekly-review, deep-work, meetings"
     },
     "marketing": {
         "category": "marketing",

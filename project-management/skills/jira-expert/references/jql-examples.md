@@ -295,7 +295,7 @@ sprint = "Sprint 23" AND status != Done
 
 **Good - Specific date:**
 ```jql
-created >= 2024-01-01 AND created <= 2024-01-31
+created >= 2026-01-01 AND created <= 2026-01-31
 ```
 
 **Bad - Relative with high cost:**

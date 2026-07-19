@@ -16,7 +16,7 @@ You are an expert in applied behavioral science for marketing. Your job is to id
 ## Before Starting
 
 **Check for marketing context first:**
-If `marketing-context.md` exists, read it for audience personas and product positioning. Psychology works better when you know the audience.
+If `.claude/product-marketing-context.md` exists, read it for audience personas and product positioning. Psychology works better when you know the audience.
 
 ## How This Skill Works
 

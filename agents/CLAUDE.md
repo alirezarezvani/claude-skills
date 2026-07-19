@@ -1,13 +1,13 @@
 # Agent Development Guide
 
-This guide provides comprehensive instructions for creating **cs-* prefixed agents** that seamlessly integrate with the 42 production skills in this repository.
+This guide provides comprehensive instructions for creating **cs-* prefixed agents** that seamlessly integrate with the 346 production skills in this repository (count derived via `scripts/derive_counters.py`).
 
 ## Agent Architecture
 
 ### What are cs-* Agents?
 
-**cs-* agents** are specialized Claude Code agents that orchestrate the 177 existing skills. Each agent:
-- References skills via relative paths (`../../marketing-skill/`)
+**cs-* agents** are specialized Claude Code agents that orchestrate the repository's 346 skills. Each agent:
+- References skills via relative paths (`../marketing-skill/`)
 - Executes Python automation tools from skill packages
 - Follows established workflows and templates
 - Maintains skill portability and independence
@@ -24,7 +24,7 @@ When skills are published to **ClawHub** (clawhub.com):
 
 ### Production Agents
 
-**16 Agents Currently Available**:
+**33 agents live in this folder** (93 agent files repo-wide, including plugin-bundled agents). A representative selection:
 
 | Agent | Domain | Description |
 |-------|--------|-------------|
@@ -108,17 +108,17 @@ After YAML frontmatter, include these sections:
 All skill references use the `../../` pattern:
 
 ```markdown
-**Skill Location:** `../../marketing-skill/content-creator/`
+**Skill Location:** `../marketing-skill/skills/content-creator/`
 
 ### Python Tools
 
 1. **Brand Voice Analyzer**
-   - **Path:** `../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py`
-   - **Usage:** `python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py content.txt`
+   - **Path:** `../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py`
+   - **Usage:** `python ../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py content.txt`
 
 2. **SEO Optimizer**
-   - **Path:** `../../marketing-skill/content-creator/scripts/seo_optimizer.py`
-   - **Usage:** `python ../../marketing-skill/content-creator/scripts/seo_optimizer.py article.md "keyword"`
+   - **Path:** `../marketing-skill/skills/content-production/scripts/seo_optimizer.py`
+   - **Usage:** `python ../marketing-skill/skills/content-production/scripts/seo_optimizer.py article.md "keyword"`
 ```
 
 ### Why `../../`?
@@ -138,13 +138,13 @@ Agents execute Python tools from skill packages:
 
 ```bash
 # From agent context
-python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py input.txt
+python ../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py input.txt
 
 # With JSON output
-python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py input.txt json
+python ../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py input.txt json
 
 # With arguments
-python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py features.csv --capacity 20
+python ../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py features.csv --capacity 20
 ```
 
 ### Tool Requirements
@@ -188,7 +188,7 @@ Each workflow must include:
 **Example:**
 \`\`\`bash
 # Concrete example command
-python ../../marketing-skill/content-creator/scripts/seo_optimizer.py article.md "primary keyword"
+python ../marketing-skill/skills/content-production/scripts/seo_optimizer.py article.md "primary keyword"
 \`\`\`
 ```
 
@@ -278,12 +278,12 @@ python ../../domain-skill/skill-name/scripts/tool.py input.txt
 
 ## Related Agents
 
-- [cs-related-agent](../domain/cs-related-agent.md) - How they relate
+- [cs-related-agent](../<domain>/cs-related-agent.md) - How they relate
 
 ## References
 
 - [Skill Documentation](../../domain-skill/skill-name/SKILL.md)
-- [Domain Roadmap](../../domain-skill/roadmap.md)
+- [Domain Roadmap](../../<domain-skill>/roadmap.md)
 ```
 
 ## Quality Standards
@@ -311,7 +311,7 @@ Test these aspects:
 ```bash
 # From agent directory
 cd agents/marketing/
-ls ../../marketing-skill/content-creator/  # Should list contents
+ls ../marketing-skill/skills/content-creator/  # Should list contents
 ```
 
 **2. Python Tool Execution**
@@ -320,7 +320,7 @@ ls ../../marketing-skill/content-creator/  # Should list contents
 echo "Test content" > test-input.txt
 
 # Execute tool
-python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py test-input.txt
+python ../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py test-input.txt
 
 # Verify output
 ```
@@ -328,29 +328,29 @@ python ../../marketing-skill/content-creator/scripts/brand_voice_analyzer.py tes
 **3. Knowledge Base Access**
 ```bash
 # Verify reference files exist
-cat ../../marketing-skill/content-creator/references/brand_guidelines.md
+cat ../marketing-skill/skills/content-creator/references/brand_guidelines.md
 ```
 
 ## Domain-Specific Guidelines
 
 ### Marketing Agents (agents/marketing/)
 - Focus on content creation, SEO, demand generation
-- Reference: `../../marketing-skill/`
+- Reference: `../marketing-skill/`
 - Tools: brand_voice_analyzer.py, seo_optimizer.py
 
 ### Product Agents (agents/product/)
 - Focus on prioritization, user research, agile workflows
-- Reference: `../../product-team/`
+- Reference: `../product-team/`
 - Tools: rice_prioritizer.py, user_story_generator.py, okr_cascade_generator.py
 
 ### C-Level Agents (agents/c-level/)
 - Focus on strategic decision-making
-- Reference: `../../c-level-advisor/`
+- Reference: `../c-level-advisor/`
 - Tools: Strategic analysis and planning tools
 
 ### Engineering Agents (agents/engineering/)
 - Focus on scaffolding, code quality, fullstack development
-- Reference: `../../engineering-team/`
+- Reference: `engineering-team/`
 - Tools: project_scaffolder.py, code_quality_analyzer.py
 
 ## Common Pitfalls
@@ -378,6 +378,6 @@ After creating an agent:
 
 ---
 
-**Last Updated:** March 11, 2026
-**Current:** 16 agents across 8 domains
+**Last Updated:** June 10, 2026
+**Current:** 33 agents in this folder across 10 domain subfolders (93 agent files repo-wide)
 **Related:** See [main CLAUDE.md](../CLAUDE.md) for repository overview

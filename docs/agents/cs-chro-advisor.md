@@ -42,9 +42,9 @@ Pairs with `cs-coo-advisor` (org design), `cs-cfo-advisor` (comp budget), and `c
 
 ### Knowledge Bases
 
-- [`references/hiring_systems.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor/references/hiring_systems.md) — sourcing channels, interview rubrics, scorecards, time-to-fill
-- [`references/comp_philosophy.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor/references/comp_philosophy.md) — band design, equity strategy, refresh policy
-- [`references/leveling_ladders.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor/references/leveling_ladders.md) — IC + manager tracks, level expectations, promotion criteria
+- [`references/people_strategy.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor/references/people_strategy.md) — sourcing channels, interview rubrics, scorecards, time-to-fill
+- [`references/comp_frameworks.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor/references/comp_frameworks.md) — band design, equity strategy, refresh policy
+- [`references/org_design.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor/references/org_design.md) — IC + manager tracks, level expectations, promotion criteria
 
 ## Workflows
 
@@ -95,7 +95,7 @@ python ../../skills/chro-advisor/scripts/hiring_plan_modeler.py
 echo "👥 CHRO Quarterly Review"
 python ../../skills/chro-advisor/scripts/hiring_plan_modeler.py
 python ../../skills/chro-advisor/scripts/comp_benchmarker.py
-echo "Ladder reference: ../../skills/chro-advisor/references/leveling_ladders.md"
+echo "Ladder reference: ../../skills/chro-advisor/references/org_design.md"
 ```
 
 ## Success Metrics
@@ -110,8 +110,8 @@ echo "Ladder reference: ../../skills/chro-advisor/references/leveling_ladders.md
 
 - [cs-coo-advisor](cs-coo-advisor.md) — org design partner
 - [cs-cfo-advisor](cs-cfo-advisor.md) — comp budget
-- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/c-level/cs-ceo-advisor.md) — exec team
-- [cs-workspace-admin](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/engineering-team/cs-workspace-admin.md) — onboarding tooling
+- [cs-ceo-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/agents/c-level/cs-ceo-advisor.md) — exec team
+- [cs-workspace-admin](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering-team/cs-workspace-admin.md) — onboarding tooling
 
 ## References
 

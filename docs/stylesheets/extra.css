@@ -1,118 +1,134 @@
-/* ============================================
-   Claude Code Skills — GitHub Primer Theme
-   MkDocs Material custom properties override
-   ============================================ */
+/* =================================================================
+   Claude Skills — "Clay" design system
+   MkDocs Material theme overrides.
+
+   Palette: warm clay/coral primary (Claude-inspired) on calm
+   neutral surfaces, with a violet secondary used only in gradients.
+   All class hooks consumed by generated pages (.domain-header,
+   .page-meta, .install-banner, .skills-hero, grid cards) are kept.
+   ================================================================= */
+
+:root {
+  --cs-clay: #c2410c;
+  --cs-clay-soft: #ea580c;
+  --cs-violet: #7c3aed;
+  --cs-radius: 10px;
+  --cs-radius-lg: 16px;
+}
 
 /* ===========================================
-   A. Light Mode — GitHub Primer Light
+   A. Light mode
    =========================================== */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #0969da;
-  --md-primary-fg-color--light: #218bff;
-  --md-primary-fg-color--dark: #0550ae;
+  --md-primary-fg-color: #c2410c;
+  --md-primary-fg-color--light: #ea580c;
+  --md-primary-fg-color--dark: #9a3412;
   --md-primary-bg-color: #ffffff;
-  --md-primary-bg-color--light: #f6f8fa;
-  --md-accent-fg-color: #0969da;
-  --md-accent-fg-color--transparent: rgba(9, 105, 218, 0.1);
+  --md-primary-bg-color--light: #faf7f5;
+  --md-accent-fg-color: #ea580c;
+  --md-accent-fg-color--transparent: rgba(194, 65, 12, 0.08);
 
-  --md-default-fg-color: #1f2328;
-  --md-default-fg-color--light: #656d76;
-  --md-default-fg-color--lighter: #8b949e;
-  --md-default-fg-color--lightest: rgba(31, 35, 40, 0.12);
+  --md-default-fg-color: #1c1917;
+  --md-default-fg-color--light: #57534e;
+  --md-default-fg-color--lighter: #a8a29e;
+  --md-default-fg-color--lightest: rgba(28, 25, 23, 0.12);
   --md-default-bg-color: #ffffff;
-  --md-default-bg-color--light: #f6f8fa;
-  --md-default-bg-color--lighter: #f6f8fa;
-  --md-default-bg-color--lightest: #eaeef2;
+  --md-default-bg-color--light: #faf7f5;
+  --md-default-bg-color--lighter: #faf7f5;
+  --md-default-bg-color--lightest: #f1ece8;
 
-  --md-code-fg-color: #1f2328;
-  --md-code-bg-color: #f6f8fa;
-  --md-code-hl-color: rgba(9, 105, 218, 0.1);
+  --md-code-fg-color: #1c1917;
+  --md-code-bg-color: #faf7f5;
+  --md-code-hl-color: rgba(194, 65, 12, 0.1);
 
-  --md-typeset-color: #1f2328;
-  --md-typeset-a-color: #0969da;
+  --md-typeset-color: #1c1917;
+  --md-typeset-a-color: #c2410c;
 
-  --md-footer-fg-color: #f0f6fc;
-  --md-footer-fg-color--light: rgba(240, 246, 252, 0.7);
-  --md-footer-fg-color--lighter: rgba(240, 246, 252, 0.4);
-  --md-footer-bg-color: #24292f;
-  --md-footer-bg-color--dark: #1c2128;
+  --md-footer-fg-color: #faf7f5;
+  --md-footer-fg-color--light: rgba(250, 247, 245, 0.7);
+  --md-footer-fg-color--lighter: rgba(250, 247, 245, 0.4);
+  --md-footer-bg-color: #1c1917;
+  --md-footer-bg-color--dark: #14110f;
 }
 
 /* ===========================================
-   B. Dark Mode — GitHub Primer Dark
+   B. Dark mode
    =========================================== */
 [data-md-color-scheme="slate"] {
-  --md-hue: 210;
-  --md-primary-fg-color: #1f6feb;
-  --md-primary-fg-color--light: #388bfd;
-  --md-primary-fg-color--dark: #1158c7;
-  --md-primary-bg-color: #0d1117;
-  --md-primary-bg-color--light: #161b22;
-  --md-accent-fg-color: #58a6ff;
-  --md-accent-fg-color--transparent: rgba(31, 111, 235, 0.15);
+  --md-hue: 24;
+  --md-primary-fg-color: #f0966b;
+  --md-primary-fg-color--light: #f6b394;
+  --md-primary-fg-color--dark: #e8855b;
+  --md-primary-bg-color: #141210;
+  --md-primary-bg-color--light: #1c1917;
+  --md-accent-fg-color: #f6b394;
+  --md-accent-fg-color--transparent: rgba(240, 150, 107, 0.12);
 
-  --md-default-fg-color: #f0f6fc;
-  --md-default-fg-color--light: #c9d1d9;
-  --md-default-fg-color--lighter: #8b949e;
-  --md-default-fg-color--lightest: rgba(240, 246, 252, 0.1);
-  --md-default-bg-color: #0d1117;
-  --md-default-bg-color--light: #161b22;
-  --md-default-bg-color--lighter: #161b22;
-  --md-default-bg-color--lightest: #21262d;
+  --md-default-fg-color: #f5f0ec;
+  --md-default-fg-color--light: #d6cec7;
+  --md-default-fg-color--lighter: #968e87;
+  --md-default-fg-color--lightest: rgba(245, 240, 236, 0.1);
+  --md-default-bg-color: #141210;
+  --md-default-bg-color--light: #1c1917;
+  --md-default-bg-color--lighter: #1c1917;
+  --md-default-bg-color--lightest: #292524;
 
-  --md-code-fg-color: #c9d1d9;
-  --md-code-bg-color: #161b22;
-  --md-code-hl-color: rgba(31, 111, 235, 0.15);
+  --md-code-fg-color: #e7e0da;
+  --md-code-bg-color: #1c1917;
+  --md-code-hl-color: rgba(240, 150, 107, 0.15);
 
-  --md-typeset-color: #f0f6fc;
-  --md-typeset-a-color: #58a6ff;
+  --md-typeset-color: #f5f0ec;
+  --md-typeset-a-color: #f0966b;
 
-  --md-footer-fg-color: #f0f6fc;
-  --md-footer-fg-color--light: rgba(240, 246, 252, 0.7);
-  --md-footer-fg-color--lighter: rgba(240, 246, 252, 0.4);
-  --md-footer-bg-color: #010409;
-  --md-footer-bg-color--dark: #010409;
+  --md-footer-fg-color: #f5f0ec;
+  --md-footer-fg-color--light: rgba(245, 240, 236, 0.7);
+  --md-footer-fg-color--lighter: rgba(245, 240, 236, 0.4);
+  --md-footer-bg-color: #0c0a09;
+  --md-footer-bg-color--dark: #0c0a09;
 }
 
 /* ===========================================
-   C. Header & Navigation Bar
+   C. Header & navigation bar
    =========================================== */
 .md-header {
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
   box-shadow: none;
+  backdrop-filter: saturate(180%) blur(8px);
 }
 
 [data-md-color-scheme="default"] .md-header {
-  background-color: #ffffff;
-  color: #1f2328;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: #1c1917;
 }
 
 [data-md-color-scheme="slate"] .md-header {
-  background-color: #161b22;
-  color: #f0f6fc;
+  background-color: rgba(20, 18, 16, 0.92);
+  color: #f5f0ec;
 }
 
-/* Header title color fix */
 [data-md-color-scheme="default"] .md-header .md-header__title {
-  color: #1f2328;
+  color: #1c1917;
+  font-weight: 700;
 }
 
-/* Header icons */
+[data-md-color-scheme="slate"] .md-header .md-header__title {
+  font-weight: 700;
+}
+
 [data-md-color-scheme="default"] .md-header .md-icon {
-  color: #656d76;
+  color: #57534e;
 }
 
-/* Tab bar */
 .md-tabs {
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 
 [data-md-color-scheme="default"] .md-tabs {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
 }
 
 [data-md-color-scheme="slate"] .md-tabs {
-  background-color: #0d1117;
+  background-color: rgba(20, 18, 16, 0.92);
 }
 
 .md-tabs__link {
@@ -123,11 +139,11 @@
 }
 
 [data-md-color-scheme="default"] .md-tabs__link {
-  color: #1f2328;
+  color: #1c1917;
 }
 
 [data-md-color-scheme="slate"] .md-tabs__link {
-  color: #c9d1d9;
+  color: #d6cec7;
 }
 
 .md-tabs__link:hover,
@@ -135,8 +151,12 @@
   opacity: 1;
 }
 
+.md-tabs__link--active {
+  font-weight: 700;
+}
+
 /* ===========================================
-   D. Sidebar Navigation
+   D. Sidebar navigation
    =========================================== */
 .md-nav {
   font-size: 0.74rem;
@@ -166,7 +186,6 @@
   background-color: var(--md-accent-fg-color--transparent);
 }
 
-/* Section labels in sidebar */
 .md-nav__item--nested > .md-nav__link {
   font-weight: 600;
   font-size: 0.68rem;
@@ -174,7 +193,6 @@
   opacity: 0.8;
 }
 
-/* Sidebar scrollbar */
 .md-sidebar__scrollwrap::-webkit-scrollbar {
   width: 4px;
 }
@@ -185,38 +203,46 @@
 }
 
 /* ===========================================
-   E. Buttons — GitHub-style
+   E. Buttons
    =========================================== */
 .md-typeset .md-button--primary {
-  background-color: var(--md-primary-fg-color);
+  background: linear-gradient(135deg, var(--cs-clay) 0%, var(--cs-clay-soft) 100%);
   color: #ffffff !important;
-  border: 1px solid var(--md-primary-fg-color);
-  border-radius: 8px;
-  padding: 0.65rem 1.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--cs-radius);
+  padding: 0.62rem 1.6rem;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
-  box-shadow: 0 1px 3px rgba(9, 105, 218, 0.2);
+  transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  box-shadow: 0 2px 8px rgba(194, 65, 12, 0.28);
 }
 
 .md-typeset .md-button--primary:hover {
-  background-color: var(--md-primary-fg-color--dark);
-  border-color: var(--md-primary-fg-color--dark);
   color: #ffffff !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(9, 105, 218, 0.25);
+  filter: brightness(1.06);
+  box-shadow: 0 6px 18px rgba(194, 65, 12, 0.32);
 }
 
-/* Outline / secondary button */
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background: linear-gradient(135deg, #e8855b 0%, #f0966b 100%);
+  color: #14110f !important;
+  box-shadow: 0 2px 10px rgba(240, 150, 107, 0.25);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover {
+  color: #14110f !important;
+}
+
 .md-typeset .md-button:not(.md-button--primary) {
-  color: var(--md-primary-fg-color);
+  color: var(--md-typeset-a-color);
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
-  padding: 0.65rem 1.75rem;
+  border-radius: var(--cs-radius);
+  padding: 0.62rem 1.6rem;
   font-weight: 600;
   font-size: 0.9rem;
-  background-color: transparent;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  background-color: var(--md-default-bg-color);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
   box-shadow: none;
 }
 
@@ -227,24 +253,48 @@
 }
 
 /* ===========================================
-   F. Grid Cards
+   F. Grid cards
    =========================================== */
 .md-typeset .grid.cards > ul > li,
 .md-typeset .grid.cards > ol > li,
 .md-typeset .grid > .card {
+  position: relative;
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 8px;
+  border-radius: var(--cs-radius-lg);
   background-color: var(--md-default-bg-color);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgba(28, 25, 23, 0.04);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+}
+
+/* Gradient hairline that lights up on hover */
+.md-typeset .grid.cards > ul > li::before,
+.md-typeset .grid.cards > ol > li::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cs-clay), var(--cs-clay-soft) 55%, var(--cs-violet));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover::before,
+.md-typeset .grid.cards > ol > li:hover::before {
+  opacity: 1;
 }
 
 .md-typeset .grid.cards > ul > li:hover,
 .md-typeset .grid.cards > ol > li:hover,
 .md-typeset .grid > .card:hover {
-  border-color: var(--md-primary-fg-color--light);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  border-color: rgba(194, 65, 12, 0.35);
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.08);
+  transform: translateY(-3px);
+}
+
+.md-typeset .grid.cards > ul > li .twemoji.lg,
+.md-typeset .grid.cards > ul > li svg {
+  color: var(--md-primary-fg-color);
 }
 
 [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li,
@@ -254,11 +304,12 @@
 
 [data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover,
 [data-md-color-scheme="slate"] .md-typeset .grid.cards > ol > li:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border-color: rgba(240, 150, 107, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 /* ===========================================
-   G. Code Blocks
+   G. Code blocks
    =========================================== */
 .md-typeset code {
   border-radius: 6px;
@@ -268,7 +319,7 @@
 }
 
 .md-typeset pre {
-  border-radius: 6px;
+  border-radius: var(--cs-radius);
   border: 1px solid var(--md-default-fg-color--lightest);
 }
 
@@ -282,7 +333,7 @@
    =========================================== */
 .md-typeset table:not([class]) {
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 6px;
+  border-radius: var(--cs-radius);
   border-collapse: separate;
   border-spacing: 0;
   overflow: hidden;
@@ -304,73 +355,91 @@
    =========================================== */
 .md-typeset .admonition,
 .md-typeset details {
-  border-radius: 6px;
+  border-radius: var(--cs-radius);
   box-shadow: none;
 }
 
 /* ===========================================
-   J. Hero Section — High Impact Landing
+   J. Hero — homepage
    =========================================== */
 .hero {
+  position: relative;
   text-align: center;
-  padding: 3.5rem 1.5rem 2rem;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 4rem 2rem 2.5rem;
+  max-width: 880px;
+  margin: 1rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-/* Hero background gradient — subtle separation from content */
-[data-md-color-scheme="default"] .md-content > .md-typeset > .hero {
-  background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 100%);
-  border-radius: 16px;
-  margin-top: 1rem;
-  padding: 3rem 2rem 2rem;
+/* Aurora backdrop */
+[data-md-color-scheme="default"] .hero {
+  background:
+    radial-gradient(46rem 22rem at 18% -10%, rgba(234, 88, 12, 0.12), transparent 60%),
+    radial-gradient(40rem 20rem at 85% -15%, rgba(124, 58, 237, 0.1), transparent 60%),
+    linear-gradient(180deg, #fdf9f6 0%, #ffffff 100%);
+  border: 1px solid rgba(28, 25, 23, 0.06);
 }
 
-[data-md-color-scheme="slate"] .md-content > .md-typeset > .hero {
-  background: linear-gradient(180deg, rgba(31, 111, 235, 0.06) 0%, transparent 100%);
-  border-radius: 16px;
-  margin-top: 1rem;
-  padding: 3rem 2rem 2rem;
+[data-md-color-scheme="slate"] .hero {
+  background:
+    radial-gradient(46rem 22rem at 18% -10%, rgba(232, 133, 91, 0.14), transparent 60%),
+    radial-gradient(40rem 20rem at 85% -15%, rgba(139, 92, 246, 0.12), transparent 60%),
+    linear-gradient(180deg, #1a1714 0%, #141210 100%);
+  border: 1px solid rgba(245, 240, 236, 0.07);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+  border: 1px solid rgba(194, 65, 12, 0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 1.1rem;
+}
+
+[data-md-color-scheme="slate"] .hero-eyebrow {
+  border-color: rgba(240, 150, 107, 0.3);
 }
 
 .hero h1 {
-  font-size: 3rem !important;
+  font-size: 3.1rem !important;
   font-weight: 800 !important;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
   margin-bottom: 1rem !important;
-  background: linear-gradient(135deg, #58a6ff 0%, #1f6feb 50%, #388bfd 100%);
+  background: linear-gradient(120deg, #9a3412 0%, #ea580c 48%, #7c3aed 110%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-[data-md-color-scheme="default"] .hero h1 {
-  background: linear-gradient(135deg, #0550ae 0%, #0969da 50%, #218bff 100%);
+[data-md-color-scheme="slate"] .hero h1 {
+  background: linear-gradient(120deg, #f6b394 0%, #f0966b 45%, #c4b5fd 110%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  opacity: 0.8;
-  max-width: 540px;
-  margin: 0 auto 1.25rem;
-  line-height: 1.6;
-}
-
-.hero-platforms {
-  font-size: 0.85rem;
-  opacity: 0.55;
-  margin-bottom: 1.75rem;
+  font-size: 1.12rem;
+  opacity: 0.82;
+  max-width: 620px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.65;
 }
 
 .hero .md-button {
   margin: 0.3rem;
 }
 
-/* Social proof — star count below hero */
 .hero-social-proof {
   margin-top: 1.25rem;
   font-size: 0.85rem;
@@ -378,23 +447,62 @@
   font-weight: 500;
 }
 
+/* Stats strip under the hero */
+.stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 880px;
+  margin: 1.25rem auto 0;
+}
+
+.stat {
+  flex: 1 1 120px;
+  max-width: 160px;
+  text-align: center;
+  padding: 0.85rem 0.5rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--cs-radius);
+  background-color: var(--md-default-bg-color--light);
+}
+
+.stat .stat-number {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--md-primary-fg-color);
+  line-height: 1.2;
+}
+
+.stat .stat-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+  margin-top: 0.15rem;
+}
+
 /* ===========================================
-   J2. Tools Bar
+   J2. Tools bar
    =========================================== */
 .tools-bar {
   text-align: center;
-  padding: 1.5rem 1rem;
-  max-width: 720px;
-  margin: -0.5rem auto 0;
+  padding: 1.75rem 1rem 0.5rem;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .tools-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.45;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
   margin-bottom: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .tools-grid {
@@ -406,9 +514,9 @@
 
 .tool-badge {
   display: inline-block;
-  padding: 0.35rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.8rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none !important;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -416,37 +524,103 @@
 }
 
 .tool-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
   text-decoration: none !important;
 }
 
 /* Tool-specific colors */
-.tool-claude { background: #D97706; color: #fff !important; }
-.tool-codex { background: #10A37F; color: #fff !important; }
-.tool-gemini { background: #4285F4; color: #fff !important; }
+.tool-claude { background: #d97706; color: #fff !important; }
+.tool-codex { background: #10a37f; color: #fff !important; }
+.tool-gemini { background: #4285f4; color: #fff !important; }
 .tool-cursor { background: #000; color: #fff !important; }
-.tool-aider { background: #6366F1; color: #fff !important; }
-.tool-windsurf { background: #06B6D4; color: #fff !important; }
-.tool-kilo { background: #EC4899; color: #fff !important; }
-.tool-opencode { background: #8B5CF6; color: #fff !important; }
-.tool-augment { background: #F59E0B; color: #fff !important; }
-.tool-antigravity { background: #EF4444; color: #fff !important; }
+.tool-aider { background: #6366f1; color: #fff !important; }
+.tool-windsurf { background: #06b6d4; color: #fff !important; }
+.tool-kilo { background: #ec4899; color: #fff !important; }
+.tool-opencode { background: #8b5cf6; color: #fff !important; }
+.tool-augment { background: #f59e0b; color: #fff !important; }
+.tool-antigravity { background: #ef4444; color: #fff !important; }
 .tool-openclaw { background: #059669; color: #fff !important; }
+.tool-hermes { background: #334155; color: #fff !important; }
+.tool-vibe { background: #fa500f; color: #fff !important; }
 
 [data-md-color-scheme="default"] .tool-cursor {
   background: #1a1a1a;
 }
 
 [data-md-color-scheme="slate"] .tool-badge {
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Skills page hero */
+/* ===========================================
+   J3. Section kickers & steps
+   =========================================== */
+.section-kicker {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--md-primary-fg-color);
+  margin: 2.5rem 0 -1.75rem;
+}
+
+.steps {
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  margin: 0 !important;
+  padding: 1.4rem 1.1rem 1.1rem !important;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--cs-radius-lg);
+  background-color: var(--md-default-bg-color--light);
+  list-style: none;
+}
+
+.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  top: -0.85rem;
+  left: 1rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--cs-clay), var(--cs-clay-soft));
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(194, 65, 12, 0.3);
+}
+
+[data-md-color-scheme="slate"] .steps > li::before {
+  color: #14110f;
+  background: linear-gradient(135deg, #e8855b, #f0966b);
+}
+
+.steps > li strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ===========================================
+   J4. Skills / section page heroes
+   =========================================== */
 .skills-hero {
   text-align: center;
-  padding: 2rem 1rem 0.5rem;
-  max-width: 700px;
+  padding: 2.25rem 1rem 0.5rem;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -456,14 +630,14 @@
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 0.5rem !important;
-  background: linear-gradient(135deg, #58a6ff 0%, #1f6feb 50%, #388bfd 100%);
+  background: linear-gradient(120deg, #9a3412 0%, #ea580c 55%, #7c3aed 120%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-[data-md-color-scheme="default"] .skills-hero h1 {
-  background: linear-gradient(135deg, #0550ae 0%, #0969da 50%, #218bff 100%);
+[data-md-color-scheme="slate"] .skills-hero h1 {
+  background: linear-gradient(120deg, #f6b394 0%, #f0966b 50%, #c4b5fd 120%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -471,12 +645,11 @@
 
 .skills-hero-sub {
   font-size: 1.05rem;
-  opacity: 0.6;
-  max-width: 520px;
+  opacity: 0.65;
+  max-width: 560px;
   margin: 0 auto 1.5rem;
 }
 
-/* Skill count badge */
 .skill-count {
   display: inline-block;
   background: var(--md-primary-fg-color);
@@ -489,8 +662,12 @@
   margin-left: 0.35rem;
 }
 
+[data-md-color-scheme="slate"] .skill-count {
+  color: #14110f;
+}
+
 /* ===========================================
-   K. Typography — Improved Readability
+   K. Typography
    =========================================== */
 .md-typeset {
   font-size: 0.82rem;
@@ -511,35 +688,26 @@
 }
 
 /* ===========================================
-   L. Section Dividers — Visual Breathing Room
+   L. Section dividers
    =========================================== */
 .md-typeset hr {
   border-color: var(--md-default-fg-color--lightest);
   margin: 3rem 0;
 }
 
-/* Alternating section backgrounds on homepage */
-[data-md-color-scheme="default"] .md-typeset h2:nth-of-type(even) ~ .grid,
-[data-md-color-scheme="default"] .md-typeset h2:nth-of-type(even) ~ ul {
-  background-color: rgba(246, 248, 250, 0.5);
-  border-radius: 12px;
-  padding: 1rem;
-  margin: 0 -1rem;
-}
-
 /* ===========================================
-   M. Search Dialog
+   M. Search dialog
    =========================================== */
 [data-md-color-scheme="default"] .md-search__form {
-  background-color: #f6f8fa;
+  background-color: #faf7f5;
   border: 1px solid var(--md-default-fg-color--lightest);
 }
 
 /* ===========================================
-   N. Announcement Bar
+   N. Announcement bar
    =========================================== */
 .md-banner {
-  background-color: var(--md-primary-fg-color);
+  background: linear-gradient(90deg, #9a3412 0%, #c2410c 55%, #7c3aed 140%);
   color: #ffffff;
   font-size: 0.78rem;
 }
@@ -549,7 +717,7 @@
 }
 
 /* ===========================================
-   O. Page Metadata Bar (skills, agents, commands)
+   O. Page metadata bar (skills, agents, commands)
    =========================================== */
 .page-meta {
   display: flex;
@@ -590,7 +758,7 @@
 }
 
 /* ===========================================
-   P. Domain Index Cards
+   P. Domain index headers
    =========================================== */
 .domain-header {
   text-align: center;
@@ -601,7 +769,7 @@
 
 .domain-header h1 {
   font-size: 1.8rem !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   letter-spacing: -0.02em;
   margin-bottom: 0.25rem !important;
 }
@@ -613,16 +781,16 @@
 }
 
 /* ===========================================
-   Q. Page Install Banner
+   Q. Install banner
    =========================================== */
 .install-banner {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.65rem 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  background-color: var(--md-default-bg-color--light);
+  border-radius: var(--cs-radius);
+  border: 1px solid rgba(194, 65, 12, 0.2);
+  background-color: var(--md-accent-fg-color--transparent);
   font-size: 0.8rem;
   margin-bottom: 1.5rem;
 }
@@ -638,30 +806,47 @@
 
 .install-banner .install-label {
   color: var(--md-default-fg-color--light);
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 /* ===========================================
-   R. Mobile Responsive
+   R. Motion preferences & mobile
    =========================================== */
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid.cards > ol > li,
+  .md-typeset .md-button,
+  .tool-badge {
+    transition: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 1.25rem 1.75rem;
+    margin-top: 0.5rem;
+  }
+
   .hero h1 {
-    font-size: 2rem !important;
+    font-size: 2.05rem !important;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
 
-  .hero {
-    padding: 2rem 1rem 1.5rem;
+  .stats-strip {
+    gap: 0.5rem;
   }
 
-  [data-md-color-scheme="default"] .md-content > .md-typeset > .hero,
-  [data-md-color-scheme="slate"] .md-content > .md-typeset > .hero {
-    padding: 2rem 1rem 1.5rem;
-    margin-top: 0.5rem;
+  .stat {
+    flex-basis: 96px;
+    padding: 0.6rem 0.35rem;
+  }
+
+  .stat .stat-number {
+    font-size: 1.15rem;
   }
 
   .skills-hero h1 {
@@ -674,7 +859,7 @@
 
   .tool-badge {
     font-size: 0.7rem;
-    padding: 0.25rem 0.55rem;
+    padding: 0.25rem 0.6rem;
   }
 
   .page-meta {
@@ -695,4 +880,22 @@
   .domain-header h1 {
     font-size: 1.5rem !important;
   }
+}
+
+/* Footer AI-agent discovery links (llms.txt / llms-full.txt) */
+.md-copyright__ai {
+  font-size: 0.64rem;
+  opacity: 0.75;
+  margin-top: 0.15rem;
+}
+
+.md-copyright__ai a {
+  color: currentColor;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.md-copyright__ai a:hover,
+.md-copyright__ai a:focus {
+  opacity: 1;
 }

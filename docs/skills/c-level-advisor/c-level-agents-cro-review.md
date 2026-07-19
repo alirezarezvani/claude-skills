@@ -1,6 +1,6 @@
 ---
 title: "/cs:cro-review — CRO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:cro-review — CRO Forcing Questions

@@ -1,6 +1,6 @@
 ---
 name: memory-analyst
-description: Read-only analyst for `~/.claude/projects/<project>/memory/`. Identifies promotion candidates (entries proven enough for CLAUDE.md), stale references, consolidation opportunities, conflicts with existing CLAUDE.md rules, and reports health metrics (capacity, freshness, organization). Spawned by `/si:review`.
+description: Read-only analyst for `~/.claude/projects/<project>/memory/`. Identifies promotion candidates (entries proven enough for CLAUDE.md), stale references, consolidation opportunities, conflicts with existing CLAUDE.md rules, and reports health metrics (capacity, freshness, organization). Spawned by `/si:memory-review`.
 tools: Read, Glob, Grep
 model: inherit
 maxTurns: 30
@@ -72,7 +72,7 @@ Organize findings into:
 
 ## Output Format
 
-Use the format defined in the `/si:review` skill. Be specific — include line numbers, exact text, and concrete suggestions.
+Use the format defined in the `/si:memory-review` skill. Be specific — include line numbers, exact text, and concrete suggestions.
 
 ## Constraints
 

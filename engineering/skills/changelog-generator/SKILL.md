@@ -1,6 +1,6 @@
 ---
 name: "changelog-generator"
-description: "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, or automating release notes in CI."
+description: "Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, computing the next semantic version from commits, automating release notes in CI, or planning a hotfix/rollback. Examples: 'generate the changelog for v1.4.0', 'what version bump do these commits require', 'we need an emergency hotfix process'."
 ---
 
 # Changelog Generator
@@ -61,7 +61,18 @@ python3 scripts/generate_changelog.py \
   --write CHANGELOG.md
 ```
 
-### 4. Lint Commits Before Merge
+### 4. Compute the Next Version From Commits
+
+When the user has not decided the next version, derive it instead of guessing:
+
+```bash
+git log v1.3.0..HEAD --oneline | \
+  python3 scripts/version_bumper.py --current-version 1.3.0 --output-format json
+```
+
+Output JSON contains `recommended_version`, `bump_type` (`major`/`minor`/`patch`/`none`), and with `--include-commands` the exact `git tag` commands. Feed `recommended_version` into `generate_changelog.py --next-version`. Pre-releases: add `--prerelease alpha|beta|rc`. Input must be real `git log --oneline` output (hex hashes); a sample lives at `assets/sample_git_log.txt`.
+
+### 5. Lint Commits Before Merge
 
 ```bash
 python3 scripts/commit_linter.py --from-ref origin/main --to-ref HEAD --strict --format text
@@ -119,11 +130,38 @@ SemVer mapping:
 5. Tag releases only after changelog generation succeeds.
 6. Keep an `[Unreleased]` section for manual curation when needed.
 
+## Hotfix Severity & SLAs
+
+When a release goes wrong, classify before acting (full procedures in [references/hotfix-procedures.md](references/hotfix-procedures.md)):
+
+| Severity | Definition | SLA | Approval |
+|---|---|---|---|
+| P0 — Critical | Outage, data loss, exploited vulnerability | Fix deployed ≤ 2h; emergency deploy bypasses normal gates | Engineering Lead + On-call Manager |
+| P1 — High | Major feature broken, significant user impact | Fix deployed ≤ 24h; expedited review | Engineering Lead + Product Manager |
+| P2 — Medium | Minor issues, limited impact | Next release cycle | Standard PR review |
+
+Hotfix branch comes from the last stable tag, contains the minimal fix only, and gets its own patch-bump changelog entry via the workflow above.
+
+## Rollback Triggers
+
+Pre-commit to these thresholds before tagging; roll back when any fires:
+
+| Trigger | Threshold |
+|---|---|
+| Error rate spike | > 2x baseline within 30 min |
+| Performance degradation | > 50% latency increase |
+| Feature failure | Core functionality broken |
+| Security incident | Vulnerability being exploited |
+| Data corruption | Database integrity compromised |
+
+Prefer feature-flag disable over code rollback; database rollbacks only for non-destructive migrations (forward-only migrations preferred). See [references/hotfix-procedures.md](references/hotfix-procedures.md).
+
 ## References
 
 - [references/ci-integration.md](references/ci-integration.md)
 - [references/changelog-formatting-guide.md](references/changelog-formatting-guide.md)
 - [references/monorepo-strategy.md](references/monorepo-strategy.md)
+- [references/hotfix-procedures.md](references/hotfix-procedures.md)
 - [README.md](README.md)
 
 ## Release Governance

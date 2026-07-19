@@ -5,7 +5,7 @@ description: "Install Claude Code skills and agent plugins in Hermes Agent, Mist
 
 # Multi-Tool Integrations
 
-All 311 skills in this repository work natively with **9 AI coding tools** beyond Claude Code, Codex, Gemini CLI, and OpenClaw. Hermes Agent and Mistral Vibe both use the same agentskills.io SKILL.md standard — no conversion needed. For the other 7 tools, a conversion script adapts the format each tool expects while preserving skill instructions, workflows, and supporting files.
+All 345 skills in this repository work with **9 AI coding tools** beyond Claude Code, Codex, Gemini CLI, and OpenClaw. Hermes Agent and Mistral Vibe both use the same agentskills.io SKILL.md standard — no conversion needed. For the other 7 tools, a conversion script adapts the format each tool expects while preserving skill instructions, workflows, and supporting files.
 
 <div class="grid cards" markdown>
 

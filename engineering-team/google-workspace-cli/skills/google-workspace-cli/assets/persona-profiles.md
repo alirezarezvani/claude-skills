@@ -2,6 +2,8 @@
 
 10 role-based bundles that scope recipes and commands to your daily workflow.
 
+> **These are command templates, not verified invocations.** The `gws` CLI ([github.com/googleworkspace/cli](https://github.com/googleworkspace/cli)) generates its command surface dynamically from Google's Discovery Service and is pre-v1.0. Before running any command below, verify its exact syntax with `gws --help`, `gws <service> --help`, or `gws schema <service>.<resource>.<method>`. Verified upstream patterns: discovery commands are `gws <service> <resource> <method> --params '{...}' --json '{...}'`; helpers are `+`-prefixed (`gws gmail +send`, `gws calendar +agenda`, `gws workflow +standup-report`).
+
 ---
 
 ## 1. Executive Assistant
@@ -9,11 +11,11 @@
 **Description:** Managing schedules, emails, and communications for executives.
 
 **Top Commands:**
-- `gws helpers morning-briefing` — Start the day with schedule + inbox overview
-- `gws helpers find-time` — Find available slots for meetings
-- `gws helpers meeting-prep --event-id <id>` — Prepare meeting agenda
+- `python3 scripts/gws_recipe_runner.py --describe morning-briefing` — Start the day with schedule + inbox overview
+- `gws calendar freebusy query ...` (verify: `gws schema calendar.freebusy.query`) — Find available slots for meetings
+- `gws workflow +meeting-prep` — Prepare for the next meeting
 - `gws gmail users.messages send me` — Send emails on behalf
-- `gws helpers eod-wrap` — End of day summary
+- `python3 scripts/gws_recipe_runner.py --describe eod-wrap` — End of day summary
 
 **Recommended Recipes:** morning-briefing, today-schedule, find-time, send-email, reply-to-thread, meeting-prep, eod-wrap, quick-event, inbox-zero, standup-report
 
@@ -31,11 +33,11 @@
 **Description:** Tracking tasks, meetings, and project deliverables.
 
 **Top Commands:**
-- `gws recipes standup-report` — Generate standup updates
-- `gws helpers find-time` — Schedule sprint ceremonies
+- `gws workflow +standup-report` — Generate standup updates
+- `gws calendar freebusy query ...` (verify: `gws schema calendar.freebusy.query`) — Schedule sprint ceremonies
 - `gws tasks tasks insert` — Create and assign tasks
 - `gws sheets spreadsheets.values get` — Read project trackers
-- `gws recipes project-status` — Aggregate project status
+- `python3 scripts/gws_recipe_runner.py --describe project-status` — Aggregate project status
 
 **Recommended Recipes:** standup-report, create-event, find-time, task-create, task-progress, project-status, weekly-summary, share-folder, sheet-read, morning-briefing
 
@@ -77,7 +79,7 @@
 **Top Commands:**
 - `gws gmail users.messages send me` — Send proposals and follow-ups
 - `gws gmail users.messages list me --query` — Search client conversations
-- `gws helpers find-time` — Schedule client meetings
+- `gws calendar freebusy query ...` (verify: `gws schema calendar.freebusy.query`) — Schedule client meetings
 - `gws docs documents create` — Create proposals
 - `gws sheets spreadsheets.values update` — Update pipeline tracker
 

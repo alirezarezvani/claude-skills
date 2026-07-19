@@ -21,7 +21,28 @@ If `.claude/product-marketing-context.md` exists, read it before asking question
 ---
 
 ## Core Philosophy
-→ See references/launch-frameworks-and-checklists.md for details
+
+A launch is a momentum system, not a day. Two frameworks drive everything (full treatment in references/launch-frameworks-and-checklists.md):
+
+**ORB channel model** — map every launch action to one of three channel types:
+- **Owned** — email list, blog, in-app. You control reach; activate first.
+- **Rented** — social platforms, communities. Algorithmic reach; you play by their rules.
+- **Borrowed** — partner audiences, newsletters, podcasts, Product Hunt. Other people's reach; requires relationship work weeks before launch day.
+
+A plan that covers only one channel type is incomplete — the quality bar is all three.
+
+**Phase model** — sequence the launch instead of betting on one day:
+1. **Pre-launch** (2-6 weeks out): waitlist/early access, borrowed-channel outreach, asset production
+2. **Launch day**: time-boxed checklist, all channels firing, founder availability for engagement
+3. **Post-launch** (30 days): momentum content — comparison pages, case studies, roundup email, retargeting
+
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Readiness scorer | `python3 scripts/launch_readiness_scorer.py --checklist launch.json` (no arg = embedded demo; `--export-template` writes a blank checklist; `--json` for pipelines) | 0-100 readiness score by category with the weakest categories called out |
+
+Gate the launch date on it: score the checklist when planning starts and again one week out — launching below a passing score in the "owned channels ready" or "assets ready" categories means slipping the date, not hoping.
 
 ## Task-Specific Questions
 

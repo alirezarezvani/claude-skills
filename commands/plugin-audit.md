@@ -5,6 +5,7 @@ description: |
   quality, security, marketplace compliance, cross-platform compatibility, and ecosystem integration.
   Runs all built-in validation tools, invokes domain-appropriate agents for code review,
   and produces a pass/fail gate report. Usage: /plugin-audit <skill-path>
+argument-hint: "<skill-path>"
 ---
 
 # /plugin-audit
@@ -60,7 +61,7 @@ Auditing: code-to-prd
 Run the skill-tester validator.
 
 ```bash
-python3 engineering/skill-tester/scripts/skill_validator.py {skill_path} --tier {detected_tier} --json
+python3 engineering/skills/skill-tester/scripts/skill_validator.py {skill_path} --tier {detected_tier} --json
 ```
 
 Parse the JSON output. Extract:
@@ -83,7 +84,7 @@ Parse the JSON output. Extract:
 Run the quality scorer.
 
 ```bash
-python3 engineering/skill-tester/scripts/quality_scorer.py {skill_path} --detailed --json
+python3 engineering/skills/skill-tester/scripts/quality_scorer.py {skill_path} --detailed --json
 ```
 
 Parse the JSON output. Extract:
@@ -100,7 +101,7 @@ Parse the JSON output. Extract:
 If the skill has `scripts/` with `.py` files, run the script tester.
 
 ```bash
-python3 engineering/skill-tester/scripts/script_tester.py {skill_path} --json --verbose
+python3 engineering/skills/skill-tester/scripts/script_tester.py {skill_path} --json --verbose
 ```
 
 Parse the JSON output. For each script, extract:
@@ -118,7 +119,7 @@ Parse the JSON output. For each script, extract:
 Run the skill security auditor.
 
 ```bash
-python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py {skill_path} --strict --json
+python3 engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py {skill_path} --strict --json
 ```
 
 Parse the JSON output. Extract:
@@ -303,10 +304,10 @@ Present results as a structured table:
 
 | Tool | Path |
 |------|------|
-| Skill Validator | `engineering/skill-tester/scripts/skill_validator.py` |
-| Quality Scorer | `engineering/skill-tester/scripts/quality_scorer.py` |
-| Script Tester | `engineering/skill-tester/scripts/script_tester.py` |
-| Security Auditor | `engineering/skill-security-auditor/scripts/skill_security_auditor.py` |
+| Skill Validator | `engineering/skills/skill-tester/scripts/skill_validator.py` |
+| Quality Scorer | `engineering/skills/skill-tester/scripts/quality_scorer.py` |
+| Script Tester | `engineering/skills/skill-tester/scripts/script_tester.py` |
+| Security Auditor | `engineering/skills/skill-security-auditor/scripts/skill_security_auditor.py` |
 | Quality Standards | `standards/quality/quality-standards.md` |
 | Security Standards | `standards/security/security-standards.md` |
 | Git Standards | `standards/git/git-workflow-standards.md` |

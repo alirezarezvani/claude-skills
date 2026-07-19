@@ -48,7 +48,7 @@ Specialist in creating, modifying, and managing reusable templates and files for
 
 ## Confluence Templates Library
 
-See **TEMPLATES.md** for full reference tables and copy-paste-ready template structures. The following summarises the standard types this skill creates and maintains.
+See `references/template-design-patterns.md` for template design patterns and `references/governance-framework.md` for the governance model. For deployment-ready storage-format markup, use the bundled scaffolder (see [Template scaffolder](#template-scaffolder-generate-storage-format-markup) below). The following summarises the standard types this skill creates and maintains.
 
 ### Confluence Template Types
 | Template | Purpose | Key Macros Used |
@@ -67,7 +67,7 @@ See **TEMPLATES.md** for full reference tables and copy-paste-ready template str
 
 ### Complete Example: Meeting Notes Template
 
-The following is a copy-paste-ready Meeting Notes template in Confluence storage format (wiki markup):
+> **Format warning**: The example below is **legacy wiki markup** (`{panel}`, `h2.`, `{tasks}`), shown for human readability. Wiki markup is NOT Confluence storage format and **will be rejected** by `mcp__atlassian__createConfluencePage` / `updateConfluencePage`, which expect storage format (XHTML, `<ac:structured-macro>` elements) or ADF. To get the deployment-ready storage-format equivalent, run the scaffolder: `python3 scripts/template_scaffolder.py meeting-notes` (see [Template scaffolder](#template-scaffolder-generate-storage-format-markup)).
 
 ```
 {panel:title=Meeting Metadata|borderColor=#0052CC|titleBGColor=#0052CC|titleColor=#FFFFFF}
@@ -104,7 +104,7 @@ h2. Next Steps & Related Links
 * Related Jira issues: {jira:key=PROJ-123}
 ```
 
-> Full examples for all other template types (Project Charter, Sprint Retrospective, PRD, Decision Log) and all Jira templates can be generated on request or found in **TEMPLATES.md**.
+> Storage-format examples for the other built-in types (decision-log, runbook, project-kickoff) come from `python3 scripts/template_scaffolder.py --list`; design patterns for the remaining types (Project Charter, Sprint Retrospective, PRD) are in `references/template-design-patterns.md`.
 
 ---
 
@@ -134,82 +134,63 @@ h2. Next Steps & Related Links
 
 ---
 
+## Template scaffolder — generate storage-format markup
+
+The bundled scaffolder emits **Confluence storage-format XHTML** — the exact body format `createConfluencePage`/`updateConfluencePage` accept. It is the canonical deployment path for this skill:
+
+```bash
+# List available template types (meeting-notes, decision-log, runbook, project-kickoff, custom)
+python3 scripts/template_scaffolder.py --list
+
+# Generate a template body (storage-format XHTML)
+python3 scripts/template_scaffolder.py meeting-notes
+
+# Custom template with chosen sections and macros, JSON output for programmatic use
+python3 scripts/template_scaffolder.py custom --sections "Overview,Goals,Action Items" --macros "toc,status,info" --format json
+```
+
+Consume the output: take the `CONFLUENCE STORAGE FORMAT MARKUP` block (text mode) or the markup field (JSON mode) and pass it verbatim as the `body` of `mcp__atlassian__createConfluencePage`. Apply the suggested labels via the Confluence UI afterwards (label tools are not on the MCP).
+
 ## Atlassian MCP Integration
 
-**Primary Tools**: Confluence MCP, Jira MCP
+**Primary Tool**: Atlassian Remote MCP server (bundled `.mcp.json`, server key `atlassian`). Tools surface as `mcp__atlassian__<toolName>` (camelCase). **Canonical tool list**: `project-management/references/atlassian-mcp-tools.md`. Never invent tool names — if a capability isn't in that list, it is not available via MCP; route to the web UI or REST API.
 
 ### Template Operations via MCP
 
-All MCP calls below use the exact parameter names expected by the Atlassian MCP server. Replace angle-bracket placeholders with real values before executing.
+Obtain `cloudId` once via `mcp__atlassian__getAccessibleAtlassianResources`. Replace angle-bracket placeholders with real values; discover exact parameter names from each tool's schema at call time.
 
-**Create a Confluence page template:**
-```json
-{
-  "tool": "confluence_create_page",
-  "parameters": {
-    "space_key": "PROJ",
-    "title": "Template: Meeting Notes",
-    "body": "<storage-format template content>",
-    "labels": ["template", "meeting-notes"],
-    "parent_id": "<optional parent page id>"
-  }
-}
+**Create a Confluence template page** (body from the scaffolder above):
+```
+mcp__atlassian__createConfluencePage (cloudId, space, title="Template: Meeting Notes",
+  body=<storage-format XHTML from template_scaffolder.py>, parent page id optional)
+```
+Labels (`template`, `meeting-notes`) must be applied in the Confluence UI — there is no MCP label tool.
+
+**Update an existing template page** (read first to get the current version):
+```
+mcp__atlassian__getConfluencePage (cloudId, pageId=<existing page id>)
+mcp__atlassian__updateConfluencePage (cloudId, pageId=<id>, version=<current + 1>,
+  body=<updated storage-format content>)
 ```
 
-**Update an existing template:**
-```json
-{
-  "tool": "confluence_update_page",
-  "parameters": {
-    "page_id": "<existing page id>",
-    "version": "<current_version + 1>",
-    "title": "Template: Meeting Notes",
-    "body": "<updated storage-format content>",
-    "version_comment": "v2 — added status macro to header"
-  }
-}
-```
+**Jira issue description templates**: there is **no MCP tool for field configuration** (`default_value` on the description field, screens, field contexts). Configure description defaults in the Jira admin UI (`Settings > Issues > Field configurations`) or via REST (`/rest/api/3/fieldconfiguration`). What MCP CAN do: create issues pre-filled with template text via `mcp__atlassian__createJiraIssue` (pass the template body as the description), and inspect required fields per issue type with `mcp__atlassian__getJiraIssueTypeMetaWithFields`.
 
-**Create a Jira issue description template (via field configuration):**
-```json
-{
-  "tool": "jira_update_field_configuration",
-  "parameters": {
-    "project_key": "PROJ",
-    "field_id": "description",
-    "default_value": "<template markdown or Atlassian Document Format JSON>"
-  }
-}
-```
+**First-class Confluence templates/blueprints** are also **not creatable via MCP** — `createConfluencePage` creates ordinary pages that serve as copy-from templates. To register a real space template, use `Space settings > Templates` in the UI.
 
-**Deploy template to multiple spaces (batch):**
-```json
-// Repeat for each target space key
-{
-  "tool": "confluence_create_page",
-  "parameters": {
-    "space_key": "<SPACE_KEY>",
-    "title": "Template: Meeting Notes",
-    "body": "<storage-format template content>",
-    "labels": ["template"]
-  }
-}
-// After each create, verify:
-{
-  "tool": "confluence_get_page",
-  "parameters": {
-    "space_key": "<SPACE_KEY>",
-    "title": "Template: Meeting Notes"
-  }
-}
-// Assert response status == 200 and page body is non-empty before proceeding to next space
+**Deploy a template page to multiple spaces (batch):**
+```
+# Repeat per target space:
+mcp__atlassian__createConfluencePage (cloudId, space=<target>, title="Template: Meeting Notes", body=<storage-format content>)
+# Verify each create before proceeding:
+mcp__atlassian__getConfluencePage (cloudId, pageId=<id returned by create>)
+# Assert the returned body is non-empty and contains the expected <ac:structured-macro> elements
 ```
 
 **Validation checkpoint after deployment:**
-- Retrieve the created/updated page and assert it renders without macro errors
-- Check that `{jira}` embeds resolve against the target Jira project
-- Confirm `{tasks}` blocks are interactive in the published view
-- If any check fails: revert using `confluence_update_page` with `version: <current + 1>` and the previous version body
+- Retrieve the created/updated page via `mcp__atlassian__getConfluencePage` and assert it renders without macro errors
+- Check that Jira-macro embeds resolve against the target Jira project
+- Confirm task blocks are interactive in the published view
+- If any check fails: revert using `mcp__atlassian__updateConfluencePage` with `version: <current + 1>` and the previous version body
 
 ---
 
@@ -241,7 +222,7 @@ All MCP calls below use the exact parameter names expected by the Atlassian MCP 
 
 ## Handoff Protocols
 
-See **HANDOFFS.md** for the full handoff matrix. Summary:
+Handoff summary (governance context in `references/governance-framework.md`):
 
 | Partner | Receives FROM | Sends TO |
 |---------|--------------|---------|

@@ -33,7 +33,7 @@ description: "18 regulatory & quality skills — regulatory and quality manageme
 
     ---
 
-    FDA regulatory consulting for medical device manufacturers covering submission pathways, Quality System Regulation (Q...
+    FDA regulatory consulting for medical device manufacturers covering submission pathways, the Quality Management Syste...
 
 -   **[GDPR/DSGVO Expert](gdpr-dsgvo-expert.md)**
 
@@ -89,11 +89,11 @@ description: "18 regulatory & quality skills — regulatory and quality manageme
 
     ISO 13485:2016 Quality Management System implementation, maintenance, and certification support for medical device or...
 
--   **[Regulatory Affairs & Quality Management Skills](ra-qm-skills.md)**
+-   **[Regulatory Affairs & Quality Management Skills — Router](ra-qm-skills.md)**
 
     ---
 
-    12 production-ready compliance skills for HealthTech and MedTech organizations.
+    This plugin bundles 15 compliance skills for HealthTech/MedTech organizations (this router is the 16th folder under r...
 
 -   **[Head of Regulatory Affairs](regulatory-affairs-head.md)**
 

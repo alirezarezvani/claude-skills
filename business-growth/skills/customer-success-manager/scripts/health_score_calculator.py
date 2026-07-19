@@ -397,11 +397,38 @@ def format_json(results: List[Dict[str, Any]]) -> str:
 # ---------------------------------------------------------------------------
 
 
+# Embedded synthetic fixture for --sample (two customers across segments).
+SAMPLE_DATA = {
+    "customers": [
+        {
+            "customer_id": "C-001",
+            "name": "Acme Corp",
+            "segment": "enterprise",
+            "arr": 240000,
+            "usage": {"dau_mau_ratio": 0.55, "license_utilization": 0.82},
+            "engagement": {"qbr_attendance": 1.0, "champion_engaged": True},
+            "support": {"open_tickets": 2, "csat": 4.6},
+            "relationship": {"nps": 9, "exec_sponsor": True},
+        },
+        {
+            "customer_id": "C-002",
+            "name": "Globex Ltd",
+            "segment": "smb",
+            "arr": 18000,
+            "usage": {"dau_mau_ratio": 0.12, "license_utilization": 0.35},
+            "engagement": {"qbr_attendance": 0.0, "champion_engaged": False},
+            "support": {"open_tickets": 7, "csat": 3.1},
+            "relationship": {"nps": 4, "exec_sponsor": False},
+        },
+    ]
+}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Calculate multi-dimensional customer health scores with trend analysis."
     )
-    parser.add_argument("input_file", help="Path to JSON file containing customer data")
+    parser.add_argument("input_file", nargs="?", help="Path to JSON file containing customer data")
     parser.add_argument(
         "--format",
         choices=["text", "json"],
@@ -409,17 +436,29 @@ def main() -> None:
         dest="output_format",
         help="Output format (default: text)",
     )
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="Run with an embedded synthetic customer fixture (no input file needed)",
+    )
     args = parser.parse_args()
 
-    try:
-        with open(args.input_file, "r") as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: File not found: {args.input_file}", file=sys.stderr)
-        sys.exit(1)
-    except json.JSONDecodeError as e:
-        print(f"Error: Invalid JSON in {args.input_file}: {e}", file=sys.stderr)
-        sys.exit(1)
+    if args.sample:
+        if args.input_file:
+            print("Warning: --sample specified; ignoring input_file", file=sys.stderr)
+        data = SAMPLE_DATA
+    else:
+        if not args.input_file:
+            parser.error("input_file is required (or use --sample)")
+        try:
+            with open(args.input_file, "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            print(f"Error: File not found: {args.input_file}", file=sys.stderr)
+            sys.exit(1)
+        except json.JSONDecodeError as e:
+            print(f"Error: Invalid JSON in {args.input_file}: {e}", file=sys.stderr)
+            sys.exit(1)
 
     customers = data.get("customers", [])
     if not customers:

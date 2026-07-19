@@ -61,4 +61,4 @@ Filed back to comparisons/sae-vs-probing.md.
 
 ## Skill Reference
 
-→ `engineering/llm-wiki/SKILL.md`
+→ `engineering/llm-wiki/skills/llm-wiki/SKILL.md`

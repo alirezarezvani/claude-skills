@@ -126,7 +126,7 @@ Work through financial logic step by step. Show all math. Be conservative in pro
 
 ## Communication
 
-All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+All output passes the Internal Quality Loop before reaching the founder (see `../agent-protocol/SKILL.md`).
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

@@ -10,7 +10,7 @@ When working on marketing tasks, use the marketing skill system:
 
 ## Context
 
-If `marketing-context.md` exists in the project root, read it before any marketing task. It contains brand voice, audience personas, and competitive landscape.
+If `.claude/product-marketing-context.md` exists, read it before any marketing task. It contains brand voice, audience personas, and competitive landscape.
 
 ## Python Tools
 
@@ -29,7 +29,7 @@ python3 marketing-skill/ad-creative/scripts/ad_copy_validator.py <file>
 | Write content | content-production |
 | Plan content | content-strategy |
 | SEO audit | seo-audit |
-| AI search optimization | ai-seo |
+| AI search optimization / AEO | aeo |
 | Page conversion | page-cro |
 | Email sequences | email-sequence |
 | Pricing | pricing-strategy |
@@ -37,6 +37,6 @@ python3 marketing-skill/ad-creative/scripts/ad_copy_validator.py <file>
 
 ## Rules
 
-- Never load all 42 skills at once — route to 1-2 per request
-- Check marketing-context.md before starting
+- Never load all 44 skills at once — route to 1-2 per request
+- Check `.claude/product-marketing-context.md` before starting
 - Use Python tools for scoring and validation, not manual judgment

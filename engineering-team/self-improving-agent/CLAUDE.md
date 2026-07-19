@@ -6,10 +6,10 @@ This plugin helps you curate Claude Code's auto-memory into durable project know
 
 Use the `/si:` namespace for all commands:
 
-- `/si:review` — Analyze auto-memory health and find promotion candidates
+- `/si:memory-review` — Analyze auto-memory health and find promotion candidates
 - `/si:promote <pattern>` — Graduate a learning to CLAUDE.md or `.claude/rules/`
 - `/si:extract <pattern>` — Create a reusable skill from a proven pattern
-- `/si:status` — Quick memory health dashboard
+- `/si:memory-status` — Quick memory health dashboard
 - `/si:remember <knowledge>` — Explicitly save something to auto-memory
 
 ## How auto-memory works
@@ -22,7 +22,7 @@ This plugin reads that directory — it never creates its own storage.
 
 ### After completing a feature or debugging session
 ```
-/si:review
+/si:memory-review
 ```
 Check if anything Claude learned should become a permanent rule.
 
@@ -40,7 +40,7 @@ Creates a standalone skill with SKILL.md, ready to install elsewhere.
 
 ### To check memory capacity
 ```
-/si:status
+/si:memory-status
 ```
 Shows line counts, topic files, stale entries, and recommendations.
 
@@ -55,7 +55,7 @@ Shows line counts, topic files, stale entries, and recommendations.
 
 ## Agents
 
-- **memory-analyst**: Spawned by `/si:review` to analyze patterns across memory files
+- **memory-analyst**: Spawned by `/si:memory-review` to analyze patterns across memory files
 - **skill-extractor**: Spawned by `/si:extract` to generate complete skill packages
 
 ## Hooks

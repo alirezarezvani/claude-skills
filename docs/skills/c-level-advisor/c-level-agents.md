@@ -1,6 +1,6 @@
 ---
 title: "c-level-agents — Founder-Mode Executive Team — Agent Skill for Executives"
-description: "Founder-mode executive team. 8 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) and 17 /cs:* slash commands for. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /cs:* slash. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # c-level-agents — Founder-Mode Executive Team
@@ -24,7 +24,7 @@ founder mode, virtual c-suite, executive team, boardroom, office hours, cfo revi
 
 ## What This Plugin Provides
 
-### 8 cs-* Agents (in `agents/`)
+### 13 cs-* Agents (in `agents/`)
 
 Each agent wraps an existing c-level skill and adds:
 - A distinct cognitive voice (numerate skeptic, narrative-first, etc.)
@@ -32,11 +32,11 @@ Each agent wraps an existing c-level skill and adds:
 - Workflow orchestration tied to skill Python tools
 - Output template: Bottom Line → What → Why → How to Act → Your Decision
 
-See [`references/persona-voices.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/references/persona-voices.md) for voice specs.
+See [`references/persona-voices.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md) for voice specs.
 
-### 17 /cs:* Slash Commands (in `skills/`)
+### 21 /cs:* Slash Commands (in `skills/`)
 
-**Forcing-question office hours (8):**
+**Forcing-question office hours (12):**
 - `/cs:office-hours` — YC-style 6-question intake
 - `/cs:cfo-review` — unit economics, runway, dilution
 - `/cs:cmo-review` — ICP, CAC payback, positioning
@@ -45,6 +45,10 @@ See [`references/persona-voices.md`](https://github.com/alirezarezvani/claude-sk
 - `/cs:cto-review` — architecture risk, scaling cliff
 - `/cs:ciso-review` — threat model, blast radius, compliance
 - `/cs:gc-review` — contracts, IP, regulatory, term sheets
+- `/cs:cdo-review` — training-data rights, data products, data assets
+- `/cs:caio-review` — model selection, evals, AI risk, AI costs
+- `/cs:cco-review` — GRR/NRR decomposition, churn root cause, CS coverage
+- `/cs:vpe-review` — DORA metrics, cycle time, eng hiring funnel, team structure
 
 **Strategic sprint pipeline (5):**
 - `/cs:brief` → `/cs:boardroom` → `/cs:decide` → `/cs:execute` → `/cs:post-mortem`
@@ -88,11 +92,11 @@ User question
 
 ## Integration Points
 
-- **Existing 28 c-level skills** — wrapped, not replaced
+- **Existing 33 c-level skills** — wrapped, not replaced
 - **decision-logger** — every `/cs:decide` writes here
 - **chief-of-staff** — routing layer the agent orchestrates
 - **board-meeting** — protocol the `/cs:boardroom` command runs
-- **llm-wiki** — optional persistent memory bridge (see [`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/references/llm-wiki-bridge.md))
+- **llm-wiki** — optional persistent memory bridge (see [`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md))
 - **executive-mentor** — adversarial `/em:*` commands stack cleanly on top
 
 ## Design Principles

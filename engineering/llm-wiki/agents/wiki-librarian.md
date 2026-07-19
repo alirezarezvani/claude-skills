@@ -23,7 +23,7 @@ You are spawned **per-query**, not as a long-running agent.
 
 ## Workflow
 
-Follow `references/query-workflow.md`. Summary:
+Follow `skills/llm-wiki/references/query-workflow.md`. Summary:
 
 ### 1. Read `index.md` first
 The index is the catalog. Scan it and pick the 3-10 pages most likely to contain the answer. Pick across categories:
@@ -62,7 +62,7 @@ This is the compounding move. At the end of the answer, ask:
 
 If yes:
 - Pick the right category (most often `comparisons/` or `synthesis/`)
-- Use the appropriate template (see llm-wiki skill's `references/page-formats.md`)
+- Use the appropriate template (see llm-wiki skill's `skills/llm-wiki/references/page-formats.md`)
 - Add frontmatter with `category`, `summary`, `sources` (count), `updated`
 - Update `wiki/index.md` (inline or via script)
 - Append to `log.md`: `python <plugin>/scripts/append_log.py --vault . --op create --title "<question>" --detail "filed query response to <path>"`

@@ -34,7 +34,15 @@ Any agent can query another using:
 [INVOKE:cro|What does our pipeline look like for the next 90 days?]
 ```
 
-**Valid roles:** `ceo`, `cfo`, `cro`, `cmo`, `cpo`, `cto`, `chro`, `coo`, `ciso`
+**Valid roles:** `ceo`, `cfo`, `cro`, `cmo`, `cpo`, `cto`, `chro`, `coo`, `ciso`, `gc`, `cdo`, `caio`, `cco`, `vpe`
+
+| Role token | Advisor skill |
+|---|---|
+| `gc` | general-counsel-advisor (legal, contracts, term sheets) |
+| `cdo` | chief-data-officer-advisor (data strategy, training-data rights) |
+| `caio` | chief-ai-officer-advisor (AI strategy, evals, AI risk) |
+| `cco` | chief-customer-officer-advisor (retention, customer success) |
+| `vpe` | vpe-advisor (engineering delivery, DORA, eng hiring) |
 
 ## Response Format
 
@@ -160,6 +168,26 @@ CEO can broadcast to all roles simultaneously:
 
 Responses come back independently (no agent sees another's response before forming its own). Aggregate after all respond.
 
+## Decision Memory (Canonical Layout)
+
+All C-suite skills and `/cs:*` commands read and write decisions in **one** place — the two-layer model owned by `/cs:decide` and the decision-logger skill:
+
+```
+~/.claude/decisions/
+├── raw/YYYY-MM-DD-<slug>.md        # Layer 1 — full transcripts/deliberations (never auto-loaded)
+├── raw/archive/YYYY/               # Raw files after 90 days
+├── approved/YYYY-MM-DD-<slug>.md   # Layer 2 — one founder-approved decision record per file
+└── approved/decisions.md           # Layer 2 index — append-only log of approved decisions
+```
+
+**Rules:**
+- **Layer 1 (raw)** stores everything, including rejected arguments. Reference only — never feeds future sessions automatically.
+- **Layer 2 (approved)** stores only founder-approved decisions. This is what board meetings, `/cs:office-hours`, and `/cs:founder-mode` load. Prevents hallucinated consensus.
+- Writers: `/cs:decide` and the Chief of Staff (post board-meeting Phase 5). Individual role agents never write decisions directly.
+- decision-logger, chief-of-staff, and board-meeting all use this layout. Their SKILL.md files link here rather than defining their own paths.
+
+**Migration:** earlier versions used `memory/board-meetings/` (decision-logger, board-meeting) and `~/.claude/decision-log.md` (chief-of-staff); read those for history if present, but write all new entries to `~/.claude/decisions/`.
+
 ## Quick Reference
 
 | Rule | Behavior |
@@ -217,6 +245,11 @@ When a recommendation impacts another role's domain, that role validates BEFORE 
 | Customer-facing changes | CRO + CPO | Churn risk, product roadmap conflict |
 | Security or compliance claims | CISO | Actual posture, regulation requirements |
 | Market or positioning claims | CMO | Data backing, competitive reality |
+| Legal exposure, contracts, term sheets | GC | Clause risk, IP ownership, regulatory triggers |
+| Data rights, training-data provenance | CDO | Consent basis, GDPR Art. 6, data-asset impact |
+| AI model claims, eval results, AI risk | CAIO | Eval coverage, hallucination SLO, EU AI Act tier |
+| Retention, churn, customer-health claims | CCO | GRR/NRR decomposition, churn root cause |
+| Delivery timelines, eng throughput | VPE | DORA metrics, cycle-time reality, team capacity |
 
 **Peer validation format:**
 ```

@@ -76,17 +76,17 @@ Differentiates from siblings:
 
 ### Python Tools (Stdlib)
 
-1. **Market-First Evaluator** — `scripts/market_first_evaluator.py` — weighted market > team >
+1. **Market-First Evaluator** — `skills/andreessen/scripts/market_first_evaluator.py` — weighted market > team >
    product; sub-4 market is a hard kill gate.
-2. **PMF Signal Scorer** — `scripts/pmf_signal_scorer.py` — 4 qualitative signals + Sean Ellis 40% gate.
-3. **Anti-Todo 3x5 Card** — `scripts/anti_todo_card.py` — front capped at 3-5, back is the Anti-Todo log.
+2. **PMF Signal Scorer** — `skills/andreessen/scripts/pmf_signal_scorer.py` — 4 qualitative signals + Sean Ellis 40% gate.
+3. **Anti-Todo 3x5 Card** — `skills/andreessen/scripts/anti_todo_card.py` — front capped at 3-5, back is the Anti-Todo log.
 
 ### Knowledge Bases
 
-- `references/operating_prompt.md` — verbatim operating prompt + posture mapping (5 sources)
-- `references/market_first_canon.md` — market > team > product (7 sources)
-- `references/pmf_and_build_canon.md` — PMF phases + Ellis 40% + "It's Time to Build" (7 sources)
-- `references/personal_productivity_system.md` — 3x5 card + Anti-Todo + scheduling reversal (7 sources)
+- `skills/andreessen/references/operating_prompt.md` — verbatim operating prompt + posture mapping (5 sources)
+- `skills/andreessen/references/market_first_canon.md` — market > team > product (7 sources)
+- `skills/andreessen/references/pmf_and_build_canon.md` — PMF phases + Ellis 40% + "It's Time to Build" (7 sources)
+- `skills/andreessen/references/personal_productivity_system.md` — 3x5 card + Anti-Todo + scheduling reversal (7 sources)
 
 ## Related Agents
 

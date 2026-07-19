@@ -208,13 +208,13 @@ python ../../skills/vpe-advisor/scripts/eng_team_structure_designer.py team.json
 
 ## Adjacent Skills
 
-- `../cto-advisor/` — Architecture, scaling cliffs, tech debt strategy (CTO decides what to build; VPE decides how to ship)
-- `../chro-advisor/` — Hiring systems (ladders, bands, leveling rubrics company-wide); VPE owns eng-specific funnel execution
-- `../coo-advisor/` — Operating cadence company-wide; VPE owns eng-specific cadence
-- `../../../engineering/slo-architect/` — SLO design (tactical; VPE owns the policy that SLOs are required)
-- `../../../engineering/chaos-engineering/` — Chaos experiment design (tactical resilience)
-- `../../../engineering/feature-flags-architect/` — Progressive delivery (tactical deployment)
-- `../../../engineering/kubernetes-operator/` — K8s operator pattern (tactical infra)
+- `c-level-advisor/skills/cto-advisor/` — Architecture, scaling cliffs, tech debt strategy (CTO decides what to build; VPE decides how to ship)
+- `c-level-advisor/skills/chro-advisor/` — Hiring systems (ladders, bands, leveling rubrics company-wide); VPE owns eng-specific funnel execution
+- `c-level-advisor/skills/coo-advisor/` — Operating cadence company-wide; VPE owns eng-specific cadence
+- `engineering/skills/slo-architect/` — SLO design (tactical; VPE owns the policy that SLOs are required)
+- `engineering/skills/chaos-engineering/` — Chaos experiment design (tactical resilience)
+- `engineering/skills/feature-flags-architect/` — Progressive delivery (tactical deployment)
+- `engineering/skills/kubernetes-operator/` — K8s operator pattern (tactical infra)
 - `cs-engineering-lead` agent — Day-to-day incident + on-call coordination (VPE owns the operating model that engineering-lead executes)
 
 ## References

@@ -1,7 +1,7 @@
 # Board Meeting Agenda Template
 
-Use this to structure a board meeting before invoking `/cs:board`.
-Paste it into the conversation or save it as `memory/board-meetings/agenda-YYYY-MM-DD.md`.
+Use this to structure a board meeting before invoking `/cs:boardroom`.
+Paste it into the conversation or save it as `~/.claude/decisions/agenda-YYYY-MM-DD.md`.
 
 ---
 
@@ -70,7 +70,7 @@ List topics that might come up but are NOT on today's agenda:
 ## Pre-Read
 
 Materials all participants should review before the meeting:
-- [ ] `memory/board-meetings/decisions.md` (Chief of Staff loads automatically)
+- [ ] `~/.claude/decisions/approved/decisions.md` (Chief of Staff loads automatically)
 - [ ] [Link or filename]
 - [ ] [Link or filename]
 

@@ -584,6 +584,19 @@ def _print_text_report(result: dict) -> None:
 # Main Entry Point
 # ---------------------------------------------------------------------------
 
+# Embedded synthetic security event for --sample (no file/stdin needed).
+SAMPLE_EVENT = {
+    "event_type": "ransomware",
+    "source_ip": "203.0.113.50",
+    "destination_ip": "10.0.4.21",
+    "user_account": "svc-backup",
+    "hostname": "fileserver-02",
+    "process_name": "encryptor.exe",
+    "first_seen": "2026-06-10T01:30:00Z",
+    "detected_at": "2026-06-10T09:30:00Z",
+}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Incident Classification, Triage, and Escalation",
@@ -627,12 +640,22 @@ Exit codes:
         choices=["sev1", "sev2", "sev3", "sev4"],
         help="Explicit severity override (skips taxonomy-derived severity)",
     )
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="Triage an embedded synthetic ransomware event (no file/stdin needed; "
+             "note: exits 2 — the SEV1 exit-code signal is intentional)",
+    )
 
     args = parser.parse_args()
 
     # --- Load input ---
     try:
-        if args.input:
+        if args.sample:
+            if args.input:
+                print("Warning: --sample specified; ignoring --input", file=sys.stderr)
+            raw_event = SAMPLE_EVENT
+        elif args.input:
             with open(args.input, "r", encoding="utf-8") as fh:
                 raw_event = json.load(fh)
         else:

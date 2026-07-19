@@ -114,7 +114,32 @@ ACTION_TIMING = {
         "timeout_seconds": 90,
         "polling_interval_seconds": 5,
     },
+    "flashcards": {
+        "category": "studio",
+        "verdict": "WAIT",
+        "estimated_duration_seconds": (30, 60),
+        "timeout_seconds": 120,
+        "polling_interval_seconds": 10,
+    },
+    "quiz": {
+        "category": "studio",
+        "verdict": "WAIT",
+        "estimated_duration_seconds": (30, 60),
+        "timeout_seconds": 120,
+        "polling_interval_seconds": 10,
+    },
     # Studio outputs — slow (fire-and-notify)
+    "video_overview": {
+        "category": "studio",
+        "verdict": "FIRE_AND_NOTIFY",
+        "estimated_duration_seconds": (300, 900),
+        "estimated_duration_human": "5-15 minutes",
+        "notify_message": (
+            "Video Overview generation triggered. Estimated 5-15 minutes. "
+            "NotebookLM will notify you in-app and via email when ready. "
+            "NOT waiting in this session — returning control to you now."
+        ),
+    },
     "audio_overview": {
         "category": "studio",
         "verdict": "FIRE_AND_NOTIFY",

@@ -43,6 +43,14 @@ Before providing recommendations, understand:
 ## Core Principles
 → See references/signup-cro-playbook.md for details
 
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Funnel drop analyzer | `python3 scripts/funnel_drop_analyzer.py --steps funnel.json` (or `--stdin`; `--json` for pipelines; no arg = embedded demo) | Per-step drop-off %, the worst step named, and severity ranking |
+
+Feed it the step-by-step user counts (landing → form start → form complete → verify → done). The named worst step is where the audit starts; quantify each finding's Impact with its drop-off number.
+
 ## Output Format
 
 ### Audit Findings

@@ -30,6 +30,14 @@ Input schema (JSON):
   ]
 }
 
+Note on `article_5_practice`: this flag is the caller's legal pre-determination
+that a listed Article 5 practice applies IN ITS PROHIBITED CONTEXT — the
+classifier trusts it and does not re-derive it from the other fields. Context
+matters: emotion recognition is prohibited under Article 5(1)(f) ONLY in
+workplace and education settings (narrow safety/medical exceptions aside);
+the same system in e.g. a retail setting is NOT prohibited — it is subject to
+Article 50(3) transparency and possibly Annex III §1 (biometrics) high-risk rules.
+
 Usage:
     python ai_system_risk_classifier.py                       # uses embedded 5-system sample
     python ai_system_risk_classifier.py path/to/systems.json
@@ -45,9 +53,15 @@ from typing import Any, Dict, List, Optional
 SAMPLE: Dict[str, Any] = {
     "systems": [
         {
-            "name": "Emotion recognition in retail store CCTV",
-            "intended_purpose": "Detect emotions of shoppers to optimize layout",
-            "users": "store_managers",
+            # Article 5(1)(f) prohibits emotion recognition ONLY in WORKPLACE and
+            # EDUCATION settings (with narrow safety/medical exceptions). The same
+            # system aimed at RETAIL shoppers is NOT prohibited — it falls under
+            # Article 50(3) transparency (limited-risk) and may be high-risk under
+            # Annex III §1 (biometrics). This sample uses a genuine workplace
+            # context so the prohibited tag is correct.
+            "name": "Emotion recognition of employees in workplace CCTV",
+            "intended_purpose": "Monitor employees' emotional state to score engagement",
+            "users": "hr_managers",
             "data_processes_natural_persons": True,
             "annex_iii_category": None,
             "performs_profiling": False,

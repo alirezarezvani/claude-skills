@@ -85,6 +85,13 @@ Take the three reports into the quarterly channel review. The skill recommends; 
 
 All scripts: stdlib only. `--help`, `--sample`, `--input`, `--output` work on all three. Industry tuning via `--profile {saas,api,enterprise-software,marketplace,hardware}` on the two analyzers.
 
+## Quick example
+
+```bash
+# Emits fully-loaded cost-to-serve per channel (direct vs partner-led) for the built-in sample channel data
+cd commercial/skills/channel-economics && python3 scripts/cost_to_serve_calculator.py --sample
+```
+
 ## References
 
 - `references/channel_economics_canon.md` — Skok, Bessemer State of the Cloud, Tunguz, Pacific Crest / KeyBanc SaaS Survey, Ramanujam, Jay McBain (Canalys)

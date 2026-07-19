@@ -44,3 +44,12 @@ Apps must respond to system-wide font size changes.
 - [ ] Is every icon labeled for VoiceOver?
 - [ ] Does the layout remain usable at the largest Dynamic Type size?
 - [ ] Have you tested with "Reduce Transparency" enabled in system settings?
+
+
+## Sources
+
+- Apple HIG — Accessibility: https://developer.apple.com/design/human-interface-guidelines/accessibility
+- Apple HIG — Buttons (44x44 pt minimum hit region): https://developer.apple.com/design/human-interface-guidelines/buttons
+- Apple HIG — Typography (Dynamic Type text styles): https://developer.apple.com/design/human-interface-guidelines/typography
+- Apple Accessibility for developers: https://developer.apple.com/accessibility/
+- WCAG 2.x contrast minimums (4.5:1 / 3:1), which the HIG color guidance mirrors: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html

@@ -1,6 +1,6 @@
 ---
 title: "/hub:init — Create New Session — Agent Skill for Codex & OpenClaw"
-description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /hub:init — Create New Session

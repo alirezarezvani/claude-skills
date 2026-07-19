@@ -272,7 +272,7 @@ new ExternalHyperlink({
 
 - Save: `<output-dir>/dossier_<entity-slug>_<YYYY-MM-DD>.docx`
 - Chat summary: file path + **verdict on hypothesis** + audit counts + tier breakdown + BYOK MCPs used (if any)
-- Validate: `python scripts/office/validate.py <docx>`
+- Validate: check zip integrity with `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` (no output = intact), then confirm the required sections are present
 
 ## Tooling
 

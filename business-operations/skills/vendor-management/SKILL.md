@@ -1,6 +1,6 @@
 ---
 name: vendor-management
-description: Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships — running a vendor scorecard, tracking SLA compliance, classifying third-party risk, preparing a tier-1 vendor review, or auditing the SaaS portfolio. Triggers on "vendor SLA", "vendor scorecard", "third-party risk", "TPRM", "vendor review", "SaaS audit", "supplier performance", "vendor health check", "renewal review". Forks context so large vendor catalogs (50-500 line items) and SLA logs don't pollute the parent thread. Ships 3 stdlib-only Python tools (vendor scorer with industry tuning, SLA compliance tracker with credit-claim flags, vendor risk classifier across 4 risk vectors), 3 reference docs each citing 7+ authoritative sources (Gartner / Shared Assessments / NIST / ISO 27036 / breach post-mortems), and a 5-vendor catalog template. Distinct from c-level-advisor/general-counsel-advisor (contract law, not operational management), business-growth/contract-and-proposal-writer (outbound proposals, not inbound vendor scoring), and sibling procurement-optimizer (spend categorization, not vendor performance).
+description: Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships — running a vendor scorecard with industry tuning, tracking SLA compliance with credit-claim flags, classifying third-party risk across 4 risk vectors, preparing a tier-1 vendor review, or auditing the SaaS portfolio. Forks context so large vendor catalogs (50-500 line items) and SLA logs don't pollute the parent thread. Triggers on "vendor SLA", "vendor scorecard", "third-party risk", "TPRM", "vendor review", "supplier performance", "vendor health check", "renewal review".
 context: fork
 version: 2.8.0
 author: claude-code-skills
@@ -109,6 +109,13 @@ Combine the 3 artifacts into a final BizOps / VMO digest:
 | `scripts/vendor_risk_classifier.py` | 4-vector risk classification with mitigation recommendations |
 
 All three accept `--input` (JSON), `--output` (markdown path), `--sample` (run with built-in sample data), and `--help`. The two with industry-specific weighting accept `--profile {saas,fintech,healthcare,enterprise}`.
+
+## Quick example
+
+```bash
+# Emits a weighted vendor scorecard (industry-tuned dimensions + per-vendor verdict) for the built-in sample catalog
+cd business-operations/skills/vendor-management && python3 scripts/vendor_scorer.py --sample
+```
 
 ## References
 

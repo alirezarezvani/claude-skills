@@ -112,11 +112,14 @@
 
 ## Quality System Requirements
 
-### 21 CFR Part 820 (QSR)
-- **Design controls** (21 CFR 820.30)
-- **Document controls** (21 CFR 820.40)
-- **Management responsibility** (21 CFR 820.20)
-- **Corrective and preventive actions** (21 CFR 820.100)
+### 21 CFR Part 820 (QMSR — ISO 13485:2016 incorporated by reference)
+
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** FDA's QMSR final rule (89 FR 7496) amended 21 CFR Part 820 to incorporate ISO 13485:2016 by reference and removed the legacy QSR subsection structure. Cite the ISO 13485 clauses — the legacy 820.x numbers below are historical index only.
+
+- **Design and development** — ISO 13485 §7.3 (legacy QSR 820.30, historical)
+- **Document control** — ISO 13485 §4.2.4 (legacy QSR 820.40, historical)
+- **Management responsibility** — ISO 13485 §5 (legacy QSR 820.20, historical)
+- **Corrective and preventive action** — ISO 13485 §8.5.2/§8.5.3 (legacy QSR 820.100, historical)
 
 ## Key Performance Metrics
 

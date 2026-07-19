@@ -108,18 +108,20 @@ ISO 13485 is the foundation for both EU MDR and FDA QSR compliance.
 | 8.2.1 Post-market surveillance | Article 83 + Article 86 + Annex III |
 | 8.5.2 CAPA | Article 87 (vigilance) + Article 89 (CAPA) |
 
-### FDA QSR (21 CFR 820) cross-walk
+### FDA legacy QSR (21 CFR 820, historical) cross-walk
 
-| ISO 13485 clause | 21 CFR 820 section |
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** FDA's QMSR final rule (89 FR 7496) amended 21 CFR Part 820 to incorporate ISO 13485:2016 by reference and removed the legacy QSR subsection structure. The 820.x numbers below **no longer exist in the CFR** — they are retained only as a familiar index for auditors mapping pre-2026 documentation. Cite the ISO 13485 clauses in current audits.
+
+| ISO 13485 clause (current authority) | Legacy QSR section (historical, pre-2026) |
 |---|---|
 | 4 QMS | 820.20 (Management responsibility) + 820.5 (QMS) |
 | 7.3 Design controls | 820.30 |
 | 7.4 Purchasing controls | 820.50 |
 | 7.5.6 Process validation | 820.75 |
-| 8.2.1 Post-market | 820.198 (Complaint files) + 803 (MDR reporting) |
+| 8.2.1 Post-market | 820.198 (Complaint files) + 803 (MDR reporting — unchanged) |
 | 8.5.2 CAPA | 820.100 |
 
-In Feb 2024, FDA finalized the rule incorporating ISO 13485:2016 into 21 CFR 820 (the QMSR rule), substantially harmonizing US + international requirements. The compliance date is Feb 2026, after which an ISO 13485-certified QMS substantially satisfies FDA QSR (with FDA-specific overlays on labeling, complaint handling, and MDR reporting).
+FDA finalized the QMSR rule in February 2024 (89 FR 7496) incorporating ISO 13485:2016 into 21 CFR 820, substantially harmonizing US and international requirements; it took effect 2026-02-02. An ISO 13485-certified QMS now substantially satisfies 21 CFR 820, with FDA-specific overlays in retained 820.10/820.35/820.45 (labeling, complaint records) and unchanged 21 CFR 803 MDR reporting.
 
 ## Risk Management Audit (ISO 14971 Crosswalk)
 

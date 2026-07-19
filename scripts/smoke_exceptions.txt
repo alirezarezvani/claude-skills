@@ -1,0 +1,61 @@
+# By-design exceptions for scripts/smoke_scripts.py (gate G8).
+# Format: <path relative to repo root>  # reason
+# These scripts intentionally do not implement a CLI `--help` contract.
+
+# Fixed-contract evaluators: argv contract is fixed by engineering/autoresearch-agent
+# (called as `evaluator.py <target-file>`; exit code IS the metric channel).
+engineering/autoresearch-agent/evaluators/benchmark_size.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/benchmark_speed.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/build_speed.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/llm_judge_content.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/llm_judge_copy.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/llm_judge_prompt.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/memory_usage.py  # fixed-contract autoresearch evaluator
+engineering/autoresearch-agent/evaluators/test_pass_rate.py  # fixed-contract autoresearch evaluator
+
+# Claude Code hooks: invoked by the hook runner with a JSON payload on stdin,
+# not as CLI tools (exit 2 is a signaling channel for PreToolUse).
+engineering/security-guidance/hooks/security_reminder_hook.py  # PreToolUse stdin hook
+productivity/handoff/hooks/session_start.py  # SessionStart stdin hook
+productivity/handoff/hooks/session_end.py  # SessionEnd stdin hook
+
+# skillopt_sleep engine (engineering/skillopt-sleep, vendored from
+# microsoft/SkillOpt): internal package modules, not standalone CLI scripts.
+# The real entry point is `python -m skillopt_sleep` (verified: exits 0 on
+# --help). Running any single file directly breaks two ways: (1)
+# skillopt_sleep/types.py shadows the stdlib `types` module once the file's
+# own directory is prepended to sys.path, which cascades into
+# "cannot import name 'GenericAlias'/'asdict' from partially initialized
+# module" for every sibling that (transitively) imports dataclasses/typing;
+# (2) experiments/*.py use absolute `from skillopt_sleep.x import y` imports
+# that require the package's parent dir on sys.path, which standalone
+# execution doesn't provide.
+engineering/skillopt-sleep/skillopt_sleep/__main__.py  # python -m skillopt_sleep entry point only
+engineering/skillopt-sleep/skillopt_sleep/backend.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/budget.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/config.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/consolidate.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/cycle.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/dream.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/experiments/gbrain_bench.py  # requires skillopt_sleep on sys.path
+engineering/skillopt-sleep/skillopt_sleep/experiments/personas.py  # requires skillopt_sleep on sys.path
+engineering/skillopt-sleep/skillopt_sleep/experiments/run_experiment.py  # requires skillopt_sleep on sys.path
+engineering/skillopt-sleep/skillopt_sleep/experiments/run_gbrain.py  # requires skillopt_sleep on sys.path
+engineering/skillopt-sleep/skillopt_sleep/experiments/run_transfer.py  # requires skillopt_sleep on sys.path
+engineering/skillopt-sleep/skillopt_sleep/experiments/sweep.py  # requires skillopt_sleep on sys.path
+engineering/skillopt-sleep/skillopt_sleep/gate.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/harvest.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/harvest_codex.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/harvest_sources.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/judges.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/llm_miner.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/memory.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/mine.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/replay.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/rollout.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/scheduler.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/slow_update.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/staging.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/state.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/tasks_file.py  # internal module, types.py shadow
+engineering/skillopt-sleep/skillopt_sleep/types.py  # internal module; module itself IS the stdlib-name collision

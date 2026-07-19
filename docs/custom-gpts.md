@@ -81,7 +81,7 @@ These 6 Custom GPTs package production-grade workflows from the Agent Skills lib
 |---|---|---|
 | **Platform** | ChatGPT | Claude Code, Codex, Gemini CLI, Cursor, + 7 more |
 | **Setup** | Click a link | `git clone` + install script |
-| **Depth** | 1 skill per GPT | 177 skills, 16 agents, 3 personas |
+| **Depth** | 1 skill per GPT | 345 skills, 90+ agents, 3 personas |
 | **Customization** | Use as-is | Full source, MIT licensed, extend freely |
 | **Context** | Chat-based | Integrated into your codebase and workflow |
 | **Best for** | Quick access, exploration | Daily development workflow |
@@ -95,8 +95,8 @@ The GPTs are a **preview** of what the full library offers. If you find a GPT us
 These GPTs are powered by the same skill definitions used by thousands of developers:
 
 - **4,600+ GitHub stars** · **500+ forks** · **7,400+ unique cloners** (last 14 days)
-- **177 production-ready skills** across engineering, product, marketing, compliance, and more
-- **11 AI coding tools** supported natively
+- **345 production-ready skills** across engineering, product, marketing, compliance, and more
+- **13 AI coding tools** supported natively
 
 [Browse All Skills](skills/index.md){ .md-button .md-button--primary }
 [Get Started](getting-started.md){ .md-button }

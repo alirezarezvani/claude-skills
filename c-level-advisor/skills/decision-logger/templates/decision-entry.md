@@ -1,6 +1,6 @@
 # Decision Entry Template
 
-Single entry for `memory/board-meetings/decisions.md`.
+Single entry for the Layer 2 index `~/.claude/decisions/approved/decisions.md`.
 Copy this block and fill it in after each approved board decision.
 
 ---
@@ -32,7 +32,7 @@ Copy this block and fill it in after each approved board decision.
 **Supersedes:** <!-- DATE of the previous decision on this topic, if any -->
 **Superseded by:** <!-- Leave blank. Will be filled in if a later decision overrides this. -->
 
-**Raw transcript:** memory/board-meetings/[YYYY-MM-DD]-raw.md
+**Raw transcript:** ~/.claude/decisions/raw/[YYYY-MM-DD]-<slug>.md
 ```
 
 ---

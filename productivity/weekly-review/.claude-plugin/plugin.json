@@ -1,0 +1,19 @@
+{
+  "name": "weekly-review",
+  "description": "Run a GTD-style weekly review that actually closes loops. Walks David Allen's three-phase ritual — GET CLEAR (collect, process inboxes to zero, empty your head), GET CURRENT (next actions, previous + upcoming calendar, waiting-for, project lists), GET CREATIVE (someday/maybe, new ideas) — backed by three deterministic stdlib scripts: an open-loop scanner that inventories unchecked checkboxes, TODO/FIXME markers, and stale files; a checklist gate that computes completion, names every missing step, and refuses a COMPLETE verdict while any GET CURRENT step is unaccounted for; and a commitment auditor that flags STALLED, NO-NEXT-ACTION, and SOMEDAY-CANDIDATE projects with a 0-100 commitment-health score. The periodic-review counterpart to capture (intake) and reflect (per-conversation reflection).",
+  "version": "2.11.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/weekly-review",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/weekly-review"
+  ],
+  "source": {
+    "build_pattern": "Path-B ritual skill — David Allen's three-phase weekly-review loop preserved + deterministic scanner/gate/auditor scripts added",
+    "distinct_from": "productivity/reflect (per-conversation reflection on one piece of work, not a recurring cadence over a whole system); productivity/capture (brain-dump intake that feeds the system, not the periodic review that maintains it); project-management sprint retrospectives (a team ceremony about a shared iteration, not a personal trusted-system audit)"
+  }
+}

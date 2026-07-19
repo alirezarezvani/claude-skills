@@ -53,8 +53,8 @@ Personas know _what_ to do. Skills know _how_ to do it with precision. Load the 
 
 ```
 Load skills:
-- engineering/aws-solution-architect/SKILL.md
-- engineering/mcp-server-builder/SKILL.md
+- engineering-team/skills/aws-solution-architect/SKILL.md
+- engineering/skills/mcp-server-builder/SKILL.md
 ```
 
 The persona drives decisions. The skills provide the structured steps, scripts, and templates.
@@ -142,10 +142,10 @@ Best for: high-stakes decisions, launch readiness reviews, investor prep.
 No persona needed. Chain skills sequentially for procedural work.
 
 ```
-1. content-strategy/SKILL.md → Identify topics and angles
-2. copywriting/SKILL.md → Write the content
-3. seo-audit/SKILL.md → Optimize for search
-4. analytics-tracking/SKILL.md → Set up measurement
+1. marketing-skill/skills/content-strategy/SKILL.md → Identify topics and angles
+2. marketing-skill/skills/copywriting/SKILL.md → Write the content
+3. marketing-skill/skills/seo-audit/SKILL.md → Optimize for search
+4. marketing-skill/skills/analytics-tracking/SKILL.md → Set up measurement
 ```
 
 Best for: repeatable processes, content pipelines, compliance checklists.

@@ -1,6 +1,6 @@
 ---
 title: "/cs:decide — Log the Decision — Agent Skill for Executives"
-description: "/cs:decide <memo> — Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:decide <memo> — Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Use. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:decide — Log the Decision

@@ -1,6 +1,6 @@
 ---
 title: "/cs:execute — 90-Day Execution Plan — Agent Skill for Executives"
-description: "/cs:execute <decision> — Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:execute <decision> — Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:execute — 90-Day Execution Plan

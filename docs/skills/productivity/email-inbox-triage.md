@@ -294,7 +294,7 @@ Skip Steps 3–6 entirely on empty inbox.
 
 ## References
 
-- [`references/kb_file_contract.md`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/references/kb_file_contract.md) — canonical 7-file contract (read perspective; mirrors `inbox-setup/references/kb_file_contract.md`)
+- [`references/kb_file_contract.md`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/references/kb_file_contract.md) — canonical 7-file contract (read perspective; mirrors [`references/kb_file_contract.md`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-setup/references/kb_file_contract.md))
 - [`references/triage_decision_framework.md`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/references/triage_decision_framework.md) — TAKE IT / WORTH / PASS / FLAG taxonomy
 - [`references/drafts_only_safety.md`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/references/drafts_only_safety.md) — the NEVER-SEND discipline canon
 

@@ -109,7 +109,7 @@ Asked for novelty and FTO; skipped for pure landscape (always signal-gathering b
 Deterministic from intake answers. Use `scripts/sub_use_case_router.py`:
 
 ```bash
-python ../scripts/sub_use_case_router.py \
+python scripts/sub_use_case_router.py \
   --sub-use-case novelty \
   --jurisdictions "" \
   --risk strict \
@@ -184,7 +184,7 @@ If no Lens.org key: skip; note in audit log; recommend manual citation review on
 Same invention often filed in multiple jurisdictions (US + EP + JP + CN). Group by family ID or priority number to avoid double-counting. Use `scripts/family_resolver.py`:
 
 ```bash
-python ../scripts/family_resolver.py --hits-file hits.json
+python scripts/family_resolver.py --hits-file hits.json
 # Returns: deduplicated family list + family-member jurisdictions
 ```
 
@@ -239,7 +239,7 @@ Surface the **legally-relevant date** per sub-use-case:
 
 - Save: `<output-dir>/patent_<invention-slug>_<sub-use-case>_<YYYY-MM-DD>.docx`
 - Chat summary: file path + sub-use-case + verdict + audit counts + plan-tier
-- Validate: `python scripts/office/validate.py <docx>`
+- Validate: check zip integrity with `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` (no output = intact), then confirm the required sections are present
 - Reminder: "Consult patent attorney before filing/licensing"
 
 ## Tooling

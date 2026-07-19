@@ -4,17 +4,18 @@ This reference answers exactly one decision: **why does the notebooklm skill alw
 
 ## The Core Claim
 
-NotebookLM's Studio generates 9 output types from your notebook's sources:
+NotebookLM's Studio generates multiple output types from your notebook's sources. As of the last verification (2026-06):
 
 - Audio Overview (podcast-style)
-- Study Guide
-- Briefing Doc
-- Timeline
-- FAQ
-- Table of Contents
+- Video Overview (narrated visual explainer; customizable format and visual style)
+- Mind Map
+- Reports — Briefing Doc, Study Guide, FAQ, Timeline, and custom report formats
+- Flashcards
+- Quiz
 - Infographic
 - Slides (slide deck)
-- Mind Map
+
+The UI evolves quickly — always discover the actual inventory from the live Studio panel screenshot rather than this list, and update this doc when it drifts.
 
 **The default prompts produce mediocre output.** They are written to work across all possible source materials → they are generic by design. Generic prompts produce generic output.
 
@@ -150,7 +151,7 @@ A weak prompt has 1-2 of these. A strong prompt has 4-5.
 
 > "Central concept: [name]. 3-5 primary branches (the major dimensions). Each branch: 2-4 sub-branches. Max depth: 3 levels (central → branch → sub-branch). Use noun phrases for branches (not full sentences). Mark 2-3 sub-branches as 'critical' (the highest-leverage points). Skip details that don't connect back to a critical sub-branch."
 
-### Table of Contents
+### Table of Contents (legacy — folded into Reports in current UI)
 
 **Default fails because:** literal section dump, no annotation.
 

@@ -36,48 +36,42 @@ This skill offers three interconnected tools that form a complete tech debt mana
 
 Together, these tools enable engineering teams to make data-driven decisions about tech debt, balancing new feature development with maintenance work.
 
+## Quick Start — scan → prioritize → dashboard
+
+All paths relative to this skill folder. The scanner's JSON output feeds the prioritizer directly; dated inventory snapshots feed the dashboard.
+
+### 1. Scan the codebase
+
+```bash
+python3 scripts/debt_scanner.py /path/to/codebase --format json --output debt_inventory.json
+```
+
+Emits `debt_inventory.json` with `scan_metadata`, `summary`, `debt_items[]`, `file_statistics`, and `recommendations`. Report the `summary` counts to the user. (Dry run: `assets/sample_codebase`.)
+
+### 2. Prioritize the backlog
+
+```bash
+python3 scripts/debt_prioritizer.py debt_inventory.json --framework wsjf --team-size 6 --sprint-capacity 20 --format json --output debt_priorities.json
+```
+
+Frameworks: `cost_of_delay` (default), `wsjf`, `rice`. Output contains `prioritized_backlog` (work top-down), `sprint_allocation` (paste into sprint planning), and `insights`.
+
+### 3. Track trends over time
+
+Keep dated snapshots (`debt_YYYY-MM-DD.json`), then:
+
+```bash
+python3 scripts/debt_dashboard.py --input-dir snapshots/ --period monthly --format both --output debt_dashboard
+```
+
+Or pass files explicitly (samples: `assets/historical_debt_2024-01-15.json assets/historical_debt_2024-02-01.json`). The dashboard reports trend direction and executive-ready summaries — use it to verify a cleanup sprint actually reduced debt.
+
+### Verification loop
+
+After a remediation sprint: re-run step 1, re-run step 3 with the new snapshot, and assert the targeted categories' counts dropped. A cleanup that doesn't move the dashboard is rework, not debt paydown.
+
 ## Technical Debt Classification Framework
-→ See references/debt-frameworks.md for details
-
-## Implementation Roadmap
-
-### Phase 1: Foundation (Weeks 1-2)
-1. Set up debt scanning infrastructure
-2. Establish debt taxonomy and scoring criteria
-3. Scan initial codebase and create baseline inventory
-4. Train team on debt identification and reporting
-
-### Phase 2: Process Integration (Weeks 3-4)
-1. Integrate debt tracking into sprint planning
-2. Establish debt budgets and allocation rules
-3. Create stakeholder reporting templates
-4. Set up automated debt scanning in CI/CD
-
-### Phase 3: Optimization (Weeks 5-6)
-1. Refine scoring algorithms based on team feedback
-2. Implement trend analysis and predictive metrics
-3. Create specialized debt reduction initiatives
-4. Establish cross-team debt coordination processes
-
-### Phase 4: Maturity (Ongoing)
-1. Continuous improvement of detection algorithms
-2. Advanced analytics and prediction models
-3. Integration with planning and project management tools
-4. Organization-wide debt management best practices
-
-## Success Criteria
-
-**Quantitative Metrics:**
-- 25% reduction in debt interest rate within 6 months
-- 15% improvement in development velocity
-- 30% reduction in production defects
-- 20% faster code review cycles
-
-**Qualitative Metrics:**
-- Improved developer satisfaction scores
-- Reduced context switching during feature development
-- Faster onboarding for new team members
-- Better predictability in feature delivery timelines
+→ See references/debt-frameworks.md for details (also: references/debt-classification-taxonomy.md, references/prioritization-framework.md, references/stakeholder-communication-templates.md)
 
 ## Common Pitfalls and How to Avoid Them
 

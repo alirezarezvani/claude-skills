@@ -68,13 +68,13 @@ The SOC 2 Type II auditor pressure-tests any SOC 2 work. Six observation-period-
 
 ```bash
 # 1. Scoping + gap analysis (pre-observation)
-python ../../ra-qm-team/skills/soc2-compliance/scripts/gap_analyzer.py current_state.json
+python ra-qm-team/skills/soc2-compliance/scripts/gap_analyzer.py current_state.json
 
 # 2. Control matrix with ISO 27001 cross-walk
-python ../../ra-qm-team/skills/soc2-compliance/scripts/control_matrix_builder.py program.json
+python ra-qm-team/skills/soc2-compliance/scripts/control_matrix_builder.py program.json
 
 # 3. Continuous evidence tracking (during observation)
-python ../../ra-qm-team/skills/soc2-compliance/scripts/evidence_tracker.py evidence_log.json
+python ra-qm-team/skills/soc2-compliance/scripts/evidence_tracker.py evidence_log.json
 
 # 4. Mock audit (pre-field-test month 10)
 python ../../skills/compliance-os/scripts/audit_simulator.py soc2_scope.json

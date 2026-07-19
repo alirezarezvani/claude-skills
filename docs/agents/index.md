@@ -1,13 +1,13 @@
 ---
 title: "AI Coding Agents — Agent-Native Orchestrators & Codex Skills"
-description: "90 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
+description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">90 agents that orchestrate skills across domains</p>
+<p class="domain-count">93 agents that orchestrate skills across domains</p>
 
 </div>
 
@@ -110,6 +110,12 @@ description: "90 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
     Marketing
 
 -   :material-bullhorn-outline:{ .lg .middle } **[Demand Generation Specialist Agent](cs-demand-gen-specialist.md)**
+
+    ---
+
+    Marketing
+
+-   :material-bullhorn-outline:{ .lg .middle } **[cs-webinar-marketer — Webinar & Virtual Event Specialist](cs-webinar-marketer.md)**
 
     ---
 
@@ -302,6 +308,12 @@ description: "90 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
     Engineering - POWERFUL
 
 -   :material-rocket-launch:{ .lg .middle } **[wiki-linter](wiki-linter.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
+-   :material-rocket-launch:{ .lg .middle } **[Scraping Architect](cs-scraping-architect.md)**
 
     ---
 
@@ -552,5 +564,11 @@ description: "90 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
     ---
 
     Compliance Os
+
+-   :material-language-html5:{ .lg .middle } **[cs-markdown-html-orchestrator — Density-first markdown-to-HTML converter](cs-markdown-html-orchestrator.md)**
+
+    ---
+
+    Markdown to HTML
 
 </div>

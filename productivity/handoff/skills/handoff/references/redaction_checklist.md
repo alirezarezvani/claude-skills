@@ -24,6 +24,7 @@ The `redaction_linter.py` script automates the regex-catchable patterns. This do
 | Email address | `name@example.com` | medium |
 | Phone number | various formats | low |
 | URL with token query param | `https://api/?token=...` | high |
+| Private IP / CIDR | `10.0.1.5`, `192.168.1.0/24` | low |
 
 The phone-number regex has high false-positive rate (version strings, long IDs); it is intentionally low-severity and surfaced for review rather than automatic block.
 

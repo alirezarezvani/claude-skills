@@ -74,10 +74,10 @@ When promoting, transform the learning:
 ## Promotion Workflow
 
 ```
-1. /si:review identifies candidate
+1. /si:memory-review identifies candidate
 2. Confirm the pattern is still valid
 3. Distill into one-line instruction
 4. /si:promote writes to CLAUDE.md or rules/
 5. Remove from MEMORY.md
-6. Verify with /si:status
+6. Verify with /si:memory-status
 ```

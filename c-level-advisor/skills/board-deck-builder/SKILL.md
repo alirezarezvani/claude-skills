@@ -20,9 +20,10 @@ board deck, investor update, board meeting, board pack, investor relations, quar
 
 ## Quick Start
 
-```
-/board-deck [quarterly|monthly|fundraising] [stage: seed|seriesA|seriesB]
-```
+Ask for a board deck in natural language, naming cadence and stage:
+
+> "Build a quarterly board deck — we're Series A."
+> "Draft a fundraising board deck for a seed-stage company."
 
 Provide available metrics. The builder fills gaps with explicit placeholders — never invents numbers.
 

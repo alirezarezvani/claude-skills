@@ -32,13 +32,13 @@ Analyze financial statements, build valuation models, assess budget variances, a
 ```
 
 ## Scripts
-- `finance/financial-analyst/scripts/ratio_calculator.py` — Profitability, liquidity, leverage, efficiency, valuation ratios
-- `finance/financial-analyst/scripts/dcf_valuation.py` — DCF enterprise and equity valuation with sensitivity analysis
-- `finance/financial-analyst/scripts/budget_variance_analyzer.py` — Actual vs budget vs prior year variance analysis
-- `finance/financial-analyst/scripts/forecast_builder.py` — Driver-based revenue forecasting with scenario modeling
+- `finance/skills/financial-analyst/scripts/ratio_calculator.py` — Profitability, liquidity, leverage, efficiency, valuation ratios
+- `finance/skills/financial-analyst/scripts/dcf_valuation.py` — DCF enterprise and equity valuation with sensitivity analysis
+- `finance/skills/financial-analyst/scripts/budget_variance_analyzer.py` — Actual vs budget vs prior year variance analysis
+- `finance/skills/financial-analyst/scripts/forecast_builder.py` — Driver-based revenue forecasting with scenario modeling
 
 ## Skill Reference
-→ `finance/financial-analyst/SKILL.md`
+→ `finance/skills/financial-analyst/SKILL.md`
 
 ## Related Commands
 - `/saas-health` — SaaS-specific metrics (ARR, MRR, churn, CAC, LTV, Quick Ratio)

@@ -40,8 +40,8 @@ Pairs with `cs-cpo-advisor` (positioning ↔ product), `cs-cro-advisor` (positio
 ### Knowledge Bases
 
 - `../../skills/cmo-advisor/references/brand_positioning.md` — category design, message house, narrative arcs
-- `../../skills/cmo-advisor/references/growth_playbooks.md` — channel-specific motions, PLG vs sales-led
-- `../../skills/cmo-advisor/references/marketing_operations.md` — attribution, cadence, content ops
+- `../../skills/cmo-advisor/references/growth_frameworks.md` — channel-specific motions, PLG vs sales-led
+- `../../skills/cmo-advisor/references/marketing_org.md` — attribution, cadence, content ops
 
 ### Adjacent Execution
 
@@ -111,8 +111,8 @@ echo "📚 Reference: positioning + playbooks"
 
 - [cs-cpo-advisor](cs-cpo-advisor.md) — positioning ↔ product alignment
 - [cs-cro-advisor](cs-cro-advisor.md) — pipeline contribution
-- [cs-content-creator](../../../../agents/marketing/cs-content-creator.md) — execution
-- [cs-demand-gen-specialist](../../../../agents/marketing/cs-demand-gen-specialist.md) — execution
+- [cs-content-creator](../../../agents/marketing/cs-content-creator.md) — execution
+- [cs-demand-gen-specialist](../../../agents/marketing/cs-demand-gen-specialist.md) — execution
 
 ## References
 

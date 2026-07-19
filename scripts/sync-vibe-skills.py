@@ -11,14 +11,25 @@ Both tools use the agentskills.io standard (SKILL.md with YAML frontmatter),
 so no format conversion is needed — just symlink the directories.
 
 Usage:
-    python scripts/sync-vibe-skills.py                   # full sync
+    python scripts/sync-vibe-skills.py                   # full sync (flat layout)
     python scripts/sync-vibe-skills.py --verbose          # show each skill
     python scripts/sync-vibe-skills.py --domain engineering  # one domain
     python scripts/sync-vibe-skills.py --dry-run          # preview only
     python scripts/sync-vibe-skills.py --copy             # copy instead of symlink
+    python scripts/sync-vibe-skills.py --nested           # legacy namespaced layout
 
 Vibe skill directory: ~/.vibe/skills/
-Our skills land under:  ~/.vibe/skills/claude-skills/<domain>/<skill-name>/
+
+Layouts:
+    flat (default)  ~/.vibe/skills/<skill-name>/
+        Vibe only discovers skills one directory below each configured
+        skill path, so this is the layout Vibe actually picks up out of
+        the box (issue #748). Name collisions across domains are resolved
+        as <domain>-<skill-name>.
+    nested (--nested)  ~/.vibe/skills/claude-skills/<domain>/<skill-name>/
+        Legacy layout. Requires adding each domain directory to
+        `skill_paths` in ~/.vibe/config.toml, e.g.:
+            skill_paths = ["~/.vibe/skills/claude-skills/engineering"]
 """
 from __future__ import annotations
 
@@ -32,6 +43,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 VIBE_SKILLS_DIR = Path.home() / ".vibe" / "skills"
 TARGET_SUBDIR = "claude-skills"  # namespace to avoid collisions with Vibe built-in skills
+TOOL_NAME = "Vibe"  # overridden by wrapper scripts (e.g. sync-codebuff-skills.py)
 
 # Domain directories that contain skills (each subdirectory with a SKILL.md)
 DOMAIN_DIRS = [
@@ -51,6 +63,7 @@ DOMAIN_DIRS = [
     "commercial",    # v2.8.0 — pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster + orchestrator
     "research-ops",  # v2.9.0 — clinical-research, research-finance, market-research, product-research + orchestrator
     "compliance-os",  # ISO 13485/27001, SOC 2, GDPR, FDA QSR, EU AI Act audit-prep + orchestrator
+    "markdown-html",  # v2.10.x — orchestrator, design-system, md-document, md-review, md-slides
 ]
 
 
@@ -146,9 +159,33 @@ def read_frontmatter(skill_md):
         return {}
 
 
-def sync_skill(skill, target_root, use_copy, verbose, dry_run):
+def assign_flat_names(skills):
+    """Give each skill a unique directory name for the flat layout.
+
+    First skill keeps its bare name; collisions across domains become
+    <domain>-<skill-name> (and gain a numeric suffix in the unlikely case
+    that still collides).
+    """
+    taken: set = set()
+    for s in skills:
+        candidate = s["name"]
+        if candidate in taken:
+            candidate = f"{s['domain']}-{s['name']}"
+        n = 2
+        while candidate in taken:
+            candidate = f"{s['domain']}-{s['name']}-{n}"
+            n += 1
+        taken.add(candidate)
+        s["flat_name"] = candidate
+    return skills
+
+
+def sync_skill(skill, target_root, use_copy, verbose, dry_run, nested):
     """Create a symlink or copy for one skill."""
-    target = target_root / skill["domain"] / skill["name"]
+    if nested:
+        target = target_root / skill["domain"] / skill["name"]
+    else:
+        target = target_root / skill["flat_name"]
 
     if target.exists() or target.is_symlink():
         if verbose:
@@ -179,10 +216,11 @@ def sync_skill(skill, target_root, use_copy, verbose, dry_run):
     return "new"
 
 
-def write_index(target_root, skills):
-    """Write a skills-index.json for quick lookup."""
+def write_index(target_root, skills, nested):
+    """Write a skills index JSON for quick lookup."""
     index = {
         "source": "claude-code-skills",
+        "layout": "nested" if nested else "flat",
         "total_skills": len(skills),
         "domains": {},
     }
@@ -194,9 +232,12 @@ def write_index(target_root, skills):
         index["domains"][d].append({
             "name": s["name"],
             "description": fm.get("description", ""),
-            "path": f"{d}/{s['name']}",
+            "path": f"{d}/{s['name']}" if nested else s["flat_name"],
         })
-    index_path = target_root / "skills-index.json"
+    # In flat mode target_root is ~/.vibe/skills itself — use a namespaced
+    # filename so we never clobber anything Vibe owns.
+    filename = "skills-index.json" if nested else "claude-skills-index.json"
+    index_path = target_root / filename
     index_path.write_text(json.dumps(index, indent=2), encoding="utf-8")
     return index_path
 
@@ -216,15 +257,24 @@ def main():
     p.add_argument("--copy", action="store_true", help="Copy files instead of symlink")
     p.add_argument("--json", action="store_true", help="JSON output")
     p.add_argument(
+        "--nested",
+        action="store_true",
+        help="Legacy layout under claude-skills/<domain>/ — requires skill_paths "
+             "entries in ~/.vibe/config.toml; Vibe does NOT discover it by default",
+    )
+    p.add_argument(
         "--target",
         default=str(VIBE_SKILLS_DIR),
         help=f"Override Vibe skills dir (default: {VIBE_SKILLS_DIR})",
     )
     args = p.parse_args()
 
-    target_root = Path(args.target).expanduser() / TARGET_SUBDIR
+    base = Path(args.target).expanduser()
+    target_root = base / TARGET_SUBDIR if args.nested else base
     domains = [args.domain] if args.domain else None
     skills = discover_skills(REPO_ROOT, domains)
+    if not args.nested:
+        assign_flat_names(skills)
 
     if not skills:
         msg = f"No skills found in {REPO_ROOT}"
@@ -239,18 +289,19 @@ def main():
 
     counts = {"new": 0, "skip": 0, "would": 0}
     for s in skills:
-        result = sync_skill(s, target_root, args.copy, args.verbose, args.dry_run)
+        result = sync_skill(s, target_root, args.copy, args.verbose, args.dry_run, args.nested)
         counts[result] += 1
 
     # Write index
     if not args.dry_run:
-        idx_path = write_index(target_root, skills)
+        idx_path = write_index(target_root, skills, args.nested)
     else:
-        idx_path = target_root / "skills-index.json"
+        idx_path = target_root / ("skills-index.json" if args.nested else "claude-skills-index.json")
 
     summary = {
         "status": "ok",
         "target": str(target_root),
+        "layout": "nested" if args.nested else "flat",
         "total_skills": len(skills),
         "new": counts["new"],
         "skipped": counts["skip"],
@@ -271,7 +322,12 @@ def main():
     if not args.dry_run:
         print(f"  Index: {idx_path}")
     print()
-    print("Vibe will discover these skills via /skills or /<skill-name>.")
+    if args.nested:
+        print(f"NOTE: the nested layout is NOT discovered by {TOOL_NAME} out of the box.")
+        print("Add each domain to skill_paths in ~/.vibe/config.toml, e.g.:")
+        print('  skill_paths = ["~/.vibe/skills/claude-skills/engineering"]')
+    else:
+        print(f"{TOOL_NAME} will discover these skills via /skills or /<skill-name>.")
     print("No format conversion needed — both tools use agentskills.io SKILL.md standard.")
 
 

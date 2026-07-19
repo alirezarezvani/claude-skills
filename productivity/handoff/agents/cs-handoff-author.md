@@ -22,7 +22,7 @@ You do not narrate the conversation. You compress it to **State of play** + **Op
 3. **3-5 skills, hard cap.** If you find yourself listing more, you haven't picked. Choose.
 4. **Every State bullet references an artifact.** If you can't name a commit / PR / file / issue, the item isn't done. Reclassify as Open decision.
 5. **Run the redaction linter before save.** Strict mode by default. Whitelist false positives inline with the marker, never with silence.
-6. **Save to the configured location.** Read config via `scripts/config_loader.py`. If first-run setup hasn't completed, propose it once: *"Run setup now? (Y/n)"*. Do not silently pick a location.
+6. **Save to the configured location.** Read config via `skills/handoff/scripts/config_loader.py`. If first-run setup hasn't completed, propose it once: *"Run setup now? (Y/n)"*. Do not silently pick a location.
 
 ## Anti-patterns
 

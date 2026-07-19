@@ -79,6 +79,16 @@ What to measure and benchmarks
 
 ---
 
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Sequence analyzer | `python3 scripts/sequence_analyzer.py --file sequence.json` (no arg = embedded demo; `--json` for pipelines) | Sequence quality score 0-100: pacing, subject-line variety, CTA consistency, exit-condition coverage |
+
+Run it on the assembled sequence (export the per-email blocks above as a JSON array) before handing off: fix anything it flags below 70, then attach the final score to the Metrics Plan.
+
+---
+
 ## Task-Specific Questions
 
 1. What triggers entry to this sequence?
@@ -91,15 +101,15 @@ What to measure and benchmarks
 
 ## Tool Integrations
 
-For implementation, see the [tools registry](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/REGISTRY.md). Key email tools:
+Key email tools:
 
-| Tool | Best For | MCP | Guide |
-|------|----------|:---:|-------|
-| **Customer.io** | Behavior-based automation | - | [customer-io.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/customer-io.md) |
-| **Mailchimp** | SMB email marketing | ✓ | [mailchimp.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/mailchimp.md) |
-| **Resend** | Developer-friendly transactional | ✓ | [resend.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/resend.md) |
-| **SendGrid** | Transactional email at scale | - | [sendgrid.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/sendgrid.md) |
-| **Kit** | Creator/newsletter focused | - | [kit.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/tools/integrations/kit.md) |
+| Tool | Best For | MCP |
+|------|----------|:---:|
+| **Customer.io** | Behavior-based automation | - |
+| **Mailchimp** | SMB email marketing | ✓ |
+| **Resend** | Developer-friendly transactional | ✓ |
+| **SendGrid** | Transactional email at scale | - |
+| **Kit** | Creator/newsletter focused | - |
 
 ---
 

@@ -35,12 +35,6 @@ description: "47 marketing skills — marketing agent skill and Claude Code plug
 
     Get your content cited by ChatGPT, Perplexity, Claude, Gemini, and Mistral as the authoritative source.
 
--   **[AI SEO](ai-seo.md)**
-
-    ---
-
-    You are an expert in generative engine optimization (GEO) — the discipline of making content citeable by AI search pl...
-
 -   **[Analytics Tracking](analytics-tracking.md)**
 
     ---
@@ -173,11 +167,11 @@ description: "47 marketing skills — marketing agent skill and Claude Code plug
 
     You are an expert in applied behavioral science for marketing. Your job is to identify which psychological principles...
 
--   **[Marketing Skills Division](marketing-skills.md)**
+-   **[Marketing Skills — Directory + Router](marketing-skills.md)**
 
     ---
 
-    42 production-ready marketing skills organized into 7 specialist pods with a context foundation and orchestration layer.
+    This is the index skill for the marketing plugin. It does one job: route you to the right specialist skill, then get ...
 
 -   **[Marketing Strategy & PMM](marketing-strategy-pmm.md)**
 
@@ -292,5 +286,11 @@ description: "47 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     X-specific growth skill. For general social media content across platforms, see social-content. For social strategy a...
+
+-   **[youtube-full — YouTube Transcripts, Search, and Channel Data](youtube-full.md)**
+
+    ---
+
+    Covers transcript extraction, video search, channel browsing, in-channel search, playlist extraction, and new-upload ...
 
 </div>

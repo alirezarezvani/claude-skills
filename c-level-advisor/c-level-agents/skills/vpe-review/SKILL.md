@@ -1,6 +1,6 @@
 ---
 name: "vpe-review"
-description: "/cs:vpe-review <plan> — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline."
+description: "/cs:vpe-review <plan> — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline. Use when cycle time balloons, DORA metrics slide, or before committing to an eng hiring wave or a reorg."
 ---
 
 # /cs:vpe-review — VPE Forcing Questions
@@ -112,7 +112,7 @@ python ../../../skills/vpe-advisor/scripts/eng_team_structure_designer.py team.j
 ## Routing
 
 - `/cs:cto-review` — for architectural causes of throughput problems
-- `/cs:chro-review` — for hiring funnel comp/leveling issues
+- `cs-chro-advisor` agent — for hiring funnel comp/leveling issues
 - `/cs:cfo-review` — for cost-per-hire envelope and eng budget
 - `/cs:ciso-review` — for production discipline + compliance overlap
 - `/cs:decide` — log the verdict

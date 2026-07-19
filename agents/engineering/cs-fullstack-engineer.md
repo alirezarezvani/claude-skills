@@ -163,7 +163,7 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 - [cs-karpathy-reviewer](cs-karpathy-reviewer.md) — invoke before every commit
 - [cs-senior-engineer](cs-senior-engineer.md) — cross-cutting engineering lead (use for non-stack questions like CI/CD, security review)
 - [cs-cto-advisor](../c-level/cs-cto-advisor.md) — escalate for strategic build-vs-buy or technical debt prioritization
-- [cs-vpe-advisor](../c-level/cs-vpe-advisor.md) — escalate for org-design + throughput
+- [cs-vpe-advisor](../../c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md) — escalate for org-design + throughput
 
 ## Invocation Contract
 

@@ -1,6 +1,6 @@
 ---
 name: knowledge-ops
-description: Use when a Head of Ops, Knowledge Manager, or TPM-Internal needs to author, validate, or clean up company SOPs and internal runbooks (procurement intake, vendor offboarding, incident-comms cascade, employee onboarding, expense reimbursement, system-access provisioning, customer-escalation playbook) — including 5W2H completeness checks (Who-What-When-Where-Why-How-HowMuch), cross-link and orphan-page validation across a sprawling Notion/Confluence/Obsidian wiki, KB ingestion + hygiene reporting, ops onboarding doc generation, and runbook step verification (named owner, expected duration, observable success signal, rollback path, escalation contact). Pairs Kaoru Ishikawa's 5W2H method, Atul Gawande's *The Checklist Manifesto*, ISO 9001, ITIL v4 Service Operation, FDA 21 CFR Part 211, and Google SRE Workbook runbook discipline with deterministic stdlib-only Python tools that score completeness, detect anti-patterns, and emit prioritized cleanup lists. Distinct from `engineering/llm-wiki` (Karpathy-style personal PKM second brain), `engineering-team/runbook-generator` (system-ops production debugging runbook), `project-management/*` (Jira/Confluence delivery + ticket tracking), and sibling `business-operations/process-mapper` (BPMN process *design*, while knowledge-ops is process *documentation*).
+description: Use when a Head of Ops, Knowledge Manager, or TPM-Internal needs to author, validate, or clean up company SOPs and internal runbooks (procurement intake, vendor offboarding, incident-comms cascade, employee onboarding) — including 5W2H completeness checks (Who-What-When-Where-Why-How-HowMuch), cross-link and orphan-page validation across a sprawling Notion/Confluence/Obsidian wiki, KB ingestion + hygiene reporting, and runbook step verification (named owner, expected duration, observable success signal, rollback path, escalation contact). Pairs Ishikawa's 5W2H method, Gawande's *The Checklist Manifesto*, ISO 9001, ITIL v4, and Google SRE Workbook runbook discipline with deterministic stdlib-only Python tools that score completeness, detect anti-patterns, and emit prioritized cleanup lists (e.g., "validate this runbook before it goes into rotation", "audit our Confluence wiki for stale and orphaned SOPs").
 context: fork
 version: 2.8.0
 author: claude-code-skills
@@ -18,7 +18,7 @@ Company SOP + internal runbook authoring, 5W2H completeness validation, and KB h
 An ops organization three years in accumulates a sprawl: 600 Notion pages, 200 Confluence runbooks, three Obsidian vaults, a `Drive/SOPs/` folder, and a `Slack #ops-questions` channel that exists because nobody can find the canonical doc. Predictable failure modes:
 
 1. **No owner** — 40% of SOPs name "the team" instead of a person. When the doc rots, nobody is accountable.
-2. **No last-reviewed date** — a 2023 vendor-offboarding SOP still references a procurement tool sunset in 2024.
+2. **No last-reviewed date** — a years-old vendor-offboarding SOP still references a procurement tool that was sunset over a year ago.
 3. **Vague success signals** — runbook step 4 says "verify the service is up". A new operator can't tell what that means.
 4. **No rollback path** — incident-comms cascade runbook tells you how to send the alert. It doesn't tell you how to retract it when the alert was wrong.
 5. **Orphan pages** — half the KB has no inbound links. Nobody finds them via navigation; they only exist because somebody knew the URL.
@@ -51,6 +51,13 @@ Four-step deterministic flow (matches the ops org's actual workflow, not an abst
 **`scripts/runbook_validator.py`** — Reads a runbook (markdown file or JSON) and validates each step against six required attributes: (1) named owner (not "the team", not "ops"), (2) expected duration (concrete number + unit), (3) observable success signal (e.g., "HTTP 200 from `/healthz`" — not "service is up"), (4) observable failure signal, (5) rollback path (or explicit "this step cannot be rolled back, escalate to X"), (6) escalation contact (named person or named on-call rotation). Output is a per-step traffic-light (GREEN/AMBER/RED), an overall validity score 0-100, and a MUST-FIX issue list. Verdict: ≥ 80 = SAFE-TO-USE, 60-79 = USE-WITH-CAUTION, < 60 = NOT-SAFE. `--sample` prints a deliberately-broken incident-comms runbook to demonstrate failure detection. Stdlib only.
 
 **`scripts/kb_ingester.py`** — Walks a directory of markdown files (Notion export, Confluence space export, Obsidian vault, `Drive/SOPs/` directory). Extracts: (a) cross-link map (which page references which, via markdown `[link](path)` syntax), (b) glossary candidates (frequently used proper nouns and acronyms that recur in 3+ docs without a single canonical definition page), (c) orphan pages (no inbound links from anywhere in the vault), (d) glossary drift (the same term defined or used inconsistently across docs — e.g., "CSM" expanded differently in two places), (e) stale pages (no edit in > 12 months, detected via filesystem mtime or YAML `last_reviewed` frontmatter), (f) missing-owner pages (no `owner:` field in frontmatter). Emits a KB health report markdown with a prioritized top-20 cleanup list ranked by `staleness × inbound-link-count` (high-traffic stale docs first). `--sample` builds a tiny synthetic 8-page vault in a tmpdir and runs the full pipeline against it. Stdlib only.
+
+## Quick example
+
+```bash
+# Builds a synthetic 8-page vault and emits a KB health report (orphans, stale pages, glossary drift, top-20 cleanup list)
+cd business-operations/skills/knowledge-ops && python3 scripts/kb_ingester.py --sample
+```
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: internal-comms
-description: Use when a Head of People Ops, BizOps lead, or Internal Communications owner needs to draft and sequence an internal-only change-management communication — a re-org announcement, a tool rollout, a policy change, a benefit change, a leadership transition, a layoff, an acquisition close, or an internal product launch — and the audience is employees (not customers). Triggers on "all-hands announcement", "town-hall script", "change comms", "internal newsletter", "rollout comms", "policy change announcement", "re-org announcement", "internal FAQ", "manager talking points", "Prosci ADKAR", "Kotter 8-step", "layoff comms", "RIF comms", "internal memo". Pairs Prosci ADKAR (Awareness / Desire / Knowledge / Ability / Reinforcement) and Kotter's 8-step change model with deterministic stdlib-only Python tools to produce a sequenced touchpoint calendar, a Kotter-compliant primary announcement, an audience-segmented FAQ, and manager cascade talking points. Industry-tuned via --profile {tech-startup, scaleup, enterprise, public-company, non-profit}. Distinct from marketing-skill/* (external/customer-facing), c-level-advisor/internal-narrative (strategic framing, not tactical drafts), and c-level-advisor/change-management (executive change strategy, not the comms package itself).
+description: Use when a Head of People Ops, BizOps lead, or Internal Communications owner needs to draft and sequence an internal-only change-management communication — a re-org announcement, a tool rollout, a policy change, a leadership transition, a layoff, an acquisition close, or an internal product launch — and the audience is employees (not customers). Pairs Prosci ADKAR and Kotter's 8-step change model with deterministic stdlib-only Python tools to produce a sequenced touchpoint calendar, a Kotter-compliant primary announcement, an audience-segmented FAQ, and manager cascade talking points; industry-tuned via --profile {tech-startup, scaleup, enterprise, public-company, non-profit}. Triggers on "all-hands announcement", "change comms", "rollout comms", "re-org announcement", "manager talking points", "layoff comms".
 version: 2.8.0
 author: claude-code-skills
 license: MIT
@@ -58,6 +58,13 @@ Five-step deterministic flow. Follow in order.
 **`scripts/comms_calendar_builder.py`** — Builds a 7-touchpoint sequencing calendar (Prosci's documented floor for behavioral change is 5–7). Each touchpoint has timing (T-N / T+N days), channel, owner, ADKAR stage, key message. Surfaces gaps and channel mismatches: e.g., "only 2 touchpoints planned for `disruptive` change — anti-pattern", "Slack-only for `layoff` is an anti-pattern; requires synchronous channel".
 
 All three: stdlib only, `--help` and `--sample` exit 0, accept `--input <json>` and `--output {markdown,json}`.
+
+## Quick example
+
+```bash
+# Emits the 4-artifact comms package (pre-comm, announcement, FAQ, follow-up) for the built-in tool-rollout example
+cd business-operations/skills/internal-comms && python3 scripts/comms_template_filler.py --sample
+```
 
 ## References
 

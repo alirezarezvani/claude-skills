@@ -22,12 +22,30 @@ from typing import Dict, List, Optional
 from uuid import uuid4
 
 
+def add_months(dt: datetime, months: int) -> datetime:
+    """Add calendar months per GDPR Art. 12(3) (one month, not 30 days).
+
+    If the target month has no equivalent day (e.g., Jan 31 + 1 month),
+    clamp to the last day of the target month.
+    """
+    month_index = dt.month - 1 + months
+    year = dt.year + month_index // 12
+    month = month_index % 12 + 1
+    # last day of target month
+    if month == 12:
+        next_month_first = datetime(year + 1, 1, 1)
+    else:
+        next_month_first = datetime(year, month + 1, 1)
+    last_day = (next_month_first - timedelta(days=1)).day
+    return dt.replace(year=year, month=month, day=min(dt.day, last_day))
+
+
 # GDPR Articles for each right
 RIGHTS_TYPES = {
     "access": {
         "article": "Art. 15",
         "name": "Right of Access",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right to obtain confirmation of processing and access to their data",
         "response_includes": [
             "Purposes of processing",
@@ -42,7 +60,7 @@ RIGHTS_TYPES = {
     "rectification": {
         "article": "Art. 16",
         "name": "Right to Rectification",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right to have inaccurate personal data corrected",
         "response_includes": [
             "Confirmation of correction",
@@ -53,7 +71,7 @@ RIGHTS_TYPES = {
     "erasure": {
         "article": "Art. 17",
         "name": "Right to Erasure (Right to be Forgotten)",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right to have their personal data erased",
         "grounds": [
             "Data no longer necessary for original purpose",
@@ -74,7 +92,7 @@ RIGHTS_TYPES = {
     "restriction": {
         "article": "Art. 18",
         "name": "Right to Restriction of Processing",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right to restrict processing of their data",
         "grounds": [
             "Accuracy contested (during verification)",
@@ -86,7 +104,7 @@ RIGHTS_TYPES = {
     "portability": {
         "article": "Art. 20",
         "name": "Right to Data Portability",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right to receive their data in a portable format",
         "conditions": [
             "Processing based on consent or contract",
@@ -101,7 +119,7 @@ RIGHTS_TYPES = {
     "objection": {
         "article": "Art. 21",
         "name": "Right to Object",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right to object to processing",
         "applies_to": [
             "Processing based on legitimate interests",
@@ -112,7 +130,7 @@ RIGHTS_TYPES = {
     "automated": {
         "article": "Art. 22",
         "name": "Rights Related to Automated Decision-Making",
-        "deadline_days": 30,
+        "deadline_months": 1,  # Art. 12(3): one month of receipt
         "description": "Data subject has the right not to be subject to solely automated decisions",
         "includes": [
             "Right to human intervention",
@@ -173,7 +191,8 @@ class RightsTracker:
 
         right_info = RIGHTS_TYPES[right_type]
         now = datetime.now()
-        deadline = now + timedelta(days=right_info["deadline_days"])
+        # Art. 12(3): respond within one calendar month of receipt
+        deadline = add_months(now, right_info["deadline_months"])
 
         request = {
             "id": self._generate_id(),
@@ -223,9 +242,10 @@ class RightsTracker:
                 elif new_status == "completed":
                     req["dates"]["completed"] = datetime.now().isoformat()
                 elif new_status == "extended":
-                    # Extend deadline by additional 60 days (max total 90)
+                    # Art. 12(3): extendable by two further calendar months for
+                    # complex/numerous requests (data subject informed within month 1)
                     original_deadline = datetime.fromisoformat(req["dates"]["deadline"])
-                    req["dates"]["deadline"] = (original_deadline + timedelta(days=60)).isoformat()
+                    req["dates"]["deadline"] = add_months(original_deadline, 2).isoformat()
 
                 if note:
                     req["notes"].append({
@@ -531,7 +551,7 @@ def main():
         for key, info in RIGHTS_TYPES.items():
             print(f"\n{key} ({info['article']})")
             print(f"  {info['name']}")
-            print(f"  Deadline: {info['deadline_days']} days")
+            print(f"  Deadline: {info['deadline_months']} calendar month(s) (Art. 12(3))")
 
     else:
         parser.print_help()

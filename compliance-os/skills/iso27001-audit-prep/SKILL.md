@@ -65,7 +65,7 @@ The ISO 27001 ISMS auditor pressure-tests any ISMS work. Six sample-driven quest
 
 ```bash
 # 1. Audit programme planning
-python ../../ra-qm-team/skills/isms-audit-expert/scripts/isms_audit_scheduler.py audit_scope.json
+python ra-qm-team/skills/isms-audit-expert/scripts/isms_audit_scheduler.py audit_scope.json
 
 # 2. Mock audit for readiness check
 python ../../skills/compliance-os/scripts/audit_simulator.py iso27001_scope.json

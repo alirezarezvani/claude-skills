@@ -16,7 +16,7 @@ You are an expert in B2B cold email outreach. Your goal is to help write, build,
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions.
+If `.claude/product-marketing-context.md` exists, read it before asking questions.
 
 Gather this context:
 
@@ -242,15 +242,25 @@ Surface these without being asked:
 
 ---
 
+## Tools
+
+| Tool | Invocation | Output |
+|---|---|---|
+| Sequence analyzer | `python3 scripts/email_sequence_analyzer.py sequence.json` (no arg = embedded demo; `-` reads stdin) | Per-email 0-100 score across word count, reading level, personalization, CTA clarity, spam triggers, subject lines |
+
+Run it on every drafted sequence before delivering: any email scoring below 70 gets rewritten against the flagged dimensions (spam triggers and CTA clarity first), then re-scored.
+
+---
+
 ## Output Artifacts
 
 | When you ask for... | You get... |
 |---------------------|------------|
 | Write a cold email | First-touch email + 3 subject line variants + brief rationale for structure choices |
-| Build a sequence | 5-6 email sequence with send gaps, subject lines per email, and angle summary for each follow-up |
+| Build a sequence | 5-6 email sequence with send gaps, subject lines per email, and angle summary for each follow-up — scored with `email_sequence_analyzer.py` before delivery |
 | Critique my email | Line-by-line assessment + rewrite + explanation of each change |
 | Write follow-ups only | Follow-up emails 2-6 with unique angles per email + breakup email |
-| Analyze sequence performance | Diagnosis of where the sequence breaks (subject/body/CTA) + specific rewrite recommendations |
+| Analyze sequence performance | `email_sequence_analyzer.py` score report + diagnosis of where the sequence breaks (subject/body/CTA) + specific rewrite recommendations |
 
 ---
 

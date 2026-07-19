@@ -55,7 +55,7 @@ Effective Date: [Date]
 
 3. RISK ACCEPTABILITY CRITERIA
    3.1 Risk Matrix: [Reference to matrix]
-   3.2 Acceptability Policy: [Acceptable/ALARP/Unacceptable definitions]
+   3.2 Acceptability Policy: [Acceptable/Reduction-required (AFAP for EU)/Unacceptable definitions]
    3.3 Benefit-Risk Considerations: [When applicable]
 
 4. VERIFICATION ACTIVITIES
@@ -78,9 +78,11 @@ Effective Date: [Date]
 
 | Risk Level | Definition | Action Required |
 |------------|------------|-----------------|
-| Broadly Acceptable | Risk so low that no action needed | Document and monitor |
-| ALARP (Tolerable) | Risk reduced as low as reasonably practicable | Verify ALARP, consider benefit |
+| Broadly Acceptable | Risk so low that no action needed | Document and monitor (EU MDR: still reduce as far as possible) |
+| Tolerable after reduction AFAP | Risk reduced as far as possible | Verify all further reduction options exhausted; consider benefit |
 | Unacceptable | Risk exceeds acceptable threshold | Risk control mandatory |
+
+> **EU MDR note:** For CE-marked devices the criterion is **as far as possible (AFAP)** without economic considerations (MDR Annex I GSPR 1–4; EN ISO 14971:2019/A11:2021 Z-annexes). ALARP — which weighs cost against benefit of further reduction — is not acceptable under the EU MDR; it may persist in some non-EU jurisdictions, where the deviation from EU requirements must be flagged explicitly. ISO 14971:2019 removed ALARP from its normative text.
 
 ### Risk Matrix Example (5x5)
 
@@ -93,9 +95,9 @@ Effective Date: [Date]
 | Improbable | Low | Low | Low | Medium | Medium |
 
 **Risk Level Actions:**
-- **Low (Acceptable):** Document, no action required
-- **Medium (ALARP):** Consider risk reduction, document rationale
-- **High (ALARP):** Risk reduction required unless ALARP demonstrated
+- **Low (Acceptable):** Document; EU MDR: still reduce as far as possible
+- **Medium (reduce AFAP):** Reduce as far as possible, document why further reduction is impossible
+- **High (reduce AFAP):** Risk reduction required; demonstrate all further options exhausted
 - **Unacceptable:** Risk reduction mandatory before proceeding
 
 ---
@@ -181,8 +183,8 @@ Initial Risk = Risk before controls
 ### Evaluation Workflow
 
 1. Apply risk acceptability criteria to estimated risk
-2. Determine if risk is acceptable, ALARP, or unacceptable
-3. For ALARP risks, document ALARP demonstration
+2. Determine if risk is acceptable, requires further reduction (AFAP), or is unacceptable
+3. For risks requiring reduction, document the AFAP demonstration
 4. For unacceptable risks, proceed to risk control
 5. Document evaluation rationale
 6. **Validation:** All risks evaluated against criteria; rationale documented
@@ -192,19 +194,21 @@ Initial Risk = Risk before controls
 | Initial Risk | Benefit Available | Decision |
 |--------------|-------------------|----------|
 | Acceptable | N/A | Accept, document |
-| ALARP | No | Verify ALARP |
-| ALARP | Yes | Include in benefit-risk |
+| Reduced AFAP | No | Verify all reduction options exhausted |
+| Reduced AFAP | Yes | Include in benefit-risk |
 | Unacceptable | No | Design change required |
 | Unacceptable | Yes | Benefit-risk analysis |
 
-### ALARP Demonstration
+### AFAP Demonstration (EU MDR)
 
 | Criterion | Evidence Required |
 |-----------|-------------------|
-| Technical feasibility | Analysis of alternatives |
-| Economic proportionality | Cost-benefit assessment |
+| All control options considered | Analysis of every feasible alternative per the control hierarchy |
+| Further reduction impossible | Evidence remaining options are technically infeasible or do not further reduce risk |
 | State of the art | Review of similar devices |
 | User acceptance | Stakeholder input |
+
+> Economic considerations must not enter the acceptability decision for EU-market devices (MDR Annex I GSPR 2; EN ISO 14971:2019/A11:2021 Z-annexes). ALARP-style cost-benefit weighing of further risk reduction is prohibited in this context.
 
 ---
 
@@ -321,7 +325,7 @@ RISKS:
    | Risk Category | Count | Highest Level |
    |---------------|-------|---------------|
    | Acceptable | [N] | Low |
-   | ALARP | [N] | Medium/High |
+   | Reduced AFAP | [N] | Medium/High |
 
 2. Cumulative Considerations: [Assessment]
 
@@ -365,7 +369,7 @@ Date: [Date]
 1. EXECUTIVE SUMMARY
    - Total hazards identified: [N]
    - Risk controls implemented: [N]
-   - Residual risks: [N] acceptable, [N] ALARP
+   - Residual risks: [N] acceptable, [N] reduced AFAP
    - Overall conclusion: [Acceptable/Not Acceptable]
 
 2. RISK ANALYSIS SUMMARY
@@ -390,7 +394,7 @@ Date: [Date]
 5. OVERALL RESIDUAL RISK
    - Individual residual risks: [Summary]
    - Cumulative assessment: [Conclusion]
-   - Acceptability: [Acceptable/ALARP demonstrated]
+   - Acceptability: [Acceptable/Reduced as far as possible (AFAP) demonstrated]
 
 6. BENEFIT-RISK ANALYSIS (if applicable)
    - Conclusion: [Statement]

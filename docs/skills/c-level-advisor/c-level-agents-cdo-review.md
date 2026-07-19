@@ -122,7 +122,7 @@ python ../../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py
 - `/cs:gc-review` — for any productization or licensing path
 - `/cs:ciso-review` — for any architecture change touching customer data
 - `/cs:cfo-review` — for build-vs-buy TCO and M&A valuation math
-- `/cs:chro-review` — for data team hires (comp, ladder, leveling)
+- `cs-chro-advisor` agent — for data team hires (comp, ladder, leveling)
 - `/cs:decide` — log the verdict
 - `/cs:freeze 90` — on multi-year infrastructure contracts
 

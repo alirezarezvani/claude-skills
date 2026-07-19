@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "338 production-ready skills across 16 domains, 51+ cs-* agents (incl. founder-mode C-suite: GC, CDO, CAIO, CCO, VPE + Matt Pocock-derived productivity quartet + v2.9.0 research-ops orchestrator + v2.8.4 productivity/andreessen + v2.8.0 business-operations + commercial + v2.7.3 cs-aeo), 7 personas, 87+ /cs:* slash commands, and an orchestration protocol for 13 AI coding tools (Claude Code · Codex · Gemini CLI · Hermes Agent · Mistral Vibe · OpenClaw · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity). v2.9.0 adds the research-ops domain — enterprise Research Operations (clinical-research + research-finance + market-research + product-research) with per-skill onboarding, customization, and an opt-in autoresearch bridge."
+site_description: "345 production-ready agent skills, 78 installable plugins, and 90+ slash commands across 17 domains — engineering, product, marketing, compliance, finance, and research. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -65,6 +65,10 @@ plugins:
         'skills/engineering/feature-flags-architect-feature-flags-architect.md': 'skills/engineering/feature-flags-architect.md'
         'skills/engineering/kubernetes-operator-kubernetes-operator.md': 'skills/engineering/kubernetes-operator.md'
         'skills/engineering/slo-architect-slo-architect.md': 'skills/engineering/slo-architect.md'
+        # Skills removed/renamed upstream — redirect old indexed URLs to their successors.
+        'skills/marketing-skill/ai-seo.md': 'skills/marketing-skill/aeo.md'
+        'skills/engineering/release-manager.md': 'skills/engineering/changelog-generator.md'
+        'skills/engineering/command-guide.md': 'skills/engineering/index.md'
 
 extra:
   social:
@@ -126,6 +130,12 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Multi-Tool Integrations: integrations.md
+  - Guides:
+    - "Best Claude Code Plugins": guides/best-claude-code-plugins.md
+    - "Agent Skills for Codex": guides/agent-skills-for-codex.md
+    - "Gemini CLI Skills Guide": guides/gemini-cli-skills-guide.md
+    - "Cursor Skills Guide": guides/cursor-skills-guide.md
+    - "OpenClaw Skills Guide": guides/openclaw-skills-guide.md
   - Skills:
     - Overview: skills/index.md
     - Engineering - Core:
@@ -218,7 +228,6 @@ nav:
       - "PR Review Expert": skills/engineering/pr-review-expert.md
       - "Prompt Governance": skills/engineering/prompt-governance.md
       - "RAG Architect": skills/engineering/rag-architect.md
-      - "Release Manager": skills/engineering/release-manager.md
       - "Runbook Generator": skills/engineering/runbook-generator.md
       - "Secrets Vault Manager": skills/engineering/secrets-vault-manager.md
       - "Security Guidance": skills/engineering/security-guidance.md
@@ -240,6 +249,7 @@ nav:
       - "Chaos Engineering": skills/engineering/chaos-engineering.md
       - "SLO Architect": skills/engineering/slo-architect.md
       - "Ship Gate": skills/engineering/ship-gate.md
+      - "Universal Scraping Architect": skills/engineering/universal-scraping-architect.md
       - "Write a Skill (Matt Pocock-derived)": skills/engineering/write-a-skill.md
       - "Caveman Mode (Matt Pocock-derived)": skills/engineering/caveman.md
       - "Grill Me (Matt Pocock-derived)": skills/engineering/grill-me.md
@@ -277,7 +287,6 @@ nav:
       - "A/B Test Setup": skills/marketing-skill/ab-test-setup.md
       - "Ad Creative": skills/marketing-skill/ad-creative.md
       - "AEO (Answer Engine Optimization)": skills/marketing-skill/aeo.md
-      - "AI SEO": skills/marketing-skill/ai-seo.md
       - "Analytics Tracking": skills/marketing-skill/analytics-tracking.md
       - "App Store Optimization": skills/marketing-skill/app-store-optimization.md
       - "Brand Guidelines": skills/marketing-skill/brand-guidelines.md
@@ -320,6 +329,7 @@ nav:
       - "Social Media Manager": skills/marketing-skill/social-media-manager.md
       - "Video Content Strategist": skills/marketing-skill/video-content-strategist.md
       - "X/Twitter Growth": skills/marketing-skill/x-twitter-growth.md
+      - "YouTube Full (Channel Growth)": skills/marketing-skill/youtube-full.md
     - Project Management:
       - Overview: skills/project-management/index.md
       - "Atlassian Admin": skills/project-management/atlassian-admin.md
@@ -479,6 +489,13 @@ nav:
       - "FDA QSR Audit Prep": skills/compliance-os/fda-qsr-audit-prep.md
       - "EU AI Act Readiness": skills/compliance-os/ai-act-readiness.md
       - "AIMS Audit (ISO 42001)": skills/compliance-os/aims-audit.md
+    - "Markdown to HTML":
+      - Overview: skills/markdown-html/index.md
+      - "Markdown-HTML Orchestrator (Router)": skills/markdown-html/markdown-html-orchestrator.md
+      - "Design System (Brand Onboarding)": skills/markdown-html/design-system.md
+      - "MD Document (Long-Form Converter)": skills/markdown-html/md-document.md
+      - "MD Review (Code-Review Converter)": skills/markdown-html/md-review.md
+      - "MD Slides (Slide-Deck Converter)": skills/markdown-html/md-slides.md
   - Plugins:
     - Overview: plugins/index.md
   - Personas:
@@ -537,6 +554,8 @@ nav:
     - "CS AI Act Compliance": agents/cs-ai-act-compliance.md
     - "CS AIMS (ISO 42001)": agents/cs-aims-iso42001.md
     - "CS Andreessen (Market-First Operator)": agents/cs-andreessen.md
+    - "CS Markdown-HTML Orchestrator": agents/cs-markdown-html-orchestrator.md
+    - "CS Scraping Architect": agents/cs-scraping-architect.md
   - Commands:
     - Overview: commands/index.md
     - "/a11y-audit": commands/a11y-audit.md
@@ -599,3 +618,10 @@ nav:
     - "/cs:research-finance (v2.9.0)": commands/cs-research-finance.md
     - "/cs:market-research (v2.9.0)": commands/cs-market-research.md
     - "/cs:product-research (v2.9.0)": commands/cs-product-research.md
+    - "/cs:markdown-html (Doctype Router)": commands/cs-markdown-html.md
+    - "/cs:design-system (Brand Onboarding)": commands/cs-design-system.md
+    - "/cs:md-document (Long-Form HTML)": commands/cs-md-document.md
+    - "/cs:md-review (Code-Review HTML)": commands/cs-md-review.md
+    - "/cs:md-slides (Slide-Deck HTML)": commands/cs-md-slides.md
+    - "/cs:grill-markdown-html (Plan Grill)": commands/cs-grill-markdown-html.md
+    - "/cs:scrape (Scraping Architect)": commands/cs-scrape.md

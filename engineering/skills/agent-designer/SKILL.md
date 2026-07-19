@@ -1,279 +1,76 @@
 ---
 name: "agent-designer"
-description: "Use when the user asks to design multi-agent systems, create agent architectures, define agent communication patterns, or build autonomous agent workflows."
+description: "Use when the user asks to design a multi-agent system, pick an orchestration pattern (supervisor/swarm/pipeline), generate tool schemas for agents, or evaluate agent execution logs for cost, latency, and failure bottlenecks. Examples: 'design an agent architecture for research automation', 'generate Anthropic tool schemas from these tool descriptions', 'analyze these agent run logs for bottlenecks'. NOT for Claude Code workflow files (use workflow-builder) or single-agent prompt design (use agent-workflow-designer)."
 ---
 
-# Agent Designer - Multi-Agent System Architecture
+# Agent Designer — Multi-Agent System Architecture
 
-**Tier:** POWERFUL  
-**Category:** Engineering  
-**Tags:** AI agents, architecture, system design, orchestration, multi-agent systems
+Design, schema-generate, and evaluate multi-agent systems with three deterministic tools. The scripts are the workflow — do not freehand an architecture when the planner can score one from requirements.
 
-## Overview
+## When to use
 
-Agent Designer is a comprehensive toolkit for designing, architecting, and evaluating multi-agent systems. It provides structured approaches to agent architecture patterns, tool design principles, communication strategies, and performance evaluation frameworks for building robust, scalable AI agent systems.
+- Designing a new multi-agent system from requirements (pattern choice, roles, comms)
+- Generating provider-ready tool schemas (Anthropic + OpenAI formats) from plain tool descriptions
+- Evaluating execution logs: success rate, latency distribution, cost, bottlenecks
 
-## Core Capabilities
+**When NOT to use:** Claude Code Workflow-tool automations → `workflow-builder`; single-agent workflow scaffolds → `agent-workflow-designer`; multi-agent fan-out at runtime → `agenthub`.
 
-### 1. Agent Architecture Patterns
+## Pattern decision table
 
-#### Single Agent Pattern
-- **Use Case:** Simple, focused tasks with clear boundaries
-- **Pros:** Minimal complexity, easy debugging, predictable behavior
-- **Cons:** Limited scalability, single point of failure
-- **Implementation:** Direct user-agent interaction with comprehensive tool access
+| Choose | When | Watch out for |
+|---|---|---|
+| Single agent | One bounded task, < ~5 tools | Don't add agents you don't need |
+| Supervisor | Central decomposition, specialists report back | Supervisor becomes the bottleneck |
+| Pipeline | Strictly sequential stages with handoffs | Rigid order; slowest stage gates throughput |
+| Hierarchical | Multiple org layers, > ~8 agents | Communication overhead per level |
+| Swarm | Parallel peers, fault tolerance over predictability | Hard to debug; needs consensus rules |
 
-#### Supervisor Pattern
-- **Use Case:** Hierarchical task decomposition with centralized control
-- **Architecture:** One supervisor agent coordinating multiple specialist agents
-- **Pros:** Clear command structure, centralized decision making
-- **Cons:** Supervisor bottleneck, complex coordination logic
-- **Implementation:** Supervisor receives tasks, delegates to specialists, aggregates results
+The planner applies this scoring deterministically — run it rather than picking by feel.
 
-#### Swarm Pattern
-- **Use Case:** Distributed problem solving with peer-to-peer collaboration
-- **Architecture:** Multiple autonomous agents with shared objectives
-- **Pros:** High parallelism, fault tolerance, emergent intelligence
-- **Cons:** Complex coordination, potential conflicts, harder to predict
-- **Implementation:** Agent discovery, consensus mechanisms, distributed task allocation
+## Workflow
 
-#### Hierarchical Pattern
-- **Use Case:** Complex systems with multiple organizational layers
-- **Architecture:** Tree structure with managers and workers at different levels
-- **Pros:** Natural organizational mapping, clear responsibilities
-- **Cons:** Communication overhead, potential bottlenecks at each level
-- **Implementation:** Multi-level delegation with feedback loops
+All paths relative to this skill folder. Each step's JSON output is the next step's design input.
 
-#### Pipeline Pattern
-- **Use Case:** Sequential processing with specialized stages
-- **Architecture:** Agents arranged in processing pipeline
-- **Pros:** Clear data flow, specialized optimization per stage
-- **Cons:** Sequential bottlenecks, rigid processing order
-- **Implementation:** Message queues between stages, state handoffs
+### 1. Design the architecture
 
-### 2. Agent Role Definition
+Write a requirements JSON (copy `assets/sample_system_requirements.json` — keys: `goal`, `tasks[]`, `constraints{max_response_time, budget_per_task, concurrent_tasks}`, `team_size`):
 
-#### Role Specification Framework
-- **Identity:** Name, purpose statement, core competencies
-- **Responsibilities:** Primary tasks, decision boundaries, success criteria
-- **Capabilities:** Required tools, knowledge domains, processing limits
-- **Interfaces:** Input/output formats, communication protocols
-- **Constraints:** Security boundaries, resource limits, operational guidelines
+```bash
+python3 agent_planner.py requirements.json --format json -o arch
+```
 
-#### Common Agent Archetypes
+Emits `arch.json` with `architecture_design` (pattern, agents, communication links), `mermaid_diagram`, and `implementation_roadmap`. Read `architecture_design.pattern` and the per-agent role list; present the mermaid diagram to the user.
 
-**Coordinator Agent**
-- Orchestrates multi-agent workflows
-- Makes high-level decisions and resource allocation
-- Monitors system health and performance
-- Handles escalations and conflict resolution
+### 2. Generate tool schemas
 
-**Specialist Agent**
-- Deep expertise in specific domain (code, data, research)
-- Optimized tools and knowledge for specialized tasks
-- High-quality output within narrow scope
-- Clear handoff protocols for out-of-scope requests
+Describe each agent's tools in plain JSON (copy `assets/sample_tool_descriptions.json`), then:
 
-**Interface Agent**
-- Handles external interactions (users, APIs, systems)
-- Protocol translation and format conversion
-- Authentication and authorization management
-- User experience optimization
+```bash
+python3 tool_schema_generator.py tool_descriptions.json --validate -o tools
+```
 
-**Monitor Agent**
-- System health monitoring and alerting
-- Performance metrics collection and analysis
-- Anomaly detection and reporting
-- Compliance and audit trail maintenance
+Emits `tools.json` (`tool_schemas`, `validation_summary`) plus provider-specific `tools_anthropic.json` / `tools_openai.json`. **Gate: every tool must print `✓ Valid`.** Fix any invalid schema before proceeding — never hand an agent an unvalidated schema.
 
-### 3. Tool Design Principles
+### 3. Evaluate execution logs
 
-#### Schema Design
-- **Input Validation:** Strong typing, required vs optional parameters
-- **Output Consistency:** Standardized response formats, error handling
-- **Documentation:** Clear descriptions, usage examples, edge cases
-- **Versioning:** Backward compatibility, migration paths
+Once the system runs (or against `assets/sample_execution_logs.json` for a dry run):
 
-#### Error Handling Patterns
-- **Graceful Degradation:** Partial functionality when dependencies fail
-- **Retry Logic:** Exponential backoff, circuit breakers, max attempts
-- **Error Propagation:** Structured error responses, error classification
-- **Recovery Strategies:** Fallback methods, alternative approaches
+```bash
+python3 agent_evaluator.py execution_logs.json --detailed -o eval
+```
 
-#### Idempotency Requirements
-- **Safe Operations:** Read operations with no side effects
-- **Idempotent Writes:** Same operation can be safely repeated
-- **State Management:** Version tracking, conflict resolution
-- **Atomicity:** All-or-nothing operation completion
+Emits `eval.json` with `summary`, `agent_metrics`, `bottleneck_analysis`, `error_analysis`, `cost_breakdown`, `sla_compliance`, and `optimization_recommendations`, plus split files (`eval_errors.json`, `eval_recommendations.json`).
 
-### 4. Communication Patterns
+### 4. Verification loop
 
-#### Message Passing
-- **Asynchronous Messaging:** Decoupled agents, message queues
-- **Message Format:** Structured payloads with metadata
-- **Delivery Guarantees:** At-least-once, exactly-once semantics
-- **Routing:** Direct messaging, publish-subscribe, broadcast
+The design is not done until:
 
-#### Shared State
-- **State Stores:** Centralized data repositories
-- **Consistency Models:** Strong, eventual, weak consistency
-- **Access Patterns:** Read-heavy, write-heavy, mixed workloads
-- **Conflict Resolution:** Last-writer-wins, merge strategies
+1. `tool_schema_generator.py --validate` reports 0 invalid schemas.
+2. `agent_evaluator.py` on a pilot run reports **0 critical issues** (the tool prints `CRITICAL: N critical issues` when found). If N > 0, apply the top item in `eval_recommendations.json`, re-run the pilot, and re-evaluate.
+3. Compare your outputs against `expected_outputs/` to confirm the schema shape you're consuming hasn't drifted.
 
-#### Event-Driven Architecture
-- **Event Sourcing:** Immutable event logs, state reconstruction
-- **Event Types:** Domain events, system events, integration events
-- **Event Processing:** Real-time, batch, stream processing
-- **Event Schema:** Versioned event formats, backward compatibility
+## References
 
-### 5. Guardrails and Safety
-
-#### Input Validation
-- **Schema Enforcement:** Required fields, type checking, format validation
-- **Content Filtering:** Harmful content detection, PII scrubbing
-- **Rate Limiting:** Request throttling, resource quotas
-- **Authentication:** Identity verification, authorization checks
-
-#### Output Filtering
-- **Content Moderation:** Harmful content removal, quality checks
-- **Consistency Validation:** Logic checks, constraint verification
-- **Formatting:** Standardized output formats, clean presentation
-- **Audit Logging:** Decision trails, compliance records
-
-#### Human-in-the-Loop
-- **Approval Workflows:** Critical decision checkpoints
-- **Escalation Triggers:** Confidence thresholds, risk assessment
-- **Override Mechanisms:** Human judgment precedence
-- **Feedback Loops:** Human corrections improve system behavior
-
-### 6. Evaluation Frameworks
-
-#### Task Completion Metrics
-- **Success Rate:** Percentage of tasks completed successfully
-- **Partial Completion:** Progress measurement for complex tasks
-- **Task Classification:** Success criteria by task type
-- **Failure Analysis:** Root cause identification and categorization
-
-#### Quality Assessment
-- **Output Quality:** Accuracy, relevance, completeness measures
-- **Consistency:** Response variability across similar inputs
-- **Coherence:** Logical flow and internal consistency
-- **User Satisfaction:** Feedback scores, usage patterns
-
-#### Cost Analysis
-- **Token Usage:** Input/output token consumption per task
-- **API Costs:** External service usage and charges
-- **Compute Resources:** CPU, memory, storage utilization
-- **Time-to-Value:** Cost per successful task completion
-
-#### Latency Distribution
-- **Response Time:** End-to-end task completion time
-- **Processing Stages:** Bottleneck identification per stage
-- **Queue Times:** Wait times in processing pipelines
-- **Resource Contention:** Impact of concurrent operations
-
-### 7. Orchestration Strategies
-
-#### Centralized Orchestration
-- **Workflow Engine:** Central coordinator manages all agents
-- **State Management:** Centralized workflow state tracking
-- **Decision Logic:** Complex routing and branching rules
-- **Monitoring:** Comprehensive visibility into all operations
-
-#### Decentralized Orchestration
-- **Peer-to-Peer:** Agents coordinate directly with each other
-- **Service Discovery:** Dynamic agent registration and lookup
-- **Consensus Protocols:** Distributed decision making
-- **Fault Tolerance:** No single point of failure
-
-#### Hybrid Approaches
-- **Domain Boundaries:** Centralized within domains, federated across
-- **Hierarchical Coordination:** Multiple orchestration levels
-- **Context-Dependent:** Strategy selection based on task type
-- **Load Balancing:** Distribute coordination responsibility
-
-### 8. Memory Patterns
-
-#### Short-Term Memory
-- **Context Windows:** Working memory for current tasks
-- **Session State:** Temporary data for ongoing interactions
-- **Cache Management:** Performance optimization strategies
-- **Memory Pressure:** Handling capacity constraints
-
-#### Long-Term Memory
-- **Persistent Storage:** Durable data across sessions
-- **Knowledge Base:** Accumulated domain knowledge
-- **Experience Replay:** Learning from past interactions
-- **Memory Consolidation:** Transferring from short to long-term
-
-#### Shared Memory
-- **Collaborative Knowledge:** Shared learning across agents
-- **Synchronization:** Consistency maintenance strategies
-- **Access Control:** Permission-based memory access
-- **Memory Partitioning:** Isolation between agent groups
-
-### 9. Scaling Considerations
-
-#### Horizontal Scaling
-- **Agent Replication:** Multiple instances of same agent type
-- **Load Distribution:** Request routing across agent instances
-- **Resource Pooling:** Shared compute and storage resources
-- **Geographic Distribution:** Multi-region deployments
-
-#### Vertical Scaling
-- **Capability Enhancement:** More powerful individual agents
-- **Tool Expansion:** Broader tool access per agent
-- **Context Expansion:** Larger working memory capacity
-- **Processing Power:** Higher throughput per agent
-
-#### Performance Optimization
-- **Caching Strategies:** Response caching, tool result caching
-- **Parallel Processing:** Concurrent task execution
-- **Resource Optimization:** Efficient resource utilization
-- **Bottleneck Elimination:** Systematic performance tuning
-
-### 10. Failure Handling
-
-#### Retry Mechanisms
-- **Exponential Backoff:** Increasing delays between retries
-- **Jitter:** Random delay variation to prevent thundering herd
-- **Maximum Attempts:** Bounded retry behavior
-- **Retry Conditions:** Transient vs permanent failure classification
-
-#### Fallback Strategies
-- **Graceful Degradation:** Reduced functionality when systems fail
-- **Alternative Approaches:** Different methods for same goals
-- **Default Responses:** Safe fallback behaviors
-- **User Communication:** Clear failure messaging
-
-#### Circuit Breakers
-- **Failure Detection:** Monitoring failure rates and response times
-- **State Management:** Open, closed, half-open circuit states
-- **Recovery Testing:** Gradual return to normal operation
-- **Cascading Failure Prevention:** Protecting upstream systems
-
-## Implementation Guidelines
-
-### Architecture Decision Process
-1. **Requirements Analysis:** Understand system goals, constraints, scale
-2. **Pattern Selection:** Choose appropriate architecture pattern
-3. **Agent Design:** Define roles, responsibilities, interfaces
-4. **Tool Architecture:** Design tool schemas and error handling
-5. **Communication Design:** Select message patterns and protocols
-6. **Safety Implementation:** Build guardrails and validation
-7. **Evaluation Planning:** Define success metrics and monitoring
-8. **Deployment Strategy:** Plan scaling and failure handling
-
-### Quality Assurance
-- **Testing Strategy:** Unit, integration, and system testing approaches
-- **Monitoring:** Real-time system health and performance tracking
-- **Documentation:** Architecture documentation and runbooks
-- **Security Review:** Threat modeling and security assessments
-
-### Continuous Improvement
-- **Performance Monitoring:** Ongoing system performance analysis
-- **User Feedback:** Incorporating user experience improvements
-- **A/B Testing:** Controlled experiments for system improvements
-- **Knowledge Base Updates:** Continuous learning and adaptation
-
-This skill provides the foundation for designing robust, scalable multi-agent systems that can handle complex tasks while maintaining safety, reliability, and performance at scale.
+- `references/agent_architecture_patterns.md` — pattern trade-offs in depth
+- `references/tool_design_best_practices.md` — schema, idempotency, error-handling rules
+- `references/evaluation_methodology.md` — metric definitions the evaluator implements

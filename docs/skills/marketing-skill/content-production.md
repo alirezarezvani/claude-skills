@@ -23,7 +23,7 @@ This is the execution engine — not the strategy layer. You're here to build, n
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions. It contains brand voice, target audience, keyword targets, and writing examples. Use what's there — only ask for what's missing.
+If `.claude/product-marketing-context.md` exists, read it before asking questions. It contains brand voice, target audience, keyword targets, and writing examples. Use what's there — only ask for what's missing.
 
 Gather this context (ask in one shot, don't drip):
 
@@ -148,9 +148,17 @@ Don't pad the conclusion. If it's done, it's done.
 
 ## Mode 3: Optimize & Polish
 
-Draft exists. Run this in order.
+Draft exists. Run this in order. Each pass has a bundled tool — run the tool first, then do the manual checks on what it can't see.
 
 ### SEO Pass
+
+Run the optimizer first:
+
+```bash
+python3 scripts/seo_optimizer.py draft.md --keyword "primary keyword" --secondary "secondary,phrases"
+```
+
+Fix what it flags, then verify manually:
 
 - **Title tag**: Contains primary keyword, under 60 characters, curiosity-driving
 - **H1**: Different from title tag, keyword-rich, reads naturally
@@ -161,13 +169,23 @@ Draft exists. Run this in order.
 
 ### Readability Pass
 
-Run `scripts/content_scorer.py` on the draft. Target score: 70+.
+Run `python3 scripts/content_scorer.py draft.md --json` on the draft (emits a 0-100 score). Target score: 70+.
 
 Manual checks:
 - Average sentence length: aim for 15-20 words, mix it up
 - No paragraph over 4 sentences (web readers need air)
 - No jargon without explanation (for non-expert audiences)
 - Active voice: find passive constructions and flip them
+
+### Brand Voice Pass
+
+Check the draft against the brand's voice profile (from `.claude/product-marketing-context.md`):
+
+```bash
+python3 scripts/brand_voice_analyzer.py draft.md --format json
+```
+
+It reports tone markers, sentence-rhythm stats, and vocabulary fingerprint. Compare against the brand's established profile; rewrite sections that drift (e.g., formal drift in a casual brand).
 
 ### Structure Audit
 
@@ -192,7 +210,13 @@ Write:
 
 ### Quality Gates — Don't Publish Until These Pass
 
-See [references/optimization-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-production/references/optimization-checklist.md) for the full pre-publish checklist.
+Run the gate checker — it enforces the non-negotiables mechanically:
+
+```bash
+python3 scripts/content_quality_gates.py draft.md --json
+```
+
+A failing gate blocks publish; fix and re-run until clean. See [references/optimization-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-production/references/optimization-checklist.md) for the full pre-publish checklist.
 
 Core gates:
 - [ ] Primary keyword appears naturally 3-5x (not stuffed)
@@ -245,6 +269,6 @@ When reviewing drafts: flag issues → explain impact → give specific fix. Don
 
 - **content-strategy**: Use when deciding *what* to write — topics, calendar, pillar structure. NOT for writing the actual piece (that's this skill).
 - **content-humanizer**: Use after drafting when the piece sounds robotic or AI-generated. Run this before the optimization pass.
-- **ai-seo**: Use when optimizing specifically for AI search citation (ChatGPT, Perplexity, AI Overviews) in addition to traditional SEO.
+- **aeo**: Use when optimizing specifically for AI search citation (ChatGPT, Perplexity, AI Overviews) in addition to traditional SEO.
 - **copywriting**: Use for landing pages, CTAs, and conversion copy. NOT for long-form content (that's this skill).
 - **seo-audit**: Use when auditing an existing content library for SEO gaps. NOT for single-piece production.

@@ -1,6 +1,6 @@
 ---
 name: persona
-description: Generate data-driven user personas for UX research and product design. Usage: /persona generate [options]
+description: "Generate data-driven user personas for UX research and product design. Usage: /persona generate [options]"
 ---
 
 # /persona
@@ -34,7 +34,7 @@ Interactive mode prompts for product context. Alternatively, provide context inl
 ```
 
 ## Scripts
-- `product-team/ux-researcher-designer/scripts/persona_generator.py` — Persona generator (positional `json` arg for JSON output)
+- `product-team/skills/ux-researcher-designer/scripts/persona_generator.py` — Persona generator (positional `json` arg for JSON output)
 
 ## Skill Reference
-> `product-team/ux-researcher-designer/SKILL.md`
+> `product-team/skills/ux-researcher-designer/SKILL.md`

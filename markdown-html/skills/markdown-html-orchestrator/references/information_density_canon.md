@@ -33,7 +33,7 @@ Argues that interactive controls let a reader move fluidly between concrete exam
 Establishes the "garden" pattern: persistent, interlinked, editable knowledge artifacts rendered as HTML. Reinforces single-file HTML as the right artifact shape for long-form thinking (vs. blog posts as linear sequences). Many of her gardens use the exact patterns this plugin generates: sticky TOC, collapsibles, callouts.
 
 ### 5. Amelia Wattenberger — "Why React isn't great for actually building websites" + interactive essay archive (wattenberger.com)
-Demonstrates lightweight interactivity in essays without frameworks — IntersectionObserver, vanilla scroll handling, inline SVG. The exact technical patterns md-document will use.
+Demonstrates lightweight interactivity in essays without frameworks — IntersectionObserver, vanilla scroll handling, inline SVG. The exact technical patterns md-document uses.
 
 ### 6. Bartosz Ciechanowski — *Internal Combustion Engine* and other essays (ciechanow.ski)
 The high-water mark of single-page interactive explainers. Each essay is a single HTML file with inline SVG animation and controls. Validates the single-file-HTML-as-artifact thesis at the upper bound.

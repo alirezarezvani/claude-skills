@@ -320,16 +320,20 @@ For detailed requirements and audit questions for each ISO 13485:2016 clause, se
 
 ### Record Retention Requirements
 
-| Record Type | Minimum Retention | Regulatory Basis |
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** FDA's Quality Management System Regulation (QMSR) final rule (89 FR 7496) amended 21 CFR Part 820 to **incorporate ISO 13485:2016 by reference** and removed the legacy QSR subsection structure. The section numbers below (820.30/.181/.184/.198) **no longer exist in the CFR** — they are retained only as a familiar index. The current authority for record retention is **ISO 13485:2016 §4.2.5** (retain "for at least the lifetime of the medical device as defined by the organization, but not less than two years"), with records additions in retained **21 CFR 820.35**. Cite the ISO 13485 clauses — not the 820.x numbers — in current compliance documentation.
+
+| Record Type | Minimum Retention | Current authority under QMSR (legacy QSR shown for index) |
 |-------------|-------------------|------------------|
-| Device Master Record | Life of device + 2 years | 21 CFR 820.181 |
-| Device History Record | Life of device + 2 years | 21 CFR 820.184 |
-| Design History File | Life of device + 2 years | 21 CFR 820.30 |
-| Complaint Records | Life of device + 2 years | 21 CFR 820.198 |
+| Device Master Record | Life of device + 2 years | ISO 13485 §4.2.3 (medical device file)/§4.2.5 (legacy QSR 820.181, historical) |
+| Device History Record | Life of device + 2 years | ISO 13485 §4.2.5 + 21 CFR 820.35 (legacy QSR 820.184, historical) |
+| Design History File | Life of device + 2 years | ISO 13485 §7.3.10/§4.2.5 (legacy QSR 820.30, historical) |
+| Complaint Records | Life of device + 2 years | ISO 13485 §8.2.2/§4.2.5 + 21 CFR 820.35(b) (legacy QSR 820.198, historical) |
 | Training Records | Employment + 3 years | Best practice |
 | Audit Records | 7 years | Best practice |
 | CAPA Records | 7 years | Best practice |
 | Calibration Records | Equipment life + 2 years | Best practice |
+
+> **Decision discipline:** This skill's checklists and tools structure QMS conformity assessment — they do not certify ISO 13485 / QMSR compliance. Final compliance determinations and record-retention decisions are yours to make and must be reviewed and signed off by the named QMR; route FDA-specific regulatory-classification questions to Regulatory Affairs and confirm current 21 CFR 820 / ISO 13485:2016 text at fda.gov before relying on any citation here.
 
 ---
 

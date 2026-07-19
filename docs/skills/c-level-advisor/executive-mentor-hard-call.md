@@ -1,6 +1,6 @@
 ---
 title: "/em:hard-call — Framework for Decisions With No Good Options — Agent Skill for Executives"
-description: "/em -hard-call — Framework for Decisions With No Good Options. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /em:hard-call — Framework for Decisions With No Good Options
@@ -102,7 +102,7 @@ Hard decisions almost always get harder if communication is bad. The decision it
 For every hard call, plan:
 - **Who needs to know first** (the person directly affected, before anyone else)
 - **How you'll tell them** (in person when possible, never via email for personal impact)
-- **What you'll say** (honest, direct, compassionate — see `references/hard_things.md`)
+- **What you'll say** (honest, direct, compassionate — see [`references/hard_things.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/executive-mentor/references/hard_things.md))
 - **What they can ask** (be ready for every question)
 - **What comes next** (give them a clear picture of what happens after)
 
@@ -111,7 +111,7 @@ For every hard call, plan:
 ## Decision-Specific Frameworks
 
 ### Firing a Co-Founder
-See `references/hard_things.md — Co-Founder Conflicts` for full framework.
+See [`references/hard_things.md — Co-Founder Conflicts`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor/skills/executive-mentor/references/hard_things.md — Co-Founder Conflicts) for full framework.
 
 Key questions to answer first:
 - Is this a performance problem or a values/culture problem? (Different conversations)

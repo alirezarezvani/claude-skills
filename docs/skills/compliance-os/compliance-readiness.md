@@ -140,7 +140,7 @@ python ../../skills/compliance-os/scripts/audit_simulator.py scope.json
 
 - Agent: [`cs-compliance-officer`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/agents/cs-compliance-officer.md)
 - Skill: [`compliance-os`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-os/SKILL.md)
-- Adjacent: [`skills/iso42001-specialist`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/ra-qm-team/skills/iso42001-specialist), [`skills/eu-ai-act-specialist`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/ra-qm-team/skills/eu-ai-act-specialist), [`skills/information-security-manager-iso27001`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/ra-qm-team/skills/information-security-manager-iso27001), [`skills/soc2-compliance`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/ra-qm-team/skills/soc2-compliance), [`skills/gdpr-dsgvo-expert`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/ra-qm-team/skills/gdpr-dsgvo-expert)
+- Adjacent: `ra-qm-team/skills/iso42001-specialist/`, `ra-qm-team/skills/eu-ai-act-specialist/`, `ra-qm-team/skills/information-security-manager-iso27001/`, `ra-qm-team/skills/soc2-compliance/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`
 
 ---
 

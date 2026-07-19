@@ -53,11 +53,11 @@ description: "17 product skills — product management agent skill and Claude Co
 
     Essential tools and frameworks for modern product management, from discovery to delivery.
 
--   **[Product Team Skills](product-skills.md)**
+-   **[Product Skills — Router](product-skills.md)**
 
     ---
 
-    8 production-ready product skills covering product management, UX/UI design, and SaaS development.
+    This plugin bundles 12 product skills (this router is the 13th folder under product-team/skills/). Each skill is self...
 
 -   **[Product Strategist](product-strategist.md)**
 

@@ -50,7 +50,7 @@ DEMO_FINDINGS = [
     AuditFinding("drive", "Link sharing defaults", "FAIL",
                  "Default link sharing is set to 'Anyone with the link'",
                  "Sensitive files accessible without authentication",
-                 "gws admin settings update drive --defaultLinkSharing restricted"),
+                 "Restrict default link sharing: Admin Console > Apps > Google Workspace > Drive > Sharing settings"),
     AuditFinding("gmail", "Auto-forwarding", "PASS",
                  "No auto-forwarding rules detected for admin accounts"),
     AuditFinding("gmail", "SPF record", "PASS",
@@ -74,11 +74,11 @@ DEMO_FINDINGS = [
     AuditFinding("oauth", "High-risk apps", "WARN",
                  "3 apps have Drive full access scope",
                  "Apps can read/modify all Drive files",
-                 "Audit each app: gws admin tokens list --json | filter by scope"),
+                 "Audit each app via the Directory API tokens resource (verify: gws schema admin.tokens.list)"),
     AuditFinding("admin", "Super admin count", "WARN",
                  "4 super admin accounts detected (recommended: 2-3)",
                  "Increased attack surface for privilege escalation",
-                 "Reduce super admins: gws admin users list --query 'isAdmin=true' --json"),
+                 "Reduce super admins: list them via the Directory API (verify: gws schema admin.users.list)"),
     AuditFinding("admin", "2-Step verification", "PASS",
                  "2-Step verification enforced for all users"),
     AuditFinding("admin", "Password policy", "PASS",
@@ -104,7 +104,7 @@ def audit_drive() -> List[AuditFinding]:
     findings = []
 
     # Check sharing settings
-    output = run_gws_command(["gws", "drive", "about", "get", "--json"])
+    output = run_gws_command(["gws", "drive", "about", "get", "--params", '{"fields": "*"}'])
     if output:
         try:
             data = json.loads(output)
@@ -140,7 +140,8 @@ def audit_gmail() -> List[AuditFinding]:
     findings = []
 
     # Check forwarding rules
-    output = run_gws_command(["gws", "gmail", "users.settings.forwardingAddresses", "list", "me", "--json"])
+    output = run_gws_command(["gws", "gmail", "users", "settings", "forwardingAddresses", "list",
+                              "--params", '{"userId": "me"}'])
     if output:
         try:
             data = json.loads(output)
@@ -150,7 +151,7 @@ def audit_gmail() -> List[AuditFinding]:
                     "gmail", "Auto-forwarding", "WARN",
                     f"{len(addrs)} forwarding addresses configured",
                     "Data exfiltration via email forwarding",
-                    "Review: gws gmail users.settings.forwardingAddresses list me --json"
+                    "Review forwarding addresses (verify: gws schema gmail.users.settings.forwardingAddresses.list)"
                 ))
             else:
                 findings.append(AuditFinding(
@@ -172,7 +173,7 @@ def audit_calendar() -> List[AuditFinding]:
     """Audit Calendar sharing settings."""
     findings = []
 
-    output = run_gws_command(["gws", "calendar", "calendarList", "get", "primary", "--json"])
+    output = run_gws_command(["gws", "calendar", "calendarList", "get", "--params", '{"calendarId": "primary"}'])
     if output:
         findings.append(AuditFinding(
             "calendar", "Primary calendar", "PASS",

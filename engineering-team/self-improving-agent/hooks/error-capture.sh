@@ -113,7 +113,7 @@ cat << EOF
 Command error detected (pattern: "$matched_pattern").
 If this was unexpected or required investigation to fix, save the solution:
   /si:remember "explanation of what went wrong and the fix"
-Or if this is a known pattern, check: /si:review
+Or if this is a known pattern, check: /si:memory-review
 Context: $(echo "$error_context" | head -2 | tr '\n' ' ' | cut -c1-200)
 </error-detected>
 EOF

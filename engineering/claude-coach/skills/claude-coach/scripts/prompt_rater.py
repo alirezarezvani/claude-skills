@@ -138,14 +138,17 @@ def render_human(r: Rating) -> str:
     )
 
 
-def sample_run() -> int:
+def sample_run(as_json: bool = False) -> int:
     samples = [
         "Can you help me with my email?",
         "Write a 200-word product description for a noise-cancelling headphone targeting remote workers, focused on the focus-time benefit, no marketing fluff.",
         "thoughts?",
     ]
-    for s in samples:
-        r = rate(s)
+    ratings = [rate(s) for s in samples]
+    if as_json:
+        print(json.dumps([asdict(r) for r in ratings], indent=2))
+        return 0
+    for r in ratings:
         print(render_human(r))
         print("-" * 60)
     return 0
@@ -159,7 +162,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.sample:
-        return sample_run()
+        return sample_run(args.json)
 
     if not args.prompt:
         parser.error("--prompt is required unless --sample is passed")

@@ -41,10 +41,15 @@ M&A, mergers and acquisitions, due diligence, acquisition, acqui-hire, integrati
 | Customers | Churn rate, NPS, contract terms | High churn, short contracts |
 
 ### Valuation Approaches
-- **Revenue multiple:** Industry-dependent (2-15x ARR for SaaS)
-- **Comparable transactions:** What similar companies sold for
+
+The ranges below are **illustrative, not current market data** — always verify against current market comps before using them in a model or negotiation.
+
+- **Revenue multiple:** Industry-dependent (illustrative range: 2-15x ARR for SaaS, varying with growth rate, NRR, and rate environment)
+- **Comparable transactions:** What similar companies sold for — the most defensible anchor
 - **DCF:** For profitable companies only (most startups: use multiples)
-- **Acqui-hire:** $1-3M per engineer in hot markets
+- **Acqui-hire:** Illustrative range: $1-3M per engineer in hot talent markets
+
+**Sources to verify against (check the latest edition):** the SaaS Capital Index (private SaaS revenue multiples, updated monthly), Software Equity Group (SEG) Annual/Quarterly SaaS M&A Reports (transaction multiples), and Aventis Advisors' SaaS valuation multiples reports. Cross-check at least two before anchoring a price.
 
 ### Integration Frameworks
 See `references/integration-playbook.md` for the 100-day integration plan.
@@ -82,12 +87,24 @@ See `references/integration-playbook.md` for the 100-day integration plan.
 - Integration plan doesn't exist or is "we'll figure it out"
 - Valuation based on projections, not actuals
 
+## Verification Loop (before any LOI or signature)
+
+This skill frames the deal; two sibling skills verify it. Hand off — don't duplicate:
+
+1. **Legal terms** → `general-counsel-advisor`: run the LOI/term sheet through `../general-counsel-advisor/scripts/term_sheet_analyzer.py` (12-dimension 0-100 score) and the definitive docs through `../general-counsel-advisor/scripts/contract_risk_scanner.py` (12 founder-killer patterns: earnout traps, uncapped indemnity, vague IP, etc.). Any 🔴 finding goes to outside counsel before signing.
+2. **Data diligence** → `chief-data-officer-advisor`: run `../chief-data-officer-advisor/scripts/ai_training_data_audit.py` (training-data rights, GDPR Art. 6 basis) and `../chief-data-officer-advisor/scripts/data_asset_valuator.py` (data-asset value, M&A multiplier with carve-out penalties) on the target's data estate. Undocumented consent provenance is a price-reduction or walk-away item.
+3. **Valuation math** → `cfo-advisor` tools for the quantitative model; this playbook stays qualitative.
+
+Loop the findings back into the negotiation-points table above before the next counter.
+
 ## Integration with C-Suite Roles
 
 | Role | Contribution to M&A |
 |------|-------------------|
 | CEO | Strategic rationale, negotiation lead |
 | CFO | Valuation, deal structure, financing |
+| GC | LOI/term sheet review, contract risk scan, regulatory triggers |
+| CDO | Data diligence: training-data rights, data-asset valuation |
 | CTO | Technical due diligence, integration architecture |
 | CHRO | People due diligence, retention planning |
 | COO | Integration execution, process merge |
@@ -96,3 +113,5 @@ See `references/integration-playbook.md` for the 100-day integration plan.
 ## Resources
 - `references/integration-playbook.md` — 100-day post-acquisition integration plan
 - `references/due-diligence-checklist.md` — comprehensive DD checklist by domain
+- `../general-counsel-advisor/SKILL.md` — term sheet analyzer + contract risk scanner
+- `../chief-data-officer-advisor/SKILL.md` — data diligence + data-asset valuation

@@ -412,9 +412,11 @@ Calculates and reports:
 | 8.5.2 Corrective Action | Eliminate cause of nonconformity | NC review, cause determination, action evaluation, implementation, effectiveness review |
 | 8.5.3 Preventive Action | Eliminate potential nonconformity | Trend analysis, cause determination, action evaluation, implementation, effectiveness review |
 
-### FDA 21 CFR 820.100
+### FDA CAPA authority — ISO 13485 §8.5.2/8.5.3 under the QMSR (legacy QSR 820.100, historical)
 
-Required CAPA elements:
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** FDA's Quality Management System Regulation (QMSR) final rule (89 FR 7496) amended 21 CFR Part 820 to **incorporate ISO 13485:2016 by reference** and removed the legacy QSR subsection structure. The CAPA section number **820.100 no longer exists in the CFR** — it is retained below only as a familiar index. The current FDA authority for CAPA is **ISO 13485:2016 §8.5.2 (corrective action) and §8.5.3 (preventive action)** (see clause table above), with complaint-handling additions in retained **21 CFR 820.35**. Cite the ISO 13485 clauses — not 820.100 — in current compliance documentation.
+
+CAPA elements required under ISO 13485 §8.5.2/§8.5.3 (legacy QSR 820.100, historical):
 - Procedures for implementing corrective and preventive action
 - Analyzing quality data sources (complaints, NCs, audits, service records)
 - Investigating cause of nonconformities
@@ -430,3 +432,5 @@ Required CAPA elements:
 | Root cause analysis superficial | Inadequate investigation training |
 | Effectiveness not verified | No verification procedure |
 | Actions do not address root cause | Symptom treatment vs. cause elimination |
+
+> **Decision discipline:** The tools in this skill structure investigations and track CAPA status — they do not certify CAPA closure or compliance. CAPA effectiveness conclusions and closure decisions are yours to make and must be reviewed and signed off by the named CAPA owner and Quality function; route regulatory-classification questions (e.g., reportability, 21 CFR 803 MDR, recall under 21 CFR 806) to Regulatory Affairs.

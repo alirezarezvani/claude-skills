@@ -1,6 +1,6 @@
 ---
 name: "eval"
-description: "Evaluate and rank agent results by metric or LLM judge for an AgentHub session."
+description: "Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /hub:eval or asks to score, compare, or pick a winner among completed AgentHub agents."
 command: /hub:eval
 ---
 

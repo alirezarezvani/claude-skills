@@ -1,37 +1,35 @@
 # Google Workspace CLI Command Reference
 
-Comprehensive reference for the `gws` CLI covering 18 services, 22 helper commands, global flags, and environment variables.
+Working reference for the `gws` CLI ([github.com/googleworkspace/cli](https://github.com/googleworkspace/cli)) covering services, helper commands, global flags, and environment variables.
+
+> **Verify against your installed version.** `gws` builds its command surface dynamically from Google's Discovery Service and is pre-v1.0. Treat command syntax in this document as a template: confirm exact syntax with `gws --help`, `gws <service> --help`, or `gws schema <service>.<resource>.<method>` before scripting. Verified-from-upstream facts: install via `npm install -g @googleworkspace/cli`; discovery commands follow `gws <service> <resource> <method>` with `--params` (query/path params as JSON) and `--json` (request body); helpers are `+`-prefixed (e.g. `gws gmail +send`); all output is structured JSON.
 
 ---
 
-## Global Flags
+## Global Flags (verified)
 
 | Flag | Description |
 |------|-------------|
-| `--json` | Output as JSON |
-| `--format ndjson` | Output as newline-delimited JSON |
-| `--dry-run` | Show what would be done without executing |
-| `--limit <n>` | Maximum results to return |
-| `--page-all` | Fetch all pages of results |
-| `--fields <spec>` | Partial response field mask |
-| `--quiet` | Suppress non-error output |
-| `--verbose` | Verbose debug output |
-| `--timeout <ms>` | Request timeout in milliseconds |
+| `--params <json>` | Query/path parameters as JSON for discovery commands |
+| `--json <json>` | Request body as JSON for discovery commands |
+| `--dry-run` | Preview the request without executing |
+| `--page-all` | Auto-paginate; one JSON line per page (NDJSON) |
+| `--page-limit <n>` | Max pages to fetch |
+| `--page-delay <ms>` | Delay between pages |
+| `--sanitize` | Scan responses via a Model Armor template |
 
 ---
 
-## Environment Variables
+## Environment Variables (verified)
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `GWS_CLIENT_ID` | OAuth client ID | — |
-| `GWS_CLIENT_SECRET` | OAuth client secret | — |
-| `GWS_TOKEN_PATH` | Token storage location | `~/.config/gws/token.json` |
-| `GWS_SERVICE_ACCOUNT_KEY` | Service account JSON key path | — |
-| `GWS_DELEGATED_USER` | User to impersonate (service accounts) | — |
-| `GWS_DEFAULT_FORMAT` | Default output format | `text` |
-| `GWS_PAGINATION_LIMIT` | Default pagination limit | `100` |
-| `GWS_LOG_LEVEL` | Logging level (debug/info/warn/error) | `warn` |
+| Variable | Description |
+|----------|-------------|
+| `GOOGLE_WORKSPACE_CLI_CLIENT_ID` | OAuth client ID |
+| `GOOGLE_WORKSPACE_CLI_CLIENT_SECRET` | OAuth client secret |
+| `GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE` | Path to credentials JSON (from `gws auth export`) |
+| `GOOGLE_WORKSPACE_CLI_TOKEN` | Pre-obtained OAuth token |
+| `GOOGLE_WORKSPACE_CLI_CONFIG_DIR` | Override default config location |
+| `GOOGLE_WORKSPACE_CLI_LOG` | Enable debug logging |
 
 ---
 
@@ -230,32 +228,36 @@ gws admin activities list admin --json
 
 ---
 
-## Helper Commands (22)
+## Helper Commands (verified `+`-prefixed surface)
 
-| Helper | Description | Example |
-|--------|-------------|---------|
-| `send` | Quick send email | `gws helpers send --to a@b.com --subject Hi --body Hello` |
-| `reply` | Quick reply | `gws helpers reply --thread <id> --body Thanks` |
-| `forward` | Quick forward | `gws helpers forward --message <id> --to a@b.com` |
-| `upload` | Quick upload to Drive | `gws helpers upload file.pdf --folder <id>` |
-| `download` | Quick download | `gws helpers download <fileId> --output file.pdf` |
-| `share` | Quick share | `gws helpers share <fileId> --with a@b.com --role writer` |
-| `quick-event` | Natural language event | `gws helpers quick-event "Lunch tomorrow at noon"` |
-| `find-time` | Find free slots | `gws helpers find-time --attendees a,b --duration 60` |
-| `standup-report` | Daily standup | `gws helpers standup-report` |
-| `meeting-prep` | Prep for meeting | `gws helpers meeting-prep --event <id>` |
-| `weekly-summary` | Week summary | `gws helpers weekly-summary` |
-| `morning-briefing` | Morning overview | `gws helpers morning-briefing` |
-| `eod-wrap` | End of day wrap | `gws helpers eod-wrap` |
-| `inbox-zero` | Process inbox | `gws helpers inbox-zero` |
-| `search` | Cross-service search | `gws helpers search "quarterly report"` |
-| `create-task` | Quick task creation | `gws helpers create-task "Review PR" --due tomorrow` |
-| `list-tasks` | Quick task listing | `gws helpers list-tasks` |
-| `chat-send` | Quick chat message | `gws helpers chat-send --space <id> --text "Hello"` |
-| `export-pdf` | Export as PDF | `gws helpers export-pdf <fileId> --output file.pdf` |
-| `trash-old` | Trash old files | `gws helpers trash-old --older-than 365d` |
-| `audit-sharing` | Audit file sharing | `gws helpers audit-sharing --folder <id>` |
-| `backup-labels` | Backup Gmail labels | `gws helpers backup-labels --output labels.json` |
+Helpers are prefixed with `+` so they never collide with Discovery-generated method names. Check each helper's flags with `gws <service> +<helper> --help`.
+
+| Service | Helper | Description |
+|---------|--------|-------------|
+| gmail | `+send` | Send an email (`gws gmail +send --to a@b.com --subject "Hi" --body "Hello"`) |
+| gmail | `+reply` | Reply to a message (auto-threading) |
+| gmail | `+reply-all` | Reply-all to a message |
+| gmail | `+forward` | Forward a message |
+| gmail | `+triage` | Unread inbox summary |
+| gmail | `+watch` | Watch for new emails as NDJSON |
+| sheets | `+append` | Append a row |
+| sheets | `+read` | Read values |
+| docs | `+write` | Append text |
+| chat | `+send` | Send a space message |
+| drive | `+upload` | Upload a file (`gws drive +upload ./report.pdf --name "Q1 Report"`) |
+| calendar | `+insert` | Create an event |
+| calendar | `+agenda` | Show upcoming events (timezone-aware) |
+| script | `+push` | Replace all Apps Script files |
+| workflow | `+standup-report` | Today's meetings + tasks |
+| workflow | `+meeting-prep` | Next meeting prep |
+| workflow | `+email-to-task` | Convert Gmail to Tasks |
+| workflow | `+weekly-digest` | Weekly summary |
+| workflow | `+file-announce` | Announce Drive file in Chat |
+| events | `+subscribe` | Subscribe to Workspace events |
+| events | `+renew` | Renew event subscriptions |
+| modelarmor | `+sanitize-prompt` | Sanitize user prompt |
+| modelarmor | `+sanitize-response` | Sanitize model response |
+| modelarmor | `+create-template` | Create Model Armor template |
 
 ---
 
@@ -267,47 +269,40 @@ gws schema gmail.users.messages.list
 gws schema drive.files.create
 gws schema calendar.events.insert
 
-# List all available services
-gws schema --list
-
-# List methods for a service
-gws schema gmail --methods
+# Discover available schema/introspection options for your version
+gws schema --help
 ```
 
 ---
 
-## Authentication Commands
+## Authentication Commands (verified)
 
 ```bash
-gws auth setup                      # Interactive OAuth setup
-gws auth setup --service-account    # Service account setup
-gws auth status                     # Check current auth
-gws auth status --json              # JSON auth details
-gws auth refresh                    # Refresh expired token
-gws auth revoke                     # Revoke current token
-gws auth switch <profile>           # Switch auth profile
-gws auth profiles list              # List saved profiles
+gws auth setup                      # Interactive OAuth setup (uses gcloud if available)
+gws auth login                      # Log in / re-consent
+gws auth login -s drive,gmail,sheets  # Request specific scopes
+gws auth export --unmasked          # Export credentials for headless reuse
+gws auth --help                     # Discover further auth subcommands in your version
 ```
 
 ---
 
-## Recipe Commands
+## Recipe Commands (local catalog, not built into gws)
+
+Recipes ship with this skill as a local catalog of command templates:
 
 ```bash
-gws recipes list                    # List all 43 recipes
-gws recipes list --category email   # Filter by category
-gws recipes describe <name>         # Show recipe details
-gws recipes run <name>              # Execute a recipe
-gws recipes run <name> --dry-run    # Preview recipe commands
+python3 scripts/gws_recipe_runner.py --list                       # List all 43 recipe templates
+python3 scripts/gws_recipe_runner.py --search "email"             # Search by keyword
+python3 scripts/gws_recipe_runner.py --describe standup-report    # Show recipe details
+python3 scripts/gws_recipe_runner.py --run <name> --dry-run       # Preview recipe commands
 ```
 
 ---
 
-## Persona Commands
+## Persona Commands (local catalog, not built into gws)
 
 ```bash
-gws persona list                    # List all 10 personas
-gws persona select <name>           # Activate a persona
-gws persona show                    # Show active persona
-gws persona recipes                 # Show recipes for active persona
+python3 scripts/gws_recipe_runner.py --personas                   # List all 10 personas
+python3 scripts/gws_recipe_runner.py --list --persona pm          # Recipes for a persona
 ```

@@ -31,11 +31,11 @@ Visual-premium-focused, motion-aware, brand-respecting. Refuses to ship a generi
 The cs-landing agent orchestrates the `landing` skill across HTML one-pager generation:
 
 1. **Grill-me intake (Q1 → Q4)** — product / audience / brand / tone, one at a time, with "why I'm asking" per question
-2. **Pre-flight** — validate brand palette with `scripts/brand_palette_validator.py`; generate output slug with `scripts/kebab_slug_generator.py`
+2. **Pre-flight** — validate brand palette with `skills/landing/scripts/brand_palette_validator.py`; generate output slug with `skills/landing/scripts/kebab_slug_generator.py`
 3. **Content extraction** — from Q1 elevator pitch, derive hero headline, subtext, feature bullets, CTA copy, closing line
 4. **Brand system** — default dark navy + teal OR overridden palette
 5. **Generation (single pass)** — write the .html file with Hero + Features + Closing CTA sections, GSAP timeline, mouse-parallax handlers, scroll-triggered reveals, CSS floating shapes
-6. **Post-flight** — validate output with `scripts/html_validator.py` (checks: 3 sections present, CDN deps included, `gsap.set()` initial states, responsive breakpoints, no external CSS/JS files)
+6. **Post-flight** — validate output with `skills/landing/scripts/html_validator.py` (checks: 3 sections present, CDN deps included, `gsap.set()` initial states, responsive breakpoints, no external CSS/JS files)
 7. **Deliver** — file path (CLI) or HTML artifact (Claude.ai web)
 
 Differentiates clearly:

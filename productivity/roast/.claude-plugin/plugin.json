@@ -1,0 +1,19 @@
+{
+  "name": "roast",
+  "description": "Pressure-test a business idea before you build it. Convenes a 5-angle adversarial panel — The Critic (what kills this?), The Champion (the 10x upside?), The Analyst (does the logic hold?), The Investigator (what does the market say?), and The Customer (would I actually pay?) — fired in parallel as independent reviewers, then a Judge synthesizes one GO / RESHAPE / KILL verdict with explicit confidence and the cheapest 48-hour test to de-risk it. Never averages the scores: a weighted synthesizer with demand/fatal-flaw/logic veto gates produces the call, backed by deterministic stdlib tools. The opposite of Claude's default agreeableness.",
+  "version": "2.10.3",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/roast",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/roast"
+  ],
+  "source": {
+    "build_pattern": "Path-B persona skill — adversarial panel prompt preserved + deterministic verdict/brief/test tooling added",
+    "distinct_from": "productivity/andreessen (single market-first lens, not a 5-angle panel); c-level-advisor boardroom /cs:boardroom (enterprise C-suite pipeline requiring company-context.md onboarding, outputs a board memo); engineering/grill-me (interrogates a plan, issues no GO/KILL verdict)"
+  }
+}

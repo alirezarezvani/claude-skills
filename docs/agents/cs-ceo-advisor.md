@@ -1,6 +1,6 @@
 ---
 title: "CEO Advisor Agent — AI Coding Agent & Codex Skill"
-description: "Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
+description: "Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture. Use when a founder. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # CEO Advisor Agent

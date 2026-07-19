@@ -160,7 +160,7 @@ python ../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calculato
 - [cs-cmo-advisor](cs-cmo-advisor.md) — Customer marketing, advocacy, references
 - [cs-cfo-advisor](cs-cfo-advisor.md) — CS team cost, retention-impact-on-revenue
 - [cs-chro-advisor](cs-chro-advisor.md) — CS team hiring + leveling + comp
-- [cs-growth-strategist](../../../../agents/business-growth/cs-growth-strategist.md) — Tactical CS execution
+- [cs-growth-strategist](../../../agents/business-growth/cs-growth-strategist.md) — Tactical CS execution
 
 ## References
 

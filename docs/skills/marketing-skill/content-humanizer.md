@@ -23,13 +23,13 @@ This is not a cleaning service. You're not just removing "delve" and calling it 
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it. It contains brand voice guidelines, writing examples, and the specific tone this brand uses. That context is your voice blueprint. Use it — don't improvise a voice when the brief already defines one.
+If `.claude/product-marketing-context.md` exists, read it. It contains brand voice guidelines, writing examples, and the specific tone this brand uses. That context is your voice blueprint. Use it — don't improvise a voice when the brief already defines one.
 
 Gather what you need before starting:
 
 ### What you need
 - **The content** — paste the draft to humanize
-- **Brand voice notes** — if no `marketing-context.md`, ask: "Is your voice direct/casual/technical/irreverent? Give me one example of writing you love."
+- **Brand voice notes** — if no `.claude/product-marketing-context.md`, ask: "Is your voice direct/casual/technical/irreverent? Give me one example of writing you love."
 - **Audience** — who reads this? (This changes what "human" sounds like)
 - **Goal** — what should this piece do? (Knowing the goal tells you how much personality is appropriate)
 
@@ -56,7 +56,15 @@ Run all three in one pass when you have enough context. Split them when the clie
 
 Scan the content for these categories. Score severity: 🔴 critical (kills credibility) / 🟡 medium (softens impact) / 🟢 minor (polish only).
 
-See [references/ai-tells-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-humanizer/references/ai-tells-checklist.md) for the comprehensive detection list.
+Start with the mechanical pass:
+
+```bash
+python3 scripts/humanizer_scorer.py draft.md --json
+```
+
+It emits a 0-100 human-ness score. Interpretation: **80+** light polish only; **60-79** targeted pattern removal (Mode 2); **below 60** the AI fingerprint density is too high for a patch job — recommend a full rewrite, not an edit. Re-run after humanizing; the score must move.
+
+See [references/ai-tells-checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/content-humanizer/references/ai-tells-checklist.md) for the comprehensive detection list. Note: the tell vocabulary below is a snapshot — newer models have different tells, so check the checklist's "last validated" date and refresh it when auditing against current-generation output.
 
 ### The Core AI Tell Categories
 
@@ -142,7 +150,7 @@ Every vague claim is an invitation to doubt. Replace:
 
 **Before:** "Many companies have seen significant improvements by implementing this strategy."
 
-**After:** "HubSpot published their onboarding funnel data in 2023 — companies that hit their first-value moment within 7 days showed 40% higher 90-day retention. That's not a rounding error."
+**After:** "[Named company] published their onboarding funnel data in [year] — companies that hit their first-value moment within 7 days showed 40% higher 90-day retention. That's not a rounding error." (Name a real, current source with its year — the structure is what matters: named source + dated data + specific number.)
 
 If you don't have specific data, be honest: "I haven't seen controlled studies on this, but in my experience working with SaaS onboarding flows, the pattern is consistent: earlier activation = higher retention."
 
@@ -175,7 +183,7 @@ Humanizing removes AI. Voice injection makes it *yours*.
 
 ### Read the Voice Blueprint First
 
-If `marketing-context.md` is available: read the brand voice section and writing examples. If not, ask for one example of content this brand loves. One. Then extract the patterns from it.
+If `.claude/product-marketing-context.md` is available: read the brand voice section and writing examples. If not, ask for one example of content this brand loves. One. Then extract the patterns from it.
 
 **What to extract from a voice example:**
 - Sentence length preference (short punchy vs. longer flowing?)
@@ -227,7 +235,7 @@ What changed:
 Flag these without being asked:
 
 - **AI fingerprint density too high** — If the piece has 10+ AI tells per 500 words, a patch job won't work. Flag that the piece needs a full rewrite, not an edit. Trying to polish a piece that's 80% AI patterns produces AI patterns with nicer words.
-- **Voice context missing** — If `marketing-context.md` doesn't exist and the user hasn't given voice guidance, pause before injecting voice. Ask for one example. Guessing the voice and being wrong wastes everyone's time.
+- **Voice context missing** — If `.claude/product-marketing-context.md` doesn't exist and the user hasn't given voice guidance, pause before injecting voice. Ask for one example. Guessing the voice and being wrong wastes everyone's time.
 - **Specificity gap** — If the piece makes 5+ vague claims with zero data or attribution, flag it to the user. You can make the prose flow better, but you can't invent specific proof. They need to provide it.
 - **Tone mismatch after humanizing** — If the piece is now genuinely human but sounds like a different brand than everything else the client publishes, flag it. Consistency matters as much as quality.
 - **Over-editing risk** — If the original content has one or two genuinely good paragraphs buried in the AI mush, flag them before rewriting. Don't accidentally destroy the good parts.
@@ -263,4 +271,4 @@ When auditing: name the pattern → explain why it reads as AI → give the spec
 - **content-production**: Use to produce the initial draft. Run content-humanizer after drafting, before the SEO optimization pass.
 - **copywriting**: Use for conversion copy — landing pages, CTAs, headlines. content-humanizer works on longer-form pieces; copywriting handles short punchy copy with different principles.
 - **content-strategy**: Use when deciding what content to create. NOT for voice or draft execution.
-- **ai-seo**: Use after humanizing, to optimize for AI search citation. Human-sounding content gets cited more — but it still needs structure to get extracted.
+- **aeo**: Use after humanizing, to optimize for AI search citation. Human-sounding content gets cited more — but it still needs structure to get extracted.

@@ -448,6 +448,26 @@ def format_text_report(results: dict) -> str:
     return "\n".join(lines)
 
 
+# Embedded synthetic pipeline fixture for --sample.
+SAMPLE_DATA = {
+    "quota": 1000000,
+    "average_cycle_days": 45,
+    "stages": ["discovery", "demo", "proposal", "negotiation", "closed_won"],
+    "deals": [
+        {"id": "D-1", "name": "Acme renewal", "stage": "proposal",
+         "value": 120000, "age_days": 30, "close_date": "2026-07-15"},
+        {"id": "D-2", "name": "Globex new logo", "stage": "discovery",
+         "value": 80000, "age_days": 10, "close_date": "2026-08-01"},
+        # D-3 is intentionally stale (70d old vs 45d average cycle, closing
+        # imminently) so the fixture exercises the at-risk/aging detection.
+        {"id": "D-3", "name": "Initech expansion", "stage": "negotiation",
+         "value": 200000, "age_days": 70, "close_date": "2026-06-30"},
+        {"id": "D-4", "name": "Umbrella upsell", "stage": "closed_won",
+         "value": 60000, "age_days": 50, "close_date": "2026-05-20"},
+    ],
+}
+
+
 def main() -> None:
     """Main entry point for pipeline analyzer CLI."""
     parser = argparse.ArgumentParser(
@@ -455,7 +475,6 @@ def main() -> None:
     )
     parser.add_argument(
         "--input",
-        required=True,
         help="Path to JSON file containing pipeline data",
     )
     parser.add_argument(
@@ -464,18 +483,30 @@ def main() -> None:
         default="text",
         help="Output format: json or text (default: text)",
     )
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="Analyze an embedded synthetic pipeline (no input file needed)",
+    )
 
     args = parser.parse_args()
 
-    try:
-        with open(args.input, "r") as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: File not found: {args.input}", file=sys.stderr)
-        sys.exit(1)
-    except json.JSONDecodeError as e:
-        print(f"Error: Invalid JSON in {args.input}: {e}", file=sys.stderr)
-        sys.exit(1)
+    if args.sample:
+        if args.input:
+            print("Warning: --sample specified; ignoring --input", file=sys.stderr)
+        data = SAMPLE_DATA
+    else:
+        if not args.input:
+            parser.error("--input is required (or use --sample)")
+        try:
+            with open(args.input, "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            print(f"Error: File not found: {args.input}", file=sys.stderr)
+            sys.exit(1)
+        except json.JSONDecodeError as e:
+            print(f"Error: Invalid JSON in {args.input}: {e}", file=sys.stderr)
+            sys.exit(1)
 
     # Validate required fields
     required_fields = ["deals", "quota", "stages"]

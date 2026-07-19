@@ -1,7 +1,7 @@
 {
   "name": "product-skills",
-  "description": "13 production-ready product skills: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer, apple-hig-expert (Apple Human Interface Guidelines), spec-to-repo. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.9.0",
+  "description": "13 production-ready product skills bundled in this plugin: product-skills fork-orchestrator with continuous-discovery loop (deterministic 16-lane router, Torres cadence tracker, OST linter), product manager toolkit (RICE, PRDs), product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, spec-to-repo. Companion standalone plugins: agile-product-owner, code-to-prd, apple-hig-expert, research-summarizer. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
+  "version": "2.11.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -39,9 +39,9 @@ Pairs with `cs-cfo-advisor` (finance cadence), `cs-cro-advisor` (revenue cadence
 
 ### Knowledge Bases
 
-- `../../skills/coo-advisor/references/operating_cadence.md` — weekly/monthly/quarterly rhythm, meeting design
-- `../../skills/coo-advisor/references/okr_execution.md` — OKR design, scoring, cascading
-- `../../skills/coo-advisor/references/scaling_playbooks.md` — 1-10, 10-100, 100-1000 transitions
+- `../../skills/coo-advisor/references/ops_cadence.md` — weekly/monthly/quarterly rhythm, meeting design
+- `../../skills/coo-advisor/references/process_frameworks.md` — OKR design, scoring, cascading
+- `../../skills/coo-advisor/references/scaling_playbook.md` — 1-10, 10-100, 100-1000 transitions
 
 ### Adjacent Skills
 
@@ -97,7 +97,7 @@ python ../../skills/coo-advisor/scripts/okr_tracker.py
 echo "⚙️  COO Quarterly Review"
 python ../../skills/coo-advisor/scripts/okr_tracker.py
 python ../../skills/coo-advisor/scripts/ops_efficiency_analyzer.py
-echo "Reference: ../../skills/coo-advisor/references/operating_cadence.md"
+echo "Reference: ../../skills/coo-advisor/references/ops_cadence.md"
 ```
 
 ## Success Metrics
@@ -113,7 +113,7 @@ echo "Reference: ../../skills/coo-advisor/references/operating_cadence.md"
 - [cs-cfo-advisor](cs-cfo-advisor.md) — finance cadence
 - [cs-cro-advisor](cs-cro-advisor.md) — revenue cadence
 - [cs-chief-of-staff](cs-chief-of-staff.md) — decision logging
-- [cs-engineering-lead](../../../../agents/engineering-team/cs-engineering-lead.md) — eng ops
+- [cs-engineering-lead](../../../agents/engineering-team/cs-engineering-lead.md) — eng ops
 
 ## References
 

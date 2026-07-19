@@ -16,8 +16,8 @@ Review your staged changes (or last commit) against Karpathy's 4 coding principl
 
 ## What it runs
 
-1. **Principle #2 (Simplicity):** `scripts/complexity_checker.py` on all changed files — detects over-engineering, premature abstractions, deep nesting, long functions
-2. **Principle #3 (Surgical):** `scripts/diff_surgeon.py` on the diff — detects comment-only changes, whitespace noise, style drift, drive-by refactors
+1. **Principle #2 (Simplicity):** `skills/karpathy-coder/scripts/complexity_checker.py` on all changed files — detects over-engineering, premature abstractions, deep nesting, long functions
+2. **Principle #3 (Surgical):** `skills/karpathy-coder/scripts/diff_surgeon.py` on the diff — detects comment-only changes, whitespace noise, style drift, drive-by refactors
 3. **Principles #1 + #4 (Think + Goals):** The `karpathy-reviewer` agent reads the diff and applies human-judgment checks — hidden assumptions, missing verification
 
 ## Output
@@ -36,11 +36,11 @@ Dispatches the `karpathy-reviewer` agent. See `agents/karpathy-reviewer.md`.
 
 ## Scripts
 
-- `engineering/karpathy-coder/scripts/complexity_checker.py`
-- `engineering/karpathy-coder/scripts/diff_surgeon.py`
-- `engineering/karpathy-coder/scripts/assumption_linter.py`
-- `engineering/karpathy-coder/scripts/goal_verifier.py`
+- `engineering/karpathy-coder/skills/karpathy-coder/scripts/complexity_checker.py`
+- `engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surgeon.py`
+- `engineering/karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py`
+- `engineering/karpathy-coder/skills/karpathy-coder/scripts/goal_verifier.py`
 
 ## Skill Reference
 
-→ `engineering/karpathy-coder/SKILL.md`
+→ `engineering/karpathy-coder/skills/karpathy-coder/SKILL.md`

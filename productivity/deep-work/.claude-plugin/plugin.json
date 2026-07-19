@@ -1,0 +1,19 @@
+{
+  "name": "deep-work",
+  "description": "Plan a deep work day the Cal Newport way: time-block planning + shallow-work budgeting + focus-session tracking. Classifies every task deep vs shallow (recent-graduate heuristic, explicit override wins), audits the shallow share against a 30-50% budget with a WITHIN-BUDGET / OVER-BUDGET verdict, then builds an energy-first time-blocked day — deep blocks of at least 90 minutes in the earliest hours, a hard 4-hour deep ceiling the planner refuses to exceed, shallow work batched into at most two windows, 10-minute attention-residue buffers, a fixed lunch, and a hard stop that never silently extends. A JSON-backed focus-session logger tracks weekly deep hours vs target and consecutive-day streaks, and an end-of-day shutdown ritual closes every open loop. Deterministic stdlib scripts do the arithmetic; refusals (exit 2) name exactly what to cut or defer.",
+  "version": "2.11.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/deep-work",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/deep-work"
+  ],
+  "source": {
+    "build_pattern": "Path-B method skill — Cal Newport time-block discipline preserved + deterministic scheduling/auditing/logging tooling added",
+    "distinct_from": "productivity/andreessen (the 3x5 card picks WHAT to do today; deep-work plans WHEN and HOW with attention protected — run the card first, then block the day here); project-management capacity planning (team-level capacity and sprint math; this is one person's attention across one day and one week)"
+  }
+}

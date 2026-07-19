@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 """
-QSR Compliance Checker
+QMS Documentation Checker (legacy-QSR checklist mapped to ISO 13485:2016 under the QMSR)
 
-Assesses compliance with 21 CFR Part 820 (Quality System Regulation) by analyzing
-project documentation and identifying gaps.
+Assesses quality system documentation against a checklist organized by the
+HISTORICAL Quality System Regulation (QSR) subsection structure of 21 CFR Part 820.
+
+IMPORTANT — QMSR transition: FDA's Quality Management System Regulation (QMSR)
+final rule (89 FR 7496) took effect 2026-02-02. It amended 21 CFR Part 820 to
+incorporate ISO 13485:2016 by reference and REMOVED the legacy QSR subsections
+(820.20-820.198) used as keys below. Those numbers are retained here only as a
+familiar checklist index; each maps to the ISO 13485:2016 clause that is the
+current legal authority (see QSR_TO_ISO13485). This tool checks documentation
+coverage — it does not determine current-law compliance.
 
 Usage:
     python qsr_compliance_checker.py <project_dir>
@@ -21,7 +29,26 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any
 
 
-# QSR sections and requirements
+# Historical QSR section -> current QMSR / ISO 13485:2016 authority
+# (legacy subsections removed by the QMSR effective 2026-02-02)
+QSR_TO_ISO13485 = {
+    "820.20": "ISO 13485 §5.1/5.5/5.6",
+    "820.30": "ISO 13485 §7.3",
+    "820.40": "ISO 13485 §4.2.4",
+    "820.50": "ISO 13485 §7.4",
+    "820.70": "ISO 13485 §6.3/6.4/7.5.1",
+    "820.72": "ISO 13485 §7.6",
+    "820.75": "ISO 13485 §7.5.6",
+    "820.90": "ISO 13485 §8.3",
+    "820.100": "ISO 13485 §8.5.2/8.5.3",
+    "820.120": "21 CFR 820.45 (retained) + ISO 13485 §7.5.1",
+    "820.180": "ISO 13485 §4.2.5 + 21 CFR 820.35 (retained)",
+    "820.181": "ISO 13485 §4.2.3 (medical device file)",
+    "820.184": "ISO 13485 §4.2.5 + 21 CFR 820.35",
+    "820.198": "ISO 13485 §8.2.2 + 21 CFR 820.35(b)",
+}
+
+# Legacy QSR sections and requirements (historical index; see QSR_TO_ISO13485 for current authority)
 QSR_REQUIREMENTS = {
     "820.20": {
         "title": "Management Responsibility",
@@ -502,8 +529,13 @@ def calculate_overall_compliance(assessment_results: List[Dict]) -> Dict:
 def print_text_report(result: Dict) -> None:
     """Print human-readable compliance report."""
     print("=" * 70)
-    print("21 CFR PART 820 (QSR) COMPLIANCE ASSESSMENT")
+    print("QMS DOCUMENTATION ASSESSMENT")
+    print("(legacy-QSR checklist mapped to ISO 13485:2016 under the QMSR)")
     print("=" * 70)
+    print("NOTE: Section numbers are the HISTORICAL pre-2026 QSR structure,")
+    print("retained as checklist keys only. Since 2026-02-02 the QMSR (89 FR")
+    print("7496) incorporates ISO 13485:2016 by reference into 21 CFR 820;")
+    print("the ISO 13485 clause shown per section is the current authority.")
 
     # Overall compliance
     overall = result["overall_compliance"]
@@ -512,10 +544,11 @@ def print_text_report(result: Dict) -> None:
     print(f"Compliant/Partial: {overall['compliant_subsections']}")
 
     # Section summary
-    print("\n--- SECTION SCORES ---")
+    print("\n--- SECTION SCORES (legacy QSR key -> current ISO 13485 authority) ---")
     for section in result["assessment"]:
         status = "OK" if section["compliance_score"] >= 70 else "GAP"
-        print(f"  {section['section']} {section['title']}: {section['compliance_score']}% [{status}]")
+        iso_ref = QSR_TO_ISO13485.get(section["section"], "see ISO 13485:2016")
+        print(f"  {section['section']} {section['title']} [{iso_ref}]: {section['compliance_score']}% [{status}]")
 
     # Gap analysis
     gap_report = result["gap_report"]
@@ -542,7 +575,12 @@ def print_text_report(result: Dict) -> None:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="QSR Compliance Checker - Assess 21 CFR 820 compliance"
+        description=(
+            "QMS Documentation Checker — assesses documentation against the legacy "
+            "QSR checklist mapped to ISO 13485:2016, the current authority under "
+            "FDA's QMSR (21 CFR 820 as amended effective 2026-02-02). Legacy "
+            "820.x section numbers are historical checklist keys, not current law."
+        )
     )
     parser.add_argument(
         "project_dir",
@@ -552,7 +590,7 @@ def main():
     )
     parser.add_argument(
         "--section",
-        help="Analyze specific QSR section only (e.g., 820.30)"
+        help="Analyze one legacy-QSR checklist section only (e.g., 820.30 -> ISO 13485 §7.3 under QMSR)"
     )
     parser.add_argument(
         "--json",
@@ -595,6 +633,10 @@ def main():
     result = {
         "project_dir": str(project_dir),
         "assessment_date": datetime.now().isoformat(),
+        "regulatory_basis": (
+            "Legacy-QSR checklist keys (historical, pre-2026) mapped to ISO 13485:2016, "
+            "incorporated by reference into 21 CFR 820 by the QMSR effective 2026-02-02"
+        ),
         "overall_compliance": overall_compliance,
         "assessment": assessment_results if args.detailed else [
             {

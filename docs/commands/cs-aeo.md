@@ -160,8 +160,8 @@ Content for YMYL topics scoring below threshold is unlikely to be cited regardle
 
 ## Related
 
-- Agent: [`cs-aeo`](cs-aeo.md)
-- Skill: [`aeo`](https://github.com/alirezarezvani/claude-skills/tree/main/skills/aeo/SKILL.md)
+- Agent: [`cs-aeo`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-aeo.md)
+- Skill: [`aeo`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/aeo/SKILL.md)
 - Companion: `/cs:seo-audit` (SEO + AEO often run together)
 - Source: ported from [`alirezarezvani/aeo-box`](https://github.com/alirezarezvani/aeo-box)
 

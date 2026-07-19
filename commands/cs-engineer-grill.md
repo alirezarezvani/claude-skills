@@ -1,5 +1,5 @@
 ---
-description: Cross-role engineering grill — Matt Pocock 7 questions per role × 3 roles (fullstack / frontend / backend) = up to 21 forcing questions, one per turn, with canon citations and kill criteria. Default: ask which lane first; `--all` runs all 21.
+description: "Cross-role engineering grill — Matt Pocock 7 questions per role × 3 roles (fullstack / frontend / backend) = up to 21 forcing questions, one per turn, with canon citations and kill criteria. Default: ask which lane first; `--all` runs all 21."
 argument-hint: "<plan or architecture to grill> [--lane fullstack|frontend|backend|all]"
 ---
 

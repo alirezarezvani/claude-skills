@@ -428,3 +428,47 @@ Write-Host "Results saved to: $resultsPath" -ForegroundColor Cyan
 Disconnect-MgGraph
 """
         return script
+
+
+def main():
+    """CLI entry point."""
+    import argparse
+    import json
+
+    parser = argparse.ArgumentParser(
+        description="Generate ready-to-run M365 admin PowerShell scripts (Graph SDK based)"
+    )
+    parser.add_argument("--tenant-domain", required=True, help="Primary tenant domain (e.g. acme.com)")
+    parser.add_argument("--task", required=True,
+                        choices=["conditional-access", "security-audit", "bulk-license"],
+                        help="Which script to generate")
+    parser.add_argument("--policy-config", help="Policy config JSON file (conditional-access)")
+    parser.add_argument("--users-csv", help="Users CSV path baked into the script (bulk-license)")
+    parser.add_argument("--license-sku", help="License SKU (bulk-license)")
+    parser.add_argument("--output", "-o", help="Output file (default: stdout)")
+    args = parser.parse_args()
+
+    generator = PowerShellScriptGenerator(args.tenant_domain)
+
+    if args.task == "conditional-access":
+        policy = {}
+        if args.policy_config:
+            with open(args.policy_config, "r", encoding="utf-8") as f:
+                policy = json.load(f)
+        result = generator.generate_conditional_access_policy_script(policy)
+    elif args.task == "security-audit":
+        result = generator.generate_security_audit_script()
+    else:  # bulk-license
+        if not (args.users_csv and args.license_sku):
+            parser.error("--users-csv and --license-sku are required for --task bulk-license")
+        result = generator.generate_bulk_license_assignment_script(args.users_csv, args.license_sku)
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            f.write(result)
+    else:
+        print(result)
+
+
+if __name__ == "__main__":
+    main()

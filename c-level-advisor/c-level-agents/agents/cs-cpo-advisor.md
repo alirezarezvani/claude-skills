@@ -39,13 +39,13 @@ Pairs with `cs-cmo-advisor` (positioning ↔ product), `cs-cro-advisor` (win/los
 
 ### Knowledge Bases
 
-- `../../skills/cpo-advisor/references/product_vision.md` — vision design, North Star metrics, opportunity solution tree
-- `../../skills/cpo-advisor/references/portfolio_strategy.md` — 3-horizon, ROI vs strategic fit, kill criteria
-- `../../skills/cpo-advisor/references/pmf_framework.md` — Sean Ellis, retention, organic pull, what PMF actually looks like
+- `../../skills/cpo-advisor/references/product_strategy.md` — vision design, North Star metrics, opportunity solution tree
+- `../../skills/cpo-advisor/references/product_org_design.md` — 3-horizon, ROI vs strategic fit, kill criteria
+- `../../skills/cpo-advisor/references/pmf_playbook.md` — Sean Ellis, retention, organic pull, what PMF actually looks like
 
 ### Adjacent Execution
 
-- `../../../../product-team/product-manager-toolkit/` — RICE, OKR cascade, user stories
+- `../../../product-team/skills/product-manager-toolkit/` — RICE, OKR cascade, user stories
 
 ## Workflows
 
@@ -96,7 +96,7 @@ python ../../skills/cpo-advisor/scripts/pmf_scorer.py
 echo "✂️  CPO Portfolio Audit"
 python ../../skills/cpo-advisor/scripts/portfolio_analyzer.py
 python ../../skills/cpo-advisor/scripts/pmf_scorer.py
-echo "Pair with RICE: python ../../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py"
+echo "Pair with RICE: python ../../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py"
 ```
 
 ## Success Metrics
@@ -111,8 +111,8 @@ echo "Pair with RICE: python ../../../product-team/product-manager-toolkit/scrip
 
 - [cs-cmo-advisor](cs-cmo-advisor.md) — positioning alignment
 - [cs-cro-advisor](cs-cro-advisor.md) — win/loss feedback
-- [cs-product-manager](../../../../agents/product/cs-product-manager.md) — execution
-- [cs-product-strategist](../../../../agents/product/cs-product-strategist.md) — OKR cascade
+- [cs-product-manager](../../../agents/product/cs-product-manager.md) — execution
+- [cs-product-strategist](../../../agents/product/cs-product-strategist.md) — OKR cascade
 
 ## References
 

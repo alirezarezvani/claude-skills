@@ -262,15 +262,17 @@ Revision: [Revision Number]
 
 ### Retention Periods
 
-| Record Type | Retention Period | Basis |
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** Under FDA's Quality Management System Regulation (QMSR, 89 FR 7496), 21 CFR Part 820 now **incorporates ISO 13485:2016 by reference** and the legacy QSR subsection numbers below (820.30/.181/.184/.198) **no longer exist in the CFR** — they are shown as a historical index. The current authority is **ISO 13485:2016 §4.2.5 (control of records)** plus retained **21 CFR 820.35** (records). The record-retention rule itself is in ISO 13485 §4.2.5 ("at least the lifetime of the medical device as defined by the organization, but not less than two years"). Cite the ISO 13485 clause in current documentation.
+
+| Record Type | Retention Period | Basis (current authority — legacy QSR shown for index) |
 |-------------|------------------|-------|
-| Device Master Record (DMR) | Life of device + 2 years | 21 CFR 820.181 |
-| Device History Record (DHR) | Life of device + 2 years | 21 CFR 820.184 |
-| Design History File (DHF) | Life of device + 2 years | 21 CFR 820.30 |
-| Quality Records | 2 years beyond device discontinuation | ISO 13485 |
+| Device Master Record (DMR) | Life of device + 2 years | ISO 13485 §4.2.3/§4.2.5 (legacy QSR 820.181, historical) |
+| Device History Record (DHR) | Life of device + 2 years | ISO 13485 §4.2.5 (legacy QSR 820.184, historical) |
+| Design History File (DHF) | Life of device + 2 years | ISO 13485 §7.3.10/§4.2.5 (legacy QSR 820.30, historical) |
+| Quality Records | 2 years beyond device discontinuation | ISO 13485 §4.2.5 |
 | Training Records | Duration of employment + 3 years | Best practice |
 | Audit Records | 7 years | Best practice |
-| Complaint Records | Life of device + 2 years | 21 CFR 820.198 |
+| Complaint Records | Life of device + 2 years | ISO 13485 §8.2.2/§4.2.5 + 21 CFR 820.35(b) (legacy QSR 820.198, historical) |
 | CAPA Records | 7 years | Best practice |
 | Calibration Records | 2 years beyond equipment disposal | Best practice |
 | Supplier Records | Life of relationship + 3 years | Best practice |

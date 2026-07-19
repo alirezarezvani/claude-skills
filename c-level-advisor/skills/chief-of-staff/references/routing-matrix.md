@@ -102,6 +102,52 @@ Detailed routing rules for the Chief of Staff. When a founder asks a question, f
 | What's our security posture? | CISO | CTO | 1 |
 | A regulator is asking questions | CISO | CEO, COO | 4 |
 
+### Legal & Contracts
+
+| Question type | Primary | Secondary | Score |
+|--------------|---------|-----------|-------|
+| Is this contract safe to sign? | GC | CFO | 2 |
+| What's wrong with this term sheet? | GC | CFO, CEO | 3 |
+| Do we own the IP our contractors wrote? | GC | CTO | 2 |
+| A customer wants an MSA redline — what matters? | GC | CRO | 2 |
+| Are we exposed on data privacy / GDPR? | GC | CISO, CDO | 3 |
+
+### Data Strategy
+
+| Question type | Primary | Secondary | Score |
+|--------------|---------|-----------|-------|
+| Can we train models on our customer data? | CDO | GC, CAIO | 3 |
+| Warehouse, lakehouse, or mesh? | CDO | CTO | 2 |
+| Is our data an asset we can productize or sell? | CDO | CFO, GC | 3 |
+| How do we value our data in M&A diligence? | CDO | CFO | 3 |
+
+### AI Strategy
+
+| Question type | Primary | Secondary | Score |
+|--------------|---------|-----------|-------|
+| Should we use an API, fine-tune, or build our own model? | CAIO | CTO, CFO | 3 |
+| What does the EU AI Act mean for this feature? | CAIO | GC, CISO | 3 |
+| Our AI costs are exploding — what now? | CAIO | CFO | 2 |
+| How do we eval / set a hallucination SLO? | CAIO | CTO | 2 |
+
+### Customer & Retention
+
+| Question type | Primary | Secondary | Score |
+|--------------|---------|-----------|-------|
+| Gross retention dropped — why? | CCO | CRO, CPO | 3 |
+| How many CSMs do we need per ARR tier? | CCO | CFO, CHRO | 2 |
+| Which customers should we fire? | CCO | CRO | 2 |
+| NRR looks fine but logos keep leaving | CCO | CRO, CPO | 3 |
+
+### Engineering Delivery
+
+| Question type | Primary | Secondary | Score |
+|--------------|---------|-----------|-------|
+| Why is shipping so slow? (cycle time, DORA) | VPE | CTO | 2 |
+| How should we structure eng teams at this headcount? | VPE | CHRO | 2 |
+| Our eng hiring funnel is leaking — where? | VPE | CHRO | 2 |
+| Eng delivery vs architecture debt trade-off | VPE | CTO, CPO | 3 |
+
 ### Strategic Direction
 
 | Question type | Primary | Secondary | Score |
@@ -165,6 +211,11 @@ Automatically escalate to board meeting when any of these apply:
 | CMO | cmo-advisor | Marketing, brand, positioning |
 | CHRO | chro-advisor | People, culture, hiring |
 | CISO | ciso-advisor | Security, compliance, risk |
+| GC | general-counsel-advisor | Legal, contracts, term sheets, IP |
+| CDO | chief-data-officer-advisor | Data strategy, training-data rights, data assets |
+| CAIO | chief-ai-officer-advisor | AI strategy, model selection, evals, AI risk |
+| CCO | chief-customer-officer-advisor | Retention, churn, customer success |
+| VPE | vpe-advisor | Eng delivery, DORA, eng hiring, team structure |
 
 **If a role file doesn't exist:** Note the gap. Answer from first principles with domain expertise. Log that the role is missing.
 
@@ -179,7 +230,7 @@ These skills are invoked for specific cross-cutting needs, not for general domai
 |-------|---------|------|
 | C-Suite Onboard | `/cs:setup`, first-time setup, "tell me about your company" | cs-onboard |
 | Context Engine | Auto-loaded; staleness check | context-engine |
-| Board Meeting | `/cs:board`, multi-role decisions, score ≥ 4 | board-meeting |
+| Board Meeting | `/cs:boardroom`, multi-role decisions, score ≥ 4 | board-meeting |
 | Decision Logger | After board meetings, `/cs:decisions`, `/cs:review` | decision-logger |
 | Agent Protocol | Inter-role invocations, loop detection | agent-protocol |
 

@@ -10,25 +10,25 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 
 | Role | Skill Package | Primary Focus |
 |------|---------------|---------------|
-| **Senior Software Architect** | `senior-architect.zip` | System design, architecture decisions, tech stack |
-| **Senior Frontend Engineer** | `senior-frontend.zip` | React, Next.js, UI/UX, performance |
-| **Senior Backend Engineer** | `senior-backend.zip` | APIs, databases, business logic |
-| **Senior Fullstack Engineer** | `senior-fullstack.zip` | End-to-end development |
-| **Senior QA/Test Engineer** | `senior-qa.zip` | Quality assurance, test automation |
-| **Senior DevOps Engineer** | `senior-devops.zip` | CI/CD, infrastructure, deployment |
-| **Senior SecOps Engineer** | `senior-secops.zip` | Security operations, compliance |
-| **Code Reviewer** | `code-reviewer.zip` | Code quality, standards, reviews |
-| **Senior Security Engineer** | `senior-security.zip` | Security architecture, pentesting |
+| **Senior Software Architect** | `skills/senior-architect/` | System design, architecture decisions, tech stack |
+| **Senior Frontend Engineer** | `skills/senior-frontend/` | React, Next.js, UI/UX, performance |
+| **Senior Backend Engineer** | `skills/senior-backend/` | APIs, databases, business logic |
+| **Senior Fullstack Engineer** | `skills/senior-fullstack/` | End-to-end development |
+| **Senior QA/Test Engineer** | `skills/senior-qa/` | Quality assurance, test automation |
+| **Senior DevOps Engineer** | `skills/senior-devops/` | CI/CD, infrastructure, deployment |
+| **Senior SecOps Engineer** | `skills/senior-secops/` | Security operations, compliance |
+| **Code Reviewer** | `skills/code-reviewer/` | Code quality, standards, reviews |
+| **Senior Security Engineer** | `skills/senior-security/` | Security architecture, pentesting |
 
 ### **AI/ML/Data Team (5 Roles)**
 
 | Role | Skill Package | Primary Focus |
 |------|---------------|---------------|
-| **Senior Data Scientist** | `senior-data-scientist.zip` | Statistical modeling, experimentation, analytics |
-| **Senior Data Engineer** | `senior-data-engineer.zip` | Data pipelines, ETL, data infrastructure |
-| **Senior ML/AI Engineer** | `senior-ml-engineer.zip` | MLOps, model deployment, LLM integration |
-| **Senior Prompt Engineer** | `senior-prompt-engineer.zip` | LLM optimization, RAG, agentic AI |
-| **Senior Computer Vision Engineer** | `senior-computer-vision.zip` | Image/video AI, object detection, vision systems |
+| **Senior Data Scientist** | `skills/senior-data-scientist/` | Statistical modeling, experimentation, analytics |
+| **Senior Data Engineer** | `skills/senior-data-engineer/` | Data pipelines, ETL, data infrastructure |
+| **Senior ML/AI Engineer** | `skills/senior-ml-engineer/` | MLOps, model deployment, LLM integration |
+| **Senior Prompt Engineer** | `skills/senior-prompt-engineer/` | LLM optimization, RAG, agentic AI |
+| **Senior Computer Vision Engineer** | `skills/senior-computer-vision/` | Image/video AI, object detection, vision systems |
 
 ---
 
@@ -106,70 +106,70 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 ### **When to Use Each Skill**
 
 #### **System Design & Architecture**
-→ Use `senior-architect.zip`
+→ Use `skills/senior-architect/`
 - Designing new systems
 - Making tech stack decisions
 - Creating architecture diagrams
 - Evaluating trade-offs
 
 #### **Frontend Development**
-→ Use `senior-frontend.zip`
+→ Use `skills/senior-frontend/`
 - Building React/Next.js apps
 - UI/UX implementation
 - Performance optimization
 - State management
 
 #### **Backend Development**
-→ Use `senior-backend.zip`
+→ Use `skills/senior-backend/`
 - Designing APIs (REST/GraphQL)
 - Database optimization
 - Authentication/authorization
 - Microservices
 
 #### **Full-Stack Development**
-→ Use `senior-fullstack.zip`
+→ Use `skills/senior-fullstack/`
 - Building complete features
 - Rapid prototyping
 - Startup MVP development
 - Code quality analysis
 
 #### **Testing & QA**
-→ Use `senior-qa.zip`
+→ Use `skills/senior-qa/`
 - Test strategy design
 - Test automation
 - Coverage analysis
 - Quality metrics
 
 #### **DevOps & Infrastructure**
-→ Use `senior-devops.zip`
+→ Use `skills/senior-devops/`
 - CI/CD pipelines
 - Infrastructure as code
 - Deployment automation
 - Container orchestration
 
 #### **Security Operations**
-→ Use `senior-secops.zip`
+→ Use `skills/senior-secops/`
 - Security scanning
 - Vulnerability management
 - Compliance checking
 - Incident response
 
 #### **Code Reviews**
-→ Use `code-reviewer.zip`
+→ Use `skills/code-reviewer/`
 - PR reviews
 - Code quality checks
 - Standards enforcement
 - Mentoring feedback
 
 #### **Security Architecture**
-→ Use `senior-security.zip`
+→ Use `skills/senior-security/`
 - Security design
 - Penetration testing
 - Threat modeling
 - Cryptography
 
 #### **Data Science**
-→ Use `senior-data-scientist.zip`
+→ Use `skills/senior-data-scientist/`
 - Statistical modeling
 - A/B testing
 - Causal inference
@@ -177,7 +177,7 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 - Business analytics
 
 #### **Data Engineering**
-→ Use `senior-data-engineer.zip`
+→ Use `skills/senior-data-engineer/`
 - Data pipelines
 - ETL/ELT design
 - Data modeling
@@ -185,7 +185,7 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 - Stream processing
 
 #### **ML/AI Engineering**
-→ Use `senior-ml-engineer.zip`
+→ Use `skills/senior-ml-engineer/`
 - Model deployment
 - MLOps
 - LLM integration
@@ -193,7 +193,7 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 - Model monitoring
 
 #### **Prompt Engineering**
-→ Use `senior-prompt-engineer.zip`
+→ Use `skills/senior-prompt-engineer/`
 - LLM optimization
 - Prompt patterns
 - Agent design
@@ -201,7 +201,7 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 - AI evaluation
 
 #### **Computer Vision**
-→ Use `senior-computer-vision.zip`
+→ Use `skills/senior-computer-vision/`
 - Object detection
 - Image segmentation
 - Video analysis
@@ -292,16 +292,15 @@ Complete set of **14 senior-level skills** for building exceptional engineering 
 - **Scale-up (10-25)**: Add specialists (Frontend, Backend, Data Eng)
 - **Enterprise (25+)**: Complete teams with redundancy
 
-### **2. Download Relevant Skills**
+### **2. Pick Relevant Skills**
 
-Download the skill packages you need from the files above.
+Each skill lives in this repo under `skills/<name>/` — use it in place or copy the folder.
 
 ### **3. Extract and Explore**
 
 ```bash
-# Extract a skill
-unzip senior-ml-engineer.zip
-cd senior-ml-engineer
+# Open a skill folder
+cd skills/senior-ml-engineer
 
 # Read the documentation
 cat SKILL.md

@@ -170,4 +170,4 @@ Monitors command output for errors. When detected, appends a structured entry to
 
 - [Claude Code Memory Docs](https://code.claude.com/docs/en/memory)
 - [pskoett/self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent) — inspiration
-- [playwright-pro](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/self-improving-agent/skills/playwright-pro) — sister plugin in this repo
+- [playwright-pro](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/playwright-pro/) — sister plugin in this repo

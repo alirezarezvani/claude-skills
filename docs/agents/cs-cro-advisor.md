@@ -42,9 +42,9 @@ Pairs with `cs-cfo-advisor` (revenue → cash conversion), `cs-cmo-advisor` (pip
 
 ### Knowledge Bases
 
-- [`references/revenue_operations.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cro-advisor/references/revenue_operations.md) — pipeline cadence, win/loss process, forecasting hygiene
-- [`references/sales_motion.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cro-advisor/references/sales_motion.md) — PLG vs sales-led, hiring profiles, ramp curves
-- [`references/retention_expansion.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cro-advisor/references/retention_expansion.md) — NRR levers, customer success cadence, expansion plays
+- [`references/sales_playbook.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cro-advisor/references/sales_playbook.md) — pipeline cadence, win/loss process, forecasting hygiene
+- [`references/pricing_strategy.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cro-advisor/references/pricing_strategy.md) — PLG vs sales-led, hiring profiles, ramp curves
+- [`references/nrr_playbook.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cro-advisor/references/nrr_playbook.md) — NRR levers, customer success cadence, expansion plays
 
 ## Workflows
 
@@ -112,7 +112,7 @@ echo "Pipeline coverage and retention dashboard ready."
 - [cs-cfo-advisor](cs-cfo-advisor.md) — revenue → cash conversion
 - [cs-cmo-advisor](cs-cmo-advisor.md) — pipeline contribution
 - [cs-cpo-advisor](cs-cpo-advisor.md) — product gaps in win/loss
-- [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/business-growth/cs-growth-strategist.md) — execution
+- [cs-growth-strategist](https://github.com/alirezarezvani/claude-skills/tree/main/agents/business-growth/cs-growth-strategist.md) — execution
 
 ## References
 

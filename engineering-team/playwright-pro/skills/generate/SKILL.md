@@ -45,7 +45,7 @@ Check `templates/` in this plugin for matching patterns:
 
 | If testing... | Load template from |
 |---|---|
-| Login/auth flow | `templates/auth/login.md` |
+| Login/auth flow | `../pw/templates/auth/login.md` |
 | CRUD operations | `templates/crud/` |
 | Checkout/payment | `templates/checkout/` |
 | Search/filter UI | `templates/search/` |

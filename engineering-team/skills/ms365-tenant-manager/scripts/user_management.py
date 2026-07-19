@@ -445,3 +445,56 @@ Disconnect-ExchangeOnline -Confirm:$false
             'errors': errors,
             'warnings': warnings
         }
+
+
+def main():
+    """CLI entry point."""
+    import argparse
+    import json
+
+    parser = argparse.ArgumentParser(
+        description="Generate M365 user lifecycle PowerShell scripts and license/group recommendations"
+    )
+    parser.add_argument("--domain", required=True, help="Primary tenant domain (e.g. acme.com)")
+    parser.add_argument("--action", required=True, choices=["create", "offboard", "validate", "recommend"],
+                        help="create = bulk user creation script; offboard = offboarding script; "
+                             "validate = check user data; recommend = license + group recommendations")
+    parser.add_argument("--users", help="Users JSON file (list of user objects) for create/validate/recommend")
+    parser.add_argument("--user-email", help="User email for offboard action")
+    parser.add_argument("--output", "-o", help="Output file (default: stdout)")
+    args = parser.parse_args()
+
+    manager = UserLifecycleManager(args.domain)
+
+    if args.action == "offboard":
+        if not args.user_email:
+            parser.error("--user-email is required for --action offboard")
+        result = manager.generate_user_offboarding_script(args.user_email)
+    else:
+        if not args.users:
+            parser.error("--users is required for this action")
+        with open(args.users, "r", encoding="utf-8") as f:
+            users = json.load(f)
+        if isinstance(users, dict):
+            users = users.get("users", [users])
+        if args.action == "create":
+            result = manager.generate_user_creation_script(users)
+        elif args.action == "validate":
+            result = json.dumps([manager.validate_user_data(u) for u in users], indent=2)
+        else:  # recommend
+            result = json.dumps([{
+                "user": u.get("email", u.get("first_name", "unknown")),
+                "licenses": manager.generate_license_assignment_recommendations(
+                    u.get("role", "staff"), u.get("department", "general")),
+                "groups": manager.generate_group_membership_recommendations(u),
+            } for u in users], indent=2)
+
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as f:
+            f.write(result)
+    else:
+        print(result)
+
+
+if __name__ == "__main__":
+    main()

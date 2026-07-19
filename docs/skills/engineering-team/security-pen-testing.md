@@ -313,5 +313,5 @@ Automated security checks on every PR: secret scanning (TruffleHog), dependency 
 |-------|-------------|
 | [senior-secops](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-secops/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
 | [senior-security](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/senior-security/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
-| [dependency-auditor](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/engineering/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
+| [dependency-auditor](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
 | [code-reviewer](https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/skills/code-reviewer/SKILL.md) | Code review practices — includes security review checklist |

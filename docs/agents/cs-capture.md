@@ -38,10 +38,10 @@ The cs-capture agent orchestrates the `capture` skill across brain-dump-organize
 
 1. **Detect the trigger** — explicit phrase OR implicit unstructured block paste
 2. **Capture everything** — no item is too trivial; user prunes later
-3. **Classify items** — task vs decision vs question vs project-component (use `scripts/dump_classifier.py` as a heuristic seed)
+3. **Classify items** — task vs decision vs question vs project-component (use `skills/capture/scripts/dump_classifier.py` as a heuristic seed)
 4. **Cluster** — only when natural clustering exists; don't force structure on small dumps
-5. **Inventory the workspace** — `scripts/workspace_inventory.py` for real Glob+Grep matches; never fabricate
-6. **Compress when warranted** — `scripts/complexity_estimator.py` recommends full 4-section vs compressed
+5. **Inventory the workspace** — `skills/capture/scripts/workspace_inventory.py` for real Glob+Grep matches; never fabricate
+6. **Compress when warranted** — `skills/capture/scripts/complexity_estimator.py` recommends full 4-section vs compressed
 7. **Deliver + wait** — output the sections; wait for the user's pick before any further action
 
 Differentiates clearly:
@@ -196,8 +196,8 @@ Which should I tackle?
 
 ## Related Agents
 
-- [cs-grill-master](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/grill-me/agents/cs-grill-master.md) — slow, deliberate plan interrogator (different mode)
-- [cs-grill-with-docs](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/grill-with-docs/agents/cs-grill-with-docs.md) — docs-anchored grill (different scope)
+- [cs-grill-master](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me/agents/cs-grill-master.md) — slow, deliberate plan interrogator (different mode)
+- [cs-grill-with-docs](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/agents/cs-grill-with-docs.md) — docs-anchored grill (different scope)
 - [cs-handoff-author](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/agents/cs-handoff-author.md) — different artifact (continuation prompt)
 
 ## References

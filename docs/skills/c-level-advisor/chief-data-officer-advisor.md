@@ -184,14 +184,14 @@ python scripts/data_product_strategy_picker.py profile.json
 
 ## Adjacent Skills
 
-- [`skills/cto-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cto-advisor) — architecture capacity, scaling cliffs
-- [`skills/ciso-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor) — data security, threat modeling for productized data
-- [`skills/general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/general-counsel-advisor) — contractual constraints, DPA, training-data rights
-- [`skills/cfo-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cfo-advisor) — build-vs-buy TCO, M&A valuation math
-- [`skills/chro-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chro-advisor) — data team hiring, leveling, comp
-- [`engineering/database-designer`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/database-designer) — tactical schema design
-- [`engineering/rag-architect`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/rag-architect) — tactical AI/RAG implementation
-- [`engineering/llm-cost-optimizer`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/llm-cost-optimizer) — model cost management
+- `c-level-advisor/skills/cto-advisor/` — architecture capacity, scaling cliffs
+- `c-level-advisor/skills/ciso-advisor/` — data security, threat modeling for productized data
+- `c-level-advisor/skills/general-counsel-advisor/` — contractual constraints, DPA, training-data rights
+- `c-level-advisor/skills/cfo-advisor/` — build-vs-buy TCO, M&A valuation math
+- `c-level-advisor/skills/chro-advisor/` — data team hiring, leveling, comp
+- `engineering/skills/database-designer/` — tactical schema design
+- `engineering/skills/rag-architect/` — tactical AI/RAG implementation
+- `engineering/llm-cost-optimizer/` — model cost management
 
 ## References
 

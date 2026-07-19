@@ -39,9 +39,9 @@ Pairs with `cs-cfo-advisor` (revenue → cash conversion), `cs-cmo-advisor` (pip
 
 ### Knowledge Bases
 
-- `../../skills/cro-advisor/references/revenue_operations.md` — pipeline cadence, win/loss process, forecasting hygiene
-- `../../skills/cro-advisor/references/sales_motion.md` — PLG vs sales-led, hiring profiles, ramp curves
-- `../../skills/cro-advisor/references/retention_expansion.md` — NRR levers, customer success cadence, expansion plays
+- `../../skills/cro-advisor/references/sales_playbook.md` — pipeline cadence, win/loss process, forecasting hygiene
+- `../../skills/cro-advisor/references/pricing_strategy.md` — PLG vs sales-led, hiring profiles, ramp curves
+- `../../skills/cro-advisor/references/nrr_playbook.md` — NRR levers, customer success cadence, expansion plays
 
 ## Workflows
 
@@ -109,7 +109,7 @@ echo "Pipeline coverage and retention dashboard ready."
 - [cs-cfo-advisor](cs-cfo-advisor.md) — revenue → cash conversion
 - [cs-cmo-advisor](cs-cmo-advisor.md) — pipeline contribution
 - [cs-cpo-advisor](cs-cpo-advisor.md) — product gaps in win/loss
-- [cs-growth-strategist](../../../../agents/business-growth/cs-growth-strategist.md) — execution
+- [cs-growth-strategist](../../../agents/business-growth/cs-growth-strategist.md) — execution
 
 ## References
 

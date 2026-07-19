@@ -32,7 +32,7 @@ The `cs-webinar` command is the **entry point for webinar workflows**: plan → 
 
 Walks the intake, locks the promise + format, sizes the funnel backward from the business goal,
 builds the promotion runway, and designs show-up + live-to-close + follow-up. Delivers a full plan
-using `templates/webinar-plan-template.md`.
+using `marketing-skill/skills/webinar-marketing/templates/webinar-plan-template.md`.
 
 ### `rescue` — Diagnose and fix an underperforming webinar
 

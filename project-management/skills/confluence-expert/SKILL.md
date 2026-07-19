@@ -9,32 +9,38 @@ Master-level expertise in Confluence space management, documentation architectur
 
 ## Atlassian MCP Integration
 
-**Primary Tool**: Confluence MCP Server
+**Primary Tool**: Atlassian Remote MCP server (bundled `.mcp.json`, server key `atlassian`). Tools are camelCase and surface as `mcp__atlassian__<toolName>`. **Canonical tool list**: `project-management/references/atlassian-mcp-tools.md`. Never invent tool names — if a capability isn't in that list, it is not available via MCP.
 
-**Key Operations**:
+**Key Operations** (obtain `cloudId` once via `mcp__atlassian__getAccessibleAtlassianResources`):
 
 ```
-// Create a new space
-create_space({ key: "TEAM", name: "Engineering Team", description: "Engineering team knowledge base" })
+// List spaces (space CREATION is not available via MCP — see below)
+mcp__atlassian__getConfluenceSpaces (cloudId)
 
-// Create a page under a parent
-create_page({ spaceKey: "TEAM", title: "Sprint 42 Notes", parentId: "123456", body: "<p>Meeting notes in storage-format HTML</p>" })
+// Create a page under a parent — body must be storage-format XHTML or ADF, never wiki markup
+mcp__atlassian__createConfluencePage (cloudId, space, title="Sprint 42 Notes", parent page id, body="<p>Meeting notes in storage-format XHTML</p>")
 
-// Update an existing page (version must be incremented)
-update_page({ pageId: "789012", version: 4, body: "<p>Updated content</p>" })
+// Update an existing page (fetch current version with getConfluencePage, then supply version + 1)
+mcp__atlassian__updateConfluencePage (cloudId, pageId="789012", version=5, body="<p>Updated content</p>")
 
-// Delete a page
-delete_page({ pageId: "789012" })
+// Read a page (body + current version)
+mcp__atlassian__getConfluencePage (cloudId, pageId="789012")
 
 // Search with CQL
-search({ cql: 'space = "TEAM" AND label = "meeting-notes" ORDER BY lastModified DESC' })
+mcp__atlassian__searchConfluenceUsingCql (cloudId, cql='space = "TEAM" AND label = "meeting-notes" ORDER BY lastModified DESC')
 
 // Retrieve child pages for hierarchy inspection
-get_children({ pageId: "123456" })
+mcp__atlassian__getConfluencePageDescendants (cloudId, pageId="123456")
 
-// Apply a label to a page
-add_label({ pageId: "789012", label: "archived" })
+// Comments
+mcp__atlassian__getConfluencePageFooterComments / mcp__atlassian__createConfluenceFooterComment (cloudId, pageId)
 ```
+
+**Not available via MCP — use the web UI or REST API instead:**
+- Create/delete a **space** → Confluence UI `Spaces > Create space` or `POST /wiki/api/v2/spaces`
+- **Delete** a page → Confluence UI or `DELETE /wiki/api/v2/pages/{id}`
+- Apply **labels** → Confluence UI or `/wiki/rest/api/content/{id}/label`
+- Space **permissions**, templates/blueprints as first-class objects → Confluence space settings UI
 
 **Integration Points**:
 - Create documentation for Senior PM projects
@@ -42,13 +48,21 @@ add_label({ pageId: "789012", label: "archived" })
 - Link to Jira issues for Jira Expert
 - Provide templates for Template Creator
 
-> **See also**: `MACROS.md` for macro syntax reference, `TEMPLATES.md` for full template library, `PERMISSIONS.md` for permission scheme details.
+> **See also**: `references/macro-cheat-sheet.md` for storage-format macro syntax, `references/templates.md` for the template library, `references/space-architecture-patterns.md` for space structure and permission patterns.
 
 ## Workflows
 
 ### Space Creation
+
+> Space creation is **not available via MCP** — create the space in the Confluence UI (`Spaces > Create space`) or via REST (`POST /wiki/api/v2/spaces`). The page tree inside it CAN be built via MCP (`mcp__atlassian__createConfluencePage`).
+
+0. Generate the recommended hierarchy from a team description:
+   ```bash
+   python3 scripts/space_structure_generator.py team_info.json --format json
+   ```
+   Input: JSON with team `name`, `size`, `type`, `projects`. Consume the output: use the emitted page tree as the creation plan for step 5 — one `mcp__atlassian__createConfluencePage` call per node, passing the parent page id to nest children.
 1. Determine space type (Team, Project, Knowledge Base, Personal)
-2. Create space with clear name and description
+2. Create space with clear name and description (web UI / REST)
 3. Set space homepage with overview
 4. Configure space permissions:
    - View, Edit, Create, Delete
@@ -105,6 +119,13 @@ Space Home
 8. **REPORT TO**: Senior PM on documentation health
 
 ### Knowledge Base Management
+
+**Run a content health audit** before any restructure or governance review:
+```bash
+python3 scripts/content_audit_analyzer.py pages.json --format json
+```
+Input: a JSON page inventory (`title`, `last_modified`, `view_count`, `author`, `labels`, `word_count`) — build it by exporting page metadata via `mcp__atlassian__getPagesInConfluenceSpace` / `mcp__atlassian__searchConfluenceUsingCql`. Consume the output: the stale/orphaned/low-engagement findings become the archive list (label + move via UI, since label tools aren't on the MCP) and the update backlog for the quality standards below.
+
 **Article Types**:
 - How-to guides
 - Troubleshooting docs
@@ -121,7 +142,7 @@ Space Home
 
 ## Essential Macros
 
-> Full macro reference with all parameters: see `MACROS.md`.
+> **Syntax note**: The `{macro}` shorthand below is **legacy wiki-markup notation**, shown for readability only. Confluence Cloud pages created via MCP (`createConfluencePage` / `updateConfluencePage`) require **storage format (XHTML)** — e.g. `{info}` is really `<ac:structured-macro ac:name="info"><ac:rich-text-body>...</ac:rich-text-body></ac:structured-macro>`. For the storage-format syntax of every macro listed here, see `references/macro-cheat-sheet.md`; for ready-made storage-format page bodies, run the atlassian-templates scaffolder (`python3 ../atlassian-templates/scripts/template_scaffolder.py meeting-notes`).
 
 ### Content Macros
 **Info, Note, Warning, Tip**:
@@ -227,7 +248,7 @@ const example = "code here";
 
 ## Templates Library
 
-> Full template library with complete markup: see `TEMPLATES.md`. Key templates summarised below.
+> Full template library with complete markup: see `references/templates.md`. Key templates summarised below.
 
 | Template | Purpose | Key Sections |
 |----------|---------|--------------|
@@ -238,7 +259,7 @@ const example = "code here";
 
 ## Space Permissions
 
-> Full permission scheme details: see `PERMISSIONS.md`.
+> Permission patterns by space type: see `references/space-architecture-patterns.md`. Note: space permissions are configured in the Confluence UI (`Space settings > Permissions`) — not via MCP.
 
 ### Permission Schemes
 **Public Space**:

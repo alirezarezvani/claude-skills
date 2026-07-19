@@ -1,11 +1,11 @@
 ---
 title: "Agent Skills for OpenAI Codex CLI (2026)"
-description: "Install and use 192 agent skills with OpenAI Codex CLI. Engineering, marketing, product, and DevOps plugins for Codex."
+description: "Install and use 345 agent skills with OpenAI Codex CLI. Engineering, marketing, product, and DevOps plugins for Codex."
 ---
 
 # Agent Skills for OpenAI Codex CLI
 
-Use 192 production-ready agent skills with OpenAI Codex CLI. Every skill in this collection works natively with Codex via the `.codex/skills/` directory format.
+Use 345 production-ready agent skills with OpenAI Codex CLI. Every skill in this collection works natively with Codex via the `.codex/skills/` directory format.
 
 ---
 
@@ -94,7 +94,7 @@ cp -r claude-skills/.codex/skills/ ~/.codex/skills/
 
 ## Full Skill Catalog
 
-All 192 skills organized by domain:
+All 345 skills organized by domain:
 
 | Domain | Skills | Highlights |
 |--------|--------|-----------|

@@ -17,11 +17,11 @@ description: "5 business & growth skills — business growth agent skill and Cla
 
 <div class="grid cards" markdown>
 
--   **[Business & Growth Skills](business-growth-skills.md)**
+-   **[Business & Growth Skills — Router](business-growth-skills.md)**
 
     ---
 
-    4 production-ready skills for customer success, sales, and revenue operations.
+    This plugin bundles 4 skills (this router is the 5th folder under business-growth/skills/). Each skill is self-contai...
 
 -   **[Contract & Proposal Writer](contract-and-proposal-writer.md)**
 

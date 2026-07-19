@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Codex Installation Script for Claude Skills Library
 #
@@ -41,53 +41,54 @@ NC='\033[0m' # No Color
 
 # Print colored output
 print_info() {
-    echo -e "${BLUE}[INFO]${NC} $1"
+  echo -e "${BLUE}[INFO]${NC} $1"
 }
 
 print_success() {
-    echo -e "${GREEN}[SUCCESS]${NC} $1"
+  echo -e "${GREEN}[SUCCESS]${NC} $1"
 }
 
 print_warning() {
-    echo -e "${YELLOW}[WARNING]${NC} $1"
+  echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
 print_error() {
-    echo -e "${RED}[ERROR]${NC} $1"
+  echo -e "${RED}[ERROR]${NC} $1"
 }
 
 # Show help
 show_help() {
-    head -35 "$0" | tail -30
-    exit 0
+  head -35 "$0" | tail -30
+  exit 0
 }
 
 # Check prerequisites
 check_prerequisites() {
-    if [[ ! -d "$CODEX_SKILLS_SRC" ]]; then
-        print_error "Codex skills directory not found: $CODEX_SKILLS_SRC"
-        print_info "Run 'python scripts/sync-codex-skills.py' first to generate symlinks."
-        exit 1
-    fi
+  if [[ ! -d $CODEX_SKILLS_SRC ]]; then
+    print_error "Codex skills directory not found: $CODEX_SKILLS_SRC"
+    print_info "Run 'python scripts/sync-codex-skills.py' first to generate symlinks."
+    exit 1
+  fi
 
-    if [[ ! -f "$CODEX_INDEX" ]]; then
-        print_warning "skills-index.json not found. Some features may be limited."
-    fi
+  if [[ ! -f $CODEX_INDEX ]]; then
+    print_warning "skills-index.json not found. Some features may be limited."
+  fi
 }
 
 # List available skills
 list_skills() {
-    print_info "Available skills in $CODEX_SKILLS_SRC:"
-    echo ""
+  print_info "Available skills in $CODEX_SKILLS_SRC:"
+  echo ""
 
-    if [[ -f "$CODEX_INDEX" ]] && command -v python3 &> /dev/null; then
-        # Use Python to parse JSON and display nicely
-        python3 << 'EOF'
+  if [[ -f $CODEX_INDEX ]] && command -v python3 &> /dev/null; then
+    # Use Python to parse JSON and display nicely
+    CODEX_INDEX="$CODEX_INDEX" python3 << 'EOF'
 import json
+import os
 import sys
 
 try:
-    with open('$CODEX_INDEX'.replace('$CODEX_INDEX', '''$CODEX_INDEX'''), 'r') as f:
+    with open(os.environ["CODEX_INDEX"], "r", encoding="utf-8") as f:
         index = json.load(f)
 
     print("Categories:")
@@ -110,204 +111,263 @@ except Exception as e:
     print(f"Error parsing index: {e}")
     sys.exit(1)
 EOF
-    else
-        # Fallback to simple listing
-        for skill in "$CODEX_SKILLS_SRC"/*; do
-            if [[ -L "$skill" ]] && [[ -e "$skill/SKILL.md" ]]; then
-                echo "  - $(basename "$skill")"
-            fi
-        done
-    fi
+  else
+    # Fallback to simple listing
+    for skill in "$CODEX_SKILLS_SRC"/*; do
+      if [[ -L $skill ]] && [[ -e "$skill/SKILL.md" ]]; then
+        echo "  - $(basename "$skill")"
+      fi
+    done
+  fi
 
-    exit 0
+  exit 0
 }
 
 # Install a single skill
 install_skill() {
-    local skill_name="$1"
-    local dry_run="$2"
-    local skill_src="$CODEX_SKILLS_SRC/$skill_name"
-    local skill_dest="$CODEX_SKILLS_DIR/$skill_name"
+  local skill_name="$1"
+  local dry_run="$2"
 
-    # Check if skill exists
-    if [[ ! -e "$skill_src" ]]; then
-        print_error "Skill not found: $skill_name"
-        return 1
-    fi
+  if [[ -z $skill_name || $skill_name == */* || $skill_name == *..* ]]; then
+    print_error "Invalid skill name: $skill_name"
+    return 1
+  fi
 
-    # Check if it's a valid skill (has SKILL.md)
-    if [[ ! -e "$skill_src/SKILL.md" ]]; then
-        print_error "Invalid skill (no SKILL.md): $skill_name"
-        return 1
-    fi
+  local skill_src="$CODEX_SKILLS_SRC/$skill_name"
+  local skill_dest="$CODEX_SKILLS_DIR/$skill_name"
 
-    if [[ "$dry_run" == "true" ]]; then
-        print_info "[DRY RUN] Would install: $skill_name -> $skill_dest"
-        return 0
-    fi
+  # Check if skill exists
+  if [[ ! -e $skill_src ]]; then
+    print_error "Skill not found: $skill_name"
+    return 1
+  fi
 
-    # Create destination directory
-    mkdir -p "$CODEX_SKILLS_DIR"
+  # Check if it's a valid skill (has SKILL.md)
+  if [[ ! -e "$skill_src/SKILL.md" ]]; then
+    print_error "Invalid skill (no SKILL.md): $skill_name"
+    return 1
+  fi
 
-    # Remove existing installation
-    if [[ -e "$skill_dest" ]]; then
-        print_info "Updating existing skill: $skill_name"
-        rm -rf "$skill_dest"
-    fi
-
-    # Copy skill (following symlinks with -L)
-    cp -rL "$skill_src" "$skill_dest"
-
-    print_success "Installed: $skill_name"
+  if [[ $dry_run == "true" ]]; then
+    print_info "[DRY RUN] Would install: $skill_name -> $skill_dest"
     return 0
+  fi
+
+  # Create destination directory
+  mkdir -p "$CODEX_SKILLS_DIR"
+
+  # Remove existing installation
+  if [[ -e $skill_dest ]]; then
+    print_info "Updating existing skill: $skill_name"
+    rm -rf "$skill_dest"
+  fi
+
+  # Copy skill (following symlinks with -L)
+  cp -rL "$skill_src" "$skill_dest"
+
+  print_success "Installed: $skill_name"
+  return 0
 }
 
 # Install skills by category
 install_category() {
-    local category="$1"
-    local dry_run="$2"
-    local installed=0
-    local failed=0
+  local category="$1"
+  local dry_run="$2"
+  local installed=0
+  local failed=0
 
-    if [[ ! -f "$CODEX_INDEX" ]]; then
-        print_error "skills-index.json required for category installation"
-        exit 1
-    fi
+  if [[ ! -f $CODEX_INDEX ]]; then
+    print_error "skills-index.json required for category installation"
+    exit 1
+  fi
 
-    print_info "Installing skills from category: $category"
+  if ! command -v python3 &> /dev/null; then
+    print_error "python3 is required for category installation"
+    exit 1
+  fi
 
-    # Get skills for this category from index
-    local skills
-    skills=$(python3 -c "
+  print_info "Installing skills from category: $category"
+
+  # Get skills for this category from index
+  local skills
+  skills=$(
+    CODEX_INDEX="$CODEX_INDEX" CATEGORY="$category" python3 << 'EOF'
 import json
-with open('$CODEX_INDEX', 'r') as f:
+import os
+
+with open(os.environ["CODEX_INDEX"], "r", encoding="utf-8") as f:
     index = json.load(f)
+
+seen = set()
 for skill in index.get('skills', []):
-    if skill['category'] == '$category':
-        print(skill['name'])
-")
+    name = skill.get('name')
+    if skill.get('category') == os.environ["CATEGORY"] and name and name not in seen:
+        seen.add(name)
+        print(name)
+EOF
+  )
 
-    if [[ -z "$skills" ]]; then
-        print_error "No skills found for category: $category"
-        exit 1
+  if [[ -z $skills ]]; then
+    print_error "No skills found for category: $category"
+    exit 1
+  fi
+
+  while IFS= read -r skill; do
+    if install_skill "$skill" "$dry_run"; then
+      ((++installed))
+    else
+      ((++failed))
     fi
+  done <<< "$skills"
 
-    while IFS= read -r skill; do
-        if install_skill "$skill" "$dry_run"; then
-            ((installed++))
-        else
-            ((failed++))
-        fi
-    done <<< "$skills"
-
-    echo ""
-    print_info "Category '$category' complete: $installed installed, $failed failed"
+  echo ""
+  print_info "Category '$category' complete: $installed installed, $failed failed"
 }
 
 # Install all skills
 install_all() {
-    local dry_run="$1"
-    local installed=0
-    local failed=0
+  local dry_run="$1"
+  local installed=0
+  local failed=0
+  local skills=""
 
-    print_info "Installing all skills to: $CODEX_SKILLS_DIR"
-    echo ""
+  print_info "Installing all skills to: $CODEX_SKILLS_DIR"
+  echo ""
 
+  if [[ -f $CODEX_INDEX ]] && command -v python3 &> /dev/null; then
+    skills=$(
+      CODEX_INDEX="$CODEX_INDEX" python3 << 'EOF'
+import json
+import os
+
+with open(os.environ["CODEX_INDEX"], "r", encoding="utf-8") as f:
+    index = json.load(f)
+
+seen = set()
+for skill in index.get("skills", []):
+    name = skill.get("name")
+    if name and name not in seen:
+        seen.add(name)
+        print(name)
+EOF
+    )
+
+    while IFS= read -r skill_name; do
+      if [[ -z $skill_name ]]; then
+        continue
+      fi
+
+      if install_skill "$skill_name" "$dry_run"; then
+        ((++installed))
+      else
+        ((++failed))
+      fi
+    done <<< "$skills"
+  else
     for skill in "$CODEX_SKILLS_SRC"/*; do
-        if [[ -L "$skill" ]] || [[ -d "$skill" ]]; then
-            local skill_name
-            skill_name=$(basename "$skill")
+      if [[ -L $skill ]] || [[ -d $skill ]]; then
+        local skill_name
+        skill_name=$(basename "$skill")
 
-            if install_skill "$skill_name" "$dry_run"; then
-                ((installed++))
-            else
-                ((failed++))
-            fi
+        if install_skill "$skill_name" "$dry_run"; then
+          ((++installed))
+        else
+          ((++failed))
         fi
+      fi
     done
+  fi
 
+  echo ""
+  print_info "Installation complete: $installed installed, $failed failed"
+
+  if [[ $dry_run != "true" ]]; then
     echo ""
-    print_info "Installation complete: $installed installed, $failed failed"
-
-    if [[ "$dry_run" != "true" ]]; then
-        echo ""
-        print_success "Skills installed to: $CODEX_SKILLS_DIR"
-        print_info "Verify with: ls $CODEX_SKILLS_DIR"
-    fi
+    print_success "Skills installed to: $CODEX_SKILLS_DIR"
+    print_info "Verify with: ls $CODEX_SKILLS_DIR"
+  fi
 }
 
 # Main
 main() {
-    local mode="all"
-    local target=""
-    local dry_run="false"
+  local mode="all"
+  local target=""
+  local dry_run="false"
 
-    # Parse arguments
-    while [[ $# -gt 0 ]]; do
-        case $1 in
-            --all)
-                mode="all"
-                shift
-                ;;
-            --category)
-                mode="category"
-                target="$2"
-                shift 2
-                ;;
-            --skill)
-                mode="skill"
-                target="$2"
-                shift 2
-                ;;
-            --list)
-                mode="list"
-                shift
-                ;;
-            --dry-run)
-                dry_run="true"
-                shift
-                ;;
-            --help|-h)
-                show_help
-                ;;
-            *)
-                print_error "Unknown option: $1"
-                show_help
-                ;;
-        esac
-    done
-
-    # Banner
-    echo ""
-    echo "========================================"
-    echo "  Claude Skills - Codex Installer"
-    echo "========================================"
-    echo ""
-
-    check_prerequisites
-
-    case $mode in
-        list)
-            list_skills
-            ;;
-        skill)
-            if [[ -z "$target" ]]; then
-                print_error "Skill name required"
-                exit 1
-            fi
-            install_skill "$target" "$dry_run"
-            ;;
-        category)
-            if [[ -z "$target" ]]; then
-                print_error "Category name required"
-                exit 1
-            fi
-            install_category "$target" "$dry_run"
-            ;;
-        all)
-            install_all "$dry_run"
-            ;;
+  # Parse arguments
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      --all)
+        mode="all"
+        shift
+        ;;
+      --category)
+        if [[ $# -lt 2 || -z ${2:-} || ${2:-} == --* ]]; then
+          print_error "Category name required"
+          exit 1
+        fi
+        mode="category"
+        target="$2"
+        shift 2
+        ;;
+      --skill)
+        if [[ $# -lt 2 || -z ${2:-} || ${2:-} == --* ]]; then
+          print_error "Skill name required"
+          exit 1
+        fi
+        mode="skill"
+        target="$2"
+        shift 2
+        ;;
+      --list)
+        mode="list"
+        shift
+        ;;
+      --dry-run)
+        dry_run="true"
+        shift
+        ;;
+      --help | -h)
+        show_help
+        ;;
+      *)
+        print_error "Unknown option: $1"
+        show_help
+        ;;
     esac
+  done
+
+  # Banner
+  echo ""
+  echo "========================================"
+  echo "  Claude Skills - Codex Installer"
+  echo "========================================"
+  echo ""
+
+  check_prerequisites
+
+  case $mode in
+    list)
+      list_skills
+      ;;
+    skill)
+      if [[ -z $target ]]; then
+        print_error "Skill name required"
+        exit 1
+      fi
+      install_skill "$target" "$dry_run"
+      ;;
+    category)
+      if [[ -z $target ]]; then
+        print_error "Category name required"
+        exit 1
+      fi
+      install_category "$target" "$dry_run"
+      ;;
+    all)
+      install_all "$dry_run"
+      ;;
+  esac
 }
 
 main "$@"

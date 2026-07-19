@@ -1,11 +1,11 @@
 ---
 title: "Gemini CLI Skills & Plugins Guide (2026)"
-description: "Install and use 192 agent skills with Gemini CLI. Free evaluation calls, engineering, marketing, and DevOps skills for Google's coding agent."
+description: "Install and use 345 agent skills with Gemini CLI. Free evaluation calls, engineering, marketing, and DevOps skills for Google's coding agent."
 ---
 
 # Gemini CLI Agent Skills Guide
 
-Use 192 production-ready agent skills with Gemini CLI. Every skill in this collection is compatible with Gemini's agent skills specification and installs via the `.gemini/skills/` directory.
+Use 345 production-ready agent skills with Gemini CLI. Every skill in this collection is compatible with Gemini's agent skills specification and installs via the `.gemini/skills/` directory.
 
 ---
 
@@ -81,7 +81,7 @@ This repo includes `gemini-extension.json` for Gemini's extension registry:
 {
   "name": "claude-skills",
   "version": "2.0.0",
-  "description": "192 agent skills for engineering, marketing, product, and more",
+  "description": "345 agent skills for engineering, marketing, product, and more",
   "skills": ["engineering/*", "marketing-skill/*", "product-team/*", "..."]
 }
 ```
@@ -109,7 +109,7 @@ These skills work on 10 other coding agents too:
 
 Claude Code · OpenAI Codex · Cursor · OpenClaw · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
-See the [full catalog](https://github.com/alirezarezvani/claude-skills) for all 192 skills.
+See the [full catalog](https://github.com/alirezarezvani/claude-skills) for all 345 skills.
 
 ---
 

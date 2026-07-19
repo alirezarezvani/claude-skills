@@ -4,39 +4,42 @@ The math of what a discount actually costs. Most sales discounts are described a
 
 ## The fundamental formula
 
-A discount of D% on a product with gross margin G% reduces net margin by:
+The model is **fixed COGS**: discounting the price does not shrink the cost of delivering the product. At list price P with gross margin G%, COGS = (1 − G/100) × P and stays fixed when the price drops to (1 − D/100) × P. Two numbers follow:
 
-    margin_loss_points = D * (G / 100)
-    net_margin = G - margin_loss_points
+    net_margin_pct = (G - D) / (100 - D) * 100        # post-discount margin %
+    margin_dollars_destroyed_pct = D / G * 100        # share of margin $ given up
+
+Every discounted dollar comes straight out of margin dollars — the discount amount IS the margin loss in dollars.
 
 ### Worked examples
 
-| List discount | Gross margin | Margin loss | Net margin |
+| List discount | Gross margin | Margin $ destroyed | Net margin % |
 |---|---|---|---|
-| 10% | 80% | 8 pts | 72% |
-| 20% | 80% | 16 pts | 64% |
-| **30%** | **80%** | **24 pts** | **56%** |
-| 30% | 60% | 18 pts | 42% |
-| 40% | 80% | 32 pts | 48% |
-| 50% | 80% | 40 pts | 40% |
+| 10% | 80% | 12.5% | 77.8% |
+| 20% | 80% | 25.0% | 75.0% |
+| **30%** | **80%** | **37.5%** | **71.4%** |
+| 30% | 60% | 50.0% | 42.9% |
+| 40% | 80% | 50.0% | 66.7% |
+| 50% | 80% | 62.5% | 60.0% |
 
-**A 30% discount on an 80%-gross-margin product wipes 24 points of margin** — that's a 30% margin loss in *relative* terms (24/80 = 30%), but the conventional shorthand "30% discount = 30% margin hit" understates the absolute hit on a low-margin product.
+**A 30% discount on an 80%-gross-margin product destroys 37.5% of the margin dollars** (30/80), even though the margin *percentage* only slips from 80% to 71.4%. The percentage is cosmetic; the dollars fund the P&L.
 
 ### Why the conventional shorthand is wrong
 
-People often say "a 30% discount loses 30% of margin." That's only true for a 100%-margin product. For an 80%-margin SaaS, the discount cuts the **revenue** by 30% but the **margin** by 30% × (80/100) = 24 points, or 30% in relative terms. The dollar impact compounds across the contract term.
+People often say "a 30% discount loses 30% of margin." Under fixed COGS that *understates* the damage: the discount cuts revenue by 30% but COGS doesn't move, so the entire discount comes out of margin dollars — 30/80 = **37.5%** of the margin is gone. The lower the starting margin, the worse it gets: the same 30% discount on a 60%-margin business destroys half its margin. This is why the deal scorer's margin dimension penalizes margin-dollar destruction directly, not just the post-discount margin percentage.
 
 ## LTV impact
 
-Discount also compounds across multi-year contracts. A 24-month deal at 30% discount loses:
+Discount also compounds across multi-year contracts. Because COGS is fixed, every discounted dollar is a lost margin dollar — the gross margin % determines what *fraction* of margin that represents (D/G), not the dollar amount:
 
-    lifetime_margin_loss = (D / 100) * G/100 * list_price * (term_months / 12)
+    lifetime_margin_loss = (D / 100) * list_arr * (term_months / 12)
 
-For a $200K-ARR deal at 30% discount, 80% gross margin, 24-month term:
+For a $200K-list-ARR deal at 30% discount, 24-month term:
 
-    = 0.30 * 0.80 * 200,000 * 2 = $96,000 of gross margin given up
+    = 0.30 * 200,000 * 2 = $120,000 of gross margin given up
+    (= 37.5% of the $320K margin the deal would have carried at 80% GM)
 
-That's $96K of fully-loaded P&L impact for one deal. Across 50 deals/quarter at the same discount, the company is giving up $19.2M/year in gross margin.
+That's $120K of fully-loaded P&L impact for one deal. Across 50 deals/quarter at the same discount and terms, the company signs away $24M/year of contracted gross margin.
 
 ## Discount creep
 

@@ -2,6 +2,8 @@
 
 A comprehensive reference for detecting AI-generated or AI-assisted writing patterns. Use this during Mode 1 (Detect) to audit content before editing.
 
+**Last validated:** 2026-06 against then-current frontier models. AI-tell vocabularies age fast — the "delve"-era list below reflects 2023-2025 model output; newer models exhibit different tells. Re-validate this list every ~6 months against fresh model output and date the revision here.
+
 Rate each finding: 🔴 Critical (rewrites required) / 🟡 Medium (edits needed) / 🟢 Minor (polish)
 
 ---

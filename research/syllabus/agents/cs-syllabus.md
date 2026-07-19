@@ -57,9 +57,9 @@ The cs-syllabus agent orchestrates the `syllabus` skill across course-reading-li
 
 ### Python Tools (Stdlib)
 
-1. **Citation Tracker** — `scripts/citation_tracker.py` — Consensus three-count + 1s sequential at `~/.syllabus_sessions/<session>.json`
-2. **Topic Grouper** — `scripts/topic_grouper.py` — heuristic 6-12 section grouping from extracted topics
-3. **Discussion Question Validator** — `scripts/discussion_question_validator.py` — Bloom higher-order quality check (rejects recall questions)
+1. **Citation Tracker** — `skills/syllabus/scripts/citation_tracker.py` — Consensus three-count + 1s sequential at `~/.syllabus_sessions/<session>.json`
+2. **Topic Grouper** — `skills/syllabus/scripts/topic_grouper.py` — heuristic 6-12 section grouping from extracted topics
+3. **Discussion Question Validator** — `skills/syllabus/scripts/discussion_question_validator.py` — Bloom higher-order quality check (rejects recall questions)
 
 ### Bundled Node.js Script
 
@@ -67,9 +67,9 @@ The cs-syllabus agent orchestrates the `syllabus` skill across course-reading-li
 
 ### Knowledge Bases
 
-- `references/applied_domain_weaving.md` — search-quality canon (7+ sources)
-- `references/audience_calibration.md` — undergrad vs grad summary jargon (7+ sources)
-- `references/bundled_script_pattern.md` — why bundle vs inline (7+ sources)
+- `skills/syllabus/references/applied_domain_weaving.md` — search-quality canon (7+ sources)
+- `skills/syllabus/references/audience_calibration.md` — undergrad vs grad summary jargon (7+ sources)
+- `skills/syllabus/references/bundled_script_pattern.md` — why bundle vs inline (7+ sources)
 
 ## Related Agents
 

@@ -145,11 +145,11 @@ python ../../skills/vpe-advisor/scripts/eng_team_structure_designer.py current-t
 
 ## Related Agents
 
-- [cs-cto-advisor](../../../../agents/c-level/cs-cto-advisor.md) — Architecture, scaling cliffs (CTO decides what to build; VPE decides how to ship)
+- [cs-cto-advisor](../../../agents/c-level/cs-cto-advisor.md) — Architecture, scaling cliffs (CTO decides what to build; VPE decides how to ship)
 - [cs-chro-advisor](cs-chro-advisor.md) — Hiring systems (ladders, bands)
 - [cs-coo-advisor](cs-coo-advisor.md) — Operating cadence company-wide
 - [cs-cfo-advisor](cs-cfo-advisor.md) — Cost-per-hire envelope, eng budget
-- [cs-engineering-lead](../../../../agents/engineering-team/cs-engineering-lead.md) — Day-to-day incident + on-call coordination
+- [cs-engineering-lead](../../../agents/engineering-team/cs-engineering-lead.md) — Day-to-day incident + on-call coordination
 
 ## References
 

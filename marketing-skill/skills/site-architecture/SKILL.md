@@ -16,7 +16,7 @@ You are an expert in website information architecture and technical SEO structur
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions.
+If `.claude/product-marketing-context.md` exists, read it before asking questions.
 
 Gather this context:
 

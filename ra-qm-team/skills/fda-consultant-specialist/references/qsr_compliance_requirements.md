@@ -1,6 +1,15 @@
-# Quality System Regulation (QSR) Compliance
+# Quality System Regulation (QSR) — Historical Structure with QMSR/ISO 13485:2016 Mapping
 
-Complete guide to 21 CFR Part 820 requirements for medical device manufacturers.
+> ## ⚠️ STATUS: QMSR transition — the QSR structure below is HISTORICAL
+>
+> FDA's **Quality Management System Regulation (QMSR)** final rule (89 FR 7496) took effect **February 2, 2026**, amending 21 CFR Part 820 to **incorporate ISO 13485:2016 by reference** and removing the QSR subsection structure documented in this guide. The section numbers used below (820.20–820.250) **no longer exist in the CFR**; they are retained here only as a familiar index into requirements that now flow from ISO 13485:2016 clauses.
+>
+> **What remains in 21 CFR 820 under the QMSR:** 820.10 (requirements, incl. the ISO 13485:2016 incorporation by reference and Part 830 UDI linkage), 820.35 (records — complaint and servicing-record additions to ISO 13485), 820.45 (device labeling and packaging controls).
+> **Unchanged:** 21 CFR Parts 801 (labeling), 803 (MDR), 806 (corrections and removals), 830 (UDI).
+>
+> Use the [Regulatory Cross-References](#regulatory-cross-references) table at the end of this guide to map every historical QSR section to its current QMSR/ISO 13485:2016 authority. The implementation guidance and templates below remain useful — quality system expectations are substantially the same under ISO 13485 — but **cite ISO 13485 clauses (or retained 820.10/.35/.45), not the historical subsection numbers, in current compliance documentation.**
+
+Implementation guide to the historical 21 CFR Part 820 (QSR) structure for medical device manufacturers, mapped to the QMSR/ISO 13485:2016 requirements now in force.
 
 ---
 
@@ -38,10 +47,10 @@ The QSR applies to:
 | Class II | Full QSR compliance |
 | Class III | Full QSR compliance |
 
-### QSR Structure
+### QSR Structure (historical, pre-2026-02-02)
 
 ```
-21 CFR Part 820 Subparts:
+21 CFR Part 820 Subparts (removed by the QMSR; historical reference only):
 ├── A - General Provisions (820.1-5)
 ├── B - Quality System Requirements (820.20-25)
 ├── C - Design Controls (820.30)
@@ -742,12 +751,26 @@ Device Master Record
 
 ### Regulatory Cross-References
 
-| QSR Section | ISO 13485 Clause |
-|-------------|------------------|
-| 820.20 | 5.1, 5.5, 5.6 |
-| 820.30 | 7.3 |
-| 820.40 | 4.2.4 |
-| 820.50 | 7.4 |
-| 820.70 | 7.5.1 |
-| 820.75 | 7.5.6 |
-| 820.100 | 8.5.2, 8.5.3 |
+Historical QSR sections (removed effective 2026-02-02) mapped to their current QMSR/ISO 13485:2016 authority:
+
+| Historical QSR Section | Title | Current QMSR / ISO 13485:2016 authority |
+|------------------------|-------|------------------------------------------|
+| 820.20 | Management responsibility | ISO 13485 §5.1, 5.5, 5.6 |
+| 820.30 | Design controls | ISO 13485 §7.3 |
+| 820.40 | Document controls | ISO 13485 §4.2.4 |
+| 820.50 | Purchasing controls | ISO 13485 §7.4 |
+| 820.60–.65 | Identification and traceability | ISO 13485 §7.5.8, 7.5.9 |
+| 820.70 | Production and process controls | ISO 13485 §6.3, 6.4, 7.5.1 |
+| 820.72 | Inspection, measuring, test equipment | ISO 13485 §7.6 |
+| 820.75 | Process validation | ISO 13485 §7.5.6 |
+| 820.80–.86 | Acceptance activities | ISO 13485 §7.4.3, 8.2.6 |
+| 820.90 | Nonconforming product | ISO 13485 §8.3 |
+| 820.100 | CAPA | ISO 13485 §8.5.2, 8.5.3 |
+| 820.120–.130 | Labeling and packaging | 21 CFR 820.45 (retained) + ISO 13485 §7.5.1 |
+| 820.140–.170 | Handling, storage, distribution, installation | ISO 13485 §7.5.5, 7.5.3 |
+| 820.180–.186 | Records (incl. DMR 820.181, DHR 820.184, QSR 820.186) | ISO 13485 §4.2.3 (medical device file), 4.2.5 (records) + 21 CFR 820.35 (retained) |
+| 820.198 | Complaint files | ISO 13485 §8.2.2 + 21 CFR 820.35(b) |
+| 820.200 | Servicing | ISO 13485 §7.5.4 + 21 CFR 820.35 |
+| 820.250 | Statistical techniques | ISO 13485 §8.1 |
+
+Retained/renumbered under QMSR: 820.10 (requirements; incorporates ISO 13485:2016 by reference), 820.35 (records), 820.45 (device labeling and packaging controls). Unchanged: 21 CFR 801, 803, 806, 830.

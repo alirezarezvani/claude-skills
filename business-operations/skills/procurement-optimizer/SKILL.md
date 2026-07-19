@@ -1,6 +1,6 @@
 ---
 name: procurement-optimizer
-description: Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base — when the user needs to do a spend audit, spend categorization (UNSPSC-aligned), purchasing-cycle analysis, or risk-balanced supplier consolidation. Triggers on "spend audit", "SaaS audit", "spend categorization", "supplier rationalization", "supplier consolidation", "purchasing cycle", "procurement review", "category strategy", "duplicate SaaS", "renewal cluster". Ships 3 stdlib-only Python tools (UNSPSC-aligned spend categorizer with Pareto breakdown and industry profiles, purchasing-cycle analyzer that surfaces bottleneck categories per Goldratt's Theory of Constraints, supplier-consolidation planner that refuses single-source recommendations for tier-1 categories without a documented break-glass plan), 3 reference docs each citing 7+ authoritative sources (A.T. Kearney / Hackett / Spend Matters / UNSPSC / Productiv / Vendr / Tropic / IACCM / ISM / BCG), and a 20-minute spend-intake template. Distinct from sibling vendor-management (performance scoring of vendors you keep paying), finance/financial-analysis (close + report, not category strategy), and c-level-advisor/general-counsel-advisor (contract law, not category rationalization).
+description: Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base — when the user needs a spend audit, spend categorization (UNSPSC-aligned with Pareto breakdown and industry profiles), purchasing-cycle analysis (bottleneck categories per Goldratt's Theory of Constraints), or risk-balanced supplier consolidation that refuses single-source recommendations for tier-1 categories without a documented break-glass plan. Triggers on "spend audit", "SaaS audit", "spend categorization", "supplier rationalization", "supplier consolidation", "category strategy", "duplicate SaaS", "renewal cluster".
 version: 2.8.0
 author: claude-code-skills
 license: MIT
@@ -98,6 +98,13 @@ Combine the 3 artifacts into a BizOps-ready digest:
 | `scripts/supplier_consolidation.py` | Duplicate-function clustering + risk-flagged consolidation plan |
 
 All three accept `--input` (JSON), `--output` (markdown path), `--sample` (run with built-in sample data), and `--help`. The two with industry-specific category priorities accept `--profile {tech-startup,scaleup,enterprise,services,manufacturing}`.
+
+## Quick example
+
+```bash
+# Emits a UNSPSC-aligned spend categorization with Pareto breakdown for the built-in sample spend file
+cd business-operations/skills/procurement-optimizer && python3 scripts/spend_categorizer.py --sample
+```
 
 ## References
 

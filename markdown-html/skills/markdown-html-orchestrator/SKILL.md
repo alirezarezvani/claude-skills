@@ -2,7 +2,7 @@
 name: markdown-html-orchestrator
 description: Use when a user wants to convert any markdown file in their Claude project into a single-file, lightly-interactive HTML — long-form documents (specs, plans, RFCs, reports, explainers), code reviews with diffs and severity-tagged annotations, or slide decks. Triggers on "convert this markdown to HTML", "make this an HTML file", "turn this into an interactive document", "render this report as HTML", "PR writeup as HTML", "slides from this markdown". Forks context to route to one of three converter sub-skills (md-document, md-review, md-slides) based on a deterministic doctype classifier, after the user has run the design-system onboarding once. Refuses if input is under 100 lines (per Shihipar — markdown still wins below the threshold) or design-system isn't onboarded. Distinct from Anthropic's official Playground plugin (which is interactive prompt-tuning controls with sliders/knobs/prompt-copy-back) and from marketing/landing/ (which is a landing-page generator).
 context: fork
-version: 2.10.0
+version: 2.10.3
 author: Alireza Rezvani
 license: MIT
 tags: [markdown, html, converter, orchestrator, documentation, code-review, slides, design-system]
@@ -15,7 +15,7 @@ Thariq Shihipar's argument (Claude Code HTML output essay, Medium 2026): **markd
 
 This orchestrator forks context, classifies the input markdown deterministically, routes to the right converter sub-skill, and returns a digest with the output path. Heavy intake (full markdown bodies, diffs, slide decks) stays in the forked context.
 
-**Foundation status (v2.10.0):** orchestrator + `design-system` (onboarding + shared brand tokens) are live. Converter sub-skills (`md-document`, `md-review`, `md-slides`) land in v2.10.1 follow-up PRs. Until they land, this skill still runs the classifier and the design-system gate, and surfaces the routing recommendation — it just hands the rendering work back to Claude with the structured brief.
+**Domain status (complete):** all five skills are live — orchestrator + `design-system` (onboarding + shared brand tokens) + the three converter sub-skills (`md-document`, `md-review`, `md-slides`). Always route conversions to the shipped converter's scripts; never hand-render HTML inline.
 
 ## When to invoke
 
@@ -46,9 +46,9 @@ Two-signal threshold pattern lifted from `research-ops/skills/research-ops-skill
 The pipeline:
 
 ```bash
-python3 skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
+python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
     --input <path>.md --output json \
-  | python3 skills/markdown-html-orchestrator/scripts/route_explainer.py
+  | python3 markdown-html/skills/markdown-html-orchestrator/scripts/route_explainer.py
 ```
 
 `route_explainer.py` checks the design-system status, applies the < 100-line refusal, and prints one of: `ROUTE_SILENTLY -> md-<type>`, `ASK_USER one question: ...`, or `REFUSE — fix the issues above`.
@@ -76,17 +76,15 @@ Pipe the classification into `route_explainer.py`. If it says `ROUTE_SILENTLY`, 
 ### Step 4 — Resolve the output path
 
 ```bash
-python3 skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
+python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input <path>.md --doctype <document|review|slides>
 ```
 
 Collision handling defaults to `-2 / -3 / ...` suffix; `--on-collision timestamp` for stamped names.
 
-### Step 5 — Hand off to the sub-skill (when shipped)
+### Step 5 — Hand off to the sub-skill
 
-In v2.10.1+, the converter sub-skill's renderer takes the input markdown, the design-system config, and the resolved output path, and writes a single self-contained HTML file. The orchestrator returns a ≤ 100-word digest: input lines, output path, design style applied, top 3 features used (TOC, search, code-copy, etc.), and one forcing question for the user.
-
-Until v2.10.1, the orchestrator's job stops at step 4 — it returns the classification + routing brief and lets Claude do the rendering inline with the design-system tokens.
+The routed converter sub-skill's renderer (`md-document/scripts/`, `md-review/scripts/`, or `md-slides/scripts/`) takes the input markdown, the design-system config, and the resolved output path, and writes a single self-contained HTML file. The orchestrator returns a ≤ 100-word digest: input lines, output path, design style applied, top 3 features used (TOC, search, code-copy, etc.), and one forcing question for the user. Never render HTML by hand — the converter scripts own the rendering.
 
 ## Forcing-question library (Matt Pocock grill-with-docs pattern)
 
@@ -130,9 +128,9 @@ Never run a sub-skill before the lane is locked.
 
 | Sub-skill | Artifact | Status |
 |---|---|---|
-| `md-document` | `doc-<slug>.html` (single file, sticky TOC, collapsibles, search, code-copy, scrollspy) | v2.10.1 |
-| `md-review` | `review-<slug>.html` (2-col diff + severity margin notes + jump-nav) | v2.10.1 |
-| `md-slides` | `deck-<slug>.html` (arrow-key nav + presenter mode + print-to-PDF) | v2.10.1 |
+| `md-document` | `doc-<slug>.html` (single file, sticky TOC, collapsibles, search, code-copy, scrollspy) | ✓ live |
+| `md-review` | `review-<slug>.html` (2-col diff + severity margin notes + jump-nav) | ✓ live |
+| `md-slides` | `deck-<slug>.html` (arrow-key nav + presenter mode + print-to-PDF) | ✓ live |
 
 ## Anti-patterns (do not)
 

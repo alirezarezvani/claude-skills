@@ -97,19 +97,18 @@ Step 4: Create OAuth Credentials
 
 Step 5: Configure gws CLI
   1. Set environment variables:
-     export GWS_CLIENT_ID=<your-client-id>
-     export GWS_CLIENT_SECRET=<your-client-secret>
+     export GOOGLE_WORKSPACE_CLI_CLIENT_ID=<your-client-id>
+     export GOOGLE_WORKSPACE_CLI_CLIENT_SECRET=<your-client-secret>
 
-  2. Or place the credentials JSON:
-     mv client_secret_*.json ~/.config/gws/credentials.json
+  2. Or point the CLI at a credentials JSON file:
+     export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json
 
 Step 6: Authenticate
-  gws auth setup
-  # Opens browser for consent, stores token in system keyring
+  gws auth setup    # interactive setup (uses gcloud if available)
+  gws auth login -s gmail,drive,calendar   # request only needed scopes
 
-Step 7: Verify
-  gws auth status
-  gws gmail users getProfile me
+Step 7: Verify (check exact syntax with: gws gmail --help)
+  gws gmail users getProfile --params '{"userId": "me"}'
 """
 
 SERVICE_ACCOUNT_GUIDE = """
@@ -145,30 +144,34 @@ Step 5: Authorize in Google Admin
      - Scopes: (paste required scopes)
   4. Authorize
 
-Step 6: Configure gws CLI
-  export GWS_SERVICE_ACCOUNT_KEY=/path/to/service-account-key.json
-  export GWS_DELEGATED_USER=admin@yourdomain.com
+Step 6: Configure gws CLI for headless use
+  NOTE: The documented headless flow for gws is to export credentials from an
+  interactive machine and reuse them (see: gws auth --help):
+    gws auth export --unmasked > credentials.json
+    export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json
+  Or supply a pre-obtained OAuth token:
+    export GOOGLE_WORKSPACE_CLI_TOKEN=<token>
+  Verify service-account/domain-wide-delegation support against your installed
+  version (gws auth --help) before relying on it.
 
-Step 7: Verify
-  gws auth status
-  gws gmail users getProfile me
+Step 7: Verify (check exact syntax with: gws gmail --help)
+  gws gmail users getProfile --params '{"userId": "me"}'
 """
 
 ENV_TEMPLATE = """# Google Workspace CLI Configuration
 # Copy to .env and fill in values
 
 # OAuth Credentials (for interactive auth)
-GWS_CLIENT_ID=
-GWS_CLIENT_SECRET=
-GWS_TOKEN_PATH=~/.config/gws/token.json
+GOOGLE_WORKSPACE_CLI_CLIENT_ID=
+GOOGLE_WORKSPACE_CLI_CLIENT_SECRET=
 
-# Service Account (for headless/CI auth)
-# GWS_SERVICE_ACCOUNT_KEY=/path/to/key.json
-# GWS_DELEGATED_USER=admin@yourdomain.com
+# Headless/CI auth (export from an interactive machine: gws auth export --unmasked)
+# GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json
+# GOOGLE_WORKSPACE_CLI_TOKEN=
 
-# Defaults
-GWS_DEFAULT_FORMAT=json
-GWS_PAGINATION_LIMIT=100
+# Optional
+# GOOGLE_WORKSPACE_CLI_CONFIG_DIR=~/.config/gws
+# GOOGLE_WORKSPACE_CLI_LOG=debug
 """
 
 
@@ -215,7 +218,10 @@ def check_auth_status() -> dict:
                 return json.loads(result.stdout)
             except json.JSONDecodeError:
                 return {"status": "authenticated", "raw": result.stdout.strip()}
-        return {"status": "not_authenticated", "error": result.stderr.strip()[:200]}
+        return {"status": "unknown",
+                "note": "could not determine auth status ('gws auth status' may not exist "
+                        "in your version; check 'gws auth --help')",
+                "error": result.stderr.strip()[:200]}
     except (FileNotFoundError, OSError):
         return {"status": "gws_not_found"}
 
@@ -237,11 +243,11 @@ def validate_services(services: List[str]) -> ValidationReport:
     report.user = auth.get("user", auth.get("email", "unknown"))
 
     service_cmds = {
-        "gmail": ["gws", "gmail", "users", "getProfile", "me", "--json"],
-        "drive": ["gws", "drive", "files", "list", "--limit", "1", "--json"],
-        "calendar": ["gws", "calendar", "calendarList", "list", "--limit", "1", "--json"],
-        "sheets": ["gws", "sheets", "spreadsheets", "get", "test", "--json"],
-        "tasks": ["gws", "tasks", "tasklists", "list", "--limit", "1", "--json"],
+        "gmail": ["gws", "gmail", "users", "getProfile", "--params", '{"userId": "me"}'],
+        "drive": ["gws", "drive", "files", "list", "--params", '{"pageSize": 1}'],
+        "calendar": ["gws", "calendar", "calendarList", "list", "--params", '{"maxResults": 1}'],
+        "sheets": ["gws", "schema", "sheets.spreadsheets.get"],
+        "tasks": ["gws", "tasks", "tasklists", "list", "--params", '{"maxResults": 1}'],
     }
 
     for svc in services:
@@ -350,7 +356,7 @@ Examples:
             status = check_auth_status()
         else:
             status = {"status": "gws_not_found",
-                      "note": "Install gws first: cargo install gws-cli  OR  https://github.com/googleworkspace/cli/releases"}
+                      "note": "Install gws first: npm install -g @googleworkspace/cli  OR  https://github.com/googleworkspace/cli/releases"}
         if args.json:
             print(json.dumps(status, indent=2))
         else:

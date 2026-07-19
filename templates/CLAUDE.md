@@ -12,7 +12,7 @@ This guide explains the template system for agents, commands, and standardized w
 
 ### Agent Templates
 
-**Location:** `templates/agent-template.md` (when created)
+**Location:** `templates/agent-template.md`
 
 **Usage:** Starting point for creating new cs-* agents
 
@@ -24,29 +24,9 @@ This guide explains the template system for agents, commands, and standardized w
 
 **When to Use:** Creating any new agent in `agents/` directory
 
-### Command Templates
+### Command Templates and Workflow Templates
 
-**Location:** `templates/command-template.md` (when created)
-
-**Usage:** Creating new slash commands
-
-**Contains:**
-- Command structure
-- Argument parsing patterns
-- Help documentation format
-
-**When to Use:** Creating slash commands in `commands/` directory
-
-### Workflow Templates
-
-**Location:** `templates/workflow-template.md` (when created)
-
-**Usage:** Documenting standard workflows across skills
-
-**Contains:**
-- Step-by-step format
-- Expected outputs
-- Error handling patterns
+Not yet created. There is no command template or workflow template file in `templates/` today — when creating slash commands, copy an existing command in `commands/` (e.g. `commands/cs-backend-review.md` for the argument-hint + gate pattern) instead of looking for a template here.
 
 ## Template Usage Pattern
 

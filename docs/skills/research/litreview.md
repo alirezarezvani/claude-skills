@@ -209,7 +209,7 @@ Document the key `docx` library patterns:
 - Lists: `LevelFormat.BULLET` (never unicode bullets)
 - Hyperlinks: `ExternalHyperlink` with `style: "Hyperlink"`, full URL (never truncated)
 - Tables: dual widths (`columnWidths` + cell `width`), `ShadingType.CLEAR`
-- Validation step after save (`python scripts/office/validate.py output.docx`)
+- Validation step after save (zip-integrity check: `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx` — no output = intact — then confirm the required sections are present)
 
 Reference the **docx skill** for setup patterns and best practices.
 

@@ -17,11 +17,11 @@ description: "4 finance skills — finance agent skill and Claude Code plugin fo
 
 <div class="grid cards" markdown>
 
--   **[Finance Skills](finance-skills.md)**
+-   **[Finance Skills — Router](finance-skills.md)**
 
     ---
 
-    Production-ready financial analysis skill for strategic decision-making.
+    This plugin bundles 2 finance skills (this router is the 3rd folder under finance/skills/). Each skill is self-contai...
 
 -   **[Financial Analyst Skill](financial-analyst.md)**
 

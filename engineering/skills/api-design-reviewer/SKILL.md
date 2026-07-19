@@ -13,6 +13,21 @@ description: "Comprehensive REST API design review with automated linting, break
 
 The API Design Reviewer skill provides comprehensive analysis and review of API designs, focusing on REST conventions, best practices, and industry standards. This skill helps engineering teams build consistent, maintainable, and well-designed APIs through automated linting, breaking change detection, and design scorecards.
 
+## Quick Start — run the tools first
+
+```bash
+# 1. Lint an OpenAPI/Swagger spec for convention violations
+python3 scripts/api_linter.py openapi.json --format json -o lint.json
+
+# 2. Detect breaking changes between two spec versions (gate: exits non-zero with --exit-on-breaking)
+python3 scripts/breaking_change_detector.py openapi-v1.json openapi-v2.json --format json --exit-on-breaking -o breaking.json
+
+# 3. Score overall design quality (gate: --min-grade fails below threshold)
+python3 scripts/api_scorecard.py openapi.json --format json --min-grade B -o scorecard.json
+```
+
+Review flow: run all three, report linter findings + breaking changes + grade to the user, fix, then re-run until the linter is clean, `--exit-on-breaking` passes (or breaking changes are version-bumped), and the scorecard meets the agreed `--min-grade`. Never sign off an API review on prose alone — attach the tool outputs.
+
 ## Core Capabilities
 
 ### 1. API Linting and Convention Analysis
@@ -157,7 +172,7 @@ Accept: application/vnd.myapi.v1+json
       }
     ],
     "requestId": "req-123456",
-    "timestamp": "2024-02-16T13:00:00Z"
+    "timestamp": "2026-02-16T13:00:00Z"
   }
 }
 ```
@@ -381,7 +396,7 @@ Provides comprehensive scoring of API design quality.
 ### Pre-commit Hooks
 ```bash
 #!/bin/bash
-python engineering/api-design-reviewer/scripts/api_linter.py api/openapi.json
+python engineering/skills/api-design-reviewer/scripts/api_linter.py api/openapi.json
 if [ $? -ne 0 ]; then
   echo "API linting failed. Please fix the issues before committing."
   exit 1
@@ -414,8 +429,5 @@ fi
 9. **Missing Rate Limiting**: Protect your API from abuse and overload
 10. **Inadequate Testing**: Test all aspects including error cases and edge conditions
 
-## Conclusion
-
-The API Design Reviewer skill provides a comprehensive framework for building, reviewing, and maintaining high-quality REST APIs. By following these guidelines and using the provided tools, development teams can create APIs that are consistent, well-documented, secure, and maintainable.
 
 Regular use of the linting, breaking change detection, and scoring tools ensures continuous improvement and helps maintain API quality throughout the development lifecycle.

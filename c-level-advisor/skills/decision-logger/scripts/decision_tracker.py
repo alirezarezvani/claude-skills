@@ -3,7 +3,8 @@
 decision_tracker.py — Board Meeting Decision Parser & Reporter
 Part of the C-Level Advisor / Decision Logger skill.
 
-Parses memory/board-meetings/decisions.md and produces actionable reports.
+Parses the Layer 2 index ~/.claude/decisions/approved/decisions.md and produces actionable reports.
+(Legacy location memory/board-meetings/decisions.md still works via --file.)
 Stdlib only. No dependencies.
 
 Usage:
@@ -471,7 +472,7 @@ This file contains ONLY founder-approved decisions.
 
 **Supersedes:** 
 **Superseded by:** 
-**Raw transcript:** memory/board-meetings/2026-02-15-raw.md
+**Raw transcript:** ~/.claude/decisions/raw/2026-02-15-pricing-tier-restructure.md
 
 ---
 
@@ -496,7 +497,7 @@ This file contains ONLY founder-approved decisions.
 
 **Supersedes:** 
 **Superseded by:** 
-**Raw transcript:** memory/board-meetings/2026-02-28-raw.md
+**Raw transcript:** ~/.claude/decisions/raw/2026-02-28-enterprise-sales-hire.md
 
 ---
 
@@ -521,7 +522,7 @@ This file contains ONLY founder-approved decisions.
 
 **Supersedes:** 
 **Superseded by:** 
-**Raw transcript:** memory/board-meetings/2026-03-04-raw.md
+**Raw transcript:** ~/.claude/decisions/raw/2026-03-04-eu-expansion.md
 """
 
 
@@ -537,7 +538,7 @@ def load_decisions(decisions_path: Path, demo: bool) -> list[Decision]:
     else:
         print(f"  ⚠️  decisions.md not found at: {decisions_path}")
         print(f"  Run with --demo to see sample output.")
-        print(f"  To initialize: mkdir -p memory/board-meetings && touch memory/board-meetings/decisions.md")
+        print(f"  To initialize: mkdir -p ~/.claude/decisions/approved && touch ~/.claude/decisions/approved/decisions.md")
         sys.exit(1)
     return parse_decisions(content)
 
@@ -548,8 +549,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
-    parser.add_argument("--file", default="memory/board-meetings/decisions.md",
-                        help="Path to decisions.md (default: memory/board-meetings/decisions.md)")
+    parser.add_argument("--file", default=os.path.expanduser("~/.claude/decisions/approved/decisions.md"),
+                        help="Path to decisions.md (default: ~/.claude/decisions/approved/decisions.md)")
     parser.add_argument("--demo", action="store_true",
                         help="Run with built-in sample data (no file needed)")
     parser.add_argument("--summary", action="store_true",

@@ -103,7 +103,7 @@ When entries conflict:
 ```
 Auto-memory captures → This plugin curates → CLAUDE.md enforces
 
-MEMORY.md (raw notes)  →  /si:review (analyze)  →  /si:promote (graduate)
+MEMORY.md (raw notes)  →  /si:memory-review (analyze)  →  /si:promote (graduate)
                                                           ↓
                                                     CLAUDE.md or
                                                     .claude/rules/
@@ -128,4 +128,4 @@ MEMORY.md (raw notes)  →  /si:review (analyze)  →  /si:promote (graduate)
 3. **Don't duplicate** — if it's in CLAUDE.md, remove it from MEMORY.md
 4. **Scope rules** — use `.claude/rules/` with paths for file-type-specific patterns
 5. **Review quarterly** — memory files go stale after refactors
-6. **Use /si:status** — monitor capacity before it becomes a problem
+6. **Use /si:memory-status** — monitor capacity before it becomes a problem

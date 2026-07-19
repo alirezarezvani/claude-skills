@@ -168,6 +168,21 @@ def github_yaml(stack: Dict[str, Any]) -> str:
             ]
         )
 
+    if not any(lang in langs for lang in ("node", "python", "go")):
+        # terraform/docker-only (or unrecognized) stacks: run detected commands directly
+        lines.extend(
+            [
+                "  ci:",
+                "    runs-on: ubuntu-latest",
+                "    steps:",
+                "      - uses: actions/checkout@v4",
+            ]
+        )
+        if "terraform" in langs:
+            lines.append("      - uses: hashicorp/setup-terraform@v3")
+        for cmd in lint_cmds + test_cmds + build_cmds:
+            lines.append(f"      - run: {cmd}")
+
     return "\n".join(lines) + "\n"
 
 
@@ -250,6 +265,22 @@ def gitlab_yaml(stack: Dict[str, Any]) -> str:
                 "    - go build ./...",
             ]
         )
+
+    if not any(lang in langs for lang in ("node", "python", "go")):
+        # terraform/docker-only (or unrecognized) stacks: run detected commands directly
+        image = "hashicorp/terraform:1.9" if "terraform" in langs else "alpine:3.20"
+        for stage, cmds in (("lint", lint_cmds), ("test", test_cmds), ("build", build_cmds)):
+            lines.extend(
+                [
+                    "",
+                    f"generic_{stage}:",
+                    f"  image: {image}",
+                    f"  stage: {stage}",
+                    "  script:",
+                ]
+            )
+            for cmd in cmds:
+                lines.append(f"    - {cmd}")
 
     return "\n".join(lines) + "\n"
 

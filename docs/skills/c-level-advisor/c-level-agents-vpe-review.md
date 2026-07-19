@@ -123,7 +123,7 @@ python ../../../skills/vpe-advisor/scripts/eng_team_structure_designer.py team.j
 ## Routing
 
 - `/cs:cto-review` — for architectural causes of throughput problems
-- `/cs:chro-review` — for hiring funnel comp/leveling issues
+- `cs-chro-advisor` agent — for hiring funnel comp/leveling issues
 - `/cs:cfo-review` — for cost-per-hire envelope and eng budget
 - `/cs:ciso-review` — for production discipline + compliance overlap
 - `/cs:decide` — log the verdict

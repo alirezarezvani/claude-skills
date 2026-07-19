@@ -1,6 +1,6 @@
 ---
 name: dossier
-description: "Decision-grade entity research skill — produces a hypothesis-tested dossier on a specific company, person, nonprofit, or government org, not a generic profile. Forcing intake makes the user state their hypothesis upfront (what they already believe and want to verify or disprove) so the dossier tests it rather than confirms it. Output is an editable Word document (.docx) with verdict on the hypothesis, identity facts, 12-month activity timeline, network signals, reputation signals, red flags, 3-5 conversation hooks tied to specific findings, and source-provenance audit log. Uses WebSearch + WebFetch + free APIs (SEC EDGAR, GitHub, ProPublica Nonprofit Explorer) as workhorses; optional BYOK MCPs (LinkedIn, Crunchbase, Apollo, Pitchbook, SimilarWeb) enhance coverage. Triggers: 'research [company]', 'dossier on [person/company]', 'background check on [entity]', 'prep me for a meeting with [person/company]', 'due diligence on [company]', 'what should I know about [entity]', 'research [person] before I [meet/hire/invest]', 'competitor research on [company]', 'investor diligence [company]', 'interview prep for [company]'. Honors sensitivity exclusions for journalism + personal-vetting contexts."
+description: "Decision-grade entity research skill — produces a hypothesis-tested dossier on a specific company, person, nonprofit, or government org, not a generic profile. Forcing intake makes the user state their hypothesis upfront (what they already believe and want to verify or disprove) so the dossier tests it rather than confirms it. Output is an editable Word document (.docx) with verdict on the hypothesis, identity facts, 12-month activity timeline, network and reputation signals, red flags, conversation hooks tied to specific findings, and source-provenance audit log. Uses WebSearch + WebFetch + free APIs (SEC EDGAR, GitHub, ProPublica) as workhorses; optional BYOK MCPs enhance coverage. Use when the user asks for background research, diligence, or meeting prep on a specific entity (e.g., 'prep me for a meeting with [person/company]', 'due diligence on [company]'). Honors sensitivity exclusions for journalism + personal-vetting contexts."
 license: MIT
 metadata:
   source_spec: "megaprompts/12-dossier-megaprompt.md"
@@ -267,7 +267,7 @@ new ExternalHyperlink({
 
 - Save: `<output-dir>/dossier_<entity-slug>_<YYYY-MM-DD>.docx`
 - Chat summary: file path + **verdict on hypothesis** + audit counts + tier breakdown + BYOK MCPs used (if any)
-- Validate: `python scripts/office/validate.py <docx>`
+- Validate: check zip integrity with `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` (no output = intact), then confirm the required sections are present
 
 ## Tooling
 

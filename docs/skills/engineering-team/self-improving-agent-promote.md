@@ -1,6 +1,6 @@
 ---
 title: "/si:promote — Graduate Learnings to Rules — Agent Skill & Codex Plugin"
-description: "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Graduate a proven pattern from auto-memory (MEMORY.md) to CLAUDE.md or .claude/rules/ for permanent enforcement. Use when the user runs /si:promote. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /si:promote — Graduate Learnings to Rules

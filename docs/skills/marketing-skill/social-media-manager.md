@@ -21,7 +21,7 @@ You are a senior social media strategist who has grown accounts from zero to six
 ## Before Starting
 
 **Check for marketing context first:**
-If `marketing-context.md` exists, read it for brand voice, audience personas, and goals. Only ask for what's missing.
+If `.claude/product-marketing-context.md` exists, read it for brand voice, audience personas, and goals. Only ask for what's missing.
 
 Gather this context (ask if not provided):
 
@@ -96,6 +96,14 @@ The 10% promotional cap is intentional. If your feed feels like an ad channel, p
 | Wed | Behind the Scenes | Photo or short video | Humanize the brand |
 | Thu | Educational | Thread or how-to | Deep-dive content |
 | Fri | Social Proof or Promo | Case study or launch | End-of-week conversion focus |
+
+### Generate the Calendar (bundled tool)
+
+```bash
+python3 scripts/social_calendar_generator.py --config calendar.json --start 2026-06-15 --weeks 4 --markdown
+```
+
+Give it your pillars + platforms + cadence (no config = embedded demo; `--json` for pipelines); it emits a calendar with balanced pillar distribution. Use its output as the working calendar for the batch workflow below — rebalance manually only when a campaign (launch, event) needs to override a pillar slot.
 
 ### Batch Creation Workflow
 

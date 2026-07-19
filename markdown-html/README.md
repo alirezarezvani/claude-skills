@@ -5,15 +5,15 @@
 
 Convert long markdown files in a Claude project into single-file, lightly-interactive HTML that respects your brand. One-time design-system onboarding captures brand primary + accent + typography + layout style + default save location. Every conversion reads that config and renders consistently.
 
-## Status — v2.10.0 (foundation)
+## Status — v2.10.3 (domain complete)
 
 | Skill | Purpose | Status |
 |---|---|---|
 | `markdown-html-orchestrator` | Routes long markdown → converter sub-skill (`context: fork`) | ✓ live |
 | `design-system` | Onboarding wizard + WCAG-AA-validated brand palette + shared config | ✓ live |
-| `md-document` | Long-form: sticky TOC + collapsibles + search + code-copy + scrollspy | v2.10.1 (next PR) |
-| `md-review` | Code review: 2-col diff + severity-tagged margin annotations + jump-nav | v2.10.1 (next PR) |
-| `md-slides` | Slide deck: arrow-key nav + presenter mode + print-to-PDF | v2.10.1 (next PR) |
+| `md-document` | Long-form: sticky TOC + collapsibles + search + code-copy + scrollspy | ✓ live |
+| `md-review` | Code review: 2-col diff + severity-tagged margin annotations + jump-nav | ✓ live |
+| `md-slides` | Slide deck: arrow-key nav + presenter mode + print-to-PDF | ✓ live |
 
 ## Quick start
 
@@ -32,7 +32,7 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifi
     --input ./my-report.md --output json \
   | python3 markdown-html/skills/markdown-html-orchestrator/scripts/route_explainer.py
 
-# 5. Resolve where it would save (foundation; converters in v2.10.1)
+# 5. Resolve where it would save
 python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input ./my-report.md --doctype document
 ```
@@ -42,6 +42,9 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_reso
 - `/cs:markdown-html <path>.md` — top-level router (classify + route + recommend)
 - `/cs:grill-markdown-html <path>.md` — Matt-style 5-question grill before conversion
 - `/cs:design-system` — surface the onboarding wizard
+- `/cs:md-document <path>.md` — long-form converter
+- `/cs:md-review <path>.md` — code-review converter
+- `/cs:md-slides <path>.md` — slide-deck converter
 
 ## Hard rules
 
@@ -69,7 +72,10 @@ markdown-html/
 ├── commands/
 │   ├── cs-markdown-html.md          # router
 │   ├── cs-design-system.md          # onboarding surface
-│   └── cs-grill-markdown-html.md    # 5-question grill
+│   ├── cs-grill-markdown-html.md    # 5-question grill
+│   ├── cs-md-document.md            # long-form converter
+│   ├── cs-md-review.md              # code-review converter
+│   └── cs-md-slides.md              # slide-deck converter
 └── skills/
     ├── markdown-html-orchestrator/  # context: fork
     │   ├── SKILL.md
@@ -81,18 +87,21 @@ markdown-html/
     │       ├── information_density_canon.md
     │       ├── orchestrator_routing_patterns.md
     │       └── single_file_html_discipline.md
-    └── design-system/
-        ├── SKILL.md
-        ├── scripts/
-        │   ├── onboard.py
-        │   ├── config_loader.py
-        │   └── brand_palette_validator.py
-        ├── references/
-        │   ├── design_token_canon.md
-        │   ├── wcag_accessibility.md
-        │   └── typography_pairing.md
-        └── assets/
-            └── design_system_schema.json
+    ├── design-system/
+    │   ├── SKILL.md
+    │   ├── scripts/
+    │   │   ├── onboard.py
+    │   │   ├── config_loader.py
+    │   │   └── brand_palette_validator.py
+    │   ├── references/
+    │   │   ├── design_token_canon.md
+    │   │   ├── wcag_accessibility.md
+    │   │   └── typography_pairing.md
+    │   └── assets/
+    │       └── design_system_schema.json
+    ├── md-document/                 # long-form: markdown_parser → html_renderer → interactivity_injector
+    ├── md-review/                   # code review: diff_parser → annotation_extractor → review_html_renderer
+    └── md-slides/                   # slide deck: slide_splitter → presenter_notes_parser → deck_html_renderer
 ```
 
 ## License

@@ -1,6 +1,6 @@
 ---
 name: rice
-description: RICE feature prioritization with scoring and capacity planning. Usage: /rice prioritize <features.csv> [options]
+description: "RICE feature prioritization with scoring and capacity planning. Usage: /rice prioritize <features.csv> [options]"
 ---
 
 # /rice
@@ -33,7 +33,7 @@ Mobile app,20000,3,0.5,13
 ```
 
 ## Scripts
-- `product-team/product-manager-toolkit/scripts/rice_prioritizer.py` — RICE prioritizer (`<input.csv> [--capacity N] [--output text|json|csv]`)
+- `product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py` — RICE prioritizer (`<input.csv> [--capacity N] [--output text|json|csv]`)
 
 ## Skill Reference
-> `product-team/product-manager-toolkit/SKILL.md`
+> `product-team/skills/product-manager-toolkit/SKILL.md`

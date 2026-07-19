@@ -66,7 +66,7 @@ CONTROLS IMPLEMENTED:
 - Protective measures: [N]
 - Information for safety: [N]
 
-OVERALL RESIDUAL RISK: [Acceptable / ALARP Demonstrated]
+OVERALL RESIDUAL RISK: [Acceptable / Reduced as far as possible (AFAP) demonstrated]
 BENEFIT-RISK CONCLUSION: [If applicable]
 
 APPROVAL:

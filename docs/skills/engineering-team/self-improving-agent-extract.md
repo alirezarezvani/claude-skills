@@ -1,6 +1,6 @@
 ---
 title: "/si:extract — Create Skills from Patterns — Agent Skill & Codex Plugin"
-description: "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Use when the user runs. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /si:extract — Create Skills from Patterns

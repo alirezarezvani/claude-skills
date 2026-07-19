@@ -46,7 +46,7 @@ No overlap. Don't confuse them.
 |---|---|---|
 | Q1 | Research question (1-2 sentences, specific) | Always |
 | Q2 | Output: quick chat brief OR standalone .docx | Always |
-| Q3 | Domain disambiguation (7-option pick-list) | Only when classification is ambiguous (≤1 signal) |
+| Q3 | Domain disambiguation (7-option pick-list, with a recommended answer when one signal matched) | When classification is ambiguous OR a single bare-noun signal matched |
 | Q4 | Time horizon for general research (quick 5 vs thorough 15) | Only when Q3 was needed AND user picked "none of the above" |
 
 Most invocations exit at Q2.
@@ -57,7 +57,7 @@ After classification, the skill **always**:
 
 1. States the decision in one sentence: "Routing to `litreview` because you mentioned PICO and systematic review (2 signals)."
 2. Offers override: "If you want general research instead or a different specialist, say so."
-3. Waits 1 turn for confirmation (or auto-proceeds after 5s in interactive contexts).
+3. Proceeds with the recommended route if the user doesn't object (no timers).
 4. If user overrides → accepts, re-routes, logs the override.
 
 **Never delegates silently.** This is the trust-building property that makes the hybrid pattern work.
@@ -146,7 +146,7 @@ python ../skills/research/scripts/fallback_decomposer.py --question "<Q1>"
 - LLM-reasoned classification (must be deterministic keyword matching)
 - Silent delegation (always surface routing decision)
 - Refusing to route to a specialist when ≥2 signals match
-- Routing to a specialist when classification is genuinely ambiguous (≤1 signal)
+- Silent-routing on a single bare-noun signal (e.g., "funding", "fda") — ask Q3 with a recommended answer instead
 - Pre-answering the specialist's grill-me intake
 - Running fallback when a specialist would clearly do better
 - Fabricating sources in fallback when search is thin

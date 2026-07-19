@@ -1,6 +1,6 @@
 ---
 title: "Compliance OS Skills — Agent Skills & Codex Plugins"
-description: "9 compliance os skills — agent skills for Compliance OS. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "9 compliance os skills — compliance readiness agent skill and Claude Code plugin for ISO 13485, ISO 27001, SOC 2, GDPR, FDA QSR, and EU AI Act audit prep. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>

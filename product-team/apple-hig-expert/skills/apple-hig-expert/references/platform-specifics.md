@@ -36,3 +36,13 @@ Designed for "Glances" — 2 to 5 second interactions.
 | **Input** | Touch / Voice | Mouse / Trackpad / Keys | Eyes (Gaze) / Hands |
 | **Typical Dist.** | 6 - 12 inches | 18 - 30 inches | Infinite (Arm's length) |
 | **Aesthetic** | High density | High precision | Spatially grounded |
+
+
+## Sources
+
+- Apple HIG — Designing for iOS: https://developer.apple.com/design/human-interface-guidelines/designing-for-ios
+- Apple HIG — Designing for macOS: https://developer.apple.com/design/human-interface-guidelines/designing-for-macos
+- Apple HIG — Designing for visionOS: https://developer.apple.com/design/human-interface-guidelines/designing-for-visionos
+- Apple HIG — Designing for watchOS: https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos
+- Apple HIG — Ornaments (visionOS): https://developer.apple.com/design/human-interface-guidelines/ornaments
+- Apple HIG — Live Activities / Dynamic Island: https://developer.apple.com/design/human-interface-guidelines/live-activities

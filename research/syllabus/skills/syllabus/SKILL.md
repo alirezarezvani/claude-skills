@@ -1,6 +1,6 @@
 ---
 name: syllabus
-description: "Generates a curated supplementary reading list from any course syllabus using Consensus academic search. Grill-me intake (syllabus input format + course audience + year range) plus a grouping forcing-options checkpoint before any search runs — so the reading list matches the course's level and recency need. Parses the syllabus to extract topics and learning outcomes, searches Consensus for recent peer-reviewed papers per topic, and produces a professionally formatted .docx with clickable Consensus links, plain-language summaries calibrated to audience level, and Bloom-higher-order discussion questions tied to course learning goals. Triggers whenever a user uploads a syllabus, course outline, or curriculum document and wants supplementary readings. Also triggers on: 'syllabus reading list', 'find papers for my course', 'create a reading list from this syllabus', 'recent research for my class', 'supplementary readings', 'find journal articles for these topics', 'what recent papers cover this material', 'any new research on these course topics', 'update my syllabus with recent papers'. Even casual mentions when a syllabus is attached should trigger this skill."
+description: "Generates a curated supplementary reading list from any course syllabus using Consensus academic search. Grill-me intake (syllabus input format + course audience + year range) plus a grouping forcing-options checkpoint before any search runs — so the reading list matches the course's level and recency need. Parses the syllabus to extract topics and learning outcomes, searches Consensus for recent peer-reviewed papers per topic, and produces a professionally formatted .docx with clickable Consensus links, plain-language summaries calibrated to audience level, and Bloom-higher-order discussion questions tied to course learning goals. Use when the user uploads a syllabus, course outline, or curriculum document and wants supplementary readings (e.g., 'create a reading list from this syllabus', 'find recent papers for my course') — even casual mentions with a syllabus attached should trigger this skill."
 license: MIT
 metadata:
   source_spec: "megaprompts/10-syllabus-megaprompt.md"
@@ -182,7 +182,7 @@ Use `scripts/discussion_question_validator.py` to flag recall-only questions.
 ## Phase 5: Generate .docx via Bundled Script
 
 ```bash
-node ../scripts/generate_reading_list.js \
+node scripts/generate_reading_list.js \
   --input /tmp/syllabus_data.json \
   --output /path/to/reading_list_<course>_<date>.docx
 ```
@@ -246,7 +246,7 @@ See [`references/bundled_script_pattern.md`](references/bundled_script_pattern.m
 
 - File path
 - Audit summary in chat: "Saved {file}. {N} sections × {M} papers / {K} cited. Plan tier: {tier}."
-- Validate: `python scripts/office/validate.py <docx>`
+- Validate: check zip integrity with `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` (no output = intact), then confirm the required sections are present
 
 ## Tooling
 

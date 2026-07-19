@@ -57,9 +57,9 @@ Calculate and interpret financial ratios from financial statement data.
 - **Valuation:** P/E, P/B, P/S, EV/EBITDA, PEG Ratio
 
 ```bash
-python scripts/ratio_calculator.py sample_financial_data.json
-python scripts/ratio_calculator.py sample_financial_data.json --format json
-python scripts/ratio_calculator.py sample_financial_data.json --category profitability
+python scripts/ratio_calculator.py assets/sample_financial_data.json
+python scripts/ratio_calculator.py assets/sample_financial_data.json --format json
+python scripts/ratio_calculator.py assets/sample_financial_data.json --category profitability
 ```
 
 ### 2. DCF Valuation (`scripts/dcf_valuation.py`)
@@ -74,9 +74,9 @@ Discounted Cash Flow enterprise and equity valuation with sensitivity analysis.
 - Two-way sensitivity analysis (discount rate vs growth rate)
 
 ```bash
-python scripts/dcf_valuation.py valuation_data.json
-python scripts/dcf_valuation.py valuation_data.json --format json
-python scripts/dcf_valuation.py valuation_data.json --projection-years 7
+python scripts/dcf_valuation.py assets/sample_financial_data.json
+python scripts/dcf_valuation.py assets/sample_financial_data.json --format json
+python scripts/dcf_valuation.py assets/sample_financial_data.json --projection-years 7
 ```
 
 ### 3. Budget Variance Analyzer (`scripts/budget_variance_analyzer.py`)
@@ -91,9 +91,9 @@ Analyze actual vs budget vs prior year performance with materiality filtering.
 - Executive summary generation
 
 ```bash
-python scripts/budget_variance_analyzer.py budget_data.json
-python scripts/budget_variance_analyzer.py budget_data.json --format json
-python scripts/budget_variance_analyzer.py budget_data.json --threshold-pct 5 --threshold-amt 25000
+python scripts/budget_variance_analyzer.py assets/sample_financial_data.json
+python scripts/budget_variance_analyzer.py assets/sample_financial_data.json --format json
+python scripts/budget_variance_analyzer.py assets/sample_financial_data.json --threshold-pct 5 --threshold-amt 25000
 ```
 
 ### 4. Forecast Builder (`scripts/forecast_builder.py`)
@@ -107,9 +107,9 @@ Driver-based revenue forecasting with rolling cash flow projection and scenario 
 - Trend analysis using simple linear regression (standard library)
 
 ```bash
-python scripts/forecast_builder.py forecast_data.json
-python scripts/forecast_builder.py forecast_data.json --format json
-python scripts/forecast_builder.py forecast_data.json --scenarios base,bull,bear
+python scripts/forecast_builder.py assets/sample_financial_data.json
+python scripts/forecast_builder.py assets/sample_financial_data.json --format json
+python scripts/forecast_builder.py assets/sample_financial_data.json --scenarios base,bull,bear
 ```
 
 ## Knowledge Bases
@@ -141,7 +141,12 @@ python scripts/forecast_builder.py forecast_data.json --scenarios base,bull,bear
 
 ## Input Data Format
 
-All scripts accept JSON input files. See `assets/sample_financial_data.json` for the complete input schema covering all four tools.
+All scripts accept JSON input files in either of two shapes:
+
+1. **Flat** — the tool's expected keys at the top level (e.g., `income_statement` / `balance_sheet` for the ratio calculator, `historical` / `assumptions` for DCF, `line_items` for variance, `historical_periods` / `drivers` / `assumptions` / `cash_flow_inputs` for forecasting).
+2. **Nested (bundled)** — inputs for all four tools in one file, nested under per-tool keys: `ratio_analysis`, `dcf_valuation`, `budget_variance`, `forecast`. See `assets/sample_financial_data.json` for the complete bundled schema; every quick-start command above runs directly against it.
+
+Each script auto-detects the shape (flat keys win if present) and exits non-zero with a clear error if neither shape yields usable data.
 
 ## Dependencies
 

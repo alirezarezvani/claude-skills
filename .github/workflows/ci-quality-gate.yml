@@ -77,14 +77,47 @@ jobs:
 
       - name: Python syntax check (blocking)
         run: |
+          # Covers every top-level skill domain + scripts/. When adding a new
+          # domain folder, add it here (audit gate G9: this list previously
+          # skipped 8 post-v2.7 domains).
           python -m compileall \
             marketing-skill product-team c-level-advisor \
             engineering-team ra-qm-team engineering \
-            business-growth finance project-management scripts
+            business-growth finance project-management \
+            productivity marketing research \
+            business-operations commercial research-ops \
+            compliance-os markdown-html scripts
 
       - name: Validate plugin.json manifests (blocking — guards #539 + #686)
         run: |
           python scripts/check_plugin_json.py --all
+
+      # ---- Audit guardrails (newgen-2026-06 gates) ----------------------
+      # BLOCKING since PR-2 (flipped ahead of the 2026-07-01 SLA — every
+      # advisory run was green through PR #835). If a gate misfires on a
+      # legitimate edge case, extend its in-repo allowlist
+      # (scripts/check_paths_allowlist.txt, scripts/smoke_exceptions.txt)
+      # rather than re-adding continue-on-error.
+      - name: Path-existence linter (gate G1 — blocking)
+        run: |
+          python3 scripts/check_paths.py --all
+
+      - name: Dual-publish drift guard (gate G4 — blocking)
+        run: |
+          python3 scripts/check_dual_publish.py
+
+      - name: Script --help smoke gate (gate G8 — blocking)
+        run: |
+          python3 scripts/smoke_scripts.py
+
+      - name: JSON-output sample gate (gate G9 — advisory)
+        continue-on-error: true
+        run: |
+          python3 scripts/smoke_json_output.py
+
+      - name: Counter derivation check (gate G3 — blocking)
+        run: |
+          python3 scripts/derive_counters.py --check
 
       - name: Safety dependency audit (requirements*.txt)
         run: |
@@ -96,7 +129,9 @@ jobs:
           fi
           for f in $files; do
             echo "Auditing $f"
-            safety check --full-report --file "$f" || true
+            if ! safety check --full-report --file "$f"; then
+              echo "::warning file=$f::safety found vulnerabilities in $f (advisory)"
+            fi
           done
 
       - name: Markdown link spot-check

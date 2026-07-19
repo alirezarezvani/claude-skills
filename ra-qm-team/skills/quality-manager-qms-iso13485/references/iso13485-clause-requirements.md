@@ -115,14 +115,16 @@ Example: SOP-02-001-03 = Document Control SOP, Revision 03
 
 #### 4.2.4 Control of Records
 
-| Record Category | Minimum Retention | Basis |
+> **⚠️ STATUS — QMSR transition (effective 2026-02-02):** Under FDA's Quality Management System Regulation (QMSR, 89 FR 7496), 21 CFR Part 820 now **incorporates ISO 13485:2016 by reference** and the legacy QSR subsection numbers below (820.30/.181/.184/.198) **no longer exist in the CFR** — they are shown only as a historical index. The current authority is **ISO 13485:2016 §4.2.5 (control of records)** plus retained **21 CFR 820.35** (records). Cite the ISO 13485 clause in current documentation.
+
+| Record Category | Minimum Retention | Basis (current authority — legacy QSR shown for index) |
 |-----------------|-------------------|-------|
-| Device Master Record | Life of device + 2 years | 21 CFR 820.181 |
-| Device History Record | Life of device + 2 years | 21 CFR 820.184 |
-| Design History File | Life of device + 2 years | 21 CFR 820.30 |
+| Device Master Record | Life of device + 2 years | ISO 13485 §4.2.3 (medical device file)/§4.2.5 (legacy QSR 820.181, historical) |
+| Device History Record | Life of device + 2 years | ISO 13485 §4.2.5 + 21 CFR 820.35 (legacy QSR 820.184, historical) |
+| Design History File | Life of device + 2 years | ISO 13485 §7.3.10/§4.2.5 (legacy QSR 820.30, historical) |
 | Training Records | Employment + 3 years | Best practice |
 | Audit Records | 7 years | Best practice |
-| Complaint Records | Life of device + 2 years | 21 CFR 820.198 |
+| Complaint Records | Life of device + 2 years | ISO 13485 §8.2.2/§4.2.5 + 21 CFR 820.35(b) (legacy QSR 820.198, historical) |
 | CAPA Records | 7 years | Best practice |
 | Calibration Records | Equipment life + 2 years | Best practice |
 | Supplier Records | Relationship + 3 years | Best practice |

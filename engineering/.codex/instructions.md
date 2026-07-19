@@ -19,7 +19,7 @@ When working on advanced engineering tasks, use the POWERFUL-tier skill system:
 | Performance tuning | performance-profiler |
 | API review | api-design-reviewer |
 | Monitoring/SLOs | observability-designer |
-| Release management | release-manager |
+| Release management / changelogs | changelog-generator |
 | Security audit | skill-security-auditor |
 | Tech debt | tech-debt-tracker |
 

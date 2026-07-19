@@ -1,6 +1,6 @@
 ---
 title: "/em:stress-test — Business Assumption Stress Testing — Agent Skill for Executives"
-description: "/em -stress-test — Business Assumption Stress Testing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/em:stress-test — Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated — e.g. stress-testing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /em:stress-test — Business Assumption Stress Testing

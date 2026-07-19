@@ -85,23 +85,23 @@ Financial analyst covering valuation, ratio analysis, forecasting, and industry-
 
 ```bash
 # SaaS health check — full metrics from raw numbers
-python ../../finance/saas-metrics-coach/scripts/metrics_calculator.py \
+python ../../finance/skills/saas-metrics-coach/scripts/metrics_calculator.py \
   --mrr 80000 --mrr-last 75000 --customers 200 --churned 3 \
   --new-customers 15 --sm-spend 25000 --gross-margin 72 --json
 
 # Quick ratio — growth efficiency
-python ../../finance/saas-metrics-coach/scripts/quick_ratio_calculator.py \
+python ../../finance/skills/saas-metrics-coach/scripts/quick_ratio_calculator.py \
   --new-mrr 10000 --expansion 2000 --churned 3000 --contraction 500
 
 # 12-month projection
-python ../../finance/saas-metrics-coach/scripts/unit_economics_simulator.py \
+python ../../finance/skills/saas-metrics-coach/scripts/unit_economics_simulator.py \
   --mrr 80000 --growth 8 --churn 1.5 --cac 1667 --json
 
 # Traditional ratio analysis
-python ../../finance/financial-analyst/scripts/ratio_calculator.py financial_data.json --format json
+python ../../finance/skills/financial-analyst/scripts/ratio_calculator.py financial_data.json --format json
 
 # DCF valuation
-python ../../finance/financial-analyst/scripts/dcf_valuation.py valuation_data.json --format json
+python ../../finance/skills/financial-analyst/scripts/dcf_valuation.py valuation_data.json --format json
 ```
 
 ## Related Agents

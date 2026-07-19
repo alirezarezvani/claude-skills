@@ -47,6 +47,13 @@ Five-step deterministic flow:
 
 **`scripts/cycle_time_analyzer.py`** — Computes total P50 and P90 cycle time, value-add ratio (VA%), wait %, rework %, and a Little's-Law throughput estimate (WIP / cycle time). Per Lean canon: VA% > 25% = HEALTHY, 10–25% = TYPICAL (most non-manufacturing processes land here), < 10% = WASTE-HEAVY.
 
+## Quick example
+
+```bash
+# Renders a BPMN-style swim-lane diagram + normalized JSON for the built-in 6-stage procurement-intake example
+cd business-operations/skills/process-mapper && python3 scripts/process_documenter.py --sample
+```
+
 ## References
 
 - `references/lean_six_sigma_canon.md` — TIMWOOD wastes, value-stream mapping, Theory of Constraints, Kanban WIP, Little's Law. Cites Womack & Jones, Rother & Shook, Goldratt, Ohno, Liker, Pyzdek, Anderson.

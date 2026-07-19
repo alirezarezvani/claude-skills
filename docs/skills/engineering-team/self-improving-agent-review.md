@@ -1,6 +1,6 @@
 ---
 title: "/si:review — Analyze Auto-Memory — Agent Skill & Codex Plugin"
-description: "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics. Use when the user runs /si:review or. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /si:review — Analyze Auto-Memory

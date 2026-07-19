@@ -35,11 +35,11 @@ description: "61 c-level advisory skills — executive advisory agent skill and 
 
     Structured multi-agent deliberation that prevents groupthink, captures minority views, and produces clean, actionable...
 
--   **[C-Level Advisory Ecosystem](c-level-skills.md)**
+-   **[C-Level Advisory Bundle — Index](c-level-skills.md)**
 
     ---
 
-    A complete virtual board of directors for founders and executives.
+    This is the bundle index, not an advisor. It tells you what exists and where to start; the skills below do the work.
 
 -   **[CEO Advisor](ceo-advisor.md)**
 

@@ -54,7 +54,6 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering
 | Performance Profiler | `performance-profiler/` | CPU, memory, load profiling |
 | PR Review Expert | `pr-review-expert/` | Pull request analysis |
 | RAG Architect | `rag-architect/` | RAG system design |
-| Release Manager | `release-manager/` | Release orchestration |
 | Runbook Generator | `runbook-generator/` | Operational runbooks |
 | Skill Security Auditor | `skill-security-auditor/` | Skill vulnerability scanning |
 | Skill Tester | `skill-tester/` | Skill quality evaluation |

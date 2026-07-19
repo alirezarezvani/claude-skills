@@ -50,7 +50,7 @@ Full specifications for each major ad platform. Use this when generating or vali
 | Description | 30 chars | Optional, below headline |
 | Link description | 20 chars | URL preview |
 
-**Image text rule:** Images with >20% text surface area get reduced distribution. Meta's tool at meta.com/ads/inspector/ checks this. Keep text minimal on images — put copy in the primary text field.
+**Image text:** Meta's old ">20% text = reduced distribution" rule was retired in 2021 and is no longer enforced — but text-light images still tend to outperform text-heavy ones, so keep image text minimal as a best practice and put copy in the primary text field.
 
 ### Story / Reel Ads
 | Element | Limit | Notes |
@@ -102,7 +102,7 @@ Full specifications for each major ad platform. Use this when generating or vali
 
 **LinkedIn-specific rules:**
 - No "Click here" as standalone CTA
-- No images with more than 20% text
+- Keep image text minimal — text-heavy creative underperforms in feed (best practice, not an enforced rejection rule)
 - No misleading job descriptions or recruitment bait
 - Avoid generic corporate language — LinkedIn users are saturated with it
 - B2B works better when you lead with a specific insight or stat, not a product pitch

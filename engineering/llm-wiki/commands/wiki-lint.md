@@ -21,8 +21,8 @@ Run this weekly, after batch ingests, and always before sharing the wiki.
 
 ### Pass 1 — Mechanical (scripts)
 
-- `scripts/lint_wiki.py` — orphans, broken links, stale pages, missing frontmatter, duplicate titles, log gap
-- `scripts/graph_analyzer.py` — hubs, sinks, connected components, graph stats
+- `skills/llm-wiki/scripts/lint_wiki.py` — orphans, broken links, stale pages, missing frontmatter, duplicate titles, log gap
+- `skills/llm-wiki/scripts/graph_analyzer.py` — hubs, sinks, connected components, graph stats
 
 ### Pass 2 — Semantic (LLM reads and thinks)
 
@@ -64,9 +64,9 @@ Dispatches the `wiki-linter` sub-agent. See `agents/wiki-linter.md`.
 
 ## Scripts
 
-- `engineering/llm-wiki/scripts/lint_wiki.py`
-- `engineering/llm-wiki/scripts/graph_analyzer.py`
-- `engineering/llm-wiki/scripts/append_log.py`
+- `engineering/llm-wiki/skills/llm-wiki/scripts/lint_wiki.py`
+- `engineering/llm-wiki/skills/llm-wiki/scripts/graph_analyzer.py`
+- `engineering/llm-wiki/skills/llm-wiki/scripts/append_log.py`
 
 ## Frequency
 
@@ -79,5 +79,5 @@ Dispatches the `wiki-linter` sub-agent. See `agents/wiki-linter.md`.
 
 ## Skill Reference
 
-→ `engineering/llm-wiki/SKILL.md`
-→ `engineering/llm-wiki/references/lint-workflow.md`
+→ `engineering/llm-wiki/skills/llm-wiki/SKILL.md`
+→ `engineering/llm-wiki/skills/llm-wiki/references/lint-workflow.md`

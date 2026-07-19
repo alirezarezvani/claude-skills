@@ -1,6 +1,8 @@
 # Google Workspace CLI Recipes Cookbook
 
-Complete catalog of 43 built-in recipes organized by category, with command sequences and persona mapping.
+Catalog of 43 recipe command templates (a local catalog shipped with this skill, not built into the gws CLI) organized by category, with command sequences and persona mapping.
+
+> **These are command templates, not verified invocations.** The `gws` CLI ([github.com/googleworkspace/cli](https://github.com/googleworkspace/cli)) generates its command surface dynamically from Google's Discovery Service and is pre-v1.0. Before running any command below, verify its exact syntax with `gws --help`, `gws <service> --help`, or `gws schema <service>.<resource>.<method>`. Verified upstream patterns: discovery commands are `gws <service> <resource> <method> --params '{...}' --json '{...}'`; helpers are `+`-prefixed (`gws gmail +send`, `gws calendar +agenda`, `gws workflow +standup-report`).
 
 ---
 
@@ -137,14 +139,13 @@ gws calendar events insert primary \
 ### quick-event
 Create event from natural language.
 ```bash
-gws helpers quick-event "Lunch with Sarah tomorrow at noon"
+gws calendar +insert ...   # see: gws calendar +insert --help
 ```
 
 ### find-time
 Find available time slots for a meeting.
 ```bash
-gws helpers find-time --attendees "alice@co.com,bob@co.com" --duration 60 \
-  --within "2026-03-15,2026-03-19" --json
+gws calendar freebusy query --json '{"timeMin": "...", "timeMax": "...", "items": [{"id": "alice@co.com"}]}'  # verify: gws schema calendar.freebusy.query
 ```
 
 ### today-schedule
@@ -158,7 +159,7 @@ gws calendar events list primary \
 ### meeting-prep
 Prepare for an upcoming meeting.
 ```bash
-gws recipes meeting-prep --event-id <EVENT_ID>
+gws workflow +meeting-prep
 ```
 **Output:** Agenda, attendee list, related Drive files, previous meeting notes.
 
@@ -176,14 +177,14 @@ gws calendar events patch primary <EVENT_ID> \
 ### standup-report
 Generate daily standup from calendar and tasks.
 ```bash
-gws recipes standup-report --json
+gws workflow +standup-report
 ```
 **Output:** Yesterday's events, today's schedule, pending tasks, blockers.
 
 ### weekly-summary
 Summarize week's emails, events, and tasks.
 ```bash
-gws recipes weekly-summary --json
+gws workflow +weekly-digest
 ```
 
 ### drive-activity
@@ -304,26 +305,26 @@ gws admin activities list login --json
 ### morning-briefing
 Today's events + unread emails + pending tasks.
 ```bash
-gws recipes morning-briefing --json
+python3 scripts/gws_recipe_runner.py --run morning-briefing --dry-run  # prints the command sequence
 ```
 **Combines:** Calendar events, Gmail unread count, Tasks pending.
 
 ### eod-wrap
 End-of-day summary: completed, pending, tomorrow's schedule.
 ```bash
-gws recipes eod-wrap --json
+python3 scripts/gws_recipe_runner.py --run eod-wrap --dry-run
 ```
 
 ### project-status
 Aggregate project status from Drive, Sheets, Tasks.
 ```bash
-gws recipes project-status --project "Project Alpha" --json
+python3 scripts/gws_recipe_runner.py --run project-status --dry-run
 ```
 
 ### inbox-zero
 Process inbox to zero: label, archive, reply, or create task.
 ```bash
-gws recipes inbox-zero --interactive
+python3 scripts/gws_recipe_runner.py --run inbox-zero --dry-run
 ```
 
 ---

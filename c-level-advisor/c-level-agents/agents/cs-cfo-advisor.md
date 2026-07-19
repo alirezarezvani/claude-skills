@@ -114,9 +114,9 @@ echo "Artifacts ready in /tmp/. Feed into /cs:boardroom brief."
 
 ## Related Agents
 
-- [cs-ceo-advisor](../../../../agents/c-level/cs-ceo-advisor.md) — strategy & capital allocation partner
+- [cs-ceo-advisor](../../../agents/c-level/cs-ceo-advisor.md) — strategy & capital allocation partner
 - [cs-cro-advisor](cs-cro-advisor.md) — revenue forecast feed
-- [cs-financial-analyst](../../../../agents/finance/cs-financial-analyst.md) — deep modeling
+- [cs-financial-analyst](../../../agents/finance/cs-financial-analyst.md) — deep modeling
 - [cs-chief-of-staff](cs-chief-of-staff.md) — routes financial questions here
 
 ## References

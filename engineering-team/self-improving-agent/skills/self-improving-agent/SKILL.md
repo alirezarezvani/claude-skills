@@ -13,10 +13,10 @@ Claude Code's auto-memory (v2.1.32+) automatically records project patterns, deb
 
 | Command | What it does |
 |---------|-------------|
-| `/si:review` | Analyze MEMORY.md — find promotion candidates, stale entries, consolidation opportunities |
+| `/si:memory-review` | Analyze MEMORY.md — find promotion candidates, stale entries, consolidation opportunities |
 | `/si:promote` | Graduate a pattern from MEMORY.md → CLAUDE.md or `.claude/rules/` |
 | `/si:extract` | Turn a proven pattern into a standalone skill |
-| `/si:status` | Memory health dashboard — line counts, topic files, recommendations |
+| `/si:memory-status` | Memory health dashboard — line counts, topic files, recommendations |
 | `/si:remember` | Explicitly save important knowledge to auto-memory |
 
 ## How It Fits Together
@@ -31,7 +31,7 @@ Claude Code's auto-memory (v2.1.32+) automatically records project patterns, deb
 │  standards  │   + topic files  │   + continuity         │
 │  Full load  │   First 200 lines│   Contextual load      │
 ├─────────────┴──────────────────┴────────────────────────┤
-│              ↑ /si:promote        ↑ /si:review          │
+│              ↑ /si:promote        ↑ /si:memory-review   │
 │         Self-Improving Agent (this plugin)               │
 │              ↓ /si:extract    ↓ /si:remember            │
 ├─────────────────────────────────────────────────────────┤
@@ -74,7 +74,7 @@ clawhub install self-improving-agent
 
 ```
 1. Claude discovers pattern → auto-memory (MEMORY.md)
-2. Pattern recurs 2-3x → /si:review flags it as promotion candidate
+2. Pattern recurs 2-3x → /si:memory-review flags it as promotion candidate
 3. You approve → /si:promote graduates it to CLAUDE.md or rules/
 4. Pattern becomes an enforced rule, not just a note
 5. MEMORY.md entry removed → frees space for new learnings
@@ -159,4 +159,4 @@ Monitors command output for errors. When detected, appends a structured entry to
 
 - [Claude Code Memory Docs](https://code.claude.com/docs/en/memory)
 - [pskoett/self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent) — inspiration
-- [playwright-pro](../playwright-pro/) — sister plugin in this repo
+- [playwright-pro](engineering-team/playwright-pro/) — sister plugin in this repo

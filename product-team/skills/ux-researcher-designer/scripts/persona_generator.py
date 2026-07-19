@@ -541,10 +541,25 @@ def create_sample_user_data():
     ]
 
 def main():
-    import sys
-    
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Generate a research-backed persona from bundled sample data.")
+    parser.add_argument("format", nargs="?", choices=["json", "human"], default="human",
+                        help="Output format (default: human).")
+    parser.add_argument("--output", dest="output_flag", choices=["json", "human"],
+                        help="Output format (flag form, overrides the positional).")
+    parser.add_argument("--seed", type=int, default=42,
+                        help="RNG seed for deterministic persona names (default: 42).")
+    parser.add_argument("--sample", action="store_true",
+                        help="Generate the bundled sample persona and exit 0 "
+                             "(same as the default run; kept for harness smoke tests).")
+    args = parser.parse_args()
+    output = args.output_flag or args.format
+
+    random.seed(args.seed)
     generator = PersonaGenerator()
-    
+
     # Create sample data
     user_data = create_sample_user_data()
     
@@ -561,7 +576,7 @@ def main():
     persona = generator.generate_persona_from_data(user_data, interview_insights)
     
     # Output
-    if len(sys.argv) > 1 and sys.argv[1] == 'json':
+    if output == 'json':
         print(json.dumps(persona, indent=2))
     else:
         print(generator.format_persona_output(persona))

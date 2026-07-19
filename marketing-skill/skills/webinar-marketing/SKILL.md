@@ -18,7 +18,7 @@ A webinar is a funnel, not an event. Registrations are cheap; attention and acti
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions. Use it for brand voice, audience personas, and customer language, and only ask for what's specific to this event.
+If `.claude/product-marketing-context.md` exists, read it before asking questions. Use it for brand voice, audience personas, and customer language, and only ask for what's specific to this event.
 
 Gather this context (ask conversationally, one section at a time — don't dump every question at once):
 
@@ -58,7 +58,21 @@ When there's no webinar yet — design the whole motion.
 When a webinar exists or recently ran and the numbers disappoint. Diagnose where the funnel breaks before rewriting anything.
 
 1. Get the actual numbers: invited → registered → showed up → engaged → converted
-2. Score the funnel with `scripts/webinar_funnel_scorer.py` to find the weakest stage
+2. Score the funnel with `scripts/webinar_funnel_scorer.py` to find the weakest stage:
+
+   ```bash
+   # Score a funnel from a JSON file (registrations + attended_live required;
+   # page_visits, cta_clicks, conversions, audience, runtime_min, avg_watch_min optional)
+   python3 scripts/webinar_funnel_scorer.py funnel.json
+
+   # Or pipe JSON via stdin
+   cat funnel.json | python3 scripts/webinar_funnel_scorer.py -
+
+   # Demo mode on embedded sample data
+   python3 scripts/webinar_funnel_scorer.py --sample
+   ```
+
+   Output: a 0-100 scorecard per stage against audience-temperature benchmarks (`customers` / `warm` / `owned_cold` / `paid_cold`), the bottleneck stage flagged, plus a JSON block for downstream use.
 3. Fix the stage that's actually broken — don't rewrite the landing page when the problem is show-up rate
 4. Deliver: diagnosis (where it breaks + why) + targeted fixes ranked by impact
 

@@ -16,7 +16,7 @@ tools: [Read, Write, Bash, WebSearch, WebFetch]
 **Refusing vague Q1:** "Too broad. Push back once: what specifically about {topic} — adoption / safety / capability / funding / regulation / comparison? Pick an angle."
 
 **Routing transparency (mandatory):**
-> "Routing to `litreview` because your question mentioned PICO and systematic review (2 signals). If you want general research instead OR a different specialist, say so now. Otherwise proceeding in 5s."
+> "Routing to `litreview` because your question mentioned PICO and systematic review (2 signals). If you want general research instead OR a different specialist, say so now — otherwise I'll proceed with this route."
 
 **Override accepted:**
 > "Override accepted. Re-routing to {chosen specialist OR fallback}. Original signals: {what matched}. New target: {target}."
@@ -37,14 +37,15 @@ Router-first, transparency-mandatory, fallback-when-needed.
 The cs-research agent orchestrates the `research` skill as the **runtime orchestrator** for the research domain:
 
 1. **Q1 + Q2 minimal intake** — question + output preference
-2. **Deterministic classification** — run `scripts/classifier.py` on the question
+2. **Deterministic classification** — run `skills/research/scripts/classifier.py` on the question
 3. **Route**:
    - **≥2 signals for one specialist** → delegate (with transparency)
-   - **1 signal, single specialist** → weak match, delegate (with transparency)
+   - **1 strong multi-word phrase signal, single specialist** → delegate (with transparency)
+   - **1 bare-noun signal** (e.g., "funding", "fda", "patent") → ask Q3 with that specialist as the recommended answer — never silent-route
    - **Otherwise** → ask Q3 disambiguation
 4. **Specialist delegation** — pass question + Q2 preference verbatim; let specialist run its own intake; return its output
 5. **Fallback workflow** (if no specialist) — 8-step plan-decompose-search-synthesize-cite
-6. **Log routing decision** to `scripts/routing_transparency_logger.py` for audit
+6. **Log routing decision** to `skills/research/scripts/routing_transparency_logger.py` for audit
 
 Differentiates from siblings:
 
@@ -53,7 +54,7 @@ Differentiates from siblings:
 
 **Hard rules:**
 
-1. **Deterministic classification.** Use `scripts/classifier.py` — keyword + intent signal matching, NOT LLM-reasoned routing.
+1. **Deterministic classification.** Use `skills/research/scripts/classifier.py` — keyword + intent signal matching, NOT LLM-reasoned routing.
 2. **Routing transparency mandatory.** Never delegate silently. Surface decision + accept override.
 3. **Specialist delegation = pass-through.** Pass question verbatim. Don't pre-answer specialist's grill-me intake.
 4. **Fallback when no specialist matches** — but only after Q3 disambiguation if ambiguous.
@@ -68,15 +69,15 @@ Differentiates from siblings:
 
 ### Python Tools (Stdlib)
 
-1. **Classifier** — `scripts/classifier.py` — deterministic keyword signal matching → routing decision (specialist or fallback) with confidence score per specialist
-2. **Routing Transparency Logger** — `scripts/routing_transparency_logger.py` — JSON-backed audit of every routing decision, override, and delegation at `~/.research_sessions/<session>.json`
-3. **Fallback Decomposer** — `scripts/fallback_decomposer.py` — heuristic question → 3-5 sub-questions using what/why/how/who/what's next framework
+1. **Classifier** — `skills/research/scripts/classifier.py` — deterministic keyword signal matching → routing decision (specialist or fallback) with confidence score per specialist
+2. **Routing Transparency Logger** — `skills/research/scripts/routing_transparency_logger.py` — JSON-backed audit of every routing decision, override, and delegation at `~/.research_sessions/<session>.json`
+3. **Fallback Decomposer** — `skills/research/scripts/fallback_decomposer.py` — heuristic question → 3-5 sub-questions using what/why/how/who/what's next framework
 
 ### Knowledge Bases
 
-- `references/hybrid_router_architecture.md` — router-vs-run trade-offs + routing transparency principle (7+ sources)
-- `references/deterministic_classification_canon.md` — why keyword > LLM-reasoned for routing (7+ sources)
-- `references/fallback_workflow_canon.md` — plan-decompose-search-synthesize methodology (7+ sources)
+- `skills/research/references/hybrid_router_architecture.md` — router-vs-run trade-offs + routing transparency principle (7+ sources)
+- `skills/research/references/deterministic_classification_canon.md` — why keyword > LLM-reasoned for routing (7+ sources)
+- `skills/research/references/fallback_workflow_canon.md` — plan-decompose-search-synthesize methodology (7+ sources)
 
 ## Related Agents
 

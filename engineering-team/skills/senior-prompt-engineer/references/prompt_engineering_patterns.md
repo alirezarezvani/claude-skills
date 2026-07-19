@@ -511,7 +511,7 @@ available at $399. The standard model has a 12-hour battery life.
 You are a prompt engineering expert.
 
 Task: [description of what the prompt should do]
-Target model: [GPT-4/Claude/etc.]
+Target model: [the model family you are deploying on]
 Constraints: [length limits, format requirements]
 
 Generate an optimized prompt for this task.
@@ -524,7 +524,7 @@ Input:
 You are a prompt engineering expert.
 
 Task: Create a prompt that extracts action items from meeting notes
-Target model: GPT-4
+Target model: a current frontier model
 Constraints:
 - Output must be valid JSON
 - Each action item needs: task, owner, due_date

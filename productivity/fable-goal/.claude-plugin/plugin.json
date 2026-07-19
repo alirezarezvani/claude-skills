@@ -1,0 +1,22 @@
+{
+  "name": "fable-goal",
+  "description": "Convert a rambling description of a desired outcome into one polished, autonomous /goal prompt ready to paste into a fresh session. Use when the user says '/fable-goal', 'turn this into a goal prompt', 'write me a fable prompt', or rambles about something they want made and asks for the prompt that makes it happen. Extracts deliverable/quantity/stakes/tools/destination, asks at most one question batch, verifies every named resource against the live environment, writes a 150-350 word prose prompt with the seven-part anatomy (desire + stakes, quality bar, tool inventory + discovery mandate, creative-freedom grant, medium-matched verification loop, delivery, goal line + autonomy directive), and self-checks six binary criteria before delivering. The output is a single copy-paste prompt, never the build itself.",
+  "version": "2.11.1",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/fable-goal",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/fable-goal"
+  ],
+  "attribution": {
+    "upstream": "https://github.com/duncan-buildroom/freeskills",
+    "upstream_skill": "fable-goal",
+    "upstream_license": "No formal license file; repo states 'Free to use and modify. Made for builders.' — an informal use-and-modify grant, not an SPDX license.",
+    "changes": "Substantial restructure: wrong-tool check, observable-done principle, six-slot extraction table, verification-defaults-by-medium table, six-point pre-delivery self-check, failure-mode catalog reference doc, second worked example (non-web medium), /cs:fable-goal command, goal_prompt_self_check.py (stdlib runner for the mechanically checkable self-check subset).",
+    "license_note": "The MIT license declared above covers the rewritten text and structure authored in this repository. The upstream's informal grant is quoted verbatim; it is not relicensed as MIT."
+  }
+}

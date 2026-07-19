@@ -229,7 +229,7 @@ npm install
 cp .env.example .env.local
 
 # 5. Run quality check
-python ../scripts/code_quality_analyzer.py .
+python scripts/code_quality_analyzer.py .
 
 # 6. Start development
 npm run dev

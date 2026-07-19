@@ -1,11 +1,13 @@
 ---
 name: "google-workspace-cli"
-description: "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits, execute 43 built-in recipes, and use 10 persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
+description: "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits and use local recipe templates and persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling."
 ---
 
 # Google Workspace CLI
 
-Expert guidance and automation for Google Workspace administration using the open-source `gws` CLI. Covers installation, authentication, 18+ service APIs, 43 built-in recipes, and 10 persona bundles for role-based workflows.
+Expert guidance and automation for Google Workspace administration using the open-source `gws` CLI ([github.com/googleworkspace/cli](https://github.com/googleworkspace/cli), Apache-2.0). The CLI builds its command surface dynamically from Google's Discovery Service, so it covers every supported Workspace API plus `+`-prefixed helper commands. This skill adds local Python tools (doctor, auth guide, recipe catalog, security audit, output analyzer).
+
+> **Verify before scripting:** `gws` generates commands at runtime from Google's API discovery documents, and the CLI is pre-v1.0. Always confirm a command's exact surface with `gws --help`, `gws <service> --help`, or `gws schema <service>.<resource>.<method>` before putting it in automation. Commands in this skill marked *(verify)* are illustrative of the `gws <service> <resource> <method>` pattern and must be checked against your installed version.
 
 ---
 
@@ -21,37 +23,43 @@ python3 scripts/gws_doctor.py
 ### Send an Email
 
 ```bash
-gws gmail users.messages send me --to "team@company.com" \
+gws gmail +send --to "team@company.com" \
   --subject "Weekly Update" --body "Here's this week's summary..."
 ```
 
 ### List Drive Files
 
 ```bash
-gws drive files list --json --limit 20 | python3 scripts/output_analyzer.py --select "name,mimeType,modifiedTime" --format table
+gws drive files list --params '{"pageSize": 20}' | python3 scripts/output_analyzer.py --select "name,mimeType,modifiedTime" --format table
 ```
 
 ---
 
 ## Installation
 
-### npm (recommended)
+### npm (recommended; requires Node.js 18+)
 
 ```bash
-npm install -g @anthropic/gws
+npm install -g @googleworkspace/cli
 gws --version
+```
+
+### Homebrew (macOS/Linux)
+
+```bash
+brew install googleworkspace-cli
 ```
 
 ### Cargo (from source)
 
 ```bash
-cargo install gws-cli
+cargo install --git https://github.com/googleworkspace/cli --locked
 gws --version
 ```
 
 ### Pre-built Binaries
 
-Download from [github.com/googleworkspace/cli/releases](https://github.com/googleworkspace/cli/releases) for macOS, Linux, or Windows.
+Download from [github.com/googleworkspace/cli/releases](https://github.com/googleworkspace/cli/releases) for macOS, Linux, or Windows. Nix users: `nix run github:googleworkspace/cli`.
 
 ### Verify Installation
 
@@ -70,23 +78,22 @@ python3 scripts/gws_doctor.py
 # Step 1: Create Google Cloud project and OAuth credentials
 python3 scripts/auth_setup_guide.py --guide oauth
 
-# Step 2: Run auth setup
+# Step 2: Run interactive auth setup (uses gcloud if available)
 gws auth setup
 
-# Step 3: Validate
-gws auth status --json
+# Step 3: Log in, requesting only the scopes you need
+gws auth login -s drive,gmail,sheets
 ```
 
-### Service Account (Headless/CI)
+### Headless/CI
 
 ```bash
 # Generate setup instructions
 python3 scripts/auth_setup_guide.py --guide service-account
 
-# Configure with key file
-export GWS_SERVICE_ACCOUNT_KEY=/path/to/key.json
-export GWS_DELEGATED_USER=admin@company.com
-gws auth status
+# Export credentials from an interactive machine, then point the CLI at them
+gws auth export --unmasked > credentials.json
+export GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE=/path/to/credentials.json
 ```
 
 ### Environment Variables
@@ -98,12 +105,12 @@ python3 scripts/auth_setup_guide.py --generate-env
 
 | Variable | Purpose |
 |----------|---------|
-| `GWS_CLIENT_ID` | OAuth client ID |
-| `GWS_CLIENT_SECRET` | OAuth client secret |
-| `GWS_TOKEN_PATH` | Custom token storage path |
-| `GWS_SERVICE_ACCOUNT_KEY` | Service account JSON key path |
-| `GWS_DELEGATED_USER` | User to impersonate (service accounts) |
-| `GWS_DEFAULT_FORMAT` | Default output format (json/ndjson/table) |
+| `GOOGLE_WORKSPACE_CLI_CLIENT_ID` | OAuth client ID |
+| `GOOGLE_WORKSPACE_CLI_CLIENT_SECRET` | OAuth client secret |
+| `GOOGLE_WORKSPACE_CLI_CREDENTIALS_FILE` | Path to exported credentials JSON |
+| `GOOGLE_WORKSPACE_CLI_TOKEN` | Pre-obtained OAuth token |
+| `GOOGLE_WORKSPACE_CLI_CONFIG_DIR` | Override default config location |
+| `GOOGLE_WORKSPACE_CLI_LOG` | Enable debug logging |
 
 ### Validate Authentication
 
@@ -118,46 +125,50 @@ python3 scripts/auth_setup_guide.py --validate --json
 
 **Goal:** Automate email operations — send, search, label, and filter management.
 
-### Send and Reply
+### Send, Reply, Forward (helper commands)
 
 ```bash
 # Send a new email
-gws gmail users.messages send me --to "client@example.com" \
-  --subject "Proposal" --body "Please find attached..." \
-  --attachment proposal.pdf
+gws gmail +send --to "client@example.com" \
+  --subject "Proposal" --body "Please find attached..."
 
-# Reply to a thread
-gws gmail users.messages reply me --thread-id <THREAD_ID> \
-  --body "Thanks for your feedback..."
+# Reply to a message (auto-threading); check exact flags with: gws gmail +reply --help
+gws gmail +reply ...
 
-# Forward a message
-gws gmail users.messages forward me --message-id <MSG_ID> \
-  --to "manager@company.com"
+# Forward a message; check exact flags with: gws gmail +forward --help
+gws gmail +forward ...
+
+# Unread inbox summary
+gws gmail +triage
 ```
 
-### Search and Filter
+### Search and Inspect (discovery commands)
+
+Discovery commands follow `gws <service> <resource> <method>` and take request
+parameters as JSON via `--params` (query/path params) and `--json` (request body).
+Inspect any method's exact schema first:
 
 ```bash
-# Search emails
-gws gmail users.messages list me --query "from:client@example.com after:2025/01/01" --json \
+# What does messages.list accept? (verify)
+gws schema gmail.users.messages.list
+
+# Search emails (verify against the schema above)
+gws gmail users messages list --params '{"userId": "me", "q": "from:client@example.com after:2025/01/01"}' \
   | python3 scripts/output_analyzer.py --count
 
-# List labels
-gws gmail users.labels list me --json
-
-# Create a filter
-gws gmail users.settings.filters create me \
-  --criteria '{"from":"notifications@service.com"}' \
-  --action '{"addLabelIds":["Label_123"],"removeLabelIds":["INBOX"]}'
+# List labels (verify)
+gws gmail users labels list --params '{"userId": "me"}'
 ```
 
 ### Bulk Operations
 
+Use `--dry-run` first, and `--page-all` to paginate (one JSON line per page):
+
 ```bash
-# Archive all read emails older than 30 days
-gws gmail users.messages list me --query "is:read older_than:30d" --json \
-  | python3 scripts/output_analyzer.py --select "id" --format json \
-  | xargs -I {} gws gmail users.messages modify me {} --removeLabelIds INBOX
+# Preview, then archive read emails older than 30 days (verify method schema first)
+gws gmail users messages list --params '{"userId": "me", "q": "is:read older_than:30d"}' --page-all \
+  | python3 scripts/output_analyzer.py --select "id" --format json
+# Then feed ids to gmail users messages modify (see: gws schema gmail.users.messages.modify)
 ```
 
 ---
@@ -170,48 +181,45 @@ gws gmail users.messages list me --query "is:read older_than:30d" --json \
 
 ```bash
 # List files
-gws drive files list --json --limit 50 \
+gws drive files list --params '{"pageSize": 50}' \
   | python3 scripts/output_analyzer.py --select "name,mimeType,size" --format table
 
-# Upload a file
-gws drive files create --name "Q1 Report" --upload report.pdf \
-  --parents <FOLDER_ID>
+# Upload a file (helper)
+gws drive +upload ./report.pdf --name "Q1 Report"
 
 # Create a Google Sheet
-gws sheets spreadsheets create --title "Budget 2026" --json
+gws sheets spreadsheets create --json '{"properties": {"title": "Budget 2026"}}'
 
-# Download/export
-gws drive files export <FILE_ID> --mime "application/pdf" --output report.pdf
+# Download/export — inspect the method first (verify)
+gws schema drive.files.export
 ```
 
-### Sharing
+### Sharing (verify schemas first)
 
 ```bash
-# Share with user
-gws drive permissions create <FILE_ID> \
-  --type user --role writer --emailAddress "colleague@company.com"
+# Inspect the permissions API surface
+gws schema drive.permissions.create
 
-# Share with domain (view only)
-gws drive permissions create <FILE_ID> \
-  --type domain --role reader --domain "company.com"
+# Share with user (verify against schema)
+gws drive permissions create --params '{"fileId": "<FILE_ID>"}' \
+  --json '{"type": "user", "role": "writer", "emailAddress": "colleague@company.com"}'
 
-# List who has access
-gws drive permissions list <FILE_ID> --json
+# List who has access (verify)
+gws drive permissions list --params '{"fileId": "<FILE_ID>"}'
 ```
 
 ### Sheets Data
 
 ```bash
-# Read a range
-gws sheets spreadsheets.values get <SHEET_ID> --range "Sheet1!A1:D10" --json
+# Read values (helper); check exact flags with: gws sheets +read --help
+gws sheets +read ...
 
-# Write data
-gws sheets spreadsheets.values update <SHEET_ID> --range "Sheet1!A1" \
-  --values '[["Name","Score"],["Alice",95],["Bob",87]]'
+# Append a row (helper); check exact flags with: gws sheets +append --help
+gws sheets +append ...
 
-# Append rows
-gws sheets spreadsheets.values append <SHEET_ID> --range "Sheet1!A1" \
-  --values '[["Charlie",92]]'
+# Or use discovery methods (verify):
+gws schema sheets.spreadsheets.values.update
+gws sheets spreadsheets values get --params '{"spreadsheetId": "<SHEET_ID>", "range": "Sheet1!A1:D10"}'
 ```
 
 ---
@@ -223,39 +231,34 @@ gws sheets spreadsheets.values append <SHEET_ID> --range "Sheet1!A1" \
 ### Event Management
 
 ```bash
-# Create an event
-gws calendar events insert primary \
-  --summary "Sprint Planning" \
-  --start "2026-03-15T10:00:00" --end "2026-03-15T11:00:00" \
-  --attendees "team@company.com" \
-  --location "Conference Room A"
+# Create an event (helper); check exact flags with: gws calendar +insert --help
+gws calendar +insert ...
 
-# List upcoming events
-gws calendar events list primary --timeMin "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-  --maxResults 10 --json
+# Upcoming events (helper, timezone-aware)
+gws calendar +agenda
 
-# Quick event (natural language)
-gws helpers quick-event "Lunch with Sarah tomorrow at noon"
+# Or via discovery (verify):
+gws schema calendar.events.insert
+gws calendar events list --params '{"calendarId": "primary", "maxResults": 10}'
 ```
 
 ### Find Available Time
 
 ```bash
-# Check free/busy for multiple people
-gws helpers find-time \
-  --attendees "alice@co.com,bob@co.com,charlie@co.com" \
-  --duration 60 --within "2026-03-15,2026-03-19" --json
+# Free/busy via the Calendar API (verify schema first)
+gws schema calendar.freebusy.query
+gws calendar freebusy query --json '{"timeMin": "...", "timeMax": "...", "items": [{"id": "alice@co.com"}]}'
 ```
 
-### Standup Report
+### Standup Report (workflow helpers)
 
 ```bash
-# Generate daily standup from calendar + tasks
-gws recipes standup-report --json \
+# Today's meetings + tasks
+gws workflow +standup-report \
   | python3 scripts/output_analyzer.py --format table
 
-# Meeting prep (agenda + attendee info)
-gws recipes meeting-prep --event-id <EVENT_ID>
+# Next meeting prep; check exact flags with: gws workflow +meeting-prep --help
+gws workflow +meeting-prep
 ```
 
 ---
@@ -296,9 +299,9 @@ python3 scripts/workspace_audit.py --demo
 python3 scripts/workspace_audit.py --json | python3 scripts/output_analyzer.py \
   --filter "status=FAIL" --select "area,check,remediation"
 
-# Execute remediation (example: restrict external sharing)
-gws drive about get --json  # Check current settings
-# Follow remediation commands from audit output
+# Execute remediation (example: check current Drive settings first; verify)
+gws drive about get --params '{"fields": "*"}'
+# Follow remediation commands from audit output (verify each against gws --help)
 ```
 
 ---
@@ -329,18 +332,18 @@ All scripts are stdlib-only, support `--json` output, and include demo mode with
 
 ### Automation
 
-1. Pipe `--json` output through `output_analyzer.py` for filtering and aggregation
-2. Use recipes for multi-step operations instead of chaining raw commands
-3. Select a persona bundle to scope recipes to your role
-4. Use NDJSON format (`--format ndjson`) for streaming large result sets
-5. Set `GWS_DEFAULT_FORMAT=json` in your shell profile for scripting
+1. All `gws` output is structured JSON — pipe it through `output_analyzer.py` for filtering and aggregation
+2. Use `gws workflow +*` helpers for multi-step operations instead of chaining raw commands
+3. Use the local recipe catalog (`gws_recipe_runner.py`) as command templates, then verify each against `gws --help`
+4. `--page-all` emits one JSON line per page (NDJSON) for streaming large result sets
+5. Use `--dry-run` to preview any request before executing it
 
 ### Performance
 
-1. Use `--fields` to request only needed fields (reduces payload size)
-2. Use `--limit` to cap results when browsing
-3. Use `--page-all` only when you need complete datasets
-4. Batch operations with recipes rather than individual API calls
+1. Request only needed fields via the API's `fields` parameter in `--params` (reduces payload size)
+2. Use `pageSize` in `--params` to cap results when browsing
+3. Use `--page-all` only when you need complete datasets; tune with `--page-limit` / `--page-delay`
+4. Prefer `+` helpers (single optimized calls) over hand-chained API calls
 5. Cache frequently accessed data (e.g., label IDs, folder IDs) in variables
 
 ---

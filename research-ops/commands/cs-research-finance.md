@@ -30,8 +30,8 @@ Run the `research-finance` skill on this input:
 
 ## First run + optimization
 
-- **Onboard first:** `python3 scripts/onboard.py` (R&D area, F&A rate, runway threshold, accounting standard, finance owner) — saved config pre-configures every tool. `--show` lists the questions.
-- **Optimize (opt-in):** only if the user asks to optimize/extend runway, hand off to autoresearch via `scripts/ar_evaluator.py` (`runway_months`, higher is better).
+- **Onboard first:** `python3 skills/research-finance/scripts/onboard.py` (R&D area, F&A rate, runway threshold, accounting standard, finance owner) — saved config pre-configures every tool. `--show` lists the questions.
+- **Optimize (opt-in):** only if the user asks to optimize/extend runway, hand off to autoresearch via `skills/research-finance/scripts/ar_evaluator.py` (`runway_months`, higher is better).
 
 ## Distinct from
 

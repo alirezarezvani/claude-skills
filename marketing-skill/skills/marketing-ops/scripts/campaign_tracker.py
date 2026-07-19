@@ -45,7 +45,7 @@ def analyze_campaign(campaign: dict) -> dict:
     pods_covered = set()
     pod_map = {
         "content": ["content-strategy", "copywriting", "copy-editing", "social-content", "marketing-ideas", "content-production", "content-humanizer", "content-creator"],
-        "seo": ["seo-audit", "programmatic-seo", "ai-seo", "schema-markup", "site-architecture"],
+        "seo": ["seo-audit", "programmatic-seo", "aeo", "schema-markup", "site-architecture"],
         "cro": ["page-cro", "form-cro", "signup-flow-cro", "onboarding-cro", "popup-cro", "paywall-upgrade-cro"],
         "channels": ["email-sequence", "cold-email", "paid-ads", "ad-creative", "social-media-manager"],
         "growth": ["ab-test-setup", "referral-program", "free-tool-strategy", "churn-prevention"],

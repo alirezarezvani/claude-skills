@@ -47,7 +47,8 @@ The user already knows how NotebookLM works — they'll see the notification whe
 | Studio: Study Guide | Generation | 30-60s | **Wait** (with 90s timeout) |
 | Studio: Briefing Doc | Generation | 30-60s | **Wait** (with 90s timeout) |
 | Studio: FAQ | Generation | 30-60s | **Wait** (with 90s timeout) |
-| Studio: Table of Contents | Generation | 20-40s | **Wait** |
+| Studio: Flashcards / Quiz | Generation | 30-60s | **Wait** |
+| Studio: Video Overview | Generation | 5-15 min | **Fire-and-notify** |
 | Studio: Timeline | Generation | 30-60s | **Wait** (with 90s timeout) |
 | **Studio: Audio Overview** | Audio gen | **5-10 min** | **NOTIFY** (fire-and-notify) |
 | **Studio: Infographic** | Visual gen | **2-5 min** | **NOTIFY** |

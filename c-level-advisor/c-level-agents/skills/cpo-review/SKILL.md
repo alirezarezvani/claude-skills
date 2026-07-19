@@ -1,6 +1,6 @@
 ---
 name: "cpo-review"
-description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus."
+description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap, deciding whether to kill a feature, or claiming PMF without a retention curve."
 ---
 
 # /cs:cpo-review — CPO Forcing Questions
@@ -37,7 +37,7 @@ The JTBD-driven builder cuts the roadmap in half. Six questions to surface what 
 ### 4. RICE Score
 **Reach, Impact, Confidence, Effort — what's the score and where does this rank in the queue?**
 ```bash
-python ../../../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py
+python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
 ```
 
 ### 5. Opportunity Cost
@@ -103,7 +103,7 @@ python ../../../../product-team/product-manager-toolkit/scripts/rice_prioritizer
 
 - Agent: [`cs-cpo-advisor`](../../agents/cs-cpo-advisor.md)
 - Skill: [`cpo-advisor`](../../../skills/cpo-advisor/SKILL.md)
-- Execution: `../../../../product-team/product-manager-toolkit/`
+- Execution: `product-team/skills/product-manager-toolkit/`
 
 ---
 

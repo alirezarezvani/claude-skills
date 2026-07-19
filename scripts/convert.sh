@@ -431,7 +431,17 @@ fi
 SKILLS_TMP="$(mktemp)"
 (
   cd "$REPO_ROOT"
-  find . -mindepth 4 -maxdepth 6 -type f -name 'SKILL.md' -not -path './.git/*' -not -path './integrations/*' | sort
+  find . -mindepth 4 -maxdepth 6 -type f -name 'SKILL.md' \
+    -not -path './.git/*' \
+    -not -path './.claude/*' \
+    -not -path './.codex/*' \
+    -not -path './.codex-plugin/*' \
+    -not -path './.gemini/*' \
+    -not -path './.hermes/*' \
+    -not -path './.vibe/*' \
+    -not -path './integrations/*' \
+    -not -path './docs/*' \
+    | sort
 ) > "$SKILLS_TMP"
 
 TOTAL_CANDIDATES="$(wc -l < "$SKILLS_TMP" | tr -d ' ')"

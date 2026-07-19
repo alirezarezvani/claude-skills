@@ -2,12 +2,18 @@
 """
 classifier.py — Deterministic SIGNALS-based routing classifier for the research orchestrator.
 
-Given a research question, returns the routing decision (specialist name or "fallback"),
-matched signals per specialist, and confidence reasoning.
+Given a research question, returns the routing decision (specialist name, "ask",
+or "fallback"), matched signals per specialist, and confidence reasoning.
 
 The SIGNALS map is the post-PR-#657-audit canonical version: verb-noun-paired phrases
 that route reliably, with NO bracketed placeholders (those over-trigger on generic
 "research [topic]" queries that should fall back instead).
+
+Routing rule (post-2026-06 newgen audit): silent-route requires EITHER 2+ signals
+OR exactly one STRONG multi-word phrase signal (contains a space). A single
+bare-noun match (e.g., "funding", "fda", "patent", "grant") returns route_to "ask"
+with a recommended specialist — the model must ask ONE clarifying question with
+that recommendation instead of silently routing.
 
 Usage:
   python classifier.py --question "What's the literature on PICO for sepsis?"
@@ -56,8 +62,11 @@ def classify(question: str) -> dict:
     """
     Apply the deterministic routing algorithm:
       - score[S] = count of SIGNALS[S] substrings matched (case-insensitive)
-      - if max(score) >= 2: route to argmax
-      - elif max(score) == 1 AND only one specialist scored 1: route to that one
+      - if max(score) >= 2: silent-route to argmax
+      - elif max(score) == 1 AND only one specialist scored 1:
+          - matched phrase is multi-word (contains a space): silent-route (strong)
+          - matched phrase is a bare noun: route_to "ask" + recommended specialist
+            (ask ONE clarifying question with a recommended answer)
       - else: route to "fallback"
     """
     q = question.lower()
@@ -72,6 +81,7 @@ def classify(question: str) -> dict:
 
     max_score = max(scores.values()) if scores else 0
     top = [s for s, sc in scores.items() if sc == max_score and sc > 0]
+    recommended = None
 
     if max_score >= 2:
         route_to = top[0] if len(top) == 1 else _pick_highest_priority(top, scores)
@@ -79,8 +89,18 @@ def classify(question: str) -> dict:
     elif max_score == 1:
         single_scorers = [s for s, sc in scores.items() if sc == 1]
         if len(single_scorers) == 1:
-            route_to = single_scorers[0]
-            confidence = "weak (1 signal, single specialist)"
+            specialist = single_scorers[0]
+            phrase = matched[specialist][0]
+            if " " in phrase:
+                route_to = specialist
+                confidence = f"moderate (1 strong multi-word phrase signal: {phrase!r})"
+            else:
+                route_to = "ask"
+                recommended = specialist
+                confidence = (
+                    f"single bare-noun signal ({phrase!r}) — ask one clarifying "
+                    f"question, recommending `{specialist}`, instead of silent-routing"
+                )
         else:
             route_to = "fallback"
             confidence = "ambiguous (multiple specialists with 1 signal)"
@@ -90,6 +110,7 @@ def classify(question: str) -> dict:
 
     return {
         "route_to": route_to,
+        "recommended": recommended,
         "confidence": confidence,
         "scores": scores,
         "matched_signals": matched,
@@ -119,14 +140,20 @@ def render_human(result: dict) -> str:
         lines.append("Matched signals:")
         for s, phrases in result["matched_signals"].items():
             lines.append(f"  {s}: {', '.join(repr(p) for p in phrases)}")
-    if result["route_to"] != "fallback":
-        lines.append("")
+    lines.append("")
+    if result["route_to"] == "ask":
+        lines.append(
+            f"Routing transparency: 'Single bare-noun signal. Ask ONE clarifying "
+            f"question with a recommended answer (recommended: `{result['recommended']}`); "
+            f"do not silent-route.'"
+        )
+    elif result["route_to"] != "fallback":
         lines.append(
             f"Routing transparency: 'Routing to `{result['route_to']}` because "
-            f"of {result['confidence']}. Override or proceed in 5s.'"
+            f"of {result['confidence']}. Say so if you want a different route — "
+            f"otherwise this proceeds with the recommended route.'"
         )
     else:
-        lines.append("")
         lines.append("Routing transparency: 'No specialist matched. Running fallback.'")
     return "\n".join(lines)
 

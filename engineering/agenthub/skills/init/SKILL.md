@@ -1,6 +1,6 @@
 ---
 name: "init"
-description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria."
+description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a multi-agent competition on a task."
 command: /hub:init
 ---
 

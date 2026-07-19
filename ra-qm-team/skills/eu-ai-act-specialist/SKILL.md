@@ -183,13 +183,13 @@ python scripts/conformity_assessment_planner.py system.json
 
 ## Adjacent Skills
 
-- `../../skills/gdpr-dsgvo-expert/` — GDPR DPIA + lawful basis (most AI systems also trigger GDPR)
-- `../../../compliance-team-iso42001/` — ISO 42001 AIMS (voluntary management system that satisfies parts of Article 17 QMS for providers)
-- `../../skills/information-security-manager-iso27001/` — ISO 27001 for cybersecurity requirements (Article 15)
-- `../../skills/risk-management-specialist/` — ISO 14971 risk management (referenced for safety-component AI under Article 6(1))
-- `../../skills/mdr-745-specialist/` — MDR 2017/745 (medical-device AI overlap)
-- `../../../../compliance-os/` — Meta-orchestrator for multi-framework programs
-- `../../../../c-level-advisor/chief-ai-officer-advisor/` — Executive AI strategy
+- `ra-qm-team/skills/gdpr-dsgvo-expert/` — GDPR DPIA + lawful basis (most AI systems also trigger GDPR)
+- `ra-qm-team/compliance-team-iso42001/` — ISO 42001 AIMS (voluntary management system that satisfies parts of Article 17 QMS for providers)
+- `ra-qm-team/skills/information-security-manager-iso27001/` — ISO 27001 for cybersecurity requirements (Article 15)
+- `ra-qm-team/skills/risk-management-specialist/` — ISO 14971 risk management (referenced for safety-component AI under Article 6(1))
+- `ra-qm-team/skills/mdr-745-specialist/` — MDR 2017/745 (medical-device AI overlap)
+- `compliance-os/` — Meta-orchestrator for multi-framework programs
+- `c-level-advisor/chief-ai-officer-advisor/` — Executive AI strategy
 
 ## References
 

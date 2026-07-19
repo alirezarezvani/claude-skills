@@ -18,7 +18,7 @@ Without a deal desk, every above-band deal becomes a 1:1 negotiation between an 
 These are the non-negotiables — adopted across every reference cited below.
 
 1. **Never auto-approve.** Even green deals get a named approver. The skill outputs *who must sign*, not *the deal is fine*.
-2. **Margin, not discount.** A 30% discount on an 80%-gross-margin product reduces *margin* by 24 points (to 56%) — not 30%. See `discount_economics.md` for the math.
+2. **Margin, not discount.** A 30% discount on an 80%-gross-margin product destroys *37.5% of the margin dollars* (COGS is fixed, so every discounted dollar comes straight out of margin) — not 30%. See `discount_economics.md` for the math.
 3. **The chain stops at the lowest hop that has authority.** Over-routing trains reps to over-discount because they expect VP attention anyway.
 4. **Critical signals override composite.** A high-composite deal with uncapped indemnity is still a DECLINE.
 5. **Modifiers must be explicit.** Enterprise floor (large ARR forces VP review) and SMB fast-lane (small deals can skip a hop) are surfaced; hidden adjustments destroy audit trails.

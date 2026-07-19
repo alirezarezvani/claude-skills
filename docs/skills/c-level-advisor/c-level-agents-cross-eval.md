@@ -1,6 +1,6 @@
 ---
 title: "/cs:cross-eval — Multi-Model Consensus — Agent Skill for Executives"
-description: "/cs:cross-eval <memo> — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation."
+description: "/cs:cross-eval <memo> — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use."
 ---
 
 # /cs:cross-eval — Multi-Model Consensus

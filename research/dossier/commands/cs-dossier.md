@@ -73,7 +73,7 @@ Example for hypothesis "Microsoft is consolidating AI spend on Foundry":
 | **Disconfirming** | "Microsoft AI vendor diversification" |
 | **Disconfirming** | "Microsoft third-party model partnerships 2026" |
 
-`scripts/disconfirming_evidence_balance.py` enforces the ratio. Halts at <30% and prompts more disconfirming queries.
+`skills/dossier/scripts/disconfirming_evidence_balance.py` enforces the ratio. Halts at <30% and prompts more disconfirming queries.
 
 ## Source Reliability Tiering
 
@@ -85,7 +85,7 @@ Every fact in the DOCX tagged with tier (primary / secondary / tertiary):
 | **Secondary** | Mainstream news (NYT, WSJ, Reuters), trade press (TechCrunch, The Information) |
 | **Tertiary** | Blogs, forums (Reddit, HN), Glassdoor, social media |
 
-`scripts/source_tier_classifier.py` does this from URL.
+`skills/dossier/scripts/source_tier_classifier.py` does this from URL.
 
 ## Discipline (Research-Pack Convention)
 

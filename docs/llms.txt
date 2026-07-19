@@ -1,0 +1,48 @@
+# Claude Code Skills & Agent Plugins
+
+> An open-source (MIT) library of 354 production-ready agent skills, 82 installable plugins, 96 agents, and 102 slash commands across 18 domains — engineering, product, marketing, compliance, finance, research, and more. Each skill is a self-contained package bundling domain expertise, deterministic Python tools (stdlib-only, no LLM calls), reference knowledge bases, and ready-to-use templates. Skills are portable across Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6+ more AI coding tools.
+
+This file follows the [llms.txt](https://llmstxt.org) convention. For a full, self-contained description of the entire repository, see [llms-full.txt](https://alirezarezvani.github.io/claude-skills/llms-full.txt).
+
+Key facts for agents:
+- **License:** MIT. Free to extract, deploy, and adapt.
+- **Repository:** https://github.com/alirezarezvani/claude-skills
+- **Distribution:** Claude Code plugin marketplace + ClawHub registry.
+- **Design philosophy:** Algorithm over AI (deterministic code, not LLM calls in tools), documentation-driven, template-heavy, self-contained skills.
+- **Skill package shape:** `SKILL.md` (master doc) + `scripts/` (Python CLI tools) + `references/` (knowledge bases) + `assets/` (templates).
+
+## Getting started
+
+- [Home](https://alirezarezvani.github.io/claude-skills/): Overview and value proposition.
+- [Getting Started](https://alirezarezvani.github.io/claude-skills/getting-started/): Install and use skills/plugins.
+- [Multi-Tool Integrations](https://alirezarezvani.github.io/claude-skills/integrations/): Using skills with Codex, Gemini CLI, Cursor, Hermes, Vibe, OpenClaw, and more.
+- [Skills Overview](https://alirezarezvani.github.io/claude-skills/skills/): Index of all 354 skills by domain.
+- [Plugins](https://alirezarezvani.github.io/claude-skills/plugins/): The 82 installable marketplace plugins.
+- [Agents](https://alirezarezvani.github.io/claude-skills/agents/): The 96 cs-* agents and personas.
+- [Commands](https://alirezarezvani.github.io/claude-skills/commands/): The 102 slash commands.
+
+## Domains
+
+- [Engineering — Core](https://alirezarezvani.github.io/claude-skills/skills/engineering-team/): Fullstack, AI/ML, DevOps, security, data, QA.
+- [Engineering — POWERFUL](https://alirezarezvani.github.io/claude-skills/skills/engineering/): Agent design, RAG, MCP, CI/CD, observability, SLOs, skill authoring.
+- [Product](https://alirezarezvani.github.io/claude-skills/skills/product-team/): RICE, OKRs, user stories, UX research, SaaS scaffolding.
+- [Marketing](https://alirezarezvani.github.io/claude-skills/skills/marketing-skill/): Content, SEO, AEO, ASO, demand gen, campaign analytics.
+- [Project Management](https://alirezarezvani.github.io/claude-skills/skills/project-management/): Jira/Confluence, Atlassian MCP, scrum.
+- [C-Level Advisory](https://alirezarezvani.github.io/claude-skills/skills/c-level-advisor/): Full C-suite advisors + founder-mode orchestration.
+- [Regulatory & Quality](https://alirezarezvani.github.io/claude-skills/skills/ra-qm-team/): ISO 13485, MDR, FDA, GDPR, ISO 27001.
+- [Compliance OS](https://alirezarezvani.github.io/claude-skills/skills/compliance-os/): Audit-prep orchestrator for SOC 2, ISO, GDPR, EU AI Act.
+- [Business & Growth](https://alirezarezvani.github.io/claude-skills/skills/business-growth/): Customer success, sales engineering, revenue operations.
+- [Business Operations](https://alirezarezvani.github.io/claude-skills/skills/business-operations/): Process mapping, vendor management, capacity planning.
+- [Commercial](https://alirezarezvani.github.io/claude-skills/skills/commercial/): Pricing, deal desk, partnerships, RFP response.
+- [Finance](https://alirezarezvani.github.io/claude-skills/skills/finance/): Financial analysis, DCF valuation, SaaS metrics.
+- [Research](https://alirezarezvani.github.io/claude-skills/skills/research/): Literature review, grants, patents, entity dossiers.
+- [Research Operations](https://alirezarezvani.github.io/claude-skills/skills/research-ops/): Clinical study design, R&D finance, market/product research.
+- [Productivity](https://alirezarezvani.github.io/claude-skills/skills/productivity/): Capture, email triage, reflection, handoff.
+- [Markdown to HTML](https://alirezarezvani.github.io/claude-skills/skills/markdown-html/): Markdown-to-interactive-HTML converter suite.
+
+## Optional
+
+- [Guides](https://alirezarezvani.github.io/claude-skills/guides/best-claude-code-plugins/): Best plugins, per-tool skill guides (Codex, Gemini CLI, Cursor, OpenClaw).
+- [Orchestration](https://alirezarezvani.github.io/claude-skills/orchestration/): How skills chain together.
+- [Custom GPTs](https://alirezarezvani.github.io/claude-skills/custom-gpts/): Using the library with custom GPTs.
+- [Personas](https://alirezarezvani.github.io/claude-skills/personas/): Startup CTO, Growth Marketer, Solo Founder bundles.

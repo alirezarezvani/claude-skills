@@ -326,13 +326,26 @@ def create_sample_epic():
     }
 
 def main():
-    import sys
-    
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Generate INVEST user stories from the bundled sample epic, or plan "
+                    "a sprint from the generated backlog.")
+    parser.add_argument("mode", nargs="?", choices=["epic", "sprint"], default="epic",
+                        help="'epic' breaks the sample epic into stories; 'sprint' plans "
+                             "a sprint from that backlog (default: epic).")
+    parser.add_argument("capacity", nargs="?", type=int, default=30,
+                        help="Sprint capacity in story points (sprint mode, default: 30).")
+    parser.add_argument("--sample", action="store_true",
+                        help="Break the bundled sample epic into stories and exit 0 "
+                             "(same as the default epic mode; kept for harness smoke tests).")
+    args = parser.parse_args()
+
     generator = UserStoryGenerator()
-    
-    if len(sys.argv) > 1 and sys.argv[1] == 'sprint':
+
+    if args.mode == 'sprint':
         # Generate sprint planning
-        capacity = int(sys.argv[2]) if len(sys.argv) > 2 else 30
+        capacity = args.capacity
         
         # Create sample backlog
         epic = create_sample_epic()

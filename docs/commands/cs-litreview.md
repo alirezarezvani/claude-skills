@@ -106,7 +106,7 @@ python ../skills/litreview/scripts/framework_recommender.py --question "<Q1>"
 # Phase 4 cross-search aggregation + DOCX
 python ../skills/litreview/scripts/cross_search_aggregator.py --session NAME
 # Generate DOCX via Node.js docx library
-python scripts/office/validate.py output.docx
+python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx  # zip-integrity check; then confirm required sections present
 
 python ../skills/litreview/scripts/citation_tracker.py --action close --session NAME
 ```

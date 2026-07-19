@@ -1,7 +1,7 @@
 ---
 name: cs-inbox-triage
 description: Recurring email-triage execution persona. Reads the 7-file KB produced by inbox-setup, classifies recent emails via the user's taxonomy, researches new senders, generates recommendations, drafts replies, delivers a report, and updates the KB with learnings. NEVER SENDS — drafts only, non-negotiable. Halts with clear message if KB files are missing (directs user to run inbox-setup first). Light-intake — max 2 optional override questions.
-skills: engineering/email/skills/inbox-triage
+skills: productivity/email/skills/inbox-triage
 domain: productivity
 model: opus
 tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch]
@@ -58,30 +58,30 @@ Differentiates clearly:
 
 ## Skill Integration
 
-**Skill Location:** `../../skills/inbox-triage/`
+**Skill Location:** `../skills/inbox-triage/`
 
 ### Python Tools (Stdlib)
 
 1. **KB Reader**
-   - Path: `../../skills/inbox-triage/scripts/kb_reader.py`
+   - Path: `../skills/inbox-triage/scripts/kb_reader.py`
    - Usage: `python kb_reader.py --workspace ${WORKSPACE}`
    - Reads + validates the 7 KB files. Returns parsed structure (categories, voice patterns, blocklist, tracker entries). Halts with explicit error if required files missing.
 
 2. **Search Window Calculator**
-   - Path: `../../skills/inbox-triage/scripts/search_window_calculator.py`
+   - Path: `../skills/inbox-triage/scripts/search_window_calculator.py`
    - Usage: `python search_window_calculator.py --cadence 2x-daily --now 2026-05-15T14:00`
    - Computes window_start from cadence + current time. Default 9h for 2x/day (slight overlap prevents missed emails). Returns run_label (Morning/Afternoon/Evening) based on hour-of-day.
 
 3. **Draft Safety Validator**
-   - Path: `../../skills/inbox-triage/scripts/draft_safety_validator.py`
+   - Path: `../skills/inbox-triage/scripts/draft_safety_validator.py`
    - Usage: `python draft_safety_validator.py --action-log /path/to/triage-log.md`
    - Scans the triage log for any send-shaped action (`send_email`, `gmail.send`, `outlook.send`, etc.). FAILs if any are detected. The non-negotiable NEVER-SEND check in tool form.
 
 ### Knowledge Bases
 
-- `../../skills/inbox-triage/references/kb_file_contract.md` — canonical 7-file contract (read perspective; mirrors the setup-side version)
-- `../../skills/inbox-triage/references/triage_decision_framework.md` — TAKE IT / WORTH CONSIDERING / PASS / FLAG FOR REVIEW taxonomy
-- `../../skills/inbox-triage/references/drafts_only_safety.md` — the NEVER-SEND discipline canon
+- `../skills/inbox-triage/references/kb_file_contract.md` — canonical 7-file contract (read perspective; mirrors the setup-side version)
+- `../skills/inbox-triage/references/triage_decision_framework.md` — TAKE IT / WORTH CONSIDERING / PASS / FLAG FOR REVIEW taxonomy
+- `../skills/inbox-triage/references/drafts_only_safety.md` — the NEVER-SEND discipline canon
 
 ## Workflows
 
@@ -89,11 +89,11 @@ Differentiates clearly:
 
 ```bash
 # 1. Pre-flight — read + validate KB
-python ../../skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}
+python ../skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}
 # If FAIL → halt + direct to setup
 
 # 2. Determine window
-python ../../skills/inbox-triage/scripts/search_window_calculator.py \
+python ../skills/inbox-triage/scripts/search_window_calculator.py \
   --cadence 2x-daily --now $(date -u +%Y-%m-%dT%H:%M)
 
 # 3. Execute 10-step workflow (described in SKILL.md):
@@ -109,7 +109,7 @@ python ../../skills/inbox-triage/scripts/search_window_calculator.py \
 #    Step 10: empty-inbox handling
 
 # 4. Post-flight — validate no send action occurred
-python ../../skills/inbox-triage/scripts/draft_safety_validator.py \
+python ../skills/inbox-triage/scripts/draft_safety_validator.py \
   --action-log ${WORKSPACE}/Email/triage-log/$(date +%Y-%m-%d)-*.md
 # If FAIL → halt + alert user immediately
 ```
@@ -199,7 +199,7 @@ Generated at <timestamp>. KB updated: {N blocklist, M tracker}.
 
 ## References
 
-- Skill: [../../skills/inbox-triage/SKILL.md](../../skills/inbox-triage/SKILL.md)
+- Skill: [../skills/inbox-triage/SKILL.md](../skills/inbox-triage/SKILL.md)
 - Source spec: [`megaprompts/07-inbox-triage-megaprompt.md`](../../../../megaprompts/07-inbox-triage-megaprompt.md)
 - Sibling command: [`/cs:inbox-triage`](../commands/cs-inbox-triage.md)
 

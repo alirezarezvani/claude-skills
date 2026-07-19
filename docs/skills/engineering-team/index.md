@@ -63,7 +63,7 @@ description: "51 engineering - core skills — engineering agent skill and Claud
 
     ---
 
-    23 production-ready engineering skills organized into core engineering, AI/ML/Data, and specialized tools.
+    32 production-ready engineering skills organized into core engineering, security, AI/ML/Data, and specialized tools.
 
 -   **[Epic Design Skill](epic-design.md)**
 
@@ -165,7 +165,7 @@ description: "51 engineering - core skills — engineering agent skill and Claud
 
     ---
 
-    Prompt engineering patterns, LLM evaluation frameworks, and agentic system design.
+    Eval-driven prompt engineering, RAG quality measurement, and agent workflow validation. Everything here is model-agno...
 
 -   **[Senior QA Engineer](senior-qa.md)**
 
@@ -179,11 +179,11 @@ description: "51 engineering - core skills — engineering agent skill and Claud
 
     Complete toolkit for Security Operations including vulnerability management, compliance verification, secure coding p...
 
--   **[Senior Security Engineer](senior-security.md)**
+-   **[Senior Security Engineer — Threat Modeling + Security Router](senior-security.md)**
 
     ---
 
-    Security engineering tools for threat modeling, vulnerability analysis, secure architecture design, and penetration t...
+    This skill does exactly one job itself — STRIDE/DREAD threat modeling (plus a quick secret scan) — and routes every o...
 
 -   **[Stripe Integration Expert](stripe-integration-expert.md)**
 

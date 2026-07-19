@@ -28,10 +28,10 @@ tools: [Read, Write, Bash, WebFetch, WebSearch]
 The cs-patent agent orchestrates the `patent` skill across prior-art + landscape research:
 
 1. **Phase 1 intake** — Q1-Q6 one at a time, with sub-use-case commitment at Q2
-2. **Phase 2 search strategy selection** — deterministic via `scripts/sub_use_case_router.py`
+2. **Phase 2 search strategy selection** — deterministic via `skills/patent/scripts/sub_use_case_router.py`
 3. **Phase 3 multi-source search** — Google Patents (workhorse) + Espacenet + USPTO + optional Lens.org
 4. **Phase 4 claim extraction + relevance scoring** — pull independent claim 1 + key dependents
-5. **Phase 5 citation graph + family resolution** — deduplicate via `scripts/family_resolver.py`
+5. **Phase 5 citation graph + family resolution** — deduplicate via `skills/patent/scripts/family_resolver.py`
 6. **Phase 6 DOCX** — 8 sections with sub-use-case-specific emphasis
 7. **Phase 7 deliver** — file + chat summary with verdict
 
@@ -53,15 +53,15 @@ The cs-patent agent orchestrates the `patent` skill across prior-art + landscape
 
 ### Python Tools (Stdlib)
 
-1. **Citation Tracker** — `scripts/citation_tracker.py` — three-count audit across Google Patents + Espacenet + USPTO + Lens.org sources at `~/.patent_sessions/<session>.json`
-2. **Family Resolver** — `scripts/family_resolver.py` — group same-invention filings (e.g., US + EP + JP + CN of one priority) by priority number / family ID
-3. **Sub-Use-Case Router** — `scripts/sub_use_case_router.py` — deterministic search strategy from intake answers
+1. **Citation Tracker** — `skills/patent/scripts/citation_tracker.py` — three-count audit across Google Patents + Espacenet + USPTO + Lens.org sources at `~/.patent_sessions/<session>.json`
+2. **Family Resolver** — `skills/patent/scripts/family_resolver.py` — group same-invention filings (e.g., US + EP + JP + CN of one priority) by priority number / family ID
+3. **Sub-Use-Case Router** — `skills/patent/scripts/sub_use_case_router.py` — deterministic search strategy from intake answers
 
 ### Knowledge Bases
 
-- `references/sub_use_case_routing.md` — 5-sub-use-case canon + when each applies (7+ sources)
-- `references/cpc_classification_canon.md` — CPC/IPC class follow-up rationale (7+ sources)
-- `references/legal_disclaimer_discipline.md` — when + why disclaimer mandatory (7+ sources)
+- `skills/patent/references/sub_use_case_routing.md` — 5-sub-use-case canon + when each applies (7+ sources)
+- `skills/patent/references/cpc_classification_canon.md` — CPC/IPC class follow-up rationale (7+ sources)
+- `skills/patent/references/legal_disclaimer_discipline.md` — when + why disclaimer mandatory (7+ sources)
 
 ## Related Agents
 

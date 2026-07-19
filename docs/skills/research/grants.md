@@ -123,7 +123,7 @@ RePORTER is **POST-only**. Use `bash_tool` + `curl` — never `web_fetch`.
 Compute at runtime via `scripts/fiscal_year_calculator.py`. Default: current FY + 3 prior. Federal FY starts Oct 1, so:
 
 ```bash
-python ../scripts/fiscal_year_calculator.py --output json
+python scripts/fiscal_year_calculator.py --output json
 # Returns: {"current_fy": 2026, "window": [2023, 2024, 2025, 2026]}
 ```
 
@@ -190,7 +190,7 @@ NOT career stage alone. Career stage **+** project scope **+** prelim data drive
 Use `scripts/mechanism_matcher.py`:
 
 ```bash
-python ../scripts/mechanism_matcher.py \
+python scripts/mechanism_matcher.py \
   --career-stage "early_career" \
   --prelim-data "pilot" \
   --environment "r01_eligible" \
@@ -243,7 +243,7 @@ This is the single most valuable advice for any applicant. Never skip.
 
 - Save DOCX to `<output-dir>/grants_<topic-slug>_<YYYY-MM-DD>.docx`
 - Chat summary: file path + audit counts + plan tier + verdict on institute targets
-- Validate: `python scripts/office/validate.py <docx>`
+- Validate: check zip integrity with `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` (no output = intact), then confirm the required sections are present
 
 ## Tooling
 

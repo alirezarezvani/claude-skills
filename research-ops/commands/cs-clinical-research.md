@@ -30,8 +30,8 @@ Run the `clinical-research` skill on this input:
 
 ## First run + optimization
 
-- **Onboard first:** `python3 scripts/onboard.py` (area, alpha, power, dropout, named owners) — saved config pre-configures every tool. `--show` lists the questions.
-- **Optimize (opt-in):** only if the user asks to optimize/run a loop, hand off to autoresearch via `scripts/ar_evaluator.py` (`feasibility_composite`, higher is better).
+- **Onboard first:** `python3 skills/clinical-research/scripts/onboard.py` (area, alpha, power, dropout, named owners) — saved config pre-configures every tool. `--show` lists the questions.
+- **Optimize (opt-in):** only if the user asks to optimize/run a loop, hand off to autoresearch via `skills/clinical-research/scripts/ar_evaluator.py` (`feasibility_composite`, higher is better).
 
 ## Distinct from
 

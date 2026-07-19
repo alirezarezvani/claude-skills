@@ -1,0 +1,217 @@
+# Claude Code Skills & Agent Plugins — Full Repository Description
+
+> A comprehensive, self-contained description of the `alirezarezvani/claude-skills` repository, written for AI agents and LLM crawlers. This file follows the [llms.txt](https://llmstxt.org) convention (`llms-full.txt` variant: the expanded, single-file version). For the concise index, see [llms.txt](https://alirezarezvani.github.io/claude-skills/llms.txt).
+
+- **Project:** Claude Code Skills & Agent Plugins
+- **Repository:** https://github.com/alirezarezvani/claude-skills
+- **Documentation site:** https://alirezarezvani.github.io/claude-skills/
+- **Author:** Alireza Rezvani
+- **License:** MIT (free to extract, deploy, adapt, and redistribute)
+- **Distribution:** Claude Code plugin marketplace (`.claude-plugin/marketplace.json`) and the ClawHub registry (clawhub.com)
+
+---
+
+## What this repository is
+
+This is a **library of skill packages** for Claude AI and Claude Code — reusable, production-ready modules that bundle domain expertise, best practices, deterministic analysis tools, and strategic frameworks. It is **not a traditional application**. It is a catalog of self-contained skill folders meant to be extracted and deployed by users into their own AI-agent workflows.
+
+Teams download a skill folder and use it immediately: the skill's `SKILL.md` teaches the agent the workflow, the `scripts/` provide deterministic Python CLI tools, the `references/` supply expert knowledge bases, and the `assets/` give ready-to-customize templates.
+
+### Headline scale (derived from the tree by `scripts/derive_counters.py`)
+
+| Metric | Count |
+|--------|-------|
+| Production-ready skills | 354 |
+| Marketplace plugins | 82 |
+| Top-level domains | 18 |
+| Python automation tools | 593 |
+| Reference guides | 722 |
+| Agents (cs-* + personas) | 96 |
+| Slash commands | 102 |
+
+Counters are generated from the actual file tree; run `python3 scripts/derive_counters.py --check` to verify the docs still match the tree.
+
+---
+
+## Cross-tool compatibility
+
+Skills are authored once and made portable across many AI coding agents via sync scripts in `scripts/`. Supported targets include:
+
+- **Claude Code** (primary) — plugins, agents, slash commands, MCP servers, hooks
+- **OpenAI Codex** — `scripts/sync-codex-skills.py`, `~/.codex/`
+- **Gemini CLI** — `scripts/sync-gemini-skills.py`
+- **Cursor** — rules-format export
+- **Hermes Agent** — `scripts/sync-hermes-skills.py`
+- **Mistral Vibe** — `scripts/sync-vibe-skills.py`, `~/.vibe/skills/`
+- **Codebuff** — `scripts/sync-codebuff-skills.py`
+- **OpenClaw**, **Aider**, **Windsurf**, **Kilo Code**, **OpenCode**, **Augment**, **Antigravity** — documented in the Multi-Tool Integrations guide.
+
+---
+
+## Design principles
+
+1. **Skills are products.** Each skill is deployable as a standalone package with no dependency on other skills.
+2. **Documentation-driven.** Success depends on clear, actionable `SKILL.md` docs.
+3. **Algorithm over AI.** Analysis tools use deterministic Python (standard library only) — **no LLM/ML calls inside scripts**. This keeps skills portable, fast, and reproducible.
+4. **Template-heavy.** Skills ship ready-to-use templates users customize.
+5. **Platform-specific.** Specific, actionable frameworks beat generic advice.
+
+### Anti-patterns the repo deliberately avoids
+- Dependencies between skills (each stays self-contained)
+- Complex build systems or test frameworks (portability first)
+- Generic advice instead of specific frameworks
+- LLM calls in scripts (defeats portability and speed)
+
+---
+
+## Skill package pattern
+
+Every skill follows this structure:
+
+```
+skill-name/
+├── SKILL.md        # Master documentation: the workflow the agent follows
+├── scripts/        # Python CLI tools (stdlib-only, no LLM calls; support --help and JSON output)
+├── references/     # Expert knowledge bases (markdown), each citing 5-8 authoritative sources
+└── assets/         # User-facing templates
+```
+
+Knowledge flows: `references/` → informs `SKILL.md` workflows → executed via `scripts/` → applied using `assets/` templates.
+
+Each `SKILL.md` carries YAML frontmatter with a `name` and a `description` whose trigger phrasing (e.g. "Use when…") tells the agent when to invoke the skill.
+
+---
+
+## Repository structure
+
+```
+claude-skills/
+├── .claude-plugin/        # Plugin registry (marketplace.json — 82 plugins)
+├── agents/                # cs-* agents + 7 personas
+├── commands/              # Slash commands
+├── engineering-team/      # Core engineering skills
+├── engineering/           # POWERFUL-tier advanced engineering skills
+├── product-team/          # Product skills
+├── marketing-skill/       # Marketing skills (8 pods incl. AEO)
+├── marketing/             # Landing-page generator skill
+├── c-level-advisor/       # C-level advisory skills (full C-suite + founder-mode)
+├── project-management/    # PM skills + bundled Atlassian Remote MCP
+├── ra-qm-team/            # Regulatory / quality-management compliance skills
+├── compliance-os/         # Compliance audit-prep orchestrator + sub-skills
+├── business-growth/       # Customer success, sales eng, revops
+├── business-operations/   # Internal-ops skills (orchestrator + sub-skills)
+├── commercial/            # Per-deal-economics skills (orchestrator + sub-skills)
+├── finance/               # Finance skills
+├── research/              # Academic research skills (orchestrator + specialists)
+├── research-ops/          # Enterprise research operations (orchestrator + sub-skills)
+├── productivity/          # Capture, email, reflect, handoff, andreessen
+├── markdown-html/         # Markdown-to-interactive-HTML converter suite
+├── standards/             # Communication, quality, git, security standards
+├── templates/             # Reusable templates
+├── docs/                  # This MkDocs Material documentation site
+└── scripts/               # Build, sync, and validation scripts
+```
+
+---
+
+## The 18 domains in detail
+
+### Engineering — Core (`engineering-team/`)
+Fullstack, AI/ML, DevOps, security, data, and QA skills. Includes senior-role skills (architect, backend, frontend, fullstack, DevOps, data engineer/scientist, ML, computer vision, prompt, QA, security, SecOps), cloud architects (AWS/Azure/GCP), a full security suite (adversarial reviewer, AI security, cloud security, incident response, red team, threat detection, pen testing), Playwright Pro (10 sub-skills), a Self-Improving Agent suite, Snowflake development, and Stripe integration.
+
+### Engineering — POWERFUL (`engineering/`)
+Advanced, higher-leverage engineering skills: agent design, RAG architecture, MCP server building, CI/CD pipelines, database/schema design, observability, SLO architecture, chaos engineering, Kubernetes operators, feature-flags, migration architecture, performance profiling, dependency auditing, and meta-skills for **authoring skills** (`write-a-skill`), token compression (`caveman`), plan interrogation (`grill-me`), and conversation continuity (`handoff`). Also hosts AgentHub, the autoresearch-agent (Karpathy file-optimization loop), the LLM Wiki, ship-gate, and a PreToolUse security-guidance hook.
+
+### Product (`product-team/`)
+RICE prioritization, OKRs, user stories, UX research and design, product discovery/strategy, competitive teardowns, experiment design, product analytics, SaaS scaffolding, code-to-PRD, spec-to-repo, and an Apple HIG expert.
+
+### Marketing (`marketing-skill/`)
+Eight pods spanning content creation, copywriting/editing, SEO, **AEO (Answer Engine Optimization)**, ASO (app-store optimization), demand generation, paid ads, CRO (conversion-rate optimization across page/form/signup/paywall/popup/onboarding), social media, email sequences, pricing strategy, launch strategy, schema markup, and campaign analytics.
+
+### Marketing — Landing Pages (`marketing/`)
+A single-file HTML landing-page generator with multiple design styles, brand-palette validation, and GSAP animation patterns.
+
+### Project Management (`project-management/`)
+Jira and Confluence experts, Atlassian admin/templates, scrum master, senior PM, meeting analyzer, and team communications. Ships a bundled Atlassian Remote MCP (`.mcp.json`, SSE transport, OAuth handled by Claude Code).
+
+### C-Level Advisory (`c-level-advisor/`)
+A full C-suite of opinionated advisor skills (CEO, CFO, CMO, CPO, CRO, COO, CTO, CHRO, CISO, CDO, CAIO, CCO, VP Engineering, General Counsel) plus a **Founder-Mode** operating system: `/cs:office-hours`, `/cs:brief` → `/cs:boardroom` → `/cs:decide` → `/cs:execute` → `/cs:post-mortem`, plus onboarding, cross-eval, and decision-freeze commands. Includes an Executive Mentor suite and strategic frameworks (RICE, JTBD, OKR, ADKAR, Wardley mapping). Memory is Markdown-only (no database dependency).
+
+### Regulatory & Quality (`ra-qm-team/`)
+ISO 13485, EU MDR 2017/745, FDA, GDPR/DSGVO, ISO 27001, SOC 2, CAPA, risk management, and QMS/ISMS audit skills for regulated industries (notably medical devices).
+
+### Compliance OS (`compliance-os/`)
+An orchestrator plus audit-prep sub-skills for SOC 2, ISO 13485, ISO 27001, GDPR, FDA QSR, EU AI Act readiness, and ISO 42001 (AIMS).
+
+### Business & Growth (`business-growth/`)
+Customer success management, sales engineering, revenue operations, and contract/proposal writing.
+
+### Business Operations (`business-operations/`)
+Internal-ops skills for BizOps leads and COO direct reports: process mapping (BPMN + bottleneck + cycle-time), vendor management (scorecard + SLA + third-party risk), capacity planning (Erlang-C), internal comms (ADKAR + Kotter), knowledge ops (SOP/runbook hygiene), and procurement optimization. Orchestrator uses `context: fork` chaining. Every output is a recommendation routed to a named human — never an auto-decision.
+
+### Commercial (`commercial/`)
+Per-deal-and-packaging skills: pricing strategist (model picker + Van Westendorp PSM + packaging), deal desk (scorer + approval router + redliner), partnerships architect, channel economics, commercial policy, RFP responder (Shipley method), and commercial forecaster. Pricing outputs a model and a range (never a single number); deal outputs route to a named approver (never auto-approve).
+
+### Finance (`finance/`)
+Financial analysis, DCF valuation, budgeting/forecasting, business investment advisory, and SaaS-metrics coaching.
+
+### Research (`research/`)
+Academic/literature research: an orchestrator (hybrid router) plus specialists for recency+sentiment pulse, literature review, NIH grants, entity dossiers, patent/prior-art landscapes, course-reading syllabi, and NotebookLM browser automation.
+
+### Research Operations (`research-ops/`)
+The enterprise counterpart to `research/`: clinical study design (sample size, endpoints, phase-gate — estimates confirmed by a named clinical owner), R&D program finance (budget, burn/runway, CapEx-vs-OpEx routing), market research (TAM/SAM/SOM with method + assumptions, never a single number), and product research (study design, saturation planning, insight synthesis requiring recurrence across independent participants).
+
+### Productivity (`productivity/`)
+Capture (brain-dump-to-action), email (inbox setup + triage, drafts-only), reflect (light-prompt journaling), handoff (conversation continuity with redaction linting and session hooks), and andreessen (market-first decision engine).
+
+### Markdown to HTML (`markdown-html/`)
+A converter suite operationalizing Thariq Shihipar's thesis that markdown collapses past ~100 lines and HTML restores density/clarity/shareability. Ships an orchestrator (doctype router), a design-system onboarding wizard (WCAG-AA-validated brand palette), and three converters: `md-document` (long-form → single-file HTML with TOC/search/code-copy/scrollspy), `md-review` (code-review markdown → 2-column diff + severity annotations), and `md-slides` (markdown deck → single-file HTML presentation with keyboard nav, presenter mode, and print-to-PDF). Output is single-file HTML (Google Fonts + Prism.js CDN the only permitted externals).
+
+---
+
+## Agents and slash commands
+
+- **Agents (`agents/`):** 96 total, mostly `cs-*` prefixed personas (e.g. `cs-ceo-advisor`, `cs-senior-engineer`, `cs-aeo`, domain orchestrators) plus 7 general personas. Agents orchestrate skills and carry a distinct operating voice.
+- **Slash commands (`commands/`):** 102 total, including `/prd`, `/rice`, `/okr`, `/tdd`, `/changelog`, `/slo-design`, `/chaos-experiment`, `/plugin-audit`, `/seo-auditor`, and the `/cs:*` family (office-hours, boardroom, bizops, commercial, research-ops, markdown-html routers, and per-skill commands).
+
+---
+
+## Plugin distribution
+
+Plugins are registered in `.claude-plugin/marketplace.json` (82 plugins) across these categories: development (34), leadership (9), research (9), productivity (6), marketing (5), compliance (4), product (4), finance (2), and one each of project-management, business-growth, design, knowledge, operations, commercial, research-ops, documentation, and engineering.
+
+### plugin.json rules (for anyone extending the library)
+- Required fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills`.
+- Two approved extension fields: `source` (provenance for megaprompt-derived skills) and `attribution` (credit for MIT-licensed external derivations).
+- Skill paths are relative to the plugin root and start with `./`. Canonical forms: single-skill = `["./"]`; `skills/` subdir = `"./skills"`; multi-skill domain = explicit `["./sub1", "./sub2", ...]`.
+- Validation: `scripts/check_plugin_json.py --all` runs in CI on every PR.
+
+---
+
+## Git and contribution workflow
+
+- **Branch strategy:** feature → dev → main. **All PRs target `dev`, never `main`.** `main` receives only periodic `dev → main` promotion PRs from the maintainer.
+- **Conventional commits** are enforced (e.g. `feat(agents): …`, `fix(tool): …`, `docs(workflow): …`).
+- **Branch protection:** `main` requires PR approval; direct pushes are blocked.
+
+### ClawHub publishing constraints
+- The `cs-` prefix is used only on the ClawHub registry when a slug conflicts with another publisher — repo folder names and local skill names are never renamed.
+- No paid/commercial service dependencies; free-tier APIs and bring-your-own-key patterns are acceptable.
+- Rate limit: 5 new skills per hour.
+- Package versions match the repo release version.
+
+---
+
+## How an agent should use this repository
+
+1. **Find a matching skill** by browsing the [Skills Overview](https://alirezarezvani.github.io/claude-skills/skills/) or a domain index, matching the task to a skill's `description` trigger.
+2. **Read the skill's `SKILL.md`** to learn the workflow.
+3. **Run the skill's Python tools** (`scripts/*.py`, stdlib-only, all support `--help` and most support JSON output) for deterministic analysis.
+4. **Consult `references/`** for the expert knowledge underpinning the workflow.
+5. **Apply the `assets/` templates** to produce the deliverable.
+
+To install as a plugin, add the marketplace and install the relevant plugin via Claude Code; see [Getting Started](https://alirezarezvani.github.io/claude-skills/getting-started/) and [Multi-Tool Integrations](https://alirezarezvani.github.io/claude-skills/integrations/) for non-Claude tools.
+
+---
+
+*Generated to make the repository accessible to AI agents. Counters reflect `scripts/derive_counters.py` at the time of writing; the repository evolves — the GitHub repository and documentation site are the authoritative sources.*

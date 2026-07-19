@@ -1,6 +1,6 @@
 # Engineering Skills Collection
 
-Complete set of 18 engineering role skills tailored to your tech stack (ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python).
+Complete set of 32 engineering skills (role skills, security suite, AI/ML/Data, and specialized tools) tailored to your tech stack (ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python).
 
 ## ⚡ Installation
 
@@ -23,30 +23,30 @@ npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team --agen
 
 ```bash
 # Core Engineering
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-architect
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-frontend
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-backend
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-fullstack
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-qa
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-devops
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-secops
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/code-reviewer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-security
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-architect
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-frontend
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-backend
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-fullstack
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-qa
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-devops
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-secops
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/code-reviewer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-security
 
 # Cloud & Enterprise
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/aws-solution-architect
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/ms365-tenant-manager
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/aws-solution-architect
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/ms365-tenant-manager
 
 # Development Tools
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/tdd-guide
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/tech-stack-evaluator
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/tdd-guide
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/tech-stack-evaluator
 
 # AI/ML/Data
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-data-scientist
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-data-engineer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-ml-engineer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-prompt-engineer
-npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/senior-computer-vision
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-data-scientist
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-data-engineer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-ml-engineer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-prompt-engineer
+npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills/senior-computer-vision
 ```
 
 **Supported Agents:** Claude Code, Cursor, VS Code, Copilot, Goose, Amp, Codex
@@ -74,7 +74,7 @@ skill-name/
 
 ## 🎯 Skills Overview
 
-### 1. Senior Software Architect (`senior-architect.zip`)
+### 1. Senior Software Architect (`skills/senior-architect/`)
 
 **Purpose:** System architecture design, tech stack decisions, architecture diagrams
 
@@ -104,7 +104,7 @@ skill-name/
 
 ---
 
-### 2. Senior Frontend Engineer (`senior-frontend.zip`)
+### 2. Senior Frontend Engineer (`skills/senior-frontend/`)
 
 **Purpose:** Frontend development with React, Next.js, TypeScript
 
@@ -134,7 +134,7 @@ skill-name/
 
 ---
 
-### 3. Senior Backend Engineer (`senior-backend.zip`)
+### 3. Senior Backend Engineer (`skills/senior-backend/`)
 
 **Purpose:** Backend development with Node.js, Express, GraphQL, Go, Python
 
@@ -164,7 +164,7 @@ skill-name/
 
 ---
 
-### 4. Senior Fullstack Engineer (`senior-fullstack.zip`)
+### 4. Senior Fullstack Engineer (`skills/senior-fullstack/`)
 
 **Purpose:** End-to-end application development
 
@@ -194,7 +194,7 @@ skill-name/
 
 ---
 
-### 5. Senior QA Testing Engineer (`senior-qa.zip`)
+### 5. Senior QA Testing Engineer (`skills/senior-qa/`)
 
 **Purpose:** Quality assurance and test automation for React/Next.js applications
 
@@ -229,7 +229,7 @@ skill-name/
 
 ---
 
-### 6. Senior DevOps Engineer (`senior-devops.zip`)
+### 6. Senior DevOps Engineer (`skills/senior-devops/`)
 
 **Purpose:** CI/CD, infrastructure automation, deployment
 
@@ -259,7 +259,7 @@ skill-name/
 
 ---
 
-### 7. Senior SecOps Engineer (`senior-secops.zip`)
+### 7. Senior SecOps Engineer (`skills/senior-secops/`)
 
 **Purpose:** Security operations and compliance
 
@@ -289,7 +289,7 @@ skill-name/
 
 ---
 
-### 8. Code Reviewer (`code-reviewer.zip`)
+### 8. Code Reviewer (`skills/code-reviewer/`)
 
 **Purpose:** Code review automation and quality checking
 
@@ -319,7 +319,7 @@ skill-name/
 
 ---
 
-### 9. Senior Security Engineer (`senior-security.zip`)
+### 9. Senior Security Engineer (`skills/senior-security/`)
 
 **Purpose:** Security architecture and penetration testing
 
@@ -353,8 +353,8 @@ skill-name/
 
 ### Installation
 
-1. **Download the skills** you need from the files above
-2. **Extract** the zip file
+1. **Pick the skills** you need under `skills/`
+2. **Open** the skill folder (e.g., `cd skills/senior-architect`)
 3. **Install dependencies** (if needed):
    ```bash
    # For Python scripts
@@ -379,7 +379,7 @@ ls references/
 python scripts/[script-name].py --help
 
 # Example: Generate architecture diagrams
-cd senior-architect
+cd skills/senior-architect
 python scripts/architecture_diagram_generator.py --type c4 --output ./docs
 ```
 
@@ -414,7 +414,7 @@ python scripts/architecture_diagram_generator.py --type c4 --output ./docs
 
 ```bash
 # Step 1: Design architecture
-cd senior-architect
+cd skills/senior-architect
 python scripts/project_architect.py my-app --pattern microservices
 
 # Step 2: Scaffold project
@@ -430,7 +430,7 @@ python scripts/pipeline_generator.py my-app --platform github
 
 ```bash
 # Step 1: Analyze PR
-cd code-reviewer
+cd skills/code-reviewer
 python scripts/pr_analyzer.py ../my-app
 
 # Step 2: Check quality
@@ -444,7 +444,7 @@ python scripts/review_report_generator.py ../my-app --output review.md
 
 ```bash
 # Step 1: Scan for vulnerabilities
-cd senior-secops
+cd skills/senior-secops
 python scripts/security_scanner.py ../my-app
 
 # Step 2: Assess risks
@@ -586,8 +586,8 @@ Each skill includes:
 
 ## 🚀 Next Steps
 
-1. **Download** the skills you need most
-2. **Extract** and explore the structure
+1. **Pick** the skills you need most under `skills/`
+2. **Explore** the folder structure
 3. **Read** SKILL.md for each skill
 4. **Run** example scripts to understand capabilities
 5. **Customize** for your specific needs

@@ -180,17 +180,17 @@ python scripts/evidence_pool_generator.py program.json
 
 ## Adjacent Skills
 
-- `../../ra-qm-team/skills/iso42001-specialist/` — ISO 42001 deep-dive (paired with compliance-team-iso42001 plugin)
-- `../../ra-qm-team/skills/eu-ai-act-specialist/` — EU AI Act deep-dive (paired with compliance-team-eu-ai-act plugin)
-- `../../ra-qm-team/skills/information-security-manager-iso27001/` — ISO 27001 ISMS deep-dive
-- `../../ra-qm-team/skills/quality-manager-qms-iso13485/` — ISO 13485 QMS deep-dive
-- `../../ra-qm-team/skills/gdpr-dsgvo-expert/` — GDPR deep-dive
-- `../../ra-qm-team/skills/soc2-compliance/` — SOC 2 deep-dive
-- `../../ra-qm-team/skills/fda-consultant-specialist/` — FDA QSR deep-dive
-- `../../ra-qm-team/skills/mdr-745-specialist/` — EU MDR 745 deep-dive
-- `../../ra-qm-team/skills/risk-management-specialist/` — ISO 14971 deep-dive
-- `../../c-level-advisor/chief-ai-officer-advisor/` — Executive AI risk decisions (build-vs-buy, model selection)
-- `../../c-level-advisor/skills/general-counsel-advisor/` — Legal review for novel cases
+- `ra-qm-team/skills/iso42001-specialist/` — ISO 42001 deep-dive (paired with compliance-team-iso42001 plugin)
+- `ra-qm-team/skills/eu-ai-act-specialist/` — EU AI Act deep-dive (paired with compliance-team-eu-ai-act plugin)
+- `ra-qm-team/skills/information-security-manager-iso27001/` — ISO 27001 ISMS deep-dive
+- `ra-qm-team/skills/quality-manager-qms-iso13485/` — ISO 13485 QMS deep-dive
+- `ra-qm-team/skills/gdpr-dsgvo-expert/` — GDPR deep-dive
+- `ra-qm-team/skills/soc2-compliance/` — SOC 2 deep-dive
+- `ra-qm-team/skills/fda-consultant-specialist/` — FDA QSR deep-dive
+- `ra-qm-team/skills/mdr-745-specialist/` — EU MDR 745 deep-dive
+- `ra-qm-team/skills/risk-management-specialist/` — ISO 14971 deep-dive
+- `c-level-advisor/chief-ai-officer-advisor/` — Executive AI risk decisions (build-vs-buy, model selection)
+- `c-level-advisor/skills/general-counsel-advisor/` — Legal review for novel cases
 
 ## References
 

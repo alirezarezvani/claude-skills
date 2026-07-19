@@ -1,6 +1,6 @@
 ---
 name: channel-economics
-description: "Use when reviewing or rebalancing direct vs. partner-led channel economics — computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts (DOUBLE-DOWN / MAINTAIN / DEFUND / EXIT), a sensitivity-tested channel-mix recommendation, and the diminishing-returns inflection. Not channel structure (that's partnerships-architect — tiers, joint GTM, revshare). Not RevOps process (that's business-growth/revenue-operations — lead routing, SDR motion). Not strategic CRO judgment (that's c-level-advisor/cro-advisor — comp plans, when-to-hire-a-VP-Sales). Not historical close-and-report (that's finance/financial-analysis). This skill answers: direct vs partner profitability, channel profitability, channel mix, channel economics."
+description: "Use when reviewing or rebalancing direct vs. partner-led channel economics — computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts (DOUBLE-DOWN / MAINTAIN / DEFUND / EXIT), a sensitivity-tested channel-mix recommendation, and the diminishing-returns inflection (e.g., 'which channel actually makes money — direct or partner?')."
 version: 2.8.0
 author: claude-code-skills
 license: MIT
@@ -78,6 +78,13 @@ Take the three reports into the quarterly channel review. The skill recommends; 
 - `scripts/channel_mix_optimizer.py` — constrained mix optimizer with sensitivity scenarios
 
 All scripts: stdlib only. `--help`, `--sample`, `--input`, `--output` work on all three. Industry tuning via `--profile {saas,api,enterprise-software,marketplace,hardware}` on the two analyzers.
+
+## Quick example
+
+```bash
+# Emits fully-loaded cost-to-serve per channel (direct vs partner-led) for the built-in sample channel data
+cd commercial/skills/channel-economics && python3 scripts/cost_to_serve_calculator.py --sample
+```
 
 ## References
 

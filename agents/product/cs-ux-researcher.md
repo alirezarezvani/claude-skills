@@ -1,6 +1,6 @@
 ---
 name: cs-ux-researcher
-description: UX research agent for research planning, persona generation, journey mapping, and usability test analysis
+description: UX research agent for research planning, persona generation, journey mapping, and usability test analysis. Use when product decisions need user evidence — e.g., planning interview scripts and recruiting criteria for a discovery study, or synthesizing usability-test sessions into prioritized findings and updated personas.
 skills: product-team/ux-researcher-designer, product-team/product-manager-toolkit, product-team/ui-design-system
 domain: product
 model: sonnet
@@ -19,78 +19,78 @@ The cs-ux-researcher agent ensures that user needs drive product development. It
 
 ## Skill Integration
 
-**Primary Skill:** `../../product-team/ux-researcher-designer/`
+**Primary Skill:** `../../product-team/skills/ux-researcher-designer/`
 
 ### All Orchestrated Skills
 
 | # | Skill | Location | Primary Tool |
 |---|-------|----------|-------------|
-| 1 | UX Researcher & Designer | `../../product-team/ux-researcher-designer/` | persona_generator.py |
-| 2 | Product Manager Toolkit | `../../product-team/product-manager-toolkit/` | customer_interview_analyzer.py |
-| 3 | UI Design System | `../../product-team/ui-design-system/` | design_token_generator.py |
+| 1 | UX Researcher & Designer | `../../product-team/skills/ux-researcher-designer/` | persona_generator.py |
+| 2 | Product Manager Toolkit | `../../product-team/skills/product-manager-toolkit/` | customer_interview_analyzer.py |
+| 3 | UI Design System | `../../product-team/skills/ui-design-system/` | design_token_generator.py |
 
 ### Python Tools
 
 1. **Persona Generator**
    - **Purpose:** Create data-driven user personas from research inputs including demographics, goals, pain points, and behavioral patterns
-   - **Path:** `../../product-team/ux-researcher-designer/scripts/persona_generator.py`
-   - **Usage:** `python ../../product-team/ux-researcher-designer/scripts/persona_generator.py research-data.json`
+   - **Path:** `../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py`
+   - **Usage:** `python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py research-data.json`
    - **Features:** Multiple persona generation, behavioral segmentation, needs hierarchy mapping, empathy map creation
    - **Use Cases:** Persona development, user segmentation, design alignment, stakeholder communication
 
 2. **Customer Interview Analyzer**
    - **Purpose:** NLP-based analysis of interview transcripts to extract pain points, feature requests, themes, and sentiment
-   - **Path:** `../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py`
-   - **Usage:** `python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interview.txt`
+   - **Path:** `../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py`
+   - **Usage:** `python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview.txt`
    - **Features:** Pain point extraction with severity scoring, feature request identification, jobs-to-be-done patterns, theme clustering, key quote extraction
    - **Use Cases:** Interview synthesis, discovery validation, problem prioritization, insight aggregation
 
 3. **Design Token Generator**
    - **Purpose:** Generate design tokens for consistent UI implementation across platforms
-   - **Path:** `../../product-team/ui-design-system/scripts/design_token_generator.py`
-   - **Usage:** `python ../../product-team/ui-design-system/scripts/design_token_generator.py theme.json`
+   - **Path:** `../../product-team/skills/ui-design-system/scripts/design_token_generator.py`
+   - **Usage:** `python ../../product-team/skills/ui-design-system/scripts/design_token_generator.py theme.json`
    - **Use Cases:** Research-informed design system updates, accessibility token adjustments
 
 ### Knowledge Bases
 
 1. **Persona Methodology**
-   - **Location:** `../../product-team/ux-researcher-designer/references/persona-methodology.md`
+   - **Location:** `../../product-team/skills/ux-researcher-designer/references/persona-methodology.md`
    - **Content:** Research-backed persona creation methodology, data collection strategies, validation approaches
    - **Use Case:** Methodological guidance for persona projects
 
 2. **Example Personas**
-   - **Location:** `../../product-team/ux-researcher-designer/references/example-personas.md`
+   - **Location:** `../../product-team/skills/ux-researcher-designer/references/example-personas.md`
    - **Content:** Sample persona documents with demographics, goals, pain points, behaviors, scenarios
    - **Use Case:** Persona format reference, team training
 
 3. **Journey Mapping Guide**
-   - **Location:** `../../product-team/ux-researcher-designer/references/journey-mapping-guide.md`
+   - **Location:** `../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md`
    - **Content:** Customer journey mapping methodology, touchpoint analysis, emotion mapping, opportunity identification
    - **Use Case:** Journey map creation, experience design, service design
 
 4. **Usability Testing Frameworks**
-   - **Location:** `../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md`
+   - **Location:** `../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md`
    - **Content:** Test planning, task design, analysis methods, severity ratings, reporting formats
    - **Use Case:** Usability study design, prototype validation, UX evaluation
 
 5. **Component Architecture**
-   - **Location:** `../../product-team/ui-design-system/references/component-architecture.md`
+   - **Location:** `../../product-team/skills/ui-design-system/references/component-architecture.md`
    - **Content:** Component hierarchy, atomic design patterns, composition strategies
    - **Use Case:** Research-to-design translation, component recommendations
 
 6. **Developer Handoff**
-   - **Location:** `../../product-team/ui-design-system/references/developer-handoff.md`
+   - **Location:** `../../product-team/skills/ui-design-system/references/developer-handoff.md`
    - **Content:** Design-to-dev handoff process, specification formats, asset delivery
    - **Use Case:** Translating research findings into implementation specs
 
 ### Templates
 
 1. **Research Plan Template**
-   - **Location:** `../../product-team/ux-researcher-designer/assets/research_plan_template.md`
+   - **Location:** `../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md`
    - **Use Case:** Structuring research studies with methodology, participants, and analysis plan
 
 2. **Design System Documentation Template**
-   - **Location:** `../../product-team/ui-design-system/assets/design_system_doc_template.md`
+   - **Location:** `../../product-team/skills/ui-design-system/assets/design_system_doc_template.md`
    - **Use Case:** Documenting research-informed design system decisions
 
 ## Workflows
@@ -109,7 +109,7 @@ The cs-ux-researcher agent ensures that user needs drive product development. It
 2. **Select Methodology** - Choose the right approach:
    ```bash
    # Review usability testing frameworks for method selection
-   cat ../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md
+   cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
    ```
    - **Exploratory** (interviews, contextual inquiry): When learning about problem space
    - **Evaluative** (usability testing, A/B tests): When validating solutions
@@ -125,7 +125,7 @@ The cs-ux-researcher agent ensures that user needs drive product development. It
 4. **Create Study Materials** - Prepare research instruments:
    ```bash
    # Use the research plan template
-   cat ../../product-team/ux-researcher-designer/assets/research_plan_template.md
+   cat ../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md
    ```
    - Interview guide or test script
    - Task scenarios (for usability tests)
@@ -145,13 +145,13 @@ The cs-ux-researcher agent ensures that user needs drive product development. It
 **Example:**
 ```bash
 # Create research plan from template
-cp ../../product-team/ux-researcher-designer/assets/research_plan_template.md onboarding-research-plan.md
+cp ../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md onboarding-research-plan.md
 
 # Review methodology options
-cat ../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md
+cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
 
 # Review persona methodology for participant criteria
-cat ../../product-team/ux-researcher-designer/references/persona-methodology.md
+cat ../../product-team/skills/ux-researcher-designer/references/persona-methodology.md
 ```
 
 ### Workflow 2: Persona Generation
@@ -169,9 +169,9 @@ cat ../../product-team/ux-researcher-designer/references/persona-methodology.md
 2. **Analyze Interview Data** - Extract structured insights:
    ```bash
    # Analyze each interview transcript
-   python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-001.txt > insights-001.json
-   python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-002.txt > insights-002.json
-   python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-003.txt > insights-003.json
+   python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-001.txt > insights-001.json
+   python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-002.txt > insights-002.json
+   python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py interview-003.txt > insights-003.json
    ```
 
 3. **Identify Behavioral Segments** - Cluster users by:
@@ -184,7 +184,7 @@ cat ../../product-team/ux-researcher-designer/references/persona-methodology.md
 4. **Generate Personas** - Create data-backed personas:
    ```bash
    # Generate personas from aggregated research
-   python ../../product-team/ux-researcher-designer/scripts/persona_generator.py research-data.json
+   python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py research-data.json
    ```
 
 5. **Validate Personas** - Ensure accuracy:
@@ -196,7 +196,7 @@ cat ../../product-team/ux-researcher-designer/references/persona-methodology.md
 6. **Socialize Personas** - Make personas actionable:
    ```bash
    # Review example personas for format guidance
-   cat ../../product-team/ux-researcher-designer/references/example-personas.md
+   cat ../../product-team/skills/ux-researcher-designer/references/example-personas.md
    ```
    - Create one-page persona cards for team walls/wikis
    - Present to product, engineering, and design teams
@@ -216,18 +216,18 @@ echo "==========================="
 # Step 1: Analyze interviews
 for f in interviews/*.txt; do
   base=$(basename "$f" .txt)
-  python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f" json > "insights-$base.json"
+  python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f" json > "insights-$base.json"
   echo "Analyzed: $f"
 done
 
 # Step 2: Review persona methodology
-cat ../../product-team/ux-researcher-designer/references/persona-methodology.md
+cat ../../product-team/skills/ux-researcher-designer/references/persona-methodology.md
 
 # Step 3: Generate personas
-python ../../product-team/ux-researcher-designer/scripts/persona_generator.py research-data.json
+python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py research-data.json
 
 # Step 4: Review example format
-cat ../../product-team/ux-researcher-designer/references/example-personas.md
+cat ../../product-team/skills/ux-researcher-designer/references/example-personas.md
 ```
 
 ### Workflow 3: Journey Mapping
@@ -243,7 +243,7 @@ cat ../../product-team/ux-researcher-designer/references/example-personas.md
 
 2. **Review Journey Mapping Methodology** - Understand the framework:
    ```bash
-   cat ../../product-team/ux-researcher-designer/references/journey-mapping-guide.md
+   cat ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md
    ```
 
 3. **Map Journey Stages** - Identify key phases:
@@ -278,7 +278,7 @@ cat ../../product-team/ux-researcher-designer/references/example-personas.md
    Self-service help in context,600,2,0.8,2
    Upgrade prompt optimization,400,3,0.6,2
    EOF
-   python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py journey-opportunities.csv
+   python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py journey-opportunities.csv
    ```
 
 **Expected Output:** Visual journey map with stages, touchpoints, emotions, pain points, and prioritized improvement opportunities
@@ -292,14 +292,14 @@ echo "Journey Mapping - Onboarding Flow"
 echo "=================================="
 
 # Review journey mapping methodology
-cat ../../product-team/ux-researcher-designer/references/journey-mapping-guide.md
+cat ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md
 
 # Analyze relevant interview transcripts for journey insights
-python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py onboarding-interview-01.txt
-python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py onboarding-interview-02.txt
+python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py onboarding-interview-01.txt
+python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py onboarding-interview-02.txt
 
 # Prioritize improvement opportunities
-python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py journey-opportunities.csv
+python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py journey-opportunities.csv
 ```
 
 ### Workflow 4: Usability Test Analysis
@@ -310,7 +310,7 @@ python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py jo
 1. **Plan the Test** - Design the study:
    ```bash
    # Review usability testing frameworks
-   cat ../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md
+   cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
    ```
    - Define test objectives (what decisions will this inform)
    - Select test type (moderated/unmoderated, remote/in-person)
@@ -324,7 +324,7 @@ python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py jo
    - Note-taking template for observers
    - Use research plan template for documentation:
    ```bash
-   cat ../../product-team/ux-researcher-designer/assets/research_plan_template.md
+   cat ../../product-team/skills/ux-researcher-designer/assets/research_plan_template.md
    ```
 
 3. **Conduct Sessions** - Run 5-8 sessions:
@@ -347,8 +347,8 @@ python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py jo
 5. **Analyze Verbal Feedback** - Extract qualitative insights:
    ```bash
    # Analyze session transcripts for themes
-   python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py usability-session-01.txt
-   python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py usability-session-02.txt
+   python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py usability-session-01.txt
+   python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py usability-session-02.txt
    ```
 
 6. **Create Report and Recommendations** - Deliver findings:
@@ -362,7 +362,7 @@ python ../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py jo
    - Review findings with design team
    - Map issues to components in design system:
    ```bash
-   cat ../../product-team/ui-design-system/references/component-architecture.md
+   cat ../../product-team/skills/ui-design-system/references/component-architecture.md
    ```
    - Create Jira tickets for each issue
    - Plan re-test for critical issues after fixes
@@ -378,17 +378,17 @@ echo "Usability Test Analysis"
 echo "======================="
 
 # Review frameworks
-cat ../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md
+cat ../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md
 
 # Analyze each session transcript
 for i in 1 2 3 4 5; do
   echo "Session $i Analysis:"
-  python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py "usability-session-0$i.txt"
+  python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "usability-session-0$i.txt"
   echo ""
 done
 
 # Review component architecture for design recommendations
-cat ../../product-team/ui-design-system/references/component-architecture.md
+cat ../../product-team/skills/ui-design-system/references/component-architecture.md
 ```
 
 ## Integration Examples
@@ -411,7 +411,7 @@ echo "-------------------------------------"
 for f in discovery-interviews/*.txt; do
   base=$(basename "$f" .txt)
   echo "Analyzing: $base"
-  python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f" json > "insights/$base.json"
+  python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f" json > "insights/$base.json"
 done
 
 # Week 2: Synthesis
@@ -420,10 +420,10 @@ echo "Week 2: Generate Personas & Journey Map"
 echo "----------------------------------------"
 
 # Generate personas from aggregated data
-python ../../product-team/ux-researcher-designer/scripts/persona_generator.py aggregated-research.json
+python ../../product-team/skills/ux-researcher-designer/scripts/persona_generator.py aggregated-research.json
 
 # Reference journey mapping guide
-echo "Journey mapping guide: ../../product-team/ux-researcher-designer/references/journey-mapping-guide.md"
+echo "Journey mapping guide: ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md"
 ```
 
 ### Example 2: Research Repository Update
@@ -439,15 +439,15 @@ echo "================================================"
 echo ""
 echo "New Interview Analysis:"
 for f in new-interviews/*.txt; do
-  python ../../product-team/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f"
+  python ../../product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py "$f"
   echo "---"
 done
 
 # Review and refresh personas
 echo ""
 echo "Persona Review:"
-echo "Current personas: ../../product-team/ux-researcher-designer/references/example-personas.md"
-echo "Methodology: ../../product-team/ux-researcher-designer/references/persona-methodology.md"
+echo "Current personas: ../../product-team/skills/ux-researcher-designer/references/example-personas.md"
+echo "Methodology: ../../product-team/skills/ux-researcher-designer/references/persona-methodology.md"
 ```
 
 ### Example 3: Design Handoff with Research Context
@@ -462,22 +462,22 @@ echo "========================"
 # Persona context
 echo ""
 echo "1. Active Personas:"
-cat ../../product-team/ux-researcher-designer/references/example-personas.md | head -30
+cat ../../product-team/skills/ux-researcher-designer/references/example-personas.md | head -30
 
 # Journey context
 echo ""
 echo "2. Journey Map Reference:"
-echo "See: ../../product-team/ux-researcher-designer/references/journey-mapping-guide.md"
+echo "See: ../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md"
 
 # Design system alignment
 echo ""
 echo "3. Component Architecture:"
-echo "See: ../../product-team/ui-design-system/references/component-architecture.md"
+echo "See: ../../product-team/skills/ui-design-system/references/component-architecture.md"
 
 # Developer handoff process
 echo ""
 echo "4. Handoff Process:"
-echo "See: ../../product-team/ui-design-system/references/developer-handoff.md"
+echo "See: ../../product-team/skills/ui-design-system/references/developer-handoff.md"
 ```
 
 ## Success Metrics
@@ -511,16 +511,16 @@ echo "See: ../../product-team/ui-design-system/references/developer-handoff.md"
 - [cs-product-manager](cs-product-manager.md) - Product management lifecycle, interview analysis, PRD development
 - [cs-agile-product-owner](cs-agile-product-owner.md) - Translating research findings into user stories
 - [cs-product-strategist](cs-product-strategist.md) - Strategic research to validate product vision and positioning
-- UI Design System - Design handoff and component recommendations (see `../../product-team/ui-design-system/`)
+- UI Design System - Design handoff and component recommendations (see `../../product-team/skills/ui-design-system/`)
 
 ## References
 
-- **Primary Skill:** [../../product-team/ux-researcher-designer/SKILL.md](../../product-team/ux-researcher-designer/SKILL.md)
-- **Interview Analyzer:** [../../product-team/product-manager-toolkit/SKILL.md](../../product-team/product-manager-toolkit/SKILL.md)
-- **Persona Methodology:** [../../product-team/ux-researcher-designer/references/persona-methodology.md](../../product-team/ux-researcher-designer/references/persona-methodology.md)
-- **Journey Mapping Guide:** [../../product-team/ux-researcher-designer/references/journey-mapping-guide.md](../../product-team/ux-researcher-designer/references/journey-mapping-guide.md)
-- **Usability Testing:** [../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md](../../product-team/ux-researcher-designer/references/usability-testing-frameworks.md)
-- **Design System:** [../../product-team/ui-design-system/SKILL.md](../../product-team/ui-design-system/SKILL.md)
+- **Primary Skill:** [../../product-team/skills/ux-researcher-designer/SKILL.md](../../product-team/skills/ux-researcher-designer/SKILL.md)
+- **Interview Analyzer:** [../../product-team/skills/product-manager-toolkit/SKILL.md](../../product-team/skills/product-manager-toolkit/SKILL.md)
+- **Persona Methodology:** [../../product-team/skills/ux-researcher-designer/references/persona-methodology.md](../../product-team/skills/ux-researcher-designer/references/persona-methodology.md)
+- **Journey Mapping Guide:** [../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md](../../product-team/skills/ux-researcher-designer/references/journey-mapping-guide.md)
+- **Usability Testing:** [../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md](../../product-team/skills/ux-researcher-designer/references/usability-testing-frameworks.md)
+- **Design System:** [../../product-team/skills/ui-design-system/SKILL.md](../../product-team/skills/ui-design-system/SKILL.md)
 - **Product Domain Guide:** [../../product-team/CLAUDE.md](../../product-team/CLAUDE.md)
 - **Agent Development Guide:** [../CLAUDE.md](../CLAUDE.md)
 

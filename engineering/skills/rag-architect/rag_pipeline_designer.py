@@ -200,18 +200,18 @@ class RAGPipelineDesigner:
         
         if "code" in doc_types:
             if high_accuracy and not cost_sensitive:
-                model = "openai-code-search-ada-002"
-                cost_per_1k_tokens = 0.0001
-                dimensions = 1536
+                model = "voyage-code-3"
+                cost_per_1k_tokens = 0.00018  # verify current pricing before budgeting
+                dimensions = 1024
             else:
                 model = "sentence-transformers/code-bert-base"
                 cost_per_1k_tokens = 0.0  # Self-hosted
                 dimensions = 768
         elif "scientific" in doc_types:
             if high_accuracy:
-                model = "openai-text-embedding-ada-002"
-                cost_per_1k_tokens = 0.0001
-                dimensions = 1536
+                model = "openai-text-embedding-3-large"
+                cost_per_1k_tokens = 0.00013  # verify current pricing before budgeting
+                dimensions = 3072
             else:
                 model = "sentence-transformers/scibert-nli" 
                 cost_per_1k_tokens = 0.0
@@ -222,9 +222,9 @@ class RAGPipelineDesigner:
                 cost_per_1k_tokens = 0.0
                 dimensions = 384
             elif high_accuracy:
-                model = "openai-text-embedding-ada-002"
-                cost_per_1k_tokens = 0.0001  
-                dimensions = 1536
+                model = "openai-text-embedding-3-large"
+                cost_per_1k_tokens = 0.00013  # verify current pricing before budgeting
+                dimensions = 3072
             else:
                 model = "sentence-transformers/all-mpnet-base-v2"
                 cost_per_1k_tokens = 0.0
@@ -443,9 +443,15 @@ graph TB
     def _load_embedding_models(self) -> Dict[str, Dict[str, Any]]:
         """Load embedding model specifications."""
         return {
-            "openai-text-embedding-ada-002": {
-                "dimensions": 1536,
-                "cost_per_1k_tokens": 0.0001,
+            "openai-text-embedding-3-large": {
+                "dimensions": 3072,
+                "cost_per_1k_tokens": 0.00013,  # verify current pricing
+                "quality": "high",
+                "speed": "medium"
+            },
+            "voyage-3-large": {
+                "dimensions": 1024,
+                "cost_per_1k_tokens": 0.00018,  # verify current pricing
                 "quality": "high",
                 "speed": "medium"
             },

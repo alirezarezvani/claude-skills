@@ -8,15 +8,17 @@ The markdown-html domain converts long markdown files (the actual artifacts prod
 
 It is **not** an interactive prompt-tuning playground (`/playground` plugin owns that lane), **not** a landing-page generator (`marketing/landing/`), **not** a session-handoff brief generator (`engineering/handoff/` + `productivity/handoff/`), and **not** a static-site generator (single-file artifacts, not site indices).
 
-## Skills (v2.10.0)
+## Skills (v2.10.3 — domain complete)
 
 | Skill | Purpose | `context: fork`? | Status |
 |---|---|---|---|
 | `markdown-html-orchestrator` | Domain orchestrator — classifies doctype, gates on threshold + onboarding, routes to converter | YES | ✓ live |
 | `design-system` | One-time onboarding wizard + WCAG-AA-validated brand palette (12 CSS custom properties) + shared config | NO | ✓ live |
-| `md-document` | Long-form converter: sticky TOC, collapsibles, search, code-copy, scrollspy | NO | v2.10.1 |
-| `md-review` | Code-review converter: 2-col diff + severity-tagged margin annotations + jump-nav | NO | v2.10.1 |
-| `md-slides` | Slide-deck converter: arrow-key nav + presenter mode + print-to-PDF | NO | v2.10.1 |
+| `md-document` | Long-form converter: sticky TOC, collapsibles, search, code-copy, scrollspy | NO | ✓ live |
+| `md-review` | Code-review converter: 2-col diff + severity-tagged margin annotations + jump-nav | NO | ✓ live |
+| `md-slides` | Slide-deck converter: arrow-key nav + presenter mode + print-to-PDF | NO | ✓ live |
+
+All three converters are shipped. Routing always targets the converter skill's scripts — never hand-render HTML inline.
 
 ## Hard rules (domain-specific)
 
@@ -42,7 +44,7 @@ Each SKILL.md ships a "Forcing-question library" section (cited-canon grilling, 
 - `/cs:grill-markdown-html <path>.md` — Matt-Pocock-style 5-question grill before conversion
 - `/cs:design-system` — surface the onboarding wizard
 
-Per-sub-skill commands land with the converter PRs in v2.10.1:
+Per-sub-skill commands (all live):
 - `/cs:md-document`, `/cs:md-review`, `/cs:md-slides`
 
 ## Anti-patterns (domain-level)

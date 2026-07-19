@@ -5,6 +5,95 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] — fable-goal: ramble → autonomous /goal prompt (this PR)
+
+### Added — `productivity/fable-goal`
+
+Improved port of `duncan-buildroom/freeskills` `fable-goal` (informal "free to use
+and modify" grant — quoted in the `attribution` block, not relicensed). Converts a
+rambling description of a desired outcome into one polished, copy-paste /goal
+prompt for a fresh autonomous session — the prompt is the deliverable, never the
+build. Adds over upstream: wrong-tool check, observable-done principle, six-slot
+extraction (deliverable/quantity/stakes/tools/quality/destination), per-medium
+verification defaults, six-point pre-delivery self-check, anti-pattern list +
+failure-mode catalog reference, second worked example in a non-web medium. Ships
+`goal_prompt_self_check.py` (stdlib runner for the mechanically checkable
+self-check subset; exit 0/1, `--sample`, `--output json`) and the
+`/cs:fable-goal` command. Intentionally no `agents/`/`assets/` (single reasoning
+pass; see plugin README design notes). SKILL.md is a full PASS on the
+write-a-skill 6-item checklist.
+
+### Changed — counters trued up
+
+skills 357 → 358 (this PR also trues up pre-existing engineering-row drift
+355 → 357), tools 602 → 603, refs 731 → 732, commands 109 → 110, plugins
+83 → 84; plus a stale "711 reference docs" claim in README line 30 fixed to 732.
+
+## [Unreleased] — housekeeping: CHANGELOG backfill + per-domain counter validation
+
+### Added — `derive_counters.py` per-domain table validation
+
+`scripts/derive_counters.py --check` now also validates the README "Skills Overview"
+per-domain table: each domain row's count must equal the SKILL.md count in its linked
+folder, and every on-disk domain must have a row. Previously `--check` only validated
+the headline aggregates, so per-domain rows drifted silently (e.g. the `markdown-html`
+domain was missing from the table entirely, and several rows lagged new-skill merges).
+This closes that gap — CI gate G3 now catches per-domain drift too.
+
+### Changed — README per-domain table trued up
+
+Fixed six stale domain-row counts and added the missing `markdown-html` row so the
+per-domain rows sum to the headline total (354).
+
+### Added — backfill: five skill additions that merged without their own changelog entries
+
+Earlier contributor-PR hardening merges updated headline counters but not this log.
+Backfilled, newest-first:
+
+- **`research/deep-research`** (PR #872, hardened from #851 by @Socialpranker) — rigor-first multi-source meta-research: 9-phase pipeline, triangulation (>=3 independent differently-typed sources per thesis), mandatory adversarial pass, per-source files with verbatim quotes, no fabricated citations. Full research/ plugin parity.
+- **`engineering/zero-hallucination-coder`** (PR #870, hardened from #854 by @mehanshbarthwal-lab) — opt-in Discuss → Map → Decompose → Execute → Verify coding loop + lazy-senior YAGNI ladder; no invented APIs / assumed imports / placeholder code. Synthesizes Ralph, GSD Core, Graphify, Ponytail.
+- **`ra-qm-team/skills/agent-decision-receipts`** (PR #868 + #869, hardened from #863 by @CWNApps) — tamper-evident, post-quantum-signed receipts for consequential agent actions (EU AI Act Art 12). Stdlib manifest builder; signing delegated to the Apache-2.0 `openagentontology` package (opt-in install).
+- **`engineering-team/skills/named-persona-adversarial-review`** (PR #867, superseding #866 by @YuhaoLin2005) — code review through named, sourced engineering philosophies with confidence-leveled attribution and an anti-fabrication rule for quotes.
+- **`productivity/roast`** (PR #865) — 5-angle adversarial idea panel (Critic/Champion/Analyst/Investigator/Customer) → one GO/RESHAPE/KILL verdict, with a weighted veto-gated synthesizer + cheapest-48h-test designer.
+
+## [Unreleased] — local-seo-manager: local / Map-Pack SEO skill (this PR)
+
+### Added — `marketing-skill/skills/local-seo-manager`
+
+Hardened port of external contribution #797 (@Steffonet). Fills a gap: the library
+had national/technical SEO (`seo-audit`, `programmatic-seo`) but no local /
+Google Map-Pack SEO skill for service-area businesses (appliance repair, HVAC,
+plumbing, cleaning, electrical).
+
+- **4-mode SKILL.md** — GBP audit, service-area page generation, NAP consistency, LocalBusiness schema.
+- **3 stdlib scripts** — `nap_checker.py` (NAP consistency scanner), `service_area_generator.py`
+  (neighborhood page-brief generator), `schema_generator.py` (LocalBusiness / HomeAndConstructionBusiness JSON-LD).
+- **3 references** — 80-point local-SEO checklist, local schema types, review-response templates.
+- Hardening applied before merge: fixed dangling cross-refs (`ai-seo` → `aeo`, removed the
+  non-existent `gbp-content-creator` companion), description now passes `skill_description_validator`,
+  and (per automated review) `service_area_generator` now renders the previously-dropped
+  `business_type` / `services` / `state` inputs, `schema_generator` no longer emits an empty
+  `geo` block, and the unused `import sys` was removed from all three scripts.
+- No `plugin.json` / marketplace entry needed — the `marketing-skills` plugin globs `./skills`.
+- Counters: 352 → 353 skills, 590 → 593 Python tools, 718 → 721 references.
+
+## [Unreleased] — newgen audit follow-up: P0 fixes, path sweep, CI guards
+
+### Deprecated / Removed Skills (migration notes)
+
+Three skills were retired or merged in the newgen-audit follow-up (PR #835). If
+you installed or pinned any of these, migrate as follows:
+
+| Removed skill | Why | Migrate to |
+|---|---|---|
+| `engineering/skills/command-guide` | Documented a different repository's commands and agents; instructed models to invoke agents that don't exist here | No replacement needed — the root `commands/` folder and each plugin's own commands are the canonical command surface |
+| `marketing-skill/skills/ai-seo` | Near-total overlap with the newer, tool-backed AEO skill | `marketing-skill/skills/aeo` — unique ai-seo content was preserved in `aeo/references/bot_access_and_monitoring.md` and `aeo/references/extractable_content_patterns.md` |
+| `engineering/skills/release-manager` | 489-line SemVer/Git-Flow textbook duplicating changelog-generator; its readiness checker crashed | `engineering/skills/changelog-generator` — now includes `version_bumper.py`, hotfix/rollback procedures, and the severity-SLA table. For release-readiness audits use `engineering/skills/ship-gate` |
+
+Also restructured (no content change): `engineering/universal-scraping-architect`
+moved its SKILL.md from plugin root to the standard `skills/universal-scraping-architect/`
+layout. Marketplace source path is unchanged.
+
 ## [Unreleased] — code-reviewer: C-specific smell detector + fixtures
 
 ### Added — language-specific smell pack for C (this PR)

@@ -152,8 +152,8 @@ echo "  ☐ /cs:freeze applied if irreversible (term sheet, M&A LOI, employment 
 
 - [cs-cfo-advisor](cs-cfo-advisor.md) — term sheet → dilution math
 - [cs-ciso-advisor](cs-ciso-advisor.md) — data-touching contracts, compliance overlap
-- [cs-ceo-advisor](../../../../agents/c-level/cs-ceo-advisor.md) — board / fundraising strategic context
-- [cs-quality-regulatory](../../../../agents/ra-qm-team/cs-quality-regulatory.md) — regulated-industry execution (ISO 13485, MDR, FDA)
+- [cs-ceo-advisor](../../../agents/c-level/cs-ceo-advisor.md) — board / fundraising strategic context
+- [cs-quality-regulatory](../../../agents/ra-qm-team/cs-quality-regulatory.md) — regulated-industry execution (ISO 13485, MDR, FDA)
 
 ## References
 

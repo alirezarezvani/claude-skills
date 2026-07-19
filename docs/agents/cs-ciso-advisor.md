@@ -42,7 +42,7 @@ Pairs with `cs-cto-advisor` (security architecture), `cs-cfo-advisor` (risk quan
 
 ### Knowledge Bases
 
-- [`references/threat_modeling.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/references/threat_modeling.md) — STRIDE, PASTA, attacker journey
+- [`references/security_strategy.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/references/security_strategy.md) — STRIDE, PASTA, attacker journey
 - [`references/compliance_roadmap.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/references/compliance_roadmap.md) — SOC 2 Type 2, ISO 27001, GDPR sequencing
 - [`references/incident_response.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/references/incident_response.md) — IR runbooks, comms plan, regulator notification windows
 
@@ -113,10 +113,10 @@ echo "IR runbook check: ../../skills/ciso-advisor/references/incident_response.m
 
 ## Related Agents
 
-- [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/c-level/cs-cto-advisor.md) — security architecture
+- [cs-cto-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/agents/c-level/cs-cto-advisor.md) — security architecture
 - [cs-cfo-advisor](cs-cfo-advisor.md) — risk → insurance, audit budget
-- [cs-quality-regulatory](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/ra-qm-team/cs-quality-regulatory.md) — ISO 27001, GDPR execution
-- [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/tree/main/../agents/engineering/cs-senior-engineer.md) — secure coding
+- [cs-quality-regulatory](https://github.com/alirezarezvani/claude-skills/tree/main/agents/ra-qm-team/cs-quality-regulatory.md) — ISO 27001, GDPR execution
+- [cs-senior-engineer](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-senior-engineer.md) — secure coding
 
 ## References
 

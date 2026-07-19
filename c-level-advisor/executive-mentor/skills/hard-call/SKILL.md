@@ -1,6 +1,6 @@
 ---
 name: "hard-call"
-description: "/em -hard-call — Framework for Decisions With No Good Options"
+description: "/em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass is needed — e.g. choosing between a layoff and a down round, or killing a beloved product line."
 ---
 
 # /em:hard-call — Framework for Decisions With No Good Options
@@ -91,7 +91,7 @@ Hard decisions almost always get harder if communication is bad. The decision it
 For every hard call, plan:
 - **Who needs to know first** (the person directly affected, before anyone else)
 - **How you'll tell them** (in person when possible, never via email for personal impact)
-- **What you'll say** (honest, direct, compassionate — see `references/hard_things.md`)
+- **What you'll say** (honest, direct, compassionate — see `../executive-mentor/references/hard_things.md`)
 - **What they can ask** (be ready for every question)
 - **What comes next** (give them a clear picture of what happens after)
 
@@ -100,7 +100,7 @@ For every hard call, plan:
 ## Decision-Specific Frameworks
 
 ### Firing a Co-Founder
-See `references/hard_things.md — Co-Founder Conflicts` for full framework.
+See `../executive-mentor/references/hard_things.md — Co-Founder Conflicts` for full framework.
 
 Key questions to answer first:
 - Is this a performance problem or a values/culture problem? (Different conversations)

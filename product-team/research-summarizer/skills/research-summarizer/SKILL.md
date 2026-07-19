@@ -19,13 +19,16 @@ Not a generic "summarize this" — a repeatable framework that extracts what mat
 
 ---
 
-## Slash Commands
+## Scope — Distinct From the research/ Domain
 
-| Command | What it does |
-|---------|-------------|
-| `/research:summarize` | Summarize a single source into a structured brief |
-| `/research:compare` | Compare 2-5 sources side-by-side with synthesis |
-| `/research:cite` | Extract and format all citations from a document |
+This skill summarizes **documents the user already has** (papers, articles, reports pasted or attached). It performs no web search and needs no MCP server. It is NOT:
+
+- `research/litreview` — academic literature *discovery* and review-guide generation (finds papers via Consensus/academic APIs)
+- `research/dossier` — entity due-diligence built from live web research
+- `research/notebooklm` — drives Google's NotebookLM product UI
+- `research/research` — the router for open-ended "research [topic]" requests that require searching
+
+If the user asks you to *find* sources rather than digest supplied ones, route to the research/ domain instead.
 
 ---
 
@@ -47,7 +50,7 @@ If the user has a document and wants structured understanding → this skill app
 
 ## Workflow
 
-### `/research:summarize` — Single Source Summary
+### Workflow 1 — Single Source Summary
 
 1. **Identify source type**
    - Academic paper → use IMRAD structure (Introduction, Methods, Results, Analysis, Discussion)
@@ -55,7 +58,7 @@ If the user has a document and wants structured understanding → this skill app
    - Technical report → use executive summary structure
    - Documentation → use reference summary structure
 
-2. **Extract structured brief**
+2. **Scaffold the brief** — `python3 scripts/format_summary.py --template academic` (or `article`/`report`/`executive` per source type), then fill in every section from the source:
    ```
    Title: [exact title]
    Author(s): [names]
@@ -89,7 +92,7 @@ If the user has a document and wants structured understanding → this skill app
    - Recency (when published, still relevant?)
    - Bias indicators (funding source, author affiliation, methodology gaps)
 
-### `/research:compare` — Multi-Source Comparison
+### Workflow 2 — Multi-Source Comparison
 
 1. **Collect sources** (2-5 documents)
 2. **Summarize each** using the single-source workflow above
@@ -126,10 +129,10 @@ If the user has a document and wants structured understanding → this skill app
    [Based on weight of evidence, what should the reader believe/do?]
    ```
 
-### `/research:cite` — Citation Extraction
+### Workflow 3 — Citation Extraction
 
-1. **Scan document** for all references, footnotes, in-text citations
-2. **Extract and format** using the requested style (APA 7 default)
+1. **Run the extractor** — `python3 scripts/extract_citations.py document.txt --output json` detects DOI/URL/author-year/numbered citations and deduplicates them
+2. **Review and format** the extracted list in the requested style (APA 7 default); manually catch citations the regex missed
 3. **Classify citations** by type:
    - Primary sources (original research, data)
    - Secondary sources (reviews, meta-analyses, commentary)
@@ -174,13 +177,12 @@ cat paper.txt | python3 scripts/extract_citations.py --stdin
 
 ### `scripts/format_summary.py`
 
-CLI utility for generating structured research summaries.
+CLI utility that emits **blank structured summary scaffolds** — you (the model) fill them in from the source. It does not analyze content itself.
 
 **Features:**
-- Multiple summary templates (academic, article, report, executive)
-- Configurable output length (brief, standard, detailed)
-- Markdown and plain text output
-- Key findings extraction with evidence tagging
+- 6 templates: academic, article, report, executive, comparison, literature
+- Configurable scaffold depth (brief, standard, detailed)
+- Text and JSON output for downstream tooling
 
 **Usage:**
 ```bash
@@ -254,7 +256,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 cp -r claude-skills/product-team/research-summarizer ~/.claude/skills/
 ```
 
-### Multi-tool install
+### Multi-tool install (run from the claude-skills repo root)
 ```bash
 ./scripts/convert.sh --skill research-summarizer --tool codex|gemini|cursor|windsurf|openclaw
 ```
@@ -263,6 +265,18 @@ cp -r claude-skills/product-team/research-summarizer ~/.claude/skills/
 ```bash
 clawhub install cs-research-summarizer
 ```
+
+---
+
+## Verification Loop
+
+Before delivering any brief, check:
+
+1. Every Key Finding cites a location in the source (section, page, or quote) — no unanchored claims.
+2. `python3 scripts/extract_citations.py <file> --output json` exits 0 and its `total` matches the bibliography count in your output (investigate any gap).
+3. Each source carries a 4-dimension quality rating (table above); weak sources are flagged, not silently included.
+4. For comparisons: the matrix has one row per dimension and one column per source — no source skipped.
+5. Nothing was invented: missing metadata is marked "not stated", never filled in.
 
 ---
 

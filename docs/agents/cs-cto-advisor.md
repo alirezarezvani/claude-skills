@@ -1,6 +1,6 @@
 ---
 title: "CTO Advisor Agent — AI Coding Agent & Codex Skill"
-description: "Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
+description: "Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence. Use when a CTO. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # CTO Advisor Agent
@@ -399,7 +399,6 @@ echo "- Process improvements identified"
 
 - [cs-ceo-advisor](cs-ceo-advisor.md) - Strategic leadership and organizational development (CEO counterpart)
 - [cs-fullstack-engineer](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-fullstack-engineer.md) - Fullstack development coordination (planned)
-- [cs-devops-specialist](https://github.com/alirezarezvani/claude-skills/tree/main/agents/engineering/cs-devops-specialist.md) - DevOps and infrastructure automation (planned)
 
 ## References
 

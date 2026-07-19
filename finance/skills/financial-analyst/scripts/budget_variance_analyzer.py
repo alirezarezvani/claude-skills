@@ -25,6 +25,24 @@ def safe_divide(numerator: float, denominator: float, default: float = 0.0) -> f
     return numerator / denominator
 
 
+def resolve_input_section(
+    data: Dict[str, Any], section_key: str, flat_keys: Tuple[str, ...]
+) -> Dict[str, Any]:
+    """
+    Accept both supported input shapes:
+    1. Flat: the expected keys live at the top level of the JSON file.
+    2. Nested: the data lives under a per-tool section key, as in
+       assets/sample_financial_data.json (which bundles inputs for all
+       four financial-analyst scripts in one file).
+    """
+    if any(key in data for key in flat_keys):
+        return data
+    section = data.get(section_key)
+    if isinstance(section, dict):
+        return section
+    return data
+
+
 class BudgetVarianceAnalyzer:
     """Analyze budget variances with materiality filtering and classification."""
 
@@ -386,6 +404,16 @@ def main() -> None:
         sys.exit(1)
     except json.JSONDecodeError as e:
         print(f"Error: Invalid JSON in '{args.input_file}': {e}", file=sys.stderr)
+        sys.exit(1)
+
+    data = resolve_input_section(data, "budget_variance", ("line_items",))
+    if not data.get("line_items"):
+        print(
+            "Error: No budget line items found. Expected a non-empty "
+            "'line_items' array at the top level or nested under "
+            "'budget_variance'.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     analyzer = BudgetVarianceAnalyzer(

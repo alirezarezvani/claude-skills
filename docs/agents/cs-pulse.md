@@ -36,7 +36,7 @@ Relentless on specificity, depth-first on the intake tree, graceful on platform 
 The cs-pulse agent orchestrates the `pulse` skill across multi-source recency briefings:
 
 1. **Grill-me intake (Q1 → Q4, dependency-ordered)** — topic, angle, window, scope. One at a time. Refuse vague answers.
-2. **Pre-flight** — compute window timestamps with `scripts/time_window_calculator.py`, generate output slug with `scripts/topic_slug_generator.py`, start three-count audit with `scripts/citation_tracker.py`.
+2. **Pre-flight** — compute window timestamps with `skills/pulse/scripts/time_window_calculator.py`, generate output slug with `skills/pulse/scripts/topic_slug_generator.py`, start three-count audit with `skills/pulse/scripts/citation_tracker.py`.
 3. **Phases 1–3 in parallel** — Reddit (top + new), HN (Algolia stories + comments), Web (2–3 targeted queries). 1 q/sec per platform; sequential within.
 4. **Phase 4 (optional)** — X/Twitter if available; skip with note otherwise.
 5. **Synthesis** — cross-platform pattern detection (consensus, controversy, pain, excitement, gaps).
@@ -187,9 +187,9 @@ python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
 
 ## Related Agents
 
-- [cs-grill-master](https://github.com/alirezarezvani/claude-skills/tree/main/research/grill-me/agents/cs-grill-master.md) — plan-only grill (different domain)
-- [cs-grill-with-docs](https://github.com/alirezarezvani/claude-skills/tree/main/research/grill-with-docs/agents/cs-grill-with-docs.md) — docs-anchored grill (different scope)
-- [cs-capture](https://github.com/alirezarezvani/claude-skills/tree/main/research/capture/agents/cs-capture.md) — brain-dump organizer (different mode)
+- [cs-grill-master](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me/agents/cs-grill-master.md) — plan-only grill (different domain)
+- [cs-grill-with-docs](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/agents/cs-grill-with-docs.md) — docs-anchored grill (different scope)
+- [cs-capture](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/agents/cs-capture.md) — brain-dump organizer (different mode)
 
 ## References
 

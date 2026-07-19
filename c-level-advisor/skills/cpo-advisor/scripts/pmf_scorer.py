@@ -556,9 +556,19 @@ def main():
         action="store_true",
         help="Output raw JSON instead of formatted report",
     )
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="Run with the built-in sample data (no notice line — safe for JSON piping)",
+    )
     args = parser.parse_args()
 
-    if args.input:
+    if args.sample:
+        # --sample wins over --input, consistent with the other sample-pattern tools.
+        if args.input:
+            print("Warning: --sample specified; ignoring --input", file=sys.stderr)
+        data = sample_data()
+    elif args.input:
         try:
             with open(args.input) as f:
                 data = json.load(f)
@@ -569,7 +579,8 @@ def main():
             print(f"Error: invalid JSON: {e}", file=sys.stderr)
             sys.exit(1)
     else:
-        print("No input file provided — running with sample data.\n")
+        # Notice goes to stderr so `--json` output stays parseable when piped.
+        print("No input file provided — running with sample data.\n", file=sys.stderr)
         data = sample_data()
 
     result = run(data)

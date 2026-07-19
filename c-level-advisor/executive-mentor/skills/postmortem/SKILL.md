@@ -1,6 +1,6 @@
 ---
 name: "postmortem"
-description: "/em -postmortem — Honest Analysis of What Went Wrong"
+description: "/em:postmortem — Honest analysis of what went wrong. Use after a failed launch, missed quarter, or bad hire to run a blameless 5-Whys retrospective with a change register — e.g. dissecting why the Q3 release slipped six weeks."
 ---
 
 # /em:postmortem — Honest Analysis of What Went Wrong

@@ -64,8 +64,16 @@ def _has_cpu_as_sli(text):
     return False
 
 
-def audit_one(path):
-    text = _read(path)
+# Embedded sample SLO doc — intentionally flawed (target too high, CPU-as-SLI,
+# no error budget policy) so --sample exercises several finding paths.
+SAMPLE_SLO_DOC = """# Checkout API SLO
+target: 99.995%
+window_days: 28
+sli: cpu_usage below 80%
+"""
+
+
+def audit_text(text):
     findings = []
     target = _parse_target(text)
     window_days = _parse_window_days(text)
@@ -101,6 +109,10 @@ def audit_one(path):
                          "CPU/memory/disk-usage referenced — system metrics aren't user experience; pick a request-level SLI"))
 
     return findings
+
+
+def audit_one(path):
+    return audit_text(_read(path))
 
 
 def _walk(target):
@@ -140,15 +152,20 @@ def render_text(results):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--slo-doc", required=True, help="Path to SLO doc or directory of docs")
+    ap.add_argument("--slo-doc", help="Path to SLO doc or directory of docs")
     ap.add_argument("--format", choices=["text", "json"], default="text")
+    ap.add_argument("--sample", action="store_true", help="Audit an embedded sample SLO doc")
     args = ap.parse_args()
 
-    if not os.path.exists(args.slo_doc):
-        print(f"ERROR: not found: {args.slo_doc}", file=sys.stderr)
-        return 2
-
-    results = audit(args.slo_doc)
+    if args.sample:
+        results = [{"path": "<embedded sample>", "findings": audit_text(SAMPLE_SLO_DOC)}]
+    else:
+        if not args.slo_doc:
+            ap.error("--slo-doc is required (or use --sample)")
+        if not os.path.exists(args.slo_doc):
+            print(f"ERROR: not found: {args.slo_doc}", file=sys.stderr)
+            return 2
+        results = audit(args.slo_doc)
     if args.format == "json":
         print(json.dumps(results, indent=2))
         return 1 if any(f[0] == "FAIL" for r in results for f in r["findings"]) else 0

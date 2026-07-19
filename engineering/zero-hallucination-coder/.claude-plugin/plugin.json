@@ -1,0 +1,25 @@
+{
+  "name": "zero-hallucination-coder",
+  "description": "A disciplined coding pipeline that grounds code in verified structure before a line is written: Discuss -> Map -> Decompose -> Execute -> Verify, with a lazy-senior-dev YAGNI ladder that deletes unnecessary code first. No invented APIs, no assumed imports, no placeholder code. Opt-in for high-stakes, complex, or multi-file work; not for trivial edits. Synthesizes four MIT/open-source projects (Ralph, GSD Core, Graphify, Ponytail).",
+  "version": "2.10.3",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/zero-hallucination-coder",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/zero-hallucination-coder"
+  ],
+  "attribution": {
+    "contributed_by": "mehanshbarthwal-lab (https://github.com/mehanshbarthwal-lab), PR #854",
+    "synthesizes": [
+      "Ralph — @snarktank (https://github.com/snarktank/ralph): atomic PRD loop, fresh-context per story",
+      "GSD Core — @open-gsd (https://github.com/open-gsd/gsd-core): phase loop, context-rot prevention, STATE.md memory",
+      "Graphify — @safishamsi (https://github.com/safishamsi/graphify): KNOWN/INFERRED/UNKNOWN codebase mapping",
+      "Ponytail — @DietrichGebert (https://github.com/DietrichGebert/ponytail): lazy-senior-dev six-rung hierarchy"
+    ],
+    "derivation_note": "Concept + SKILL.md contributed via PR #854. Hardened for this repo: scoped to opt-in activation, embedded multi-method install guide trimmed, plugin.json and layout aligned to the engineering standalone-plugin convention."
+  }
+}

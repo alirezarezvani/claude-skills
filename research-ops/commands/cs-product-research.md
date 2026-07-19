@@ -30,8 +30,8 @@ Run the `product-research` skill on this input:
 
 ## First run + optimization
 
-- **Onboard first:** `python3 scripts/onboard.py` (product profile, insight source-threshold, saturation method, high-stakes flag) — saved config pre-configures every tool. `--show` lists the questions.
-- **Optimize (opt-in):** only if the user asks to optimize the synthesis/run a loop, hand off to autoresearch via `scripts/ar_evaluator.py` (`validated_insights`, higher is better).
+- **Onboard first:** `python3 skills/product-research/scripts/onboard.py` (product profile, insight source-threshold, saturation method, high-stakes flag) — saved config pre-configures every tool. `--show` lists the questions.
+- **Optimize (opt-in):** only if the user asks to optimize the synthesis/run a loop, hand off to autoresearch via `skills/product-research/scripts/ar_evaluator.py` (`validated_insights`, higher is better).
 
 ## Distinct from
 

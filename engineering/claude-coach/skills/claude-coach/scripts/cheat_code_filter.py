@@ -118,12 +118,16 @@ def render_human(picks: list[Technique]) -> str:
     return "\n".join(out)
 
 
-def sample_run() -> int:
+def sample_run(as_json: bool = False) -> int:
     sample_path = DEFAULT_GLOSSARY
     if not sample_path.exists():
         print("Sample glossary not found; place references/cheat-codes.md alongside this script.", file=sys.stderr)
         return 1
-    picks = rank(parse_glossary(sample_path), ["writing", "coding"], 5)
+    use_cases = ["writing", "coding"]
+    picks = rank(parse_glossary(sample_path), use_cases, 5)
+    if as_json:
+        print(json.dumps({"use_cases": use_cases, "picks": [asdict(t) for t in picks]}, indent=2))
+        return 0
     print(render_human(picks))
     return 0
 
@@ -138,7 +142,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.sample:
-        return sample_run()
+        return sample_run(args.json)
 
     if not args.use_cases:
         parser.error("--use-cases is required unless --sample is passed")

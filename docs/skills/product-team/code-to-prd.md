@@ -309,7 +309,7 @@ prd/
 
 | # | Page Name | Route | Module | Doc Link |
 |---|-----------|-------|--------|----------|
-| 1 | User List | /user/list | User Mgmt | [→](./pages/01-user-mgmt-list.md) |
+| 1 | User List | /user/list | User Mgmt | [→](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/code-to-prd/skills/code-to-prd/pages/01-user-mgmt-list.md) |
 
 ## Global Notes
 

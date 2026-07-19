@@ -1,6 +1,6 @@
 ---
 title: "/cs:gc-review — General Counsel Forcing Questions — Agent Skill for Executives"
-description: "/cs:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:gc-review — General Counsel Forcing Questions

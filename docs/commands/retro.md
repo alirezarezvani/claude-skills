@@ -42,7 +42,7 @@ Analyze retrospective data for recurring themes, sentiment trends, and action it
 ```
 
 ## Scripts
-- `project-management/scrum-master/scripts/retrospective_analyzer.py` — Retrospective analyzer (`<data_file> [--format text|json]`)
+- `project-management/skills/scrum-master/scripts/retrospective_analyzer.py` — Retrospective analyzer (`<data_file> [--format text|json]`)
 
 ## Skill Reference
-> `project-management/scrum-master/SKILL.md`
+> `project-management/skills/scrum-master/SKILL.md`

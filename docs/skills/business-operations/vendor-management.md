@@ -1,6 +1,6 @@
 ---
 title: "Vendor Management — Operational Third-Party Performance — Claude Code Plugin & Agent Skill"
-description: "Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships — running a vendor scorecard, tracking SLA compliance, classifying. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships — running a vendor scorecard with industry tuning, tracking SLA. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Vendor Management — Operational Third-Party Performance
@@ -114,6 +114,13 @@ Combine the 3 artifacts into a final BizOps / VMO digest:
 | `scripts/vendor_risk_classifier.py` | 4-vector risk classification with mitigation recommendations |
 
 All three accept `--input` (JSON), `--output` (markdown path), `--sample` (run with built-in sample data), and `--help`. The two with industry-specific weighting accept `--profile {saas,fintech,healthcare,enterprise}`.
+
+## Quick example
+
+```bash
+# Emits a weighted vendor scorecard (industry-tuned dimensions + per-vendor verdict) for the built-in sample catalog
+cd business-operations/skills/vendor-management && python3 scripts/vendor_scorer.py --sample
+```
 
 ## References
 

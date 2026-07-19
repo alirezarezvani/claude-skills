@@ -136,7 +136,7 @@ python ../../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py wor
 - `/cs:gc-review` — for AI vendor contracts, output liability, training-data licensing
 - `/cs:ciso-review` — for prompt injection / jailbreak / training-data poisoning threat model
 - `/cs:cfo-review` — for multi-year vendor or GPU commitment TCO
-- `/cs:chro-review` — for AI team hires (comp, ladder, leveling)
+- `cs-chro-advisor` agent — for AI team hires (comp, ladder, leveling)
 - `/cs:decide` — log the verdict
 - `/cs:freeze 60` — on multi-year AI commitments
 

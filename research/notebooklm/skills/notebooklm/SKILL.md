@@ -1,6 +1,6 @@
 ---
 name: notebooklm
-description: "Browser automation skill for controlling Google's NotebookLM. Handles reading and querying notebooks, adding sources (URLs, text, files, YouTube links, synthesized content), generating Studio outputs (Audio Overview, infographics, slide decks, study guides, briefing docs, mind maps, timelines, FAQs), and creating new notebooks. Triggers on any phrase involving NotebookLM — 'open NotebookLM', 'check my [name] notebook', 'pull info from NotebookLM', 'ask my notebook about X', 'add [source] to NotebookLM', 'create an infographic in NotebookLM', 'use NotebookLM Studio', 'generate a slide deck from my notebook', or any variation where the goal involves NotebookLM. Requires browser automation environment — fails gracefully when unavailable."
+description: "Browser automation skill for controlling Google's NotebookLM. Use when the user wants anything done in NotebookLM (e.g., 'open NotebookLM', 'check my [name] notebook', 'ask my notebook about X', 'add [source] to NotebookLM', 'generate a Video Overview from my notebook', 'use NotebookLM Studio'). Handles reading and querying notebooks, adding sources (URLs, text, files, YouTube links, synthesized content), generating Studio outputs (Audio/Video Overviews, Mind Maps, Reports incl. Briefing Doc/Study Guide/FAQ, Flashcards, Quiz, slide decks, infographics — discover the exact set from the live Studio panel; the UI evolves fast), and creating new notebooks. Requires browser automation environment — fails gracefully when unavailable."
 license: MIT
 metadata:
   source_spec: "megaprompts/03-notebooklm-megaprompt.md"
@@ -34,7 +34,7 @@ Up to 4 forcing questions, one at a time, dependency-ordered. Most invocations s
 >
 > 1. **Read / extract** — ask a question of an existing notebook
 > 2. **Add a source** — push content (URL, text, file, Google Doc, or synthesized content) into a notebook
-> 3. **Generate a Studio output** — Audio Overview, Study Guide, Briefing Doc, Timeline, FAQ, Infographic, Slides, or Mind Map
+> 3. **Generate a Studio output** — Audio/Video Overview, Mind Map, Report (Briefing Doc, Study Guide, FAQ, Timeline), Flashcards, Quiz, Infographic, or Slides — the exact set comes from the live Studio panel
 > 4. **Create a new notebook** — initialize with title + initial sources
 >
 > *Why I'm asking:* Each action takes a different path through the UI and requires different parameters. Naming the action upfront prevents wasted screenshots and lets me ask only the follow-up questions that apply.
@@ -65,7 +65,7 @@ For action 4 (create new): replace with "What's the title for the new notebook?"
 > *Why I'm asking:* Each source type goes through a different sub-flow in the Add Source dialog. Picking upfront saves a step."
 
 **Action 3 (Studio output):**
-> "Which Studio output? Audio Overview / Study Guide / Briefing Doc / Timeline / FAQ / Table of Contents / Infographic / Slides / Mind Map. And: any custom-prompt direction? **Default prompts produce mediocre output — I always open the customization menu and write a detailed prompt.** Tell me the angle or audience.
+> "Which Studio output? As of 2026-06 the Studio panel offers Audio Overview, Video Overview, Mind Map, Reports (Briefing Doc / Study Guide / FAQ / Timeline / custom), Flashcards, Quiz, Infographic, and Slides — I'll screenshot the live panel and confirm what your account actually shows before clicking. And: any custom-prompt direction? **Default prompts produce mediocre output — I always open the customization menu and write a detailed prompt.** Tell me the angle or audience.
 >
 > *Why I'm asking:* The output type sets the UI button to find. The custom prompt is mandatory for quality."
 
@@ -132,12 +132,12 @@ Sub-flows per source type:
 
 ## Action 3: Studio Outputs
 
-**All 9 output types supported:** Audio Overview, Study Guide, Briefing Doc, Timeline, FAQ, Table of Contents, Infographic, Slides, Mind Map.
+**Discover, don't assume.** NotebookLM's Studio inventory changes between rollouts and account tiers. As of the last verification (2026-06) the panel offers: **Audio Overview, Video Overview, Mind Map, Reports** (Briefing Doc, Study Guide, FAQ, Timeline, custom report formats), **Flashcards, Quiz, Infographic, Slides**. Treat this list as a hint, not ground truth — the screenshot of the live Studio panel is the authority. NotebookLM's UI evolves quickly; verify against the live product and update this section when it drifts (Studio inventory last verified 2026-06).
 
 **Mandatory workflow:**
 
-1. Locate Studio panel (right side; may need toggle)
-2. Find the specific output button for the requested type
+1. Locate Studio panel (right side; may need toggle) and **screenshot it — the tiles you see are the real output types for this account**
+2. Find the specific output button for the requested type (if it isn't visible, check "Discover more"/overflow before declaring it unavailable)
 3. **Open customization menu** (chevron/arrow next to button) — **NOT the main button**
 4. **Write detailed custom prompt** (from Q4)
 5. Confirm and submit
@@ -183,9 +183,17 @@ Use `scripts/async_action_classifier.py` to determine wait-or-notify per action:
 | Add Source (URL/text/file) | Yes — wait for ingestion spinner (~5-30s) |
 | Read/Extract (chat) | Yes — wait 3-5s for response |
 | Studio: Audio Overview | **No** — fire and notify (5-10 min) |
+| Studio: Video Overview | **No** — fire and notify (5-15 min) |
 | Studio: Infographic / Slides / Mind Map | **No** — fire and notify (2-5 min) |
-| Studio: Study Guide / Briefing Doc / FAQ | Yes — wait ~30-60s |
+| Studio: Study Guide / Briefing Doc / FAQ / Flashcards / Quiz | Yes — wait ~30-60s |
 | Create New Notebook | Yes — wait for auto-summary (<30s) |
+
+```bash
+# Verdict + paste-ready notify message for any action
+python3 scripts/async_action_classifier.py --action "video overview"
+# -> Verdict: FIRE_AND_NOTIFY, estimated 5-15 minutes, with the exact
+#    "NOT waiting in this session" message to relay to the user
+```
 
 See [`references/async_action_discipline.md`](references/async_action_discipline.md) for the canon.
 

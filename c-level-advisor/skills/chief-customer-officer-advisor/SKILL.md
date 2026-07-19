@@ -189,12 +189,12 @@ python scripts/cs_coverage_calculator.py book.json
 
 ## Adjacent Skills
 
-- `../cro-advisor/` — Revenue math, NRR, expansion comp (CCO owns customer experience; CRO owns revenue math; clean split)
-- `../cpo-advisor/` — Product strategy, JTBD (CCO surfaces product gaps; CPO decides roadmap)
-- `../cmo-advisor/` — Customer marketing, advocacy, references
-- `../cfo-advisor/` — CS team cost, retention-impact-on-revenue math
-- `../chro-advisor/` — CS team hiring + leveling
-- `../../../business-growth/` — Tactical CS execution: health scores, CRM workflows, onboarding tooling
+- `c-level-advisor/skills/cro-advisor/` — Revenue math, NRR, expansion comp (CCO owns customer experience; CRO owns revenue math; clean split)
+- `c-level-advisor/skills/cpo-advisor/` — Product strategy, JTBD (CCO surfaces product gaps; CPO decides roadmap)
+- `c-level-advisor/skills/cmo-advisor/` — Customer marketing, advocacy, references
+- `c-level-advisor/skills/cfo-advisor/` — CS team cost, retention-impact-on-revenue math
+- `c-level-advisor/skills/chro-advisor/` — CS team hiring + leveling
+- `business-growth/` — Tactical CS execution: health scores, CRM workflows, onboarding tooling
 
 ## References
 

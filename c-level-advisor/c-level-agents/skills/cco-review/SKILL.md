@@ -1,6 +1,6 @@
 ---
 name: "cco-review"
-description: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring."
+description: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire."
 ---
 
 # /cs:cco-review — CCO Forcing Questions
@@ -115,7 +115,7 @@ python ../../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calcul
 - `/cs:cpo-review` — if churn root cause is product_fit or no_value_realized
 - `/cs:cro-review` — if expansion math or comp alignment is in question
 - `/cs:cfo-review` — for CS cost commitments and retention-impact-on-revenue
-- `/cs:chro-review` — for CS hires, comp, ladder
+- `cs-chro-advisor` agent — for CS hires, comp, ladder
 - `/cs:decide` — log the verdict
 - `/cs:freeze 30` — on multi-year CS comp plan changes
 

@@ -120,7 +120,7 @@ import { Button } from '../src/components/Button';
 describe('Button', () => {
   it('renders with label', () => {
     render(<Button>Click me</Button>);
-    expect(screen.getByRole('button', { name: "click-mei-tobeinthedocument"
+    expect(screen.getByRole('button', { name: /click me/i })).toBeInTheDocument();
   });
 
   it('calls onClick when clicked', () => {
@@ -241,7 +241,7 @@ npx playwright show-report
 
 ```typescript
 // Preferred (accessible)
-screen.getByRole('button', { name: "submiti"
+screen.getByRole('button', { name: /submit/i })
 screen.getByLabelText(/email/i)
 screen.getByPlaceholderText(/search/i)
 

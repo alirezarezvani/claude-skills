@@ -777,6 +777,7 @@ class AgentEvaluator:
                     "latency_reduction": min(0.5, (system_metrics.average_duration_ms - 5000) / system_metrics.average_duration_ms),
                     "throughput_improvement": 1.5
                 },
+                estimated_cost_savings=None,
                 estimated_performance_gain=1.4,
                 implementation_steps=[
                     "Profile and optimize slow operations",
@@ -803,6 +804,7 @@ class AgentEvaluator:
                         "reliability_improvement": 1.1
                     },
                     estimated_cost_savings=system_metrics.total_cost_usd * (error_analysis.percentage / 100) * 0.5,
+                    estimated_performance_gain=None,
                     implementation_steps=error_analysis.suggested_fixes,
                     risks=["May require significant code changes"],
                     prerequisites=["Root cause analysis", "Testing framework"]
@@ -818,6 +820,7 @@ class AgentEvaluator:
                 description=bottleneck.description,
                 implementation_effort="medium",
                 expected_impact=bottleneck.estimated_improvement,
+                estimated_cost_savings=None,
                 estimated_performance_gain=list(bottleneck.estimated_improvement.values())[0] if bottleneck.estimated_improvement else 1.1,
                 implementation_steps=bottleneck.optimization_suggestions,
                 risks=["System downtime during implementation", "Potential cascade effects"],
@@ -836,6 +839,7 @@ class AgentEvaluator:
                     "throughput_improvement": 2.0,
                     "scalability_headroom": 5.0
                 },
+                estimated_cost_savings=None,
                 estimated_performance_gain=2.0,
                 implementation_steps=[
                     "Implement horizontal scaling for agents",

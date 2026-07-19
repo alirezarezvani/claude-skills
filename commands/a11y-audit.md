@@ -1,6 +1,7 @@
 ---
 name: a11y-audit
-description: Scan a frontend project for WCAG 2.2 accessibility violations and fix them. Usage: /a11y-audit [path]
+description: "Scan a frontend project for WCAG 2.2 accessibility violations and fix them. Usage: /a11y-audit [path]"
+argument-hint: "[path]"
 ---
 
 # /a11y-audit
@@ -40,7 +41,7 @@ For each finding (starting with critical):
 
 1. Read the affected file
 2. Show the violation with context (before)
-3. Apply the fix from `references/framework-a11y-patterns.md`
+3. Apply the fix from `engineering-team/a11y-audit/skills/a11y-audit/references/framework-a11y-patterns.md`
 4. Show the result (after)
 
 **Auto-fixable issues** (apply without asking):
@@ -76,9 +77,9 @@ Generate a markdown report at `a11y-report.md`:
 
 ## Skill Reference
 
-- `engineering-team/a11y-audit/SKILL.md`
-- `engineering-team/a11y-audit/scripts/a11y_scanner.py`
-- `engineering-team/a11y-audit/scripts/contrast_checker.py`
-- `engineering-team/a11y-audit/references/wcag-quick-ref.md`
-- `engineering-team/a11y-audit/references/aria-patterns.md`
-- `engineering-team/a11y-audit/references/framework-a11y-patterns.md`
+- `engineering-team/a11y-audit/skills/a11y-audit/SKILL.md`
+- `engineering-team/a11y-audit/skills/a11y-audit/scripts/a11y_scanner.py`
+- `engineering-team/a11y-audit/skills/a11y-audit/scripts/contrast_checker.py`
+- `engineering-team/a11y-audit/skills/a11y-audit/references/wcag-quick-ref.md`
+- `engineering-team/a11y-audit/skills/a11y-audit/references/aria-patterns.md`
+- `engineering-team/a11y-audit/skills/a11y-audit/references/framework-a11y-patterns.md`

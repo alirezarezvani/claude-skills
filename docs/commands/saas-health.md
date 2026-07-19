@@ -30,12 +30,12 @@ Calculate SaaS financial health metrics from raw business numbers, benchmark aga
 ```
 
 ## Scripts
-- `finance/saas-metrics-coach/scripts/metrics_calculator.py` — Core SaaS metrics (ARR, MRR, churn, CAC, LTV, NRR, payback)
-- `finance/saas-metrics-coach/scripts/quick_ratio_calculator.py` — Growth efficiency ratio
-- `finance/saas-metrics-coach/scripts/unit_economics_simulator.py` — 12-month forward projection
+- `finance/skills/saas-metrics-coach/scripts/metrics_calculator.py` — Core SaaS metrics (ARR, MRR, churn, CAC, LTV, NRR, payback)
+- `finance/skills/saas-metrics-coach/scripts/quick_ratio_calculator.py` — Growth efficiency ratio
+- `finance/skills/saas-metrics-coach/scripts/unit_economics_simulator.py` — 12-month forward projection
 
 ## Skill Reference
-→ `finance/saas-metrics-coach/SKILL.md`
+→ `finance/skills/saas-metrics-coach/SKILL.md`
 
 ## Related Commands
 - `/financial-health` — Traditional financial analysis (ratios, DCF, budgets)

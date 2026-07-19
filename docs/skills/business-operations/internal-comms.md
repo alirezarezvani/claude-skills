@@ -65,6 +65,13 @@ Five-step deterministic flow. Follow in order.
 
 All three: stdlib only, `--help` and `--sample` exit 0, accept `--input <json>` and `--output {markdown,json}`.
 
+## Quick example
+
+```bash
+# Emits the 4-artifact comms package (pre-comm, announcement, FAQ, follow-up) for the built-in tool-rollout example
+cd business-operations/skills/internal-comms && python3 scripts/comms_template_filler.py --sample
+```
+
 ## References
 
 - `references/change_management_canon.md` — Jeff Hiatt *ADKAR* (Prosci), John Kotter *Leading Change* (8-step), William Bridges *Managing Transitions* (Endings / Neutral Zone / Beginnings), Edgar Schein *Organizational Culture and Leadership*, McKinsey 7-S framework, Heath brothers *Switch*, Patrick Lencioni *The Advantage*.

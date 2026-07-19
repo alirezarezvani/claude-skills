@@ -278,6 +278,32 @@ def print_human(result, threshold):
         print("  (* = off-hours)")
 
 
+# Embedded synthetic audit log — exercises volume-spike + off-hours + failed-access
+# detectors so --sample produces a non-trivial report without a real log file.
+SAMPLE_ENTRIES = [
+    {"timestamp": "2026-03-20T03:14:00Z", "type": "request",
+     "auth": {"display_name": "approle-payment-svc"},
+     "request": {"path": "secret/data/production/payment/api-keys", "operation": "read"},
+     "response": {"status_code": 200}, "remote_address": "10.0.1.15"},
+    {"timestamp": "2026-03-20T03:15:00Z", "type": "request",
+     "auth": {"display_name": "approle-payment-svc"},
+     "request": {"path": "secret/data/production/payment/db", "operation": "read"},
+     "response": {"status_code": 200}, "remote_address": "10.0.1.99"},
+    {"timestamp": "2026-03-20T03:16:00Z", "type": "request",
+     "auth": {"display_name": "approle-payment-svc"},
+     "request": {"path": "secret/data/production/payment/jwt", "operation": "read"},
+     "response": {"status_code": 403}, "remote_address": "203.0.113.7"},
+    {"timestamp": "2026-03-20T03:17:00Z", "type": "request",
+     "auth": {"display_name": "approle-payment-svc"},
+     "request": {"path": "secret/data/production/payment/jwt", "operation": "read"},
+     "response": {"status_code": 403}, "remote_address": "203.0.113.7"},
+    {"timestamp": "2026-03-20T14:00:00Z", "type": "request",
+     "auth": {"display_name": "ci-runner"},
+     "request": {"path": "secret/data/ci/tokens", "operation": "read"},
+     "response": {"status_code": 200}, "remote_address": "10.0.2.20"},
+]
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Analyze Vault/cloud secret manager audit logs for anomalies.",
@@ -299,7 +325,7 @@ def main():
               %(prog)s --log-file audit.json --threshold 3 --json
         """),
     )
-    parser.add_argument("--log-file", required=True, help="Path to audit log file (JSON lines or JSON array)")
+    parser.add_argument("--log-file", help="Path to audit log file (JSON lines or JSON array)")
     parser.add_argument(
         "--threshold",
         type=int,
@@ -307,23 +333,35 @@ def main():
         help="Anomaly sensitivity threshold — lower = more sensitive (default: 5)",
     )
     parser.add_argument("--json", action="store_true", dest="json_output", help="Output as JSON")
+    parser.add_argument("--sample", action="store_true",
+                        help="Analyze an embedded synthetic audit log")
 
     args = parser.parse_args()
 
-    entries = load_logs(args.log_file)
+    if args.sample:
+        entries = SAMPLE_ENTRIES
+        log_file = "<embedded sample>"
+        threshold = 2
+    else:
+        if not args.log_file:
+            parser.error("--log-file is required (or use --sample)")
+        entries = load_logs(args.log_file)
+        log_file = args.log_file
+        threshold = args.threshold
+
     if not entries:
         print("No log entries found in file.", file=sys.stderr)
         sys.exit(1)
 
-    result = analyze(entries, args.threshold)
-    result["log_file"] = args.log_file
-    result["threshold"] = args.threshold
+    result = analyze(entries, threshold)
+    result["log_file"] = log_file
+    result["threshold"] = threshold
     result["analyzed_at"] = datetime.now().isoformat()
 
     if args.json_output:
         print(json.dumps(result, indent=2))
     else:
-        print_human(result, args.threshold)
+        print_human(result, threshold)
 
 
 if __name__ == "__main__":

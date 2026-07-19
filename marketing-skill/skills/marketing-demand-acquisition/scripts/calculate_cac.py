@@ -6,6 +6,7 @@ Calculate blended and channel-specific CAC for marketing campaigns.
 Supports multiple time periods and channel breakdowns.
 """
 
+import argparse
 import sys
 from typing import Dict, List
 
@@ -73,6 +74,8 @@ def print_results(results: Dict):
             print()
 
 def main():
+    # TODO: accept channel data via --file <json> or stdin so the tool can be
+    # automated without hand-editing this list (known limitation).
     # Example data - replace with your actual numbers
     example_data = [
         {'channel': 'LinkedIn Ads', 'spend': 15000, 'customers': 10},
@@ -98,4 +101,12 @@ def main():
     print("Blended Target: <$300")
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Calculate blended and channel-specific CAC.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="Current limitation: channel data is the `example_data` list in "
+               "main() — edit it with your spend/customer numbers, then run with "
+               "no args. CLI input (--file <json> / stdin) is a planned "
+               "enhancement; until then this tool is not scriptable.")
+    parser.parse_args()
     main()

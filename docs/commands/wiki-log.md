@@ -10,6 +10,9 @@ description: "Show recent entries from the LLM Wiki log (wiki/log.md). Uses the 
 <span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/commands/wiki-log.md">Source</a></span>
 </div>
 
+<!-- canonical copy: engineering/llm-wiki/commands/wiki-log.md — keep in sync -->
+
+# /wiki-log
 
 Show recent entries from `wiki/log.md`. Every LLM operation on the wiki leaves a standardized entry:
 
@@ -67,4 +70,4 @@ Filed back to comparisons/sae-vs-probing.md.
 
 ## Skill Reference
 
-→ `engineering/llm-wiki/SKILL.md`
+→ `engineering/llm-wiki/skills/llm-wiki/SKILL.md`

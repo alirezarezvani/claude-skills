@@ -64,15 +64,15 @@ Differentiates from siblings:
 
 ### Python Tools (Stdlib)
 
-1. **Bias Pattern Detector** — `scripts/bias_pattern_detector.py` — given conversation text, scan for patterns indicative of each of the 5 biases
-2. **Conversation Depth Analyzer** — `scripts/conversation_depth_analyzer.py` — counts turns, detects implicit-trigger signals (10+ detail turns, frustration markers, repeated dead-ends)
-3. **Directional Recommendation Validator** — `scripts/directional_recommendation_validator.py` — verifies output ends with Continue / Pivot / Pause + specific reasoning (not vague reassurance)
+1. **Bias Pattern Detector** — `skills/reflect/scripts/bias_pattern_detector.py` — given conversation text, scan for patterns indicative of each of the 5 biases
+2. **Conversation Depth Analyzer** — `skills/reflect/scripts/conversation_depth_analyzer.py` — counts turns, detects implicit-trigger signals (10+ detail turns, frustration markers, repeated dead-ends)
+3. **Directional Recommendation Validator** — `skills/reflect/scripts/directional_recommendation_validator.py` — verifies output ends with Continue / Pivot / Pause + specific reasoning (not vague reassurance)
 
 ### Knowledge Bases
 
-- `references/cognitive_bias_canon.md` — 5 biases + recognition cues (7+ sources)
-- `references/honest_output_discipline.md` — anti-manufactured-problems framing (7+ sources)
-- `references/conversation_reflection_practice.md` — Schön reflective-practice canon (7+ sources)
+- `skills/reflect/references/cognitive_bias_canon.md` — 5 biases + recognition cues (7+ sources)
+- `skills/reflect/references/honest_output_discipline.md` — anti-manufactured-problems framing (7+ sources)
+- `skills/reflect/references/conversation_reflection_practice.md` — Schön reflective-practice canon (7+ sources)
 
 ## Related Agents
 

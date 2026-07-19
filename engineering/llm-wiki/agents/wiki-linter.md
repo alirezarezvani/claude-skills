@@ -18,7 +18,7 @@ You are spawned **per-lint-pass**, not as a long-running agent.
 
 ## Workflow
 
-Follow `references/lint-workflow.md`. Three passes.
+Follow `skills/llm-wiki/references/lint-workflow.md`. Three passes.
 
 ### Pass 1 — Mechanical (scripts)
 

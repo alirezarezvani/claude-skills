@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Run skill_review_checklist_runner on every SKILL.md in the repo + aggregate."""
 
+import argparse
 import json
 import os
 import subprocess
@@ -38,6 +39,14 @@ def audit_skill(skill_folder):
 
 
 def main():
+    # Parse arguments BEFORE any work: `--help` must return instantly
+    # instead of running the full ~30s repo-wide audit.
+    parser = argparse.ArgumentParser(
+        description="Run the write-a-skill review checklist on every SKILL.md "
+                    "in the repo and print an aggregate report (~30s on the "
+                    "full tree). Running with no arguments audits everything.")
+    parser.parse_args()
+
     skills = find_skills()
     print(f"Auditing {len(skills)} skills...\n", file=sys.stderr)
 

@@ -1,6 +1,6 @@
 ---
 name: "ra-qm-skills"
-description: "12 regulatory & QM agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, ISO 27001 ISMS, GDPR/DSGVO, risk management (ISO 14971), CAPA, document control, auditing. Python tools (stdlib-only)."
+description: "Router/index for the 15 regulatory & quality-management skills bundled in this plugin (ISO 13485 QMS, EU MDR 2017/745, FDA submissions under QMSR, ISO 14971 risk, CAPA, document control, ISO 27001/ISMS, ISO 42001 AIMS, EU AI Act, GDPR/DSGVO, SOC 2, auditing). Use when a compliance request doesn't obviously match one skill and you need to pick the right one (e.g., 'prepare us for an ISO 13485 audit', 'is my AI system high-risk under the AI Act')."
 version: 2.9.0
 author: Alireza Rezvani
 license: MIT
@@ -18,49 +18,42 @@ agents:
   - openclaw
 ---
 
-# Regulatory Affairs & Quality Management Skills
+# Regulatory Affairs & Quality Management Skills — Router
 
-12 production-ready compliance skills for HealthTech and MedTech organizations.
+This plugin bundles **15 compliance skills** for HealthTech/MedTech organizations (this router is the 16th folder under `ra-qm-team/skills/`). Each skill is self-contained.
 
-## Quick Start
+## Routing table
 
-### Claude Code
-```
-/read ra-qm-team/regulatory-affairs-head/SKILL.md
-```
+Match the request, then load `ra-qm-team/skills/<skill>/SKILL.md`. If multiple rows match, ask one clarifying question first.
 
-### Codex CLI
-```bash
-npx agent-skills-cli add alirezarezvani/claude-skills/ra-qm-team
-```
+| Request signals | Skill | Path |
+|---|---|---|
+| Regulatory strategy, pathway selection, submissions planning | regulatory-affairs-head | `skills/regulatory-affairs-head/` |
+| Management review, quality KPIs, QMR governance | quality-manager-qmr | `skills/quality-manager-qmr/` |
+| ISO 13485 QMS implementation, process control | quality-manager-qms-iso13485 | `skills/quality-manager-qms-iso13485/` |
+| ISO 14971 risk analysis, FMEA, risk files | risk-management-specialist | `skills/risk-management-specialist/` |
+| Root cause analysis, corrective/preventive actions | capa-officer | `skills/capa-officer/` |
+| Document control, 21 CFR Part 11, DHF/DMR/DHR | quality-documentation-manager | `skills/quality-documentation-manager/` |
+| ISO 13485 internal audits, NC classification | qms-audit-expert | `skills/qms-audit-expert/` |
+| ISO 27001 audit planning and execution | isms-audit-expert | `skills/isms-audit-expert/` |
+| ISMS design, security risk assessment | information-security-manager-iso27001 | `skills/information-security-manager-iso27001/` |
+| EU MDR classification, technical files, PSUR | mdr-745-specialist | `skills/mdr-745-specialist/` |
+| FDA 510(k)/PMA/De Novo, QMSR | fda-consultant-specialist | `skills/fda-consultant-specialist/` |
+| GDPR/DSGVO, DPIA, data subject rights | gdpr-dsgvo-expert | `skills/gdpr-dsgvo-expert/` |
+| EU AI Act risk classification, obligations | eu-ai-act-specialist | `skills/eu-ai-act-specialist/` |
+| ISO/IEC 42001 AI management system | iso42001-specialist | `skills/iso42001-specialist/` |
+| SOC 2 Type I/II readiness, trust criteria | soc2-compliance | `skills/soc2-compliance/` |
 
-## Skills Overview
-
-| Skill | Folder | Focus |
-|-------|--------|-------|
-| Regulatory Affairs Head | `regulatory-affairs-head/` | FDA/MDR strategy, submissions |
-| Quality Manager (QMR) | `quality-manager-qmr/` | QMS governance, management review |
-| Quality Manager (ISO 13485) | `quality-manager-qms-iso13485/` | QMS implementation, doc control |
-| Risk Management Specialist | `risk-management-specialist/` | ISO 14971, FMEA, risk files |
-| CAPA Officer | `capa-officer/` | Root cause analysis, corrective actions |
-| Quality Documentation Manager | `quality-documentation-manager/` | Document control, 21 CFR Part 11 |
-| QMS Audit Expert | `qms-audit-expert/` | ISO 13485 internal audits |
-| ISMS Audit Expert | `isms-audit-expert/` | ISO 27001 security audits |
-| Information Security Manager | `information-security-manager-iso27001/` | ISMS implementation |
-| MDR 745 Specialist | `mdr-745-specialist/` | EU MDR classification, CE marking |
-| FDA Consultant | `fda-consultant-specialist/` | 510(k), PMA, QSR compliance |
-| GDPR/DSGVO Expert | `gdpr-dsgvo-expert/` | Privacy compliance, DPIA |
-
-## Python Tools
-
-17 scripts, all stdlib-only:
+## Quick start
 
 ```bash
-python3 risk-management-specialist/scripts/risk_matrix_calculator.py --help
-python3 gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py --help
+# Example: route a risk-analysis request
+cat ra-qm-team/skills/risk-management-specialist/SKILL.md
+python3 ra-qm-team/skills/risk-management-specialist/scripts/risk_matrix_calculator.py --help
 ```
 
 ## Rules
 
-- Load only the specific skill SKILL.md you need
-- Always verify compliance outputs against current regulations
+- Route to exactly one skill, then follow that skill's workflow. This router ships no tools of its own.
+- All outputs are decision support: final compliance determinations route to the named human owner (QMR, DPO, regulatory counsel) — never auto-decide.
+- Verify regulatory citations against the current text (e.g., FDA QMSR effective 2026-02-02 replaced the legacy QSR subsections).

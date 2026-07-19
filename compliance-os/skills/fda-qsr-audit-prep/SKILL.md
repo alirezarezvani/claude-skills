@@ -69,13 +69,13 @@ The FDA QSR auditor pressure-tests any US medical-device QSR work. Six questions
 
 ```bash
 # 1. QSR compliance posture
-python ../../ra-qm-team/skills/fda-consultant-specialist/scripts/qsr_compliance_checker.py compliance_state.json
+python ra-qm-team/skills/fda-consultant-specialist/scripts/qsr_compliance_checker.py compliance_state.json
 
 # 2. FDA submission tracking (510(k) / PMA / IDE)
-python ../../ra-qm-team/skills/fda-consultant-specialist/scripts/fda_submission_tracker.py submissions.json
+python ra-qm-team/skills/fda-consultant-specialist/scripts/fda_submission_tracker.py submissions.json
 
 # 3. HIPAA overlap (if connected device handles PHI)
-python ../../ra-qm-team/skills/fda-consultant-specialist/scripts/hipaa_risk_assessment.py phi_inventory.json
+python ra-qm-team/skills/fda-consultant-specialist/scripts/hipaa_risk_assessment.py phi_inventory.json
 
 # 4. Mock FDA inspection
 python ../../skills/compliance-os/scripts/audit_simulator.py fda_qsr_scope.json

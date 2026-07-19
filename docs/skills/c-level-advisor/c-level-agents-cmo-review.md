@@ -1,6 +1,6 @@
 ---
 title: "/cs:cmo-review — CMO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cmo-review <plan> — Narrative-first interrogation of positioning, ICP, message house, and channel mix. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:cmo-review <plan> — Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:cmo-review — CMO Forcing Questions

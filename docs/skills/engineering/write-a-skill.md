@@ -67,7 +67,7 @@ description: Brief description of capability. Use when [specific triggers].
 
 ## Advanced features
 
-[Link to separate files: See [REFERENCE.md](REFERENCE.md)]
+[Link to separate files: See [REFERENCE.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/skills/write-a-skill/REFERENCE.md)]
 ```
 
 ## Description Requirements

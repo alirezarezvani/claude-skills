@@ -222,9 +222,9 @@ python scripts/poc_planner.py poc_data.json --format json  # JSON output
 
 ## Integration Points
 
-- **Marketing Skills** - Leverage competitive intelligence and messaging frameworks from [`business-growth/marketing-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/marketing-skill)
-- **Product Team** - Coordinate on roadmap items flagged as "Planned" in RFP analysis from [`business-growth/product-team`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/product-team)
-- **C-Level Advisory** - Escalate strategic deals requiring executive engagement from [`business-growth/c-level-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/c-level-advisor)
+- **Marketing Skills** - Leverage competitive intelligence and messaging frameworks from `marketing-skill/`
+- **Product Team** - Coordinate on roadmap items flagged as "Planned" in RFP analysis from `product-team/`
+- **C-Level Advisory** - Escalate strategic deals requiring executive engagement from `c-level-advisor/`
 - **Customer Success** - Hand off POC results and success criteria to CSM from [`skills/customer-success-manager`](https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/skills/customer-success-manager)
 
 ---

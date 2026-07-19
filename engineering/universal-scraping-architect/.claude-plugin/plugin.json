@@ -9,7 +9,9 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/universal-scraping-architect",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": ["./"],
+  "skills": [
+    "./skills"
+  ],
   "attribution": {
     "author": "Mehansh Barthwal",
     "source": "https://github.com/mehanshbarthwal-lab",

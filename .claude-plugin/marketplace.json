@@ -4,18 +4,18 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "343 production-ready skill packages for Claude AI across 17 domains: engineering advanced (78, incl. v2.9.0 workflow-builder for Claude Code Workflow-tool authoring), engineering core (51), marketing (46 — incl. AEO/Answer Engine Optimization), c-level advisory (66), product (17), regulatory/QMS (18), compliance-os (9), project management (9), business growth (5), finance (4), productivity (6), marketing top-level (1), research (8), research-ops (5, v2.9.0), business-operations (7), commercial (8), and markdown-html (5, v2.10.3 — markdown-to-interactive-HTML converter complete: orchestrator + design-system + md-document long-form + md-review code-review + md-slides slide-deck). Includes 548 Python tools, 691 reference documents, 51+ agents, 90+ slash commands across 64 marketplace plugins.",
+  "description": "348 production-ready skill packages for Claude AI across 18 domains: engineering advanced (78, incl. v2.9.0 workflow-builder for Claude Code Workflow-tool authoring), engineering core (51), marketing (46 — incl. AEO/Answer Engine Optimization), c-level advisory (66), product (17), regulatory/QMS (18), compliance-os (9), project management (9), business growth (5), finance (4), productivity (6), marketing top-level (1), research (8), research-ops (5, v2.9.0), business-operations (7), commercial (8), markdown-html (5, v2.10.3 — markdown-to-interactive-HTML converter complete: orchestrator + design-system + md-document long-form + md-review code-review + md-slides slide-deck), and loop-library (1 — vendored Forward Future Loop Library skill). Includes 586 Python tools, 713 reference documents, 94 agents, 100 slash commands across 79 marketplace plugins.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "343 production-ready skills across 17 domains (engineering, engineering-core, marketing, product, c-level, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, plus standards). 548 Python tools, 691 reference guides, 51+ agents (cs-* + personas), 90+ slash commands across 64 marketplace plugins. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
-    "version": "2.10.3"
+    "description": "362 production-ready skills across 18 domains (engineering, engineering-core, marketing, product, c-level, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 644 Python tools, 741 reference guides, 102 agents (cs-* + personas), 116 slash commands across 88 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs:pm and /cs:product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "version": "2.11.2"
   },
   "plugins": [
     {
       "name": "marketing-skills",
       "source": "./marketing-skill",
-      "description": "44 marketing skills across 7 pods: Content, SEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 51 Python tools, 73 reference docs.",
+      "description": "47 marketing skills across 8 pods: Content, SEO & AEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 62 Python tools, 89 reference docs.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -131,6 +131,27 @@
       "category": "leadership"
     },
     {
+      "name": "arquiteto-de-empresa",
+      "source": "./c-level-advisor/arquiteto-de-empresa",
+      "description": "Company Architect: builds a business from scratch as an OKF (Open Knowledge Format) bundle — a tree of versionable .md files with a frontmatter type, links forming a graph, and reserved index.md/log.md, readable by humans and agents alike. Guides the founder through a 12-phase interview (foundation, strategy, market, financial, sales, marketing, product, operations, tech, people, legal, governance), one phase at a time, and generates conformant markdown concepts. 3 stdlib tools: scaffold_bundle (bundle scaffold), okf_linter (validates type/reserved files/links), index_generator (regenerates the index.md files). Standalone-installable; also bundled in c-level-skills. In English.",
+      "version": "2.10.3",
+      "author": {
+        "name": "leoal"
+      },
+      "keywords": [
+        "arquiteto-de-empresa",
+        "company-architect",
+        "okf",
+        "open-knowledge-format",
+        "knowledge-bundle",
+        "business-from-scratch",
+        "company-as-code",
+        "founder",
+        "chief-of-staff"
+      ],
+      "category": "leadership"
+    },
+    {
       "name": "chief-data-officer-advisor",
       "source": "./c-level-advisor/chief-data-officer-advisor",
       "description": "Chief Data Officer advisory for startups: AI training data audit (origin × class × use-case matrix with GDPR Art. 6 + EU AI Act citations), data product strategy picker (warehouse vs lakehouse vs mesh + 6-layer build-vs-buy + 12-month sequencing), data asset valuator (strategic value 0-10 + M&A multiplier with carve-out penalties + 3 ranked productization paths). 4 references answering one decision each: training rights, data product strategy, customer-data-as-asset, data team org evolution. Standalone-installable; also bundled in c-level-skills. Strategic only — does not duplicate engineering data skills.",
@@ -224,7 +245,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "40 advanced engineering skills: agent designer, agent workflow designer, AgentHub, RAG architect, database designer, focused-fix, browser-automation, spec-driven-workflow, secrets-vault-manager, sql-database-assistant, migration architect, observability designer, dependency auditor, release manager, API reviewer, CI/CD pipeline builder, MCP server builder, skill security auditor, performance profiler, Helm chart builder, Terraform patterns, self-eval, llm-cost-optimizer, prompt-governance, behuman, code-tour, demo-video, data-quality-auditor, statistical-analyst, llm-wiki (second brain for Obsidian + Claude Code, Karpathy pattern), feature-flags-architect (flag debt scanner, rollout planner, kill-switch audit), kubernetes-operator (CRD validator, reconcile linter, capability auditor), chaos-engineering (experiment designer, blast-radius calculator, postmortem generator), ship-gate (pre-production 8-category audit with deploy-intent intercept), slo-architect (SLO designer, error-budget calculator with multi-window burn-rate alerts, SLO reviewer per Google SRE Workbook), and more.",
+      "description": "37 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator (with semantic version bumper and hotfix/rollback procedures), API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker (task context tracker with lifecycle and handoff format), feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit with deploy-intent intercept), slo-architect (SLO designer, error-budget calculator with multi-window burn-rate alerts, SLO reviewer per Google SRE Workbook), and tech-debt-tracker. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -294,8 +315,8 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "13 product skills with 17 Python tools: product manager toolkit (RICE, PRDs), agile product owner, product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, code-to-prd, research summarizer, apple-hig-expert.",
-      "version": "2.9.0",
+      "description": "13 bundled product skills with 22 Python tools: product-skills fork-orchestrator with continuous-discovery loop (deterministic 16-lane router, Torres cadence tracker, OST linter, /cs:product + /cs:grill-product + /cs:product-loop), product manager toolkit (RICE, PRDs), product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, spec-to-repo. Companion standalone plugins: agile-product-owner, code-to-prd, apple-hig-expert, research-summarizer.",
+      "version": "2.11.1",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -321,8 +342,8 @@
     {
       "name": "pm-skills",
       "source": "./project-management",
-      "description": "9 project management skills with 12 Python tools: senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator.",
-      "version": "2.9.0",
+      "description": "9 project management skills with 15 Python tools: pm-skills fork-orchestrator with agentic delivery loop (deterministic 8-lane router, Jira MCP snapshot bridge to Kanban flow metrics + Monte Carlo forecasts, delegation-governance gate, /cs:pm + /cs:grill-pm + /cs:pm-loop), senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator, meeting analyzer, team communications. Bundled Atlassian Remote MCP.",
+      "version": "2.11.1",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -399,8 +420,8 @@
     {
       "name": "self-improving-agent",
       "source": "./engineering-team/self-improving-agent",
-      "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills. Ships 5 slash commands (/si:review, /si:promote, /si:extract, /si:status, /si:remember) and 2 sub-agents (memory-analyst, skill-extractor).",
-      "version": "2.9.0",
+      "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills. Ships 5 slash commands (/si:memory-review, /si:promote, /si:extract, /si:memory-status, /si:remember) and 2 sub-agents (memory-analyst, skill-extractor).",
+      "version": "2.9.1",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -881,6 +902,46 @@
       "category": "development"
     },
     {
+      "name": "zero-hallucination-coder",
+      "source": "./engineering/zero-hallucination-coder",
+      "description": "A disciplined coding pipeline that grounds code in verified structure before a line is written: Discuss -> Map -> Decompose -> Execute -> Verify, with a lazy-senior-dev YAGNI ladder that deletes unnecessary code first. No invented APIs, no assumed imports, no placeholder code. Opt-in for high-stakes, complex, or multi-file work; not for trivial edits. Synthesizes four MIT/open-source projects (Ralph atomic loop, GSD Core context engineering, Graphify KNOWN/INFERRED/UNKNOWN mapping, Ponytail lazy-senior hierarchy). Contributed via PR #854.",
+      "version": "2.10.3",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "zero-hallucination",
+        "coding-pipeline",
+        "context-engineering",
+        "codebase-mapping",
+        "yagni",
+        "plan-before-code",
+        "engineering"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "agent-harness",
+      "source": "./engineering/agent-harness",
+      "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs:harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "agent-harness",
+        "agentic-loop",
+        "verification-gate",
+        "goal-compiler",
+        "loop-controller",
+        "stop-conditions",
+        "escalation",
+        "multi-agent",
+        "engineering"
+      ],
+      "category": "development"
+    },
+    {
       "name": "grill-me",
       "source": "./engineering/grill-me",
       "description": "Relentless plan-and-design interrogator. Walks the decision tree one branch at a time, asking forcing questions sequentially with recommended answers. Explores codebase before asking. Derived from Matt Pocock's MIT-licensed grill-me with: (1) 3 stdlib Python tools (decision-tree extractor across 6 branch kinds, question generator with dependency-aware ordering, JSON-backed session tracker for multi-day grills), (2) 3 references citing 7-8 sources (6 forcing-question patterns, when to stop grilling, companion tooling), (3) cs-grill-master persona agent + /cs:grill-me slash command. Matt's relentless one-at-a-time interview discipline preserved verbatim per MIT.",
@@ -1032,6 +1093,99 @@
       "category": "productivity"
     },
     {
+      "name": "roast",
+      "source": "./productivity/roast",
+      "description": "Pressure-test a business idea before you build it. Convenes a 5-angle adversarial panel — The Critic (what kills this?), The Champion (the 10x upside?), The Analyst (does the logic hold?), The Investigator (what does the market say?), The Customer (would I actually pay?) — fired in parallel as independent reviewers, then a Judge synthesizes one GO / RESHAPE / KILL verdict with explicit confidence and the cheapest 48-hour test to de-risk it. Never averages the scores: a weighted synthesizer with demand/fatal-flaw/logic veto gates produces the call, backed by deterministic stdlib tools.",
+      "version": "2.10.3",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "roast",
+        "pressure-test",
+        "stress-test",
+        "idea-validation",
+        "adversarial-panel",
+        "go-no-go",
+        "anti-sycophancy",
+        "productivity"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "fable-goal",
+      "source": "./productivity/fable-goal",
+      "description": "Convert a rambling description of a desired outcome into one polished, autonomous /goal prompt ready to paste into a fresh session. Extracts deliverable/quantity/stakes/tools/destination, asks at most one question batch, verifies every named resource against the live environment, writes a 150-350 word prose prompt with the seven-part anatomy, and self-checks six binary criteria before delivering. The output is a single copy-paste prompt, never the build itself.",
+      "version": "2.11.1",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "goal-prompt",
+        "prompt-writing",
+        "autonomous-agent",
+        "prompt-engineering",
+        "fable",
+        "ramble-to-prompt",
+        "productivity"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "weekly-review",
+      "source": "./productivity/weekly-review",
+      "description": "GTD weekly-review loop. Scans the workspace for open loops (unchecked boxes, TODO/FIXME, stale files), walks the three-phase GET CLEAR / GET CURRENT / GET CREATIVE checklist with a refusal gate (review is never COMPLETE while a mandatory GET CURRENT step is missing), and audits commitments for stalled / no-next-action / someday candidates with a 0-100 health score. Fills the periodic-review gap from audit/productivity-2026-07.",
+      "version": "2.11.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "weekly-review",
+        "gtd",
+        "open-loops",
+        "review-cadence",
+        "productivity",
+        "commitments"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "deep-work",
+      "source": "./productivity/deep-work",
+      "description": "Deep Work day planner. Classifies tasks deep vs shallow with a shallow-work budget verdict (plus the recent-graduate forcing question), builds a time-blocked schedule (deep blocks of 90+ minutes first, shallow batched, buffers, refuses more than 4 hours of deep demand), and logs focus sessions against a weekly deep-hours target with streaks. Fills the time/attention-management gap from audit/productivity-2026-07.",
+      "version": "2.11.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "deep-work",
+        "time-blocking",
+        "focus",
+        "shallow-work",
+        "productivity",
+        "attention"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "meetings",
+      "source": "./productivity/meetings",
+      "description": "Meeting discipline. Cost-gates every meeting before it exists (MEET / ASYNC / NOT-READY verdicts with real dollar cost incl. optional refocus overhead), builds timeboxed agendas that refuse topics without a desired outcome (decision topics first), and extracts owned action items from raw notes with ORPHAN / NO-DUE flags. Fills the meeting-hygiene gap from audit/productivity-2026-07.",
+      "version": "2.11.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "meetings",
+        "meeting-cost",
+        "agenda",
+        "action-items",
+        "productivity",
+        "async"
+      ],
+      "category": "productivity"
+    },
+    {
       "name": "landing",
       "source": "./marketing/landing",
       "description": "Single-file HTML landing-page generator with 4 design styles, brand palette validation, GSAP animation patterns, kebab-slug URL hygiene. Path-B from megaprompt 04.",
@@ -1067,6 +1221,25 @@
         "trending",
         "research-pack",
         "path-b-megaprompt"
+      ],
+      "category": "research"
+    },
+    {
+      "name": "deep-research",
+      "source": "./research/deep-research",
+      "description": "Disciplined multi-source meta-research for high-stakes questions — the heavyweight alternative to the fast research router. 9-phase pipeline (reframe into falsifiable hypotheses, plan, capability discovery, parallel sub-agent fan-out, score & triangulate, synthesize + adversarial pass, verify, refresh targets). Triangulates every thesis against >=3 independent differently-typed sources; per-source files with verbatim quotes; never fabricates a citation. Auditable, reusable folder + delta-update refresh protocol. Contributed via PR #851.",
+      "version": "2.10.3",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "research",
+        "deep-research",
+        "meta-research",
+        "triangulation",
+        "adversarial",
+        "multi-source",
+        "hypothesis-validation"
       ],
       "category": "research"
     },
@@ -1252,6 +1425,26 @@
         "pickle",
         "engineering",
         "static-analysis"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "skillopt-sleep",
+      "source": "./engineering/skillopt-sleep",
+      "description": "Nightly offline self-evolution for this repo's Claude agent: harvests past Claude Code sessions (read-only), mines recurring tasks, replays them offline on your own API budget, and consolidates learnings into validated CLAUDE.md memory and SKILL.md skills behind a held-out gate, staged for review (never auto-applied). Verbatim vendor of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface (MIT).",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "self-improvement",
+        "memory-consolidation",
+        "skillopt",
+        "dreams",
+        "sleep",
+        "continual-learning",
+        "offline-optimization",
+        "microsoft"
       ],
       "category": "development"
     },
@@ -1448,6 +1641,227 @@
         "transcriptapi"
       ],
       "category": "marketing"
+    },
+    {
+      "name": "compliance-os",
+      "source": "./compliance-os",
+      "description": "Compliance OS — meta-orchestrator for multi-framework compliance programs spanning 9 frameworks (ISO 27001, ISO 13485, ISO 42001, ISO 14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR). Framework selector, cross-framework control mapper, audit simulator, and consolidated evidence-pool generator (stdlib Python), plus 3 cs-* compliance agents and 3 /cs:* readiness commands.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "compliance",
+        "iso-27001",
+        "iso-42001",
+        "eu-ai-act",
+        "gdpr",
+        "soc2",
+        "audit",
+        "evidence",
+        "framework-mapping"
+      ],
+      "category": "compliance"
+    },
+    {
+      "name": "snowflake-development",
+      "source": "./engineering-team/snowflake-development",
+      "description": "Snowflake SQL, data pipelines (Dynamic Tables, Streams+Tasks), Cortex AI functions, Snowpark Python, and dbt integration. Includes query helper script, reference guides, and troubleshooting.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "snowflake",
+        "sql",
+        "data-pipelines",
+        "snowpark",
+        "dbt",
+        "cortex",
+        "data-warehouse"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "behuman",
+      "source": "./engineering/behuman",
+      "description": "Self-Mirror consciousness loop for human-like AI responses. Adds inner dialogue (Self → Mirror → Conscious Response) to make AI output feel authentic, not robotic. Zero dependencies — pure prompt technique.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "prompting",
+        "voice",
+        "authenticity",
+        "self-mirror",
+        "writing"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "claude-coach",
+      "source": "./engineering/claude-coach",
+      "description": "Personal Claude power-user coach. Delivers a personalized, ranked cheat-code glossary on first activation, then surfaces at most one tip per turn when it would genuinely improve the next attempt. Ships cheat-codes glossary, coaching-rules decision tree, three stdlib Python tools, cs-claude-coach agent, and /cs:claude-coach command.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "claude-code",
+        "coaching",
+        "power-user",
+        "tips",
+        "productivity"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "grill-with-docs",
+      "source": "./engineering/grill-with-docs",
+      "description": "Docs-anchored grilling session — interrogates a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), updating those files inline as terminology and decisions crystallise. Derived from Matt Pocock's MIT-licensed grill-with-docs with stdlib validators (CONTEXT.md linter, ADR scanner, glossary-code consistency), reference docs, cs-grill-with-docs agent, and /cs:grill-with-docs command.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "planning",
+        "adr",
+        "context",
+        "ubiquitous-language",
+        "interrogation",
+        "matt-pocock"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "llm-cost-optimizer",
+      "source": "./engineering/llm-cost-optimizer",
+      "description": "Cut LLM API spend via model routing, prompt caching, prompt compression, and per-feature cost observability. Use when AI costs are too high, choosing between models, or launching an AI feature without cost architecture. NOT for RAG design or prompt quality (separate skills).",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "llm",
+        "cost-optimization",
+        "token-usage",
+        "model-routing",
+        "prompt-caching",
+        "observability"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "prompt-governance",
+      "source": "./engineering/prompt-governance",
+      "description": "Manage prompts in production at scale: prompt versioning, A/B testing, prompt registries, regression prevention, and eval pipelines for production AI features. NOT for writing individual prompts, RAG design, or cost reduction (separate skills).",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "prompts",
+        "versioning",
+        "ab-testing",
+        "registry",
+        "evals",
+        "regression",
+        "production-ai"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "business-investment-advisor",
+      "source": "./finance/business-investment-advisor",
+      "description": "Business investment analysis and capital allocation advisor. Evaluates equipment, real estate, new-business, hiring, and technology investments with ROI, IRR, NPV, payback period, build-vs-buy, lease-vs-buy, and vendor evaluation frameworks for allocating limited budget.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "investment",
+        "capital-allocation",
+        "roi",
+        "irr",
+        "npv",
+        "build-vs-buy",
+        "finance"
+      ],
+      "category": "finance"
+    },
+    {
+      "name": "video-content-strategist",
+      "source": "./marketing-skill/video-content-strategist",
+      "description": "Video content strategy: video scripts, YouTube channel optimization and SEO, short-form video pipelines (Reels, TikTok, Shorts), and repurposing long-form content into video. NOT for written blog content or caption-only social posts (separate skills).",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "video",
+        "youtube",
+        "short-form",
+        "scripts",
+        "content-strategy",
+        "tiktok",
+        "reels"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "compliance-team-eu-ai-act",
+      "source": "./ra-qm-team/compliance-team-eu-ai-act",
+      "description": "EU AI Act (Regulation (EU) 2024/1689) operational compliance specialist: AI system risk classifier (Articles 5/6/50 + Annex III), conformity assessment planner (Article 43 + Annex IV checklist), and obligation tracker (provider/deployer/importer/distributor + GPAI Articles 51-55). Article-level references and cross-framework mapping to ISO 42001, NIST AI RMF, GDPR. Stdlib-only.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "eu-ai-act",
+        "compliance",
+        "risk-classification",
+        "conformity-assessment",
+        "gpai",
+        "ai-regulation"
+      ],
+      "category": "compliance"
+    },
+    {
+      "name": "compliance-team-iso42001",
+      "source": "./ra-qm-team/compliance-team-iso42001",
+      "description": "ISO/IEC 42001:2023 AI Management System (AIMS) specialist: AIMS gap analyzer (Clauses 4-10 coverage + remediation priority), AI risk register builder (Annex A 38 controls per ISO 23894), and AIMS audit scheduler (Clause 9.2 cadence + auditor independence). Cross-framework mapping to EU AI Act, NIST AI RMF, ISO 23894. Stdlib-only.",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "iso-42001",
+        "aims",
+        "ai-governance",
+        "risk-register",
+        "internal-audit",
+        "compliance"
+      ],
+      "category": "compliance"
+    },
+    {
+      "name": "collab-proof",
+      "source": "./engineering/collab-proof",
+      "description": "Assisted retrospective: after a session, calibrates what Claude contributed vs what the developer drove. LLM-assessed 4-frame analysis with explicit rubric, zero dependencies.",
+      "version": "1.0.0",
+      "author": {
+        "name": "dong7812",
+        "url": "https://github.com/dong7812"
+      },
+      "keywords": [
+        "ai-collaboration",
+        "session-retrospective",
+        "git-analysis",
+        "decision-logging",
+        "collab-proof"
+      ],
+      "category": "engineering"
     }
   ]
 }

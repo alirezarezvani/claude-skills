@@ -24,9 +24,9 @@ This is the same property that makes well-designed CI/CD systems trustworthy: th
 
 Every invocation produces exactly one of:
 
-1. **Delegation** (classified as specialist-domain, ≥2 signals OR single weak match): hand off to specialist verbatim, return their output, log the delegation.
+1. **Delegation** (classified as specialist-domain, ≥2 signals OR one strong multi-word phrase signal): hand off to specialist verbatim, return their output, log the delegation.
 2. **Fallback execution** (no specialist matched OR Q3 user picked "none of the above"): run the 8-step plan-decompose-search-synthesize-cite workflow.
-3. **Clarification request** (classification ambiguous — ≤1 signal across all specialists): ask Q3 (domain disambiguation), then route based on the answer.
+3. **Clarification request** (classification ambiguous, OR a single bare-noun signal matched): ask Q3 (domain disambiguation, with the matched specialist as the recommended answer when there is one), then route based on the answer.
 
 Frame this way to refuse the trap of "router silently runs its fallback because the user didn't explicitly ask for a specialist." That's the failure mode the architecture exists to prevent.
 
@@ -59,15 +59,16 @@ T+0  User invokes /cs:research with their question
 T+0  Q1 (research question) — always asked
 T+0  Q2 (output preference) — always asked
 T+0  Classifier runs (deterministic, sub-millisecond)
-T+0  IF score >= 2 OR single specialist with score 1:
+T+0  IF score >= 2 OR single specialist matched one strong multi-word phrase:
        Routing transparency: "Routing to X because Y"
-       Wait 1 turn for override (or 5s timeout)
+       Proceed with the recommended route if the user doesn't object (no timers)
        Delegate verbatim + return specialist output
      ELSE:
-       Q3 (domain disambiguation) — only when ambiguous
+       Q3 (domain disambiguation) — ambiguous OR single bare-noun signal
+       (bare-noun case: pre-mark the matched specialist as recommended answer)
        IF Q3 picks specialist: delegate
        IF Q3 picks "none of the above": Q4 → fallback
-T+~5s  Specialist output OR fallback workflow complete
+T+1 turn  Specialist output OR fallback workflow complete
 ```
 
 This sequencing is what keeps the orchestrator fast on the happy path (specialist matched cleanly) while still degrading gracefully (Q3 + Q4 + fallback for the edge cases).
@@ -90,7 +91,7 @@ Skill uses Claude to "decide" which specialist matches. Adds latency, costs toke
 
 Skill routes "research Microsoft" to `dossier` based on the word "research". But the user might want general research about Microsoft, not a competitor dossier. The single weak signal isn't strong enough.
 
-**Fix:** Generic "research [topic]" doesn't route. Specific phrases like "dossier on Microsoft" or "background on Microsoft" do.
+**Fix:** Generic "research [topic]" doesn't route, and a single bare-noun signal ("funding", "fda", "patent", "grant") asks Q3 with a recommended answer instead of silent-routing. Specific multi-word phrases like "dossier on Microsoft" or "background on Microsoft" do route.
 
 ### Specialist intake pre-answering
 

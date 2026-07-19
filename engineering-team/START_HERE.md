@@ -2,7 +2,7 @@
 
 ## 📦 **What You're Getting**
 
-**14 world-class, senior-level skills** for building exceptional engineering and AI/ML/Data teams.
+**32 production-ready skills** for building exceptional engineering and AI/ML/Data teams (this quick-start tour covers the original 14 role skills; see README.md for the full current list).
 
 All skills follow your exact template structure with:
 - ✅ **SKILL.md** - Complete documentation with quick start
@@ -14,7 +14,7 @@ All skills follow your exact template structure with:
 
 ## 📚 **Your Documents**
 
-### **1. [TEAM_STRUCTURE_GUIDE.md](computer:///mnt/user-data/outputs/TEAM_STRUCTURE_GUIDE.md)** ⭐ **START HERE**
+### **1. [TEAM_STRUCTURE_GUIDE.md](TEAM_STRUCTURE_GUIDE.md)** ⭐ **START HERE**
 
 **THE MASTER GUIDE** - Complete team structure recommendations:
 - Team compositions for startups, scale-ups, and enterprises
@@ -24,7 +24,7 @@ All skills follow your exact template structure with:
 - Performance benchmarks
 - Tech stack coverage
 
-### **2. [README.md](computer:///mnt/user-data/outputs/README.md)**
+### **2. [README.md](README.md)**
 
 Original engineering skills guide covering the 9 engineering roles in detail.
 
@@ -34,57 +34,57 @@ Original engineering skills guide covering the 9 engineering roles in detail.
 
 ### **Need to...**
 
-**Design a system?** → [senior-architect.zip](computer:///mnt/user-data/outputs/senior-architect.zip)
+**Design a system?** → [skills/senior-architect/](skills/senior-architect/)
 
-**Build frontend?** → [senior-frontend.zip](computer:///mnt/user-data/outputs/senior-frontend.zip)
+**Build frontend?** → [skills/senior-frontend/](skills/senior-frontend/)
 
-**Build backend?** → [senior-backend.zip](computer:///mnt/user-data/outputs/senior-backend.zip)
+**Build backend?** → [skills/senior-backend/](skills/senior-backend/)
 
-**Build full-stack?** → [senior-fullstack.zip](computer:///mnt/user-data/outputs/senior-fullstack.zip)
+**Build full-stack?** → [skills/senior-fullstack/](skills/senior-fullstack/)
 
-**Setup testing?** → [senior-qa.zip](computer:///mnt/user-data/outputs/senior-qa.zip)
+**Setup testing?** → [skills/senior-qa/](skills/senior-qa/)
 
-**Setup DevOps?** → [senior-devops.zip](computer:///mnt/user-data/outputs/senior-devops.zip)
+**Setup DevOps?** → [skills/senior-devops/](skills/senior-devops/)
 
-**Setup security?** → [senior-secops.zip](computer:///mnt/user-data/outputs/senior-secops.zip) or [senior-security.zip](computer:///mnt/user-data/outputs/senior-security.zip)
+**Setup security?** → [skills/senior-secops/](skills/senior-secops/) or [skills/senior-security/](skills/senior-security/)
 
-**Review code?** → [code-reviewer.zip](computer:///mnt/user-data/outputs/code-reviewer.zip)
+**Review code?** → [skills/code-reviewer/](skills/code-reviewer/)
 
-**Analyze data?** → [senior-data-scientist.zip](computer:///mnt/user-data/outputs/senior-data-scientist.zip)
+**Analyze data?** → [skills/senior-data-scientist/](skills/senior-data-scientist/)
 
-**Build data pipelines?** → [senior-data-engineer.zip](computer:///mnt/user-data/outputs/senior-data-engineer.zip)
+**Build data pipelines?** → [skills/senior-data-engineer/](skills/senior-data-engineer/)
 
-**Deploy ML models?** → [senior-ml-engineer.zip](computer:///mnt/user-data/outputs/senior-ml-engineer.zip)
+**Deploy ML models?** → [skills/senior-ml-engineer/](skills/senior-ml-engineer/)
 
-**Optimize LLMs?** → [senior-prompt-engineer.zip](computer:///mnt/user-data/outputs/senior-prompt-engineer.zip)
+**Optimize LLMs?** → [skills/senior-prompt-engineer/](skills/senior-prompt-engineer/)
 
-**Build vision AI?** → [senior-computer-vision.zip](computer:///mnt/user-data/outputs/senior-computer-vision.zip)
+**Build vision AI?** → [skills/senior-computer-vision/](skills/senior-computer-vision/)
 
 ---
 
 ## 🏗️ **Team Size Guide**
 
 ### **Startup (5-10 people)**
-Download these 5 skills:
-1. [senior-fullstack.zip](computer:///mnt/user-data/outputs/senior-fullstack.zip) (×2)
-2. [senior-data-scientist.zip](computer:///mnt/user-data/outputs/senior-data-scientist.zip) (×1)
-3. [senior-devops.zip](computer:///mnt/user-data/outputs/senior-devops.zip) (×1)
-4. [senior-ml-engineer.zip](computer:///mnt/user-data/outputs/senior-ml-engineer.zip) (×1)
+Use these 5 skills:
+1. [skills/senior-fullstack/](skills/senior-fullstack/) (×2)
+2. [skills/senior-data-scientist/](skills/senior-data-scientist/) (×1)
+3. [skills/senior-devops/](skills/senior-devops/) (×1)
+4. [skills/senior-ml-engineer/](skills/senior-ml-engineer/) (×1)
 
 ### **Scale-Up (10-25 people)**
-Download these 9 skills:
-1. [senior-architect.zip](computer:///mnt/user-data/outputs/senior-architect.zip) (×1)
-2. [senior-frontend.zip](computer:///mnt/user-data/outputs/senior-frontend.zip) (×2)
-3. [senior-backend.zip](computer:///mnt/user-data/outputs/senior-backend.zip) (×3)
-4. [senior-data-engineer.zip](computer:///mnt/user-data/outputs/senior-data-engineer.zip) (×2)
-5. [senior-data-scientist.zip](computer:///mnt/user-data/outputs/senior-data-scientist.zip) (×2)
-6. [senior-ml-engineer.zip](computer:///mnt/user-data/outputs/senior-ml-engineer.zip) (×2)
-7. [senior-qa.zip](computer:///mnt/user-data/outputs/senior-qa.zip) (×1)
-8. [senior-devops.zip](computer:///mnt/user-data/outputs/senior-devops.zip) (×1)
-9. [senior-secops.zip](computer:///mnt/user-data/outputs/senior-secops.zip) (×1)
+Use these 9 skills:
+1. [skills/senior-architect/](skills/senior-architect/) (×1)
+2. [skills/senior-frontend/](skills/senior-frontend/) (×2)
+3. [skills/senior-backend/](skills/senior-backend/) (×3)
+4. [skills/senior-data-engineer/](skills/senior-data-engineer/) (×2)
+5. [skills/senior-data-scientist/](skills/senior-data-scientist/) (×2)
+6. [skills/senior-ml-engineer/](skills/senior-ml-engineer/) (×2)
+7. [skills/senior-qa/](skills/senior-qa/) (×1)
+8. [skills/senior-devops/](skills/senior-devops/) (×1)
+9. [skills/senior-secops/](skills/senior-secops/) (×1)
 
 ### **Enterprise (25-50+ people)**
-Download all 14 skills - you'll need the full suite!
+Use all 14 role skills - you'll need the full suite!
 
 ---
 
@@ -94,25 +94,25 @@ Download all 14 skills - you'll need the full suite!
 
 | # | Skill | Download | What It Does |
 |---|-------|----------|--------------|
-| 1 | **Senior Architect** | [Download](computer:///mnt/user-data/outputs/senior-architect.zip) | System design, architecture decisions, diagrams |
-| 2 | **Senior Frontend** | [Download](computer:///mnt/user-data/outputs/senior-frontend.zip) | React, Next.js, UI/UX, performance |
-| 3 | **Senior Backend** | [Download](computer:///mnt/user-data/outputs/senior-backend.zip) | APIs, databases, business logic |
-| 4 | **Senior Fullstack** | [Download](computer:///mnt/user-data/outputs/senior-fullstack.zip) | End-to-end development |
-| 5 | **Senior QA** | [Download](computer:///mnt/user-data/outputs/senior-qa.zip) | Testing, automation, quality |
-| 6 | **Senior DevOps** | [Download](computer:///mnt/user-data/outputs/senior-devops.zip) | CI/CD, infrastructure, deployment |
-| 7 | **Senior SecOps** | [Download](computer:///mnt/user-data/outputs/senior-secops.zip) | Security operations, compliance |
-| 8 | **Code Reviewer** | [Download](computer:///mnt/user-data/outputs/code-reviewer.zip) | Code quality, standards, reviews |
-| 9 | **Senior Security** | [Download](computer:///mnt/user-data/outputs/senior-security.zip) | Security architecture, pentesting |
+| 1 | **Senior Architect** | [skills/senior-architect/](skills/senior-architect/) | System design, architecture decisions, diagrams |
+| 2 | **Senior Frontend** | [skills/senior-frontend/](skills/senior-frontend/) | React, Next.js, UI/UX, performance |
+| 3 | **Senior Backend** | [skills/senior-backend/](skills/senior-backend/) | APIs, databases, business logic |
+| 4 | **Senior Fullstack** | [skills/senior-fullstack/](skills/senior-fullstack/) | End-to-end development |
+| 5 | **Senior QA** | [skills/senior-qa/](skills/senior-qa/) | Testing, automation, quality |
+| 6 | **Senior DevOps** | [skills/senior-devops/](skills/senior-devops/) | CI/CD, infrastructure, deployment |
+| 7 | **Senior SecOps** | [skills/senior-secops/](skills/senior-secops/) | Security operations, compliance |
+| 8 | **Code Reviewer** | [skills/code-reviewer/](skills/code-reviewer/) | Code quality, standards, reviews |
+| 9 | **Senior Security** | [skills/senior-security/](skills/senior-security/) | Security architecture, pentesting |
 
 ### **AI/ML/Data Team (5 Skills)**
 
 | # | Skill | Download | What It Does |
 |---|-------|----------|--------------|
-| 10 | **Senior Data Scientist** | [Download](computer:///mnt/user-data/outputs/senior-data-scientist.zip) | Statistical modeling, experimentation, analytics |
-| 11 | **Senior Data Engineer** | [Download](computer:///mnt/user-data/outputs/senior-data-engineer.zip) | Data pipelines, ETL, infrastructure |
-| 12 | **Senior ML Engineer** | [Download](computer:///mnt/user-data/outputs/senior-ml-engineer.zip) | MLOps, model deployment, LLMs |
-| 13 | **Senior Prompt Engineer** | [Download](computer:///mnt/user-data/outputs/senior-prompt-engineer.zip) | LLM optimization, RAG, agents |
-| 14 | **Senior Computer Vision** | [Download](computer:///mnt/user-data/outputs/senior-computer-vision.zip) | Image/video AI, object detection |
+| 10 | **Senior Data Scientist** | [skills/senior-data-scientist/](skills/senior-data-scientist/) | Statistical modeling, experimentation, analytics |
+| 11 | **Senior Data Engineer** | [skills/senior-data-engineer/](skills/senior-data-engineer/) | Data pipelines, ETL, infrastructure |
+| 12 | **Senior ML Engineer** | [skills/senior-ml-engineer/](skills/senior-ml-engineer/) | MLOps, model deployment, LLMs |
+| 13 | **Senior Prompt Engineer** | [skills/senior-prompt-engineer/](skills/senior-prompt-engineer/) | LLM optimization, RAG, agents |
+| 14 | **Senior Computer Vision** | [skills/senior-computer-vision/](skills/senior-computer-vision/) | Image/video AI, object detection |
 
 ---
 
@@ -121,17 +121,16 @@ Download all 14 skills - you'll need the full suite!
 ### **Step 1: Choose Your Path**
 
 Pick one based on your immediate need:
-- **Building a team?** → Read [TEAM_STRUCTURE_GUIDE.md](computer:///mnt/user-data/outputs/TEAM_STRUCTURE_GUIDE.md)
-- **Starting a project?** → Download [senior-architect.zip](computer:///mnt/user-data/outputs/senior-architect.zip) + [senior-fullstack.zip](computer:///mnt/user-data/outputs/senior-fullstack.zip)
-- **Building AI features?** → Download [senior-ml-engineer.zip](computer:///mnt/user-data/outputs/senior-ml-engineer.zip) + [senior-prompt-engineer.zip](computer:///mnt/user-data/outputs/senior-prompt-engineer.zip)
-- **Data infrastructure?** → Download [senior-data-engineer.zip](computer:///mnt/user-data/outputs/senior-data-engineer.zip)
+- **Building a team?** → Read [TEAM_STRUCTURE_GUIDE.md](TEAM_STRUCTURE_GUIDE.md)
+- **Starting a project?** → Download [skills/senior-architect/](skills/senior-architect/) + [skills/senior-fullstack/](skills/senior-fullstack/)
+- **Building AI features?** → Download [skills/senior-ml-engineer/](skills/senior-ml-engineer/) + [skills/senior-prompt-engineer/](skills/senior-prompt-engineer/)
+- **Data infrastructure?** → Download [skills/senior-data-engineer/](skills/senior-data-engineer/)
 
 ### **Step 2: Extract & Explore**
 
 ```bash
-# Extract the skill
-unzip senior-ml-engineer.zip
-cd senior-ml-engineer
+# Open the skill folder
+cd skills/senior-ml-engineer
 
 # Read the main guide
 cat SKILL.md
@@ -266,15 +265,15 @@ vim SKILL.md
 ## 🔥 **Common Use Cases**
 
 ### **Use Case 1: Starting a Startup**
-**Downloads:** senior-fullstack.zip, senior-ml-engineer.zip, senior-devops.zip
+**Downloads:** skills/senior-fullstack/, skills/senior-ml-engineer/, skills/senior-devops/
 **Focus:** MVP development, rapid iteration, lean team
 
 ### **Use Case 2: Building AI Product**
-**Downloads:** senior-prompt-engineer.zip, senior-ml-engineer.zip, senior-data-engineer.zip
+**Downloads:** skills/senior-prompt-engineer/, skills/senior-ml-engineer/, skills/senior-data-engineer/
 **Focus:** LLM integration, RAG systems, data pipelines
 
 ### **Use Case 3: Scaling Engineering Team**
-**Downloads:** senior-architect.zip, code-reviewer.zip, all engineering skills
+**Downloads:** skills/senior-architect/, skills/code-reviewer/, all engineering skills
 **Focus:** Architecture, standards, processes, quality
 
 ### **Use Case 4: Data Science Team**
@@ -282,7 +281,7 @@ vim SKILL.md
 **Focus:** Analytics, ML, data infrastructure
 
 ### **Use Case 5: Computer Vision Product**
-**Downloads:** senior-computer-vision.zip, senior-ml-engineer.zip, senior-devops.zip
+**Downloads:** skills/senior-computer-vision/, skills/senior-ml-engineer/, skills/senior-devops/
 **Focus:** Vision models, real-time inference, deployment
 
 ---
@@ -307,7 +306,7 @@ What makes these skills special:
 ## 🎯 **Next Actions**
 
 ### **Right Now (5 minutes)**
-1. ✅ Read [TEAM_STRUCTURE_GUIDE.md](computer:///mnt/user-data/outputs/TEAM_STRUCTURE_GUIDE.md)
+1. ✅ Read [TEAM_STRUCTURE_GUIDE.md](TEAM_STRUCTURE_GUIDE.md)
 2. ✅ Identify your team size
 3. ✅ Note which skills you need
 

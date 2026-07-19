@@ -157,7 +157,7 @@ Draft a marketing strategy, then critique it from the customer's perspective. Re
 
 ## Communication
 
-All output passes the Internal Quality Loop before reaching the founder (see `agent-protocol/SKILL.md`).
+All output passes the Internal Quality Loop before reaching the founder (see [`agent-protocol/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/agent-protocol/SKILL.md)).
 - Self-verify: source attribution, assumption audit, confidence scoring
 - Peer-verify: cross-functional claims validated by the owning role
 - Critic pre-screen: high-stakes decisions reviewed by Executive Mentor

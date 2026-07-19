@@ -52,13 +52,13 @@ RISK_ACTIONS = {
         "color": "green"
     },
     "Medium": {
-        "acceptable": "ALARP",
-        "action": "Reduce risk if practicable. Document ALARP rationale if not reduced.",
+        "acceptable": "AFAP",
+        "action": "Reduce as far as possible (AFAP). Document why further reduction is impossible. EU MDR: no economic considerations in acceptability (MDR Annex I GSPR 1-4; EN ISO 14971:2019/A11:2021).",
         "color": "yellow"
     },
     "High": {
-        "acceptable": "ALARP",
-        "action": "Risk reduction required. Must demonstrate ALARP if residual risk remains high.",
+        "acceptable": "AFAP",
+        "action": "Risk reduction required. Must demonstrate reduction as far as possible (AFAP) if residual risk remains high. EU MDR: no economic considerations in acceptability.",
         "color": "orange"
     },
     "Unacceptable": {
@@ -205,7 +205,8 @@ def display_risk_matrix():
         print()
 
     print("\n" + "-" * 70)
-    print("Risk Levels: Low (Acceptable) | Medium (ALARP) | High (ALARP) | Unacceptable")
+    print("Risk Levels: Low (Acceptable) | Medium (reduce AFAP) | High (reduce AFAP) | Unacceptable")
+    print("EU MDR: reduce as far as possible (AFAP), no economic considerations in acceptability.")
     print("=" * 70)
 
 
@@ -231,7 +232,7 @@ def display_criteria():
     print("RISK LEVEL ACTIONS")
     print("=" * 70)
     for level, info in RISK_ACTIONS.items():
-        acceptable = "Yes" if info['acceptable'] == True else ("ALARP" if info['acceptable'] == "ALARP" else "No")
+        acceptable = "Yes" if info['acceptable'] == True else ("After reduction AFAP" if info['acceptable'] == "AFAP" else "No")
         print(f"\n{level}:")
         print(f"   Acceptable: {acceptable}")
         print(f"   Action: {info['action']}")

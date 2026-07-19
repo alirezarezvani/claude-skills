@@ -4,6 +4,7 @@ description: |
   Scan and optimize documentation files for SEO. Audits README.md files and docs/ pages for
   meta tags, headings, keywords, readability, duplicate content, and broken links. Applies
   fixes, updates sitemap.xml, and generates a report. Usage: /seo-auditor [path]
+argument-hint: "[path]"
 ---
 
 # /seo-auditor
@@ -91,7 +92,7 @@ For every file with YAML frontmatter, check and fix:
 Run on each file that has HTML output in `site/`:
 
 ```bash
-python3 marketing-skill/seo-audit/scripts/seo_checker.py --file site/{path}/index.html
+python3 marketing-skill/skills/seo-audit/scripts/seo_checker.py --file site/{path}/index.html
 ```
 
 Parse the score. Flag any page scoring below 60.
@@ -117,7 +118,7 @@ For each target file, analyze and improve:
 Run the content scorer on each file:
 
 ```bash
-python3 marketing-skill/content-production/scripts/content_scorer.py {file_path}
+python3 marketing-skill/skills/content-production/scripts/content_scorer.py {file_path}
 ```
 
 Check scores for:
@@ -138,10 +139,10 @@ Check scores for:
 Run the humanizer scorer on non-generated content (README.md files, static pages):
 
 ```bash
-python3 marketing-skill/content-humanizer/scripts/humanizer_scorer.py {file_path}
+python3 marketing-skill/skills/content-humanizer/scripts/humanizer_scorer.py {file_path}
 ```
 
-Flag pages scoring below 50 (too AI-sounding). For these pages, apply voice techniques from `marketing-skill/content-humanizer/references/voice-techniques.md`:
+Flag pages scoring below 50 (too AI-sounding). For these pages, apply voice techniques from `marketing-skill/skills/content-humanizer/references/voice-techniques.md`:
 - Replace AI clichés ("delve into", "leverage", "it's important to note")
 - Vary sentence length
 - Add specific examples instead of generic statements
@@ -242,7 +243,7 @@ This regenerates `site/sitemap.xml` automatically (MkDocs Material generates it 
 Check the generated sitemap:
 
 ```bash
-python3 marketing-skill/site-architecture/scripts/sitemap_analyzer.py site/sitemap.xml
+python3 marketing-skill/skills/site-architecture/scripts/sitemap_analyzer.py site/sitemap.xml
 ```
 
 Verify:
@@ -319,22 +320,22 @@ These pages rank well for their target keywords. Only fix critical issues (broke
 
 | Tool | Path | Use |
 |------|------|-----|
-| SEO Checker | `marketing-skill/seo-audit/scripts/seo_checker.py` | Score HTML pages 0-100 |
-| Content Scorer | `marketing-skill/content-production/scripts/content_scorer.py` | Score content readability/structure/engagement |
-| Humanizer Scorer | `marketing-skill/content-humanizer/scripts/humanizer_scorer.py` | Detect AI-sounding content |
-| Headline Scorer | `marketing-skill/copywriting/scripts/headline_scorer.py` | Score title quality |
-| SEO Optimizer | `marketing-skill/content-production/scripts/seo_optimizer.py` | Optimize content for target keyword |
-| Sitemap Analyzer | `marketing-skill/site-architecture/scripts/sitemap_analyzer.py` | Analyze sitemap structure |
-| Schema Validator | `marketing-skill/schema-markup/scripts/schema_validator.py` | Validate structured data |
-| Topic Cluster Mapper | `marketing-skill/content-strategy/scripts/topic_cluster_mapper.py` | Group pages into content clusters |
+| SEO Checker | `marketing-skill/skills/seo-audit/scripts/seo_checker.py` | Score HTML pages 0-100 |
+| Content Scorer | `marketing-skill/skills/content-production/scripts/content_scorer.py` | Score content readability/structure/engagement |
+| Humanizer Scorer | `marketing-skill/skills/content-humanizer/scripts/humanizer_scorer.py` | Detect AI-sounding content |
+| Headline Scorer | `marketing-skill/skills/copywriting/scripts/headline_scorer.py` | Score title quality |
+| SEO Optimizer | `marketing-skill/skills/content-production/scripts/seo_optimizer.py` | Optimize content for target keyword |
+| Sitemap Analyzer | `marketing-skill/skills/site-architecture/scripts/sitemap_analyzer.py` | Analyze sitemap structure |
+| Schema Validator | `marketing-skill/skills/schema-markup/scripts/schema_validator.py` | Validate structured data |
+| Topic Cluster Mapper | `marketing-skill/skills/content-strategy/scripts/topic_cluster_mapper.py` | Group pages into content clusters |
 
 ### Reference Docs
 
 | Reference | Path | Use |
 |-----------|------|-----|
-| SEO Audit Framework | `marketing-skill/seo-audit/references/seo-audit-reference.md` | Priority order for SEO fixes |
-| AI Search Optimization | `marketing-skill/ai-seo/references/content-patterns.md` | Make content citable by AI |
-| Content Optimization | `marketing-skill/content-production/references/optimization-checklist.md` | Pre-publish checklist |
-| URL Design Guide | `marketing-skill/site-architecture/references/url-design-guide.md` | URL structure best practices |
-| Internal Linking | `marketing-skill/site-architecture/references/internal-linking-playbook.md` | Internal linking strategy |
-| AI Writing Detection | `marketing-skill/content-humanizer/references/ai-tells-checklist.md` | AI cliché removal |
+| SEO Audit Framework | `marketing-skill/skills/seo-audit/references/seo-audit-reference.md` | Priority order for SEO fixes |
+| AI Search Optimization | `marketing-skill/skills/aeo/references/extractable_content_patterns.md` | Make content citable by AI |
+| Content Optimization | `marketing-skill/skills/content-production/references/optimization-checklist.md` | Pre-publish checklist |
+| URL Design Guide | `marketing-skill/skills/site-architecture/references/url-design-guide.md` | URL structure best practices |
+| Internal Linking | `marketing-skill/skills/site-architecture/references/internal-linking-playbook.md` | Internal linking strategy |
+| AI Writing Detection | `marketing-skill/skills/content-humanizer/references/ai-tells-checklist.md` | AI cliché removal |

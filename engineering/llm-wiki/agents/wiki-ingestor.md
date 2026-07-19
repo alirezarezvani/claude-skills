@@ -24,7 +24,7 @@ You are spawned **per-ingest**, not as a long-running agent. You do one source a
 
 ## Workflow
 
-Follow `references/ingest-workflow.md` in the llm-wiki skill. Summary:
+Follow `skills/llm-wiki/references/ingest-workflow.md` in the llm-wiki skill. Summary:
 
 ### 1. Prep
 Run `python <plugin>/scripts/ingest_source.py --vault . --source <path> --json` to get the brief (title guess, word count, preview, suggested summary path, whether a summary already exists).

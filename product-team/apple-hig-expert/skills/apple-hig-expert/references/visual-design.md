@@ -1,6 +1,6 @@
 # Visual Design Guide (Liquid Glass 2026)
 
-This guide covers the visual language of the Apple ecosystem, centered on the **Liquid Glass** aesthetic introduced in late 2025.
+This guide covers the visual language of the Apple ecosystem, centered on the **Liquid Glass** design language — announced at WWDC25 (June 9, 2025) and shipped in September 2025 with iOS 26, iPadOS 26, macOS Tahoe, watchOS 26, tvOS 26, and visionOS 26. In SwiftUI it is applied with the `glassEffect` view modifier.
 
 ## Core Aesthetic: Liquid Glass
 
@@ -35,9 +35,11 @@ Apple uses the **San Francisco (SF)** family across all platforms.
 | Variant | Platform | Usage |
 |---------|----------|-------|
 | **SF Pro** | iOS, macOS | System standard for performance and legibility. |
-| **SF Compact** | watchOS | Optimized for small screens. |
-| **SF Camera** | iOS | Wide-set variant used in Camera interfaces. |
-| **SF Mono** | Dev Tools | Monospaced variant for code. |
+| **SF Compact** | watchOS | Optimized for small screens (the Camera app uses SF Compact Rounded as of iOS 26). |
+| **SF Mono** | Dev tools | Monospaced variant for code. |
+| **New York** | All | Serif companion family for editorial contexts. |
+
+Only the families on [developer.apple.com/fonts](https://developer.apple.com/fonts/) (SF Pro, SF Compact, SF Mono, SF Arabic/Hebrew and other language extensions, New York) are available to developers. "SF Camera" was an internal face used in Apple's Camera app, never a public download — do not specify it in design systems.
 
 ### Dynamic Type
 You MUST support Dynamic Type.
@@ -54,3 +56,14 @@ All spacing should be increments of 8 (8pt, 16pt, 24pt, 32pt).
 ### Margin Logic
 - **iOS**: Match the Dynamic Island or Safe Area insets.
 - **watchOS**: Maximize the bezel-less display by using rounded corner layouts.
+
+
+## Sources
+
+- Apple HIG — Materials: https://developer.apple.com/design/human-interface-guidelines/materials
+- Apple HIG — Typography: https://developer.apple.com/design/human-interface-guidelines/typography
+- Apple HIG — Color: https://developer.apple.com/design/human-interface-guidelines/color
+- Apple HIG — Layout: https://developer.apple.com/design/human-interface-guidelines/layout
+- Apple Fonts (official SF/New York downloads): https://developer.apple.com/fonts/
+- "Meet Liquid Glass" (WWDC25 session 219): https://developer.apple.com/videos/play/wwdc2025/219/
+- Apple Newsroom, June 9 2025 — new software design announcement: https://www.apple.com/newsroom/2025/06/apple-introduces-a-delightful-and-elegant-new-software-design/

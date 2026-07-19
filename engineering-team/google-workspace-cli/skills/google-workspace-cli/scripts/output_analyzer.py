@@ -6,9 +6,9 @@ Reads JSON arrays or NDJSON streams from stdin or file, applies filters,
 projections, sorting, grouping, and outputs in table/csv/json format.
 
 Usage:
-    gws drive files list --json | python3 output_analyzer.py --count
-    gws drive files list --json | python3 output_analyzer.py --filter "mimeType=application/pdf"
-    gws drive files list --json | python3 output_analyzer.py --select "name,size" --format table
+    gws drive files list | python3 output_analyzer.py --count
+    gws drive files list | python3 output_analyzer.py --filter "mimeType=application/pdf"
+    gws drive files list | python3 output_analyzer.py --select "name,size" --format table
     python3 output_analyzer.py --input results.json --group-by "mimeType"
     python3 output_analyzer.py --demo --select "name,mimeType,size" --format table
 """
@@ -231,11 +231,11 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  gws drive files list --json | %(prog)s --count
-  gws drive files list --json | %(prog)s --filter "mimeType=pdf" --select "name,size"
-  gws drive files list --json | %(prog)s --group-by "mimeType" --format table
-  gws drive files list --json | %(prog)s --sort "size" --reverse --format table
-  gws drive files list --json | %(prog)s --stats "size"
+  gws drive files list | %(prog)s --count
+  gws drive files list | %(prog)s --filter "mimeType=pdf" --select "name,size"
+  gws drive files list | %(prog)s --group-by "mimeType" --format table
+  gws drive files list | %(prog)s --sort "size" --reverse --format table
+  gws drive files list | %(prog)s --stats "size"
   %(prog)s --input results.json --select "name,mimeType" --format csv
   %(prog)s --demo --select "name,mimeType,size" --format table
         """,

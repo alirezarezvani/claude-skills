@@ -54,13 +54,13 @@ DEMO_CHECKS = [
 ]
 
 SERVICE_TEST_COMMANDS = {
-    "gmail": ["gws", "gmail", "users", "getProfile", "me", "--json"],
-    "drive": ["gws", "drive", "files", "list", "--limit", "1", "--json"],
-    "calendar": ["gws", "calendar", "calendarList", "list", "--limit", "1", "--json"],
-    "sheets": ["gws", "sheets", "spreadsheets", "get", "test", "--json"],
-    "tasks": ["gws", "tasks", "tasklists", "list", "--limit", "1", "--json"],
-    "chat": ["gws", "chat", "spaces", "list", "--limit", "1", "--json"],
-    "docs": ["gws", "docs", "documents", "get", "test", "--json"],
+    "gmail": ["gws", "gmail", "users", "getProfile", "--params", '{"userId": "me"}'],
+    "drive": ["gws", "drive", "files", "list", "--params", '{"pageSize": 1}'],
+    "calendar": ["gws", "calendar", "calendarList", "list", "--params", '{"maxResults": 1}'],
+    "sheets": ["gws", "schema", "sheets.spreadsheets.get"],
+    "tasks": ["gws", "tasks", "tasklists", "list", "--params", '{"maxResults": 1}'],
+    "chat": ["gws", "chat", "spaces", "list", "--params", '{"pageSize": 1}'],
+    "docs": ["gws", "schema", "docs.documents.get"],
 }
 
 
@@ -70,7 +70,7 @@ def check_installation() -> Check:
     if path:
         return Check("gws-installed", "PASS", f"gws found at {path}")
     return Check("gws-installed", "FAIL", "gws not found on PATH",
-                 "Install via: cargo install gws-cli  OR  download from https://github.com/googleworkspace/cli/releases")
+                 "Install via: npm install -g @googleworkspace/cli  OR  download from https://github.com/googleworkspace/cli/releases")
 
 
 def check_version() -> Check:
@@ -101,11 +101,13 @@ def check_auth() -> Check:
                 return Check("auth-status", "PASS", f"Authenticated as {user}")
             except json.JSONDecodeError:
                 return Check("auth-status", "PASS", "Authenticated (could not parse details)")
-        return Check("auth-status", "FAIL", "Not authenticated",
-                     "Run 'gws auth setup' to configure authentication")
+        return Check("auth-status", "WARN",
+                     "Could not confirm authentication ('gws auth status' may not exist "
+                     "in your version; check 'gws auth --help')",
+                     "Run 'gws auth setup' then 'gws auth login' to configure authentication")
     except (subprocess.TimeoutExpired, FileNotFoundError, OSError) as e:
         return Check("auth-status", "FAIL", f"Auth check failed: {e}",
-                     "Run 'gws auth setup' to configure authentication")
+                     "Run 'gws auth setup' then 'gws auth login' to configure authentication")
 
 
 def check_service(service: str) -> Check:

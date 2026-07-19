@@ -72,9 +72,21 @@ The tracker (`citation_tracker.py`) maintains a local ledger of citations:
 
 Stores in `~/.aeo-data/citations.json` (local, no telemetry).
 
+## References
+
+- `references/aeo_eeat_canon.md` — E-E-A-T methodology, industry thresholds, anti-patterns
+- `references/llm_citation_patterns.md` — per-LLM citation selection heuristics (Perplexity, ChatGPT, Claude, Gemini, Mistral)
+- `references/aeo_vs_seo.md` — when to invest in AEO vs SEO vs both
+- `references/bot_access_and_monitoring.md` — AI crawler robots.txt matrix (the prerequisite check: a blocked bot zeroes that platform), Google Search Console AI Overviews monitoring, manual testing protocols, citation-drop diagnostic (merged from the former `ai-seo` skill)
+- `references/extractable_content_patterns.md` — 7 copy-ready block templates (definition, steps, table, FAQ, attributed stat, expert quote, summary box) that answer engines reliably extract (merged from the former `ai-seo` skill)
+
 ## Workflow
 
 ```
+0. Pre-flight: bot access
+   Check robots.txt against the crawler matrix in references/bot_access_and_monitoring.md
+   → a blocked GPTBot/PerplexityBot/ClaudeBot/Google-Extended is the first fix, always
+
 1. Audit existing content
    $ python3 scripts/aeo_audit.py --url https://example.com/blog/post
    → markdown report with composite score + 4-dimension breakdown

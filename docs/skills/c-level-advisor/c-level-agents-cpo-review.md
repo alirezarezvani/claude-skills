@@ -1,6 +1,6 @@
 ---
 title: "/cs:cpo-review — CPO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:cpo-review — CPO Forcing Questions
@@ -48,7 +48,7 @@ The JTBD-driven builder cuts the roadmap in half. Six questions to surface what 
 ### 4. RICE Score
 **Reach, Impact, Confidence, Effort — what's the score and where does this rank in the queue?**
 ```bash
-python ../../../../product-team/product-manager-toolkit/scripts/rice_prioritizer.py
+python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
 ```
 
 ### 5. Opportunity Cost
@@ -114,7 +114,7 @@ python ../../../../product-team/product-manager-toolkit/scripts/rice_prioritizer
 
 - Agent: [`cs-cpo-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-cpo-advisor.md)
 - Skill: [`cpo-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cpo-advisor/SKILL.md)
-- Execution: [`product-team/product-manager-toolkit`](https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit)
+- Execution: `product-team/skills/product-manager-toolkit/`
 
 ---
 

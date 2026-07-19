@@ -1,6 +1,6 @@
 ---
 name: "marketing-demand-acquisition"
-description: Creates demand generation campaigns, optimizes paid ad spend across LinkedIn, Google, and Meta, develops SEO strategies, and structures partnership programs for Series A+ startups scaling internationally. Use when planning marketing strategy, growth marketing, advertising campaigns, PPC optimization, lead generation, pipeline generation, or startup marketing budgets. Covers multi-channel acquisition (Google Ads, LinkedIn Ads, Meta Ads), CAC analysis, MQL/SQL workflows, attribution modeling, technical SEO, and co-marketing partnerships for hybrid PLG/Sales-Led motions in EU/US/Canada markets.
+description: Creates demand generation campaigns, optimizes paid ad spend across LinkedIn, Google, and Meta, develops SEO strategies, and structures partnership programs. Use when planning demand gen strategy, growth marketing, advertising campaigns, PPC optimization, lead generation, pipeline generation, or marketing budgets. Covers multi-channel acquisition (Google Ads, LinkedIn Ads, Meta Ads), CAC analysis, MQL/SQL workflows, attribution modeling, technical SEO, and co-marketing partnerships. Default calibration profile is a Series A+ B2B SaaS scaling internationally (EU/US/Canada, hybrid PLG/Sales-Led) — adapt benchmarks for other stages and motions rather than skipping the skill.
 triggers:
   - demand gen
   - demand generation
@@ -22,7 +22,7 @@ metadata:
   author: Alireza Rezvani
   category: marketing
   domain: demand-generation
-  updated: 2025-01
+  updated: 2026-06
 ---
 
 # Marketing Demand & Acquisition
@@ -78,7 +78,7 @@ Acquisition playbook for Series A+ startups scaling internationally (EU/US/Canad
 ```
 utm_source={channel}       // linkedin, google, meta
 utm_medium={type}          // cpc, display, email
-utm_campaign={campaign-id} // q1-2025-linkedin-enterprise
+utm_campaign={campaign-id} // {qN-yyyy}-linkedin-enterprise
 utm_content={variant}      // ad-a, email-1
 utm_term={keyword}         // [paid search only]
 ```
@@ -239,7 +239,7 @@ See [attribution-guide.md](references/attribution-guide.md) for detailed setup.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `calculate_cac.py` | Calculate blended and channel CAC | `python scripts/calculate_cac.py --spend 40000 --customers 50` |
+| `calculate_cac.py` | Calculate blended and channel CAC | `python scripts/calculate_cac.py` (no args — edit the `example_data` channel table in `main()` with your spend/customer numbers first) |
 
 ### HubSpot Integration
 

@@ -5,7 +5,7 @@ Stdlib-only. NEVER auto-approves. Output is always a numeric breakdown plus a ve
 (APPROVE / REVIEW / ESCALATE / DECLINE) and a NAMED HUMAN APPROVER chain.
 
 The 5 dimensions (each 0-100, weighted into a composite):
-  1. margin        - post-discount gross margin vs profile target
+  1. margin        - post-discount margin (fixed-COGS) vs target + margin-$ destroyed
   2. risk          - payment terms + redline count + customer tier
   3. strategic     - logo / reference / expansion / renewal value
   4. commercial    - is the discount within the profile policy band
@@ -122,24 +122,47 @@ def _clamp(x: float, lo: float = 0.0, hi: float = 100.0) -> float:
 def score_margin(deal: dict, profile: dict) -> DimensionScore:
     """Effective margin after discount, compared to profile target.
 
-    Math: a D% discount on a product with gross_margin_pct G% drops margin to
-       new_margin = (G - D) / (1 - D/100) approximately, but the canonical
-       formulation we use is: net_margin = G - (D * (1 - cost_ratio)) which
-       resolves to:
-           net_margin = G - D * (G / 100)
-       i.e. a 30% discount on an 80% margin product wipes 24 points of margin,
-       leaving 56% — well below an 75% SaaS target.
+    Math (fixed-COGS model — COGS does not shrink when you discount the price):
+        Price P, gross margin G%  ->  COGS = (1 - G/100) * P, fixed.
+        Discounted price = (1 - D/100) * P.
+        Post-discount margin %:
+            net_margin_pct = (G - D) / (100 - D) * 100
+        Share of margin DOLLARS destroyed by the discount:
+            margin_dollars_destroyed_pct = D / G * 100
+        i.e. a 30% discount on an 80%-margin product leaves a 71.4% margin
+        percentage but destroys 37.5% of the margin dollars — every discounted
+        dollar comes straight out of margin, because the cost side is fixed.
+
+    Score = min(position score, destruction score):
+        - position: 100 if net_margin_pct >= target, sliding to 0 at
+          (target - 30 pts)
+        - destruction: 100 at 0% of margin dollars destroyed, sliding to 0 at
+          50% destroyed (2 pts of score per 1% of margin dollars given up)
+    The min() means a high starting margin cannot hide discount damage.
     """
     g = float(deal.get("gross_margin_pct", 0.0))
     d = float(deal.get("discount_pct", 0.0))
-    net_margin = g - (d * (g / 100.0))
     target = profile["target_gross_margin"]
-    # Score: 100 if net_margin >= target, sliding to 0 at (target - 30 pts)
+
+    if g <= 0.0 or d >= 100.0:
+        rationale = (
+            f"Gross margin {g:.1f}% with {d:.1f}% discount -> no margin left "
+            f"(vs profile target {target:.1f}%)"
+        )
+        return DimensionScore("margin", 0.0, 0.30, rationale)
+
+    net_margin = (g - d) / (100.0 - d) * 100.0
+    margin_dollars_destroyed = (d / g) * 100.0
+
     delta = net_margin - target
-    score = _clamp(100.0 + (delta / 30.0) * 100.0)
+    position_score = _clamp(100.0 + (delta / 30.0) * 100.0)
+    destruction_score = _clamp(100.0 - 2.0 * margin_dollars_destroyed)
+    score = min(position_score, destruction_score)
+
     rationale = (
         f"Gross margin {g:.1f}% with {d:.1f}% discount -> net margin {net_margin:.1f}% "
-        f"vs profile target {target:.1f}% (delta {delta:+.1f} pts)"
+        f"vs profile target {target:.1f}% (delta {delta:+.1f} pts); "
+        f"{margin_dollars_destroyed:.1f}% of margin dollars destroyed (fixed-COGS)"
     )
     return DimensionScore("margin", round(score, 1), 0.30, rationale)
 
@@ -244,10 +267,14 @@ def _detect_critical_signals(deal: dict, dims: list[DimensionScore]) -> list[str
     for r in redlines:
         if any(ct in r for ct in critical_terms):
             sigs.append(f"critical redline: {r}")
-    # margin below 35% is a critical economic signal on any profile
+    # margin dimension below 30 is a critical economic signal on any profile
+    # (net margin deep below target, or >35% of margin dollars destroyed)
     for d in dims:
         if d.name == "margin" and d.score < 30.0:
-            sigs.append("margin below target by >30 pts")
+            sigs.append(
+                "margin critically impaired (deep below target or >35% of "
+                "margin dollars destroyed)"
+            )
         if d.name == "commercial" and d.score < 30.0:
             sigs.append("discount far outside policy band")
     return sigs

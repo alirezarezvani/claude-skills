@@ -82,6 +82,7 @@ def detect(repo: Path) -> StackReport:
         "requirements": (repo / "requirements.txt").exists(),
         "go_mod": (repo / "go.mod").exists(),
         "dockerfile": (repo / "Dockerfile").exists(),
+        "terraform": any(repo.glob("*.tf")) or (repo / "terraform").is_dir(),
         "vercel": (repo / "vercel.json").exists(),
         "helm": (repo / "helm").exists() or (repo / "charts").exists(),
         "k8s": (repo / "k8s").exists() or (repo / "kubernetes").exists(),
@@ -107,6 +108,12 @@ def detect(repo: Path) -> StackReport:
     if signals["go_mod"]:
         languages.append("go")
 
+    if signals["terraform"]:
+        languages.append("terraform")
+
+    if signals["dockerfile"]:
+        languages.append("docker")
+
     scripts = read_package_scripts(repo)
     lint_commands: List[str] = []
     test_commands: List[str] = []
@@ -127,6 +134,16 @@ def detect(repo: Path) -> StackReport:
         lint_commands.append("go vet ./...")
         test_commands.append("go test ./...")
         build_commands.append("go build ./...")
+
+    if "terraform" in languages:
+        tf_dir = "terraform" if (repo / "terraform").is_dir() and not any(repo.glob("*.tf")) else "."
+        lint_commands.append(f"terraform -chdir={tf_dir} fmt -check -recursive")
+        test_commands.append(f"terraform -chdir={tf_dir} validate")
+        build_commands.append(f"terraform -chdir={tf_dir} plan -input=false")
+
+    if "docker" in languages:
+        lint_commands.append("hadolint Dockerfile")
+        build_commands.append("docker build -t app:ci .")
 
     return StackReport(
         repo=str(repo.resolve()),

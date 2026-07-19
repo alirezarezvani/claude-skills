@@ -73,6 +73,13 @@ Take model + range + packaging into the pricing committee. Skill does not commit
 
 All scripts: stdlib only. `--help` and `--sample` work on all three.
 
+## Quick example
+
+```bash
+# Emits a scored 5-model pricing-fit recommendation (subscription / usage / value / freemium / hybrid) for the built-in example
+cd commercial/skills/pricing-strategist && python3 scripts/pricing_model_picker.py --sample
+```
+
 ## References
 
 - `references/saas_pricing_canon.md` — Skok, Tunguz, Campbell, Ramanujam, BVP, Shevlin, Stanford GSB

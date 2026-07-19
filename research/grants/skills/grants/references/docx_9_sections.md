@@ -267,7 +267,7 @@ new Table({
 
 After save:
 ```bash
-python scripts/office/validate.py output.docx
+python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx
 ```
 
 If validation fails: unpack DOCX (it's a ZIP), inspect document.xml, fix the offending XML, repack.

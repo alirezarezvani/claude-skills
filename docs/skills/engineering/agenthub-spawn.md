@@ -1,6 +1,6 @@
 ---
 title: "/hub:spawn — Launch Parallel Agents — Agent Skill for Codex & OpenClaw"
-description: "Launch N parallel subagents in isolated git worktrees to compete on the session task. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Launch N parallel subagents in isolated git worktrees to compete on the session task. Use when the user runs /hub:spawn or asks to start the. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /hub:spawn — Launch Parallel Agents
@@ -29,7 +29,7 @@ Spawn N subagents that work on the same task in parallel, each in an isolated gi
 
 ## Templates
 
-When `--template <name>` is provided, use the dispatch prompt from `references/agent-templates.md` instead of the default prompt below. Available templates:
+When `--template <name>` is provided, use the dispatch prompt from [`references/agent-templates.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub/skills/agenthub/references/agent-templates.md) instead of the default prompt below. Available templates:
 
 | Template | Pattern | Use Case |
 |----------|---------|----------|

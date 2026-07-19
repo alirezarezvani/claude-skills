@@ -1,6 +1,6 @@
 ---
 title: "/ar:setup — Create New Experiment — Agent Skill for Codex & OpenClaw"
-description: "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /ar:setup — Create New Experiment

@@ -70,9 +70,11 @@ def render_text(result):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--traffic-share", type=float, required=True, help="Fraction (0-1) of traffic affected")
-    ap.add_argument("--user-pop", type=int, required=True, help="Total user population")
-    ap.add_argument("--duration-min", type=int, required=True, help="Experiment duration in minutes")
+    ap.add_argument("--traffic-share", type=float, help="Fraction (0-1) of traffic affected")
+    ap.add_argument("--user-pop", type=int, help="Total user population")
+    ap.add_argument("--duration-min", type=int, help="Experiment duration in minutes")
+    ap.add_argument("--sample", action="store_true",
+                    help="Run with embedded sample inputs (5%% traffic, 100k users, 30 min)")
     ap.add_argument("--baseline-availability", type=float, default=0.999, help="Baseline availability (default: 0.999)")
     ap.add_argument("--expected-impact-availability", type=float, default=0.95, dest="impact_avail",
                     help="Availability under fault (default: 0.95)")
@@ -81,9 +83,16 @@ def main():
     ap.add_argument("--format", choices=["text", "json"], default="text")
     args = ap.parse_args()
 
+    if args.sample:
+        traffic_share, user_pop, duration_min = 0.05, 100000, 30
+    elif None not in (args.traffic_share, args.user_pop, args.duration_min):
+        traffic_share, user_pop, duration_min = args.traffic_share, args.user_pop, args.duration_min
+    else:
+        ap.error("--traffic-share, --user-pop and --duration-min are required (or use --sample)")
+
     try:
         result = calculate(
-            args.traffic_share, args.user_pop, args.duration_min,
+            traffic_share, user_pop, duration_min,
             args.baseline_availability, args.impact_avail, args.monthly_budget_min,
         )
     except ValueError as e:

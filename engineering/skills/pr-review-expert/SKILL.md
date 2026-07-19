@@ -247,19 +247,32 @@ grep -n "new Array([0-9]\{4,\}\|Buffer\.alloc" /tmp/pr-$PR.diff | grep "^+"
 gh pr view $PR --json body | jq -r '.body' | \
   grep -oE "(PROJ-[0-9]+|[A-Z]+-[0-9]+|https://linear\.app/[^)\"]+)" | sort -u
 
-# Verify Jira ticket exists (requires JIRA_API_TOKEN)
+# Verify Jira ticket exists (requires JIRA_API_TOKEN to be SET in the environment).
+# Credentials are fed to curl via a config read from stdin (-K -) so the token
+# never appears in argv — `ps aux` / /proc/*/cmdline can't see it, and nothing
+# secret lands in shell history. Never paste the raw token on the command line.
 TICKET="PROJ-123"
-curl -s -u "user@company.com:$JIRA_API_TOKEN" \
-  "https://your-org.atlassian.net/rest/api/3/issue/$TICKET" | \
+: "${JIRA_API_TOKEN:?JIRA_API_TOKEN must be set}"
+curl -s -K - "https://your-org.atlassian.net/rest/api/3/issue/$TICKET" <<EOF | \
   jq '{key, summary: .fields.summary, status: .fields.status.name}'
+user = "user@company.com:$JIRA_API_TOKEN"
+EOF
 
-# Linear ticket
+# Linear ticket — same pattern: the Authorization header goes through the
+# stdin config, not a -H flag, to keep the key out of the process list.
 LINEAR_ID="abc-123"
-curl -s -H "Authorization: $LINEAR_API_KEY" \
-  -H "Content-Type: application/json" \
+: "${LINEAR_API_KEY:?LINEAR_API_KEY must be set}"
+curl -s -K - -H "Content-Type: application/json" \
   --data "{\"query\": \"{ issue(id: \\\"$LINEAR_ID\\\") { title state { name } } }\"}" \
-  https://api.linear.app/graphql | jq .
+  https://api.linear.app/graphql <<EOF | jq .
+header = "Authorization: $LINEAR_API_KEY"
+EOF
 ```
+
+> **Security note:** for repeated Jira use, prefer a `~/.netrc` entry
+> (`machine your-org.atlassian.net login user@company.com password <token>`,
+> `chmod 600 ~/.netrc`) and call `curl -s --netrc …` — no secret material in
+> the command at all.
 
 ---
 

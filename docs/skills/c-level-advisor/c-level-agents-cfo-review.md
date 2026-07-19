@@ -1,6 +1,6 @@
 ---
 title: "/cs:cfo-review — CFO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:cfo-review — CFO Forcing Questions

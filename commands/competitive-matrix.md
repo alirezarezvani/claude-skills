@@ -1,6 +1,7 @@
 ---
 name: competitive-matrix
-description: Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]
+description: "Build competitive analysis matrices with scoring and gap analysis. Usage: /competitive-matrix <analyze> [options]"
+argument-hint: "<analyze> [options]"
 ---
 
 # /competitive-matrix
@@ -34,7 +35,7 @@ Build competitive matrices with weighted scoring, gap analysis, and market posit
 ```
 
 ## Scripts
-- `product-team/competitive-teardown/scripts/competitive_matrix_builder.py` — Matrix builder
+- `product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py` — Matrix builder
 
 ## Skill Reference
-→ `product-team/competitive-teardown/SKILL.md`
+→ `product-team/skills/competitive-teardown/SKILL.md`

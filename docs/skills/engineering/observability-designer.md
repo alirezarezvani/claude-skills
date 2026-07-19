@@ -22,7 +22,26 @@ description: "Design production-ready observability strategies combining metrics
 
 ## Overview
 
-Observability Designer enables you to create production-ready observability strategies that provide deep insights into system behavior, performance, and reliability. This skill combines the three pillars of observability (metrics, logs, traces) with proven frameworks like SLI/SLO design, golden signals monitoring, and alert optimization to create comprehensive observability solutions.
+Observability Designer creates production-ready dashboards, alert configurations, and monitoring strategies across the three pillars (metrics, logs, traces).
+
+**When NOT to use → slo-architect.** For SLO/SLI design with error-budget math, multi-window burn-rate alerting thresholds, and SLO review gates, route to `slo-architect` — it is the authoritative skill for that half. This skill's `slo_designer.py` produces a quick scaffold only. This skill's lane: dashboards (`dashboard_generator.py`) and alert-noise reduction (`alert_optimizer.py`).
+
+## Quick Start
+
+```bash
+# Dashboard spec (Grafana JSON + docs) for a service
+python3 scripts/dashboard_generator.py --service-type api --name payments --criticality critical --role sre --format grafana -o dashboard.json --doc-output dashboard.md
+
+# Analyze an existing alert config for noise, duplicates, and coverage gaps
+python3 scripts/alert_optimizer.py --input alerts.json --analyze-only --report alert_report.json
+# ...then emit the optimized config once the report is reviewed:
+python3 scripts/alert_optimizer.py --input alerts.json --output alerts_optimized.json
+
+# Quick SLO scaffold (hand off to slo-architect for the real error-budget work)
+python3 scripts/slo_designer.py --service-type api --criticality high --user-facing true --service-name payments -o slo_scaffold.json
+```
+
+**Verification loop:** after deploying optimized alerts, track the report's noise metrics for one on-call rotation — if the actionable-alert ratio didn't improve, re-run `--analyze-only` against the live config and iterate. Import the generated dashboard into Grafana and confirm every golden-signal panel renders with live data before closing the task.
 
 ## Core Competencies
 
@@ -262,19 +281,3 @@ Creates comprehensive dashboard specifications:
 - **Alert Tuning:** Ongoing alert threshold and routing optimization
 - **Dashboard Evolution:** User feedback-driven dashboard improvements
 - **Tool Evaluation:** Regular assessment of observability tool effectiveness
-
-## Success Metrics
-
-### Operational Metrics
-- **Mean Time to Detection (MTTD):** How quickly issues are identified
-- **Mean Time to Resolution (MTTR):** Time from detection to resolution
-- **Alert Precision:** Percentage of actionable alerts
-- **SLO Achievement:** Percentage of SLO targets met consistently
-
-### Business Metrics
-- **System Reliability:** Overall uptime and user experience quality
-- **Engineering Velocity:** Development team productivity and deployment frequency
-- **Cost Efficiency:** Observability cost as percentage of infrastructure spend
-- **Customer Satisfaction:** User-reported reliability and performance satisfaction
-
-This comprehensive observability design skill enables organizations to build robust, scalable monitoring and alerting systems that provide actionable insights while maintaining cost efficiency and operational excellence.

@@ -1,6 +1,11 @@
+---
+title: "OpenClaw Skills Guide — Install & Use Agent Skills (2026)"
+description: "Install and use 345 agent skills with OpenClaw. One-line install for engineering, marketing, product, compliance, and DevOps skills in your OpenClaw workspace."
+---
+
 # OpenClaw Skills Guide — Install & Use Agent Skills with OpenClaw
 
-> **Last updated:** March 2026 · **Skills count:** 192+ · **Compatibility:** OpenClaw v2024.12+
+> **Last updated:** June 2026 · **Skills count:** 345 · **Compatibility:** OpenClaw v2024.12+
 
 ## What Are OpenClaw Skills?
 
@@ -27,7 +32,7 @@ OpenClaw's skill system is the most natural fit in the ecosystem — skills live
 bash <(curl -s https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/scripts/openclaw-install.sh)
 ```
 
-This installs all 192+ skills into your OpenClaw workspace with the correct directory structure.
+This installs all 345 skills into your OpenClaw workspace with the correct directory structure.
 
 ### Manual Install
 
@@ -162,4 +167,4 @@ Use the `skill-creator` meta-skill for guided skill creation:
 
 ---
 
-*Part of the [Claude Code Skills & Agent Plugins](https://github.com/alirezarezvani/claude-skills) repository — 192+ production-ready skills for 11 AI coding tools.*
+*Part of the [Claude Code Skills & Agent Plugins](https://github.com/alirezarezvani/claude-skills) repository — 345 production-ready skills for 13 AI coding tools.*

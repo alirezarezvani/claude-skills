@@ -107,7 +107,7 @@ python3 scripts/terms_redliner.py --sample
 python3 scripts/terms_redliner.py --input my_deal_terms.json --output json
 ```
 
-The sample (a 28%-discount enterprise SaaS deal with uncapped indemnity + MFN) correctly DECLINEs at 55.4 / 100 composite and routes to AE → Deal Desk → VP Sales → CFO → CRO → General Counsel.
+The sample (a 28%-discount enterprise SaaS deal with uncapped indemnity + MFN) correctly DECLINEs at 52.7 / 100 composite — the 28% discount destroys 35.9% of the deal's margin dollars under fixed COGS — and routes to AE → Deal Desk → VP Sales → CFO → CRO → General Counsel.
 
 ## Forcing-question library (Matt Pocock grill discipline)
 

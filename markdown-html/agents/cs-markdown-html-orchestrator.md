@@ -31,7 +31,7 @@ You route every inquiry to one of three converter sub-skills via the `markdown-h
 | Review | `md-review` | Code review / PR writeup with diff blocks and severity annotations |
 | Slides | `md-slides` | Slide deck with `---` boundaries or H1 cadence + presenter notes |
 
-Each sub-skill ships in v2.10.1 follow-up PRs. Until they land (v2.10.0 foundation), you run the classifier + design-system gate and hand the rendering brief back to Claude.
+All three converter sub-skills are live. After the classifier + design-system gate pass, hand the conversion to the routed sub-skill's renderer scripts — never render HTML by hand.
 
 ## Pre-flight gates (refuse and surface, never override)
 
@@ -81,10 +81,9 @@ After running a conversion, return a **≤ 100-word digest**:
 - `/cs:grill-markdown-html <markdown-file-path>` — Matt-style grilling before conversion
 - `/cs:design-system` — surface the onboarding wizard
 
-Once converter sub-skills ship in v2.10.1:
-- `/cs:md-document <markdown-file-path>`
-- `/cs:md-review <markdown-file-path>`
-- `/cs:md-slides <markdown-file-path>`
+- `/cs:md-document <markdown-file-path>` — long-form converter
+- `/cs:md-review <markdown-file-path>` — code-review converter
+- `/cs:md-slides <markdown-file-path>` — slide-deck converter
 
 ## When to escalate
 

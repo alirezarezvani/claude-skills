@@ -31,7 +31,7 @@ Cross-cutting senior engineer covering architecture, backend, DevOps, security, 
 
 ### DevOps & Delivery
 - `engineering/ci-cd-pipeline-builder` — Pipeline generation (GitHub Actions, GitLab CI)
-- `engineering/release-manager` — Release planning and execution
+- `engineering/skills/changelog-generator` — Changelog generation, version bumping, release notes
 - `engineering-team/senior-devops` — Infrastructure and deployment
 - `engineering/observability-designer` — Monitoring and alerting
 
@@ -62,7 +62,7 @@ Cross-cutting senior engineer covering architecture, backend, DevOps, security, 
 2. Generate pipeline config (build, test, lint, deploy stages)
 3. Add security scanning via `dependency-auditor`
 4. Configure observability via `observability-designer`
-5. Set up release process via `release-manager`
+5. Set up release process via `changelog-generator`
 
 ### 4. Feature Repair (Deep-Dive Debugging)
 1. Identify broken feature scope via `focused-fix` Phase 1 (SCOPE)

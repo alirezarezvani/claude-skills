@@ -53,8 +53,8 @@ After init:
 
 ## Script
 
-- `engineering/llm-wiki/scripts/init_vault.py`
+- `engineering/llm-wiki/skills/llm-wiki/scripts/init_vault.py`
 
 ## Skill Reference
 
-→ `engineering/llm-wiki/SKILL.md`
+→ `engineering/llm-wiki/skills/llm-wiki/SKILL.md`

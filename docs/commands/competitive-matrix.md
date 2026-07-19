@@ -40,7 +40,7 @@ Build competitive matrices with weighted scoring, gap analysis, and market posit
 ```
 
 ## Scripts
-- `product-team/competitive-teardown/scripts/competitive_matrix_builder.py` — Matrix builder
+- `product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py` — Matrix builder
 
 ## Skill Reference
-→ `product-team/competitive-teardown/SKILL.md`
+→ `product-team/skills/competitive-teardown/SKILL.md`

@@ -86,7 +86,7 @@ python scripts/dpia_generator.py --input input.json --output dpia_report.md
 - Systematic monitoring (Art. 35(3)(c))
 - Large-scale special category data (Art. 35(3)(b))
 - Automated decision-making (Art. 35(3)(a))
-- WP29 high-risk criteria
+- EDPB-endorsed high-risk criteria (WP248 rev.01)
 
 ---
 
@@ -116,13 +116,13 @@ python scripts/data_subject_rights_tracker.py template --id DSR-202601-0001
 
 | Right | Article | Deadline |
 |-------|---------|----------|
-| Access | Art. 15 | 30 days |
-| Rectification | Art. 16 | 30 days |
-| Erasure | Art. 17 | 30 days |
-| Restriction | Art. 18 | 30 days |
-| Portability | Art. 20 | 30 days |
-| Objection | Art. 21 | 30 days |
-| Automated decisions | Art. 22 | 30 days |
+| Access | Art. 15 | One month (Art. 12(3)) |
+| Rectification | Art. 16 | One month (Art. 12(3)) |
+| Erasure | Art. 17 | One month (Art. 12(3)) |
+| Restriction | Art. 18 | One month (Art. 12(3)) |
+| Portability | Art. 20 | One month (Art. 12(3)) |
+| Objection | Art. 21 | One month (Art. 12(3)) |
+| Automated decisions | Art. 22 | One month (Art. 12(3)) |
 
 **Features:**
 - Deadline tracking with overdue alerts
@@ -161,7 +161,7 @@ German-specific requirements including:
 
 Step-by-step DPIA process:
 - Threshold assessment criteria
-- WP29 high-risk indicators
+- EDPB-endorsed high-risk indicators (WP248 rev.01)
 - Risk assessment methodology
 - Mitigation measure categories
 - DPO and supervisory authority consultation
@@ -259,7 +259,7 @@ Requires explicit consent or Art. 9(2) exception:
 
 ### Data Subject Rights
 
-All rights must be fulfilled within **30 days** (extendable to 90 for complex requests):
+All rights must be fulfilled within **one month of receipt** (Art. 12(3)). The deadline runs by calendar month, not 30 days, and may be extended by **two further months** for complex or numerous requests — the data subject must be informed of the extension (with reasons) within the first month:
 - **Access**: Provide copy of data and processing information
 - **Rectification**: Correct inaccurate data
 - **Erasure**: Delete data (with exceptions for legal obligations)

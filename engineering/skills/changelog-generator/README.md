@@ -20,12 +20,14 @@ python3 scripts/commit_linter.py --from-ref origin/main --to-ref HEAD --strict -
 
 - `scripts/generate_changelog.py`: parse commits, infer semver bump, render markdown/JSON, optional file prepend
 - `scripts/commit_linter.py`: validate commit subjects against Conventional Commits rules
+- `scripts/version_bumper.py`: compute the recommended next version from `git log --oneline` output (`--current-version`, `--prerelease`, `--include-commands`)
 
 ## References
 
 - `references/ci-integration.md`
 - `references/changelog-formatting-guide.md`
 - `references/monorepo-strategy.md`
+- `references/hotfix-procedures.md` (hotfix severity SLAs + rollback triggers, absorbed from the retired release-manager skill)
 
 ## Installation
 

@@ -102,7 +102,7 @@ Run this before every piece goes live. Each section is a gate — fail a gate, f
 
 ## Gate 6: Brand & Voice
 
-- [ ] Matches brand voice (check `marketing-context.md` if available)
+- [ ] Matches brand voice (check `.claude/product-marketing-context.md` if available)
 - [ ] Consistent POV throughout (first person, second person, or third — pick one)
 - [ ] Consistent tense (present or past — don't mix)
 - [ ] No off-brand claims (anything that overpromises, contradicts other content, or sounds unlike us)

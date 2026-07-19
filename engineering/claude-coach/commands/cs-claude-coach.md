@@ -17,7 +17,7 @@ Activates the `claude-coach` skill. From this point on, the conversation gains:
 2. Otherwise, ask exactly one question: **"What are your top 2-3 use cases for Claude?"** and wait.
 3. Load `engineering/claude-coach/skills/claude-coach/references/cheat-codes.md`, rank techniques against the stated use cases, and present the top 5-7 with one-line explanations and one concrete example each.
 4. End with: *"I'll watch your prompts going forward and surface tips when I spot an easy win — max one per response. Ask me 'rate that prompt' anytime for direct feedback."*
-5. Stay active for the rest of the conversation. On every subsequent turn, run the 5-gate decision tree from `references/coaching-rules.md` before deciding whether to surface a tip.
+5. Stay active for the rest of the conversation. On every subsequent turn, run the 5-gate decision tree from `skills/claude-coach/references/coaching-rules.md` before deciding whether to surface a tip.
 
 ## Examples
 

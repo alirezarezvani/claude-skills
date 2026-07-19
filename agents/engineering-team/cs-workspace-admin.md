@@ -21,44 +21,44 @@ Google Workspace administration specialist orchestrating the gws CLI for email a
 ### Python Tools
 
 1. **GWS Doctor**
-   - **Path:** `../../engineering-team/google-workspace-cli/scripts/gws_doctor.py`
-   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/scripts/gws_doctor.py [--json]`
+   - **Path:** `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_doctor.py`
+   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_doctor.py [--json]`
    - **Purpose:** Pre-flight diagnostics — checks installation, auth, and service connectivity
 
 2. **Auth Setup Guide**
-   - **Path:** `../../engineering-team/google-workspace-cli/scripts/auth_setup_guide.py`
-   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/scripts/auth_setup_guide.py --guide oauth`
+   - **Path:** `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/auth_setup_guide.py`
+   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/auth_setup_guide.py --guide oauth`
    - **Purpose:** Guided auth setup, scope listing, .env generation, validation
 
 3. **Recipe Runner**
-   - **Path:** `../../engineering-team/google-workspace-cli/scripts/gws_recipe_runner.py`
-   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/scripts/gws_recipe_runner.py --list`
+   - **Path:** `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_recipe_runner.py`
+   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_recipe_runner.py --list`
    - **Purpose:** Catalog, search, and execute 43 built-in recipes with persona filtering
 
 4. **Workspace Audit**
-   - **Path:** `../../engineering-team/google-workspace-cli/scripts/workspace_audit.py`
-   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/scripts/workspace_audit.py [--json]`
+   - **Path:** `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/workspace_audit.py`
+   - **Usage:** `python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/workspace_audit.py [--json]`
    - **Purpose:** Security and configuration audit across Workspace services
 
 5. **Output Analyzer**
-   - **Path:** `../../engineering-team/google-workspace-cli/scripts/output_analyzer.py`
-   - **Usage:** `gws ... --json | python3 ../../engineering-team/google-workspace-cli/scripts/output_analyzer.py --count`
+   - **Path:** `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/output_analyzer.py`
+   - **Usage:** `gws ... --json | python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/output_analyzer.py --count`
    - **Purpose:** Parse, filter, and aggregate JSON/NDJSON output from any gws command
 
 ### Knowledge Bases
 
-1. **Command Reference** — `../../engineering-team/google-workspace-cli/references/gws-command-reference.md`
+1. **Command Reference** — `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/references/gws-command-reference.md`
    - 18 services, 22 helpers, global flags, environment variables
-2. **Recipes Cookbook** — `../../engineering-team/google-workspace-cli/references/recipes-cookbook.md`
+2. **Recipes Cookbook** — `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/references/recipes-cookbook.md`
    - 43 recipes organized by category with persona mapping
-3. **Troubleshooting** — `../../engineering-team/google-workspace-cli/references/troubleshooting.md`
+3. **Troubleshooting** — `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/references/troubleshooting.md`
    - Common errors, auth issues, platform-specific fixes
 
 ### Templates
 
-1. **Workspace Config** — `../../engineering-team/google-workspace-cli/assets/workspace-config.json`
+1. **Workspace Config** — `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/assets/workspace-config.json`
    - Automation config template with auth, defaults, scheduled tasks
-2. **Persona Profiles** — `../../engineering-team/google-workspace-cli/assets/persona-profiles.md`
+2. **Persona Profiles** — `../../engineering-team/google-workspace-cli/skills/google-workspace-cli/assets/persona-profiles.md`
    - 10 role-based workflow bundles
 
 ## Core Workflows
@@ -77,9 +77,9 @@ Google Workspace administration specialist orchestrating the gws CLI for email a
 
 **Example:**
 ```bash
-python3 ../../engineering-team/google-workspace-cli/scripts/gws_doctor.py
-python3 ../../engineering-team/google-workspace-cli/scripts/auth_setup_guide.py --guide oauth
-python3 ../../engineering-team/google-workspace-cli/scripts/auth_setup_guide.py --validate --json
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_doctor.py
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/auth_setup_guide.py --guide oauth
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/auth_setup_guide.py --validate --json
 ```
 
 ### 2. Daily Operations
@@ -94,9 +94,9 @@ python3 ../../engineering-team/google-workspace-cli/scripts/auth_setup_guide.py 
 
 **Example:**
 ```bash
-python3 ../../engineering-team/google-workspace-cli/scripts/gws_recipe_runner.py --persona pm --list
-python3 ../../engineering-team/google-workspace-cli/scripts/gws_recipe_runner.py --run standup-report --dry-run
-gws recipes standup-report --json | python3 ../../engineering-team/google-workspace-cli/scripts/output_analyzer.py --format table
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_recipe_runner.py --persona pm --list
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_recipe_runner.py --run standup-report --dry-run
+gws recipes standup-report --json | python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/output_analyzer.py --format table
 ```
 
 ### 3. Security Audit
@@ -112,9 +112,9 @@ gws recipes standup-report --json | python3 ../../engineering-team/google-worksp
 
 **Example:**
 ```bash
-python3 ../../engineering-team/google-workspace-cli/scripts/workspace_audit.py --json
-python3 ../../engineering-team/google-workspace-cli/scripts/workspace_audit.py --json | \
-  python3 ../../engineering-team/google-workspace-cli/scripts/output_analyzer.py --filter "status=FAIL"
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/workspace_audit.py --json
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/workspace_audit.py --json | \
+  python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/output_analyzer.py --filter "status=FAIL"
 ```
 
 ### 4. Automation Scripting
@@ -130,9 +130,9 @@ python3 ../../engineering-team/google-workspace-cli/scripts/workspace_audit.py -
 
 **Example:**
 ```bash
-python3 ../../engineering-team/google-workspace-cli/scripts/gws_recipe_runner.py --describe morning-briefing
+python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/gws_recipe_runner.py --describe morning-briefing
 # Customize and test
-gws helpers morning-briefing --json | python3 ../../engineering-team/google-workspace-cli/scripts/output_analyzer.py --select "type,summary,time" --format table
+gws helpers morning-briefing --json | python3 ../../engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/output_analyzer.py --select "type,summary,time" --format table
 ```
 
 ## Output Standards
@@ -156,5 +156,5 @@ gws helpers morning-briefing --json | python3 ../../engineering-team/google-work
 
 ## References
 
-- [Skill Documentation](../../engineering-team/google-workspace-cli/SKILL.md)
+- [Skill Documentation](../../engineering-team/google-workspace-cli/skills/google-workspace-cli/SKILL.md)
 - [gws CLI Repository](https://github.com/googleworkspace/cli)

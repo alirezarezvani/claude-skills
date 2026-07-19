@@ -53,15 +53,15 @@ The cs-grants agent orchestrates the `grants` skill:
 
 ### Python Tools (Stdlib)
 
-1. **Citation Tracker** — `scripts/citation_tracker.py` — three-count audit (Consensus + RePORTER counts) at `~/.grants_sessions/<session>.json`
-2. **Fiscal Year Calculator** — `scripts/fiscal_year_calculator.py` — computes current FY + 3-prior window for RePORTER queries
-3. **Mechanism Matcher** — `scripts/mechanism_matcher.py` — career stage × scope × prelim → mechanism recommendation
+1. **Citation Tracker** — `skills/grants/scripts/citation_tracker.py` — three-count audit (Consensus + RePORTER counts) at `~/.grants_sessions/<session>.json`
+2. **Fiscal Year Calculator** — `skills/grants/scripts/fiscal_year_calculator.py` — computes current FY + 3-prior window for RePORTER queries
+3. **Mechanism Matcher** — `skills/grants/scripts/mechanism_matcher.py` — career stage × scope × prelim → mechanism recommendation
 
 ### Knowledge Bases
 
-- `references/nih_mechanism_matching.md` — career stage × scope × prelim → mechanism canon (7+ sources)
-- `references/reporter_post_patterns.md` — RePORTER curl POST templates + plan-tier detection (7+ sources)
-- `references/docx_9_sections.md` — 9-section .docx spec + DOCX technical requirements (7+ sources)
+- `skills/grants/references/nih_mechanism_matching.md` — career stage × scope × prelim → mechanism canon (7+ sources)
+- `skills/grants/references/reporter_post_patterns.md` — RePORTER curl POST templates + plan-tier detection (7+ sources)
+- `skills/grants/references/docx_9_sections.md` — 9-section .docx spec + DOCX technical requirements (7+ sources)
 
 ## Related Agents
 

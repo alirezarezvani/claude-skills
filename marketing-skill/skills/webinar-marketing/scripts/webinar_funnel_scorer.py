@@ -22,8 +22,10 @@ Usage:
   python webinar_funnel_scorer.py data.json   # score a JSON file
   cat data.json | python webinar_funnel_scorer.py -   # read JSON from stdin
   python webinar_funnel_scorer.py             # runs on embedded sample data
+  python webinar_funnel_scorer.py --sample    # explicit demo mode
 """
 
+import argparse
 import json
 import sys
 
@@ -138,19 +140,53 @@ def print_summary(r):
 
 
 def main():
-    arg = sys.argv[1] if len(sys.argv) > 1 else None
-    if arg == "-":
-        # Explicit stdin. Only read here so we never block when no input exists.
-        raw = sys.stdin.read().strip()
-        data = json.loads(raw) if raw else SAMPLE
-    elif arg:
-        with open(arg) as f:
-            data = json.load(f)
-    else:
-        data = SAMPLE
-        print("(no input given — running on embedded sample data)\n")
+    parser = argparse.ArgumentParser(
+        description="Score a webinar funnel 0-100 against audience-temperature "
+                    "benchmarks and name the bottleneck stage.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "examples:\n"
+            "  python3 webinar_funnel_scorer.py data.json          # score a JSON file\n"
+            "  cat data.json | python3 webinar_funnel_scorer.py -  # read JSON from stdin\n"
+            "  python3 webinar_funnel_scorer.py                    # embedded sample data\n"
+            "  python3 webinar_funnel_scorer.py --sample           # explicit demo mode"
+        ),
+    )
+    parser.add_argument(
+        "file",
+        nargs="?",
+        help="Path to a funnel JSON file, or '-' to read JSON from stdin. "
+             "Omit to run on embedded sample data.",
+    )
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="Run on the embedded sample funnel data and exit.",
+    )
+    args = parser.parse_args()
 
-    result = analyze(data)
+    try:
+        if args.sample:
+            data = SAMPLE
+        elif args.file == "-":
+            # Explicit stdin. Only read here so we never block when no input exists.
+            raw = sys.stdin.read().strip()
+            data = json.loads(raw) if raw else SAMPLE
+        elif args.file:
+            with open(args.file) as f:
+                data = json.load(f)
+        else:
+            data = SAMPLE
+            print("(no input given — running on embedded sample data)\n")
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"Error reading input: {exc}", file=sys.stderr)
+        sys.exit(2)
+
+    try:
+        result = analyze(data)
+    except ValueError as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        sys.exit(2)
     print_summary(result)
     print("JSON:")
     print(json.dumps(result, indent=2))

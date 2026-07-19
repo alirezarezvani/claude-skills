@@ -1,6 +1,6 @@
 ---
 name: okr
-description: Generate OKR cascades from company strategy to team objectives. Usage: /okr generate <strategy>
+description: "Generate OKR cascades from company strategy to team objectives. Usage: /okr generate <strategy>"
 ---
 
 # /okr
@@ -31,7 +31,7 @@ Pass a strategy keyword directly. The generator produces company, department, an
 ```
 
 ## Scripts
-- `product-team/product-strategist/scripts/okr_cascade_generator.py` — OKR cascade generator (`<strategy> [--teams "A,B,C"] [--contribution 0.3] [--json]`)
+- `product-team/skills/product-strategist/scripts/okr_cascade_generator.py` — OKR cascade generator (`<strategy> [--teams "A,B,C"] [--contribution 0.3] [--json]`)
 
 ## Skill Reference
-> `product-team/product-strategist/SKILL.md`
+> `product-team/skills/product-strategist/SKILL.md`

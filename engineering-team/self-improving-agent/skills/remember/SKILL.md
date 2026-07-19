@@ -59,7 +59,7 @@ Keep entries concise — one line when possible. Auto-memory entries don't need 
 If MEMORY.md is over 180 lines, warn the user:
 
 ```
-⚠️ MEMORY.md is at {{n}}/200 lines. Consider running /si:review to free space.
+⚠️ MEMORY.md is at {{n}}/200 lines. Consider running /si:memory-review to free space.
 ```
 
 ### Step 4: Suggest promotion

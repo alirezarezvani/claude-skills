@@ -1,6 +1,7 @@
 ---
 name: user-story
-description: Generate user stories with acceptance criteria and sprint planning. Usage: /user-story <generate|sprint> [options]
+description: "Generate user stories with acceptance criteria and sprint planning. Usage: /user-story <generate|sprint> [options]"
+argument-hint: "<generate|sprint> [options]"
 ---
 
 # /user-story
@@ -37,7 +38,7 @@ Interactive mode prompts for feature context. For sprint planning, provide capac
 ```
 
 ## Scripts
-- `product-team/agile-product-owner/scripts/user_story_generator.py` — User story generator (positional args: `sprint <capacity>`)
+- `product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py` — User story generator (positional args: `sprint <capacity>`)
 
 ## Skill Reference
-> `product-team/agile-product-owner/SKILL.md`
+> `product-team/agile-product-owner/skills/agile-product-owner/SKILL.md`

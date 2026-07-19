@@ -67,7 +67,7 @@ Acquisition playbook for Series A+ startups scaling internationally (EU/US/Canad
 ```
 utm_source={channel}       // linkedin, google, meta
 utm_medium={type}          // cpc, display, email
-utm_campaign={campaign-id} // q1-2025-linkedin-enterprise
+utm_campaign={campaign-id} // {qN-yyyy}-linkedin-enterprise
 utm_content={variant}      // ad-a, email-1
 utm_term={keyword}         // [paid search only]
 ```
@@ -228,7 +228,7 @@ See [attribution-guide.md](https://github.com/alirezarezvani/claude-skills/tree/
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
-| `calculate_cac.py` | Calculate blended and channel CAC | `python scripts/calculate_cac.py --spend 40000 --customers 50` |
+| `calculate_cac.py` | Calculate blended and channel CAC | `python scripts/calculate_cac.py` (no args — edit the `example_data` channel table in `main()` with your spend/customer numbers first) |
 
 ### HubSpot Integration
 

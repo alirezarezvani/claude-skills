@@ -107,7 +107,7 @@ Each sub-skill has its **own** question set (clinical: area/alpha/power/dropout/
 
 ## Autoresearch handoff (isolated, opt-in)
 
-Each sub-skill ships its own `scripts/ar_evaluator.py` — an **isolated** bridge to `engineering/autoresearch-agent`. Invoke autoresearch **only when the user explicitly asks** to "optimize", "improve", or "run a loop". The handoff is per-skill (no shared coupling): the loop edits the skill's input file and the evaluator scores it (clinical → `feasibility_composite` higher; finance → `runway_months` higher; market → `tam_divergence` lower; product → `validated_insights` higher). Never auto-start a loop; never let the loop edit the evaluator.
+Each sub-skill ships its own `skills/<sub-skill>/scripts/ar_evaluator.py` — an **isolated** bridge to `engineering/autoresearch-agent`. Invoke autoresearch **only when the user explicitly asks** to "optimize", "improve", or "run a loop". The handoff is per-skill (no shared coupling): the loop edits the skill's input file and the evaluator scores it (clinical → `feasibility_composite` higher; finance → `runway_months` higher; market → `tam_divergence` lower; product → `validated_insights` higher). Never auto-start a loop; never let the loop edit the evaluator.
 
 ## Assumptions
 

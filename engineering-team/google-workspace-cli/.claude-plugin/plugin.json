@@ -1,7 +1,7 @@
 {
   "name": "google-workspace-cli",
   "version": "2.9.0",
-  "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. 5 Python tools, 3 reference guides, 43 built-in recipes, 10 persona bundles.",
+  "description": "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli, install: npm i -g @googleworkspace/cli). Authenticate and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. 5 Python tools, 3 reference guides, a local catalog of 43 recipe command templates, and 10 persona bundles. Verify generated commands against gws --help.",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

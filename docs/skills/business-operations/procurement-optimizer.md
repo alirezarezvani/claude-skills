@@ -1,6 +1,6 @@
 ---
 title: "Procurement Optimizer — Spend Categorization + Supplier Rationalization — Claude Code Plugin & Agent Skill"
-description: "Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base — when the user needs to do a spend. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base — when the user needs a spend audit. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Procurement Optimizer — Spend Categorization + Supplier Rationalization
@@ -104,6 +104,13 @@ Combine the 3 artifacts into a BizOps-ready digest:
 | `scripts/supplier_consolidation.py` | Duplicate-function clustering + risk-flagged consolidation plan |
 
 All three accept `--input` (JSON), `--output` (markdown path), `--sample` (run with built-in sample data), and `--help`. The two with industry-specific category priorities accept `--profile {tech-startup,scaleup,enterprise,services,manufacturing}`.
+
+## Quick example
+
+```bash
+# Emits a UNSPSC-aligned spend categorization with Pareto breakdown for the built-in sample spend file
+cd business-operations/skills/procurement-optimizer && python3 scripts/spend_categorizer.py --sample
+```
 
 ## References
 

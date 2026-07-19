@@ -1,6 +1,6 @@
 ---
 title: "/cs:ciso-review — CISO Forcing Questions — Agent Skill for Executives"
-description: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /cs:ciso-review — CISO Forcing Questions

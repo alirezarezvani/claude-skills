@@ -1,6 +1,6 @@
 ---
 title: "Code Reviewer — Agent Skill & Codex Plugin"
-description: "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP, and Dart/Flutter. Analyzes PRs for complexity and risk, checks code. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP, and Dart/Flutter. Analyzes PRs. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Code Reviewer
@@ -35,10 +35,10 @@ code-reviewer/
     kotlin.md                     ← Kotlin-specific rules + idioms
     csharp.md                     ← C# / .NET-specific rules + idioms
     java.md                       ← Java-specific rules + idioms
-    c.md                          ← C-specific rules + idioms
-    cpp.md                        ← C++-specific rules + idioms
-    rust.md                       ← Rust-specific rules + idioms
-    ruby.md                       ← Ruby-specific rules + idioms
+    c.md                          ← C -specific rules + idioms
+    cpp.md                        ← C++ -specific rules + idioms
+    rust.md                       ← Rust -specific rules + idioms
+    ruby.md                       ← Ruby -specific rules + idioms
     php.md                        ← PHP-specific rules + idioms
     dart.md                       ← Dart / Flutter-specific rules + idioms
 ```
@@ -49,7 +49,7 @@ code-reviewer/
 2. `rules/universal.md` — always, for every language
 3. The matching `languages/*.md` — one file based on the extension table below
 
-That's always exactly **2 additional files**, regardless of scope.
+That is always exactly **2 additional files**, regardless of scope.
 
 | Extension(s) | Load |
 |---|---|
@@ -92,6 +92,8 @@ python scripts/pr_analyzer.py /path/to/repo --json
 - Debug statements left in production code
 - Lint / analyzer suppression annotations
 - TODO/FIXME comments
+
+**Language-specific detections** are defined in each `languages/*.md` file.
 
 **Output includes:**
 - Complexity score (1-10)

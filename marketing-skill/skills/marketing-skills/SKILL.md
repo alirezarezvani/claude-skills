@@ -1,105 +1,121 @@
 ---
 name: "marketing-skills"
-description: "42 marketing agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more coding agents. 7 pods: content, SEO, CRO, channels, growth, intelligence, sales. Foundation context + orchestration router. 27 Python tools (stdlib-only)."
-version: 2.9.0
+description: "Directory and router for the marketing skills library. Use when you need to find the right marketing skill for a task, see what marketing capabilities exist, or get oriented in this plugin. 44 specialist skills across 8 pods (content, SEO + AEO, CRO, channels, growth, intelligence, sales enablement, ops), 59 stdlib Python tools. Routes to one skill — it does not execute marketing work itself."
+version: 2.10.3
 author: Alireza Rezvani
 license: MIT
 tags:
   - marketing
-  - seo
-  - content
-  - copywriting
-  - cro
-  - analytics
-  - ai-seo
+  - router
+  - index
 agents:
   - claude-code
   - codex-cli
   - openclaw
 ---
 
-# Marketing Skills Division
+# Marketing Skills — Directory + Router
 
-42 production-ready marketing skills organized into 7 specialist pods with a context foundation and orchestration layer.
+This is the index skill for the marketing plugin. It does one job: route you to the right specialist skill, then get out of the way. For request-by-request routing logic, [../marketing-ops/SKILL.md](../marketing-ops/SKILL.md) is the canonical router — this file is the map.
 
-## Quick Start
+**Counts (kept honest):** 44 specialist skills in `skills/` (plus this index and the deprecated `content-creator` redirect), 1 video skill in `video-content-strategist/`, 59 stdlib-only Python tools. No pip installs needed.
 
-### Claude Code
-```
-/read marketing-skill/marketing-ops/SKILL.md
-```
-The router will direct you to the right specialist skill.
+## Start Here
 
-### Codex CLI
+1. **First run ever?** Use `skills/marketing-context/` to create `.claude/product-marketing-context.md`. Every other skill reads it for brand voice, personas, and competitive landscape.
+2. **Know your task?** Find it in the route table below and load only that skill's `SKILL.md`.
+3. **Ambiguous request?** Load `skills/marketing-ops/` — its routing matrix maps phrasings to skills.
+
+## Route Table
+
+All paths are relative to `marketing-skill/`.
+
+### Foundation + Ops
+| Task | Skill |
+|---|---|
+| Capture brand/product context (run first) | `skills/marketing-context/` |
+| Route a request, plan campaigns, pick channels | `skills/marketing-ops/` |
+| Demand gen programs, funnel + CRM ops | `skills/marketing-demand-acquisition/` |
+| Positioning, ICP, product marketing strategy | `skills/marketing-strategy-pmm/` |
+| Brand voice/visual consistency audits | `skills/brand-guidelines/` |
+
+### Content
+| Task | Skill |
+|---|---|
+| Write blog posts, articles, guides | `skills/content-production/` |
+| Plan what content to create | `skills/content-strategy/` |
+| Edit copy (Seven Sweeps) | `skills/copy-editing/` |
+| Fix AI-sounding content | `skills/content-humanizer/` |
+| Landing/sales page copy | `skills/copywriting/` |
+| Headlines, hooks, idea generation | `skills/marketing-ideas/` |
+| Persuasion frameworks, mental models | `skills/marketing-psychology/` |
+
+### SEO + AEO
+| Task | Skill |
+|---|---|
+| Traditional SEO audit | `skills/seo-audit/` |
+| AI search citations (ChatGPT, Perplexity, AI Overviews) | `skills/aeo/` |
+| Programmatic SEO at scale | `skills/programmatic-seo/` |
+| Structured data / schema.org | `skills/schema-markup/` |
+| Site structure, internal linking | `skills/site-architecture/` |
+
+### CRO (conversion)
+| Task | Skill |
+|---|---|
+| Landing/marketing page conversion | `skills/page-cro/` |
+| Forms | `skills/form-cro/` |
+| Signup flow | `skills/signup-flow-cro/` |
+| Onboarding/activation | `skills/onboarding-cro/` |
+| Popups/modals | `skills/popup-cro/` |
+| Paywall/upgrade screens | `skills/paywall-upgrade-cro/` |
+| A/B test design + sample size | `skills/ab-test-setup/` |
+
+### Channels
+| Task | Skill |
+|---|---|
+| Email sequences/drips | `skills/email-sequence/` |
+| Cold outbound email | `skills/cold-email/` |
+| Paid ads (Google/Meta/LinkedIn) | `skills/paid-ads/` |
+| Ad creative + copy | `skills/ad-creative/` |
+| Social calendar + management | `skills/social-media-manager/` |
+| Platform-native social posts | `skills/social-content/` |
+| X/Twitter growth | `skills/x-twitter-growth/` |
+| YouTube (data + strategy) | `skills/youtube-full/` |
+| Video content strategy | `video-content-strategist/` (sibling folder, own plugin) |
+| Webinars (funnel math) | `skills/webinar-marketing/` |
+| App Store / Play Store (ASO) | `skills/app-store-optimization/` |
+
+### Growth
+| Task | Skill |
+|---|---|
+| Launches (PH, HN, etc.) | `skills/launch-strategy/` |
+| Pricing + packaging | `skills/pricing-strategy/` |
+| Referral programs | `skills/referral-program/` |
+| Free tools as acquisition | `skills/free-tool-strategy/` |
+| Churn prevention | `skills/churn-prevention/` |
+
+### Intelligence + Sales Enablement
+| Task | Skill |
+|---|---|
+| Campaign performance, attribution | `skills/campaign-analytics/` |
+| Tracking plans, UTM, GA4 key events | `skills/analytics-tracking/` |
+| Social account analysis | `skills/social-media-analyzer/` |
+| Competitor/alternatives pages | `skills/competitor-alternatives/` |
+| LLM prompt templates + governance for marketing teams | `skills/prompt-engineer-toolkit/` |
+
+## Python Tools
+
+Each skill documents its own tools in its SKILL.md (a "Tools" or workflow section with exact CLI lines). Invoke from the skill's folder:
+
 ```bash
-codex --full-auto "Read marketing-skill/marketing-ops/SKILL.md, then help me write a blog post about [topic]"
+python3 skills/<skill>/scripts/<tool>.py --help
 ```
 
-### OpenClaw
-Skills are auto-discovered from the repository. Ask your agent for marketing help — it routes via `marketing-ops`.
+All 59 scripts are stdlib-only; most run a demo with no args.
 
-## Architecture
+## Rules
 
-```
-marketing-skill/
-├── marketing-context/     ← Foundation: brand voice, audience, goals
-├── marketing-ops/         ← Router: dispatches to the right skill
-│
-├── Content Pod (8)        ← Strategy → Production → Editing → Social
-├── SEO Pod (5)            ← Traditional + AI SEO + Schema + Architecture
-├── CRO Pod (6)            ← Pages, Forms, Signup, Onboarding, Popups, Paywall
-├── Channels Pod (5)       ← Email, Ads, Cold Email, Ad Creative, Social Mgmt
-├── Growth Pod (4)         ← A/B Testing, Referrals, Free Tools, Churn
-├── Intelligence Pod (4)   ← Competitors, Psychology, Analytics, Campaigns
-└── Sales & GTM Pod (2)    ← Pricing, Launch Strategy
-```
-
-## First-Time Setup
-
-Run `marketing-context` to create your `marketing-context.md` file. Every other skill reads this for brand voice, audience personas, and competitive landscape. Do this once — it makes everything better.
-
-## Pod Overview
-
-| Pod | Skills | Python Tools | Key Capabilities |
-|-----|--------|-------------|-----------------|
-| **Foundation** | 2 | 2 | Brand context capture, skill routing |
-| **Content** | 8 | 5 | Strategy → production → editing → humanization |
-| **SEO** | 5 | 2 | Technical SEO, AI SEO (AEO/GEO), schema, architecture |
-| **CRO** | 6 | 0 | Page, form, signup, onboarding, popup, paywall optimization |
-| **Channels** | 5 | 2 | Email sequences, paid ads, cold email, ad creative |
-| **Growth** | 4 | 2 | A/B testing, referral programs, free tools, churn prevention |
-| **Intelligence** | 4 | 4 | Competitor analysis, marketing psychology, analytics, campaigns |
-| **Sales & GTM** | 2 | 1 | Pricing strategy, launch planning |
-| **Standalone** | 4 | 9 | ASO, brand guidelines, PMM strategy, prompt engineering |
-
-## Python Tools (27 scripts)
-
-All scripts are stdlib-only (zero pip installs), CLI-first with JSON output, and include embedded sample data for demo mode.
-
-```bash
-# Content scoring
-python3 marketing-skill/content-production/scripts/content_scorer.py article.md
-
-# AI writing detection
-python3 marketing-skill/content-humanizer/scripts/humanizer_scorer.py draft.md
-
-# Brand voice analysis
-python3 marketing-skill/content-production/scripts/brand_voice_analyzer.py copy.txt
-
-# Ad copy validation
-python3 marketing-skill/ad-creative/scripts/ad_copy_validator.py ads.json
-
-# Pricing scenario modeling
-python3 marketing-skill/pricing-strategy/scripts/pricing_modeler.py
-
-# Tracking plan generation
-python3 marketing-skill/analytics-tracking/scripts/tracking_plan_generator.py
-```
-
-## Unique Features
-
-- **AI SEO (AEO/GEO/LLMO)** — Optimize for AI citation, not just ranking
-- **Content Humanizer** — Detect and fix AI writing patterns with scoring
-- **Context Foundation** — One brand context file feeds all 42 skills
-- **Orchestration Router** — Smart routing by keyword + complexity scoring
-- **Zero Dependencies** — All Python tools use stdlib only
+- Load ONE specialist skill per task — never bulk-load.
+- If `.claude/product-marketing-context.md` exists, read it before any marketing task.
+- `content-creator` is deprecated — use `skills/content-production/`.
+- Don't pip-install anything for these tools.

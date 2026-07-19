@@ -35,24 +35,24 @@ Distinct from:
 ## Skill Integration
 
 - `marketing-skill/skills/webinar-marketing` — the full webinar funnel motion (plan / rescue / evergreen)
-  - `scripts/webinar_funnel_scorer.py` — scores a funnel 0-100 and names the weakest stage
-  - `references/webinar-formats.md` — format-to-goal fit (training, demo, panel, summit…)
-  - `references/promotion-playbook.md` — the promotion runway across the pre-event window
-  - `references/benchmarks.md` — stage-by-stage conversion benchmarks by audience temperature
-  - `templates/webinar-plan-template.md` — the deliverable plan skeleton
+  - `marketing-skill/skills/webinar-marketing/scripts/webinar_funnel_scorer.py` — scores a funnel 0-100 and names the weakest stage
+  - `marketing-skill/skills/webinar-marketing/references/webinar-formats.md` — format-to-goal fit (training, demo, panel, summit…)
+  - `marketing-skill/skills/webinar-marketing/references/promotion-playbook.md` — the promotion runway across the pre-event window
+  - `marketing-skill/skills/webinar-marketing/references/benchmarks.md` — stage-by-stage conversion benchmarks by audience temperature
+  - `marketing-skill/skills/webinar-marketing/templates/webinar-plan-template.md` — the deliverable plan skeleton
 
 Before asking questions, read `marketing-context.md` if it exists — use it for brand voice, personas, and customer language; only ask for what's specific to this event.
 
 ## Core Workflows
 
 ### 1. Plan From Scratch (Mode 1)
-1. Lock the single promise to the attendee, then pick the format that fits the goal (`references/webinar-formats.md`)
+1. Lock the single promise to the attendee, then pick the format that fits the goal (`marketing-skill/skills/webinar-marketing/references/webinar-formats.md`)
 2. Size the funnel backward from the business goal using realistic conversion rates (funnel math below)
 3. Reality-check: if required visits exceed reachable audience, fix goal/format/budget *now*
-4. Build the promotion plan across the runway (`references/promotion-playbook.md`)
+4. Build the promotion plan across the runway (`marketing-skill/skills/webinar-marketing/references/promotion-playbook.md`)
 5. Design the show-up sequence and the live-to-close moment
 6. Plan segmented follow-up: attendees vs. no-shows
-7. Deliver via `templates/webinar-plan-template.md` — full plan + promo calendar + email/copy drafts
+7. Deliver via `marketing-skill/skills/webinar-marketing/templates/webinar-plan-template.md` — full plan + promo calendar + email/copy drafts
 
 ### 2. Optimize / Rescue (Mode 2)
 1. Get the *actual* numbers: invited → registered → showed up → engaged → converted
@@ -109,7 +109,7 @@ Input JSON (`registrations` + `attended_live` required; rest optional). `audienc
 Returns an overall 0-100 score, per-stage rate vs. benchmark, and the named bottleneck.
 
 ## Output Standards
-- Plans → use `templates/webinar-plan-template.md`; always include the backward funnel math
+- Plans → use `marketing-skill/skills/webinar-marketing/templates/webinar-plan-template.md`; always include the backward funnel math
 - Rescues → lead with the named bottleneck and the score, then ranked fixes
 - Every deliverable states the audience temperature so benchmarks are interpreted correctly
 

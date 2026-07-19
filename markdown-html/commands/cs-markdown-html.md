@@ -53,6 +53,6 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_reso
 - Never invent brand colors when the user hasn't onboarded. Surface onboarding.
 - Output is single-file HTML. External CDN is limited to Google Fonts + Prism.js.
 
-## Foundation status (v2.10.0)
+## Status
 
-The orchestrator + `design-system` are live. Converter sub-skills (`md-document`, `md-review`, `md-slides`) land in v2.10.1 follow-up PRs. Until then, this command runs the classifier + design-system gate and returns the routing brief; Claude does the rendering inline with the design-system tokens.
+All five skills are live (orchestrator + `design-system` + the three converters). This command runs the classifier + design-system gate, then hands the conversion to the routed converter sub-skill (`/cs:md-document`, `/cs:md-review`, or `/cs:md-slides`). Never render HTML inline — the converter scripts own the rendering.

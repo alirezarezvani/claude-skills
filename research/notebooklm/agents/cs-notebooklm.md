@@ -61,15 +61,15 @@ The cs-notebooklm agent orchestrates the `notebooklm` skill across NotebookLM br
 
 ### Python Tools (Stdlib)
 
-1. **Action Router** — `scripts/action_router.py` — Q1-Q4 answers → action plan + UI flow + required parameters
-2. **Custom Prompt Template Generator** — `scripts/custom_prompt_template_generator.py` — Studio output type + audience → starter custom prompt
-3. **Async Action Classifier** — `scripts/async_action_classifier.py` — action name → wait-or-notify pattern (which generations block and which return immediately)
+1. **Action Router** — `skills/notebooklm/scripts/action_router.py` — Q1-Q4 answers → action plan + UI flow + required parameters
+2. **Custom Prompt Template Generator** — `skills/notebooklm/scripts/custom_prompt_template_generator.py` — Studio output type + audience → starter custom prompt
+3. **Async Action Classifier** — `skills/notebooklm/scripts/async_action_classifier.py` — action name → wait-or-notify pattern (which generations block and which return immediately)
 
 ### Knowledge Bases
 
-- `references/browser_automation_canon.md` — screenshot-first + find-before-click + tool-agnostic patterns (7+ sources)
-- `references/studio_output_custom_prompts.md` — why defaults are mediocre + per-output-type templates (7+ sources)
-- `references/async_action_discipline.md` — fire-and-notify pattern for slow UI ops (7+ sources)
+- `skills/notebooklm/references/browser_automation_canon.md` — screenshot-first + find-before-click + tool-agnostic patterns (7+ sources)
+- `skills/notebooklm/references/studio_output_custom_prompts.md` — why defaults are mediocre + per-output-type templates (7+ sources)
+- `skills/notebooklm/references/async_action_discipline.md` — fire-and-notify pattern for slow UI ops (7+ sources)
 
 ## Related Agents
 

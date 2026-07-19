@@ -18,7 +18,7 @@ Bad tracking is worse than no tracking. Duplicate events, missing parameters, un
 ## Before Starting
 
 **Check for context first:**
-If `marketing-context.md` exists, read it before asking questions. Use that context and only ask for what's missing.
+If `.claude/product-marketing-context.md` exists, read it before asking questions. Use that context and only ask for what's missing.
 
 Gather this context:
 
@@ -41,7 +41,17 @@ Gather this context:
 ## How This Skill Works
 
 ### Mode 1: Set Up From Scratch
-No analytics in place — we'll build the tracking plan, implement GA4 and GTM, define the event taxonomy, and configure conversions.
+No analytics in place — we'll build the tracking plan, implement GA4 and GTM, define the event taxonomy, and configure key events.
+
+Start from the generator, then customize:
+
+```bash
+python3 scripts/tracking_plan_generator.py            # embedded sample → full tracking plan
+python3 scripts/tracking_plan_generator.py plan.json  # your funnel definition
+python3 scripts/tracking_plan_generator.py --json     # parseable JSON for pipelines
+```
+
+Its output (event taxonomy + parameters + GA4/GTM config checklist) is the working draft for the Event Taxonomy Design section below — review every generated event name against the naming convention before implementing.
 
 ### Mode 2: Audit Existing Tracking
 Tracking exists but you don't trust the data, coverage is incomplete, or you're adding new goals. We'll audit what's there, gap-fill, and clean up.
@@ -156,18 +166,18 @@ window.dataLayer.push({
 });
 ```
 
-### Conversions Configuration
+### Key Events Configuration
 
-Mark these events as conversions in GA4 → Admin → Conversions:
+Mark these events as key events in GA4 → Admin → Key events (GA4 renamed "Conversions" to "Key events" in March 2024 — "conversions" now refers only to Google Ads conversion actions):
 - `signup_completed`
 - `checkout_completed`
 - `demo_requested`
 - `trial_started` (if separate from signup)
 
 **Rules:**
-- Max 30 conversion events per property — curate, don't mark everything
-- Conversions are retroactive in GA4 — turning one on applies to 6 months of history
-- Don't mark micro-conversions as conversions unless you're optimizing ad campaigns for them
+- Max 30 key events per property — curate, don't mark everything
+- Key events are retroactive in GA4 — turning one on applies to 6 months of history
+- Don't mark micro-conversions as key events unless you're also optimizing ad campaigns for them
 
 ---
 
@@ -348,7 +358,7 @@ Surface these without being asked:
 | "Set up GTM" | Tag/trigger/variable configuration for each event, container setup checklist |
 | "Debug missing events" | Structured debugging steps using GTM Preview + GA4 DebugView + Network tab |
 | "Set up conversion tracking" | Conversion action configuration for GA4 + Google Ads + Meta |
-| "Generate tracking plan" | Run `scripts/tracking_plan_generator.py` with your inputs |
+| "Generate tracking plan" | Run `python3 scripts/tracking_plan_generator.py [plan.json] [--json]` — event taxonomy + GA4/GTM checklist |
 
 ---
 

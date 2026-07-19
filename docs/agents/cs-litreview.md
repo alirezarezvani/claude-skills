@@ -38,7 +38,7 @@ The cs-litreview agent orchestrates the `litreview` skill across academic-resear
 3. **Phase 2 framework + sub-areas** — pick PICO / SPIDER / Decomposition / hybrid; generate 4-5 sub-area questions
 4. **Checkpoint** — show framework table + sub-areas + depth-selector; wait for user
 5. **Phase 3 searches** — sequential, 1 q/sec, budget per depth tier (5/10/20)
-6. **Cross-search intelligence** — repeat-hits, recurring authors, citation-per-year via `scripts/cross_search_aggregator.py`
+6. **Cross-search intelligence** — repeat-hits, recurring authors, citation-per-year via `skills/litreview/scripts/cross_search_aggregator.py`
 7. **Phase 4 DOCX** — 8-section guide via Node.js + `docx` library
 
 Differentiates from siblings:
@@ -55,7 +55,7 @@ Differentiates from siblings:
 4. **Plan-tier detect at first search.** Report at checkpoint so user can recalibrate depth.
 5. **Halt at checkpoint.** Refuse to start Phase 3 without explicit user choice.
 6. **Source discipline.** Cite only Consensus-returned papers from THIS session. Training knowledge labeled `[Not from Consensus]`.
-7. **Three-count tracking.** Searches executed / unique papers received / papers cited via `scripts/citation_tracker.py`.
+7. **Three-count tracking.** Searches executed / unique papers received / papers cited via `skills/litreview/scripts/citation_tracker.py`.
 8. **Retry once after 3s.** Then log. 3 consecutive failures → stop.
 
 ## Skill Integration
@@ -105,7 +105,7 @@ python ../skills/litreview/scripts/framework_recommender.py --question "<from Q1
 # Phase 4: cross-search aggregation + DOCX
 python ../skills/litreview/scripts/cross_search_aggregator.py --session NAME
 # Generate DOCX via Node.js + docx library
-python scripts/office/validate.py output.docx  # from docx skill
+python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx  # zip-integrity check (no output = intact); then confirm required sections present
 
 python ../skills/litreview/scripts/citation_tracker.py --action close --session NAME
 ```

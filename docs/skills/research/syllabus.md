@@ -187,7 +187,7 @@ Use `scripts/discussion_question_validator.py` to flag recall-only questions.
 ## Phase 5: Generate .docx via Bundled Script
 
 ```bash
-node ../scripts/generate_reading_list.js \
+node scripts/generate_reading_list.js \
   --input /tmp/syllabus_data.json \
   --output /path/to/reading_list_<course>_<date>.docx
 ```
@@ -251,7 +251,7 @@ See [`references/bundled_script_pattern.md`](https://github.com/alirezarezvani/c
 
 - File path
 - Audit summary in chat: "Saved {file}. {N} sections × {M} papers / {K} cited. Plan tier: {tier}."
-- Validate: `python scripts/office/validate.py <docx>`
+- Validate: check zip integrity with `python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" <docx>` (no output = intact), then confirm the required sections are present
 
 ## Tooling
 

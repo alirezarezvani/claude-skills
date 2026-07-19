@@ -1,9 +1,9 @@
 ---
-title: "Project Management Skills — Agent Skill for PM"
-description: "6 project management agent skills and plugins for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Senior PM, scrum master, Jira expert (JQL)."
+title: "Project Management Skills — Router — Agent Skill for PM"
+description: "Router/index for the 8 project-management skills bundled in this plugin (senior PM quant toolkit, scrum master, Jira/JQL, Confluence, Atlassian. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# Project Management Skills
+# Project Management Skills — Router
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-clipboard-check-outline: Project Management</span>
@@ -16,41 +16,32 @@ description: "6 project management agent skills and plugins for Claude Code, Cod
 </div>
 
 
-6 production-ready project management skills with Atlassian MCP integration.
+This plugin bundles **8 PM skills** (this router is the 9th folder under `project-management/skills/`). Each skill is self-contained. The bundled `.mcp.json` wires the Atlassian Remote MCP (`https://mcp.atlassian.com/v1/sse`, OAuth handled by Claude Code).
 
-## Quick Start
+## Routing table
 
-### Claude Code
-```
-/read project-management/jira-expert/SKILL.md
-```
+Match the request, then load `project-management/skills/<skill>/SKILL.md`. If multiple rows match, ask one clarifying question first.
 
-### Codex CLI
-```bash
-npx agent-skills-cli add alirezarezvani/claude-skills/project-management
-```
+| Request signals | Skill | Path |
+|---|---|---|
+| Project health, risk EMV, three-point estimates | senior-pm | `skills/senior-pm/` |
+| Sprint velocity, retro analysis, ceremony health | scrum-master | `skills/scrum-master/` |
+| JQL queries, Jira workflows, boards | jira-expert | `skills/jira-expert/` |
+| Confluence spaces, page structure, content audits | confluence-expert | `skills/confluence-expert/` |
+| User/permission/scheme administration | atlassian-admin | `skills/atlassian-admin/` |
+| Reusable Confluence/Jira templates | atlassian-templates | `skills/atlassian-templates/` |
+| Meeting transcripts, talk-time, action items | meeting-analyzer | `skills/meeting-analyzer/` |
+| Status updates, 3P updates, stakeholder comms | team-communications | `skills/team-communications/` |
 
-## Skills Overview
-
-| Skill | Folder | Focus |
-|-------|--------|-------|
-| Senior PM | `senior-pm/` | Portfolio management, risk analysis, resource planning |
-| Scrum Master | `scrum-master/` | Velocity forecasting, sprint health, retrospectives |
-| Jira Expert | `jira-expert/` | JQL queries, workflows, automation, dashboards |
-| Confluence Expert | `confluence-expert/` | Knowledge bases, page layouts, macros |
-| Atlassian Admin | `atlassian-admin/` | User management, permissions, integrations |
-| Atlassian Templates | `atlassian-templates/` | Blueprints, custom layouts, reusable content |
-
-## Python Tools
-
-6 scripts, all stdlib-only:
+## Quick start
 
 ```bash
-python3 senior-pm/scripts/project_health_dashboard.py --help
-python3 scrum-master/scripts/velocity_analyzer.py --help
+# Example: route a sprint-health request
+cat project-management/skills/scrum-master/SKILL.md
+ls project-management/skills/scrum-master/scripts/
 ```
 
 ## Rules
 
-- Load only the specific skill SKILL.md you need
-- Use MCP tools for live Jira/Confluence operations when available
+- Live Jira/Confluence operations go through the Atlassian Remote MCP (camelCase tool names such as `createJiraIssue`, `searchJiraIssuesUsingJql`, `createConfluencePage` — canonical list in `project-management/references/atlassian-mcp-tools.md`). Admin operations are NOT covered by the MCP — use admin.atlassian.com or the REST API per atlassian-admin.
+- Route to exactly one skill, then follow that skill's workflow. This router ships no tools of its own.

@@ -5,11 +5,7 @@ color: orange
 emoji: 🔧
 vibe: If it's not automated, it's broken. If it's not monitored, it's already down.
 tools: Read, Write, Bash, Grep, Glob
-skills:
-  - aws-solution-architect
-  - ms365-tenant-manager
-  - healthcheck
-  - cost-estimator
+skills: engineering-skills:aws-solution-architect, engineering-skills:ms365-tenant-manager
 ---
 
 # DevOps Engineer

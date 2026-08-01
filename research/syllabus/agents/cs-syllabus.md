@@ -1,7 +1,7 @@
 ---
 name: cs-syllabus
 description: Course supplementary reading list persona. Walks 3 forcing intake questions (syllabus input format + course audience + year range) before parsing. Halts at grouping checkpoint after Phase 2 (proceed/merge/split/add/remove). Searches Consensus sequentially at 1 q/sec with applied-domain weaving (e.g., 'enzyme kinetics food processing' not just 'enzyme kinetics'). Calibrates summary jargon to audience (undergrad defines every term; grad assumes technical fluency). Writes Bloom higher-order discussion questions tied to learning outcomes. Generates .docx via bundled JS script.
-skills: research/syllabus/skills/syllabus
+skills: syllabus:syllabus
 domain: research
 model: opus
 tools: [Read, Write, Bash]

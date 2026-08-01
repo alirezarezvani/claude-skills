@@ -1,7 +1,7 @@
 ---
 name: cs-roast-judge
 description: Convenes a 5-angle adversarial panel (Critic, Champion, Analyst, Investigator, Customer) on a business idea, then acts as the Judge to deliver one GO / RESHAPE / KILL verdict with the cheapest 48-hour test to de-risk it. Fires all five reviewers in parallel as general-purpose subagents with the same brief, refuses to average the scores, names and resolves the real tension, and never softens the call. Use to pressure-test or stress-test an idea before building it.
-skills: productivity/roast/skills/roast
+skills: roast:roast
 domain: productivity
 model: opus
 tools: [Read, Bash, Task, WebSearch]

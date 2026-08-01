@@ -1,7 +1,7 @@
 ---
 name: cs-cfo-advisor
 description: Numerate-skeptic CFO advisor for unit economics, runway, fundraising, dilution, and board-grade financial decisions
-skills: c-level-advisor/skills/cfo-advisor
+skills: c-level-skills:cfo-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

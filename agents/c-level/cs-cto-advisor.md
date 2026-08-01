@@ -1,7 +1,7 @@
 ---
 name: cs-cto-advisor
 description: Technical leadership advisor for CTOs covering technology strategy, team scaling, architecture decisions, and engineering excellence. Use when a CTO or technical founder needs company-level technology judgment — e.g., deciding build-vs-buy for a core platform component, or planning how to scale the engineering org from 5 to 30 engineers without losing delivery velocity.
-skills: c-level-advisor/skills/cto-advisor
+skills: c-level-skills:cto-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

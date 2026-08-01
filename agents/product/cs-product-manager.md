@@ -1,7 +1,7 @@
 ---
 name: cs-product-manager
 description: Product management agent for feature prioritization, customer discovery, PRD development, and roadmap planning using RICE framework. Use when a product decision needs structure and evidence — e.g., RICE-scoring a backlog of 20 feature requests before quarterly planning, or drafting a PRD from raw customer-interview notes.
-skills: product-team/product-manager-toolkit, product-team/agile-product-owner, product-team/product-strategist, product-team/ux-researcher-designer, product-team/ui-design-system, product-team/competitive-teardown, product-team/landing-page-generator, product-team/saas-scaffolder
+skills: product-skills:product-manager-toolkit, agile-product-owner:agile-product-owner, product-skills:product-strategist, product-skills:ux-researcher-designer, product-skills:ui-design-system, product-skills:competitive-teardown, product-skills:landing-page-generator, product-skills:saas-scaffolder
 domain: product
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

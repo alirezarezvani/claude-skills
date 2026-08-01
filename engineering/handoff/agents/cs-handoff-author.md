@@ -1,7 +1,7 @@
 ---
 name: cs-handoff-author
 description: Conversation-handoff author. Compacts the current session into a markdown handoff for a fresh agent. Tailors content to next-session focus. Refuses to duplicate content from PRDs/plans/ADRs/issues/commits — references them by path or URL instead. Recommends specific skills for the next session.
-skills: engineering/handoff/skills/handoff
+skills: handoff-engineering:handoff
 domain: engineering
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

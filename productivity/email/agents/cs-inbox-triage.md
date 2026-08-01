@@ -1,7 +1,7 @@
 ---
 name: cs-inbox-triage
 description: Recurring email-triage execution persona. Reads the 7-file KB produced by inbox-setup, classifies recent emails via the user's taxonomy, researches new senders, generates recommendations, drafts replies, delivers a report, and updates the KB with learnings. NEVER SENDS — drafts only, non-negotiable. Halts with clear message if KB files are missing (directs user to run inbox-setup first). Light-intake — max 2 optional override questions.
-skills: productivity/email/skills/inbox-triage
+skills: email:inbox-triage
 domain: productivity
 model: opus
 tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch]

@@ -1,7 +1,7 @@
 ---
 name: cs-product-strategist
 description: Product strategy agent for quarterly OKR planning, competitive landscape analysis, product vision development, and strategy pivot evaluation. Use when the question is direction rather than delivery — e.g., cascading company OKRs into product-team objectives for next quarter, or running a competitive teardown to decide whether to enter an adjacent market.
-skills: product-team/product-strategist, product-team/competitive-teardown, product-team/product-manager-toolkit
+skills: product-skills:product-strategist, product-skills:competitive-teardown, product-skills:product-manager-toolkit
 domain: product
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

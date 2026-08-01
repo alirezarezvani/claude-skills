@@ -1,7 +1,7 @@
 ---
 name: cs-meeting-discipline
 description: Enforces personal meeting hygiene end to end. Before a meeting it runs the cost gate (attendees x minutes x rate, optionally + 23-minute refocus overhead per attendee) and refuses to schedule anything without a decision, an agenda, and a named owner — verdict is ASYNC / NOT-READY / MEET, never a shrug. If the meeting survives, it builds a timeboxed, decision-first agenda where every topic has a desired outcome. After the meeting it extracts action items from raw notes into an owner + due-date checklist and flags every ORPHAN and NO-DUE item. Use before calling a meeting or after one ends with messy notes.
-skills: productivity/meetings/skills/meetings
+skills: meetings:meetings
 domain: productivity
 model: opus
 tools: [Read, Bash]

@@ -1,7 +1,7 @@
 ---
 name: cs-compliance-officer
 description: Multi-framework compliance officer orchestrating cross-framework programs. Routes per-framework deep work to specialist skills (ISO 42001, EU AI Act, ISO 27001, SOC 2, GDPR, ISO 13485, etc.). Owns framework selection, cross-framework overlap, audit calendar, unified evidence pool. NOT a per-framework deep-dive (those live in ra-qm-team specialist skills).
-skills: compliance-os/skills/compliance-os
+skills: compliance-os:compliance-os
 domain: compliance-os
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

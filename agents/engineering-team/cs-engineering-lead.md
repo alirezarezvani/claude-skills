@@ -1,7 +1,7 @@
 ---
 name: cs-engineering-lead
 description: Engineering Team Lead agent for coordinating QA, security, data engineering, ML, and frontend/backend teams. Orchestrates engineering-team skills for team-level technical decisions. Spawn when users need team coordination, tech stack evaluation, incident response, or cross-functional engineering work.
-skills: engineering-team
+skills: engineering-skills:engineering-skills
 domain: engineering
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

@@ -1,7 +1,7 @@
 ---
 name: cs-caveman-mode
 description: Caveman-mode operator. Persistent ultra-compressed communication mode. Drops articles, filler, pleasantries, and hedging while preserving all technical substance. Auto-clarity exception for security warnings, irreversible actions, multi-step sequences, and clarification requests. Activated by user phrases ("caveman mode", "talk like caveman", "use caveman", "less tokens", "be brief") or /cs:caveman command.
-skills: engineering/caveman/skills/caveman
+skills: caveman:caveman
 domain: engineering
 model: opus
 tools: [Read, Bash, Grep, Glob]

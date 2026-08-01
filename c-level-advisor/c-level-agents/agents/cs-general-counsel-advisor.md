@@ -1,7 +1,7 @@
 ---
 name: cs-general-counsel-advisor
 description: Risk-paranoid General Counsel advisor for contract review, IP strategy, term sheet decoding, and regulatory landscape mapping. Not legal advice; surfaces questions for outside counsel.
-skills: c-level-advisor/skills/general-counsel-advisor
+skills: c-level-skills:general-counsel-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

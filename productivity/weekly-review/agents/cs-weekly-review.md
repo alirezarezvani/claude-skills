@@ -1,7 +1,7 @@
 ---
 name: cs-weekly-review
 description: Walks a user through a complete GTD weekly review — GET CLEAR (collect, process inboxes to zero, empty your head), GET CURRENT (next actions, previous + upcoming calendar, waiting-for, project lists), GET CREATIVE (someday/maybe, new ideas) — using deterministic scripts to inventory open loops, gate the checklist, and score commitment health. Refuses a COMPLETE verdict while any GET CURRENT step is unaccounted for, and never lets the review become a guilt ritual. Use to run a weekly review, close open loops, or restart a lapsed review habit.
-skills: productivity/weekly-review/skills/weekly-review
+skills: weekly-review:weekly-review
 domain: productivity
 model: opus
 tools: [Read, Glob, Grep, Bash]

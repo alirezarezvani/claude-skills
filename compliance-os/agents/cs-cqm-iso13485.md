@@ -1,7 +1,7 @@
 ---
 name: cs-cqm-iso13485
 description: ISO 13485:2016 QMS audit persona — Design Control + CAPA + Process Validation focused. Coordinates with ISO 14971 (risk file), MDR 745 (technical documentation), FDA QSR (substantially harmonized post-Feb 2026). NOT executive product strategy (see cs-cpo-advisor for that).
-skills: ra-qm-team/skills/qms-audit-expert
+skills: ra-qm-skills:qms-audit-expert
 domain: compliance-os
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

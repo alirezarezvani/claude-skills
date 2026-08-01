@@ -1,7 +1,7 @@
 ---
 name: cs-ciso-iso27001
 description: ISO/IEC 27001:2022 ISMS audit + implementation persona. Sample-driven; samples real records, not curated demos. Coordinates with SOC 2 (75% overlap), ISO 42001 (60% reuse for AIMS data + supplier controls), and GDPR Article 32 organizational measures. NOT executive cybersecurity strategy (see cs-ciso-advisor for that).
-skills: ra-qm-team/skills/isms-audit-expert
+skills: ra-qm-skills:isms-audit-expert
 domain: compliance-os
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

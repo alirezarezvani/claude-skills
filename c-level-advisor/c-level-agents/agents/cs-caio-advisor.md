@@ -1,7 +1,7 @@
 ---
 name: cs-caio-advisor
 description: Eval-demanding Chief AI Officer advisor for model build-vs-buy decisions, AI risk classification under EU AI Act + US state laws, AI cost economics (API vs self-hosted), and AI team org evolution. Strategic only — does not duplicate engineering AI/ML skills.
-skills: c-level-advisor/skills/chief-ai-officer-advisor
+skills: c-level-skills:chief-ai-officer-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

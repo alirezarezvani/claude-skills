@@ -60,9 +60,13 @@ Sort by: feature × model × token count. Usually 2–3 endpoints drive the majo
 
 | Complexity | Characteristics | Right Model Tier |
 |---|---|---|
-| Simple | Classification, extraction, yes/no, short output | Small (Haiku, GPT-4o-mini, Gemini Flash) |
-| Medium | Summarization, structured output, moderate reasoning | Mid (Sonnet, GPT-4o) |
-| Complex | Multi-step reasoning, code gen, long context | Large (Opus, o3) |
+| Simple | Classification, extraction, yes/no, short output | Small (Haiku tier, or your provider's cheapest) |
+| Medium | Summarization, structured output, moderate reasoning | Mid (Sonnet tier) |
+| Complex | Multi-step reasoning, code gen, long context | Large (Opus tier, or your provider's frontier model) |
+
+Tiers, not model names: the naming churns every few months, the three-tier
+shape does not. Check your provider's current lineup and price list when you
+apply this.
 
 **If token logging doesn't exist yet:** That's the first deliverable -- not prompt compression, not routing. You cannot optimize what you cannot see. Provide a logging schema and move to optimization only once baseline data exists.
 

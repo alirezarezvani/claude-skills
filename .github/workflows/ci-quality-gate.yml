@@ -114,10 +114,10 @@ jobs:
           python3 scripts/check_dual_publish.py
 
       # Proposed by audit/newgen-2026-06 and never built, which is why retired
-      # model IDs survived two later audits. Advisory while the existing
-      # references are cleaned up; flip to blocking once the tree is clean.
-      - name: Retired model identifier lint (gate G7 — advisory)
-        continue-on-error: true
+      # model IDs survived two later audits. The tree is now clean, so this is
+      # blocking. A deliberate reference needs an entry with a reason in
+      # scripts/check_model_freshness_allowlist.txt.
+      - name: Retired model identifier lint (gate G7 — blocking)
         run: |
           python3 scripts/check_model_freshness.py --all
 

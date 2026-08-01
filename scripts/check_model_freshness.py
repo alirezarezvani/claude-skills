@@ -44,6 +44,10 @@ EXCLUDED_DIRS = {
 
 SCAN_EXTENSIONS = (".md", ".py", ".json", ".yaml", ".yml", ".sh", ".txt")
 
+# This linter and its allowlist necessarily name retired models; scanning them
+# would just require self-referential allowlist entries.
+SELF_FILES = {"check_model_freshness.py", "check_model_freshness_allowlist.txt"}
+
 # Retired or superseded identifiers, as (regex, label) pairs. Word-ish bounded
 # so `claude-3` does not match `claude-3x-something` unintentionally.
 RETIRED_PATTERNS = [
@@ -64,7 +68,9 @@ RETIRED_PATTERNS = [
      "Claude 4 family (superseded by Claude 5)"),
     (r"\banthropic/claude-[a-z]+-4[.-]\d+\b", "Claude 4 family (superseded by Claude 5)"),
     (r"\bgpt-3\.5(?:-turbo)?\b", "gpt-3.5 (retired)"),
-    (r"\bgpt-4(?:-32k|o|o-mini)?\b(?!\S)", "gpt-4 family (superseded)"),
+    # Longer variants first: alternation is ordered, so `o-mini` must precede `o`
+    # or `gpt-4o-mini` reports as `gpt-4o`.
+    (r"\bgpt-4(?:-32k|o-mini|o)?\b", "gpt-4 family (superseded)"),
     (r"\bGPT-4(?:o|-32k)?\b", "gpt-4 family (superseded)"),
     (r"\btext-embedding-ada-002\b", "ada-002 embeddings (superseded)"),
     (r"\bgemini-1\.5(?:-[a-z]+)?\b", "Gemini 1.5 (superseded)"),
@@ -153,7 +159,7 @@ def collect(repo_root):
     for dirpath, dirnames, filenames in os.walk(repo_root):
         dirnames[:] = [d for d in dirnames if d not in EXCLUDED_DIRS]
         for fn in filenames:
-            if fn in EXCLUDED_DIRS:
+            if fn in EXCLUDED_DIRS or fn in SELF_FILES:
                 continue
             if fn.endswith(SCAN_EXTENSIONS):
                 targets.append(os.path.join(dirpath, fn))

@@ -276,10 +276,32 @@ def run_check(root: Path, derived: dict) -> int:
     if marketplace.is_file():
         try:
             data = json.loads(marketplace.read_text(encoding="utf-8"))
-            desc = data.get("metadata", {}).get("description", "")
-            sources.append(("marketplace.json metadata.description", desc))
+            # Both descriptions carry counters. Only metadata.description was
+            # checked until now, so the top-level one drifted to 348/79.
+            sources.append(("marketplace.json metadata.description",
+                            data.get("metadata", {}).get("description", "")))
+            sources.append(("marketplace.json description",
+                            data.get("description", "")))
         except (json.JSONDecodeError, OSError) as exc:
             print(f"FAIL: cannot parse marketplace.json: {exc}")
+            return 1
+
+    # The docs site's meta description is the first thing search engines read.
+    mkdocs = root / "mkdocs.yml"
+    if mkdocs.is_file():
+        for line in mkdocs.read_text(encoding="utf-8").splitlines():
+            if line.startswith("site_description:"):
+                sources.append(("mkdocs.yml site_description", line))
+                break
+
+    # The manifest Codex users see. Nine releases behind when this check landed.
+    codex = root / ".codex-plugin" / "plugin.json"
+    if codex.is_file():
+        try:
+            sources.append((".codex-plugin/plugin.json description",
+                            json.loads(codex.read_text(encoding="utf-8")).get("description", "")))
+        except (json.JSONDecodeError, OSError) as exc:
+            print(f"FAIL: cannot parse .codex-plugin/plugin.json: {exc}")
             return 1
 
     mismatches = []

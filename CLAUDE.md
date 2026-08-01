@@ -525,23 +525,23 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 2. **Never rename repo folders or local skill names** to match ClawHub slugs. The repo is the source of truth.
 3. **No paid/commercial service dependencies.** Skills must not require paid third-party API keys or commercial services unless provided by the project itself. Free-tier APIs and BYOK (bring-your-own-key) patterns are acceptable.
 4. **Rate limit: 5 new skills per hour** on ClawHub. Batch publishes must respect this. Use the drip timer (`clawhub-drip.timer`) for bulk operations.
-5. **plugin.json schema** — Required fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills`. Two **approved extension fields** are permitted in the repo (stripped at ClawHub-publish time, if/when a stripping pipeline lands):
-   - `source` (object) — provenance metadata for skills built via Path-B megaprompt conversion. Recommended shape: `{spec: "megaprompts/NN-name.md", build_pattern: "...", distinct_from: "..."}`. Used by all 13 v2 megaprompt-derived skills (productivity/, marketing/, research/).
-   - `attribution` (object) — credit metadata for skills derived from external MIT-licensed work. Used by `engineering/caveman`, `engineering/grill-me`, `engineering/grill-with-docs` (Matt Pocock derivatives).
+5. **plugin.json schema** — This repo requires `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills` on every manifest, enforced by `scripts/check_plugin_json.py --all` in `ci-quality-gate.yml`. That is a repo convention, not a Claude Code requirement: Claude Code treats the manifest itself as optional and only requires `name`.
 
-   No other extras. The `skills` value depends on the plugin layout. Per the live Claude Code plugin spec ([plugins-reference](https://code.claude.com/docs/en/plugins-reference)), **all paths must be relative to the plugin root and start with `./`**. CC 2.1.144+ returns `Validation errors: skills: Invalid input` on a bare string without the prefix.
+   **Extension fields are fine.** Claude Code ignores top-level fields it does not recognise and `claude plugin validate` reports them as warnings, not errors — a plugin with only unrecognised-field warnings still loads. The repo's `source` and `attribution` fields therefore need no special dispensation:
+   - `source` (object) — provenance for skills built via Path-B megaprompt conversion. Shape: `{spec: "megaprompts/NN-name.md", build_pattern: "...", distinct_from: "..."}`.
+   - `attribution` (object) — credit for skills derived from external MIT-licensed work (e.g. `engineering/caveman`, `engineering/grill-me`, `engineering/grill-with-docs`).
 
-   **Canonical forms (CC 2.1.144+):**
-   - Single-skill plugin (SKILL.md at root): `"skills": ["./"]` (array form required).
-   - Plugin with `skills/` subdir: `"skills": "./skills"` or `"skills": ["./skills"]`.
-   - Multi-skill domain plugin (skills are subfolders at root): `"skills": ["./sub1", "./sub2", ...]` (explicit list).
+   Fields with the **wrong type** still fail to load, so `keywords` must be an array, not a string.
 
-   **Legacy form (still tolerated by the validator):** `"skills": "skills"` (bare subdir name, no `./`). Older versions of CC accepted this; current CC rejects it. The repo has been fully migrated to the canonical form — the validator keeps WARN-level tolerance for the legacy literal as a safety net against accidental regressions in copied templates. Do **not** use this form in new manifests.
+   **`skills` path forms** — paths are relative to the plugin root and start with `./`:
+   - Single-skill plugin (SKILL.md at root): `"skills": ["./"]`
+   - Plugin with a `skills/` subdir: `"skills": "./skills"` or `["./skills"]`
+   - Multi-skill domain plugin (skills are subfolders at root): `["./sub1", "./sub2", ...]`
 
-   **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
+   Do not use the bare `"skills": "skills"` form. The validator tolerates it at WARN level only as a guard against copied templates regressing.
 
-   **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.7.0+).
+   **Prefer the first-party validator.** `claude plugin validate <dir> --strict` now checks manifests directly, suggests corrections for near-miss field names, and treats warnings as errors under `--strict`. Keep `check_plugin_json.py` for the repo-specific required-field convention above, and run the CLI validator alongside it.
+6. **Version follows repo versioning.** ClawHub package versions must match the current repo release version.
 
 ## Anti-Patterns to Avoid
 

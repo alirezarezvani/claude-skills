@@ -4,7 +4,7 @@
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
   },
-  "description": "348 production-ready skill packages for Claude AI across 18 domains: engineering advanced (78, incl. v2.9.0 workflow-builder for Claude Code Workflow-tool authoring), engineering core (51), marketing (46 — incl. AEO/Answer Engine Optimization), c-level advisory (66), product (17), regulatory/QMS (18), compliance-os (9), project management (9), business growth (5), finance (4), productivity (6), marketing top-level (1), research (8), research-ops (5, v2.9.0), business-operations (7), commercial (8), markdown-html (5, v2.10.3 — markdown-to-interactive-HTML converter complete: orchestrator + design-system + md-document long-form + md-review code-review + md-slides slide-deck), and loop-library (1 — vendored Forward Future Loop Library skill). Includes 586 Python tools, 713 reference documents, 94 agents, 100 slash commands across 79 marketplace plugins.",
+  "description": "362 production-ready skills across 18 domains. 644 Python automation tools, 741 reference guides, 102 agents, 116 slash commands across 88 marketplace plugins. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe and more. MIT licensed, stdlib-only tools.",
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {

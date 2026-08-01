@@ -1,7 +1,7 @@
 {
   "name": "claude-code-skills",
-  "version": "2.2.0",
-  "description": "223 production-ready skills, 23 agents, and 298 Python tools across 9 domains — engineering, marketing, product, compliance, C-level advisory, and more. The largest open-source skills library for AI coding agents.",
+  "version": "2.11.2",
+  "description": "362 production-ready skills across 18 domains. 644 Python automation tools, 741 reference guides, 102 agents, 116 slash commands across 88 marketplace plugins. The largest open-source skills library for AI coding agents.",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

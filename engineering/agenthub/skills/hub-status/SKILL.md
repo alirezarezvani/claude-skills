@@ -1,5 +1,5 @@
 ---
-name: "status"
+name: "hub-status"
 description: "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:status or asks how the AgentHub agents are doing."
 command: /hub:status
 ---

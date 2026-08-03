@@ -1,5 +1,5 @@
 ---
-description: Deep-dive feature repair — systematically fix an entire feature/module. Usage: /focused-fix <feature-path>
+description: "Deep-dive feature repair — systematically fix an entire feature/module. Usage: /focused-fix <feature-path>"
 ---
 
 Systematically repair the feature/module at `$ARGUMENTS` using the focused-fix 5-phase protocol.

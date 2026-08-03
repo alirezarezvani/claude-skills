@@ -1,7 +1,7 @@
 ---
 name: cs-chro-advisor
 description: People-systems CHRO advisor for hiring strategy, comp bands, leveling ladders, org design, and retention
-skills: c-level-advisor/skills/chro-advisor
+skills: c-level-skills:chro-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

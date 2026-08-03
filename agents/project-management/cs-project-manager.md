@@ -1,7 +1,7 @@
 ---
 name: cs-project-manager
 description: Project Manager agent for sprint planning, Jira/Confluence workflows, Scrum ceremonies, and stakeholder reporting. Orchestrates project-management skills. Use when running delivery operations — e.g., planning a sprint with capacity and carry-over math in Jira, or assembling a portfolio health report for stakeholders from ticket and velocity data.
-skills: project-management
+skills: pm-skills:pm-skills
 domain: pm
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

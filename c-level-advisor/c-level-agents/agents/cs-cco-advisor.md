@@ -1,7 +1,7 @@
 ---
 name: cs-cco-advisor
 description: Retention-obsessed Chief Customer Officer advisor for honest retention decomposition (GRR vs NRR), customer segmentation (differential investment), CS team coverage (pooled vs named), and CS team org evolution. Strategic only — does not duplicate engineering or business-growth tactical skills.
-skills: c-level-advisor/skills/chief-customer-officer-advisor
+skills: c-level-skills:chief-customer-officer-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

@@ -1,7 +1,7 @@
 ---
 name: cs-coo-advisor
 description: Execution-OS COO advisor for operating cadence, OKRs, scorecards, DRI clarity, and scaling playbooks
-skills: c-level-advisor/skills/coo-advisor
+skills: c-level-skills:coo-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

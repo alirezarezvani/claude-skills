@@ -1,10 +1,9 @@
 ---
 name: cs-backend-engineer
 description: Backend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (read/write ratio + QPS, tenancy, sync vs async, data sensitivity, pattern, RPO/RTO, SLO), picks the language + pattern profile, forks into specialists (api-design-reviewer, database-designer, migration-architect, observability-designer, slo-architect — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context. Invoke via /cs:backend-review or Agent({subagent_type:"cs-backend-engineer",...}).
-skills: engineering-team/senior-backend
+skills: engineering-skills:senior-backend
 domain: engineering
 tools: [Read, Write, Bash, Grep, Glob]
-context: fork
 ---
 
 # cs-backend-engineer — Backend Orchestrator

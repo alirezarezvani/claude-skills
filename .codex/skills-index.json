@@ -591,7 +591,7 @@
       "name": "design-system",
       "source": "../../markdown-html/skills/design-system",
       "category": "documentation",
-      "description": "Captures the user's brand identity once via a 10-question onboarding wizard (primary/accent HEX + heading + body Google Fonts + design style editorial/technical/minimal/playful + default output directory + syntax theme + TOC behavior + optional logo/company), validates body-text and link contrast against WCAG 2.2 AA, derives 12 CSS custom properties in HSL space, and stores the result for every markdown-html converter to consume. Use before any markdown-html conversion. Triggers on first-run onboarding (\"set up the brand\", \"configure markdown-html\", \"run onboarding\"), on explicit reset (\"reset the design system\", \"re-onboard\"), and is checked by every converter via config_loader.py before rendering. Refuses to save if body-text contrast fails AA 4.5:1 or the output dir isn't writable. Precedence: project (./.markdown-html/) > global (~/.config/markdown-html/) > built-in defaults; MARKDOWN_HTML_NO_CONFIG=1 bypasses."
+      "description": "Captures the user's brand identity once via a 10-question onboarding wizard (primary/accent HEX + heading + body Google Fonts + design style editorial/technical/minimal/playful + default output directory + syntax theme + TOC behavior + optional logo/company), validates body-text and link contrast against WCAG 2.2 AA, derives 12 CSS custom properties in HSL space, and stores the result for every markdown-html converter to consume. Use before any markdown-html conversion. Triggers on first-run onboarding (\"set up the brand\", \"configure markdown-html\", \"run onboarding\"), on explicit reset (\"reset the design system\", \"re-onboard\"), and is checked by every converter via config_loader.py before rendering. Refuses to save if body-text contrast fails AA 4.5:1 or the output dir isn't writable. Precedence is project (./.markdown-html/) > global (~/.config/markdown-html/) > built-in defaults; MARKDOWN_HTML_NO_CONFIG=1 bypasses."
     },
     {
       "name": "markdown-html-orchestrator",
@@ -615,7 +615,7 @@
       "name": "md-slides",
       "source": "../../markdown-html/skills/md-slides",
       "category": "documentation",
-      "description": "Converts a markdown deck (slides separated by `"
+      "description": "\"Converts a markdown deck (slides separated by `"
     },
     {
       "name": "a11y-audit",
@@ -732,12 +732,6 @@
       "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
     },
     {
-      "name": "init",
-      "source": "../../engineering-team/playwright-pro/skills/init",
-      "category": "engineering",
-      "description": ">-"
-    },
-    {
       "name": "memory-review",
       "source": "../../engineering-team/self-improving-agent/skills/memory-review",
       "category": "engineering",
@@ -778,6 +772,12 @@
       "source": "../../engineering-team/playwright-pro/skills/pw",
       "category": "engineering",
       "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting."
+    },
+    {
+      "name": "pw-init",
+      "source": "../../engineering-team/playwright-pro/skills/pw-init",
+      "category": "engineering",
+      "description": ">-"
     },
     {
       "name": "red-team",
@@ -966,6 +966,18 @@
       "description": "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests."
     },
     {
+      "name": "ar-run",
+      "source": "../../engineering/autoresearch-agent/skills/ar-run",
+      "category": "engineering-advanced",
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
+    },
+    {
+      "name": "ar-status",
+      "source": "../../engineering/autoresearch-agent/skills/ar-status",
+      "category": "engineering-advanced",
+      "description": "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:status or asks how an autoresearch experiment is going."
+    },
+    {
       "name": "autoresearch-agent",
       "source": "../../engineering/autoresearch-agent/skills/autoresearch-agent",
       "category": "engineering-advanced",
@@ -1152,10 +1164,22 @@
       "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
-      "name": "init",
-      "source": "../../engineering/agenthub/skills/init",
+      "name": "hub-init",
+      "source": "../../engineering/agenthub/skills/hub-init",
       "category": "engineering-advanced",
       "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a multi-agent competition on a task."
+    },
+    {
+      "name": "hub-run",
+      "source": "../../engineering/agenthub/skills/hub-run",
+      "category": "engineering-advanced",
+      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
+    },
+    {
+      "name": "hub-status",
+      "source": "../../engineering/agenthub/skills/hub-status",
+      "category": "engineering-advanced",
+      "description": "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:status or asks how the AgentHub agents are doing."
     },
     {
       "name": "interview-system-designer",
@@ -1266,18 +1290,6 @@
       "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:resume or asks to pick up a previously started autoresearch experiment."
     },
     {
-      "name": "run",
-      "source": "../../engineering/autoresearch-agent/skills/run",
-      "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
-    },
-    {
-      "name": "run",
-      "source": "../../engineering/agenthub/skills/run",
-      "category": "engineering-advanced",
-      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
-    },
-    {
       "name": "runbook-generator",
       "source": "../../engineering/skills/runbook-generator",
       "category": "engineering-advanced",
@@ -1366,18 +1378,6 @@
       "source": "../../engineering/statistical-analyst/skills/statistical-analyst",
       "category": "engineering-advanced",
       "description": "Run hypothesis tests, analyze A/B experiment results, calculate sample sizes, and interpret statistical significance with effect sizes. Use when you need to validate whether observed differences are real, size an experiment correctly before launch, or interpret test results with confidence."
-    },
-    {
-      "name": "status",
-      "source": "../../engineering/autoresearch-agent/skills/status",
-      "category": "engineering-advanced",
-      "description": "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:status or asks how an autoresearch experiment is going."
-    },
-    {
-      "name": "status",
-      "source": "../../engineering/agenthub/skills/status",
-      "category": "engineering-advanced",
-      "description": "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:status or asks how the AgentHub agents are doing."
     },
     {
       "name": "strict-api",

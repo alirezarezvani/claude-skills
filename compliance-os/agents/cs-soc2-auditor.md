@@ -1,7 +1,7 @@
 ---
 name: cs-soc2-auditor
 description: SOC 2 Type II auditor persona — observation-period discipline + AICPA TSC focused. Coordinates with ISO 27001 (75% overlap, the canonical cross-walk pair) and GDPR (if Privacy TSC in scope). NOT executive cybersecurity strategy (see cs-ciso-advisor); NOT external audit firm engagement (that's the licensed CPA firm's role).
-skills: ra-qm-team/skills/soc2-compliance
+skills: ra-qm-skills:soc2-compliance
 domain: compliance-os
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

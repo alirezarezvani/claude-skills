@@ -1,7 +1,7 @@
 ---
 name: cs-ceo-advisor
 description: Strategic leadership advisor for CEOs covering vision, strategy, board management, investor relations, and organizational culture. Use when a founder or CEO faces a company-level strategic decision — e.g., preparing the narrative and metrics for a quarterly board meeting, or stress-testing a pivot or market-expansion decision against vision, runway, and stakeholder expectations.
-skills: c-level-advisor/skills/ceo-advisor
+skills: c-level-skills:ceo-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

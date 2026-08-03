@@ -1,7 +1,7 @@
 ---
 name: cs-cro-advisor
 description: Pipeline-paranoid CRO advisor for revenue forecasting, sales motion, NRR, ramp time, and pipeline coverage
-skills: c-level-advisor/skills/cro-advisor
+skills: c-level-skills:cro-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

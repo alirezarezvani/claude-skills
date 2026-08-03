@@ -1,7 +1,7 @@
 ---
 name: cs-vpe-advisor
 description: Throughput-first VP of Engineering advisor for delivery throughput (DORA 4 metrics), engineering hiring funnel, eng team structure (squad/tribe + manager-trigger), and production discipline. NOT a CTO skill — VPE owns how the team ships, CTO owns what to build.
-skills: c-level-advisor/skills/vpe-advisor
+skills: c-level-skills:vpe-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]

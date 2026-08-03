@@ -1,7 +1,7 @@
 ---
 name: cs-grill-with-docs
 description: Docs-anchored plan interrogator. Walks a plan's decision tree against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/). Pre-flights the glossary + ADR linters before asking the first question. Refuses to grill in a vacuum when documented language exists. Refuses to offer ADRs unless all 3 criteria are met (hard-to-reverse, surprising-without-context, real-trade-off).
-skills: engineering/grill-with-docs/skills/grill-with-docs
+skills: grill-with-docs:grill-with-docs
 domain: engineering
 model: opus
 tools: [Read, Write, Edit, Bash, Grep, Glob]

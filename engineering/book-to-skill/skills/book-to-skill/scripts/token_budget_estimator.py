@@ -30,7 +30,7 @@ The estimate is an estimate: it is stable and comparable, not a BPE count.
 Exit codes:
     0  report produced
     1  the source has no detectable chapters (nothing to model)
-    2  bad invocation
+    2  bad invocation, or a path that does not exist / is not a compiled skill
 
 Adapted from virgiliojr94/book-to-skill's discovery_tax.py (MIT), rewritten to
 drop the optional tiktoken path and to add the post-flight budget audit.
@@ -47,6 +47,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import tempfile
@@ -103,8 +104,28 @@ def extract_toc(front_matter: str) -> str:
     return front_matter[match.start():] if match else front_matter
 
 
+class InputError(RuntimeError):
+    """A path given on the command line cannot be used."""
+
+
 def audit_skill_dir(skill_dir: Path) -> dict:
-    """File-by-file token audit of a generated skill against the budgets."""
+    """File-by-file token audit of a generated skill against the budgets.
+
+    Refuses a directory that does not exist or has no SKILL.md. Without that
+    check a typo'd --skill-dir produced a full, plausible-looking audit — every
+    row "missing", every cap satisfied, exit 0 — which reads as a pass. A gate
+    that reports success for a path that isn't there is worse than no gate.
+    """
+    if not skill_dir.exists():
+        raise InputError(f"no such skill directory: {skill_dir}")
+    if not skill_dir.is_dir():
+        raise InputError(f"not a directory: {skill_dir}")
+    if not (skill_dir / "SKILL.md").is_file():
+        raise InputError(
+            f"{skill_dir} has no SKILL.md — this is not a compiled skill. "
+            f"Point --skill-dir at the generated skill folder."
+        )
+
     rows, over = [], []
     for filename, cap in BUDGETS.items():
         path = skill_dir / filename
@@ -265,6 +286,12 @@ def run(*, full_text_path: Path | None, skill_dir: Path | None, target: int,
     model = None
 
     if full_text_path:
+        if not full_text_path.is_file():
+            raise InputError(
+                f"no such extracted-text file: {full_text_path}\n"
+                "Pass the full_text.txt path that extract_document.py printed "
+                "(it is also metadata.json's `output_text`)."
+            )
         text = full_text_path.read_text(encoding="utf-8", errors="ignore")
         # A measured skill beats the design cap: use its real resident size and
         # its real average chapter size when we have them.
@@ -315,14 +342,25 @@ def main(argv: list[str] | None = None) -> int:
         print("ERROR: give --full-text, --skill-dir, or both (or use --sample).", file=sys.stderr)
         return 2
 
-    return run(
-        full_text_path=Path(args.full_text) if args.full_text else None,
-        skill_dir=Path(args.skill_dir) if args.skill_dir else None,
-        target=args.target_chapter,
-        core_tokens=args.core_tokens,
-        as_json=args.output == "json",
-    )
+    try:
+        return run(
+            full_text_path=Path(args.full_text) if args.full_text else None,
+            skill_dir=Path(args.skill_dir) if args.skill_dir else None,
+            target=args.target_chapter,
+            core_tokens=args.core_tokens,
+            as_json=args.output == "json",
+        )
+    except InputError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except BrokenPipeError:
+        # `tool | head` closes the pipe while this is still writing. Exit quietly
+        # instead of dumping a traceback: redirect stdout to devnull first so the
+        # interpreter's shutdown flush cannot re-raise. 141 = 128 + SIGPIPE.
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+        sys.exit(141)

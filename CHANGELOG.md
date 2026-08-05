@@ -22,7 +22,7 @@ parsers) is vendored close to verbatim and keeps upstream's format chains, chapt
 detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
 (Trojan Source) sanitization, and the DOCX entity-expansion guard.
 
-**20 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+**24 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
 which is the authoritative list. Highlights:
 
 - **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints
@@ -66,6 +66,13 @@ which is the authoritative list. Highlights:
   marketplace entry; a post-copy re-walk deletes the package if a symlink appears during the
   copy (closing the check-then-act window); and `source.license_scope` records that the
   top-level `license` covers the scaffolding, not the compiled notes.
+
+- **(21-24) Skill-quality audit** — read as a skill rather than as code. SKILL.md's
+  quick-start referenced `$WORKDIR`/`$SKILLS_HOME` without defining them (traceback if
+  followed literally; all five steps now execute verbatim); `token_budget_estimator.py
+  --skill-dir <typo>` reported a clean audit at exit 0 and now refuses; `epub.py`'s
+  `except (KeyError, Exception)` was silently disarming the zip-size refusal at that call
+  site; and `tool | head` no longer tracebacks.
 
 **Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`.**
 Upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route

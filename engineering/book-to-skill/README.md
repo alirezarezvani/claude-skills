@@ -59,13 +59,14 @@ Or drive the tools yourself:
 
 ```bash
 SKILL_ROOT=engineering/book-to-skill/skills/book-to-skill
+WORKDIR=$(mktemp -d)     # or omit --workdir and capture the path the tool prints
+SLUG=<author-lastname>-<concept>
 
-python3 "$SKILL_ROOT/scripts/extract_document.py" BOOK.pdf --mode technical
-#   -> prints the private workdir it created; capture it as $WORKDIR
+python3 "$SKILL_ROOT/scripts/extract_document.py" BOOK.pdf --mode technical --workdir "$WORKDIR"
 python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --full-text "$WORKDIR/full_text.txt"
 # ... agent generates the skill ...
-python3 "$SKILL_ROOT/scripts/book_skill_validator.py" ~/.claude/skills/<slug>
-python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" --skill-dir ~/.claude/skills/<slug> \
+python3 "$SKILL_ROOT/scripts/book_skill_validator.py" ~/.claude/skills/"$SLUG"
+python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" --skill-dir ~/.claude/skills/"$SLUG" \
     --dest ./engineering --dry-run
 ```
 
@@ -247,6 +248,32 @@ small; just read it."
     carries `source.license_scope` stating that the top-level `license` covers the package
     scaffolding, not the compiled notes — a distinction that previously lived only in README
     prose where a tool reading the manifest alone would miss it.
+
+21. **The documented quick-start actually runs.** SKILL.md's copy-paste block referenced
+    `$WORKDIR` and `$SKILLS_HOME` without ever defining them — following it literally produced
+    a traceback on step 2. Both are now real assignments, and all five steps were executed
+    verbatim end to end as a check. A quick-start that does not run is worse than no
+    quick-start: it is the part a reader trusts most.
+
+22. **Gate tools refuse bad paths instead of reporting success.** `token_budget_estimator.py
+    --skill-dir <typo>` produced a complete, plausible budget audit — every row "missing",
+    every cap satisfied, **exit 0** — which reads as a pass. A gate that reports success for a
+    path that is not there is worse than no gate. It now refuses a missing directory, a
+    non-directory, and a directory without `SKILL.md` (exit 2); `--full-text <missing>` raised
+    a bare `FileNotFoundError` traceback and now refuses cleanly. The other three tools already
+    handled bad input; this one was the outlier.
+
+23. **Three more upstream artifacts cleaned.** `epub.py`'s `except (KeyError, Exception)` is
+    simply `except Exception` — it swallowed everything, including the size-refusal that
+    `safe_read()` now raises, quietly disarming deviation 17 at that call site. Narrowed so an
+    `ExtractionError` propagates and only genuine parse failures fall through to the `.opf`
+    glob. `utils.py` emitted a dynamic `{pages_label: pages}` key alongside a literal `"pages"`,
+    which collided whenever the label *was* `"pages"`; the alias is now added only when it
+    differs. A stray artifact word was removed from a `pdf.py` comment.
+
+24. **`tool | head` no longer tracebacks.** Piping a report into `head` closes the pipe
+    mid-write and surfaced a `BrokenPipeError` stack trace (observed once; racy on flush
+    timing). All four CLIs now exit 141 quietly, the standard SIGPIPE convention.
 
 ---
 

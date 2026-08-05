@@ -104,9 +104,13 @@ All four tools live in `scripts/` and run on the standard library alone.
 
 ```bash
 SKILL_ROOT=engineering/book-to-skill/skills/book-to-skill
+SKILLS_HOME=~/.claude/skills        # Step 5 picks this; see the workflow reference
+WORKDIR=$(mktemp -d)                # or omit --workdir and capture the path it prints
+SLUG=<author-lastname>-<concept>
 
-# 1. extract → full_text.txt + metadata.json (--mode technical for tables/code/formulas)
-python3 "$SKILL_ROOT/scripts/extract_document.py" <paths> --mode text
+# 1. extract → $WORKDIR/full_text.txt + metadata.json
+#    --mode technical when tables, code or formulas carry meaning
+python3 "$SKILL_ROOT/scripts/extract_document.py" <paths> --mode text --workdir "$WORKDIR"
 
 # 2. pre-flight: is this worth converting at all? Wait for approval before generating.
 python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --full-text "$WORKDIR/full_text.txt"
@@ -114,13 +118,17 @@ python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --full-text "$WORKDIR/fu
 # 3. generate — the agent's work: chapters/, glossary, patterns, cheatsheet, SKILL.md
 
 # 4. gate — errors block. Fix and re-run; never rewrite around a finding.
-python3 "$SKILL_ROOT/scripts/book_skill_validator.py" "$SKILLS_HOME/<slug>"
-python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --skill-dir "$SKILLS_HOME/<slug>"
+python3 "$SKILL_ROOT/scripts/book_skill_validator.py" "$SKILLS_HOME/$SLUG"
+python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --skill-dir "$SKILLS_HOME/$SLUG"
 
 # 5. optional: wrap as a claude-skills plugin so the library can route to it
-python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" --skill-dir "$SKILLS_HOME/<slug>" \
+python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" --skill-dir "$SKILLS_HOME/$SLUG" \
     --dest ./engineering --source-note "<Title> by <Author>" --dry-run
 ```
+
+Every path above is a real variable, not a placeholder: run the block as written (with
+`<paths>` and `$SLUG` filled in) and it works end to end. Without `--workdir` the extractor
+creates a private temp directory and prints it — capture that instead.
 
 `extract_document.py --check` reports which extractors are installed and prints the install
 command for what is missing. Every tool supports `--help`, `--sample` and `--output json`.

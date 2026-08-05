@@ -585,12 +585,17 @@ def extract_single_file(input_path: Path, extraction_mode: str, install_mode: st
         "format": document_format,
         "extraction_method": method,
         "file_size_mb": round(file_size_mb, 2),
-        pages_label: pages,
-        "pages_label": pages_label,
+        # `pages` is the canonical count; `pages_label` names the unit ("pages"
+        # for PDF, "spine_items" for EPUB, "sections" otherwise). Upstream also
+        # emitted a dynamic `{pages_label: pages}` key, which silently collided
+        # with "pages" whenever the label WAS "pages"; the alias is added below
+        # only when it is actually a different key.
         "pages": pages,
+        "pages_label": pages_label,
         "chars": len(text),
         "words": len(text.split()),
         "estimated_tokens": tokens,
         "text": text,
+        **({pages_label: pages} if pages_label != "pages" else {}),
         **structure,
     }

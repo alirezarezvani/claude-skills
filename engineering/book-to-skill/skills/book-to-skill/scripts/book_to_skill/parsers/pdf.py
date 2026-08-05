@@ -42,7 +42,7 @@ def clean_pdftotext(text: str) -> str:
         text = "\n".join(kept)
     else:
         text = text.replace("\f", "\n")
-    # ponytail: naive dehyphenation; may join a genuinely-hyphenated wrapped
+    # Naive dehyphenation: may join a genuinely-hyphenated wrapped
     # compound ("well-\nknown" -> "wellknown"). Dictionary-aware split if it bites.
     return _PDF_HYPHEN_WRAP.sub(r"\1\2", text)
 

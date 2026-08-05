@@ -5,6 +5,7 @@ import re
 import zipfile
 import sys
 from book_to_skill.parsers.html_text import _HTMLTextExtractor
+from book_to_skill.exceptions import ExtractionError
 from book_to_skill.zip_safety import _Budget, safe_read, validate_zip_xml_safety
 
 
@@ -48,7 +49,14 @@ def _find_opf_path(zf: zipfile.ZipFile) -> str | None:
         match = re.search(r'full-path=["\']([^"\']+\.opf)["\']', container)
         if match:
             return match.group(1)
-    except (KeyError, Exception):
+    except ExtractionError:
+        # A size/ratio refusal from safe_read is a verdict, not a parse failure:
+        # let it reach the caller instead of silently falling through to the .opf
+        # glob below. Upstream wrote `except (KeyError, Exception)`, which is just
+        # `except Exception` and swallowed everything.
+        raise
+    except (KeyError, OSError, UnicodeDecodeError, zipfile.BadZipFile):
+        # container.xml absent or malformed — the glob fallback is the answer.
         pass
 
     # Fallback: glob for any .opf file

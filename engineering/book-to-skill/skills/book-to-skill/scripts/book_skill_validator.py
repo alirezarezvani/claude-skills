@@ -44,6 +44,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import tempfile
@@ -596,4 +597,11 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except BrokenPipeError:
+        # `tool | head` closes the pipe while this is still writing. Exit quietly
+        # instead of dumping a traceback: redirect stdout to devnull first so the
+        # interpreter's shutdown flush cannot re-raise. 141 = 128 + SIGPIPE.
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+        sys.exit(141)

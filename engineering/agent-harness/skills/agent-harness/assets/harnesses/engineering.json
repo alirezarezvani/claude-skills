@@ -1,7 +1,7 @@
 {
   "schema": "agent-harness/manifest.v1",
   "domain": "engineering",
-  "skill_count": 81,
+  "skill_count": 85,
   "loop_defaults": {
     "max_attempts_per_task": 3,
     "max_loop_iterations": 12,
@@ -410,6 +410,94 @@
       },
       "references": [
         "api-integration.md"
+      ]
+    },
+    {
+      "name": "book-to-skill",
+      "path": "engineering/book-to-skill/skills/book-to-skill",
+      "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills \u2014 extracting named frameworks, principles, techniques, and anti-patterns into a master SKILL.md plus on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a claude-skills plugin.",
+      "tools": [
+        {
+          "script": "engineering/book-to-skill/skills/book-to-skill/scripts/book_skill_validator.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/book_skill_validator.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/book_skill_validator.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "engineering/book-to-skill/skills/book-to-skill/scripts/extract_document.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/extract_document.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/extract_document.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "engineering/book-to-skill/skills/book-to-skill/scripts/skill_plugin_emitter.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/skill_plugin_emitter.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/skill_plugin_emitter.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "engineering/book-to-skill/skills/book-to-skill/scripts/token_budget_estimator.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/token_budget_estimator.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 engineering/book-to-skill/skills/book-to-skill/scripts/token_budget_estimator.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": true,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "document_extraction_pipeline.md",
+        "knowledge_extraction_canon.md",
+        "progressive_disclosure_budgets.md",
+        "rights_and_provenance.md"
       ]
     },
     {
@@ -1278,6 +1366,20 @@
       ]
     },
     {
+      "name": "minimalist",
+      "path": "engineering/minimalist",
+      "description": "Use when the user asks to write code efficiently, avoid over-engineering, reduce dependencies, or prevent unnecessary abstractions. Enforces a strict efficiency ladder: YAGNI, reuse, stdlib, native platform, existing deps \u2014 before writing any new code.",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": false,
+        "verification": false,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": []
+    },
+    {
       "name": "prompt-governance",
       "path": "engineering/prompt-governance/skills/prompt-governance",
       "description": "Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production AI features. Triggers: 'manage prompts in production', 'prompt versioning', 'prompt regression', 'prompt A/B test', 'prompt registry', 'eval pipeline'. NOT for writing or improving individual prompts (use senior-prompt-engineer). NOT for RAG pipeline design (use rag-architect). NOT for LLM cost reduction (use llm-cost-optimizer).",
@@ -1306,6 +1408,20 @@
       "references": [
         "pretooluse_hook_canon.md"
       ]
+    },
+    {
+      "name": "skillopt-sleep",
+      "path": "engineering/skillopt-sleep/skills/skillopt-sleep",
+      "description": "Use when the user wants their Claude agent to self-improve from past usage, asks about a nightly/offline 'sleep' or 'dream' cycle, memory/skill consolidation, or says things like 'make my agent better the more I use it', 'review my past sessions', 'learn my preferences', 'consolidate what you learned', 'run the sleep cycle', or wants to schedule offline self-optimization. Drives the skillopt_sleep engine: harvest past sessions -> mine recurring tasks -> replay offline -> consolidate validated CLAUDE.md and SKILL.md behind a held-out gate.",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": false,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": []
     },
     {
       "name": "agent-designer",
@@ -3104,6 +3220,20 @@
       "references": [
         "statistical-testing-concepts.md"
       ]
+    },
+    {
+      "name": "strict-api",
+      "path": "engineering/strict-api",
+      "description": "Use when the user says 'no hallucinations', 'verify APIs', 'reality check', or 'don't invent functions'. Prevents the agent from calling methods, imports, or variables that do not provably exist in the user's installed version.",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": false,
+        "verification": true,
+        "loop_discipline": false,
+        "close_out": false
+      },
+      "references": []
     },
     {
       "name": "terraform-patterns",

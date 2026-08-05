@@ -5,7 +5,73 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] — fable-goal: ramble → autonomous /goal prompt (this PR)
+## [Unreleased] — book-to-skill: document → knowledge-base skill → plugin (this PR)
+
+### Added — `engineering/book-to-skill`
+
+Derived from [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill)
+(MIT). Compiles a book, documentation folder, or spec collection (PDF, EPUB, DOCX,
+HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into an agent skill: a resident master
+`SKILL.md` (core frameworks + chapter index + topic index, capped at 4k tokens) plus
+on-demand `chapters/chNN-*.md`, `glossary.md`, `patterns.md`, and a decision
+`cheatsheet.md`. The agent reads the core, then one chapter — never the whole source
+again.
+
+The extraction library (`scripts/book_to_skill/` — 12 modules including 7 per-format
+parsers) is vendored close to verbatim and keeps upstream's format chains, chapter
+detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
+(Trojan Source) sanitization, and the DOCX entity-expansion guard.
+
+**12 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+which is the authoritative list. Highlights:
+
+- **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints
+  the pip command and uses the stdlib fallback, where upstream prompts on a TTY and
+  runs `pip install` into the caller's environment.
+- **(6) Rights gate.** `skill_plugin_emitter.py --distribution shareable` refuses
+  without `--rights` from `public-domain|open-license|internal-docs|author-permission`.
+  `fair-use` is deliberately excluded — a defence, not a licence.
+- **(10) Merged, extended validator.** Upstream's two validators become one
+  four-family gate, adding **budget** (token caps) and **index** (dead chapter links,
+  unindexed chapter files, dangling topic refs) — the failure that silently breaks
+  navigation while the skill still looks complete, and which upstream did not check.
+- **(11)** Folded YAML scalars now parse, so a wrapped description no longer
+  under-reports its length past the 1024-char cap.
+- **(12)** `discovery_tax.py` → `token_budget_estimator.py`: optional `tiktoken` path
+  dropped, post-flight budget audit added, and an explicit **worth-converting
+  verdict** that says "just read it" when the source is under ~3× the compiled skill.
+
+**Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`.**
+Upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route
+to. `skill_plugin_emitter.py` wraps a compiled skill as a full plugin package (manifest
++ `cs-<slug>` agent + `/cs:<slug>` command + README) and prints the marketplace entry.
+It never edits `marketplace.json` itself, refuses to wrap a skill carrying validation
+errors, and guards its `--force` overwrite path against symlinks, paths outside the
+destination root, and directories that are not plugin packages.
+
+Ships 4 stdlib-only tools (all `--help` / `--sample` / `--output json`), 5 references
+citing 7-8 sources each, 3 asset templates, a `cs-book-to-skill` agent, and
+`/cs:book-to-skill` + `/cs:book-to-plugin`.
+
+### Changed — `engineering/write-a-skill`
+
+Cross-linked to the new skill: "author first, compile second" — `write-a-skill` authors
+from expertise in your head, `book-to-skill` compiles from a document on disk.
+
+### Changed — engineering harness manifest
+
+Regenerated `engineering/agent-harness/.../assets/harnesses/engineering.json`. Picked up
+`book-to-skill` plus three skills that had drifted out of the manifest (`minimalist`,
+`skillopt-sleep`, `strict-api`): `skill_count` 81 → 85.
+
+### Changed — counters
+
+skills 362 → 363, tools 644 → 662, refs 741 → 746, agents 102 → 103, commands
+116 → 118, plugins 88 → 89 (derived via `scripts/derive_counters.py --check`).
+
+---
+
+## [Unreleased] — fable-goal: ramble → autonomous /goal prompt (previous PR)
 
 ### Added — `productivity/fable-goal`
 

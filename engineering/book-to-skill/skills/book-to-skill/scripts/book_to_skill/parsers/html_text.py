@@ -1,6 +1,14 @@
+"""Stdlib HTML → plain text extraction.
+
+Named ``html_text`` rather than upstream's ``html``: a module called
+``html.py`` shadows the standard library's ``html`` package whenever its own
+directory lands on ``sys.path[0]`` — which happens the moment anyone runs the
+file directly — and ``import html.parser`` then fails with
+"'html' is not a package".
+"""
+
 from __future__ import annotations
 
-import html
 import html.parser
 from book_to_skill.parsers.text import read_text_file
 

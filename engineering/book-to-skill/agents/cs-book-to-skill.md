@@ -67,7 +67,7 @@ Drives the four decisions a conversion actually turns on:
 
 | Tool | Stage |
 |------|-------|
-| `scripts/extract_document.py` | Extract text + metadata; `--check` for the environment |
-| `scripts/token_budget_estimator.py` | Pre-flight worth-it verdict; post-flight budget audit |
-| `scripts/book_skill_validator.py` | Frontmatter, safety, budget and index gate |
-| `scripts/skill_plugin_emitter.py` | Wrap the compiled skill as a claude-skills plugin |
+| `../skills/book-to-skill/scripts/extract_document.py` | Extract text + metadata; `--check` for the environment |
+| `../skills/book-to-skill/scripts/token_budget_estimator.py` | Pre-flight worth-it verdict; post-flight budget audit |
+| `../skills/book-to-skill/scripts/book_skill_validator.py` | Frontmatter, safety, budget and index gate |
+| `../skills/book-to-skill/scripts/skill_plugin_emitter.py` | Wrap the compiled skill as a claude-skills plugin |

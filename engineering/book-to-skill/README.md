@@ -181,6 +181,18 @@ small; just read it."
     budget audit, and an explicit **worth-converting verdict** — upstream reports only savings
     ratios, which read as advocacy on a source too small to be worth converting at all.
 
+13. **`parsers/html.py` renamed to `parsers/html_text.py`.** A module named `html.py`
+    shadows the standard library's `html` package the moment its own directory lands on
+    `sys.path[0]` — which happens whenever the file is run directly — and `import
+    html.parser` then fails with "'html' is not a package". Renaming removes the hazard
+    instead of documenting it. Two import lines changed; nothing else.
+
+14. **CI-contract wiring.** The eight vendored library modules are registered in
+    `scripts/smoke_exceptions.txt` (they are imported as `book_to_skill.*`, never run as
+    CLIs), and the agent's tool table uses paths that resolve from the agent's own folder
+    so `scripts/check_paths.py` can follow them. Neither has an upstream counterpart —
+    upstream has no equivalent gates.
+
 ---
 
 ## Security audit

@@ -32,7 +32,7 @@ from book_to_skill.config import (
 )
 from book_to_skill.dependencies import prepare_dependencies
 from book_to_skill.parsers.text import read_text_file
-from book_to_skill.parsers.html import extract_html_file
+from book_to_skill.parsers.html_text import extract_html_file
 from book_to_skill.parsers.docx import extract_docx
 from book_to_skill.parsers.rtf import extract_rtf
 from book_to_skill.parsers.calibre import extract_with_ebook_convert

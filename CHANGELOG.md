@@ -22,7 +22,7 @@ parsers) is vendored close to verbatim and keeps upstream's format chains, chapt
 detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
 (Trojan Source) sanitization, and the DOCX entity-expansion guard.
 
-**12 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+**14 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
 which is the authoritative list. Highlights:
 
 - **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints

@@ -22,7 +22,7 @@ parsers) is vendored close to verbatim and keeps upstream's format chains, chapt
 detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
 (Trojan Source) sanitization, and the DOCX entity-expansion guard.
 
-**18 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+**20 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
 which is the authoritative list. Highlights:
 
 - **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints
@@ -57,6 +57,15 @@ which is the authoritative list. Highlights:
   following links, which would bake a link target's real content into a package that may be
   emitted as `--distribution shareable`. `_assert_no_symlinks()` walks the whole tree and
   refuses, before the validation branch so `--skip-validation` cannot bypass it.
+
+- **(19) The magic-byte sniff path goes through the size budget too.** Unknown-extension
+  files read a `mimetype` member with a bare `zf.read()` before any format was chosen —
+  ahead of every check in `zip_safety.py`. Now routed through `safe_read()`; a 200 MB
+  extensionless bomb is refused at ~15 MB peak RSS.
+- **(20) Emitter correctness and scope.** `--author`/`--author-url` now reach the printed
+  marketplace entry; a post-copy re-walk deletes the package if a symlink appears during the
+  copy (closing the check-then-act window); and `source.license_scope` records that the
+  top-level `license` covers the scaffolding, not the compiled notes.
 
 **Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`.**
 Upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route

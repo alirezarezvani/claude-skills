@@ -46,6 +46,7 @@ from book_to_skill.parsers.epub import (
     count_epub_chapters,
 )
 from book_to_skill.sanitize import sanitize_extracted_text
+from book_to_skill.zip_safety import safe_read
 
 
 # CJK codepoints: ideographs + extensions, kana, hangul, CJK punctuation, and
@@ -417,7 +418,14 @@ def extract_single_file(input_path: Path, extraction_mode: str, install_mode: st
             try:
                 with zipfile.ZipFile(input_str) as zf:
                     names = set(zf.namelist())
-                    if "mimetype" in names and zf.read("mimetype").startswith(b"application/epub"):
+                    # safe_read, not zf.read: this runs during *sniffing*, before a
+                    # format is even chosen, so it is the earliest point an attacker
+                    # controls. A single-member zip declaring a huge uncompressed
+                    # `mimetype` would otherwise be fully decompressed here — ahead of
+                    # every size check in zip_safety.py. Its ExtractionError is not in
+                    # the except tuple below, so a bomb reports as a bomb rather than
+                    # as a generic unsupported format.
+                    if "mimetype" in names and safe_read(zf, "mimetype").startswith(b"application/epub"):
                         ext = ".epub"
                         document_format = "epub"
                     elif "word/document.xml" in names:

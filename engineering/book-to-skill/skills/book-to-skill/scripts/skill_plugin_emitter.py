@@ -179,6 +179,10 @@ def _plugin_manifest(identity: dict, *, domain: str, author: str, author_url: st
         "author": {"name": author, "url": author_url},
         "homepage": f"{repository}/tree/main/{domain}/{identity['slug']}",
         "repository": repository,
+        # Covers this package's scaffolding — manifest, agent, command, README —
+        # NOT the compiled notes under skills/, whose terms follow the source
+        # document. Stated in `source.license_scope` too, so a tool reading only
+        # the manifest sees the distinction that README.md makes in prose.
         "license": "MIT",
         "skills": [f"./skills/{identity['slug']}"],
         "source": {
@@ -190,6 +194,11 @@ def _plugin_manifest(identity: dict, *, domain: str, author: str, author_url: st
             "source_document": source_note or identity["title"],
             "chapters": identity["chapters"],
             "distribution": distribution,
+            "license_scope": (
+                "The top-level `license` covers this package's scaffolding only. The "
+                "compiled notes under skills/ are derived from the source document and "
+                "carry that work's terms; see source.rights_basis."
+            ),
         },
     }
     if rights:
@@ -332,13 +341,19 @@ Distribution: `{distribution}`. Regenerate or extend with
 """
 
 
-def _marketplace_entry(identity: dict, domain: str) -> dict:
+def _marketplace_entry(identity: dict, domain: str, author: str) -> dict:
+    """The entry to paste into marketplace.json.
+
+    `author` is threaded through rather than hardcoded: this snippet exists to
+    stop hand-editing mistakes, so printing a different name than the manifest
+    it accompanies would defeat its own purpose for anyone but the default.
+    """
     return {
         "name": identity["slug"],
         "source": f"./{domain}/{identity['slug']}",
         "description": identity["description"],
         "version": "1.0.0",
-        "author": {"name": "Alireza Rezvani"},
+        "author": {"name": author},
         "keywords": ["knowledge-base", "book-to-skill", domain],
         "category": domain,
     }
@@ -411,7 +426,7 @@ def emit(*, skill_dir: Path, dest_root: Path, domain: str, author: str, author_u
         "distribution": distribution,
         "rights_basis": rights,
         "dry_run": dry_run,
-        "marketplace_entry": _marketplace_entry(identity, domain),
+        "marketplace_entry": _marketplace_entry(identity, domain, author),
     }
     if dry_run:
         return result
@@ -423,8 +438,24 @@ def emit(*, skill_dir: Path, dest_root: Path, domain: str, author: str, author_u
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8")
     # symlinks=True is redundant after _assert_no_symlinks, and kept so a future
-    # edit that loosens that check cannot silently reintroduce dereferencing.
-    shutil.copytree(skill_dir, package_root / "skills" / identity["slug"], symlinks=True)
+    # edit that loosens that check cannot silently reintroduce dereferencing. It
+    # also bounds the check-then-act window: a link planted between the walk and
+    # this copy is copied *as a link*, so no target content is read.
+    copied = package_root / "skills" / identity["slug"]
+    shutil.copytree(skill_dir, copied, symlinks=True)
+
+    # Close the window properly: re-walk what actually landed. A concurrent
+    # writer with access to skill_dir could have planted a link after
+    # _assert_no_symlinks ran, and a distributable package must not carry one.
+    planted = [p for p in sorted(copied.rglob("*")) if p.is_symlink()]
+    if planted:
+        shutil.rmtree(package_root)
+        listed = "\n".join(f"  {p.relative_to(copied).as_posix()}" for p in planted[:10])
+        raise EmitError(
+            f"symbolic link(s) appeared in the source tree while it was being copied — "
+            f"the package has been removed rather than shipped:\n{listed}\n"
+            "Something else is writing to the source directory; re-run once it is quiet."
+        )
     return result
 
 

@@ -230,6 +230,24 @@ small; just read it."
     it. `copytree` also passes `symlinks=True` so a future edit loosening that check cannot
     silently reintroduce dereferencing.
 
+19. **The magic-byte sniff path goes through the size budget too.** `extract_single_file()`
+    sniffs unknown extensions and read a `mimetype` member with a bare `zf.read()` — the
+    earliest attacker-controlled point in the pipeline, running *before* a format is chosen
+    and before any of `zip_safety.py`'s checks. A single-member zip declaring a huge
+    uncompressed `mimetype` was fully decompressed there. Now routed through `safe_read()`;
+    its `ExtractionError` deliberately sits outside the surrounding `except` tuple so a bomb
+    reports as a bomb rather than as a generic unsupported format. Verified: a 200 MB / 1029×
+    fixture with no file extension is refused at ~15 MB peak RSS.
+
+20. **Emitter correctness and scope.** Three smaller fixes: `--author`/`--author-url` now reach
+    the *printed* marketplace entry (it hardcoded one name, so the snippet whose whole job is
+    preventing hand-edit mistakes contradicted the manifest beside it); the symlink guard is
+    backed by a **post-copy re-walk** that deletes the package if a link appeared during the
+    copy, closing the check-then-act window rather than only narrowing it; and the manifest
+    carries `source.license_scope` stating that the top-level `license` covers the package
+    scaffolding, not the compiled notes — a distinction that previously lived only in README
+    prose where a tool reading the manifest alone would miss it.
+
 ---
 
 ## Security audit

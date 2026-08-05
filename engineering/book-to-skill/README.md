@@ -61,7 +61,8 @@ Or drive the tools yourself:
 SKILL_ROOT=engineering/book-to-skill/skills/book-to-skill
 
 python3 "$SKILL_ROOT/scripts/extract_document.py" BOOK.pdf --mode technical
-python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --full-text /tmp/book_skill_work/full_text.txt
+#   -> prints the private workdir it created; capture it as $WORKDIR
+python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --full-text "$WORKDIR/full_text.txt"
 # ... agent generates the skill ...
 python3 "$SKILL_ROOT/scripts/book_skill_validator.py" ~/.claude/skills/<slug>
 python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" --skill-dir ~/.claude/skills/<slug> \
@@ -192,6 +193,22 @@ small; just read it."
     CLIs), and the agent's tool table uses paths that resolve from the agent's own folder
     so `scripts/check_paths.py` can follow them. Neither has an upstream counterpart —
     upstream has no equivalent gates.
+
+15. **Private, per-invocation working directory.** Upstream defaults the extraction workdir
+    to a fixed `<tempdir>/book_skill_work`. On a shared host that is CWE-377/CWE-59: any local
+    user can pre-create the directory in a world-writable `/tmp` (the sticky bit prevents
+    deletion, not creation) and plant a symlink named `full_text.txt` pointing at a file the
+    victim can write — `Path.write_text` follows symlinks. Two concurrent runs also clobber each
+    other. The default is now a fresh `mkdtemp` (unpredictable, `0700` by construction);
+    artifacts are written `0600`; an explicit `--workdir`/`BOOK_SKILL_WORKDIR` is honoured but
+    symlink-refused and mode-restricted first. `parsers/calibre.py` no longer writes its
+    `ebook-convert` scratch file to the shared directory either — which also fixes a real bug,
+    since it read a module-level constant and so ignored `--workdir` entirely.
+
+16. **Shared budget constants.** `book_skill_validator.py` and `token_budget_estimator.py` both
+    gate on the same token caps; those now live once in `book_to_skill/config.py`
+    (`SKILL_FILE_BUDGETS`, `CHAPTER_TOKEN_CEILING`) rather than being restated in each tool,
+    where they would drift the first time a cap changed.
 
 ---
 

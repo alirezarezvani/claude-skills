@@ -52,6 +52,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from book_to_skill.config import (  # noqa: E402
+    CHAPTER_TOKEN_CEILING,
+    SKILL_FILE_BUDGETS,
+)
 from book_to_skill.sanitize import is_invisible_codepoint  # noqa: E402
 from book_to_skill.utils import estimate_tokens  # noqa: E402
 
@@ -59,16 +63,11 @@ MAX_SKILL_FILES = 1_000
 MAX_FILE_BYTES = 2 * 1024 * 1024
 MAX_TOTAL_BYTES = 20 * 1024 * 1024
 
-# Token caps the converter's own workflow commits to. A chapter has no hard cap
-# (Step 7 scales it by book type and depth); the ceiling below is the widest
-# cell of that matrix plus headroom, so it only fires on a runaway chapter.
-BUDGETS = {
-    "SKILL.md": 4_000,
-    "glossary.md": 1_500,
-    "patterns.md": 2_000,
-    "cheatsheet.md": 1_200,
-}
-CHAPTER_CEILING = 3_500
+# Token caps the converter's own workflow commits to. Imported rather than
+# restated: token_budget_estimator.py gates on the same numbers, and two copies
+# would drift the moment a cap changes.
+BUDGETS = SKILL_FILE_BUDGETS
+CHAPTER_CEILING = CHAPTER_TOKEN_CEILING
 SUPPORTING_FILENAMES = ("glossary.md", "patterns.md", "cheatsheet.md")
 
 CLAUDE_CODE_TOOLS = {

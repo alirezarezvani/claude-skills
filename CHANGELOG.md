@@ -22,7 +22,7 @@ parsers) is vendored close to verbatim and keeps upstream's format chains, chapt
 detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
 (Trojan Source) sanitization, and the DOCX entity-expansion guard.
 
-**14 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+**16 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
 which is the authoritative list. Highlights:
 
 - **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints
@@ -40,6 +40,13 @@ which is the authoritative list. Highlights:
 - **(12)** `discovery_tax.py` → `token_budget_estimator.py`: optional `tiktoken` path
   dropped, post-flight budget audit added, and an explicit **worth-converting
   verdict** that says "just read it" when the source is under ~3× the compiled skill.
+
+- **(15) Private, per-invocation working directory.** Upstream's fixed
+  `<tempdir>/book_skill_work` is CWE-377/CWE-59 on a shared host — a local user can
+  pre-create it and plant a symlink named `full_text.txt`, and `Path.write_text` follows
+  symlinks. Now a fresh `mkdtemp` (0700, unpredictable) with 0600 artifacts; an explicit
+  `--workdir` is symlink-refused and mode-restricted. Also fixes a real bug: `parsers/calibre.py`
+  read a module-level path constant and so ignored `--workdir` entirely.
 
 **Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`.**
 Upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route

@@ -9,8 +9,11 @@ agent then reasons over:
     <workdir>/full_text.txt   combined text with per-source banners
     <workdir>/metadata.json   sizes, token estimate, chapter/ToC detection
 
-The workdir defaults to ``<tempdir>/book_skill_work`` and can be pointed
-somewhere else with ``--workdir`` or ``BOOK_SKILL_WORKDIR``.
+The workdir is a fresh private temp directory per invocation (0700, owner-only
+artifacts) whose path is printed on completion and carried in metadata.json's
+``output_text``. Pin it with ``--workdir`` or ``BOOK_SKILL_WORKDIR`` when you
+want a stable location; an explicit path is symlink-checked and mode-restricted
+before anything is written to it.
 
 Runs on the standard library alone. Optional packages (docling, pypdf,
 pdfminer.six, ebooklib, beautifulsoup4, python-docx, striprtf) raise extraction
@@ -46,10 +49,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from book_to_skill.config import (  # noqa: E402
-    OUTPUT_DIR,
-    OUTPUT_META,
-    OUTPUT_TEXT,
+    ARTIFACT_MODE,
+    OUTPUT_META_NAME,
+    OUTPUT_TEXT_NAME,
+    WORKDIR_MODE,
+    make_private_tempdir,
     supported_formats_message,
+    workdir_from_env,
 )
 from book_to_skill.dependencies import (  # noqa: E402
     INSTALL_MODES,
@@ -85,8 +91,53 @@ times" — the name is the interface.
 """
 
 
-def _resolve_workdir(explicit: str | None) -> Path:
-    return Path(explicit).expanduser() if explicit else OUTPUT_DIR
+class WorkdirError(RuntimeError):
+    """The requested working directory cannot be used safely."""
+
+
+def resolve_workdir(explicit: str | None) -> Path:
+    """Return a private working directory for this invocation.
+
+    With no explicit path, creates a fresh `mkdtemp` — unpredictable name, 0700
+    by construction, and never shared with a concurrent run. A fixed default
+    (upstream's `<tempdir>/book_skill_work`) is the CWE-377/CWE-59 shape on a
+    shared host: another local user pre-creates the directory and plants a
+    symlink named full_text.txt, and `Path.write_text` follows it.
+
+    An explicitly requested path is honoured but hardened: refused if it is a
+    symlink, created 0700 if new, and tightened to 0700 if it already exists.
+    """
+    if not explicit:
+        return make_private_tempdir()
+
+    workdir = Path(explicit).expanduser()
+    if workdir.is_symlink():
+        raise WorkdirError(f"{workdir} is a symbolic link — refusing to write extraction "
+                           f"artifacts through it")
+    if workdir.exists() and not workdir.is_dir():
+        raise WorkdirError(f"{workdir} exists and is not a directory")
+
+    workdir.mkdir(parents=True, mode=WORKDIR_MODE, exist_ok=True)
+    try:
+        # mkdir's mode applies only on creation, and is masked by umask; an
+        # existing directory keeps whatever permissions it already had.
+        workdir.chmod(WORKDIR_MODE)
+    except OSError:
+        # Not ours to chmod (e.g. a shared mount). The symlink check above still
+        # holds, and the per-file checks below still apply.
+        pass
+    return workdir
+
+
+def _write_private(path: Path, text: str) -> None:
+    """Write a file only this user can read, refusing to follow a planted symlink."""
+    if path.is_symlink():
+        raise WorkdirError(f"{path} is a symbolic link — refusing to write through it")
+    path.write_text(text, encoding="utf-8")
+    try:
+        path.chmod(ARTIFACT_MODE)
+    except OSError:
+        pass
 
 
 def _extract_all(input_files, extraction_mode: str, install_mode: str):
@@ -163,12 +214,11 @@ def run_sample(as_json: bool) -> int:
     with tempfile.TemporaryDirectory() as tmp:
         sample = Path(tmp) / "sample-book.md"
         sample.write_text(SAMPLE_DOCUMENT, encoding="utf-8")
-        workdir = Path(tmp) / "work"
         return run_extraction(
             input_paths=[str(sample)],
             extraction_mode="text",
             install_mode="report",
-            workdir=workdir,
+            workdir=resolve_workdir(str(Path(tmp) / "work")),
             as_json=as_json,
             keep=False,
         )
@@ -182,9 +232,9 @@ def run_extraction(*, input_paths: list[str], extraction_mode: str, install_mode
         print(f"Supported formats: {supported_formats_message()}", file=sys.stderr)
         return 1
 
-    workdir.mkdir(parents=True, exist_ok=True)
-    text_path = workdir / OUTPUT_TEXT.name
-    meta_path = workdir / OUTPUT_META.name
+    workdir.mkdir(parents=True, mode=WORKDIR_MODE, exist_ok=True)
+    text_path = workdir / OUTPUT_TEXT_NAME
+    meta_path = workdir / OUTPUT_META_NAME
 
     # The vendored extractors narrate progress on stdout. When the caller asked
     # for JSON, that narration would corrupt the payload — send it to stderr so
@@ -205,12 +255,12 @@ def run_extraction(*, input_paths: list[str], extraction_mode: str, install_mode
         for src in sources
     ).strip()
 
-    text_path.write_text(consolidated_text, encoding="utf-8")
+    _write_private(text_path, consolidated_text)
     metadata = _build_metadata(sources, consolidated_text, extraction_mode, text_path)
     # encoding="utf-8" is load-bearing, not cosmetic: the payload is dumped with
     # ensure_ascii=False, so a non-ASCII chapter heading or path reaches the
     # encoder verbatim and would raise on a cp1252 host or under LC_ALL=C.
-    meta_path.write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    _write_private(meta_path, json.dumps(metadata, indent=2, ensure_ascii=False))
 
     if as_json:
         print(json.dumps(metadata, indent=2, ensure_ascii=False))
@@ -234,7 +284,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="technical preserves tables/code via docling when installed; "
                              "text uses the fastest suitable extractor (default: text)")
     parser.add_argument("--workdir", help="where to write full_text.txt + metadata.json "
-                                          "(default: $BOOK_SKILL_WORKDIR or a temp folder)")
+                                          "(default: a fresh private temp directory; the path "
+                                          "is printed and stored in metadata.json)")
     parser.add_argument("--install-missing", choices=INSTALL_MODES, default=None,
                         help="report prints the pip command and uses the stdlib fallback "
                              "(default); ask prompts on a TTY; yes installs without asking")
@@ -260,13 +311,23 @@ def main(argv: list[str] | None = None) -> int:
               "(use --sample to try the pipeline).", file=sys.stderr)
         return 2
 
-    return run_extraction(
-        input_paths=args.paths,
-        extraction_mode=args.mode,
-        install_mode=normalize_install_mode(args.install_missing),
-        workdir=_resolve_workdir(args.workdir or os.environ.get("BOOK_SKILL_WORKDIR")),
-        as_json=args.output == "json",
-    )
+    try:
+        workdir = resolve_workdir(args.workdir or workdir_from_env())
+    except WorkdirError as exc:
+        print(f"REFUSED: {exc}", file=sys.stderr)
+        return 2
+
+    try:
+        return run_extraction(
+            input_paths=args.paths,
+            extraction_mode=args.mode,
+            install_mode=normalize_install_mode(args.install_missing),
+            workdir=workdir,
+            as_json=args.output == "json",
+        )
+    except WorkdirError as exc:
+        print(f"REFUSED: {exc}", file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":

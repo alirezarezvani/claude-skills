@@ -37,7 +37,7 @@ drop the optional tiktoken path and to add the post-flight budget audit.
 See ../../../LICENSE.
 
 Usage:
-    python3 token_budget_estimator.py --full-text /tmp/book_skill_work/full_text.txt
+    python3 token_budget_estimator.py --full-text "$WORKDIR/full_text.txt"
     python3 token_budget_estimator.py --skill-dir ~/.claude/skills/meadows-systems
     python3 token_budget_estimator.py --full-text FT.txt --skill-dir SKILL_DIR --target-chapter 5
     python3 token_budget_estimator.py --sample
@@ -54,16 +54,16 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from book_to_skill.config import (  # noqa: E402
+    CHAPTER_TOKEN_CEILING,
+    SKILL_FILE_BUDGETS,
+)
 from book_to_skill.utils import _chapter_number as chapter_number  # noqa: E402
 from book_to_skill.utils import estimate_tokens  # noqa: E402
 
-BUDGETS = {
-    "SKILL.md": 4_000,
-    "glossary.md": 1_500,
-    "patterns.md": 2_000,
-    "cheatsheet.md": 1_200,
-}
-CHAPTER_CEILING = 3_500
+# Shared with book_skill_validator.py via config — see the note there.
+BUDGETS = SKILL_FILE_BUDGETS
+CHAPTER_CEILING = CHAPTER_TOKEN_CEILING
 DEFAULT_CORE_TOKENS = 4_000
 DEFAULT_COMPILED_CHAPTER = 1_000
 

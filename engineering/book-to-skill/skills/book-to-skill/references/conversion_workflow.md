@@ -58,7 +58,17 @@ SKILL_ROOT="<this skill folder>"
 python3 "$SKILL_ROOT/scripts/extract_document.py" $INPUT_PATHS --mode "$BOOK_TYPE"
 ```
 
-Writes to `$BOOK_SKILL_WORKDIR` (default `<tempdir>/book_skill_work/`):
+Writes to a **fresh private working directory** (0700, owner-only artifacts) whose path
+the tool prints on completion and stores in `metadata.json` as `output_text`. Capture it:
+
+```bash
+WORKDIR=$(dirname "$(python3 "$SKILL_ROOT/scripts/extract_document.py" $INPUT_PATHS \
+    --mode "$BOOK_TYPE" | awk '/Text ->/ {print $3}')")
+```
+
+Pass `--workdir` (or set `BOOK_SKILL_WORKDIR`) when you want a stable location instead;
+an explicit path is symlink-checked and mode-restricted before anything is written.
+The directory contains:
 - `full_text.txt` — combined text, per-source banners, invisible Unicode stripped
 - `metadata.json` — sizes, token estimate, chapters detected, ToC present
 

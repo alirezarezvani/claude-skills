@@ -19,9 +19,6 @@ from pathlib import Path
 from book_to_skill.exceptions import ExtractionError
 
 from book_to_skill.config import (
-    OUTPUT_DIR,
-    OUTPUT_TEXT,
-    OUTPUT_META,
     WORDS_PER_TOKEN,
     CJK_CHARS_PER_TOKEN,
     SUPPORTED_EXTENSIONS,

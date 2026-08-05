@@ -83,6 +83,7 @@ engineering/skillopt-sleep/skillopt_sleep/types.py  # internal module; module it
 engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/__init__.py  # package init, not a CLI
 engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/dependencies.py  # internal module
 engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/utils.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/zip_safety.py  # internal module
 engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/calibre.py  # internal module
 engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/docx.py  # internal module
 engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/epub.py  # internal module

@@ -3,6 +3,7 @@ from __future__ import annotations
 import zipfile
 import sys
 from book_to_skill.exceptions import ExtractionError
+from book_to_skill.zip_safety import safe_read, validate_zip_xml_safety
 
 
 def extract_docx_with_python_docx(docx_path: str) -> str | None:
@@ -28,7 +29,7 @@ def extract_docx_with_zipfile(docx_path: str) -> str | None:
         import xml.etree.ElementTree as ET
 
         with zipfile.ZipFile(docx_path) as zf:
-            xml_bytes = zf.read("word/document.xml")
+            xml_bytes = safe_read(zf, "word/document.xml")
         root = ET.fromstring(xml_bytes)
         ns = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
         parts: list[str] = []
@@ -69,27 +70,13 @@ def extract_docx_with_zipfile(docx_path: str) -> str | None:
 
 
 def validate_docx_xml_safety(docx_path: str) -> None:
-    """Scan all XML files in the DOCX zip archive to prevent XML Entity Expansion (Billion Laughs) and XXE injections."""
-    try:
-        with zipfile.ZipFile(docx_path) as zf:
-            for name in zf.namelist():
-                if name.endswith(".xml") or name.endswith(".rels"):
-                    xml_bytes = zf.read(name)
-                    for encoding in ("utf-8", "utf-16", "utf-16le", "utf-16be", "utf-32"):
-                        try:
-                            content = xml_bytes.decode(encoding, errors="ignore").upper()
-                        except LookupError:
-                            continue
-                        if "<!DOCTYPE" in content or "<!ENTITY" in content:
-                            raise ExtractionError(
-                                f"Security validation failed: XML file '{name}' in DOCX archive contains forbidden DTD or entity declarations."
-                            )
-    except zipfile.BadZipFile as e:
-        raise ExtractionError(f"Invalid DOCX file: {e}")
-    except ExtractionError:
-        raise
-    except Exception as e:
-        raise ExtractionError(f"Error during security validation of DOCX archive: {e}")
+    """Refuse a DOCX whose XML declares a DTD or entity (billion-laughs / XXE).
+
+    Now a thin wrapper over the shared zip guard so EPUB gets identical
+    treatment; the scan also enforces per-member size and compression-ratio caps
+    before decompressing anything.
+    """
+    validate_zip_xml_safety(docx_path, label="DOCX")
 
 
 def extract_docx(docx_path: str) -> tuple[str, str]:

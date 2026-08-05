@@ -210,6 +210,26 @@ small; just read it."
     (`SKILL_FILE_BUDGETS`, `CHAPTER_TOKEN_CEILING`) rather than being restated in each tool,
     where they would drift the first time a cap changed.
 
+17. **Zip-of-XML hardening generalized to EPUB, plus decompression-bomb caps.** Upstream
+    hardened DOCX and only DOCX: `validate_docx_xml_safety()` screened that archive for
+    DTD/entity declarations before any parser touched it. EPUB is the same shape — a zip whose
+    members are XML — and its `ebooklib` path handed the file straight to a third-party XML
+    stack with no equivalent check, despite `ebooklib` being one of the packages this skill
+    recommends installing. The guard now lives in `book_to_skill/zip_safety.py` and runs for
+    both formats. Every archive read also goes through `safe_read()`, which consults the
+    declared uncompressed size and the compression ratio *before* decompressing: a 200 MB
+    zip bomb is refused at ~14 MB peak RSS instead of being materialized. Neither parser ever
+    writes archive members to disk, so zip-slip stays out of scope by construction.
+
+18. **Packaging refuses a source tree containing symlinks.** The validator checks the files it
+    knows about (`SKILL.md`, the three supporting files, `chapters/*.md`), but `shutil.copytree`
+    defaults to `symlinks=False` and follows a link *anywhere else* in the tree — an `assets/`
+    entry, any subdirectory — baking the target's real content into a package that may then be
+    emitted as `--distribution shareable`. `_assert_no_symlinks()` now walks the whole tree and
+    refuses, and it runs **before** the validation branch so `--skip-validation` cannot bypass
+    it. `copytree` also passes `symlinks=True` so a future edit loosening that check cannot
+    silently reintroduce dereferencing.
+
 ---
 
 ## Security audit

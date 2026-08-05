@@ -43,6 +43,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import sys
@@ -133,6 +134,34 @@ def _assert_replaceable(package_root: Path, dest_root: Path, skill_dir: Path) ->
             f"{package_root} exists but has no .claude-plugin/plugin.json, so it is not a "
             f"plugin package this tool created. Move it aside by hand rather than passing "
             f"--force."
+        )
+
+
+def _assert_no_symlinks(skill_dir: Path) -> None:
+    """Refuse to package a source tree containing any symbolic link.
+
+    The validator checks the files it knows about — SKILL.md, the three
+    supporting files, chapters/*.md — but `shutil.copytree` defaults to
+    `symlinks=False`, which follows a link *anywhere else* in the tree (an
+    `assets/` entry, an arbitrary subdirectory) and bakes the target's real
+    content into the emitted package. That package can then go out as
+    `--distribution shareable`, so a link pointing at something outside the
+    skill becomes part of a published artifact.
+
+    Refusing beats `copytree(symlinks=True)`: preserving the link would ship a
+    package whose contents depend on the emitting machine's filesystem. This
+    check runs even under `--skip-validation`, which otherwise disables the
+    file-level symlink checks entirely.
+    """
+    offenders = [p for p in sorted(skill_dir.rglob("*")) if p.is_symlink()]
+    if offenders:
+        listed = "\n".join(f"  {p.relative_to(skill_dir).as_posix()} -> {os.readlink(p)}"
+                           for p in offenders[:10])
+        more = f"\n  ... and {len(offenders) - 10} more" if len(offenders) > 10 else ""
+        raise EmitError(
+            f"source skill contains {len(offenders)} symbolic link(s); packaging would copy "
+            f"the target's content into a distributable package:\n{listed}{more}\n"
+            "Replace them with real files, or point --skill-dir at a tree without links."
         )
 
 
@@ -337,6 +366,10 @@ def emit(*, skill_dir: Path, dest_root: Path, domain: str, author: str, author_u
             "Or emit with --distribution local (the default) to keep it on this machine."
         )
 
+    # Unconditional: --skip-validation waives content findings, never the
+    # guarantee that packaging copies only what is actually in the source tree.
+    _assert_no_symlinks(skill_dir)
+
     if not skip_validation:
         try:
             findings = validate(skill_dir)
@@ -389,7 +422,9 @@ def emit(*, skill_dir: Path, dest_root: Path, domain: str, author: str, author_u
         target = package_root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(text, encoding="utf-8")
-    shutil.copytree(skill_dir, package_root / "skills" / identity["slug"])
+    # symlinks=True is redundant after _assert_no_symlinks, and kept so a future
+    # edit that loosens that check cannot silently reintroduce dereferencing.
+    shutil.copytree(skill_dir, package_root / "skills" / identity["slug"], symlinks=True)
     return result
 
 

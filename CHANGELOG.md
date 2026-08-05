@@ -22,7 +22,7 @@ parsers) is vendored close to verbatim and keeps upstream's format chains, chapt
 detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
 (Trojan Source) sanitization, and the DOCX entity-expansion guard.
 
-**16 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+**18 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
 which is the authoritative list. Highlights:
 
 - **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints
@@ -47,6 +47,16 @@ which is the authoritative list. Highlights:
   symlinks. Now a fresh `mkdtemp` (0700, unpredictable) with 0600 artifacts; an explicit
   `--workdir` is symlink-refused and mode-restricted. Also fixes a real bug: `parsers/calibre.py`
   read a module-level path constant and so ignored `--workdir` entirely.
+
+- **(17) Zip-of-XML hardening generalized, plus decompression-bomb caps.** Upstream's
+  DTD/entity guard covered DOCX only; EPUB's `ebooklib` path handed the archive straight to a
+  third-party XML stack. The guard now lives in `book_to_skill/zip_safety.py` and runs for
+  both, and every archive read checks declared size and compression ratio before
+  decompressing — a 200 MB zip bomb is refused at ~14 MB peak RSS.
+- **(18) Packaging refuses a source tree containing symlinks.** `shutil.copytree` defaults to
+  following links, which would bake a link target's real content into a package that may be
+  emitted as `--distribution shareable`. `_assert_no_symlinks()` walks the whole tree and
+  refuses, before the validation branch so `--skip-validation` cannot bypass it.
 
 **Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`.**
 Upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route
@@ -73,7 +83,7 @@ Regenerated `engineering/agent-harness/.../assets/harnesses/engineering.json`. P
 
 ### Changed — counters
 
-skills 362 → 363, tools 644 → 662, refs 741 → 746, agents 102 → 103, commands
+skills 362 → 363, tools 644 → 663, refs 741 → 746, agents 102 → 103, commands
 116 → 118, plugins 88 → 89 (derived via `scripts/derive_counters.py --check`).
 
 ---

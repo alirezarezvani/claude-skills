@@ -5,9 +5,19 @@ import re
 import zipfile
 import sys
 from book_to_skill.parsers.html_text import _HTMLTextExtractor
+from book_to_skill.zip_safety import _Budget, safe_read, validate_zip_xml_safety
 
 
 def extract_with_ebooklib(epub_path: str) -> str | None:
+    """Extract via ebooklib, after the same XML guard DOCX gets.
+
+    ebooklib parses container.xml, the OPF package document and the content docs
+    with a third-party XML stack whose entity handling this code does not
+    control. The archive is an untrusted file the user was handed, so it is
+    screened for DTD/entity declarations before ebooklib sees it — upstream ran
+    this check on DOCX only.
+    """
+    validate_zip_xml_safety(epub_path, label="EPUB")
     try:
         import ebooklib
         from ebooklib import epub
@@ -34,7 +44,7 @@ def _find_opf_path(zf: zipfile.ZipFile) -> str | None:
     """
     # Spec-defined: read container.xml for the rootfile path
     try:
-        container = zf.read("META-INF/container.xml").decode("utf-8", errors="replace")
+        container = safe_read(zf, "META-INF/container.xml").decode("utf-8", errors="replace")
         match = re.search(r'full-path=["\']([^"\']+\.opf)["\']', container)
         if match:
             return match.group(1)
@@ -50,6 +60,7 @@ def extract_with_zipfile(epub_path: str) -> str | None:
     """stdlib-only EPUB extractor: unzip → parse HTML files."""
     try:
         with zipfile.ZipFile(epub_path) as zf:
+            budget = _Budget()
             names = zf.namelist()
 
             # Locate OPF and determine its directory for resolving relative hrefs
@@ -61,7 +72,7 @@ def extract_with_zipfile(epub_path: str) -> str | None:
             spine_order: list[str] = []
             seen: set[str] = set()
             if opf_path:
-                opf_text = zf.read(opf_path).decode("utf-8", errors="replace")
+                opf_text = safe_read(zf, opf_path, budget).decode("utf-8", errors="replace")
 
                 # Manifest: item id -> resolved href. Parse each <item> opening
                 # tag so attribute order (id before/after href) does not matter;
@@ -99,7 +110,7 @@ def extract_with_zipfile(epub_path: str) -> str | None:
             parts = []
             for name in html_files:
                 try:
-                    raw = zf.read(name).decode("utf-8", errors="replace")
+                    raw = safe_read(zf, name, budget).decode("utf-8", errors="replace")
                     parser = _HTMLTextExtractor()
                     parser.feed(raw)
                     parts.append(parser.get_text())
@@ -118,7 +129,7 @@ def count_epub_chapters(epub_path: str) -> int:
             opf_path = _find_opf_path(zf)
             if not opf_path:
                 return 0
-            opf_text = zf.read(opf_path).decode("utf-8", errors="replace")
+            opf_text = safe_read(zf, opf_path).decode("utf-8", errors="replace")
             return len(re.findall(r'<itemref\b', opf_text))
     except Exception:
         return 0

@@ -22,7 +22,7 @@ parsers) is vendored close to verbatim and keeps upstream's format chains, chapt
 detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode
 (Trojan Source) sanitization, and the DOCX entity-expansion guard.
 
-**24 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
+**25 numbered deviations** are recorded in `engineering/book-to-skill/README.md`,
 which is the authoritative list. Highlights:
 
 - **(5) No implicit installs.** `--install-missing` defaults to `report` — it prints
@@ -73,6 +73,13 @@ which is the authoritative list. Highlights:
   --skill-dir <typo>` reported a clean audit at exit 0 and now refuses; `epub.py`'s
   `except (KeyError, Exception)` was silently disarming the zip-size refusal at that call
   site; and `tool | head` no longer tracebacks.
+
+- **(25) Workdir race closed by fd pinning.** `mkdir(exist_ok=True)` does not raise on a
+  symlink-to-directory (its exists-branch follows symlinks), and a file inside a swapped
+  directory is not itself a link — so the artifact-level check could not back up the
+  directory-level one. The directory is now pinned with `O_NOFOLLOW|O_DIRECTORY` and both
+  artifacts written through that fd; `_write_private` creates with `O_CREAT|O_EXCL|O_NOFOLLOW`
+  at 0600. Verified against a live mid-write directory swap.
 
 **Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`.**
 Upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route

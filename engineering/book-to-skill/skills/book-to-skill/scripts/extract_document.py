@@ -43,6 +43,7 @@ import argparse
 import contextlib
 import json
 import os
+import stat
 import sys
 from pathlib import Path
 
@@ -117,27 +118,78 @@ def resolve_workdir(explicit: str | None) -> Path:
     if workdir.exists() and not workdir.is_dir():
         raise WorkdirError(f"{workdir} exists and is not a directory")
 
-    workdir.mkdir(parents=True, mode=WORKDIR_MODE, exist_ok=True)
+    # Create first, then inspect with lstat. `mkdir(exist_ok=True)` alone is not a
+    # check: its exists-branch tests is_dir(), which FOLLOWS symlinks, so a
+    # symlink-to-directory satisfies it silently. Attempting creation and only
+    # examining the path when it already existed removes that ordering problem.
     try:
-        # mkdir's mode applies only on creation, and is masked by umask; an
-        # existing directory keeps whatever permissions it already had.
-        workdir.chmod(WORKDIR_MODE)
-    except OSError:
-        # Not ours to chmod (e.g. a shared mount). The symlink check above still
-        # holds, and the per-file checks below still apply.
-        pass
+        workdir.mkdir(parents=True, mode=WORKDIR_MODE)
+    except FileExistsError:
+        info = os.lstat(workdir)  # lstat: does not follow the final component
+        if stat.S_ISLNK(info.st_mode):
+            raise WorkdirError(f"{workdir} is a symbolic link — refusing to write "
+                               f"extraction artifacts through it") from None
+        if not stat.S_ISDIR(info.st_mode):
+            raise WorkdirError(f"{workdir} exists and is not a directory") from None
+        try:
+            # mkdir's mode applies only on creation and is masked by umask; an
+            # existing directory keeps whatever permissions it already had.
+            workdir.chmod(WORKDIR_MODE)
+        except OSError:
+            # Not ours to chmod (e.g. a shared mount). The lstat check above and
+            # the fd pinning below still hold.
+            pass
     return workdir
 
 
-def _write_private(path: Path, text: str) -> None:
-    """Write a file only this user can read, refusing to follow a planted symlink."""
-    if path.is_symlink():
-        raise WorkdirError(f"{path} is a symbolic link — refusing to write through it")
-    path.write_text(text, encoding="utf-8")
+def open_workdir(workdir: Path) -> int | None:
+    """Pin the working directory by file descriptor, or return None if unsupported.
+
+    Everything above is still check-then-act: an attacker who can write the parent
+    directory could swap the directory for a symlink after the lstat and before a
+    write, and the per-file symlink check cannot see that — the file inside a
+    swapped directory is a perfectly ordinary file.
+
+    Opening the directory once with O_NOFOLLOW|O_DIRECTORY and writing through
+    that descriptor closes the race: the fd names an inode, so a later rename or
+    symlink swap of the path cannot redirect writes that go through it.
+
+    Returns None on platforms without these flags or without `dir_fd` support
+    (Windows), where the caller falls back to path-based writes.
+    """
+    flags = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_NOFOLLOW", 0)
+    if not (flags & getattr(os, "O_NOFOLLOW", 0)) or os.open not in os.supports_dir_fd:
+        return None
     try:
-        path.chmod(ARTIFACT_MODE)
-    except OSError:
-        pass
+        return os.open(workdir, flags)
+    except OSError as exc:
+        raise WorkdirError(f"could not open {workdir} as a real directory: {exc}") from exc
+
+
+def _write_private(path: Path, text: str, dir_fd: int | None = None) -> None:
+    """Write a file only this user can read, never through a symlink.
+
+    O_CREAT|O_EXCL|O_NOFOLLOW is the atomic primitive: it refuses outright if
+    anything already exists at the name — including a symlink — so there is no
+    window between checking and writing. An artifact left by a previous run into
+    the same --workdir is unlinked first; unlink removes the link itself, never
+    its target.
+    """
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, "O_NOFOLLOW", 0)
+    name = path.name if dir_fd is not None else str(path)
+    opener_kwargs = {"dir_fd": dir_fd} if dir_fd is not None else {}
+
+    if dir_fd is None and path.is_symlink():
+        # Fallback path (no dir_fd support): best-effort pre-check.
+        raise WorkdirError(f"{path} is a symbolic link — refusing to write through it")
+
+    try:
+        fd = os.open(name, flags, ARTIFACT_MODE, **opener_kwargs)
+    except FileExistsError:
+        os.unlink(name, **opener_kwargs)
+        fd = os.open(name, flags, ARTIFACT_MODE, **opener_kwargs)
+    with os.fdopen(fd, "w", encoding="utf-8") as handle:
+        handle.write(text)
 
 
 def _extract_all(input_files, extraction_mode: str, install_mode: str):
@@ -255,12 +307,22 @@ def run_extraction(*, input_paths: list[str], extraction_mode: str, install_mode
         for src in sources
     ).strip()
 
-    _write_private(text_path, consolidated_text)
     metadata = _build_metadata(sources, consolidated_text, extraction_mode, text_path)
-    # encoding="utf-8" is load-bearing, not cosmetic: the payload is dumped with
-    # ensure_ascii=False, so a non-ASCII chapter heading or path reaches the
-    # encoder verbatim and would raise on a cp1252 host or under LC_ALL=C.
-    _write_private(meta_path, json.dumps(metadata, indent=2, ensure_ascii=False))
+
+    # Both artifacts are written through one pinned directory descriptor, so a
+    # swap of the workdir path between the two writes cannot redirect either.
+    # The payload is dumped with ensure_ascii=False, so a non-ASCII chapter
+    # heading or path reaches the encoder verbatim — _write_private opens with
+    # encoding="utf-8" for exactly that reason (a cp1252 host or LC_ALL=C would
+    # otherwise raise after every source had already been extracted).
+    workdir_fd = open_workdir(workdir)
+    try:
+        _write_private(text_path, consolidated_text, workdir_fd)
+        _write_private(meta_path, json.dumps(metadata, indent=2, ensure_ascii=False),
+                       workdir_fd)
+    finally:
+        if workdir_fd is not None:
+            os.close(workdir_fd)
 
     if as_json:
         print(json.dumps(metadata, indent=2, ensure_ascii=False))

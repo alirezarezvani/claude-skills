@@ -275,6 +275,28 @@ small; just read it."
     mid-write and surfaced a `BrokenPipeError` stack trace (observed once; racy on flush
     timing). All four CLIs now exit 141 quietly, the standard SIGPIPE convention.
 
+25. **The workdir race is closed, not just narrowed.** The explicit-`--workdir` path was
+    still check-then-act: `mkdir(parents=True, exist_ok=True)` does **not** raise on a
+    symlink-to-directory, because its exists-branch tests `is_dir()`, which follows symlinks —
+    verified directly. Worse, the per-file `is_symlink()` check cannot back that up: a file
+    inside a swapped directory is an ordinary file, not a link, so a directory swap defeated
+    the artifact-level guard entirely.
+
+    Three changes close it. `resolve_workdir()` now attempts `mkdir` **first** and only
+    inspects an already-existing path, using `os.lstat` (which does not follow the final
+    component). `open_workdir()` then pins the directory with `O_NOFOLLOW|O_DIRECTORY`, and
+    both artifacts are written through that descriptor — an fd names an inode, so a later
+    rename or symlink swap of the path cannot redirect the write. `_write_private()` creates
+    with `O_CREAT|O_EXCL|O_NOFOLLOW` at mode 0600, which has no check-then-act window at all;
+    an artifact from a previous run into the same `--workdir` is `unlink`ed first, and unlink
+    removes the link itself, never its target.
+
+    Verified against a live race: pin the directory, rename it away, plant a symlink to an
+    attacker directory, then write — the data lands in the pinned inode and the attacker
+    directory stays empty. Also verified that a pre-planted `full_text.txt -> victim` symlink
+    leaves the victim's contents intact and is replaced by a 0600 file we own. Degrades to the
+    previous path-based checks on platforms without `dir_fd`/`O_NOFOLLOW` (Windows).
+
 ---
 
 ## Security audit

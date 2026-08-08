@@ -949,6 +949,11 @@
       "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle."
     },
     {
+      "name": "init",
+      "category": "engineering",
+      "description": ">-"
+    },
+    {
       "name": "memory-review",
       "category": "engineering",
       "description": "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics. Use when the user runs /si:memory-review or asks what has been learned and what should be promoted or pruned."
@@ -1077,11 +1082,6 @@
       "name": "senior-security",
       "category": "engineering",
       "description": "Use when the user asks for STRIDE threat modeling, DREAD risk scoring, data-flow-diagram threat analysis, or a quick secret scan \u2014 or when a security request needs routing to the right specialist skill (pen-testing, incident response, cloud posture, red team, AI security, threat hunting, secure code review). This skill owns threat modeling; everything else routes to a sibling."
-    },
-    {
-      "name": "skills-init",
-      "category": "engineering",
-      "description": ">-"
     },
     {
       "name": "snowflake-development",
@@ -1284,11 +1284,6 @@
       "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
-      "name": "init",
-      "category": "engineering-advanced",
-      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a multi-agent competition on a task."
-    },
-    {
       "name": "interview-system-designer",
       "category": "engineering-advanced",
       "description": "This skill should be used when the user asks to \"design interview processes\", \"create hiring pipelines\", \"calibrate interview loops\", \"generate interview questions\", \"design competency matrices\", \"analyze interviewer bias\", \"create scoring rubrics\", \"build question banks\", or \"optimize hiring systems\". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems."
@@ -1386,7 +1381,7 @@
     {
       "name": "sample-skill",
       "category": "engineering-advanced",
-      "description": "Skill from engineering/skills/skill-tester/assets/sample-skill"
+      "description": "Skill from engineering\\skills\\skill-tester\\assets\\sample-skill"
     },
     {
       "name": "secrets-vault-manager",
@@ -1442,6 +1437,11 @@
       "name": "skills-handoff",
       "category": "engineering-advanced",
       "description": "Compact the current conversation into a handoff document for another agent to pick up. References existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL instead of duplicating them. Use when user wants to hand off the conversation to a fresh agent or starts a new session that picks up prior work."
+    },
+    {
+      "name": "skills-init",
+      "category": "engineering-advanced",
+      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a multi-agent competition on a task."
     },
     {
       "name": "skills-kubernetes-operator",

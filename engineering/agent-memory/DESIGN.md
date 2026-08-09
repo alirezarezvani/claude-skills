@@ -42,6 +42,21 @@ Two things follow, and both cut against staying here:
   contracts-into-`engineering/` is the other way out, at the cost of separating
   two things written to be read together.
 
+**Three other open items resolve differently depending on this one**, which is
+why it is worth answering before the implementation PR rather than after:
+
+| Item | Under `engineering/` | Under `audit/` |
+|---|---|---|
+| The `.py.txt` parking (§10.1) | required — a `.py` moves `python_tools` | unnecessary; ship a real `.py` |
+| Splitting mechanical rationale into `references/` | moves `references` **746 → 747**, verified | free; the subtree is pruned |
+| Relocating later | — | §10.1's two hard-coded paths break a **second** time |
+
+The middle row is the one that is easy to miss: the repo's usual
+`SKILL.md` → `references/` split — the obvious fix for this file's length — is
+**not available** to a spec-only folder under a domain directory without moving
+a headline counter. That is a constraint imposed by the location, not a
+judgement about the content.
+
 **This remains an open maintainer decision, not something this PR settles** —
 see the note at the end of §10.
 
@@ -553,18 +568,29 @@ Three hooks. Each must be independently disableable by env var, following
   say so in the block. A memory system that silently drops is worse than none.
 - Disable: `AGENT_MEMORY_SESSIONSTART=0`
 - **Never blocks.** Failure = no memory that session, exit 0.
+- **Never emit two contradictory lines unmarked.** L2 and L3 are injected
+  together here, and §4.2.1's detector cannot reach L3 (§9.6), so nothing
+  upstream guarantees they agree. Whatever this hook emits, an L2 claim and an
+  L3 claim that collide for the current project must not both appear as plain
+  assertions — the agent would receive two contradictory instructions with no
+  signal which governs. **This is a constraint on the hook, not a resolution of
+  §9.6:** that open decision picks *how* (specificity-wins shadowing, contest,
+  or defer), and all three satisfy this line. It is stated here because the
+  consequence lands at injection time, and retrofitting conflict-marking after
+  `session_start.py` ships is more disruptive than honouring it from the first
+  version.
 
 ### 5.2 `UserPromptSubmit` — recall
 
 - Score L1 atoms against prompt text. Deterministic lexical scoring (token
   overlap + `kind` weight + recency). No embeddings, no API call.
 - Inject **top 5 max, 1 KB max**.
-- Disable: `AGENT_MEMORY_RECALL=0` — named for the *function*, not the hook,
-  unlike its two siblings which mirror `SessionStart`/`SessionEnd` exactly.
-  `AGENT_MEMORY_USERPROMPTSUBMIT` is the consistent name and is rejected on
-  ergonomics: it is the variable a user reaches for most often (it is the one on
-  the latency-sensitive path), and "recall" is what §3's tier table already calls
-  the behaviour. Deliberate inconsistency, recorded so it is not "fixed" later.
+- Disable: `AGENT_MEMORY_USERPROMPTSUBMIT=0`. All three disable vars mirror
+  their hook name exactly, so a user who knows Claude Code's hook names can
+  derive all three without reading this doc. An earlier `AGENT_MEMORY_RECALL`
+  traded that property for a shorter name — a bad trade for a variable typed
+  once into a shell profile, and one that leaves three vars following two
+  conventions.
 
 **Latency — two distinct limits, do not conflate them:**
 
@@ -976,9 +1002,27 @@ cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f a
 
 **Run it before any further edit to this folder lands.** Nothing in CI gates the
 drift class this section exists to prevent — the checker is only as good as the
-habit of running it. **The `.txt` parking is not what blocks CI**: a
-workflow step can `cp` it to a temp `.py` and run it exactly as above, and
-`derive_counters.py` never sees the temp file.
+habit of running it, and "a future editor tweaks a fixture in `DESIGN.md`
+without knowing this file exists" is the failure that leaves.
+
+**The `.txt` parking is not what blocks CI**: a workflow step can `cp` it to a
+temp `.py` and run it exactly as above, and `derive_counters.py` never sees the
+temp file. The whole step, for whoever wires it:
+
+```yaml
+- name: agent-memory spec drift check
+  run: |
+    cd engineering/agent-memory
+    cp assets/validate_examples.py.txt assets/_ci.py
+    python3 assets/_ci.py; rc=$?
+    rm -f assets/_ci.py
+    exit $rc
+```
+
+Not added to `ci-quality-gate.yml` here: that workflow runs on every PR in the
+repo, and this one is spec-only for a folder §9.3 explicitly permits deleting
+after a two-week trial. Adding a repo-wide job on that basis is the maintainer's
+call, not a spec PR's — the snippet is here so saying yes costs one paste.
 Wiring that step is a live option today, independent of the `audit/`-vs-here
 placement decision.
 

@@ -196,6 +196,21 @@ design is worse than no placeholder — the L2 and L3 fixtures in
 `memory_schema.json` now use the portable form, so the examples demonstrate the
 rule instead of hiding it.
 
+> **The example above and `memory_schema.json`'s second example share an id
+> (`atm_961f033d`) at different tiers — deliberate, not copy-paste.** `id` hashes
+> `normalized_claim + project` (§4.1) with **no tier component**, so **L1 → L2
+> keeps the id**: the same atom appears here at `tier: "L1"` and there at
+> `tier: "L2"`, with the back-pointers stripped (§3.1.1) and `promoted_at` set.
+> Read side by side, the pair is one atom's lifecycle. Stability matters —
+> merging on re-observation (§4.1) depends on the id not moving as the atom
+> climbs.
+>
+> **L2 → L3 is the exception, and for a reason:** that step mints a *new*
+> project-free id (§4.1.1 step 3), because the hash input itself changes when the
+> `project` component drops. It is a merge of ≥ 2 distinct L2 atoms into one, so
+> there is no single incumbent id to carry forward — which is exactly why
+> `promoted_from_projects` exists to preserve the link back.
+
 Full JSON Schema: [`assets/memory_schema.json`](assets/memory_schema.json).
 
 #### 3.1.2 Invariants the schema cannot enforce — the tools own these
@@ -415,7 +430,12 @@ Three hooks. Each must be independently disableable by env var, following
 - Score L1 atoms against prompt text. Deterministic lexical scoring (token
   overlap + `kind` weight + recency). No embeddings, no API call.
 - Inject **top 5 max, 1 KB max**.
-- Disable: `AGENT_MEMORY_RECALL=0`
+- Disable: `AGENT_MEMORY_RECALL=0` — named for the *function*, not the hook,
+  unlike its two siblings which mirror `SessionStart`/`SessionEnd` exactly.
+  `AGENT_MEMORY_USERPROMPTSUBMIT` is the consistent name and is rejected on
+  ergonomics: it is the variable a user reaches for most often (it is the one on
+  the latency-sensitive path), and "recall" is what §3's tier table already calls
+  the behaviour. Deliberate inconsistency, recorded so it is not "fixed" later.
 
 **Latency — two distinct limits, do not conflate them:**
 
@@ -482,6 +502,19 @@ Reuse the pattern this repo already has rather than inventing one —
 - A writer that cannot acquire the lock within **5 seconds gives up and drops
   its atoms**, logging the loss. Losing one session's L1 candidates is
   recoverable — they re-observe. A wedged `SessionEnd` blocking teardown is not.
+
+**The two timeouts are not on the same axis** — `5 s < 60 s` looks contradictory
+until you see they answer different questions:
+
+| Value | Question | Behaviour |
+|---|---|---|
+| **60 s** (mtime age) | "Is this lock *abandoned*?" | Older than 60 s → break it **immediately**, no waiting |
+| **5 s** (wall clock) | "How long do I wait for a *live* lock?" | Still held and younger than 60 s → retry up to 5 s, then give up |
+
+So a writer meeting a 61-second-old lock proceeds at once; one meeting a
+3-second-old lock waits up to 5 s and drops its atoms if the holder is slower
+than that. The stale-break path is not gated behind the 5 s wait — it is checked
+first.
 
 **Accepted race — record it as a choice, not an oversight.** Stale-lock breaking
 by mtime is a TOCTOU: two writers could both judge a lock stale and both proceed.

@@ -21,7 +21,8 @@ Gate rules
     G4  close refuses if the sidecar changed after the last collect
     G5  rounds are capped (--max-rounds); exhaustion escalates, it never
         silently keeps looping
-    G6  a waiver is allowed but must be explicit, reasoned, and recorded
+    G6  a waiver is allowed but must be explicit, reasoned, and recorded --
+        and it can never waive G1: no waiver substitutes for review happening
     G7  close refuses while the last round carries unresolved integrity
         problems (mistyped severity, EDIT with no replacement, a quote not
         in the file) — those downgrade silently, so prose is not enough
@@ -376,6 +377,21 @@ def cmd_close(args):
     state = load_state(artifact, args.state_dir)
     rounds = state["rounds"]
     refusals = gate_refusals(state, sidecar_for(artifact, args.sidecar))
+
+    # A waiver overrides objections a human actually raised. It cannot manufacture
+    # a review that never happened — "nobody looked" is not a finding to accept,
+    # it is the absence of the thing this gate exists to require. Waiving G1 would
+    # make the whole skill opt-out with one flag, which is the most tempting
+    # shortcut for an agent under time pressure.
+    unwaivable = [r for r in refusals if r.startswith("G1 ")]
+    if unwaivable and args.waive:
+        print("GATE REFUSED — %s" % os.path.basename(artifact))
+        for refusal in unwaivable:
+            print("  ✗ %s (NOT WAIVABLE)" % refusal)
+        print("")
+        print("--waive accepts objections a reviewer raised; it cannot stand in for")
+        print("review itself. Open a round and get one collected first.")
+        return 2
 
     if refusals and args.waive:
         state["waiver"] = {

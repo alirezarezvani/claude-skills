@@ -64,7 +64,8 @@ already wrote, as `- before:` / `+ after:` lines.
 | **G3** | no named reviewer | **G6** | waiver used without a recorded reason |
 | **G7** | the round carries unresolved integrity problems — a mistyped severity silently downgrades to NIT, so a real blocker can be lost to a typo | | |
 
-Overrides are legitimate, and must be explicit: `close plan.md --waive "<reason>"`.
+Overrides must be explicit — `close plan.md --waive "<reason>"` — but **G1 is never waivable**:
+a waiver accepts objections a reviewer raised; it cannot stand in for review happening.
 
 ## Hard rules
 
@@ -96,5 +97,4 @@ an artifact exists. **`content-humanizer`**/**`behuman`** — human *voice*, not
 Reasoning lives in `references/` — human-in-the-loop canon, feedback batching, loop discipline.
 Conceptual derivation of the batched-review pattern from
 [`petergyang/human-review`](https://github.com/petergyang/human-review) (MIT © 2026 Peter Yang);
-no upstream code is used, and the design differs deliberately — stdlib Python, no server, no
-network fetch, non-blocking, round-capped, plus a closing gate upstream lacks.
+no upstream code is used — stdlib Python, no server, non-blocking, plus a gate upstream lacks.

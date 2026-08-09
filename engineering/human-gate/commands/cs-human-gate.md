@@ -95,7 +95,7 @@ python3 $S/human_gate.py close "$ARTIFACT"
 | G3 | no named reviewer |
 | G4 | the sidecar changed after the last collect |
 | G5 | round cap exhausted → escalate |
-| G6 | waiver used without a recorded reason |
+| G6 | waiver used without a recorded reason — **G1 can never be waived** |
 | G7 | the round carries unresolved integrity problems (mistyped severity, EDIT with no replacement, quote not in the file) |
 
 **Exit 2 means you are not done.** Report what is open, not a summary that implies success.

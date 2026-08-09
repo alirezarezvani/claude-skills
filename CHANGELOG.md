@@ -72,6 +72,20 @@ integrity bug. **(d)** `status` returned 4 for both "no sidecar yet" and "collec
 open"; the blocked case now returns 2, matching `close`, so an agent can branch on the exit
 code alone (0 clear · 2 blocked · 3 collect · 4 nothing yet).
 
+**A fourth round found the gate itself was one flag away from opt-out.** `--waive` applied to
+whatever `gate_refusals()` returned — including **G1, "no review round has been collected"** —
+so an agent could close having had no review at all by supplying any reason string. That is the
+most tempting shortcut under time pressure and it defeats the skill's entire premise, so G1 is
+now **unwaivable**: a waiver accepts objections a reviewer raised, it cannot manufacture a
+review that never happened. Waiving a genuine objection still works. Same round: inline
+`style` joined `DROP_ATTRS` (a `background-image:url(https://…)` beacons the reviewer's IP on
+open with no script involved, breaking the stated no-network property — and the `<style>` tag
+was already dropped, so keeping the attribute was inconsistent too); Markdown `![alt](url)`
+now renders a real scheme-checked `<img>` instead of leaking a stray `!` before a link (which
+also made `_safe_href(image=True)` dead code on that path); an unterminated `<script>` now
+emits a diagnostic instead of silently truncating the body; and raw-HTML `target="_blank"`
+anchors get the same `rel="noreferrer noopener"` the Markdown path already added.
+
 **A third review round found the HTML path was broken outright.** `meta`, `link` and
 `base` are void elements: `html.parser` fires `handle_starttag` for them but never a
 matching `handle_endtag`. Because they were also in `DROP_TAGS`, each bare `<meta charset>`

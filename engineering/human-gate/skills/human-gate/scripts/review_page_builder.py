@@ -49,7 +49,10 @@ URL_ATTRS = {
     "href", "src", "action", "formaction", "poster", "cite", "background",
     "xlink:href", "xlink:role", "xlink:arcrole",
 }
-DROP_ATTRS = {"srcdoc", "srcset"}
+# `style` joins these because `background-image:url(https://...)` fires a request
+# the moment the reviewer opens the page — no script needed. The <style> *tag* was
+# already dropped, so keeping the attribute was inconsistent as well as leaky.
+DROP_ATTRS = {"srcdoc", "srcset", "style"}
 
 SAMPLE_HTML = """<!DOCTYPE html>
 <html><head>
@@ -84,7 +87,8 @@ The team will endeavour to deliver incremental value.
 INLINE_CODE = re.compile(r"`([^`]+)`")
 BOLD = re.compile(r"\*\*([^*]+)\*\*")
 ITALIC = re.compile(r"(?<!\*)\*([^*]+)\*(?!\*)")
-LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
+IMAGE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)\)")
+LINK = re.compile(r"(?<!!)\[([^\]]+)\]\(([^)\s]+)\)")
 
 
 def _safe_href(url, image=False):
@@ -113,6 +117,16 @@ def inline(text):
     out = INLINE_CODE.sub(lambda m: "<code>%s</code>" % m.group(1), out)
     out = BOLD.sub(lambda m: "<strong>%s</strong>" % m.group(1), out)
     out = ITALIC.sub(lambda m: "<em>%s</em>" % m.group(1), out)
+
+    def image(match):
+        src = _safe_href(html.unescape(match.group(2)), image=True)
+        if src is None:
+            return match.group(1)
+        return '<img src="%s" alt="%s">' % (
+            html.escape(src, quote=True), html.escape(match.group(1), quote=True)
+        )
+
+    out = IMAGE.sub(image, out)
 
     def link(match):
         href = _safe_href(html.unescape(match.group(2)))
@@ -264,6 +278,10 @@ def sanitize_attrs(attrs):
     draft is a documented use of this skill.
     """
     kept = []
+    names = {n.lower() for n, _ in attrs}
+    blank_target = any(
+        n.lower() == "target" and (v or "").lower() == "_blank" for n, v in attrs
+    )
     for name, value in attrs:
         lower = name.lower()
         if lower.startswith("on") or lower in DROP_ATTRS:
@@ -274,6 +292,9 @@ def sanitize_attrs(attrs):
                 continue
             value = safe
         kept.append((name, value))
+    # Same hardening the Markdown path already applies to its own anchors.
+    if blank_target and "rel" not in names:
+        kept.append(("rel", "noreferrer noopener"))
     return kept
 
 
@@ -292,6 +313,10 @@ class BlockTagger(HTMLParser):
         # A fragment with no <body> is all body: start capturing immediately.
         self._in_body = fragment
         self._skip = 0
+        # Name of the last unterminated drop-tag, for a diagnosable warning
+        # rather than a silent truncation (an unclosed <script> legitimately
+        # swallows the rest per HTML parsing, but the user deserves to know).
+        self._skipping = []
 
     def handle_starttag(self, tag, attrs):
         if tag == "body":
@@ -305,6 +330,7 @@ class BlockTagger(HTMLParser):
             # common case, not an edge case.
             if tag not in self.VOID:
                 self._skip += 1
+                self._skipping.append(tag)
             return
         if self._skip:
             return
@@ -332,6 +358,8 @@ class BlockTagger(HTMLParser):
             return
         if tag in DROP_TAGS:
             self._skip = max(0, self._skip - 1)
+            if self._skipping and self._skipping[-1] == tag:
+                self._skipping.pop()
             return
         if self._skip or not self._in_body:
             return
@@ -392,6 +420,12 @@ def build_content(source_text, is_markdown):
     tagger = BlockTagger(fragment=fragment)
     tagger.feed(source_text)
     tagger.close()
+    if tagger._skipping:
+        sys.stderr.write(
+            "Warning: unterminated <%s> in the source — everything after it was "
+            "dropped. Close the tag if that content should be reviewable.\n"
+            % tagger._skipping[0]
+        )
     body = "".join(tagger.out).strip()
     if not tagger.blocks and body:
         body = '<div data-hg="b1">%s</div>' % body

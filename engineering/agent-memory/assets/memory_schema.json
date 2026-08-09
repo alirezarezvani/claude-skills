@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/dev/engineering/agent-memory/assets/memory_schema.json",
+  "$id": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/engineering/agent-memory/assets/memory_schema.json",
   "title": "agent-memory atom (L1) — v1",
   "description": "One atomic memory claim extracted from an L0 transcript. Every atom MUST carry a live back-pointer into the transcript that produced it; an atom without provenance is discarded, never stored. Promotion to L2/L3 is decided by recurrence across distinct sessions, not by importance. See ../DESIGN.md sections 3 and 4.",
   "type": "object",
@@ -15,6 +15,7 @@
     "observations",
     "sessions",
     "source",
+    "first_source",
     "confidence",
     "tier"
   ],
@@ -22,7 +23,7 @@
     "id": {
       "type": "string",
       "pattern": "^atm_[0-9a-f]{8}$",
-      "description": "Stable id. Derived from a hash of the normalized claim text so the same claim observed in a later session merges rather than duplicates."
+      "description": "Stable id, PROJECT-SCOPED: hash(normalized_claim + '\\u0000' + project) when scope is 'project', hash(normalized_claim) when scope is 'global'. The project component is mandatory and is what stops two unrelated claims that normalize alike in different repos (e.g. 'tests must pass before merge') from colliding and merging their 'sessions' arrays across projects — which would manufacture false durability, since the L1 to L2 gate requires the sessions be from the SAME project. Merging on this id is how a claim re-observed in a later session accumulates durability instead of duplicating."
     },
     "claim": {
       "type": "string",
@@ -68,7 +69,17 @@
     },
     "source": {
       "type": "string",
-      "description": "Back-pointer into L0: '<transcript path>#L<line>'. Required for promotion — an unprovenanced claim can never be promoted. This is the anti-fabrication rule."
+      "description": "Back-pointer into L0 for the MOST RECENT observation: '<transcript path>#L<line>'. Overwritten on every merge — read 'first_source' for the evidence that originally justified the claim. Required for promotion; an unprovenanced claim can never be promoted. This is the anti-fabrication rule."
+    },
+    "first_source": {
+      "type": "string",
+      "description": "Back-pointer into L0 for the FIRST observation, written once at creation and never overwritten. 'source' alone is insufficient for an anti-fabrication field: after N merges it points only at the latest sighting, so the evidence that originally justified the claim would be unrecoverable exactly when an auditor needs it. Both are retained deliberately."
+    },
+    "promoted_from_projects": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "description": "Projects in which this claim independently held at L2 before being promoted to L3. REQUIRED once tier is L3. Exists because 'scope' flips to 'global' on promotion and the conditional below then forbids the single 'project' field — without this array the >= 2-distinct-projects criterion from DESIGN.md section 4.1 would be unauditable the moment it was satisfied, discarding the evidence precisely when it turns from an eligibility test into an audit trail."
     },
     "confidence": {
       "type": "string",
@@ -106,6 +117,13 @@
       "if": { "properties": { "scope": { "const": "project" } }, "required": ["scope"] },
       "then": { "required": ["project"] },
       "else": { "not": { "required": ["project"] } }
+    },
+    {
+      "if": { "properties": { "tier": { "const": "L3" } }, "required": ["tier"] },
+      "then": {
+        "required": ["promoted_from_projects"],
+        "properties": { "promoted_from_projects": { "minItems": 2 } }
+      }
     }
   ],
   "examples": [
@@ -124,6 +142,7 @@
         "01GT8wzL3MjHYb6kRq92FnDx"
       ],
       "source": "~/.claude/projects/-home-user-claude-skills/01GT8wzL3MjHYb6kRq92FnDx.jsonl#L412",
+      "first_source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L77",
       "confidence": "stated",
       "tier": "L2",
       "promoted_at": "2026-07-19T14:02:00Z",
@@ -144,8 +163,10 @@
         "01DD4dddU8pIoK1xSw7fVcMt"
       ],
       "source": "~/.claude/projects/-home-user-claude-skills/01DD4dddU8pIoK1xSw7fVcMt.jsonl#L88",
+      "first_source": "~/.claude/projects/-home-user-gaios/01AA1aaaQ2rTvB8mNc4kJpXe.jsonl#L204",
       "confidence": "verified",
       "tier": "L3",
+      "promoted_from_projects": ["claude-skills", "gaios"],
       "promoted_at": "2026-06-21T11:30:00Z",
       "redacted": false
     }

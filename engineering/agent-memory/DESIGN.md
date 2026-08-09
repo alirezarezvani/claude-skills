@@ -132,6 +132,7 @@ Every field is mandatory. An atom missing provenance is discarded, not stored.
   "observations": 1,
   "sessions": ["01EM5xmJ7AmTMg31rq68BCym"],
   "source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L412",
+  "first_source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L412",
   "confidence": "observed",
   "tier": "L1",
   "redacted": false
@@ -141,8 +142,13 @@ Every field is mandatory. An atom missing provenance is discarded, not stored.
 - `kind` ∈ `constraint` · `preference` · `fact` · `decision` · `failure`
 - `sessions` is a **set** — this is what makes the promotion gate countable.
   Re-stating a claim twice in one session does not increment durability.
-- `source` is a back-pointer into L0. Any promoted claim must be traceable to a
-  transcript line, or it cannot be promoted. This is the anti-fabrication rule.
+- `source` / `first_source` are back-pointers into L0. Any promoted claim must be
+  traceable to a transcript line, or it cannot be promoted — the anti-fabrication
+  rule. **Both are kept deliberately:** `source` is overwritten on every merge, so
+  after N observations it points only at the latest sighting; `first_source` is
+  written once and never overwritten, preserving the evidence that originally
+  justified the claim. A single field would lose exactly the record an auditor
+  asking "why does the agent believe this?" needs.
 - `confidence` ∈ `observed` (agent inferred it) · `stated` (user said it
   directly) · `verified` (a check confirmed it). `stated` and `verified` promote
   faster — see §4.
@@ -167,6 +173,34 @@ rule.
 | L0 → L1 | Extraction produces a well-formed atom with a live `source` back-pointer |
 | L1 → L2 | `observations ≥ 3` across **≥ 3 distinct sessions**, ≥ 2 of them on distinct days, same `project`, no contradiction open |
 | L2 → L3 | Held at L2 in **≥ 2 distinct projects**, `age ≥ 30 days`, no contradiction in 30 days |
+
+**Atom identity is project-scoped.** `id = hash(normalized_claim + NUL + project)`
+for `scope: "project"`, `hash(normalized_claim)` for `scope: "global"`. Hashing
+the claim text alone would let two unrelated claims that normalize alike in
+different repos — "tests must pass before merge" is the obvious one — collide on
+`id` and merge their `sessions` arrays. That would manufacture false durability,
+because the L1→L2 gate above requires the sessions come from the **same**
+project. The project component is what makes the gate mean what it says.
+
+### 4.1.1 The L2 → L3 merge
+
+Because identity is project-scoped, a claim held at L2 in two projects exists as
+**two atoms with different ids**. Promotion is therefore a merge, not a flag flip:
+
+1. Group L2 atoms by `hash(normalized_claim)` — the project-free hash.
+2. A group with **≥ 2 distinct `project` values**, each ≥ 30 days old and
+   uncontested, is eligible.
+3. Emit **one** new atom: `scope: "global"`, `tier: "L3"`, new project-free `id`,
+   `sessions` = union, `observations` = sum, `first_seen` = min, `last_seen` =
+   max, `first_source` = the `first_source` of the earliest contributor.
+4. Record every contributing project in **`promoted_from_projects`**. This field
+   is required at L3 and exists for a specific reason: `scope` flips to `global`
+   on promotion, and §3.1's conditional then *forbids* the single `project`
+   field — so without this array the ≥ 2-projects evidence would be discarded at
+   exactly the moment it stops being an eligibility test and becomes an audit
+   trail. "Which projects earned this?" must stay answerable afterwards.
+5. The contributing L2 atoms are **retained**, not deleted. L3 injection
+   supersedes them; they remain as the provenance chain.
 
 Fast paths:
 

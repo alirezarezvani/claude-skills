@@ -238,9 +238,21 @@ def main():
         for ex in group:
             check(ex["confidence"] in CONFIDENCE_ORDER,
                   "%s confidence is a declared value" % aid)
-            check(len(ex["sessions"]) >= GATE_SESSIONS[ex["confidence"]]
-                  or ex["tier"] == "L1",
-                  "%s clears the gate its confidence implies" % aid)
+            # The session-count gate is the L1 -> L2 rule and ONLY that.
+            # L1 is pre-gate by definition. L3 is gated on >= 2 distinct
+            # projects plus age (4.1.1), not on sessions at all -- so an
+            # `or tier == "L1"` exemption alone left this check firing on L3
+            # against a rule that does not govern it, where it passed for an
+            # incidental reason (L3 inherits the unioned sessions of L2
+            # contributors that each already cleared their own gate). A check
+            # that cannot fail on a tier is not testing that tier.
+            if ex["tier"] == "L2":
+                check(len(ex["sessions"]) >= GATE_SESSIONS[ex["confidence"]],
+                      "%s clears the session gate its confidence implies" % aid)
+            if ex["tier"] == "L3":
+                check(len(set(ex.get("promoted_from_projects", []))) >= 2,
+                      "%s clears the >= 2-distinct-projects gate L3 actually has"
+                      % aid)
         if len(group) > 1:
             ordered = sorted(group, key=lambda e: ["L1", "L2", "L3"].index(e["tier"]))
             for a, b in zip(ordered, ordered[1:]):

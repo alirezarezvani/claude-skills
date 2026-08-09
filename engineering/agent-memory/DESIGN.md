@@ -9,11 +9,41 @@ counts skills by `SKILL.md`, and this folder deliberately has none.
 **Why a design doc lives under `engineering/` rather than `documentation/`:**
 root `CLAUDE.md` designates `documentation/` for pre-build specs, but that folder
 is **gitignored** — invisible on GitHub, so nothing in it can be reviewed in a
-PR. A design meant to be argued with *before* code exists has nowhere else to
-live. Stated here because a future reader (or a skill-count auditor) will
-otherwise reasonably wonder why a 700-line non-skill folder sits in a domain
-directory. **Whether this becomes a repeatable pattern is an open maintainer
-decision, not something this PR settles** — see the note at the end of §10.
+PR. A design meant to be argued with *before* code exists cannot live there.
+Stated here because a future reader (or a skill-count auditor) will otherwise
+reasonably wonder why a 1000-line non-skill folder sits in a domain directory.
+
+**There is a third option, and it is a better fit than this note originally
+claimed.** Top-level **`audit/`** already solves this exact constraint: root
+`CLAUDE.md` describes it as "an intentional, **public** audit record… committed
+and visible to cloners," and `derive_counters.py` prunes it from
+`canonical_walk` entirely (`EXCLUDED_TOP_LEVEL`, line 48) rather than merely
+failing to find a `SKILL.md` in it. Its existing contents are the same shape as
+this file — prose deliverables with verification criteria that later PRs use as
+acceptance gates, which is precisely what this doc is for the implementation PR.
+An earlier draft framed the choice as "here or the gitignored folder," a false
+binary that survived because nobody had looked for a third.
+
+Two things follow, and both cut against staying here:
+
+- **The `.py.txt` parking hack (§10.1) would be unnecessary.** Because `audit/`
+  is pruned from the walk, a `.py` inside it is not counted at all — verified:
+  adding one leaves `python_tools` at 663. The validator could simply be an
+  executable `validate_examples.py`, which also removes the "nothing in CI gates
+  this" objection's main obstacle.
+- **The counter-argument is the two contract files, not the prose.**
+  `hooks/hooks.json` and `assets/memory_schema.json` are not documentation —
+  they are intended to *become* live plugin files at paths a `plugin.json` will
+  reference. Under `audit/` they would have to move again at implementation
+  time, breaking the schema `$id` and the §3.1 link a second time (§10.1 already
+  tracks one such move). Splitting spec-into-`audit/` from
+  contracts-into-`engineering/` is the other way out, at the cost of separating
+  two things written to be read together.
+
+**This remains an open maintainer decision, not something this PR settles** —
+see the note at the end of §10. It is recorded here with the alternative named
+and costed, because "there was no other option" was the weakest claim in this
+file and it was not true.
 
 **Origin:** an inspection of
 [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)
@@ -924,7 +954,7 @@ one was caught by a check, and hand-checking does not scale as the schema moves
 toward implementation.
 
 The validator is written and tested: **[`assets/validate_examples.py.txt`](assets/validate_examples.py.txt)**
-— stdlib-only, **69 checks in seven families** (schema conformance · the
+— stdlib-only, **67 checks in seven families** (schema conformance · the
 tier-dependent back-pointer · id reproduction from the doc's own published
 `normalize()` · confidence monotonicity · document structure and links · prose
 claims that must match measured reality · lifecycle coherence across a
@@ -932,7 +962,7 @@ multi-tier id group).
 
 That count is **itself checked** — family 6's last assertion compares it against
 the number of checks the run actually executed. It is written that way because
-the sentence above went stale twice (53 → 57 → 69) while this section argued
+the sentence above went stale twice (53 → 57 → 67) while this section argued
 against exactly that, and a review then quoted the stale figure back. A number
 in prose describing a program's behaviour is drift waiting to happen unless the
 program owns it.
@@ -963,6 +993,15 @@ Two properties make it worth more than a linter:
 a counted "tool" belonging to no plugin, in a folder deliberately without a
 `SKILL.md`. Renaming it and counting it is a one-line change the moment the
 maintainer rules that a spec-stage folder may carry tooling.
+
+**The parking hack is a consequence of the location, not a fact about the
+file.** Under `audit/` (the third option in the status header) it would be
+unnecessary — that directory is pruned from `canonical_walk` entirely, so a
+`.py` inside it moves no counter at all, verified. Anyone weighing where this
+spec belongs should count that as a point against staying here: the same
+validator would be a plain executable script, and "nothing in CI gates the drift
+class this section is about" would be a straightforwardly fixable problem rather
+than one blocked by a naming workaround.
 
 **Two references break when that move happens — update both in the same commit:**
 

@@ -197,6 +197,24 @@ rule instead of hiding it.
 
 Full JSON Schema: [`assets/memory_schema.json`](assets/memory_schema.json).
 
+#### 3.1.2 Invariants the schema cannot enforce — the tools own these
+
+JSON Schema validates **one atom at a time**, so a valid atom does *not* imply a
+valid store. Three invariants sit outside it and must be enforced in
+`memory_extract.py` / `memory_promote.py`, not assumed:
+
+| Invariant | Why the schema can't | Owner |
+|---|---|---|
+| `first_seen ≤ last_seen` | No cross-field comparison in JSON Schema | extract + merge |
+| `id` unique across `atoms.jsonl` | `uniqueItems` applies within one array, not across a file's records | merge (an id collision is a **merge**, never a second record — §4.1) |
+| A session id appearing in only one atom's `sessions` per claim | Same file-level limit | merge |
+
+Only *within-atom* `sessions` uniqueness is schema-enforced (`uniqueItems: true`)
+— which catches a claim restated twice in one session, the case §4.1's
+durability gate actually depends on. The file-level cases are the tools' job.
+Stated explicitly because "the schema validates" is otherwise an easy thing to
+mistake for "the store is consistent."
+
 ---
 
 ## 4. Promotion and demotion
@@ -594,6 +612,11 @@ Needed before implementation starts:
    fit → **drop `UserPromptSubmit` entirely** and let L2/L3 at `SessionStart`
    carry the system. Option (c) is a real, acceptable outcome — a recall hook
    that misses its budget on every prompt is worse than no recall hook.
+
+   **If (c) wins, `hooks/hooks.json` must shrink too** — the `UserPromptSubmit`
+   entry is already written there as a contract, so deleting the hook from this
+   doc alone would leave the contract file asserting a hook the design no longer
+   wants. A contract file must not outlive the decision that justified it.
 
 ---
 

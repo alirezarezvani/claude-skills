@@ -300,10 +300,21 @@ def main():
               "relative link resolves: %s" % target)
     # fixtures obey the admission policy the doc itself specifies (§6.5)
     blob = json.dumps([e for _, e in examples]) + design
+    # Both places a project name can appear, not just one. Checking only the
+    # path-embedded form (`-home-user-<slug>`) left `project` and
+    # `promoted_from_projects` -- where names appear bare -- entirely
+    # unchecked, so "other-project" in the allow-list was inert and a fixture
+    # naming a private repo in those fields would have passed. 6.5's rule is
+    # about the name, not about where it happens to sit.
     known = {"claude-skills", "other-project"}
-    slugs = set(re.findall(r"-home-user-([a-z0-9._-]+)", blob))
-    check(not (slugs - known),
-          "no unknown project slugs in fixtures %s" % sorted(slugs - known))
+    named = set(re.findall(r"-home-user-([a-z0-9._-]+)", blob))
+    for _, e in examples:
+        if "project" in e:
+            named.add(e["project"])
+        named.update(e.get("promoted_from_projects", []))
+    check(not (named - known),
+          "no unknown project names in fixtures, in paths or in fields %s"
+          % sorted(named - known))
     ids = {s for _, e in examples for s in e["sessions"]}
     check(all(i.startswith("01SESSION") for i in ids),
           "all fixture session ids are synthetic")

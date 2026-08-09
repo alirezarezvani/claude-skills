@@ -118,7 +118,18 @@ storage format.
 
 ### 3.1 L1 atom record
 
-Every field is mandatory. An atom missing provenance is discarded, not stored.
+**12 fields are unconditionally required** — `id`, `claim`, `scope`, `kind`,
+`first_seen`, `last_seen`, `observations`, `sessions`, `source`, `first_source`,
+`confidence`, `tier`. An atom missing provenance is discarded, not stored.
+
+The rest are conditional or optional, and an extractor **must not** emit them
+unconditionally: `project` is required when `scope: "project"` and *forbidden*
+when `scope: "global"` (§3.1's conditional); `promoted_from_projects` is required
+only at `tier: "L3"` (§4.1.1); `redacted`, `contested`, `contested_by` and
+`promoted_at` are set by later stages — the redaction pass, contradiction
+handling (§4.2), and promotion respectively — not at extraction time. The
+example below shows `project` and `redacted` because it is a project-scoped atom
+that went through redaction, not because either is universally mandatory.
 
 ```json
 {

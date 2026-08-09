@@ -1,0 +1,71 @@
+{
+  "_comment": "One spec covering every script in the memory-engineering skill. Each top-level block is consumed by a different script; pass this same file to all of them.",
+  "_usage": {
+    "memory_cost_profiler.py": "--spec  (reads: name, construction, query, pricing_usd_per_mtok, accuracy)",
+    "memory_architecture_picker.py": "--constraints  (reads: name, *_sensitivity/_pressure/_need/growth, hard_constraints)",
+    "forgetting_policy_linter.py": "--policy  (reads: name, forgetting, dedup_on_write, consolidation, contradiction_policy, scope, audit_trail, rollback, growth_monitoring)",
+    "memory_density_auditor.py": "takes --dir or --jsonl instead of this file"
+  },
+  "name": "support-agent memory store (worked example)",
+  "construction": {
+    "records_per_day": 400,
+    "prompt_tokens_per_record": 12000,
+    "output_tokens_per_record": 800,
+    "embedding_tokens_per_record": 12000,
+    "colocated_with_queries": true
+  },
+  "query": {
+    "queries_per_day": 1200,
+    "prompt_tokens_per_query": 2400,
+    "output_tokens_per_query": 300,
+    "embedding_tokens_per_query": 40
+  },
+  "pricing_usd_per_mtok": {
+    "prompt": 3.0,
+    "output": 15.0,
+    "embedding": 0.02
+  },
+  "accuracy": 0.72,
+  "query_latency_sensitivity": "high",
+  "build_budget_pressure": "medium",
+  "recall_need": "high",
+  "volume_growth": "high",
+  "mutability_need": "medium",
+  "hard_constraints": {
+    "max_p99_query_ms": 1500,
+    "context_window_tokens": 200000,
+    "expected_history_tokens": 4000000
+  },
+  "forgetting": {
+    "rule": "ttl",
+    "ttl_days": 365,
+    "max_records": 50000,
+    "decay": "none"
+  },
+  "dedup_on_write": true,
+  "consolidation": {
+    "enabled": true,
+    "cadence": "weekly"
+  },
+  "contradiction_policy": "surface",
+  "scope": {
+    "read": [
+      "support-agents"
+    ],
+    "write": [
+      "memory-writer-service"
+    ]
+  },
+  "audit_trail": {
+    "timestamp": true,
+    "source_attribution": true
+  },
+  "rollback": {
+    "supported": true,
+    "delete_path": "api"
+  },
+  "growth_monitoring": {
+    "tracks_slope": false,
+    "baseline_only": true
+  }
+}

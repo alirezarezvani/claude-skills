@@ -58,6 +58,10 @@ MIN_RECORD_WORDS = 3
 # between unrelated files.
 MIN_DUPLICATE_WORDS = 20
 
+# Duplicate detection is O(n^2) pairwise. Above this many eligible records the
+# scan is capped -- and the number skipped is reported, never dropped silently.
+MAX_DUPLICATE_SCAN = 2000
+
 # Records whose newest date is older than this are candidates for review.
 DEFAULT_STALE_DAYS = 180
 
@@ -221,24 +225,61 @@ def jaccard(left: set, right: set) -> float:
     return intersection / union if union else 0.0
 
 
-def find_duplicates(records: list[dict]) -> list[dict]:
-    """Pairwise near-duplicate detection over word shingles."""
+def find_duplicates(records):
+    """Pairwise near-duplicate detection over word shingles.
+
+    Returns (pairs, participants, redundant, scanned, skipped).
+
+    Two distinct counts, because they answer different questions and reporting
+    one under the other's name is misleading:
+
+      participants -- records having at least one near-duplicate. BOTH members
+                      of a matching pair count. This is what "N records have a
+                      near-duplicate" means, and it drives duplicate_share.
+      redundant    -- copies that could actually be deleted: participants minus
+                      one survivor per connected cluster. For a cluster of k
+                      mutually-duplicate records this is k-1, not k.
+
+    Clusters are resolved with union-find rather than by counting pair
+    endpoints: a 3-record cluster produces pairs (i,j), (i,k), (j,k), so any
+    endpoint-counting shortcut gets the redundant count wrong.
+    """
     fingerprints = [shingles(record["text"]) for record in records]
-    # Only records long enough to have a meaningful fingerprint are compared.
-    eligible = [
-        len(record["text"].split()) >= MIN_DUPLICATE_WORDS for record in records
+    # Only records long enough to have a meaningful fingerprint are compared;
+    # short fragments share shingle sets trivially.
+    eligible_ix = [
+        i
+        for i, record in enumerate(records)
+        if len(record["text"].split()) >= MIN_DUPLICATE_WORDS
     ]
-    duplicates = []
-    seen = set()
-    for i in range(len(records)):
-        if not eligible[i]:
-            continue
-        for j in range(i + 1, len(records)):
-            if not eligible[j]:
-                continue
+
+    # Comparison is O(n^2). Cap it, and report the cap rather than truncating
+    # silently -- a quiet cap reads as "no duplicates found".
+    skipped = 0
+    if len(eligible_ix) > MAX_DUPLICATE_SCAN:
+        skipped = len(eligible_ix) - MAX_DUPLICATE_SCAN
+        eligible_ix = eligible_ix[:MAX_DUPLICATE_SCAN]
+
+    parent = {i: i for i in eligible_ix}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+
+    pairs = []
+    participants = set()
+    for pos, i in enumerate(eligible_ix):
+        for j in eligible_ix[pos + 1 :]:
             score = jaccard(fingerprints[i], fingerprints[j])
             if score >= DUPLICATE_THRESHOLD:
-                duplicates.append(
+                pairs.append(
                     {
                         "similarity": round(score, 3),
                         "a": {
@@ -251,8 +292,13 @@ def find_duplicates(records: list[dict]) -> list[dict]:
                         },
                     }
                 )
-                seen.add(j)
-    return duplicates, len(seen)
+                participants.add(i)
+                participants.add(j)
+                union(i, j)
+
+    clusters = {find(i) for i in participants}
+    redundant = len(participants) - len(clusters)
+    return pairs, len(participants), redundant, len(eligible_ix), skipped
 
 
 def newest_date(text: str):
@@ -356,7 +402,13 @@ def audit(records: list[dict], stale_days: int) -> dict:
                 }
             )
 
-    duplicates, duplicate_records = find_duplicates(records)
+    (
+        duplicate_pairs,
+        duplicate_records,
+        redundant_copies,
+        scanned,
+        skipped,
+    ) = find_duplicates(records)
     total = len(records)
     knowledge = counts["FACT"] + counts["SKILL"]
     log_share = counts["LOG"] / total
@@ -388,7 +440,8 @@ def audit(records: list[dict], stale_days: int) -> dict:
                 "detail": (
                     f"{duplicate_records}/{total} records ({duplicate_share:.0%}) "
                     f"have a near-duplicate at >= {DUPLICATE_THRESHOLD:.0%} "
-                    "similarity."
+                    f"similarity; {redundant_copies} of them are redundant "
+                    "copies that could be deleted."
                 ),
                 "action": (
                     "Dedup at write time. Duplicates do not just waste tokens -- "
@@ -476,9 +529,12 @@ def audit(records: list[dict], stale_days: int) -> dict:
         },
         "duplicates": {
             "records_with_a_duplicate": duplicate_records,
+            "redundant_copies": redundant_copies,
             "share": round(duplicate_share, 4),
-            "pairs": duplicates[:20],
-            "pairs_truncated": max(0, len(duplicates) - 20),
+            "scanned": scanned,
+            "skipped_over_scan_cap": skipped,
+            "pairs": duplicate_pairs[:20],
+            "pairs_truncated": max(0, len(duplicate_pairs) - 20),
         },
         "stale_records": stale[:20],
         "volatile_records": volatile[:20],
@@ -519,7 +575,8 @@ def render(report: dict) -> str:
         lines.append(
             f"Near-duplicates: "
             f"{_plural(duplicates['records_with_a_duplicate'], 'record')} "
-            f"({duplicates['share']:.0%})"
+            f"({duplicates['share']:.0%}), of which "
+            f"{duplicates['redundant_copies']} redundant"
         )
         for pair in duplicates["pairs"][:5]:
             left = f"{pair['a']['source']} {pair['a']['title']}".strip()
@@ -527,6 +584,12 @@ def render(report: dict) -> str:
             lines.append(f"  {pair['similarity']:.2f}  {left}  <->  {right}")
         if duplicates["pairs_truncated"]:
             lines.append(f"  ... {duplicates['pairs_truncated']} more pairs")
+        if duplicates["skipped_over_scan_cap"]:
+            lines.append(
+                f"  NOTE: {duplicates['skipped_over_scan_cap']} eligible records "
+                f"were not scanned (cap {MAX_DUPLICATE_SCAN}); duplicate counts "
+                "are a lower bound."
+            )
         lines.append("")
 
     if report["findings"]:

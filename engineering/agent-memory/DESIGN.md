@@ -362,6 +362,20 @@ Because identity is project-scoped, a claim held at L2 in two projects exists as
 5. The contributing L2 atoms are **retained**, not deleted. L3 injection
    supersedes them; they remain as the provenance chain.
 
+**The remaining required fields, stated because the schema requires all 13 and
+step 3 only covered nine.** A `memory_promote.py` written literally against the
+list above would emit an atom the schema rejects — the same defect this step
+has already produced twice (`source`, then `promoted_from_projects`), so the
+rule is now: *step 3 must account for every required field, not the interesting
+ones.*
+
+| Field | On merge | Why |
+|---|---|---|
+| `claim` | any contributor's | The grouping key is `hash(normalized_claim)`, so all contributors normalize identically. Take the earliest contributor's raw text for determinism — normalization is lossy on case and trailing punctuation, and the group would otherwise pick arbitrarily. |
+| `confidence` | `max()` across **all** contributors | §4.1.3 fixes the order and the never-downgrades rule, but scopes its merge clause to §5.3 — the same-tier `SessionEnd` merge. The same principle applies here and is restated rather than assumed: a claim two projects hold, one `observed` and one `stated`, is `stated` at L3. |
+| `redacted` | `true` if **any** contributor is | Conservative direction. A merged atom drawing on redacted evidence must not present as unredacted; over-claiming redaction costs nothing, under-claiming it loses the signal §3.1 requires the field to carry. |
+| `kind` | must **agree**, or the group is ineligible | `kind` is *not* in the hash key, so two atoms with identical text but different `kind` can group. If two projects classify the same sentence differently, the "same claim" premise is what is shaky — not the classification. Refusing to merge keeps the claim live at L2 in each project and preserves this section's one-directional property: **L3 under-fires, it never mis-fires.** |
+
 **Stated limit: this merge is lexical, so it only fires on near-identical
 text.** Step 1 groups on `hash(normalized_claim)`, and `normalize()` (§4.1) only
 collapses whitespace, casefolds, and strips trailing punctuation — it does no
@@ -930,7 +944,7 @@ one was caught by a check, and hand-checking does not scale as the schema moves
 toward implementation.
 
 The validator is written and tested: **[`assets/validate_examples.py.txt`](assets/validate_examples.py.txt)**
-— stdlib-only, **67 checks in seven families** (schema conformance · the
+— stdlib-only, **68 checks in seven families** (schema conformance · the
 tier-dependent back-pointer · id reproduction from the doc's own published
 `normalize()` · confidence monotonicity · document structure and links · prose
 claims that must match measured reality · lifecycle coherence across a

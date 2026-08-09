@@ -346,6 +346,29 @@ def main():
     check("not observations" in flat,
           "promotion row names sessions, not observations, as the gate")
 
+    # 4.1.1's merge step must account for EVERY schema-required field, not the
+    # interesting ones. That step has now shipped three separate omissions --
+    # `source`, then `promoted_from_projects`, then confidence/redacted/kind --
+    # each caught by a human reading the list against the schema. Each fix was
+    # an instance; this is the class. An implementation written literally
+    # against a step that skips a required field emits a schema-invalid atom.
+    merge = design[design.index("#### 4.1.1"):design.index("#### 4.1.2")]
+    merge_flat = norm_prose(merge)
+    # norm_prose strips `_` (a markdown italic marker), so field names must be
+    # normalized the SAME way before matching -- searching for "first_seen" in
+    # text where it has become "firstseen" reports a false gap.
+    missing = [f for f in schema["required"] if norm_prose(f) not in merge_flat]
+    # Limit, stated rather than implied: this is a substring test over the whole
+    # section, so a field named incidentally elsewhere in 4.1.1 (`confidence`
+    # and `claim` both appear in the fast-paths and the lexical-limit
+    # paragraphs) satisfies it without the merge step actually specifying it.
+    # Re-injecting the real omission proves it still catches `kind` and
+    # `redacted`, which had no other mention. A tighter check would have to
+    # parse the merge step itself and would break on any rewording. Like
+    # 4.2.1's detector, this is a filter, not a guarantee.
+    check(not missing,
+          "4.1.1's merge accounts for every schema-required field %s" % missing)
+
     # -- family 7: the lifecycle pair actually coheres in time ---------------
     # Added after a review found the L1 fixture in DESIGN.md 3.1 and the L2
     # example in the schema -- explicitly captioned "one atom's lifecycle,

@@ -137,12 +137,12 @@
       "last_seen": "2026-08-09T10:14:22Z",
       "observations": 6,
       "sessions": [
-        "01EM5xmJ7AmTMg31rq68BCym",
-        "01FQ2bkR9NpVXc4dLs71ZhTw",
-        "01GT8wzL3MjHYb6kRq92FnDx"
+        "01SESSIONAAAA11112222333",
+        "01SESSIONBBBB11112222333",
+        "01SESSIONCCCC11112222333"
       ],
-      "source": "~/.claude/projects/-home-user-claude-skills/01GT8wzL3MjHYb6kRq92FnDx.jsonl#L412",
-      "first_source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L77",
+      "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONCCCC11112222333.jsonl#L412",
+      "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L77",
       "confidence": "stated",
       "tier": "L2",
       "promoted_at": "2026-07-19T14:02:00Z",
@@ -157,13 +157,13 @@
       "last_seen": "2026-08-08T17:45:03Z",
       "observations": 23,
       "sessions": [
-        "01AA1aaaQ2rTvB8mNc4kJpXe",
-        "01BB2bbbW7yUdF3nPl6sKgZr",
-        "01CC3cccE5tYhG9jRm2vLbNq",
-        "01DD4dddU8pIoK1xSw7fVcMt"
+        "01SESSIONDDDD11112222333",
+        "01SESSIONEEEE11112222333",
+        "01SESSIONFFFF11112222333",
+        "01SESSIONGGGG11112222333"
       ],
-      "source": "~/.claude/projects/-home-user-claude-skills/01DD4dddU8pIoK1xSw7fVcMt.jsonl#L88",
-      "first_source": "~/.claude/projects/-home-user-other-project/01AA1aaaQ2rTvB8mNc4kJpXe.jsonl#L204",
+      "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONGGGG11112222333.jsonl#L88",
+      "first_source": "~/.claude/projects/-home-user-other-project/01SESSIONDDDD11112222333.jsonl#L204",
       "confidence": "verified",
       "tier": "L3",
       "promoted_from_projects": ["claude-skills", "other-project"],

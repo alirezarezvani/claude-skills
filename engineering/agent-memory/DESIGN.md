@@ -130,9 +130,9 @@ Every field is mandatory. An atom missing provenance is discarded, not stored.
   "first_seen": "2026-08-09T10:14:22Z",
   "last_seen": "2026-08-09T10:14:22Z",
   "observations": 1,
-  "sessions": ["01EM5xmJ7AmTMg31rq68BCym"],
-  "source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L412",
-  "first_source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L412",
+  "sessions": ["01SESSIONAAAA11112222333"],
+  "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L412",
+  "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L412",
   "confidence": "observed",
   "tier": "L1",
   "redacted": false
@@ -197,10 +197,12 @@ arithmetic. Birthday collision probability `1 - exp(-n(n-1)/2N)`, `N = 2³²`:
 | 1 000 | 0.0116 % |
 | 5 000 | 0.29 % |
 
-Acceptable at the 500-atom cap. **Raising that cap means widening the id** —
-at 5 000 atoms a collision is likelier than not across ~30 users, and a
-collision silently merges two unrelated claims' durability counters, which is
-the exact failure the project-scoping below exists to prevent.
+Acceptable at the 500-atom cap. **Raising the cap means widening the id.**
+Aggregating the per-file figure across independent files: at a 5 000-atom cap,
+30 files give `1-(1-0.0029)³⁰ ≈ 8.4 %`, 100 files ≈ 25 %, and it passes even
+odds at ~239 files. A collision silently merges two unrelated claims' durability
+counters — the exact failure project-scoping below exists to prevent — so it is
+worth avoiding well before it becomes likely.
 
 Hashing
 the claim text alone would let two unrelated claims that normalize alike in
@@ -219,7 +221,13 @@ Because identity is project-scoped, a claim held at L2 in two projects exists as
    uncontested, is eligible.
 3. Emit **one** new atom: `scope: "global"`, `tier: "L3"`, new project-free `id`,
    `sessions` = union, `observations` = sum, `first_seen` = min, `last_seen` =
-   max, `first_source` = the `first_source` of the earliest contributor.
+   max, `first_source` = the `first_source` of the contributor with the earliest
+   `first_seen`, **`source` = the `source` of the contributor with the latest
+   `last_seen`**. Both back-pointers are `required` by the schema, so a merge
+   that sets only `first_source` emits an atom the schema rejects; the pairing
+   also preserves the field contract — `first_source` is oldest evidence,
+   `source` is newest — across the merge boundary rather than only within a
+   single atom's history.
 4. Record every contributing project in **`promoted_from_projects`**. This field
    is required at L3 and exists for a specific reason: `scope` flips to `global`
    on promotion, and §3.1's conditional then *forbids* the single `project`
@@ -323,6 +331,37 @@ asserted, not yet measured):
 
 Adoption is a separate, explicit, human-invoked step:
 `/cs:memory adopt` — backs up both `CLAUDE.md` files first.
+
+### 5.4 Concurrency — two sessions, one `atoms.jsonl`
+
+Multiple sessions on one repo (several terminals, or git worktrees) is ordinary,
+not an edge case, and §5.3 is a **read-modify-write**: merge on `id`, increment
+`observations`, extend `sessions`, evict over the 500-atom cap. Two `SessionEnd`
+hooks finishing together will interleave and lose one session's writes. The
+recall read in §5.2 has the matching hazard: reading a file mid-rewrite yields a
+truncated JSONL tail.
+
+Reuse the pattern this repo already has rather than inventing one —
+`engineering/agent-harness/.../loop_controller.py:54-62` and
+`engineering/skillopt-sleep/skillopt_sleep/state.py:77` both write via temp file
++ `os.replace`:
+
+- **Writers** serialize on an exclusive lock (`.memory/atoms.lock`, `O_CREAT |
+  O_EXCL`, stale-lock breaking by mtime), then write to a temp file in the same
+  directory and `os.replace()` onto the target. `os.replace` is atomic within a
+  filesystem, so a reader sees either the whole old file or the whole new one —
+  never a partial one.
+- **Readers take no lock at all.** `UserPromptSubmit` has a 100 ms budget
+  (§5.2); blocking it on a lock held by an async `SessionEnd` would blow that
+  budget for a hook whose failure mode is supposed to be "return nothing."
+  Atomic replacement is what makes lock-free reading safe.
+- A writer that cannot acquire the lock within **5 seconds gives up and drops
+  its atoms**, logging the loss. Losing one session's L1 candidates is
+  recoverable — they re-observe. A wedged `SessionEnd` blocking teardown is not.
+
+**This is a design constraint, not an implementation detail:** it is why the L1
+store is one append-oriented JSONL file per project rather than per-session
+files, and it must be settled before `session_end.py` is written.
 
 Contract file: [`hooks/hooks.json`](hooks/hooks.json).
 
@@ -443,6 +482,17 @@ Needed before implementation starts:
    (b) reuse `skillopt-sleep`'s documented opt-in LLM exception. *Leaning (a)*,
    since the repo's rule is strict and low recall is survivable when the
    promotion gate needs 3 observations anyway.
+
+   **`confidence: "verified"` is the sharpest version of this risk and needs
+   deciding separately.** It is simultaneously the hardest level for a lexical
+   extractor to assign — it requires recognising that *a check actually
+   confirmed* the claim, not merely that someone asserted it — and the one with
+   the lowest promotion bar (1 observation, and per §4.1 the only path exempt
+   from the distinct-days clause). A single misclassification there is the
+   cheapest possible route for a wrong claim to reach L2. Leaning: a rule-based
+   extractor must **never** assign `verified` — reserve it for atoms minted by a
+   tool that ran the check itself and can name it, and let prose-derived atoms
+   top out at `stated`.
 3. **Does this earn a plugin, or a `skillopt-sleep` sibling doc?** If (a) above
    proves too low-recall in a trial, the honest answer may be "extend the
    existing nightly cycle" and this folder is deleted. Decide after a 2-week

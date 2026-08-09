@@ -1,0 +1,601 @@
+"""Extraction, token-estimation and chapter-structure detection helpers.
+
+Vendored from virgiliojr94/book-to-skill (MIT) with the CLI layer removed:
+argument parsing, the attribution banner and ``main()`` now live in
+``extract_document.py`` so this module stays a side-effect-free library.
+"""
+
+from __future__ import annotations
+
+import glob
+import json
+import os
+import re
+import sys
+import shutil
+import zipfile
+from pathlib import Path
+
+from book_to_skill.exceptions import ExtractionError
+
+from book_to_skill.config import (
+    WORDS_PER_TOKEN,
+    CJK_CHARS_PER_TOKEN,
+    SUPPORTED_EXTENSIONS,
+    TEXT_EXTENSIONS,
+    HTML_EXTENSIONS,
+    CALIBRE_EBOOK_EXTENSIONS,
+    supported_formats_message,
+)
+from book_to_skill.dependencies import prepare_dependencies
+from book_to_skill.parsers.text import read_text_file
+from book_to_skill.parsers.html_text import extract_html_file
+from book_to_skill.parsers.docx import extract_docx
+from book_to_skill.parsers.rtf import extract_rtf
+from book_to_skill.parsers.calibre import extract_with_ebook_convert
+from book_to_skill.parsers.pdf import (
+    extract_with_docling,
+    extract_with_pdftotext,
+    extract_with_pypdf,
+    extract_with_pdfminer,
+    count_pages,
+)
+from book_to_skill.parsers.epub import (
+    extract_with_ebooklib,
+    extract_with_zipfile,
+    count_epub_chapters,
+)
+from book_to_skill.sanitize import sanitize_extracted_text
+from book_to_skill.zip_safety import safe_read
+
+
+# CJK codepoints: ideographs + extensions, kana, hangul, CJK punctuation, and
+# fullwidth forms. These are not whitespace-delimited, so counting "words" on a
+# Chinese/Japanese book collapses it to a handful of tokens; count them directly.
+_CJK_RE = re.compile(
+    r"[　-〿぀-ヿ㐀-䶿一-鿿"
+    r"가-힣豈-﫿＀-￯]"
+)
+
+
+def estimate_tokens(text: str) -> int:
+    """Estimate the token count of ``text`` with a deterministic heuristic.
+
+    Latin / whitespace-delimited text is counted by words (``words /
+    WORDS_PER_TOKEN`` — the project's long-standing ratio). CJK characters are
+    counted directly against ``CJK_CHARS_PER_TOKEN`` because they carry little
+    or no whitespace; without this a space-less Chinese/Japanese book estimates
+    at a few tokens and the cost pre-flight under-reports by ~1000x. Kept
+    dependency-free on purpose so the same book always yields the same number.
+    """
+    if not text:
+        return 0
+    cjk = len(_CJK_RE.findall(text))
+    if not cjk:
+        return int(len(text.split()) / WORDS_PER_TOKEN)
+    latin_words = len(_CJK_RE.sub(" ", text).split())
+    return int(latin_words / WORDS_PER_TOKEN + cjk / CJK_CHARS_PER_TOKEN)
+
+
+# Explicit chapter heading: "Chapter 5", "Capítulo 5: ...", "Chapter 1. Intro".
+# Also French/German/Italian/Dutch chapter words (chapitre/kapitel/capitolo/
+# hoofdstuk), matching the ToC languages added alongside. "ch.?" stays last so
+# the longer words match in full. Captures the number (bounded to 1..99 — drops
+# years like "2025.") and whatever follows it on the line, so we can reject prose.
+_EXPLICIT_CHAPTER = re.compile(
+    r"^\s*(?:chapter|chapitre|kapitel|cap[ií]tulo|capitolo|hoofdstuk|ch\.?)\s*(?:(\d{1,2})|(?P<roman>[IVXLCDMivxlcdm]{1,7}))\b(?P<rest>.*)$",
+    re.IGNORECASE,
+)
+# A heading's number is followed by end-of-line, punctuation (“. : - —“), or a
+# Capitalized title word. A lowercase continuation (“Chapter 6 explores...”,
+# “Chapter 8 are relevant...”) is prose / a cross-reference, not a heading.
+# The uppercase class is À-Þ so titles starting with Ü/Û (common in German, e.g. “Überblick”) are recognized.
+_HEADING_TAIL = re.compile(r"^\s*$|^\s*[.:\-—–]|^\s+[A-ZÀ-Þ0-9\"“(]")
+
+# Roman-numeral chapter heading: "I: Loomings", "II. The Carpet-Bag".
+# Uppercase alone at line start is safe — no common English word is a valid
+# uppercase Roman numeral.  Lowercase ("i: Loomings") is only accepted inside
+# a markdown heading ("## i. introduction") to avoid false positives from
+# words that happen to be valid Roman numerals ("vi: the editor" → 6).
+_ROMAN_HEAD = re.compile(r"^\s*([IVXLCDM]+)\s*[:.]\s+[A-ZÀ-Þ0-9\"“(]")
+_LC_MD_ROMAN = re.compile(r"^\s*#{1,6}\s+([ivxlcdm]+)\s*[:.]\s+[A-Za-zÀ-Þ\"“(]")
+_ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+
+# Chinese chapter headings. Two common styles:
+#   1. explicit "第N章" / "第 3 回" / "第十二节" / "第一讲" — 第 + numeral + a
+#      chapter classifier (章回卷节篇讲);
+#   2. a Markdown heading led by a CJK ordinal and a separator, e.g.
+#      "## 一 · 缘起" or "## 第一讲" — common in CJK ebooks and lecture notes.
+# Scoped to CJK numerals, so Latin/Roman detection above is completely unaffected
+# (e.g. "## 5 Setup" is still not treated as a heading here). detect_structure()
+# dedupes by number, so a "##" heading and a repeated "###" sub-ordinal collapse
+# to a single chapter.
+_CN_NUM_VALUES = {
+    "〇": 0, "零": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5,
+    "六": 6, "七": 7, "八": 8, "九": 9,
+}
+_CN_NUM_UNITS = {"十": 10, "百": 100, "千": 1000}
+_CN_NUM_CLASS = "〇零一二两三四五六七八九十百千"
+# Full-width Arabic digits (U+FF10–U+FF19) are common in Japanese typesetting,
+# e.g. "第１章". int() already parses them (str.isdigit() is True), so only the
+# regex character classes need to accept them.
+_FW_DIGITS = "０-９"
+_CN_CHAPTER = re.compile(rf"^\s*第\s*([0-9{_FW_DIGITS}{_CN_NUM_CLASS}]+)\s*[章回卷节篇讲]")
+_MD_CN_HEADING = re.compile(rf"^#{{1,6}}\s+第?\s*([{_FW_DIGITS}{_CN_NUM_CLASS}]+)\s*[·、.:：章回卷节篇讲]")
+
+# Thai chapter headings: "บทที่ 3", "บทที่ ๑๒", "ตอนที่ ๘๗", "ภาคที่ 2".
+# Thai digits (U+0E50-U+0E59) are positional like Arabic — unlike the Chinese
+# numerals above they need no unit composition, only a digit remap. Optional
+# Markdown "#" prefix so "## บทที่ ๑" is recognized in converted ebooks.
+_TH_DIGITS = "๐-๙"
+_TH_DIGIT_MAP = str.maketrans("๐๑๒๓๔๕๖๗๘๙", "0123456789")
+_TH_CHAPTER = re.compile(
+    rf"^\s*(?:#{{1,6}}\s+)?(?:บทที่|ตอนที่|ภาคที่|บท|ตอน|ภาค)\s*([0-9{_TH_DIGITS}]+)\b"
+)
+
+# Korean chapter headings: "제1장 총칙", "## 제4장 근로시간과 휴식", "제6장의2 …".
+# 제 + Arabic numeral + a classifier (장 chapter / 편 part / 절 section / 관
+# subsection), with an optional "의N" branch suffix that Korean statutes use for
+# inserted chapters (제6장의2). Modern Korean numbers chapters with Arabic digits,
+# so unlike the Chinese branch no numeral composition is needed. Optional Markdown
+# "#" prefix so "## 제1장" is recognized in converted ebooks.
+#
+# The trailing group is the Korean analogue of _HEADING_TAIL: Korean has no letter
+# case, so the existing "capitalized title word" test does not transfer.
+# Requiring end-of-line, punctuation, or whitespace-then-content is what separates
+# a heading from a prose cross-reference, because Korean particles attach directly
+# to the noun ("제5장에서", "제2장의") with no intervening space.
+_KO_CHAPTER = re.compile(
+    r"^\s*(?:#{1,6}\s+)?제\s*([0-9]+)\s*[장편절관](?:\s*의\s*[0-9]+)?(?:\s*$|[.:\-]|\s+\S)"
+)
+
+# Table-of-contents header lines across common languages. Anchored to a whole
+# line (^\s*X\s*$) so an inline "the contents of this chapter" never matches.
+_TOC_HEADERS = (
+    "table of contents", "contents", "índice", "sumário",   # EN / ES / PT
+    "目录", "目錄", "目次",                                   # Chinese / Japanese
+    "table des matières",                                   # French
+    "inhaltsverzeichnis",                                   # German
+    "indice", "sommario",                                   # Italian (no accent — distinct from índice above)
+    "inhoudsopgave",                                        # Dutch
+)
+_TOC_PATTERN = re.compile(
+    r"^\s*(?:" + "|".join(re.escape(h) for h in _TOC_HEADERS) + r")\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+# ATX-style heading: "# Title", "## Section", AsciiDoc "= Title", "== Section".
+# The required space after the marker distinguishes an AsciiDoc "== X" from a
+# reStructuredText underline "=====" (no space) — the latter is intentionally
+# ignored (RST underline headings are out of scope).
+_ATX_HEADING = re.compile(r"^(#{1,6}|={1,6})\s+(.+?)\s*#*$")
+# Setext/RST underline: a full line of "=" (level 1) or "-" (level 2), length
+# >= 2. Marks the line directly above it as a heading title.
+_SETEXT_UNDERLINE = re.compile(r"^(={2,}|-{2,})$")
+
+
+def _structural_chapter_count(text: str) -> int:
+    """Count chapter-like structural headings in Markdown/AsciiDoc/RST sources.
+
+    Recognizes ATX headings ("# Title", "== Section") and setext/RST underline
+    headings (a title line directly above a row of "=" or "-"). Groups distinct
+    (case-normalized) titles by depth and returns the count at the shallowest
+    depth with >= 2 distinct titles — this selects the real chapter level in the
+    common "# Book Title / ## Chapter" layout where the top level appears once.
+
+    Guards against false positives: headings inside fenced code blocks are
+    skipped; an ATX title starting with a bare digit ("## 5 Setup") or made only
+    of punctuation ("=====" table borders) is rejected; a setext underline counts
+    only when it sits directly under a non-blank title line at least as long as
+    the underline (so thematic breaks, table borders, and front-matter "---" do
+    not match).
+    """
+    levels: dict[int, set[str]] = {}
+    in_fence = False
+    prev = ""  # previous non-fence line (stripped); a setext title candidate
+    for line in text.splitlines():
+        s = line.strip()
+        if s.startswith("```") or s.startswith("~~~"):
+            in_fence = not in_fence
+            prev = ""
+            continue
+        if in_fence:
+            prev = ""
+            continue
+        # Setext/RST underline: "=" (level 1) or "-" (level 2) directly under a
+        # title line at least as long as the underline.
+        if (
+            _SETEXT_UNDERLINE.match(s)
+            and prev
+            and not _SETEXT_UNDERLINE.match(prev)
+            and len(s) >= len(prev)
+        ):
+            depth = 1 if s[0] == "=" else 2
+            levels.setdefault(depth, set()).add(prev.lower())
+            prev = ""
+            continue
+        # ATX heading ("# Title", "== Section").
+        m = _ATX_HEADING.match(s)
+        if m:
+            title = m.group(2).strip().lower()
+            # Reject empty, bare-digit-led ("## 5 Setup"), and all-punctuation
+            # ("=====" table-border) titles — none are real chapter headings.
+            if title and not title[0].isdigit() and re.search(r"\w", title):
+                levels.setdefault(len(m.group(1)), set()).add(title)
+            # An ATX heading line is not a setext title for the next line.
+            prev = ""
+            continue
+        prev = s
+    if not levels:
+        return 0
+    for depth in sorted(levels):
+        if len(levels[depth]) >= 2:
+            return len(levels[depth])
+    # No level has >= 2 distinct headings: a thin doc (e.g. one heading per
+    # level). Count them all — this path runs only as a fallback when numeric
+    # chapter detection already found zero, so it cannot inflate real books.
+    return sum(len(titles) for titles in levels.values())
+
+
+def _cn_numeral_to_int(s: str) -> int | None:
+    """Parse a Chinese (or ASCII-digit) chapter numeral into an int (1..999)."""
+    if s.isdigit():
+        n = int(s)
+        return n if 1 <= n <= 999 else None
+    section = current = 0
+    for ch in s:
+        if ch in _CN_NUM_VALUES:
+            current = _CN_NUM_VALUES[ch]
+        elif ch in _CN_NUM_UNITS:
+            section += (current or 1) * _CN_NUM_UNITS[ch]
+            current = 0
+        else:
+            return None
+    total = section + current
+    return total if 1 <= total <= 999 else None
+
+
+def _int_to_roman(n: int) -> str:
+    table = [(1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"),
+             (90, "XC"), (50, "L"), (40, "XL"), (10, "X"), (9, "IX"),
+             (5, "V"), (4, "IV"), (1, "I")]
+    out = []
+    for val, sym in table:
+        while n >= val:
+            out.append(sym)
+            n -= val
+    return "".join(out)
+
+
+def _roman_to_int(s: str) -> int | None:
+    """Convert a Roman numeral to int, returning None if it isn't canonical."""
+    s = s.upper()
+    total = prev = 0
+    for ch in reversed(s):
+        v = _ROMAN_VALUES.get(ch)
+        if v is None:
+            return None
+        total += -v if v < prev else v
+        prev = max(prev, v)
+    if total == 0 or total > 200:
+        return None
+    # Reject non-canonical forms ("IIII", "VV") by round-tripping.
+    return total if _int_to_roman(total) == s else None
+
+
+def _chapter_number(line: str) -> int | None:
+    """Return the chapter number if the line is a genuine chapter heading.
+
+    Handles Arabic ("Chapter 5", "Capítulo 5: ..."), Roman-numeral
+    ("I: Loomings", "## i. introduction", "II. The Carpet-Bag"),
+    Chinese ("第三章 …", "## 一 · …", "## 第一讲"), Thai ("บทที่ 3",
+    "## บทที่ ๑"), and Korean ("제1장 총칙", "## 제4장 근로시간과 휴식")
+    heading styles.
+    """
+    s = line.strip()
+    if len(s) > 80:
+        return None
+    m = _EXPLICIT_CHAPTER.match(s)
+    if m and _HEADING_TAIL.match(m.group("rest")):
+        if m.group(1):
+            return int(m.group(1))
+        return _roman_to_int(m.group("roman").upper())
+    rm = _ROMAN_HEAD.match(s) or _LC_MD_ROMAN.match(s)
+    if rm:
+        return _roman_to_int(rm.group(1))
+    cm = _CN_CHAPTER.match(s) or _MD_CN_HEADING.match(s)
+    if cm:
+        return _cn_numeral_to_int(cm.group(1))
+    tm = _TH_CHAPTER.match(s)
+    if tm:
+        return int(tm.group(1).translate(_TH_DIGIT_MAP))
+    km = _KO_CHAPTER.match(s)
+    if km:
+        return int(km.group(1))
+    return None
+
+
+def detect_structure(text: str) -> dict:
+    """Detect chapter count and table of contents presence.
+
+    Scans the whole text (not just the head) and counts DISTINCT chapter numbers
+    from explicit "Chapter N"/"Capítulo N" headings, rejecting prose
+    cross-references and numbered list items. Counting distinct numbers means a
+    ToC entry and its body heading are not double-counted.
+    """
+    lines = text.splitlines()
+
+    headings = []
+    numbers = set()
+    for line in lines:
+        num = _chapter_number(line)
+        if num is not None:
+            numbers.add(num)
+            headings.append(line.strip())
+    numeric_count = len(numbers)
+    # Fall back to structural (Markdown/AsciiDoc) headings only when no numeric
+    # "Chapter N" headings were found, so books with real chapters are unaffected.
+    chapters_detected = (
+        numeric_count if numeric_count > 0 else _structural_chapter_count(text)
+    )
+
+    # Look for ToC indicators in the first ~30k chars (multilingual; see _TOC_PATTERN)
+    has_toc = bool(_TOC_PATTERN.search(text[:30000]))
+
+    return {
+        "chapters_detected": chapters_detected,
+        "chapter_headings_sample": headings[:10],
+        "has_toc": has_toc,
+    }
+
+
+def resolve_input_files(paths: list[str]) -> list[Path]:
+    """Resolve paths including files, directories, and glob patterns to Path objects.
+
+    User-given order is preserved for explicit file arguments.  Expanded
+    results (directories, globs) are sorted deterministically so repeated
+    runs produce the same output.
+    """
+    resolved = []
+    for path_str in paths:
+        # Check if it has glob wildcards
+        if any(char in path_str for char in ("*", "?", "[")):
+            glob_matches = glob.glob(path_str, recursive=True)
+            # Sort expanded glob results deterministically
+            expanded = []
+            for match in glob_matches:
+                p = Path(match)
+                if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS:
+                    expanded.append(p.resolve())
+            expanded.sort(key=lambda x: str(x).lower())
+            resolved.extend(expanded)
+        else:
+            p = Path(path_str)
+            if p.is_dir():
+                # Sort expanded directory results deterministically
+                dir_files = []
+                for root, _, files in os.walk(p):
+                    for file in files:
+                        file_path = Path(root) / file
+                        if file_path.suffix.lower() in SUPPORTED_EXTENSIONS:
+                            dir_files.append(file_path.resolve())
+                dir_files.sort(key=lambda x: str(x).lower())
+                resolved.extend(dir_files)
+            else:
+                # Keep even if it doesn't exist so the error check can report it
+                resolved.append(p.resolve())
+
+    # Deduplicate while preserving insertion order (user order for explicit files)
+    seen = set()
+    unique_paths = []
+    for path in resolved:
+        resolved_path = path.resolve() if path.exists() else path
+        if resolved_path not in seen:
+            seen.add(resolved_path)
+            unique_paths.append(resolved_path)
+
+    return unique_paths
+
+
+def extract_single_file(input_path: Path, extraction_mode: str, install_mode: str) -> dict:
+    """Extract text and metadata from a single file path."""
+    input_str = str(input_path)
+    
+    if not input_path.exists():
+        raise ExtractionError(f"File not found: {input_str}")
+        
+    ext = input_path.suffix.lower()
+    document_format = ext.lstrip(".")
+    
+    # Sniff magic bytes if suffix is not supported
+    if ext not in SUPPORTED_EXTENSIONS:
+        with open(input_str, "rb") as f:
+            header = f.read(8)
+        if header[:4] == b"%PDF":
+            ext = ".pdf"
+            document_format = "pdf"
+        elif header[:2] == b"PK":
+            try:
+                with zipfile.ZipFile(input_str) as zf:
+                    names = set(zf.namelist())
+                    # safe_read, not zf.read: this runs during *sniffing*, before a
+                    # format is even chosen, so it is the earliest point an attacker
+                    # controls. A single-member zip declaring a huge uncompressed
+                    # `mimetype` would otherwise be fully decompressed here — ahead of
+                    # every size check in zip_safety.py. Its ExtractionError is not in
+                    # the except tuple below, so a bomb reports as a bomb rather than
+                    # as a generic unsupported format.
+                    if "mimetype" in names and safe_read(zf, "mimetype").startswith(b"application/epub"):
+                        ext = ".epub"
+                        document_format = "epub"
+                    elif "word/document.xml" in names:
+                        ext = ".docx"
+                        document_format = "docx"
+                    else:
+                        raise ExtractionError(
+                            f"Unsupported ZIP-based format '{input_path.name}'. Supported: {supported_formats_message()}"
+                        )
+            except (zipfile.BadZipFile, KeyError, OSError):
+                raise ExtractionError(
+                    f"Unsupported ZIP-based format '{input_path.name}'. Supported: {supported_formats_message()}"
+                )
+        else:
+            raise ExtractionError(
+                f"Unsupported format '{ext or '<none>'}'. Supported: {supported_formats_message()}"
+            )
+            
+    prepare_dependencies(ext, extraction_mode, install_mode)
+    
+    if ext in CALIBRE_EBOOK_EXTENSIONS and not shutil.which("ebook-convert"):
+        raise ExtractionError(
+            "MOBI/AZW/AZW3 extraction requires Calibre's ebook-convert command. "
+            "Install Calibre and ensure ebook-convert is on PATH, then rerun this command."
+        )
+        
+    text = ""
+    method = ""
+    pages = 0
+    pages_label = "sections"
+    
+    if ext == ".epub":
+        print(f"Extracting EPUB: {input_str}")
+        text = extract_with_ebooklib(input_str)
+        if text and text.strip():
+            method = "ebooklib"
+        else:
+            print("ebooklib not available")
+            print("Trying stdlib zipfile parser...", end=" ", flush=True)
+            text = extract_with_zipfile(input_str)
+            if text and text.strip():
+                print("OK")
+                method = "zipfile"
+            else:
+                print("FAILED")
+                raise ExtractionError(
+                    "Could not extract text from EPUB.\n"
+                    "Install ebooklib + beautifulsoup4 for best results:\n"
+                    "  pip3 install ebooklib beautifulsoup4"
+                )
+        pages = count_epub_chapters(input_str)
+        pages_label = "spine_items"
+    elif ext == ".pdf":
+        print(f"Extracting PDF: {input_str}")
+        if extraction_mode == "technical":
+            print("Mode: technical — using Docling (layout-aware)...", end=" ", flush=True)
+            text = extract_with_docling(input_str)
+            if text:
+                method = "docling"
+                print("OK")
+            else:
+                print("not available, falling back to pdftotext")
+                extraction_mode = "text"
+                
+        if extraction_mode == "text" or not text:
+            print("Mode: text — using pdftotext...")
+            print("Trying pdftotext...", end=" ", flush=True)
+            text = extract_with_pdftotext(input_str)
+            
+            if text:
+                method = "pdftotext"
+                print("OK")
+            else:
+                print("not available")
+                print("Trying pypdf...", end=" ", flush=True)
+                text = extract_with_pypdf(input_str)
+                if text:
+                    method = "pypdf"
+                    print("OK")
+                else:
+                    print("not available")
+                    print("Trying pdfminer.six...", end=" ", flush=True)
+                    text = extract_with_pdfminer(input_str)
+                    if text:
+                        method = "pdfminer"
+                        print("OK")
+                    else:
+                        print("FAILED")
+                        raise ExtractionError(
+                            "Could not extract text from PDF.\n"
+                            "Install one of: poppler-utils (pdftotext), pypdf, or pdfminer.six\n"
+                            "  poppler-utils: use your system package manager\n"
+                            "  pip3 install pypdf\n"
+                            "  pip3 install pdfminer.six"
+                        )
+
+                        
+        pages = count_pages(input_str)
+        pages_label = "pages"
+    elif ext in TEXT_EXTENSIONS:
+        print(f"Extracting text document: {input_str}")
+        text = read_text_file(input_str)
+        if text is None or not text.strip():
+            raise ExtractionError(f"Could not read text document: {input_path.name}")
+        method = "plain-text"
+        pages = 0
+        pages_label = "sections"
+    elif ext in HTML_EXTENSIONS:
+        print(f"Extracting HTML: {input_str}")
+        text = extract_html_file(input_str)
+        if text is None or not text.strip():
+            raise ExtractionError(f"Could not extract text from HTML: {input_path.name}")
+        method = "html-parser"
+        pages = 0
+        pages_label = "sections"
+    elif ext == ".docx":
+        print(f"Extracting DOCX: {input_str}")
+        text, method = extract_docx(input_str)
+        pages = 0
+        pages_label = "sections"
+    elif ext == ".rtf":
+        print(f"Extracting RTF: {input_str}")
+        text, method = extract_rtf(input_str)
+        pages = 0
+        pages_label = "sections"
+    elif ext in CALIBRE_EBOOK_EXTENSIONS:
+        print(f"Extracting ebook with Calibre: {input_str}")
+        text = extract_with_ebook_convert(input_str)
+        if text is None or not text.strip():
+            raise ExtractionError(
+                f"Could not extract text from {ext}. Install Calibre and ensure ebook-convert is on PATH."
+            )
+        method = "ebook-convert"
+        pages = 0
+        pages_label = "sections"
+
+    text, removed_invisible = sanitize_extracted_text(text)
+    if removed_invisible:
+        print(
+            f"  [security] removed {removed_invisible} invisible Unicode "
+            f"code point(s) from {input_path.name}",
+            file=sys.stderr,
+        )
+    if not text.strip():
+        raise ExtractionError(
+            f"Extracted text from {input_path.name} contained no visible content "
+            "after Unicode sanitization."
+        )
+
+    tokens = estimate_tokens(text)
+    structure = detect_structure(text)
+    file_size_mb = os.path.getsize(input_str) / (1024 * 1024)
+    
+    return {
+        "source_file": str(input_path.resolve()),
+        "filename": input_path.name,
+        "format": document_format,
+        "extraction_method": method,
+        "file_size_mb": round(file_size_mb, 2),
+        # `pages` is the canonical count; `pages_label` names the unit ("pages"
+        # for PDF, "spine_items" for EPUB, "sections" otherwise). Upstream also
+        # emitted a dynamic `{pages_label: pages}` key, which silently collided
+        # with "pages" whenever the label WAS "pages"; the alias is added below
+        # only when it is actually a different key.
+        "pages": pages,
+        "pages_label": pages_label,
+        "chars": len(text),
+        "words": len(text.split()),
+        "estimated_tokens": tokens,
+        "text": text,
+        **({pages_label: pages} if pages_label != "pages" else {}),
+        **structure,
+    }

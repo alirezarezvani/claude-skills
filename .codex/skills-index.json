@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 360,
+  "total_skills": 361,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -982,6 +982,12 @@
       "source": "../../engineering/agenthub/skills/board",
       "category": "engineering-advanced",
       "description": "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
+    },
+    {
+      "name": "book-to-skill",
+      "source": "../../engineering/book-to-skill/skills/book-to-skill",
+      "category": "engineering-advanced",
+      "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills \u2014 extracting named frameworks, principles, techniques, and anti-patterns into a master SKILL.md plus on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a claude-skills plugin."
     },
     {
       "name": "browser-automation",
@@ -2203,7 +2209,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 83,
+      "count": 84,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

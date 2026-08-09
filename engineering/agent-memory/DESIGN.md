@@ -231,7 +231,7 @@ rule.
 | Transition | Requires |
 |---|---|
 | L0 → L1 | Extraction produces a well-formed atom with a live `source` back-pointer |
-| L1 → L2 | `observations ≥ 3` across **≥ 3 distinct sessions**, ≥ 2 of them on distinct days, same `project`, no contradiction open |
+| L1 → L2 | `observations ≥ 3` across **≥ 3 distinct sessions**, those sessions **spanning ≥ 2 distinct calendar days (UTC)**, same `project`, no contradiction open |
 | L2 → L3 | Held at L2 in **≥ 2 distinct projects**, `age ≥ 30 days`, no contradiction in 30 days |
 
 **Atom identity is project-scoped.**
@@ -434,6 +434,16 @@ Reuse the pattern this repo already has rather than inventing one —
 - A writer that cannot acquire the lock within **5 seconds gives up and drops
   its atoms**, logging the loss. Losing one session's L1 candidates is
   recoverable — they re-observe. A wedged `SessionEnd` blocking teardown is not.
+
+**Accepted race — record it as a choice, not an oversight.** Stale-lock breaking
+by mtime is a TOCTOU: two writers could both judge a lock stale and both proceed.
+Accepted deliberately, because the consequence is bounded by the design above —
+each writer still commits via `os.replace`, so the loser's atoms are *lost*, not
+*corrupted*, and lost L1 candidates re-observe on the next session. Paying for a
+true mutex (a lock daemon, or `fcntl` semantics that vary across NFS and
+Windows) would buy durability this tier does not need. **Do not "fix" this
+without first showing the loss is actually observable** — L1 is the recoverable
+tier by construction.
 
 **This is a design constraint, not an implementation detail:** it is why the L1
 store is one append-oriented JSONL file per project rather than per-session

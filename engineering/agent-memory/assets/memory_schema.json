@@ -145,6 +145,23 @@
   ],
   "examples": [
     {
+      "$comment": "Tier L1 — present specifically so the examples array exercises the L1 branch of the back-pointer conditional, the one with PII consequences. Note the FULL local path with the <cwd-slug> prefix: correct at L1 (gitignored, direct-openable) and forbidden at L2/L3, where promotion strips it. Also demonstrates kind='failure', which the other two examples do not.",
+      "id": "atm_14a05266",
+      "claim": "mkdocs build fails when nav lists a page with no matching file",
+      "scope": "project",
+      "project": "claude-skills",
+      "kind": "failure",
+      "first_seen": "2026-08-01T14:22:09Z",
+      "last_seen": "2026-08-01T14:22:09Z",
+      "observations": 1,
+      "sessions": ["01SESSIONBBBB11112222333"],
+      "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONBBBB11112222333.jsonl#L1043",
+      "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONBBBB11112222333.jsonl#L1043",
+      "confidence": "observed",
+      "tier": "L1",
+      "redacted": false
+    },
+    {
       "id": "atm_961f033d",
       "claim": "PR base branch is dev, never main",
       "scope": "project",

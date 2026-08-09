@@ -131,8 +131,9 @@ Every field is mandatory. An atom missing provenance is discarded, not stored.
   "last_seen": "2026-08-09T10:14:22Z",
   "observations": 1,
   "sessions": ["01EM5xmJ7AmTMg31rq68BCym"],
-  "source": "~/.claude/projects/-home-user-claude-skills/01EM....jsonl#L412",
+  "source": "~/.claude/projects/-home-user-claude-skills/01EM5xmJ7AmTMg31rq68BCym.jsonl#L412",
   "confidence": "observed",
+  "tier": "L1",
   "redacted": false
 }
 ```
@@ -171,9 +172,12 @@ Fast paths:
 
 - `confidence: "stated"` — an explicit user directive ("always target dev") —
   needs **2** sessions, not 3. The user said it; we are counting whether it
-  *sticks*, not whether it is real.
+  *sticks*, not whether it is real. **The ≥ 2-distinct-days clause still
+  applies** — with exactly 2 sessions, both must not fall on the same day.
+  Otherwise one long working day could mint an L2 claim.
 - `confidence: "verified"` — a claim a script confirmed — promotes on **1**
-  observation. It is not hearsay.
+  observation, and is the **only** path exempt from the distinct-days clause.
+  It is not hearsay.
 
 ### 4.2 Contradiction handling
 
@@ -219,9 +223,32 @@ Three hooks. Each must be independently disableable by env var, following
   overlap + `kind` weight + recency). No embeddings, no API call.
 - Inject **top 5 max, 1 KB max**.
 - Disable: `AGENT_MEMORY_RECALL=0`
-- **Hard latency budget: 100 ms.** Over → return nothing. This hook is on the
-  critical path of every single prompt; it is the one place where being slow is
-  worse than being absent.
+
+**Latency — two distinct limits, do not conflate them:**
+
+| Limit | Value | Enforced by |
+|---|---|---|
+| Internal self-budget | **100 ms** | `user_prompt_submit.py` itself, against a monotonic clock: past budget it stops scoring and returns whatever it has (possibly nothing) |
+| Hook timeout backstop | **1 second** | Claude Code, via `"timeout": 1` in `hooks.json` — **the hook `timeout` field is in SECONDS**, and 1 is the floor |
+
+The backstop exists only to kill a wedged process. It is **not** the budget, and
+an implementation that merely finishes under 1 s has missed the requirement.
+This hook is on the critical path of every prompt; it is the one place where
+being slow is worse than being absent.
+
+**Bounding the work so 100 ms is reachable** (see open decision §9.5 — this is
+asserted, not yet measured):
+
+- `.memory/atoms.jsonl` is **capped at 500 atoms**. On overflow, evict by
+  `last_seen` ascending. Scoring cost is then bounded regardless of history
+  length.
+- Scoring is a single linear pass, no index build, no sort of the full set —
+  a bounded top-5 heap.
+- Interpreter start-up is the dominant fixed cost and is **not** controllable
+  from inside the script. If measurement shows cold start alone consumes most
+  of the budget, the honest responses are to raise the budget to a measured
+  number or drop this hook entirely — **not** to keep an unmet 100 ms claim in
+  the spec.
 
 ### 5.3 `SessionEnd` — capture
 
@@ -350,6 +377,17 @@ Needed before implementation starts:
 4. **Multi-repo L3.** L2→L3 requires observation in ≥ 2 projects. With two repos
    attached (`claude-skills`, `gaios`) the sample is thin; L3 may need to stay
    manually curated for now.
+5. **Is the 100 ms recall budget achievable at all?** §5.2 asserts it and bounds
+   the work (500-atom cap, single linear pass), but a spawned `python3` pays
+   interpreter cold-start before executing a line, and that cost is unbounded
+   from inside the script — on a loaded machine it can consume most of the
+   budget by itself. **Measure before implementing:** time a no-op
+   `python3 -c pass` plus a 500-atom scoring pass at p50/p95 on a busy machine.
+   Outcomes: (a) it fits → build as specced; (b) it fits only sometimes → raise
+   the budget to the measured p95 and state that number instead; (c) it does not
+   fit → **drop `UserPromptSubmit` entirely** and let L2/L3 at `SessionStart`
+   carry the system. Option (c) is a real, acceptable outcome — a recall hook
+   that misses its budget on every prompt is worse than no recall hook.
 
 ---
 

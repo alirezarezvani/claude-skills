@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/alirezarezvani/claude-skills/engineering/agent-memory/assets/memory_schema.json",
+  "$id": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/dev/engineering/agent-memory/assets/memory_schema.json",
   "title": "agent-memory atom (L1) — v1",
   "description": "One atomic memory claim extracted from an L0 transcript. Every atom MUST carry a live back-pointer into the transcript that produced it; an atom without provenance is discarded, never stored. Promotion to L2/L3 is decided by recurrence across distinct sessions, not by importance. See ../DESIGN.md sections 3 and 4.",
   "type": "object",
@@ -118,8 +118,12 @@
       "first_seen": "2026-07-02T09:11:04Z",
       "last_seen": "2026-08-09T10:14:22Z",
       "observations": 6,
-      "sessions": ["01EM5xmJ", "01FQ2bkR", "01GT8wzL"],
-      "source": "~/.claude/projects/-home-user-claude-skills/01GT8wzL.jsonl#L412",
+      "sessions": [
+        "01EM5xmJ7AmTMg31rq68BCym",
+        "01FQ2bkR9NpVXc4dLs71ZhTw",
+        "01GT8wzL3MjHYb6kRq92FnDx"
+      ],
+      "source": "~/.claude/projects/-home-user-claude-skills/01GT8wzL3MjHYb6kRq92FnDx.jsonl#L412",
       "confidence": "stated",
       "tier": "L2",
       "promoted_at": "2026-07-19T14:02:00Z",
@@ -133,8 +137,13 @@
       "first_seen": "2026-05-14T08:20:11Z",
       "last_seen": "2026-08-08T17:45:03Z",
       "observations": 23,
-      "sessions": ["01AA1aaa", "01BB2bbb", "01CC3ccc", "01DD4ddd"],
-      "source": "~/.claude/projects/-home-user-claude-skills/01DD4ddd.jsonl#L88",
+      "sessions": [
+        "01AA1aaaQ2rTvB8mNc4kJpXe",
+        "01BB2bbbW7yUdF3nPl6sKgZr",
+        "01CC3cccE5tYhG9jRm2vLbNq",
+        "01DD4dddU8pIoK1xSw7fVcMt"
+      ],
+      "source": "~/.claude/projects/-home-user-claude-skills/01DD4dddU8pIoK1xSw7fVcMt.jsonl#L88",
       "confidence": "verified",
       "tier": "L3",
       "promoted_at": "2026-06-21T11:30:00Z",

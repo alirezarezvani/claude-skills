@@ -39,9 +39,47 @@ import os
 import re
 import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+def _find(start, marker, limit=10):
+    """Walk up from `start` until `marker` is satisfied. `marker` is either a
+    filename or a predicate taking a directory path.
+
+    NOT `dirname(dirname(__file__))`. That form is correct only at this file's
+    CURRENT depth (assets/, two below the plugin root). §10.1 moves this script
+    to skills/agent-memory/scripts/ — four below — where a fixed dirname-count
+    silently lands on the SKILL root instead: SCHEMA would still resolve (by
+    coincidence, since assets/ and scripts/ become siblings), DESIGN would
+    raise, and the repo-root CLAUDE.md check would resolve to a path that does
+    not exist and be SKIPPED by its own exists() guard — the 84 KB size claim
+    would stop being verified with nothing reporting that it had.
+
+    Anchoring on a marker file makes the script correct at any depth, so the
+    move in §10.1 cannot quietly disable a check.
+    """
+    hit = marker if callable(marker) else (
+        lambda d: os.path.exists(os.path.join(d, marker)))
+    d = os.path.abspath(start)
+    for _ in range(limit):
+        if hit(d):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d:
+            break
+        d = parent
+    raise SystemExit(
+        "FATAL: could not locate %s by walking up from %s.\n"
+        "  This checker anchors its paths on that marker rather than a fixed\n"
+        "  directory depth. If the layout changed, update the marker — do not\n"
+        "  fall back to a dirname count, which fails silently on a move."
+        % (marker, start)
+    )
+
+
+BASE = _find(os.path.dirname(os.path.abspath(__file__)), "DESIGN.md")
 DESIGN = os.path.join(BASE, "DESIGN.md")
 SCHEMA = os.path.join(BASE, "assets", "memory_schema.json")
+if not os.path.exists(SCHEMA):  # post-§10.1 layout: assets/ moves under the skill
+    SCHEMA = os.path.join(BASE, "skills", "agent-memory", "assets",
+                          "memory_schema.json")
 
 CONFIDENCE_ORDER = ["observed", "stated", "verified"]
 GATE_SESSIONS = {"observed": 3, "stated": 2, "verified": 1}
@@ -235,8 +273,27 @@ def main():
           "all fixture session ids are synthetic")
 
     # -- family 6: claims in prose that must match measurable reality --------
-    root = os.path.join(BASE, "..", "..", "CLAUDE.md")
-    if os.path.exists(root):
+    # Anchored on the repo marker, not a fixed "../.." from BASE — and NOT
+    # guarded by a bare exists() that turns "cannot find it" into "nothing to
+    # report". A check that silently stops running is worse than one that was
+    # never written: the suite keeps printing green while the claim goes
+    # unverified. Failing to locate the file is itself a failure.
+    # `.claude-plugin` alone is NOT a repo-root marker — plugin folders such as
+    # engineering/ carry one too, and anchoring on it lands one level short.
+    # The repo root is the directory holding BOTH CLAUDE.md and the counter
+    # script; that pair exists nowhere else in the tree.
+    def _is_repo_root(d):
+        return (os.path.exists(os.path.join(d, "CLAUDE.md"))
+                and os.path.exists(os.path.join(d, "scripts",
+                                                "derive_counters.py")))
+    try:
+        repo = _find(BASE, _is_repo_root)
+    except SystemExit:
+        repo = None
+    root = os.path.join(repo, "CLAUDE.md") if repo else None
+    check(root is not None and os.path.exists(root),
+          "repo-root CLAUDE.md is locatable (the size claim depends on it)")
+    if root and os.path.exists(root):
         size = len(open(root, "rb").read())
         check("{:,}".format(size) in design,
               "the CLAUDE.md size claim cites the measured byte count")

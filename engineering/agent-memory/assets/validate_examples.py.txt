@@ -134,7 +134,15 @@ def main():
     schema, design = load()
     flat = norm_prose(design)
     required = set(schema["required"])
-    props = set(schema["properties"]) | {"$comment"}
+    # NOT `| {"$comment"}`. An earlier version of this line whitelisted
+    # $comment so that an annotation embedded in examples[0] would pass —
+    # i.e. the checker was weakened to tolerate the author's own defect
+    # instead of reporting it. `examples` entries are INSTANCE data, and
+    # `additionalProperties: false` forbids undeclared keys there; $comment is
+    # a *schema* keyword and is legal only at schema level and inside the
+    # allOf branches, which is where it still lives. Whitelisting anything
+    # here reintroduces exactly that blind spot.
+    props = set(schema["properties"])
     examples = atom_examples(schema, design)
     normalize = published_normalize(design)
 

@@ -229,6 +229,20 @@ rule instead of hiding it.
 
 Full JSON Schema: [`assets/memory_schema.json`](assets/memory_schema.json).
 
+**Why the schema carries three fixtures, one per tier:** the `examples` array is
+not illustration — it is the only thing that exercises the `allOf` branches.
+Example 1 is L1 (`kind: "failure"`, full `<cwd-slug>` back-pointer) and exists
+specifically to cover the **L1 branch of the back-pointer conditional**, the one
+with PII consequences (§3.1.1); examples 2 and 3 cover L2 and L3 with the
+stripped form. A tier absent from `examples` is a conditional branch nothing
+tests.
+
+That rationale lives here rather than as a `$comment` inside the fixture,
+because **`examples` entries are instance data**: `additionalProperties: false`
+forbids undeclared keys there, so an annotation embedded in an example makes the
+example fail the very schema it demonstrates. `$comment` is a *schema* keyword —
+legal at schema level and inside `allOf` branches, where it is still used.
+
 #### 3.1.2 Invariants the schema cannot enforce — the tools own these
 
 JSON Schema validates **one atom at a time**, so a valid atom does *not* imply a

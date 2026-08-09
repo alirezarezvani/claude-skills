@@ -35,7 +35,10 @@
     },
     "scope": {
       "type": "string",
-      "enum": ["project", "global"],
+      "enum": [
+        "project",
+        "global"
+      ],
       "description": "DETERMINED BY TIER, not chosen freely: L1 and L2 are always 'project'; 'global' arises ONLY from the L2->L3 merge. Extraction must therefore always emit scope='project'. Permitting a scope='global' atom at extraction would create an unreachable state — the L1 to L2 gate requires 'same project' and a global atom has no 'project' field, while L2 to L3 is a merge over two or more L2 atoms, so such an atom could never promote and would sit at L1 until it expired. Enforced by the tier/scope conditional below. See DESIGN.md section 4.1.2."
     },
     "project": {
@@ -44,7 +47,13 @@
     },
     "kind": {
       "type": "string",
-      "enum": ["constraint", "preference", "fact", "decision", "failure"],
+      "enum": [
+        "constraint",
+        "preference",
+        "fact",
+        "decision",
+        "failure"
+      ],
       "description": "constraint = a rule that must hold (PR base is dev). preference = a stated liking (stdlib only). fact = an environmental truth (backend URL). decision = a choice made with rationale. failure = a command or approach that did not work, retained so it is not retried."
     },
     "first_seen": {
@@ -64,7 +73,9 @@
     },
     "sessions": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "minItems": 1,
       "uniqueItems": true,
       "description": "Set of distinct Claude Code session ids in which this claim was observed. This is the durability counter that gates promotion (L1 to L2 needs >= 3 distinct sessions across >= 2 distinct days)."
@@ -79,18 +90,28 @@
     },
     "promoted_from_projects": {
       "type": "array",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "uniqueItems": true,
       "description": "Projects in which this claim independently held at L2 before being promoted to L3. REQUIRED once tier is L3. Exists because 'scope' flips to 'global' on promotion and the conditional below then forbids the single 'project' field — without this array the >= 2-distinct-projects criterion from DESIGN.md section 4.1 would be unauditable the moment it was satisfied, discarding the evidence precisely when it turns from an eligibility test into an audit trail."
     },
     "confidence": {
       "type": "string",
-      "enum": ["observed", "stated", "verified"],
+      "enum": [
+        "observed",
+        "stated",
+        "verified"
+      ],
       "description": "observed = the agent inferred it (3 sessions to promote). stated = the user said it directly (2 sessions). verified = a script or check confirmed it (promotes on 1 observation; it is not hearsay)."
     },
     "tier": {
       "type": "string",
-      "enum": ["L1", "L2", "L3"],
+      "enum": [
+        "L1",
+        "L2",
+        "L3"
+      ],
       "description": "Current tier. L0 is never represented as an atom — it is the raw transcript this atom points back to."
     },
     "contested": {
@@ -100,7 +121,10 @@
     },
     "contested_by": {
       "type": "array",
-      "items": { "type": "string", "pattern": "^atm_[0-9a-f]{8}$" },
+      "items": {
+        "type": "string",
+        "pattern": "^atm_[0-9a-f]{8}$"
+      },
       "description": "Ids of atoms contradicting this claim."
     },
     "promoted_at": {
@@ -116,48 +140,138 @@
   },
   "allOf": [
     {
-      "if": { "properties": { "scope": { "const": "project" } }, "required": ["scope"] },
-      "then": { "required": ["project"] },
-      "else": { "not": { "required": ["project"] } }
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "project"
+          }
+        },
+        "required": [
+          "scope"
+        ]
+      },
+      "then": {
+        "required": [
+          "project"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "project"
+          ]
+        }
+      }
     },
     {
-      "if": { "properties": { "tier": { "const": "L3" } }, "required": ["tier"] },
+      "if": {
+        "properties": {
+          "tier": {
+            "const": "L3"
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
       "then": {
-        "required": ["promoted_from_projects"],
-        "properties": { "promoted_from_projects": { "minItems": 2 } }
+        "required": [
+          "promoted_from_projects"
+        ],
+        "properties": {
+          "promoted_from_projects": {
+            "minItems": 2
+          }
+        }
       }
     },
     {
       "$comment": "promoted_at is REQUIRED at L2/L3 because sections 4.1.1 and 4.3 both key off it — the L2->L3 gate needs age >= 30 days, and demotion needs to know when the atom last moved. An L2 atom missing it could never satisfy the age test and would sit un-promotable forever, silently: the same silent-skip failure mode that made `redacted` required. Deliberately NOT forbidden at L1, because section 4.3 demotes an expired L2 claim BACK to L1 and that atom legitimately retains its promotion history; forbidding it there would make a demoted atom invalid.",
-      "if": { "properties": { "tier": { "enum": ["L2", "L3"] } }, "required": ["tier"] },
-      "then": { "required": ["promoted_at"] }
+      "if": {
+        "properties": {
+          "tier": {
+            "enum": [
+              "L2",
+              "L3"
+            ]
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
+      "then": {
+        "required": [
+          "promoted_at"
+        ]
+      }
     },
     {
       "$comment": "tier determines scope, closing an unreachable state: a tier=L1/scope=global atom could never promote (L1->L2 needs 'same project', which it lacks; L2->L3 merges L2 atoms) and would sit at L1 until expiry. L1 and L2 are project-scoped; global exists only as the product of the L2->L3 merge. See DESIGN.md section 4.1.2.",
-      "if": { "properties": { "tier": { "enum": ["L1", "L2"] } }, "required": ["tier"] },
-      "then": { "properties": { "scope": { "const": "project" } } },
-      "else": { "properties": { "scope": { "const": "global" } } }
-    },
-    {
-      "$comment": "Enforces the tier-dependent back-pointer format from DESIGN.md section 3.1.1. This is the one promotion rule with PII consequences — an unstripped L2/L3 back-pointer commits the contributor's OS username to a shared CLAUDE.md — so it is machine-checked here rather than left to prose, exactly like the scope and tier conditionals above. memory_promote.py must fail loudly on a bad promotion, never leak silently.",
-      "if": { "properties": { "tier": { "const": "L1" } }, "required": ["tier"] },
+      "if": {
+        "properties": {
+          "tier": {
+            "enum": [
+              "L1",
+              "L2"
+            ]
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
       "then": {
         "properties": {
-          "source": { "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" },
-          "first_source": { "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" }
+          "scope": {
+            "const": "project"
+          }
         }
       },
       "else": {
         "properties": {
-          "source": { "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" },
-          "first_source": { "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" }
+          "scope": {
+            "const": "global"
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Enforces the tier-dependent back-pointer format from DESIGN.md section 3.1.1. This is the one promotion rule with PII consequences — an unstripped L2/L3 back-pointer commits the contributor's OS username to a shared CLAUDE.md — so it is machine-checked here rather than left to prose, exactly like the scope and tier conditionals above. memory_promote.py must fail loudly on a bad promotion, never leak silently.",
+      "if": {
+        "properties": {
+          "tier": {
+            "const": "L1"
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          },
+          "first_source": {
+            "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "source": {
+            "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          },
+          "first_source": {
+            "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          }
         }
       }
     }
   ],
   "examples": [
     {
-      "$comment": "Tier L1 — present specifically so the examples array exercises the L1 branch of the back-pointer conditional, the one with PII consequences. Note the FULL local path with the <cwd-slug> prefix: correct at L1 (gitignored, direct-openable) and forbidden at L2/L3, where promotion strips it. Also demonstrates kind='failure', which the other two examples do not.",
       "id": "atm_14a05266",
       "claim": "mkdocs build fails when nav lists a page with no matching file",
       "scope": "project",
@@ -166,7 +280,9 @@
       "first_seen": "2026-08-01T14:22:09Z",
       "last_seen": "2026-08-01T14:22:09Z",
       "observations": 1,
-      "sessions": ["01SESSIONBBBB11112222333"],
+      "sessions": [
+        "01SESSIONBBBB11112222333"
+      ],
       "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONBBBB11112222333.jsonl#L1043",
       "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONBBBB11112222333.jsonl#L1043",
       "confidence": "observed",
@@ -212,7 +328,10 @@
       "first_source": "01SESSIONDDDD11112222333.jsonl#L204",
       "confidence": "verified",
       "tier": "L3",
-      "promoted_from_projects": ["claude-skills", "other-project"],
+      "promoted_from_projects": [
+        "claude-skills",
+        "other-project"
+      ],
       "promoted_at": "2026-06-21T11:30:00Z",
       "redacted": false
     }

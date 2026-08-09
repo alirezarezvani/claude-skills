@@ -342,6 +342,16 @@ def main():
                   "%s first_source survives promotion with only the path "
                   "prefix stripped" % aid)
 
+    # The doc states how many checks this file runs. That sentence went stale
+    # twice while the section containing it argued against exactly this kind of
+    # drift, and a reviewer then quoted the stale number back. So the program
+    # owns the claim: `+ 1` accounts for this check itself, which has not been
+    # appended to `ran` yet at the moment the count is computed. Keep this LAST
+    # -- any check added after it silently invalidates the arithmetic.
+    _total = len(ran) + 1
+    check("%d checks in seven families" % _total in norm_prose(design),
+          "DESIGN.md cites the number of checks this file actually runs")
+
     print("\n%d checks, %d failures" % (len(ran), len(failures)))
     for f in failures:
         print("  FAILED: " + f)

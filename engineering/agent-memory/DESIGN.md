@@ -451,13 +451,25 @@ different machines.
 
 ### 4.2 Contradiction handling
 
-When a new atom contradicts a claim at L2/L3, the incumbent is **never silently
+**Scope first, because this section promises more than §4.2.1 delivers.** The
+detector groups atoms by `project`, so it covers **L1↔L1 and L1↔L2 within one
+project** — every pair the promotion gate actually consults. It **cannot reach
+L3 at all**: an L3 atom is `scope: "global"` and carries no `project` field
+(§3.1's conditional *forbids* one), so it is never in any group the detector
+forms. This is not an oversight to be patched with a loop change — §9.6 explains
+why the L3 case is underdetermined rather than merely unimplemented. Read the
+rest of this section as **L1/L2 only**.
+
+When a new atom contradicts a claim at L2, the incumbent is **never silently
 overwritten**:
 
 1. Mark the incumbent `contested`, record the contradicting atom id.
-2. A contested L2/L3 claim is **still injected**, tagged
+2. A contested claim is **still injected**, tagged
    `[contested — newer evidence YYYY-MM-DD]`. Withholding it silently would be
-   worse than surfacing the conflict.
+   worse than surfacing the conflict. This *rendering* rule is tier-agnostic and
+   deliberately so — the schema permits `contested` at any tier, so an L3 atom a
+   human contests by hand at `adopt` renders the same way. Only **detection** is
+   L1/L2-scoped; nothing about the display half depends on that limit.
 3. Resolution requires a human decision at `adopt` time. Never automatic.
 
 This mirrors `skillopt-sleep`'s staging discipline: **propose, never apply.**
@@ -824,6 +836,43 @@ Needed before implementation starts:
    doc alone would leave the contract file asserting a hook the design no longer
    wants. A contract file must not outlive the decision that justified it.
 
+6. **Contradiction against L3 — underdetermined, not merely unbuilt.** §4.2.1's
+   detector groups by `project`; L3 atoms have none, so no automatic detection
+   ever fires against the tier that is always in context and never
+   auto-demoted (§4.3). That framing makes it sound like a missing loop. It is
+   not. **The signal is genuinely ambiguous:** suppose L3 holds *"PR base branch
+   is dev"* — earned across ≥ 2 projects — and a new project yields *"PR base
+   branch is main"*. Two readings, opposite handling:
+
+   - **Correction.** The global claim was over-generalised from too few
+     projects. The L3 atom should be contested.
+   - **Local exception.** The global claim is still right for most projects;
+     this one legitimately differs. The L3 atom should be left alone, and the
+     project-scoped claim should simply win *here*.
+
+   Nothing in the string shape distinguishes them, and the rules of §4.2.1 fire
+   identically on both. Guessing wrong is expensive in one direction: auto-
+   contesting on every local exception would tag the persona tier as unreliable
+   the first time any project deviates, which is exactly the "false permanence"
+   failure §1 exists to avoid — inverted into false impermanence.
+
+   **There is a live consequence to leave undecided carefully.** §5.1 injects L2
+   and L3 together, so today two textually contradictory lines can enter the
+   same context block with nothing marking the conflict. Whatever resolves this
+   must fix that, not only the bookkeeping.
+
+   Candidates, in rising cost: (a) **specificity wins** — when an L2 claim
+   collides with an L3 claim for the current project, inject only the L2 and
+   note the shadowing in the block; the L3 is never contested, because a local
+   override is not evidence of error. Cheap, needs no new detector state, and
+   matches how every config system already resolves this. (b) **Shadow-count
+   promotion** — track how many distinct projects shadow an L3 atom, and contest
+   it once that crosses a threshold; recurrence decides, consistent with §4.1's
+   whole premise. (c) Out of v1 entirely; document that L3 is human-maintained
+   after promotion. *Leaning (a) for v1 with (b) as the natural follow-on*, but
+   this is not settled, and §4.2 is written to promise only what §4.2.1 can
+   currently deliver until it is.
+
 ---
 
 ## 10. Planned file tree (not yet created)
@@ -875,10 +924,30 @@ one was caught by a check, and hand-checking does not scale as the schema moves
 toward implementation.
 
 The validator is written and tested: **[`assets/validate_examples.py.txt`](assets/validate_examples.py.txt)**
-— stdlib-only, 53 checks in six families (schema conformance · the
+— stdlib-only, **69 checks in seven families** (schema conformance · the
 tier-dependent back-pointer · id reproduction from the doc's own published
 `normalize()` · confidence monotonicity · document structure and links · prose
-claims that must match measured reality).
+claims that must match measured reality · lifecycle coherence across a
+multi-tier id group).
+
+That count is **itself checked** — family 6's last assertion compares it against
+the number of checks the run actually executed. It is written that way because
+the sentence above went stale twice (53 → 57 → 69) while this section argued
+against exactly that, and a review then quoted the stale figure back. A number
+in prose describing a program's behaviour is drift waiting to happen unless the
+program owns it.
+
+**To run it** (it is `.txt`, so it cannot be executed in place, and it resolves
+its own paths by walking up from `__file__` — a `python3 <(cat …)` or `-c
+"$(cat …)"` invocation gives it no real location and it will refuse to start):
+
+```sh
+cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f assets/_t.py
+```
+
+**Run it before any further edit to this folder lands.** Until the file is
+promoted to a real `.py`, nothing in CI gates the drift class this section
+exists to prevent — the checker is only as good as the habit of running it.
 
 Two properties make it worth more than a linter:
 

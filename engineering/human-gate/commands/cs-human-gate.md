@@ -62,9 +62,12 @@ python3 $S/human_gate.py status "$ARTIFACT"
 
 | Exit | Meaning |
 |---|---|
-| 3 | feedback waiting — collect it |
-| 4 | nothing yet — end the turn again |
 | 0 | last round collected, nothing blocking |
+| 2 | collected, but blocking items are open — same code `close` uses |
+| 3 | feedback waiting — collect it |
+| 4 | nothing on disk yet — end the turn again |
+
+Branch on the code alone: 0 clear · 2 blocked · 3 collect me · 4 nothing yet.
 
 ### 3. `collect` — read the batch
 

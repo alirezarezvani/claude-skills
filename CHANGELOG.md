@@ -55,7 +55,24 @@ three stdlib-only Python scripts, no server, no socket, no network fetch.
   waiver without a recorded reason, or a round carrying unresolved integrity problems.
   Waivers store both the reason and every refusal they overrode.
 
-**G7 came out of PR review** and closes a real hole: a mistyped severity heading
+**Four more fixes came out of a second PR review round**, each reproduced before fixing:
+**(a)** the HTML artifact path re-emitted attributes verbatim, so a reviewed draft containing
+`<img src=x onerror=...>`, `<a href="javascript:...">` or an `<iframe>` executed inside the
+review page — the Markdown path had `_safe_href` scheme-allowlisting all along and the HTML
+path had nothing. `sanitize_attrs()` now drops `on*`/`srcdoc`/`srcset`, runs every URL
+attribute through the same allowlist (control characters stripped first, so `java\tscript:`
+cannot smuggle a scheme), and `DROP_TAGS` removes `iframe`/`object`/`embed`/`base`. Legitimate
+`https:` links and relative images survive. **(b)** `verify_quotes()` compared a browser
+selection (rendered text) against raw markup, so quoting a sentence containing `**bold**` or a
+link failed — and since G7 made that blocking, it refused a legitimate close. It now matches
+against raw *or* a rendered-text projection, while a genuinely fabricated quote is still
+caught. **(c)** `state["waiver"]` was never cleared, so a clean unwaived round N+1 still
+printed round N's waiver reason — in a tool whose premise is an honest record, that is its own
+integrity bug. **(d)** `status` returned 4 for both "no sidecar yet" and "collected, blockers
+open"; the blocked case now returns 2, matching `close`, so an agent can branch on the exit
+code alone (0 clear · 2 blocked · 3 collect · 4 nothing yet).
+
+**G7 came out of the first PR review round** and closes a real hole: a mistyped severity heading
 (`## BLOKCER`) silently downgrades to `NIT`, so before this a reviewer's genuine blocker
 could be lost to a typo and `close` would still exit 0. Reproduced, then fixed — the
 parser's integrity problems (unknown severity, EDIT with no replacement text, a quote

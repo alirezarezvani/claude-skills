@@ -26,15 +26,15 @@ is available now. Read `human-gate-context.md` first if it exists.
 S=engineering/human-gate/skills/human-gate/scripts
 
 python3 $S/human_gate.py open plan.md --launch   # build page, start round N → END YOUR TURN
-python3 $S/human_gate.py status plan.md          # exit 3 = feedback waiting (non-blocking)
+python3 $S/human_gate.py status plan.md          # non-blocking: 0 clear·2 blocked·3 collect·4 none
 python3 $S/human_gate.py collect plan.md --output json   # batch.v1 — apply every item
 python3 $S/human_gate.py close plan.md           # exit 2 = NOT done
 ```
 
 `human_gate.py --sample` runs the whole loop, refusals included, in ~1s. It drives
-`review_page_builder.py` (Markdown/HTML → single-file anchored page, zero network requests,
-opens over `file://`) and `feedback_parser.py` (sidecar → `batch.v1`, verifying every quote
-against the real file); both also run standalone with `--help`/`--sample`.
+`review_page_builder.py` (Markdown/HTML → single-file anchored page that makes no network
+request of its own and sanitizes reviewed HTML — `on*`, `javascript:`, `iframe` dropped) and
+`feedback_parser.py` (sidecar → `batch.v1`, quotes checked against raw *and* rendered text).
 
 ## The sidecar
 

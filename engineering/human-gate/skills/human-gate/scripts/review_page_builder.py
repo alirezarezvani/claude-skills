@@ -33,6 +33,19 @@ BLOCK_TAGS = {
     "table", "hr", "section", "figure", "div",
 }
 
+# Dropped entirely from a reviewed HTML artifact. script/style/head/link/meta
+# are chrome the review page supplies itself; iframe/object/embed/frame would
+# execute or fetch third-party content inside a page the reviewer trusts.
+DROP_TAGS = {
+    "script", "style", "head", "link", "meta",
+    "iframe", "object", "embed", "frame", "frameset", "base", "applet",
+}
+
+# Attributes carrying a URL, which must clear the same scheme allowlist the
+# Markdown path uses. Everything named on* is an event handler and is dropped.
+URL_ATTRS = {"href", "src", "action", "formaction", "poster", "cite", "background"}
+DROP_ATTRS = {"srcdoc", "srcset"}
+
 SAMPLE_MD = """# Quarterly plan
 
 We expect a 40% lift in activation.
@@ -56,12 +69,24 @@ ITALIC = re.compile(r"(?<!\*)\*([^*]+)\*(?!\*)")
 LINK = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 
 
-def _safe_href(url):
+def _safe_href(url, image=False):
+    """Allow relative URLs and http/https/mailto; data: only for inline images.
+
+    Control characters are stripped before the scheme is read, so
+    `java\\tscript:alert(1)` cannot smuggle a scheme past the check.
+    """
     probe = re.sub(r"[\x00-\x20\x7f]+", "", url)
     match = re.match(r"^([a-zA-Z][a-zA-Z0-9+.\-]*):", probe)
-    if match and match.group(1).lower() not in ("http", "https", "mailto"):
-        return None
-    return url
+    if not match:
+        return url
+    scheme = match.group(1).lower()
+    if scheme in ("http", "https", "mailto"):
+        return url
+    if image and re.match(
+        r"^data:image/(?:avif|gif|jpe?g|png|webp);base64,", probe, re.IGNORECASE
+    ):
+        return url
+    return None
 
 
 def inline(text):
@@ -211,6 +236,29 @@ def render_block(block, block_id):
 # ------------------------------------------------------------------- html
 
 
+def sanitize_attrs(attrs):
+    """Strip event handlers and unsafe URL schemes from a reviewed HTML tag.
+
+    The Markdown path scheme-allowlists every link through _safe_href. Raw HTML
+    input has to clear the same bar: without this an artifact containing
+    `<img src=x onerror=...>` or `<a href="javascript:...">` executes inside the
+    review page the moment the reviewer opens it — and reviewing a landing-page
+    draft is a documented use of this skill.
+    """
+    kept = []
+    for name, value in attrs:
+        lower = name.lower()
+        if lower.startswith("on") or lower in DROP_ATTRS:
+            continue
+        if lower in URL_ATTRS:
+            safe = _safe_href(value or "", image=(lower in ("src", "poster", "background")))
+            if safe is None:
+                continue
+            value = safe
+        kept.append((name, value))
+    return kept
+
+
 class BlockTagger(HTMLParser):
     """Re-emit an HTML body, tagging top-level block elements with data-hg ids."""
 
@@ -231,7 +279,7 @@ class BlockTagger(HTMLParser):
         if tag == "body":
             self._in_body = True
             return
-        if tag in ("script", "style", "head", "link", "meta"):
+        if tag in DROP_TAGS:
             self._skip += 1
             return
         if self._skip:
@@ -242,7 +290,8 @@ class BlockTagger(HTMLParser):
         if not self._in_body:
             return
         rebuilt = "".join(
-            ' %s="%s"' % (k, html.escape(v or "", quote=True)) for k, v in attrs
+            ' %s="%s"' % (k, html.escape(v or "", quote=True))
+            for k, v in sanitize_attrs(attrs)
         )
         if self.depth == 0 and tag in BLOCK_TAGS:
             self.count += 1
@@ -257,7 +306,7 @@ class BlockTagger(HTMLParser):
         if tag == "body":
             self._in_body = False
             return
-        if tag in ("script", "style", "head"):
+        if tag in DROP_TAGS:
             self._skip = max(0, self._skip - 1)
             return
         if self._skip or not self._in_body:
@@ -276,8 +325,11 @@ class BlockTagger(HTMLParser):
     def handle_startendtag(self, tag, attrs):
         if self._skip or not self._in_body:
             return
+        if tag in DROP_TAGS:
+            return
         rebuilt = "".join(
-            ' %s="%s"' % (k, html.escape(v or "", quote=True)) for k, v in attrs
+            ' %s="%s"' % (k, html.escape(v or "", quote=True))
+            for k, v in sanitize_attrs(attrs)
         )
         if self.depth == 0 and tag in BLOCK_TAGS:
             self.count += 1

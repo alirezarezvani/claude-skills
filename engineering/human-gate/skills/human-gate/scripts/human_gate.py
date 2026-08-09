@@ -38,8 +38,12 @@ Exit codes
     1  usage error
     2  gate refuses to close
     3  feedback is waiting to be collected
-    4  no feedback yet
+    4  no feedback yet (status: no sidecar on disk)
     5  round cap exhausted — escalate to a human
+
+`status` uses the same 2 as `close` when the collected round still has open
+blocking items, so an agent can branch on the exit code alone: 0 clear,
+2 blocked, 3 collect me, 4 nothing yet.
 """
 
 from __future__ import annotations
@@ -250,7 +254,9 @@ def cmd_status(args):
     elif rounds and rounds[-1].get("sidecar_sha") == current["sha"]:
         payload["status"] = "collected"
         payload["blocking_open"] = rounds[-1].get("blocking_open", 0)
-        code = 0 if rounds[-1].get("blocking_open", 0) == 0 else 4
+        # 2 mirrors close's "gate would refuse" so the two agree, and keeps 4
+        # meaning exactly one thing: nothing to collect.
+        code = 0 if rounds[-1].get("blocking_open", 0) == 0 else 2
     else:
         payload["status"] = "feedback-waiting"
         code = 3
@@ -364,6 +370,10 @@ def cmd_close(args):
             "refusals": list(refusals),
         }
         refusals = []
+    elif not refusals:
+        # A pass that needed no waiver must not inherit an earlier one, or a
+        # genuinely clean round N+1 reports round N's waiver as if it applied.
+        state["waiver"] = None
 
     if refusals:
         print("GATE REFUSED — %s" % os.path.basename(artifact))

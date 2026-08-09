@@ -33,7 +33,7 @@ exactly what is still open.
 ```sh
 python3 $S/human_gate.py open plan.md --launch   # build review page, start round N
                                                   # → hand over path, END YOUR TURN
-python3 $S/human_gate.py status plan.md           # exit 3 = feedback waiting (non-blocking)
+python3 $S/human_gate.py status plan.md           # non-blocking: 0 clear · 2 blocked · 3 collect · 4 none
 python3 $S/human_gate.py collect plan.md --output json   # batch.v1 — apply every item
 python3 $S/human_gate.py close plan.md            # exit 2 = you are NOT done
 ```
@@ -42,7 +42,7 @@ python3 $S/human_gate.py close plan.md            # exit 2 = you are NOT done
 
 | File | Purpose |
 |---|---|
-| `scripts/review_page_builder.py` | Markdown/HTML → single-file review page, every block anchored. **Zero network requests** — no CDN, no fonts, no server, no socket. ~11 KB, opens over `file://`. |
+| `scripts/review_page_builder.py` | Markdown/HTML → single-file review page, every block anchored. The page itself makes **zero network requests** — no CDN, no fonts, no server, no socket; ~11 KB, opens over `file://`. Reviewed HTML is sanitized first: `on*` handlers, `javascript:` URLs, and `iframe`/`object`/`embed` are dropped, so a draft cannot execute inside the page. A reviewed HTML artifact's own `https:` images still load, as they must for the review to be faithful. |
 | `scripts/feedback_parser.py` | Review sidecar → `batch.v1` JSON, with quote verification against the real file. |
 | `scripts/human_gate.py` | State machine + the gate. `open`/`status`/`collect`/`close`/`reset`. |
 | `references/human_in_the_loop_canon.md` | Bainbridge, Fagan, Wiegers, Weinberg, Google SWE ch.9, Klein pre-mortem. |
@@ -90,7 +90,7 @@ Severities are **BLOCKER / MAJOR / MINOR / NIT** — the same ladder
 | **G4** | the sidecar changed after the last collect |
 | **G5** | round cap exhausted → **escalate**, never pass |
 | **G6** | a waiver is used without a recorded reason |
-| **G7** | the round carries unresolved integrity problems — a mistyped severity (`## BLOKCER`) silently downgrades to NIT, an EDIT has no replacement text, or a quote is not in the file |
+| **G7** | the round carries unresolved integrity problems — a mistyped severity (`## BLOKCER`) silently downgrades to NIT, an EDIT has no replacement text, or a quote is in neither the raw source nor its rendered text |
 
 Overrides are legitimate and must be explicit:
 

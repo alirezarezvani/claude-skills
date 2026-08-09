@@ -43,6 +43,7 @@ Exit codes
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -316,20 +317,53 @@ def parse(text, target_hint=None):
     return batch, problems
 
 
+def plain_text(source, is_html=False):
+    """Approximate what the browser renders, so quotes can be matched fairly.
+
+    A reviewer selects text in the *rendered* page, so `window.getSelection()`
+    hands back "We expect a 40% lift" for source that reads
+    "We expect a **40%** lift". Comparing that against raw markup would flag a
+    perfectly good quote — and since integrity problems now block the gate
+    (G7), a false positive here refuses a legitimate close.
+    """
+    text = source
+    if is_html:
+        text = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", text)
+        text = re.sub(r"(?s)<!--.*?-->", " ", text)
+        text = re.sub(r"(?s)<[^>]+>", " ", text)
+        return html.unescape(text)
+
+    text = re.sub(r"!\[([^\]]*)\]\([^)]*\)", r"\1", text)   # images -> alt
+    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)     # links -> label
+    text = re.sub(r"`([^`]+)`", r"\1", text)                 # inline code
+    text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)           # bold
+    text = re.sub(r"__([^_]+)__", r"\1", text)
+    text = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"\1", text)  # italic
+    text = re.sub(r"(?<!_)_([^_\n]+)_(?!_)", r"\1", text)
+    text = re.sub(r"(?m)^\s{0,3}#{1,6}\s+", "", text)        # heading markers
+    text = re.sub(r"(?m)^\s{0,3}>\s?", "", text)             # blockquote markers
+    return text
+
+
 def verify_quotes(batch, target_path):
-    """Report quotes that do not literally appear in the reviewed file."""
+    """Report quotes that appear in neither the raw source nor its rendered text."""
     problems = []
     try:
         with open(target_path, "r", encoding="utf-8") as handle:
             source = handle.read()
     except OSError as err:
         return ["could not read target %s to verify quotes: %s" % (target_path, err)]
-    normalized = re.sub(r"\s+", " ", source)
+
+    squash = lambda s: re.sub(r"\s+", " ", s)
+    is_html = os.path.splitext(target_path)[1].lower() in (".html", ".htm")
+    haystacks = (squash(source), squash(plain_text(source, is_html=is_html)))
+
     for item in batch["items"]:
         quote = item.get("quote", "").strip()
         if not quote:
             continue
-        if re.sub(r"\s+", " ", quote) not in normalized:
+        needle = squash(quote)
+        if not any(needle in hay for hay in haystacks):
             problems.append(
                 "item %s quotes text not found in %s: %r"
                 % (item["id"], os.path.basename(target_path), quote[:60])

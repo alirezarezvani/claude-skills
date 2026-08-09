@@ -248,11 +248,9 @@ with PII consequences (§3.1.1); examples 2 and 3 cover L2 and L3 with the
 stripped form. A tier absent from `examples` is a conditional branch nothing
 tests.
 
-That rationale lives here rather than as a `$comment` inside the fixture,
-because **`examples` entries are instance data**: `additionalProperties: false`
-forbids undeclared keys there, so an annotation embedded in an example makes the
-example fail the very schema it demonstrates. `$comment` is a *schema* keyword —
-legal at schema level and inside `allOf` branches, where it is still used.
+Annotations stay in this doc: `examples` entries are instance data, so
+`additionalProperties: false` rejects a `$comment` embedded in one. It remains
+legal at schema level and inside `allOf` branches, where it is used.
 
 #### 3.1.2 Invariants the schema cannot enforce — the tools own these
 
@@ -856,6 +854,25 @@ Needed before implementation starts:
    from inside the script — on a loaded machine it can consume most of the
    budget by itself. **Measure before implementing:** time a no-op
    `python3 -c pass` plus a 500-atom scoring pass at p50/p95 on a busy machine.
+
+   **First measurement taken** (n=40, Linux container, otherwise idle — *not*
+   the busy machine this calls for, so read it as a floor, not the answer):
+
+   | | p50 | p95 | max |
+   |---|---|---|---|
+   | `python3 -c pass` | 12.4 ms | 30.8 ms | 36.0 ms |
+   | Spawn + read 500 atoms + score + top-5 | 23.2 ms | 30.1 ms | 50.6 ms |
+   | …of which in-script work | 2.1 ms | 3.0 ms | — |
+
+   **This reframes the risk rather than settling it.** The scoring pass is
+   ~2–3 ms, so the 500-atom cap is not the binding constraint and never was —
+   **cold start is essentially the whole cost.** The budget question is a
+   process-spawn question, and the levers that matter sit outside the script,
+   where §5.2 already said they were unbounded. On this machine 100 ms holds
+   with ~3× headroom; the 50.6 ms max shows the tail is real and would widen
+   under load. Still needed to choose between the outcomes below: the same
+   numbers on a machine doing real work.
+
    Outcomes: (a) it fits → build as specced; (b) it fits only sometimes → raise
    the budget to the measured p95 and state that number instead; (c) it does not
    fit → **drop `UserPromptSubmit` entirely** and let L2/L3 at `SessionStart`

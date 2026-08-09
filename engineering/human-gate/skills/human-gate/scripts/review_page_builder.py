@@ -78,7 +78,9 @@ We expect a 40% lift in activation.
 
 ## Risks
 
-The team will endeavour to deliver incremental value.
+The team will endeavour to deliver incremental value. The page template uses
+__TITLE__ and __CONFIG__ as slots, and reviewing a doc that says so must not
+corrupt the page — that is a regression this fixture guards.
 """
 
 
@@ -709,11 +711,18 @@ def build_page(source_text, target_name, sidecar_name, is_markdown, round_number
         "round": round_number,
         "blocks": blocks,
     }
-    page = PAGE.replace("__CONTENT__", content)
-    page = page.replace("__TITLE__", html.escape(target_name, quote=False))
-    # json.dumps output is embedded in a <script>; neutralise any "</script>"
-    page = page.replace(
-        "__CONFIG__", json.dumps(config).replace("</", "<\\/")
+    # One pass, so a value that happens to contain another token — a document
+    # about this very skill mentioning __TITLE__, or a block whose text lands
+    # in the JSON config — can never be re-substituted. Sequential replaces
+    # injected the whole config object into the visible body for such a doc.
+    slots = {
+        "__CONTENT__": content,
+        "__TITLE__": html.escape(target_name, quote=False),
+        # json.dumps output is embedded in a <script>; neutralise any "</script>"
+        "__CONFIG__": json.dumps(config).replace("</", "<\\/"),
+    }
+    page = re.sub(
+        r"__(?:CONTENT|TITLE|CONFIG)__", lambda m: slots[m.group(0)], PAGE
     )
     return page, blocks
 

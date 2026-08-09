@@ -72,6 +72,18 @@ integrity bug. **(d)** `status` returned 4 for both "no sidecar yet" and "collec
 open"; the blocked case now returns 2, matching `close`, so an agent can branch on the exit
 code alone (0 clear · 2 blocked · 3 collect · 4 nothing yet).
 
+**A fifth round found two more.** `state_dir()` anchored gate state to `os.getcwd()` while
+keying it by the artifact's realpath, so an agent whose shell cwd drifted between turns
+silently started from empty state — `close` from a subdirectory reported G1 "nobody has
+looked at this" for a round that really was collected. It failed closed rather than falsely
+passing, but it lost real feedback; state now follows the artifact, the same way the sidecar
+and review page already do (`--state-dir` still wins). Separately, `build_page()` substituted
+`__CONTENT__` before `__TITLE__`/`__CONFIG__`, so reviewing a document that mentions those
+tokens — this skill's own docs, for instance — re-substituted inside the inserted body and
+injected the entire JSON config into the visible page. All three slots now fill in a single
+`re.sub` pass, and the Markdown `--sample` fixture carries the token text so the case is
+guarded. Minor: `--waive` with nothing to waive now says so instead of silently no-opping.
+
 **A fourth round found the gate itself was one flag away from opt-out.** `--waive` applied to
 whatever `gate_refusals()` returned — including **G1, "no review round has been collected"** —
 so an agent could close having had no review at all by supplying any reason string. That is the

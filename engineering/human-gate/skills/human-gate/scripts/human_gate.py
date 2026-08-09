@@ -87,13 +87,26 @@ def _load_parser_module():
 # ------------------------------------------------------------------- state
 
 
-def state_dir(explicit=None):
-    return os.path.abspath(explicit or os.path.join(os.getcwd(), ".human-gate"))
+def state_dir(explicit=None, artifact=None):
+    """Where gate state lives: beside the artifact, not beside the caller.
+
+    Keying state by the artifact's realpath but storing it under os.getcwd()
+    meant an agent whose shell cwd drifted between turns silently started from
+    empty state — `close` would report G1 "nobody has looked at this" for a
+    round that really was collected, just from a different directory. It fails
+    closed rather than falsely passing, but it loses real feedback, so the
+    directory now follows the artifact the same way the sidecar and the review
+    page already do. An explicit --state-dir still wins.
+    """
+    if explicit:
+        return os.path.abspath(explicit)
+    anchor = os.path.dirname(os.path.realpath(artifact)) if artifact else os.getcwd()
+    return os.path.join(anchor, ".human-gate")
 
 
 def state_path(artifact, explicit=None):
     key = hashlib.sha256(os.path.realpath(artifact).encode("utf-8")).hexdigest()[:16]
-    return os.path.join(state_dir(explicit), "%s.json" % key)
+    return os.path.join(state_dir(explicit, artifact), "%s.json" % key)
 
 
 def load_state(artifact, explicit=None):
@@ -401,6 +414,8 @@ def cmd_close(args):
         }
         refusals = []
     elif not refusals:
+        if args.waive:
+            print("Note: nothing to waive — the gate passes on its own.")
         # A pass that needed no waiver must not inherit an earlier one, or a
         # genuinely clean round N+1 reports round N's waiver as if it applied.
         state["waiver"] = None

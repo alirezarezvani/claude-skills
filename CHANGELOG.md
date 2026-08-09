@@ -72,6 +72,21 @@ integrity bug. **(d)** `status` returned 4 for both "no sidecar yet" and "collec
 open"; the blocked case now returns 2, matching `close`, so an agent can branch on the exit
 code alone (0 clear · 2 blocked · 3 collect · 4 nothing yet).
 
+**A third review round found the HTML path was broken outright.** `meta`, `link` and
+`base` are void elements: `html.parser` fires `handle_starttag` for them but never a
+matching `handle_endtag`. Because they were also in `DROP_TAGS`, each bare `<meta charset>`
+incremented the skip counter permanently, so every real HTML5 document — anything with a
+charset meta or a stylesheet link in `<head>` — swallowed its entire body and reported
+"No reviewable blocks". The documented landing-page use case simply did not work; earlier
+HTML fixtures happened to use `<title>`/`<style>` only, which is why three rounds missed it.
+Void drop-tags no longer touch the counter. `--sample` now builds **both** a Markdown and a
+full-DOCTYPE HTML fixture, asserts the expected block count for each, exits 2 on regression,
+and writes to a temp dir so a sample run cannot litter the caller's cwd. Same round:
+`xlink:href` joined the URL allowlist (SVG anchors still honour it, so
+`<svg><a xlink:href="javascript:...">` bypassed the plain `href` check), and `status` now
+previews **every** gate rule through a shared `gate_refusals()` — previously it looked only
+at blocking items, so a round with no named reviewer reported 0 while `close` refused on G3.
+
 **G7 came out of the first PR review round** and closes a real hole: a mistyped severity heading
 (`## BLOKCER`) silently downgrades to `NIT`, so before this a reviewer's genuine blocker
 could be lost to a typo and `close` would still exit 0. Reproduced, then fixed — the

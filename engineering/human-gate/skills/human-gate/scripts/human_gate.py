@@ -41,9 +41,9 @@ Exit codes
     4  no feedback yet (status: no sidecar on disk)
     5  round cap exhausted — escalate to a human
 
-`status` uses the same 2 as `close` when the collected round still has open
-blocking items, so an agent can branch on the exit code alone: 0 clear,
-2 blocked, 3 collect me, 4 nothing yet.
+`status` returns 2 whenever `close` would refuse — it previews every rule via
+the shared gate_refusals(), not just blocking items — so an agent can branch on
+the exit code alone: 0 clear, 2 blocked, 3 collect me, 4 nothing yet.
 """
 
 from __future__ import annotations
@@ -254,9 +254,12 @@ def cmd_status(args):
     elif rounds and rounds[-1].get("sidecar_sha") == current["sha"]:
         payload["status"] = "collected"
         payload["blocking_open"] = rounds[-1].get("blocking_open", 0)
-        # 2 mirrors close's "gate would refuse" so the two agree, and keeps 4
-        # meaning exactly one thing: nothing to collect.
-        code = 0 if rounds[-1].get("blocking_open", 0) == 0 else 2
+        # Preview the whole gate, not just blocking items — a round with no
+        # named reviewer (G3) or an integrity problem (G7) would still be
+        # refused by close, and reporting 0 here would mislead an agent that
+        # branches on the exit code.
+        payload["would_refuse"] = gate_refusals(state, sidecar)
+        code = 0 if not payload["would_refuse"] else 2
     else:
         payload["status"] = "feedback-waiting"
         code = 3
@@ -270,9 +273,12 @@ def cmd_status(args):
             print("No sidecar yet at %s" % sidecar)
         elif payload["status"] == "feedback-waiting":
             print("New feedback ready — run: human_gate.py collect %s" % artifact)
+        elif payload.get("would_refuse"):
+            print("Collected, but close would refuse:")
+            for refusal in payload["would_refuse"]:
+                print("  ✗ %s" % refusal)
         else:
-            print("Last round has %d blocking item(s) open."
-                  % payload.get("blocking_open", 0))
+            print("Collected and clear — close would pass.")
     return code
 
 
@@ -330,38 +336,46 @@ def cmd_collect(args):
     return 0
 
 
+def gate_refusals(state, sidecar_path):
+    """Every reason `close` would refuse, in rule order.
+
+    Shared with `status` on purpose: the exit-code contract promises status is
+    a preview of close, and two hand-maintained copies of this logic would
+    drift the first time a rule changed.
+    """
+    rounds = state["rounds"]
+    if not rounds:
+        return ["G1 no review round has been collected — nobody has looked at this yet"]
+
+    last = rounds[-1]
+    refusals = []
+    if last.get("blocking_open"):
+        refusals.append(
+            "G2 %d BLOCKER/MAJOR item(s) still open from round %d"
+            % (last["blocking_open"], last["round"])
+        )
+    if not last.get("reviewer"):
+        refusals.append("G3 round %d has no named reviewer" % last["round"])
+
+    current = fingerprint(sidecar_path)
+    if current and current["sha"] != last.get("sidecar_sha"):
+        refusals.append(
+            "G4 the sidecar changed after round %d was collected — "
+            "collect again before closing" % last["round"]
+        )
+
+    for problem in last.get("problems", []):
+        if problem.startswith(GATED_ELSEWHERE):
+            continue
+        refusals.append("G7 round %d integrity: %s" % (last["round"], problem))
+    return refusals
+
+
 def cmd_close(args):
     artifact = args.artifact
     state = load_state(artifact, args.state_dir)
     rounds = state["rounds"]
-    refusals = []
-
-    if not rounds:
-        refusals.append(
-            "G1 no review round has been collected — nobody has looked at this yet"
-        )
-    else:
-        last = rounds[-1]
-        if last.get("blocking_open"):
-            refusals.append(
-                "G2 %d BLOCKER/MAJOR item(s) still open from round %d"
-                % (last["blocking_open"], last["round"])
-            )
-        if not last.get("reviewer"):
-            refusals.append("G3 round %d has no named reviewer" % last["round"])
-
-        sidecar = sidecar_for(artifact, args.sidecar)
-        current = fingerprint(sidecar)
-        if current and current["sha"] != last.get("sidecar_sha"):
-            refusals.append(
-                "G4 the sidecar changed after round %d was collected — "
-                "collect again before closing" % last["round"]
-            )
-
-        for problem in last.get("problems", []):
-            if problem.startswith(GATED_ELSEWHERE):
-                continue
-            refusals.append("G7 round %d integrity: %s" % (last["round"], problem))
+    refusals = gate_refusals(state, sidecar_for(artifact, args.sidecar))
 
     if refusals and args.waive:
         state["waiver"] = {

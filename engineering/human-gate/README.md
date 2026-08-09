@@ -42,7 +42,7 @@ python3 $S/human_gate.py close plan.md            # exit 2 = you are NOT done
 
 | File | Purpose |
 |---|---|
-| `scripts/review_page_builder.py` | Markdown/HTML → single-file review page, every block anchored. The page itself makes **zero network requests** — no CDN, no fonts, no server, no socket; ~11 KB, opens over `file://`. Reviewed HTML is sanitized first: `on*` handlers, `javascript:` URLs, and `iframe`/`object`/`embed` are dropped, so a draft cannot execute inside the page. A reviewed HTML artifact's own `https:` images still load, as they must for the review to be faithful. |
+| `scripts/review_page_builder.py` | Markdown/HTML → single-file review page, every block anchored. The page itself makes **zero network requests** — no CDN, no fonts, no server, no socket; ~11 KB, opens over `file://`. Reviewed HTML is sanitized first: `on*` handlers, `javascript:` URLs (including control-character-smuggled ones), `xlink:href`, `srcdoc`/`srcset`, and `iframe`/`object`/`embed`/`base` are dropped, so a draft cannot execute inside the page. A reviewed HTML artifact's own `https:` images still load, as they must for the review to be faithful. |
 | `scripts/feedback_parser.py` | Review sidecar → `batch.v1` JSON, with quote verification against the real file. |
 | `scripts/human_gate.py` | State machine + the gate. `open`/`status`/`collect`/`close`/`reset`. |
 | `references/human_in_the_loop_canon.md` | Bainbridge, Fagan, Wiegers, Weinberg, Google SWE ch.9, Klein pre-mortem. |
@@ -107,6 +107,8 @@ There is deliberately **no blocking poll**. `status` returns immediately.
 - Open a round, hand over the path, **end the turn**. State lives in `.human-gate/`.
 - **Headless guard** — on CI, SSH, or no `DISPLAY`, `open` says so and skips the browser.
 - **Round cap** (`--max-rounds`, default 5). Exhaustion exits **5 = ESCALATE**, not 0.
+- **`status` previews the whole gate** — it shares `gate_refusals()` with `close`, so the two
+  can never disagree about whether the work is done.
 
 Reasoning in `references/review_loop_discipline.md`.
 

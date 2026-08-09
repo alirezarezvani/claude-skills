@@ -43,8 +43,26 @@ DROP_TAGS = {
 
 # Attributes carrying a URL, which must clear the same scheme allowlist the
 # Markdown path uses. Everything named on* is an event handler and is dropped.
-URL_ATTRS = {"href", "src", "action", "formaction", "poster", "cite", "background"}
+# xlink:href is the legacy SVG form and is still honoured by browsers, so an
+# <svg><a xlink:href="javascript:..."> would bypass a plain "href" check.
+URL_ATTRS = {
+    "href", "src", "action", "formaction", "poster", "cite", "background",
+    "xlink:href", "xlink:role", "xlink:arcrole",
+}
 DROP_ATTRS = {"srcdoc", "srcset"}
+
+SAMPLE_HTML = """<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Landing</title>
+</head><body>
+<h1>Ship faster</h1>
+<p>One usable slice per week.</p>
+<ul><li>Onboarding rewrite</li><li>Retire the importer</li></ul>
+</body></html>
+"""
 
 SAMPLE_MD = """# Quarterly plan
 
@@ -280,7 +298,13 @@ class BlockTagger(HTMLParser):
             self._in_body = True
             return
         if tag in DROP_TAGS:
-            self._skip += 1
+            # A void drop-tag (<meta>, <link>, <base>) never fires a matching
+            # handle_endtag, so bumping _skip here would strand it above zero
+            # for the rest of the parse and silently swallow the entire body.
+            # Every real HTML5 head has a bare <meta charset>, so this is the
+            # common case, not an edge case.
+            if tag not in self.VOID:
+                self._skip += 1
             return
         if self._skip:
             return
@@ -660,6 +684,51 @@ def build_page(source_text, target_name, sidecar_name, is_markdown, round_number
     return page, blocks
 
 
+def run_sample(output_dir=None):
+    """Build both built-in fixtures and report block counts.
+
+    The HTML fixture is a full DOCTYPE document with a bare <meta charset> and
+    <link rel=stylesheet> — the shape every real HTML5 page has, and the exact
+    shape that once silently produced zero blocks. Exercising it here means a
+    regression fails loudly instead of surfacing as "No reviewable blocks".
+
+    Writes into a temp dir unless --output names one, so a sample run never
+    litters the caller's working directory.
+    """
+    import tempfile
+
+    target_dir = output_dir or tempfile.mkdtemp(prefix="human-gate-sample-")
+    os.makedirs(target_dir, exist_ok=True)
+
+    fixtures = [
+        ("quarterly-plan.md", SAMPLE_MD, True, 6),
+        ("landing.html", SAMPLE_HTML, False, 3),
+    ]
+    failures = []
+    for name, source, is_md, expected in fixtures:
+        sidecar = os.path.splitext(name)[0] + ".review.md"
+        page, blocks = build_page(source, name, sidecar, is_md, 1)
+        out_path = os.path.join(target_dir, os.path.splitext(name)[0] + ".review.html")
+        if page is None:
+            print("  %-20s FAIL — no reviewable blocks" % name)
+            failures.append(name)
+            continue
+        with open(out_path, "w", encoding="utf-8") as handle:
+            handle.write(page)
+        status = "ok" if len(blocks) == expected else "FAIL — expected %d" % expected
+        if len(blocks) != expected:
+            failures.append(name)
+        print("  %-20s %d blocks, %5.1f KB  %s"
+              % (name, len(blocks), len(page.encode("utf-8")) / 1024.0, status))
+
+    print("")
+    print("Wrote to %s" % target_dir)
+    if failures:
+        sys.stderr.write("Sample regression: %s\n" % ", ".join(failures))
+        return 2
+    return 0
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Build a single-file HTML review page for a Markdown or HTML artifact.",
@@ -676,15 +745,14 @@ def main(argv=None):
         "--launch", action="store_true", help="open the page in the default browser"
     )
     parser.add_argument(
-        "--sample", action="store_true", help="build a page from a built-in sample"
+        "--sample", action="store_true",
+        help="build both built-in fixtures (Markdown + a full HTML5 doc) and check them"
     )
     args = parser.parse_args(argv)
 
     if args.sample:
-        source, name = SAMPLE_MD, "quarterly-plan.md"
-        is_md = True
-        out_path = args.output or "quarterly-plan.review.html"
-    elif args.artifact:
+        return run_sample(args.output)
+    if args.artifact:
         try:
             with open(args.artifact, "r", encoding="utf-8") as handle:
                 source = handle.read()

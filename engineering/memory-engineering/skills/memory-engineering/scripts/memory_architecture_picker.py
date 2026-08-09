@@ -110,7 +110,10 @@ WEIGHTS = {
 
 LEVELS = {"low": 0.15, "medium": 0.5, "high": 1.0}
 
-TIE_BREAKERS = {
+# Keyed by the two tied families. Lookup normalizes the pair with sorted(), so
+# these keys are normalized too -- see the guard below. Authored in whatever
+# order reads naturally; order is not significant.
+_TIE_BREAKERS_RAW = {
     ("flat_rag", "structured_rag"): (
         "Does a correct answer usually require joining facts that live in "
         "different sessions? If yes, pay for structured extraction. If a single "
@@ -131,6 +134,21 @@ TIE_BREAKERS = {
         "If a human would summarize before reusing it, extract at write time."
     ),
 }
+
+# Normalize every key to its sorted form, because the lookup below sorts the
+# tied pair. Without this, a key authored in the other order is unreachable and
+# the tool silently falls back to the generic question -- no error, just a worse
+# answer. This repo has no test suite, so the collision check runs at import.
+TIE_BREAKERS = {}
+for _pair, _question in _TIE_BREAKERS_RAW.items():
+    _key = tuple(sorted(_pair))
+    if _key in TIE_BREAKERS:
+        raise AssertionError(
+            f"duplicate tie-breaker for {_key} after normalization -- two "
+            "entries describe the same family pair"
+        )
+    TIE_BREAKERS[_key] = _question
+del _pair, _question, _key
 
 SAMPLE_CONSTRAINTS = {
     "name": "customer-support agent, 18-month retention",

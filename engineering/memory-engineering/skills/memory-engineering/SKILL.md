@@ -45,6 +45,7 @@ python scripts/memory_architecture_picker.py --constraints workload.json
 python scripts/memory_density_auditor.py --dir ~/.claude/memory
 # 4 - Gate on forgetting. Exit 4 is a stop, not a suggestion.
 python scripts/forgetting_policy_linter.py --policy design.json
+# 5 - No command. Prove each pass by hand before scheduling it.
 ```
 
 Step 1 reports the construction/query split, **cost per correct answer**, and
@@ -95,6 +96,5 @@ All support `--output json` and `--sample` (no input file needed).
 
 ## Provenance
 
-Framing from *"How to be a Memory Engineer"* by [@N01ennn](https://x.com/N01ennn/status/2083971749079581120);
-every number is cited to the primary source instead, and two of its paraphrases
-are corrected — `memory_cost_canon.md` §2, `memory_control_and_governance.md` §4.
+Framing from *"How to be a Memory Engineer"* by [@N01ennn](https://x.com/N01ennn/status/2083971749079581120); every
+number is cited to a primary source instead, and two paraphrases are corrected — `memory_cost_canon.md` §2, `memory_control_and_governance.md` §4.

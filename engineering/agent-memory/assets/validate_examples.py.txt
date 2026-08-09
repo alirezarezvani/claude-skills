@@ -332,20 +332,14 @@ def main():
 
     # -- family 6: claims in prose that must match measurable reality --------
     # The 1 size claim is a POINT-IN-TIME measurement, so this family checks
-    # what the doc controls, not what it does not. An earlier version compared
-    # the cited figure against the LIVE byte count of the repo-root CLAUDE.md
-    # -- a file this repo appends a release note to on nearly every point
-    # release. That check would have started failing on the next unrelated PR,
-    # for a reason with nothing to do with this folder, and 10.1's own thesis
-    # says a checker must own its ground truth rather than borrow a moving
-    # one. Snapshotting the byte count as a constant here is not the fix
-    # either: it just moves the same number to a second place that can drift
-    # from the first, with nothing able to say which one is wrong.
-    #
-    # What IS durable, and what the original defect actually was (1 once read
-    # "~40 KB", eyeballed, off by more than 2x): the claim must name its
-    # method and carry a real byte figure, and its two units must agree with
-    # each other. Both are properties of the sentence itself.
+    # what the doc controls, not what it does not. Do NOT compare the cited
+    # figure against the live byte count of repo-root CLAUDE.md: that file gets
+    # a release note on nearly every point release, so the check would go red on
+    # unrelated PRs. Snapshotting it as a constant here is no better -- the same
+    # number in a second place, with nothing able to say which drifted. What is
+    # durable, and what the original defect was ("~40 KB", eyeballed, off by
+    # >2x): the claim must name its method, carry a real byte figure, and have
+    # its two units agree. All properties of the sentence itself.
     m = re.search(r"\*\*(\d+) KB\*\*[^.]*?`wc -c`[^.]*?([\d,]{4,})\s+bytes", design)
     check(m is not None,
           "the CLAUDE.md size claim names `wc -c` and cites a byte figure")
@@ -358,11 +352,11 @@ def main():
           "promotion row names sessions, not observations, as the gate")
 
     # 4.1.1's merge step must account for EVERY schema-required field, not the
-    # interesting ones. That step has now shipped three separate omissions --
-    # `source`, then `promoted_from_projects`, then confidence/redacted/kind --
-    # each caught by a human reading the list against the schema. Each fix was
-    # an instance; this is the class. An implementation written literally
-    # against a step that skips a required field emits a schema-invalid atom.
+    # interesting ones -- repeated omissions there (`source`,
+    # `promoted_from_projects`, confidence/redacted/kind) were each caught by a
+    # human reading the list against the schema. This is the class, not another
+    # instance: an implementation written literally against a step that skips a
+    # required field emits a schema-invalid atom.
     merge = design[design.index("#### 4.1.1"):design.index("#### 4.1.2")]
     merge_flat = norm_prose(merge)
     # norm_prose strips `_` (a markdown italic marker), so field names must be

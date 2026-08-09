@@ -929,6 +929,36 @@ Needed before implementation starts:
    carry the system. Option (c) is a real, acceptable outcome — a recall hook
    that misses its budget on every prompt is worse than no recall hook.
 
+   **(d) Attack the measured cost instead of budgeting around it — a warm
+   resident process.** (a)–(c) all treat spawn cost as a constant to tolerate,
+   which the measurement above says is the *only* cost that matters: the scan is
+   2–3 ms, the interpreter is the other ~20 ms, and it is paid again on **every
+   prompt for the life of every session** — a fixed tax, not a one-off. A small
+   daemon holding the atom store in memory, with `user_prompt_submit.py` reduced
+   to a socket write and a read, removes the dominant term rather than fitting
+   inside it.
+
+   Named as a real option because it is the only one that does, **not** as the
+   recommendation — it is the most expensive by a wide margin, and its costs
+   land squarely on this design's stated properties:
+
+   - A hook that "never blocks, exit 0 on failure" (§5.2) becomes a hook with a
+     liveness dependency. It must still fail open when the socket is missing,
+     stale, or wedged — which means keeping the cold path anyway, so the
+     complexity is *added to*, not swapped for, what (a)–(c) need.
+   - Lifecycle: who starts it, what restarts it after a crash or reboot, how a
+     stale socket is distinguished from a live one, and how it terminates when
+     no session is using it. §5.4 already carries a stale-lock heuristic; this
+     would need a second one for a different resource.
+   - It is a long-lived local process holding memory contents in RAM, which is a
+     different security surface from a script that reads a file and exits.
+   - This repo's convention is stdlib-only scripts that run and exit; a resident
+     service is a genuinely new shape here, not a variation on an existing one.
+
+   **Sequencing:** (d) is only worth its cost if the busy-machine measurement
+   turns (a) into (b) or (c). Measure first — the same instruction this decision
+   opened with. If 100 ms holds under load, a daemon buys latency nobody needed.
+
    **If (c) wins, `hooks/hooks.json` must shrink too** — the `UserPromptSubmit`
    entry is already written there as a contract, so deleting the hook from this
    doc alone would leave the contract file asserting a hook the design no longer
@@ -1029,11 +1059,8 @@ claims that must match measured reality · lifecycle coherence across a
 multi-tier id group).
 
 That count is **itself checked** — family 6's last assertion compares it against
-the number of checks the run actually executed. It is written that way because
-the sentence above went stale twice (53 → 57 → 67) while this section argued
-against exactly that, and a review then quoted the stale figure back. A number
-in prose describing a program's behaviour is drift waiting to happen unless the
-program owns it.
+the number of checks the run actually executed. A number in prose describing a
+program's behaviour is drift waiting to happen unless the program owns it.
 
 **To run it** (it is `.txt`, so it cannot be executed in place, and it resolves
 its own paths by walking up from `__file__` — a `python3 <(cat …)` or `-c

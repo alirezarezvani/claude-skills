@@ -21,7 +21,8 @@ Claude Code memory today is flat. `CLAUDE.md` has exactly one injection policy:
 **always inject, in full, every session**. That single policy is the cause of
 three failure modes this repo already sees at 360+ skills:
 
-1. **Bloat** — root `CLAUDE.md` in this repo is ~40 KB of release notes, loaded
+1. **Bloat** — root `CLAUDE.md` in this repo is **84 KB** (`wc -c` → 85,875
+   bytes, measured at this branch's base) of release notes, loaded
    into every session regardless of whether the task touches `markdown-html/` or
    `ra-qm-team/`.
 2. **Staleness** — nothing expires. A v2.7.0 note sits at the same priority as a
@@ -231,7 +232,7 @@ rule.
 | Transition | Requires |
 |---|---|
 | L0 → L1 | Extraction produces a well-formed atom with a live `source` back-pointer |
-| L1 → L2 | `observations ≥ 3` across **≥ 3 distinct sessions**, those sessions **spanning ≥ 2 distinct calendar days (UTC)**, same `project`, no contradiction open |
+| L1 → L2 | **≥ 3 distinct `sessions`** (the gate — *not* `observations`, which is informational; see §3.1), spanning **≥ 2 distinct calendar days (UTC)**, same `project`, no contradiction open |
 | L2 → L3 | Held at L2 in **≥ 2 distinct projects**, `age ≥ 30 days`, no contradiction in 30 days |
 
 **Atom identity is project-scoped.**
@@ -628,7 +629,7 @@ Everything of value the proxy provides is reachable through hooks, which are a
 
 Needed before implementation starts:
 
-1. **L2 write target.** Root `CLAUDE.md` here is already ~40 KB. Append a marker
+1. **L2 write target.** Root `CLAUDE.md` here is already **84 KB**. Append a marker
    block, or a sibling `CLAUDE.memory.md` that `CLAUDE.md` references? *Leaning
    sibling file* — keeps generated content out of a hand-maintained doc and makes
    the diff reviewable.

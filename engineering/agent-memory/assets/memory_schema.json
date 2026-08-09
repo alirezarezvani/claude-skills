@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alirezarezvani/claude-skills/engineering/agent-memory/assets/memory_schema.json",
+  "title": "agent-memory atom (L1) — v1",
+  "description": "One atomic memory claim extracted from an L0 transcript. Every atom MUST carry a live back-pointer into the transcript that produced it; an atom without provenance is discarded, never stored. Promotion to L2/L3 is decided by recurrence across distinct sessions, not by importance. See ../DESIGN.md sections 3 and 4.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "claim",
+    "scope",
+    "kind",
+    "first_seen",
+    "last_seen",
+    "observations",
+    "sessions",
+    "source",
+    "confidence",
+    "tier"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^atm_[0-9a-f]{8}$",
+      "description": "Stable id. Derived from a hash of the normalized claim text so the same claim observed in a later session merges rather than duplicates."
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 280,
+      "description": "A single assertion, stated positively and in the present tense. One claim per atom — a sentence containing 'and' is usually two atoms."
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["project", "global"],
+      "description": "'project' claims are candidates for L2, 'global' for L3. Scope is assigned at extraction and may be widened by promotion, never narrowed automatically."
+    },
+    "project": {
+      "type": "string",
+      "description": "Repo or working-directory slug. REQUIRED when scope is 'project'; MUST be absent when scope is 'global'."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["constraint", "preference", "fact", "decision", "failure"],
+      "description": "constraint = a rule that must hold (PR base is dev). preference = a stated liking (stdlib only). fact = an environmental truth (backend URL). decision = a choice made with rationale. failure = a command or approach that did not work, retained so it is not retried."
+    },
+    "first_seen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of the earliest observation. Never updated after creation."
+    },
+    "last_seen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of the most recent observation. Drives the 90-day L1 expiry and recency scoring at recall."
+    },
+    "observations": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Total times observed. Informational — the promotion gate counts distinct entries in 'sessions', NOT this field, so restating a claim repeatedly within one session cannot manufacture durability."
+    },
+    "sessions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Set of distinct Claude Code session ids in which this claim was observed. This is the durability counter that gates promotion (L1 to L2 needs >= 3 distinct sessions across >= 2 distinct days)."
+    },
+    "source": {
+      "type": "string",
+      "description": "Back-pointer into L0: '<transcript path>#L<line>'. Required for promotion — an unprovenanced claim can never be promoted. This is the anti-fabrication rule."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["observed", "stated", "verified"],
+      "description": "observed = the agent inferred it (3 sessions to promote). stated = the user said it directly (2 sessions). verified = a script or check confirmed it (promotes on 1 observation; it is not hearsay)."
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["L1", "L2", "L3"],
+      "description": "Current tier. L0 is never represented as an atom — it is the raw transcript this atom points back to."
+    },
+    "contested": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set when a newer atom contradicts this one. A contested L2/L3 claim is STILL injected, tagged with the conflict — silently withholding it would be worse than surfacing it. Resolution is always a human decision at adopt time."
+    },
+    "contested_by": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^atm_[0-9a-f]{8}$" },
+      "description": "Ids of atoms contradicting this claim."
+    },
+    "promoted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this atom last changed tier. Starts the 30-day clock for L2 to L3 eligibility."
+    },
+    "redacted": {
+      "type": "boolean",
+      "default": false,
+      "description": "True when the redaction pass altered the claim text before storage. A redacted atom is still usable, but is never promoted to a committed tier without human review."
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "scope": { "const": "project" } }, "required": ["scope"] },
+      "then": { "required": ["project"] },
+      "else": { "not": { "required": ["project"] } }
+    }
+  ],
+  "examples": [
+    {
+      "id": "atm_7f3a9c21",
+      "claim": "PR base branch is dev, never main",
+      "scope": "project",
+      "project": "claude-skills",
+      "kind": "constraint",
+      "first_seen": "2026-07-02T09:11:04Z",
+      "last_seen": "2026-08-09T10:14:22Z",
+      "observations": 6,
+      "sessions": ["01EM5xmJ", "01FQ2bkR", "01GT8wzL"],
+      "source": "~/.claude/projects/-home-user-claude-skills/01GT8wzL.jsonl#L412",
+      "confidence": "stated",
+      "tier": "L2",
+      "promoted_at": "2026-07-19T14:02:00Z",
+      "redacted": false
+    },
+    {
+      "id": "atm_b41c8de0",
+      "claim": "Python tooling stays stdlib-only; no third-party runtime deps",
+      "scope": "global",
+      "kind": "preference",
+      "first_seen": "2026-05-14T08:20:11Z",
+      "last_seen": "2026-08-08T17:45:03Z",
+      "observations": 23,
+      "sessions": ["01AA1aaa", "01BB2bbb", "01CC3ccc", "01DD4ddd"],
+      "source": "~/.claude/projects/-home-user-claude-skills/01DD4ddd.jsonl#L88",
+      "confidence": "verified",
+      "tier": "L3",
+      "promoted_at": "2026-06-21T11:30:00Z",
+      "redacted": false
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "description": "CONTRACT ONLY — the referenced scripts are not yet implemented (see ../DESIGN.md). Three hooks implementing the L0-L3 memory tiers. SessionStart injects L3 (global persona) + L2 (current project context). UserPromptSubmit recalls relevant L1 atoms under a hard 100ms budget. SessionEnd asynchronously captures L0 into L1 and stages promotions for human adoption. Every hook fails open (exit 0, no memory) and never blocks. Disable individually with AGENT_MEMORY_SESSIONSTART=0, AGENT_MEMORY_RECALL=0, AGENT_MEMORY_SESSIONEND=0.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_start.py"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/user_prompt_submit.py",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_end.py",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}

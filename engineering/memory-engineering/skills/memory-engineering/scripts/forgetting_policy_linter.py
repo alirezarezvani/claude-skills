@@ -34,6 +34,10 @@ import argparse
 import json
 import sys
 
+# Recognized `forgetting.rule` values. Anything outside this set is treated as
+# no rule at all -- see _check_forgetting_rule.
+KNOWN_FORGETTING_RULES = {"ttl", "capacity", "decay", "none", "never", ""}
+
 VALID_CONTRADICTION_POLICIES = {"surface", "surface_to_human", "flag", "escalate"}
 AUTO_MERGE_POLICIES = {"auto_merge", "newest_wins", "overwrite", "last_write_wins"}
 
@@ -73,53 +77,85 @@ def _fail(message: str) -> None:
 
 
 def _check_forgetting_rule(policy: dict) -> dict:
+    """F1 -- pass only on a concrete, named forgetting mechanism.
+
+    This check is allowlist-based on purpose. An earlier version failed only
+    when `rule` was literally "none"/""/"never" and inferred PASS from what the
+    rule was *not*, so a typo ("asdf") or a declared-but-unconfigured rule
+    ("ttl" with ttl_days omitted) fell through to PASS with an empty mechanism
+    list -- the blocking gate this whole skill is built around, defeated by a
+    misspelling. PASS is now unreachable unless a mechanism is actually found.
+    """
     forgetting = policy.get("forgetting") or {}
     if not isinstance(forgetting, dict):
         _fail("'forgetting' must be an object")
-    rule = str(forgetting.get("rule", "none")).lower()
 
-    has_ttl = rule == "ttl" and forgetting.get("ttl_days")
-    has_capacity = bool(forgetting.get("max_records") or forgetting.get("max_bytes"))
-    has_decay = rule == "decay" or str(forgetting.get("decay", "none")).lower() not in {
-        "none",
-        "",
-    }
+    rule = str(forgetting.get("rule", "none")).lower().strip()
 
-    if rule in {"none", "", "never"} and not (has_capacity or has_decay):
-        return {
-            "id": "F1",
-            "name": "explicit forgetting rule",
-            "status": "FAIL",
-            "blocking": True,
-            "detail": (
-                "No TTL, no capacity bound, no decay. The store only grows. "
-                "This is the default behaviour of every system Stanford "
-                "evaluated, and it is the one thing that makes a long-lived "
-                "agent unaffordable."
-            ),
-            "fix": (
-                "Pick one before the store gets big: a TTL, a hard record/byte "
-                "cap with an eviction order, or a relevance decay that expires "
-                "unreferenced records."
-            ),
-        }
+    ttl_days = forgetting.get("ttl_days")
+    has_ttl = isinstance(ttl_days, (int, float)) and not isinstance(
+        ttl_days, bool
+    ) and ttl_days > 0
+
+    capacity = forgetting.get("max_records") or forgetting.get("max_bytes")
+    has_capacity = isinstance(capacity, (int, float)) and not isinstance(
+        capacity, bool
+    ) and capacity > 0
+
+    decay = str(forgetting.get("decay", "none")).lower().strip()
+    has_decay = rule == "decay" or decay not in {"none", ""}
 
     mechanisms = []
     if has_ttl:
-        mechanisms.append(f"TTL {forgetting['ttl_days']}d")
+        mechanisms.append(f"TTL {ttl_days}d")
     if has_capacity:
-        cap = forgetting.get("max_records") or forgetting.get("max_bytes")
-        mechanisms.append(f"capacity bound ({cap})")
+        mechanisms.append(f"capacity bound ({capacity})")
     if has_decay:
         mechanisms.append("relevance decay")
+
+    if mechanisms:
+        return {
+            "id": "F1",
+            "name": "explicit forgetting rule",
+            "status": "PASS",
+            "blocking": True,
+            "detail": "Forgetting is designed: " + ", ".join(mechanisms) + ".",
+            "fix": None,
+        }
+
+    # No mechanism found. Say precisely why, so a typo is not mistaken for a
+    # deliberate "we decided not to forget".
+    if rule not in KNOWN_FORGETTING_RULES:
+        detail = (
+            f"Unrecognized forgetting rule {rule!r}. Recognized values are "
+            f"{sorted(KNOWN_FORGETTING_RULES)}. An unrecognized rule is treated "
+            "as no rule -- a misspelling must never read as a policy."
+        )
+    elif rule in {"ttl", "capacity", "decay"}:
+        detail = (
+            f"Rule is declared as {rule!r} but carries no usable parameter "
+            "(ttl_days > 0, max_records/max_bytes > 0, or a decay setting). "
+            "A declared rule with nothing configured forgets exactly as much "
+            "as no rule at all."
+        )
+    else:
+        detail = (
+            "No TTL, no capacity bound, no decay. The store only grows. This "
+            "is the default behaviour of every system Stanford evaluated, and "
+            "it is the one thing that makes a long-lived agent unaffordable."
+        )
 
     return {
         "id": "F1",
         "name": "explicit forgetting rule",
-        "status": "PASS",
+        "status": "FAIL",
         "blocking": True,
-        "detail": "Forgetting is designed: " + ", ".join(mechanisms) + ".",
-        "fix": None,
+        "detail": detail,
+        "fix": (
+            "Pick one before the store gets big: a TTL (ttl_days), a hard "
+            "record/byte cap with an eviction order, or a relevance decay that "
+            "expires unreferenced records."
+        ),
     }
 
 
@@ -287,9 +323,10 @@ def render(report: dict) -> str:
     lines.append("")
 
     for check in report["checks"]:
-        marker = {"PASS": "PASS", "WARN": "WARN", "FAIL": "FAIL"}[check["status"]]
         blocking = " [BLOCKING]" if check["blocking"] else ""
-        lines.append(f"  {marker}  {check['id']}  {check['name']}{blocking}")
+        lines.append(
+            f"  {check['status']}  {check['id']}  {check['name']}{blocking}"
+        )
         lines.append(f"        {check['detail']}")
         if check["fix"]:
             lines.append(f"        -> {check['fix']}")
@@ -319,7 +356,10 @@ def main() -> int:
             "  forgetting_policy_linter.py --policy design.json --output json\n"
         ),
     )
-    source = parser.add_mutually_exclusive_group(required=True)
+    # Not required=True: argparse enforces a required group during
+    # parse_args(), which made --print-sample-spec unreachable on its own.
+    # Validated explicitly after the print-and-exit branch instead.
+    source = parser.add_mutually_exclusive_group(required=False)
     source.add_argument("--policy", help="path to a memory design policy JSON file")
     source.add_argument(
         "--sample",
@@ -347,6 +387,11 @@ def main() -> int:
     if args.print_sample_spec:
         print(json.dumps(SAMPLE_POLICY, indent=2))
         return 0
+
+    if not (args.policy or args.sample or args.sample_failing):
+        parser.error(
+            "one of --policy, --sample, --sample-failing, or --print-sample-spec is required"
+        )
 
     if args.sample:
         policy = SAMPLE_POLICY

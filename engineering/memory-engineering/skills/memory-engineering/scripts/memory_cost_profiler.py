@@ -322,7 +322,10 @@ def main() -> int:
             "  memory_cost_profiler.py --sample --output json\n"
         ),
     )
-    source = parser.add_mutually_exclusive_group(required=True)
+    # Not required=True: argparse enforces a required group during
+    # parse_args(), which made --print-sample-spec unreachable on its own.
+    # Validated explicitly after the print-and-exit branch instead.
+    source = parser.add_mutually_exclusive_group(required=False)
     source.add_argument("--spec", help="path to a memory workload spec JSON file")
     source.add_argument(
         "--sample",
@@ -345,6 +348,11 @@ def main() -> int:
     if args.print_sample_spec:
         print(json.dumps(SAMPLE_SPEC, indent=2))
         return 0
+
+    if not (args.spec or args.sample):
+        parser.error(
+            "one of --spec, --sample, or --print-sample-spec is required"
+        )
 
     if args.sample:
         spec = SAMPLE_SPEC

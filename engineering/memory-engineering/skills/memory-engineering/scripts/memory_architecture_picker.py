@@ -351,7 +351,10 @@ def main() -> int:
             "  memory_architecture_picker.py --sample --output json\n"
         ),
     )
-    source = parser.add_mutually_exclusive_group(required=True)
+    # Not required=True: argparse enforces a required group during
+    # parse_args(), which made --print-sample-spec unreachable on its own.
+    # Validated explicitly after the print-and-exit branch instead.
+    source = parser.add_mutually_exclusive_group(required=False)
     source.add_argument("--constraints", help="path to a constraints JSON file")
     source.add_argument(
         "--sample",
@@ -374,6 +377,11 @@ def main() -> int:
     if args.print_sample_spec:
         print(json.dumps(SAMPLE_CONSTRAINTS, indent=2))
         return 0
+
+    if not (args.constraints or args.sample):
+        parser.error(
+            "one of --constraints, --sample, or --print-sample-spec is required"
+        )
 
     if args.sample:
         constraints = SAMPLE_CONSTRAINTS

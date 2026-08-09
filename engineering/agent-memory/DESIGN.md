@@ -19,7 +19,7 @@ project — the L0→L3 memory tiering and the ownership/visibility model — an
 
 Claude Code memory today is flat. `CLAUDE.md` has exactly one injection policy:
 **always inject, in full, every session**. That single policy is the cause of
-three failure modes this repo already sees at 362 skills:
+three failure modes this repo already sees at 360+ skills:
 
 1. **Bloat** — root `CLAUDE.md` in this repo is ~40 KB of release notes, loaded
    into every session regardless of whether the task touches `markdown-html/` or
@@ -280,6 +280,29 @@ different repos — "tests must pass before merge" is the obvious one — collid
 because the L1→L2 gate above requires the sessions come from the **same**
 project. The project component is what makes the gate mean what it says.
 
+### 4.1.2 `scope` is determined by tier — there is no third promotion path
+
+`scope` is **not** free-form metadata an extractor chooses. It follows tier:
+
+| Tier | `scope` | Produced by |
+|---|---|---|
+| L1 | `project` | extraction |
+| L2 | `project` | L1 → L2 promotion |
+| L3 | `global` | **only** the L2 → L3 merge (§4.1.1) |
+
+**Extraction must always emit `scope: "project"`.** Allowing a
+`tier: L1, scope: global` atom would create an **unreachable state**: L1 → L2
+requires "same `project`", which a global atom has no field for, and L2 → L3 is
+a merge over ≥ 2 *L2* atoms. Such an atom could never promote and would sit at
+L1 until it expired at 90 days — silently, since nothing would flag it.
+
+This is also right on the merits, not just for totality: **whether a claim is
+global is not knowable at extraction.** "Stdlib-only" observed once in one repo
+is a project fact; it becomes global only by holding in a second project. Having
+the merge mint `global` is the design saying that out loud. Enforced by the
+tier/scope conditional in the schema, so an extractor that gets this wrong fails
+validation instead of quietly producing orphans.
+
 ### 4.1.1 The L2 → L3 merge
 
 Because identity is project-scoped, a claim held at L2 in two projects exists as
@@ -336,6 +359,31 @@ overwritten**:
 3. Resolution requires a human decision at `adopt` time. Never automatic.
 
 This mirrors `skillopt-sleep`'s staging discipline: **propose, never apply.**
+
+#### 4.2.1 Detection at L1 — the gate needs it, so it must be defined
+
+§4.1 gates L1 → L2 on *"no contradiction open"*, so detection cannot start at L2
+or the gate references a state nothing produces. Detection runs **at merge time
+in `SessionEnd`**, over atoms sharing a `project`, and is deliberately narrow
+because it must be deterministic (no LLM, per this repo's rule):
+
+| Rule | Fires when | Example |
+|---|---|---|
+| **Explicit negation** | Two atoms' normalized claims differ only by a negation token (`not`, `never`, `no longer`, `n't`) | "PR base is dev" vs "PR base is **not** dev" |
+| **Same-subject conflict** | Same `kind`, and claims share a leading subject phrase (≥ 3 tokens) but end in different trailing values | "PR base branch is **dev**" vs "PR base branch is **main**" |
+
+On a fire: mark the **older** atom `contested`, set `contested_by`, and — per
+§4.1 — it is **no longer promotable** until a human resolves it at `adopt`. The
+newer atom is not auto-blessed; both sit at L1.
+
+**Stated limits, because a narrow detector that claims completeness is worse
+than one that doesn't.** These two rules catch direct reversals and value swaps.
+They will **not** catch semantic contradiction ("always squash-merge" vs "keep
+merge commits"), which needs meaning, not string shape. The consequence is
+bounded and acceptable: an undetected contradiction means both claims promote,
+and §4.2's L2/L3 handling — surface, tag, human resolves — catches it one tier
+later. **Detection is a filter, never a guarantee**; the human gate at `adopt`
+is what actually holds.
 
 ### 4.3 Demotion and expiry
 
@@ -667,8 +715,8 @@ plugins +1.** Tools is **+6, not +3** — `derive_counters.py` counts *every*
 `.py` outside repo-root `scripts/`, so the three `hooks/*.py` count alongside
 the three `scripts/*.py`. Verified empirically against this tree: adding one
 file under `hooks/` moves `python_tools` 644 → 645. `productivity/handoff` is
-the confirming precedent — 5 `scripts/` + 2 `hooks/` files, documented
-repo-wide as "7 stdlib-only Python tools." Verify with
+the confirming precedent — its 7 `scripts/*.py` + 2 `hooks/*.py` are 9 counted
+tools, i.e. the `hooks/` files are counted alongside the `scripts/` ones. Verify with
 `scripts/derive_counters.py --check` before opening the implementation PR.
 
 **Follow-up for the maintainer (not this PR):** root `CLAUDE.md` documents three

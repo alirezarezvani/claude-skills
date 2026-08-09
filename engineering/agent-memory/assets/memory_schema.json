@@ -35,7 +35,7 @@
     "scope": {
       "type": "string",
       "enum": ["project", "global"],
-      "description": "'project' claims are candidates for L2, 'global' for L3. Scope is assigned at extraction and may be widened by promotion, never narrowed automatically."
+      "description": "DETERMINED BY TIER, not chosen freely: L1 and L2 are always 'project'; 'global' arises ONLY from the L2->L3 merge. Extraction must therefore always emit scope='project'. Permitting a scope='global' atom at extraction would create an unreachable state — the L1 to L2 gate requires 'same project' and a global atom has no 'project' field, while L2 to L3 is a merge over two or more L2 atoms, so such an atom could never promote and would sit at L1 until it expired. Enforced by the tier/scope conditional below. See DESIGN.md section 4.1.2."
     },
     "project": {
       "type": "string",
@@ -125,6 +125,12 @@
         "required": ["promoted_from_projects"],
         "properties": { "promoted_from_projects": { "minItems": 2 } }
       }
+    },
+    {
+      "$comment": "tier determines scope, closing an unreachable state: a tier=L1/scope=global atom could never promote (L1->L2 needs 'same project', which it lacks; L2->L3 merges L2 atoms) and would sit at L1 until expiry. L1 and L2 are project-scoped; global exists only as the product of the L2->L3 merge. See DESIGN.md section 4.1.2.",
+      "if": { "properties": { "tier": { "enum": ["L1", "L2"] } }, "required": ["tier"] },
+      "then": { "properties": { "scope": { "const": "project" } } },
+      "else": { "properties": { "scope": { "const": "global" } } }
     },
     {
       "$comment": "Enforces the tier-dependent back-pointer format from DESIGN.md section 3.1.1. This is the one promotion rule with PII consequences — an unstripped L2/L3 back-pointer commits the contributor's OS username to a shared CLAUDE.md — so it is machine-checked here rather than left to prose, exactly like the scope and tier conditionals above. memory_promote.py must fail loudly on a bad promotion, never leak silently.",

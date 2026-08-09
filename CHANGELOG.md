@@ -113,6 +113,20 @@ and writes to a temp dir so a sample run cannot litter the caller's cwd. Same ro
 previews **every** gate rule through a shared `gate_refusals()` — previously it looked only
 at blocking items, so a round with no named reviewer reported 0 while `close` refused on G3.
 
+**A sixth round caught the void-element fix having been only half-applied, and a forgery
+route through the artifact itself.** The round-three commit message claimed "meta, link and
+base are void elements", but only `meta` and `link` reached `VOID` — so `<base href="/">`,
+which sits in the `<head>` of a great many real pages, still swallowed the whole body and
+returned "No reviewable blocks". `VOID` is now the complete HTML spec list rather than a
+hand-picked subset, and `SAMPLE_HTML` carries a `<base>` tag so the regression gate would
+catch a third recurrence. Separately: a reviewed HTML artifact carrying its own
+`data-hg="..."` attribute kept it, and the builder appended a second — browsers honour the
+*first*, and attribute values may contain raw newlines, so a crafted artifact could inject
+a forged `## APPROVE` heading into the exported sidecar. That is the same silent-false-approval
+failure G7 exists to prevent, arriving through the artifact instead of the sidecar. Reserved
+attributes (`data-hg`) and reserved element ids (the page's own `doc`, `items`, `reviewer`,
+`export`, …) are now stripped from reviewed HTML before anchoring.
+
 **G7 came out of the first PR review round** and closes a real hole: a mistyped severity heading
 (`## BLOKCER`) silently downgrades to `NIT`, so before this a reviewer's genuine blocker
 could be lost to a typo and `close` would still exit 0. Reproduced, then fixed — the

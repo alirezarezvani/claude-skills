@@ -54,10 +54,23 @@ URL_ATTRS = {
 # already dropped, so keeping the attribute was inconsistent as well as leaky.
 DROP_ATTRS = {"srcdoc", "srcset", "style"}
 
+# data-hg is this tool's own block anchor. If a reviewed artifact carries one,
+# the builder would append a second, and the browser keeps the FIRST — so the
+# click handler reads the artifact's value, not ours. Attribute values may hold
+# raw newlines, so a crafted one becomes extra "## APPROVE" lines in the
+# exported sidecar: a forged sign-off smuggled in by the content under review.
+# The page's own element ids are reserved for the same collision reason.
+RESERVED_ATTRS = {"data-hg"}
+RESERVED_IDS = {
+    "doc", "items", "hint", "counts", "reviewer", "add-note", "copy",
+    "export", "toast",
+}
+
 SAMPLE_HTML = """<!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<base href="/">
 <link rel="stylesheet" href="style.css">
 <title>Landing</title>
 </head><body>
@@ -102,6 +115,9 @@ def _safe_href(url, image=False):
     probe = re.sub(r"[\x00-\x20\x7f]+", "", url)
     match = re.match(r"^([a-zA-Z][a-zA-Z0-9+.\-]*):", probe)
     if not match:
+        # No scheme: a relative or protocol-relative ("//host/x") URL. Both are
+        # allowed deliberately — neither can execute, and a reviewed artifact's
+        # own assets must still resolve for the review to be faithful.
         return url
     scheme = match.group(1).lower()
     if scheme in ("http", "https", "mailto"):
@@ -288,6 +304,10 @@ def sanitize_attrs(attrs):
         lower = name.lower()
         if lower.startswith("on") or lower in DROP_ATTRS:
             continue
+        if lower in RESERVED_ATTRS:
+            continue
+        if lower == "id" and (value or "").strip().lower() in RESERVED_IDS:
+            continue
         if lower in URL_ATTRS:
             safe = _safe_href(value or "", image=(lower in ("src", "poster", "background")))
             if safe is None:
@@ -303,7 +323,14 @@ def sanitize_attrs(attrs):
 class BlockTagger(HTMLParser):
     """Re-emit an HTML body, tagging top-level block elements with data-hg ids."""
 
-    VOID = ("br", "hr", "img", "input", "meta", "link", "source", "col", "wbr")
+    # The complete HTML void-element set. A hand-picked subset is how <base>
+    # kept swallowing the body after the <meta>/<link> fix: any DROP_TAGS entry
+    # missing from here never fires handle_endtag, so its skip counter is never
+    # released. Spec list, so the class cannot recur one tag at a time.
+    VOID = (
+        "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+        "meta", "param", "source", "track", "wbr", "frame",
+    )
 
     def __init__(self, fragment=False):
         super().__init__(convert_charrefs=False)

@@ -15,19 +15,19 @@ The short pass. Skip the cost and architecture work; answer one question about
 If given a policy JSON:
 
 ```bash
-python scripts/forgetting_policy_linter.py --policy <policy.json>
+python skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <policy.json>
 ```
 
 If given a directory, first show what is actually accumulating, then gate:
 
 ```bash
-python scripts/memory_density_auditor.py --dir <path>
-python scripts/forgetting_policy_linter.py --policy <policy.json>
+python skills/memory-engineering/scripts/memory_density_auditor.py --dir <path>
+python skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <policy.json>
 ```
 
 If no policy file exists, that is the answer — nothing leaves the store. Show
 what `--sample-failing` blocks, then help write one from
-`assets/forgetting_policy_template.md`.
+`skills/memory-engineering/assets/forgetting_policy_template.md`.
 
 ## The two blocking checks
 

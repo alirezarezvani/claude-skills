@@ -25,7 +25,7 @@ that gap **is** the first finding — say so rather than guessing:
 **1. Price the write path**
 
 ```bash
-python scripts/memory_cost_profiler.py --spec <workload.json>
+python skills/memory-engineering/scripts/memory_cost_profiler.py --spec <workload.json>
 ```
 
 Lead the report with the construction/query split and **cost per correct
@@ -34,7 +34,7 @@ answer**. Never present accuracy on its own.
 **2. Choose which cost to pay**
 
 ```bash
-python scripts/memory_architecture_picker.py --constraints <workload.json>
+python skills/memory-engineering/scripts/memory_architecture_picker.py --constraints <workload.json>
 ```
 
 If it exits 2 (`AMBIGUOUS`), **stop and put the printed tie-breaking question to
@@ -43,7 +43,7 @@ the user.** Do not pick for them — the tie is real, not a tooling limitation.
 **3. Audit the real store** (skip if this is a greenfield design)
 
 ```bash
-python scripts/memory_density_auditor.py --dir <path>
+python skills/memory-engineering/scripts/memory_density_auditor.py --dir <path>
 ```
 
 Report the FACT/SKILL/LOG/PROSE split. Users are routinely wrong about how much
@@ -52,7 +52,7 @@ of their store is transcripts.
 **4. Gate on forgetting** — blocking
 
 ```bash
-python scripts/forgetting_policy_linter.py --policy <design.json>
+python skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <design.json>
 ```
 
 Exit 4 is a **stop**. Name the failing check (F1 or F4) and its fix. Do not
@@ -73,5 +73,5 @@ Attribute every number to its source with a confidence level. Vendor customer
 figures are testimonials, not benchmarks — label them as such.
 
 For a structured walkthrough, hand the user
-`assets/memory_engineer_worksheet.md` (the seven forcing questions) and walk
+`skills/memory-engineering/assets/memory_engineer_worksheet.md` (the seven forcing questions) and walk
 them **one at a time**.

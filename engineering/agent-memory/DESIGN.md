@@ -691,6 +691,13 @@ traffic in a Node proxy that mutates `body.system`
 
 Rejected on four independent grounds, any one of which is sufficient:
 
+**How the §8 citations were obtained** (so a reader can re-check rather than
+trust): the upstream repo was cloned and read at commit
+**`b44c6db5f5b1a011eed645efb1949840f99f961a`** (2026-08-05), the tip of `main`
+at inspection time. Line references below are against that commit; upstream may
+have moved since. The Chinese source comment quoted in point 1 is verbatim from
+`MemoryProxy/src/agent-adapters/claude-code.ts`, lines 2–6.
+
 1. **Reverse-engineered from Claude Code internals.**
    `MemoryProxy/src/agent-adapters/claude-code.ts:5` states its source as
    *"逆向 CC 源码 forkedAgent.ts / sideQuery.ts + 抓包实证"* — reverse-engineered CC

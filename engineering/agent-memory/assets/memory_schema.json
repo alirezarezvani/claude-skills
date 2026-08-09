@@ -106,7 +106,7 @@
     "promoted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "When this atom last changed tier. Starts the 30-day clock for L2 to L3 eligibility."
+      "description": "When this atom last changed tier. Starts the 30-day clock for L2 to L3 eligibility (section 4.1.1) and anchors demotion (section 4.3). REQUIRED at L2/L3 via the conditional below — an atom that reached a committed tier without recording when could never satisfy the age gate and would sit un-promotable forever. NOT required at L1, and explicitly not forbidden there: a demoted atom (section 4.3) sits at L1 while legitimately retaining the promoted_at from its earlier life."
     },
     "redacted": {
       "type": "boolean",
@@ -126,6 +126,11 @@
         "required": ["promoted_from_projects"],
         "properties": { "promoted_from_projects": { "minItems": 2 } }
       }
+    },
+    {
+      "$comment": "promoted_at is REQUIRED at L2/L3 because sections 4.1.1 and 4.3 both key off it — the L2->L3 gate needs age >= 30 days, and demotion needs to know when the atom last moved. An L2 atom missing it could never satisfy the age test and would sit un-promotable forever, silently: the same silent-skip failure mode that made `redacted` required. Deliberately NOT forbidden at L1, because section 4.3 demotes an expired L2 claim BACK to L1 and that atom legitimately retains its promotion history; forbidding it there would make a demoted atom invalid.",
+      "if": { "properties": { "tier": { "enum": ["L2", "L3"] } }, "required": ["tier"] },
+      "then": { "required": ["promoted_at"] }
     },
     {
       "$comment": "tier determines scope, closing an unreachable state: a tier=L1/scope=global atom could never promote (L1->L2 needs 'same project', which it lacks; L2->L3 merges L2 atoms) and would sit at L1 until expiry. L1 and L2 are project-scoped; global exists only as the product of the L2->L3 merge. See DESIGN.md section 4.1.2.",

@@ -149,6 +149,12 @@ def main():
         if ex["tier"] == "L3":
             check(len(set(ex.get("promoted_from_projects", []))) >= 2,
                   "%s L3 carries >=2 promoted_from_projects" % name)
+        if ex["tier"] in ("L2", "L3"):
+            # §4.1.1's 30-day age gate and §4.3's demotion both key off this;
+            # an atom that reached a committed tier without it could never
+            # satisfy the age test and would sit un-promotable, silently.
+            check("promoted_at" in ex,
+                  "%s committed tier records promoted_at" % name)
         check(len(ex["sessions"]) == len(set(ex["sessions"])),
               "%s sessions unique" % name)
 

@@ -133,7 +133,7 @@ that went through redaction, not because either is universally mandatory.
 
 ```json
 {
-  "id": "atm_7f3a9c21",
+  "id": "atm_961f033d",
   "claim": "PR base branch is dev, never main",
   "scope": "project",
   "project": "claude-skills",
@@ -160,6 +160,36 @@ that went through redaction, not because either is universally mandatory.
   written once and never overwritten, preserving the evidence that originally
   justified the claim. A single field would lose exactly the record an auditor
   asking "why does the agent believe this?" needs.
+
+#### 3.1.1 Back-pointer format is tier-dependent — and must be
+
+| Tier | Format | Why |
+|---|---|---|
+| **L1** (gitignored) | `~/.claude/projects/<cwd-slug>/<session>.jsonl#L<line>` | Local, never leaves the machine. Direct-openable. |
+| **L2 / L3** (committed) | `<session>.jsonl#L<line>` — **no path prefix** | Committed tiers must be de-identified (§6). |
+
+**This is not cosmetic.** `<cwd-slug>` is Claude Code's slugification of the
+*absolute* working directory, so on a real machine it is
+`-home-alice-work-claude-skills`, not `-home-user-…` — **it embeds the operating
+system username.** Since `source` and `first_source` are unconditionally
+required at every tier, a naive implementation of "cite, don't invent" would
+write a contributor's username into a shared, git-tracked `CLAUDE.md` on the
+first promotion — precisely the identifying-data class §6 exists to keep out.
+Rule 4 (cite) and the §6 admission policy would be in direct conflict, and rule
+4 would win by being the more mechanical of the two.
+
+**Resolution: promotion strips the prefix.** The session id is globally unique,
+so the transcript stays findable by globbing
+`~/.claude/projects/*/<session>.jsonl` locally at read time — the prefix is
+*derivable*, so storing it buys nothing and costs de-identification. Provenance
+is fully preserved; only the machine-specific part is dropped.
+
+This is also why round 3's fixture fix did not surface the problem: the
+placeholder happened to read `-home-user-`, which *looks* de-identified because
+the username is literally the word "user". A placeholder that flatters the
+design is worse than no placeholder — the L2 and L3 fixtures in
+`memory_schema.json` now use the portable form, so the examples demonstrate the
+rule instead of hiding it.
 - `confidence` ∈ `observed` (agent inferred it) · `stated` (user said it
   directly) · `verified` (a check confirmed it). `stated` and `verified` promote
   faster — see §4.
@@ -196,8 +226,17 @@ scope=global  : id = "atm_" + sha256(normalized_claim).hexdigest()[:8]
 and Python's builtin `hash()` is **salted per process** for `str`, so using it
 would produce different ids on every run and break merging outright.
 
-`normalized_claim` = casefolded, whitespace-collapsed, trailing punctuation
-stripped.
+`normalized_claim` is pinned exactly, because the ids in this doc and in
+`memory_schema.json` are **worked examples of this contract** and must
+reproduce:
+
+```python
+def normalize(claim: str) -> str:
+    return re.sub(r"\s+", " ", claim.strip()).casefold().rstrip(".,;:!?")
+```
+
+Order matters — collapse whitespace, then casefold, then strip trailing
+punctuation. Any deviation silently changes every id in the store.
 
 **On the 8-hex (32-bit) id space** — this is an assumption, so here is the
 arithmetic. Birthday collision probability `1 - exp(-n(n-1)/2N)`, `N = 2³²`:
@@ -247,6 +286,13 @@ Because identity is project-scoped, a claim held at L2 in two projects exists as
    trail. "Which projects earned this?" must stay answerable afterwards.
 5. The contributing L2 atoms are **retained**, not deleted. L3 injection
    supersedes them; they remain as the provenance chain.
+
+**Every promotion into a committed tier (L1→L2 and L2→L3) must also strip the
+back-pointer prefix** per §3.1.1 — `~/.claude/projects/<cwd-slug>/X.jsonl#L12`
+becomes `X.jsonl#L12`. This is not optional cleanup: skipping it writes an OS
+username into a git-tracked file. It is the one transform that must happen at
+*both* promotion boundaries, since L1→L2 is the first crossing into committed
+territory.
 
 Fast paths:
 
@@ -358,7 +404,7 @@ Reuse the pattern this repo already has rather than inventing one —
 + `os.replace`:
 
 - **Writers** serialize on an exclusive lock (`.memory/atoms.lock`, `O_CREAT |
-  O_EXCL`, stale-lock breaking by mtime), then write to a temp file in the same
+  O_EXCL`, stale-lock breaking at **60 s** by mtime), then write to a temp file in the same
   directory and `os.replace()` onto the target. `os.replace` is atomic within a
   filesystem, so a reader sees either the whole old file or the whole new one —
   never a partial one.
@@ -590,6 +636,14 @@ file under `hooks/` moves `python_tools` 644 → 645. `productivity/handoff` is
 the confirming precedent — 5 `scripts/` + 2 `hooks/` files, documented
 repo-wide as "7 stdlib-only Python tools." Verify with
 `scripts/derive_counters.py --check` before opening the implementation PR.
+
+**Follow-up for the maintainer (not this PR):** root `CLAUDE.md` documents three
+canonical `skills` manifest forms, and the one used here —
+`["./skills/<plugin-name>"]`, a *single* skill nested one level down — is not
+quite any of them, despite being what all five precedent plugins actually do. It
+currently survives `check_plugin_json.py` as an explicit `./`-prefixed array
+entry. Worth adding as a documented fourth form so the shape stops being tribal
+knowledge spread across five manifests.
 
 ---
 

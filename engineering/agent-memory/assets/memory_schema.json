@@ -69,11 +69,11 @@
     },
     "source": {
       "type": "string",
-      "description": "Back-pointer into L0 for the MOST RECENT observation: '<transcript path>#L<line>'. Overwritten on every merge — read 'first_source' for the evidence that originally justified the claim. Required for promotion; an unprovenanced claim can never be promoted. This is the anti-fabrication rule."
+      "description": "Back-pointer into L0 for the MOST RECENT observation. Overwritten on every merge — read 'first_source' for the evidence that originally justified the claim. Required at every tier; an unprovenanced claim can never be promoted (the anti-fabrication rule). FORMAT IS TIER-DEPENDENT: at L1 (gitignored) it is the full local path '~/.claude/projects/<cwd-slug>/<session>.jsonl#L<line>'; at L2/L3 (committed) promotion MUST strip the prefix to '<session>.jsonl#L<line>', because <cwd-slug> is the slugified absolute working directory and therefore embeds the OS username — committing it would violate the de-identification rule in DESIGN.md section 6. The prefix is derivable at read time by globbing ~/.claude/projects/*/<session>.jsonl, so nothing is lost. See DESIGN.md section 3.1.1."
     },
     "first_source": {
       "type": "string",
-      "description": "Back-pointer into L0 for the FIRST observation, written once at creation and never overwritten. 'source' alone is insufficient for an anti-fabrication field: after N merges it points only at the latest sighting, so the evidence that originally justified the claim would be unrecoverable exactly when an auditor needs it. Both are retained deliberately."
+      "description": "Back-pointer into L0 for the FIRST observation, written once at creation and never overwritten (except by the tier-dependent prefix strip described under 'source', which rewrites the format, never the target). 'source' alone is insufficient for an anti-fabrication field: after N merges it points only at the latest sighting, so the evidence that originally justified the claim would be unrecoverable exactly when an auditor needs it. Both are retained deliberately."
     },
     "promoted_from_projects": {
       "type": "array",
@@ -128,7 +128,7 @@
   ],
   "examples": [
     {
-      "id": "atm_7f3a9c21",
+      "id": "atm_961f033d",
       "claim": "PR base branch is dev, never main",
       "scope": "project",
       "project": "claude-skills",
@@ -141,15 +141,15 @@
         "01SESSIONBBBB11112222333",
         "01SESSIONCCCC11112222333"
       ],
-      "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONCCCC11112222333.jsonl#L412",
-      "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L77",
+      "source": "01SESSIONCCCC11112222333.jsonl#L412",
+      "first_source": "01SESSIONAAAA11112222333.jsonl#L77",
       "confidence": "stated",
       "tier": "L2",
       "promoted_at": "2026-07-19T14:02:00Z",
       "redacted": false
     },
     {
-      "id": "atm_b41c8de0",
+      "id": "atm_12cc1dc2",
       "claim": "Python tooling stays stdlib-only; no third-party runtime deps",
       "scope": "global",
       "kind": "preference",
@@ -162,8 +162,8 @@
         "01SESSIONFFFF11112222333",
         "01SESSIONGGGG11112222333"
       ],
-      "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONGGGG11112222333.jsonl#L88",
-      "first_source": "~/.claude/projects/-home-user-other-project/01SESSIONDDDD11112222333.jsonl#L204",
+      "source": "01SESSIONGGGG11112222333.jsonl#L88",
+      "first_source": "01SESSIONDDDD11112222333.jsonl#L204",
       "confidence": "verified",
       "tier": "L3",
       "promoted_from_projects": ["claude-skills", "other-project"],

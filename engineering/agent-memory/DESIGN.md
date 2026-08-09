@@ -155,12 +155,12 @@ project-scoped atom, not because that field is universally mandatory.
   "scope": "project",
   "project": "claude-skills",
   "kind": "constraint",
-  "first_seen": "2026-08-09T10:14:22Z",
-  "last_seen": "2026-08-09T10:14:22Z",
+  "first_seen": "2026-07-02T09:11:04Z",
+  "last_seen": "2026-07-02T09:11:04Z",
   "observations": 1,
   "sessions": ["01SESSIONAAAA11112222333"],
-  "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L412",
-  "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L412",
+  "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L77",
+  "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONAAAA11112222333.jsonl#L77",
   "confidence": "observed",
   "tier": "L1",
   "redacted": false
@@ -220,6 +220,21 @@ rule instead of hiding it.
 > Read side by side, the pair is one atom's lifecycle. Stability matters —
 > merging on re-observation (§4.1) depends on the id not moving as the atom
 > climbs.
+>
+> **Calling it a lifecycle constrains the fixtures, so state the constraints.**
+> The L1 snapshot is the *first* sighting of the atom the L2 example later
+> became, which forces three things a reader can check: its `first_seen` must
+> equal the L2's `first_seen` (promotion takes the **min**, §4.1.1 step 3 — so
+> the earliest timestamp survives unchanged and cannot be a later one); its
+> back-pointers must be the L2's `first_source` with the path prefix re-attached
+> (§3.1.1 strips the prefix and **nothing else** — the line number may not
+> drift); and its `sessions` must be a subset of the L2's, since promotion
+> unions them. `last_seen`, `observations` and `confidence` are the fields free
+> to move, because those are what accumulating evidence changes. The checker
+> (§10.1, family 7) enforces all of this — an earlier draft violated the first
+> two, having copied the L1 timestamps from the L2's `last_seen` and its line
+> number from the L2's `source`, which is exactly the drift a prose claim of
+> "one lifecycle" invites and cannot itself prevent.
 >
 > **L2 → L3 is the exception, and for a reason:** that step mints a *new*
 > project-free id (§4.1.1 step 3), because the hash input itself changes when the
@@ -814,9 +829,15 @@ Needed before implementation starts:
 ## 10. Planned file tree (not yet created)
 
 Layout follows the shape every comparable agents+commands plugin in this repo
-uses — `skillopt-sleep`, `write-a-skill`, `agent-harness`, `handoff`, `llm-wiki`
-are **5 for 5**: the skill body nests under `skills/<plugin-name>/`, while
-`agents/`, `commands/`, `hooks/` and `.claude-plugin/` sit at the plugin root.
+uses: the skill body nests under `skills/<plugin-name>/`, while `agents/`,
+`commands/`, `hooks/` and `.claude-plugin/` sit at the plugin root. **4 of 5
+comparable plugins point their manifest at that nested path** —
+`skillopt-sleep`, `write-a-skill`, `agent-harness` and `handoff` all declare
+`["./skills/<plugin-name>"]`. `engineering/llm-wiki/` is the exception worth
+knowing about: it uses the *same* on-disk nesting (`skills/llm-wiki/`) but
+declares the bare `["./skills"]`, which **is** one of root `CLAUDE.md`'s three
+documented canonical forms ("plugin with `skills/` subdir"). Both load; the
+difference is whether the manifest names the skill or the directory above it.
 
 ```
 engineering/agent-memory/
@@ -891,18 +912,22 @@ contract would be the wrong thing to discover later.
 plugins +1.** Tools is **+6, not +3** — `derive_counters.py` counts *every*
 `.py` outside repo-root `scripts/`, so the three `hooks/*.py` count alongside
 the three `scripts/*.py`. Verified empirically against this tree: adding one
-file under `hooks/` moves `python_tools` 644 → 645. `productivity/handoff` is
+file under `hooks/` moves `python_tools` 663 → 664. `productivity/handoff` is
 the confirming precedent — its 7 `scripts/*.py` + 2 `hooks/*.py` are 9 counted
 tools, i.e. the `hooks/` files are counted alongside the `scripts/` ones. Verify with
 `scripts/derive_counters.py --check` before opening the implementation PR.
 
-**Follow-up for the maintainer (not this PR):** root `CLAUDE.md` documents three
-canonical `skills` manifest forms, and the one used here —
-`["./skills/<plugin-name>"]`, a *single* skill nested one level down — is not
-quite any of them, despite being what all five precedent plugins actually do. It
-currently survives `check_plugin_json.py` as an explicit `./`-prefixed array
-entry. Worth adding as a documented fourth form so the shape stops being tribal
-knowledge spread across five manifests.
+**Follow-up for the maintainer (not this PR):** the identical on-disk layout is
+declared two different ways across the repo, and only one of them is documented.
+Root `CLAUDE.md` lists three canonical `skills` forms; `["./skills"]` (what
+`llm-wiki` uses) is among them, while `["./skills/<plugin-name>"]` (what the
+other four use, and what this tree adopts to follow the majority) is not quite
+any of them — it survives `check_plugin_json.py` only as a well-formed
+`./`-prefixed array entry. **The question is which of the two the repo wants,
+not whether to bless a fourth form** — the earlier draft of this section argued
+the latter on the false premise that all five plugins used the undocumented
+shape. Either document the nested form, or migrate the four manifests to the
+already-documented `["./skills"]`; both beat the shape being tribal knowledge.
 
 ---
 

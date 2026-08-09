@@ -300,6 +300,48 @@ def main():
     check("not observations" in flat,
           "promotion row names sessions, not observations, as the gate")
 
+    # -- family 7: the lifecycle pair actually coheres in time ---------------
+    # Added after a review found the L1 fixture in DESIGN.md 3.1 and the L2
+    # example in the schema -- explicitly captioned "one atom's lifecycle,
+    # read side by side" -- contradicting each other: the L1 snapshot carried
+    # the L2's *last_seen* as its own first_seen (making the first sighting
+    # postdate the promotion by three weeks) and the L2's *source* line number
+    # where its first_source belonged. Families 1-6 all passed on it, because
+    # each atom was independently well-formed; nothing compared them. That is
+    # the point of this family: a prose claim that two fixtures are one story
+    # imposes constraints no per-atom check can see.
+    for aid, group in by_id.items():
+        for ex in group:
+            check(ex["first_seen"] <= ex["last_seen"],
+                  "%s/%s first_seen precedes last_seen" % (aid, ex["tier"]))
+            if "promoted_at" in ex:
+                check(ex["first_seen"] <= ex["promoted_at"] <= ex["last_seen"],
+                      "%s/%s promoted_at falls inside its own observation window"
+                      % (aid, ex["tier"]))
+        if len(group) < 2:
+            continue
+        ordered = sorted(group, key=lambda e: ["L1", "L2", "L3"].index(e["tier"]))
+        for a, b in zip(ordered, ordered[1:]):
+            # 4.1.1 step 3: promotion takes min(first_seen), so the earliest
+            # timestamp survives promotion unchanged -- it can never move.
+            check(a["first_seen"] == b["first_seen"],
+                  "%s first_seen is identical across tiers (promotion takes min)"
+                  % aid)
+            check(a["last_seen"] <= b["last_seen"],
+                  "%s last_seen never moves backwards up a tier" % aid)
+            check(a["observations"] <= b["observations"],
+                  "%s observations accumulate up a tier" % aid)
+            check(set(a["sessions"]) <= set(b["sessions"]),
+                  "%s sessions are a superset up a tier (promotion unions them)"
+                  % aid)
+            # 3.1.1 strips the path prefix and NOTHING else, so the lower
+            # tier's own back-pointer must survive as the upper tier's
+            # first_source with only the prefix removed. A differing line
+            # number means one of the two was invented.
+            check(a["first_source"].split("/")[-1] == b["first_source"],
+                  "%s first_source survives promotion with only the path "
+                  "prefix stripped" % aid)
+
     print("\n%d checks, %d failures" % (len(ran), len(failures)))
     for f in failures:
         print("  FAILED: " + f)

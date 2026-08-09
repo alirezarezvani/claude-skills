@@ -1,0 +1,215 @@
+# ---------------------------------------------------------------------------
+# validate_examples.py — SOURCE, PARKED AS AN ASSET (deliberately not .py yet)
+#
+# WHY THIS IS A .txt: this PR is spec-only. A .py here would be counted by
+# scripts/derive_counters.py (verified: python_tools 663 -> 664) and would be a
+# counted "tool" belonging to no plugin, in a folder that deliberately has no
+# SKILL.md. Parking the source preserves it without moving counters or
+# contradicting the Status line.
+#
+# WHY IT EXISTS AT ALL: across 17 review rounds, drift between DESIGN.md, the
+# schema, and the fixtures was the DOMINANT defect class — required-field drift,
+# a tier the examples never exercised, hashes that stopped reproducing, headings
+# inserted out of order, a confidence value that contradicted its own lifecycle
+# narrative. Every one was found by a check like the ones below. Those checks
+# have so far lived only in throwaway shell heredocs, so they die with the
+# session that wrote them. That is the actual gap a reviewer named, and this
+# file closes it.
+#
+# ON IMPLEMENTATION: rename to
+#   skills/agent-memory/scripts/validate_examples.py
+# (chmod +x, argparse --help/--json per repo CLI convention), count it in the
+# tools delta, and wire it into CI. It is the FIRST file the implementation PR
+# should land — before memory_extract.py — because everything else is written
+# against the contract it guards.
+#
+# REVERSAL CONDITION: if the maintainer rules that a spec-stage folder may carry
+# tooling, this becomes a .py immediately; nothing else about the PR changes
+# except three counter files.
+#
+# stdlib only. No jsonschema (not available repo-wide) — this is a partial
+# validator covering exactly this file's own failure modes, not a general
+# JSON Schema implementation. That narrowness is deliberate: a general
+# validator would be a dependency, and the four allOf branches here are the
+# only ones that have ever actually drifted.
+# ---------------------------------------------------------------------------
+import hashlib
+import json
+import os
+import re
+import sys
+
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DESIGN = os.path.join(BASE, "DESIGN.md")
+SCHEMA = os.path.join(BASE, "assets", "memory_schema.json")
+
+CONFIDENCE_ORDER = ["observed", "stated", "verified"]
+GATE_SESSIONS = {"observed": 3, "stated": 2, "verified": 1}
+
+failures = []
+ran = []
+
+
+def check(cond, label):
+    print(("PASS " if cond else "FAIL ") + label)
+    ran.append(label)
+    if not cond:
+        failures.append(label)
+
+
+def norm_prose(text):
+    """Case, whitespace and markdown markers all normalized ONCE.
+
+    Six separate rounds produced a false FAIL because an assertion matched a
+    literal string that had wrapped, changed case, or sat inside backticks.
+    Normalizing here is the fix for all three at once.
+    """
+    return re.sub(r"\s+", " ", re.sub(r"[`*_>]", "", text)).casefold()
+
+
+def load():
+    schema = json.load(open(SCHEMA))
+    design = open(DESIGN).read()
+    return schema, design
+
+
+def atom_examples(schema, design):
+    """Every atom in the repo: the schema's own examples PLUS every JSON block
+    in DESIGN.md. Round 1's `tier` drift survived because only the former was
+    checked."""
+    out = [("schema[%d]" % i, e) for i, e in enumerate(schema["examples"], 1)]
+    for j, block in enumerate(re.findall(r"```json\n(.*?)\n```", design, re.S), 1):
+        try:
+            obj = json.loads(block)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(obj, dict) and "id" in obj:
+            out.append(("DESIGN[%d]" % j, obj))
+    return out
+
+
+def published_normalize(design):
+    """Execute the normalize() published in §4.1 rather than reimplementing it.
+
+    If the doc's algorithm and the ids ever disagree, this fails — which is the
+    point. Round 7 shipped two ids that did not reproduce because nothing tied
+    the prose to the fixtures.
+    """
+    src = re.search(r"def normalize.*?\n```", design, re.S).group(0).rsplit("```", 1)[0]
+    ns = {"re": re}
+    exec(src, ns)  # noqa: S102 - executing the doc's own published contract
+    return ns["normalize"]
+
+
+def atom_id(normalize, claim, project=None):
+    key = normalize(claim) + ("\0" + project if project else "")
+    return "atm_" + hashlib.sha256(key.encode()).hexdigest()[:8]
+
+
+def main():
+    schema, design = load()
+    flat = norm_prose(design)
+    required = set(schema["required"])
+    props = set(schema["properties"]) | {"$comment"}
+    examples = atom_examples(schema, design)
+    normalize = published_normalize(design)
+
+    # -- family 1: every atom satisfies the schema it claims to demonstrate ---
+    for name, ex in examples:
+        check(not (required - set(ex)), "%s has all required fields" % name)
+        check(not (set(ex) - props), "%s declares no unknown fields" % name)
+        check(("project" in ex) == (ex["scope"] == "project"),
+              "%s scope<->project conditional" % name)
+        want_scope = "project" if ex["tier"] in ("L1", "L2") else "global"
+        check(ex["scope"] == want_scope, "%s tier->scope conditional" % name)
+        if ex["tier"] == "L3":
+            check(len(set(ex.get("promoted_from_projects", []))) >= 2,
+                  "%s L3 carries >=2 promoted_from_projects" % name)
+        check(len(ex["sessions"]) == len(set(ex["sessions"])),
+              "%s sessions unique" % name)
+
+    # -- family 2: the tier-dependent back-pointer (the PII-consequence rule) --
+    L1_PAT = r"^~/\.claude/projects/[^/]+/[A-Za-z0-9._-]+\.jsonl#L[0-9]+$"
+    CM_PAT = r"^[A-Za-z0-9._-]+\.jsonl#L[0-9]+$"
+    for name, ex in examples:
+        pat = L1_PAT if ex["tier"] == "L1" else CM_PAT
+        for field in ("source", "first_source"):
+            check(re.match(pat, ex[field]) is not None,
+                  "%s %s matches its tier's back-pointer form" % (name, field))
+    # the rule must REJECT the leak it exists to prevent, not merely accept
+    # the fixtures — asserting only the happy path would have missed round 8.
+    check(re.match(CM_PAT, "~/.claude/projects/-home-alice/X.jsonl#L1") is None,
+          "REJECTS an unstripped L2/L3 back-pointer (the OS-username leak)")
+    check(re.match(L1_PAT, "X.jsonl#L1") is None,
+          "REJECTS a prefix-less L1 back-pointer")
+
+    # -- family 3: ids reproduce from the doc's OWN published algorithm -------
+    for name, ex in examples:
+        check(atom_id(normalize, ex["claim"], ex.get("project")) == ex["id"],
+              "%s id reproduces from the published normalize()+sha256" % name)
+    # L1->L2 keeps the id; L2->L3 mints a new one (project component drops)
+    l2 = [e for _, e in examples if e["tier"] == "L2"]
+    if l2:
+        c, p = l2[0]["claim"], l2[0]["project"]
+        check(atom_id(normalize, c, p) != atom_id(normalize, c),
+              "L2->L3 mints a NEW project-free id, as §4.1.1 states")
+
+    # -- family 4: confidence is a legal, monotonic lifecycle ----------------
+    by_id = {}
+    for name, ex in examples:
+        by_id.setdefault(ex["id"], []).append(ex)
+    for aid, group in by_id.items():
+        for ex in group:
+            check(ex["confidence"] in CONFIDENCE_ORDER,
+                  "%s confidence is a declared value" % aid)
+            check(len(ex["sessions"]) >= GATE_SESSIONS[ex["confidence"]]
+                  or ex["tier"] == "L1",
+                  "%s clears the gate its confidence implies" % aid)
+        if len(group) > 1:
+            ordered = sorted(group, key=lambda e: ["L1", "L2", "L3"].index(e["tier"]))
+            for a, b in zip(ordered, ordered[1:]):
+                check(CONFIDENCE_ORDER.index(b["confidence"])
+                      >= CONFIDENCE_ORDER.index(a["confidence"]),
+                      "%s confidence never downgrades across tiers" % aid)
+
+    # -- family 5: document structure (headings, links, fixtures) ------------
+    heads = [(len(h), tuple(int(x) for x in n.split(".")))
+             for h, n, _ in re.findall(r"^(#{2,6}) (\d+(?:\.\d+)*)\.?\s+(.*)$",
+                                       design, re.M)]
+    check(all(lvl == len(num) + 1 for lvl, num in heads),
+          "heading level equals numbering depth everywhere")
+    nums = [n for _, n in heads]
+    check(all(nums[i] > nums[i - 1] for i in range(1, len(nums))),
+          "heading numbers ascend in document order")
+    # links inside code spans are literal text, not links
+    for target in set(re.findall(r"\]\((?!http)([^)#]+)\)",
+                                 re.sub(r"`[^`\n]*`", "", design))):
+        check(os.path.exists(os.path.join(BASE, target)),
+              "relative link resolves: %s" % target)
+    # fixtures obey the admission policy the doc itself specifies (§6.5)
+    blob = json.dumps([e for _, e in examples]) + design
+    known = {"claude-skills", "other-project"}
+    slugs = set(re.findall(r"-home-user-([a-z0-9._-]+)", blob))
+    check(not (slugs - known),
+          "no unknown project slugs in fixtures %s" % sorted(slugs - known))
+    ids = {s for _, e in examples for s in e["sessions"]}
+    check(all(i.startswith("01SESSION") for i in ids),
+          "all fixture session ids are synthetic")
+
+    # -- family 6: claims in prose that must match measurable reality --------
+    root = os.path.join(BASE, "..", "..", "CLAUDE.md")
+    if os.path.exists(root):
+        size = len(open(root, "rb").read())
+        check("{:,}".format(size) in design,
+              "the CLAUDE.md size claim cites the measured byte count")
+    check("not observations" in flat,
+          "promotion row names sessions, not observations, as the gate")
+
+    print("\n%d checks, %d failures" % (len(ran), len(failures)))
+    for f in failures:
+        print("  FAILED: " + f)
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

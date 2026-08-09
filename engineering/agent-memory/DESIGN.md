@@ -790,6 +790,7 @@ engineering/agent-memory/
   skills/agent-memory/
     SKILL.md                         ← not written until §9 is resolved
     scripts/
+      validate_examples.py           ← FIRST file to land (see below)
       memory_extract.py              ← L0 → L1
       memory_promote.py              ← L1 → L2 → L3, deterministic
       memory_inspect.py              ← --tier, --contested, --why <claim>
@@ -800,6 +801,36 @@ engineering/agent-memory/
     assets/
       memory_schema.json             ← written (moves here on implementation)
 ```
+
+### 10.1 `validate_examples.py` — write it first, and it already exists
+
+Across the review of this spec, **drift between `DESIGN.md`, the schema, and the
+fixtures was the dominant defect class** — required-field drift, a tier the
+examples never exercised, ids that stopped reproducing, headings inserted out of
+order, a `confidence` value that contradicted its own lifecycle narrative. Every
+one was caught by a check, and hand-checking does not scale as the schema moves
+toward implementation.
+
+The validator is written and tested: **[`assets/validate_examples.py.txt`](assets/validate_examples.py.txt)**
+— stdlib-only, 53 checks in six families (schema conformance · the
+tier-dependent back-pointer · id reproduction from the doc's own published
+`normalize()` · confidence monotonicity · document structure and links · prose
+claims that must match measured reality).
+
+Two properties make it worth more than a linter:
+
+1. **It executes the algorithm `DESIGN.md` publishes** rather than
+   reimplementing it, so doc and fixtures cannot silently disagree.
+2. **It is tested against injected regressions, not just the happy path** — four
+   deliberate defects (an unstripped back-pointer, a broken tier→scope pair, a
+   wrong id, a confidence downgrade) each make it exit 1. A checker that only
+   ever passes proves nothing.
+
+**Why it is parked as `.txt` and not shipped here:** this PR is spec-only, and a
+`.py` in this folder is counted by `derive_counters.py` (measured: 663 → 664) —
+a counted "tool" belonging to no plugin, in a folder deliberately without a
+`SKILL.md`. Renaming it and counting it is a one-line change the moment the
+maintainer rules that a spec-stage folder may carry tooling.
 
 **Two references break when that move happens — update both in the same commit:**
 

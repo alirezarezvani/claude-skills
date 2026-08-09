@@ -95,9 +95,33 @@ def published_normalize(design):
     point. Round 7 shipped two ids that did not reproduce because nothing tied
     the prose to the fixtures.
     """
-    src = re.search(r"def normalize.*?\n```", design, re.S).group(0).rsplit("```", 1)[0]
+    match = re.search(r"def normalize.*?\n```", design, re.S)
+    if match is None:
+        raise SystemExit(
+            "FATAL: could not find the normalize() definition fenced in "
+            "DESIGN.md §4.1.\n"
+            "  This checker executes the doc's own published algorithm rather "
+            "than reimplementing it, so if that fence moves or is renamed, id "
+            "verification cannot run and must not be silently skipped.\n"
+            "  Fix: restore a ```python fence defining normalize() in §4.1, or "
+            "update this extractor to match its new location."
+        )
+    src = match.group(0).rsplit("```", 1)[0]
     ns = {"re": re}
-    exec(src, ns)  # noqa: S102 - executing the doc's own published contract
+    try:
+        exec(src, ns)  # noqa: S102 - executing the doc's own published contract
+    except SyntaxError as exc:
+        raise SystemExit(
+            "FATAL: the normalize() published in DESIGN.md §4.1 is not valid "
+            "Python (%s).\n"
+            "  The doc's algorithm is the contract; a fixture cannot be checked "
+            "against an algorithm that will not run." % exc
+        )
+    if "normalize" not in ns:
+        raise SystemExit(
+            "FATAL: the fenced block in DESIGN.md §4.1 ran but defined no "
+            "normalize() — the extractor matched the wrong block."
+        )
     return ns["normalize"]
 
 

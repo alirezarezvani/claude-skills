@@ -18,7 +18,8 @@
     "source",
     "first_source",
     "confidence",
-    "tier"
+    "tier",
+    "redacted"
   ],
   "properties": {
     "id": {
@@ -110,7 +111,7 @@
     "redacted": {
       "type": "boolean",
       "default": false,
-      "description": "True when the redaction pass altered the claim text before storage. A redacted atom is still usable, but is never promoted to a committed tier without human review."
+      "description": "True when the redaction pass altered the claim text before storage. REQUIRED, not optional: DESIGN.md section 6 rule 1 makes redaction non-negotiable before ANY write, so every atom that exists on disk has already been through the pass and knows its answer. Leaving the field optional would let an atom that skipped redaction entirely be schema-valid — precisely the state the rule forbids. Requiring it turns 'redaction ran' into something memory_promote.py can machine-check rather than trust. A redacted atom is still usable, but is never promoted to a committed tier without human review."
     }
   },
   "allOf": [

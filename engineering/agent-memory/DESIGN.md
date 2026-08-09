@@ -128,18 +128,25 @@ storage format.
 
 ### 3.1 L1 atom record
 
-**12 fields are unconditionally required** — `id`, `claim`, `scope`, `kind`,
+**13 fields are unconditionally required** — `id`, `claim`, `scope`, `kind`,
 `first_seen`, `last_seen`, `observations`, `sessions`, `source`, `first_source`,
-`confidence`, `tier`. An atom missing provenance is discarded, not stored.
+`confidence`, `tier`, `redacted`. An atom missing provenance is discarded, not
+stored.
+
+**`redacted` is required on purpose**, unlike the other later-stage fields: §6
+rule 1 makes redaction non-negotiable **before any write**, so every atom that
+exists on disk has already been through the pass and knows its answer. Leaving
+it optional would make an atom that skipped redaction entirely schema-*valid* —
+exactly the state the rule forbids. Requiring it turns "redaction ran" into
+something `memory_promote.py` can **check** rather than trust.
 
 The rest are conditional or optional, and an extractor **must not** emit them
 unconditionally: `project` is required when `scope: "project"` and *forbidden*
 when `scope: "global"` (§3.1's conditional); `promoted_from_projects` is required
-only at `tier: "L3"` (§4.1.1); `redacted`, `contested`, `contested_by` and
-`promoted_at` are set by later stages — the redaction pass, contradiction
-handling (§4.2), and promotion respectively — not at extraction time. The
-example below shows `project` and `redacted` because it is a project-scoped atom
-that went through redaction, not because either is universally mandatory.
+only at `tier: "L3"` (§4.1.1); `contested`, `contested_by` and `promoted_at` are
+set by later stages — contradiction handling (§4.2) and promotion respectively —
+not at extraction time. The example below shows `project` because it is a
+project-scoped atom, not because that field is universally mandatory.
 
 ```json
 {

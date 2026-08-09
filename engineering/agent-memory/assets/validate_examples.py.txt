@@ -273,6 +273,21 @@ def main():
             if ex["tier"] == "L2":
                 check(len(ex["sessions"]) >= GATE_SESSIONS[ex["confidence"]],
                       "%s clears the session gate its confidence implies" % aid)
+            # 4.1's gate is TWO clauses -- session count AND >= 2 distinct
+            # calendar days (UTC) -- and only the count half was checked. The
+            # days clause is the half that stops one long working day from
+            # minting an L2 claim, which is exactly the case 4.1 calls out for
+            # the `stated` fast path. `verified` is the one exempt path.
+            #
+            # first_seen/last_seen BOUND every observation, so
+            # date(first) != date(last) is not an approximation of ">= 2
+            # distinct days" -- it is equivalent to it. Same date means every
+            # observation fell inside that date; different dates means at
+            # least two were touched.
+            if ex["tier"] == "L2" and ex["confidence"] != "verified":
+                check(ex["first_seen"][:10] != ex["last_seen"][:10],
+                      "%s spans >= 2 distinct calendar days, the half of the "
+                      "4.1 gate session-count does not cover" % aid)
             if ex["tier"] == "L3":
                 check(len(set(ex.get("promoted_from_projects", []))) >= 2,
                       "%s clears the >= 2-distinct-projects gate L3 actually has"

@@ -944,7 +944,7 @@ one was caught by a check, and hand-checking does not scale as the schema moves
 toward implementation.
 
 The validator is written and tested: **[`assets/validate_examples.py.txt`](assets/validate_examples.py.txt)**
-— stdlib-only, **68 checks in seven families** (schema conformance · the
+— stdlib-only, **69 checks in seven families** (schema conformance · the
 tier-dependent back-pointer · id reproduction from the doc's own published
 `normalize()` · confidence monotonicity · document structure and links · prose
 claims that must match measured reality · lifecycle coherence across a
@@ -1088,18 +1088,23 @@ failing to find a `SKILL.md` in it. Its existing contents are the same shape as
 this file — prose deliverables with verification criteria that later PRs use as
 acceptance gates, which is precisely what this doc is for the implementation PR.
 The choice is three-way, not the two-way one stated above it. **Neither option
-is endorsed here** — the two bullets below cost them, and the decision is the
-maintainer's.
+is endorsed here** — the costs below are listed, not weighed, and the decision
+is the maintainer's.
 
-Two things follow, and both cut against staying here:
+Costs on each side, so the trade is visible rather than argued:
 
-- **The `.py.txt` parking hack (§10.1) would be unnecessary.** Because `audit/`
+**What staying under `engineering/` costs:**
+
+- **The `.py.txt` parking hack (§10.1) stays necessary.** Because `audit/`
   is pruned from the walk, a `.py` inside it is not counted at all — verified:
   adding one leaves `python_tools` at 663. The validator could simply be an
   executable `validate_examples.py` rather than a file that must be copied
-  before it can run. This is an ergonomic win, not a prerequisite for CI
-  gating — a workflow step can temp-copy the `.txt` today (§10.1).
-- **The counter-argument is the two contract files, not the prose.**
+  before it can run. This is an ergonomic cost, not a blocker for CI gating —
+  a workflow step can temp-copy the `.txt` today (§10.1).
+
+**What moving to `audit/` costs:**
+
+- **The two contract files relocate a second time.**
   `hooks/hooks.json` and `assets/memory_schema.json` are not documentation —
   they are intended to *become* live plugin files at paths a `plugin.json` will
   reference. Under `audit/` they would have to move again at implementation

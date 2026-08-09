@@ -274,37 +274,13 @@ odds at ~239 files. A collision silently merges two unrelated claims' durability
 counters — the exact failure project-scoping below exists to prevent — so it is
 worth avoiding well before it becomes likely.
 
-Hashing
-the claim text alone would let two unrelated claims that normalize alike in
+Hashing the claim text alone would let two unrelated claims that normalize alike in
 different repos — "tests must pass before merge" is the obvious one — collide on
 `id` and merge their `sessions` arrays. That would manufacture false durability,
 because the L1→L2 gate above requires the sessions come from the **same**
 project. The project component is what makes the gate mean what it says.
 
-### 4.1.2 `scope` is determined by tier — there is no third promotion path
-
-`scope` is **not** free-form metadata an extractor chooses. It follows tier:
-
-| Tier | `scope` | Produced by |
-|---|---|---|
-| L1 | `project` | extraction |
-| L2 | `project` | L1 → L2 promotion |
-| L3 | `global` | **only** the L2 → L3 merge (§4.1.1) |
-
-**Extraction must always emit `scope: "project"`.** Allowing a
-`tier: L1, scope: global` atom would create an **unreachable state**: L1 → L2
-requires "same `project`", which a global atom has no field for, and L2 → L3 is
-a merge over ≥ 2 *L2* atoms. Such an atom could never promote and would sit at
-L1 until it expired at 90 days — silently, since nothing would flag it.
-
-This is also right on the merits, not just for totality: **whether a claim is
-global is not knowable at extraction.** "Stdlib-only" observed once in one repo
-is a project fact; it becomes global only by holding in a second project. Having
-the merge mint `global` is the design saying that out loud. Enforced by the
-tier/scope conditional in the schema, so an extractor that gets this wrong fails
-validation instead of quietly producing orphans.
-
-### 4.1.1 The L2 → L3 merge
+#### 4.1.1 The L2 → L3 merge
 
 Because identity is project-scoped, a claim held at L2 in two projects exists as
 **two atoms with different ids**. Promotion is therefore a merge, not a flag flip:
@@ -347,6 +323,29 @@ Fast paths:
 - `confidence: "verified"` — a claim a script confirmed — promotes on **1**
   observation, and is the **only** path exempt from the distinct-days clause.
   It is not hearsay.
+
+#### 4.1.2 `scope` is determined by tier — there is no third promotion path
+
+`scope` is **not** free-form metadata an extractor chooses. It follows tier:
+
+| Tier | `scope` | Produced by |
+|---|---|---|
+| L1 | `project` | extraction |
+| L2 | `project` | L1 → L2 promotion |
+| L3 | `global` | **only** the L2 → L3 merge (§4.1.1) |
+
+**Extraction must always emit `scope: "project"`.** Allowing a
+`tier: L1, scope: global` atom would create an **unreachable state**: L1 → L2
+requires "same `project`", which a global atom has no field for, and L2 → L3 is
+a merge over ≥ 2 *L2* atoms. Such an atom could never promote and would sit at
+L1 until it expired at 90 days — silently, since nothing would flag it.
+
+This is also right on the merits, not just for totality: **whether a claim is
+global is not knowable at extraction.** "Stdlib-only" observed once in one repo
+is a project fact; it becomes global only by holding in a second project. Having
+the merge mint `global` is the design saying that out loud. Enforced by the
+tier/scope conditional in the schema, so an extractor that gets this wrong fails
+validation instead of quietly producing orphans.
 
 ### 4.2 Contradiction handling
 

@@ -164,6 +164,7 @@
       }
     },
     {
+      "$comment": "Two-sided, mirroring the scope<->project conditional. promoted_from_projects is not merely unnecessary outside L3 — it is meaningless there: it records which L2 atoms merged to produce a global claim (section 4.1.1), so an L1/L2 atom carrying it is asserting a promotion that has not happened. Section 3.1 already says an extractor must not emit it unconditionally; the else branch makes that enforceable instead of advisory.",
       "if": {
         "properties": {
           "tier": {
@@ -182,6 +183,13 @@
           "promoted_from_projects": {
             "minItems": 2
           }
+        }
+      },
+      "else": {
+        "not": {
+          "required": [
+            "promoted_from_projects"
+          ]
         }
       }
     },

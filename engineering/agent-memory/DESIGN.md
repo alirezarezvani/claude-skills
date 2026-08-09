@@ -351,6 +351,20 @@ Because identity is project-scoped, a claim held at L2 in two projects exists as
 5. The contributing L2 atoms are **retained**, not deleted. L3 injection
    supersedes them; they remain as the provenance chain.
 
+**Stated limit: this merge is lexical, so it only fires on near-identical
+text.** Step 1 groups on `hash(normalized_claim)`, and `normalize()` (§4.1) only
+collapses whitespace, casefolds, and strips trailing punctuation — it does no
+semantic matching. Two projects that independently hold *"PR base branch is
+dev"* and *"always target dev for PRs"* express the same rule and will **never**
+merge, because the strings differ. The consequence is one-directional and
+therefore acceptable: L3 promotion **under**-fires. A cross-project truth stays
+duplicated at L2 in each project, where it is still injected at `SessionStart`
+for that project — the user loses the global persona entry, not the memory. It
+never produces a *wrong* L3 atom, only a missing one. Widening this would take
+either an LLM (barred by this repo's no-LLM-in-scripts rule) or a synonym table
+tuned per user, which is §9's territory, not v1's. The `adopt` review is where a
+human can hand-merge two variants that the hash could not.
+
 **Every promotion into a committed tier (L1→L2 and L2→L3) must also strip the
 back-pointer prefix** per §3.1.1 — `~/.claude/projects/<cwd-slug>/X.jsonl#L12`
 becomes `X.jsonl#L12`. This is not optional cleanup: skipping it writes an OS

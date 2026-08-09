@@ -29,8 +29,10 @@ Two things follow, and both cut against staying here:
 - **The `.py.txt` parking hack (§10.1) would be unnecessary.** Because `audit/`
   is pruned from the walk, a `.py` inside it is not counted at all — verified:
   adding one leaves `python_tools` at 663. The validator could simply be an
-  executable `validate_examples.py`, which also removes the "nothing in CI gates
-  this" objection's main obstacle.
+  executable `validate_examples.py` rather than a file that must be copied
+  before it can run. (An earlier version of this bullet also claimed the move
+  was what unblocks CI gating. It is not — a workflow step can temp-copy the
+  `.txt` today, §10.1. The move is an ergonomic win, not a prerequisite.)
 - **The counter-argument is the two contract files, not the prose.**
   `hooks/hooks.json` and `assets/memory_schema.json` are not documentation —
   they are intended to *become* live plugin files at paths a `plugin.json` will
@@ -975,14 +977,32 @@ its own paths by walking up from `__file__` — a `python3 <(cat …)` or `-c
 cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f assets/_t.py
 ```
 
-**Run it before any further edit to this folder lands.** Until the file is
-promoted to a real `.py`, nothing in CI gates the drift class this section
-exists to prevent — the checker is only as good as the habit of running it.
+**Run it before any further edit to this folder lands.** Nothing in CI gates the
+drift class this section exists to prevent — the checker is only as good as the
+habit of running it. **The `.txt` parking is not what blocks CI**, contrary to
+what an earlier draft implied: a workflow step can `cp` it to a temp `.py` and
+run it exactly as above, and `derive_counters.py` never sees the temp file.
+Wiring that step is a live option today, independent of the `audit/`-vs-here
+placement decision.
+
+What *did* block it, until this round, was the checker's own design — see
+property 1.
 
 Two properties make it worth more than a linter:
 
-1. **It executes the algorithm `DESIGN.md` publishes** rather than
-   reimplementing it, so doc and fixtures cannot silently disagree.
+1. **It holds the algorithm `DESIGN.md` publishes and asserts the two match**,
+   so doc and fixtures cannot silently disagree. It reached that property by
+   `exec`-ing the doc's fenced block until round 26, which worked but made
+   *"whoever can edit a markdown code fence"* equal to *"whoever can run
+   arbitrary code in this process."* Harmless while a maintainer runs it by hand
+   on a branch they already trust — and **not** harmless under the CI step the
+   paragraph above recommends, since `ci-quality-gate.yml` triggers on
+   `pull_request`, which would have handed code execution to any PR author,
+   fork included, through a prose file nobody reads as executable. The safety of
+   the `exec` rested on a fact outside the file, and the obvious improvement
+   (gate it in CI) silently falsified that fact. Source-text comparison keeps the
+   anti-divergence property with no execution: change the doc's block and the
+   checker fails until its own copy is updated to match.
 2. **It is tested against injected regressions, not just the happy path** — four
    deliberate defects (an unstripped back-pointer, a broken tier→scope pair, a
    wrong id, a confidence downgrade) each make it exit 1. A checker that only

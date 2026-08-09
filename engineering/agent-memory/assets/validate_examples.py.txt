@@ -34,6 +34,7 @@
 # only ones that have ever actually drifted.
 # ---------------------------------------------------------------------------
 import hashlib
+import inspect
 import json
 import os
 import re
@@ -126,41 +127,65 @@ def atom_examples(schema, design):
     return out
 
 
-def published_normalize(design):
-    """Execute the normalize() published in §4.1 rather than reimplementing it.
+def normalize(claim):
+    """The algorithm DESIGN.md §4.1 publishes. Kept in sync by the check below,
+    NOT by executing the doc."""
+    return re.sub(r"\s+", " ", claim.strip()).casefold().rstrip(".,;:!?")
 
-    If the doc's algorithm and the ids ever disagree, this fails — which is the
-    point. Round 7 shipped two ids that did not reproduce because nothing tied
-    the prose to the fixtures.
+
+def published_normalize(design):
+    """Assert the §4.1 fence matches the normalize() above, then return ours.
+
+    The property worth having is that the doc's algorithm and the fixtures'
+    ids cannot silently diverge -- round 7 shipped two ids that did not
+    reproduce because nothing tied the prose to the fixtures.
+
+    An earlier version got that property by `exec`-ing the fenced block. It
+    worked, but it made "whoever can edit a markdown code fence" equal to
+    "whoever can run arbitrary code in this process" -- the exact eval-family
+    shape this repo ships engineering/security-guidance to flag. Harmless while
+    a maintainer runs this by hand on a branch they already trust; NOT harmless
+    the moment it is wired into CI, which .github/workflows/ci-quality-gate.yml
+    triggers on `pull_request`. That would have handed code execution to any PR
+    author, including from a fork, via a prose file nobody reads as executable.
+    The safety of the exec depended on a fact outside this file, and the
+    obvious next step (gate it in CI) silently falsified that fact.
+
+    Comparing source text instead keeps the anti-divergence property with no
+    execution at all: edit the doc's block and this fails until the copy above
+    is updated to match. It fails closed on a cosmetic reformat too -- an
+    acceptable trade, since the failure says "sync these two" rather than
+    running whatever the fence now contains.
     """
     match = re.search(r"def normalize.*?\n```", design, re.S)
     if match is None:
         raise SystemExit(
             "FATAL: could not find the normalize() definition fenced in "
             "DESIGN.md §4.1.\n"
-            "  This checker executes the doc's own published algorithm rather "
-            "than reimplementing it, so if that fence moves or is renamed, id "
+            "  This checker verifies its own copy of the algorithm against the "
+            "doc's published one, so if that fence moves or is renamed, id "
             "verification cannot run and must not be silently skipped.\n"
             "  Fix: restore a ```python fence defining normalize() in §4.1, or "
             "update this extractor to match its new location."
         )
-    src = match.group(0).rsplit("```", 1)[0]
-    ns = {"re": re}
-    try:
-        exec(src, ns)  # noqa: S102 - executing the doc's own published contract
-    except SyntaxError as exc:
+    published = match.group(0).rsplit("```", 1)[0]
+    mine = inspect.getsource(normalize)
+    # Compare the one line that carries the behaviour. Docstrings, type hints
+    # and blank lines differ between the two copies by design.
+    def _body(src):
+        return re.sub(r"\s+", " ", "".join(
+            ln.strip() for ln in src.splitlines() if ln.strip().startswith("return")))
+    if _body(published) != _body(mine):
         raise SystemExit(
-            "FATAL: the normalize() published in DESIGN.md §4.1 is not valid "
-            "Python (%s).\n"
-            "  The doc's algorithm is the contract; a fixture cannot be checked "
-            "against an algorithm that will not run." % exc
+            "FATAL: DESIGN.md §4.1's normalize() no longer matches this "
+            "checker's copy.\n"
+            "  published: %s\n  checker:   %s\n"
+            "  The doc is the contract. Update normalize() in this file to "
+            "match, in the same commit that changed the doc -- ids verified "
+            "against a stale algorithm prove nothing."
+            % (_body(published), _body(mine))
         )
-    if "normalize" not in ns:
-        raise SystemExit(
-            "FATAL: the fenced block in DESIGN.md §4.1 ran but defined no "
-            "normalize() — the extractor matched the wrong block."
-        )
-    return ns["normalize"]
+    return normalize
 
 
 def atom_id(normalize, claim, project=None):

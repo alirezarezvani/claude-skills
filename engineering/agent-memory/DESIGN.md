@@ -161,6 +161,10 @@ that went through redaction, not because either is universally mandatory.
   justified the claim. A single field would lose exactly the record an auditor
   asking "why does the agent believe this?" needs.
 
+- `confidence` ∈ `observed` (agent inferred it) · `stated` (user said it
+  directly) · `verified` (a check confirmed it). `stated` and `verified` promote
+  faster — see §4.
+
 #### 3.1.1 Back-pointer format is tier-dependent — and must be
 
 | Tier | Format | Why |
@@ -190,9 +194,6 @@ the username is literally the word "user". A placeholder that flatters the
 design is worse than no placeholder — the L2 and L3 fixtures in
 `memory_schema.json` now use the portable form, so the examples demonstrate the
 rule instead of hiding it.
-- `confidence` ∈ `observed` (agent inferred it) · `stated` (user said it
-  directly) · `verified` (a check confirmed it). `stated` and `verified` promote
-  faster — see §4.
 
 Full JSON Schema: [`assets/memory_schema.json`](assets/memory_schema.json).
 
@@ -323,7 +324,7 @@ This mirrors `skillopt-sleep`'s staging discipline: **propose, never apply.**
 - L1 atom not re-observed in 90 days → dropped. No ceremony.
 - L2 claim whose supporting atoms have all expired → demoted to L1, one grace
   cycle, then dropped.
-- L3 is **never auto-demoted**. It is capped instead (§5.3) and reviewed by a
+- L3 is **never auto-demoted**. It is capped instead (§5.1) and reviewed by a
   human on overflow. Auto-removing a persona-level fact is more damaging than
   carrying a stale one.
 

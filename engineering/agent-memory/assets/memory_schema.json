@@ -124,6 +124,22 @@
         "required": ["promoted_from_projects"],
         "properties": { "promoted_from_projects": { "minItems": 2 } }
       }
+    },
+    {
+      "$comment": "Enforces the tier-dependent back-pointer format from DESIGN.md section 3.1.1. This is the one promotion rule with PII consequences — an unstripped L2/L3 back-pointer commits the contributor's OS username to a shared CLAUDE.md — so it is machine-checked here rather than left to prose, exactly like the scope and tier conditionals above. memory_promote.py must fail loudly on a bad promotion, never leak silently.",
+      "if": { "properties": { "tier": { "const": "L1" } }, "required": ["tier"] },
+      "then": {
+        "properties": {
+          "source": { "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" },
+          "first_source": { "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" }
+        }
+      },
+      "else": {
+        "properties": {
+          "source": { "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" },
+          "first_source": { "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$" }
+        }
+      }
     }
   ],
   "examples": [

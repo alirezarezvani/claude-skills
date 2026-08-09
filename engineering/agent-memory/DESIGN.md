@@ -6,59 +6,10 @@ holds a specification and two contract files (`hooks/hooks.json`,
 built. Repo counters are intentionally untouched — `scripts/derive_counters.py`
 counts skills by `SKILL.md`, and this folder deliberately has none.
 
-**Why a design doc lives under `engineering/` rather than `documentation/`:**
-root `CLAUDE.md` designates `documentation/` for pre-build specs, but that folder
-is **gitignored** — invisible on GitHub, so nothing in it can be reviewed in a
-PR. A design meant to be argued with *before* code exists cannot live there.
-Stated here because a future reader (or a skill-count auditor) will otherwise
-reasonably wonder why a 1000-line non-skill folder sits in a domain directory.
-
-**There is a third option this note originally missed.** Top-level **`audit/`**
-already solves this exact constraint: root
-`CLAUDE.md` describes it as "an intentional, **public** audit record… committed
-and visible to cloners," and `derive_counters.py` prunes it from
-`canonical_walk` entirely (`EXCLUDED_TOP_LEVEL`, line 48) rather than merely
-failing to find a `SKILL.md` in it. Its existing contents are the same shape as
-this file — prose deliverables with verification criteria that later PRs use as
-acceptance gates, which is precisely what this doc is for the implementation PR.
-The choice is three-way, not the two-way one stated above it. **Neither option
-is endorsed here** — the two bullets below cost them, and the decision is the
-maintainer's.
-
-Two things follow, and both cut against staying here:
-
-- **The `.py.txt` parking hack (§10.1) would be unnecessary.** Because `audit/`
-  is pruned from the walk, a `.py` inside it is not counted at all — verified:
-  adding one leaves `python_tools` at 663. The validator could simply be an
-  executable `validate_examples.py` rather than a file that must be copied
-  before it can run. This is an ergonomic win, not a prerequisite for CI
-  gating — a workflow step can temp-copy the `.txt` today (§10.1).
-- **The counter-argument is the two contract files, not the prose.**
-  `hooks/hooks.json` and `assets/memory_schema.json` are not documentation —
-  they are intended to *become* live plugin files at paths a `plugin.json` will
-  reference. Under `audit/` they would have to move again at implementation
-  time, breaking the schema `$id` and the §3.1 link a second time (§10.1 already
-  tracks one such move). Splitting spec-into-`audit/` from
-  contracts-into-`engineering/` is the other way out, at the cost of separating
-  two things written to be read together.
-
-**Three other open items resolve differently depending on this one**, which is
-why it is worth answering before the implementation PR rather than after:
-
-| Item | Under `engineering/` | Under `audit/` |
-|---|---|---|
-| The `.py.txt` parking (§10.1) | required — a `.py` moves `python_tools` | unnecessary; ship a real `.py` |
-| Splitting mechanical rationale into `references/` | moves `references` **746 → 747**, verified | free; the subtree is pruned |
-| Relocating later | — | §10.1's two hard-coded paths break a **second** time |
-
-The middle row is the one that is easy to miss: the repo's usual
-`SKILL.md` → `references/` split — the obvious fix for this file's length — is
-**not available** to a spec-only folder under a domain directory without moving
-a headline counter. That is a constraint imposed by the location, not a
-judgement about the content.
-
-**This remains an open maintainer decision, not something this PR settles** —
-see the note at the end of §10.
+**Where this file lives is an open maintainer decision**, not a settled
+convention — `engineering/` here, versus `audit/` or the gitignored
+`documentation/`. The full comparison is in [§11](#11-where-this-file-should-live),
+at the end, so it does not stand between a reader and the spec.
 
 **Origin:** an inspection of
 [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)
@@ -1100,7 +1051,70 @@ knowledge spread across five manifests.
 
 ---
 
-## 11. Attribution
+## 11. Where this file should live
+
+Deferred to the end deliberately: it is meta-discussion about the file,
+not part of the design. It is recorded rather than dropped because a
+future reader — or a skill-count auditor — will otherwise reasonably
+wonder why a 1000-line non-skill folder sits in a domain directory.
+
+**Why a design doc lives under `engineering/` rather than `documentation/`:**
+root `CLAUDE.md` designates `documentation/` for pre-build specs, but that folder
+is **gitignored** — invisible on GitHub, so nothing in it can be reviewed in a
+PR. A design meant to be argued with *before* code exists cannot live there.
+Stated here because a future reader (or a skill-count auditor) will otherwise
+reasonably wonder why a 1000-line non-skill folder sits in a domain directory.
+
+**There is a third option this note originally missed.** Top-level **`audit/`**
+already solves this exact constraint: root
+`CLAUDE.md` describes it as "an intentional, **public** audit record… committed
+and visible to cloners," and `derive_counters.py` prunes it from
+`canonical_walk` entirely (`EXCLUDED_TOP_LEVEL`, line 48) rather than merely
+failing to find a `SKILL.md` in it. Its existing contents are the same shape as
+this file — prose deliverables with verification criteria that later PRs use as
+acceptance gates, which is precisely what this doc is for the implementation PR.
+The choice is three-way, not the two-way one stated above it. **Neither option
+is endorsed here** — the two bullets below cost them, and the decision is the
+maintainer's.
+
+Two things follow, and both cut against staying here:
+
+- **The `.py.txt` parking hack (§10.1) would be unnecessary.** Because `audit/`
+  is pruned from the walk, a `.py` inside it is not counted at all — verified:
+  adding one leaves `python_tools` at 663. The validator could simply be an
+  executable `validate_examples.py` rather than a file that must be copied
+  before it can run. This is an ergonomic win, not a prerequisite for CI
+  gating — a workflow step can temp-copy the `.txt` today (§10.1).
+- **The counter-argument is the two contract files, not the prose.**
+  `hooks/hooks.json` and `assets/memory_schema.json` are not documentation —
+  they are intended to *become* live plugin files at paths a `plugin.json` will
+  reference. Under `audit/` they would have to move again at implementation
+  time, breaking the schema `$id` and the §3.1 link a second time (§10.1 already
+  tracks one such move). Splitting spec-into-`audit/` from
+  contracts-into-`engineering/` is the other way out, at the cost of separating
+  two things written to be read together.
+
+**Three other open items resolve differently depending on this one**, which is
+why it is worth answering before the implementation PR rather than after:
+
+| Item | Under `engineering/` | Under `audit/` |
+|---|---|---|
+| The `.py.txt` parking (§10.1) | required — a `.py` moves `python_tools` | unnecessary; ship a real `.py` |
+| Splitting mechanical rationale into `references/` | moves `references` **746 → 747**, verified | free; the subtree is pruned |
+| Relocating later | — | §10.1's two hard-coded paths break a **second** time |
+
+The middle row is the one that is easy to miss: the repo's usual
+`SKILL.md` → `references/` split — the obvious fix for this file's length — is
+**not available** to a spec-only folder under a domain directory without moving
+a headline counter. That is a constraint imposed by the location, not a
+judgement about the content.
+
+**This remains an open maintainer decision, not something this PR settles** —
+see the note at the end of §10.
+
+---
+
+## 12. Attribution
 
 Design ideas (L0→L3 tiering; ownership/visibility model) derived from
 [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory),

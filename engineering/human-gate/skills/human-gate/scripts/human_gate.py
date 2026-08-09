@@ -66,7 +66,13 @@ DEFAULT_MAX_ROUNDS = 5
 # parser reports is an integrity problem the gate must refuse on (G7) — a
 # mistyped severity silently downgrades to NIT, so without this a reviewer's
 # real blocker can be lost to a typo and close would still pass.
-GATED_ELSEWHERE = (
+#
+# The prefixes are owned by feedback_parser.py, beside the code that emits them,
+# and read from the loaded module rather than restated here: matching free text
+# across two files is a contract nothing enforces, and a reworded message would
+# silently turn a G2/G3 problem into a duplicate ungated G7 refusal. The literal
+# below is only a fallback for a parser too old to export the names.
+_GATED_ELSEWHERE_FALLBACK = (
     "no 'reviewer:' line",   # G3
     "APPROVE is present alongside",  # G2
 )
@@ -82,6 +88,15 @@ def _load_parser_module():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def gated_elsewhere_prefixes():
+    """Problem prefixes G7 must skip, read from the parser that emits them."""
+    try:
+        prefixes = tuple(_load_parser_module().GATED_ELSEWHERE)
+    except (AttributeError, RuntimeError, OSError, TypeError):
+        return _GATED_ELSEWHERE_FALLBACK
+    return prefixes or _GATED_ELSEWHERE_FALLBACK
 
 
 # ------------------------------------------------------------------- state
@@ -378,8 +393,9 @@ def gate_refusals(state, sidecar_path):
             "collect again before closing" % last["round"]
         )
 
+    gated = gated_elsewhere_prefixes()
     for problem in last.get("problems", []):
-        if problem.startswith(GATED_ELSEWHERE):
+        if problem.startswith(gated):
             continue
         refusals.append("G7 round %d integrity: %s" % (last["round"], problem))
     return refusals

@@ -27,6 +27,10 @@ Format
     ## NOTE
     Close. Ship once the blocker is gone.
 
+The `<!-- human-gate:v1 ... -->` header carries `key=value` attributes; quote any
+value containing a space (`target="q3 plan.md"`). `target` is a display hint only
+— quote verification runs against the path passed as `--target`.
+
 Severities are BLOCKER / MAJOR / MINOR / NIT (the same ladder markdown-html's
 md-review uses, from Google's Code Review Developer Guide), plus three
 non-severity kinds: EDIT (a verbatim replacement the human already wrote),
@@ -51,6 +55,15 @@ import sys
 
 SCHEMA = "batch.v1"
 
+# Two problems already have a dedicated gate rule in human_gate.py (G3 and G2),
+# so its G7 integrity check must skip them rather than report them twice. It
+# matches on these prefixes, which is why they live here beside the
+# problems.append() calls that emit them: rewording a message without touching
+# the constant would silently make a gated problem ungated.
+P_NO_REVIEWER = "no 'reviewer:' line"          # human_gate.py G3
+P_APPROVE_WITH_BLOCKING = "APPROVE is present alongside"  # human_gate.py G2
+GATED_ELSEWHERE = (P_NO_REVIEWER, P_APPROVE_WITH_BLOCKING)
+
 SEVERITIES = ["BLOCKER", "MAJOR", "MINOR", "NIT"]
 BLOCKING = {"BLOCKER", "MAJOR"}
 OTHER_KINDS = ["EDIT", "NOTE", "APPROVE"]
@@ -59,7 +72,9 @@ ALL_HEADINGS = SEVERITIES + OTHER_KINDS
 HEADER_RE = re.compile(
     r"^\s*<!--\s*human-gate:v1\s+(?P<attrs>.*?)\s*-->\s*$", re.IGNORECASE
 )
-ATTR_RE = re.compile(r"(\w+)=([^\s]+)")
+# Header attributes are `key=value` pairs. A value containing spaces — a target
+# filename with a space in it — must be quoted, or it truncates at the space.
+ATTR_RE = re.compile(r"""(\w+)=(?:"([^"]*)"|'([^']*)'|([^\s'"]+))""")
 REVIEWER_RE = re.compile(r"^\s*reviewer\s*:\s*(?P<name>.+?)\s*$", re.IGNORECASE)
 # "## BLOCKER b3", "## NIT", "## EDIT b7", "## NOTE"
 ITEM_RE = re.compile(
@@ -204,7 +219,9 @@ def parse(text, target_hint=None):
 
         header = HEADER_RE.match(raw)
         if header:
-            for key, value in ATTR_RE.findall(header.group("attrs")):
+            for match in ATTR_RE.finditer(header.group("attrs")):
+                key = match.group(1)
+                value = next(g for g in match.groups()[1:] if g is not None)
                 if key == "round":
                     try:
                         meta["round"] = int(value)
@@ -294,13 +311,13 @@ def parse(text, target_hint=None):
 
     if not reviewer:
         problems.append(
-            "no 'reviewer:' line — human-gate requires a named reviewer so the "
-            "approval belongs to a person, not to the loop"
+            "%s — human-gate requires a named reviewer so the approval "
+            "belongs to a person, not to the loop" % P_NO_REVIEWER
         )
     if approved and blocking:
         problems.append(
-            "APPROVE is present alongside %d unresolved BLOCKER/MAJOR item(s); "
-            "resolve or downgrade them before signing off" % len(blocking)
+            "%s %d unresolved BLOCKER/MAJOR item(s); resolve or downgrade "
+            "them before signing off" % (P_APPROVE_WITH_BLOCKING, len(blocking))
         )
 
     batch = {

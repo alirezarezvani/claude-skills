@@ -1886,7 +1886,7 @@
     {
       "name": "human-gate",
       "source": "./engineering/human-gate",
-      "description": "Human-verification gate for an agent loop: builds a single-file review page (zero network requests), collects batched feedback as structured batch.v1 data instead of chat prose, and refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed. Non-blocking, headless-guarded, round-capped. Stdlib-only.",
+      "description": "Human-verification gate for an agent loop: builds a single-file review page (the page itself makes no network request; a reviewed HTML artifact's own https: assets still load), collects batched feedback as structured batch.v1 data instead of chat prose, and refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed. Non-blocking, headless-guarded, round-capped. Stdlib-only.",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani",

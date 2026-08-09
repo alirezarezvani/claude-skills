@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 361,
+  "total_skills": 362,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -1212,6 +1212,12 @@
       "description": "Design and ship production-ready MCP (Model Context Protocol) servers from OpenAPI contracts instead of hand-written tool wrappers. Python and TypeScript support, schema validation, safe evolution. Use when exposing an existing API as an MCP server, building tool integrations for Claude or Codex or Cursor, or scaffolding an MCP project from scratch."
     },
     {
+      "name": "memory-engineering",
+      "source": "../../engineering/memory-engineering/skills/memory-engineering",
+      "category": "engineering-advanced",
+      "description": "Use when designing, reviewing, or paying for an agent memory system \u2014 adding memory to an agent, choosing between long-context / RAG / graph / agentic memory, auditing what a CLAUDE.md or memory directory actually holds, deciding what to keep and what to expire, or when a memory store keeps growing and nobody has said what leaves it. Prices the write path, picks which cost to pay, classifies records as facts / skills / logs, and refuses a design that has no forgetting policy."
+    },
+    {
       "name": "merge",
       "source": "../../engineering/agenthub/skills/merge",
       "category": "engineering-advanced",
@@ -2209,7 +2215,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 84,
+      "count": 85,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

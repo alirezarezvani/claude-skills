@@ -62,6 +62,7 @@ already wrote, as `- before:` / `+ after:` lines.
 | **G1** | no round collected | **G4** | sidecar changed after the last collect |
 | **G2** | a BLOCKER or MAJOR is open | **G5** | round cap exhausted → **escalate**, never pass |
 | **G3** | no named reviewer | **G6** | waiver used without a recorded reason |
+| **G7** | the round carries unresolved integrity problems — a mistyped severity silently downgrades to NIT, so a real blocker can be lost to a typo | | |
 
 Overrides are legitimate, and must be explicit: `close plan.md --waive "<reason>"`.
 

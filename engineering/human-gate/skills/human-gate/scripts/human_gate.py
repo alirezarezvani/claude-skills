@@ -22,6 +22,9 @@ Gate rules
     G5  rounds are capped (--max-rounds); exhaustion escalates, it never
         silently keeps looping
     G6  a waiver is allowed but must be explicit, reasoned, and recorded
+    G7  close refuses while the last round carries unresolved integrity
+        problems (mistyped severity, EDIT with no replacement, a quote not
+        in the file) — those downgrade silently, so prose is not enough
 
 Loop discipline
 ---------------
@@ -53,6 +56,15 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 BLOCKING = {"BLOCKER", "MAJOR"}
 DEFAULT_MAX_ROUNDS = 5
+
+# Parser problems that already have their own gate rule. Everything else the
+# parser reports is an integrity problem the gate must refuse on (G7) — a
+# mistyped severity silently downgrades to NIT, so without this a reviewer's
+# real blocker can be lost to a typo and close would still pass.
+GATED_ELSEWHERE = (
+    "no 'reviewer:' line",   # G3
+    "APPROVE is present alongside",  # G2
+)
 
 
 def _load_parser_module():
@@ -339,6 +351,11 @@ def cmd_close(args):
                 "G4 the sidecar changed after round %d was collected — "
                 "collect again before closing" % last["round"]
             )
+
+        for problem in last.get("problems", []):
+            if problem.startswith(GATED_ELSEWHERE):
+                continue
+            refusals.append("G7 round %d integrity: %s" % (last["round"], problem))
 
     if refusals and args.waive:
         state["waiver"] = {

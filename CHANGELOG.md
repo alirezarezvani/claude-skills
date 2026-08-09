@@ -49,11 +49,19 @@ three stdlib-only Python scripts, no server, no socket, no network fetch.
   file and reports mismatches rather than swallowing them. Strips HTML comments so an
   example written inside one cannot parse as a real sign-off.
 - **`human_gate.py`** — `open`/`status`/`collect`/`close`/`reset` state machine with
-  atomic writes and `0700`/`0600` state permissions. Gate rules **G1–G6**: refuses to
+  atomic writes and `0700`/`0600` state permissions. Gate rules **G1–G7**: refuses to
   close with no collected round, an open BLOCKER/MAJOR, an unnamed reviewer, a sidecar
-  changed after collection, an exhausted round cap (exit 5 = escalate, never pass), or
-  a waiver without a recorded reason. Waivers store both the reason and every refusal
-  they overrode.
+  changed after collection, an exhausted round cap (exit 5 = escalate, never pass), a
+  waiver without a recorded reason, or a round carrying unresolved integrity problems.
+  Waivers store both the reason and every refusal they overrode.
+
+**G7 came out of PR review** and closes a real hole: a mistyped severity heading
+(`## BLOKCER`) silently downgrades to `NIT`, so before this a reviewer's genuine blocker
+could be lost to a typo and `close` would still exit 0. Reproduced, then fixed — the
+parser's integrity problems (unknown severity, EDIT with no replacement text, a quote
+that is not in the target file) are now closer-blocking rather than advisory prose.
+Problems that already have their own rule (G2, G3) are filtered so they are not
+double-reported.
 
 **Loop discipline — the deliberate inversion of upstream.** There is no blocking poll:
 `status` returns immediately, `open` detects a headless host (`CI`, SSH, no `DISPLAY`)

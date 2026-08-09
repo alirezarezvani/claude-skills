@@ -90,6 +90,7 @@ Severities are **BLOCKER / MAJOR / MINOR / NIT** — the same ladder
 | **G4** | the sidecar changed after the last collect |
 | **G5** | round cap exhausted → **escalate**, never pass |
 | **G6** | a waiver is used without a recorded reason |
+| **G7** | the round carries unresolved integrity problems — a mistyped severity (`## BLOKCER`) silently downgrades to NIT, an EDIT has no replacement text, or a quote is not in the file |
 
 Overrides are legitimate and must be explicit:
 

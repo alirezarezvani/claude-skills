@@ -6,6 +6,15 @@ holds a specification and two contract files (`hooks/hooks.json`,
 built. Repo counters are intentionally untouched — `scripts/derive_counters.py`
 counts skills by `SKILL.md`, and this folder deliberately has none.
 
+**Why a design doc lives under `engineering/` rather than `documentation/`:**
+root `CLAUDE.md` designates `documentation/` for pre-build specs, but that folder
+is **gitignored** — invisible on GitHub, so nothing in it can be reviewed in a
+PR. A design meant to be argued with *before* code exists has nowhere else to
+live. Stated here because a future reader (or a skill-count auditor) will
+otherwise reasonably wonder why a 700-line non-skill folder sits in a domain
+directory. **Whether this becomes a repeatable pattern is an open maintainer
+decision, not something this PR settles** — see the note at the end of §10.
+
 **Origin:** an inspection of
 [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)
 (MIT, © 2026 Tencent, v2.0.0). This spec **borrows two design ideas** from that
@@ -503,6 +512,15 @@ Reuse the pattern this repo already has rather than inventing one —
   its atoms**, logging the loss. Losing one session's L1 candidates is
   recoverable — they re-observe. A wedged `SessionEnd` blocking teardown is not.
 
+  **Where the loss is logged, since this is the one place data disappears
+  silently:** one line appended to **`.memory/errors.log`** (gitignored, `0600`,
+  same discipline as `atoms.jsonl`) — ISO timestamp, session id, atom count
+  dropped, reason. **Not stderr**: `SessionEnd` is `async`, so its stderr goes
+  nowhere a human reads, which would make "logging the loss" a fiction. The log
+  is capped at 200 lines (oldest dropped) so it cannot grow unbounded, and
+  `/cs:memory status` surfaces any entry from the last 7 days — a log nobody is
+  pointed at is the same as no log.
+
 **The two timeouts are not on the same axis** — `5 s < 60 s` looks contradictory
 until you see they answer different questions:
 
@@ -542,6 +560,7 @@ Contract file: [`hooks/hooks.json`](hooks/hooks.json).
   .memory/
     atoms.jsonl              # GITIGNORED — L1
     atoms.lock               # GITIGNORED — writer lock (§5.4)
+    errors.log               # GITIGNORED — dropped-atom losses (§5.4), capped 200 lines
     staged/                  # GITIGNORED — pending promotions
     adopted.log              # COMMITTED — audit trail of what was adopted, when
 ~/.claude/
@@ -673,6 +692,16 @@ Needed before implementation starts:
    since the repo's rule is strict and low recall is survivable when the
    promotion gate needs 3 observations anyway.
 
+   **If (b) wins, it costs more than an import.** Root `CLAUDE.md`'s
+   anti-patterns list currently reads *"**one** documented, opt-in exception"* and
+   names `skillopt-sleep/backend.py` specifically. A second LLM-calling script
+   makes that sentence false. The implementation PR would therefore have to
+   **amend that bullet in root `CLAUDE.md`** — naming this exception, its
+   justification, and its default-off switch — rather than quietly becoming an
+   undocumented second carve-out. Treat that edit as part of the cost of (b),
+   not as follow-up paperwork; it is a repo-wide rule change, and it is a real
+   argument for (a) beyond recall.
+
    **`confidence: "verified"` is the sharpest version of this risk and needs
    deciding separately.** It is simultaneously the hardest level for a lexical
    extractor to assign — it requires recognising that *a check actually
@@ -742,6 +771,19 @@ engineering/agent-memory/
     assets/
       memory_schema.json             ← written (moves here on implementation)
 ```
+
+**Two references break when that move happens — update both in the same commit:**
+
+| Reference | Now | After the move |
+|---|---|---|
+| `DESIGN.md`'s link (§3.1) | `[…](assets/memory_schema.json)` | `[…](skills/agent-memory/assets/memory_schema.json)` |
+| The schema's own `$id` | `…/engineering/agent-memory/assets/…` | `…/engineering/agent-memory/skills/agent-memory/assets/…` |
+
+`DESIGN.md` stays at the plugin root (it documents the plugin, not the skill), so
+the relative link lengthens rather than staying put. Called out because every
+other forward-looking wrinkle in this doc — the counter delta, the manifest-form
+follow-up — already is, and a silently-dead link in the file that *is* the
+contract would be the wrong thing to discover later.
 
 **Counters on ship: skills +1, tools +6, refs +3, commands +1, agents +1,
 plugins +1.** Tools is **+6, not +3** — `derive_counters.py` counts *every*

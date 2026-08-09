@@ -174,8 +174,35 @@ rule.
 | L1 → L2 | `observations ≥ 3` across **≥ 3 distinct sessions**, ≥ 2 of them on distinct days, same `project`, no contradiction open |
 | L2 → L3 | Held at L2 in **≥ 2 distinct projects**, `age ≥ 30 days`, no contradiction in 30 days |
 
-**Atom identity is project-scoped.** `id = hash(normalized_claim + NUL + project)`
-for `scope: "project"`, `hash(normalized_claim)` for `scope: "global"`. Hashing
+**Atom identity is project-scoped.**
+
+```
+scope=project : id = "atm_" + sha256(normalized_claim + "\0" + project).hexdigest()[:8]
+scope=global  : id = "atm_" + sha256(normalized_claim).hexdigest()[:8]
+```
+
+`sha256` from stdlib `hashlib` — named explicitly because `hash()` is ambiguous
+and Python's builtin `hash()` is **salted per process** for `str`, so using it
+would produce different ids on every run and break merging outright.
+
+`normalized_claim` = casefolded, whitespace-collapsed, trailing punctuation
+stripped.
+
+**On the 8-hex (32-bit) id space** — this is an assumption, so here is the
+arithmetic. Birthday collision probability `1 - exp(-n(n-1)/2N)`, `N = 2³²`:
+
+| Atoms in one file | Collision probability |
+|---|---|
+| 500 (the §5.2 cap) | 0.0029 % |
+| 1 000 | 0.0116 % |
+| 5 000 | 0.29 % |
+
+Acceptable at the 500-atom cap. **Raising that cap means widening the id** —
+at 5 000 atoms a collision is likelier than not across ~30 users, and a
+collision silently merges two unrelated claims' durability counters, which is
+the exact failure the project-scoping below exists to prevent.
+
+Hashing
 the claim text alone would let two unrelated claims that normalize alike in
 different repos — "tests must pass before merge" is the obvious one — collide on
 `id` and merge their `sessions` arrays. That would manufacture false durability,
@@ -315,8 +342,11 @@ Contract file: [`hooks/hooks.json`](hooks/hooks.json).
   projects/*/*.jsonl         # L0 — read-only, never copied
 ```
 
-**Admission policy (HARD)** — deliberately mirrors gaios's `raw/` vs `wiki/`
-split, which is the same problem:
+**Admission policy (HARD)** — the same split `engineering/llm-wiki/` already
+draws in this repo between an ungoverned capture area and a committed, governed
+knowledge area: raw capture stays local and disposable, and only *interpreted*
+content is ever committed. Stated self-containedly here so it needs no
+cross-repo context to check:
 
 | Tier | Committed? | Rule |
 |---|---|---|
@@ -334,6 +364,15 @@ Non-negotiables, inherited from this repo's existing discipline:
    referencing sensitive data is stored as a *reference*, never a transcription.
 3. `.memory/` is `chmod 0700`, files `0600`.
 4. Every promoted claim carries its L0 back-pointer. **Cite, don't invent.**
+5. **This policy binds the spec's own examples, not just runtime data.** Every
+   illustrative atom in `DESIGN.md` and `memory_schema.json` must be as
+   de-identified as an atom the tool would be allowed to commit: generic project
+   slugs, no private or unpublished repo names, no machine-specific paths beyond
+   the `~/.claude/projects/<slug>/` shape the format itself requires. Review
+   round 3 caught this doc breaking its own rule — an example named a repo that
+   exists nowhere in this public tree, making the reference unverifiable to any
+   reader and embedding a project name that was not ours to publish. Fixture
+   data is committed data.
 
 ---
 
@@ -408,9 +447,11 @@ Needed before implementation starts:
    proves too low-recall in a trial, the honest answer may be "extend the
    existing nightly cycle" and this folder is deleted. Decide after a 2-week
    trial of the extractor against real transcripts.
-4. **Multi-repo L3.** L2→L3 requires observation in ≥ 2 projects. With two repos
-   attached (`claude-skills`, `gaios`) the sample is thin; L3 may need to stay
-   manually curated for now.
+4. **Multi-repo L3.** L2→L3 requires observation in ≥ 2 projects. A user working
+   in only one or two repos gives that gate a very thin sample, so L3 may need
+   to stay manually curated until enough projects are in play. Decide whether a
+   single-project user gets a documented "L3 is hand-authored only" mode rather
+   than a promotion path that will essentially never fire.
 5. **Is the 100 ms recall budget achievable at all?** §5.2 asserts it and bounds
    the work (500-atom cap, single linear pass), but a spawned `python3` pays
    interpreter cold-start before executing a line, and that cost is unbounded

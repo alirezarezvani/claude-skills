@@ -163,10 +163,10 @@
         "01DD4dddU8pIoK1xSw7fVcMt"
       ],
       "source": "~/.claude/projects/-home-user-claude-skills/01DD4dddU8pIoK1xSw7fVcMt.jsonl#L88",
-      "first_source": "~/.claude/projects/-home-user-gaios/01AA1aaaQ2rTvB8mNc4kJpXe.jsonl#L204",
+      "first_source": "~/.claude/projects/-home-user-other-project/01AA1aaaQ2rTvB8mNc4kJpXe.jsonl#L204",
       "confidence": "verified",
       "tier": "L3",
-      "promoted_from_projects": ["claude-skills", "gaios"],
+      "promoted_from_projects": ["claude-skills", "other-project"],
       "promoted_at": "2026-06-21T11:30:00Z",
       "redacted": false
     }

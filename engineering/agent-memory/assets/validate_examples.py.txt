@@ -7,7 +7,7 @@
 # SKILL.md. Parking the source preserves it without moving counters or
 # contradicting the Status line.
 #
-# WHY IT EXISTS AT ALL: across 17 review rounds, drift between DESIGN.md, the
+# WHY IT EXISTS AT ALL: across this spec's review, drift between DESIGN.md, the
 # schema, and the fixtures was the DOMINANT defect class — required-field drift,
 # a tier the examples never exercised, hashes that stopped reproducing, headings
 # inserted out of order, a confidence value that contradicted its own lifecycle
@@ -99,7 +99,7 @@ def check(cond, label):
 def norm_prose(text):
     """Case, whitespace and markdown markers all normalized ONCE.
 
-    Six separate rounds produced a false FAIL because an assertion matched a
+    Repeated false FAILs came from assertions matching a
     literal string that had wrapped, changed case, or sat inside backticks.
     Normalizing here is the fix for all three at once.
     """
@@ -114,7 +114,7 @@ def load():
 
 def atom_examples(schema, design):
     """Every atom in the repo: the schema's own examples PLUS every JSON block
-    in DESIGN.md. Round 1's `tier` drift survived because only the former was
+    in DESIGN.md. A `tier` drift once survived because only the former was
     checked."""
     out = [("schema[%d]" % i, e) for i, e in enumerate(schema["examples"], 1)]
     for j, block in enumerate(re.findall(r"```json\n(.*?)\n```", design, re.S), 1):
@@ -137,11 +137,12 @@ def published_normalize(design):
     """Assert the §4.1 fence matches the normalize() above, then return ours.
 
     The property worth having is that the doc's algorithm and the fixtures'
-    ids cannot silently diverge -- round 7 shipped two ids that did not
-    reproduce because nothing tied the prose to the fixtures.
+    ids cannot silently diverge -- two ids once shipped that did not reproduce,
+    because nothing tied the prose to the fixtures.
 
-    An earlier version got that property by `exec`-ing the fenced block. It
-    worked, but it made "whoever can edit a markdown code fence" equal to
+    This file got that property by `exec`-ing the fenced block until it was
+    caught in review. That worked, but made "whoever can edit a code fence"
+    equal to
     "whoever can run arbitrary code in this process" -- the exact eval-family
     shape this repo ships engineering/security-guidance to flag. Harmless while
     a maintainer runs this by hand on a branch they already trust; NOT harmless
@@ -197,7 +198,7 @@ def main():
     schema, design = load()
     flat = norm_prose(design)
     required = set(schema["required"])
-    # NOT `| {"$comment"}`. An earlier version of this line whitelisted
+    # NOT `| {"$comment"}`. This line once whitelisted
     # $comment so that an annotation embedded in examples[0] would pass —
     # i.e. the checker was weakened to tolerate the author's own defect
     # instead of reporting it. `examples` entries are INSTANCE data, and
@@ -238,7 +239,7 @@ def main():
             check(re.match(pat, ex[field]) is not None,
                   "%s %s matches its tier's back-pointer form" % (name, field))
     # the rule must REJECT the leak it exists to prevent, not merely accept
-    # the fixtures — asserting only the happy path would have missed round 8.
+    # the fixtures -- asserting only the happy path misses exactly this class.
     check(re.match(CM_PAT, "~/.claude/projects/-home-alice/X.jsonl#L1") is None,
           "REJECTS an unstripped L2/L3 back-pointer (the OS-username leak)")
     check(re.match(L1_PAT, "X.jsonl#L1") is None,

@@ -13,16 +13,17 @@ PR. A design meant to be argued with *before* code exists cannot live there.
 Stated here because a future reader (or a skill-count auditor) will otherwise
 reasonably wonder why a 1000-line non-skill folder sits in a domain directory.
 
-**There is a third option, and it is a better fit than this note originally
-claimed.** Top-level **`audit/`** already solves this exact constraint: root
+**There is a third option this note originally missed.** Top-level **`audit/`**
+already solves this exact constraint: root
 `CLAUDE.md` describes it as "an intentional, **public** audit record… committed
 and visible to cloners," and `derive_counters.py` prunes it from
 `canonical_walk` entirely (`EXCLUDED_TOP_LEVEL`, line 48) rather than merely
 failing to find a `SKILL.md` in it. Its existing contents are the same shape as
 this file — prose deliverables with verification criteria that later PRs use as
 acceptance gates, which is precisely what this doc is for the implementation PR.
-An earlier draft framed the choice as "here or the gitignored folder," a false
-binary that survived because nobody had looked for a third.
+The choice is three-way, not the two-way one stated above it. **Neither option
+is endorsed here** — the two bullets below cost them, and the decision is the
+maintainer's.
 
 Two things follow, and both cut against staying here:
 
@@ -30,9 +31,8 @@ Two things follow, and both cut against staying here:
   is pruned from the walk, a `.py` inside it is not counted at all — verified:
   adding one leaves `python_tools` at 663. The validator could simply be an
   executable `validate_examples.py` rather than a file that must be copied
-  before it can run. (An earlier version of this bullet also claimed the move
-  was what unblocks CI gating. It is not — a workflow step can temp-copy the
-  `.txt` today, §10.1. The move is an ergonomic win, not a prerequisite.)
+  before it can run. This is an ergonomic win, not a prerequisite for CI
+  gating — a workflow step can temp-copy the `.txt` today (§10.1).
 - **The counter-argument is the two contract files, not the prose.**
   `hooks/hooks.json` and `assets/memory_schema.json` are not documentation —
   they are intended to *become* live plugin files at paths a `plugin.json` will
@@ -43,9 +43,7 @@ Two things follow, and both cut against staying here:
   two things written to be read together.
 
 **This remains an open maintainer decision, not something this PR settles** —
-see the note at the end of §10. It is recorded here with the alternative named
-and costed, because "there was no other option" was the weakest claim in this
-file and it was not true.
+see the note at the end of §10.
 
 **Origin:** an inspection of
 [TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)
@@ -237,8 +235,7 @@ so the transcript stays findable by globbing
 *derivable*, so storing it buys nothing and costs de-identification. Provenance
 is fully preserved; only the machine-specific part is dropped.
 
-This is also why round 3's fixture fix did not surface the problem: the
-placeholder happened to read `-home-user-`, which *looks* de-identified because
+The trap is that a placeholder can hide this: `-home-user-` which *looks* de-identified because
 the username is literally the word "user". A placeholder that flatters the
 design is worse than no placeholder — the L2 and L3 fixtures in
 `memory_schema.json` now use the portable form, so the examples demonstrate the
@@ -263,10 +260,11 @@ rule instead of hiding it.
 > drift); and its `sessions` must be a subset of the L2's, since promotion
 > unions them. `last_seen`, `observations` and `confidence` are the fields free
 > to move, because those are what accumulating evidence changes. The checker
-> (§10.1, family 7) enforces all of this — an earlier draft violated the first
-> two, having copied the L1 timestamps from the L2's `last_seen` and its line
-> number from the L2's `source`, which is exactly the drift a prose claim of
-> "one lifecycle" invites and cannot itself prevent.
+> (§10.1, family 7) enforces all of this, because a prose claim that two
+> fixtures are one story invites exactly one drift it cannot itself prevent:
+> copying the L1 snapshot's timestamp from the L2's `last_seen` and its line
+> number from the L2's `source` produces two atoms that each validate alone and
+> contradict each other side by side.
 >
 > **L2 → L3 is the exception, and for a reason:** that step mints a *new*
 > project-free id (§4.1.1 step 3), because the hash input itself changes when the
@@ -739,11 +737,10 @@ Non-negotiables, inherited from this repo's existing discipline:
    illustrative atom in `DESIGN.md` and `memory_schema.json` must be as
    de-identified as an atom the tool would be allowed to commit: generic project
    slugs, no private or unpublished repo names, no machine-specific paths beyond
-   the `~/.claude/projects/<slug>/` shape the format itself requires. Review
-   round 3 caught this doc breaking its own rule — an example named a repo that
-   exists nowhere in this public tree, making the reference unverifiable to any
-   reader and embedding a project name that was not ours to publish. Fixture
-   data is committed data.
+   the `~/.claude/projects/<slug>/` shape the format itself requires. The
+   failure this prevents: an example naming a repo that exists nowhere in the
+   public tree is unverifiable to any reader *and* publishes a project name that
+   was not ours to publish. **Fixture data is committed data.**
 
 ---
 
@@ -979,22 +976,22 @@ cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f a
 
 **Run it before any further edit to this folder lands.** Nothing in CI gates the
 drift class this section exists to prevent — the checker is only as good as the
-habit of running it. **The `.txt` parking is not what blocks CI**, contrary to
-what an earlier draft implied: a workflow step can `cp` it to a temp `.py` and
-run it exactly as above, and `derive_counters.py` never sees the temp file.
+habit of running it. **The `.txt` parking is not what blocks CI**: a
+workflow step can `cp` it to a temp `.py` and run it exactly as above, and
+`derive_counters.py` never sees the temp file.
 Wiring that step is a live option today, independent of the `audit/`-vs-here
 placement decision.
 
-What *did* block it, until this round, was the checker's own design — see
-property 1.
+What did block it was the checker's own design — see property 1.
 
 Two properties make it worth more than a linter:
 
 1. **It holds the algorithm `DESIGN.md` publishes and asserts the two match**,
-   so doc and fixtures cannot silently disagree. It reached that property by
-   `exec`-ing the doc's fenced block until round 26, which worked but made
-   *"whoever can edit a markdown code fence"* equal to *"whoever can run
-   arbitrary code in this process."* Harmless while a maintainer runs it by hand
+   so doc and fixtures cannot silently disagree. **It must not get that property
+   by `exec`-ing the doc's fenced block** — the obvious implementation, and the
+   one this file used until it was caught. Executing the fence makes *"whoever
+   can edit a markdown code block"* equal to *"whoever can run arbitrary code in
+   this process."* Harmless while a maintainer runs it by hand
    on a branch they already trust — and **not** harmless under the CI step the
    paragraph above recommends, since `ci-quality-gate.yml` triggers on
    `pull_request`, which would have handed code execution to any PR author,
@@ -1052,10 +1049,10 @@ Root `CLAUDE.md` lists three canonical `skills` forms; `["./skills"]` (what
 other four use, and what this tree adopts to follow the majority) is not quite
 any of them — it survives `check_plugin_json.py` only as a well-formed
 `./`-prefixed array entry. **The question is which of the two the repo wants,
-not whether to bless a fourth form** — the earlier draft of this section argued
-the latter on the false premise that all five plugins used the undocumented
-shape. Either document the nested form, or migrate the four manifests to the
-already-documented `["./skills"]`; both beat the shape being tribal knowledge.
+not whether to bless a fourth form**, since a documented form already covers
+this layout. Either document the nested form, or migrate the four manifests to
+the already-documented `["./skills"]`; both beat the shape being tribal
+knowledge spread across five manifests.
 
 ---
 

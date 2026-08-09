@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 434,
+  "total_skills": 435,
   "skills": [
     {
       "name": "README",
@@ -1159,6 +1159,11 @@
       "description": "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
     },
     {
+      "name": "book-to-skill",
+      "category": "engineering-advanced",
+      "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills \u2014 extracting named frameworks, principles, techniques, and anti-patterns into a master SKILL.md plus on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a claude-skills plugin."
+    },
+    {
       "name": "browser-automation",
       "category": "engineering-advanced",
       "description": "Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screenshots, extract structured data from web pages, or build web automation workflows. NOT for testing \u2014 use playwright-pro for that."
@@ -2208,7 +2213,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 84,
+      "count": 85,
       "description": "Engineering-advanced resources"
     },
     "finance": {

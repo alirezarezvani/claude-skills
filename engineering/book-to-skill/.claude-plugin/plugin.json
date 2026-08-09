@@ -1,0 +1,21 @@
+{
+  "name": "book-to-skill",
+  "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills: a master SKILL.md with core frameworks and a topic index, on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Ships 4 stdlib-only tools (multi-format extractor with invisible-Unicode sanitization, four-family generated-skill validator, pre/post-flight token budget estimator, and a plugin emitter that wraps a compiled skill as an installable claude-skills package), 5 references citing 7-8 sources each (including the full step-by-step conversion workflow), a cs-book-to-skill agent, and /cs:book-to-skill + /cs:book-to-plugin commands. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a plugin.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/book-to-skill",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/book-to-skill"
+  ],
+  "attribution": {
+    "derived_from": "https://github.com/virgiliojr94/book-to-skill",
+    "original_author": "virgiliojr94",
+    "original_license": "MIT",
+    "derivation_note": "The extraction library (book_to_skill/ — config, exceptions, sanitize, dependencies, utils, and the 7 per-format parsers) is vendored from upstream and carries upstream's multi-format chains, chapter detection across 5 script families, and Unicode/XXE hardening. 25 numbered deviations are recorded in README.md, which is the authoritative list: the workflow was rewritten Claude-Code-first for this repo's conventions, the 3 upstream tools were reworked into 4 argparse CLIs with --help/--sample, install-on-import behaviour was replaced with a report-only default, and Step 11 (plugin emission with a rights gate) plus the validator's budget and index families are additions with no upstream counterpart."
+  }
+}

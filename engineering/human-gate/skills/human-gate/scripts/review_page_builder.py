@@ -77,6 +77,9 @@ SAMPLE_HTML = """<!DOCTYPE html>
 <h1>Ship faster</h1>
 <p>One usable slice per week.</p>
 <ul><li>Onboarding rewrite</li><li>Retire the importer</li></ul>
+<p><a href="//cdn.example.com/pricing">protocol-relative link</a> and an
+<img src="https://img.example.com/hero.png" alt="own asset"> both survive on
+purpose, while <a href="javascript:alert(1)">this</a> does not.</p>
 </body></html>
 """
 
@@ -770,12 +773,19 @@ def run_sample(output_dir=None):
     target_dir = output_dir or tempfile.mkdtemp(prefix="human-gate-sample-")
     os.makedirs(target_dir, exist_ok=True)
 
+    # Each fixture asserts a block count plus the URL-handling contract: what
+    # must survive sanitization and what must not. The allowances are as much a
+    # decision as the blocks are, so they are pinned here rather than left to
+    # prose — a reviewed artifact's own assets have to load for the review to be
+    # faithful, and a protocol-relative URL cannot execute.
     fixtures = [
-        ("quarterly-plan.md", SAMPLE_MD, True, 6),
-        ("landing.html", SAMPLE_HTML, False, 3),
+        ("quarterly-plan.md", SAMPLE_MD, True, 6, [], []),
+        ("landing.html", SAMPLE_HTML, False, 4,
+         ['href="//cdn.example.com/pricing"', 'src="https://img.example.com/hero.png"'],
+         ["javascript:"]),
     ]
     failures = []
-    for name, source, is_md, expected in fixtures:
+    for name, source, is_md, expected, must_keep, must_drop in fixtures:
         sidecar = os.path.splitext(name)[0] + ".review.md"
         page, blocks = build_page(source, name, sidecar, is_md, 1)
         out_path = os.path.join(target_dir, os.path.splitext(name)[0] + ".review.html")
@@ -785,8 +795,13 @@ def run_sample(output_dir=None):
             continue
         with open(out_path, "w", encoding="utf-8") as handle:
             handle.write(page)
-        status = "ok" if len(blocks) == expected else "FAIL — expected %d" % expected
+        problems = []
         if len(blocks) != expected:
+            problems.append("expected %d blocks" % expected)
+        problems += ["dropped %s" % k for k in must_keep if k not in page]
+        problems += ["kept %s" % d for d in must_drop if d in page]
+        status = "ok" if not problems else "FAIL — " + "; ".join(problems)
+        if problems:
             failures.append(name)
         print("  %-20s %d blocks, %5.1f KB  %s"
               % (name, len(blocks), len(page.encode("utf-8")) / 1024.0, status))

@@ -137,6 +137,27 @@ def load_state(artifact, explicit=None):
         return json.load(handle)
 
 
+def max_rounds_for(state, args):
+    """The agreed round cap, from state — not from whatever this call passed.
+
+    A per-invocation flag lets `open` and a later `close` disagree about the
+    cap, which makes G5 escalation depend on how the command happened to be
+    typed. The cap is agreed once, recorded in state, and reused. Passing
+    --max-rounds again is an explicit renegotiation, not a silent override.
+    """
+    stored = state.get("max_rounds")
+    requested = getattr(args, "max_rounds", None)
+    if requested is not None:
+        if stored is not None and stored != requested:
+            print("Round cap changed for this artifact: %d -> %d."
+                  % (stored, requested))
+        state["max_rounds"] = requested
+        return requested
+    if isinstance(stored, int) and stored > 0:
+        return stored
+    return DEFAULT_MAX_ROUNDS
+
+
 def save_state(state, artifact, explicit=None):
     path = state_path(artifact, explicit)
     directory = os.path.dirname(path)
@@ -204,10 +225,14 @@ def cmd_open(args):
         return 0
     state["closed"] = False
 
+    # `open` pins the cap for the whole loop, so a later status/collect/close
+    # inherits it rather than re-deriving one from its own flags.
+    cap = max_rounds_for(state, args)
+    state["max_rounds"] = cap
     round_number = len(state["rounds"]) + 1
-    if round_number > args.max_rounds:
+    if round_number > cap:
         print("ESCALATE — %d rounds already spent on %s (cap %d)."
-              % (len(state["rounds"]), os.path.basename(artifact), args.max_rounds))
+              % (len(state["rounds"]), os.path.basename(artifact), cap))
         print("Stop iterating. Hand this to a human and say what is still contested.")
         return 5
 
@@ -242,7 +267,7 @@ def cmd_open(args):
 
     print(build.stdout.strip())
     print("")
-    print("Round %d of at most %d." % (round_number, args.max_rounds))
+    print("Round %d of at most %d." % (round_number, cap))
     if blocked:
         print("Headless host (%s) — not launching a browser." % blocked)
         print("Give the reviewer both paths, then END YOUR TURN. Do not poll.")
@@ -267,11 +292,12 @@ def cmd_status(args):
     sidecar = sidecar_for(artifact, args.sidecar)
     current = fingerprint(sidecar)
     rounds = state["rounds"]
+    cap = max_rounds_for(state, args)
 
     payload = {
         "artifact": os.path.basename(artifact),
         "rounds_collected": len(rounds),
-        "max_rounds": args.max_rounds,
+        "max_rounds": cap,
         "closed": state["closed"],
         "sidecar": sidecar,
         "sidecar_present": current is not None,
@@ -297,7 +323,7 @@ def cmd_status(args):
         print(json.dumps(payload, indent=2))
     else:
         print("%s — %s" % (payload["artifact"], payload["status"]))
-        print("Rounds collected: %d / %d" % (len(rounds), args.max_rounds))
+        print("Rounds collected: %d / %d" % (len(rounds), cap))
         if not payload["sidecar_present"]:
             print("No sidecar yet at %s" % sidecar)
         elif payload["status"] == "feedback-waiting":
@@ -321,9 +347,10 @@ def cmd_collect(args):
         sys.stderr.write("No sidecar at %s — nothing to collect yet.\n" % sidecar)
         return 4
 
-    if len(state["rounds"]) >= args.max_rounds:
+    cap = max_rounds_for(state, args)
+    if len(state["rounds"]) >= cap:
         print("ESCALATE — round cap (%d) reached for %s."
-              % (args.max_rounds, os.path.basename(artifact)))
+              % (cap, os.path.basename(artifact)))
         print("Stop iterating. Summarise what is still contested and hand it to a human.")
         return 5
 
@@ -353,12 +380,12 @@ def cmd_collect(args):
     if args.output == "json":
         print(json.dumps({"batch": batch, "problems": problems,
                           "round": round_number,
-                          "rounds_remaining": args.max_rounds - round_number}, indent=2))
+                          "rounds_remaining": cap - round_number}, indent=2))
     else:
         print(parser_module.render_human(batch, problems))
         print("")
         print("Recorded as round %d. %d round(s) left before escalation."
-              % (round_number, args.max_rounds - round_number))
+              % (round_number, cap - round_number))
         if batch["items"]:
             print("Apply every item. EDIT items carry `after` across VERBATIM —")
             print("that is the reviewer's own wording, not a suggestion to paraphrase.")
@@ -493,8 +520,11 @@ def main(argv=None):
         sp.add_argument("--sidecar", help="override the sidecar path")
         sp.add_argument("--state-dir", help="override the .human-gate state directory")
         sp.add_argument(
-            "--max-rounds", type=int, default=DEFAULT_MAX_ROUNDS,
-            help="round cap before escalation (default %d)" % DEFAULT_MAX_ROUNDS,
+            "--max-rounds", type=int, default=None,
+            help="round cap before escalation (default %d). Recorded in gate "
+                 "state on the first open and reused by every later command, so "
+                 "the cap cannot drift between calls; passing it again changes "
+                 "the agreed cap and says so." % DEFAULT_MAX_ROUNDS,
         )
         return sp
 

@@ -337,7 +337,8 @@ username into a git-tracked file. It is the one transform that must happen at
 *both* promotion boundaries, since L1→L2 is the first crossing into committed
 territory.
 
-Fast paths:
+Fast paths **(L1 → L2 only** — L2 → L3 is gated on distinct *projects*, not
+session count, so neither shortcut applies there):
 
 - `confidence: "stated"` — an explicit user directive ("always target dev") —
   needs **2** sessions, not 3. The user said it; we are counting whether it
@@ -370,6 +371,33 @@ is a project fact; it becomes global only by holding in a second project. Having
 the merge mint `global` is the design saying that out loud. Enforced by the
 tier/scope conditional in the schema, so an extractor that gets this wrong fails
 validation instead of quietly producing orphans.
+
+#### 4.1.3 `confidence` is mutable, monotonic, and re-read at every gate
+
+`confidence` is **not** frozen at extraction. Evidence genuinely strengthens: a
+claim the agent first inferred can later be stated outright by the user, or
+confirmed by a check. Freezing it would hold an atom to a stricter gate than its
+evidence warrants — and the §3.1 / schema example pair (`atm_961f033d` at L1
+`observed`, at L2 `stated`) is exactly that upgrade, not a fixture mismatch.
+
+```
+observed  <  stated  <  verified          # total order
+```
+
+1. **On merge (§5.3), `confidence = max(existing, incoming)`.** The `SessionEnd`
+   merge already increments `observations` and extends `sessions`; it takes the
+   max of the two confidences at the same time.
+2. **Never downgrades.** A later inference cannot demote a claim the user stated
+   or a check verified — otherwise a weak re-observation would silently re-impose
+   the slower gate, and confidence would oscillate with observation order.
+3. **The gate re-reads it at promotion time**, not at creation. An atom that was
+   `observed` for two sessions and becomes `stated` in the third is judged on
+   `stated`'s 2-session bar, which it has already cleared.
+
+This matters because `confidence` selects both the session count (3 / 2 / 1) and
+the distinct-days exemption — so *when* it may change decides which gate an atom
+is actually held to. Left unstated, two implementers would reasonably build
+different machines.
 
 ### 4.2 Contradiction handling
 
@@ -477,7 +505,8 @@ asserted, not yet measured):
 - Async (`"async": true`, per `skillopt-sleep`'s precedent) — must never delay
   session teardown.
 - Read the just-closed transcript → extract candidate atoms → **redact** →
-  merge into `.memory/atoms.jsonl` (increment `observations`, extend `sessions`).
+  merge into `.memory/atoms.jsonl` (increment `observations`, extend `sessions`,
+  **raise `confidence` to the max of old and new** per §4.1.3 — never lower it).
 - Run the promotion pass. Promotions to L2/L3 are written to
   `.memory/staged/` — **never directly into `CLAUDE.md`**.
 - Disable: `AGENT_MEMORY_SESSIONEND=0`

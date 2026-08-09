@@ -48,10 +48,8 @@ def _find(start, marker, limit=10):
     CURRENT depth (assets/, two below the plugin root). §10.1 moves this script
     to skills/agent-memory/scripts/ — four below — where a fixed dirname-count
     silently lands on the SKILL root instead: SCHEMA would still resolve (by
-    coincidence, since assets/ and scripts/ become siblings), DESIGN would
-    raise, and the repo-root CLAUDE.md check would resolve to a path that does
-    not exist and be SKIPPED by its own exists() guard — the 84 KB size claim
-    would stop being verified with nothing reporting that it had.
+    coincidence, since assets/ and scripts/ become siblings) while DESIGN would
+    not, so every check that reads the doc would stop running.
 
     Anchoring on a marker file makes the script correct at any depth, so the
     move in §10.1 cannot quietly disable a check.
@@ -311,30 +309,29 @@ def main():
           "all fixture session ids are synthetic")
 
     # -- family 6: claims in prose that must match measurable reality --------
-    # Anchored on the repo marker, not a fixed "../.." from BASE — and NOT
-    # guarded by a bare exists() that turns "cannot find it" into "nothing to
-    # report". A check that silently stops running is worse than one that was
-    # never written: the suite keeps printing green while the claim goes
-    # unverified. Failing to locate the file is itself a failure.
-    # `.claude-plugin` alone is NOT a repo-root marker — plugin folders such as
-    # engineering/ carry one too, and anchoring on it lands one level short.
-    # The repo root is the directory holding BOTH CLAUDE.md and the counter
-    # script; that pair exists nowhere else in the tree.
-    def _is_repo_root(d):
-        return (os.path.exists(os.path.join(d, "CLAUDE.md"))
-                and os.path.exists(os.path.join(d, "scripts",
-                                                "derive_counters.py")))
-    try:
-        repo = _find(BASE, _is_repo_root)
-    except SystemExit:
-        repo = None
-    root = os.path.join(repo, "CLAUDE.md") if repo else None
-    check(root is not None and os.path.exists(root),
-          "repo-root CLAUDE.md is locatable (the size claim depends on it)")
-    if root and os.path.exists(root):
-        size = len(open(root, "rb").read())
-        check("{:,}".format(size) in design,
-              "the CLAUDE.md size claim cites the measured byte count")
+    # The 1 size claim is a POINT-IN-TIME measurement, so this family checks
+    # what the doc controls, not what it does not. An earlier version compared
+    # the cited figure against the LIVE byte count of the repo-root CLAUDE.md
+    # -- a file this repo appends a release note to on nearly every point
+    # release. That check would have started failing on the next unrelated PR,
+    # for a reason with nothing to do with this folder, and 10.1's own thesis
+    # says a checker must own its ground truth rather than borrow a moving
+    # one. Snapshotting the byte count as a constant here is not the fix
+    # either: it just moves the same number to a second place that can drift
+    # from the first, with nothing able to say which one is wrong.
+    #
+    # What IS durable, and what the original defect actually was (1 once read
+    # "~40 KB", eyeballed, off by more than 2x): the claim must name its
+    # method and carry a real byte figure, and its two units must agree with
+    # each other. Both are properties of the sentence itself.
+    m = re.search(r"\*\*(\d+) KB\*\*[^.]*?`wc -c`[^.]*?([\d,]{4,})\s+bytes", design)
+    check(m is not None,
+          "the CLAUDE.md size claim names `wc -c` and cites a byte figure")
+    if m:
+        kb, byts = int(m.group(1)), int(m.group(2).replace(",", ""))
+        check(round(byts / 1024) == kb,
+              "the size claim's KB and byte figures agree (%d KB == %d bytes)"
+              % (kb, byts))
     check("not observations" in flat,
           "promotion row names sessions, not observations, as the gate")
 

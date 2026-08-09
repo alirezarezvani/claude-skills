@@ -374,8 +374,9 @@ Contract file: [`hooks/hooks.json`](hooks/hooks.json).
   CLAUDE.md                  # committed — L2 lives in a marker block
   .memory/
     atoms.jsonl              # GITIGNORED — L1
+    atoms.lock               # GITIGNORED — writer lock (§5.4)
     staged/                  # GITIGNORED — pending promotions
-    adopted.log              # committed — audit trail of what was adopted, when
+    adopted.log              # COMMITTED — audit trail of what was adopted, when
 ~/.claude/
   CLAUDE.md                  # L3, marker block
   projects/*/*.jsonl         # L0 — read-only, never copied
@@ -393,6 +394,22 @@ cross-repo context to check:
 | L1 | **No** — gitignored | Raw observations. May contain incidental specifics. |
 | L2/L3 | **Yes** | **Interpreted, de-identified, non-confidential only.** |
 
+`.memory/` is ignored wholesale with a single negation for the audit log — it is
+**not** a contradiction that the directory is gitignored while one file inside it
+is committed, but it does need stating, since ignoring a directory outright makes
+git skip its contents and a bare `!` on the file would not resurface it:
+
+```gitignore
+.memory/*                 # not `.memory/` — a directory-level ignore is never
+!.memory/adopted.log      # descended into, so this negation could not re-include
+```
+
+`adopted.log` is committed on purpose: it records **what was promoted into
+`CLAUDE.md` and when**, which is the audit trail for content that *is* already
+committed. It therefore holds only claims that already cleared the L2/L3 bar
+above. `atoms.jsonl` and `staged/` stay ignored because they hold pre-admission
+material.
+
 Non-negotiables, inherited from this repo's existing discipline:
 
 1. **Redaction runs before any write**, using `productivity/handoff`'s
@@ -401,7 +418,13 @@ Non-negotiables, inherited from this repo's existing discipline:
    in-memory paths (root `CLAUDE.md`, deviation list).
 2. **No secrets, no confidential figures, no PHI/PII** reaches L2/L3. A claim
    referencing sensitive data is stored as a *reference*, never a transcription.
-3. `.memory/` is `chmod 0700`, files `0600`.
+3. **Runtime-created** files are locked down at creation: `.memory/` `chmod
+   0700`, the files the hooks write `0600`. Scoped deliberately to
+   hook-created files — git tracks no POSIX mode beyond the executable bit, so
+   a fresh checkout materializes `adopted.log` at the cloner's umask and no
+   in-repo declaration can change that. Anything whose confidentiality depends
+   on mode bits must therefore be gitignored, which is why `atoms.jsonl` and
+   `staged/` are and `adopted.log` (deliberately public, de-identified) is not.
 4. Every promoted claim carries its L0 back-pointer. **Cite, don't invent.**
 5. **This policy binds the spec's own examples, not just runtime data.** Every
    illustrative atom in `DESIGN.md` and `memory_schema.json` must be as
@@ -518,32 +541,44 @@ Needed before implementation starts:
 
 ## 10. Planned file tree (not yet created)
 
+Layout follows the shape every comparable agents+commands plugin in this repo
+uses — `skillopt-sleep`, `write-a-skill`, `agent-harness`, `handoff`, `llm-wiki`
+are **5 for 5**: the skill body nests under `skills/<plugin-name>/`, while
+`agents/`, `commands/`, `hooks/` and `.claude-plugin/` sit at the plugin root.
+
 ```
 engineering/agent-memory/
-  DESIGN.md                      ← this file
-  SKILL.md                       ← not written until §9 is resolved
-  .claude-plugin/plugin.json
+  DESIGN.md                          ← this file (stays at root)
+  .claude-plugin/plugin.json         ← "skills": ["./skills/agent-memory"]
   hooks/
-    hooks.json                   ← contract, written
-    session_start.py             ← L2+L3 read
-    user_prompt_submit.py        ← L1 recall, 100 ms budget
-    session_end.py               ← L0 capture + promotion, async
-  scripts/
-    memory_extract.py            ← L0 → L1
-    memory_promote.py            ← L1 → L2 → L3, deterministic
-    memory_inspect.py            ← --tier, --contested, --why <claim>
-  references/
-    memory_tiering_canon.md
-    promotion_gate_design.md
-    redaction_and_admission.md
-  assets/
-    memory_schema.json           ← written
+    hooks.json                       ← contract, written
+    session_start.py                 ← L2+L3 read
+    user_prompt_submit.py            ← L1 recall, 100 ms budget
+    session_end.py                   ← L0 capture + promotion, async
   agents/cs-memory-curator.md
-  commands/cs-memory.md          ← status | adopt | why | forget
+  commands/cs-memory.md              ← status | adopt | why | forget
+  skills/agent-memory/
+    SKILL.md                         ← not written until §9 is resolved
+    scripts/
+      memory_extract.py              ← L0 → L1
+      memory_promote.py              ← L1 → L2 → L3, deterministic
+      memory_inspect.py              ← --tier, --contested, --why <claim>
+    references/
+      memory_tiering_canon.md
+      promotion_gate_design.md
+      redaction_and_admission.md
+    assets/
+      memory_schema.json             ← written (moves here on implementation)
 ```
 
-Counters on ship: skills +1, tools +3, refs +3, commands +1, agents +1,
-plugins +1. Verify with `scripts/derive_counters.py --check`.
+**Counters on ship: skills +1, tools +6, refs +3, commands +1, agents +1,
+plugins +1.** Tools is **+6, not +3** — `derive_counters.py` counts *every*
+`.py` outside repo-root `scripts/`, so the three `hooks/*.py` count alongside
+the three `scripts/*.py`. Verified empirically against this tree: adding one
+file under `hooks/` moves `python_tools` 644 → 645. `productivity/handoff` is
+the confirming precedent — 5 `scripts/` + 2 `hooks/` files, documented
+repo-wide as "7 stdlib-only Python tools." Verify with
+`scripts/derive_counters.py --check` before opening the implementation PR.
 
 ---
 

@@ -195,11 +195,38 @@ first promotion — precisely the identifying-data class §6 exists to keep out.
 Rule 4 (cite) and the §6 admission policy would be in direct conflict, and rule
 4 would win by being the more mechanical of the two.
 
-**Resolution: promotion strips the prefix.** The session id is globally unique,
-so the transcript stays findable by globbing
-`~/.claude/projects/*/<session>.jsonl` locally at read time — the prefix is
-*derivable*, so storing it buys nothing and costs de-identification. Provenance
-is fully preserved; only the machine-specific part is dropped.
+**Resolution: promotion strips the prefix.** The transcript stays findable by
+globbing `~/.claude/projects/*/<session>.jsonl` locally at read time — the
+prefix is *derivable*, so storing it buys nothing and costs de-identification.
+Provenance is fully preserved; only the machine-specific part is dropped.
+
+**The uniqueness that rests on, measured rather than assumed.** Claude Code
+names transcripts by session id, and on a live install those filenames are
+RFC-4122 UUIDs — checked, not inferred:
+
+```
+$ ls ~/.claude/projects/*/*.jsonl | head -1 | xargs basename
+63840f04-72f5-56b5-b348-2faed7a24e12.jsonl
+$ python3 -c "import uuid; u=uuid.UUID('63840f04-72f5-56b5-b348-2faed7a24e12'); print(u.version, u.variant)"
+5 specified in RFC 4122
+```
+
+One install, one sample — enough to establish the shape, not enough to promise
+the scheme is stable across versions. So **the glob must handle its own failure
+rather than assume it cannot happen:**
+
+| Glob result | Meaning | Behaviour |
+|---|---|---|
+| exactly 1 | normal | resolve |
+| 0 | transcript aged out of Claude Code's retention | unresolvable — same as any dead back-pointer |
+| **≥ 2** | ids collided, or the scheme changed | **unresolvable**, and log it: an atom whose provenance is ambiguous must not present as cited |
+
+The ≥ 2 row is the one worth writing down. Without it, a naive implementation
+takes the first match and silently attributes a claim to the wrong session —
+a *wrong* citation, which is worse than a missing one under §6 rule 6
+("cite, don't invent"). Note the fixtures deliberately use an
+obviously-synthetic `01SESSION…` form rather than this shape, so nobody mistakes
+a spec example for a real transcript reference; family 5 asserts that.
 
 The trap is that a placeholder can hide this: `-home-user-` which *looks* de-identified because
 the username is literally the word "user". A placeholder that flatters the
@@ -512,9 +539,26 @@ is what actually holds.
 - L1 atom not re-observed in 90 days → dropped. No ceremony.
 - L2 claim whose supporting atoms have all expired → demoted to L1, one grace
   cycle, then dropped.
-- L3 is **never auto-demoted**. It is capped instead (§5.1) and reviewed by a
-  human on overflow. Auto-removing a persona-level fact is more damaging than
-  carrying a stale one.
+- L3 is **never auto-demoted**. It is capped instead and reviewed by a human on
+  overflow. Auto-removing a persona-level fact is more damaging than carrying a
+  stale one.
+
+**"Overflow" needs a number, not a word.** §5.1's 2 KB / 4 KB are *injection*
+budgets — they bound what enters context, not what accumulates on disk, so a
+marker block could grow indefinitely while every session silently sees a
+truncated view. That is the §1 failure this design exists to prevent, reproduced
+one layer down. L1 got a real cap (500 atoms, evict by `last_seen`); L2 and L3
+get the same treatment:
+
+| Tier | Stored cap | On exceeding |
+|---|---|---|
+| **L2** | **60 atoms** per project — ~4 KB at the ~65-byte median claim, so the store and the injection budget bind at roughly the same point | Oldest-`last_seen` atoms beyond the cap are **demoted to L1**, not dropped: they re-enter the normal 90-day expiry path and can re-promote if still live. |
+| **L3** | **30 atoms** global — ~2 KB, matching its injection budget | **No automatic action.** Refuse further L2 → L3 promotions and surface the overflow at `adopt` for a human to prune. Consistent with "never auto-demoted": the cap stops growth, it does not choose what to lose. |
+
+The asymmetry is deliberate. L2 is project-local and recoverable — a wrong
+demotion costs one re-promotion cycle. L3 is the always-injected persona tier
+where a wrong deletion is invisible and permanent, so the cap blocks the
+*inflow* rather than deciding the outflow.
 
 ---
 
@@ -559,6 +603,12 @@ Three hooks. Each must be independently disableable by env var, following
 - Score L1 atoms against prompt text. Deterministic lexical scoring (token
   overlap + `kind` weight + recency). No embeddings, no API call.
 - Inject **top 5 max, 1 KB max**.
+- **A recalled atom carrying `contested` must render with the §4.2 tag**, not as
+  a bare claim. §4.2 states that rule tier-agnostically, but this section is the
+  contract `user_prompt_submit.py` gets built from — an implementer working
+  strictly from here would ship a recall path that surfaces a contested claim as
+  plain fact, which is the exact failure §4.2 forbids. Stated in both places on
+  purpose: cross-references are not a contract.
 - Disable: `AGENT_MEMORY_USERPROMPTSUBMIT=0`. All three disable vars mirror
   their hook name exactly, so a user who knows Claude Code's hook names can
   derive all three without reading this doc. An earlier `AGENT_MEMORY_RECALL`

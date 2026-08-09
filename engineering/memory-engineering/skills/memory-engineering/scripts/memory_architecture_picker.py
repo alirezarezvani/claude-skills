@@ -27,8 +27,6 @@ Exit codes:
     4  no family satisfies a hard constraint
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import sys
@@ -166,7 +164,7 @@ def _level(constraints: dict, key: str) -> float:
     return LEVELS[raw.lower()]
 
 
-def _hard_constraint_kills(family: str, hard: dict) -> str | None:
+def _hard_constraint_kills(family, hard):
     """Return a disqualifying reason, or None if the family survives."""
     window = hard.get("context_window_tokens")
     history = hard.get("expected_history_tokens")

@@ -53,14 +53,14 @@ touching retrieval. Step 2 names the cost the winning family makes you pay.
 Step 3 classifies records FACT / SKILL / LOG / PROSE (`LOG-HEAVY` = archiving
 events; `PROSE-HEAVY` = docs, not memory).
 
-**4 — Gate.** **F1** (explicit forgetting rule) and **F4** (contradictions
+Step 4 is the gate: **F1** (explicit forgetting rule) and **F4** (contradictions
 surfaced, never auto-merged) are blocking. Retrofitting forgetting onto two
 years of records is a migration nobody does; auto-merging disagreeing memories
 destroys the evidence the conflict existed.
 
-**5 — Prove by hand, then automate.** Run a pass once against real history and
-ask whether it changed a decision. If not, scheduling it only makes noise.
-Ship order: `forgetting_policy_design.md` §7.
+Step 5 has no script — prove each pass by hand, then automate. Run it once
+against real history and ask whether it changed a decision. If not, scheduling
+it only makes noise. Ship order: `forgetting_policy_design.md` §7.
 
 ## Hard rules
 

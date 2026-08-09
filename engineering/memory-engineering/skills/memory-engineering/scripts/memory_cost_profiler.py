@@ -20,8 +20,6 @@ Exit codes:
     3  invalid input
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import sys

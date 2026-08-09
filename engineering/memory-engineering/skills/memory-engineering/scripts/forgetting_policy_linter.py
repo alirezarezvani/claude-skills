@@ -30,8 +30,6 @@ Exit codes:
     4  FAIL        -- no forgetting rule, or contradictions are auto-merged
 """
 
-from __future__ import annotations
-
 import argparse
 import json
 import sys

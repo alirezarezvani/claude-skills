@@ -533,6 +533,17 @@ Three hooks. Each must be independently disableable by env var, following
   say so in the block. A memory system that silently drops is worse than none.
 - Disable: `AGENT_MEMORY_SESSIONSTART=0`
 - **Never blocks.** Failure = no memory that session, exit 0.
+- **No internal self-budget, unlike §5.2 — and the asymmetry is the point.**
+  The `timeout: 5` in `hooks.json` is the whole latency contract here. Two
+  reasons it can be, where `UserPromptSubmit` needed a tighter internal one:
+  this hook runs **once per session**, not once per prompt, so a slow run costs
+  a single startup rather than compounding across a conversation; and its work
+  is **bounded by the byte caps above** (2 KB L3 + 4 KB L2) rather than by a
+  scan whose cost grows with history — it reads two marker blocks and truncates,
+  where recall scores up to 500 atoms. If §9.5's measurement shows interpreter
+  cold-start alone approaching 5 s, that finding lands here too, and the honest
+  response is the same: raise the number to the measured one rather than keep
+  an unmet claim.
 - **Never emit two contradictory lines unmarked.** L2 and L3 are injected
   together here, and §4.2.1's detector cannot reach L3 (§9.6), so nothing
   upstream guarantees they agree. Whatever this hook emits, an L2 claim and an
@@ -1019,6 +1030,19 @@ Two properties make it worth more than a linter:
 a counted "tool" belonging to no plugin, in a folder deliberately without a
 `SKILL.md`. Renaming it and counting it is a one-line change the moment the
 maintainer rules that a spec-stage folder may carry tooling.
+
+**On the precedent, since "rename it so the counter misses it" generalises
+badly.** What makes this instance legitimate is not the intent, which is
+unfalsifiable — it is that the file **is not a tool**. It ships in no plugin,
+belongs to no `SKILL.md`, is not invoked by any workflow, and does nothing for a
+user who installs something. Counting it would make `python_tools` *less*
+accurate, not more. The abuse this could be mistaken for is the opposite case: a
+real tool a real skill really uses, renamed to keep a headline number down. That
+one is detectable by a single question a reviewer can ask — **is anything
+supposed to run this?** Here the answer is no, and stays no until §10.1's
+reversal condition fires, at which point it becomes a counted `.py` in the same
+commit. If the maintainer would rather not have the pattern in the tree at all,
+the fix is the `audit/` option in §11, where the question does not arise.
 
 **The parking hack is a consequence of the location, not a fact about the
 file.** Under `audit/` (the third option in the status header) it would be

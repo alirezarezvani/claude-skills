@@ -5,6 +5,80 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] — human-gate: batched human review as a verification artifact (this PR)
+
+### Audited — `petergyang/human-review`
+
+Public audit record at `audit/human-review-2026-08/AUDIT.md`. Upstream (npm
+`human-review@0.6.0`, MIT © Peter Yang) is a ~5,200 LOC Node application that opens
+an HTML/Markdown file or localhost page in the browser for direct editing and
+anchored comments, then ships the batch back to the agent as JSON. **Verified: its
+own test suite passes 90/90.** Security posture is better than most local-server
+tools — loopback-only bind, DNS-rebinding `Host` check, constant-time token compare,
+realpath-checked traversal guard, a deliberately inert Markdown renderer, and a
+45-minute idle self-shutdown.
+
+**Verdict: do not vendor, do adopt the pattern.** Node 20 + an npm runtime dependency
+fails the same stdlib-only test that kept the heavier `skillopt` package out in
+v2.11.2. Seven findings recorded, three material: **F1 (HIGH)** the skill instructs
+the agent to run unpinned `npx -y human-review`, so every invocation may fetch and
+execute a newly published version; **F2 (MED)** "do not end your turn" plus re-poll
+on timeout, with no headless guard and no retry cap — the AR5 loop-discipline gap
+`audit/engineering-agentic-2026-07/` already named as repo-wide; **F3 (MED)** only
+`/api/*` is token-gated, not `/artifact/<key>` or `/s/<id>`.
+
+Also worth stating plainly: despite the name, this is **not** a humanizer. It is
+human *approval*, not human *voice* — no overlap with `engineering/behuman` or
+`marketing-skill/content-humanizer`.
+
+### Added — `engineering/human-gate`
+
+Conceptual derivation (no upstream code copied), built to this repo's conventions:
+three stdlib-only Python scripts, no server, no socket, no network fetch.
+
+- **`review_page_builder.py`** — Markdown/HTML → single-file review page with every
+  block anchored (`data-hg="b7"`). **Zero network requests** — no CDN, no fonts, no
+  Prism; ~11 KB, opens over `file://`. Markdown is rendered by a stdlib subset parser
+  that escapes before applying inline markup and scheme-allowlists every href;
+  HTML input is re-emitted through `html.parser` with `<script>`/`<style>`/`<head>`
+  dropped and top-level block elements tagged. Review UI is vanilla JS with
+  localStorage persistence and an export that writes the sidecar.
+- **`feedback_parser.py`** — sidecar Markdown → `batch.v1` JSON. Severities
+  BLOCKER/MAJOR/MINOR/NIT (matching `markdown-html/md-review`, from Google's
+  code-review guidance) plus EDIT/NOTE/APPROVE. Verifies every quote against the real
+  file and reports mismatches rather than swallowing them. Strips HTML comments so an
+  example written inside one cannot parse as a real sign-off.
+- **`human_gate.py`** — `open`/`status`/`collect`/`close`/`reset` state machine with
+  atomic writes and `0700`/`0600` state permissions. Gate rules **G1–G6**: refuses to
+  close with no collected round, an open BLOCKER/MAJOR, an unnamed reviewer, a sidecar
+  changed after collection, an exhausted round cap (exit 5 = escalate, never pass), or
+  a waiver without a recorded reason. Waivers store both the reason and every refusal
+  they overrode.
+
+**Loop discipline — the deliberate inversion of upstream.** There is no blocking poll:
+`status` returns immediately, `open` detects a headless host (`CI`, SSH, no `DISPLAY`)
+and says so rather than sending the agent to wait at a browser that will never appear,
+and rounds are capped with escalation on exhaustion. The sidecar is plain, hand-writable
+Markdown, so the loop still closes over SSH and in CI where no browser exists.
+
+**Optional bridge**, opt-in and asked-first: `npx -y human-review@0.6.0` — always
+pinned, never bare. It changes the editor; the gate still governs closure.
+
+Ships 3 references citing 7–8 sources each (Bainbridge *Ironies of Automation*,
+Parasuraman & Riley, Fagan inspection, Wiegers, Weinberg, *SWE at Google* ch. 9,
+W3C Web Annotation `TextQuoteSelector`, Conventional Comments, Klein pre-mortem,
+Nygard *Release It!*), a `batch.v1` JSON schema, a worked sidecar example,
+`cs-human-gate` agent, and `/cs:human-gate`. SKILL.md is a full PASS on the
+write-a-skill 6-item checklist; description validator PASS.
+
+### Changed — counters
+
+skills 362 → 363, tools 644 → 647, refs 741 → 744, agents 102 → 103,
+commands 116 → 117, plugins 88 → 89, engineering row 84 → 85
+(derived via `scripts/derive_counters.py --check`).
+
+---
+
 ## [Unreleased] — fable-goal: ramble → autonomous /goal prompt (this PR)
 
 ### Added — `productivity/fable-goal`

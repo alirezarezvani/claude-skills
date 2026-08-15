@@ -1,0 +1,24 @@
+# Ableton Live 11 Cursor Skill Fix Notes
+
+- **Malformed LOM entry point** → replaced `Live.Application.get_document()` with the version-checked `Live.Application.get_application().get_document()` form and directed `ControlSurface` code to the exact framework accessor.
+- **Remote Script framework described as an official stable API** → identified it as a supported extension mechanism built on private, undocumented, exact-build-sensitive Python frameworks.
+- **Wrong Remote Script install location** → changed guidance to `<User Library>/Remote Scripts/` and prohibited edits to the application bundle.
+- **Incorrect audio-thread model** → separated Remote Script scheduler callbacks, deferred main-thread M4L Live API work, observer deferral, and DSP/signal-rate `live.remote~`.
+- **Unqualified OSC/Node latency claim** → made latency implementation-dependent, required measurement, and prohibited sample-accurate timing claims.
+- **Unsafe whole-file `.als` parser** → removed unbounded gzip/XML code; now requires size/depth/element caps, streaming `iterparse`, error handling, and `defusedxml` for untrusted Sets.
+- **Unsafe `.als` mutation guidance** → prohibited direct XML edits/recompression; analysis uses copies and supported changes go through Live plus Save/Save As.
+- **Overbroad “offline = XML only” statement** → defined offline inspection as saved artifacts, with `.als` primary and explicitly selected project/library files supplementary.
+- **Launch-history overclaim** → limited findings to saved Session layout/settings and labeled behavioral inference heuristic unless corroborated by logs.
+- **Unconditional broken-path claim** → clarified that references may break when a Set is separated from dependencies; recommended Collect All and Save plus moving the whole Project.
+- **Weak live-write guard** → added inspect, pre-state snapshot, plan, confirmation, one bounded write, read-back, and stop-on-mismatch; clarified transport stop is not rollback.
+- **MCP telemetry privacy ambiguity** → defaults telemetry/user-prompt fields to omitted/empty and requires destination audit plus opt-in before off-machine transmission.
+- **Missing exact-version capability gate** → now captures Live `11.x.y`, edition, OS, installed Packs/devices, and Max for Live authoring capability.
+- **Missing Max version fence** → requires Live 11-compatible Max 8 documentation and rejects Max 9 guidance.
+- **Stock-device availability overclaim** → treats device names as illustrative until runtime/browser discovery confirms installation and edition availability.
+- **Hardcoded MCP inventory risk** → marked the table illustrative and made `GetMcpTools` or runtime list-tools discovery authoritative.
+- **Live 12 leakage** → retained the hard refusal of `create_audio_clip` on Live 11 and the Live 12.0.5+ gate.
+- **Missing Quick Start** → added a five-step startup path covering environment, routing, discovery, safe writes, and reporting.
+- **Missing worked example** → added an end-to-end OFFLINE input → actions → output sketch.
+- **Evidence hierarchy conflated state and contracts** → split local/runtime state evidence from official contract, installed bridge, and copied-fixture evidence.
+- **Domain/privacy regressions risk** → preserved OFFLINE/LIVE/HYBRID routing, local-first defaults, and the REAPER fence.
+- **Canonical-path ambiguity** → created the preferred top-level source and synchronized the nested duplicate to match it.

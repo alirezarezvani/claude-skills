@@ -1,0 +1,7 @@
+{
+  "attribution": {
+    "contributed_by": "Socialpranker (https://github.com/Socialpranker), PR #851",
+    "upstream": "https://github.com/Socialpranker/claude-deep-research — the continuously-maintained source catalog (29 channels, 460+ statistical sources, 39 validated APIs, 103 report blocks) referenced from references/full-catalog.md",
+    "derivation_note": "Methodology SKILL.md + upstream-catalog pointer contributed via PR #851. Hardened for this repo: packaged as a full research plugin (plugin.json + marketplace entry + cs-deep-research agent + /cs:deep-research command + README) to match the research/ per-skill-plugin convention, and dropped a dangling claude-api cross-reference."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "source": {
+    "build_pattern": "Path-B discipline skill — Rogelberg/HBR meeting-science canon + deterministic cost-gate/agenda/action-extraction scripts",
+    "distinct_from": "project-management (team ceremonies, sprint planning, Jira delivery flow — this is personal meeting hygiene for the individual calling or attending the meeting); business-operations/internal-comms (org-level communication channel design — this gates one meeting at a time and never auto-sends anything); productivity/capture (personal brain-dump triage — this extracts owned actions from a shared meeting's notes)"
+  }
+}

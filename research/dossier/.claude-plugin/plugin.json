@@ -11,10 +11,5 @@
   "license": "MIT",
   "skills": [
     "./skills/dossier"
-  ],
-  "source": {
-    "spec": "megaprompts/12-dossier-megaprompt.md",
-    "build_pattern": "Path B (direct conversion). Research-pack shape, hypothesis-testing variant. Q4 (hypothesis) is mandatory; \u226530% search budget allocated to disconfirming evidence.",
-    "sibling_of": "research/litreview, research/grants, research/pulse (pulse currently in engineering/ \u2014 cleanup PR queued)"
-  }
+  ]
 }

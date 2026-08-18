@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "megaprompts/10-syllabus-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Research-pack shape, BUNDLED-JS-DOCX-GENERATOR variant — ships scripts/generate_reading_list.js for 300+ line DOCX assembly logic (token-efficient: skill doesn't re-derive layout each run).",
+    "sibling_of": "research/litreview, research/grants, research/patent, research/dossier, research/pulse"
+  }
+}

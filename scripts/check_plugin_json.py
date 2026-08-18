@@ -4,8 +4,10 @@
 Required fields (exactly these 8):
   name, description, version, author{name,url}, homepage, repository, license, skills
 
-Two approved extension fields (documented in CLAUDE.md, stripped at ClawHub-publish):
-  source, attribution
+No extension fields. Claude Code's manifest validator rejects the whole file on
+any unrecognized key (issue #954: the formerly approved source/attribution extras
+made 39 plugins uninstallable). Authoring metadata belongs in the sibling
+.claude-plugin/authoring-notes.json, which the validator never reads.
 
 skills layouts — per the live Claude Code plugin spec
 (https://code.claude.com/docs/en/plugins-reference), "All paths must be
@@ -35,7 +37,6 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = {"name", "description", "version", "author", "homepage", "repository", "license", "skills"}
-APPROVED_EXTENSIONS = {"source", "attribution"}
 STRING_FIELDS = ("name", "description", "homepage", "repository", "license")
 SEMVER = re.compile(r"^\d+\.\d+\.\d+(?:-[\w.]+)?$")
 
@@ -43,7 +44,7 @@ SEMVER = re.compile(r"^\d+\.\d+\.\d+(?:-[\w.]+)?$")
 def _check_keys(data):
     keys = set(data.keys())
     errors = []
-    extra = keys - ALLOWED - APPROVED_EXTENSIONS
+    extra = keys - ALLOWED
     missing = ALLOWED - keys
     if extra:
         errors.append(f"extra fields: {sorted(extra)}")

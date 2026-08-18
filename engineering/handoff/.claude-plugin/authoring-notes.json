@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff",
+    "original_author": "Matt Pocock (@mattpocock)",
+    "original_license": "MIT",
+    "derivation_note": "Matt's SKILL.md content reproduced under MIT. Additions: stdlib template + dedup + recommender tools, deep references, cs-* persona agent + /cs:* command wrapper. Matt's no-duplication-of-artifacts discipline preserved verbatim."
+  }
+}

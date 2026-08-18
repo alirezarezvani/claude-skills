@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "upstream": "https://github.com/alirezarezvani/aeo-box/tree/main/.claude/plugins/security-guidance",
+    "upstream_author": "David Dworken (dworken@anthropic.com)",
+    "upstream_license": "MIT",
+    "modifications": "12 patterns preserved verbatim. Added 3 patterns (subprocess shell=True, SQL injection via f-string/.format, yaml.unsafe_load). Debug log moved from /tmp to ~/.claude/security-warnings-log.txt for persistence. Added documentation reference under skills/security-guidance/."
+  }
+}

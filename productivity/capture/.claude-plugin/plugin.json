@@ -11,9 +11,5 @@
   "license": "MIT",
   "skills": [
     "./skills/capture"
-  ],
-  "source": {
-    "spec": "megaprompts/05-capture-megaprompt.md",
-    "build_pattern": "Path B (direct conversion) \u2014 megaprompt body extracted into SKILL.md with deterministic structure preservation. Wrapper additions (3 stdlib scripts, 3 references, cs-capture agent, /cs:capture command) layered on top per repo convention."
-  }
+  ]
 }

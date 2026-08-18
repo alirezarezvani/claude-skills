@@ -11,10 +11,5 @@
   "license": "MIT",
   "skills": [
     "./skills/grants"
-  ],
-  "source": {
-    "spec": "megaprompts/08-grants-megaprompt.md",
-    "build_pattern": "Path B (direct conversion). Research-pack shape \u2014 sibling of pulse + litreview. Multi-source (Consensus + RePORTER POST + NOSI fetch) with DOCX output via Node.js docx library.",
-    "sibling_of": "research/litreview, research/pulse (pulse currently in engineering/ \u2014 cleanup PR queued)"
-  }
+  ]
 }

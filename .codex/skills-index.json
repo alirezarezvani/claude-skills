@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 360,
+  "total_skills": 362,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -984,6 +984,12 @@
       "description": "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
     },
     {
+      "name": "book-to-skill",
+      "source": "../../engineering/book-to-skill/skills/book-to-skill",
+      "category": "engineering-advanced",
+      "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills \u2014 extracting named frameworks, principles, techniques, and anti-patterns into a master SKILL.md plus on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a claude-skills plugin."
+    },
+    {
       "name": "browser-automation",
       "source": "../../engineering/skills/browser-automation",
       "category": "engineering-advanced",
@@ -1204,6 +1210,12 @@
       "source": "../../engineering/skills/mcp-server-builder",
       "category": "engineering-advanced",
       "description": "Design and ship production-ready MCP (Model Context Protocol) servers from OpenAPI contracts instead of hand-written tool wrappers. Python and TypeScript support, schema validation, safe evolution. Use when exposing an existing API as an MCP server, building tool integrations for Claude or Codex or Cursor, or scaffolding an MCP project from scratch."
+    },
+    {
+      "name": "memory-engineering",
+      "source": "../../engineering/memory-engineering/skills/memory-engineering",
+      "category": "engineering-advanced",
+      "description": "Use when designing, reviewing, or paying for an agent memory system \u2014 adding memory to an agent, choosing between long-context / RAG / graph / agentic memory, auditing what a CLAUDE.md or memory directory actually holds, deciding what to keep and what to expire, or when a memory store keeps growing and nobody has said what leaves it. Prices the write path, picks which cost to pay, classifies records as facts / skills / logs, and refuses a design that has no forgetting policy."
     },
     {
       "name": "merge",
@@ -2203,7 +2215,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 83,
+      "count": 85,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

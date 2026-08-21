@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2025 virgiliojr94
+Copyright (c) 2026 Alireza Rezvani (modifications and additions)
+
+The document-extraction library under
+skills/book-to-skill/scripts/book_to_skill/ is vendored from
+https://github.com/virgiliojr94/book-to-skill and is copyright virgiliojr94.
+The workflow, the four command-line tools, the references, the assets, the
+agent and the commands are modifications and additions by this repository,
+released under the same terms. The numbered list in README.md under
+"Deviations from upstream" records what changed.
+
+This license covers the converter only. It does not cover the books or
+documents processed with it, and it does not make a compiled skill
+redistributable — see
+skills/book-to-skill/references/rights_and_provenance.md.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

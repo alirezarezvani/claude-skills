@@ -75,7 +75,7 @@ Saved to `${RESEARCH_DIR}/pulse/<topic-slug>-<YYYY-MM-DD>.md` AND pasted in chat
 - **Source discipline** — cite only session-call results. `[Background]` for training knowledge, excluded from cited count.
 - **Three-count tracking** — sent / received / cited in audit log.
 - **Retry once after 3s** — then log. 3 consecutive failures across sources → stop.
-- **Graceful degradation** — single source failure → continue with rest. Never fail the whole run on one source.
+- **Graceful degradation** — prefer a supplied X export. Skip only when no export or live interface exists.
 
 ## Workflow
 
@@ -90,7 +90,10 @@ python ../skills/pulse/scripts/citation_tracker.py --action start --session NAME
 #    HN: Algolia stories + comments with timestamp filter
 #    Web: 2–3 targeted queries
 
-# C. Phase 4 (optional, sequential): X/Twitter via Grok / X API / browser automation
+# C. Phase 4 (optional, sequential): normalize a supplied export first
+python ../skills/pulse/scripts/citation_tracker.py --action import_sources \
+  --session NAME --input /path/to/x-search.json --platform x
+#    If no export exists, try Grok / X API / browser automation.
 
 # D. Synthesis: cross-platform pattern detection
 
@@ -109,8 +112,9 @@ python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
 - Starting any search before Q1 (topic specificity) commits
 - Batching intake questions
 - Hardcoded URLs that won't survive API changes (note format, explain may evolve)
-- Specific person/brand references
+- Irrelevant person or brand references
 - Tight coupling to one X/Twitter interface
+- Treating duplicate Tweet IDs or repeated citation URLs as separate sources
 - Missing fallback behavior
 - "Just use [specific tool]" without explaining what the tool does
 - Citing training knowledge as session results

@@ -1,6 +1,6 @@
 ---
 name: cs-deep-work
-description: Plans a deep work day the Cal Newport way — audits a task list deep vs shallow against a 30-50% shallow budget, builds an energy-first time-blocked schedule (deep blocks of at least 90 minutes in the earliest hours, a hard 4-hour deep ceiling, shallow work batched into at most two windows, 10-minute buffers, an immovable hard stop), logs focus sessions against a weekly target, and closes the day with a shutdown ritual. Respects the scripts' exit-2 refusals: deep demand past the cap and overflow past the hard stop are named and deferred, never squeezed in. Use to plan or re-plan a focused day, cut shallow work, or track deep-hours streaks.
+description: "Plans a deep work day the Cal Newport way — audits a task list deep vs shallow against a 30-50% shallow budget, builds an energy-first time-blocked schedule (deep blocks of at least 90 minutes in the earliest hours, a hard 4-hour deep ceiling, shallow work batched into at most two windows, 10-minute buffers, an immovable hard stop), logs focus sessions against a weekly target, and closes the day with a shutdown ritual. Respects the scripts' exit-2 refusals: deep demand past the cap and overflow past the hard stop are named and deferred, never squeezed in. Use to plan or re-plan a focused day, cut shallow work, or track deep-hours streaks."
 skills: productivity/deep-work/skills/deep-work
 domain: productivity
 model: opus

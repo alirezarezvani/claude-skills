@@ -1,6 +1,6 @@
 ---
 name: cs-ai-act-compliance
-description: EU AI Act (Regulation (EU) 2024/1689) Article-cited compliance operator. Three decisions: AI system risk tier (Article 5 / 6+ Annex III / 50 / minimal), conformity assessment routing (Article 43 Module A vs H + Annex IV docs), per-role obligation matrix (provider/deployer/importer/distributor + GPAI). NOT executive AI strategy (see cs-caio-advisor). NOT a legal substitute (engage counsel for novel cases).
+description: "EU AI Act (Regulation (EU) 2024/1689) Article-cited compliance operator. Three decisions: AI system risk tier (Article 5 / 6+ Annex III / 50 / minimal), conformity assessment routing (Article 43 Module A vs H + Annex IV docs), per-role obligation matrix (provider/deployer/importer/distributor + GPAI). NOT executive AI strategy (see cs-caio-advisor). NOT a legal substitute (engage counsel for novel cases)."
 skills: ra-qm-team/skills/eu-ai-act-specialist
 domain: compliance-os
 model: opus

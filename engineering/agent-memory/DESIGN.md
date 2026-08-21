@@ -465,6 +465,26 @@ session count, so neither shortcut applies there):
   observation, and is the **only** path exempt from the distinct-days clause.
   It is not hearsay.
 
+**Both fast paths shorten the route from a transcript to a committed file, and
+redaction is the only thing on it.** Worth stating here rather than trusting a
+reader to combine §4.1 with §6: the recurrence gates are a *durability* filter,
+not a secrets filter — a secret observed in three sessions across three days is
+exactly as much a secret as one seen once. So the gates were never protecting
+`CLAUDE.md` from a leak; they only made the leak slower. The `verified` path
+removes even that, taking a claim from one sighting to a committed marker block
+with **§6 rule 1's redaction pass as the sole barrier**. Two consequences:
+
+- **The redaction pass must run on every promotion path, with no fast-path
+  shortcut.** An implementation that optimises `verified` by skipping work
+  "because a script already confirmed it" would skip the one check that matters.
+  Script-confirmed says nothing about whether the text contains a credential —
+  *"the staging key `sk-…` works"* is a plausible verified claim.
+- **This is the first behavioural test `memory_promote.py` should have** (§10.1
+  orders the validator first; this is what follows it): a `verified`, 1-
+  observation atom carrying a secret must not reach L2. It is the shortest
+  path in the system between raw transcript and committed file, so it is where
+  a redaction regression surfaces first and costs most.
+
 #### 4.1.2 `scope` is determined by tier — there is no third promotion path
 
 `scope` is **not** free-form metadata an extractor chooses. It follows tier:

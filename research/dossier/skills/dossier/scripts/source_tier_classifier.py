@@ -37,7 +37,6 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 
-
 # Pattern-based tier assignment. Most specific patterns first.
 
 PRIMARY_DOMAIN_EXACT = {

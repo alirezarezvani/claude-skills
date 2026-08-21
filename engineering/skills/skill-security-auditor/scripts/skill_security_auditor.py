@@ -36,7 +36,6 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 
-
 class Severity(IntEnum):
     INFO = 0
     HIGH = 1

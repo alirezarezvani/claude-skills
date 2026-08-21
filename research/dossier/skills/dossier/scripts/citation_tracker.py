@@ -40,7 +40,6 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 
-
 SESSIONS_DIR = Path.home() / ".dossier_sessions"
 VALID_CLASSIFICATIONS = ["supporting", "disconfirming", "inconclusive"]
 VALID_TIERS = ["primary", "secondary", "tertiary"]

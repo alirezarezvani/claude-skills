@@ -1,0 +1,12 @@
+{
+  "source": {
+    "spec": "agent-launcher/SPEC.md",
+    "build_pattern": "Domain plugin (research-ops / markdown-html shape). Orchestrator skill uses context: fork and a deterministic exit-code goal router. Every session carries a goal (./my-agent/goal.json); loop_compiler.py compiles goal+phase into a grade->iterate loop, a cron deployment loop, or a single-pass workflow. All tools are stdlib-only deterministic scaffolders (no API calls); live CMA launches are emitted as BYOK curl scripts. Opt-in SessionStart hook (AGENT_LAUNCHER_SESSION=1) surfaces the goal. Every SKILL.md ships a Forcing-question library per Matt Pocock grill-with-docs discipline.",
+    "distinct_from": "Inspired by anthropics/launch-your-agent (Apache-2.0) but an independent re-implementation for this marketplace, not a fork. Distinct from engineering/agent-harness (generic bounded self-verifying loop over any of the 18 repo domains) — agent-launcher is specifically about scaffolding and launching Claude Managed Agents in the user's own Anthropic account. Distinct from engineering/write-a-skill (authors Claude Code skills, not CMAs) and engineering/autoresearch-agent (Karpathy file-optimization loop)."
+  },
+  "attribution": {
+    "inspired_by": "anthropics/launch-your-agent",
+    "upstream_license": "Apache-2.0",
+    "note": "Independent plugin re-implementation of the launch-your-agent four-phase CMA workflow. CMA primitive semantics drawn from the public Claude Managed Agents documentation. Not a fork; no upstream code copied verbatim."
+  }
+}

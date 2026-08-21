@@ -18,8 +18,8 @@ Per million tokens, USD:
 
 | Tier | Example models | Input | Output |
 |---|---|---|---|
-| Frontier-premium | Claude Sonnet 4.6, GPT-4o-tier | $3.00 | $15.00 |
-| Frontier-economy | Gemini 2.5 Flash, Claude Haiku 4.5-tier | $1.25 | $5.00 |
+| Frontier-premium | Claude Sonnet 5, frontier-mid tier | $3.00 | $15.00 |
+| Frontier-economy | Claude Haiku 4.5, small-model tier | $1.25 | $5.00 |
 | Open-hosted | Llama 3.1 70B / Qwen 2.5 72B via Together, Fireworks, OpenRouter | $0.50 | $1.50 |
 | Open-economy | 8B-13B-class hosted | $0.10 | $0.30 |
 
@@ -126,7 +126,7 @@ If your utilization is 30% instead of 70%, your effective cost per token roughly
 ### 2. Capability Drift
 - Provider updates models silently or with brief notice
 - Your prompts may produce different outputs after upgrade
-- Mitigation: pin model IDs (e.g., `claude-sonnet-4-6` vs `claude-sonnet-latest`)
+- Mitigation: pin model IDs (e.g., `claude-sonnet-5` vs `claude-sonnet-latest`)
 - Cost: regression eval runs on every model swap
 
 ### 3. Rate Limits

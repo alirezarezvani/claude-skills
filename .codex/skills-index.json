@@ -1159,15 +1159,15 @@
     },
     {
       "name": "run",
-      "source": "../../engineering/autoresearch-agent/skills/run",
-      "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
-    },
-    {
-      "name": "run",
       "source": "../../engineering/agenthub/skills/run",
       "category": "engineering-advanced",
       "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
+    },
+    {
+      "name": "run",
+      "source": "../../engineering/autoresearch-agent/skills/run",
+      "category": "engineering-advanced",
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
     },
     {
       "name": "runbook-generator",

@@ -1,5 +1,7 @@
 # PR audit detail — maintainer draft PRs (#961, #948, #946)
 
+**Audited:** 2026-08-21 — PR states below (CI, mergeability, commit counts) are a snapshot from that date; re-run each verification block before acting on a verdict.
+
 Back to [00-MASTER.md](00-MASTER.md). All three are the maintainer's own drafts.
 The question for each is not merge-worthiness but a **finish plan**: what
 remains between the current head and a clean merge. Sequencing constraint:

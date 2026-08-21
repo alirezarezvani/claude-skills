@@ -1,5 +1,7 @@
 # PR audit detail — accepted external new-skill PRs (#967, #944, #926, #965, #942, #943)
 
+**Audited:** 2026-08-21 — PR states below (CI, mergeability, commit counts) are a snapshot from that date; re-run each verification block before acting on a verdict.
+
 Back to [00-MASTER.md](00-MASTER.md). Shared context: all six target `dev` ✓,
 all purely additive (no conflicts), none has ever had a CI run, none touches
 counters/marketplace/generated indexes — which is exactly what CONTRIBUTING

@@ -1,5 +1,7 @@
 # PR audit detail — the benrfairless governance series (#936–#940)
 
+**Audited:** 2026-08-21 — PR states below (CI, mergeability, commit counts) are a snapshot from that date; re-run each verification block before acting on a verdict.
+
 Back to [00-MASTER.md](00-MASTER.md). All five: base `dev` ✓, conventional
 commits ✓, zero reviews/comments, **zero CI runs** (fork PRs; workflows never
 approved). **Stacked series on one base** — verified via

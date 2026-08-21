@@ -1,5 +1,7 @@
 # PR audit detail — recommended closures (#959, #913, #788, #955, #956, #957)
 
+**Audited:** 2026-08-21 — PR states below (CI, mergeability, commit counts) are a snapshot from that date; re-run each verification block before acting on a verdict.
+
 Back to [00-MASTER.md](00-MASTER.md). Six PRs should be closed, each for a
 different, specific reason — none for "low effort." Draft close comments are
 included; all are polite, name the concrete gap, and (where the contributor

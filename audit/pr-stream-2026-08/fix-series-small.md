@@ -1,5 +1,7 @@
 # PR audit detail — small-fix PRs (#966, #964, #932, #929, #895)
 
+**Audited:** 2026-08-21 — PR states below (CI, mergeability, commit counts) are a snapshot from that date; re-run each verification block before acting on a verdict.
+
 Back to [00-MASTER.md](00-MASTER.md). All five: base `dev` ✓, zero
 reviews/comments/CI runs. **Pairwise file overlaps: NONE** (computed over
 changed-file sets); all five test-merge clean onto dev `6972e65` — merge order
@@ -26,7 +28,9 @@ stripping pipeline that never landed*. Claude Code's installer reads the raw
 manifest, and issue #954 (open, 2026-08-14) documents the verbatim failure:
 `✘ Failed to install plugin "roast@claude-code-skills" … Unrecognized key:
 "source"` (same for `"attribution"` on grill-me). **39 of 90 plugins are
-uninstallable today.** The PR amends the documented policy in the same diff —
+uninstallable today.** (Count reconciliation: #954 said 37 of 88 at filing,
+against `aa8d778`; book-to-skill and memory-engineering landed since, each
+carrying the keys — hence 39 of 90 as of this audit. Not a discrepancy.) The PR amends the documented policy in the same diff —
 this is a policy update with evidence, not a violation.
 
 **Attribution loss: none.** All 39 base-vs-head manifests compared

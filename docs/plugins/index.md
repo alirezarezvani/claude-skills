@@ -274,7 +274,7 @@ Two approved extension fields are permitted:
 | `collab-proof` | Standalone | engineering | `./engineering/collab-proof` |
 | `business-investment-advisor` | Standalone | finance | `./finance/business-investment-advisor` |
 | `llm-wiki` | Standalone | knowledge | `./engineering/llm-wiki` |
-| `c-level-agents` | Standalone | leadership | `./c-level-advisor/c-level-agents` |
+| `c-level-agents` | Standalone | leadership | `./c-level-agents` |
 | `chief-ai-officer-advisor` | Standalone | leadership | `./c-level-advisor/chief-ai-officer-advisor` |
 | `chief-customer-officer-advisor` | Standalone | leadership | `./c-level-advisor/chief-customer-officer-advisor` |
 | `chief-data-officer-advisor` | Standalone | leadership | `./c-level-advisor/chief-data-officer-advisor` |

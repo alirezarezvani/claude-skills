@@ -91,7 +91,7 @@ patent_<invention-slug>_<sub-use-case>_<YYYY-MM-DD>.docx
 
 - Agent: [`cs-patent`](../agents/cs-patent.md)
 - Skill: [`patent`](../skills/patent/SKILL.md)
-- Source spec: [`megaprompts/11-patent-megaprompt.md`](../../../megaprompts/11-patent-megaprompt.md)
+- Source spec: `megaprompts/11-patent-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Siblings: `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:pulse`
 - Future: `/cs:syllabus`
 

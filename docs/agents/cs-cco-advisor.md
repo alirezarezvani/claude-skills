@@ -8,7 +8,7 @@ description: "Retention-obsessed Chief Customer Officer advisor for honest reten
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-cco-advisor.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-cco-advisor.md">Source</a></span>
 </div>
 
 
@@ -168,8 +168,8 @@ python ../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calculato
 ## References
 
 - Skill: [../../skills/chief-customer-officer-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-customer-officer-advisor/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:cco-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/cco-review/SKILL.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
+- Sibling command: [`/cs:cco-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/cco-review/SKILL.md)
 
 ---
 

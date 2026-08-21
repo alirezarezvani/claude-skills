@@ -105,7 +105,7 @@ python ../skills/reflect/scripts/directional_recommendation_validator.py --outpu
 
 - Agent: [`cs-reflect`](../agents/cs-reflect.md)
 - Skill: [`reflect`](../skills/reflect/SKILL.md)
-- Source spec: [`megaprompts/02-reflect-megaprompt.md`](../../../megaprompts/02-reflect-megaprompt.md)
+- Source spec: `megaprompts/02-reflect-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling: `/cs:capture` (productivity, brain-dump organizer)
 - Adjacent (different shape): `/cs:grill-me`, `/cs:grill-with-docs`
 

@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 362,
+  "total_skills": 340,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -114,46 +114,10 @@
       "description": "Board meeting preparation for the adversarial scenario, not the friendly one. Forces numbers-cold mastery, anticipates hard questions, builds a narrative that acknowledges weakness without losing the room. Use when preparing for a board meeting, an investor update, fundraising presentation, or any high-stakes adversarial review where every number must live in your head not just on a slide."
     },
     {
-      "name": "boardroom",
-      "source": "../../c-level-advisor/c-level-agents/skills/boardroom",
-      "category": "c-level",
-      "description": "/cs:boardroom <brief> \u2014 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo. Use when a decision spans multiple executive domains \u2014 e.g. a pricing change touching finance, positioning, and product, or a raise-vs-cut runway call."
-    },
-    {
-      "name": "brief",
-      "source": "../../c-level-advisor/c-level-agents/skills/brief",
-      "category": "c-level",
-      "description": "/cs:brief <topic> \u2014 Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation \u2014 e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
-    },
-    {
-      "name": "c-level-agents",
-      "source": "../../c-level-advisor/c-level-agents/skills/c-level-agents",
-      "category": "c-level",
-      "description": "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /cs:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /cs:* commands, or when orchestrating multi-role decisions."
-    },
-    {
       "name": "c-level-skills",
       "source": "../../c-level-advisor/skills/c-level-skills",
       "category": "c-level",
       "description": "Index and router for the C-level advisory bundle: 33 skills covering 14 C-suite roles, orchestration, cross-cutting capabilities, and culture. Use when exploring what the c-level-advisor bundle contains, deciding which advisor skill fits a question, or finding the entry points (cs-onboard interview, chief-of-staff routing, board-meeting protocol)."
-    },
-    {
-      "name": "caio-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/caio-review",
-      "category": "c-level",
-      "description": "/cs:caio-review <plan> \u2014 Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring. Use when shipping an AI feature without an eval set, choosing between API, fine-tune, and self-hosted, or classifying a use case under the EU AI Act."
-    },
-    {
-      "name": "cco-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cco-review",
-      "category": "c-level",
-      "description": "/cs:cco-review <plan> \u2014 Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire."
-    },
-    {
-      "name": "cdo-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cdo-review",
-      "category": "c-level",
-      "description": "/cs:cdo-review <plan> \u2014 Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring. Use when validating training-data rights before model work, choosing warehouse vs lakehouse vs mesh, or valuing data assets for productization or M&A."
     },
     {
       "name": "ceo-advisor",
@@ -166,12 +130,6 @@
       "source": "../../c-level-advisor/skills/cfo-advisor",
       "category": "c-level",
       "description": "Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board financial packages. Use when building financial models, analyzing unit economics, planning fundraising, managing cash runway, preparing board materials, or when user mentions CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheets, or financial strategy."
-    },
-    {
-      "name": "cfo-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cfo-review",
-      "category": "c-level",
-      "description": "/cs:cfo-review <plan> \u2014 Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when a plan commits meaningful spend \u2014 e.g. a hiring wave, a fundraise decision, or a new channel budget."
     },
     {
       "name": "challenge",
@@ -240,22 +198,10 @@
       "description": "Security leadership for growth-stage companies. Risk quantification in dollars, compliance roadmap (SOC 2/ISO 27001/HIPAA/GDPR), security architecture strategy, incident response leadership, and board-level security reporting. Use when building security programs, justifying security budget, selecting compliance frameworks, managing incidents, assessing vendor risk, or when user mentions CISO, security strategy, compliance roadmap, zero trust, or board security reporting."
     },
     {
-      "name": "ciso-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/ciso-review",
-      "category": "c-level",
-      "description": "/cs:ciso-review <plan> \u2014 Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features that handle customer data, before a SOC 2 / ISO audit, or after any incident or near-miss."
-    },
-    {
       "name": "cmo-advisor",
       "source": "../../c-level-advisor/skills/cmo-advisor",
       "category": "c-level",
       "description": "Marketing leadership for scaling companies. Brand positioning, growth model design, marketing budget allocation, and marketing org design. Use when designing brand strategy, selecting growth models (PLG vs sales-led vs community-led), allocating marketing budgets, building marketing teams, or when user mentions CMO, brand strategy, growth model, CAC, LTV, channel mix, or marketing ROI."
-    },
-    {
-      "name": "cmo-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cmo-review",
-      "category": "c-level",
-      "description": "/cs:cmo-review <plan> \u2014 Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or repositioning, or when CAC is rising and the one-sentence positioning test fails."
     },
     {
       "name": "company-os",
@@ -288,28 +234,10 @@
       "description": "Product leadership for scaling companies. Product vision, portfolio strategy, product-market fit, and product org design. Use when setting product vision, managing a product portfolio, measuring PMF, designing product teams, prioritizing at the portfolio level, reporting to the board on product, or when user mentions CPO, product strategy, product-market fit, product organization, portfolio prioritization, or roadmap strategy."
     },
     {
-      "name": "cpo-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cpo-review",
-      "category": "c-level",
-      "description": "/cs:cpo-review <plan> \u2014 JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap, deciding whether to kill a feature, or claiming PMF without a retention curve."
-    },
-    {
       "name": "cro-advisor",
       "source": "../../c-level-advisor/skills/cro-advisor",
       "category": "c-level",
       "description": "Revenue leadership for B2B SaaS companies. Revenue forecasting, sales model design, pricing strategy, net revenue retention, and sales team scaling. Use when designing the revenue engine, setting quotas, modeling NRR, evaluating pricing, building board forecasts, or when user mentions CRO, chief revenue officer, revenue strategy, sales model, ARR growth, NRR, expansion revenue, churn, pricing strategy, or sales capacity."
-    },
-    {
-      "name": "cro-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cro-review",
-      "category": "c-level",
-      "description": "/cs:cro-review <plan> \u2014 Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team."
-    },
-    {
-      "name": "cross-eval",
-      "source": "../../c-level-advisor/c-level-agents/skills/cross-eval",
-      "category": "c-level",
-      "description": "/cs:cross-eval <memo> \u2014 Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom \u2014 e.g. a bet-the-company pivot or fundraise terms."
     },
     {
       "name": "cs-onboard",
@@ -324,34 +252,16 @@
       "description": "Technical leadership guidance for engineering teams, architecture decisions, and technology strategy. Use when assessing technical debt, scaling engineering teams, evaluating technologies, making architecture decisions, establishing engineering metrics, or when user mentions CTO, tech debt, technical debt, team scaling, architecture decisions, technology evaluation, engineering metrics, DORA metrics, or technology strategy."
     },
     {
-      "name": "cto-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/cto-review",
-      "category": "c-level",
-      "description": "/cs:cto-review <plan> \u2014 Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor."
-    },
-    {
       "name": "culture-architect",
       "source": "../../c-level-advisor/skills/culture-architect",
       "category": "c-level",
       "description": "Build, measure, and evolve company culture as operational behavior \u2014 not wall posters. Covers mission/vision/values workshops, values-to-behaviors translation, culture code creation, culture health assessment, and cultural rituals by stage. Use when building company values, assessing culture health, designing cultural rituals, creating culture codes, handling culture clashes, or when user mentions culture, values, culture debt, founder culture, or culture code."
     },
     {
-      "name": "decide",
-      "source": "../../c-level-advisor/c-level-agents/skills/decide",
-      "category": "c-level",
-      "description": "/cs:decide <memo> \u2014 Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Use when the founder has approved a boardroom memo and the decision must become durable company memory \u2014 e.g. right after /cs:boardroom concludes."
-    },
-    {
       "name": "decision-logger",
       "source": "../../c-level-advisor/skills/decision-logger",
       "category": "c-level",
       "description": "Two-layer memory architecture for board meeting decisions. Manages raw transcripts (Layer 1) and approved decisions (Layer 2). Use when logging decisions after a board meeting, reviewing past decisions with /cs:decisions, or checking overdue action items with /cs:review. Invoked automatically by the board-meeting skill after Phase 5 founder approval."
-    },
-    {
-      "name": "execute",
-      "source": "../../c-level-advisor/c-level-agents/skills/execute",
-      "category": "c-level",
-      "description": "/cs:execute <decision> \u2014 Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a logged decision needs to become an operating plan \u2014 e.g. turning an approved market-entry call into weekly milestones with DRIs."
     },
     {
       "name": "executive-mentor",
@@ -364,24 +274,6 @@
       "source": "../../c-level-advisor/skills/founder-coach",
       "category": "c-level",
       "description": "Personal leadership development for founders and first-time CEOs. Covers founder archetype identification, delegation frameworks, energy management, CEO calendar audits, leadership style evolution, blind spot identification, imposter syndrome, founder mental health, and succession planning. Use when a founder feels like the bottleneck, struggles to delegate, is burning out, transitioning from IC to executive, managing a board, or when user mentions founder mode, CEO growth, leadership development, delegation, burnout, or imposter syndrome."
-    },
-    {
-      "name": "founder-mode",
-      "source": "../../c-level-advisor/c-level-agents/skills/founder-mode",
-      "category": "c-level",
-      "description": "/cs:founder-mode <question> \u2014 Auto-routes any founder question to the right C-role advisor or to /cs:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits \u2014 e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO."
-    },
-    {
-      "name": "freeze",
-      "source": "../../c-level-advisor/c-level-agents/skills/freeze",
-      "category": "c-level",
-      "description": "/cs:freeze <decision> <days> \u2014 Lock a strategic decision for a cooldown period to prevent impulse reversal. Mirrors gstack's safety primitives for the business layer. Use when an irreversible decision was made under pressure \u2014 e.g. a layoff plan or multi-year contract \u2014 and deserves a cooling-off lock before execution."
-    },
-    {
-      "name": "gc-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/gc-review",
-      "category": "c-level",
-      "description": "/cs:gc-review <plan> \u2014 General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
     },
     {
       "name": "general-counsel-advisor",
@@ -420,28 +312,10 @@
       "description": "M&A strategy for acquiring companies or being acquired. Due diligence, valuation, integration, and deal structure. Use when evaluating acquisitions, preparing for acquisition, M&A due diligence, integration planning, or deal negotiation."
     },
     {
-      "name": "office-hours",
-      "source": "../../c-level-advisor/c-level-agents/skills/office-hours",
-      "category": "c-level",
-      "description": "/cs:office-hours <topic> \u2014 YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route \u2014 e.g. 'should we grow faster?' \u2014 or before drafting a strategy brief."
-    },
-    {
-      "name": "onboard",
-      "source": "../../c-level-advisor/c-level-agents/skills/onboard",
-      "category": "c-level",
-      "description": "/cs:onboard \u2014 Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context \u2014 e.g. before a first /cs:boardroom or after a fundraise changes the numbers."
-    },
-    {
       "name": "org-health-diagnostic",
       "source": "../../c-level-advisor/skills/org-health-diagnostic",
       "category": "c-level",
       "description": "Cross-functional organizational health check combining signals from all C-suite roles. Scores 8 dimensions on a traffic-light scale with drill-down recommendations. Use when assessing overall company health, preparing for board reviews, identifying at-risk functions, or when user mentions org health, health check, or health dashboard."
-    },
-    {
-      "name": "post-mortem",
-      "source": "../../c-level-advisor/c-level-agents/skills/post-mortem",
-      "category": "c-level",
-      "description": "/cs:post-mortem <decision> \u2014 Honest retrospective on an executed decision, scored against original assumptions and dissent. Closes the strategic sprint loop. Use when a decision hits its 90-day review checkpoint or its kill criteria trigger \u2014 e.g. scoring last quarter's pricing change against its pre-committed success metrics."
     },
     {
       "name": "postmortem",
@@ -478,12 +352,6 @@
       "source": "../../c-level-advisor/vpe-advisor/skills/vpe-advisor",
       "category": "c-level",
       "description": "VP of Engineering advisory for startups: delivery throughput (DORA 4 metrics + bottleneck identification), engineering hiring funnel (sourcing \u2192 screen \u2192 onsite \u2192 offer conversion + time-to-fill + pipeline gap), engineering team structure (squad/tribe/chapter design + tech-lead manager-trigger thresholds), and production discipline (on-call, deployment cadence, postmortem culture). Use when sprint velocity is dropping, eng hiring is broken, team structure is unclear, or deciding when to add a tech-lead manager. NOT a CTO skill (which owns architecture) \u2014 VPE owns delivery operations and how the team ships."
-    },
-    {
-      "name": "vpe-review",
-      "source": "../../c-level-advisor/c-level-agents/skills/vpe-review",
-      "category": "c-level",
-      "description": "/cs:vpe-review <plan> \u2014 Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline. Use when cycle time balloons, DORA metrics slide, or before committing to an eng hiring wave or a reorg."
     },
     {
       "name": "channel-economics",
@@ -2190,7 +2058,7 @@
       "description": "Internal BizOps skills (v2.8.0): process mapping, vendor management, capacity planning (Erlang-C), internal comms (ADKAR+Kotter), knowledge ops (SOP+runbook), procurement (UNSPSC)"
     },
     "c-level": {
-      "count": 68,
+      "count": 46,
       "source": "../../c-level-advisor",
       "description": "Executive leadership and advisory skills"
     },

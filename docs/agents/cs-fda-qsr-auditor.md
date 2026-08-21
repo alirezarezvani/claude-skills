@@ -155,7 +155,7 @@ python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py fda_q
 - [cs-compliance-officer](cs-compliance-officer.md) — Multi-framework orchestrator
 - [cs-cqm-iso13485](cs-cqm-iso13485.md) — ISO 13485 audit (substantially harmonized post-Feb 2026)
 - [cs-quality-regulatory](https://github.com/alirezarezvani/claude-skills/tree/main/agents/ra-qm-team/cs-quality-regulatory.md) — Medical-device orchestrator
-- [cs-general-counsel-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md) — Warning Letter response coordination
+- [cs-general-counsel-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-general-counsel-advisor.md) — Warning Letter response coordination
 
 ## References
 

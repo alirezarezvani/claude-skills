@@ -19,7 +19,7 @@ Part of the **research pack** (sibling of `pulse`, `litreview`; future siblings:
 
 ## Source spec
 
-[`megaprompts/08-grants-megaprompt.md`](../../megaprompts/08-grants-megaprompt.md) (PR #657).
+`megaprompts/08-grants-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657).
 
 ## Plugin layout
 

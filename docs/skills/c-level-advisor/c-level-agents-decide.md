@@ -8,7 +8,7 @@ description: "/cs:decide <memo> — Log a decision to two-layer memory via decis
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `decide`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/decide/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/decide/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -107,8 +107,8 @@ The biggest risk in approved decisions is forgetting why someone disagreed. When
 ## Related
 
 - Skill: [`decision-logger`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/decision-logger/SKILL.md)
-- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-chief-of-staff.md)
-- Bridge: [[`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-chief-of-staff.md)
+- Bridge: [[`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)
 
 ---
 

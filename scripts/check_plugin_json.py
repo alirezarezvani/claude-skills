@@ -4,8 +4,12 @@
 Required fields (exactly these 8):
   name, description, version, author{name,url}, homepage, repository, license, skills
 
-Two approved extension fields (documented in CLAUDE.md, stripped at ClawHub-publish):
-  source, attribution
+Non-spec keys are hard failures. Claude Code's manifest validator rejects the
+whole plugin.json on ANY unrecognized key (issue #954 — 37+ plugins were
+uninstallable because of `source` / `attribution` keys). Authoring metadata
+(Path-B provenance, upstream vendoring credit) now lives in a sibling
+`.claude-plugin/authoring-notes.json` file, which Claude Code never reads.
+This script also sanity-checks that file when present.
 
 skills layouts — per the live Claude Code plugin spec
 (https://code.claude.com/docs/en/plugins-reference), "All paths must be
@@ -35,7 +39,10 @@ import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = {"name", "description", "version", "author", "homepage", "repository", "license", "skills"}
-APPROVED_EXTENSIONS = {"source", "attribution"}
+# Formerly tolerated in-manifest; Claude Code rejects any unrecognized key
+# (issue #954), so these now belong in .claude-plugin/authoring-notes.json.
+RELOCATED_TO_NOTES = {"source", "attribution"}
+NOTES_ALLOWED = {"source", "attribution"}
 STRING_FIELDS = ("name", "description", "homepage", "repository", "license")
 SEMVER = re.compile(r"^\d+\.\d+\.\d+(?:-[\w.]+)?$")
 
@@ -43,13 +50,39 @@ SEMVER = re.compile(r"^\d+\.\d+\.\d+(?:-[\w.]+)?$")
 def _check_keys(data):
     keys = set(data.keys())
     errors = []
-    extra = keys - ALLOWED - APPROVED_EXTENSIONS
+    relocated = keys & RELOCATED_TO_NOTES
+    extra = keys - ALLOWED - RELOCATED_TO_NOTES
     missing = ALLOWED - keys
+    if relocated:
+        errors.append(
+            f"non-spec fields {sorted(relocated)}: Claude Code rejects the whole manifest "
+            f"on any unrecognized key (issue #954) — move them to "
+            f".claude-plugin/authoring-notes.json"
+        )
     if extra:
         errors.append(f"extra fields: {sorted(extra)}")
     if missing:
         errors.append(f"missing fields: {sorted(missing)}")
     return errors
+
+
+def _check_authoring_notes(path):
+    """Sanity-check the sibling authoring-notes.json, if one exists."""
+    notes_path = os.path.join(os.path.dirname(path), "authoring-notes.json")
+    if not os.path.exists(notes_path):
+        return []
+    try:
+        with open(notes_path) as f:
+            notes = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        return [f"authoring-notes.json: unreadable JSON: {e}"]
+    if not isinstance(notes, dict):
+        return ["authoring-notes.json: must be a JSON object"]
+    extra = set(notes.keys()) - NOTES_ALLOWED
+    if extra:
+        return [f"authoring-notes.json: unexpected keys {sorted(extra)} "
+                f"(allowed: {sorted(NOTES_ALLOWED)})"]
+    return []
 
 
 def _check_strings(data):
@@ -134,7 +167,7 @@ def validate(path):
     except (OSError, json.JSONDecodeError) as e:
         return [f"unreadable JSON: {e}"]
     return (_check_keys(data) + _check_strings(data) + _check_version(data)
-            + _check_author(data) + _check_skills(data))
+            + _check_author(data) + _check_skills(data) + _check_authoring_notes(path))
 
 
 def find_all():

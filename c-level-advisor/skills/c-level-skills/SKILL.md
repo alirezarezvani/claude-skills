@@ -42,6 +42,6 @@ Full matrix in `../chief-of-staff/SKILL.md` and `../chief-of-staff/references/ro
 
 ## Related Layers
 
-- `../../c-level-agents/` — 13 cs-* persona agents + 21 `/cs:*` slash commands on top of these skills
+- `../../../c-level-agents/` — 13 cs-* persona agents + 21 `/cs:*` slash commands on top of these skills
 - `../../executive-mentor/` — adversarial `/em:*` critic commands
 - `../../CLAUDE.md` — full architecture diagram and integration guide

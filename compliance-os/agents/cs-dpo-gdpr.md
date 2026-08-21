@@ -144,7 +144,7 @@ python dpia_generator.py processing_activity.json
 - [cs-ciso-iso27001](cs-ciso-iso27001.md) — Article 32 organizational measures overlap
 - [cs-ai-act-compliance](cs-ai-act-compliance.md) — EU AI Act Article 27 FRIA integration
 - [cs-soc2-auditor](cs-soc2-auditor.md) — SOC 2 Privacy TSC overlap
-- [cs-general-counsel-advisor](../../c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md) — Novel-case legal review
+- [cs-general-counsel-advisor](../../c-level-agents/agents/cs-general-counsel-advisor.md) — Novel-case legal review
 
 ## References
 

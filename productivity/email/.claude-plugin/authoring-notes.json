@@ -1,0 +1,10 @@
+{
+  "source": {
+    "specs": [
+      "megaprompts/06-inbox-setup-megaprompt.md",
+      "megaprompts/07-inbox-triage-megaprompt.md"
+    ],
+    "build_pattern": "Path B (direct conversion). Workflow-pair shape — coupled skills sharing a 7-file KB contract verified verbatim-aligned by PR #657 audit. Both skills ship as ONE plugin with multi-skill layout per CLAUDE.md plugin-schema rule.",
+    "shared_contract": "${WORKSPACE}/Email/ — 7 files: email-taxonomy.md, email-patterns.md, evaluation-framework.md (conditional), rate-card.md (conditional), blocklist.md, tracker.md, triage-log/. inbox-setup writes; inbox-triage reads + appends."
+  }
+}

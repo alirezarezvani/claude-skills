@@ -46,6 +46,8 @@ All three work together. See [Orchestration](#orchestration) for how to combine 
 
 ## Quick Install
 
+> **Windows users:** clone with `git clone -c core.symlinks=true` (Developer Mode enabled) — otherwise the `.gemini/`/`.codex/`/`.vibe/`/`.hermes/` mirror trees check out as 1-line pointer text files instead of skills — and set `PYTHONUTF8=1` so tools that print Unicode don't crash on legacy-codepage consoles. Details: [INSTALLATION.md → Windows Notes](INSTALLATION.md#windows-notes).
+
 ### Gemini CLI (New)
 
 ```bash
@@ -150,7 +152,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**364 skills across 18 domains:**
+**364 skills across 19 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -165,7 +167,8 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **📋 Project Management** | 9 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates + bundled Atlassian Remote MCP | [project-management/](project-management/) |
 | **🏥 Regulatory & QM** | 19 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management, agent-decision-receipts (PQ-signed action receipts) | [ra-qm-team/](ra-qm-team/) |
 | **🛡️ Compliance OS** | 9 | Compliance operating system — controls, evidence, audit-readiness workflows | [compliance-os/](compliance-os/) |
-| **💼 C-Level Advisory** | 68 | Full C-suite (CEO/CTO/CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE) + founder-mode agents + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
+| **💼 C-Level Advisory** | 46 | Full C-suite (CEO/CTO/CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE) + executive mentor + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
+| **🎩 C-Level Agents (founder mode)** | 22 | 13 cs-* persona agents + 21 /cs:* commands — office hours, boardroom, strategic sprint pipeline, cross-eval, freeze | [c-level-agents/](c-level-agents/) |
 | **📈 Business & Growth** | 5 | Customer success, sales engineer, revenue ops, contracts & proposals, BizDev toolkit | [business-growth/](business-growth/) |
 | **🏭 Business Operations** | 7 | Orchestrator + process-mapper, vendor-management, capacity-planner, internal-comms, knowledge-ops, procurement-optimizer | [business-operations/](business-operations/) |
 | **🤝 Commercial** | 8 | Orchestrator + pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster | [commercial/](commercial/) |

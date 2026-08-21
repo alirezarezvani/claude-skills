@@ -119,7 +119,7 @@ Limits:
 - GSI: 20 per table
 
 Pricing:
-- On-demand: $1.25 per million writes, $0.25 per million reads
+- On-demand: $0.625 per million writes, $0.125 per million strongly consistent reads (us-east-1, after the Nov 2024 50% price cut)
 - Provisioned: Per RCU/WCU
 ```
 

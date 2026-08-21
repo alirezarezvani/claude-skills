@@ -25,7 +25,7 @@ Part of the **research pack** (sibling of `pulse`, `litreview`, `grants`). Share
 
 ## Source spec
 
-[`megaprompts/12-dossier-megaprompt.md`](../../megaprompts/12-dossier-megaprompt.md) (PR #657).
+`megaprompts/12-dossier-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657).
 
 ## Plugin layout
 

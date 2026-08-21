@@ -183,9 +183,9 @@ python ../skills/compliance-os/scripts/evidence_pool_generator.py program.json
 - [cs-aims-iso42001](cs-aims-iso42001.md) — ISO 42001 deep-dive specialist (paired with iso42001-specialist skill)
 - [cs-ai-act-compliance](cs-ai-act-compliance.md) — EU AI Act Article-cited operations (paired with eu-ai-act-specialist skill)
 - [cs-quality-regulatory](../../agents/ra-qm-team/cs-quality-regulatory.md) — Medical-device-focused QMS / regulatory orchestrator (compliance-officer is broader; quality-regulatory is medical-device deep)
-- [cs-caio-advisor](../../c-level-advisor/c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy (build-vs-buy, model selection)
-- [cs-general-counsel-advisor](../../c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md) — Legal exposure (contracts, IP)
-- [cs-ciso-advisor](../../c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity strategy
+- [cs-caio-advisor](../../c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy (build-vs-buy, model selection)
+- [cs-general-counsel-advisor](../../c-level-agents/agents/cs-general-counsel-advisor.md) — Legal exposure (contracts, IP)
+- [cs-ciso-advisor](../../c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity strategy
 
 ## References
 

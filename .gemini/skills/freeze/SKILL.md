@@ -1,1 +1,1 @@
-../../../c-level-advisor/c-level-agents/skills/freeze/SKILL.md
+../../../c-level-agents/skills/freeze/SKILL.md

@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman",
+    "original_author": "Matt Pocock (@mattpocock)",
+    "original_license": "MIT",
+    "derivation_note": "Matt's SKILL.md content reproduced under MIT. Additions: stdlib compression + lint tools, deep references, cs-* persona agent + /cs:* command wrapper. Matt's voice and persistence rules preserved verbatim."
+  }
+}

@@ -224,9 +224,9 @@
         "path": "engineering/eval"
       },
       {
-        "name": "init",
+        "name": "hub-init",
         "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria.",
-        "path": "engineering/init"
+        "path": "engineering/hub-init"
       },
       {
         "name": "merge",
@@ -244,9 +244,9 @@
         "path": "engineering/spawn"
       },
       {
-        "name": "status",
+        "name": "hub-status",
         "description": "Show DAG state, agent progress, and branch status for an AgentHub session.",
-        "path": "engineering/status"
+        "path": "engineering/hub-status"
       },
       {
         "name": "autoresearch-agent",
@@ -259,9 +259,9 @@
         "path": "engineering/loop"
       },
       {
-        "name": "resume",
+        "name": "ar-resume",
         "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating.",
-        "path": "engineering/resume"
+        "path": "engineering/ar-resume"
       },
       {
         "name": "run",
@@ -272,11 +272,6 @@
         "name": "setup",
         "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator.",
         "path": "engineering/setup"
-      },
-      {
-        "name": "status",
-        "description": "Show experiment dashboard with results, active loops, and progress.",
-        "path": "engineering/status"
       },
       {
         "name": "behuman",
@@ -397,6 +392,11 @@
         "name": "write-a-skill",
         "description": "Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, build, or author a new skill.",
         "path": "engineering/write-a-skill"
+      },
+      {
+        "name": "ar-status",
+        "description": "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:ar-status or asks how an autoresearch experiment is going.",
+        "path": "engineering/ar-status"
       }
     ],
     "engineering-team": [
@@ -591,9 +591,9 @@
         "path": "engineering-team/generate"
       },
       {
-        "name": "init",
+        "name": "pw-init",
         "description": ">-",
-        "path": "engineering-team/init"
+        "path": "engineering-team/pw-init"
       },
       {
         "name": "migrate",
@@ -611,9 +611,9 @@
         "path": "engineering-team/report"
       },
       {
-        "name": "review",
+        "name": "pw-review",
         "description": ">-",
-        "path": "engineering-team/review"
+        "path": "engineering-team/pw-review"
       },
       {
         "name": "testrail",

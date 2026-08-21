@@ -99,7 +99,7 @@ Loop started for {domain}/{name}
   Cron ID: {id}
   Auto-expires: 3 days (CronCreate limit)
 
-  To check progress: /ar:status
+  To check progress: /ar:ar-status
   To stop the loop:  /ar:loop stop {domain}/{name}
 
   Note: Recurring jobs auto-expire after 3 days.

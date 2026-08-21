@@ -436,7 +436,7 @@
     {
       "name": "autoresearch-agent",
       "source": "./engineering/autoresearch-agent",
-      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
+      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:ar-status, /ar:ar-resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -501,7 +501,7 @@
     {
       "name": "agenthub",
       "source": "./engineering/agenthub",
-      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:hub-init, /hub:spawn, /hub:hub-status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"

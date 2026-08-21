@@ -204,7 +204,7 @@
     },
     {
       "name": "init",
-      "path": "engineering-team/playwright-pro/skills/init",
+      "path": "engineering-team/playwright-pro/skills/pw-init",
       "description": ">- Set up Playwright in a project. Use when user says \"set up playwright\", \"add e2e tests\", \"configure playwright\", \"testing setup\", \"init playwright\", or \"add test infrastructure\".",
       "tools": [],
       "agentic_signals": {
@@ -260,7 +260,7 @@
     },
     {
       "name": "review",
-      "path": "engineering-team/playwright-pro/skills/review",
+      "path": "engineering-team/playwright-pro/skills/pw-review",
       "description": ">- Review Playwright tests for quality. Use when user says \"review tests\", \"check test quality\", \"audit tests\", \"improve tests\", \"test code review\", or \"playwright best practices check\".",
       "tools": [],
       "agentic_signals": {

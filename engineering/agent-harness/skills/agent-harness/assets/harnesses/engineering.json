@@ -204,8 +204,8 @@
     },
     {
       "name": "init",
-      "path": "engineering/agenthub/skills/init",
-      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a multi-agent competition on a task.",
+      "path": "engineering/agenthub/skills/hub-init",
+      "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -260,8 +260,8 @@
     },
     {
       "name": "status",
-      "path": "engineering/agenthub/skills/status",
-      "description": "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:status or asks how the AgentHub agents are doing.",
+      "path": "engineering/agenthub/skills/hub-status",
+      "description": "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:hub-status or asks how the AgentHub agents are doing.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -342,8 +342,8 @@
     },
     {
       "name": "resume",
-      "path": "engineering/autoresearch-agent/skills/resume",
-      "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:resume or asks to pick up a previously started autoresearch experiment.",
+      "path": "engineering/autoresearch-agent/skills/ar-resume",
+      "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:ar-resume or asks to pick up a previously started autoresearch experiment.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -384,8 +384,8 @@
     },
     {
       "name": "status",
-      "path": "engineering/autoresearch-agent/skills/status",
-      "description": "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:status or asks how an autoresearch experiment is going.",
+      "path": "engineering/autoresearch-agent/skills/ar-status",
+      "description": "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:ar-status or asks how an autoresearch experiment is going.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,

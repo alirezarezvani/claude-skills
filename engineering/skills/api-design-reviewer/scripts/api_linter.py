@@ -22,6 +22,15 @@ from typing import Any, Dict, List, Tuple, Optional, Set
 from urllib.parse import urlparse
 from dataclasses import dataclass, field
 
+# Windows consoles often default to a legacy codepage (e.g. cp1252) that cannot
+# encode the Unicode glyphs this script prints (issue #969). Re-encode
+# stdout/stderr as UTF-8 with replacement so output never crashes at print time.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+
 
 @dataclass
 class LintIssue:

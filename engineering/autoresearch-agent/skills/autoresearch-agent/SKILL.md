@@ -26,8 +26,8 @@ Not one guess — fifty measured attempts, compounding.
 | `/ar:setup` | Set up a new experiment interactively |
 | `/ar:run` | Run a single experiment iteration |
 | `/ar:loop` | Start autonomous loop with configurable interval (10m, 1h, daily, weekly, monthly) |
-| `/ar:status` | Show dashboard and results |
-| `/ar:resume` | Resume a paused experiment |
+| `/ar:ar-status` | Show dashboard and results |
+| `/ar:ar-resume` | Resume a paused experiment |
 
 ---
 

@@ -40,9 +40,9 @@ Audited: 2026-06-10 · Skills: 51 · Agents: 5 · Commands: 0 · Plugins: 6
 | google-workspace-cli/skills/google-workspace-cli | REWRITE | install coordinates almost certainly fabricated (`npm i -g @anthropic/gws`, `github.com/googleworkspace/cli`) |
 | snowflake-development/skills/snowflake-development | KEEP | — |
 | playwright-pro/skills/pw | KEEP | — |
-| playwright-pro/skills/init | KEEP | — |
+| playwright-pro/skills/pw-init | KEEP | — |
 | playwright-pro/skills/generate | KEEP | — |
-| playwright-pro/skills/review | KEEP | — |
+| playwright-pro/skills/pw-review | KEEP | — |
 | playwright-pro/skills/fix | KEEP | — |
 | playwright-pro/skills/migrate | KEEP | — |
 | playwright-pro/skills/coverage | KEEP | — |

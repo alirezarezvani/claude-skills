@@ -9,8 +9,8 @@ Use the `/ar:` namespace for all commands:
 - `/ar:setup` — Set up a new experiment interactively
 - `/ar:run` — Run a single experiment iteration
 - `/ar:loop` — Start an autonomous loop with user-selected interval
-- `/ar:status` — Show dashboard and results
-- `/ar:resume` — Resume a paused experiment
+- `/ar:ar-status` — Show dashboard and results
+- `/ar:ar-resume` — Resume a paused experiment
 
 ## How it works
 
@@ -45,13 +45,13 @@ Prompts for interval (10min, 1h, daily, weekly, monthly), then creates a recurri
 
 ### Checking progress
 ```
-/ar:status
+/ar:ar-status
 ```
 Shows the dashboard across all experiments with metrics and trends.
 
 ### Resuming after context limit or break
 ```
-/ar:resume engineering/api-speed
+/ar:ar-resume engineering/api-speed
 ```
 Reads results history, checks out the branch, and continues where you left off.
 

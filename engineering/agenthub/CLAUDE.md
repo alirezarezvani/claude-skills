@@ -6,9 +6,9 @@ This plugin enables multi-agent collaboration. Spawn N parallel subagents that c
 
 Use the `/hub:` namespace for all commands:
 
-- `/hub:init` — Create a new collaboration session (task, agent count, eval criteria)
+- `/hub:hub-init` — Create a new collaboration session (task, agent count, eval criteria)
 - `/hub:spawn` — Launch N parallel subagents in isolated worktrees (supports `--template`)
-- `/hub:status` — Show DAG state, agent progress, and branch status
+- `/hub:hub-status` — Show DAG state, agent progress, and branch status
 - `/hub:eval` — Rank agent results by metric or LLM judge
 - `/hub:merge` — Merge the winning branch, archive losers
 - `/hub:board` — Read/write the agent message board
@@ -18,7 +18,7 @@ Use the `/hub:` namespace for all commands:
 
 You (the coordinator) orchestrate N subagents working in parallel:
 
-1. `/hub:init` — define the task, number of agents, and evaluation criteria
+1. `/hub:hub-init` — define the task, number of agents, and evaluation criteria
 2. `/hub:spawn` — launch all agents simultaneously via the Agent tool with `isolation: "worktree"`
 3. Each agent works independently in its own git worktree, commits results, writes to the board
 4. `/hub:eval` — compare results (run eval command per worktree, or LLM-judge diffs)

@@ -18,7 +18,7 @@ pass, 90/90 manifests pass.
 
 Detail files: [fix-series-governance.md](fix-series-governance.md) (#936–#940) ·
 [fix-series-small.md](fix-series-small.md) (#966, #964, #932, #929, #895) ·
-[new-skills.md](new-skills.md) (#967, #944, #965, #942, #943, #926) ·
+[new-skills.md](new-skills.md) (#967, #944, #926, #965, #942, #943) ·
 [closures.md](closures.md) (#959, #913, #788, #955, #956, #957) ·
 [maintainer-drafts.md](maintainer-drafts.md) (#961, #948, #946).
 

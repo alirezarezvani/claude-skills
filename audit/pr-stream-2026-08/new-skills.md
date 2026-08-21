@@ -1,4 +1,4 @@
-# PR audit detail — accepted external new-skill PRs (#967, #944, #965, #942, #943, #926)
+# PR audit detail — accepted external new-skill PRs (#967, #944, #926, #965, #942, #943)
 
 Back to [00-MASTER.md](00-MASTER.md). Shared context: all six target `dev` ✓,
 all purely additive (no conflicts), none has ever had a CI run, none touches

@@ -46,6 +46,8 @@ Most embedded advice fails in one of two directions: a parts list with no plan, 
 
 ## Recommendation process
 
+Datasheet-level facts behind the tables below (per-family power figures, PIO, toolchains, power-budget arithmetic) live in `references/hardware-selection.md` — cite it when a recommendation gets a "why that board?" follow-up.
+
 ### 1. MCU / platform
 
 Choose the simplest platform that meets requirements.
@@ -113,6 +115,16 @@ Later phases (engineering prototype, pre-production, production) are supplied on
 | Risks | 2-4 bullets, one line each | — |
 
 Three solid sections beat six thin ones. A narrow question ("which regulator?") gets answered directly — no project breakdown, no MVP plan, no cost table.
+
+## Worked mini-example
+
+Request: "I want to know when my greenhouse gets too cold at night, on my phone."
+- Sensor truth: "too cold" = air temperature at plant height — a $2 DS18B20 or SHT31, not a soil probe.
+- Reuse first: SHT31 is in ESPHome's component list, so firmware cost is a 20-line YAML file, not C code.
+- Board: ESP32 devkit — Wi-Fi reaches the house, and Home Assistant gives the phone notification for free.
+- "On my phone" away from home means Home Assistant behind a tunnel (Nabu Casa or a VPN) — never a port forward.
+- Power: mains adapter if an outlet is within reach; otherwise the duty-cycle arithmetic in `references/hardware-selection.md` decides the battery.
+- Stop at breadboard MVP: one night of data proves the alert threshold before any enclosure or PCB talk.
 
 ## Anti-Patterns
 

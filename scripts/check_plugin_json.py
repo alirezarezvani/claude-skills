@@ -181,6 +181,26 @@ def find_all():
     return sorted(out)
 
 
+def check_marketplace_descriptions():
+    """GitHub Copilot CLI rejects the whole marketplace if any plugin
+    description exceeds 1024 chars (see PR #964). Guard the cap here so a
+    routine description tweak can't silently re-break external loaders."""
+    path = os.path.join(REPO, ".claude-plugin", "marketplace.json")
+    errors = []
+    try:
+        with open(path) as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        return [f"marketplace.json unreadable: {e}"]
+    for p in data.get("plugins", []):
+        n = len(p.get("description", ""))
+        if n > 1024:
+            errors.append(
+                f"marketplace.json: '{p.get('name', '?')}' description is "
+                f"{n} chars (max 1024 — breaks Copilot CLI marketplace load)")
+    return errors
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     g = ap.add_mutually_exclusive_group(required=True)
@@ -210,6 +230,15 @@ def main():
                 print(f"  - {w[5:]}")
         else:
             print(f"OK   {rel}")
+    if args.all:
+        mp_errors = check_marketplace_descriptions()
+        if mp_errors:
+            failed += 1
+            print("FAIL .claude-plugin/marketplace.json")
+            for e in mp_errors:
+                print(f"  - {e}")
+        else:
+            print("OK   .claude-plugin/marketplace.json (all plugin descriptions <= 1024 chars)")
     if warned:
         print(f"\n{warned} file(s) passed with warnings (legacy schema)", file=sys.stderr)
     if failed:

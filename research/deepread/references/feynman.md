@@ -58,3 +58,12 @@ Use this reference for `feynman` mode. The objective is to expose and repair und
 - Reopening the source before attempting retrieval invalidates the gap test.
 - Recognition (`this looks familiar`) is not recall (`I can reconstruct it`).
 - Review questions should retrieve relationships and mechanisms, not isolated vocabulary.
+
+## Sources
+
+1. Adler, M. J. & Van Doren, C. — *How to Read a Book* (rev. ed., 1972) — the analytical-reading stages this workflow's deep mode follows.
+2. Gleick, J. — *Genius: The Life and Science of Richard Feynman* (1992) — primary biographical account of Feynman's learn-by-teaching notebook practice.
+3. Farnam Street — "The Feynman Technique: The Best Way to Learn Anything" (fs.blog/feynman-technique) — the canonical four-step formulation used here.
+4. Karpicke, J. D. & Roediger, H. L. — "The Critical Importance of Retrieval for Learning", *Science* 319 (2008) — evidence that recall attempts, not re-reading, drive retention.
+5. Dunlosky, J. et al. — "Improving Students' Learning With Effective Learning Techniques", *Psychological Science in the Public Interest* 14 (2013) — rates practice testing and self-explanation as highest-utility techniques, re-reading as low-utility.
+6. Chi, M. T. H. et al. — "Self-Explanations: How Students Study and Use Examples", *Cognitive Science* 13 (1989) — the self-explanation effect behind the teach-back step.

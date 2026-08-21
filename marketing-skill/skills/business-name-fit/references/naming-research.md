@@ -90,6 +90,13 @@ already evaluating candidates.
 
 ---
 
+## Additional sources (added at merge review)
+
+4. **USPTO — Trademark Manual of Examining Procedure (TMEP) §1209, "Refusal on Basis of Descriptiveness"** — [tmep.uspto.gov](https://tmep.uspto.gov/RDMS/TMEP/current#/current/TMEP-1200d1e5502.html). The operative US standard behind Step 5's distinctiveness spectrum: merely descriptive marks are refused registration on the Principal Register absent acquired distinctiveness, which is why a "perfect-sounding" descriptive name can be legally close to worthless.
+5. **Usunier, J.-C. & Shaner, J. (2002), "Using linguistics for creating better international brand names", *Journal of Marketing Communications* 8(4)** — cross-linguistic brand-naming framework (phonetic, morphological, semantic screening across target languages); the academic grounding for this skill's rule that spoken and written forms must be checked separately per market.
+
+---
+
 ## A note on what is missing
 
-The most-cited work on brand-name sound symbolism, Klink (2000), sits behind a paywall and has no legal free version. The three sources above are the best available combination of credibility and genuinely open access.
+The most-cited work on brand-name sound symbolism, Klink (2000), sits behind a paywall and has no legal free version. The open-access sources above are the best available combination of credibility and genuinely open access.

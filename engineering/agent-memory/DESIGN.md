@@ -26,10 +26,12 @@ Claude Code memory today is flat. `CLAUDE.md` has exactly one injection policy:
 **always inject, in full, every session**. That single policy is the cause of
 three failure modes this repo already sees at 360+ skills:
 
-1. **Bloat** — root `CLAUDE.md` in this repo is **84 KB** (`wc -c` → 85,875
+1. **Bloat** — root `CLAUDE.md` in this repo is **88 KB** (`wc -c` → 90,312
    bytes, measured at this branch's base) of release notes, loaded
    into every session regardless of whether the task touches `markdown-html/` or
-   `ra-qm-team/`.
+   `ra-qm-team/`. It read 85,875 bytes when this spec was first written and
+   grew **4,437 bytes while this PR was open** — the §1 thesis demonstrating
+   itself on the file it is about.
 2. **Staleness** — nothing expires. A v2.7.0 note sits at the same priority as a
    v2.11.2 one.
 3. **False permanence** — a fact stated once in one session, if written down,
@@ -906,9 +908,22 @@ Everything of value the proxy provides is reachable through hooks, which are a
 
 ## 9. Open decisions
 
-Needed before implementation starts:
+Needed before implementation starts. **They are not equals, and listing them as
+a flat numbered set understated that.** Two of the six decide whether there is a
+system at all; the other four decide how a system that exists should behave:
 
-1. **L2 write target.** Root `CLAUDE.md` here is already **84 KB**. Append a marker
+| | Decision | Kind |
+|---|---|---|
+| **(2)** | Can L0 → L1 extraction work without an LLM? | **Load-bearing.** Everything downstream — the 3-session gate, the tier caps, the contradiction detector, the whole promotion machine — is only as good as what the extractor produces. A rule-based extractor with too little recall makes the rest correct and useless. |
+| **(3)** | Plugin, or extend the nightly cycle? | **Load-bearing**, and answered by (2): §9.3's 2-week trial *is* the test of (2), and a "no" deletes this folder. |
+| (1), (4), (5), (6) | write target · multi-repo L3 · recall budget · L3 contradiction | Local. Each changes one mechanism and leaves the rest standing. Even (5)'s worst case only deletes one hook (§9.5 option (c)); the tiering survives on `SessionStart` alone. |
+
+Read that ordering as the honest one: §3–§5 are ~700 lines of settled contract
+sitting downstream of a question nobody has measured yet. That is a real cost of
+sequencing the spec before the spike, and it is recorded rather than smoothed
+over — see §9.2's own framing.
+
+1. **L2 write target.** Root `CLAUDE.md` here is already **88 KB**. Append a marker
    block, or a sibling `CLAUDE.memory.md` that `CLAUDE.md` references? *Leaning
    sibling file* — keeps generated content out of a hand-maintained doc and makes
    the diff reviewable.

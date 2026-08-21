@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 346,
+  "total_skills": 347,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -1060,6 +1060,12 @@
       "source": "../../engineering/agenthub/skills/hub-status",
       "category": "engineering-advanced",
       "description": "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:hub-status or asks how the AgentHub agents are doing."
+    },
+    {
+      "name": "human-gate",
+      "source": "../../engineering/human-gate/skills/human-gate",
+      "category": "engineering-advanced",
+      "description": "Runs the human-verification lane of an agent loop, and proves review happened before work is called done. Builds a single-file HTML review page, collects batched feedback as a structured artifact instead of chat prose, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed at all. Use when a plan, spec, RFC, report, landing page, migration, or any irreversible action needs human sign-off before shipping, or on requests such as 'get sign-off', 'have someone check this', 'hold until reviewed', 'needs approval first'. NOT for making AI text sound human (use content-humanizer or behuman). NOT for reviewing code diffs (use md-review or code-reviewer)."
     },
     {
       "name": "interview-system-designer",
@@ -2119,7 +2125,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 86,
+      "count": 87,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

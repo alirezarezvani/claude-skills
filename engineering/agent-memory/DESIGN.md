@@ -241,6 +241,26 @@ globbing `~/.claude/projects/*/<session>.jsonl` locally at read time — the
 prefix is *derivable*, so storing it buys nothing and costs de-identification.
 Provenance is fully preserved; only the machine-specific part is dropped.
 
+**Windows: the L1 pattern rejects a native path, so the extractor must
+normalize rather than record.** The schema's L1 back-pointer regex is
+`^~/\.claude/projects/[^/]+/[A-Za-z0-9._-]+\.jsonl#L[0-9]+$` — a literal `~/`
+and forward slashes. A path built from `%USERPROFILE%\.claude\projects\…`
+matches nothing, so an extractor that records the OS path verbatim emits an atom
+the schema **rejects outright** on Windows. Not a cosmetic difference.
+
+The resolution is mechanical, not an open question: **`source` and `first_source`
+store a canonical form, not an observed one.** The extractor derives
+`~/.claude/projects/<dir>/<session>.jsonl#L<n>` — `~/`-relative, forward slashes
+— from whatever the platform actually handed it, the same way §3.1.1's promotion
+step derives the stripped form rather than storing what it saw. Recording is
+already a transform here; this adds one more case to it.
+
+Blast radius is one tier, and it is the local one: **L2 and L3 are already
+platform-neutral**, because the stripped form is a bare `<session>.jsonl#L<n>`
+with no path at all. So nothing committed is affected — only L1, which is
+gitignored. That is a consequence of §3.1.1's de-identification stripping,
+which turns out to have bought portability for free.
+
 **The uniqueness that rests on, measured rather than assumed.** Claude Code
 names transcripts by session id, and on a live install those filenames are
 RFC-4122 UUIDs — checked, not inferred:
@@ -712,6 +732,12 @@ asserted, not yet measured):
   **raise `confidence` to the max of old and new** per §4.1.3 — never lower it).
 - Run the promotion pass. Promotions to L2/L3 are written to
   `.memory/staged/` — **never directly into `CLAUDE.md`**.
+- **First run, before `.memory/atoms.jsonl` exists** (fresh clone, or a project
+  that has never had a session end): **treat a missing file as an empty store
+  and create it on first write.** A missing file is the normal initial state,
+  not an error — every hook must read it that way, and §5.2's recall must return
+  nothing rather than fail. §5.4 specifies what concurrent writers do to a file
+  that exists; this is the case before that.
 - Disable: `AGENT_MEMORY_SESSIONEND=0`
 
 Adoption is a separate, explicit, human-invoked step:

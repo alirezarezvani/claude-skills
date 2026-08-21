@@ -8,7 +8,7 @@ description: "Risk-paranoid General Counsel advisor for contract review, IP stra
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-general-counsel-advisor.md">Source</a></span>
 </div>
 
 
@@ -161,8 +161,8 @@ echo "  ☐ /cs:freeze applied if irreversible (term sheet, M&A LOI, employment 
 ## References
 
 - Skill: [../../skills/general-counsel-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/general-counsel-advisor/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:gc-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/gc-review/SKILL.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
+- Sibling command: [`/cs:gc-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/gc-review/SKILL.md)
 
 ---
 

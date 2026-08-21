@@ -63,3 +63,10 @@ tests/
 # Autoresearch agent workspace
 .autoresearch/
 .idea/
+
+# human-gate generated artifacts (review pages + local gate state).
+# The review page is a disposable viewing surface rebuilt on every `open`;
+# the sidecar (<artifact>.review.md) is deliberately NOT ignored — it is the
+# reviewer's feedback and belongs next to the artifact in git.
+*.review.html
+.human-gate/

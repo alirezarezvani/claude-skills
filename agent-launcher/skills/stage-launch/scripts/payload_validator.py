@@ -152,7 +152,7 @@ def main() -> int:
         d = Path(tempfile.mkdtemp(prefix="al-payload-"))
         (d / "payloads").mkdir()
         (d / "payloads" / "01-environment.json").write_text('{"config":{"type":"cloud"},"networking":{"mode":"unrestricted"}}')
-        (d / "payloads" / "02-agent.json").write_text('{"name":"a","model":"claude-opus-4-8","permission_policies":[]}')
+        (d / "payloads" / "02-agent.json").write_text('{"name":"a","model":"claude-opus-5","permission_policies":[]}')
         (d / "payloads" / "03-session.json").write_text('{"environment_id":"${ENV_ID}","agent":{"type":"agent","id":"${AGENT_ID}"}}')
         (d / "payloads" / "04-kickoff.json").write_text('{"events":[{"type":"user.message","content":"go"},{"type":"user.define_outcome","rubric":"- works","max_iterations":5}]}')
         v, c = validate(d)

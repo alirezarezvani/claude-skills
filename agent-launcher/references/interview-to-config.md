@@ -59,3 +59,5 @@ implements this table deterministically.
 3. Anthropic — "Building effective agents": workflows (predefined paths) vs agents (dynamic).
 4. Teresa Torres — *Continuous Discovery Habits* (interview → opportunity mapping discipline).
 5. Amy Hoy / Jobs-to-be-Done — "job the customer hires the product to do".
+6. Fitzpatrick, R. — *The Mom Test* (2013): asking about past behavior instead of hypotheticals — the interview questions here follow that rule.
+7. Nielsen Norman Group — "User Interviews: How, When, and Why": open-ended-first sequencing behind the interview script ordering.

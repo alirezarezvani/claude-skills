@@ -55,7 +55,7 @@ Migration Assessment:
 
 ### 3. Set Up Playwright (If Not Present)
 
-Run `/pw:init` first if Playwright isn't configured.
+Run `/pw:pw-init` first if Playwright isn't configured.
 
 ### 4. Convert Files
 

@@ -9,7 +9,7 @@ Stdlib-only; no network calls.
 Examples:
   interview_planner.py --job "Triage support email" --trigger schedule \
      --inputs "gmail,memory" --actions "label,draft" --dod "one label + grounded reason" \
-     --recurrence daily --model claude-opus-4-8
+     --recurrence daily --model claude-opus-5
   interview_planner.py --answers answers.json --json
   interview_planner.py --sample
 """
@@ -152,7 +152,7 @@ def main() -> int:
     ap.add_argument("--actions", default="", help="Comma list of actions the agent takes.")
     ap.add_argument("--dod", default="", help="Definition of done (becomes the rubric).")
     ap.add_argument("--recurrence", choices=sorted(RECURRENCE), default="once")
-    ap.add_argument("--model", default="claude-opus-4-8")
+    ap.add_argument("--model", default="claude-opus-5")
     ap.add_argument("--name", default=None)
     ap.add_argument("--answers", help="JSON file with the same keys instead of flags.")
     ap.add_argument("--json", action="store_true")
@@ -163,7 +163,7 @@ def main() -> int:
     if args.sample:
         p = plan("Triage overnight support email", "schedule", ["gmail", "memory"],
                  ["label", "reply"], "one label per email, grounded reason, no invented facts",
-                 "daily", "claude-opus-4-8", "support-triage")
+                 "daily", "claude-opus-5", "support-triage")
         print(json.dumps(p, indent=2))
         return 0
 
@@ -175,7 +175,7 @@ def main() -> int:
         actions = data.get("actions", []) if isinstance(data.get("actions"), list) else str(data.get("actions", "")).split(",")
         dod = data.get("dod", "")
         recurrence = data.get("recurrence", "once")
-        model = data.get("model", "claude-opus-4-8")
+        model = data.get("model", "claude-opus-5")
         name = data.get("name")
     else:
         if not args.job:

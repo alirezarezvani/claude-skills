@@ -38,7 +38,7 @@ All 6 routing targets now exist in `research/` (post-cleanup PR #667).
 
 ## Source spec
 
-[`megaprompts/13-research-megaprompt.md`](../../megaprompts/13-research-megaprompt.md) (PR #657).
+`megaprompts/13-research-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657).
 
 ## Plugin layout
 

@@ -58,3 +58,5 @@ from the founder's own words — never substitute an example for what they state
 3. Anthropic — "Building effective agents" (agent use-case taxonomy).
 4. Anthropic customer stories — internal-worker / product-feature agent patterns.
 5. This repo — engineering/dependency-auditor, marketing pulse, research/pulse (analogous jobs).
+6. Anthropic engineering — "How we built our multi-agent research system" (2025): orchestrator/worker decomposition patterns the example agents mirror.
+7. Anthropic engineering — "Writing effective tools for agents": tool-surface design criteria applied when picking each example's connectors.

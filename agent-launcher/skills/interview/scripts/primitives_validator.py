@@ -151,7 +151,7 @@ def main() -> int:
         bad = {
             "agent_name": "x", "goal": "do stuff",
             "primitives": {
-                "agent": {"model": "claude-opus-4-8", "skills": ["s" + str(i) for i in range(22)]},
+                "agent": {"model": "claude-opus-5", "skills": ["s" + str(i) for i in range(22)]},
                 "environment": {"type": "cloud", "networking": "unrestricted"},
                 "session": {"memory_stores": [{"access": "read_write"}] * 9},
                 "outcome": {"rubric": "", "max_iterations": 99},

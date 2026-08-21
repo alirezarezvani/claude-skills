@@ -8,7 +8,7 @@ description: "/cs:brief <topic> — Generate a one-page strategy brief from an o
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `brief`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/brief/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/brief/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -121,7 +121,7 @@ This is also the **artifact handoff** — the next command consumes this file, n
 
 ## Related
 
-- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-chief-of-staff.md)
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-chief-of-staff.md)
 - Skills: [`context-engine`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/context-engine/SKILL.md), [`board-meeting`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/board-meeting/SKILL.md)
 
 ---

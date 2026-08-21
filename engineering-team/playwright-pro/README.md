@@ -18,9 +18,9 @@ claude --plugin-dir ./engineering-team/playwright-pro
 
 | Command | What it does |
 |---|---|
-| `/pw:init` | Set up Playwright in your project — detects framework, generates config, CI, first test |
+| `/pw:pw-init` | Set up Playwright in your project — detects framework, generates config, CI, first test |
 | `/pw:generate <spec>` | Generate tests from a user story, URL, or component name |
-| `/pw:review` | Review existing tests for anti-patterns and coverage gaps |
+| `/pw:pw-review` | Review existing tests for anti-patterns and coverage gaps |
 | `/pw:fix <test>` | Diagnose and fix a failing or flaky test |
 | `/pw:migrate` | Migrate from Cypress or Selenium to Playwright |
 | `/pw:coverage` | Analyze what's tested vs. what's missing |
@@ -32,7 +32,7 @@ claude --plugin-dir ./engineering-team/playwright-pro
 
 ```bash
 # In Claude Code:
-/pw:init                              # Set up Playwright
+/pw:pw-init                              # Set up Playwright
 /pw:generate "user can log in"        # Generate your first test
 # Tests are auto-validated by hooks — no extra steps
 ```
@@ -116,7 +116,7 @@ Playwright Pro doesn't reinvent what your AI agent already does. It orchestrates
 - `/pw:generate` uses Claude's `Explore` subagent to understand your codebase before generating tests
 - `/pw:migrate` uses `/batch` for parallel file-by-file conversion on large test suites
 - `/pw:fix` uses `/debug` for trace analysis alongside Playwright-specific diagnostics
-- `/pw:review` extends `/review` with Playwright anti-pattern detection
+- `/pw:pw-review` extends `/review` with Playwright anti-pattern detection
 
 ## Reference
 

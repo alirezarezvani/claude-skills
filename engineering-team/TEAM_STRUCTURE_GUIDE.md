@@ -341,7 +341,7 @@ python scripts/model_deployment_pipeline.py --train --config model_config.yaml
 
 # 4. Optimize prompts
 cd ../senior-prompt-engineer
-python scripts/prompt_optimizer.py --model gpt-4 --task classification
+python scripts/prompt_optimizer.py classification_prompt.txt --analyze --model claude
 
 # 5. Deploy with DevOps
 cd ../senior-devops

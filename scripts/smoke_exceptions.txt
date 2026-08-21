@@ -59,3 +59,33 @@ engineering/skillopt-sleep/skillopt_sleep/staging.py  # internal module, types.p
 engineering/skillopt-sleep/skillopt_sleep/state.py  # internal module, types.py shadow
 engineering/skillopt-sleep/skillopt_sleep/tasks_file.py  # internal module, types.py shadow
 engineering/skillopt-sleep/skillopt_sleep/types.py  # internal module; module itself IS the stdlib-name collision
+
+# book_to_skill extraction library (engineering/book-to-skill, vendored from
+# virgiliojr94/book-to-skill): internal package modules imported as
+# `book_to_skill.*`, not standalone CLI scripts.
+#
+# Listed here are the modules that FAIL the G8 probe — those with absolute
+# `book_to_skill.*` imports, which raise `No module named 'book_to_skill'` before
+# they could parse a flag. The package's remaining modules (config.py,
+# exceptions.py, sanitize.py, parsers/__init__.py, parsers/pdf.py,
+# parsers/text.py) are equally not-CLIs; they pass G8 only because they have no
+# argv handling at all, so `--help` no-ops and exits 0. This list is therefore
+# "modules the probe trips on", not "modules that aren't CLIs" — the latter is
+# the whole package.
+#
+# The four real entry points DO implement the CLI contract and are smoke-tested
+# normally:
+#   scripts/extract_document.py, book_skill_validator.py,
+#   token_budget_estimator.py, skill_plugin_emitter.py  (--help + --sample, exit 0)
+# Unlike the skillopt_sleep case below, no module here shadows a stdlib name:
+# upstream's parsers/html.py was renamed to parsers/html_text.py precisely so
+# `import html.parser` cannot resolve to a sibling.
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/__init__.py  # package init, not a CLI
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/dependencies.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/utils.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/zip_safety.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/calibre.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/docx.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/epub.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/html_text.py  # internal module
+engineering/book-to-skill/skills/book-to-skill/scripts/book_to_skill/parsers/rtf.py  # internal module

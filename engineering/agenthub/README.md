@@ -15,14 +15,14 @@ Or step by step:
 
 ```bash
 # 1. Initialize a session — define the task, agent count, and evaluation criteria
-/hub:init --task "Reduce API p50 latency" --agents 3 \
+/hub:hub-init --task "Reduce API p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower
 
 # 2. Spawn agents — launches 3 parallel agents in isolated worktrees
 /hub:spawn --template optimizer
 
 # 3. Check progress
-/hub:status
+/hub:hub-status
 
 # 4. Evaluate — rank agents by metric
 /hub:eval
@@ -35,9 +35,9 @@ Or step by step:
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/hub:init` | Create session with task, agents, eval criteria | `/hub:init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
+| `/hub:hub-init` | Create session with task, agents, eval criteria | `/hub:hub-init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
 | `/hub:spawn` | Launch all agents in parallel worktrees | `/hub:spawn` (uses latest session) |
-| `/hub:status` | Show DAG state, branches, progress posts | `/hub:status` |
+| `/hub:hub-status` | Show DAG state, branches, progress posts | `/hub:hub-status` |
 | `/hub:eval` | Rank results by metric or LLM judge | `/hub:eval --judge` (LLM judge mode) |
 | `/hub:merge` | Merge winner, archive losers, cleanup | `/hub:merge --agent agent-2` (force pick) |
 | `/hub:board` | Read/write the message board | `/hub:board --read progress` |
@@ -212,7 +212,7 @@ openclaw install agenthub
 
 ### Session Model
 
-Each `/hub:init` creates a session with a timestamp-based ID (`YYYYMMDD-HHMMSS`). Sessions progress through states:
+Each `/hub:hub-init` creates a session with a timestamp-based ID (`YYYYMMDD-HHMMSS`). Sessions progress through states:
 
 ```
 init → running → evaluating → merged

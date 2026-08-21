@@ -76,8 +76,8 @@ The contract is the **integration boundary** between the two skills. Any drift b
 
 ## Source specs
 
-- [`megaprompts/06-inbox-setup-megaprompt.md`](../../megaprompts/06-inbox-setup-megaprompt.md) (PR #657)
-- [`megaprompts/07-inbox-triage-megaprompt.md`](../../megaprompts/07-inbox-triage-megaprompt.md) (PR #657)
+- `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657)
+- `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657)
 
 The megaprompts are canonical; these plugins are working implementations. Drift between any megaprompt and its skill is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
 

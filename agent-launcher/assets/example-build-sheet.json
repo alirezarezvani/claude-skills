@@ -3,7 +3,7 @@
   "goal": "Every morning, read overnight support emails and label each urgent / question / bug / spam with a one-line reason.",
   "primitives": {
     "agent": {
-      "model": "claude-opus-4-8",
+      "model": "claude-opus-5",
       "system": "You triage overnight support email. For each message assign exactly one label (urgent | question | bug | spam) and a one-line reason grounded in the email text. Never invent facts not in the email.",
       "tools": [{"type": "agent_toolset_20260401"}],
       "mcp_servers": [],

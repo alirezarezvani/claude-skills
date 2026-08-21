@@ -1,0 +1,6 @@
+{
+  "source": {
+    "build_pattern": "Four-lens synthesis (Stanford cost / Microsoft what-to-keep / Anthropic control / Nvidia hardware) + 4 deterministic stdlib scripts, with a blocking forgetting gate. Framing synthesized from 'How to be a Memory Engineer' by @N01ennn (x.com/N01ennn/status/2083971749079581120); every quantitative claim is cited to the primary source instead, and two of the article's paraphrases are corrected in the references (the 47x energy figure is the spread across ten systems, not an accuracy-matched pair; the 97% error-reduction figure is one named customer's reported result, not a general property).",
+    "distinct_from": "llm-wiki (maintains one specific markdown vault; this audits and prices any memory system); skillopt-sleep (runs a nightly consolidation loop; this decides whether that loop's output is worth keeping); agent-harness (bounds a task loop; this bounds a store); llm-cost-optimizer (prices inference generally, not the memory write path specifically)"
+  }
+}

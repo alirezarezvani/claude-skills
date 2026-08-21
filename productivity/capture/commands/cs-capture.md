@@ -99,7 +99,7 @@ python ../skills/capture/scripts/workspace_inventory.py \
 
 - Agent: [`cs-capture`](../agents/cs-capture.md)
 - Skill: [`capture`](../skills/capture/SKILL.md)
-- Source spec: [`megaprompts/05-capture-megaprompt.md`](../../../megaprompts/05-capture-megaprompt.md)
+- Source spec: `megaprompts/05-capture-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Adjacent commands: `/cs:grill-me` (slow deliberate plan grill), `/cs:grill-with-docs` (docs-anchored grill), `/cs:handoff` (session continuation)
 
 ---

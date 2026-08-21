@@ -79,5 +79,5 @@ python {skill_path}/scripts/session_manager.py --update {session-id} --state run
 Tell the user:
 - {N} agents launched in parallel
 - Each working in an isolated worktree
-- Monitor with `/hub:status`
+- Monitor with `/hub:hub-status`
 - Evaluate when done with `/hub:eval`

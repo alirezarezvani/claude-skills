@@ -51,7 +51,7 @@ Execute these steps sequentially:
 
 ### Step 1: Initialize
 
-Run `/hub:init` with the provided arguments:
+Run `/hub:hub-init` with the provided arguments:
 
 ```bash
 python {skill_path}/scripts/hub_init.py \

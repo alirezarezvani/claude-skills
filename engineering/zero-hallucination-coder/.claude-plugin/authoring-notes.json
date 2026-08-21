@@ -1,0 +1,12 @@
+{
+  "attribution": {
+    "contributed_by": "mehanshbarthwal-lab (https://github.com/mehanshbarthwal-lab), PR #854",
+    "synthesizes": [
+      "Ralph — @snarktank (https://github.com/snarktank/ralph): atomic PRD loop, fresh-context per story",
+      "GSD Core — @open-gsd (https://github.com/open-gsd/gsd-core): phase loop, context-rot prevention, STATE.md memory",
+      "Graphify — @safishamsi (https://github.com/safishamsi/graphify): KNOWN/INFERRED/UNKNOWN codebase mapping",
+      "Ponytail — @DietrichGebert (https://github.com/DietrichGebert/ponytail): lazy-senior-dev six-rung hierarchy"
+    ],
+    "derivation_note": "Concept + SKILL.md contributed via PR #854. Hardened for this repo: scoped to opt-in activation, embedded multi-method install guide trimmed, plugin.json and layout aligned to the engineering standalone-plugin convention."
+  }
+}

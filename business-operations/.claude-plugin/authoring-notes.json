@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "documentation/implementation/bizops-commercial-expansion-plan.md",
+    "build_pattern": "Path B (direct conversion) — orchestrator skill uses context: fork to chain sub-skills without polluting parent context. Sprint 1 shipped orchestrator + 2 sub-skills (process-mapper, vendor-management). Sprint 2 adds capacity-planner (Erlang-C), internal-comms (ADKAR+Kotter), knowledge-ops (5W2H SOP+runbook with context: fork for heavy multi-doc KB intake), procurement-optimizer (UNSPSC spend categorization + supplier consolidation). Every SKILL.md ships a Forcing-question library section per Matt Pocock grill-with-docs discipline.",
+    "distinct_from": "business-growth (external sales motion: CSM, sales engineering, RevOps, contracts). c-level-advisor (strategic executive judgment, not operational tactics). engineering/slo-architect (system reliability, not business-process reliability). engineering/llm-wiki (personal PKM, not company SOPs)."
+  }
+}

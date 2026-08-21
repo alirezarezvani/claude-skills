@@ -128,3 +128,5 @@ production launch, since the API evolves.
 3. anthropics/launch-your-agent — `interview-to-config.md`.
 4. Anthropic API reference — messages, tool use, streaming (SSE) conventions.
 5. Anthropic engineering — "Building effective agents" (workflow vs autonomous loop framing).
+6. Anthropic docs — Agent Skills authoring guide (SKILL.md contract the CMA skill primitive maps onto). https://code.claude.com/docs/en/skills
+7. Model Context Protocol — specification (the connector/tool surface CMAs attach to). https://modelcontextprotocol.io/specification

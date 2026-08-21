@@ -29,8 +29,8 @@ def build(plan: dict) -> dict:
     }
     # ensure agent + environment exist
     prim = sheet["primitives"]
-    prim.setdefault("agent", {"model": "claude-opus-4-8", "tools": [{"type": "agent_toolset_20260401"}]})
-    prim["agent"].setdefault("model", "claude-opus-4-8")
+    prim.setdefault("agent", {"model": "claude-opus-5", "tools": [{"type": "agent_toolset_20260401"}]})
+    prim["agent"].setdefault("model", "claude-opus-5")
     prim.setdefault("environment", {"type": "cloud", "networking": "unrestricted", "packages": {}})
     if notes.get("loop_hint"):
         sheet["loop_hint"] = notes["loop_hint"]
@@ -59,7 +59,7 @@ def main() -> int:
         sample_plan = {
             "agent_name": "support-triage",
             "goal": "Triage overnight support email.",
-            "primitives": {"agent": {"model": "claude-opus-4-8", "tools": [{"type": "agent_toolset_20260401"}]},
+            "primitives": {"agent": {"model": "claude-opus-5", "tools": [{"type": "agent_toolset_20260401"}]},
                            "environment": {"type": "cloud", "networking": "unrestricted", "packages": {}}},
             "deferrals": [{"version": "v1", "item": "Real Gmail MCP", "reason": "no cred", "mechanism": "register vault"}],
             "eval_plan": {"success_criteria": ["all labeled"], "held_back_cases": []},

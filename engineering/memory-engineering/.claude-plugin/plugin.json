@@ -1,0 +1,15 @@
+{
+  "name": "memory-engineering",
+  "description": "Engineer an agent's forgetting, not just its remembering. Four deterministic stdlib scripts implement the four lenses of agent memory: a cost profiler that splits construction from query spend and reports cost per correct answer (construction energy exceeds total query energy across 300 queries in the Stanford characterization); an architecture picker that scores the four paradigm families — long-context, flat RAG, structure-augmented RAG, agentic — disqualifies on hard constraints, names the cost the winning choice makes you pay, and refuses to pick when the top two tie; a density auditor that classifies every record in a real memory directory or JSONL export as FACT / SKILL / LOG / PROSE, finds near-duplicates, and flags stale and time-relative wording; and a forgetting-policy linter that fails any design with no forgetting rule or that auto-merges contradictions. Ships cs-memory-engineer agent, /cs:memory-engineering and /cs:forgetting-audit commands, 4 references citing 7 sources each, and a seven-question forcing worksheet.",
+  "version": "2.11.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/memory-engineering",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/memory-engineering"
+  ]
+}

@@ -8,7 +8,7 @@ description: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer inter
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `cdo-review`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/cdo-review/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/cdo-review/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -128,7 +128,7 @@ python ../../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py
 
 ## Related
 
-- Agent: [`cs-cdo-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-cdo-advisor.md)
+- Agent: [`cs-cdo-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-cdo-advisor.md)
 - Skill: [`chief-data-officer-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-data-officer-advisor/SKILL.md)
 - Adjacent: [`skills/general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/general-counsel-advisor) (contractual constraints), [`skills/cto-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cto-advisor) (architecture capacity)
 

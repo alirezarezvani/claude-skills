@@ -65,3 +65,6 @@ the *how it repeats*.
 3. Claude Code docs — SessionStart hook contract (stdout surfaced as session context).
 4. productivity/handoff (this repo) — SessionStart auto-load pattern reused here.
 5. engineering/tc-tracker (this repo) — task-context lifecycle & handoff format analogue.
+6. Anthropic docs — "Managing context on the Claude Developer Platform": why goals persist as files rather than conversation memory.
+7. Cognition — "Don't Build Multi-Agents" (context-engineering essay): serialize shared state to durable artifacts between sessions — the goal.json rationale.
+8. The Twelve-Factor App — factors III (config) and VI (processes): configuration in the environment, processes stateless — the goal-file/session split analogue.

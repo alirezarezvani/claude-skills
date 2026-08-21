@@ -8,7 +8,7 @@ description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `c-level-agents`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/c-level-agents/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/c-level-agents/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -32,7 +32,7 @@ Each agent wraps an existing c-level skill and adds:
 - Workflow orchestration tied to skill Python tools
 - Output template: Bottom Line → What → Why → How to Act → Your Decision
 
-See [`references/persona-voices.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md) for voice specs.
+See [`references/persona-voices.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md) for voice specs.
 
 ### 21 /cs:* Slash Commands (in `skills/`)
 
@@ -96,7 +96,7 @@ User question
 - **decision-logger** — every `/cs:decide` writes here
 - **chief-of-staff** — routing layer the agent orchestrates
 - **board-meeting** — protocol the `/cs:boardroom` command runs
-- **llm-wiki** — optional persistent memory bridge (see [`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md))
+- **llm-wiki** — optional persistent memory bridge (see [`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md))
 - **executive-mentor** — adversarial `/em:*` commands stack cleanly on top
 
 ## Design Principles
@@ -109,8 +109,8 @@ User question
 
 ## References
 
-- [persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
-- [llm-wiki-bridge.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)
+- [persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
+- [llm-wiki-bridge.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)
 - [Parent c-level CLAUDE.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/CLAUDE.md)
 - [Existing executive-mentor sibling](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor)
 

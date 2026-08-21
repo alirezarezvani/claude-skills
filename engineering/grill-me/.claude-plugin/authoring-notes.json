@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me",
+    "original_author": "Matt Pocock (@mattpocock)",
+    "original_license": "MIT",
+    "derivation_note": "Matt's SKILL.md content reproduced under MIT. Additions: stdlib decision-tree + question + session tools, deep references, cs-* persona agent + /cs:* command wrapper. Matt's relentless one-at-a-time interview discipline preserved verbatim."
+  }
+}

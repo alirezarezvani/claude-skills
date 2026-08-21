@@ -32,7 +32,7 @@ def gen(sheet: dict, kickoff_message: str):
     if env.get("packages"):
         env_payload["packages"] = env["packages"]
 
-    agent_payload = {"name": sheet.get("agent_name", "agent"), "model": agent.get("model", "claude-opus-4-8")}
+    agent_payload = {"name": sheet.get("agent_name", "agent"), "model": agent.get("model", "claude-opus-5")}
     if agent.get("system"):
         agent_payload["system"] = agent["system"]
     for k in ("tools", "mcp_servers", "skills", "multiagent", "description", "metadata"):

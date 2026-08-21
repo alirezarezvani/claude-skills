@@ -308,5 +308,5 @@ Skip Steps 3–6 entirely on empty inbox.
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/07-inbox-triage-megaprompt.md`](../../../../megaprompts/07-inbox-triage-megaprompt.md)
+**Source spec:** `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Paired with `inbox-setup`.

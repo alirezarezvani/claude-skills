@@ -141,7 +141,7 @@ python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py soc2_
 - [cs-compliance-officer](cs-compliance-officer.md) — Multi-framework orchestrator
 - [cs-ciso-iso27001](cs-ciso-iso27001.md) — ISO 27001 audit (75% cross-walk pair)
 - [cs-dpo-gdpr](cs-dpo-gdpr.md) — GDPR (Privacy TSC overlap)
-- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity strategy
+- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity strategy
 
 ## References
 

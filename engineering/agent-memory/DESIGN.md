@@ -495,6 +495,17 @@ session count, so neither shortcut applies there):
   observation, and is the **only** path exempt from the distinct-days clause.
   It is not hearsay.
 
+**A `redacted: true` atom needs human review before any committed tier — it is
+not promotable on evidence alone.** The schema has asserted this in its
+`redacted` description since it was written; it belongs here, because §4.1's
+threshold table is what an implementer builds the gate from and it said nothing.
+The reason is the flag's meaning: `redacted: true` says the pass **altered the
+claim text**, which is positive evidence the source was sensitive — and
+redaction is lexical, so "it found one thing" is not proof it found everything.
+Recurrence cannot substitute for a human here; three sightings of a scrubbed
+claim are three sightings of the same unresolved risk. The atom stays usable at
+L1 and is surfaced at `adopt` rather than promoted past it.
+
 **Both fast paths shorten the route from a transcript to a committed file, and
 redaction is the only thing on it.** Worth stating here rather than trusting a
 reader to combine §4.1 with §6: the recurrence gates are a *durability* filter,
@@ -605,6 +616,16 @@ because it must be deterministic (no LLM, per this repo's rule):
 On a fire: mark the **older** atom `contested`, set `contested_by`, and — per
 §4.1 — it is **no longer promotable** until a human resolves it at `adopt`. The
 newer atom is not auto-blessed; both sit at L1.
+
+**Only the older atom carries a flag, so state how the gate finds the newer
+one.** The schema marks the incumbent (`contested`, `contested_by`) and gives
+the newer atom nothing — which means §4.1's *"no contradiction open"* check
+cannot be a field read for both sides. It is a **reverse join**: an atom is
+blocked if its own `contested` is set **or** its id appears in any other atom's
+`contested_by`. Deliberately not a mirrored `contests` field — that would be the
+same fact in two places, needing to stay in sync, with nothing able to say which
+copy was right. The scan is cheap by construction: §5.2 caps the store at 500
+atoms and measured a full pass at 2–3 ms.
 
 **Stated limits, because a narrow detector that claims completeness is worse
 than one that doesn't.** These two rules catch direct reversals and value swaps.

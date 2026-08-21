@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 340,
+  "total_skills": 346,
   "skills": [
     {
       "name": "business-growth-skills",
@@ -546,6 +546,12 @@
       "description": "Build complete transactional email systems: React Email templates, provider integration (Resend, Postmark, SendGrid, AWS SES), preview server, i18n support, dark mode, spam optimization, analytics tracking. Use when adding transactional email to a new product, migrating between email providers, refactoring legacy email templates for accessibility, or adding internationalization to existing templates."
     },
     {
+      "name": "embedded-iot-mentor",
+      "source": "../../engineering-team/skills/embedded-iot-mentor",
+      "category": "engineering",
+      "description": "Mentor for embedded and IoT hardware projects. Helps select MCUs, dev boards, and toolchains, decides where sensor readings end up (phone, PC, dashboard, or alert), and gives time/cost estimates and a phased build plan from breadboard MVP to production PCB. Use when the user mentions embedded, IoT, microcontroller, ESP32, STM32, Arduino, Raspberry Pi Pico, firmware, PCB, KiCad, EasyEDA, PlatformIO, MQTT, Home Assistant, ESPHome, Grafana, an IoT dashboard, seeing sensor data on a phone, or asks for hardware tool recommendations, project planning, or cost/time estimates for an electronics project."
+    },
+    {
       "name": "engineering-skills",
       "source": "../../engineering-team/skills/engineering-skills",
       "category": "engineering",
@@ -868,6 +874,12 @@
       "source": "../../engineering/book-to-skill/skills/book-to-skill",
       "category": "engineering-advanced",
       "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills \u2014 extracting named frameworks, principles, techniques, and anti-patterns into a master SKILL.md plus on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a claude-skills plugin."
+    },
+    {
+      "name": "boost-asio-pro",
+      "source": "../../engineering/boost-asio-pro",
+      "category": "engineering-advanced",
+      "description": "Use when writing or reviewing asynchronous C++ networking code with Boost.Asio or standalone Asio \u2014 TCP/UDP servers and clients, SSL/TLS, timers, strands, io_context, co_spawn, awaitable, async_read/async_write, asio::spawn, yield_context, or pre-C++20 completion-handler callbacks."
     },
     {
       "name": "browser-automation",
@@ -1332,6 +1344,12 @@
       "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing."
     },
     {
+      "name": "stock-analysis",
+      "source": "../../finance/skills/stock-analysis",
+      "category": "finance",
+      "description": "Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed company \u2014 Indian (NSE/BSE) or US/global. Use this skill whenever the user asks to analyse, research, evaluate, value, or \"look into\" a stock, ticker, or listed company; asks whether a business is fundamentally strong or weak, cheap or expensive; asks to compare two or more companies or benchmark one against its sector; mentions metrics like OPM, ROCE, ROE, ROIC, P/E, EV/EBITDA, free cash flow, NIM, GNPA, CASA, promoter holding or pledging; or shares an annual report, 10-K, concall transcript, or screener page and wants it interpreted. Use it too for accounting-quality and forensic questions \u2014 \"is the profit real\", \"are they cooking the books\", \"the cash flow doesn't match the profit\", \"why is profit rising but cash isn't\", \"should I worry about this company's accounting\", auditor qualifications, promoter pledging, or related-party concerns \u2014 which route to the forensic-only mode. Use it for **IPOs and not-yet-listed companies** too \u2014 \"should I apply to this IPO\", \"is this IPO worth it\", \"is the price band expensive\", DRHP/RHP or S-1 questions, grey market premium, anchor allotment, lock-in expiry \u2014 which route to the IPO mode. Use it even when the request sounds casual (\"is Infosys any good?\", \"thoughts on HDFC Bank?\", \"why is this company's margin so low?\"). Do not use it for personalised investment advice, portfolio allocation, or trading signals."
+    },
+    {
       "name": "ab-test-setup",
       "source": "../../marketing-skill/skills/ab-test-setup",
       "category": "marketing",
@@ -1366,6 +1384,12 @@
       "source": "../../marketing-skill/skills/brand-guidelines",
       "category": "marketing",
       "description": "When the user wants to apply, document, or enforce brand guidelines for any product or company. Also use when the user mentions 'brand guidelines,' 'brand colors,' 'typography,' 'logo usage,' 'brand voice,' 'visual identity,' 'tone of voice,' 'brand standards,' 'style guide,' 'brand consistency,' or 'company design standards.' Covers color systems, typography, logo rules, imagery guidelines, and tone matrix for any brand \u2014 including Anthropic's official identity."
+    },
+    {
+      "name": "business-name-fit",
+      "source": "../../marketing-skill/skills/business-name-fit",
+      "category": "marketing",
+      "description": "Suggest, pick, or vet a business, startup, or product name that stays true to the founder's cultural origin while working professionally in the markets they want to sell into. Use whenever someone is naming a company, brand, or product and cares about how it lands across languages and regions \u2014 for example a name that sounds right at home but might read oddly to English speakers, or an authentic name they want to check before committing. Trigger this for any request about choosing a business name, checking if a name \"works\" abroad, spotting bad meanings in other languages, or making a name sound trustworthy in a specific market \u2014 even if the person doesn't say the word \"skill\"."
     },
     {
       "name": "campaign-analytics",
@@ -1788,6 +1812,12 @@
       "description": "Use when someone asks to roast an idea, pressure-test or stress-test an idea, validate a business idea, \"convene the panel\", get a brutal second opinion before building something, or says \"/roast\". Spins up a 5-angle panel (Critic, Champion, Analyst, Investigator, Customer) that attacks the idea from every angle, then a Judge returns one GO / RESHAPE / KILL verdict with the cheapest test to de-risk it."
     },
     {
+      "name": "swedish-mentor",
+      "source": "../../productivity/swedish-mentor",
+      "category": "productivity",
+      "description": "Mentor Swedish language learners by selecting YouTube video clips and podcast episodes by CEFR level and skill (listening, reading, writing, speaking), and building a simple learning path. Use when the user asks about a Swedish learning path, YouTube clips or podcasts for Swedish, SFI videos, level assessment for svenska, or requests for Peter SFI / L\u00e4tt Svenska med Oskar / Radio Sweden p\u00e5 l\u00e4tt svenska / Klartext-style recommendations."
+    },
+    {
       "name": "weekly-review",
       "source": "../../productivity/weekly-review/skills/weekly-review",
       "category": "productivity",
@@ -1974,6 +2004,12 @@
       "description": "Decision-grade entity research skill \u2014 produces a hypothesis-tested dossier on a specific company, person, nonprofit, or government org, not a generic profile. Forcing intake makes the user state their hypothesis upfront (what they already believe and want to verify or disprove) so the dossier tests it rather than confirms it. Output is an editable Word document (.docx) with verdict on the hypothesis, identity facts, 12-month activity timeline, network and reputation signals, red flags, conversation hooks tied to specific findings, and source-provenance audit log. Uses WebSearch + WebFetch + free APIs (SEC EDGAR, GitHub, ProPublica) as workhorses; optional BYOK MCPs enhance coverage. Use when the user asks for background research, diligence, or meeting prep on a specific entity (e.g., 'prep me for a meeting with [person/company]', 'due diligence on [company]'). Honors sensitivity exclusions for journalism + personal-vetting contexts."
     },
     {
+      "name": "dsh-deepread",
+      "source": "../../research/dsh-deepread",
+      "category": "research",
+      "description": "Use when the user asks to deeply read a book, article, PDF, or document set; extract claims and evidence; build a knowledge map; or learn through Feynman explanation and recall. Covers quick, deep, map, Feynman, and whole-book reading modes."
+    },
+    {
       "name": "grants",
       "source": "../../research/grants/skills/grants",
       "category": "research",
@@ -2078,22 +2114,22 @@
       "description": "Markdown-to-HTML converter (v2.10.0 foundation): orchestrator (context: fork, deterministic doctype classifier, refuses < 100 lines per Shihipar) + design-system (one-time onboarding wizard with WCAG-AA-validated 12-token palette, project > global > defaults precedence). Converter sub-skills (md-document, md-review, md-slides) land in v2.10.1."
     },
     "engineering": {
-      "count": 52,
+      "count": 53,
       "source": "../../engineering-team",
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 85,
+      "count": 86,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
     "finance": {
-      "count": 4,
+      "count": 5,
       "source": "../../finance",
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 49,
+      "count": 50,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },
@@ -2103,7 +2139,7 @@
       "description": "Product management and design skills"
     },
     "productivity": {
-      "count": 11,
+      "count": 12,
       "source": "../../productivity",
       "description": "Personal-productivity skills - capture, email, reflect, handoff, andreessen, roast, weekly-review, deep-work, meetings"
     },
@@ -2118,7 +2154,7 @@
       "description": "Regulatory affairs and quality management skills"
     },
     "research": {
-      "count": 9,
+      "count": 10,
       "source": "../../research",
       "description": "Research orchestrator + 6 specialists (pulse, litreview, grants, dossier, patent, syllabus, notebooklm)"
     },

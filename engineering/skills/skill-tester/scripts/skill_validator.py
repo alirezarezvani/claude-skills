@@ -132,14 +132,37 @@ class SkillValidator:
         }
     }
     
-    REQUIRED_SKILL_MD_SECTIONS = [
-        "Name", "Description", "Features", "Usage", "Examples"
+    # Sections the repo actually uses. Measured across all 361 real SKILL.md
+    # files: no single heading appears in even 30% of them, so requiring a
+    # fixed list is not defensible. These are scored as a recommendation
+    # (RECOMMENDED_SECTIONS_THRESHOLD of them present earns full marks) and
+    # never raise an error.
+    RECOMMENDED_SKILL_MD_SECTIONS = [
+        "References", "Quick Start", "Related Skills", "Workflow", "Workflows",
+        "When to Use", "Proactive Triggers", "Output Artifacts",
+        "Anti-Patterns", "Output Format", "Overview", "Core Capabilities",
     ]
-    
-    FRONTMATTER_REQUIRED_FIELDS = [
-        "Name", "Tier", "Category", "Dependencies", "Author", "Version"
+    RECOMMENDED_SECTIONS_THRESHOLD = 2
+
+    # What Claude Code actually reads from SKILL.md frontmatter. `description`
+    # is what the skill listing matches against, so a skill without one is
+    # invisible to model invocation.
+    #
+    # This list previously read ["Name", "Tier", "Category", "Dependencies",
+    # "Author", "Version"] — the bold key/value convention used by the
+    # assets/sample-skill fixture, not YAML frontmatter and not a schema any
+    # real skill has ever followed. Every one of the 362 skills failed both
+    # checks identically, so the output was noise nobody acted on.
+    FRONTMATTER_REQUIRED_FIELDS = ["name", "description"]
+
+    # Present on many skills and harmless, but no runtime reads them.
+    FRONTMATTER_OPTIONAL_FIELDS = [
+        "when_to_use", "argument-hint", "arguments", "allowed-tools",
+        "disallowed-tools", "disable-model-invocation", "user-invocable",
+        "model", "effort", "context", "agent", "background", "hooks",
+        "paths", "shell",
     ]
-    
+
     def __init__(self, skill_path: str, target_tier: Optional[str] = None, verbose: bool = False):
         self.skill_path = Path(skill_path).resolve()
         self.target_tier = target_tier
@@ -283,23 +306,33 @@ class SkillValidator:
             self.report.add_error("SKILL.md must start with YAML frontmatter")
             
     def _validate_required_sections(self, content: str):
-        """Validate required sections in SKILL.md"""
-        self.log_verbose("Checking required sections...")
-        
-        missing_sections = []
-        for section in self.REQUIRED_SKILL_MD_SECTIONS:
+        """Score SKILL.md against the repo's common section conventions.
+
+        Advisory only: the repo has no universal section schema, so a miss is
+        a hint to the author, not a validation error.
+        """
+        self.log_verbose("Checking recommended sections...")
+
+        present = []
+        for section in self.RECOMMENDED_SKILL_MD_SECTIONS:
             pattern = rf'^#+\s*{re.escape(section)}\s*$'
-            if not re.search(pattern, content, re.MULTILINE | re.IGNORECASE):
-                missing_sections.append(section)
-                
-        if not missing_sections:
-            self.report.add_check("required_sections", True,
-                                 "All required sections present", 1.0)
+            if re.search(pattern, content, re.MULTILINE | re.IGNORECASE):
+                present.append(section)
+
+        threshold = self.RECOMMENDED_SECTIONS_THRESHOLD
+        if len(present) >= threshold:
+            self.report.add_check("recommended_sections", True,
+                                 f"{len(present)} recommended section(s) present: "
+                                 f"{', '.join(present)}", 1.0)
         else:
-            self.report.add_check("required_sections", False,
-                                 f"Missing sections: {', '.join(missing_sections)}", 0.0)
-            self.report.add_error(f"Missing required sections: {', '.join(missing_sections)}")
-            
+            self.report.add_check("recommended_sections", False,
+                                 f"Only {len(present)} recommended section(s) present "
+                                 f"(suggest at least {threshold} of: "
+                                 f"{', '.join(self.RECOMMENDED_SKILL_MD_SECTIONS)})", 0.0)
+            self.report.add_warning(
+                f"SKILL.md has {len(present)} of the repo's common sections; "
+                f"consider adding at least {threshold}")
+
     def _validate_readme(self):
         """Validate README.md content"""
         self.log_verbose("Validating README.md...")
@@ -469,22 +502,19 @@ class SkillValidator:
         return False
         
     def _check_external_imports(self, tree: ast.AST) -> List[str]:
-        """Check for external (non-stdlib) imports"""
-        # Simplified check - a more comprehensive solution would use a stdlib module list
-        stdlib_modules = {
-            'argparse', 'ast', 'json', 'os', 'sys', 'pathlib', 'datetime', 'typing',
-            'collections', 're', 'math', 'random', 'itertools', 'functools', 'operator',
-            'csv', 'sqlite3', 'urllib', 'http', 'html', 'xml', 'email', 'base64',
-            'hashlib', 'hmac', 'secrets', 'tempfile', 'shutil', 'glob', 'fnmatch',
-            'subprocess', 'threading', 'multiprocessing', 'queue', 'time', 'calendar',
-            'zoneinfo', 'locale', 'gettext', 'logging', 'warnings', 'unittest',
-            'doctest', 'pickle', 'copy', 'pprint', 'reprlib', 'enum', 'dataclasses',
-            'contextlib', 'abc', 'atexit', 'traceback', 'gc', 'weakref', 'types',
-            'copy', 'pprint', 'reprlib', 'enum', 'decimal', 'fractions', 'statistics',
-            'cmath', 'platform', 'errno', 'io', 'codecs', 'unicodedata', 'stringprep',
-            'textwrap', 'string', 'struct', 'difflib', 'heapq', 'bisect', 'array',
-            'weakref', 'types', 'copyreg', 'uuid', 'mmap', 'ctypes'
-        }
+        """Check for external (non-stdlib) imports.
+
+        Uses the interpreter's own module list rather than a hand-maintained
+        set, which is what this function's original comment asked for. The old
+        set omitted `__future__`, so every script using
+        `from __future__ import annotations` was reported as carrying an
+        external dependency.
+        """
+        stdlib_modules = set(getattr(sys, "stdlib_module_names", ()))
+        if not stdlib_modules:  # Python < 3.10 has no sys.stdlib_module_names
+            stdlib_modules = set(sys.builtin_module_names)
+        # A compiler directive, not a dependency.
+        stdlib_modules.add('__future__')
         
         external_imports = []
         for node in ast.walk(tree):

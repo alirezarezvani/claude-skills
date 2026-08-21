@@ -91,7 +91,38 @@ L2. Keep separate; L2 may cite a wiki page, never duplicate it.
 `PostToolUse` on `Bash` for error capture only. A useful **additional L1 source**
 (failed commands are high-signal facts), not a competing system.
 
-### 2.5 Conclusion
+### 2.5 `engineering/memory-engineering/` — different layer, shared gate
+
+Merged to dev via #947, after this spec's first draft — added here so §2 reflects
+the tree this folder would actually land in.
+
+`memory-engineering` is an **advisory/audit toolkit**: it prices, picks, and
+audits *other* memory systems (`memory_cost_profiler.py`,
+`memory_architecture_picker.py`, `memory_density_auditor.py`,
+`forgetting_policy_linter.py`). It designs memory systems; it does not run one.
+`agent-memory` would **be** a runtime memory system for Claude Code. Different
+layer — neither supersedes the other, and its SKILL.md claim that the repo's
+nearest neighbours "all bound something else" stays true only while this fence
+holds.
+
+Three concrete touchpoints, adopted as constraints on this spec:
+
+1. **Namespace fence:** `agent-memory` (runtime layer) vs `memory-engineering`
+   (advisory layer). Both SKILL.md descriptions must cross-reference the other
+   with this exact distinction when agent-memory ships.
+2. **The forgetting policy is expressible in F1–F8 form.** §5.1's eviction and
+   contradiction rules will be written so
+   `memory-engineering/scripts/forgetting_policy_linter.py` can lint them:
+   F1 (an explicit forgetting rule — the ≤500/≤60/≤30 caps + recurrence decay)
+   and F4 (contradictions surfaced, never auto-merged — §5.1 already mandates
+   this) are the blocking checks, and this spec must pass them, not re-derive
+   its own variants.
+3. **Cost discipline:** before implementation, `memory_cost_profiler.py`'s
+   construction-vs-query split is the framework for the §7 latency/cost budget
+   — the measured 23.2 ms scan cost belongs in its cost-per-correct-answer
+   terms, not as a bare number.
+
+### 2.6 Conclusion
 
 > **Build as a separate, self-contained plugin. Do not extend `skillopt-sleep`.**
 

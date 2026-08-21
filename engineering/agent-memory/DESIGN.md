@@ -1,5 +1,13 @@
 # agent-memory — design spec (NOT YET IMPLEMENTED)
 
+> **Editing this file? Run the checker first — nothing in CI will.**
+> ```sh
+> cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f assets/_t.py
+> ```
+> It ties this doc, `assets/memory_schema.json`, and the fixtures together
+> (§10.1). Drift between those three was the dominant defect class during this
+> spec's review, and the checker is the only thing that catches it.
+
 **Status:** design stage. No `SKILL.md`, no `plugin.json`, no Python. This folder
 holds a specification and two contract files (`hooks/hooks.json`,
 `assets/memory_schema.json`) so the shape can be reviewed before anything is
@@ -922,6 +930,16 @@ Read that ordering as the honest one: §3–§5 are ~700 lines of settled contra
 sitting downstream of a question nobody has measured yet. That is a real cost of
 sequencing the spec before the spike, and it is recorded rather than smoothed
 over — see §9.2's own framing.
+
+**But be precise about which cost it is, because it decides whether trimming
+§4–§5 now would help.** A "no" on (2) does not make the promotion machinery
+*wrong* — recurrence counting, the tier caps and the contradiction detector all
+operate on atoms **however those atoms were produced**, and none of them
+reference the extraction method. It makes them **unused**. Those are different
+risks with different remedies: content that would need rework is worth deferring,
+content that would simply go unread is not — deleting reviewed text to re-derive
+it later costs more than leaving it. So the imbalance is recorded here as a
+sequencing lesson for the next spec of this size, not as a call to cut §4–§5.
 
 1. **L2 write target.** Root `CLAUDE.md` here is already **88 KB**. Append a marker
    block, or a sibling `CLAUDE.memory.md` that `CLAUDE.md` references? *Leaning

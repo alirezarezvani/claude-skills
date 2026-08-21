@@ -1,14 +1,14 @@
 ---
-title: "/hub:init — Create New Session — Agent Skill for Codex & OpenClaw"
-description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:init or asks to start a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/hub:hub-init — Create New Session — Agent Skill for Codex & OpenClaw"
+description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /hub:init — Create New Session
+# /hub:hub-init — Create New Session
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `init`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub/skills/init/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub/skills/hub-init/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,9 +21,9 @@ Initialize an AgentHub collaboration session. Creates the `.agenthub/` directory
 ## Usage
 
 ```
-/hub:init                                                    # Interactive mode
-/hub:init --task "Optimize API" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower
-/hub:init --task "Refactor auth" --agents 2                  # No eval (LLM judge mode)
+/hub:hub-init                                                    # Interactive mode
+/hub:hub-init --task "Optimize API" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower
+/hub:hub-init --task "Refactor auth" --agents 2                  # No eval (LLM judge mode)
 ```
 
 ## What It Does

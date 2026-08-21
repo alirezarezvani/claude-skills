@@ -133,7 +133,7 @@ python audit_schedule_optimizer.py audit_scope.json
 - [cs-compliance-officer](cs-compliance-officer.md) — Multi-framework orchestrator (routes here for ISO 13485 audit)
 - [cs-fda-qsr-auditor](cs-fda-qsr-auditor.md) — FDA QSR auditor (substantially harmonized post-Feb 2026)
 - [cs-aims-iso42001](cs-aims-iso42001.md) — ISO 42001 AIMS (for AI-enabled medical devices, layer on top of 13485)
-- [cs-cpo-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-cpo-advisor.md) — Executive product strategy
+- [cs-cpo-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-cpo-advisor.md) — Executive product strategy
 - [cs-quality-regulatory](https://github.com/alirezarezvani/claude-skills/tree/main/agents/ra-qm-team/cs-quality-regulatory.md) — Medical-device orchestrator (routes here for audit work)
 
 ## References

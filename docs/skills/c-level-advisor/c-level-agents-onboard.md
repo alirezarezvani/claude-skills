@@ -8,7 +8,7 @@ description: "/cs:onboard — Founder interview that populates ~/.claude/company
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `onboard`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/onboard/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/onboard/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -122,7 +122,7 @@ The intake summary captured by the 12 questions:
 
 By default, `~/.claude/company-context.md` is local to the founder's machine. To make it persistent across machines / shareable:
 
-- **Markdown vault (recommended):** see [[`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)
+- **Markdown vault (recommended):** see [[`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)
 - **Encrypted dotfile sync:** age + git
 - **Shared team:** keep in a private repo, symlink from `~/.claude/`
 
@@ -130,7 +130,7 @@ By default, `~/.claude/company-context.md` is local to the founder's machine. To
 
 - Skill: [`cs-onboard`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/cs-onboard/SKILL.md) — the underlying interview protocol
 - Skill: [`context-engine`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/context-engine/SKILL.md) — reads this file
-- Reference: [[`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/llm-wiki-bridge.md)
+- Reference: [[`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md)
 
 ---
 

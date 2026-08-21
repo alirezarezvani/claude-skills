@@ -118,8 +118,8 @@ python aims_audit_scheduler.py audit_scope.json
 
 - [cs-compliance-officer](cs-compliance-officer.md) — Multi-framework orchestrator (routes here for ISO 42001 deep work)
 - [cs-ai-act-compliance](cs-ai-act-compliance.md) — EU AI Act Article-cited compliance
-- [cs-caio-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy
-- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity (ISO 27001 / SOC 2 strategy)
+- [cs-caio-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy
+- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity (ISO 27001 / SOC 2 strategy)
 - [cs-quality-regulatory](https://github.com/alirezarezvani/claude-skills/tree/main/agents/ra-qm-team/cs-quality-regulatory.md) — Medical-device QMS / regulatory orchestrator
 
 ## References

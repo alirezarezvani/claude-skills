@@ -26,7 +26,7 @@ Part of the **research pack** (sibling of `pulse`, `litreview`, `grants`, `dossi
 
 ## Source spec
 
-[`megaprompts/11-patent-megaprompt.md`](../../megaprompts/11-patent-megaprompt.md) (PR #657).
+`megaprompts/11-patent-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657).
 
 ## Plugin layout
 

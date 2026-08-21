@@ -30,9 +30,9 @@ Round 2:  A2, A4           →  Eval  →  A2 wins
 **When to use**: Complex optimization where iterative refinement helps. Each round builds on the previous winner.
 
 **Implementation**:
-1. Run `/hub:init` + `/hub:spawn` for round 1
+1. Run `/hub:hub-init` + `/hub:spawn` for round 1
 2. Eval, merge winner into a new base branch
-3. Run `/hub:init` again with the merged branch as base
+3. Run `/hub:hub-init` again with the merged branch as base
 4. Repeat until convergence or budget exhausted
 
 ### Ensemble
@@ -48,7 +48,7 @@ Agent 3: solves database layer
 **When to use**: Large tasks that decompose into independent subtasks. Each agent gets a different piece.
 
 **Implementation**:
-1. In `/hub:init`, give each agent a DIFFERENT task (subtask of the whole)
+1. In `/hub:hub-init`, give each agent a DIFFERENT task (subtask of the whole)
 2. Spawn with unique dispatch posts per agent
 3. Instead of `/hub:eval` ranking, manually cherry-pick from each
 4. Or merge sequentially: merge agent-1, then merge agent-2 on top

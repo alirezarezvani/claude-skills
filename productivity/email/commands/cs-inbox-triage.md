@@ -122,7 +122,7 @@ python ../skills/inbox-triage/scripts/draft_safety_validator.py \
 - Companion: [`/cs:inbox-setup`](./cs-inbox-setup.md) — must run first
 - Agent: [`cs-inbox-triage`](../agents/cs-inbox-triage.md)
 - Skill: [`inbox-triage`](../skills/inbox-triage/SKILL.md)
-- Source spec: [`megaprompts/07-inbox-triage-megaprompt.md`](../../../megaprompts/07-inbox-triage-megaprompt.md)
+- Source spec: `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 
 ---
 

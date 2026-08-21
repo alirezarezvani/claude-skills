@@ -149,12 +149,23 @@ def call_llm_with_retry(provider: LLMProvider, prompt: str) -> str:
 
 ### Cost Management
 
-| Provider | Input Cost | Output Cost |
-|----------|------------|-------------|
-| GPT-4 | $0.03/1K | $0.06/1K |
-| GPT-3.5 | $0.0005/1K | $0.0015/1K |
-| Claude 3 Opus | $0.015/1K | $0.075/1K |
-| Claude 3 Haiku | $0.00025/1K | $0.00125/1K |
+Do not hardcode prices, and do not trust a price table you find in a document
+(including this one). Providers reprice several times a year, and a stale
+figure produces a confidently wrong business case.
+
+Work in tiers and look the current numbers up at request time:
+
+| Tier | Typical use | Relative cost |
+|------|-------------|---------------|
+| Small | Classification, extraction, routing, short output | 1x baseline |
+| Mid | Summarisation, structured output, moderate reasoning | ~10-25x small |
+| Large | Multi-step reasoning, code generation, long context | ~50-100x small |
+
+Read the live rate from your provider's pricing page and pass it in, the way
+`engineering-team/skills/senior-prompt-engineer/scripts/prompt_optimizer.py`
+takes `--price-per-mtok`.
+The ratios between tiers are far more stable than the absolute prices, so
+build the model-routing decision on the ratio.
 
 ---
 

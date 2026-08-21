@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "megaprompts/04-landing-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Generator shape — produces a single .html artifact (not multi-file scaffolding). Wrapper additions (3 stdlib validators, 3 references, cs-landing agent, /cs:landing command) layered on top per repo convention.",
+    "distinct_from": "product-team/skills/landing-page-generator/ — different output format (HTML vs TSX), different optimization target (visual premium vs conversion), different motion approach (GSAP vs static)."
+  }
+}

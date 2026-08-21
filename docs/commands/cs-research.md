@@ -165,7 +165,7 @@ python ../skills/research/scripts/fallback_decomposer.py --question "<Q1>"
 
 - Agent: [`cs-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/research/agents/cs-research.md)
 - Skill: [`research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/research/skills/research/SKILL.md)
-- Source spec: [`megaprompts/13-research-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/13-research-megaprompt.md)
+- Source spec: `megaprompts/13-research-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Routing targets: `/cs:pulse`, `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:patent`, `/cs:syllabus`
 - Adjacent (NOT a routing target): `/cs:notebooklm` (different mode), `engineering/autoresearch-agent` (different use case)
 

@@ -1029,7 +1029,7 @@ This release establishes the pattern for deriving MIT-licensed external skills i
 
 ### Fixed
 
-- **3 missing voice specs added to `c-level-advisor/c-level-agents/references/persona-voices.md`:**
+- **3 missing voice specs added to `c-level-agents/references/persona-voices.md`:**
   - `cs-ceo-advisor` — The Strategic Translator (tree-of-thought reasoning; refuses to debate tactics until the strategic question is named)
   - `cs-cto-advisor` — The Architecture-First Pragmatist (ReAct reasoning; treats every architecture decision as a 3-year commitment)
   - `cs-general-counsel-advisor` — The Risk-Paranoid Lawyer (Not Your Lawyer) — carry-over from v2.5.1
@@ -1045,7 +1045,7 @@ Both gaps were carry-over items noted across multiple PRs in this session (v2.5.
 
 ### Changed
 
-- `c-level-advisor/c-level-agents/references/persona-voices.md` — 13 → 13 voice specs cataloged (all cs-* agents in the persona-voices list now match the agents that exist)
+- `c-level-agents/references/persona-voices.md` — 13 → 13 voice specs cataloged (all cs-* agents in the persona-voices list now match the agents that exist)
 - `agents/c-level/cs-ceo-advisor.md` — 32 path corrections
 - `agents/c-level/cs-cto-advisor.md` — 25 path corrections
 
@@ -1070,8 +1070,8 @@ No skill/agent/command count changes; no manifest version bumps (this is a pure-
   - `engineering_hiring_funnel.md` — 7-stage funnel + healthy conversion benchmarks + leakage diagnosis per stage + pipeline volume math + sourcing channel diversification + technical interview design + cost-per-hire. Cites LinkedIn Talent Insights, Atlassian Recruiting Ops, Levels.fyi + Pave, Lou Adler "Hire With Your Head", Adler/Bock "Work Rules!", CMU/Booth interview validity research, SHRM surveys.
   - `eng_team_structure.md` — Conway's Law + headcount-to-structure map + span-of-control benchmarks + EM vs tech lead distinction + manager/director/VPE triggers + squad sizing + chapter discipline. Cites Kniberg "Scaling Agile @ Spotify", Kniberg 2020 retrospective, Will Larson "Elegant Puzzle", Camille Fournier "Manager's Path", Conway 1968, Schwartz "A Seat at the Table", Lencioni "Five Dysfunctions", Stripe/Shopify/GitHub/Netflix engineering blogs.
   - `production_discipline.md` — On-call rotation design (≥ 6 people; burnout signals) + incident response (4-tier severity, IC role, blameless postmortems) + deployment cadence (continuous vs scheduled; progressive delivery) + SLO discipline integration + 5-level maturity model. Cites Google SRE (Beyer/Jones/Petoff/Murphy), SRE Workbook, John Allspaw postmortem writings, PagerDuty Incident Response docs, Charity Majors observability, Nora Jones chaos engineering, Mikey Dickerson reliability hierarchy.
-- **cs-vpe-advisor** agent (`./c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md`) — throughput-first operator. Voice: "What's your cycle time, and where does the work spend most of its time waiting?" Trusts DORA metrics over vibe. Refuses to recommend hires without naming the throughput or quality bottleneck they unblock.
-- **`/cs:vpe-review`** slash command (`./c-level-advisor/c-level-agents/skills/vpe-review/SKILL.md`) — 6-question forcing interrogation: cycle time + waits, DORA verdict, hiring funnel leakage, team structure health, production discipline maturity, VPE-vs-CTO scope decision.
+- **cs-vpe-advisor** agent (`./c-level-agents/agents/cs-vpe-advisor.md`) — throughput-first operator. Voice: "What's your cycle time, and where does the work spend most of its time waiting?" Trusts DORA metrics over vibe. Refuses to recommend hires without naming the throughput or quality bottleneck they unblock.
+- **`/cs:vpe-review`** slash command (`./c-level-agents/skills/vpe-review/SKILL.md`) — 6-question forcing interrogation: cycle time + waits, DORA verdict, hiring funnel leakage, team structure health, production discipline maturity, VPE-vs-CTO scope decision.
 - **cs-vpe-advisor voice spec** added to `persona-voices.md`.
 - **Dual-published from the start:** standalone plugin at `c-level-advisor/vpe-advisor/` with mirrored content (per #624 pattern). `sync_skill_bundles.py` keeps both copies aligned.
 
@@ -1132,8 +1132,8 @@ DORA benchmarks come from cross-industry research; specific thresholds shift wit
   - `customer_segmentation_strategy.md` — 4-tier framework + ICP fit weighting (7 signals) + tier transition triggers + kill list criteria + the 3 paths. Cites Lincoln Murphy, Bain "Loyalty Effect", Tunguz, Skok, ChartMogul/ProfitWell, Adamson/Dixon/Toman "Challenger Customer".
   - `cs_coverage_model.md` — Tech-touch / pooled / named / named+exec models + ARR-per-CSM ratios by stage and segment + manager-trigger + CS comp design + ramp curves. Cites Gainsight, TSIA, Mehta/Pickens "Customer Success Economy", ChurnZero, Skok, Lincoln Murphy, Pacific Crest/KeyBanc SaaS survey.
   - `cs_team_org_evolution.md` — 5-stage role map + 6-role definition table (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split decision + 7 anti-patterns. Cites Mehta/Steinman/Murphy, Mehta/Pickens, BVP, TSIA, Gainsight, ChurnZero, Lincoln Murphy.
-- **cs-cco-advisor** agent (`./c-level-advisor/c-level-agents/agents/cs-cco-advisor.md`) — retention-obsessed pragmatist. Voice: "What's your gross retention rate, and what's the #1 reason customers leave?" Trusts gross retention over NRR. Refuses to recommend CS hires without naming the customer outcome they unblock.
-- **`/cs:cco-review`** slash command (`./c-level-advisor/c-level-agents/skills/cco-review/SKILL.md`) — 6-question forcing interrogation: GRR (not NRR), top churn driver, time-to-value, kill-list candidates, ARR-per-CSM ratio + coverage model, CS comp alignment.
+- **cs-cco-advisor** agent (`./c-level-agents/agents/cs-cco-advisor.md`) — retention-obsessed pragmatist. Voice: "What's your gross retention rate, and what's the #1 reason customers leave?" Trusts gross retention over NRR. Refuses to recommend CS hires without naming the customer outcome they unblock.
+- **`/cs:cco-review`** slash command (`./c-level-agents/skills/cco-review/SKILL.md`) — 6-question forcing interrogation: GRR (not NRR), top churn driver, time-to-value, kill-list candidates, ARR-per-CSM ratio + coverage model, CS comp alignment.
 - **cs-cco-advisor voice spec** added to `persona-voices.md`.
 - **Dual-published from the start:** standalone plugin at `c-level-advisor/chief-customer-officer-advisor/` with mirrored content (per the same pattern as #624 for GC/CDO/CAIO). `sync_skill_bundles.py` keeps both copies aligned.
 
@@ -1195,8 +1195,8 @@ Retention benchmarks vary significantly by ACV, segment, and industry. This skil
   - `ai_risk_governance.md` — Full EU AI Act tier map (prohibited Article 5, high-risk Article 6 + Annex III, limited-risk Article 50, minimal-risk) with all 8 high-risk domains + 11 obligation Articles. NIST AI RMF 1.0 (4 functions, 7 trustworthy characteristics). US state patchwork (NYC LL 144, CO AI Act, IL HB 53, CA SB 1001, CA AB 2013, CA AB 1008, IL BIPA, WA MHMD, TX biometric). Industry overlays (FDA, CFPB, Fed SR 11-7, NYDFS Reg 23, ECOA, NAIC). 10-item governance program checklist. When-to-hire-AI-counsel criteria.
   - `ai_cost_economics.md` — 2026 API pricing across 4 tiers, GPU rental (A100/H100/H200/B200), throughput estimates, GPU count by model size, cost-per-million-tokens calculations, utilization reality (interactive 20-40%, batch 60-80%), 6 hidden costs of self-hosted, 6 hidden costs of API, migration cost (3-6 months, 2-3 engineers), prompt caching as economics lever. Cites vLLM paper, DistServe (NSDI 2024), HELM benchmark, Artificial Analysis, Llama 3.1 paper.
   - `ai_team_org_evolution.md` — 5-stage role map (pre-seed → late-stage), 9-role definition table distinguishing AI engineer / ML engineer / research scientist / data scientist / AI safety / AI PM / Head of AI / CAIO. AI team vs data team contrast (8 dimensions). 7 specific anti-patterns. Hiring sequencing rule. Cites Huyen "Designing ML Systems" + "AI Engineering", State of AI Report, Karpathy's AI engineer archetype discussions.
-- **cs-caio-advisor** agent (`./c-level-advisor/c-level-agents/agents/cs-caio-advisor.md`) — eval-demanding realist orchestrating the skill. Voice: "What does this AI need to be good at, and how would you measure it?" Treats every AI use case as a hiring decision; pushes back on AI hype; demands fallback behavior before scale.
-- **`/cs:caio-review`** slash command (`./c-level-advisor/c-level-agents/skills/caio-review/SKILL.md`) — 6-question forcing interrogation: eval discipline, hallucination SLO, regulatory tier, model selection, cost trajectory, role-that-unblocks-this.
+- **cs-caio-advisor** agent (`./c-level-agents/agents/cs-caio-advisor.md`) — eval-demanding realist orchestrating the skill. Voice: "What does this AI need to be good at, and how would you measure it?" Treats every AI use case as a hiring decision; pushes back on AI hype; demands fallback behavior before scale.
+- **`/cs:caio-review`** slash command (`./c-level-agents/skills/caio-review/SKILL.md`) — 6-question forcing interrogation: eval discipline, hallucination SLO, regulatory tier, model selection, cost trajectory, role-that-unblocks-this.
 - **cs-caio-advisor voice spec** added to `persona-voices.md`.
 
 ### Why This Matters
@@ -1254,8 +1254,8 @@ The `chief-ai-officer-advisor` skill surfaces strategic AI decisions but is **no
   - `data_product_strategy.md` — Decision: which architecture and what do we build? Stage-driven kill criteria per architecture + 6-layer build-vs-buy decision tree + sequencing pattern + anti-patterns.
   - `customer_data_as_asset.md` — Decision: what's our data worth and can we productize it? 5-component valuation framework + M&A multiplier with carve-out impact + 3 productization paths with prerequisites + 10-item M&A diligence prep checklist + quarterly contractual constraint audit pattern.
   - `data_team_org_evolution.md` — Decision: what role next, when to centralize vs embed? 5-stage map (seed → late-stage) with specific role definitions + centralize-vs-embed-vs-federated triggers + 6 anti-patterns ("hiring data scientist as first data hire" etc.).
-- **cs-cdo-advisor** agent (`./c-level-advisor/c-level-agents/agents/cs-cdo-advisor.md`) — decision-driven realist orchestrating the skill. Voice: "What decision does this data drive?" Refuses to recommend tooling before naming the consumer. Treats AI training data as both contractual liability and strategic asset.
-- **`/cs:cdo-review`** slash command (`./c-level-advisor/c-level-agents/skills/cdo-review/SKILL.md`) — 6-question forcing interrogation pattern matching the /cs:cfo-review / /cs:gc-review etc. shape.
+- **cs-cdo-advisor** agent (`./c-level-agents/agents/cs-cdo-advisor.md`) — decision-driven realist orchestrating the skill. Voice: "What decision does this data drive?" Refuses to recommend tooling before naming the consumer. Treats AI training data as both contractual liability and strategic asset.
+- **`/cs:cdo-review`** slash command (`./c-level-agents/skills/cdo-review/SKILL.md`) — 6-question forcing interrogation pattern matching the /cs:cfo-review / /cs:gc-review etc. shape.
 - **cs-cdo-advisor voice spec** added to `persona-voices.md`.
 
 ### Why This Matters
@@ -1304,7 +1304,7 @@ The `chief-data-officer-advisor` skill surfaces strategic decisions but is **not
   - **`references/contracts_playbook.md`** — 7 standard startup contracts (MSA, customer SaaS, NDA, DPA, employment, contractor, equity), top redlines per type, quick triage heuristics.
   - **`references/ip_and_regulatory.md`** — Full IP strategy (patents, copyright, trademark, trade secrets, invention assignment, OSS license compliance for permissive/weak-copyleft/strong-copyleft including AGPL) plus regulatory trigger matrix (HIPAA, PCI DSS, BSA/AML, FDA 510(k), MDR, GDPR, CCPA, COPPA, securities, ITAR, EU AI Act, telehealth, insurance) with SOC 2 → ISO 27001 → ISO 42001 sequencing and when-to-hire-a-GC criteria.
   - **`references/term_sheet_decoder.md`** — Full term sheet glossary, founder-friendly defaults cheat sheet, the three clauses that matter most (liquidation preference, option pool pre/post-money, anti-dilution), and negotiation strategy.
-- **cs-general-counsel-advisor** agent (`./c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md`) — risk-paranoid persona orchestrating the skill via `/cs:gc-review`. Distinct voice: "Before we sign, three things need to be settled in writing." Hard rule: never gives definitive legal advice; always escalates to qualified outside counsel.
+- **cs-general-counsel-advisor** agent (`./c-level-agents/agents/cs-general-counsel-advisor.md`) — risk-paranoid persona orchestrating the skill via `/cs:gc-review`. Distinct voice: "Before we sign, three things need to be settled in writing." Hard rule: never gives definitive legal advice; always escalates to qualified outside counsel.
 - **`/cs:gc-review`** updated to invoke the new tools and reference the skill (the command previously pointed at a planned skill with a CHANGELOG note).
 
 ### Why This Matters
@@ -1328,7 +1328,7 @@ The `general-counsel-advisor` skill and `cs-general-counsel-advisor` agent are *
 
 ### Added — C-Level Advisory
 
-- **c-level-agents** plugin (`./c-level-advisor/c-level-agents/`) — surfaces the existing 28 c-level skills through a founder-mode interface of cs-* persona agents and `/cs:*` slash commands. New marketplace entry registered separately (category: leadership).
+- **c-level-agents** plugin (`./c-level-agents/`) — surfaces the existing 28 c-level skills through a founder-mode interface of cs-* persona agents and `/cs:*` slash commands. New marketplace entry registered separately (category: leadership).
 - **8 new cs-* persona agents** with distinct cognitive voices, completing agent coverage for every C-role:
   - `cs-cfo-advisor` (numerate skeptic) wraps cfo-advisor
   - `cs-cmo-advisor` (narrative-first) wraps cmo-advisor

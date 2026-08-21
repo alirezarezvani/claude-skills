@@ -200,7 +200,7 @@ Re-run /cs:inbox-setup when business/pricing/priorities change.
 ## References
 
 - Skill: [../skills/inbox-setup/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-setup/SKILL.md)
-- Source spec: [`megaprompts/06-inbox-setup-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/../megaprompts/06-inbox-setup-megaprompt.md)
+- Source spec: `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling command: [`/cs:inbox-setup`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/commands/cs-inbox-setup.md)
 
 ---

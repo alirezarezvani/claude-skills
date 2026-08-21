@@ -120,7 +120,7 @@ This plugin is ported from David Dworken's MIT-licensed implementation in [`alir
 **Modifications:**
 - Added 3 patterns: `subprocess shell=True`, SQL injection via f-string or `.format`, `yaml.unsafe_load`
 - Debug log moved from `/tmp/security-warnings-log.txt` → `~/.claude/security-warnings-log.txt`
-- Restructured as a claude-skills plugin with `attribution` block in `plugin.json`
+- Restructured as a claude-skills plugin with `attribution` block in `.claude-plugin/authoring-notes.json` (originally in `plugin.json`; relocated when issue #954 showed Claude Code rejects manifests carrying extension keys)
 
 ## Anti-Patterns
 

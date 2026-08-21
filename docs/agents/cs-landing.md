@@ -172,7 +172,7 @@ Instead of writing to ./landing-pages/<slug>.html:
 ## References
 
 - Skill: [../skills/landing/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing/landing/skills/landing/SKILL.md)
-- Source spec: [`megaprompts/04-landing-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/04-landing-megaprompt.md)
+- Source spec: `megaprompts/04-landing-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling command: [`/cs:landing`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing/landing/commands/cs-landing.md)
 
 ---

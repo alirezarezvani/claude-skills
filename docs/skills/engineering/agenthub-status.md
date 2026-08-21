@@ -1,14 +1,14 @@
 ---
-title: "/hub:status — Session Status — Agent Skill for Codex & OpenClaw"
-description: "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:status or asks how the AgentHub agents are. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/hub:hub-status — Session Status — Agent Skill for Codex & OpenClaw"
+description: "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:hub-status or asks how the AgentHub agents are. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /hub:status — Session Status
+# /hub:hub-status — Session Status
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `status`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub/skills/status/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agenthub/skills/hub-status/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,8 +21,8 @@ Display the current state of an AgentHub session: agent branches, commit counts,
 ## Usage
 
 ```
-/hub:status                        # Status for latest session
-/hub:status 20260317-143022        # Status for specific session
+/hub:hub-status                        # Status for latest session
+/hub:hub-status 20260317-143022        # Status for specific session
 ```
 
 ## What It Does

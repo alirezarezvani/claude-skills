@@ -1,6 +1,6 @@
 ---
 name: stock-analysis
-description: Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed company — Indian (NSE/BSE) or US/global. Use this skill whenever the user asks to analyse, research, evaluate, value, or "look into" a stock, ticker, or listed company; asks whether a business is fundamentally strong or weak, cheap or expensive; asks to compare two or more companies or benchmark one against its sector; mentions metrics like OPM, ROCE, ROE, ROIC, P/E, EV/EBITDA, free cash flow, NIM, GNPA, CASA, promoter holding or pledging; or shares an annual report, 10-K, concall transcript, or screener page and wants it interpreted. Use it too for accounting-quality and forensic questions — "is the profit real", "are they cooking the books", "the cash flow doesn't match the profit", "why is profit rising but cash isn't", "should I worry about this company's accounting", auditor qualifications, promoter pledging, or related-party concerns — which route to the forensic-only mode. Use it for **IPOs and not-yet-listed companies** too — "should I apply to this IPO", "is this IPO worth it", "is the price band expensive", DRHP/RHP or S-1 questions, grey market premium, anchor allotment, lock-in expiry — which route to the IPO mode. Use it even when the request sounds casual ("is Infosys any good?", "thoughts on HDFC Bank?", "why is this company's margin so low?"). Do not use it for personalised investment advice, portfolio allocation, or trading signals.
+description: Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed company — Indian (NSE/BSE) or US/global. Use when the user asks to analyse, research, evaluate, or value a stock, ticker, or listed company; asks whether a business is fundamentally strong, cheap, or expensive; compares companies or benchmarks one against its sector; or mentions OPM, ROCE, ROE, ROIC, P/E, EV/EBITDA, free cash flow, NIM, GNPA, CASA, promoter holding or pledging. Use it for accounting-quality and forensic questions — "is the profit real", "why is profit rising but cash isn't", auditor qualifications, related-party concerns — which route to the forensic-only mode, and for IPOs and not-yet-listed companies — "should I apply to this IPO", DRHP/RHP or S-1 questions, price band, grey market premium — which route to the IPO mode. Use it even when the request sounds casual ("is Infosys any good?"). Do not use it for personalised investment advice, portfolio allocation, or trading signals.
 ---
 
 # Stock Analysis
@@ -293,6 +293,21 @@ Read these as needed; they are written to be consulted individually rather than 
 | `references/20-challenge-pass.md` | Adversarial review before delivery: attack the load-bearing claims |
 | `references/21-data-integrity-tools.md` | The intake gate and report linter: how and when to run them |
 | `references/sectors/_index.md` | Sector router with sub-sector guidance |
+
+## Anti-Patterns
+
+- Judging a bank, insurer, REIT, or miner on generic ratios — for these sectors the standard ratios are undefined or inverted; route through the sector playbook first.
+- Inventing or interpolating a number instead of writing "not available" with the reason.
+- Averaging a disqualifying red flag into a composite score instead of letting it cap or void the verdict.
+- Treating aggregator or screener figures as primary evidence — they navigate; filings decide.
+- Running every reference on every company — three or four factors decide most outcomes.
+- Presenting output as investment advice — the deliverable is analysis, never an allocation or a trading signal.
+
+## Cross-References
+
+- `finance/skills/financial-analyst` — inside-out corporate FP&A, budgeting, and DCF modelling for a company you operate; this skill is the outside-in public-market view of a listed company.
+- `finance/business-investment-advisor` — internal capex and project-ROI decisions; this skill values traded equity, not internal projects.
+- `finance/skills/saas-metrics-coach` — operating SaaS metrics (NRR, CAC, burn) for internal steering, not listed-equity valuation.
 
 ## A note on judgement
 

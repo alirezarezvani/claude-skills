@@ -58,7 +58,7 @@ Skills derived from external sources (MIT-licensed or public-domain) must:
 - State the license
 - Note what's preserved vs added
 
-Tool: presence-of-attribution grep in plugin.json + README.md.
+Tool: presence-of-attribution grep in `.claude-plugin/authoring-notes.json` + README.md. (The `attribution` block moved out of `plugin.json` when issue #954 showed Claude Code rejects manifests with extension keys — `check_plugin_json.py` now hard-fails it there; the sidecar `authoring-notes.json` is its home. Upstream credit must also remain in the plugin's README.md/LICENSE — a sidecar JSON file is not a license notice.)
 
 ## Quality Gate Sequencing
 
@@ -126,7 +126,7 @@ The pragmatic split:
 | **Legacy skills (pre-v2.6.0)** | **Advisory** — WARN/FAIL surfaced but non-blocking | Track in audit report; fix opportunistically |
 
 How to tell which cohort a skill belongs to:
-- New: matches the `engineering/<skill>/skills/<skill>/` wrapper pattern with `attribution` in plugin.json, OR was added in a PR tagged for v2.6.0+
+- New: matches the `engineering/<skill>/skills/<skill>/` wrapper pattern with `attribution` in `.claude-plugin/authoring-notes.json`, OR was added in a PR tagged for v2.6.0+
 - Legacy: pre-existing structure without the wrapper pattern, or pre-v2.6.0 git history
 
 Re-running `scripts/audit_skills.py` periodically captures the legacy backlog drift. The numerator (PASS count) is the metric to grow over time, not "force every skill to PASS by Friday."

@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Thariq Shihipar — Claude Code HTML output essay (Medium, 2026). Argument: markdown collapses past 100 lines for agent-generated artifacts; HTML restores information density, visual clarity, shareability, and lightweight interaction.",
+    "build_pattern": "Path B (direct conversion). Orchestrator uses context: fork (research-ops shape). Shared design-system owns onboarding + 12 CSS custom properties read by all converters. Every SKILL.md ships a Forcing-question library section per Matt Pocock grill-with-docs discipline. v2.10.0 shipped the foundation (orchestrator + design-system); v2.10.1 added md-document; v2.10.2 added md-review; v2.10.3 adds md-slides. Domain complete at 5 skills.",
+    "distinct_from": "Anthropic's official Playground plugin builds interactive prompt-tuning controls (sliders, knobs, prompt-copy-back); this plugin converts existing markdown documents to single-file HTML. Also distinct from marketing/landing/ which generates landing pages from scratch."
+  }
+}

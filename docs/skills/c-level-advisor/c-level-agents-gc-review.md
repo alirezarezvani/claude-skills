@@ -8,7 +8,7 @@ description: "/cs:gc-review <plan> — General Counsel interrogation of contract
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `gc-review`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/gc-review/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/gc-review/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -134,7 +134,7 @@ The `cs-general-counsel-advisor` agent orchestrates both tools plus 3 references
 ## Related
 
 - Skill: [`general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/general-counsel-advisor/SKILL.md) — full skill with Python tools + references
-- Agent: [`cs-general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md)
+- Agent: [`cs-general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-general-counsel-advisor.md)
 - Compliance execution: [`ra-qm-team`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team)
 - Adjacent: [`skills/ma-playbook`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ma-playbook)
 

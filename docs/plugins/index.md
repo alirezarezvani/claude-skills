@@ -195,10 +195,10 @@ Every plugin follows the same minimal schema for maximum portability:
 }
 ```
 
-Two approved extension fields are permitted:
+**No extension fields of any kind** — Claude Code's manifest validator rejects the entire `plugin.json` on any unrecognized key (issue #954), and `scripts/check_plugin_json.py` hard-fails manifests carrying extras in CI. Authoring metadata lives in a sibling file the validator never reads, `.claude-plugin/authoring-notes.json`, holding at most two keys:
 
 - **`source`** (object) — provenance metadata for Path-B megaprompt-derived skills (productivity, marketing, research).
-- **`attribution`** (object) — credit metadata for MIT-licensed external derivatives (`caveman`, `grill-me`, `grill-with-docs`).
+- **`attribution`** (object) — credit metadata for skills derived from external MIT-licensed work (`caveman`, `grill-me`, `grill-with-docs`, `skillopt-sleep`, `book-to-skill`, and others). Upstream credit must also remain in the plugin's `README.md`/`LICENSE`.
 
 !!! info "ClawHub Registry"
     Plugins are distributed via [ClawHub](https://clawhub.com) as the public registry. The `cs-` prefix is used only when a slug is already taken by another publisher — repo folder names remain unchanged.
@@ -274,7 +274,7 @@ Two approved extension fields are permitted:
 | `collab-proof` | Standalone | engineering | `./engineering/collab-proof` |
 | `business-investment-advisor` | Standalone | finance | `./finance/business-investment-advisor` |
 | `llm-wiki` | Standalone | knowledge | `./engineering/llm-wiki` |
-| `c-level-agents` | Standalone | leadership | `./c-level-advisor/c-level-agents` |
+| `c-level-agents` | Standalone | leadership | `./c-level-agents` |
 | `chief-ai-officer-advisor` | Standalone | leadership | `./c-level-advisor/chief-ai-officer-advisor` |
 | `chief-customer-officer-advisor` | Standalone | leadership | `./c-level-advisor/chief-customer-officer-advisor` |
 | `chief-data-officer-advisor` | Standalone | leadership | `./c-level-advisor/chief-data-officer-advisor` |

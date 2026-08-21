@@ -92,6 +92,10 @@ jobs:
         run: |
           python scripts/check_plugin_json.py --all
 
+      - name: Built-in-shadowing skill names (blocking — guards #885)
+        run: |
+          python3 scripts/check_skill_names.py --all
+
       # ---- Audit guardrails (newgen-2026-06 gates) ----------------------
       # BLOCKING since PR-2 (flipped ahead of the 2026-07-01 SLA — every
       # advisory run was green through PR #835). If a gate misfires on a
@@ -102,9 +106,24 @@ jobs:
         run: |
           python3 scripts/check_paths.py --all
 
+      # Every other gate reads frontmatter with a regex, so malformed YAML used
+      # to pass CI while Claude Code silently loaded the skill with no
+      # description. G10 parses it properly.
+      - name: Frontmatter YAML validator (gate G10 — blocking)
+        run: |
+          python3 scripts/check_frontmatter.py --all
+
       - name: Dual-publish drift guard (gate G4 — blocking)
         run: |
           python3 scripts/check_dual_publish.py
+
+      # Proposed by audit/newgen-2026-06 and never built, which is why retired
+      # model IDs survived two later audits. The tree is now clean, so this is
+      # blocking. A deliberate reference needs an entry with a reason in
+      # scripts/check_model_freshness_allowlist.txt.
+      - name: Retired model identifier lint (gate G7 — blocking)
+        run: |
+          python3 scripts/check_model_freshness.py --all
 
       - name: Script --help smoke gate (gate G8 — blocking)
         run: |

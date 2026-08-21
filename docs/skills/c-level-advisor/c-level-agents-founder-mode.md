@@ -8,7 +8,7 @@ description: "/cs:founder-mode <question> — Auto-routes any founder question t
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `founder-mode`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/founder-mode/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/founder-mode/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -110,7 +110,7 @@ gstack requires the founder to know all 23 slash commands and pick the right one
 
 ## Related
 
-- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-chief-of-staff.md) — does the routing
+- Agent: [`cs-chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-chief-of-staff.md) — does the routing
 - Skill: [`chief-of-staff`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/SKILL.md) — routing logic
 - Skill: [`context-engine`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/context-engine/SKILL.md) — loads context
 

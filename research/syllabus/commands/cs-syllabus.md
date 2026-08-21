@@ -134,7 +134,7 @@ python ../skills/syllabus/scripts/citation_tracker.py --action close --session N
 
 - Agent: [`cs-syllabus`](../agents/cs-syllabus.md)
 - Skill: [`syllabus`](../skills/syllabus/SKILL.md)
-- Source spec: [`megaprompts/10-syllabus-megaprompt.md`](../../../megaprompts/10-syllabus-megaprompt.md)
+- Source spec: `megaprompts/10-syllabus-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Siblings: `/cs:litreview`, `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:pulse`
 
 ---

@@ -68,7 +68,7 @@ Leverage Claude Code's built-in capabilities:
 - **Large migrations**: Use `/batch` for parallel file-by-file conversion
 - **Post-generation cleanup**: Use `/simplify` after generating a test suite
 - **Debugging sessions**: Use `/debug` alongside `/pw:fix` for trace analysis
-- **Code review**: Use `/review` for general code quality, `/pw:review` for Playwright-specific
+- **Code review**: Use `/review` for general code quality, `/pw:pw-review` for Playwright-specific
 
 ### Integrations
 

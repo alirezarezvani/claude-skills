@@ -137,7 +137,7 @@ Every fact in the DOCX tagged with tier (primary / secondary / tertiary):
 
 - Agent: [`cs-dossier`](https://github.com/alirezarezvani/claude-skills/tree/main/research/dossier/agents/cs-dossier.md)
 - Skill: [`dossier`](https://github.com/alirezarezvani/claude-skills/tree/main/research/dossier/skills/dossier/SKILL.md)
-- Source spec: [`megaprompts/12-dossier-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/12-dossier-megaprompt.md)
+- Source spec: `megaprompts/12-dossier-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Siblings: `/cs:litreview`, `/cs:grants`, `/cs:pulse`
 - Future: `/cs:patent`, `/cs:syllabus`
 

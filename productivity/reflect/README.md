@@ -26,7 +26,7 @@ The skill explicitly does NOT manufacture problems when things are on track. "Th
 
 ## Source spec
 
-[`megaprompts/02-reflect-megaprompt.md`](../../megaprompts/02-reflect-megaprompt.md) (PR #657).
+`megaprompts/02-reflect-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657).
 
 ## Plugin layout
 

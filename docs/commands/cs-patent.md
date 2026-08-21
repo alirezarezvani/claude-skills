@@ -97,7 +97,7 @@ patent_<invention-slug>_<sub-use-case>_<YYYY-MM-DD>.docx
 
 - Agent: [`cs-patent`](https://github.com/alirezarezvani/claude-skills/tree/main/research/patent/agents/cs-patent.md)
 - Skill: [`patent`](https://github.com/alirezarezvani/claude-skills/tree/main/research/patent/skills/patent/SKILL.md)
-- Source spec: [`megaprompts/11-patent-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/11-patent-megaprompt.md)
+- Source spec: `megaprompts/11-patent-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Siblings: `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:pulse`
 - Future: `/cs:syllabus`
 

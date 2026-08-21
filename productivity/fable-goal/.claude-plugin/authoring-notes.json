@@ -1,0 +1,9 @@
+{
+  "attribution": {
+    "upstream": "https://github.com/duncan-buildroom/freeskills",
+    "upstream_skill": "fable-goal",
+    "upstream_license": "No formal license file; repo states 'Free to use and modify. Made for builders.' — an informal use-and-modify grant, not an SPDX license.",
+    "changes": "Substantial restructure: wrong-tool check, observable-done principle, six-slot extraction table, verification-defaults-by-medium table, six-point pre-delivery self-check, failure-mode catalog reference doc, second worked example (non-web medium), /cs:fable-goal command, goal_prompt_self_check.py (stdlib runner for the mechanically checkable self-check subset).",
+    "license_note": "The MIT license declared above covers the rewritten text and structure authored in this repository. The upstream's informal grant is quoted verbatim; it is not relicensed as MIT."
+  }
+}

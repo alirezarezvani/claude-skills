@@ -123,7 +123,7 @@ python ../skills/inbox-setup/scripts/section_progress_tracker.py --action close 
 - Companion: [`/cs:inbox-triage`](./cs-inbox-triage.md) — runs after setup is complete
 - Agent: [`cs-inbox-setup`](../agents/cs-inbox-setup.md)
 - Skill: [`inbox-setup`](../skills/inbox-setup/SKILL.md)
-- Source spec: [`megaprompts/06-inbox-setup-megaprompt.md`](../../../megaprompts/06-inbox-setup-megaprompt.md)
+- Source spec: `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 
 ---
 

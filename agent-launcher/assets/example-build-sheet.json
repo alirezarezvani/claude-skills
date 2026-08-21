@@ -1,0 +1,62 @@
+{
+  "agent_name": "support-triage",
+  "goal": "Every morning, read overnight support emails and label each urgent / question / bug / spam with a one-line reason.",
+  "primitives": {
+    "agent": {
+      "model": "claude-opus-5",
+      "system": "You triage overnight support email. For each message assign exactly one label (urgent | question | bug | spam) and a one-line reason grounded in the email text. Never invent facts not in the email.",
+      "tools": [{"type": "agent_toolset_20260401"}],
+      "mcp_servers": [],
+      "skills": []
+    },
+    "environment": {
+      "type": "cloud",
+      "networking": "unrestricted",
+      "packages": {}
+    },
+    "session": {
+      "resources": [],
+      "vault_ids": [],
+      "memory_stores": [
+        {"access": "read_only", "instructions": "Past label decisions for consistency."}
+      ]
+    },
+    "outcome": {
+      "description": "Label every overnight support email with one category and a grounded one-line reason.",
+      "rubric": "- Every email has exactly one label\n- Each label is one of: urgent, question, bug, spam\n- Each reason quotes or paraphrases the email (no invented facts)\n- Urgent is reserved for outages / paying-customer blockers",
+      "max_iterations": 5
+    },
+    "deployment": {
+      "schedule": {
+        "expression": "0 9 * * *",
+        "timezone": "Europe/Berlin"
+      }
+    }
+  },
+  "deferrals": [
+    {
+      "version": "v1",
+      "item": "Real Gmail read via MCP",
+      "reason": "OAuth vault credential not yet registered",
+      "mechanism": "Register mcp_oauth cred for the Gmail MCP server; replace the mock label_email custom tool with the real MCP toolset (always_ask)."
+    },
+    {
+      "version": "v2",
+      "item": "Auto-draft replies to question-labeled emails",
+      "reason": "Out of v0 scope; needs send-safe review",
+      "mechanism": "Add a save_draft custom tool (always_ask); keep sending as a human step."
+    }
+  ],
+  "eval_plan": {
+    "success_criteria": [
+      "100% of emails labeled",
+      "0 invented facts in reasons",
+      "Urgent precision >= 0.9 on held-back set"
+    ],
+    "held_back_cases": [
+      {"id": "case-1", "input": "Angry paying customer: dashboard down since 3am", "expect_label": "urgent"},
+      {"id": "case-2", "input": "How do I export to CSV?", "expect_label": "question"},
+      {"id": "case-3", "input": "Buy cheap watches!!!", "expect_label": "spam"}
+    ]
+  }
+}

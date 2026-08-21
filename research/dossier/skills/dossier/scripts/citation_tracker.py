@@ -31,6 +31,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+# Windows consoles often default to a legacy codepage (e.g. cp1252) that cannot
+# encode the Unicode glyphs this script prints (issue #969). Re-encode
+# stdout/stderr as UTF-8 with replacement so output never crashes at print time.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 
 SESSIONS_DIR = Path.home() / ".dossier_sessions"
 VALID_CLASSIFICATIONS = ["supporting", "disconfirming", "inconclusive"]

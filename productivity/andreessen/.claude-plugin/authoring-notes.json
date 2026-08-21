@@ -1,0 +1,7 @@
+{
+  "attribution": {
+    "operating_prompt": "User-supplied anti-sycophancy custom prompt, preserved verbatim in references/operating_prompt.md",
+    "frameworks": "Marc Andreessen (a16z): 'The Only Thing That Matters' (2007), 'It's Time to Build' (2020), 'Software Is Eating the World' (2011), 'The Pmarca Guide to Personal Productivity' (2007)",
+    "note": "Inspired-by skill. Frameworks attributed with explicit confidence levels in references. Not affiliated with or endorsed by Marc Andreessen or a16z."
+  }
+}

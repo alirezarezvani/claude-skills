@@ -24,9 +24,9 @@ When installed as a Claude Code plugin, these are available as `/pw:` commands:
 
 | Command | What it does |
 |---|---|
-| `/pw:init` | Set up Playwright — detects framework, generates config, CI, first test |
+| `/pw:pw-init` | Set up Playwright — detects framework, generates config, CI, first test |
 | `/pw:generate <spec>` | Generate tests from user story, URL, or component |
-| `/pw:review` | Review tests for anti-patterns and coverage gaps |
+| `/pw:pw-review` | Review tests for anti-patterns and coverage gaps |
 | `/pw:fix <test>` | Diagnose and fix failing or flaky tests |
 | `/pw:migrate` | Migrate from Cypress or Selenium to Playwright |
 | `/pw:coverage` | Analyze what's tested vs. what's missing |
@@ -39,14 +39,14 @@ When installed as a Claude Code plugin, these are available as `/pw:` commands:
 The recommended sequence for most projects:
 
 ```
-1. /pw:init          → scaffolds config, CI pipeline, and a first smoke test
+1. /pw:pw-init          → scaffolds config, CI pipeline, and a first smoke test
 2. /pw:generate      → generates tests from your spec or URL
-3. /pw:review        → validates quality and flags anti-patterns      ← always run after generate
+3. /pw:pw-review        → validates quality and flags anti-patterns      ← always run after generate
 4. /pw:fix <test>    → diagnoses and repairs any failing/flaky tests  ← run when CI turns red
 ```
 
 **Validation checkpoints:**
-- After `/pw:generate` — always run `/pw:review` before committing; it catches locator anti-patterns and missing assertions automatically.
+- After `/pw:generate` — always run `/pw:pw-review` before committing; it catches locator anti-patterns and missing assertions automatically.
 - After `/pw:fix` — re-run the full suite locally (`npx playwright test`) to confirm the fix doesn't introduce regressions.
 - After `/pw:migrate` — run `/pw:coverage` to confirm parity with the old suite before decommissioning Cypress/Selenium tests.
 
@@ -60,7 +60,7 @@ The recommended sequence for most projects:
 # → Playwright Pro creates the file using the auth template.
 
 # 2. Review the generated tests
-/pw:review tests/auth/login.spec.ts
+/pw:pw-review tests/auth/login.spec.ts
 
 # → Flags: one test used page.locator('input[type=password]') — suggests getByLabel('Password')
 # → Fix applied automatically.

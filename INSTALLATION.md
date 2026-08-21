@@ -15,6 +15,7 @@ Complete installation guide for all 205+ production-ready skills across multiple
 - [Multi-Agent Setup](#multi-agent-setup)
 - [Manual Installation](#manual-installation)
 - [Verification & Testing](#verification--testing)
+- [Windows Notes](#windows-notes)
 - [Troubleshooting](#troubleshooting)
 - [Uninstallation](#uninstallation)
 
@@ -512,6 +513,39 @@ python3 ~/.claude/skills/content-production/scripts/brand_voice_analyzer.py test
 
 # Run SEO optimization
 python3 ~/.claude/skills/content-production/scripts/seo_optimizer.py test-article.txt "sample keyword"
+```
+
+---
+
+## Windows Notes
+
+Two Windows-specific caveats to know before cloning or running skills (issues #968 and #969):
+
+### Symlinks: mirror trees need `core.symlinks=true`
+
+The cross-platform mirror trees (`.gemini/`, `.codex/`, `.vibe/`, `.hermes/`) are built from **relative symlinks** into the real skill directories. Git for Windows defaults to `core.symlinks=false`, so a default clone checks those 1,300+ links out as **1-line text files containing only the target path** — copying a skill folder from a mirror tree then silently gives you dead pointer files instead of skills.
+
+Before cloning on Windows:
+
+1. Enable **Developer Mode** (Settings → System → For developers), or run Git from an elevated prompt.
+2. Clone with symlinks enabled:
+
+   ```powershell
+   git clone -c core.symlinks=true https://github.com/alirezarezvani/claude-skills.git
+   ```
+
+If you already cloned without it, either re-clone as above, or **copy skills from the real domain directories** (e.g. `engineering-team/`, `marketing-skill/`) instead of the mirror trees — the Claude Code plugin/marketplace path always uses the real directories and is unaffected. Quick sanity check after any copy: a real `SKILL.md` is more than one line long.
+
+### Console encoding: run Python tools with UTF-8
+
+Windows consoles often default to a legacy codepage (e.g. cp1252) that cannot encode the box-drawing and comparison characters (`╔`, `≥`, `✅`) some skill tools print, which crashes the script at print time with `UnicodeEncodeError`. The most-affected tools now re-encode their own output, but as a blanket fix for every script in this library, enable Python's UTF-8 mode:
+
+```powershell
+# Per session
+$env:PYTHONUTF8 = "1"
+
+# Or permanently
+setx PYTHONUTF8 1
 ```
 
 ---

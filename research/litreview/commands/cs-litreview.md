@@ -135,7 +135,7 @@ python ../skills/litreview/scripts/citation_tracker.py --action close --session 
 
 - Agent: [`cs-litreview`](../agents/cs-litreview.md)
 - Skill: [`litreview`](../skills/litreview/SKILL.md)
-- Source spec: [`megaprompts/09-litreview-megaprompt.md`](../../../megaprompts/09-litreview-megaprompt.md)
+- Source spec: `megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling: `/cs:pulse` (research pack)
 - Future siblings: `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:syllabus`
 

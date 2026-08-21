@@ -159,7 +159,7 @@ python ../skills/research/scripts/fallback_decomposer.py --question "<Q1>"
 
 - Agent: [`cs-research`](../agents/cs-research.md)
 - Skill: [`research`](../skills/research/SKILL.md)
-- Source spec: [`megaprompts/13-research-megaprompt.md`](../../../megaprompts/13-research-megaprompt.md)
+- Source spec: `megaprompts/13-research-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Routing targets: `/cs:pulse`, `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:patent`, `/cs:syllabus`
 - Adjacent (NOT a routing target): `/cs:notebooklm` (different mode), `engineering/autoresearch-agent` (different use case)
 

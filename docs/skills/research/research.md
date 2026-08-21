@@ -326,5 +326,5 @@ All routing decisions + overrides also logged to `~/.research_sessions/<session>
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/13-research-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/13-research-megaprompt.md)
+**Source spec:** `megaprompts/13-research-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 **Build pattern:** Path B (direct conversion)

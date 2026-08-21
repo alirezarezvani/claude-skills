@@ -164,7 +164,7 @@ research_guide_{topic-slug}_{date}.docx
 ## References
 
 - Skill: [../skills/litreview/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview/skills/litreview/SKILL.md)
-- Source spec: [`megaprompts/09-litreview-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/09-litreview-megaprompt.md)
+- Source spec: `megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling command: [`/cs:litreview`](https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview/commands/cs-litreview.md)
 
 ---

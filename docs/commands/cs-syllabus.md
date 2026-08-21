@@ -140,7 +140,7 @@ python ../skills/syllabus/scripts/citation_tracker.py --action close --session N
 
 - Agent: [`cs-syllabus`](https://github.com/alirezarezvani/claude-skills/tree/main/research/syllabus/agents/cs-syllabus.md)
 - Skill: [`syllabus`](https://github.com/alirezarezvani/claude-skills/tree/main/research/syllabus/skills/syllabus/SKILL.md)
-- Source spec: [`megaprompts/10-syllabus-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/10-syllabus-megaprompt.md)
+- Source spec: `megaprompts/10-syllabus-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Siblings: `/cs:litreview`, `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:pulse`
 
 ---

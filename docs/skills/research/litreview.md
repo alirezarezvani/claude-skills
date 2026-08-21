@@ -252,5 +252,5 @@ Plus:
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/09-litreview-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/09-litreview-megaprompt.md)
+**Source spec:** `megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 **Build pattern:** Path B (direct conversion). Sibling of `pulse` (research-pack shape).

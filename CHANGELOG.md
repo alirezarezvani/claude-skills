@@ -5,6 +5,161 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] — human-gate: batched human review as a verification artifact (this PR)
+
+### Audited — `petergyang/human-review`
+
+Public audit record at `audit/human-review-2026-08/AUDIT.md`. Upstream (npm
+`human-review@0.6.0`, MIT © Peter Yang) is a ~5,200 LOC Node application that opens
+an HTML/Markdown file or localhost page in the browser for direct editing and
+anchored comments, then ships the batch back to the agent as JSON. **Verified: its
+own test suite passes 90/90.** Security posture is better than most local-server
+tools — loopback-only bind, DNS-rebinding `Host` check, constant-time token compare,
+realpath-checked traversal guard, a deliberately inert Markdown renderer, and a
+45-minute idle self-shutdown.
+
+**Verdict: do not vendor, do adopt the pattern.** Node 20 + an npm runtime dependency
+fails the same stdlib-only test that kept the heavier `skillopt` package out in
+v2.11.2. Seven findings recorded, three material: **F1 (HIGH)** the skill instructs
+the agent to run unpinned `npx -y human-review`, so every invocation may fetch and
+execute a newly published version; **F2 (MED)** "do not end your turn" plus re-poll
+on timeout, with no headless guard and no retry cap — the AR5 loop-discipline gap
+`audit/engineering-agentic-2026-07/` already named as repo-wide; **F3 (MED)** only
+`/api/*` is token-gated, not `/artifact/<key>` or `/s/<id>`.
+
+Also worth stating plainly: despite the name, this is **not** a humanizer. It is
+human *approval*, not human *voice* — no overlap with `engineering/behuman` or
+`marketing-skill/content-humanizer`.
+
+### Added — `engineering/human-gate`
+
+Conceptual derivation (no upstream code copied), built to this repo's conventions:
+three stdlib-only Python scripts, no server, no socket, no network fetch.
+
+- **`review_page_builder.py`** — Markdown/HTML → single-file review page with every
+  block anchored (`data-hg="b7"`). **Zero network requests** — no CDN, no fonts, no
+  Prism; ~11 KB, opens over `file://`. Markdown is rendered by a stdlib subset parser
+  that escapes before applying inline markup and scheme-allowlists every href;
+  HTML input is re-emitted through `html.parser` with `<script>`/`<style>`/`<head>`
+  dropped and top-level block elements tagged. Review UI is vanilla JS with
+  localStorage persistence and an export that writes the sidecar.
+- **`feedback_parser.py`** — sidecar Markdown → `batch.v1` JSON. Severities
+  BLOCKER/MAJOR/MINOR/NIT (matching `markdown-html/md-review`, from Google's
+  code-review guidance) plus EDIT/NOTE/APPROVE. Verifies every quote against the real
+  file and reports mismatches rather than swallowing them. Strips HTML comments so an
+  example written inside one cannot parse as a real sign-off.
+- **`human_gate.py`** — `open`/`status`/`collect`/`close`/`reset` state machine with
+  atomic writes and `0700`/`0600` state permissions. Gate rules **G1–G7**: refuses to
+  close with no collected round, an open BLOCKER/MAJOR, an unnamed reviewer, a sidecar
+  changed after collection, an exhausted round cap (exit 5 = escalate, never pass), a
+  waiver without a recorded reason, or a round carrying unresolved integrity problems.
+  Waivers store both the reason and every refusal they overrode.
+
+**Four more fixes came out of a second PR review round**, each reproduced before fixing:
+**(a)** the HTML artifact path re-emitted attributes verbatim, so a reviewed draft containing
+`<img src=x onerror=...>`, `<a href="javascript:...">` or an `<iframe>` executed inside the
+review page — the Markdown path had `_safe_href` scheme-allowlisting all along and the HTML
+path had nothing. `sanitize_attrs()` now drops `on*`/`srcdoc`/`srcset`, runs every URL
+attribute through the same allowlist (control characters stripped first, so `java\tscript:`
+cannot smuggle a scheme), and `DROP_TAGS` removes `iframe`/`object`/`embed`/`base`. Legitimate
+`https:` links and relative images survive. **(b)** `verify_quotes()` compared a browser
+selection (rendered text) against raw markup, so quoting a sentence containing `**bold**` or a
+link failed — and since G7 made that blocking, it refused a legitimate close. It now matches
+against raw *or* a rendered-text projection, while a genuinely fabricated quote is still
+caught. **(c)** `state["waiver"]` was never cleared, so a clean unwaived round N+1 still
+printed round N's waiver reason — in a tool whose premise is an honest record, that is its own
+integrity bug. **(d)** `status` returned 4 for both "no sidecar yet" and "collected, blockers
+open"; the blocked case now returns 2, matching `close`, so an agent can branch on the exit
+code alone (0 clear · 2 blocked · 3 collect · 4 nothing yet).
+
+**A fifth round found two more.** `state_dir()` anchored gate state to `os.getcwd()` while
+keying it by the artifact's realpath, so an agent whose shell cwd drifted between turns
+silently started from empty state — `close` from a subdirectory reported G1 "nobody has
+looked at this" for a round that really was collected. It failed closed rather than falsely
+passing, but it lost real feedback; state now follows the artifact, the same way the sidecar
+and review page already do (`--state-dir` still wins). Separately, `build_page()` substituted
+`__CONTENT__` before `__TITLE__`/`__CONFIG__`, so reviewing a document that mentions those
+tokens — this skill's own docs, for instance — re-substituted inside the inserted body and
+injected the entire JSON config into the visible page. All three slots now fill in a single
+`re.sub` pass, and the Markdown `--sample` fixture carries the token text so the case is
+guarded. Minor: `--waive` with nothing to waive now says so instead of silently no-opping.
+
+**A fourth round found the gate itself was one flag away from opt-out.** `--waive` applied to
+whatever `gate_refusals()` returned — including **G1, "no review round has been collected"** —
+so an agent could close having had no review at all by supplying any reason string. That is the
+most tempting shortcut under time pressure and it defeats the skill's entire premise, so G1 is
+now **unwaivable**: a waiver accepts objections a reviewer raised, it cannot manufacture a
+review that never happened. Waiving a genuine objection still works. Same round: inline
+`style` joined `DROP_ATTRS` (a `background-image:url(https://…)` beacons the reviewer's IP on
+open with no script involved, breaking the stated no-network property — and the `<style>` tag
+was already dropped, so keeping the attribute was inconsistent too); Markdown `![alt](url)`
+now renders a real scheme-checked `<img>` instead of leaking a stray `!` before a link (which
+also made `_safe_href(image=True)` dead code on that path); an unterminated `<script>` now
+emits a diagnostic instead of silently truncating the body; and raw-HTML `target="_blank"`
+anchors get the same `rel="noreferrer noopener"` the Markdown path already added.
+
+**A third review round found the HTML path was broken outright.** `meta`, `link` and
+`base` are void elements: `html.parser` fires `handle_starttag` for them but never a
+matching `handle_endtag`. Because they were also in `DROP_TAGS`, each bare `<meta charset>`
+incremented the skip counter permanently, so every real HTML5 document — anything with a
+charset meta or a stylesheet link in `<head>` — swallowed its entire body and reported
+"No reviewable blocks". The documented landing-page use case simply did not work; earlier
+HTML fixtures happened to use `<title>`/`<style>` only, which is why three rounds missed it.
+Void drop-tags no longer touch the counter. `--sample` now builds **both** a Markdown and a
+full-DOCTYPE HTML fixture, asserts the expected block count for each, exits 2 on regression,
+and writes to a temp dir so a sample run cannot litter the caller's cwd. Same round:
+`xlink:href` joined the URL allowlist (SVG anchors still honour it, so
+`<svg><a xlink:href="javascript:...">` bypassed the plain `href` check), and `status` now
+previews **every** gate rule through a shared `gate_refusals()` — previously it looked only
+at blocking items, so a round with no named reviewer reported 0 while `close` refused on G3.
+
+**A sixth round caught the void-element fix having been only half-applied, and a forgery
+route through the artifact itself.** The round-three commit message claimed "meta, link and
+base are void elements", but only `meta` and `link` reached `VOID` — so `<base href="/">`,
+which sits in the `<head>` of a great many real pages, still swallowed the whole body and
+returned "No reviewable blocks". `VOID` is now the complete HTML spec list rather than a
+hand-picked subset, and `SAMPLE_HTML` carries a `<base>` tag so the regression gate would
+catch a third recurrence. Separately: a reviewed HTML artifact carrying its own
+`data-hg="..."` attribute kept it, and the builder appended a second — browsers honour the
+*first*, and attribute values may contain raw newlines, so a crafted artifact could inject
+a forged `## APPROVE` heading into the exported sidecar. That is the same silent-false-approval
+failure G7 exists to prevent, arriving through the artifact instead of the sidecar. Reserved
+attributes (`data-hg`) and reserved element ids (the page's own `doc`, `items`, `reviewer`,
+`export`, …) are now stripped from reviewed HTML before anchoring.
+
+**G7 came out of the first PR review round** and closes a real hole: a mistyped severity heading
+(`## BLOKCER`) silently downgrades to `NIT`, so before this a reviewer's genuine blocker
+could be lost to a typo and `close` would still exit 0. Reproduced, then fixed — the
+parser's integrity problems (unknown severity, EDIT with no replacement text, a quote
+that is not in the target file) are now closer-blocking rather than advisory prose.
+Problems that already have their own rule (G2, G3) are filtered so they are not
+double-reported.
+
+**Loop discipline — the deliberate inversion of upstream.** There is no blocking poll:
+`status` returns immediately, `open` detects a headless host (`CI`, SSH, no `DISPLAY`)
+and says so rather than sending the agent to wait at a browser that will never appear,
+and rounds are capped with escalation on exhaustion. The sidecar is plain, hand-writable
+Markdown, so the loop still closes over SSH and in CI where no browser exists.
+
+**Optional bridge**, opt-in and asked-first: `npx -y human-review@0.6.0` — always
+pinned, never bare. It changes the editor; the gate still governs closure.
+
+Ships 3 references citing 7–8 sources each (Bainbridge *Ironies of Automation*,
+Parasuraman & Riley, Fagan inspection, Wiegers, Weinberg, *SWE at Google* ch. 9,
+W3C Web Annotation `TextQuoteSelector`, Conventional Comments, Klein pre-mortem,
+Nygard *Release It!*), a `batch.v1` JSON schema, a worked sidecar example,
+`cs-human-gate` agent, and `/cs:human-gate`. SKILL.md is a full PASS on the
+write-a-skill 6-item checklist; description validator PASS.
+
+### Changed — counters
+
+Merged on top of `book-to-skill`, which landed in `dev` while this branch was open:
+skills 363 → 364, tools 663 → 666, refs 746 → 749, agents 103 → 104,
+commands 118 → 119, plugins 89 → 90, engineering row 85 → 86
+(derived via `scripts/derive_counters.py --check`).
+
+---
+
 ## [Unreleased] — book-to-skill: document → knowledge-base skill → plugin (this PR)
 
 ### Added — `engineering/book-to-skill`

@@ -8,7 +8,7 @@ description: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `ciso-review`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/ciso-review/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/ciso-review/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -115,7 +115,7 @@ python ../../../skills/ciso-advisor/scripts/compliance_tracker.py
 
 ## Related
 
-- Agent: [`cs-ciso-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md)
+- Agent: [`cs-ciso-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-ciso-advisor.md)
 - Skill: [`ciso-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/SKILL.md)
 - Compliance: [`ra-qm-team`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team)
 

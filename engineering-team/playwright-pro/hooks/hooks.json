@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/validate-test.sh"
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/validate-test.sh\""
           }
         ]
       }
@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/detect-playwright.sh"
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/detect-playwright.sh\""
           }
         ]
       }

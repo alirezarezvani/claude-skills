@@ -8,7 +8,7 @@ description: "Eval-demanding Chief AI Officer advisor for model build-vs-buy dec
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-caio-advisor.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-caio-advisor.md">Source</a></span>
 </div>
 
 
@@ -170,8 +170,8 @@ python ../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py worklo
 ## References
 
 - Skill: [../../skills/chief-ai-officer-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-ai-officer-advisor/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:caio-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/caio-review/SKILL.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
+- Sibling command: [`/cs:caio-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/caio-review/SKILL.md)
 
 ---
 

@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "documentation/implementation/bizops-commercial-expansion-plan.md",
+    "build_pattern": "Path B (direct conversion) — orchestrator skill uses context: fork. Sprint 1 shipped orchestrator + 2 sub-skills (pricing-strategist, deal-desk). Sprint 2 adds partnerships-architect (5-tier + joint GTM + revshare), channel-economics (cost-to-serve + ROI + mix), commercial-policy (discount matrix + exception flow + linter), rfp-responder (Shipley structured response, context: fork for heavy intake), commercial-forecaster (4Q-weighted with mandatory assumption disclosure). Every SKILL.md ships a Forcing-question library section per Matt Pocock grill-with-docs discipline.",
+    "distinct_from": "business-growth/sales-engineer (technical sale: demos, POCs). business-growth/revenue-operations (lead routing, SDR motion). business-growth/contract-and-proposal-writer (free-form authoring, not buyer-dictated structured response). c-level-advisor/cro-advisor (strategic 'when to hire VP Sales' calls, not per-deal approval). finance/financial-analysis (close + report, not forward forecast or per-deal economics)."
+  }
+}

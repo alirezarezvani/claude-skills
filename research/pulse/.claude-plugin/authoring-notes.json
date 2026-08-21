@@ -1,0 +1,6 @@
+{
+  "source": {
+    "spec": "megaprompts/01-pulse-megaprompt.md",
+    "build_pattern": "Path B (direct conversion) — megaprompt body extracted into SKILL.md with deterministic structure preservation. Research-pack convention block preserved verbatim per PR #657 audit. Wrapper additions (3 stdlib scripts, 3 references, cs-pulse agent, /cs:pulse command) layered on top per repo convention."
+  }
+}

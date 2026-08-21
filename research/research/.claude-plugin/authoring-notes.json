@@ -1,0 +1,15 @@
+{
+  "source": {
+    "spec": "megaprompts/13-research-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Hybrid router + fallback (Architecture C) — deterministic classification → specialist delegation OR own fallback workflow. The runtime orchestrator for the research domain.",
+    "distinct_from": "engineering/autoresearch-agent — that skill is Karpathy's autonomous file-optimization experiment loop; this skill is a research-query router. Different use cases, no overlap.",
+    "routing_targets": [
+      "research/pulse",
+      "research/litreview",
+      "research/grants",
+      "research/dossier",
+      "research/patent",
+      "research/syllabus"
+    ]
+  }
+}

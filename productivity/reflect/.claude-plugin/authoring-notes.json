@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "megaprompts/02-reflect-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Productivity light-prompt-flow sibling of capture. Pure-reasoning skill — no external APIs, no DOCX generation, most portable in the collection.",
+    "sibling_of": "productivity/capture (light prompt-flow shape)"
+  }
+}

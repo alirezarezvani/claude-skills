@@ -1,1 +1,1 @@
-../../../c-level-advisor/c-level-agents/skills/c-level-agents/SKILL.md
+../../../c-level-agents/skills/c-level-agents/SKILL.md

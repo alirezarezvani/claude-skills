@@ -123,8 +123,8 @@ python conformity_assessment_planner.py system.json
 
 - [cs-compliance-officer](cs-compliance-officer.md) — Multi-framework orchestrator (routes here for EU AI Act deep work)
 - [cs-aims-iso42001](cs-aims-iso42001.md) — ISO 42001 AIMS specialist
-- [cs-caio-advisor](../../c-level-advisor/c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy
-- [cs-general-counsel-advisor](../../c-level-advisor/c-level-agents/agents/cs-general-counsel-advisor.md) — Novel-case legal review
+- [cs-caio-advisor](../../c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy
+- [cs-general-counsel-advisor](../../c-level-agents/agents/cs-general-counsel-advisor.md) — Novel-case legal review
 
 ## References
 

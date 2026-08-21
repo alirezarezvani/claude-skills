@@ -9,10 +9,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": ["./skills/handoff"],
-  "source": {
-    "build_pattern": "Path B (direct conversion). Productivity-shaped wrapper around Matt Pocock's MIT-licensed handoff prompt: triggers + first-run setup + redaction enforcement + SessionStart auto-load.",
-    "sibling_of": "engineering/handoff (code/PR-focused). This productivity variant adds first-run setup, configurable save location, redaction linter, and SessionStart auto-load.",
-    "distinct_from": "engineering/handoff differs by being optimized for code/PR handoffs without first-run setup, configurable save paths, or SessionStart auto-load."
-  }
+  "skills": [
+    "./skills/handoff"
+  ]
 }

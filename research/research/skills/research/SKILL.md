@@ -245,5 +245,5 @@ All routing decisions + overrides also logged to `~/.research_sessions/<session>
 ---
 
 **Version:** 1.1.0
-**Source spec:** [`megaprompts/13-research-megaprompt.md`](../../../../megaprompts/13-research-megaprompt.md)
+**Source spec:** `megaprompts/13-research-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). v1.1.0: bare-noun signals now ask instead of silent-routing; 5s auto-proceed affordance removed; context-economy trim per the 2026-06 newgen audit.

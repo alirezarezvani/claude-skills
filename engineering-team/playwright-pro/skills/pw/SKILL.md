@@ -98,6 +98,13 @@ npx playwright test tests/auth/login.spec.ts --headed
 
 ## Integration Setup
 
+> **Not auto-registered (issue #978).** The TestRail and BrowserStack MCP servers
+> are no longer declared in the plugin's `.mcp.json` (they failed to connect for
+> every user — no bundled `node_modules`). Exporting the env vars below is not
+> enough: `/pw:testrail` / `/pw:browserstack` fail with "tool not found" until you
+> enable the server manually (`cd integrations/<name>-mcp && npm install`, then
+> register it in your own user/project MCP config). See `CLAUDE.md` → Integrations.
+
 ### TestRail (Optional)
 ```bash
 export TESTRAIL_URL="https://your-instance.testrail.io"

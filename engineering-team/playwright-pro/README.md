@@ -80,6 +80,14 @@ Ready-to-use, parametrizable templates covering:
 
 ## Integrations Setup
 
+> **Note (issue #978):** the TestRail and BrowserStack MCP servers are **not
+> auto-registered** — they were removed from the plugin's `.mcp.json` because they
+> failed to connect for every user (no bundled `node_modules`). Setting the env
+> vars below is **not** enough on its own; `/pw:testrail` and `/pw:browserstack`
+> will fail with "tool not found" until you enable the server manually
+> (`cd integrations/<name>-mcp && npm install`, then register it in your own
+> user/project MCP config). See the **Integrations** section of `CLAUDE.md`.
+
 ### TestRail (Optional)
 
 Set environment variables:

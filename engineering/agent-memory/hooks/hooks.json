@@ -1,0 +1,39 @@
+{
+  "description": "Three hooks implementing the L0-L3 memory tiers. SessionStart injects L3 (global persona) + L2 (current project context). UserPromptSubmit recalls relevant L1 atoms. SessionEnd asynchronously captures L0 into L1, detects contradictions, and stages promotions for human adoption. PROVISIONAL ENTRY: the UserPromptSubmit hook is not a settled part of the design. DESIGN.md section 9.5 is an open decision whose option (c) is to drop it entirely, because its 100ms recall budget is dominated by python interpreter cold-start rather than by any work the script does. Measured on the implementation machine: spawn-to-exit p50 29ms / p95 31ms / max 35ms, of which the scoring pass over 500 atoms is 2-3ms -- so the budget IS met there, but one machine is not a portability claim and the decision stays open. SessionStart and SessionEnd are not provisional. Every hook fails open (exit 0, no memory) and never blocks. Disable individually with AGENT_MEMORY_SESSIONSTART=0, AGENT_MEMORY_USERPROMPTSUBMIT=0, AGENT_MEMORY_SESSIONEND=0. NOTE ON THE RECALL TIMEOUT: the hook 'timeout' field below is in SECONDS and 1 is its floor, so it is only a backstop against a wedged process. The real requirement is the 100ms internal self-budget that user_prompt_submit.py enforces against its own monotonic clock, returning whatever it has when the budget expires. See DESIGN.md section 5.2 -- finishing under 1s does NOT satisfy the spec.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/session_start.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/user_prompt_submit.py\"",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/session_end.py\"",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}

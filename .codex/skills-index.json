@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 355,
+  "total_skills": 356,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1092,6 +1092,12 @@
       "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
+      "name": "hivemind",
+      "source": "../../engineering/hivemind",
+      "category": "engineering-advanced",
+      "description": "Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grunt work to a single worker or a parallel swarm (scout/coder/tester) with worktree isolation, benchmarking against opencode, or when the user says \"spawn a worker\", \"swarm\", \"delegate to opencode\", or \"/oc\"."
+    },
+    {
       "name": "hub-init",
       "source": "../../engineering/agenthub/skills/hub-init",
       "category": "engineering-advanced",
@@ -2178,7 +2184,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 89,
+      "count": 90,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

@@ -42,9 +42,10 @@ you", optionally self-grading each firing via a nested outcome), or a
   multiagent ≤20 roster / ≤25 threads, `max_iterations` ≤20, ≤20 creds/vault,
   ≤1,000 deployments/org); `payload_validator.py` FAILs on any embedded API key.
 - **Verification:** independent 10-agent workflow re-checked every SPEC.md part
-  against disk — 9/9 PASS, zero differences from spec (recorded in
-  `agent-launcher/DELIVERY-REPORT.md`). Full 4-phase pipeline verified
-  end-to-end; generated `launch.sh` passes `bash -n`.
+  against disk — 9/9 PASS, zero differences from spec (delivery report kept in
+  maintainer-local `documentation/`, per the sprint-artifact convention; the
+  public build target is `agent-launcher/SPEC.md`). Full 4-phase pipeline
+  verified end-to-end; generated `launch.sh` passes `bash -n`.
 - **Counters** (at merge): skills 362 → 368, domains 18 → 19, tools 644 → 664,
   refs 741 → 746, agents 102 → 106, commands 116 → 124, plugins 88 → 89
   (derived via `scripts/derive_counters.py --check`).

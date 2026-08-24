@@ -90,7 +90,7 @@ SKILL_DOMAINS = {
     },
     "agent-launcher": {
         "category": "agent-development",
-        "description": "Claude Managed Agent launcher (v2.12): session-goal orchestrator (context: fork) + interview + stage-launch (BYOK curl) + grade-iterate (bounded outcome loop) + run-without-you (cron deployment loop) + wrap-up. Re-implements anthropics/launch-your-agent (Apache-2.0)."
+        "description": "Claude Managed Agent launcher (unreleased, post-v2.11.2): session-goal orchestrator (context: fork) + interview + stage-launch (BYOK curl) + grade-iterate (bounded outcome loop) + run-without-you (cron deployment loop) + wrap-up. Re-implements anthropics/launch-your-agent (Apache-2.0)."
     }
 }
 

@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 305,
+  "total_skills": 306,
   "domains": {
     "engineering": [
       {
@@ -22,6 +22,11 @@
         "name": "api-test-suite-builder",
         "description": "Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests.",
         "path": "engineering/api-test-suite-builder"
+      },
+      {
+        "name": "book-to-skill",
+        "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills \u2014 extracting named frameworks, principles, techniques, and anti-patterns into a master SKILL.md plus on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Use when the user wants to study a document with an agent, apply an author's frameworks while working, turn internal docs or standards into a reusable knowledge base, or package a compiled book skill as a claude-skills plugin.",
+        "path": "engineering/book-to-skill"
       },
       {
         "name": "browser-automation",

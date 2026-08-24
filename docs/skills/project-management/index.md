@@ -47,11 +47,11 @@ description: "9 project management skills — project management agent skill and
 
     > Originally contributed by maximcoding(https://github.com/maximcoding) — enhanced and integrated by the claude-skill...
 
--   **[Project Management Skills — Router](pm-skills.md)**
+-   **[Project Management — Domain Orchestrator & Delivery Loop](pm-skills.md)**
 
     ---
 
-    This plugin bundles 8 PM skills (this router is the 9th folder under project-management/skills/). Each skill is self-...
+    This orchestrator does two jobs. Routing: fork context, classify a PM inquiry with
 
 -   **[Scrum Master Expert](scrum-master.md)**
 

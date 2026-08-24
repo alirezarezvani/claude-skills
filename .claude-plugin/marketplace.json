@@ -401,7 +401,7 @@
     {
       "name": "pw",
       "source": "./engineering-team/playwright-pro",
-      "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, TestRail + BrowserStack MCP integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
+      "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, plus optional (manually enabled) TestRail/BrowserStack integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"

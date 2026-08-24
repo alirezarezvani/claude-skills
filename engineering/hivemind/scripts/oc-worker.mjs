@@ -1,4 +1,4 @@
-import { spawnSync, spawn } from "node:child_process";
+import { spawnSync, spawn } from "node:child_process"; // auditor:ignore-line -- spawning headless opencode worker processes is this skill's core, documented function (see SKILL.md Prerequisites + PR #979 dependency disclosure)
 import { setTimeout as delay } from "node:timers/promises";
 import { readFileSync, statSync, mkdirSync, appendFileSync } from "node:fs";
 import { dirname, join } from "node:path";

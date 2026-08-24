@@ -19,7 +19,7 @@ description: "Hybrid research router + fallback persona. Walks 2-4 minimal intak
 **Refusing vague Q1:** "Too broad. Push back once: what specifically about {topic} — adoption / safety / capability / funding / regulation / comparison? Pick an angle."
 
 **Routing transparency (mandatory):**
-> "Routing to `litreview` because your question mentioned PICO and systematic review (2 signals). If you want general research instead OR a different specialist, say so now. Otherwise proceeding in 5s."
+> "Routing to `litreview` because your question mentioned PICO and systematic review (2 signals). If you want general research instead OR a different specialist, say so now — otherwise I'll proceed with this route."
 
 **Override accepted:**
 > "Override accepted. Re-routing to {chosen specialist OR fallback}. Original signals: {what matched}. New target: {target}."
@@ -43,7 +43,8 @@ The cs-research agent orchestrates the `research` skill as the **runtime orchest
 2. **Deterministic classification** — run `skills/research/scripts/classifier.py` on the question
 3. **Route**:
    - **≥2 signals for one specialist** → delegate (with transparency)
-   - **1 signal, single specialist** → weak match, delegate (with transparency)
+   - **1 strong multi-word phrase signal, single specialist** → delegate (with transparency)
+   - **1 bare-noun signal** (e.g., "funding", "fda", "patent") → ask Q3 with that specialist as the recommended answer — never silent-route
    - **Otherwise** → ask Q3 disambiguation
 4. **Specialist delegation** — pass question + Q2 preference verbatim; let specialist run its own intake; return its output
 5. **Fallback workflow** (if no specialist) — 8-step plan-decompose-search-synthesize-cite

@@ -77,3 +77,7 @@ tests/
 # CLAUDE.md are ever committed. errors.log records dropped writes; staged/ holds
 # promotion proposals awaiting review. None of it belongs in git.
 .memory/
+
+# agent-launcher user output folders (goal.json, payloads, launch.sh live here)
+my-agent/
+my-agent-*/

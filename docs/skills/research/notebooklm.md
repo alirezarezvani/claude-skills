@@ -299,5 +299,5 @@ After completing any action:
 ---
 
 **Version:** 1.0.0
-**Source spec:** `megaprompts/03-notebooklm-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
+**Source spec:** `megaprompts/03-notebooklm-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Browser-automation shape — distinct from research-pack convention.

@@ -53,11 +53,11 @@ description: "17 product skills — product management agent skill and Claude Co
 
     Essential tools and frameworks for modern product management, from discovery to delivery.
 
--   **[Product Skills — Router](product-skills.md)**
+-   **[Product Team — Domain Orchestrator & Discovery Loop](product-skills.md)**
 
     ---
 
-    This plugin bundles 12 product skills (this router is the 13th folder under product-team/skills/). Each skill is self...
+    This orchestrator does two jobs. Routing: fork context, classify a product inquiry
 
 -   **[Product Strategist](product-strategist.md)**
 

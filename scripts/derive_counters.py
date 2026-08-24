@@ -141,6 +141,10 @@ CLAIM_PATTERNS = {
     "python_tools": re.compile(r"(\d+)\s+Python (?:automation )?tools"),
     "references": re.compile(r"(\d+)\s+reference guides"),
     "plugins_registered": re.compile(r"(\d+)\s+marketplace plugins"),
+    # Anchored on the "(cs-" suffix so prose like "9 more coding agents" or a
+    # skill's own "4 agents, 8 commands" inventory can't false-match.
+    "agents": re.compile(r"(\d+)\s+agents \(cs-"),
+    "commands": re.compile(r"(\d+)\s+slash commands"),
 }
 
 

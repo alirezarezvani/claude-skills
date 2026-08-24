@@ -2,7 +2,7 @@
 name: agent-launcher-orchestrator
 description: Use when a user wants to build, launch, grade, or schedule a Claude Managed Agent (CMA) in their own Anthropic account — "build me an agent", "launch this as a managed agent", "run this on a schedule", "grade my agent against a rubric", "set up a nightly worker". Reads the per-session goal (./my-agent/goal.json), routes deterministically to one of five phase sub-skills (interview → stage-launch → grade-iterate → run-without-you → wrap-up) via goal_router.py, and compiles the goal+phase into an execution shape (single-pass workflow / bounded grade→iterate loop / recurring cron deployment loop) via loop_compiler.py. Forks context so heavy intake (build sheets, payloads, eval cases) stays out of the parent thread. All launches are emitted as BYOK curl the user runs with their own key; no tool makes API calls. Inspired by anthropics/launch-your-agent (Apache-2.0). Distinct from engineering/agent-harness (generic domain loop) and engineering/write-a-skill (authors Claude Code skills, not CMAs).
 context: fork
-version: 2.12.0
+version: 2.11.2
 author: Alireza Rezvani
 license: MIT
 tags: [claude-managed-agents, cma, agent, launch, orchestrator, session-goal, loop, workflow, cron, outcome, byok]
@@ -31,7 +31,7 @@ the phase + recurrence selects the loop shape.
 Run the router, then act on its exit code:
 
 ```bash
-python3 agent-launcher/skills/agent-launcher-orchestrator/scripts/goal_router.py --out-dir ./my-agent
+python3 scripts/goal_router.py --out-dir ./my-agent
 # exit 0 ROUTE  -> fork to the named phase sub-skill
 # exit 3 ASK    -> ask the one printed forcing question, then re-route
 # exit 4 REFUSE -> goal too vague; get one sentence, then re-route
@@ -48,7 +48,7 @@ python3 agent-launcher/skills/agent-launcher-orchestrator/scripts/goal_router.py
 ## Compile the loop
 
 ```bash
-python3 agent-launcher/skills/agent-launcher-orchestrator/scripts/loop_compiler.py \
+python3 scripts/loop_compiler.py \
   --out-dir ./my-agent --max-iterations 5 --cron "0 9 * * *" --timezone Europe/Berlin --nest-outcome
 ```
 

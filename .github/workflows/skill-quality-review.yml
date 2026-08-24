@@ -200,7 +200,8 @@ jobs:
 
           if [ "$TESSL_ERRORS" -gt 0 ]; then
             echo "" >> "$REPORT_FILE"
-            echo "> ⚙️ ${TESSL_ERRORS} skill(s) could not be scored — the Tessl CLI errored before producing a review. Reported as a warning, not a merge blocker; if this persists, check the Tessl CLI install/auth in this workflow." >> "$REPORT_FILE"
+            echo "> ⚙️ ${TESSL_ERRORS} skill(s) could not be scored — the Tessl CLI errored before producing a review." >> "$REPORT_FILE"
+            echo "> Reported as a warning, not a merge blocker; if this persists, check the Tessl CLI install/auth in this workflow." >> "$REPORT_FILE"
           fi
 
           echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"

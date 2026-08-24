@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/engineering/agent-memory/assets/memory_schema.json",
+  "$id": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/engineering/agent-memory/skills/agent-memory/assets/memory_schema.json",
   "$comment": "$id decision, settled — do not re-litigate. (a) raw.githubusercontent, NOT the github.com/blob/ form used by the repo's one other schema: blob URLs serve HTML, so anything that dereferences $id for $ref breaks. That other file is a pre-existing inconsistency, not a convention to propagate. (b) Pinned to main, not dev, because $id is a stable identifier for the published artifact; under this repo's dev -> main promotion flow it is a dead link until the promotion PR lands, which is accepted deliberately — a URL that is correct-eventually beats one that is correct-now and wrong-after-promotion. Nothing in this repo dereferences $id today.",
   "title": "agent-memory atom (L1) — v1",
   "description": "One atomic memory claim extracted from an L0 transcript. Every atom MUST carry a live back-pointer into the transcript that produced it; an atom without provenance is discarded, never stored. Promotion to L2/L3 is decided by recurrence across distinct sessions, not by importance. See ../DESIGN.md sections 3 and 4.",

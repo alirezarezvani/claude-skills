@@ -2,7 +2,7 @@
 
 > **Editing this file? Run the checker first — nothing in CI will.**
 > ```sh
-> cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f assets/_t.py
+> python3 skills/agent-memory/scripts/validate_examples.py
 > ```
 > It ties this doc, `assets/memory_schema.json`, and the fixtures together
 > (§10.1). Drift between those three was the dominant defect class during this
@@ -326,7 +326,7 @@ rule instead of hiding it.
 > there is no single incumbent id to carry forward — which is exactly why
 > `promoted_from_projects` exists to preserve the link back.
 
-Full JSON Schema: [`assets/memory_schema.json`](assets/memory_schema.json).
+Full JSON Schema: [`assets/memory_schema.json`](skills/agent-memory/assets/memory_schema.json).
 
 **Why the schema carries three fixtures, one per tier:** the `examples` array is
 not illustration — it is the only thing that exercises the `allOf` branches.
@@ -1182,7 +1182,7 @@ order, a `confidence` value that contradicted its own lifecycle narrative. Every
 one was caught by a check, and hand-checking does not scale as the schema moves
 toward implementation.
 
-The validator is written and tested: **[`assets/validate_examples.py.txt`](assets/validate_examples.py.txt)**
+The validator is written and tested: **[`assets/validate_examples.py.txt`](skills/agent-memory/scripts/validate_examples.py)**
 — stdlib-only, **69 checks in seven families** (schema conformance · the
 tier-dependent back-pointer · id reproduction from the doc's own published
 `normalize()` · confidence monotonicity · document structure and links · prose
@@ -1198,13 +1198,15 @@ its own paths by walking up from `__file__` — a `python3 <(cat …)` or `-c
 "$(cat …)"` invocation gives it no real location and it will refuse to start):
 
 ```sh
-cp assets/validate_examples.py.txt assets/_t.py && python3 assets/_t.py; rm -f assets/_t.py
+python3 skills/agent-memory/scripts/validate_examples.py
 ```
 
 **Run it before any further edit to this folder lands.** Nothing in CI gates the
 drift class this section exists to prevent — the checker is only as good as the
 habit of running it, and "a future editor tweaks a fixture in `DESIGN.md`
-without knowing this file exists" is the failure that leaves.
+without knowing this file exists" is the failure that leaves. **It is now a real
+`scripts/validate_examples.py`**; the `.py.txt` parking described below was
+undone when the plugin shipped, and §11's placement question no longer gates it.
 
 **The `.txt` parking is not what blocks CI**: a workflow step can `cp` it to a
 temp `.py` and run it exactly as above, and `derive_counters.py` never sees the
@@ -1213,11 +1215,7 @@ temp file. The whole step, for whoever wires it:
 ```yaml
 - name: agent-memory spec drift check
   run: |
-    cd engineering/agent-memory
-    cp assets/validate_examples.py.txt assets/_ci.py
-    python3 assets/_ci.py; rc=$?
-    rm -f assets/_ci.py
-    exit $rc
+    python3 engineering/agent-memory/skills/agent-memory/scripts/validate_examples.py
 ```
 
 Not added to `ci-quality-gate.yml` here: that workflow runs on every PR in the
@@ -1282,7 +1280,7 @@ than one blocked by a naming workaround.
 
 | Reference | Now | After the move |
 |---|---|---|
-| `DESIGN.md`'s link (§3.1) | `[…](assets/memory_schema.json)` | `[…](skills/agent-memory/assets/memory_schema.json)` |
+| `DESIGN.md`'s link (§3.1) | `[…](skills/agent-memory/assets/memory_schema.json)` | `[…](skills/agent-memory/assets/memory_schema.json)` |
 | The schema's own `$id` | `…/engineering/agent-memory/assets/…` | `…/engineering/agent-memory/skills/agent-memory/assets/…` |
 
 `DESIGN.md` stays at the plugin root (it documents the plugin, not the skill), so
@@ -1291,14 +1289,24 @@ other forward-looking wrinkle in this doc — the counter delta, the manifest-fo
 follow-up — already is, and a silently-dead link in the file that *is* the
 contract would be the wrong thing to discover later.
 
-**Counters on ship: skills +1, tools +6, refs +3, commands +1, agents +1,
-plugins +1.** Tools is **+6, not +3** — `derive_counters.py` counts *every*
+**Counters on ship: skills +1, tools +8, refs +3, commands +1, agents +1,
+plugins +1.** Tools is **not +3** — `derive_counters.py` counts *every*
 `.py` outside repo-root `scripts/`, so the three `hooks/*.py` count alongside
-the three `scripts/*.py`. Verified empirically against this tree: adding one
+the `scripts/*.py`. Verified empirically against this tree: adding one
 file under `hooks/` moves `python_tools` 663 → 664. `productivity/handoff` is
 the confirming precedent — its 7 `scripts/*.py` + 2 `hooks/*.py` are 9 counted
-tools, i.e. the `hooks/` files are counted alongside the `scripts/` ones. Verify with
-`scripts/derive_counters.py --check` before opening the implementation PR.
+tools, i.e. the `hooks/` files are counted alongside the `scripts/` ones.
+
+> **Corrected at implementation time.** This paragraph originally said **+6**,
+> derived from §10's four-script tree (3 scripts + 3 hooks, with
+> `validate_examples.py` already counted). The delivered surface is **5 scripts
+> + 3 hooks = +8**: the fifth script is `memory_core.py`, a shared module with
+> no CLI, added because duplicating the redaction patterns, id algorithm and
+> lock protocol across seven files is the drift class this document exists to
+> prevent. Measured on merge: `python_tools` 695 → 703. `README.md`'s
+> "Deviations from `DESIGN.md`" list is authoritative for this and every other
+> divergence. Verify with `scripts/derive_counters.py --check` before opening
+> the implementation PR.
 
 **Follow-up for the maintainer (not this PR):** the identical on-disk layout is
 declared two different ways across the repo, and only one of them is documented.

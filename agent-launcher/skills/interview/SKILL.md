@@ -11,7 +11,7 @@ compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini
 # Phase 1 — Interview → Plan
 
 Open warmly with one or two examples from
-[`references/examples-bank.md`](../../references/examples-bank.md), then interview
+[`../../references/examples-bank.md`](../../references/examples-bank.md), then interview
 the founder into a **build sheet**. No API key needed in this phase — the output
 is a plan.
 
@@ -26,7 +26,7 @@ is a plan.
 | **Done** | "How would you grade a good run?" | outcome `rubric` (required) |
 | **Recurrence** | "Once, on request, or on a cadence?" | single-pass / grade-loop / cron-loop |
 
-See [`references/interview-to-config.md`](../../references/interview-to-config.md)
+See [`../../references/interview-to-config.md`](../../references/interview-to-config.md)
 for the full mapping.
 
 ## Workflow
@@ -35,7 +35,7 @@ for the full mapping.
    invent specifics they didn't claim.
 2. **Map to primitives.**
    ```bash
-   python3 skills/interview/scripts/interview_planner.py \
+   python3 agent-launcher/skills/interview/scripts/interview_planner.py \
      --job "Triage overnight support email" --trigger schedule \
      --inputs "gmail,memory" --actions "label,reply" \
      --dod "one label per email, grounded reason, no invented facts" \
@@ -46,11 +46,11 @@ for the full mapping.
    deferrals** behind `always_ask`.
 3. **Assemble the sheet.**
    ```bash
-   python3 skills/interview/scripts/build_sheet_builder.py --plan ./my-agent/plan.json --out-dir ./my-agent
+   python3 agent-launcher/skills/interview/scripts/build_sheet_builder.py --plan ./my-agent/plan.json --out-dir ./my-agent
    ```
 4. **Validate limits.**
    ```bash
-   python3 skills/interview/scripts/primitives_validator.py --sheet ./my-agent/build-sheet.json
+   python3 agent-launcher/skills/interview/scripts/primitives_validator.py --sheet ./my-agent/build-sheet.json
    ```
    FAIL blocks progress; fix and re-run. WARN is advisory (surface it).
 5. **Record the plan in the goal.** `goal_state.py set --phase stage-launch

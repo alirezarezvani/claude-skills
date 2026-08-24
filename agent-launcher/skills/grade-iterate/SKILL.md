@@ -14,15 +14,15 @@ This is the plugin's **loop**: CMA's `outcome` primitive self-grades the agent's
 work in an isolated context and feeds failing verdicts back for the next attempt.
 It is **always bounded** by `max_iterations` (1..20) — never "improve forever".
 
-See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.md)
+See [`../../references/loops-and-workflows.md`](../../references/loops-and-workflows.md)
 and the outcome section of
-[`references/cma-primitives.md`](../../references/cma-primitives.md).
+[`../../references/cma-primitives.md`](../../references/cma-primitives.md).
 
 ## Workflow
 
 1. **Define the outcome.**
    ```bash
-   python3 skills/grade-iterate/scripts/outcome_builder.py \
+   python3 agent-launcher/skills/grade-iterate/scripts/outcome_builder.py \
      --sheet ./my-agent/build-sheet.json --max-iterations 5 \
      --out ./my-agent/payloads/outcome.json
    ```
@@ -30,7 +30,7 @@ and the outcome section of
    payload as a `user.define_outcome` event (append to the running session).
 2. **Read every verdict first.**
    ```bash
-   python3 skills/grade-iterate/scripts/verdict_reader.py --result ./my-agent/last-verdict.json
+   python3 agent-launcher/skills/grade-iterate/scripts/verdict_reader.py --result ./my-agent/last-verdict.json
    ```
    Tables the rubric outcome and recommends: **SHIP** (`satisfied`), **SHARPEN**
    then re-run (`needs_revision`), **ESCALATE** (`max_iterations_reached` /
@@ -40,7 +40,7 @@ and the outcome section of
    run halts at the cap and escalates. Don't burn the budget on cosmetic edits.
 4. **Once a version passes, run held-back eval.**
    ```bash
-   python3 skills/grade-iterate/scripts/eval_scaffold.py \
+   python3 agent-launcher/skills/grade-iterate/scripts/eval_scaffold.py \
      --sheet ./my-agent/build-sheet.json --out ./my-agent/eval.json --concurrency 5
    ```
    Held-back cases (never seen during iteration) run in parallel, capped at the

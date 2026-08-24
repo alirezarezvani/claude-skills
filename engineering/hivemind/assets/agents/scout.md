@@ -1,4 +1,5 @@
 ---
+name: hive-scout
 description: Read-only codebase scout - research and reporting, zero writes
 mode: subagent
 model: opencode/mimo-v2.5-free

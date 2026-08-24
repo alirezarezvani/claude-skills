@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 427,
+  "total_skills": 430,
   "skills": [
     {
       "name": "README",
@@ -1049,6 +1049,11 @@
       "description": "Turn any domain folder of skills into a bounded agentic loop: compile a goal into a verifiable task plan, execute tasks with the domain's own tools, verify every task with machine-run checks, retry with caps, escalate to a human when budgets exhaust, and refuse to close until everything is verified or explicitly waived. Use when you want an agent or subagent to pick up a goal and drive it to a verified close across one of this repo's 18 domains ('run this goal through the engineering harness', 'set up an agentic loop for marketing work', 'make the finance domain self-verifying'). NOT for authoring Claude Code Workflow-tool .js scripts (workflow-builder), N-agent tournaments on one task (agenthub), single-file metric optimization (autoresearch-agent), or discovering published loop recipes (loop-library)."
     },
     {
+      "name": "agent-memory",
+      "category": "engineering-advanced",
+      "description": "Use when a project's CLAUDE.md has grown past what anyone reads and you want the agent to learn durable facts from its own sessions instead \u2014 or when asking why the agent keeps re-learning the same correction, why a remembered rule is wrong, or where a memory line came from. Implements a four-tier store (L0 transcripts / L1 candidates / L2 project context / L3 stable persona) where promotion is earned by recurrence across sessions and days, never by one confident statement, and nothing reaches a committed file without a human adopting it."
+    },
+    {
       "name": "agent-workflow-designer",
       "category": "engineering-advanced",
       "description": "Design production-grade multi-agent workflows with clear pattern choice (sequential, parallel, hierarchical), handoff contracts, failure handling, and cost/context controls. Use when architecting a multi-step agent pipeline, choosing between single-agent vs multi-agent approaches, or refactoring an LLM workflow that suffers from context bloat or unreliable handoffs."
@@ -1229,6 +1234,11 @@
       "description": "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw \u2014 chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
     },
     {
+      "name": "hivemind",
+      "category": "engineering-advanced",
+      "description": "Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grunt work to a single worker or a parallel swarm (scout/coder/tester) with worktree isolation, benchmarking against opencode, or when the user says \"spawn a worker\", \"swarm\", \"delegate to opencode\", or \"/oc\"."
+    },
+    {
       "name": "hub-init",
       "category": "engineering-advanced",
       "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task."
@@ -1367,6 +1377,11 @@
       "name": "ship-gate",
       "category": "engineering-advanced",
       "description": ">"
+    },
+    {
+      "name": "skill-doctor",
+      "category": "engineering-advanced",
+      "description": "Use when the user wants their agent setup graded from real conversation history, asks which installed skills are actually working, or wants evidence-backed skill edits \u2014 scores recent local Claude Code / Codex sessions against efficiency and code-quality rubrics, then drafts skill changes gated by a deterministic aggregator and renders one local shareable report."
     },
     {
       "name": "skill-security-auditor",
@@ -2177,7 +2192,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 88,
+      "count": 91,
       "description": "Engineering-advanced resources"
     },
     "finance": {

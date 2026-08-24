@@ -1,4 +1,5 @@
 ---
+name: hive-coder
 description: Focused coder - implements exactly the assigned subtask in its worktree
 mode: subagent
 model: opencode/mimo-v2.5-free

@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "122 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "124 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">122 commands for quick access to common operations</p>
+<p class="domain-count">124 commands for quick access to common operations</p>
 
 </div>
 
@@ -253,6 +253,12 @@ description: "122 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
 
     Parse $ARGUMENTS: the first token is the domain (one of the 18 manifest names under
 
+-   :material-console:{ .lg .middle } **[`/cs-memory`](cs-memory.md)**
+
+    ---
+
+    Argument: $ARGUMENTS (default: status)
+
 -   :material-console:{ .lg .middle } **[`/cs-book-to-plugin`](cs-book-to-plugin.md)**
 
     ---
@@ -312,6 +318,12 @@ description: "122 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
     ---
 
     Run the memory-engineering pass on $ARGUMENTS.
+
+-   :material-console:{ .lg .middle } **[`/cs-skill-doctor`](cs-skill-doctor.md)**
+
+    ---
+
+    Run the skill-doctor pass with $ARGUMENTS (pass any --repo, --days,
 
 -   :material-console:{ .lg .middle } **[`/skillopt-sleep`](skillopt-sleep.md)**
 

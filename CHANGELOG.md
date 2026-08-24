@@ -5,7 +5,89 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] — agent-launcher: session-goal domain plugin for Claude Managed Agents (PR #961, merged 2026-08-21)
+## [2.12.0] - 2026-08-24 — consolidated release: 20 domains, 380 skills, full issue-triage sweep
+
+**First tagged release since v2.9.0.** Versions 2.10.0–2.11.2 were documented in
+CLAUDE.md/README at the time but never entered here, so the Release workflow never
+tagged them; this entry consolidates everything since the v2.9.0 tag — the
+previously documented v2.10.x/v2.11.x work plus all post-2.11.2 merges. Headline
+counters at this release: **380 skills · 96 marketplace plugins · 20 domains ·
+706 Python tools · 823 reference docs · 114 agents · 138 slash commands**
+(derived and gated by `scripts/derive_counters.py --check`).
+
+### Added — consolidated from the untagged v2.10.0–v2.11.2 releases
+
+- **markdown-html/** domain complete (v2.10.0–v2.10.3): orchestrator +
+  design-system foundation, then `md-document` (long-form), `md-review`
+  (2-col code review), `md-slides` (single-file deck with presenter mode).
+- **engineering/agent-harness** (v2.11.0): manifest builder + goal compiler +
+  loop controller turning any domain into a bounded, self-verifying agent loop;
+  agentic-readiness audit of both engineering folders.
+- **product-team + project-management as agent-harness domains** (v2.11.1):
+  fork-orchestrators, deterministic goal routers, Jira snapshot bridge with
+  Monte Carlo forecasting, delegation-governance loop gate, discovery cadence
+  tracker + OST linter; audit record `audit/pm-product-agentic-2026-07/`.
+- **engineering/skillopt-sleep** (v2.11.2): vendored microsoft/SkillOpt nightly
+  self-improvement engine with 23 documented hardening deviations.
+
+### Added — post-v2.11.2 merges in this release
+
+- **agent-launcher/** — 20th top-level domain: Claude Managed Agent launcher
+  (full detail in its section below).
+- **engineering/memory-engineering** — design/price/audit agent memory systems
+  (cost profiler, architecture picker, density auditor, forgetting-policy linter).
+- **engineering/agent-memory** — four-tier (L0–L3) promotion-gated memory ladder
+  over Claude Code hooks; nothing reaches a CLAUDE.md without a human adopt.
+- **engineering/human-gate**, **engineering/book-to-skill**,
+  **engineering/hivemind** (PR #979), **productivity/fable-goal**,
+  **productivity coverage expansion** (weekly-review, deep-work, meetings +
+  public audit `audit/productivity-2026-07/`),
+  **marketing local-seo-manager**, code-reviewer language expansion —
+  detailed sections below.
+- **c-level-agents/** promoted to its own top-level domain directory (issue #949).
+
+### Fixed — full reported-issue triage sweep (PRs #972, #973, #982)
+
+All 17 open issues driven to a final state; the 14 resolvable ones fixed and closed:
+
+- **#954** — 39 `plugin.json` manifests carried non-spec `source`/`attribution`
+  keys that made Claude Code reject the whole manifest (40% of the marketplace
+  uninstallable). Keys relocated to `.claude-plugin/authoring-notes.json`
+  sidecars; `check_plugin_json.py` now hard-fails any recurrence in CI.
+- **#949** — `c-level-skills` never loaded because `c-level-agents` was nested
+  inside its marketplace source; moved to a top-level directory.
+- **#885** — plugin skills shadowing built-in commands (`status`, `review`,
+  `init`, `resume`) renamed across four plugins (`memory-status`,
+  `pw-init`/`pw-review`, `hub-init`/`hub-status`, `ar-status`/`ar-resume`);
+  new blocking CI gate `scripts/check_skill_names.py` + rule in
+  SKILL-AUTHORING-STANDARD.md.
+- **#969** — `UnicodeEncodeError` on legacy Windows codepages: nine scripts now
+  reconfigure stdout/stderr to UTF-8; `PYTHONUTF8=1` documented.
+- **#968** — Windows symlink-checkout caveat documented (INSTALLATION.md
+  "Windows Notes" + README pointer).
+- **#933** — all dead links to the maintainer-local `megaprompts/` tree
+  (~75 files incl. the docs site) replaced with annotated plain text.
+- **#931** — DynamoDB on-demand pricing corrected to post-Nov-2024 rates.
+- **#924** — plugin hook commands quote `"${CLAUDE_PLUGIN_ROOT}"` (space-safe).
+- **#978** — playwright-pro's TestRail/BrowserStack MCP servers (which could
+  never start — dependencies never installed) are now a documented opt-in
+  instead of a permanent `Failed to connect` pair for every user.
+- **#977** — two agents shipping without YAML frontmatter, repaired via the
+  G10 frontmatter gate work (PR #936).
+- Spam/out-of-scope issues #925, #960, #923, #951 closed with rationale;
+  proposals #910, #952, #962 triaged with approval/scoping replies;
+  superseded PRs #932/#966 closed with credit.
+
+### CI
+
+- New blocking gates since v2.9.0: built-in-shadowing skill names (#885),
+  frontmatter YAML validation (G10), retired-model lint (G7), path linter G1
+  and script smoke G8 flipped blocking, plugin-manifest key rejection (#954),
+  marketplace description 1024-char cap (Copilot CLI, PR #964).
+
+The sections below — formerly stacked as `[Unreleased]` — are part of this release.
+
+### agent-launcher: session-goal domain plugin for Claude Managed Agents (PR #961, merged 2026-08-21)
 
 ### Added — `agent-launcher/` (new top-level domain, 19th)
 
@@ -52,7 +134,7 @@ you", optionally self-grading each firing via a nested outcome), or a
 - Distinct from `engineering/agent-harness` (generic bounded loop over any repo
   domain) and `engineering/write-a-skill` (authors Claude Code skills, not CMAs).
 
-## [Unreleased] — human-gate: batched human review as a verification artifact (this PR)
+### human-gate: batched human review as a verification artifact (this PR)
 
 ### Audited — `petergyang/human-review`
 
@@ -207,7 +289,7 @@ commands 118 → 119, plugins 89 → 90, engineering row 85 → 86
 
 ---
 
-## [Unreleased] — book-to-skill: document → knowledge-base skill → plugin (this PR)
+### book-to-skill: document → knowledge-base skill → plugin (this PR)
 
 ### Added — `engineering/book-to-skill`
 
@@ -313,7 +395,7 @@ skills 362 → 363, tools 644 → 663, refs 741 → 746, agents 102 → 103, com
 
 ---
 
-## [Unreleased] — fable-goal: ramble → autonomous /goal prompt (previous PR)
+### fable-goal: ramble → autonomous /goal prompt (previous PR)
 
 ### Added — `productivity/fable-goal`
 
@@ -337,7 +419,7 @@ skills 357 → 358 (this PR also trues up pre-existing engineering-row drift
 355 → 357), tools 602 → 603, refs 731 → 732, commands 109 → 110, plugins
 83 → 84; plus a stale "711 reference docs" claim in README line 30 fixed to 732.
 
-## [Unreleased] — housekeeping: CHANGELOG backfill + per-domain counter validation
+### housekeeping: CHANGELOG backfill + per-domain counter validation
 
 ### Added — `derive_counters.py` per-domain table validation
 
@@ -364,7 +446,7 @@ Backfilled, newest-first:
 - **`engineering-team/skills/named-persona-adversarial-review`** (PR #867, superseding #866 by @YuhaoLin2005) — code review through named, sourced engineering philosophies with confidence-leveled attribution and an anti-fabrication rule for quotes.
 - **`productivity/roast`** (PR #865) — 5-angle adversarial idea panel (Critic/Champion/Analyst/Investigator/Customer) → one GO/RESHAPE/KILL verdict, with a weighted veto-gated synthesizer + cheapest-48h-test designer.
 
-## [Unreleased] — local-seo-manager: local / Map-Pack SEO skill (this PR)
+### local-seo-manager: local / Map-Pack SEO skill (this PR)
 
 ### Added — `marketing-skill/skills/local-seo-manager`
 
@@ -385,7 +467,7 @@ plumbing, cleaning, electrical).
 - No `plugin.json` / marketplace entry needed — the `marketing-skills` plugin globs `./skills`.
 - Counters: 352 → 353 skills, 590 → 593 Python tools, 718 → 721 references.
 
-## [Unreleased] — newgen audit follow-up: P0 fixes, path sweep, CI guards
+### newgen audit follow-up: P0 fixes, path sweep, CI guards
 
 ### Deprecated / Removed Skills (migration notes)
 
@@ -402,7 +484,7 @@ Also restructured (no content change): `engineering/universal-scraping-architect
 moved its SKILL.md from plugin root to the standard `skills/universal-scraping-architect/`
 layout. Marketplace source path is unchanged.
 
-## [Unreleased] — code-reviewer: C-specific smell detector + fixtures
+### code-reviewer: C-specific smell detector + fixtures
 
 ### Added — language-specific smell pack for C (this PR)
 
@@ -426,7 +508,7 @@ Verification: all 6 fixtures (C# / Java / C × smells / clean) match their commi
 
 ---
 
-## [Unreleased] — code-reviewer: 6 new languages + analyzer wiring + doc sync
+### code-reviewer: 6 new languages + analyzer wiring + doc sync
 
 ### Added — language coverage 7 → 13 (PR #769)
 
@@ -463,7 +545,7 @@ Verification: `python3 scripts/code_quality_checker.py --help` now lists all 14 
 
 ---
 
-## [Unreleased] — Mistral Vibe cross-platform installation (closes #705)
+### Mistral Vibe cross-platform installation (closes #705)
 
 ### Added
 

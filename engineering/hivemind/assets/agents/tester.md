@@ -1,4 +1,5 @@
 ---
+name: hive-tester
 description: Test runner - executes tests and diagnoses failures, never edits source
 mode: subagent
 model: opencode/mimo-v2.5-free

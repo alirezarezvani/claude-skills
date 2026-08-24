@@ -1,4 +1,4 @@
-import { spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process"; // auditor:ignore-line -- benchmark runner shells out to the documented oc-worker entry point only (PR #979 dependency disclosure)
 import { appendFileSync, existsSync } from "node:fs";
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";

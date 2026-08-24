@@ -57,6 +57,7 @@ User wants to assess their marketing → you run a cross-functional audit touchi
 | "Schema markup," "structured data," "JSON-LD," "rich snippets" | **schema-markup** | |
 | "Site structure," "URL structure," "navigation," "sitemap" | **site-architecture** | |
 | "Programmatic SEO," "pages at scale," "template pages" | **programmatic-seo** | |
+| "Local SEO," "Google Business Profile," "GBP," "NAP consistency," "Map Pack," "service area pages" | **local-seo-manager** | Not seo-audit (that's national/technical) |
 
 ### CRO Pod
 | Trigger | Route to | NOT this |

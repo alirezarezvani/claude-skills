@@ -76,7 +76,7 @@ Organize findings into:
 
 ## Output Format
 
-Use the format defined in the `/si:review` skill. Be specific — include line numbers, exact text, and concrete suggestions.
+Use the format defined in the `/si:memory-review` skill. Be specific — include line numbers, exact text, and concrete suggestions.
 
 ## Constraints
 

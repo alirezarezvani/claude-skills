@@ -5,6 +5,53 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] — agent-launcher: session-goal domain plugin for Claude Managed Agents (PR #961, merged 2026-08-21)
+
+### Added — `agent-launcher/` (new top-level domain, 19th)
+
+Plugin re-implementation of Anthropic's
+[`launch-your-agent`](https://github.com/anthropics/launch-your-agent) reference
+skill (Apache-2.0; **independent, not a fork**) for building **Claude Managed
+Agents (CMA)** in the user's own Anthropic account. Organizing idea: **every
+session starts with a goal** (`./my-agent/goal.json`, surfaced by an opt-in
+`AGENT_LAUNCHER_SESSION=1` SessionStart hook and driven by `/cs:goal`);
+`loop_compiler.py` compiles that goal into a **bounded grade→iterate loop**
+(CMA `user.define_outcome` self-grading, `max_iterations` clamped 1..20 — never
+unbounded), a **recurring POSIX-cron scheduled-deployment loop** ("run without
+you", optionally self-grading each firing via a nested outcome), or a
+**single-pass interview→stage→launch workflow**.
+
+- **6 skills:** `agent-launcher-orchestrator` (`context: fork` goal router with
+  exit-code route/ask/refuse) + `interview` (six intake slots → build sheet with
+  primitives table + v1/v2 deferrals + eval plan) + `stage-launch` (validated
+  env/agent/session/kickoff payloads + resumable **BYOK curl** launch script
+  that reads `$ANTHROPIC_API_KEY` at runtime and never embeds it) +
+  `grade-iterate` (outcome/rubric + verdict reader + held-back eval scaffold
+  capped at the 25-thread ceiling) + `run-without-you` (5-field POSIX cron +
+  IANA tz + wall-clock-DST validation, deployment payload with test-run curl,
+  NEXT-DIRECTIONS writer) + `wrap-up` (primitives inventory + regenerated
+  single-file overview HTML + ranked next upgrades).
+- **18 stdlib-only deterministic scaffolder tools** (3 per skill; NO network/API
+  calls; all pass `--help` + `--sample`), **4 agents** (orchestrator +
+  interviewer + grader + deployer), **8 `/cs:*` commands** (launch, goal,
+  interview, stage-launch, grade, run-without-you, wrap-up,
+  grill-agent-launcher), **opt-in SessionStart/SessionEnd hooks** (exit 0 on any
+  error — can never break a session), **5 shared references**, **4 assets**
+  (build-sheet JSON schema + overview/NEXT-DIRECTIONS templates + example).
+- Validators enforce CMA limits (≤20 skills/session, ≤8 memory stores, depth-1
+  multiagent ≤20 roster / ≤25 threads, `max_iterations` ≤20, ≤20 creds/vault,
+  ≤1,000 deployments/org); `payload_validator.py` FAILs on any embedded API key.
+- **Verification:** independent 10-agent workflow re-checked every SPEC.md part
+  against disk — 9/9 PASS, zero differences from spec (delivery report kept in
+  maintainer-local `documentation/`, per the sprint-artifact convention; the
+  public build target is `agent-launcher/SPEC.md`). Full 4-phase pipeline
+  verified end-to-end; generated `launch.sh` passes `bash -n`.
+- **Counters** (at merge): skills 362 → 368, domains 18 → 19, tools 644 → 664,
+  refs 741 → 746, agents 102 → 106, commands 116 → 124, plugins 88 → 89
+  (derived via `scripts/derive_counters.py --check`).
+- Distinct from `engineering/agent-harness` (generic bounded loop over any repo
+  domain) and `engineering/write-a-skill` (authors Claude Code skills, not CMAs).
+
 ## [Unreleased] — human-gate: batched human review as a verification artifact (this PR)
 
 ### Audited — `petergyang/human-review`

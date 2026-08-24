@@ -1,13 +1,13 @@
 ---
 title: "Productivity Skills — Agent Skills & Codex Plugins"
-description: "6 productivity skills — personal productivity agent skill and Claude Code plugin for brain-dump capture, email triage, and reflection. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "12 productivity skills — personal productivity agent skill and Claude Code plugin for brain-dump capture, email triage, and reflection. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightning-bolt-outline: Productivity
 
-<p class="domain-count">6 skills in this domain</p>
+<p class="domain-count">12 skills in this domain</p>
 
 </div>
 
@@ -16,5 +16,11 @@ description: "6 productivity skills — personal productivity agent skill and Cl
 </div>
 
 <div class="grid cards" markdown>
+
+-   **[Swedish YouTube & Podcast Mentor](swedish-mentor.md)**
+
+    ---
+
+    Guide learners of Swedish with curated YouTube clips and podcast episodes from trusted sources. Provide learning path...
 
 </div>

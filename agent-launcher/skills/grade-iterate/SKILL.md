@@ -1,7 +1,7 @@
 ---
 name: grade-iterate
 description: Phase 3 of building a Claude Managed Agent — the bounded grade→iterate loop. Define a CMA outcome (a required markdown rubric graded by an isolated grader), read each verdict, decide the next move (sharpen / re-run / promote to schedule), and once a version passes, run held-back eval cases in parallel. Use when the user says "grade my agent", "make it pass the rubric", "iterate until it's good", "is it good enough", or when the orchestrator routes phase=grade-iterate. outcome_builder.py builds the user.define_outcome payload (rubric required, max_iterations clamped 1..20 — never unbounded); verdict_reader.py reads the grader result and recommends the next move; eval_scaffold.py generates held-back cases + a parallel run plan (capped at the 25-thread CMA ceiling). Distinct from stage-launch (first launch) and run-without-you (scheduling).
-version: 2.12.0
+version: 2.11.2
 author: Alireza Rezvani
 license: MIT
 tags: [cma, outcome, rubric, grader, grade-iterate, loop, max-iterations, eval, held-back]
@@ -14,15 +14,15 @@ This is the plugin's **loop**: CMA's `outcome` primitive self-grades the agent's
 work in an isolated context and feeds failing verdicts back for the next attempt.
 It is **always bounded** by `max_iterations` (1..20) — never "improve forever".
 
-See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.md)
+See [`../../references/loops-and-workflows.md`](../../references/loops-and-workflows.md)
 and the outcome section of
-[`references/cma-primitives.md`](../../references/cma-primitives.md).
+[`../../references/cma-primitives.md`](../../references/cma-primitives.md).
 
 ## Workflow
 
 1. **Define the outcome.**
    ```bash
-   python3 skills/grade-iterate/scripts/outcome_builder.py \
+   python3 scripts/outcome_builder.py \
      --sheet ./my-agent/build-sheet.json --max-iterations 5 \
      --out ./my-agent/payloads/outcome.json
    ```
@@ -30,7 +30,7 @@ and the outcome section of
    payload as a `user.define_outcome` event (append to the running session).
 2. **Read every verdict first.**
    ```bash
-   python3 skills/grade-iterate/scripts/verdict_reader.py --result ./my-agent/last-verdict.json
+   python3 scripts/verdict_reader.py --result ./my-agent/last-verdict.json
    ```
    Tables the rubric outcome and recommends: **SHIP** (`satisfied`), **SHARPEN**
    then re-run (`needs_revision`), **ESCALATE** (`max_iterations_reached` /
@@ -40,7 +40,7 @@ and the outcome section of
    run halts at the cap and escalates. Don't burn the budget on cosmetic edits.
 4. **Once a version passes, run held-back eval.**
    ```bash
-   python3 skills/grade-iterate/scripts/eval_scaffold.py \
+   python3 scripts/eval_scaffold.py \
      --sheet ./my-agent/build-sheet.json --out ./my-agent/eval.json --concurrency 5
    ```
    Held-back cases (never seen during iteration) run in parallel, capped at the

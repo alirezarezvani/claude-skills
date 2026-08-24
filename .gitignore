@@ -70,3 +70,7 @@ tests/
 # reviewer's feedback and belongs next to the artifact in git.
 *.review.html
 .human-gate/
+
+# agent-launcher user output folders (goal.json, payloads, launch.sh live here)
+my-agent/
+my-agent-*/

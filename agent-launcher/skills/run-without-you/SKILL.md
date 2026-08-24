@@ -1,7 +1,7 @@
 ---
 name: run-without-you
 description: Phase 4 of building a Claude Managed Agent — make it run without you. Turn a graded agent into a recurring scheduled deployment (POSIX-cron), an event-driven curl trigger, or confirmed on-demand use, then finalize the versioned roadmap. Use when the user says "run it every morning", "put it on a schedule", "nightly", "weekly", "automate this", "make it recurring", or when the orchestrator routes phase=run-without-you. deployment_builder.py builds the POST /v1/deployments payload (initial_events must include user.message; optionally nests a user.define_outcome so each firing self-grades); cron_validator.py validates the 5-field cron + IANA timezone and prints the wall-clock DST note; next_directions_writer.py writes NEXT-DIRECTIONS.md. No tool makes API calls — the deployment is created via BYOK curl. Distinct from grade-iterate (the in-session loop) and wrap-up (closeout).
-version: 2.12.0
+version: 2.11.2
 author: Alireza Rezvani
 license: MIT
 tags: [cma, deployment, cron, schedule, recurring, run-without-you, next-directions, dst]
@@ -14,7 +14,7 @@ A **scheduled deployment** fires a fresh session on a cron cadence — the agent
 runs without you. Each firing can carry its own outcome, nesting the bounded
 grade→iterate loop inside every recurring run.
 
-See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.md).
+See [`../../references/loops-and-workflows.md`](../../references/loops-and-workflows.md).
 
 ## Choose the trigger
 
@@ -28,14 +28,14 @@ See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.m
 
 1. **Validate the schedule.**
    ```bash
-   python3 skills/run-without-you/scripts/cron_validator.py --cron "0 9 * * *" --timezone Europe/Berlin
+   python3 scripts/cron_validator.py --cron "0 9 * * *" --timezone Europe/Berlin
    ```
    Invalid cron/timezone → exit 1. Read the **DST note**: wall-clock semantics mean
    spring-forward times are skipped and fall-back times fire twice — avoid
    02:00–03:00 in DST zones if exactly-once matters.
 2. **Build the deployment payload.**
    ```bash
-   python3 skills/run-without-you/scripts/deployment_builder.py \
+   python3 scripts/deployment_builder.py \
      --sheet ./my-agent/build-sheet.json --agent-id agent_123 --env-id env_456 \
      --nest-outcome --out ./my-agent/payloads/deployment.json
    ```
@@ -46,7 +46,7 @@ See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.m
    leave the cron in place. Pin the agent version in the deployment once it passes.
 4. **Finalize the roadmap.**
    ```bash
-   python3 skills/run-without-you/scripts/next_directions_writer.py \
+   python3 scripts/next_directions_writer.py \
      --sheet ./my-agent/build-sheet.json --loop-shape cron-loop --last-verdict satisfied --out-dir ./my-agent
    ```
 5. **Advance + hand to wrap-up.** `goal_state.py set --phase wrap-up`, then invoke

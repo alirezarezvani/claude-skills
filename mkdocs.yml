@@ -496,6 +496,14 @@ nav:
       - "MD Document (Long-Form Converter)": skills/markdown-html/md-document.md
       - "MD Review (Code-Review Converter)": skills/markdown-html/md-review.md
       - "MD Slides (Slide-Deck Converter)": skills/markdown-html/md-slides.md
+    - "Agent Launcher":
+      - Overview: skills/agent-launcher/index.md
+      - "Agent-Launcher Orchestrator (Goal Router)": skills/agent-launcher/agent-launcher-orchestrator.md
+      - "Interview (Phase 1 — Build Sheet)": skills/agent-launcher/interview.md
+      - "Stage & Launch (Phase 2 — BYOK Curl)": skills/agent-launcher/stage-launch.md
+      - "Grade & Iterate (Phase 3 — Bounded Loop)": skills/agent-launcher/grade-iterate.md
+      - "Run Without You (Phase 4 — Cron Loop)": skills/agent-launcher/run-without-you.md
+      - "Wrap-Up (Close-Out)": skills/agent-launcher/wrap-up.md
   - Plugins:
     - Overview: plugins/index.md
   - Personas:
@@ -555,6 +563,10 @@ nav:
     - "CS AIMS (ISO 42001)": agents/cs-aims-iso42001.md
     - "CS Andreessen (Market-First Operator)": agents/cs-andreessen.md
     - "CS Markdown-HTML Orchestrator": agents/cs-markdown-html-orchestrator.md
+    - "CS Agent-Launcher Orchestrator": agents/cs-agent-launcher-orchestrator.md
+    - "CS Agent Interviewer": agents/cs-agent-interviewer.md
+    - "CS Agent Grader": agents/cs-agent-grader.md
+    - "CS Agent Deployer": agents/cs-agent-deployer.md
     - "CS Scraping Architect": agents/cs-scraping-architect.md
   - Commands:
     - Overview: commands/index.md
@@ -624,4 +636,12 @@ nav:
     - "/cs:md-review (Code-Review HTML)": commands/cs-md-review.md
     - "/cs:md-slides (Slide-Deck HTML)": commands/cs-md-slides.md
     - "/cs:grill-markdown-html (Plan Grill)": commands/cs-grill-markdown-html.md
+    - "/cs:launch (CMA Launcher Entry)": commands/cs-launch.md
+    - "/cs:goal (Session Goal)": commands/cs-goal.md
+    - "/cs:interview (CMA Phase 1)": commands/cs-interview.md
+    - "/cs:stage-launch (CMA Phase 2)": commands/cs-stage-launch.md
+    - "/cs:grade (CMA Phase 3 Loop)": commands/cs-grade.md
+    - "/cs:run-without-you (CMA Phase 4 Cron)": commands/cs-run-without-you.md
+    - "/cs:wrap-up (CMA Close-Out)": commands/cs-wrap-up.md
+    - "/cs:grill-agent-launcher (Plan Grill)": commands/cs-grill-agent-launcher.md
     - "/cs:scrape (Scraping Architect)": commands/cs-scrape.md

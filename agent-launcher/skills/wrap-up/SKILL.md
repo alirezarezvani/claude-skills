@@ -18,14 +18,14 @@ and name the next 1–2 upgrades so the founder leaves with a clear roadmap. The
 
 1. **Inventory what they own.**
    ```bash
-   python3 skills/wrap-up/scripts/primitives_inventory.py \
+   python3 scripts/primitives_inventory.py \
      --sheet ./my-agent/build-sheet.json --goal ./my-agent/goal.json
    ```
    Tables agent / environment / session / memory / outcome / deployment and the
    phases completed.
 2. **Regenerate the overview page.**
    ```bash
-   python3 skills/wrap-up/scripts/overview_page.py \
+   python3 scripts/overview_page.py \
      --sheet ./my-agent/build-sheet.json --out-dir ./my-agent \
      --status live --loop-shape cron-loop --last-verdict satisfied
    ```
@@ -33,7 +33,7 @@ and name the next 1–2 upgrades so the founder leaves with a clear roadmap. The
    assets) — shareable as-is.
 3. **Suggest the next moves.**
    ```bash
-   python3 skills/wrap-up/scripts/upgrade_suggester.py --sheet ./my-agent/build-sheet.json --top 2
+   python3 scripts/upgrade_suggester.py --sheet ./my-agent/build-sheet.json --top 2
    ```
    Ranks recorded deferrals (v1 before v2, real-integration first) plus standing
    hardening (tighten networking, pin the agent version, nest an outcome).

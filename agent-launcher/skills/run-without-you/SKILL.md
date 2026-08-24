@@ -14,7 +14,7 @@ A **scheduled deployment** fires a fresh session on a cron cadence — the agent
 runs without you. Each firing can carry its own outcome, nesting the bounded
 grade→iterate loop inside every recurring run.
 
-See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.md).
+See [`../../references/loops-and-workflows.md`](../../references/loops-and-workflows.md).
 
 ## Choose the trigger
 
@@ -28,14 +28,14 @@ See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.m
 
 1. **Validate the schedule.**
    ```bash
-   python3 skills/run-without-you/scripts/cron_validator.py --cron "0 9 * * *" --timezone Europe/Berlin
+   python3 scripts/cron_validator.py --cron "0 9 * * *" --timezone Europe/Berlin
    ```
    Invalid cron/timezone → exit 1. Read the **DST note**: wall-clock semantics mean
    spring-forward times are skipped and fall-back times fire twice — avoid
    02:00–03:00 in DST zones if exactly-once matters.
 2. **Build the deployment payload.**
    ```bash
-   python3 skills/run-without-you/scripts/deployment_builder.py \
+   python3 scripts/deployment_builder.py \
      --sheet ./my-agent/build-sheet.json --agent-id agent_123 --env-id env_456 \
      --nest-outcome --out ./my-agent/payloads/deployment.json
    ```
@@ -46,7 +46,7 @@ See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.m
    leave the cron in place. Pin the agent version in the deployment once it passes.
 4. **Finalize the roadmap.**
    ```bash
-   python3 skills/run-without-you/scripts/next_directions_writer.py \
+   python3 scripts/next_directions_writer.py \
      --sheet ./my-agent/build-sheet.json --loop-shape cron-loop --last-verdict satisfied --out-dir ./my-agent
    ```
 5. **Advance + hand to wrap-up.** `goal_state.py set --phase wrap-up`, then invoke

@@ -17,7 +17,7 @@ a workflow**. Heavy intake stays in the forked context; the parent gets a digest
 
 Inspired by Anthropic's `launch-your-agent` reference skill (Apache-2.0). This is
 an independent re-implementation; CMA semantics come from
-[`references/cma-primitives.md`](../../references/cma-primitives.md).
+[`../../references/cma-primitives.md`](../../references/cma-primitives.md).
 
 ## The through-line: the session goal
 
@@ -31,7 +31,7 @@ the phase + recurrence selects the loop shape.
 Run the router, then act on its exit code:
 
 ```bash
-python3 skills/agent-launcher-orchestrator/scripts/goal_router.py --out-dir ./my-agent
+python3 scripts/goal_router.py --out-dir ./my-agent
 # exit 0 ROUTE  -> fork to the named phase sub-skill
 # exit 3 ASK    -> ask the one printed forcing question, then re-route
 # exit 4 REFUSE -> goal too vague; get one sentence, then re-route
@@ -48,13 +48,13 @@ python3 skills/agent-launcher-orchestrator/scripts/goal_router.py --out-dir ./my
 ## Compile the loop
 
 ```bash
-python3 skills/agent-launcher-orchestrator/scripts/loop_compiler.py \
+python3 scripts/loop_compiler.py \
   --out-dir ./my-agent --max-iterations 5 --cron "0 9 * * *" --timezone Europe/Berlin --nest-outcome
 ```
 
 `loop_compiler.py` emits `plan.v1`: `single-pass`, `grade-iterate` (always with a
 `max_iterations` cap 1..20), or `cron-loop` (optionally nesting a self-grading
-outcome per firing). See [`references/loops-and-workflows.md`](../../references/loops-and-workflows.md).
+outcome per firing). See [`../../references/loops-and-workflows.md`](../../references/loops-and-workflows.md).
 
 ## Pre-flight gates (hard refusals)
 

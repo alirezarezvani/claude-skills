@@ -18,7 +18,7 @@ their own key. **No script here touches the network or the key** — the user ru
 
 1. **Generate payloads.**
    ```bash
-   python3 skills/stage-launch/scripts/payload_generator.py \
+   python3 scripts/payload_generator.py \
      --sheet ./my-agent/build-sheet.json --out-dir ./my-agent
    # -> ./my-agent/payloads/{01-environment,02-agent,03-session,04-kickoff}.json
    ```
@@ -26,14 +26,14 @@ their own key. **No script here touches the network or the key** — the user ru
    the agent payload's `permission_policies`).
 2. **Write the launch script.**
    ```bash
-   python3 skills/stage-launch/scripts/launch_script_writer.py --out-dir ./my-agent
+   python3 scripts/launch_script_writer.py --out-dir ./my-agent
    ```
    `launch.sh` creates environment → agent → session → kickoff **in order**,
    chaining IDs, and **resumes** on re-run (each step skips if its `*.id` file
    exists). It reads `$ANTHROPIC_API_KEY` at runtime.
 3. **Validate before launch.**
    ```bash
-   python3 skills/stage-launch/scripts/payload_validator.py --dir ./my-agent
+   python3 scripts/payload_validator.py --dir ./my-agent
    ```
    FAIL blocks — especially a `key_leak` finding. Fix and re-run.
 4. **Minimal key step (never in chat).** Check the shell first:

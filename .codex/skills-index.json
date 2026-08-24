@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 354,
+  "total_skills": 355,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1266,6 +1266,12 @@
       "description": ">"
     },
     {
+      "name": "skill-doctor",
+      "source": "../../engineering/skill-doctor/skills/skill-doctor",
+      "category": "engineering-advanced",
+      "description": "Use when the user wants their agent setup graded from real conversation history, asks which installed skills are actually working, or wants evidence-backed skill edits \u2014 scores recent local Claude Code / Codex sessions against efficiency and code-quality rubrics, then drafts skill changes gated by a deterministic aggregator and renders one local shareable report."
+    },
+    {
       "name": "skill-security-auditor",
       "source": "../../engineering/skills/skill-security-auditor",
       "category": "engineering-advanced",
@@ -2172,7 +2178,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 88,
+      "count": 89,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

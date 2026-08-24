@@ -78,7 +78,7 @@ Leverage Claude Code's built-in capabilities:
 
 **Not auto-registered (issue #978).** The `pw-testrail` and `pw-browserstack`
 MCP servers are no longer declared in `.mcp.json`. They are launched with
-`npx tsx integrations/<name>/src/index.ts`, but the plugin ships no
+`npx tsx integrations/<name>-mcp/src/index.ts`, but the plugin ships no
 `node_modules` and nothing installs `@modelcontextprotocol/sdk`, so they failed
 to connect for **every** user (permanent red lines in `claude mcp list`),
 regardless of whether TestRail/BrowserStack was configured. Per this repo's

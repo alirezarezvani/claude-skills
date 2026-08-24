@@ -149,12 +149,18 @@ CLAIM_PATTERNS = {
 
 
 def extract_claims(text: str) -> dict:
-    """Return {counter_name: first claimed int} for every pattern found in text."""
+    """Return {counter_name: [every claimed int]} for every pattern found in text.
+
+    All occurrences are collected (not just the first) so a stale duplicate of a
+    headline claim elsewhere in the same file — e.g. a section heading that
+    repeats the skill count — is gated too (caught live on the v2.12.0
+    promotion PR #985, where the README banner said 380 while a section
+    heading still said 370)."""
     claims = {}
     for key, pattern in CLAIM_PATTERNS.items():
-        match = pattern.search(text)
-        if match:
-            claims[key] = int(match.group(1))
+        values = [int(m.group(1)) for m in pattern.finditer(text)]
+        if values:
+            claims[key] = values
     return claims
 
 
@@ -272,9 +278,11 @@ def run_check(root: Path, derived: dict) -> int:
     claude_md = root / "CLAUDE.md"
     if claude_md.is_file():
         text = claude_md.read_text(encoding="utf-8")
-        # Restrict to the "Current Scope" line so history sections don't trip the gate.
-        scope_lines = [ln for ln in text.splitlines() if ln.startswith("**Current Scope:**")]
-        sources.append(("CLAUDE.md (Current Scope line)", "\n".join(scope_lines)))
+        # Restrict to the "Current Scope" and footer "Status:" lines so
+        # history sections don't trip the gate.
+        scope_lines = [ln for ln in text.splitlines()
+                       if ln.startswith("**Current Scope:**") or ln.startswith("**Status:**")]
+        sources.append(("CLAUDE.md (Current Scope / Status lines)", "\n".join(scope_lines)))
 
     marketplace = root / ".claude-plugin" / "marketplace.json"
     if marketplace.is_file():
@@ -292,12 +300,13 @@ def run_check(root: Path, derived: dict) -> int:
         if not claims:
             mismatches.append(f"{label}: no recognizable counter claims found")
             continue
-        for key, claimed in claims.items():
+        for key, values in claims.items():
             actual = derived[key]
-            if claimed != actual:
-                mismatches.append(
-                    f"{label}: claims {key}={claimed}, derived {key}={actual}"
-                )
+            for claimed in values:
+                if claimed != actual:
+                    mismatches.append(
+                        f"{label}: claims {key}={claimed}, derived {key}={actual}"
+                    )
 
     mismatches.extend(check_domain_table(root))
     mismatches.extend(check_readme_badges(root, derived))

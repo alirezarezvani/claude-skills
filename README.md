@@ -152,7 +152,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**370 skills across 20 domains:**
+**380 production-ready skills across 20 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|

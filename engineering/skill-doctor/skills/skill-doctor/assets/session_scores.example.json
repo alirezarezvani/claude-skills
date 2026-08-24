@@ -1,0 +1,34 @@
+{
+  "_comment": "Shape the scoring agent fills after judging each sampled transcript against scorers/efficiency.md and scorers/code-quality.md. Get a pre-filled skeleton with: python scripts/score_aggregator.py --inventory RUN/inventory.json --emit-template. Labels must come from the rubric tables; score_aggregator.py derives all numbers and rejects anything else.",
+  "top_findings": [
+    "Files were re-read verbatim in 4 of 9 sessions before any edit was attempted",
+    "deploy-checklist never fired in 3 sessions whose first user message contained the word 'deploy'",
+    "Two sessions repeated a fix-test cycle three times on the same lint failure a pre-commit run would have caught"
+  ],
+  "sessions": [
+    {
+      "session_id": "0f3a2b1c-example-claude-session",
+      "harness": "claude",
+      "efficiency": {
+        "label": "mostly_inefficient",
+        "reason": "Three fix-test cycles on the same import error; running the repo's lint target once before the first edit would have caught it."
+      },
+      "code_quality": {
+        "label": "block",
+        "reason": "Left a debug print in src/api/client.py and the new retry helper duplicates the backoff logic already in src/util/net.py."
+      }
+    },
+    {
+      "session_id": "rollout-2026-01-12-example-codex",
+      "harness": "codex",
+      "efficiency": {
+        "label": "mostly_efficient",
+        "reason": "One duplicated read of the config file early on; the rest of the run was direct with batched searches."
+      },
+      "code_quality": {
+        "label": "insufficient_evidence",
+        "reason": "Research-only session; no diff was produced in the transcript."
+      }
+    }
+  ]
+}

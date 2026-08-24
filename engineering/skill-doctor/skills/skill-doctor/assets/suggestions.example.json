@@ -1,0 +1,13 @@
+{
+  "_comment": "Shape the drafting agent writes in step 3. Every suggestion must cite at least one sampled session id in 'sessions' and carry a non-empty 'diff' (unified diff for an edit; full content as an addition for a new skill) — score_aggregator.py rejects anything less. An empty suggestions list is a valid, reportable success.",
+  "suggestions": [
+    {
+      "skill": "deploy-checklist",
+      "change": "Rewrite the trigger description so the skill fires on 'deploy', 'release', and 'ship' — it currently triggers only on 'deployment checklist'.",
+      "evidence": "In 0f3a2b1c-example-claude-session the user asked to 'deploy the staging build'; the skill never fired and the agent reconstructed the checklist from memory, missing the migration step.",
+      "sessions": ["0f3a2b1c-example-claude-session"],
+      "proposed_path": "proposed/deploy-checklist/SKILL.md",
+      "diff": "--- a/SKILL.md\n+++ b/SKILL.md\n@@ -1,4 +1,4 @@\n ---\n name: deploy-checklist\n-description: Walk the deployment checklist.\n+description: Use when the user asks to deploy, release, or ship a build — walks the pre-deploy checklist including migrations and rollback tags.\n ---\n"
+    }
+  ]
+}

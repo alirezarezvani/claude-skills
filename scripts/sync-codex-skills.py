@@ -87,6 +87,10 @@ SKILL_DOMAINS = {
     "compliance-os": {
         "category": "compliance",
         "description": "Compliance-OS skills: ISO 13485 / ISO 27001 / SOC 2 / GDPR / FDA QSR / EU AI Act audit-prep + compliance-readiness orchestrator"
+    },
+    "agent-launcher": {
+        "category": "agent-development",
+        "description": "Claude Managed Agent launcher (v2.12): session-goal orchestrator (context: fork) + interview + stage-launch (BYOK curl) + grade-iterate (bounded outcome loop) + run-without-you (cron deployment loop) + wrap-up. Re-implements anthropics/launch-your-agent (Apache-2.0)."
     }
 }
 

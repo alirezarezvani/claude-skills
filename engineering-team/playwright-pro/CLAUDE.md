@@ -83,7 +83,8 @@ MCP servers are no longer declared in `.mcp.json`. They are launched with
 to connect for **every** user (permanent red lines in `claude mcp list`),
 regardless of whether TestRail/BrowserStack was configured. Per this repo's
 "no build systems" convention we leave them out of `.mcp.json` rather than
-vendoring `node_modules`. To enable one manually: `cd integrations/<name>`,
+vendoring `node_modules`. To enable one manually: `cd integrations/<name>-mcp`
+(i.e. `testrail-mcp` or `browserstack-mcp`),
 `npm install`, then register it in your own user/project MCP config (not the
 plugin's `.mcp.json`) with the env vars above.
 

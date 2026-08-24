@@ -1,37 +1,37 @@
+#!/usr/bin/env python3
 # ---------------------------------------------------------------------------
-# validate_examples.py — SOURCE, PARKED AS AN ASSET (deliberately not .py yet)
+# validate_examples.py — the drift gate for DESIGN.md, memory_schema.json, and
+# the worked examples they share.
 #
-# WHY THIS IS A .txt: this PR is spec-only. A .py here would be counted by
-# scripts/derive_counters.py (verified: python_tools 663 -> 664) and would be a
-# counted "tool" belonging to no plugin, in a folder that deliberately has no
-# SKILL.md. Parking the source preserves it without moving counters or
-# contradicting the Status line.
+# WHY IT EXISTS: across this design's review, drift between DESIGN.md, the
+# schema, and the fixtures was the DOMINANT defect class — required-field
+# drift, a tier the examples never exercised, hashes that stopped reproducing,
+# headings inserted out of order, a confidence value that contradicted its own
+# lifecycle narrative. Every one was found by a check like the ones below.
+# Those checks had lived only in throwaway shell heredocs, so they died with
+# the session that wrote them. This file is where they live now.
 #
-# WHY IT EXISTS AT ALL: across this spec's review, drift between DESIGN.md, the
-# schema, and the fixtures was the DOMINANT defect class — required-field drift,
-# a tier the examples never exercised, hashes that stopped reproducing, headings
-# inserted out of order, a confidence value that contradicted its own lifecycle
-# narrative. Every one was found by a check like the ones below. Those checks
-# have so far lived only in throwaway shell heredocs, so they die with the
-# session that wrote them. That is the actual gap a reviewer named, and this
-# file closes it.
+# WHAT IT GUARDS, in seven families: schema conformance · the tier-dependent
+# back-pointer form · reproduction of the ids DESIGN.md publishes, from the
+# doc's own normalize() algorithm · confidence monotonicity and gate
+# compliance · document structure and links · prose claims that must match
+# measured reality · lifecycle coherence across a multi-tier id group.
 #
-# ON IMPLEMENTATION: rename to
-#   skills/agent-memory/scripts/validate_examples.py
-# (chmod +x, argparse --help/--json per repo CLI convention), count it in the
-# tools delta, and wire it into CI. It is the FIRST file the implementation PR
-# should land — before memory_extract.py — because everything else is written
-# against the contract it guards.
+# It compares the doc's published algorithm to this file's implementation by
+# SOURCE TEXT, deliberately not by exec()-ing the doc's fenced block. That
+# earlier approach made "whoever can edit a code fence" equal to "whoever can
+# run arbitrary code" — a real vector the moment this file is wired into
+# pull_request-triggered CI.
 #
-# REVERSAL CONDITION: if the maintainer rules that a spec-stage folder may carry
-# tooling, this becomes a .py immediately; nothing else about the PR changes
-# except three counter files.
+# NOT WIRED INTO CI. Nothing runs it automatically; DESIGN.md 10.1 carries the
+# exact workflow step for whoever wants it. Run it by hand before any edit to
+# this folder lands.
 #
 # stdlib only. No jsonschema (not available repo-wide) — this is a partial
-# validator covering exactly this file's own failure modes, not a general
+# validator covering exactly this design's own failure modes, not a general
 # JSON Schema implementation. That narrowness is deliberate: a general
-# validator would be a dependency, and the four allOf branches here are the
-# only ones that have ever actually drifted.
+# validator would be a dependency, and the allOf branches here are the only
+# ones that have ever actually drifted.
 # ---------------------------------------------------------------------------
 import hashlib
 import inspect

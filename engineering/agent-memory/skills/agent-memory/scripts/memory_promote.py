@@ -35,7 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import memory_core as core  # noqa: E402
 
 
-def _eligible_l1(atom, atoms, now):
+def _eligible_l1(atom, atoms):
     """Returns (ok, reason). reason names the blocking gate when not ok."""
     if atom["tier"] != "L1":
         return False, "not-L1"
@@ -59,7 +59,7 @@ def promote_l1_to_l2(atoms, now=None):
     for a in atoms:
         if a["tier"] != "L1":
             continue
-        ok, why = _eligible_l1(a, atoms, now)
+        ok, why = _eligible_l1(a, atoms)
         if not ok:
             if why != "not-L1":
                 blocked.append((a, why))

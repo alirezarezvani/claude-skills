@@ -53,7 +53,15 @@ def main():
 
         cwd = payload.get("cwd") or os.getcwd()
         project = os.path.basename(os.path.abspath(cwd))
-        session = payload.get("session_id") or "unknown-session"
+        # A CONSTANT fallback here would be a silent, permanent bug. Sessions
+        # are deduped by value (5.3), so if `session_id` were ever absent,
+        # every session would collapse onto one id, `len(set(sessions))` would
+        # plateau at 1, and EVERY claim would be capped at L1 forever with no
+        # error anywhere -- the gates need 2-3 distinct sessions. So fall back
+        # to the transcript's own basename, which IS the session: Claude Code
+        # names each transcript for its session id.
+        session = payload.get("session_id") or os.path.splitext(
+            os.path.basename(transcript))[0] or "unknown-session"
         store = core.AtomStore(os.path.join(cwd, ".memory"))
 
         new_atoms = extract.extract(transcript, project, session)

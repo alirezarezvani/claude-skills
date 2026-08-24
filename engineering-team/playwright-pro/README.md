@@ -2,7 +2,7 @@
 
 > Production-grade Playwright testing toolkit for AI coding agents.
 
-Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack — all from your AI agent.
+Generate tests, fix flaky failures, and migrate from Cypress/Selenium — all from your AI agent. Optional TestRail/BrowserStack integrations are included but must be enabled manually (see [Integrations Setup](#integrations-setup)).
 
 ## Install
 
@@ -24,8 +24,8 @@ claude --plugin-dir ./engineering-team/playwright-pro
 | `/pw:fix <test>` | Diagnose and fix a failing or flaky test |
 | `/pw:migrate` | Migrate from Cypress or Selenium to Playwright |
 | `/pw:coverage` | Analyze what's tested vs. what's missing |
-| `/pw:testrail` | Sync with TestRail — read cases, push results, create runs |
-| `/pw:browserstack` | Run tests on BrowserStack, pull cross-browser reports |
+| `/pw:testrail` | Sync with TestRail — read cases, push results, create runs *(requires manual MCP setup — see [Integrations Setup](#integrations-setup))* |
+| `/pw:browserstack` | Run tests on BrowserStack, pull cross-browser reports *(requires manual MCP setup — see [Integrations Setup](#integrations-setup))* |
 | `/pw:report` | Generate a test report in your preferred format |
 
 ## Quick Start
@@ -67,7 +67,7 @@ Ready-to-use, parametrizable templates covering:
 | API | 5 | REST CRUD, GraphQL, error handling |
 | Accessibility | 3 | Keyboard nav, screen reader, contrast |
 
-### 2 MCP Integrations
+### 2 MCP Integrations (optional — not auto-registered, see [Integrations Setup](#integrations-setup))
 
 - **TestRail** — Read test cases, create runs, push pass/fail results
 - **BrowserStack** — Trigger cross-browser runs, pull session reports with video/screenshots

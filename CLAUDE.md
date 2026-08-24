@@ -720,4 +720,4 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 **Last Updated:** August 24, 2026
 **Version:** v2.12.0 (consolidated release — see CHANGELOG.md)
-**Status:** 379 skills deployed across 20 domains, 96 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)
+**Status:** 380 production-ready skills across 20 domains, 96 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

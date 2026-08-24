@@ -139,6 +139,19 @@ in `.claude-plugin/authoring-notes.json` summarizes it; if the two ever disagree
     `suggestions` fields refuse with exit 3 and point to the aggregator, instead
     of upstream's KeyError traceback.
 
+**Post-review hardening (added during PR review)**
+
+21. **Repo-scoping transparency + `--strict-repo`.** Upstream's worktree/basename
+    fallback silently treats any directory named like the repo as the repo — an
+    unrelated project sharing a common name (`backend`, `app`) could leak its
+    sessions into the run. Each session now records how it matched
+    (`repo_match: "path" | "name"`), name-only matches are counted in
+    `inventory.json` (`sessions_matched_by_name_only`) and called out in the
+    collector's summary, and `--strict-repo` disables the fallback entirely.
+22. **Bounded session reads.** Session files are read through a
+    `MAX_FILE_BYTES` cap instead of upstream's slurp-then-truncate, so a
+    pathological multi-hundred-MB JSONL never lands in memory whole.
+
 **Docs & governance**
 
 19. **References rewritten as cited canon.** Upstream ships one reference

@@ -120,6 +120,7 @@ def validate(inventory, scores, suggestions):
         return (["scores file has no 'sessions' list"], warnings, {})
 
     per_session = {}
+    sids_with_errors = set()
     for i, entry in enumerate(entries):
         sid = entry.get("session_id")
         if not sid:
@@ -131,6 +132,7 @@ def validate(inventory, scores, suggestions):
         if sid in per_session:
             errors.append(f"duplicate score entry for '{sid}'")
             continue
+        errors_before = len(errors)
         record = {}
         for scorer, table in (("efficiency", EFFICIENCY_LABELS), ("code_quality", CODE_QUALITY_LABELS)):
             block = entry.get(scorer)
@@ -148,6 +150,8 @@ def validate(inventory, scores, suggestions):
                               f"({len(reason)} chars < {MIN_REASON_CHARS}) — cite specifics from the transcript")
                 continue
             record[scorer] = {"label": label, "score": table[label], "reason": reason}
+        if len(errors) > errors_before:
+            sids_with_errors.add(sid)
         if len(record) == 2:
             if (record["code_quality"]["label"] == "insufficient_evidence"
                     and sampled[sid].get("stats", {}).get("has_code_edits")):
@@ -155,8 +159,10 @@ def validate(inventory, scores, suggestions):
                                 "confirm the transcript truly hid the diff")
             per_session[sid] = record
 
+    # Exact-id tracking, not substring matching against error text: one session
+    # id being a prefix of another must not suppress its never-scored error.
     for sid in sampled:
-        if sid not in per_session and not any(sid in e for e in errors):
+        if sid not in per_session and sid not in sids_with_errors:
             errors.append(f"sampled session '{sid}' was never scored")
 
     findings = scores.get("top_findings")

@@ -74,6 +74,10 @@ def redact_secrets(text, counter=None):
         return text
     for label, pattern in REDACTION_PATTERNS:
         def _sub(match, _label=label):
+            # A broader pattern (e.g. env-secret) re-matching an already-redacted
+            # value would just stack markers; leave prior redactions alone.
+            if "[REDACTED:" in match.group(0):
+                return match.group(0)
             if counter is not None:
                 counter[_label] = counter.get(_label, 0) + 1
             groups = match.groups()
@@ -105,6 +109,9 @@ def parse_args(argv=None):
     p.add_argument("--no-skill", type=int, default=4, help="max sampled sessions that used no skill (default 4)")
     p.add_argument("--skills-dir", action="append", default=[], help="extra skills directory to scan (repeatable)")
     p.add_argument("--include-subagents", action="store_true", help="include subagent/sidechain sessions")
+    p.add_argument("--strict-repo", action="store_true",
+                   help="only include sessions whose cwd resolves inside the repo "
+                        "(disables the worktree/basename fallback, which can match an unrelated repo of the same name)")
     p.add_argument("--out", default=None, help="output directory (default: a fresh dir under the system temp dir)")
     p.add_argument("--output", choices=("text", "json"), default="text", help="summary format on stdout")
     p.add_argument("--sample", action="store_true",
@@ -245,11 +252,10 @@ def new_stats():
 def parse_claude_session(path, skill_names, include_subagents):
     """Normalize one Claude Code JSONL session to the shared transcript shape."""
     try:
-        raw = path.read_text(errors="replace")
+        with open(path, "rb") as fh:
+            raw = fh.read(MAX_FILE_BYTES).decode("utf-8", errors="replace")
     except OSError:
         return None
-    if len(raw) > MAX_FILE_BYTES:
-        raw = raw[:MAX_FILE_BYTES]
 
     meta = {}
     stats = new_stats()
@@ -385,11 +391,10 @@ def parse_claude_session(path, skill_names, include_subagents):
 def parse_codex_session(path, skill_names, include_subagents):
     """Normalize one Codex rollout JSONL session to the shared transcript shape."""
     try:
-        raw = path.read_text(errors="replace")
+        with open(path, "rb") as fh:
+            raw = fh.read(MAX_FILE_BYTES).decode("utf-8", errors="replace")
     except OSError:
         return None
-    if len(raw) > MAX_FILE_BYTES:
-        raw = raw[:MAX_FILE_BYTES]
 
     meta = {}
     stats = new_stats()
@@ -508,18 +513,26 @@ def render_transcript(meta, stats, skills_used, entries, redaction_counter):
     return "\n".join(lines)
 
 
-def session_matches_repo(cwd, repo):
-    """True when a session's recorded cwd belongs to this repo (prefix or
-    worktree-style basename match; see upstream rationale)."""
+def repo_match_mode(cwd, repo):
+    """How a session's recorded cwd relates to the target repo.
+
+    Returns "path" when cwd resolves inside the repo root (a certain match),
+    "name" when only the worktree/basename heuristic matches (the directory
+    name equals the repo's — this can false-positive on an unrelated repo that
+    shares the name, so callers record it and --strict-repo disables it), or
+    None for no match.
+    """
     if not cwd:
-        return False
+        return None
     p = Path(cwd)
     try:
         if p.resolve().is_relative_to(repo):
-            return True
+            return "path"
     except (OSError, ValueError):
         pass
-    return p.name == repo.name or repo.name in p.parts
+    if p.name == repo.name or repo.name in p.parts:
+        return "name"
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -536,6 +549,7 @@ def sample_sessions(repo):
                   "first_ts": fixed_ts, "last_ts": fixed_ts, "has_code_edits": True},
         "skills_used": ["sample-skill"],
         "file": "(synthetic)",
+        "repo_match": "path",
         "modified_at": fixed_ts,
         "_entries": [
             ("user", "Fix the failing date parser test"),
@@ -556,6 +570,7 @@ def sample_sessions(repo):
                   "first_ts": fixed_ts, "last_ts": fixed_ts, "has_code_edits": False},
         "skills_used": [],
         "file": "(synthetic)",
+        "repo_match": "path",
         "modified_at": fixed_ts,
         "_entries": [
             ("user", "What does the release script do?"),
@@ -658,13 +673,15 @@ def main(argv=None):
                 if parsed is None:
                     continue
                 meta, stats, entries, skills_used = parsed
-                if not session_matches_repo(meta.get("cwd"), repo):
+                match = repo_match_mode(meta.get("cwd"), repo)
+                if match is None or (args.strict_repo and match != "path"):
                     continue
                 in_repo_count += 1
                 if stats["assistant_turns"] < 1 or stats["tool_calls"] < 1:
                     continue
                 sessions.append({"harness": "claude", "meta": meta, "stats": stats,
                                  "skills_used": skills_used, "file": str(path),
+                                 "repo_match": match,
                                  "modified_at": mtime.isoformat(), "_entries": entries})
         elif args.harness == "claude":
             print(f"error: Claude Code project history not found at {claude_projects}", file=sys.stderr)
@@ -682,13 +699,15 @@ def main(argv=None):
                 if parsed is None:
                     continue
                 meta, stats, entries, skills_used = parsed
-                if not session_matches_repo(meta.get("cwd"), repo):
+                match = repo_match_mode(meta.get("cwd"), repo)
+                if match is None or (args.strict_repo and match != "path"):
                     continue
                 in_repo_count += 1
                 if stats["assistant_turns"] < 1 or stats["tool_calls"] < 1:
                     continue
                 sessions.append({"harness": "codex", "meta": meta, "stats": stats,
                                  "skills_used": skills_used, "file": str(path),
+                                 "repo_match": match,
                                  "modified_at": mtime.isoformat(), "_entries": entries})
         elif args.harness == "codex":
             print(f"error: Codex home not found at {codex_home}", file=sys.stderr)
@@ -723,6 +742,7 @@ def main(argv=None):
             "sessions_sampled": len(sampled_keys),
             "skills_found": len(skills),
             "skills_used": sum(1 for v in skill_usage.values() if v > 0),
+            "sessions_matched_by_name_only": sum(1 for s in sessions if s.get("repo_match") == "name"),
         },
         "sessions": sessions,
     }
@@ -742,6 +762,9 @@ def main(argv=None):
               f"{st['sessions_in_repo']} in repo, {st['sessions_considered']} scoreable")
         print(f"sessions sampled:   {st['sessions_sampled']} -> {transcripts_dir}")
         print(f"secrets redacted:   {sum(redaction_counter.values())}")
+        if st["sessions_matched_by_name_only"]:
+            print(f"note:               {st['sessions_matched_by_name_only']} session(s) matched only by "
+                  "directory name (worktree heuristic) — pass --strict-repo to exclude them")
         print(f"inventory:          {out_dir / 'inventory.json'}")
     return 0
 

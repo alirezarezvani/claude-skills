@@ -273,6 +273,10 @@ def run_check(root: Path, derived: dict) -> int:
 
     readme = root / "README.md"
     if readme.is_file():
+        # README is scanned in full (unlike CLAUDE.md below): it carries no
+        # version-history prose, so every claim-pattern match in it is a live
+        # headline that must agree with the derived values. If a history
+        # section is ever added to README, restrict this the same way.
         sources.append(("README.md", readme.read_text(encoding="utf-8")))
 
     claude_md = root / "CLAUDE.md"

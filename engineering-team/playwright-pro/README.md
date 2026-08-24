@@ -80,6 +80,23 @@ Ready-to-use, parametrizable templates covering:
 
 ## Integrations Setup
 
+The TestRail and BrowserStack MCP servers are **opt-in** (issue #978): they need
+`npm install` inside their integration folders, which the plugin install never
+runs — so they are no longer registered by default (previously they showed as a
+permanent `Failed to connect` pair in `claude mcp list` for every user).
+
+To enable one (or both):
+
+```bash
+# 1. Install the server dependencies inside the installed plugin
+cd "$(claude plugin path playwright-pro)"/integrations/testrail-mcp && npm install
+cd ../browserstack-mcp && npm install   # if you also want BrowserStack
+
+# 2. Activate the server registrations
+cp ../mcp-servers.example.json ../../.mcp.json
+# (delete the server block you don't use from the copied file)
+```
+
 ### TestRail (Optional)
 
 Set environment variables:

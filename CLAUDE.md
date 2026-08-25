@@ -278,7 +278,7 @@ tree — 38 files, ~37k words, ~49K tokens — through the full pipeline: `extra
   about what it covers. (5) was a real gap and is fixed: the resident core now carries a worked
   invocation block.
 - **No new Python tools** — a compiled knowledge base ships notes, not scripts, so the tools and references
-  counters are unchanged. **Counters:** skills 387 → 388; agents 117 → 118; commands 147 → 150; plugins
+  counters are unchanged. **Counters:** skills 387 → 388; agents 117 → 118; commands 149 → 150; plugins
   98 → 99, on top of `deep-learning-book` which merged into `dev` first (verified via
   `scripts/derive_counters.py --check`).
 

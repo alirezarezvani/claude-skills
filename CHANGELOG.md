@@ -31,7 +31,7 @@ decision cheatsheet, behind a 2,101-token resident core.
   turnaround, the 3-seed minimum (10+ to be thorough), family-specific benchmark network
   defaults, and Spinning Up's own parity disclosure: DDPG/TD3/SAC are research-grade,
   VPG/TRPO/PPO are not, and the docs say to use OpenAI Baselines for those.
-- **Counters:** skills 387 → 388; agents 117 → 118; commands 147 → 150; plugins 98 → 99.
+- **Counters:** skills 387 → 388; agents 117 → 118; commands 149 → 150; plugins 98 → 99.
   Tools and references unchanged by this plugin — a compiled knowledge base ships notes, not
   scripts. (These sit on top of `deep-learning-book`, which merged into `dev` first; the
   derived totals are 388 skills / 727 tools / 842 references / 118 agents / 150 commands /

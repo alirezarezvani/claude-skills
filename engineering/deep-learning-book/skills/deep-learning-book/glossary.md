@@ -1,0 +1,58 @@
+# Glossary
+
+Terms as this skill uses them, with the chapter that develops each. Definitions are written for
+lookup, not for teaching — read the chapter file for the reasoning.
+
+- **Adam / AdamW** (ch08, ch07) — adaptive optimizer combining momentum with per-parameter scaling. AdamW decouples weight decay from the gradient, which Adam+L2 does not do correctly.
+- **Amortized inference** (ch19, ch14) — training a network to predict a posterior's parameters instead of optimizing per example.
+- **Ancestral sampling** (ch16) — sampling a directed model by drawing each variable after its parents.
+- **Attention** (ch10) — a learned weighted read over a set of positions; introduced here as a fix for the seq2seq bottleneck, later the whole architecture.
+- **Backpropagation** (ch06) — reverse-mode automatic differentiation over the computation graph.
+- **Batch normalization** (ch08) — reparameterization normalizing layer inputs by batch statistics.
+- **Bias–variance decomposition** (ch05) — expected error as bias² + variance + irreducible noise.
+- **Capacity, effective vs representational** (ch05) — functions reachable by the optimizer vs functions expressible by the architecture.
+- **Condition number** (ch02, ch04) — ratio of largest to smallest singular value; how amplified small perturbations become.
+- **Contrastive divergence (CD-k)** (ch18) — biased approximation of the negative phase using a short chain started at the data.
+- **Cross-entropy** (ch03) — H(p,q) = H(p) + D_KL(p‖q); minimizing it over q minimizes KL.
+- **Curse of dimensionality** (ch05, ch01) — configurations grow exponentially with dimension, defeating local-interpolation methods.
+- **Denoising autoencoder (DAE)** (ch14) — reconstructs clean input from a corrupted copy; its learned map estimates the score.
+- **Disentangled representation** (ch15) — separate generative factors on separate directions.
+- **Distributed representation** (ch15) — n features describing exponentially many regions, versus one-hot's n.
+- **d-separation** (ch16) — reading conditional independence off a directed graph.
+- **Double descent** (ch05) — test error falling again past the interpolation threshold; post-dates the book and qualifies its U-curve.
+- **ELBO** (ch19) — evidence lower bound; log p(x) minus KL(q ‖ posterior).
+- **Empirical risk minimization** (ch08) — minimizing training loss as a surrogate for unmeasurable true risk.
+- **Energy-based model** (ch16) — p(x) ∝ exp(−E(x)).
+- **Equivariance** (ch09) — a shift in input produces the corresponding shift in output; convolution's defining property.
+- **Exposure bias** (ch10) — train/inference mismatch from teacher forcing.
+- **Gradient clipping** (ch08, ch10) — rescaling gradients above a norm threshold to survive cliffs.
+- **Ill-conditioning** (ch04, ch08) — wide Hessian eigenvalue spread; loss stalls while gradient norm stays large.
+- **Importance sampling** (ch17) — sampling from q and reweighting by p/q.
+- **KL divergence** (ch03) — asymmetric divergence between distributions; direction decides mode-covering vs mode-seeking.
+- **Manifold hypothesis** (ch05, ch14) — real data concentrates near a low-dimensional manifold.
+- **Maximum likelihood estimation (MLE)** (ch05) — parameters maximizing data probability; the justification for standard losses.
+- **Mean field** (ch19) — factorized variational family; buys tractability with an independence assumption.
+- **Mixing time / burn-in** (ch17) — steps an MCMC chain needs before its samples are usable.
+- **Mode collapse** (ch20) — a generator covering only part of the data distribution.
+- **Momentum / Nesterov momentum** (ch08) — velocity accumulation across gradient steps.
+- **No Free Lunch theorem** (ch05) — averaged over all distributions, all learners tie; priors carry all leverage.
+- **Noise-contrastive estimation (NCE)** (ch18) — density estimation recast as data-versus-noise classification.
+- **Partition function (Z)** (ch16, ch18) — the normalizer of an undirected model; the central intractability of Part III.
+- **Persistent contrastive divergence (PCD)** (ch18) — CD with a chain persisted across updates.
+- **Pooling** (ch09) — local aggregation giving approximate invariance to small translations.
+- **Positive / negative phase** (ch18) — the two terms of an undirected model's likelihood gradient.
+- **Pseudolikelihood** (ch18) — product of conditionals, in which Z cancels.
+- **Receptive field** (ch09) — the input region influencing one output unit.
+- **Regularization** (ch07, ch05) — any change intended to reduce generalization error but not training error.
+- **Reparameterization trick** (ch20) — expressing a sample as a differentiable function of noise, making the ELBO backprop-able.
+- **Representation learning** (ch15, ch01) — learning features rather than hand-designing them.
+- **Saddle point** (ch08) — critical point that is a minimum in some directions and a maximum in others; the dominant critical point in high dimensions.
+- **Score matching** (ch18) — matching ∇_x log p instead of p, so Z vanishes; the basis of diffusion models.
+- **SGD, minibatch** (ch08) — gradient descent on noisy gradients from data subsets.
+- **Singular value decomposition (SVD)** (ch02) — A = U D Vᵀ for any matrix.
+- **Sparse coding** (ch13) — heavy-tailed latent prior with inference by optimization.
+- **Teacher forcing** (ch10) — training an autoregressive model on ground-truth history.
+- **Universal approximation theorem** (ch06) — one wide hidden layer suffices in principle; silent on width, learnability and sample cost.
+- **Vanishing / exploding gradients** (ch10, ch08) — repeated Jacobian multiplication shrinking or growing gradients through depth or time.
+- **Variational autoencoder (VAE)** (ch20, ch19) — amortized variational inference plus the reparameterization trick.
+- **Weight decay** (ch07) — pulling parameters toward zero; equivalent to L2 for SGD, not for Adam.

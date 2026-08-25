@@ -31,8 +31,11 @@ decision cheatsheet, behind a 2,101-token resident core.
   turnaround, the 3-seed minimum (10+ to be thorough), family-specific benchmark network
   defaults, and Spinning Up's own parity disclosure: DDPG/TD3/SAC are research-grade,
   VPG/TRPO/PPO are not, and the docs say to use OpenAI Baselines for those.
-- **Counters:** skills 386 → 387; agents 116 → 117; commands 146 → 147; plugins 97 → 98.
-  Tools and references unchanged — a compiled knowledge base ships notes, not scripts.
+- **Counters:** skills 387 → 388; agents 117 → 118; commands 147 → 150; plugins 98 → 99.
+  Tools and references unchanged by this plugin — a compiled knowledge base ships notes, not
+  scripts. (These sit on top of `deep-learning-book`, which merged into `dev` first; the
+  derived totals are 388 skills / 727 tools / 842 references / 118 agents / 150 commands /
+  99 plugins.)
 
 ### Fixed — book-to-skill's plugin emitter produced manifests this repo's CI rejects
 
@@ -46,6 +49,47 @@ which is why it had gone unnoticed. `_plugin_manifest()` now emits spec fields o
 `_authoring_notes()` writes the sidecar. Recorded as deviation 26 in
 `engineering/book-to-skill/README.md`. The printed `marketplace.json` snippet is unchanged: `source`
 is a valid key there, which is how it leaked into the manifest originally.
+
+### Added — engineering/deep-learning-book: a companion to the free Deep Learning textbook
+
+New `engineering/deep-learning-book/` plugin: a study companion for *Deep Learning* by
+Goodfellow, Bengio & Courville (MIT Press, 2016), free to read at deeplearningbook.org.
+One skill, 4 stdlib-only tools, 4 references, 3 assets, 1 agent, 3 commands.
+
+- **Companion, not compilation — and that was the design decision.** `book-to-skill`'s
+  rights gate refuses a `shareable` package without `public-domain` / `open-license` /
+  `internal-docs` / `author-permission`, none of which applies to an MIT Press title whose
+  own site states the HTML-only format exists as a friction against copying under the
+  authors' contract; its rights reference lists publishing a compiled skill of a copyrighted
+  book to a public marketplace under **Do not**, and its hard rule 1 forbids scraping a book
+  from the web. So nothing here reproduces the book: every chapter file is original
+  synthesis linking to the official free chapter, and the organizing structure is the
+  published table of contents. **The rule this sets:** convert a copyrighted work into a
+  companion that indexes and updates the source, never a compilation that reproduces it.
+- **The compiled-skill shape, validated by the compiler's own gate.** Master `SKILL.md`
+  (~2.0k tokens, chapter index + topic index), `chapters/ch01..ch20`, `glossary.md`,
+  `patterns.md`, `cheatsheet.md` — passes `book_skill_validator.py` clean with every file
+  inside `token_budget_estimator.py`'s caps.
+- **The 2016→2026 delta layer is the differentiator.** A compilation freezes a source at its
+  publication date; this one dates it. Every chapter carries "What changed after 2016", and
+  `references/book_to_2026_delta.md` gives five corrections with primary citations and
+  per-claim confidence: double descent qualifying Ch 5's U-curve, AdamW splitting weight
+  decay from L2, transformers displacing Ch 10's recurrence, diffusion growing out of Ch 18's
+  score matching, and self-supervised learning vindicating Ch 15 while replacing its methods.
+  Two contested claims are marked contested rather than propagated; two named as folklore.
+  Stated rule: **the conflict is almost always in the recommendation, not the analysis.**
+- **Four tools, each with a real refusal.** `reading_path_planner.py` (prerequisite closure
+  over the book's actual dependency graph, priced in weeks; exit 3 naming what covers an
+  out-of-scope goal, exit 4 with forcing questions when unroutable; ties break on keyword
+  specificity, not alphabetically); `training_diagnostics.py` (Ch 11's rules in priority
+  order, so a NaN is never reported as overfitting; exit 4 rather than diagnosing with no
+  instruments); `capacity_planner.py` (regularization ladder in cost order with "shrink the
+  model" ranked **last** in the overparameterized regime; exit 4 on a val-below-train split);
+  `model_arithmetic.py` (params/FLOPs/activation memory for conv, linear, position-wise
+  linear, MHA and LSTM/GRU stacks; exit 5 naming the layer whose shapes do not connect).
+- `cs-deep-learning-tutor` agent; `/cs:deep-learning`, `/cs:dl-reading-path`,
+  `/cs:dl-diagnose`. **Counters:** skills 386 → 387; tools 723 → 727; refs 838 → 842;
+  agents 116 → 117; commands 146 → 149; plugins 97 → 98.
 
 ### Added — marketing/linkedin: organic LinkedIn presence with the platform rules in code
 

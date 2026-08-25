@@ -1,0 +1,41 @@
+{
+  "name": "transformer encoder block, 768-dim, 512 tokens",
+  "_comment": "Feed to model_arithmetic.py --spec. Shapes are per example, no batch dim. The two feedforward linears run position-wise over the (512, 768) sequence: one weight matrix shared across all 512 tokens, which is what a transformer FFN actually is. Do NOT insert a flatten before them \u2014 that models a dense layer over the whole flattened sequence and inflates the parameter count by 512x. Note how the mha row's cost grows quadratically with sequence length: double 512 to 1024 and the attention term quadruples while the projections only double.",
+  "layers": [
+    {
+      "type": "input",
+      "shape": [
+        512,
+        768
+      ],
+      "name": "token embeddings in"
+    },
+    {
+      "type": "layernorm",
+      "name": "pre-norm 1"
+    },
+    {
+      "type": "mha",
+      "heads": 12,
+      "name": "self-attention"
+    },
+    {
+      "type": "layernorm",
+      "name": "pre-norm 2"
+    },
+    {
+      "type": "linear",
+      "units": 3072,
+      "name": "ffn up (position-wise)"
+    },
+    {
+      "type": "activation",
+      "name": "gelu"
+    },
+    {
+      "type": "linear",
+      "units": 768,
+      "name": "ffn down (position-wise)"
+    }
+  ]
+}

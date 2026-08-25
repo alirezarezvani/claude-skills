@@ -242,12 +242,12 @@ def out_of_scope_hits(goal: str) -> list[str]:
 
 
 def plan(goal: str, background: str, hours_per_week: float,
-         include_optional: bool) -> dict:
+         include_intro: bool) -> dict:
     lane_key, _ = score_lanes(goal)[0]
     lane = LANES[lane_key]
     targets = lane["targets"]
     chapters = close_prerequisites(targets)
-    if not include_optional and lane_key != "complete":
+    if not include_intro and lane_key != "complete":
         # ch01 is context; keep it only when the reader asked for everything.
         chapters = [c for c in chapters if c != 1]
     ordered = order_path(chapters)

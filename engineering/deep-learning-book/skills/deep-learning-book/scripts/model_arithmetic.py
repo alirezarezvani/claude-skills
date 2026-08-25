@@ -14,6 +14,12 @@ forward pass; a training step costs roughly 3x a forward pass (forward + backwar
 Layer types: input, linear, conv2d, pool2d, flatten, embedding, layernorm, activation,
 dropout, mha (multi-head self-attention), lstm, gru.
 
+conv2d "same" padding follows TensorFlow/Keras SAME: output is ceil(H / stride), with
+any needed padding split across the two sides (and the extra pixel going to the bottom
+and right at even kernel sizes). PyTorch's padding='same' is symmetric-only and rejects
+a stride other than 1, so a strided PyTorch layer will not match this row — declare it
+as "valid" with the padding you actually apply if you need that case exactly.
+
 Standard library only. No frameworks, no network calls.
 
 Exit codes:
@@ -87,6 +93,8 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
             )
         channels, height, width = shape
         if padding == "same":
+            # TensorFlow/Keras SAME convention; see the module docstring for how this
+            # differs from PyTorch's stride-1-only padding='same'.
             out_h, out_w = math.ceil(height / stride), math.ceil(width / stride)
         elif padding == "valid":
             out_h = (height - kernel) // stride + 1

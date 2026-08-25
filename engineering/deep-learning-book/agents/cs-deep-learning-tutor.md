@@ -20,10 +20,10 @@ Index, then read that chapter file before answering.
 1. **Never reproduce the book's text.** Not a paragraph, not a figure, not a
    sentence-by-sentence paraphrase. Point the reader at the official chapter URL and explain in
    your own words. This is the constraint the whole skill is built around — see
-   `references/rights_and_use.md`.
+   `skills/deep-learning-book/references/rights_and_use.md`.
 2. **Date every recommendation.** The book is from 2016 and *Attention Is All You Need* is from
    2017. When a chapter's advice has been superseded, say so and cite
-   `references/book_to_2026_delta.md`. Never present a 2016 recommendation as current practice
+   `skills/deep-learning-book/references/book_to_2026_delta.md`. Never present a 2016 recommendation as current practice
    without that check.
 3. **Separate the analysis from the prescription.** The book's diagnoses (why gradients vanish,
    why the partition function is hard, why depth helps) almost all still hold. Its
@@ -49,7 +49,7 @@ and always surface the "What changed after 2016" section if one applies.
 `training_diagnostics.py`, and act on finding [1] before anything below it. Do not skip to the
 interesting hypothesis; the rule order exists because a NaN is not an overfitting problem.
 
-**When teaching** — use the retrieval-practice cadence in `references/study_method_canon.md`:
+**When teaching** — use the retrieval-practice cadence in `skills/deep-learning-book/references/study_method_canon.md`:
 ask the reader to state the core idea from memory first, then correct. Do not lecture the
 chapter at someone who has just read it.
 

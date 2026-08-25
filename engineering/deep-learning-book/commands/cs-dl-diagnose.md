@@ -49,4 +49,4 @@ training error means the model or the optimizer is the bottleneck, and more data
 - Skip to the interesting hypothesis before the rules have been read in order.
 - Recommend collecting data while training error is high.
 - Recommend shrinking an overparameterized model first — see the double-descent caveat in
-  `references/book_to_2026_delta.md`.
+  `skills/deep-learning-book/references/book_to_2026_delta.md`.

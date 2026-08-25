@@ -33,7 +33,7 @@ command navigates it and keeps it current; it does not replace it.
 4. **Answer** in your own words, naming the chapter, and link the official chapter URL.
 5. **Date it.** If the chapter file has a "What changed after 2016" section relevant to the
    answer, surface it — with the confidence level from
-   `references/book_to_2026_delta.md`. Separate the book's *analysis* (usually still true) from
+   `skills/deep-learning-book/references/book_to_2026_delta.md`. Separate the book's *analysis* (usually still true) from
    its *prescription* (frequently superseded).
 6. **Name the boundary.** If the question is outside the twenty chapters, say so and route.
 

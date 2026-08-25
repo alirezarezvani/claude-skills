@@ -27,13 +27,13 @@ before touching a network, which is where most readers stop.
    - Exit 4 — the goal is unroutable. Ask the printed questions, one per turn.
 4. **Relay the path** with the hour budget, and flag that the hours are a planning heuristic to
    recalibrate after chapter one.
-5. **Offer the study scaffolding**: `assets/study_log_template.md` and
-   `assets/chapter_worksheet.md`, plus the retrieval-practice cadence from
-   `references/study_method_canon.md`.
+5. **Offer the study scaffolding**: `skills/deep-learning-book/assets/study_log_template.md` and
+   `skills/deep-learning-book/assets/chapter_worksheet.md`, plus the retrieval-practice cadence from
+   `skills/deep-learning-book/references/study_method_canon.md`.
 
 ## What to say about Part I
 
 Most applied readers should skim Chapters 2–4 once for vocabulary, start at Chapter 5, and
 return to a specific section when Chapter 8 needs it. Readers heading for Part III should work
 Part I properly — those chapters compound, and so do the gaps.
-`references/prerequisite_map.md` has the dependency graph and the three strategies.
+`skills/deep-learning-book/references/prerequisite_map.md` has the dependency graph and the three strategies.

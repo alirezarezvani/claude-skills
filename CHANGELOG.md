@@ -5,6 +5,65 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added — marketing/linkedin: organic LinkedIn presence with the platform rules in code
+
+New `marketing/linkedin/` plugin, answering
+[discussion #934](https://github.com/alirezarezvani/claude-skills/discussions/934), which
+asked for a strategic assistant for growing a LinkedIn presence organically rather than a
+post generator. Six skills, 17 stdlib-only tools, 15 references, 2 agents, 8 commands.
+
+- **The design constraint is the differentiator.** The plugin holds no LinkedIn credentials,
+  makes no API calls, scrapes nothing, and sends nothing — automated posting, connecting,
+  commenting, and liking are prohibited by LinkedIn's User Agreement §8.2, and a restricted
+  account ends a compounding asset. `linkedin_policy_gate.py` runs before any drafting and
+  refuses seven classes of request (automation, scraping, engagement pods, bulk messaging,
+  fake identity, fabricated proof, named third-party automation platforms), each with the
+  policy anchor and a **compliant substitute** — the gate never just says no.
+- **`linkedin-skills`** (orchestrator, `context: fork`) — policy gate + deterministic
+  five-lane router (route 0 / ask 2 / no-signal 3) with cross-lane prerequisites.
+- **`linkedin-profile`** — headline scored on audience/outcome/proof/searchability/clarity
+  against the 220-char cap and the ~60-char front-load window; whole-profile audit across 14
+  weighted checks with fixes ranked by **points per hour** and a first-hour plan; About
+  builder that refuses a fold cutting mid-sentence or carrying no audience and no proof.
+- **`linkedin-strategy`** — positioning brief validator (six real objectives, an audience
+  specific enough to exclude someone, 2-4 proof-backed pillars, a **mandatory exclusion
+  list**); cadence planner that prices the week in minutes and returns a comment-only plan
+  below a 90-minute floor; newsletter gate on LinkedIn's published 150-follower evaluation
+  threshold plus six-month cadence cost, with a stop rule written before issue one.
+- **`linkedin-content`** — post linter across mechanics / hook / integrity / accessibility,
+  blocking on the 3,000-char cap, engagement bait, and **Unicode pseudo-bold** (screen
+  readers announce it as mathematical symbols; search does not index it as words); format
+  picker over nine native formats; repurpose splitter with a **content-hash reuse ledger**.
+- **`linkedin-engagement`** — comment roster capped at two appearances per account per week;
+  message builder that refuses a template without a person-specific line and refuses an ask
+  in a first-touch connection note; volume guard that refuses above 40 invitations a day as
+  an automation plan regardless of intent.
+- **`linkedin-analytics`** — median/MAD describer with Tukey bands (a mean describes a
+  distribution none of your posts belong to); four-gate permutation pattern miner with
+  **multiple-comparisons accounting** and mirrored-candidate de-duplication; experiment
+  planner that reports infeasibility rather than quietly shrinking the effect. Refuses to
+  conclude anything below 10 posts.
+- **Evidence discipline — two widely repeated claims corrected rather than propagated.**
+  (1) "A personalised connection note triples acceptance (~45% vs ~15%)" is not supported by
+  the largest samples, which show acceptance close to identical either way (~26.4%); what a
+  note moves is the **post-accept reply rate** (~5.4% → ~9.4%), which is why the builder
+  refuses an ask in a first-touch note. (2) The ~19% in-body link reach reduction has never
+  been confirmed by LinkedIn as a penalty and has a plausible dwell-time explanation, so it
+  is a warning rather than a blocking finding. Every reference carries per-claim confidence
+  levels (🟢 LinkedIn-official / 🟡 third-party study / 🔴 folklore).
+- All six SKILL.md files are a full **6/6 PASS** on the write-a-skill checklist. Every tool
+  supports `--help`, `--sample`, and `--output json` with typed exit codes.
+- **Counters:** skills 380 → 386; plugins 96 → 97; tools 706 → 723; references 823 → 838;
+  agents 114 → 116; commands 138 → 146 (verified via `scripts/derive_counters.py --check`).
+
+### Fixed
+
+- Synced three previously-merged skills (`engineering/agent-memory`, `engineering/hivemind`,
+  `engineering/skill-doctor`) into the `.hermes/` and `.vibe/` mirror trees, which had
+  drifted behind `.codex/` and `.gemini/`.
+
 ## [2.12.0] - 2026-08-24 — consolidated release: 20 domains, 380 skills, full issue-triage sweep
 
 **First tagged release since v2.9.0.** Versions 2.10.0–2.11.2 were documented in

@@ -8,7 +8,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "380 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 706 Python tools, 823 reference guides, 114 agents (cs-* + personas), 138 slash commands across 96 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs:pm and /cs:product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "description": "386 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 723 Python tools, 838 reference guides, 116 agents (cs-* + personas), 146 slash commands across 97 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs:pm and /cs:product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
     "version": "2.12.0"
   },
   "plugins": [
@@ -1282,6 +1282,28 @@
         "gsap",
         "brand",
         "path-b-megaprompt"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "linkedin",
+      "source": "./marketing/linkedin",
+      "description": "Organic LinkedIn presence, end to end, with LinkedIn's own rules enforced in code. Orchestrator (context: fork) gates every request against User Agreement §8.2 — refusing automation, scraping, engagement pods, bulk DMs, fake identity and fabricated proof, each with a compliant substitute — then routes to profile / strategy / content / engagement / analytics. Headline and whole-profile scoring with fixes ranked by points per hour; positioning brief with a mandatory exclusion list; cadence priced against real hours with a 90-minute floor; newsletter eligibility + six-month sustainability gate; post linter blocking on engagement bait and screen-reader-hostile Unicode pseudo-bold; repurposing with a reuse ledger; capped commenting roster and template-refusing outreach; analytics that test patterns against a seeded permutation null and refuse to conclude below 10 posts. 17 stdlib tools, 15 references with per-claim confidence levels. No credentials, no API calls, nothing auto-sent. Answers discussion #934.",
+      "version": "2.12.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "linkedin",
+        "personal-brand",
+        "organic-growth",
+        "content-strategy",
+        "profile-optimization",
+        "outreach",
+        "newsletter",
+        "social-media",
+        "thought-leadership",
+        "career-change"
       ],
       "category": "marketing"
     },

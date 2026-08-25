@@ -8,7 +8,7 @@ This is the **research-pack shape** anchor — its Agent Integrity Rules block t
 
 1. **Grill-me intake** — 2–4 forcing questions, one at a time: topic specificity, angle (trend/sentiment/problems/opportunities/comparison), time window (7d/14d/30d/60d/90d), platform scope.
 2. **Parallel Phases 1–3** — Reddit + Hacker News + open web fire concurrently. 1 q/sec rate limit per platform; sequential calls within each platform.
-3. **Optional Phase 4** — X/Twitter via Grok / X API / browser automation if available. Skipped with note otherwise.
+3. **Optional Phase 4** — normalize a supplied X export first. Fall back to Grok, X API, or browser automation.
 4. **Synthesis** — cross-platform pattern detection: consensus, controversy, pain points, excitement, emerging trends, gaps.
 5. **Output** — markdown file at `${RESEARCH_DIR}/pulse/<topic-slug>-<YYYY-MM-DD>.md` AND full briefing in chat.
 
@@ -31,7 +31,7 @@ The skill is **recency-oriented** — it captures the current conversation, not 
 |---|---|
 | `skills/pulse/SKILL.md` | The skill itself (Claude reads this when triggered) |
 | `skills/pulse/scripts/time_window_calculator.py` | Deterministic Unix-timestamp + Reddit `t=` parameter computation from window string |
-| `skills/pulse/scripts/citation_tracker.py` | JSON-backed three-count audit log (sent / received / cited) |
+| `skills/pulse/scripts/citation_tracker.py` | Three-count audit log plus local X export normalization and deduplication |
 | `skills/pulse/scripts/topic_slug_generator.py` | Filesystem-safe slug + duplicate-date detection for output paths |
 | `skills/pulse/references/research_pack_conventions.md` | The Agent Integrity Rules canon (7+ sources) |
 | `skills/pulse/references/cross_platform_synthesis.md` | Consensus/controversy/pain detection across platforms (7+ sources) |
@@ -47,6 +47,12 @@ python skills/pulse/scripts/time_window_calculator.py --window 30d
 
 # Start a citation tracker session
 python skills/pulse/scripts/citation_tracker.py --action start --session pulse-2026-05-15-claude-code
+
+# Import an existing Xquik, X API v2, or generic X search export
+python skills/pulse/scripts/citation_tracker.py --action import_sources \
+  --session pulse-2026-05-15-claude-code \
+  --input /path/to/x-search.json \
+  --platform x
 
 # Generate the output-file slug for a topic
 python skills/pulse/scripts/topic_slug_generator.py --topic "self-hosted LLM deployment" --date 2026-05-15

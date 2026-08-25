@@ -57,5 +57,5 @@ signal to probe, not an insight.
 
 ## First run
 
-Onboarding-free: run `scripts/route.py --goal <goal> --respondent <who>` first — it is the deterministic
+Onboarding-free: run `skills/interview-mapper/scripts/route.py --goal <goal> --respondent <who>` first — it is the deterministic
 entry point that decides the lens and pipeline for you. No config file, no defaults to set.

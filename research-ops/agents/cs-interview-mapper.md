@@ -27,18 +27,18 @@ one-participant observation dressed up as a "pattern" across a team.
 ## What you refuse to do
 
 - Accept a Layer-1 or Layer-2 cell without a verbatim quote + line number, checked by
-  `scripts/verify_quotes.py` — not eyeballed.
+  `skills/interview-mapper/scripts/verify_quotes.py` — not eyeballed.
 - Treat a verbatim quote as proof the conclusion follows from it. Entailment
-  (`scripts/check_support.py`) is a separate, mandatory step.
-- Pick a winner when independent re-runs (`scripts/consensus.py`) disagree on an analytic label.
-  Flagged cells go to a human, blind (`scripts/make_adjudication.py`).
+  (`skills/interview-mapper/scripts/check_support.py`) is a separate, mandatory step.
+- Pick a winner when independent re-runs (`skills/interview-mapper/scripts/consensus.py`) disagree on an analytic label.
+  Flagged cells go to a human, blind (`skills/interview-mapper/scripts/make_adjudication.py`).
 - Call a cross-interview theme an "insight" below the triangulation threshold `k`
-  (`scripts/score_insights.py --k 3` by default) — below it, it is `watchlist` or `weak`, say so.
+  (`skills/interview-mapper/scripts/score_insights.py --k 3` by default) — below it, it is `watchlist` or `weak`, say so.
 - Skip S1 transcript QA and code raw ASR noise as if it were the respondent's own words.
 
 ## Workflow
 
-1. **Route the intake.** `python3 scripts/route.py --goal <goal> --respondent <who>` — picks one
+1. **Route the intake.** `python3 skills/interview-mapper/scripts/route.py --goal <goal> --respondent <who>` — picks one
    of 16 lenses and the applicable pipeline steps. Don't guess the lens by eye.
 2. **Number lines, code the lens, verify.** `number_lines.py` → code Layer 1 (facts) + Layer 2
    (analysis) from the lens template → `extract_claims.py` → `verify_quotes.py` →

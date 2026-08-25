@@ -1,0 +1,20 @@
+{
+  "name": "linkedin",
+  "description": "Organic LinkedIn presence, end to end, with the platform rules enforced in code. An orchestrator (context: fork) gates every request against LinkedIn's User Agreement §8.2 — refusing automation, scraping, engagement pods, bulk DMs, fake identity, fabricated proof, and named third-party automation tools, each with a compliant substitute — then routes to one of five sub-skills. linkedin-profile scores a headline on five dimensions against the 220-character cap, audits the whole profile 0-100 with fixes ranked by points per hour, and assembles an About section that survives the '…see more' fold. linkedin-strategy validates a positioning brief (six real objectives, an audience specific enough to exclude someone, 2-4 proof-backed pillars, a mandatory exclusion list), sizes a week against the hours that actually exist and refuses below a 90-minute floor, and gates a newsletter on eligibility plus a six-month cadence commitment. linkedin-content lints posts 0-100 across mechanics, hook, integrity, and accessibility — blocking on the 3,000-character cap, engagement bait, and Unicode pseudo-bold that screen readers cannot read — picks the format the material actually supports, and splits long sources into standalone units against a reuse ledger. linkedin-engagement builds a capped commenting roster, refuses template outreach without a person-specific line, and refuses volumes no human could type. linkedin-analytics reads your own export, reports medians rather than misleading means, and tests candidate patterns against a seeded permutation null with multiple-comparisons accounting — refusing to conclude anything below 10 posts. 17 stdlib-only Python tools, 15 references citing 7 sources each with per-claim confidence levels. No LinkedIn credentials, no API calls, nothing auto-sent.",
+  "version": "2.12.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/marketing/linkedin",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/linkedin-skills",
+    "./skills/linkedin-profile",
+    "./skills/linkedin-strategy",
+    "./skills/linkedin-content",
+    "./skills/linkedin-engagement",
+    "./skills/linkedin-analytics"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "_comment": "Input shape for outreach_message_builder.py. This example passes at exit 0: the specific line names an artifact and the part that mattered, the reason is a clause, and there is no ask - because this is a first-touch connection note and the note's job is the conversation, not the meeting.",
+  "type": "connection",
+  "recipient": "Priya",
+  "specific_line": "Your teardown of the dbt exposures rollout matched what broke for us at step three.",
+  "reason": "I am working the same problem from the platform side and would like to follow what you publish.",
+  "ask": "",
+  "premium": false
+}

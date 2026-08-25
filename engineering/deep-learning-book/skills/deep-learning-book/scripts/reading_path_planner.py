@@ -225,15 +225,23 @@ def order_path(chapters: list[int]) -> list[int]:
 
 
 def score_lanes(goal: str) -> list[tuple[str, int]]:
-    """Score every lane by keyword hits in the goal text, best first."""
+    """Score every lane by keyword hits in the goal text, best first.
+
+    Ties are broken by keyword specificity — the lane whose longest matched
+    keyword is longest wins — because an equal hit count between a generic term
+    and a discriminating one should not be settled by luck. "train a transformer"
+    hits `practitioner` on "train" and `sequence` on "transformer", one each; the
+    longer, more specific match is the one that names the subject. Lane key is the
+    final tie-break so the ordering stays deterministic.
+    """
     text = goal.lower()
     scored = []
     for key, lane in LANES.items():
-        hits = sum(1 for kw in lane["keywords"] if kw in text)
-        if hits:
-            scored.append((key, hits))
-    scored.sort(key=lambda pair: (-pair[1], pair[0]))
-    return scored
+        matched = [kw for kw in lane["keywords"] if kw in text]
+        if matched:
+            scored.append((key, len(matched), max(len(kw) for kw in matched)))
+    scored.sort(key=lambda row: (-row[1], -row[2], row[0]))
+    return [(key, hits) for key, hits, _ in scored]
 
 
 def out_of_scope_hits(goal: str) -> list[str]:

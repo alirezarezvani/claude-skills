@@ -247,7 +247,7 @@ Joshua Achiam). Source obtained by cloning `openai/spinningup` and compiling its
 tree — 38 files, ~37k words, ~49K tokens — through the full pipeline: `extract_document.py --mode technical`
 → analysis → 20 chapter files → glossary / patterns / cheatsheet → master `SKILL.md` → `book_skill_validator.py`
 → `skill_plugin_emitter.py`. Validator passes clean **in `--strict` mode**; every file is inside budget
-(resident core 2,066 / 4,000 tokens; 20 chapters averaging ~1,256 tokens each, loaded on demand).
+(resident core 2,101 / 4,000 tokens; 20 chapters averaging ~1,256 tokens each, loaded on demand).
 
 - **Rights basis is `open-license`, not fair use.** The emitter's Step-11 gate refuses a shareable package
   without one; MIT permits derivative distribution. Upstream's notice is reproduced in full in the plugin's

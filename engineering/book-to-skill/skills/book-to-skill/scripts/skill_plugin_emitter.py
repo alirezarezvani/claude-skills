@@ -10,7 +10,8 @@ This tool closes that gap. Point it at a generated book skill and it emits the
 plugin package this repo's conventions require:
 
     <domain>/<slug>/
-    ├── .claude-plugin/plugin.json     manifest with `./skills/<slug>` + attribution
+    ├── .claude-plugin/plugin.json     manifest, spec fields only (no `source`)
+    ├── .claude-plugin/authoring-notes.json   provenance the manifest may not carry
     ├── README.md                      what the skill knows and where it came from
     ├── agents/cs-<slug>.md            persona that answers from the book
     ├── commands/cs-<slug>.md          /cs:<slug> entry point
@@ -24,7 +25,8 @@ Rights gate: a book skill built from a copyrighted work is personal study
 notes. `--distribution shareable` therefore refuses to emit unless `--rights`
 names a basis that permits redistribution. `--distribution local` (the default)
 emits with a notice and records `source.cleared_for_distribution: false`
-in the manifest.
+in `authoring-notes.json`. Provenance never goes in `plugin.json`: Claude Code
+rejects the whole manifest on any unrecognized key (issue #954).
 
 Exit codes:
     0  package emitted (or --dry-run / --sample completed)

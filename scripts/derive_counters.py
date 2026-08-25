@@ -298,6 +298,26 @@ def run_check(root: Path, derived: dict) -> int:
             print(f"FAIL: cannot parse marketplace.json: {exc}")
             return 1
 
+    # The two sites PR #940 found drifting ungated: the docs-site description
+    # and the Codex plugin manifest (which had lagged nine releases behind).
+    mkdocs = root / "mkdocs.yml"
+    if mkdocs.is_file():
+        # mkdocs.yml carries !!python tags safe_load rejects — read as text and
+        # restrict to the site_description line, mirroring the CLAUDE.md approach.
+        desc_lines = [ln for ln in mkdocs.read_text(encoding="utf-8").splitlines()
+                      if ln.startswith("site_description:")]
+        sources.append(("mkdocs.yml (site_description)", "\n".join(desc_lines)))
+
+    codex_manifest = root / ".codex-plugin" / "plugin.json"
+    if codex_manifest.is_file():
+        try:
+            data = json.loads(codex_manifest.read_text(encoding="utf-8"))
+            sources.append((".codex-plugin/plugin.json description",
+                            data.get("description", "")))
+        except (json.JSONDecodeError, OSError) as exc:
+            print(f"FAIL: cannot parse .codex-plugin/plugin.json: {exc}")
+            return 1
+
     mismatches = []
     for label, text in sources:
         claims = extract_claims(text)
@@ -322,7 +342,7 @@ def run_check(root: Path, derived: dict) -> int:
         print("\nRun `python3 scripts/derive_counters.py` for the ground-truth table.")
         return 1
 
-    print("Counter check passed: README.md, CLAUDE.md, marketplace.json match derived values.")
+    print("Counter check passed: README.md, CLAUDE.md, marketplace.json, mkdocs.yml, .codex-plugin match derived values.")
     return 0
 
 

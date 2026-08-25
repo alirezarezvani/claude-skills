@@ -22,9 +22,10 @@ Modes:
               README.md, root CLAUDE.md ("Current Scope" / "Status:" lines),
               marketplace.json metadata.description, mkdocs.yml
               site_description, or .codex-plugin/plugin.json descriptions
-              disagree with derived values. Also validates the README "Skills Overview" per-domain
-              table: every domain row's count must equal the SKILL.md count in
-              its linked folder, and every on-disk domain must have a row. CI gate G3.
+              disagree with derived values. Also validates the README
+              "Skills Overview" per-domain table: every domain row's count
+              must equal the SKILL.md count in its linked folder, and every
+              on-disk domain must have a row. CI gate G3.
 
 Stdlib only. No writes ever.
 """

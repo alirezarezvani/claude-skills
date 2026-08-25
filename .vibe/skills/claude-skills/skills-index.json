@@ -1,7 +1,7 @@
 {
   "source": "claude-code-skills",
   "layout": "nested",
-  "total_skills": 353,
+  "total_skills": 362,
   "domains": {
     "engineering": [
       {
@@ -200,6 +200,11 @@
         "path": "engineering/agent-harness"
       },
       {
+        "name": "agent-memory",
+        "description": "Use when a project's CLAUDE.md has grown past what anyone reads and you want the agent to learn durable facts from its own sessions instead \u2014 or when asking why the agent keeps re-learning the same correction, why a remembered rule is wrong, or where a memory line came from. Implements a four-tier store (L0 transcripts / L1 candidates / L2 project context / L3 stable persona) where promotion is earned by recurrence across sessions and days, never by one confident statement, and nothing reaches a committed file without a human adopting it.",
+        "path": "engineering/agent-memory"
+      },
+      {
         "name": "agenthub",
         "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel \u2014 code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.",
         "path": "engineering/agenthub"
@@ -350,6 +355,11 @@
         "path": "engineering/helm-chart-builder"
       },
       {
+        "name": "hivemind",
+        "description": "Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grunt work to a single worker or a parallel swarm (scout/coder/tester) with worktree isolation, benchmarking against opencode, or when the user says \"spawn a worker\", \"swarm\", \"delegate to opencode\", or \"/oc\".",
+        "path": "engineering/hivemind"
+      },
+      {
         "name": "human-gate",
         "description": "Runs the human-verification lane of an agent loop, and proves review happened before work is called done. Builds a single-file HTML review page, collects batched feedback as a structured artifact instead of chat prose, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed at all. Use when a plan, spec, RFC, report, landing page, migration, or any irreversible action needs human sign-off before shipping, or on requests such as 'get sign-off', 'have someone check this', 'hold until reviewed', 'needs approval first'. NOT for making AI text sound human (use content-humanizer or behuman). NOT for reviewing code diffs (use md-review or code-reviewer).",
         "path": "engineering/human-gate"
@@ -393,6 +403,11 @@
         "name": "security-guidance",
         "description": "PreToolUse security-anti-pattern hook for Claude Code. Catches 12 common security risks (command injection, XSS, SQL injection, unsafe deserialization, GitHub Actions workflow injection, eval/new Function code injection) BEFORE the Edit/Write/MultiEdit operation completes. Session-state caching prevents duplicate warnings on the same file+rule combo. Stdlib only \u2014 no dependencies. Use when you want a safety net during Claude Code sessions that touch security-sensitive code (auth, payments, user input handling, IaC). Disable with ENABLE_SECURITY_REMINDER=0 if you need to perform a verified-safe operation that would otherwise trip a pattern. Triggers \u2014 \"add security hook\", \"block unsafe code\", \"detect command injection before write\", \"prevent SQL injection patterns\", \"security warning hook\".",
         "path": "engineering/security-guidance"
+      },
+      {
+        "name": "skill-doctor",
+        "description": "Use when the user wants their agent setup graded from real conversation history, asks which installed skills are actually working, or wants evidence-backed skill edits \u2014 scores recent local Claude Code / Codex sessions against efficiency and code-quality rubrics, then drafts skill changes gated by a deterministic aggregator and renders one local shareable report.",
+        "path": "engineering/skill-doctor"
       },
       {
         "name": "skillopt-sleep",
@@ -1538,6 +1553,36 @@
         "name": "landing",
         "description": "Generates a premium single-page HTML landing page with 3D CSS animations, GSAP scroll effects, and mouse-parallax depth. Forcing intake (product + elevator pitch, audience register, brand overrides, tone) locks down positioning before any copy or markup is written, so the page reflects the actual product rather than generic boilerplate. Use whenever the user says 'landing for X', 'create a landing page', 'build a landing page', 'make a landing page for X', 'I need a web page for Y', or provides product/service details and wants a polished website. Also triggers on 'promotional page', 'product page', 'one-pager', 'web presence', 'sales page'. Outputs a single self-contained HTML file (Claude Code) or HTML artifact (Claude.ai). Supports configurable brand colors via CSS custom property overrides.",
         "path": "marketing/landing"
+      },
+      {
+        "name": "linkedin-analytics",
+        "description": "Use when someone wants to understand their own LinkedIn numbers \u2014 which posts worked, why reach dropped, whether a pattern is real, or how to test a hypothesis. Triggers on \"why did my reach drop\", \"what's working on my LinkedIn\", \"analyze my posts\", \"do carousels do better for me\", \"should I test this\", \"LinkedIn analytics\". Reads your own exported post data, reports medians and outlier bands, tests candidate patterns against a permutation null, and sizes a real experiment \u2014 refusing to conclude anything below 10 posts.",
+        "path": "marketing/linkedin-analytics"
+      },
+      {
+        "name": "linkedin-content",
+        "description": "Use when someone wants to write, edit, or lint a LinkedIn post \u2014 a story, how-to, opinion piece, carousel script, video script, or poll \u2014 or wants an article, talk, or transcript repurposed into posts. Triggers on \"write a LinkedIn post\", \"is this hook any good\", \"review my post\", \"turn this into LinkedIn posts\", \"carousel\", \"what format should this be\". Lints posts 0-100 on mechanics, hook, integrity, and accessibility; picks the format the material actually supports; and splits long sources into standalone units with a reuse ledger.",
+        "path": "marketing/linkedin-content"
+      },
+      {
+        "name": "linkedin-engagement",
+        "description": "Use when someone wants to grow reach through comments, replies, groups, or outreach on LinkedIn \u2014 a commenting roster, a connection request note, a DM or InMail, a networking plan, or a check on whether their outreach volume is safe. Triggers on \"who should I engage with\", \"write a connection request\", \"cold DM\", \"LinkedIn outreach\", \"networking strategy\", \"how many invites can I send\". Builds a weekly comment roster inside a real time budget, assembles one message at a time and refuses templates, and caps volume against LinkedIn's limits. Nothing is ever sent.",
+        "path": "marketing/linkedin-engagement"
+      },
+      {
+        "name": "linkedin-profile",
+        "description": "Use when someone wants their LinkedIn profile audited or rewritten \u2014 headline, About section, experience bullets, Featured, banner, recommendations \u2014 or says \"fix my headline\", \"my profile gets views but nothing happens\", \"optimize my LinkedIn profile\", \"what should my About section say\". Scores the headline on five dimensions, audits the whole profile 0-100 and ranks fixes by points per hour, and assembles an About section that survives the \"\u2026see more\" fold.",
+        "path": "marketing/linkedin-profile"
+      },
+      {
+        "name": "linkedin-skills",
+        "description": "Use when someone wants to grow an organic LinkedIn presence \u2014 a content strategy for a career change or consulting or thought leadership, a rewritten profile or headline, post drafts and hooks, a posting cadence or newsletter plan, connection notes and outreach, a commenting strategy, repurposing an article or talk into posts, or a read on why their reach dropped. Triggers on \"grow my LinkedIn\", \"fix my headline\", \"write a LinkedIn post\", \"what should I post about\", \"LinkedIn strategy\", \"connection request\", \"my reach dropped\". Forks context to route to one of five sub-skills, and refuses automation, scraping, pods, and bulk DMs before any drafting starts.",
+        "path": "marketing/linkedin-skills"
+      },
+      {
+        "name": "linkedin-strategy",
+        "description": "Use when someone needs a LinkedIn plan rather than a post \u2014 content pillars, positioning for a career change or consulting or thought leadership, a sustainable posting cadence, or a newsletter decision. Triggers on \"what should I post about\", \"how often should I post\", \"LinkedIn content strategy\", \"should I start a LinkedIn newsletter\", \"grow my following\", \"90-day plan\". Validates the positioning brief, sizes the week against real hours and refuses a plan that will not survive week five, and gates a newsletter against eligibility and a six-month cadence commitment.",
+        "path": "marketing/linkedin-strategy"
       }
     ],
     "research": [

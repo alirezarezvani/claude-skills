@@ -1,0 +1,25 @@
+{
+  "_comment": "Input shape for profile_completeness_auditor.py. Every key is optional; a missing key is treated as absent. Nothing here is fetched from LinkedIn - you fill it in from your own profile.",
+  "photo": true,
+  "banner_custom": true,
+  "custom_url": true,
+  "headline": "Fractional Head of Data for Series A SaaS | Cut BigQuery spend 62% at Zendesk scale | ex-Stripe | I make dashboards people trust",
+  "about": "Most data teams do not have a data problem. They have a trust problem - nobody believes the dashboard, so everyone rebuilds the number in a spreadsheet. I work with Series A SaaS companies whose analytics stack grew faster than anyone's confidence in it. Cut BigQuery spend 62% at Zendesk scale without dropping a single dashboard. Rebuilt reporting for three Series B teams; two retired their shadow spreadsheets inside a quarter. If your team is re-deriving the same metric in three places, message me.",
+  "current_role": {
+    "title": "Fractional Head of Data",
+    "bullets": [
+      "Cut BigQuery spend 62% while keeping every dashboard live",
+      "Reduced median time-to-trusted-number from 9 days to under 1",
+      "Led the migration of 140 legacy models down to 38"
+    ]
+  },
+  "featured_items": 2,
+  "featured_updated_days_ago": 45,
+  "skills": ["analytics engineering", "dbt", "BigQuery", "data governance", "SQL", "Python"],
+  "recommendations_received": 3,
+  "open_to_or_services": true,
+  "education": true,
+  "certifications": 1,
+  "contact_info": true,
+  "days_since_last_post": 6
+}

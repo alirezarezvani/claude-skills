@@ -204,7 +204,12 @@ def _matches(token: str, text: str) -> bool:
     inside "context" — each one producing a confident false refusal or a wrong lane.
     """
     for form in SURFACE_FORMS.get(token, (token,)):
-        if re.search(rf"\b{re.escape(form)}(?:s|es)?\b", text):
+        # Plain -s only. An -es branch collided with unrelated words: "rag" + "es"
+        # matches the standalone word "rages", so a goal about overfitting was
+        # refused as out-of-scope RAG work. No token here needs an -es plural —
+        # every one ending in s/x/z/ch/sh is already plural or non-count — so any
+        # irregular form belongs in SURFACE_FORMS, spelled out.
+        if re.search(rf"\b{re.escape(form)}s?\b", text):
             return True
     return False
 

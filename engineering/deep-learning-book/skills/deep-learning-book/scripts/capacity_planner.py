@@ -242,6 +242,16 @@ def main(argv: list[str] | None = None) -> int:
                      "required (or use --sample)")
     if args.params <= 0 or args.train_examples <= 0:
         parser.error("--params and --train-examples must be positive")
+    if args.underparameterized_max >= args.overparameterized_min:
+        # Overlapping bands silently mis-class the regime, and the cost is not
+        # cosmetic: an overparameterized model reported as underparameterized ranks
+        # "shrink the model" FIRST, inverting the double-descent correction this
+        # tool exists to apply.
+        parser.error(
+            f"--underparameterized-max ({args.underparameterized_max}) must be less "
+            f"than --overparameterized-min ({args.overparameterized_min}); the bands "
+            "are ordered and must not overlap"
+        )
 
     known = {item[0] for item in LADDER}
     applied = {token.strip() for token in args.applied.split(",") if token.strip()}

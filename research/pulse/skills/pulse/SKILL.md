@@ -11,7 +11,7 @@ metadata:
 
 # Pulse — Multi-Source Recency Research
 
-> **Portability:** Works in both Claude Code CLI and Claude.ai. The optional X/Twitter phase requires browser automation and is skipped automatically if unavailable.
+> **Portability:** Works in Claude Code CLI and Claude.ai. Phase 4 accepts a local X/Twitter search export before trying a live interface.
 
 A recency-oriented research skill that synthesizes what people are saying about a topic across Reddit, Hacker News, the open web, and (optionally) X/Twitter — within a configurable time window. Output is a single coherent briefing with citations, engagement signals, and cross-platform pattern analysis. The skill captures the **current conversation**, not the canonical reference.
 
@@ -138,10 +138,25 @@ Run last. Reasons:
 - X content overlaps significantly with Reddit/HN — so it adds delta, not primary signal
 
 **Interface (in priority order):**
-1. **Grok** if available in the harness
-2. **X API** if authenticated
-3. **Browser automation** if the harness supports it (Claude Code CLI with `playwright` or similar)
-4. **Skip with note** if none of the above available
+1. **User-provided JSON export.** Import it before any live request:
+   ```bash
+   python3 scripts/citation_tracker.py \
+     --action import_sources \
+     --session NAME \
+     --input /path/to/x-search.json \
+     --platform x \
+     --since 2026-07-01T00:00:00Z \
+     --until 2026-08-01T00:00:00Z
+   ```
+   The importer accepts Xquik Tweet Search, X API v2, and generic JSON exports.
+   It normalizes legacy and snake-case fields, joins X API `includes.users`,
+   filters the requested window, and deduplicates by Tweet ID. It makes no
+   network calls and requires no API key. The audit stores the filename and
+   SHA-256 digest, not the user's absolute path.
+2. **Grok** if available in the harness.
+3. **X API** if authenticated.
+4. **Browser automation** if the harness supports it.
+5. **Skip with note** if none of the above are available.
 
 **Documented behavior:**
 > If Phase 4 is skipped: include the section header `## X/Twitter` with body `Skipped — [reason: no browser automation / no Grok / no X API]`. Do NOT pretend to have data.
@@ -220,7 +235,8 @@ Sources received: M. Sources cited: K. Training knowledge: 0 ([Background] exclu
 | Reddit blocks / rate-limits | Try `?raw_json=1` or fall back to subreddit-restricted search. Honor 3s-retry. |
 | HN returns empty | Broaden query, drop timestamp filter as last resort, label results "outside window". |
 | Web search returns nothing useful | Note in output; don't fabricate sources. |
-| Browser automation unavailable | Skip Phase 4 with documented note. |
+| Browser automation unavailable | Import a supplied export. Otherwise skip Phase 4 with a note. |
+| Local X export is invalid | Stop Phase 4. Report the parse error. Do not guess missing records. |
 | WebFetch times out | Use what loaded, mark the source as "truncated". |
 | 3 consecutive failures across sources | Stop. Return what was collected with explicit "stopped early" note. Do NOT deliver empty file. |
 | All sources fail | Return error with diagnostic info. Do NOT deliver empty file. |
@@ -230,7 +246,7 @@ Sources received: M. Sources cited: K. Training knowledge: 0 ([Background] exclu
 | Script | Role |
 |---|---|
 | `scripts/time_window_calculator.py` | Compute Unix timestamps + Reddit `t=` parameter from window string (`30d`, `7d`, etc.). Deterministic from `datetime.now()`. |
-| `scripts/citation_tracker.py` | JSON-backed three-count audit log (sent / received / cited) at `~/.pulse_sessions/<session>.json`. |
+| `scripts/citation_tracker.py` | Three-count audit log plus local X export normalization and deduplication. |
 | `scripts/topic_slug_generator.py` | Filesystem-safe slug + duplicate-date detection for output paths. |
 
 ## References
@@ -244,8 +260,9 @@ Sources received: M. Sources cited: K. Training knowledge: 0 ([Background] exclu
 - Starting any search before the user commits to topic specificity (Q1)
 - Batching intake questions instead of one at a time
 - Hardcoded URLs that won't survive API changes (note format, explain may evolve)
-- Specific person / brand references in the skill body
+- Irrelevant person or brand references in the skill body
 - Tight coupling to one X/Twitter interface
+- Counting duplicate Tweet IDs or repeated citation URLs as separate sources
 - Missing fallback behavior on source failure
 - "Just use [specific tool]" without explaining what the tool does
 - Citing training knowledge in the cited count

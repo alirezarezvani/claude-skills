@@ -312,8 +312,14 @@ def run_check(root: Path, derived: dict) -> int:
     if codex_manifest.is_file():
         try:
             data = json.loads(codex_manifest.read_text(encoding="utf-8"))
-            sources.append((".codex-plugin/plugin.json description",
-                            data.get("description", "")))
+            # Include the interface descriptions too — they carry their own
+            # counts; only standardized-phrasing claims in them are gated.
+            iface = data.get("interface", {})
+            codex_text = " ".join(str(s) for s in (
+                data.get("description", ""),
+                iface.get("shortDescription", ""),
+                iface.get("longDescription", "")))
+            sources.append((".codex-plugin/plugin.json descriptions", codex_text))
         except (json.JSONDecodeError, OSError) as exc:
             print(f"FAIL: cannot parse .codex-plugin/plugin.json: {exc}")
             return 1

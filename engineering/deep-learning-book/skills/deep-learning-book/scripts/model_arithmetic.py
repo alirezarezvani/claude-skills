@@ -14,6 +14,12 @@ forward pass; a training step costs roughly 3x a forward pass (forward + backwar
 Layer types: input, linear, conv2d, pool2d, flatten, embedding, layernorm, activation,
 dropout, mha (multi-head self-attention), lstm, gru.
 
+A linear layer on a 2-D (seq, features) input is treated as position-wise: one weight
+matrix shared across all positions, as in a transformer feedforward block. Parameters do
+not scale with sequence length; compute does. Flatten first only when you really mean a
+dense layer over the whole flattened sequence — that is a different layer, and its
+parameter count is seq_len times larger.
+
 conv2d "same" padding follows TensorFlow/Keras SAME: output is ceil(H / stride), with
 any needed padding split across the two sides (and the extra pixel going to the bottom
 and right at even kernel sizes). PyTorch's padding='same' is symmetric-only and rejects
@@ -72,13 +78,21 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
 
     if kind == "linear":
         units = int(_require(layer, "units", index))
+        bias = bool(layer.get("bias", True))
+        if len(shape) == 2:
+            # Per-token (position-wise) linear over a (seq, features) sequence: one
+            # weight matrix shared across positions, exactly like a transformer FFN
+            # projection. Parameters do NOT scale with sequence length; compute does.
+            # Flattening instead would multiply the parameter count by seq_len, which
+            # is a different layer and almost never the intended one.
+            seq, features = shape
+            params = features * units + (units if bias else 0)
+            return (seq, units), params, seq * features * units
         if len(shape) != 1:
             raise ShapeError(
-                f"layer {index} (linear) needs a 1-D input, got {shape}. "
-                "Insert a flatten layer, or use a per-token linear on a 2-D sequence "
-                "by declaring the shape as [features]."
+                f"layer {index} (linear) needs a 1-D or 2-D input, got {shape}. "
+                "Insert a flatten layer to collapse a feature map into one vector."
             )
-        bias = bool(layer.get("bias", True))
         params = shape[0] * units + (units if bias else 0)
         return (units,), params, shape[0] * units
 

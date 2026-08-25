@@ -9,11 +9,6 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/collab-proof",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "attribution": {
-    "source_repo": "https://github.com/dong7812/collab-proof",
-    "author": "dong7812",
-    "license": "MIT"
-  },
   "skills": [
     "./skills/collab-proof"
   ]

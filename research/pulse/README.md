@@ -23,7 +23,7 @@ The skill is **recency-oriented** — it captures the current conversation, not 
 
 ## Source spec
 
-[`megaprompts/01-pulse-megaprompt.md`](../../megaprompts/01-pulse-megaprompt.md) (PR #657). The megaprompt is canonical; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
+`megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). The megaprompt is canonical; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
 
 ## Plugin layout
 

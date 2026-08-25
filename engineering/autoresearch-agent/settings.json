@@ -13,8 +13,8 @@
     "setup": "/ar:setup",
     "run": "/ar:run",
     "loop": "/ar:loop",
-    "status": "/ar:status",
-    "resume": "/ar:resume"
+    "status": "/ar:ar-status",
+    "resume": "/ar:ar-resume"
   },
   "agents": [
     "experiment-runner"

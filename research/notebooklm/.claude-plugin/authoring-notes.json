@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "megaprompts/03-notebooklm-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Browser-automation shape — distinct from research-pack convention. Action-routing intake (Q1 picks one of 4 actions: read/extract, add source, generate studio output, create new). CLI-only portability with graceful failure in web context.",
+    "sibling_of": "research/pulse, litreview, grants, dossier, patent, syllabus (semantic domain) but DIFFERENT SHAPE (browser-automation, not research-pack)"
+  }
+}

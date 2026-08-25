@@ -2,7 +2,7 @@
 
 > Production-grade Playwright testing toolkit for AI coding agents.
 
-Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack — all from your AI agent.
+Generate tests, fix flaky failures, and migrate from Cypress/Selenium — all from your AI agent. Optional TestRail/BrowserStack integrations are included but must be enabled manually (see [Integrations Setup](#integrations-setup)).
 
 ## Install
 
@@ -18,21 +18,21 @@ claude --plugin-dir ./engineering-team/playwright-pro
 
 | Command | What it does |
 |---|---|
-| `/pw:init` | Set up Playwright in your project — detects framework, generates config, CI, first test |
+| `/pw:pw-init` | Set up Playwright in your project — detects framework, generates config, CI, first test |
 | `/pw:generate <spec>` | Generate tests from a user story, URL, or component name |
-| `/pw:review` | Review existing tests for anti-patterns and coverage gaps |
+| `/pw:pw-review` | Review existing tests for anti-patterns and coverage gaps |
 | `/pw:fix <test>` | Diagnose and fix a failing or flaky test |
 | `/pw:migrate` | Migrate from Cypress or Selenium to Playwright |
 | `/pw:coverage` | Analyze what's tested vs. what's missing |
-| `/pw:testrail` | Sync with TestRail — read cases, push results, create runs |
-| `/pw:browserstack` | Run tests on BrowserStack, pull cross-browser reports |
+| `/pw:testrail` | Sync with TestRail — read cases, push results, create runs *(requires manual MCP setup — see [Integrations Setup](#integrations-setup))* |
+| `/pw:browserstack` | Run tests on BrowserStack, pull cross-browser reports *(requires manual MCP setup — see [Integrations Setup](#integrations-setup))* |
 | `/pw:report` | Generate a test report in your preferred format |
 
 ## Quick Start
 
 ```bash
 # In Claude Code:
-/pw:init                              # Set up Playwright
+/pw:pw-init                              # Set up Playwright
 /pw:generate "user can log in"        # Generate your first test
 # Tests are auto-validated by hooks — no extra steps
 ```
@@ -67,7 +67,7 @@ Ready-to-use, parametrizable templates covering:
 | API | 5 | REST CRUD, GraphQL, error handling |
 | Accessibility | 3 | Keyboard nav, screen reader, contrast |
 
-### 2 MCP Integrations
+### 2 MCP Integrations (optional — not auto-registered, see [Integrations Setup](#integrations-setup))
 
 - **TestRail** — Read test cases, create runs, push pass/fail results
 - **BrowserStack** — Trigger cross-browser runs, pull session reports with video/screenshots
@@ -79,6 +79,14 @@ Ready-to-use, parametrizable templates covering:
 - Zero configuration required
 
 ## Integrations Setup
+
+> **Note (issue #978):** the TestRail and BrowserStack MCP servers are **not
+> auto-registered** — they were removed from the plugin's `.mcp.json` because they
+> failed to connect for every user (no bundled `node_modules`). Setting the env
+> vars below is **not** enough on its own; `/pw:testrail` and `/pw:browserstack`
+> will fail with "tool not found" until you enable the server manually
+> (`cd integrations/<name>-mcp && npm install`, then register it in your own
+> user/project MCP config). See the **Integrations** section of `CLAUDE.md`.
 
 ### TestRail (Optional)
 
@@ -116,7 +124,7 @@ Playwright Pro doesn't reinvent what your AI agent already does. It orchestrates
 - `/pw:generate` uses Claude's `Explore` subagent to understand your codebase before generating tests
 - `/pw:migrate` uses `/batch` for parallel file-by-file conversion on large test suites
 - `/pw:fix` uses `/debug` for trace analysis alongside Playwright-specific diagnostics
-- `/pw:review` extends `/review` with Playwright anti-pattern detection
+- `/pw:pw-review` extends `/review` with Playwright anti-pattern detection
 
 ## Reference
 

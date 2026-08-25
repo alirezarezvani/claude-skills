@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "documentation/implementation/research-ops-expansion-plan.md",
+    "build_pattern": "Path B (direct conversion) — orchestrator skill uses context: fork. Single domain plugin (commercial/ + business-operations/ pattern), NOT the research/ parent-of-plugins pattern. Every SKILL.md ships a Forcing-question library section per Matt Pocock grill-with-docs discipline. Each sub-skill also ships onboard.py + config_loader.py (customization consumed by every tool, project>global>defaults precedence) and an isolated opt-in ar_evaluator.py that bridges to engineering/autoresearch-agent (loop edits the skill's input file; evaluator is locked ground truth).",
+    "distinct_from": "ra-qm-team (ISO 13485/14971, EU MDR, FDA 510(k)/PMA/De Novo/QSR submission — clinical-research designs the prospective study, not the submission). finance/financial-analysis (DCF, ratio analysis, close + report — research-finance manages internal R&D program spend). research/grants (NIH funding DISCOVERY + positioning — research-finance manages money already won). product-team/ux-researcher-designer + product-discovery + experiment-designer (persona/journey artifacts, discovery sprints, live A/B — product-research is method + repository discipline). marketing-skill/campaign-analytics + marketing-demand-acquisition (attribution/ROAS/demand-gen — market-research is upstream methodology)."
+  }
+}

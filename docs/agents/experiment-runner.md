@@ -1,6 +1,6 @@
 ---
 title: "Experiment Runner Agent — AI Coding Agent & Codex Skill"
-description: "Experiment Runner Agent — agent-native AI orchestrator for Engineering - POWERFUL. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "Runs one iteration of an autoresearch experiment loop. Reads experiment state from .autoresearch/{domain}/{name}/, makes exactly ONE change to the. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # Experiment Runner Agent

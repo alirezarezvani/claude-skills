@@ -200,7 +200,7 @@ Generated at <timestamp>. KB updated: {N blocklist, M tracker}.
 ## References
 
 - Skill: [../skills/inbox-triage/SKILL.md](../skills/inbox-triage/SKILL.md)
-- Source spec: [`megaprompts/07-inbox-triage-megaprompt.md`](../../../../megaprompts/07-inbox-triage-megaprompt.md)
+- Source spec: `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling command: [`/cs:inbox-triage`](../commands/cs-inbox-triage.md)
 
 ---

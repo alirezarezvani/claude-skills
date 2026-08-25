@@ -63,3 +63,21 @@ tests/
 # Autoresearch agent workspace
 .autoresearch/
 .idea/
+
+# human-gate generated artifacts (review pages + local gate state).
+# The review page is a disposable viewing surface rebuilt on every `open`;
+# the sidecar (<artifact>.review.md) is deliberately NOT ignored — it is the
+# reviewer's feedback and belongs next to the artifact in git.
+*.review.html
+.human-gate/
+
+# engineering/agent-memory runtime store. L1 candidate atoms are raw-adjacent:
+# they are extracted from session transcripts and redaction is a lexical filter,
+# never a guarantee. Only the L2/L3 lines a human explicitly adopts into a
+# CLAUDE.md are ever committed. errors.log records dropped writes; staged/ holds
+# promotion proposals awaiting review. None of it belongs in git.
+.memory/
+
+# agent-launcher user output folders (goal.json, payloads, launch.sh live here)
+my-agent/
+my-agent-*/

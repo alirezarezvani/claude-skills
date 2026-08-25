@@ -72,7 +72,7 @@ python skills/landing/scripts/html_validator.py --file ./landing-pages/quill-ai.
 
 ## Source spec
 
-[`megaprompts/04-landing-megaprompt.md`](../../megaprompts/04-landing-megaprompt.md) (PR #657). The megaprompt is canonical; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
+`megaprompts/04-landing-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). The megaprompt is canonical; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
 
 ## License
 

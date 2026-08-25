@@ -28,7 +28,7 @@ Different from `pulse`:
 
 ## Source spec
 
-[`megaprompts/09-litreview-megaprompt.md`](../../megaprompts/09-litreview-megaprompt.md) (PR #657). Canonical. Drift = bug.
+`megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). Canonical. Drift = bug.
 
 ## Plugin layout
 

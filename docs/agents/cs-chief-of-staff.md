@@ -8,7 +8,7 @@ description: "Routing-and-synthesis chief of staff for orchestrating the virtual
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-chief-of-staff.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-chief-of-staff.md">Source</a></span>
 </div>
 
 
@@ -128,7 +128,7 @@ echo "Decision logged to ~/.claude/decisions/raw/$(date +%Y-%m-%d)-$RANDOM.md"
 ## References
 
 - Skill: [../../skills/chief-of-staff/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-of-staff/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
 - Decision-logger: [../../skills/decision-logger/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/decision-logger/SKILL.md)
 
 ---

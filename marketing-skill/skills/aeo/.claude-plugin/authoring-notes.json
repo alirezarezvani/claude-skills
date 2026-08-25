@@ -1,0 +1,8 @@
+{
+  "source": {
+    "upstream": "https://github.com/alirezarezvani/aeo-box/tree/main/answer-engine-optimization",
+    "upstream_version": "1.0.0",
+    "build_pattern": "Port from aeo-box answer-engine-optimization/ skill (9 modules, 2,464 LOC). Distilled into 3 stdlib CLI tools per claude-skills convention. Preserves E-E-A-T scoring methodology, citation-tracking schema, and industry-aware thresholds. Adds cs-aeo agent + /cs:aeo command + 3 references citing 8 sources each.",
+    "distinct_from": "marketing-skill/skills/seo-audit (traditional click-through SEO) — AEO and SEO complement, not substitute. Both can run on the same content."
+  }
+}

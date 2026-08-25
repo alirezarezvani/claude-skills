@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "345 production-ready agent skills, 78 installable plugins, and 90+ slash commands across 17 domains — engineering, product, marketing, compliance, finance, and research. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
+site_description: "380 production-ready agent skills, 96 installable plugins, and 138 slash commands across 20 domains — engineering, product, marketing, compliance, finance, research, and agent tooling. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -198,8 +198,8 @@ nav:
       - "Autoresearch /ar:setup": skills/engineering/autoresearch-agent-setup.md
       - "Autoresearch /ar:run": skills/engineering/autoresearch-agent-run.md
       - "Autoresearch /ar:loop": skills/engineering/autoresearch-agent-loop.md
-      - "Autoresearch /ar:status": skills/engineering/autoresearch-agent-status.md
-      - "Autoresearch /ar:resume": skills/engineering/autoresearch-agent-resume.md
+      - "Autoresearch /ar:ar-status": skills/engineering/autoresearch-agent-status.md
+      - "Autoresearch /ar:ar-resume": skills/engineering/autoresearch-agent-resume.md
       - "Agent Designer": skills/engineering/agent-designer.md
       - "Agent Workflow Designer": skills/engineering/agent-workflow-designer.md
       - "API Design Reviewer": skills/engineering/api-design-reviewer.md
@@ -257,9 +257,9 @@ nav:
       - "Workflow Builder": skills/engineering/workflow-builder.md
       - AgentHub:
         - "AgentHub": skills/engineering/agenthub.md
-        - "/hub:init": skills/engineering/agenthub-init.md
+        - "/hub:hub-init": skills/engineering/agenthub-init.md
         - "/hub:spawn": skills/engineering/agenthub-spawn.md
-        - "/hub:status": skills/engineering/agenthub-status.md
+        - "/hub:hub-status": skills/engineering/agenthub-status.md
         - "/hub:eval": skills/engineering/agenthub-eval.md
         - "/hub:merge": skills/engineering/agenthub-merge.md
         - "/hub:board": skills/engineering/agenthub-board.md
@@ -496,6 +496,14 @@ nav:
       - "MD Document (Long-Form Converter)": skills/markdown-html/md-document.md
       - "MD Review (Code-Review Converter)": skills/markdown-html/md-review.md
       - "MD Slides (Slide-Deck Converter)": skills/markdown-html/md-slides.md
+    - "Agent Launcher":
+      - Overview: skills/agent-launcher/index.md
+      - "Agent-Launcher Orchestrator (Goal Router)": skills/agent-launcher/agent-launcher-orchestrator.md
+      - "Interview (Phase 1 — Build Sheet)": skills/agent-launcher/interview.md
+      - "Stage & Launch (Phase 2 — BYOK Curl)": skills/agent-launcher/stage-launch.md
+      - "Grade & Iterate (Phase 3 — Bounded Loop)": skills/agent-launcher/grade-iterate.md
+      - "Run Without You (Phase 4 — Cron Loop)": skills/agent-launcher/run-without-you.md
+      - "Wrap-Up (Close-Out)": skills/agent-launcher/wrap-up.md
   - Plugins:
     - Overview: plugins/index.md
   - Personas:
@@ -555,6 +563,10 @@ nav:
     - "CS AIMS (ISO 42001)": agents/cs-aims-iso42001.md
     - "CS Andreessen (Market-First Operator)": agents/cs-andreessen.md
     - "CS Markdown-HTML Orchestrator": agents/cs-markdown-html-orchestrator.md
+    - "CS Agent-Launcher Orchestrator": agents/cs-agent-launcher-orchestrator.md
+    - "CS Agent Interviewer": agents/cs-agent-interviewer.md
+    - "CS Agent Grader": agents/cs-agent-grader.md
+    - "CS Agent Deployer": agents/cs-agent-deployer.md
     - "CS Scraping Architect": agents/cs-scraping-architect.md
   - Commands:
     - Overview: commands/index.md
@@ -624,4 +636,12 @@ nav:
     - "/cs:md-review (Code-Review HTML)": commands/cs-md-review.md
     - "/cs:md-slides (Slide-Deck HTML)": commands/cs-md-slides.md
     - "/cs:grill-markdown-html (Plan Grill)": commands/cs-grill-markdown-html.md
+    - "/cs:launch (CMA Launcher Entry)": commands/cs-launch.md
+    - "/cs:goal (Session Goal)": commands/cs-goal.md
+    - "/cs:interview (CMA Phase 1)": commands/cs-interview.md
+    - "/cs:stage-launch (CMA Phase 2)": commands/cs-stage-launch.md
+    - "/cs:grade (CMA Phase 3 Loop)": commands/cs-grade.md
+    - "/cs:run-without-you (CMA Phase 4 Cron)": commands/cs-run-without-you.md
+    - "/cs:wrap-up (CMA Close-Out)": commands/cs-wrap-up.md
+    - "/cs:grill-agent-launcher (Plan Grill)": commands/cs-grill-agent-launcher.md
     - "/cs:scrape (Scraping Architect)": commands/cs-scrape.md

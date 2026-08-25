@@ -8,7 +8,7 @@ description: "Decision-driven Chief Data Officer advisor for AI training data ri
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-cdo-advisor.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-cdo-advisor.md">Source</a></span>
 </div>
 
 
@@ -157,8 +157,8 @@ echo "Kill criteria + checkpoint dates in each output."
 ## References
 
 - Skill: [../../skills/chief-data-officer-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-data-officer-advisor/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:cdo-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/cdo-review/SKILL.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
+- Sibling command: [`/cs:cdo-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/cdo-review/SKILL.md)
 
 ---
 

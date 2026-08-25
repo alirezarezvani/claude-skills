@@ -203,7 +203,7 @@ Generated at <timestamp>. KB updated: {N blocklist, M tracker}.
 ## References
 
 - Skill: [../skills/inbox-triage/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/SKILL.md)
-- Source spec: [`megaprompts/07-inbox-triage-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/../megaprompts/07-inbox-triage-megaprompt.md)
+- Source spec: `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling command: [`/cs:inbox-triage`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/commands/cs-inbox-triage.md)
 
 ---

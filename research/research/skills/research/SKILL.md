@@ -1,6 +1,6 @@
 ---
 name: research
-description: Default entry point for any research request — a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Use when the user makes any research request that doesn't obviously match a more-specific specialist skill (e.g., "research [topic]", "look into [topic]", "what do we know about [topic]", "investigate [topic]", "find me information on [topic]", "do some research on [topic]", "I need to understand [topic]"). Output is a markdown briefing (default) or .docx document (on request) with full citations and an audit log.
+description: Default entry point for any research request — a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research, deepread for evidence-first reading of supplied documents) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Use when the user makes any research request that doesn't obviously match a more-specific specialist skill (e.g., "research [topic]", "look into [topic]", "what do we know about [topic]", "investigate [topic]", "find me information on [topic]", "do some research on [topic]", "I need to understand [topic]"). Output is a markdown briefing (default) or .docx document (on request) with full citations and an audit log.
 ---
 
 # Research — Hybrid Router + Fallback
@@ -9,7 +9,7 @@ description: Default entry point for any research request — a hybrid router th
 
 ## Portability
 
-Requires `WebSearch` + `WebFetch` for the fallback workflow; specialist skills (`pulse`, `grants`, `litreview`, `syllabus`, `patent`, `dossier`) must be present for delegation to work. Node.js with `docx` package required if Q2 = document mode. Works in Claude Code CLI natively. In Claude.ai with web tools + Code Execution, the workflow is supported.
+Requires `WebSearch` + `WebFetch` for the fallback workflow; specialist skills (`pulse`, `grants`, `litreview`, `syllabus`, `patent`, `dossier`, `deepread`) must be present for delegation to work. Node.js with `docx` package required if Q2 = document mode. Works in Claude Code CLI natively. In Claude.ai with web tools + Code Execution, the workflow is supported.
 
 ## Distinct From `engineering/autoresearch-agent`
 
@@ -40,6 +40,7 @@ The skill **never silently runs its fallback** when a specialist would have done
 | `syllabus` | syllabus / course outline / curriculum / "reading list" / "for my class" / "for my students" | Course supplementary reading |
 | `patent` | prior art / FTO / freedom to operate / patent / "patent landscape" / invention / novelty search / "ip landscape" | Patent prior-art + landscape |
 | `dossier` | "dossier on" / "due diligence" / "background check" / "prep me for" / "competitor research" / "investor diligence" / "interview prep" / "background on" | Decision-grade entity research |
+| `deepread` | "deep read" / "deeply read" / "read this book" / "read this pdf" / "read this document" / "extract the claims" / "knowledge map" / "feynman" | Evidence-first reading of supplied documents |
 
 **Escalation → `deep-research`:** when a wrong answer is expensive (strategy, comparing N options, hypothesis validation, mapping a field) and rigor matters more than speed, escalate to the `deep-research` skill instead of the fast fallback workflow — it runs a triangulated, multi-round, adversarial investigation and persists an auditable, reusable research folder. This router is the fast path; `deep-research` is the heavyweight one.
 
@@ -114,7 +115,10 @@ SIGNALS = {
              "patent search", "ip landscape"],
   dossier:  ["dossier on", "due diligence", "background check",
              "prep me for", "competitor research", "investor diligence",
-             "interview prep", "research my competitor", "background on"]
+             "interview prep", "research my competitor", "background on"],
+  deepread: ["deep read", "deeply read", "read this book", "read this pdf",
+             "read this document", "extract the claims", "extract claims from",
+             "knowledge map", "feynman", "argument map"]
 }
 
 # Signals are case-insensitive literal phrases (multi-word substring match).
@@ -245,5 +249,5 @@ All routing decisions + overrides also logged to `~/.research_sessions/<session>
 ---
 
 **Version:** 1.1.0
-**Source spec:** [`megaprompts/13-research-megaprompt.md`](../../../../megaprompts/13-research-megaprompt.md)
+**Source spec:** `megaprompts/13-research-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). v1.1.0: bare-noun signals now ask instead of silent-routing; 5s auto-proceed affordance removed; context-economy trim per the 2026-06 newgen audit.

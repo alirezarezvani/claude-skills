@@ -68,13 +68,25 @@ Leverage Claude Code's built-in capabilities:
 - **Large migrations**: Use `/batch` for parallel file-by-file conversion
 - **Post-generation cleanup**: Use `/simplify` after generating a test suite
 - **Debugging sessions**: Use `/debug` alongside `/pw:fix` for trace analysis
-- **Code review**: Use `/review` for general code quality, `/pw:review` for Playwright-specific
+- **Code review**: Use `/review` for general code quality, `/pw:pw-review` for Playwright-specific
 
 ### Integrations
 
-- **TestRail**: Configured via `TESTRAIL_URL`, `TESTRAIL_USER`, `TESTRAIL_API_KEY` env vars
-- **BrowserStack**: Configured via `BROWSERSTACK_USERNAME`, `BROWSERSTACK_ACCESS_KEY` env vars
+- **TestRail**: `TESTRAIL_URL`, `TESTRAIL_USER`, `TESTRAIL_API_KEY` env vars
+- **BrowserStack**: `BROWSERSTACK_USERNAME`, `BROWSERSTACK_ACCESS_KEY` env vars
 - Both are optional. The plugin works fully without them.
+
+**Not auto-registered (issue #978).** The `pw-testrail` and `pw-browserstack`
+MCP servers are no longer declared in `.mcp.json`. They are launched with
+`npx tsx integrations/<name>-mcp/src/index.ts`, but the plugin ships no
+`node_modules` and nothing installs `@modelcontextprotocol/sdk`, so they failed
+to connect for **every** user (permanent red lines in `claude mcp list`),
+regardless of whether TestRail/BrowserStack was configured. Per this repo's
+"no build systems" convention we leave them out of `.mcp.json` rather than
+vendoring `node_modules`. To enable one manually: `cd integrations/<name>-mcp`
+(i.e. `testrail-mcp` or `browserstack-mcp`),
+`npm install`, then register it in your own user/project MCP config (not the
+plugin's `.mcp.json`) with the env vars above.
 
 ## File Conventions
 

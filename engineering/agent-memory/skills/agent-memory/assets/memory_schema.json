@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/engineering/agent-memory/skills/agent-memory/assets/memory_schema.json",
+  "$comment": "$id decision, settled — do not re-litigate. (a) raw.githubusercontent, NOT the github.com/blob/ form used by the repo's one other schema: blob URLs serve HTML, so anything that dereferences $id for $ref breaks. That other file is a pre-existing inconsistency, not a convention to propagate. (b) Pinned to main, not dev, because $id is a stable identifier for the published artifact; under this repo's dev -> main promotion flow it is a dead link until the promotion PR lands, which is accepted deliberately — a URL that is correct-eventually beats one that is correct-now and wrong-after-promotion. Nothing in this repo dereferences $id today.",
+  "title": "agent-memory atom (L1) — v1",
+  "description": "One atomic memory claim extracted from an L0 transcript. Every atom MUST carry a live back-pointer into the transcript that produced it; an atom without provenance is discarded, never stored. Promotion to L2/L3 is decided by recurrence across distinct sessions, not by importance. See ../DESIGN.md sections 3 and 4.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "claim",
+    "scope",
+    "kind",
+    "first_seen",
+    "last_seen",
+    "observations",
+    "sessions",
+    "source",
+    "first_source",
+    "confidence",
+    "tier",
+    "redacted"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^atm_[0-9a-f]{8}$",
+      "description": "Stable id, PROJECT-SCOPED: hash(normalized_claim + '\\u0000' + project) when scope is 'project', hash(normalized_claim) when scope is 'global'. The project component is mandatory and is what stops two unrelated claims that normalize alike in different repos (e.g. 'tests must pass before merge') from colliding and merging their 'sessions' arrays across projects — which would manufacture false durability, since the L1 to L2 gate requires the sessions be from the SAME project. Merging on this id is how a claim re-observed in a later session accumulates durability instead of duplicating."
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 280,
+      "description": "A single assertion, stated positively and in the present tense. One claim per atom — a sentence containing 'and' is usually two atoms."
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "project",
+        "global"
+      ],
+      "description": "DETERMINED BY TIER, not chosen freely: L1 and L2 are always 'project'; 'global' arises ONLY from the L2->L3 merge. Extraction must therefore always emit scope='project'. Permitting a scope='global' atom at extraction would create an unreachable state — the L1 to L2 gate requires 'same project' and a global atom has no 'project' field, while L2 to L3 is a merge over two or more L2 atoms, so such an atom could never promote and would sit at L1 until it expired. Enforced by the tier/scope conditional below. See DESIGN.md section 4.1.2."
+    },
+    "project": {
+      "type": "string",
+      "description": "Repo or working-directory slug. REQUIRED when scope is 'project'; MUST be absent when scope is 'global'."
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "constraint",
+        "preference",
+        "fact",
+        "decision",
+        "failure"
+      ],
+      "description": "constraint = a rule that must hold (PR base is dev). preference = a stated liking (stdlib only). fact = an environmental truth (backend URL). decision = a choice made with rationale. failure = a command or approach that did not work, retained so it is not retried."
+    },
+    "first_seen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of the earliest observation. Never updated after creation."
+    },
+    "last_seen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of the most recent observation. Drives the 90-day L1 expiry and recency scoring at recall."
+    },
+    "observations": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Total times observed. Informational — the promotion gate counts distinct entries in 'sessions', NOT this field, so restating a claim repeatedly within one session cannot manufacture durability."
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Set of distinct Claude Code session ids in which this claim was observed. This is the durability counter that gates promotion (L1 to L2 needs >= 3 distinct sessions across >= 2 distinct days)."
+    },
+    "source": {
+      "type": "string",
+      "description": "Back-pointer into L0 for the MOST RECENT observation. Overwritten on every merge — read 'first_source' for the evidence that originally justified the claim. Required at every tier; an unprovenanced claim can never be promoted (the anti-fabrication rule). FORMAT IS TIER-DEPENDENT: at L1 (gitignored) it is the full local path '~/.claude/projects/<cwd-slug>/<session>.jsonl#L<line>'; at L2/L3 (committed) promotion MUST strip the prefix to '<session>.jsonl#L<line>', because <cwd-slug> is the slugified absolute working directory and therefore embeds the OS username — committing it would violate the de-identification rule in DESIGN.md section 6. The prefix is derivable at read time by globbing ~/.claude/projects/*/<session>.jsonl, so nothing is lost. See DESIGN.md section 3.1.1."
+    },
+    "first_source": {
+      "type": "string",
+      "description": "Back-pointer into L0 for the FIRST observation, written once at creation and never overwritten (except by the tier-dependent prefix strip described under 'source', which rewrites the format, never the target). 'source' alone is insufficient for an anti-fabrication field: after N merges it points only at the latest sighting, so the evidence that originally justified the claim would be unrecoverable exactly when an auditor needs it. Both are retained deliberately."
+    },
+    "promoted_from_projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Projects in which this claim independently held at L2 before being promoted to L3. REQUIRED once tier is L3. Exists because 'scope' flips to 'global' on promotion and the conditional below then forbids the single 'project' field — without this array the >= 2-distinct-projects criterion from DESIGN.md section 4.1 would be unauditable the moment it was satisfied, discarding the evidence precisely when it turns from an eligibility test into an audit trail."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "stated",
+        "verified"
+      ],
+      "description": "observed = the agent inferred it (3 sessions to promote). stated = the user said it directly (2 sessions). verified = a script or check confirmed it (promotes on 1 observation; it is not hearsay)."
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "description": "Current tier. L0 is never represented as an atom — it is the raw transcript this atom points back to."
+    },
+    "contested": {
+      "type": "boolean",
+      "default": false,
+      "description": "Set when a newer atom contradicts this one. A contested L2/L3 claim is STILL injected, tagged with the conflict — silently withholding it would be worse than surfacing it. Resolution is always a human decision at adopt time."
+    },
+    "contested_by": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^atm_[0-9a-f]{8}$"
+      },
+      "description": "Ids of atoms contradicting this claim."
+    },
+    "promoted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this atom last changed tier. Starts the 30-day clock for L2 to L3 eligibility (section 4.1.1) and anchors demotion (section 4.3). REQUIRED at L2/L3 via the conditional below — an atom that reached a committed tier without recording when could never satisfy the age gate and would sit un-promotable forever. NOT required at L1, and explicitly not forbidden there: a demoted atom (section 4.3) sits at L1 while legitimately retaining the promoted_at from its earlier life."
+    },
+    "redacted": {
+      "type": "boolean",
+      "default": false,
+      "description": "True when the redaction pass altered the claim text before storage. REQUIRED, not optional: DESIGN.md section 6 rule 1 makes redaction non-negotiable before ANY write, so every atom that exists on disk has already been through the pass and knows its answer. Leaving the field optional would let an atom that skipped redaction entirely be schema-valid — precisely the state the rule forbids. Requiring it turns 'redaction ran' into something memory_promote.py can machine-check rather than trust. A redacted atom is still usable, but is never promoted to a committed tier without human review."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "project"
+          }
+        },
+        "required": [
+          "scope"
+        ]
+      },
+      "then": {
+        "required": [
+          "project"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "project"
+          ]
+        }
+      }
+    },
+    {
+      "$comment": "Two-sided, mirroring the scope<->project conditional. promoted_from_projects is not merely unnecessary outside L3 — it is meaningless there: it records which L2 atoms merged to produce a global claim (section 4.1.1), so an L1/L2 atom carrying it is asserting a promotion that has not happened. Section 3.1 already says an extractor must not emit it unconditionally; the else branch makes that enforceable instead of advisory.",
+      "if": {
+        "properties": {
+          "tier": {
+            "const": "L3"
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
+      "then": {
+        "required": [
+          "promoted_from_projects"
+        ],
+        "properties": {
+          "promoted_from_projects": {
+            "minItems": 2
+          }
+        }
+      },
+      "else": {
+        "not": {
+          "required": [
+            "promoted_from_projects"
+          ]
+        }
+      }
+    },
+    {
+      "$comment": "promoted_at is REQUIRED at L2/L3 because sections 4.1.1 and 4.3 both key off it — the L2->L3 gate needs age >= 30 days, and demotion needs to know when the atom last moved. An L2 atom missing it could never satisfy the age test and would sit un-promotable forever, silently: the same silent-skip failure mode that made `redacted` required. Deliberately NOT forbidden at L1, because section 4.3 demotes an expired L2 claim BACK to L1 and that atom legitimately retains its promotion history; forbidding it there would make a demoted atom invalid.",
+      "if": {
+        "properties": {
+          "tier": {
+            "enum": [
+              "L2",
+              "L3"
+            ]
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
+      "then": {
+        "required": [
+          "promoted_at"
+        ]
+      }
+    },
+    {
+      "$comment": "tier determines scope, closing an unreachable state: a tier=L1/scope=global atom could never promote (L1->L2 needs 'same project', which it lacks; L2->L3 merges L2 atoms) and would sit at L1 until expiry. L1 and L2 are project-scoped; global exists only as the product of the L2->L3 merge. See DESIGN.md section 4.1.2.",
+      "if": {
+        "properties": {
+          "tier": {
+            "enum": [
+              "L1",
+              "L2"
+            ]
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
+      "then": {
+        "properties": {
+          "scope": {
+            "const": "project"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "scope": {
+            "const": "global"
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Enforces the tier-dependent back-pointer format from DESIGN.md section 3.1.1. This is the one promotion rule with PII consequences — an unstripped L2/L3 back-pointer commits the contributor's OS username to a shared CLAUDE.md — so it is machine-checked here rather than left to prose, exactly like the scope and tier conditionals above. memory_promote.py must fail loudly on a bad promotion, never leak silently.",
+      "if": {
+        "properties": {
+          "tier": {
+            "const": "L1"
+          }
+        },
+        "required": [
+          "tier"
+        ]
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          },
+          "first_source": {
+            "pattern": "^~/\\.claude/projects/[^/]+/[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "source": {
+            "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          },
+          "first_source": {
+            "pattern": "^[A-Za-z0-9._-]+\\.jsonl#L[0-9]+$"
+          }
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "id": "atm_14a05266",
+      "claim": "mkdocs build fails when nav lists a page with no matching file",
+      "scope": "project",
+      "project": "claude-skills",
+      "kind": "failure",
+      "first_seen": "2026-08-01T14:22:09Z",
+      "last_seen": "2026-08-01T14:22:09Z",
+      "observations": 1,
+      "sessions": [
+        "01SESSIONBBBB11112222333"
+      ],
+      "source": "~/.claude/projects/-home-user-claude-skills/01SESSIONBBBB11112222333.jsonl#L1043",
+      "first_source": "~/.claude/projects/-home-user-claude-skills/01SESSIONBBBB11112222333.jsonl#L1043",
+      "confidence": "observed",
+      "tier": "L1",
+      "redacted": false
+    },
+    {
+      "id": "atm_961f033d",
+      "claim": "PR base branch is dev, never main",
+      "scope": "project",
+      "project": "claude-skills",
+      "kind": "constraint",
+      "first_seen": "2026-07-02T09:11:04Z",
+      "last_seen": "2026-08-09T10:14:22Z",
+      "observations": 6,
+      "sessions": [
+        "01SESSIONAAAA11112222333",
+        "01SESSIONBBBB11112222333",
+        "01SESSIONCCCC11112222333"
+      ],
+      "source": "01SESSIONCCCC11112222333.jsonl#L412",
+      "first_source": "01SESSIONAAAA11112222333.jsonl#L77",
+      "confidence": "stated",
+      "tier": "L2",
+      "promoted_at": "2026-07-19T14:02:00Z",
+      "redacted": false
+    },
+    {
+      "id": "atm_12cc1dc2",
+      "claim": "Python tooling stays stdlib-only; no third-party runtime deps",
+      "scope": "global",
+      "kind": "preference",
+      "first_seen": "2026-05-14T08:20:11Z",
+      "last_seen": "2026-08-08T17:45:03Z",
+      "observations": 23,
+      "sessions": [
+        "01SESSIONDDDD11112222333",
+        "01SESSIONEEEE11112222333",
+        "01SESSIONFFFF11112222333",
+        "01SESSIONGGGG11112222333"
+      ],
+      "source": "01SESSIONGGGG11112222333.jsonl#L88",
+      "first_source": "01SESSIONDDDD11112222333.jsonl#L204",
+      "confidence": "verified",
+      "tier": "L3",
+      "promoted_from_projects": [
+        "claude-skills",
+        "other-project"
+      ],
+      "promoted_at": "2026-06-21T11:30:00Z",
+      "redacted": false
+    }
+  ]
+}

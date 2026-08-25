@@ -1,6 +1,6 @@
 ---
 name: cs-aims-iso42001
-description: ISO/IEC 42001:2023 AI Management System (AIMS) implementation + internal audit operator. Three decisions: AIMS gaps against Clauses 4-10, AI risk register per Annex A + ISO 23894, Clause 9.2 internal audit plan. NOT executive AI strategy (see cs-caio-advisor). NOT EU AI Act conformity (see cs-ai-act-compliance).
+description: "ISO/IEC 42001:2023 AI Management System (AIMS) implementation + internal audit operator. Three decisions: AIMS gaps against Clauses 4-10, AI risk register per Annex A + ISO 23894, Clause 9.2 internal audit plan. NOT executive AI strategy (see cs-caio-advisor). NOT EU AI Act conformity (see cs-ai-act-compliance)."
 skills: ra-qm-team/skills/iso42001-specialist
 domain: compliance-os
 model: opus
@@ -115,8 +115,8 @@ python aims_audit_scheduler.py audit_scope.json
 
 - [cs-compliance-officer](cs-compliance-officer.md) — Multi-framework orchestrator (routes here for ISO 42001 deep work)
 - [cs-ai-act-compliance](cs-ai-act-compliance.md) — EU AI Act Article-cited compliance
-- [cs-caio-advisor](../../c-level-advisor/c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy
-- [cs-ciso-advisor](../../c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity (ISO 27001 / SOC 2 strategy)
+- [cs-caio-advisor](../../c-level-agents/agents/cs-caio-advisor.md) — Executive AI strategy
+- [cs-ciso-advisor](../../c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity (ISO 27001 / SOC 2 strategy)
 - [cs-quality-regulatory](../../agents/ra-qm-team/cs-quality-regulatory.md) — Medical-device QMS / regulatory orchestrator
 
 ## References

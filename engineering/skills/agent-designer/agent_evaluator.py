@@ -133,7 +133,6 @@ class AgentEvaluator:
     def __init__(self):
         self.error_patterns = self._define_error_patterns()
         self.performance_thresholds = self._define_performance_thresholds()
-        self.cost_benchmarks = self._define_cost_benchmarks()
     
     def _define_error_patterns(self) -> Dict[str, Dict[str, Any]]:
         """Define common error patterns and their classifications"""
@@ -217,23 +216,15 @@ class AgentEvaluator:
             "throughput": {"excellent": 100, "good": 50, "acceptable": 20, "poor": 5}  # tasks per hour
         }
     
-    def _define_cost_benchmarks(self) -> Dict[str, Any]:
-        """Define cost benchmarks for different operations"""
-        return {
-            "token_costs": {
-                "gpt-4": {"input": 0.00003, "output": 0.00006},
-                "gpt-3.5-turbo": {"input": 0.000002, "output": 0.000002},
-                "claude-3": {"input": 0.000015, "output": 0.000075}
-            },
-            "operation_costs": {
-                "simple_task": 0.005,
-                "complex_task": 0.050,
-                "research_task": 0.020,
-                "analysis_task": 0.030,
-                "generation_task": 0.015
-            }
-        }
-    
+    # _define_cost_benchmarks() was removed. It hardcoded per-token prices for
+    # gpt-4, gpt-3.5-turbo and claude-3 — all retired, all priced at 2024
+    # rates — and the result was assigned to self.cost_benchmarks and never
+    # read by anything. Cost analysis in this tool uses the cost_usd field the
+    # caller supplies in each execution log, which is the only figure that can
+    # be accurate. See engineering-team/skills/senior-prompt-engineer/scripts/
+    # prompt_optimizer.py for the --price-per-mtok pattern if a price is
+    # genuinely needed.
+
     def parse_execution_logs(self, logs_data: List[Dict[str, Any]]) -> List[ExecutionLog]:
         """Parse raw execution logs into structured format"""
         logs = []

@@ -1,16 +1,16 @@
+---
+name: sample-text-processor
+description: "Reference BASIC-tier skill used as a fixture by skill-tester. Counts words and characters and applies basic text transformations. Use when validating skill-tester itself or when you need a minimal, known-good skill layout to copy. Not a production skill."
+---
+
 # Sample Text Processor
 
----
+This file is the fixture skill_validator.py and script_tester.py run against.
+It is deliberately minimal. Keep its frontmatter valid YAML and limited to the
+fields Claude Code reads: anything else here gets copied into new skills by
+authors treating it as a template.
 
-**Name**: sample-text-processor
-**Tier**: BASIC
-**Category**: Text Processing
-**Dependencies**: None (Python Standard Library Only)
-**Author**: Claude Skills Engineering Team
-**Version**: 1.0.0
-**Last Updated**: 2026-02-16
-
----
+Tier: BASIC. Dependencies: none, Python standard library only.
 
 ## Description
 

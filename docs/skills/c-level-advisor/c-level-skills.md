@@ -43,6 +43,6 @@ Full matrix in [`chief-of-staff/SKILL.md`](https://github.com/alirezarezvani/cla
 
 ## Related Layers
 
-- [`c-level-advisor/c-level-agents`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents) — 13 cs-* persona agents + 21 `/cs:*` slash commands on top of these skills
+- [`c-level-agents`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents) — 13 cs-* persona agents + 21 `/cs:*` slash commands on top of these skills
 - [`c-level-advisor/executive-mentor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/executive-mentor) — adversarial `/em:*` critic commands
 - [`c-level-advisor/CLAUDE.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/CLAUDE.md) — full architecture diagram and integration guide

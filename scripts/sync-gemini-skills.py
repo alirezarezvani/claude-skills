@@ -36,7 +36,8 @@ DOMAIN_MAP = {
     "commercial": "commercial",
     "research-ops": "research-ops",
     "compliance-os": "compliance-os",
-    "markdown-html": "markdown-html"
+    "markdown-html": "markdown-html",
+    "agent-launcher": "agent-launcher"
 }
 
 

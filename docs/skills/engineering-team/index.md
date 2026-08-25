@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "51 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "53 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">51 skills in this domain</p>
+<p class="domain-count">53 skills in this domain</p>
 
 </div>
 
@@ -59,6 +59,12 @@ description: "51 engineering - core skills — engineering agent skill and Claud
 
     Tier: POWERFUL
 
+-   **[Embedded / IoT Mentor](embedded-iot-mentor.md)**
+
+    ---
+
+    Act as an experienced embedded-systems and IoT mentor. Guide from idea to a working breadboard MVP first — later stag...
+
 -   **[Engineering Team Skills](engineering-skills.md)**
 
     ---
@@ -94,6 +100,12 @@ description: "51 engineering - core skills — engineering agent skill and Claud
     ---
 
     Expert guidance and automation for Microsoft 365 Global Administrators managing tenant setup, user lifecycle, securit...
+
+-   **[Named-Persona Adversarial Review](named-persona-adversarial-review.md)**
+
+    ---
+
+    > TL;DR: Abstract roles find abstract problems. Named engineers with documented, sourced philosophies find problems y...
 
 -   **[Red Team](red-team.md)**
 

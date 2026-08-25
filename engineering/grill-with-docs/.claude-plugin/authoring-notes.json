@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs",
+    "original_author": "Matt Pocock (@mattpocock)",
+    "original_license": "MIT",
+    "derivation_note": "Matt's SKILL.md content (with embedded references to ADR-FORMAT.md and CONTEXT-FORMAT.md) reproduced under MIT. Additions: 3 stdlib validators (CONTEXT.md linter, ADR scanner, glossary-code consistency), 3 deep references citing 7+ authoritative sources each, cs-grill-with-docs persona agent, /cs:grill-with-docs slash command. Matt's interview discipline + 3-criteria ADR gate preserved verbatim."
+  }
+}

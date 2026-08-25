@@ -184,5 +184,5 @@ The closing is always specific — never "you should think more about this" or "
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/02-reflect-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/02-reflect-megaprompt.md)
+**Source spec:** `megaprompts/02-reflect-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Productivity light-prompt-flow sibling of capture.

@@ -119,7 +119,7 @@ grants_<topic-slug>_<YYYY-MM-DD>.docx
 
 - Agent: [`cs-grants`](../agents/cs-grants.md)
 - Skill: [`grants`](../skills/grants/SKILL.md)
-- Source spec: [`megaprompts/08-grants-megaprompt.md`](../../../megaprompts/08-grants-megaprompt.md)
+- Source spec: `megaprompts/08-grants-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling: `/cs:litreview` (academic literature, no RePORTER)
 
 ---

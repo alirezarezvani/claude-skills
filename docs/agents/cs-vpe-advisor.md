@@ -8,7 +8,7 @@ description: "Throughput-first VP of Engineering advisor for delivery throughput
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-vpe-advisor.md">Source</a></span>
 </div>
 
 
@@ -157,8 +157,8 @@ python ../../skills/vpe-advisor/scripts/eng_team_structure_designer.py current-t
 ## References
 
 - Skill: [../../skills/vpe-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/vpe-advisor/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:vpe-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/vpe-review/SKILL.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
+- Sibling command: [`/cs:vpe-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/vpe-review/SKILL.md)
 
 ---
 

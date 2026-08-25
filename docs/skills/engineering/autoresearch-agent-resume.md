@@ -1,14 +1,14 @@
 ---
-title: "/ar:resume — Resume Experiment — Agent Skill for Codex & OpenClaw"
-description: "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:resume or asks to. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/ar:ar-resume — Resume Experiment — Agent Skill for Codex & OpenClaw"
+description: "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:ar-resume or asks to. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /ar:resume — Resume Experiment
+# /ar:ar-resume — Resume Experiment
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `resume`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/resume/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/ar-resume/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,8 +21,8 @@ Resume a paused or context-limited experiment. Reads all history and continues w
 ## Usage
 
 ```
-/ar:resume                                  # List experiments, let user pick
-/ar:resume engineering/api-speed            # Resume specific experiment
+/ar:ar-resume                                  # List experiments, let user pick
+/ar:ar-resume engineering/api-speed            # Resume specific experiment
 ```
 
 ## What It Does

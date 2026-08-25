@@ -287,5 +287,5 @@ This is the single most valuable advice for any applicant. Never skip.
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/08-grants-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/08-grants-megaprompt.md)
+**Source spec:** `megaprompts/08-grants-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Research-pack sibling of pulse + litreview.

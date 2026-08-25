@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "74 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "86 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">74 skills in this domain</p>
+<p class="domain-count">86 skills in this domain</p>
 
 </div>
 
@@ -40,6 +40,12 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL
+
+-   **[Boost.Asio / standalone Asio](boost-asio-pro.md)**
+
+    ---
+
+    Write async C++ networking code that compiles on the user's Boost, not the newest one. Asio's API changed shape three...
 
 -   **[Browser Automation - POWERFUL](browser-automation.md)**
 
@@ -125,6 +131,12 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
+-   **[Hivemind: Claude Code as Orchestrator, opencode as Free Worker Swarm](hivemind.md)**
+
+    ---
+
+    Claude Code = brain (plans, reviews, merges). opencode = disposable workers on free models
+
 -   **[Interview System Designer](interview-system-designer.md)**
 
     ---
@@ -148,6 +160,12 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Tier: POWERFUL
+
+-   **[Minimalist](minimalist.md)**
+
+    ---
+
+    You are highly efficient. The best code is the code never written.
 
 -   **[Monorepo Navigator](monorepo-navigator.md)**
 
@@ -232,6 +250,12 @@ description: "74 engineering - powerful skills — advanced agent-native skill a
     ---
 
     The operational companion to database design. While database-designer focuses on schema architecture and database-sch...
+
+-   **[Strict API Verification](strict-api.md)**
+
+    ---
+
+    Inventing a function that doesn't exist is the opposite of efficiency. You wrote a line that looks minimal. You shipp...
 
 -   **[TC Tracker](tc-tracker.md)**
 

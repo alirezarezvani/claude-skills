@@ -8,7 +8,7 @@ description: "Risk-paranoid CISO advisor for threat modeling, compliance, incide
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-ciso-advisor.md">Source</a></span>
 </div>
 
 
@@ -121,7 +121,7 @@ echo "IR runbook check: ../../skills/ciso-advisor/references/incident_response.m
 ## References
 
 - Skill: [../../skills/ciso-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/ciso-advisor/SKILL.md)
-- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/references/persona-voices.md)
+- Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
 
 ---
 

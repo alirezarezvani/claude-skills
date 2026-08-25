@@ -8,8 +8,8 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "364 production-ready skills across 18 domains (engineering, engineering-core, marketing, product, c-level, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 667 Python tools, 750 reference guides, 104 agents (cs-* + personas), 120 slash commands across 90 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs:pm and /cs:product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
-    "version": "2.11.2"
+    "description": "380 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 706 Python tools, 823 reference guides, 114 agents (cs-* + personas), 138 slash commands across 96 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs:pm and /cs:product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "version": "2.12.0"
   },
   "plugins": [
     {
@@ -39,7 +39,7 @@
     {
       "name": "c-level-skills",
       "source": "./c-level-advisor",
-      "description": "33 C-level advisory skills + c-level-agents plugin layer: virtual board of directors (CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO) plus General Counsel, CDO, CAIO, CCO, and VP of Engineering (DORA delivery throughput analyzer, engineering hiring funnel calculator with conversion + pipeline gap, eng team structure designer with squad/tribe + manager-trigger), executive mentor, founder coach, orchestration (Chief of Staff, board meetings, decision logger), strategic capabilities (board deck builder, scenario war room, competitive intel, M&A playbook), culture frameworks, and 13 cs-* persona agents + 21 /cs:* slash commands (founder-mode router, office-hours intake, multi-role boardroom, strategic sprint pipeline, cross-model consensus, cooldown freeze).",
+      "description": "33 C-level advisory skills (install the separate companion c-level-agents plugin for the persona layer): virtual board of directors (CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO) plus General Counsel, CDO, CAIO, CCO, and VP of Engineering (DORA delivery throughput analyzer, engineering hiring funnel calculator with conversion + pipeline gap, eng team structure designer with squad/tribe + manager-trigger), executive mentor, founder coach, orchestration (Chief of Staff, board meetings, decision logger), strategic capabilities (board deck builder, scenario war room, competitive intel, M&A playbook), culture frameworks. The 13 cs-* persona agents + 21 /cs:* slash commands (founder-mode router, office-hours intake, multi-role boardroom, strategic sprint pipeline, cross-model consensus, cooldown freeze) ship in the companion c-level-agents plugin.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -60,7 +60,7 @@
     },
     {
       "name": "c-level-agents",
-      "source": "./c-level-advisor/c-level-agents",
+      "source": "./c-level-agents",
       "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) with distinct cognitive voices, plus 21 /cs:* slash commands — forcing-question office hours (CFO/CMO/CPO/CRO/CTO/CISO/GC/CDO/CAIO/CCO/VPE reviews), strategic sprint pipeline (brief → boardroom → decide → execute → post-mortem), and meta routing (/cs:founder-mode auto-router, /cs:onboard, /cs:cross-eval multi-model consensus, /cs:freeze cooldown lock). Wraps the 33 c-level skills with cognitive gearing, persona voice, and artifact-driven handoffs. The business-domain answer to YC Garry Tan's gstack.",
       "version": "2.9.0",
       "author": {
@@ -245,7 +245,7 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "37 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator (with semantic version bumper and hotfix/rollback procedures), API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker (task context tracker with lifecycle and handoff format), feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit with deploy-intent intercept), slo-architect (SLO designer, error-budget calculator with multi-window burn-rate alerts, SLO reviewer per Google SRE Workbook), and tech-debt-tracker. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
+      "description": "37 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator (semantic version bumper + hotfix/rollback), API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit), slo-architect (error-budget + multi-window burn-rate alerts per Google SRE Workbook), and tech-debt-tracker. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -401,7 +401,7 @@
     {
       "name": "pw",
       "source": "./engineering-team/playwright-pro",
-      "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, TestRail + BrowserStack MCP integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
+      "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, plus optional (manually enabled) TestRail/BrowserStack integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -436,7 +436,7 @@
     {
       "name": "autoresearch-agent",
       "source": "./engineering/autoresearch-agent",
-      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:status, /ar:resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
+      "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:run, /ar:loop, /ar:ar-status, /ar:ar-resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -501,7 +501,7 @@
     {
       "name": "agenthub",
       "source": "./engineering/agenthub",
-      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:init, /hub:spawn, /hub:status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:hub-init, /hub:spawn, /hub:hub-status, /hub:eval, /hub:merge, /hub:board, /hub:run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -964,7 +964,7 @@
     {
       "name": "memory-engineering",
       "source": "./engineering/memory-engineering",
-      "description": "Engineer an agent's forgetting, not just its remembering. Four deterministic stdlib scripts implement the four lenses of agent memory: a cost profiler that splits construction from query spend and reports cost per correct answer (construction energy exceeds total query energy across 300 queries in the Stanford characterization); an architecture picker that scores the four paradigm families — long-context, flat RAG, structure-augmented RAG, agentic — disqualifies on hard constraints, names the cost the winning choice makes you pay, and refuses to pick when the top two tie; a density auditor that classifies every record in a real memory directory or JSONL export as FACT / SKILL / LOG / PROSE, finds near-duplicates, and flags stale and time-relative wording; and a forgetting-policy linter that fails any design with no forgetting rule or that auto-merges contradictions. Ships cs-memory-engineer agent, /cs:memory-engineering and /cs:forgetting-audit commands, 4 references citing 7 sources each, and a seven-question forcing worksheet.",
+      "description": "Engineer an agent's forgetting, not just its remembering. Four deterministic stdlib scripts implement the four lenses of agent memory: a cost profiler that splits construction from query spend and reports cost per correct answer (construction energy exceeds total query energy across 300 queries in the Stanford characterization); an architecture picker that scores the four paradigm families — long-context, flat RAG, structure-augmented RAG, agentic — disqualifies on hard constraints, names the cost the winning choice makes you pay, and refuses to pick when the top two tie; a density auditor that classifies every record in a memory directory or JSONL export as FACT / SKILL / LOG / PROSE, finds near-duplicates, and flags stale wording; and a forgetting-policy linter that fails any design with no forgetting rule. Ships cs-memory-engineer agent, /cs:memory-engineering and /cs:forgetting-audit commands, 4 references, and a seven-question forcing worksheet.",
       "version": "2.11.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -978,6 +978,28 @@
         "kv-cache",
         "retention",
         "write-path-cost",
+        "engineering"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "skill-doctor",
+      "source": "./engineering/skill-doctor",
+      "description": "Grade an agent setup from real conversation history — a rebuild of warpdotdev/common-skills' skill-doctor (MIT). Harvests recent local Claude Code and Codex sessions scoped to one repo, condenses and secret-redacts transcripts (12-pattern redactor, chmod-0600 artifacts, nothing uploaded), has the agent judge each transcript against two verbatim-preserved rubrics (efficiency, code quality — labels only), then runs a deterministic aggregation gate that derives every number from the label tables, refuses scores for unsampled sessions and suggestions that cite no scored session, and renders one self-contained zero-JS HTML report (dark-mode, print-to-PDF). Proposed skill edits stay staged as diffs until an explicit per-skill yes; zero suggestions is a valid, reportable success. Ships cs-skill-doctor agent, /cs:skill-doctor command, 3 stdlib tools, 3 references citing 7 sources each.",
+      "version": "2.11.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "skill-doctor",
+        "skill-grading",
+        "session-mining",
+        "llm-as-judge",
+        "rubric-scoring",
+        "transcript-analysis",
+        "skill-coverage",
+        "secret-redaction",
+        "agent-evals",
         "engineering"
       ],
       "category": "development"
@@ -1227,6 +1249,24 @@
       "category": "productivity"
     },
     {
+      "name": "swedish-mentor",
+      "source": "./productivity/swedish-mentor",
+      "description": "CEFR-leveled Swedish-learning mentor: two-question placement probe, listening-first learning paths, vetted YouTube/podcast catalog (SFI, Radio Sweden pa latt svenska, Klartext), never-invent-a-URL rule.",
+      "version": "2.11.2",
+      "author": {
+        "name": "mh-mansouri"
+      },
+      "keywords": [
+        "productivity",
+        "language-learning",
+        "swedish",
+        "cefr",
+        "sfi",
+        "mentor"
+      ],
+      "category": "productivity"
+    },
+    {
       "name": "landing",
       "source": "./marketing/landing",
       "description": "Single-file HTML landing-page generator with 4 design styles, brand palette validation, GSAP animation patterns, kebab-slug URL hygiene. Path-B from megaprompt 04.",
@@ -1426,6 +1466,25 @@
       "category": "research"
     },
     {
+      "name": "deepread",
+      "source": "./research/deepread",
+      "description": "Evidence-first reading of supplied documents. Five modes (quick/deep/map/feynman/book), claim-reason-evidence decomposition, confidence labels, evidence ledger, knowledge maps, Feynman teach-back.",
+      "version": "2.11.2",
+      "author": {
+        "name": "xiehuan123"
+      },
+      "keywords": [
+        "research",
+        "reading",
+        "deep-read",
+        "feynman",
+        "knowledge-map",
+        "evidence",
+        "comprehension"
+      ],
+      "category": "research"
+    },
+    {
       "name": "aeo",
       "source": "./marketing-skill/skills/aeo",
       "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO (which optimizes for search rankings), AEO optimizes for citation in LLM-generated responses. 3 stdlib Python tools (aeo_audit, aeo_optimizer, citation_tracker), 3 references citing 8 sources each, industry-aware thresholds for 8 industries (saas/healthcare/finance/legal/ecommerce/b2b/media/education). Ported from alirezarezvani/aeo-box.",
@@ -1591,7 +1650,7 @@
     {
       "name": "research-ops-skills",
       "source": "./research-ops",
-      "description": "Enterprise / cross-functional Research Operations domain — the managed counterpart to the academic research/ domain. v2.9.0 ships 5 skills: orchestrator (context: fork) + clinical-research (study design: protocol synopsis + endpoint selection + sample-size/power for means/proportions/survival + phase-gate feasibility) + research-finance (R&D program budgeting with F&A split + burn/runway + capitalize-vs-expense routing + portfolio ROI) + market-research (TAM/SAM/SOM computed both top-down and bottoms-up + survey sampling with FPC and per-segment minima + Kotler segmentation scoring) + product-research (goal-matched study design + method-based saturation with confidence + insight synthesis that flags single-source anecdotes). Hard rules: clinical outputs are estimates with a named clinical owner (never fact), finance outputs surface assumptions and route capex-vs-opex to a named finance owner (never auto-decide), market sizes show method + assumptions (never a single number), product insights require recurrence across independent participants. Each sub-skill ships per-skill onboarding questions (onboard.py), a customization config consumed by every tool, and an isolated opt-in autoresearch evaluator (ar_evaluator.py) bridging to engineering/autoresearch-agent. 24 stdlib Python tools (12 analysis + 12 onboarding/customization/autoresearch), 12 reference docs. Distinct from ra-qm-team (regulatory/QM submission), finance (corporate close/valuation), research/grants (funding discovery), product-team (persona/journey/live experiments), marketing-skill (campaign analytics).",
+      "description": "Enterprise / cross-functional Research Operations domain — the managed counterpart to the academic research/ domain. v2.9.0 ships 5 skills: orchestrator (context: fork), clinical-research (protocol synopsis, endpoint selection, sample-size/power for means/proportions/survival, phase-gate feasibility), research-finance (R&D budgeting with F&A split, burn/runway, capitalize-vs-expense routing, portfolio ROI), market-research (TAM/SAM/SOM top-down and bottoms-up, survey sampling with FPC, Kotler segmentation), and product-research (goal-matched study design, method-based saturation, insight synthesis flagging single-source anecdotes). Hard rules: outputs are estimates routed to a named clinical or finance owner, market sizes show method + assumptions, product insights require recurrence across independent participants. 24 stdlib Python tools, 12 reference docs. Distinct from ra-qm-team, finance, research/grants, product-team, and marketing-skill.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1638,7 +1697,7 @@
     {
       "name": "markdown-html-skills",
       "source": "./markdown-html",
-      "description": "Convert long markdown files into world-class single-file interactive HTML — DOMAIN COMPLETE at v2.10.3 (5 skills). v2.10.3 adds md-slides — the slide-deck converter (arrow-key / Space / PgDn / Home / End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 + @media print page-per-slide for browser-native PDF export; reuses md-document's markdown parser; vanilla JS only; Prism.js opt-in via --syntax for code-heavy decks). Joins md-review (v2.10.2 code-review converter: 2-col diff + severity-tagged margin annotations + WCAG-1.4.1 badges + mandatory named reviewer footer), md-document (v2.10.1 long-form converter: sticky TOC + scrollspy + search + code-copy + Prism autoloader), markdown-html-orchestrator (v2.10.0 context: fork; deterministic doc-type classifier; refuses < 100 lines per Shihipar; refuses without onboarding), and design-system (v2.10.0 10-question onboarding wizard; WCAG-AA 12-token palette; project > global > defaults precedence; MARKDOWN_HTML_NO_CONFIG=1 bypass). 15 stdlib-only Python tools, 15 references citing 5-7 sources each, 4 template/schema assets. Inspired by Thariq Shihipar's Claude Code HTML output essay (Medium, 2026).",
+      "description": "Convert long markdown files into world-class single-file interactive HTML — DOMAIN COMPLETE at v2.10.3 (5 skills). v2.10.3 adds md-slides, the slide-deck converter (arrow/Space/PgDn/Home/End/P navigation, presenter mode with clock + speaker notes + next-slide preview, URL-hash deep linking, @media print page-per-slide for browser-native PDF export; vanilla JS only; Prism.js opt-in via --syntax). Joins md-review (v2.10.2 code-review converter: 2-col diff, severity-tagged margin annotations, WCAG-1.4.1 badges, named reviewer footer), md-document (v2.10.1 long-form: sticky TOC, scrollspy, search, code-copy, Prism autoloader), markdown-html-orchestrator (v2.10.0 context: fork; deterministic doc-type classifier), and design-system (v2.10.0 onboarding wizard; WCAG-AA 12-token palette). 15 stdlib-only Python tools, 15 references, 4 template assets. Inspired by Thariq Shihipar's Claude Code HTML output essay.",
       "version": "2.10.3",
       "author": {
         "name": "Alireza Rezvani"
@@ -1903,6 +1962,72 @@
         "collab-proof"
       ],
       "category": "engineering"
+    },
+    {
+      "name": "human-gate",
+      "source": "./engineering/human-gate",
+      "description": "Human-verification gate for an agent loop: builds a single-file review page (the page itself makes no network request; a reviewed HTML artifact's own https: assets still load), collects batched feedback as structured batch.v1 data instead of chat prose, and refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed. Non-blocking, headless-guarded, round-capped. Stdlib-only.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Alireza Rezvani",
+        "url": "https://alirezarezvani.com"
+      },
+      "keywords": [
+        "human-in-the-loop",
+        "review-gate",
+        "sign-off",
+        "agent-loop",
+        "verification",
+        "batched-feedback",
+        "human-gate"
+      ],
+      "category": "engineering"
+    },
+    {
+      "name": "agent-launcher-skills",
+      "source": "./agent-launcher",
+      "description": "Build, launch, grade, and schedule Claude Managed Agents (CMA) in your own Anthropic account — a plugin re-implementation of Anthropic's launch-your-agent reference skill (Apache-2.0; independent, not a fork). Every session starts with a goal (./my-agent/goal.json, opt-in SessionStart hook, driven by /cs:goal); loop_compiler.py compiles it into a bounded grade->iterate loop (max_iterations 1..20), a recurring cron scheduled-deployment loop, or a single-pass interview->stage->launch workflow. 6 skills: orchestrator (context: fork goal router) + interview + stage-launch + grade-iterate + run-without-you + wrap-up. 18 stdlib-only deterministic scaffolders (no network/API calls; live launches emitted as BYOK curl that never prints the key), 4 agents, 8 commands, hooks, 5 references, 4 assets. Validators enforce CMA limits. Distinct from engineering/agent-harness (generic domain loop) and write-a-skill (authors Claude Code skills, not CMAs).",
+      "version": "2.11.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "claude-managed-agents",
+        "cma",
+        "agent-launcher",
+        "launch-your-agent",
+        "managed-agent",
+        "session-goal",
+        "grade-iterate",
+        "max-iterations",
+        "scheduled-deployment",
+        "run-without-you",
+        "byok",
+        "build-sheet",
+        "context-fork"
+      ],
+      "category": "agent-development"
+    },
+    {
+      "name": "agent-memory",
+      "source": "./engineering/agent-memory",
+      "description": "A four-tier memory ladder for Claude Code where promotion is earned by recurrence, not asserted by confidence. L0 raw transcripts are never injected; L1 candidate atoms are gitignored and recalled on lexical relevance per prompt; L2 project context loads each session start; L3 stable persona is always loaded. L1 to L2 needs three distinct sessions spanning two distinct calendar days (a stated claim needs two; a verified claim is the only single-observation path); L2 to L3 needs two projects and thirty days. Two gates refuse rather than guess: a claim altered by the redaction pass never promotes on evidence alone, and a contradicted claim freezes until a human resolves it. Three hooks run the loop unattended and every one fails open. Nothing reaches a committed CLAUDE.md without an explicit human adopt. Ships 5 stdlib scripts, 3 hooks, a cs-memory-curator agent, /cs:memory, a JSON schema, and a 69-check validator. Concept from TencentCloud/TencentDB-Agent-Memory (MIT); no upstream code included.",
+      "version": "2.11.2",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "agent-memory",
+        "memory-tiers",
+        "claude-md",
+        "hooks",
+        "session-memory",
+        "promotion-gates",
+        "provenance",
+        "redaction",
+        "engineering"
+      ],
+      "category": "development"
     }
   ]
 }

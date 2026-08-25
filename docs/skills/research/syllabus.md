@@ -294,5 +294,5 @@ See [`references/bundled_script_pattern.md`](https://github.com/alirezarezvani/c
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/10-syllabus-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/10-syllabus-megaprompt.md)
+**Source spec:** `megaprompts/10-syllabus-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Bundled-JS-DOCX-generator variant.

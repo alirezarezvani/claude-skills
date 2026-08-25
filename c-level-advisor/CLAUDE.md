@@ -76,9 +76,9 @@ A complete virtual board of directors: 28 skills covering 10 executive roles, or
 
 ## c-level-agents Plugin (v1.0.0 — new in v2.5.0)
 
-A separate plugin at `c-level-agents/` that wraps the 10 C-roles with persona agents and slash commands. Founder-mode entry layer.
+A separate plugin at the repo's top-level `c-level-agents/` directory (moved out of `c-level-advisor/` in #949 so the two marketplace sources no longer overlap) that wraps the 10 C-roles with persona agents and slash commands. Founder-mode entry layer.
 
-### 13 cs-* Agents (in `c-level-agents/agents/`)
+### 13 cs-* Agents (in `../c-level-agents/agents/`)
 
 | Agent | Voice | Wraps Skill |
 |---|---|---|
@@ -98,7 +98,7 @@ A separate plugin at `c-level-agents/` that wraps the 10 C-roles with persona ag
 
 Existing `cs-ceo-advisor` and `cs-cto-advisor` live in `/agents/c-level/` and integrate with the same protocol.
 
-### 17 /cs:* Slash Commands (in `c-level-agents/skills/`)
+### 17 /cs:* Slash Commands (in `../c-level-agents/skills/`)
 
 **Forcing-question office hours (8):** `/cs:office-hours`, `/cs:cfo-review`, `/cs:cmo-review`, `/cs:cpo-review`, `/cs:cro-review`, `/cs:cto-review`, `/cs:ciso-review`, `/cs:gc-review`
 
@@ -106,7 +106,7 @@ Existing `cs-ceo-advisor` and `cs-cto-advisor` live in `/agents/c-level/` and in
 
 **Meta + safety (4):** `/cs:founder-mode` (auto-router), `/cs:onboard` (founder interview), `/cs:cross-eval` (multi-model consensus), `/cs:freeze` (cooldown lock)
 
-See [c-level-agents/README.md](c-level-agents/README.md) for the full plugin guide and [c-level-agents/references/persona-voices.md](c-level-agents/references/persona-voices.md) for voice specs.
+See [c-level-agents/README.md](../c-level-agents/README.md) for the full plugin guide and [c-level-agents/references/persona-voices.md](../c-level-agents/references/persona-voices.md) for voice specs.
 
 ## Executive Mentor Slash Commands
 
@@ -156,6 +156,6 @@ python decision-logger/scripts/decision_tracker.py
 
 **Last Updated:** 2026-05-13
 **Skills Deployed:** 33 skills (15 roles incl. General Counsel, CDO, CAIO, CCO, and VPE + 5 mentor commands + 6 orchestration + 6 cross-cutting + 6 culture) + 21 /cs:* sub-skills in c-level-agents plugin
-**Agents:** 15 cs-* (cs-ceo, cs-cto in /agents/c-level/; 13 in c-level-agents/agents/ including new cs-vpe-advisor)
+**Agents:** 15 cs-* (cs-ceo, cs-cto in /agents/c-level/; 13 in ../c-level-agents/agents/ including new cs-vpe-advisor)
 **Python Tools:** 39 (stdlib-only) — +3 with vpe-advisor (delivery_throughput_analyzer, eng_hiring_funnel_calculator, eng_team_structure_designer)
 **Reference Docs:** 73 (71 in skills + 2 in c-level-agents/references)

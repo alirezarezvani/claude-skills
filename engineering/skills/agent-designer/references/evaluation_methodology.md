@@ -653,8 +653,8 @@ trend_analysis:
 ### API Usage
 - **Token Consumption**: 2.4M tokens/day
 - **Cost Breakdown**:
-  - GPT-4: 68% of token costs
-  - GPT-3.5: 28% of token costs
+  - Large-tier model: 68% of token costs
+  - Small-tier model: 28% of token costs
   - Other models: 4% of token costs
 ```
 

@@ -146,7 +146,7 @@ See `references/ip_and_regulatory.md` for sequencing.
 - `c-level-advisor/skills/cfo-advisor/` — Term sheet → dilution math
 - `c-level-advisor/skills/ma-playbook/` — Acquisition agreements, integration playbooks
 - `ra-qm-team/` — ISO 13485, MDR, FDA 510(k), GDPR execution
-- `c-level-advisor/c-level-agents/skills/gc-review/SKILL.md` — `/cs:gc-review` slash command
+- `c-level-agents/skills/gc-review/SKILL.md` — `/cs:gc-review` slash command
 
 ## References
 

@@ -1,1 +1,1 @@
-../../../c-level-advisor/c-level-agents/skills/cto-review/SKILL.md
+../../../c-level-agents/skills/cto-review/SKILL.md

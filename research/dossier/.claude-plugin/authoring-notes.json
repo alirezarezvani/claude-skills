@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "megaprompts/12-dossier-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Research-pack shape, hypothesis-testing variant. Q4 (hypothesis) is mandatory; ≥30% search budget allocated to disconfirming evidence.",
+    "sibling_of": "research/litreview, research/grants, research/pulse (pulse currently in engineering/ — cleanup PR queued)"
+  }
+}

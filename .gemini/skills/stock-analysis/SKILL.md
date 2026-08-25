@@ -1,0 +1,1 @@
+../../../finance/skills/stock-analysis/SKILL.md

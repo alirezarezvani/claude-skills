@@ -77,7 +77,7 @@ prompts:
   - id: summarizer
     description: "Summarize support tickets for agent triage"
     owner: platform-team
-    model: claude-sonnet-4-5
+    model: claude-sonnet-5
     versions:
       - version: 1.1.0
         file: summarizer/v1.1.0.md

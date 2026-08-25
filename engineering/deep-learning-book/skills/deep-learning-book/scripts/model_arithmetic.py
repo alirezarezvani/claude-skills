@@ -192,7 +192,8 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
     if kind == "embedding":
         vocab = _positive_int(layer, "vocab", index)
         dim = _positive_int(layer, "dim", index)
-        seq = int(layer.get("seq_len", shape[0] if shape else 1))
+        seq = _positive_int(layer, "seq_len", index,
+                            default=shape[0] if shape else 1)
         return (seq, dim), vocab * dim, 0  # a lookup, not a matmul
 
     if kind == "layernorm":

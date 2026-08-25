@@ -35,7 +35,9 @@ import os
 import re
 import sys
 
-EXCLUDED_DIRS = {
+# Excludes both directory names (pruned during walk) and individual filenames
+# (e.g. CHANGELOG.md) — membership is checked against dirnames AND filenames.
+EXCLUDED_NAMES = {
     ".git", ".codex", ".gemini", ".hermes", ".vibe", "node_modules",
     "docs",   # generated mirror; fix the source instead
     "audit",  # audit records quote stale IDs on purpose, that is their job
@@ -157,9 +159,9 @@ def scan_file(path, repo_root, allowlist):
 def collect(repo_root):
     targets = []
     for dirpath, dirnames, filenames in os.walk(repo_root):
-        dirnames[:] = [d for d in dirnames if d not in EXCLUDED_DIRS]
+        dirnames[:] = [d for d in dirnames if d not in EXCLUDED_NAMES]
         for fn in filenames:
-            if fn in EXCLUDED_DIRS or fn in SELF_FILES:
+            if fn in EXCLUDED_NAMES or fn in SELF_FILES:
                 continue
             if fn.endswith(SCAN_EXTENSIONS):
                 targets.append(os.path.join(dirpath, fn))

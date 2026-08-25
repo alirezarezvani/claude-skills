@@ -1,0 +1,152 @@
+[
+  {
+    "cell": "J1",
+    "claim": "Core job: automatic timesheet collection and payroll calculation factoring in rate and holiday bonuses.",
+    "quote": "We wanted the shift timesheet to be collected automatically, for payroll to be calculated automatically factoring in the rate and holiday bonuses",
+    "line": 21
+  },
+  {
+    "cell": "J1",
+    "claim": "Part of the job statement — taking the schedule-dispatcher role off himself, so payroll is calculated without errors.",
+    "quote": "For payroll to be calculated without errors and for me not to be a schedule dispatcher in DMs",
+    "line": 67
+  },
+  {
+    "cell": "J2",
+    "claim": "Specific trigger — underpaying barista Kate for two shifts due to a missed WhatsApp message.",
+    "quote": "There was a specific case — we underpaid one barista, Kate, for two shifts, because she logged them in WhatsApp and I just didn't scroll far enough in the chat and missed it",
+    "line": 9
+  },
+  {
+    "cell": "J2",
+    "claim": "Emotional reaction to the incident — shame toward the employee.",
+    "quote": "I felt genuinely ashamed, honestly, because the person had worked, and I basically almost shortchanged her pay just because of the mess",
+    "line": 12
+  },
+  {
+    "cell": "J2",
+    "claim": "Immediate action right after the trigger — message to the partner about the need to change the system.",
+    "quote": "That's when I wrote to my partner that we needed to do something about this, we couldn't keep going like that",
+    "line": 13
+  },
+  {
+    "cell": "J3",
+    "claim": "Job map: search for services started with Google and the coffee shop owners' chat.",
+    "quote": "We started googling, asked in a chat for coffee shop owners, they threw us like five services",
+    "line": 18
+  },
+  {
+    "cell": "J3",
+    "claim": "Rollout happened one location at a time.",
+    "quote": "About two weeks, I think, we onboarded one location at a time, so as not to break everything at once",
+    "line": 59
+  },
+  {
+    "cell": "J3",
+    "claim": "Friction at rollout start — older baristas got confused during the first week.",
+    "quote": "Two of the older baristas genuinely got confused the first week, called me with questions ten times a day",
+    "line": 61
+  },
+  {
+    "cell": "J3",
+    "claim": "Execution failure — incorrect night shift calculation at one location.",
+    "quote": "Also the night shift didn't calculate correctly right away at one location, we had to fix it manually once",
+    "line": 62
+  },
+  {
+    "cell": "J4",
+    "claim": "Current/prior solution — three years of Excel plus shift lists in WhatsApp.",
+    "quote": "Well look, we ran everything in Excel for like three years plus shift lists in WhatsApp, baristas would send photos of the timesheet",
+    "line": 4
+  },
+  {
+    "cell": "J4",
+    "claim": "Workaround — Google Sheet with formulas, abandoned when scaling to the third location.",
+    "quote": "We tried a Google Sheet with formulas for a while, my partner made it himself, but it fell apart on us when we added the third location, the formulas broke",
+    "line": 26
+  },
+  {
+    "cell": "J4",
+    "claim": "Workaround — shifts module in a checklist app, abandoned due to an overloaded interface.",
+    "quote": "Baristas complained that there were five screens just to check in for a shift, they eventually just stopped bothering, went back to WhatsApp anyway",
+    "line": 29
+  },
+  {
+    "cell": "J5",
+    "claim": "Desired outcome — baristas see their schedule on their own phone, without DMs to the owner.",
+    "quote": "We also wanted baristas to see their own schedule on their phone, instead of asking me in DMs for the tenth time",
+    "line": 22
+  },
+  {
+    "cell": "J5",
+    "claim": "Desired outcome — employees trust the payroll calculations.",
+    "quote": "I also wanted baristas to trust the calculations, so there wouldn't be a feeling like they were being cheated",
+    "line": 68
+  },
+  {
+    "cell": "J6",
+    "claim": "Adjacent job — vacation planning got simpler, previously kept in a notebook.",
+    "quote": "Yeah, actually, planning vacations got simpler, before it used to be a separate nightmare in a notebook",
+    "line": 70
+  },
+  {
+    "cell": "J6",
+    "claim": "Emotional job — relief from no longer fearing new payroll mistakes.",
+    "quote": "And also, honestly, I started sleeping better, because I stopped being afraid that I'd messed up someone's pay again somewhere",
+    "line": 71
+  },
+  {
+    "cell": "J6",
+    "claim": "Emotional job — didn't want to look like a dishonest employer in employees' eyes.",
+    "quote": "Yes, exactly, I didn't want to look, in the baristas' eyes, like an owner who shortchanges them out of carelessness",
+    "line": 73
+  },
+  {
+    "cell": "A1",
+    "claim": "FORCES OF PROGRESS — push from the risk of errors outweighed the habit of WhatsApp after a repeat incident (unstable cell).",
+    "quote": "After that he agreed we couldn't keep dragging it out, the risk of errors was more costly than the habit",
+    "line": 55
+  },
+  {
+    "cell": "A1",
+    "claim": "HABIT force — the partner suggested tolerating the old system for another six months.",
+    "quote": "My partner even said, maybe forget it, let's stick with the old system for another six months, why break everything now",
+    "line": 52
+  },
+  {
+    "cell": "A1",
+    "claim": "ANXIETY force — fear that older employees wouldn't master the new app.",
+    "quote": "Of course there was, I was afraid the baristas would refuse to bother with a new app, we've got people of different ages, some of them aren't into technology at all",
+    "line": 48
+  },
+  {
+    "cell": "A2",
+    "claim": "KEY UNMET OUTCOME — lack of employee trust in the accuracy of payroll calculation.",
+    "quote": "I also wanted baristas to trust the calculations, so there wouldn't be a feeling like they were being cheated",
+    "line": 68
+  },
+  {
+    "cell": "A3",
+    "claim": "HIRING CRITERION — decided by the live demo with automatic calculation and geolocation, not the competitor's price.",
+    "quote": "If I'm being completely honest, probably the live demo with the geolocation check-in and night shift calculation, that was the exact moment I understood",
+    "line": 87
+  },
+  {
+    "cell": "A4",
+    "claim": "JOB SEGMENT — owner of a small multi-location food service business, manually performing the role of schedule dispatcher and payroll calculator.",
+    "quote": "Yes, exactly, so I wouldn't be a schedule secretary, I don't have the time for that as it is",
+    "line": 24
+  },
+  {
+    "cell": "A5",
+    "claim": "ADOPTION BARRIER — age gap in app adoption among part of the staff, confirmed in practice during the first week of rollout.",
+    "quote": "Two of the older baristas genuinely got confused the first week, called me with questions ten times a day",
+    "line": 61
+  },
+  {
+    "cell": "A6",
+    "claim": "KEY INSIGHT: the customer 'hires' the product for reliable automatic tracking amid chain growth, but habit and anxiety about older employees slowed the decision until a specific underpayment incident made the risk of error more costly than the comfort of the old system.",
+    "quote": "But back then it seemed like it'd hold up fine as is, until it all blew up with Kate",
+    "line": 91
+  }
+]

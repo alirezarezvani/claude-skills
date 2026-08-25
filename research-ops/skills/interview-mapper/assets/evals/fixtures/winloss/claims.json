@@ -1,0 +1,170 @@
+[
+  {
+    "cell": "W1",
+    "claim": "Outcome: LOSS — the client chose the competitor LogiCore, contract signed for 2 years.",
+    "quote": "he flat out said: I'm for LogiCore, and that was that, after that we were just finalizing paperwork",
+    "line": 53
+  },
+  {
+    "cell": "W1",
+    "claim": "Confirmation of the outcome — the contract with the competitor is already signed for a 2-year term.",
+    "quote": "the contract with LogiCore is for two years",
+    "line": 77
+  },
+  {
+    "cell": "W2",
+    "claim": "List of alternatives: Stackly (us), LogiCore, a third local vendor filtered out on price; the option of \"not changing anything\" was also discussed.",
+    "quote": "We looked at three options. You, Stackly",
+    "line": 8
+  },
+  {
+    "cell": "W2",
+    "claim": "The third vendor was filtered out at an early stage due to price.",
+    "quote": "that fell through right away on price, they turned out too expensive for us",
+    "line": 10
+  },
+  {
+    "cell": "W2",
+    "claim": "The option of \"keeping the old system / doing nothing\" was discussed but rejected after incidents of lost shipments.",
+    "quote": "after we lost a shipment twice in April because of confusion in the stock counts, everyone agreed we couldn't keep dragging it out",
+    "line": 15
+  },
+  {
+    "cell": "W3",
+    "claim": "Comparison criteria: price, functionality for product labeling (mandatory labeling requirement), quality of support, reputation/recommendations.",
+    "quote": "Well, price, of course, can't get around that",
+    "line": 17
+  },
+  {
+    "cell": "W3",
+    "claim": "Functionality criterion — product labeling under the mandatory labeling requirement.",
+    "quote": "Functionality for product labeling — that's critical for us, the mandatory labeling requirement and all that",
+    "line": 18
+  },
+  {
+    "cell": "W3",
+    "claim": "Support criterion — driven by a past negative experience of slow tech support.",
+    "quote": "we'd already gotten burned when tech support didn't answer for three days straight on the previous system",
+    "line": 19
+  },
+  {
+    "cell": "W3",
+    "claim": "Reputation criterion — vendor recommendations and industry case studies.",
+    "quote": "reputation — who these vendors even are, who recommended them, whether there are case studies in our industry",
+    "line": 20
+  },
+  {
+    "cell": "W4",
+    "claim": "Decisive moment — LogiCore's second demo, where the architect spun up a live test environment in real time and showed the full cycle of goods receiving with labeling in front of the logistics director.",
+    "quote": "Their architect, right in front of our logistics director, spun up a live test environment in real time and showed goods receiving with labeling, the whole cycle, in about ten minutes",
+    "line": 40
+  },
+  {
+    "cell": "W4",
+    "claim": "At the moment of the demo, the logistics director openly signaled the decision was leaning toward LogiCore.",
+    "quote": "look, this is exactly what we need, no song and dance",
+    "line": 41
+  },
+  {
+    "cell": "W5",
+    "claim": "Formal decision belonged to the procurement director (the respondent), but the decisive opinion turned out to be the logistics director's, as the primary future user of the system.",
+    "quote": "Formally the decision is mine, I'm the procurement director",
+    "line": 47
+  },
+  {
+    "cell": "W5",
+    "claim": "The logistics director carried the most weight in the decision, since he would be working with the system every day.",
+    "quote": "everyone listened hard to the logistics director, he's the one who'll be working with the system every day, his word carried a lot of weight",
+    "line": 48
+  },
+  {
+    "cell": "W5",
+    "claim": "The CFO mostly signed off on the numbers rather than deciding; the CEO delegated the choice, asking only about vendor reliability.",
+    "quote": "The CEO delegated it pretty much entirely, asked only once — is the vendor reliable at all, won't they go under in a year",
+    "line": 50
+  },
+  {
+    "cell": "W6",
+    "claim": "We (Stackly) responded faster — the next day, demo 4 days later; LogiCore responded slower (about 3 days), but arrived with a scenario tailored to the client's profile.",
+    "quote": "You responded fast, literally the day after we submitted the request, that's a plus",
+    "line": 31
+  },
+  {
+    "cell": "W6",
+    "claim": "LogiCore's demo was precisely tailored to the client's specifics (distribution, three warehouses, labeling), not a generic template.",
+    "quote": "it was straight away with a ready-made scenario built for our profile, for distribution, not a generic template",
+    "line": 33
+  },
+  {
+    "cell": "W6",
+    "claim": "On our first call, the manager asked general questions, as if unfamiliar with the client's specifics.",
+    "quote": "your manager on the first call was asking general stuff, like starting from zero, we had to explain everything all over again",
+    "line": 36
+  },
+  {
+    "cell": "W6",
+    "claim": "At our demo, the engineer couldn't immediately answer about 1C integration; at LogiCore's demo, an architect was present and answered thoroughly.",
+    "quote": "On your demo, the engineer straight up couldn't answer a question about 1C integration on the spot, said he'd check and get back",
+    "line": 26
+  },
+  {
+    "cell": "W7",
+    "claim": "Price: we were about 15% cheaper; LogiCore was 12-15% more expensive, the client knowingly overpaid for ready-made labeling functionality to avoid downtime and audit risk.",
+    "quote": "On price you were about fifteen percent cheaper, that was nice, not gonna lie",
+    "line": 22
+  },
+  {
+    "cell": "W7",
+    "claim": "LogiCore's price was 12-15% higher, but the client agreed to it knowingly.",
+    "quote": "LogiCore's price, by the way, was higher than yours by about twelve to fifteen percent, but we agreed to it",
+    "line": 56
+  },
+  {
+    "cell": "W7",
+    "claim": "The client was willing to overpay specifically for the absence of custom dev work and its associated downtime/audit risks.",
+    "quote": "we overpaid for the functionality already being ready and not having to wait for custom dev, for us that was worth more than the money saved",
+    "line": 59
+  },
+  {
+    "cell": "A1",
+    "claim": "KEY DIFFERENTIATOR — THE COMPETITOR'S READY-MADE LABELING FUNCTIONALITY, DEMONSTRATED VIA A LIVE ENVIRONMENT, PLUS THE LOGISTICS DIRECTOR'S PERSONAL TRUST THROUGH A CONTACT FROM A PREVIOUS COMPANY (unstable cell — the client himself splits the official and unofficial versions).",
+    "quote": "That trust through someone he knew, I think, really tipped the scales, and the labeling — that's more like a nice, presentable justification for the board",
+    "line": 70
+  },
+  {
+    "cell": "A2",
+    "claim": "REASON CATEGORY — RELATIONSHIP-TRUST (the real motive) UNDER THE OFFICIAL VERSION OF PRODUCT (the stated reason for the board).",
+    "quote": "in reality, probably around sixty percent of it was personal trust plus that impressive demo with the live environment",
+    "line": 74
+  },
+  {
+    "cell": "A3",
+    "claim": "WEAK SPOT IN THE SALES PROCESS — FIRST CALL NOT TAILORED TO THE CLIENT'S PROFILE AND NO TECHNICAL EXPERT AT THE DEMO ABLE TO ANSWER ABOUT INTEGRATIONS ON THE SPOT.",
+    "quote": "make sure there's a technical person right there at the demo who can answer about integrations, instead of pushing it to later",
+    "line": 85
+  },
+  {
+    "cell": "A4",
+    "claim": "REVERSIBILITY OF THE OUTCOME — THERE'S A CHANCE IN A YEAR TO A YEAR AND A HALF IF READY-MADE LABELING APPEARS AND THE COMPETITOR STUMBLES ON IMPLEMENTATION; THE CONTRACT WITH THE COMPETITOR IS ALREADY SIGNED FOR 2 YEARS.",
+    "quote": "I wouldn't rule out that in a year or a year and a half we'd take another look",
+    "line": 78
+  },
+  {
+    "cell": "A5",
+    "claim": "CREDIBILITY OF THE EXPLANATION — THE STATED REASON (READY-MADE FUNCTIONALITY) IS PARTLY A POLITE ONE: THE CLIENT HIMSELF DIRECTLY DISTINGUISHES THE OFFICIAL VERSION FOR THE RECORD FROM THE REAL MOTIVE OF PERSONAL ACQUAINTANCE (unstable cell — the contribution share of each factor is eyeballed by the client, \"around sixty percent\").",
+    "quote": "off the record, honestly, I feel like it wasn't only about the labeling",
+    "line": 67
+  },
+  {
+    "cell": "A5",
+    "claim": "The client himself confirms the gap between the official and real reason with a confirming word.",
+    "quote": "There's something to that, yeah",
+    "line": 72
+  },
+  {
+    "cell": "A6",
+    "claim": "KEY INSIGHT: the LOSS outcome was determined by the factor of ready-made labeling functionality, demonstrated via a live environment, reinforced by the logistics director's personal trust in LogiCore through a former colleague, at the moment of the second demo in the third week of the process — for sales, this means a demo for the distribution segment needs a live environment with labeling and a technical expert from the first call, not a talk about architecture.",
+    "quote": "In your position I'd show a live environment with labeling right away at the demo for distribution clients, not slides with a roadmap",
+    "line": 84
+  }
+]

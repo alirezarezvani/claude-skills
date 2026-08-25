@@ -1,0 +1,93 @@
+1	Interviewer: Thanks for agreeing to talk. To start, tell me what your chain does.
+2	Respondent: Sure thing, I've got about half an hour. We're a coffee shop chain, three locations in Krasnoyarsk, I'm a co-owner, I've got a partner too, he's more on the purchasing side.
+3	Interviewer: So the topic of our conversation is how you switched to "Shift+" for shift tracking and payroll. Let's rebuild the whole history from the very start. When did the first thought come up that the old setup wasn't working?
+4	Respondent: Well look, we ran everything in Excel for like three years plus shift lists in WhatsApp, baristas would send photos of the timesheet.
+5	Respondent: The first thought... hard to say exactly, but I think it was sometime around last fall.
+6	Interviewer: Fall of last year, so roughly September-October?
+7	Respondent: Yeah, something like that, maybe already November, I don't remember the exact month, we had renovations going on at the second location at the same time, it all got mixed up in my head.
+8	Interviewer: Okay, so what specifically happened that made you start thinking about it?
+9	Respondent: There was a specific case — we underpaid one barista, Kate, for two shifts, because she logged them in WhatsApp and I just didn't scroll far enough in the chat and missed it.
+10	Respondent: She came to sort it out, and I went digging through the messages — and there's three hundred messages in a month, good luck finding anything.
+11	Interviewer: And how did you react in the moment?
+12	Respondent: I felt genuinely ashamed, honestly, because the person had worked, and I basically almost shortchanged her pay just because of the mess.
+13	Respondent: That's when I wrote to my partner that we needed to do something about this, we couldn't keep going like that.
+14	Interviewer: That sounds like a trigger already. And before that case, was there no thought at all about switching systems?
+15	Respondent: There was, probably, but in the background, like "someday we should," without anything concrete.
+16	Respondent: But after Kate it became urgent, right at that exact moment.
+17	Interviewer: Okay, moving further along the timeline — what did you start doing after that conversation with your partner?
+18	Respondent: We started googling, asked in a chat for coffee shop owners, they threw us like five services.
+19	Respondent: I honestly don't remember how many weeks it took, maybe two, maybe three — anyway, sometime in December we were already watching a demo from the first service.
+20	Interviewer: Tell me about the selection process — what did you actually want to get from the new system?
+21	Respondent: We wanted the shift timesheet to be collected automatically, for payroll to be calculated automatically factoring in the rate and holiday bonuses.
+22	Respondent: We also wanted baristas to see their own schedule on their phone, instead of asking me in DMs for the tenth time.
+23	Interviewer: So one of the criteria was to take manual schedule communication off your plate?
+24	Respondent: Yes, exactly, so I wouldn't be a schedule secretary, I don't have the time for that as it is.
+25	Interviewer: What had you already tried before "Shift+", besides Excel and WhatsApp?
+26	Respondent: We tried a Google Sheet with formulas for a while, my partner made it himself, but it fell apart on us when we added the third location, the formulas broke.
+27	Respondent: We also tried a checklist app, it had a shifts module, but it didn't stick with us, too many clicks for a simple check-in.
+28	Interviewer: Why didn't it stick, more specifically?
+29	Respondent: Baristas complained that there were five screens just to check in for a shift, they eventually just stopped bothering, went back to WhatsApp anyway.
+30	Interviewer: Okay. Did you look at specific competitors of "Shift+" during the selection stage?
+31	Respondent: Yes, we also looked at "Chartline" and "Time-Café", those are the two main ones.
+32	Respondent: "Chartline" fell off quickly, because it didn't have payroll calculation at all, just the schedule, and we specifically needed the calculation.
+33	Interviewer: And "Time-Café"?
+34	Respondent: With "Time-Café" we got all the way to the final call, it was genuinely close.
+35	Respondent: Their price was about twenty percent lower, that was a really strong argument for my partner.
+36	Interviewer: And for you?
+37	Respondent: Price matters to me too, I won't lie, but I was looking more at how fast baristas would figure it out themselves, without my explanations.
+38	Interviewer: Was there a moment when you finally chose between "Time-Café" and "Shift+"?
+39	Respondent: Yes, there was, it was at the "Shift+" demo, they showed us how a barista checks in via phone with one tap, literally by geolocation at the location.
+40	Respondent: And right there they showed how payroll gets calculated automatically factoring in night shifts and holidays.
+41	Respondent: I messaged my partner right during the call: look, this is what we need, no dancing around with a tambourine.
+42	Interviewer: Did "Time-Café" have a demo of a similar level?
+43	Respondent: There was a demo, but everything was shown on slides, they didn't open the live app, they promised to send access later.
+44	Respondent: They only sent access a week later, and it wasn't as smooth as on the slides, we had to figure out the interface ourselves.
+45	Interviewer: So the speed and clarity of the demo played a role?
+46	Respondent: Yes, it really did, because we were already tired of long rollouts, we wanted to see it with our own eyes, not just take someone's word for it.
+47	Interviewer: Was there any anxiety before switching to the new system?
+48	Respondent: Of course there was, I was afraid the baristas would refuse to bother with a new app, we've got people of different ages, some of them aren't into technology at all.
+49	Respondent: I was also afraid that during the transition we'd genuinely miscalculate someone again and it'd be like with Kate, only worse.
+50	Interviewer: Did habit toward the old way get in the way?
+51	Respondent: It did, no denying it, WhatsApp is just simple, everyone knows how to use it, no need to train anyone.
+52	Respondent: My partner even said, maybe forget it, let's stick with the old system for another six months, why break everything now.
+53	Interviewer: And how did you get past that?
+54	Respondent: I reminded him about Kate and one more similar case, a smaller one, with a different barista, where we also messed up the hours count.
+55	Respondent: After that he agreed we couldn't keep dragging it out, the risk of errors was more costly than the habit.
+56	Interviewer: About when did you sign the contract with "Shift+"?
+57	Respondent: I think it was in January, but I might be mixing it up, maybe it was already early February, we had a revenue spike right around then after the holidays, I remember the dates pretty poorly for that period.
+58	Interviewer: Okay, let's mark it as the January-February boundary. Did the rollout itself take long?
+59	Respondent: About two weeks, I think, we onboarded one location at a time, so as not to break everything at once.
+60	Interviewer: What difficulties did you run into during the switch?
+61	Respondent: Two of the older baristas genuinely got confused the first week, called me with questions ten times a day.
+62	Respondent: Also the night shift didn't calculate correctly right away at one location, we had to fix it manually once.
+63	Interviewer: Who ended up making the decision to switch — you, your partner, someone else?
+64	Respondent: Formally it was a joint decision, but in fact I pushed it through, because I was the one dealing with barista complaints and feeling guilty over the Kate situation.
+65	Respondent: My partner was looking more at the money and at whether the rollout would cause a headache with the coffee suppliers, that's his area.
+66	Interviewer: What was the main result for you that you wanted to achieve with this switch?
+67	Respondent: For payroll to be calculated without errors and for me not to be a schedule dispatcher in DMs.
+68	Respondent: I also wanted baristas to trust the calculations, so there wouldn't be a feeling like they were being cheated.
+69	Interviewer: Is there something adjacent that you incidentally solved with this switch, besides the main payroll task?
+70	Respondent: Yeah, actually, planning vacations got simpler, before it used to be a separate nightmare in a notebook.
+71	Respondent: And also, honestly, I started sleeping better, because I stopped being afraid that I'd messed up someone's pay again somewhere.
+72	Interviewer: So there's adjacent emotional work happening — taking the guilt toward employees off yourself?
+73	Respondent: Yes, exactly, I didn't want to look, in the baristas' eyes, like an owner who shortchanges them out of carelessness.
+74	Interviewer: You mentioned you had doubts about whether it was even worth switching systems right then. How strong was that doubt compared to the desire to switch?
+75	Respondent: Hard to say honestly, in the moment it felt like forty percent doubt, sixty percent that we needed to act.
+76	Respondent: But now, once we've already switched, it seems like there wasn't that much doubt at all, memory plays tricks like that in hindsight.
+77	Interviewer: Okay, let's mark this as a not-fully-clear point. If "Time-Café" had sent access right away, on the day of the demo, instead of a week later, would the decision have changed?
+78	Respondent: Maybe, yeah, honestly I don't know, hard to say for sure, that's just guessing at this point about what could have been.
+79	Respondent: Their price was better, so there was a chance, but the "Shift+" demo was still very strong, it's hard to separate the two.
+80	Interviewer: Okay, we'll mark that as ambiguous too. Tell me, how much money and time had you already spent up to the point of switching, on the old setup and on choosing the new one?
+81	Respondent: We didn't spend direct money on the old setup, only my time, and that was a solid three to four hours a week going into schedules and checking payroll.
+82	Respondent: We spent about a week and a half of active time on choosing the new one, on calls and demos, and then the cost of the subscription itself later, once we signed.
+83	Interviewer: Who else, besides you, was bothered by the old setup?
+84	Respondent: Baristas were bothered by the uncertainty with the schedule, the location manager too, she was constantly reprinting the tables.
+85	Respondent: My partner was bothered more by the fact that I kept pestering him with money questions at the end of the month, he didn't have time to deal with that.
+86	Interviewer: Looking back — what became the final criterion that tipped the scale toward "Shift+" instead of "Time-Café"?
+87	Respondent: If I'm being completely honest, probably the live demo with the geolocation check-in and night shift calculation, that was the exact moment I understood.
+88	Respondent: "Time-Café"'s price was tempting, but I decided that paying extra for peace of mind was worth it.
+89	Interviewer: Anything else important you'd add about this switch that we didn't ask about?
+90	Respondent: Only that I probably would have started looking for a solution earlier, if I'd known how many nerves I'd save.
+91	Respondent: But back then it seemed like it'd hold up fine as is, until it all blew up with Kate.
+92	Interviewer: Thank you so much, this was very helpful.
+93	Respondent: You're welcome, reach out if you need anything else.

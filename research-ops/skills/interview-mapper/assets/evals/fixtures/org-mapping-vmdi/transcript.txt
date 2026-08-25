@@ -1,0 +1,84 @@
+1	Interviewer: Good afternoon, thank you for agreeing to talk with me. To start, could you tell me how you ended up at the museum — how did you come to this position?
+2	Respondent: Well, hello. I'm a gallery attendant, I've been working here four years now. I came here, honestly, by accident — I was looking for a job closer to home, saw a posting on a website, thought I'd stay maybe two months, until something better turned up. And then somehow... I got pulled in, I guess.
+3	Interviewer: Did you consider other options, maybe interview elsewhere?
+4	Respondent: There was that, I went to a shopping mall for a cashier job, and the library was calling me too. But the museum turned out to have a more convenient schedule, and, well, it's calmer here somehow, not as hectic as retail.
+5	Interviewer: Was there anything that surprised you in the first months, maybe you expected one thing and got another?
+6	Respondent: Yes, honestly, I thought it would be a quiet, undemanding little job, you just sit in the gallery. But in fact it turned out — one minute they'd ask me to lead a tour, even though that's not really my job, another minute I'd be dealing with a visitor whose hands wander where they shouldn't. The first couple of months were a real shock, how much actually goes into this position.
+7	Interviewer: What motivates you most in this work, and what, on the contrary, demotivates you?
+8	Respondent: What motivates... well, we have a good team, the girls are all like family, we help each other out. And when kids come on tours and their eyes light up — that really gets to me, that's what makes it worth it. And what demotivates — the pay, let's be honest, it's tiny, and there's a lot of bureaucracy, all this paperwork, reports.
+9	Interviewer: If you recommended this job to a friend — would you?
+10	Respondent: Well... probably yes, but with reservations. I'd say — if money matters to you, don't even look here. But if it's for the soul — then you could try it.
+11	Interviewer: Tell me about some project or task you're most proud of.
+12	Respondent: Oh, there was one last year, for the museum's anniversary we were preparing a temporary exhibition about city dwellers' everyday life at the turn of the century. I suggested arranging the exhibits not chronologically, as usual, but by theme — kitchen, nursery, living room, so people would feel like they were walking through an apartment. Management liked it, so that's how we did it.
+13	Interviewer: And whose idea was that originally — yours, or was the task handed down from above?
+14	Respondent: The task itself was handed down from above, the directorate said — we need an exhibition for the anniversary. But how to do it — that I came up with myself, nobody asked specifically for a thematic layout.
+15	Interviewer: Who from other departments did you have to interact with while putting the exhibition together?
+16	Respondent: With the collections keepers, of course, they issued the exhibits. I consulted with the education staff on how best to present the material for different ages. And with the facilities manager — we had to move display cases, he grumbled a bit but helped.
+17	Interviewer: Did the approvals take a long time, even though in the end everything turned out well?
+18	Respondent: Well, it's almost funny — I proposed the idea in March, and it was officially approved only in May. A month and a half of signing paperwork, even though everyone already agreed, it just needed the chief curator's signature, and she was on vacation, so we waited.
+19	Interviewer: And was there anything that could have gone wrong but didn't?
+20	Respondent: Oh, we almost broke a display case while moving it, honestly. The facilities manager and a worker were carrying it, almost dropped it, the stand was wobbling. It worked out, thank God, nobody even noticed.
+21	Interviewer: Was this work recognized in any way, by management or colleagues?
+22	Respondent: The department head praised me at the briefing, said well done. But it wasn't reflected in any order, no bonus, nothing like that. A little disappointing, but okay.
+23	Interviewer: Do you think this result could be repeated, or is it more of a one-off success thanks to your enthusiasm?
+24	Respondent: Well, honestly — it was mostly held together by my own enthusiasm. There's no system where, you know, we have a process for preparing thematic exhibitions. Next time, if I don't propose it, nobody will even remember.
+25	Interviewer: As a gallery attendant, is there some specific professional question — for example, how do you interact with visitors if something happens in the gallery?
+26	Respondent: Well yes, our job description says that in case of a violation you're supposed to call security using the button. But in fact that button in the far gallery hasn't worked for six months already, I just go and talk to the person myself, however it works out.
+27	Interviewer: All right, now let's talk about breakdowns — tell me about a situation where something took disproportionately more effort or time than it should have.
+28	Respondent: This whole story with the alarm button — like I said, it hasn't worked for six months. I filed a request with facilities three times, every time they say — we'll pass it on, wait. But there's nothing to wait for, the gallery is big, if something happens, I'm alone, help is far away.
+29	Interviewer: Was this a one-time case, or does a similar story repeat itself?
+30	Respondent: No, it's a genuinely systemic thing, that's just how it is with equipment in general — one time the humidity sensor in storage is acting up, another time the camera in the third gallery has been dead for a year already, it just hangs there for show. Everyone's used to it by now, nobody's surprised.
+31	Interviewer: Who, in your opinion, should have fixed this but isn't?
+32	Respondent: Well formally it's facilities, they have the requests pending. But they say — there's no money, it's not in the budget. And the directorate sort of knows, but isn't in a hurry either, because as long as nothing's happened yet — there's apparently no reason to move.
+33	Interviewer: Did you try to push for it any other way besides filing requests?
+34	Respondent: I tried through the union, well, actually it's not quite a union, more like a staff meeting, I raised the issue. They said — we'll include it in next year's plan. And then just a wall, basically, nothing beyond words.
+35	Interviewer: How do you assess the losses from this — time, money, anything else?
+36	Respondent: My own time — I spend an extra twenty minutes or so per shift, just walking around checking the gallery more often than I should, because I don't trust the equipment. As for money, I don't know, probably it would've been cheaper to fix the button right away than drag it out for years like this.
+37	Interviewer: And if those resources — time, nerves — were freed up, what would you spend them on?
+38	Respondent: I'd probably spend more time with visitors, telling them things, instead of running to check the gallery every half hour for whether something's broken.
+39	Interviewer: Now let's talk about communication inside the museum — how do you find out about what's happening, about management's decisions?
+40	Respondent: We have a group chat in a messenger app, they post announcements there. And at briefings once a week they tell us things, but the briefings for gallery attendants are separate, quite short, about ten minutes.
+41	Interviewer: Has it happened that you found out about some decision only after the fact, once it had already taken effect?
+42	Respondent: Yes, constantly, honestly. Like, the museum's holiday schedule got changed — they just dropped it in the chat, two days before the holiday, and I'd already planned my shifts for those days differently.
+43	Interviewer: How well do employees understand the museum's overall strategy, where it's heading?
+44	Respondent: Well, something like that gets mentioned sometimes at general meetings, about development, about a new exhibition in a couple of years. But in detail, what exactly and why — no, not really clear, more like general phrases.
+45	Interviewer: Which departments is interaction easy with, and which is it difficult with?
+46	Respondent: With the education staff it's really easy, they're responsive. With the collections keepers it's fine too, if you arrange things in advance. But with facilities it's hard, it's like there's a wall there — whatever you ask, everything takes forever and grinds along.
+47	Interviewer: Does initiative from below actually get through, or does it run into something?
+48	Respondent: Formally we have a suggestion box, there was even an order about it. But in fact nobody looks in there, I dropped a note with an idea once — silence, six months have already passed.
+49	Interviewer: Have there been cases where your opinion specifically influenced management's decision?
+50	Respondent: Well, with that thematic exhibition — that did have an influence, yes. And also when I said that the description plaques were printed in too small a font, elderly visitors were complaining — they redid the font bigger. So it happens, just rarely.
+51	Interviewer: Let's talk about visitors — recall some memorable case of interaction.
+52	Respondent: Recently there was a case — one elderly woman burst into tears at the display case with pre-war photographs, she said she recognized her house. We talked for about twenty minutes, she was telling me about her childhood. That's honestly what you work for, moments like that.
+53	Interviewer: Is this more of a one-off case or does something similar happen often?
+54	Respondent: No, actually, something similar happens regularly, since we're a local history museum, a lot of local people come in, someone's grandmother is in a photo, someone recognizes a familiar street. It's really a pattern, not an exception.
+55	Interviewer: What difficulties do visitors run into most often, what do they ask again about?
+56	Respondent: Most often they ask where the bathroom is, honestly, there aren't really any signs. And also many don't understand where to go next along the route, the galleries aren't marked with arrows, they get confused.
+57	Interviewer: Does the audience differ somehow across different offerings, say, between the permanent exhibition and temporary exhibitions?
+58	Respondent: For the permanent exhibition it's mostly schoolchildren coming in organized groups, and for the temporary ones it's local residents themselves, families, people interested in the specific topic.
+59	Interviewer: Are there regular visitors who come back? Why do you think that is?
+60	Respondent: Yes, there are elderly women who come literally every month, they even have tea in the lobby sometimes, for them it's like an interest club, socializing. Officially nobody tracks this, I just recognize their faces by now.
+61	Interviewer: Who, in your view, is the typical museum visitor, and what keeps others from coming?
+62	Respondent: The typical one is either schoolchildren sent as part of a program, or elderly local residents. There's not much young people, I think because it's presented a bit boringly, there's no interactivity, plus tickets aren't exactly expensive, but not cheap for a student either.
+63	Interviewer: If you could change one aspect of the visitor experience from entrance to exit — what would you choose?
+64	Respondent: I'd probably set up proper navigation through the galleries — arrows, signs, because people really do get lost, and then I'm the one who has to go find them all over the building.
+65	Interviewer: Let's talk about the future — if you described the museum with a metaphor, how would you picture it?
+66	Respondent: Well, the museum is like a grandmother's trunk, I suppose. Lots of valuable things inside, but a little dusty, and you don't take everything out at once, only what you remember to show.
+67	Interviewer: What would you definitely keep, even if some reforms started?
+68	Respondent: This little team of ours, the gallery attendants — the atmosphere of mutual support. And free admission for local pensioners on Thursdays, that's a really important thing, people are used to it.
+69	Interviewer: And which practices would be worth giving up?
+70	Respondent: I'd give up the paper reporting, honestly. We still fill out the attendance log by hand, even though there's already an electronic system at the entrance, we're just duplicating it for nothing.
+71	Interviewer: What do you as an employee lack the most — authority, information, recognition, autonomy?
+72	Respondent: Probably recognition, most of all. And also autonomy — I'd like to decide some small things in the gallery myself, without asking permission for every little thing.
+73	Interviewer: If you were advising the museum's new director on something — what would you say, the most honest thing?
+74	Respondent: I'd say — come into the gallery yourself sometimes, see how it actually works, not just from the reports. A lot becomes clear only once you've stood here yourself for a couple of hours.
+75	Interviewer: How do you view the museum's future three years from now — with optimism, with anxiety?
+76	Respondent: More with optimism, we do have movement after all, they're preparing a new exhibition. Although sometimes, honestly, it creeps up on me — what if they cut the gallery attendant positions, automate everything with these ticket terminals, and then what.
+77	Interviewer: Going back to what you were saying about the alarm button — did you mean any other moments related to safety that you're not fully saying?
+78	Respondent: Well... (pause) I wouldn't want to put it quite like that, it's probably not really my subject, that's a question for facilities, let's not go into it.
+79	Interviewer: I understand. One more question — were there situations when the safekeeping of the exhibits turned out to be at risk?
+80	Respondent: There were a couple of moments, yes, but that's probably not for me to tell, we have a separate person who records that kind of thing, I'd rather stay quiet so as not to put anyone on the spot.
+81	Interviewer: I understand. Another thing — at the start you said the work was calm, not hectic, but then you mentioned running around the gallery every twenty minutes and dealing with troublemakers yourself. How does that fit together?
+82	Respondent: Yeah, I guess I got carried away at the start when I said it was calm. Honestly the shift wears you out something fierce, it's just that calm is deceptive — like you're standing still, but your nerves are on edge the whole time.
+83	Interviewer: Thank you, last question — what's the one thing you'd most want management to hear from this conversation?
+84	Respondent: That gallery attendants aren't just furniture in the room, we actually hold a lot of things together, and whether that gets noticed or not determines whether people stay working here at all or all leave.

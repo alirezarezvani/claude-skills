@@ -107,6 +107,7 @@ Isolated: no hard dependency — autoresearch runs only on demand, and the loop 
 | `product-team/product-discovery` | Opportunity validation, discovery-sprint planning | That plans **discovery sprints**; this designs and synthesizes the **research** |
 | `product-team/experiment-designer` | Live product A/B hypothesis + sample size | That runs **live experiments**; this runs **qualitative/evaluative research** |
 | `market-research` (sibling) | Market sizing, surveys, segmentation | That studies **the market**; this studies **users** |
+| [`interview-mapper`](../interview-mapper/SKILL.md) (sibling) | Transcript-level coding: verbatim quote verification, per-lens coding, cross-run consensus | That codes the **transcript itself**; this synthesizes **already-coded observations** into insights — never touches the raw transcript |
 
 ## Quick examples
 

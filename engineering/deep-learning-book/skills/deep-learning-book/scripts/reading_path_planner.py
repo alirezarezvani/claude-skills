@@ -277,9 +277,12 @@ def plan(goal: str, background: str, hours_per_week: float,
     lane = LANES[lane_key]
     targets = lane["targets"]
     chapters = close_prerequisites(targets)
-    if not include_intro and lane_key != "complete":
-        # ch01 is context; keep it only when the reader asked for everything.
-        chapters = [c for c in chapters if c != 1]
+    if include_intro and 1 not in chapters:
+        # ch01 is context, not a prerequisite of anything, so it never arrives via
+        # closure — the flag is the only way to reach it outside the complete lane.
+        # (An earlier form of this filtered ch01 *out*, which was inert: nothing
+        # depends on ch01, and the one lane that targets it skipped the filter.)
+        chapters.append(1)
     ordered = order_path(chapters)
 
     multiplier, background_note = BACKGROUNDS[background]
@@ -373,7 +376,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--hours-per-week", type=float, default=5.0,
                         help="study hours available per week (default: 5)")
     parser.add_argument("--include-intro", action="store_true",
-                        help="keep ch01, which is context rather than content")
+                        help="add ch01 to the path; it is context rather than content, "
+                             "so no lane pulls it in on its own (the complete read "
+                             "already includes it)")
     parser.add_argument("--output", choices=("text", "json"), default="text")
     parser.add_argument("--sample", action="store_true",
                         help="run against a built-in example goal")

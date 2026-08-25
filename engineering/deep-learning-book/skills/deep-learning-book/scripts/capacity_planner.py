@@ -63,13 +63,15 @@ UNDERPARAMETERIZED_MAX = 1.0
 OVERPARAMETERIZED_MIN = 10.0
 
 
-def classify_regime(params: int, examples: int) -> tuple[str, float, str]:
+def classify_regime(params: int, examples: int,
+                    under_max: float = UNDERPARAMETERIZED_MAX,
+                    over_min: float = OVERPARAMETERIZED_MIN) -> tuple[str, float, str]:
     ratio = params / examples
-    if ratio < UNDERPARAMETERIZED_MAX:
+    if ratio < under_max:
         regime = "underparameterized"
         note = ("Fewer parameters than training examples. The classical U-curve applies "
                 "directly here: reducing capacity is a legitimate response to overfitting.")
-    elif ratio < OVERPARAMETERIZED_MIN:
+    elif ratio < over_min:
         regime = "near-interpolation"
         note = ("Roughly at the interpolation threshold, where the classical curve peaks "
                 "and double descent begins. This is the worst place to sit: both more "
@@ -85,8 +87,10 @@ def classify_regime(params: int, examples: int) -> tuple[str, float, str]:
 
 def plan(params: int, examples: int, train_error: float, val_error: float,
          applied: set[str], target_error: float | None,
-         overfit_rel_gap: float) -> dict:
-    regime, ratio, regime_note = classify_regime(params, examples)
+         overfit_rel_gap: float,
+         under_max: float = UNDERPARAMETERIZED_MAX,
+         over_min: float = OVERPARAMETERIZED_MIN) -> dict:
+    regime, ratio, regime_note = classify_regime(params, examples, under_max, over_min)
     denom = max(abs(train_error), 1e-6)
     gap = val_error - train_error
     rel_gap = gap / denom
@@ -149,6 +153,11 @@ def plan(params: int, examples: int, train_error: float, val_error: float,
             {"id": a[0], "action": a[1], "why": a[2], "chapter": a[3]}
             for a in actions
         ],
+        "thresholds": {
+            "overfit_rel_gap": overfit_rel_gap,
+            "underparameterized_max": under_max,
+            "overparameterized_min": over_min,
+        },
         "double_descent_caveat": (
             regime != "underparameterized" and verdict == "OVERFIT"
         ),
@@ -206,6 +215,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--overfit-rel-gap", type=float, default=0.30,
                         help="relative gap above which the fit counts as overfitting "
                              "(default: 0.30)")
+    parser.add_argument("--underparameterized-max", type=float,
+                        default=UNDERPARAMETERIZED_MAX,
+                        help="params-per-example below which the classical U-curve "
+                             f"applies directly (default: {UNDERPARAMETERIZED_MAX})")
+    parser.add_argument("--overparameterized-min", type=float,
+                        default=OVERPARAMETERIZED_MIN,
+                        help="params-per-example above which double descent makes "
+                             "'shrink the model' unreliable "
+                             f"(default: {OVERPARAMETERIZED_MIN}). These are heuristic "
+                             "bands, not a threshold theorem — the interpolation point "
+                             "depends on task, architecture and label noise.")
     parser.add_argument("--output", choices=("text", "json"), default="text")
     parser.add_argument("--sample", action="store_true",
                         help="run against a built-in overparameterized example")
@@ -248,7 +268,8 @@ def main(argv: list[str] | None = None) -> int:
         return 4
 
     result = plan(args.params, args.train_examples, args.train_error, args.val_error,
-                  applied, args.target_error, args.overfit_rel_gap)
+                  applied, args.target_error, args.overfit_rel_gap,
+                  args.underparameterized_max, args.overparameterized_min)
 
     if args.output == "json":
         print(json.dumps(result, indent=2))

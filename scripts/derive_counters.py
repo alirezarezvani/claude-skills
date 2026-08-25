@@ -3,7 +3,7 @@
 
 Walks the canonical tree (excluding sync copies, docs site, audit workspace,
 and VCS/CI internals) and derives the headline numbers that README.md,
-CLAUDE.md, and .claude-plugin/marketplace.json claim:
+CLAUDE.md, marketplace.json, mkdocs.yml, and .codex-plugin/plugin.json claim:
 
   skills              count of SKILL.md files
   plugins_on_disk     count of **/.claude-plugin/plugin.json manifests

@@ -3,7 +3,7 @@
 
 Walks the canonical tree (excluding sync copies, docs site, audit workspace,
 and VCS/CI internals) and derives the headline numbers that README.md,
-CLAUDE.md, and .claude-plugin/marketplace.json claim:
+CLAUDE.md, marketplace.json, mkdocs.yml, and .codex-plugin/plugin.json claim:
 
   skills              count of SKILL.md files
   plugins_on_disk     count of **/.claude-plugin/plugin.json manifests
@@ -19,11 +19,13 @@ Modes:
   (default)   print a human-readable table
   --json      print the derived counters as JSON
   --check     exit 1 listing mismatches if the headline counters claimed in
-              README.md, root CLAUDE.md ("Current Scope" line), and
-              marketplace.json metadata.description disagree with derived
-              values. Also validates the README "Skills Overview" per-domain
-              table: every domain row's count must equal the SKILL.md count in
-              its linked folder, and every on-disk domain must have a row. CI gate G3.
+              README.md, root CLAUDE.md ("Current Scope" / "Status:" lines),
+              marketplace.json metadata.description, mkdocs.yml
+              site_description, or .codex-plugin/plugin.json descriptions
+              disagree with derived values. Also validates the README
+              "Skills Overview" per-domain table: every domain row's count
+              must equal the SKILL.md count in its linked folder, and every
+              on-disk domain must have a row. CI gate G3.
 
 Stdlib only. No writes ever.
 """
@@ -360,7 +362,7 @@ def main() -> int:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="exit 1 if README.md / CLAUDE.md / marketplace.json claims drift from derived values",
+        help="exit 1 if claims in README.md / CLAUDE.md / marketplace.json / mkdocs.yml / .codex-plugin drift from derived values",
     )
     args = parser.parse_args()
 

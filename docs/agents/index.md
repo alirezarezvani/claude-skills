@@ -1,13 +1,13 @@
 ---
 title: "AI Coding Agents — Agent-Native Orchestrators & Codex Skills"
-description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
+description: "98 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">93 agents that orchestrate skills across domains</p>
+<p class="domain-count">98 agents that orchestrate skills across domains</p>
 
 </div>
 
@@ -247,6 +247,18 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
 
     Engineering - Core
 
+-   :material-rocket-launch:{ .lg .middle } **[Harness Runner](harness-runner.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
+-   :material-rocket-launch:{ .lg .middle } **[Memory Curator](cs-memory-curator.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
 -   :material-rocket-launch:{ .lg .middle } **[Hub Coordinator Agent](hub-coordinator.md)**
 
     ---
@@ -254,6 +266,12 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
     Engineering - POWERFUL
 
 -   :material-rocket-launch:{ .lg .middle } **[Experiment Runner Agent](experiment-runner.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
+-   :material-rocket-launch:{ .lg .middle } **[Book-to-Skill Converter Agent](cs-book-to-skill.md)**
 
     ---
 
@@ -289,6 +307,12 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
 
     Engineering - POWERFUL
 
+-   :material-rocket-launch:{ .lg .middle } **[Human Gate Agent](cs-human-gate.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
 -   :material-rocket-launch:{ .lg .middle } **[karpathy-reviewer](karpathy-reviewer.md)**
 
     ---
@@ -313,6 +337,18 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
 
     Engineering - POWERFUL
 
+-   :material-rocket-launch:{ .lg .middle } **[Memory Engineer](cs-memory-engineer.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
+-   :material-rocket-launch:{ .lg .middle } **[Skill Doctor](cs-skill-doctor.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
 -   :material-rocket-launch:{ .lg .middle } **[Scraping Architect](cs-scraping-architect.md)**
 
     ---
@@ -331,79 +367,19 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
 
     Engineering - POWERFUL
 
--   :material-account-tie:{ .lg .middle } **[Chief AI Officer Advisor Agent](cs-caio-advisor.md)**
+-   :material-lightbulb-outline:{ .lg .middle } **[Product Orchestrator](cs-product-orchestrator.md)**
 
     ---
 
-    C-Level Advisory
+    Product
 
--   :material-account-tie:{ .lg .middle } **[Chief Customer Officer Advisor Agent](cs-cco-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[Chief Data Officer Advisor Agent](cs-cdo-advisor.md)**
+-   :material-clipboard-check-outline:{ .lg .middle } **[PM Orchestrator](cs-pm-orchestrator.md)**
 
     ---
 
-    C-Level Advisory
+    Project Management
 
--   :material-account-tie:{ .lg .middle } **[CFO Advisor Agent](cs-cfo-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[Chief of Staff Agent](cs-chief-of-staff.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[CHRO Advisor Agent](cs-chro-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[CISO Advisor Agent](cs-ciso-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[CMO Advisor Agent](cs-cmo-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[COO Advisor Agent](cs-coo-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[CPO Advisor Agent](cs-cpo-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[CRO Advisor Agent](cs-cro-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[General Counsel Advisor Agent](cs-general-counsel-advisor.md)**
-
-    ---
-
-    C-Level Advisory
-
--   :material-account-tie:{ .lg .middle } **[VP of Engineering Advisor Agent](cs-vpe-advisor.md)**
+-   :material-account-tie:{ .lg .middle } **[Company Architect (cs-arquiteto)](cs-arquiteto.md)**
 
     ---
 
@@ -427,6 +403,12 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
 
     Productivity
 
+-   :material-account:{ .lg .middle } **[Deep Work Agent](cs-deep-work.md)**
+
+    ---
+
+    Productivity
+
 -   :material-account:{ .lg .middle } **[Inbox-Setup Agent](cs-inbox-setup.md)**
 
     ---
@@ -439,7 +421,25 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
 
     Productivity
 
+-   :material-account:{ .lg .middle } **[Meeting Discipline Agent](cs-meeting-discipline.md)**
+
+    ---
+
+    Productivity
+
 -   :material-account:{ .lg .middle } **[Reflect Agent](cs-reflect.md)**
+
+    ---
+
+    Productivity
+
+-   :material-account:{ .lg .middle } **[Roast Judge Agent](cs-roast-judge.md)**
+
+    ---
+
+    Productivity
+
+-   :material-account:{ .lg .middle } **[Weekly Review Agent](cs-weekly-review.md)**
 
     ---
 
@@ -450,6 +450,12 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
     ---
 
     Marketing
+
+-   :material-account:{ .lg .middle } **[Deep Research Agent](cs-deep-research.md)**
+
+    ---
+
+    Research
 
 -   :material-account:{ .lg .middle } **[Dossier Agent](cs-dossier.md)**
 
@@ -570,5 +576,29 @@ description: "93 agent-native orchestrators for Claude Code, Codex CLI, and Gemi
     ---
 
     Markdown to HTML
+
+-   :material-rocket-launch-outline:{ .lg .middle } **[cs-agent-deployer — Phase 4 specialist (the recurring loop)](cs-agent-deployer.md)**
+
+    ---
+
+    Agent Launcher
+
+-   :material-rocket-launch-outline:{ .lg .middle } **[cs-agent-grader — Phase 3 specialist (the loop)](cs-agent-grader.md)**
+
+    ---
+
+    Agent Launcher
+
+-   :material-rocket-launch-outline:{ .lg .middle } **[cs-agent-interviewer — Phase 1 specialist](cs-agent-interviewer.md)**
+
+    ---
+
+    Agent Launcher
+
+-   :material-rocket-launch-outline:{ .lg .middle } **[cs-agent-launcher-orchestrator — the session-goal router](cs-agent-launcher-orchestrator.md)**
+
+    ---
+
+    Agent Launcher
 
 </div>

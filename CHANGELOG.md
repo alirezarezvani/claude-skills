@@ -5,7 +5,291 @@ All notable changes to the Claude Skills Library will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] — book-to-skill: document → knowledge-base skill → plugin (this PR)
+## [2.12.0] - 2026-08-24 — consolidated release: 20 domains, 380 skills, full issue-triage sweep
+
+**First tagged release since v2.9.0.** Versions 2.10.0–2.11.2 were documented in
+CLAUDE.md/README at the time but never entered here, so the Release workflow never
+tagged them; this entry consolidates everything since the v2.9.0 tag — the
+previously documented v2.10.x/v2.11.x work plus all post-2.11.2 merges. Headline
+counters at this release: **380 skills · 96 marketplace plugins · 20 domains ·
+706 Python tools · 823 reference docs · 114 agents · 138 slash commands**
+(derived and gated by `scripts/derive_counters.py --check`).
+
+### Added — consolidated from the untagged v2.10.0–v2.11.2 releases
+
+- **markdown-html/** domain complete (v2.10.0–v2.10.3): orchestrator +
+  design-system foundation, then `md-document` (long-form), `md-review`
+  (2-col code review), `md-slides` (single-file deck with presenter mode).
+- **engineering/agent-harness** (v2.11.0): manifest builder + goal compiler +
+  loop controller turning any domain into a bounded, self-verifying agent loop;
+  agentic-readiness audit of both engineering folders.
+- **product-team + project-management as agent-harness domains** (v2.11.1):
+  fork-orchestrators, deterministic goal routers, Jira snapshot bridge with
+  Monte Carlo forecasting, delegation-governance loop gate, discovery cadence
+  tracker + OST linter; audit record `audit/pm-product-agentic-2026-07/`.
+- **engineering/skillopt-sleep** (v2.11.2): vendored microsoft/SkillOpt nightly
+  self-improvement engine with 23 documented hardening deviations.
+
+### Added — post-v2.11.2 merges in this release
+
+- **agent-launcher/** — 20th top-level domain: Claude Managed Agent launcher
+  (full detail in its section below).
+- **engineering/memory-engineering** — design/price/audit agent memory systems
+  (cost profiler, architecture picker, density auditor, forgetting-policy linter).
+- **engineering/agent-memory** — four-tier (L0–L3) promotion-gated memory ladder
+  over Claude Code hooks; nothing reaches a CLAUDE.md without a human adopt.
+- **engineering/human-gate**, **engineering/book-to-skill**,
+  **engineering/hivemind** (PR #979), **productivity/fable-goal**,
+  **productivity coverage expansion** (weekly-review, deep-work, meetings +
+  public audit `audit/productivity-2026-07/`),
+  **marketing local-seo-manager**, code-reviewer language expansion —
+  detailed sections below.
+- **c-level-agents/** promoted to its own top-level domain directory (issue #949).
+
+### Fixed — full reported-issue triage sweep (PRs #972, #973, #982)
+
+All 17 open issues driven to a final state; the 14 resolvable ones fixed and closed:
+
+- **#954** — 39 `plugin.json` manifests carried non-spec `source`/`attribution`
+  keys that made Claude Code reject the whole manifest (40% of the marketplace
+  uninstallable). Keys relocated to `.claude-plugin/authoring-notes.json`
+  sidecars; `check_plugin_json.py` now hard-fails any recurrence in CI.
+- **#949** — `c-level-skills` never loaded because `c-level-agents` was nested
+  inside its marketplace source; moved to a top-level directory.
+- **#885** — plugin skills shadowing built-in commands (`status`, `review`,
+  `init`, `resume`) renamed across four plugins (`memory-status`,
+  `pw-init`/`pw-review`, `hub-init`/`hub-status`, `ar-status`/`ar-resume`);
+  new blocking CI gate `scripts/check_skill_names.py` + rule in
+  SKILL-AUTHORING-STANDARD.md.
+- **#969** — `UnicodeEncodeError` on legacy Windows codepages: nine scripts now
+  reconfigure stdout/stderr to UTF-8; `PYTHONUTF8=1` documented.
+- **#968** — Windows symlink-checkout caveat documented (INSTALLATION.md
+  "Windows Notes" + README pointer).
+- **#933** — all dead links to the maintainer-local `megaprompts/` tree
+  (~75 files incl. the docs site) replaced with annotated plain text.
+- **#931** — DynamoDB on-demand pricing corrected to post-Nov-2024 rates.
+- **#924** — plugin hook commands quote `"${CLAUDE_PLUGIN_ROOT}"` (space-safe).
+- **#978** — playwright-pro's TestRail/BrowserStack MCP servers (which could
+  never start — dependencies never installed) are now a documented opt-in
+  instead of a permanent `Failed to connect` pair for every user.
+- **#977** — two agents shipping without YAML frontmatter, repaired via the
+  G10 frontmatter gate work (PR #936).
+- Spam/out-of-scope issues #925, #960, #923, #951 closed with rationale;
+  proposals #910, #952, #962 triaged with approval/scoping replies;
+  superseded PRs #932/#966 closed with credit.
+
+### CI
+
+- New blocking gates since v2.9.0: built-in-shadowing skill names (#885),
+  frontmatter YAML validation (G10), retired-model lint (G7), path linter G1
+  and script smoke G8 flipped blocking, plugin-manifest key rejection (#954),
+  marketplace description 1024-char cap (Copilot CLI, PR #964).
+
+The sections below — formerly stacked as `[Unreleased]` — are part of this release.
+
+### agent-launcher: session-goal domain plugin for Claude Managed Agents (PR #961, merged 2026-08-21)
+
+### Added — `agent-launcher/` (new top-level domain, 19th)
+
+Plugin re-implementation of Anthropic's
+[`launch-your-agent`](https://github.com/anthropics/launch-your-agent) reference
+skill (Apache-2.0; **independent, not a fork**) for building **Claude Managed
+Agents (CMA)** in the user's own Anthropic account. Organizing idea: **every
+session starts with a goal** (`./my-agent/goal.json`, surfaced by an opt-in
+`AGENT_LAUNCHER_SESSION=1` SessionStart hook and driven by `/cs:goal`);
+`loop_compiler.py` compiles that goal into a **bounded grade→iterate loop**
+(CMA `user.define_outcome` self-grading, `max_iterations` clamped 1..20 — never
+unbounded), a **recurring POSIX-cron scheduled-deployment loop** ("run without
+you", optionally self-grading each firing via a nested outcome), or a
+**single-pass interview→stage→launch workflow**.
+
+- **6 skills:** `agent-launcher-orchestrator` (`context: fork` goal router with
+  exit-code route/ask/refuse) + `interview` (six intake slots → build sheet with
+  primitives table + v1/v2 deferrals + eval plan) + `stage-launch` (validated
+  env/agent/session/kickoff payloads + resumable **BYOK curl** launch script
+  that reads `$ANTHROPIC_API_KEY` at runtime and never embeds it) +
+  `grade-iterate` (outcome/rubric + verdict reader + held-back eval scaffold
+  capped at the 25-thread ceiling) + `run-without-you` (5-field POSIX cron +
+  IANA tz + wall-clock-DST validation, deployment payload with test-run curl,
+  NEXT-DIRECTIONS writer) + `wrap-up` (primitives inventory + regenerated
+  single-file overview HTML + ranked next upgrades).
+- **18 stdlib-only deterministic scaffolder tools** (3 per skill; NO network/API
+  calls; all pass `--help` + `--sample`), **4 agents** (orchestrator +
+  interviewer + grader + deployer), **8 `/cs:*` commands** (launch, goal,
+  interview, stage-launch, grade, run-without-you, wrap-up,
+  grill-agent-launcher), **opt-in SessionStart/SessionEnd hooks** (exit 0 on any
+  error — can never break a session), **5 shared references**, **4 assets**
+  (build-sheet JSON schema + overview/NEXT-DIRECTIONS templates + example).
+- Validators enforce CMA limits (≤20 skills/session, ≤8 memory stores, depth-1
+  multiagent ≤20 roster / ≤25 threads, `max_iterations` ≤20, ≤20 creds/vault,
+  ≤1,000 deployments/org); `payload_validator.py` FAILs on any embedded API key.
+- **Verification:** independent 10-agent workflow re-checked every SPEC.md part
+  against disk — 9/9 PASS, zero differences from spec (delivery report kept in
+  maintainer-local `documentation/`, per the sprint-artifact convention; the
+  public build target is `agent-launcher/SPEC.md`). Full 4-phase pipeline
+  verified end-to-end; generated `launch.sh` passes `bash -n`.
+- **Counters** (at merge): skills 362 → 368, domains 18 → 19, tools 644 → 664,
+  refs 741 → 746, agents 102 → 106, commands 116 → 124, plugins 88 → 89
+  (derived via `scripts/derive_counters.py --check`).
+- Distinct from `engineering/agent-harness` (generic bounded loop over any repo
+  domain) and `engineering/write-a-skill` (authors Claude Code skills, not CMAs).
+
+### human-gate: batched human review as a verification artifact (this PR)
+
+### Audited — `petergyang/human-review`
+
+Public audit record at `audit/human-review-2026-08/AUDIT.md`. Upstream (npm
+`human-review@0.6.0`, MIT © Peter Yang) is a ~5,200 LOC Node application that opens
+an HTML/Markdown file or localhost page in the browser for direct editing and
+anchored comments, then ships the batch back to the agent as JSON. **Verified: its
+own test suite passes 90/90.** Security posture is better than most local-server
+tools — loopback-only bind, DNS-rebinding `Host` check, constant-time token compare,
+realpath-checked traversal guard, a deliberately inert Markdown renderer, and a
+45-minute idle self-shutdown.
+
+**Verdict: do not vendor, do adopt the pattern.** Node 20 + an npm runtime dependency
+fails the same stdlib-only test that kept the heavier `skillopt` package out in
+v2.11.2. Seven findings recorded, three material: **F1 (HIGH)** the skill instructs
+the agent to run unpinned `npx -y human-review`, so every invocation may fetch and
+execute a newly published version; **F2 (MED)** "do not end your turn" plus re-poll
+on timeout, with no headless guard and no retry cap — the AR5 loop-discipline gap
+`audit/engineering-agentic-2026-07/` already named as repo-wide; **F3 (MED)** only
+`/api/*` is token-gated, not `/artifact/<key>` or `/s/<id>`.
+
+Also worth stating plainly: despite the name, this is **not** a humanizer. It is
+human *approval*, not human *voice* — no overlap with `engineering/behuman` or
+`marketing-skill/content-humanizer`.
+
+### Added — `engineering/human-gate`
+
+Conceptual derivation (no upstream code copied), built to this repo's conventions:
+three stdlib-only Python scripts, no server, no socket, no network fetch.
+
+- **`review_page_builder.py`** — Markdown/HTML → single-file review page with every
+  block anchored (`data-hg="b7"`). **Zero network requests** — no CDN, no fonts, no
+  Prism; ~11 KB, opens over `file://`. Markdown is rendered by a stdlib subset parser
+  that escapes before applying inline markup and scheme-allowlists every href;
+  HTML input is re-emitted through `html.parser` with `<script>`/`<style>`/`<head>`
+  dropped and top-level block elements tagged. Review UI is vanilla JS with
+  localStorage persistence and an export that writes the sidecar.
+- **`feedback_parser.py`** — sidecar Markdown → `batch.v1` JSON. Severities
+  BLOCKER/MAJOR/MINOR/NIT (matching `markdown-html/md-review`, from Google's
+  code-review guidance) plus EDIT/NOTE/APPROVE. Verifies every quote against the real
+  file and reports mismatches rather than swallowing them. Strips HTML comments so an
+  example written inside one cannot parse as a real sign-off.
+- **`human_gate.py`** — `open`/`status`/`collect`/`close`/`reset` state machine with
+  atomic writes and `0700`/`0600` state permissions. Gate rules **G1–G7**: refuses to
+  close with no collected round, an open BLOCKER/MAJOR, an unnamed reviewer, a sidecar
+  changed after collection, an exhausted round cap (exit 5 = escalate, never pass), a
+  waiver without a recorded reason, or a round carrying unresolved integrity problems.
+  Waivers store both the reason and every refusal they overrode.
+
+**Four more fixes came out of a second PR review round**, each reproduced before fixing:
+**(a)** the HTML artifact path re-emitted attributes verbatim, so a reviewed draft containing
+`<img src=x onerror=...>`, `<a href="javascript:...">` or an `<iframe>` executed inside the
+review page — the Markdown path had `_safe_href` scheme-allowlisting all along and the HTML
+path had nothing. `sanitize_attrs()` now drops `on*`/`srcdoc`/`srcset`, runs every URL
+attribute through the same allowlist (control characters stripped first, so `java\tscript:`
+cannot smuggle a scheme), and `DROP_TAGS` removes `iframe`/`object`/`embed`/`base`. Legitimate
+`https:` links and relative images survive. **(b)** `verify_quotes()` compared a browser
+selection (rendered text) against raw markup, so quoting a sentence containing `**bold**` or a
+link failed — and since G7 made that blocking, it refused a legitimate close. It now matches
+against raw *or* a rendered-text projection, while a genuinely fabricated quote is still
+caught. **(c)** `state["waiver"]` was never cleared, so a clean unwaived round N+1 still
+printed round N's waiver reason — in a tool whose premise is an honest record, that is its own
+integrity bug. **(d)** `status` returned 4 for both "no sidecar yet" and "collected, blockers
+open"; the blocked case now returns 2, matching `close`, so an agent can branch on the exit
+code alone (0 clear · 2 blocked · 3 collect · 4 nothing yet).
+
+**A fifth round found two more.** `state_dir()` anchored gate state to `os.getcwd()` while
+keying it by the artifact's realpath, so an agent whose shell cwd drifted between turns
+silently started from empty state — `close` from a subdirectory reported G1 "nobody has
+looked at this" for a round that really was collected. It failed closed rather than falsely
+passing, but it lost real feedback; state now follows the artifact, the same way the sidecar
+and review page already do (`--state-dir` still wins). Separately, `build_page()` substituted
+`__CONTENT__` before `__TITLE__`/`__CONFIG__`, so reviewing a document that mentions those
+tokens — this skill's own docs, for instance — re-substituted inside the inserted body and
+injected the entire JSON config into the visible page. All three slots now fill in a single
+`re.sub` pass, and the Markdown `--sample` fixture carries the token text so the case is
+guarded. Minor: `--waive` with nothing to waive now says so instead of silently no-opping.
+
+**A fourth round found the gate itself was one flag away from opt-out.** `--waive` applied to
+whatever `gate_refusals()` returned — including **G1, "no review round has been collected"** —
+so an agent could close having had no review at all by supplying any reason string. That is the
+most tempting shortcut under time pressure and it defeats the skill's entire premise, so G1 is
+now **unwaivable**: a waiver accepts objections a reviewer raised, it cannot manufacture a
+review that never happened. Waiving a genuine objection still works. Same round: inline
+`style` joined `DROP_ATTRS` (a `background-image:url(https://…)` beacons the reviewer's IP on
+open with no script involved, breaking the stated no-network property — and the `<style>` tag
+was already dropped, so keeping the attribute was inconsistent too); Markdown `![alt](url)`
+now renders a real scheme-checked `<img>` instead of leaking a stray `!` before a link (which
+also made `_safe_href(image=True)` dead code on that path); an unterminated `<script>` now
+emits a diagnostic instead of silently truncating the body; and raw-HTML `target="_blank"`
+anchors get the same `rel="noreferrer noopener"` the Markdown path already added.
+
+**A third review round found the HTML path was broken outright.** `meta`, `link` and
+`base` are void elements: `html.parser` fires `handle_starttag` for them but never a
+matching `handle_endtag`. Because they were also in `DROP_TAGS`, each bare `<meta charset>`
+incremented the skip counter permanently, so every real HTML5 document — anything with a
+charset meta or a stylesheet link in `<head>` — swallowed its entire body and reported
+"No reviewable blocks". The documented landing-page use case simply did not work; earlier
+HTML fixtures happened to use `<title>`/`<style>` only, which is why three rounds missed it.
+Void drop-tags no longer touch the counter. `--sample` now builds **both** a Markdown and a
+full-DOCTYPE HTML fixture, asserts the expected block count for each, exits 2 on regression,
+and writes to a temp dir so a sample run cannot litter the caller's cwd. Same round:
+`xlink:href` joined the URL allowlist (SVG anchors still honour it, so
+`<svg><a xlink:href="javascript:...">` bypassed the plain `href` check), and `status` now
+previews **every** gate rule through a shared `gate_refusals()` — previously it looked only
+at blocking items, so a round with no named reviewer reported 0 while `close` refused on G3.
+
+**A sixth round caught the void-element fix having been only half-applied, and a forgery
+route through the artifact itself.** The round-three commit message claimed "meta, link and
+base are void elements", but only `meta` and `link` reached `VOID` — so `<base href="/">`,
+which sits in the `<head>` of a great many real pages, still swallowed the whole body and
+returned "No reviewable blocks". `VOID` is now the complete HTML spec list rather than a
+hand-picked subset, and `SAMPLE_HTML` carries a `<base>` tag so the regression gate would
+catch a third recurrence. Separately: a reviewed HTML artifact carrying its own
+`data-hg="..."` attribute kept it, and the builder appended a second — browsers honour the
+*first*, and attribute values may contain raw newlines, so a crafted artifact could inject
+a forged `## APPROVE` heading into the exported sidecar. That is the same silent-false-approval
+failure G7 exists to prevent, arriving through the artifact instead of the sidecar. Reserved
+attributes (`data-hg`) and reserved element ids (the page's own `doc`, `items`, `reviewer`,
+`export`, …) are now stripped from reviewed HTML before anchoring.
+
+**G7 came out of the first PR review round** and closes a real hole: a mistyped severity heading
+(`## BLOKCER`) silently downgrades to `NIT`, so before this a reviewer's genuine blocker
+could be lost to a typo and `close` would still exit 0. Reproduced, then fixed — the
+parser's integrity problems (unknown severity, EDIT with no replacement text, a quote
+that is not in the target file) are now closer-blocking rather than advisory prose.
+Problems that already have their own rule (G2, G3) are filtered so they are not
+double-reported.
+
+**Loop discipline — the deliberate inversion of upstream.** There is no blocking poll:
+`status` returns immediately, `open` detects a headless host (`CI`, SSH, no `DISPLAY`)
+and says so rather than sending the agent to wait at a browser that will never appear,
+and rounds are capped with escalation on exhaustion. The sidecar is plain, hand-writable
+Markdown, so the loop still closes over SSH and in CI where no browser exists.
+
+**Optional bridge**, opt-in and asked-first: `npx -y human-review@0.6.0` — always
+pinned, never bare. It changes the editor; the gate still governs closure.
+
+Ships 3 references citing 7–8 sources each (Bainbridge *Ironies of Automation*,
+Parasuraman & Riley, Fagan inspection, Wiegers, Weinberg, *SWE at Google* ch. 9,
+W3C Web Annotation `TextQuoteSelector`, Conventional Comments, Klein pre-mortem,
+Nygard *Release It!*), a `batch.v1` JSON schema, a worked sidecar example,
+`cs-human-gate` agent, and `/cs:human-gate`. SKILL.md is a full PASS on the
+write-a-skill 6-item checklist; description validator PASS.
+
+### Changed — counters
+
+Merged on top of `book-to-skill`, which landed in `dev` while this branch was open:
+skills 363 → 364, tools 663 → 666, refs 746 → 749, agents 103 → 104,
+commands 118 → 119, plugins 89 → 90, engineering row 85 → 86
+(derived via `scripts/derive_counters.py --check`).
+
+---
+
+### book-to-skill: document → knowledge-base skill → plugin (this PR)
 
 ### Added — `engineering/book-to-skill`
 
@@ -111,7 +395,7 @@ skills 362 → 363, tools 644 → 663, refs 741 → 746, agents 102 → 103, com
 
 ---
 
-## [Unreleased] — fable-goal: ramble → autonomous /goal prompt (previous PR)
+### fable-goal: ramble → autonomous /goal prompt (previous PR)
 
 ### Added — `productivity/fable-goal`
 
@@ -135,7 +419,7 @@ skills 357 → 358 (this PR also trues up pre-existing engineering-row drift
 355 → 357), tools 602 → 603, refs 731 → 732, commands 109 → 110, plugins
 83 → 84; plus a stale "711 reference docs" claim in README line 30 fixed to 732.
 
-## [Unreleased] — housekeeping: CHANGELOG backfill + per-domain counter validation
+### housekeeping: CHANGELOG backfill + per-domain counter validation
 
 ### Added — `derive_counters.py` per-domain table validation
 
@@ -162,7 +446,7 @@ Backfilled, newest-first:
 - **`engineering-team/skills/named-persona-adversarial-review`** (PR #867, superseding #866 by @YuhaoLin2005) — code review through named, sourced engineering philosophies with confidence-leveled attribution and an anti-fabrication rule for quotes.
 - **`productivity/roast`** (PR #865) — 5-angle adversarial idea panel (Critic/Champion/Analyst/Investigator/Customer) → one GO/RESHAPE/KILL verdict, with a weighted veto-gated synthesizer + cheapest-48h-test designer.
 
-## [Unreleased] — local-seo-manager: local / Map-Pack SEO skill (this PR)
+### local-seo-manager: local / Map-Pack SEO skill (this PR)
 
 ### Added — `marketing-skill/skills/local-seo-manager`
 
@@ -183,7 +467,7 @@ plumbing, cleaning, electrical).
 - No `plugin.json` / marketplace entry needed — the `marketing-skills` plugin globs `./skills`.
 - Counters: 352 → 353 skills, 590 → 593 Python tools, 718 → 721 references.
 
-## [Unreleased] — newgen audit follow-up: P0 fixes, path sweep, CI guards
+### newgen audit follow-up: P0 fixes, path sweep, CI guards
 
 ### Deprecated / Removed Skills (migration notes)
 
@@ -200,7 +484,7 @@ Also restructured (no content change): `engineering/universal-scraping-architect
 moved its SKILL.md from plugin root to the standard `skills/universal-scraping-architect/`
 layout. Marketplace source path is unchanged.
 
-## [Unreleased] — code-reviewer: C-specific smell detector + fixtures
+### code-reviewer: C-specific smell detector + fixtures
 
 ### Added — language-specific smell pack for C (this PR)
 
@@ -224,7 +508,7 @@ Verification: all 6 fixtures (C# / Java / C × smells / clean) match their commi
 
 ---
 
-## [Unreleased] — code-reviewer: 6 new languages + analyzer wiring + doc sync
+### code-reviewer: 6 new languages + analyzer wiring + doc sync
 
 ### Added — language coverage 7 → 13 (PR #769)
 
@@ -261,7 +545,7 @@ Verification: `python3 scripts/code_quality_checker.py --help` now lists all 14 
 
 ---
 
-## [Unreleased] — Mistral Vibe cross-platform installation (closes #705)
+### Mistral Vibe cross-platform installation (closes #705)
 
 ### Added
 

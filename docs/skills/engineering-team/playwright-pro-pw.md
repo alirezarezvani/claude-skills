@@ -102,12 +102,19 @@ npx playwright test tests/auth/login.spec.ts --headed
 - **9 skills** with detailed step-by-step instructions
 - **3 specialized agents**: test-architect, test-debugger, migration-planner
 - **55 test templates**: auth, CRUD, checkout, search, forms, dashboard, settings, onboarding, notifications, API, accessibility
-- **2 MCP servers** (TypeScript): TestRail and BrowserStack integrations
+- **2 MCP servers** (TypeScript): TestRail and BrowserStack integrations *(optional — not auto-registered; see Integration Setup)*
 - **Smart hooks**: auto-validate test quality, auto-detect Playwright projects
 - **6 reference docs**: golden rules, locators, assertions, fixtures, pitfalls, flaky tests
 - **Migration guides**: Cypress and Selenium mapping tables
 
 ## Integration Setup
+
+> **Not auto-registered (issue #978).** The TestRail and BrowserStack MCP servers
+> are no longer declared in the plugin's `.mcp.json` (they failed to connect for
+> every user — no bundled `node_modules`). Exporting the env vars below is not
+> enough: `/pw:testrail` / `/pw:browserstack` fail with "tool not found" until you
+> enable the server manually (`cd integrations/<name>-mcp && npm install`, then
+> register it in your own user/project MCP config). See `CLAUDE.md` → Integrations.
 
 ### TestRail (Optional)
 ```bash

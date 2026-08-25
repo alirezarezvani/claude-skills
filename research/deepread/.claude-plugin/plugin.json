@@ -1,0 +1,13 @@
+{
+  "name": "deepread",
+  "description": "Evidence-first reading of supplied documents — books, articles, PDFs, document sets. Five modes (quick, deep, map, feynman, book), claim/reason/evidence decomposition with four-level confidence labels, an evidence ledger, knowledge maps, and Feynman teach-back. Starts from material the user supplies; for discovering sources across the web use deep-research, and for citation-formatted briefs use research-summarizer.",
+  "version": "2.11.2",
+  "author": {
+    "name": "xiehuan123",
+    "url": "https://github.com/xiehuan123"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/research/deepread",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": ["./"]
+}

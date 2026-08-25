@@ -1,0 +1,15 @@
+{
+  "name": "skill-doctor",
+  "description": "Grade an agent setup from real conversation history. Harvests recent local Claude Code and Codex sessions scoped to one repo, condenses and secret-redacts transcripts (12-pattern redactor, chmod-0600 artifacts, nothing ever uploaded), has the agent judge each transcript against two fixed rubrics (efficiency, code-quality — labels only, preserved verbatim from upstream), then runs a deterministic aggregation gate that derives every number from the label tables, refuses scores for unsampled sessions and suggestions that cite no scored session, and renders one self-contained HTML report (no JS, no CDN, dark-mode, print-to-PDF). Proposed skill edits stay staged as diffs until an explicit per-skill yes, and zero suggestions is a valid, reportable success. Ships cs-skill-doctor agent, /cs:skill-doctor command, 3 stdlib tools, 2 verbatim rubrics, 3 references citing 7 sources each, and the 3 handoff-shape assets.",
+  "version": "2.11.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-doctor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/skill-doctor"
+  ]
+}

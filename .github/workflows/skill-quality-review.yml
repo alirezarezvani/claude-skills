@@ -99,6 +99,7 @@ jobs:
           SKILLS='${{ needs.detect-skills.outputs.skills }}'
           REPORT_FILE=$(mktemp)
           OVERALL_EXIT=0
+          TESSL_ERRORS=0
           THRESHOLD=70
 
           echo "## 📊 Skill Quality Review (Tessl)" > "$REPORT_FILE"
@@ -141,8 +142,17 @@ jobs:
 
             IFS='|' read -r NAME SCORE DS CS VSTATUS SUGGESTIONS <<< "$PARSED"
 
-            # Determine verdict
-            if [ "$SCORE" -ge "$THRESHOLD" ]; then
+            # Determine verdict. VSTATUS=ERROR means the Tessl CLI or the JSON
+            # parse failed before producing a review — that is a tool outage,
+            # not a genuine 0-score skill, so it must not block the merge
+            # (a real CLI failure scores every skill an identical 0/100; see
+            # the false-negative triage on the v2.12.0 promotion PR #985).
+            if [ "$VSTATUS" = "ERROR" ]; then
+              ICON="⚙️"
+              VERDICT="TOOL ERROR (not scored)"
+              TESSL_ERRORS=$((TESSL_ERRORS + 1))
+              echo "::warning::Tessl could not score $skill_dir — CLI output (truncated): $(echo "$JSON_OUT" | head -c 300)"
+            elif [ "$SCORE" -ge "$THRESHOLD" ]; then
               ICON="✅"
               VERDICT="PASS"
             else
@@ -151,7 +161,11 @@ jobs:
               OVERALL_EXIT=1
             fi
 
-            echo "| \`$skill_dir\` | **${SCORE}/100** ${ICON} | ${DS}% | ${CS}% | ${VERDICT} |" >> "$REPORT_FILE"
+            if [ "$VSTATUS" = "ERROR" ]; then
+              echo "| \`$skill_dir\` | ${ICON} not scored | — | — | ${VERDICT} |" >> "$REPORT_FILE"
+            else
+              echo "| \`$skill_dir\` | **${SCORE}/100** ${ICON} | ${DS}% | ${CS}% | ${VERDICT} |" >> "$REPORT_FILE"
+            fi
 
             # Add suggestions as details
             SUGG_COUNT=$(echo "$SUGGESTIONS" | python3 -c "import sys,json; print(len(json.loads(sys.stdin.readline())))" 2>/dev/null || echo "0")
@@ -183,6 +197,12 @@ jobs:
 
           echo "" >> "$REPORT_FILE"
           echo "_Threshold: ${THRESHOLD}/100 — skills below this score need improvement before merge._" >> "$REPORT_FILE"
+
+          if [ "$TESSL_ERRORS" -gt 0 ]; then
+            echo "" >> "$REPORT_FILE"
+            echo "> ⚙️ ${TESSL_ERRORS} skill(s) could not be scored — the Tessl CLI errored before producing a review." >> "$REPORT_FILE"
+            echo "> Reported as a warning, not a merge blocker; if this persists, check the Tessl CLI install/auth in this workflow." >> "$REPORT_FILE"
+          fi
 
           echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
           echo "exit_code=$OVERALL_EXIT" >> "$GITHUB_OUTPUT"

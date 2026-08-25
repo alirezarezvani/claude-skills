@@ -97,7 +97,7 @@ python ../../karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py p
 ```bash
 # 1. Verify license + permissibility
 # 2. Copy upstream SKILL.md content verbatim where appropriate
-# 3. Add attribution: README.md credits + plugin.json description note + SKILL.md derivation metadata
+# 3. Add attribution: README.md credits + .claude-plugin/authoring-notes.json attribution block + SKILL.md derivation metadata (never in plugin.json — CI hard-fails extension keys there)
 # 4. Add wrapper layer per this repo's pattern (validators + references + cs-* + /cs:*)
 # 5. Validate per Workflow 1
 ```

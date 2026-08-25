@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alirezarezvani/claude-skills/engineering/human-gate/batch.v1.schema.json",
+  "title": "human-gate feedback batch (batch.v1)",
+  "description": "One round of batched human review feedback, produced by feedback_parser.py from a review sidecar and consumed by human_gate.py.",
+  "type": "object",
+  "required": ["schema", "target", "round", "reviewer", "approved", "blocking_open", "counts", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "batch.v1" },
+    "target": {
+      "type": "string",
+      "description": "Basename of the artifact under review."
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "1-based review round. Capped by human_gate.py --max-rounds."
+    },
+    "reviewer": {
+      "type": "string",
+      "description": "Named human reviewer. Empty fails gate rule G3 — approval belongs to a person, not a team."
+    },
+    "approved": {
+      "type": "boolean",
+      "description": "True only when an APPROVE item exists AND no BLOCKER/MAJOR item is open. Absence of blockers alone is not approval."
+    },
+    "blocking_open": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Count of open BLOCKER + MAJOR comment items. Non-zero fails gate rule G2."
+    },
+    "counts": {
+      "type": "object",
+      "description": "Item tally keyed by BLOCKER/MAJOR/MINOR/NIT/EDIT/APPROVE.",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "overall_note": {
+      "type": "string",
+      "description": "Unanchored commentary from ## NOTE sections, joined by blank lines."
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": ["id", "kind", "severity", "block", "quote", "feedback"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^f[0-9]+$",
+          "description": "Stable within a round: f1, f2, ..."
+        },
+        "kind": {
+          "enum": ["comment", "edit", "approve"],
+          "description": "comment = a change request; edit = a verbatim replacement the reviewer already wrote; approve = explicit sign-off."
+        },
+        "severity": {
+          "enum": ["BLOCKER", "MAJOR", "MINOR", "NIT"],
+          "description": "BLOCKER/MAJOR block the gate. Google Code Review Developer Guide ladder; matches markdown-html/md-review."
+        },
+        "block": {
+          "type": "string",
+          "description": "Block anchor id assigned by review_page_builder.py (b1, b2, ...). Empty for unanchored items."
+        },
+        "quote": {
+          "type": "string",
+          "description": "Verbatim text the reviewer selected. Checked against the artifact by feedback_parser.py --target; a mismatch is reported as a problem, not silently ignored."
+        },
+        "feedback": {
+          "type": "string",
+          "description": "What needs to change, and why."
+        },
+        "before": {
+          "type": "string",
+          "description": "EDIT items only: the exact current text."
+        },
+        "after": {
+          "type": "string",
+          "description": "EDIT items only: the reviewer's exact replacement. MUST be carried across verbatim — never paraphrased, never reverted, and applied to the generating source as well as the rendered artifact."
+        }
+      }
+    }
+  }
+}

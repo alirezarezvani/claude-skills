@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/warpdotdev/common-skills/tree/f3b58c81d1cfd5d8eabf2e32edb32db2b0573923/.agents/skills/skill-doctor",
+    "upstream_license": "MIT",
+    "upstream_copyright": "Denver Technologies, Inc. (Warp)",
+    "derivation_note": "Rebuild, not a verbatim vendor — README.md's numbered 'Deviations from upstream' list is authoritative. Preserved verbatim: both scoring rubrics and the skill-improvement filing bar. Rebuilt: the collector (adds secret redaction with per-label counts, 0700/0600 artifact permissions, plugin-layout and slash-command skill detection, --sample/--output json house CLI contract; drops the Warp sqlite/protobuf path — Warp users should use upstream). Added: score_aggregator.py, a deterministic gate that owns all scoring arithmetic (upstream had the LLM compute Step 3) and enforces evidence traceability on suggestions. Replaced: the report renderer — zero JavaScript instead of a 1,531-line prebuilt diff bundle and canvas share-image, native <details> collapse, prefers-color-scheme, print CSS; Warp branding, pixel-mark and factories CTA removed. Post-review hardening: per-session repo_match transparency with a --strict-repo flag (upstream's name-only fallback could pull in an unrelated same-named repo), and bounded session-file reads."
+  }
+}

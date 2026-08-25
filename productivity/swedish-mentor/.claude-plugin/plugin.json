@@ -1,0 +1,13 @@
+{
+  "name": "swedish-mentor",
+  "description": "CEFR-leveled Swedish-learning mentor. Places the learner with a two-question probe (never trusting a vague self-label), builds a listening/reading/writing/speaking path, and recommends 3-6 vetted YouTube and podcast resources by level — Peter SFI, Lätt Svenska med Oskar, Radio Sweden på lätt svenska, Klartext, Fluent Fiction, Sommar i P1 — with a maintained catalog in references/swedish-resources.md and a hard never-invent-a-URL rule.",
+  "version": "2.11.2",
+  "author": {
+    "name": "mh-mansouri",
+    "url": "https://github.com/mh-mansouri"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/swedish-mentor",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": ["./"]
+}

@@ -57,9 +57,35 @@ class ShapeError(ValueError):
 
 
 def _require(layer: dict, key: str, index: int):
+    if not isinstance(layer, dict):
+        raise SpecError(f"layer {index} is {type(layer).__name__}, not an object")
     if key not in layer:
         raise SpecError(f"layer {index} ({layer.get('type', '?')}) is missing '{key}'")
     return layer[key]
+
+
+def _positive_int(layer: dict, key: str, index: int, default: int | None = None) -> int:
+    """Read an integer field, rejecting non-numeric and non-positive values.
+
+    Without this, a non-numeric "filters" raised ValueError and a zero "stride" or
+    "groups" raised ZeroDivisionError — both escaping as tracebacks rather than the
+    documented exit 4.
+    """
+    raw = layer.get(key, default) if isinstance(layer, dict) else default
+    if raw is None:
+        raise SpecError(f"layer {index} ({layer.get('type', '?')}) is missing '{key}'")
+    try:
+        value = int(raw)
+    except (TypeError, ValueError):
+        raise SpecError(
+            f"layer {index} ({layer.get('type', '?')}): '{key}' must be an integer, "
+            f"got {raw!r}"
+        ) from None
+    if value <= 0:
+        raise SpecError(
+            f"layer {index} ({layer.get('type', '?')}): '{key}' must be positive, got {value}"
+        )
+    return value
 
 
 def _prod(shape: tuple[int, ...]) -> int:
@@ -74,10 +100,24 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
     kind = _require(layer, "type", index)
 
     if kind == "input":
-        return tuple(_require(layer, "shape", index)), 0, 0
+        raw_shape = _require(layer, "shape", index)
+        if not isinstance(raw_shape, (list, tuple)) or not raw_shape:
+            raise SpecError(f"layer {index} (input): 'shape' must be a non-empty list")
+        dims = []
+        for dim in raw_shape:
+            try:
+                dim = int(dim)
+            except (TypeError, ValueError):
+                raise SpecError(
+                    f"layer {index} (input): shape entries must be integers, got {dim!r}"
+                ) from None
+            if dim <= 0:
+                raise SpecError(f"layer {index} (input): shape entries must be positive")
+            dims.append(dim)
+        return tuple(dims), 0, 0
 
     if kind == "linear":
-        units = int(_require(layer, "units", index))
+        units = _positive_int(layer, "units", index)
         bias = bool(layer.get("bias", True))
         if len(shape) == 2:
             # Per-token (position-wise) linear over a (seq, features) sequence: one
@@ -97,9 +137,9 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
         return (units,), params, shape[0] * units
 
     if kind == "conv2d":
-        filters = int(_require(layer, "filters", index))
-        kernel = int(_require(layer, "kernel", index))
-        stride = int(layer.get("stride", 1))
+        filters = _positive_int(layer, "filters", index)
+        kernel = _positive_int(layer, "kernel", index)
+        stride = _positive_int(layer, "stride", index, 1)
         padding = layer.get("padding", "same")
         if len(shape) != 3:
             raise ShapeError(
@@ -121,7 +161,7 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
                 f"reduces {height}x{width} to {out_h}x{out_w} — the kernel is larger "
                 "than the feature map."
             )
-        groups = int(layer.get("groups", 1))
+        groups = _positive_int(layer, "groups", index, 1)
         if channels % groups or filters % groups:
             raise SpecError(
                 f"layer {index} (conv2d): groups={groups} does not divide "
@@ -133,8 +173,8 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
         return (filters, out_h, out_w), params, macs
 
     if kind == "pool2d":
-        size = int(layer.get("size", 2))
-        stride = int(layer.get("stride", size))
+        size = _positive_int(layer, "size", index, 2)
+        stride = _positive_int(layer, "stride", index, size)
         if len(shape) != 3:
             raise ShapeError(f"layer {index} (pool2d) needs a 3-D input, got {shape}")
         channels, height, width = shape
@@ -150,8 +190,8 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
         return (_prod(shape),), 0, 0
 
     if kind == "embedding":
-        vocab = int(_require(layer, "vocab", index))
-        dim = int(_require(layer, "dim", index))
+        vocab = _positive_int(layer, "vocab", index)
+        dim = _positive_int(layer, "dim", index)
         seq = int(layer.get("seq_len", shape[0] if shape else 1))
         return (seq, dim), vocab * dim, 0  # a lookup, not a matmul
 
@@ -169,7 +209,7 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
                 f"layer {index} (mha) needs a 2-D input (seq_len, d_model), got {shape}"
             )
         seq, d_model = shape
-        heads = int(layer.get("heads", 8))
+        heads = _positive_int(layer, "heads", index, 8)
         if d_model % heads:
             raise SpecError(
                 f"layer {index} (mha): d_model={d_model} is not divisible by heads={heads}"
@@ -187,7 +227,7 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
                 f"layer {index} ({kind}) needs a 2-D input (seq_len, features), got {shape}"
             )
         seq, features = shape
-        units = int(_require(layer, "units", index))
+        units = _positive_int(layer, "units", index)
         gates = 4 if kind == "lstm" else 3
         params = gates * (features * units + units * units + 2 * units)
         macs = seq * gates * (features * units + units * units)
@@ -198,9 +238,14 @@ def step(layer: dict, shape: tuple[int, ...], index: int) -> tuple[tuple[int, ..
 
 
 def analyse(spec: dict, dtype: str, convention: str) -> dict:
+    if not isinstance(spec, dict):
+        raise SpecError(f"spec must be a JSON object, got {type(spec).__name__}")
     layers = spec.get("layers")
     if not isinstance(layers, list) or not layers:
         raise SpecError("spec must contain a non-empty 'layers' list")
+    for index, layer in enumerate(layers):
+        if not isinstance(layer, dict):
+            raise SpecError(f"layer {index} is {type(layer).__name__}, not an object")
     if layers[0].get("type") != "input":
         raise SpecError("the first layer must be of type 'input'")
 

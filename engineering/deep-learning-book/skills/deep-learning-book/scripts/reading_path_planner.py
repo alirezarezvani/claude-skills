@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 
 # --------------------------------------------------------------------------- data
@@ -186,6 +187,27 @@ OUT_OF_SCOPE: dict[str, str] = {
     "reinforcement": "Reinforcement learning — mentioned only in passing (ch12).",
 }
 
+# Tokens whose real surface forms a word-boundary match would otherwise miss.
+# Everything else matches itself, optionally pluralized.
+SURFACE_FORMS: dict[str, tuple[str, ...]] = {
+    "fine-tun": ("fine-tuning", "fine-tune", "fine-tuned", "finetuning", "finetune"),
+    "prompt": ("prompt", "prompting", "prompts"),
+    "agent": ("agent", "agents", "agentic"),
+}
+
+
+def _matches(token: str, text: str) -> bool:
+    """True when token appears in text as a whole word (optionally pluralized).
+
+    Substring matching is wrong here and was a real defect: "rag" appears inside
+    "storage", "lora" inside "exploratory", "conv" inside "converge", and "text"
+    inside "context" — each one producing a confident false refusal or a wrong lane.
+    """
+    for form in SURFACE_FORMS.get(token, (token,)):
+        if re.search(rf"\b{re.escape(form)}(?:s|es)?\b", text):
+            return True
+    return False
+
 
 # --------------------------------------------------------------------------- logic
 
@@ -237,7 +259,7 @@ def score_lanes(goal: str) -> list[tuple[str, int]]:
     text = goal.lower()
     scored = []
     for key, lane in LANES.items():
-        matched = [kw for kw in lane["keywords"] if kw in text]
+        matched = [kw for kw in lane["keywords"] if _matches(kw, text)]
         if matched:
             scored.append((key, len(matched), max(len(kw) for kw in matched)))
     scored.sort(key=lambda row: (-row[1], -row[2], row[0]))
@@ -246,7 +268,7 @@ def score_lanes(goal: str) -> list[tuple[str, int]]:
 
 def out_of_scope_hits(goal: str) -> list[str]:
     text = goal.lower()
-    return [note for token, note in OUT_OF_SCOPE.items() if token in text]
+    return [note for token, note in OUT_OF_SCOPE.items() if _matches(token, text)]
 
 
 def plan(goal: str, background: str, hours_per_week: float,

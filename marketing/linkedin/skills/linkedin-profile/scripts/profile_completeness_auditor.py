@@ -98,8 +98,14 @@ SAMPLE = {
     "days_since_last_post": 210,
 }
 
+# Matched on word boundaries, never as substrings. As plain `w in low` tests, "led"
+# credited "scheduled", "installed", "handled" and "recalled", and "cut" credited
+# "executed" - so "Scheduled onboarding for new hires", a pure duty bullet, scored
+# as outcome-carrying. That is the same substring defect that removing bare "to" /
+# "from" / "x" from this tuple was meant to end; these two just survived it.
 OUTCOME_WORDS = ("cut", "grew", "reduced", "increased", "shipped", "launched", "saved",
-                 "doubled", "migrated", "led", "%")
+                 "doubled", "migrated", "led")
+OUTCOME_WORD_RE = re.compile(r"\b(" + "|".join(OUTCOME_WORDS) + r")\b", re.I)
 
 # Bare "x", "to" and "from" used to sit in OUTCOME_WORDS as loose substrings, which
 # credited pure duty bullets: "Reported to the VP of Engineering" scored as
@@ -116,7 +122,7 @@ OUTCOME_SHAPES = (
 def carries_outcome(bullet: str) -> bool:
     """True when a bullet claims a result rather than a responsibility."""
     low = bullet.lower()
-    if any(w in low for w in OUTCOME_WORDS):
+    if OUTCOME_WORD_RE.search(low):
         return True
     return any(r.search(low) for r in OUTCOME_SHAPES)
 

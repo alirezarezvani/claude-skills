@@ -354,6 +354,30 @@ def _sentence_around(text: str, at: int) -> str:
     return text[start:end]
 
 
+_CLAUSE_BREAK = re.compile(
+    r"[.!?;,\n]|\b(and|but|then|also|plus|while|or|as well as)\b", re.IGNORECASE)
+
+
+def _clause_after(text: str, at: int, span: int, cap: int = 40) -> str:
+    """Return the text just after a match, cut at the first clause boundary.
+
+    `context` exists to require a word IMMEDIATELY after the matched token. A fixed
+    character window is not "immediately": it reaches into the next clause, so the
+    context belonging to a LATER occurrence could excuse an earlier, unrelated one.
+    "automate connects and automate posting via native scheduler" allowed the whole
+    request, because the second clause's "posting" fell inside the first
+    "automate"'s 40-char window - and adding a period in place of "and" refused it.
+    A gate whose verdict turns on incidental phrasing length is not a gate.
+
+    Both bounds apply, whichever is tighter: the clause boundary keeps another
+    clause's words out, and the character cap keeps one long unpunctuated clause
+    from drifting ("automate connecting with recruiters for my posting campaign").
+    """
+    window = text[at + span:at + span + cap]
+    brk = _CLAUSE_BREAK.search(window)
+    return window[:brk.start()] if brk else window
+
+
 def _exemption_for(snippet: str, text: str, exemptions, at: int = 0) -> str:
     """Return the reason this snippet is exempt, or "" if it is not.
 
@@ -374,7 +398,7 @@ def _exemption_for(snippet: str, text: str, exemptions, at: int = 0) -> str:
         if not re.search(ex["signal"], scope, re.IGNORECASE):
             continue
         ctx = ex.get("context")
-        if ctx and not re.search(ctx, text[at:at + len(snippet) + 40], re.IGNORECASE):
+        if ctx and not re.search(ctx, _clause_after(text, at, len(snippet)), re.IGNORECASE):
             continue
         return ex["why"]
     return ""

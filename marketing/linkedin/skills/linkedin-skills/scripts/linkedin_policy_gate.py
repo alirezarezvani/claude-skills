@@ -60,6 +60,21 @@ REFUSE_RULES = [
                 "excuses": r"^auto[-\s]?(post|publish|schedul)\w*$",
                 "why": "LinkedIn's own scheduling feature — the supported path named in P7.",
             },
+            {
+                # Same endorsed action reached through the other P1 pattern:
+                # "automate posting with LinkedIn's native scheduler" matches
+                # \bautomat(e|ed|ing|ion)\b and yields the bare snippet "automate".
+                # That token is far too generic to exempt on the signal alone - "use
+                # the native scheduler and automate my DMs" would sail through - so
+                # this one also requires posting language immediately after the
+                # matched word. "automate my DMs" keeps refusing.
+                "signal": r"\b(linkedin'?s?\s+)?(own|native|built[-\s]?in)\b[^.]{0,40}\bschedul\w*"
+                          r"|\bnative\b[^.]{0,20}\bschedul\w*"
+                          r"|\blinkedin'?s?\s+schedul\w*",
+                "excuses": r"^automat(e|es|ed|ing|ion)$",
+                "context": r"\b(post|posts|posting|publish\w*|content|updates?)\b",
+                "why": "LinkedIn's own scheduling feature, applied to posting.",
+            },
         ],
         "substitute": "Do the same volume by hand on a capped schedule. "
                       "`linkedin-engagement/scripts/outreach_volume_guard.py` sizes a manual "
@@ -249,7 +264,7 @@ SAMPLE_TEXT = ("I want to grow to 20k followers in six months. Plan: use Dux-Sou
                "90 minutes, and blast the same DM to everyone who accepts.")
 
 
-def _scan(text: str, rules: list, key: str) -> list:
+def _scan(text: str, rules: list, key: str, exemptions: list) -> list:
     """Match rules against text, dropping matches an exemption explains.
 
     A rule may carry exemptions so it does not refuse the very substitute it
@@ -266,11 +281,17 @@ def _scan(text: str, rules: list, key: str) -> list:
                 snippet = m.group(0).strip()
                 if not snippet or snippet in matched or snippet in excused:
                     continue
-                reason = _exemption_for(snippet, low, rule.get("exemptions", ()))
+                reason = _exemption_for(snippet, low, rule.get("exemptions", ()), m.start())
                 if reason:
-                    excused.append(snippet)
+                    excused.append({"id": rule["id"], "snippet": snippet, "why": reason})
                 else:
                     matched.append(snippet)
+        # Record exemptions whether or not the rule still fires. Attaching them only
+        # to a surviving hit hid them in exactly the case that matters most: when
+        # every match is exempted the rule produces no hit at all, so an ALLOW that
+        # recognized and excused a prohibited-looking phrase looked identical to one
+        # that never matched anything.
+        exemptions.extend(excused)
         if matched:
             hit = {
                 "id": rule["id"],
@@ -280,23 +301,35 @@ def _scan(text: str, rules: list, key: str) -> list:
                 key: rule[key],
             }
             if excused:
-                hit["exempted"] = excused[:5]
+                hit["exempted"] = [e["snippet"] for e in excused][:5]
             hits.append(hit)
     return hits
 
 
-def _exemption_for(snippet: str, text: str, exemptions) -> str:
-    """Return the reason this snippet is exempt, or "" if it is not."""
+def _exemption_for(snippet: str, text: str, exemptions, at: int = 0) -> str:
+    """Return the reason this snippet is exempt, or "" if it is not.
+
+    Two gates always apply: the snippet must be one this exemption can excuse, and
+    the surrounding text must carry the signal that makes it legitimate. An
+    exemption may add a third, `context`, which must appear just after the matched
+    word - needed where the snippet itself is too generic to exempt safely.
+    """
     for ex in exemptions:
-        if re.search(ex["excuses"], snippet, re.IGNORECASE) and \
-                re.search(ex["signal"], text, re.IGNORECASE):
-            return ex["why"]
+        if not re.search(ex["excuses"], snippet, re.IGNORECASE):
+            continue
+        if not re.search(ex["signal"], text, re.IGNORECASE):
+            continue
+        ctx = ex.get("context")
+        if ctx and not re.search(ctx, text[at:at + len(snippet) + 40], re.IGNORECASE):
+            continue
+        return ex["why"]
     return ""
 
 
 def evaluate(text: str) -> dict:
-    refusals = _scan(text, REFUSE_RULES, "substitute")
-    constraints = _scan(text, CONSTRAIN_RULES, "constraint")
+    exemptions: list = []
+    refusals = _scan(text, REFUSE_RULES, "substitute", exemptions)
+    constraints = _scan(text, CONSTRAIN_RULES, "constraint", exemptions)
     if refusals:
         verdict, code = "REFUSE", 4
     elif constraints:
@@ -308,6 +341,7 @@ def evaluate(text: str) -> dict:
         "exit_code": code,
         "refusals": refusals,
         "constraints": constraints,
+        "exemptions_applied": exemptions,
         "input_preview": text.strip()[:280],
         "standing_constraints": STANDING_CONSTRAINTS,
         "disclaimer": ("Deterministic pattern check against LinkedIn's published policies, not "
@@ -331,6 +365,10 @@ def render_human(result: dict) -> str:
             out.append(f"  [{c['id']}] {c['title']}")
             out.append(f"      matched : {', '.join(c['matched'])}")
             out.append(f"      honor   : {c['constraint']}\n")
+    if result.get("exemptions_applied"):
+        out.append("\nRecognized but exempt — these look like rule matches and are not:\n")
+        for e in result["exemptions_applied"]:
+            out.append(f"  [{e['id']}] '{e['snippet']}' — {e['why']}\n")
     if result["verdict"] == "ALLOW":
         out.append("\nNothing in this request trips a known rule. Proceed.\n")
     out.append("\nStanding constraints (always apply):")

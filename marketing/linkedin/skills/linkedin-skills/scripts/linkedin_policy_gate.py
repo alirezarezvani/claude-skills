@@ -153,7 +153,7 @@ REFUSE_RULES = [
     },
     {
         "id": "P5-BULK-MESSAGING",
-        "title": "Bulk or unsolicited mass messaging",
+        "title": "Bulk or unsolicited mass messaging or posting",
         "anchor": "LinkedIn User Agreement §8.2 (send or redirect messages by automated means; "
                   "spam) + Professional Community Policies (no spam/unsolicited commercial content)",
         "patterns": [
@@ -162,10 +162,23 @@ REFUSE_RULES = [
             r"\bsend the same (message|dm|note) to\b",
             r"\bcopy[- ]?paste\b.{0,25}\b(dm|message|outreach)\b.{0,25}\b(everyone|all|hundreds)\b",
             r"\bdrip (campaign|sequence)\b.{0,30}\blinkedin\b",
+            # Unsolicited bulk POSTING, not just messaging. Before the P1 exemption
+            # existed, "auto-post to 50 groups without permission" was refused only
+            # incidentally, because P1 refused every automation word. Now that native
+            # scheduling is correctly allowed, the spam itself needs its own rule -
+            # otherwise fixing the self-contradiction quietly permitted the spam.
+            r"\bpost\w*\b[^.]{0,40}\b(to|in|into|across)\b[^.]{0,20}\b\d{2,}\b[^.]{0,20}"
+            r"\b(groups?|communities|communities|subreddits?)\b",
+            r"\b(spam|blast|dump)\w*\b[^.]{0,30}\b(groups?|communities|feeds?)\b",
+            r"\bwithout permission\b[^.]{0,40}\b(post|group|share|promot)\w*"
+            r"|\b(post|group|share|promot)\w*[^.]{0,40}\bwithout permission\b",
         ],
         "substitute": "Per-person messages with a specific reason, sent by hand, under a weekly "
                       "cap. `outreach_message_builder.py` refuses a template with no "
-                      "person-specific line for exactly this reason.",
+                      "person-specific line for exactly this reason. For groups: post where "
+                      "you are a participating member, on a cadence "
+                      "`cadence_planner.py` says you can sustain, and only where the group's "
+                      "own rules allow it.",
     },
     {
         "id": "P6-FABRICATION",
@@ -312,18 +325,45 @@ def _scan(text: str, rules: list, key: str, exemptions: list) -> list:
     return hits
 
 
+_SENTENCE_SPLIT = re.compile(r"[.!?;\n]")
+
+
+def _sentence_around(text: str, at: int) -> str:
+    """Return the sentence containing offset `at`.
+
+    The signal that makes a match legitimate has to be about THIS action. Searching
+    the whole input let an unrelated aside excuse a match elsewhere: "auto-post
+    daily to 50 groups without permission... LinkedIn's native scheduler is neat,
+    right?" was allowed, because the endorsement in the second sentence excused the
+    spam in the first. That turned a refusal into an ALLOW, which is the one
+    direction this gate must never move by accident.
+    """
+    start = 0
+    for m in _SENTENCE_SPLIT.finditer(text, 0, at):
+        start = m.end()
+    end_match = _SENTENCE_SPLIT.search(text, at)
+    end = end_match.start() if end_match else len(text)
+    return text[start:end]
+
+
 def _exemption_for(snippet: str, text: str, exemptions, at: int = 0) -> str:
     """Return the reason this snippet is exempt, or "" if it is not.
 
     Two gates always apply: the snippet must be one this exemption can excuse, and
-    the surrounding text must carry the signal that makes it legitimate. An
-    exemption may add a third, `context`, which must appear just after the matched
-    word - needed where the snippet itself is too generic to exempt safely.
+    the signal that makes it legitimate must appear IN THE SAME SENTENCE as the
+    match. An exemption may add a third, `context`, which must appear just after the
+    matched word - needed where the snippet itself is too generic to exempt safely.
+
+    Sentence scoping costs a false refusal on a legitimate two-sentence phrasing
+    ("I use LinkedIn's native scheduler. I auto-post weekly."), which the user can
+    rephrase. The alternative cost is a false ALLOW on a prohibited tactic, which
+    they cannot detect at all.
     """
+    scope = _sentence_around(text, at)
     for ex in exemptions:
         if not re.search(ex["excuses"], snippet, re.IGNORECASE):
             continue
-        if not re.search(ex["signal"], text, re.IGNORECASE):
+        if not re.search(ex["signal"], scope, re.IGNORECASE):
             continue
         ctx = ex.get("context")
         if ctx and not re.search(ctx, text[at:at + len(snippet) + 40], re.IGNORECASE):
@@ -396,7 +436,10 @@ def _read_input(path: str) -> str:
     try:
         with open(path, encoding="utf-8") as handle:
             return handle.read()
-    except OSError as err:
+    except (OSError, UnicodeDecodeError) as err:
+        # UnicodeDecodeError is a ValueError subclass, not an OSError, so a file that
+        # exists but is not valid UTF-8 escaped the OSError catch as a traceback -
+        # the same failure mode this helper exists to prevent for a bad path.
         print(f"cannot read --input {path}: {err}", file=sys.stderr)
         raise SystemExit(2)
 

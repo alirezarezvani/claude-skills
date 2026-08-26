@@ -233,7 +233,10 @@ def _read_input(path: str) -> str:
     try:
         with open(path, encoding="utf-8") as handle:
             return handle.read()
-    except OSError as err:
+    except (OSError, UnicodeDecodeError) as err:
+        # UnicodeDecodeError is a ValueError subclass, not an OSError, so a file that
+        # exists but is not valid UTF-8 escaped the OSError catch as a traceback -
+        # the same failure mode this helper exists to prevent for a bad path.
         print(f"cannot read --input {path}: {err}", file=sys.stderr)
         raise SystemExit(2)
 

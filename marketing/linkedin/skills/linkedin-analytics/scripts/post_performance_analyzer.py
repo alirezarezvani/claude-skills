@@ -154,14 +154,19 @@ def analyse(rows: list) -> dict:
     hi_fence, lo_fence = q3 + 1.5 * iqr, q1 - 1.5 * iqr
     # With no dispersion (identical or heavily rounded rates) every fence collapses
     # onto the median, and the >= hi_fence test below would label every post
-    # BREAKOUT - the opposite of describing the data honestly. There is no spread
-    # to rank, so nothing is an outlier.
+    # BREAKOUT - the opposite of describing the data honestly.
+    #
+    # But iqr == 0 only means the middle 50% is flat, which is a realistic shape for
+    # a real export: many similar posts plus a couple of viral ones. Collapsing
+    # everything to TYPICAL there hides genuine breakouts, trading one honesty
+    # problem for another. So when the centre is degenerate, rank against the median
+    # itself: equal to it is TYPICAL, above it is a real standout, below it is weak.
     degenerate = iqr == 0
 
     for p in clean:
         e = p["engagement_rate"]
         if degenerate:
-            p["band"] = "TYPICAL"
+            p["band"] = "TYPICAL" if e == med else ("BREAKOUT" if e > med else "WEAK")
             continue
         if e >= hi_fence:
             p["band"] = "BREAKOUT"

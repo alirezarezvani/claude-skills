@@ -168,7 +168,7 @@ REFUSE_RULES = [
             # scheduling is correctly allowed, the spam itself needs its own rule -
             # otherwise fixing the self-contradiction quietly permitted the spam.
             r"\bpost\w*\b[^.]{0,40}\b(to|in|into|across)\b[^.]{0,20}\b\d{2,}\b[^.]{0,20}"
-            r"\b(groups?|communities|communities|subreddits?)\b",
+            r"\b(groups?|communities|forums?|subreddits?)\b",
             r"\b(spam|blast|dump)\w*\b[^.]{0,30}\b(groups?|communities|feeds?)\b",
             r"\bwithout permission\b[^.]{0,40}\b(post|group|share|promot)\w*"
             r"|\b(post|group|share|promot)\w*[^.]{0,40}\bwithout permission\b",
@@ -297,13 +297,21 @@ def _scan(text: str, rules: list, key: str, exemptions: list) -> list:
         for pat in rule["patterns"]:
             for m in re.finditer(pat, low, re.IGNORECASE):
                 snippet = m.group(0).strip()
-                if not snippet or snippet in matched or snippet in excused_snippets:
+                if not snippet:
                     continue
+                # Every OCCURRENCE is judged on its own position. De-duplicating by
+                # snippet text before this call silently dropped the second use of a
+                # generic word: "automate posting via the native scheduler, and also
+                # automate direct messaging to my whole network" excused the first
+                # "automate", then skipped the second as a duplicate, so the mass-DM
+                # half was never evaluated and the whole request returned ALLOW.
+                # De-duplication is for the display lists only, below.
                 reason = _exemption_for(snippet, low, rule.get("exemptions", ()), m.start())
                 if reason:
-                    excused_snippets.add(snippet)
-                    excused.append({"id": rule["id"], "snippet": snippet, "why": reason})
-                else:
+                    if snippet not in excused_snippets:
+                        excused_snippets.add(snippet)
+                        excused.append({"id": rule["id"], "snippet": snippet, "why": reason})
+                elif snippet not in matched:
                     matched.append(snippet)
         # Record exemptions whether or not the rule still fires. Attaching them only
         # to a surviving hit hid them in exactly the case that matters most: when

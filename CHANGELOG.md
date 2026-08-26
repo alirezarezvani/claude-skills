@@ -7,6 +7,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — engineering/spinning-up-deep-rl: the first book compiled by book-to-skill
+
+Knowledge-base plugin compiled end-to-end by `engineering/book-to-skill` from OpenAI's
+[Spinning Up in Deep RL](https://spinningup.openai.com/) (MIT, Copyright (c) 2018 OpenAI;
+primarily developed by Joshua Achiam). 20 chapters, a glossary, a patterns file and a
+decision cheatsheet, behind a 2,101-token resident core.
+
+- **The full pipeline, not a hand-write.** `openai/spinningup` cloned, its `docs/`
+  reStructuredText tree (38 files, ~37k words, ~49K tokens) run through
+  `extract_document.py --mode technical` → analysis → chapter files → supporting files →
+  master `SKILL.md` → `book_skill_validator.py` → `skill_plugin_emitter.py`. The validator
+  passes clean in `--strict` mode and every file is inside budget.
+- **Rights basis `open-license`, stated and honoured.** The emitter's Step-11 gate refuses a
+  shareable package without one. MIT permits derivative distribution; upstream's notice is
+  reproduced in full in the plugin's `LICENSE` beside this package's own, and `README.md`
+  names the source, the author and the source's frozen version.
+- **Structure follows the source's own `toctree`.** User documentation (ch01-06), Introduction
+  to RL Parts 1-3 (ch07-09), resources — the researcher essay, key papers, exercises,
+  benchmarks (ch10-13), one chapter per algorithm in lineage order (ch14-19: VPG → TRPO → PPO,
+  DDPG → TD3 → SAC), and the logger / MPI / ExperimentGrid utilities (ch20).
+- **The cheatsheet carries the judgment a glossary cannot** — the under-5-minute debug
+  turnaround, the 3-seed minimum (10+ to be thorough), family-specific benchmark network
+  defaults, and Spinning Up's own parity disclosure: DDPG/TD3/SAC are research-grade,
+  VPG/TRPO/PPO are not, and the docs say to use OpenAI Baselines for those.
+- **Counters:** skills 387 → 388; agents 117 → 118; commands 149 → 150; plugins 98 → 99.
+  Tools and references unchanged by this plugin — a compiled knowledge base ships notes, not
+  scripts. (These sit on top of `deep-learning-book`, which merged into `dev` first; the
+  derived totals are 388 skills / 727 tools / 842 references / 118 agents / 150 commands /
+  99 plugins.)
+
+### Fixed — book-to-skill's plugin emitter produced manifests this repo's CI rejects
+
+`skill_plugin_emitter.py` wrote its whole `source` provenance block into `plugin.json`, with an
+inline comment asserting that `source` and `attribution` were approved extension fields. That had
+been true and no longer was: Claude Code rejects an entire manifest on any unrecognized key
+(issue #954), and `scripts/check_plugin_json.py` hard-fails such a manifest, pointing at
+`.claude-plugin/authoring-notes.json` instead. Every package the emitter produced therefore failed
+the blocking CI gate the moment it was committed — a defect at the very last step of the pipeline,
+which is why it had gone unnoticed. `_plugin_manifest()` now emits spec fields only and a new
+`_authoring_notes()` writes the sidecar. Recorded as deviation 26 in
+`engineering/book-to-skill/README.md`. The printed `marketplace.json` snippet is unchanged: `source`
+is a valid key there, which is how it leaked into the manifest originally.
+
 ### Added — engineering/deep-learning-book: a companion to the free Deep Learning textbook
 
 New `engineering/deep-learning-book/` plugin: a study companion for *Deep Learning* by

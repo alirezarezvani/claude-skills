@@ -225,7 +225,8 @@ def render_human(r: dict) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser(
-        description="Size a sustainable LinkedIn week (fits=0 / below-floor=2 / over-budget=3).")
+        description="Size a sustainable LinkedIn week "
+                    "(fits=0 / below-floor=2 / over-budget or no-posts-affordable=3).")
     ap.add_argument("--minutes", type=int, help="Minutes per week you will actually protect.")
     ap.add_argument("--stage", choices=sorted(STAGES), default="starting")
     ap.add_argument("--target-posts", type=int, default=0,

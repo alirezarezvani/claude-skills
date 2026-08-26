@@ -58,13 +58,13 @@ PITCH_RE = re.compile(
     r"schedule a (call|demo)|are you the right person|decision[- ]maker|"
     r"i'?d like to show you|free trial|pricing|proposal)\b", re.I)
 
-ASK_RE = re.compile(r"\b(call|chat|meeting|demo|coffee|zoom|15 min|30 min|hop on|jump on)\b", re.I)
-
-# ASK_RE is deliberately loose and is only safe against the --ask field, where every
-# word is already an ask. Scanning a whole connection note with it would flag "your
-# post on on-call rotations". This one requires meeting-request framing, so the
-# premature-ask rule can read the entire note instead of only the --ask field —
-# without which the rule was bypassable by putting the ask in --reason.
+# There used to be a loose ASK_RE here (call|chat|meeting|demo|coffee|zoom|...). It
+# was only ever safe against the --ask field, where every word is already an ask;
+# against a whole note it matched "your post on on-call rotations". Both branches
+# below scanned the whole note with it, in opposite directions: the connection branch
+# raised a false premature-ask, and the else branch SUPPRESSED a real
+# pitch-without-ask. This pattern requires meeting-request framing, so both can read
+# the entire note - without which premature-ask was bypassable via --reason.
 MEETING_ASK_RE = re.compile(
     r"\b(hop|jump|get)\s+on\s+(a|an|the)?\s*(quick\s+)?(call|chat|zoom|meeting)\b"
     r"|\b(grab|get)\s+(a\s+)?coffee\b"
@@ -142,8 +142,8 @@ def validate(text: str, parts: dict, mtype: str, premium: bool) -> list:
             "rate drops.",
             "One specific line, one reason, one bounded ask. Everything else is for the reply.")
 
+    ask = (parts.get("ask") or "").strip()
     if mtype == "connection":
-        ask = (parts.get("ask") or "").strip()
         # Read the assembled note, not just the --ask field: the same ask moved into
         # --reason or --specific-line used to pass clean, which made the documented
         # "refuses an ask in a first-touch note" guarantee bypassable.
@@ -160,7 +160,10 @@ def validate(text: str, parts: dict, mtype: str, premium: bool) -> list:
                 "Delete it. Nobody has ever bought from a connection request, and the request "
                 "is the only impression you get.")
     else:
-        if PITCH_RE.search(low) and not ASK_RE.search(low):
+        # An ask is the --ask field, or meeting-request framing in the note. Matching
+        # loosely here silently lost the warning on any note that happened to contain
+        # "on-call", "chat feature" or "demo video". See MEETING_ASK_RE above.
+        if PITCH_RE.search(low) and not (ask or MEETING_ASK_RE.search(low)):
             add("warning", "pitch-without-ask",
                 "Product language with no clear, bounded ask.",
                 "Either make the ask explicit and small, or cut the product language.")

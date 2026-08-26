@@ -60,6 +60,22 @@ PITCH_RE = re.compile(
 
 ASK_RE = re.compile(r"\b(call|chat|meeting|demo|coffee|zoom|15 min|30 min|hop on|jump on)\b", re.I)
 
+# ASK_RE is deliberately loose and is only safe against the --ask field, where every
+# word is already an ask. Scanning a whole connection note with it would flag "your
+# post on on-call rotations". This one requires meeting-request framing, so the
+# premature-ask rule can read the entire note instead of only the --ask field —
+# without which the rule was bypassable by putting the ask in --reason.
+MEETING_ASK_RE = re.compile(
+    r"\b(hop|jump|get)\s+on\s+(a|an|the)?\s*(quick\s+)?(call|chat|zoom|meeting)\b"
+    r"|\b(grab|get)\s+(a\s+)?coffee\b"
+    r"|\b(book|schedule|set\s?up|arrange)\s+(a|an|some)?\s*(call|chat|meeting|demo|zoom|time)\b"
+    r"|\b\d{1,3}\s*(min|mins|minute|minutes)\b[^.]{0,20}\b(call|chat|zoom|meeting)\b"
+    r"|\b(quick|short|brief)\s+(call|chat|zoom|meeting)\b"
+    r"|\b(open to|free for|available for|would love|keen)\b[^.]{0,25}"
+    r"\b(call|chat|meeting|demo|coffee|zoom)\b",
+    re.I,
+)
+
 SAMPLE = {
     "type": "connection",
     "recipient": "Priya",
@@ -128,7 +144,10 @@ def validate(text: str, parts: dict, mtype: str, premium: bool) -> list:
 
     if mtype == "connection":
         ask = (parts.get("ask") or "").strip()
-        if ask:
+        # Read the assembled note, not just the --ask field: the same ask moved into
+        # --reason or --specific-line used to pass clean, which made the documented
+        # "refuses an ask in a first-touch note" guarantee bypassable.
+        if ask or MEETING_ASK_RE.search(low):
             add("blocking", "premature-ask",
                 "A connection note carries an ask. The note is for getting into the room; the "
                 "ask belongs in the conversation after they accept.",
@@ -208,6 +227,22 @@ def render_human(r: dict) -> str:
     return "\n".join(lines)
 
 
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except OSError as err:
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Assemble one LinkedIn outreach message (PASS=0 / WARN=2 / FAIL=3). "
@@ -231,7 +266,7 @@ def main() -> int:
     if args.sample:
         parts, mtype, premium = SAMPLE, SAMPLE["type"], SAMPLE["premium"]
     elif args.input:
-        raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        raw = _read_input(args.input)
         try:
             parts = json.loads(raw)
         except json.JSONDecodeError as exc:

@@ -193,6 +193,22 @@ def load_ledger(path: str) -> dict:
     return {}
 
 
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except OSError as err:
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Split long source material into standalone LinkedIn units "
@@ -214,7 +230,7 @@ def main() -> int:
     if args.sample:
         text = SAMPLE_SOURCE
     elif args.input:
-        text = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        text = _read_input(args.input)
     else:
         ap.error("--input or --sample is required")
 

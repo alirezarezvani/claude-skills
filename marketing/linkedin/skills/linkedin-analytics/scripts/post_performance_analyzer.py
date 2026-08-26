@@ -95,6 +95,16 @@ def load_rows(raw: str, as_csv: bool) -> list:
     data = json.loads(raw)
     if isinstance(data, dict):
         data = data.get("posts") or data.get("rows") or []
+    if not isinstance(data, list):
+        raise ValueError(f"expected a list of post objects, got {type(data).__name__}")
+    # A bare list of scalars ([1,2,3]) used to reach row.get() and die with an
+    # AttributeError traceback instead of a typed exit code.
+    bad = next((r for r in data if not isinstance(r, dict)), None)
+    if bad is not None:
+        raise ValueError(
+            f"every row must be an object with an 'impressions' field; found a "
+            f"{type(bad).__name__} ({bad!r:.40})"
+        )
     return data
 
 
@@ -142,9 +152,17 @@ def analyse(rows: list) -> dict:
     q1, q3 = percentile(ers, 25), percentile(ers, 75)
     iqr = q3 - q1
     hi_fence, lo_fence = q3 + 1.5 * iqr, q1 - 1.5 * iqr
+    # With no dispersion (identical or heavily rounded rates) every fence collapses
+    # onto the median, and the >= hi_fence test below would label every post
+    # BREAKOUT - the opposite of describing the data honestly. There is no spread
+    # to rank, so nothing is an outlier.
+    degenerate = iqr == 0
 
     for p in clean:
         e = p["engagement_rate"]
+        if degenerate:
+            p["band"] = "TYPICAL"
+            continue
         if e >= hi_fence:
             p["band"] = "BREAKOUT"
         elif e >= q3:
@@ -219,6 +237,22 @@ def render_human(r: dict) -> str:
     return "\n".join(lines)
 
 
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except OSError as err:
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Describe your own LinkedIn post export honestly "
@@ -236,10 +270,12 @@ def main() -> int:
     if args.sample:
         rows = SAMPLE
     elif args.input:
-        raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        raw = _read_input(args.input)
         try:
             rows = load_rows(raw, args.csv)
-        except (json.JSONDecodeError, csv.Error) as exc:
+        except (ValueError, csv.Error) as exc:
+            # ValueError covers json.JSONDecodeError (its subclass) and the explicit
+            # row-shape errors load_rows raises.
             print(f"ERROR: could not parse input: {exc}", file=sys.stderr)
             return 4
     else:

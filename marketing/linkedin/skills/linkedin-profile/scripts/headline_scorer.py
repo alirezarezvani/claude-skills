@@ -45,7 +45,10 @@ BUZZWORDS = [
 
 # Words that signal an audience is being named.
 AUDIENCE_MARKERS = [
-    "for ", "helping", "i help", "we help", "to ", "founders", "ctos", "cto",
+    # Bare "for " and "to " were removed: they matched ordinary prose ("excited
+    # to share...") while adding nothing, since a headline that names an audience
+    # already hits one of the nouns below.
+    "helping", "i help", "we help", "founders", "ctos", "cto",
     "cmos", "engineers", "designers", "marketers", "recruiters", "startups",
     "smbs", "smes", "enterprises", "teams", "b2b", "b2c", "saas", "agencies",
     "nonprofits", "students", "clinicians", "operators", "pms", "product managers",
@@ -57,7 +60,10 @@ OUTCOME_MARKERS = [
     "ship", "grow", "scale", "reduce", "cut", "increase", "double", "win",
     "hire", "raise", "launch", "fix", "unblock", "automate", "migrate",
     "build", "turn", "convert", "retain", "save", "speed", "faster",
-    "without", "so they", "so you", "so that", "→", "->", "from ", "into ",
+    "without", "so they", "so you", "so that", "→", "->",
+    # Bare "from " and "into " matched any sentence containing them; the
+    # transformation shapes they were meant to catch are kept explicitly.
+    "from scratch", "from zero", "from manual",
 ]
 
 # Terms recruiters and buyers actually type into LinkedIn search.
@@ -74,6 +80,26 @@ SEARCH_TERMS = [
 SAMPLE_GOOD = ("Fractional Head of Data for Series A/B SaaS | Cut BigQuery spend 62% at "
                "Zendesk scale | ex-Stripe | I make dashboards people trust")
 SAMPLE_WEAK = "Senior Software Engineer | Passionate about technology | Team player"
+
+
+# Directed-at constructions. Bare "for " and "to " used to live in AUDIENCE_MARKERS
+# and matched ordinary prose ("excited to share..."), but dropping them outright cost
+# a real signal: "Head of Data for Series A/B SaaS" names an audience through the
+# construction, not through a noun alone. These require "for"/"serving"/"helping" to
+# actually land on an audience.
+AUDIENCE_SHAPES = (
+    re.compile(r"\b(for|serving|helping)\s+[^|,.]{0,30}\b("
+               r"founders?|ctos?|cmos?|cios?|engineers?|designers?|marketers?|recruiters?|"
+               r"startups?|smbs?|smes?|enterprises?|teams?|b2b|b2c|saas|agencies|"
+               r"nonprofits?|students?|clinicians?|operators?|pms|product managers?|"
+               r"developers?|hr|investors?)\b", re.I),
+    re.compile(r"\bfor\s+(pre[- ]?)?(seed|series\s+[a-d](\s*/\s*[a-d])?)\b", re.I),
+    re.compile(r"\bfor\s+(mid[- ]market|enterprise|smb|early[- ]stage)\b", re.I),
+)
+
+
+def _find_shapes(text: str, shapes) -> list:
+    return [m.group(0).strip() for r in shapes for m in [r.search(text)] if m]
 
 
 def _find(text_low: str, needles: list) -> list:
@@ -106,7 +132,7 @@ def score_headline(text: str) -> dict:
     findings, dims = [], {}
 
     # --- AUDIENCE -----------------------------------------------------------
-    aud = _find(low, AUDIENCE_MARKERS)
+    aud = _find(low, AUDIENCE_MARKERS) + _find_shapes(raw, AUDIENCE_SHAPES)
     dims["audience"] = 20 if len(aud) >= 2 else (12 if aud else 0)
     if not aud:
         findings.append({
@@ -251,6 +277,22 @@ def render_human(r: dict) -> str:
     return "\n".join(lines)
 
 
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except OSError as err:
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Score a LinkedIn headline 0-100 (SHIP=0 / SHARPEN=2 / REWRITE=3).")
@@ -271,7 +313,7 @@ def main() -> int:
     elif args.headline:
         text = args.headline
     elif args.input:
-        text = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        text = _read_input(args.input)
     else:
         ap.error("one of --headline, --input, --sample, or --sample-weak is required")
 

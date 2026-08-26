@@ -18,7 +18,8 @@ available.
 Exit codes:
   0  plan fits the budget
   2  budget is below the floor — a comment-only week is returned instead
-  3  the requested target does not fit; the overage is named
+  3  the plan does not fit: either the requested target overruns the budget, or the
+     chosen format costs more than the budget allows for even one post
 
 Stdlib only. No network. Deterministic.
 """
@@ -134,8 +135,12 @@ def plan(minutes: int, stage: str, target_posts: int, formats: list,
             affordable = target_posts
 
     if affordable == 0 and verdict == "FITS":
+        # A week with zero posts is not a cadence that fits — it is a budget that
+        # cannot buy the chosen format. Reporting FITS/0 here told the caller the
+        # plan was fine while handing them a plan with nothing in it.
+        verdict, code = "NO_POSTS_AFFORDABLE", 3
         findings.append({
-            "severity": "warning", "area": "capacity",
+            "severity": "blocking", "area": "capacity",
             "finding": f"The chosen formats ({', '.join(chosen)}) cost more than the "
                        f"{creation_budget}-min creation budget allows for even one post.",
             "fix": "Add text-post to the format mix, or accept a fortnightly cadence for the "

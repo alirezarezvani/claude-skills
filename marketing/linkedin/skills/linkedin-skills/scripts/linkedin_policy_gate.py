@@ -47,6 +47,20 @@ REFUSE_RULES = [
             r"\bbrowser (extension|plugin|add-?on)\b.{0,40}\b(linkedin|connect|message)\b",
             r"\bscript that (logs? in|clicks?|sends?|connects?)\b",
         ],
+        "exemptions": [
+            {
+                # P7's own substitute names native LinkedIn scheduling as the supported
+                # path, so refusing "auto-post with LinkedIn's scheduler" contradicted
+                # this gate's own advice. The exemption covers POSTING only: LinkedIn's
+                # scheduler publishes posts, it does not connect, message, like or follow,
+                # so those matches still refuse even in the same sentence.
+                "signal": r"\b(linkedin'?s?\s+)?(own|native|built[-\s]?in)\b[^.]{0,40}\bschedul\w*"
+                          r"|\bnative\b[^.]{0,20}\bschedul\w*"
+                          r"|\blinkedin'?s?\s+schedul\w*",
+                "excuses": r"^auto[-\s]?(post|publish|schedul)\w*$",
+                "why": "LinkedIn's own scheduling feature — the supported path named in P7.",
+            },
+        ],
         "substitute": "Do the same volume by hand on a capped schedule. "
                       "`linkedin-engagement/scripts/outreach_volume_guard.py` sizes a manual "
                       "cadence you can actually sustain; the plugin drafts the text, you press send.",
@@ -63,6 +77,23 @@ REFUSE_RULES = [
             r"\bemail finder\b", r"\bfind (their|his|her) email\b",
             r"\bbuild(ing)? a (lead )?(list|database)\b.{0,30}\bfrom linkedin\b",
         ],
+        "exemptions": [
+            {
+                # This rule's own substitute tells the user to run LinkedIn's export of
+                # their own data, so refusing "export my connections list as a csv" told
+                # them not to do the thing it recommends. Scoped tightly: only an EXPORT
+                # match, only of the user's own connections/contacts/network/data. A
+                # leads or member-profile database is not the self-export and still
+                # refuses, as does any scrape/crawl/harvest match in the same text.
+                "signal": r"\b(my|our|your)\s+own\b"
+                          r"|\bget a copy of (my|our|your) data\b"
+                          r"|\bdata privacy\b"
+                          r"|\bexport\b[^.]{0,20}\b(my|our|your)\b",
+                "excuses": r"^export\b.*\b(connections?|contacts?|network|data)\b",
+                "why": "LinkedIn's own export of your own data — the substitute this rule "
+                       "recommends.",
+            },
+        ],
         "substitute": "Use LinkedIn's own export of YOUR data (Settings → Data privacy → "
                       "Get a copy of your data) and LinkedIn-native search. Analytics work in "
                       "this plugin runs on your own exported post/profile stats, never on "
@@ -75,6 +106,9 @@ REFUSE_RULES = [
                   "Community Policies (be authentic / no fake engagement)",
         "patterns": [
             r"\b(engagement|comment|like|linkedin) ?pod\b", r"\bpods?\b(?=.{0,30}\b(join|run|group)\b)",
+            # The lookahead above only fires noun-before-verb ("pods to join"); the common
+            # phrasing is verb-first ("join a pod"), which it structurally cannot match.
+            r"\b(join|joining|run|running|start|starting|invite[sd]? me to)\b.{0,20}\bpods?\b",
             r"\bbuy(ing)? (followers?|likes?|comments?|connections?|views?|impressions?)\b",
             r"\b(fake|paid|bought|purchased) (followers?|engagement|likes?|comments?)\b",
             r"\bengagement (group|ring|circle|exchange|swap)\b",
@@ -216,24 +250,48 @@ SAMPLE_TEXT = ("I want to grow to 20k followers in six months. Plan: use Dux-Sou
 
 
 def _scan(text: str, rules: list, key: str) -> list:
+    """Match rules against text, dropping matches an exemption explains.
+
+    A rule may carry exemptions so it does not refuse the very substitute it
+    recommends. An exemption drops a single matched snippet — never the whole rule
+    — so a sentence that mixes an endorsed action with a prohibited one still
+    refuses on the prohibited part.
+    """
     low = text.lower()
     hits = []
     for rule in rules:
-        matched = []
+        matched, excused = [], []
         for pat in rule["patterns"]:
             for m in re.finditer(pat, low, re.IGNORECASE):
                 snippet = m.group(0).strip()
-                if snippet and snippet not in matched:
+                if not snippet or snippet in matched or snippet in excused:
+                    continue
+                reason = _exemption_for(snippet, low, rule.get("exemptions", ()))
+                if reason:
+                    excused.append(snippet)
+                else:
                     matched.append(snippet)
         if matched:
-            hits.append({
+            hit = {
                 "id": rule["id"],
                 "title": rule["title"],
                 "matched": matched[:5],
                 "anchor": rule.get("anchor", ""),
                 key: rule[key],
-            })
+            }
+            if excused:
+                hit["exempted"] = excused[:5]
+            hits.append(hit)
     return hits
+
+
+def _exemption_for(snippet: str, text: str, exemptions) -> str:
+    """Return the reason this snippet is exempt, or "" if it is not."""
+    for ex in exemptions:
+        if re.search(ex["excuses"], snippet, re.IGNORECASE) and \
+                re.search(ex["signal"], text, re.IGNORECASE):
+            return ex["why"]
+    return ""
 
 
 def evaluate(text: str) -> dict:
@@ -283,6 +341,22 @@ def render_human(result: dict) -> str:
     return "\n".join(out)
 
 
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except OSError as err:
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Classify a LinkedIn tactic against the User Agreement: "
@@ -300,7 +374,7 @@ def main() -> int:
     elif args.text:
         text = args.text
     elif args.input:
-        text = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        text = _read_input(args.input)
     else:
         ap.error("one of --text, --input, or --sample is required")
 

@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 363,
+  "total_skills": 364,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1326,6 +1326,12 @@
       "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices."
     },
     {
+      "name": "spinning-up-deep-rl",
+      "source": "../../engineering/spinning-up-deep-rl/skills/spinning-up-deep-rl",
+      "category": "engineering-advanced",
+      "description": "Knowledge base from \\\"Spinning Up in Deep RL\\\" by Joshua Achiam (OpenAI, MIT-licensed). Use when applying Achiam's frameworks for RL fundamentals and MDPs, the model-free algorithm taxonomy, policy gradient derivations, the six reference algorithms (VPG, TRPO, PPO, DDPG, TD3, SAC), debugging silently-failing RL code, or running rigorous multi-seed RL experiments."
+    },
+    {
       "name": "sql-database-assistant",
       "source": "../../engineering/skills/sql-database-assistant",
       "category": "engineering-advanced",
@@ -2226,7 +2232,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 91,
+      "count": 92,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

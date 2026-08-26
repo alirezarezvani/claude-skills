@@ -1,7 +1,7 @@
 {
   "name": "claude-code-skills",
-  "version": "2.2.0",
-  "description": "223 production-ready skills, 23 agents, and 298 Python tools across 9 domains — engineering, marketing, product, compliance, C-level advisory, and more. The largest open-source skills library for AI coding agents.",
+  "version": "2.12.0",
+  "description": "388 production-ready skills across 20 domains — engineering, marketing, product, compliance, C-level advisory, research, business operations, and more. 727 Python tools, 842 reference guides, 118 agents (cs-* + personas), 150 slash commands, 99 marketplace plugins. The largest open-source skills library for AI coding agents.",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -27,8 +27,8 @@
     "type": "cli",
     "composerIcon": "./assets/icon.png",
     "displayName": "Claude Code Skills",
-    "shortDescription": "223 production-ready skills for AI coding agents across 9 domains",
-    "longDescription": "The largest open-source skills library for AI coding agents. 223 skills covering engineering (architecture, DevOps, security, AI/ML), marketing (SEO, CRO, content), product management, C-level advisory, regulatory compliance (ISO 13485, SOC 2, GDPR), project management, business growth, and finance. Includes 298 stdlib-only Python CLI tools, 416 reference guides, 23 orchestration agents, and 22 slash commands. Works with Codex, Claude Code, Gemini CLI, Cursor, Aider, Windsurf, and 5 more tools.",
+    "shortDescription": "388 production-ready skills for AI coding agents across 20 domains",
+    "longDescription": "The largest open-source skills library for AI coding agents. 388 skills covering engineering (architecture, DevOps, security, AI/ML, agent tooling), marketing (SEO, AEO, CRO, content), product management, C-level advisory, regulatory compliance (ISO 13485, SOC 2, GDPR), project management, research and research operations, business operations, commercial, finance, and personal productivity. Includes 727 stdlib-only Python CLI tools, 842 reference guides, 118 orchestration agents, and 150 slash commands. Works with Codex, Claude Code, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, and 7 more tools.",
     "developerName": "Alireza Rezvani",
     "category": "Coding",
     "capabilities": [

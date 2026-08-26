@@ -35,7 +35,7 @@ The cs-pulse agent orchestrates the `pulse` skill across multi-source recency br
 1. **Grill-me intake (Q1 → Q4, dependency-ordered)** — topic, angle, window, scope. One at a time. Refuse vague answers.
 2. **Pre-flight** — compute window timestamps with `skills/pulse/scripts/time_window_calculator.py`, generate output slug with `skills/pulse/scripts/topic_slug_generator.py`, start three-count audit with `skills/pulse/scripts/citation_tracker.py`.
 3. **Phases 1–3 in parallel** — Reddit (top + new), HN (Algolia stories + comments), Web (2–3 targeted queries). 1 q/sec per platform; sequential within.
-4. **Phase 4 (optional)** — X/Twitter if available; skip with note otherwise.
+4. **Phase 4 (optional)** — normalize a supplied X export first. Try a live interface only when needed.
 5. **Synthesis** — cross-platform pattern detection (consensus, controversy, pain, excitement, gaps).
 6. **Output** — save file + paste full briefing in chat.
 
@@ -69,8 +69,8 @@ Differentiates clearly:
 
 2. **Citation Tracker**
    - Path: `../skills/pulse/scripts/citation_tracker.py`
-   - Usage: `python citation_tracker.py --action {start,record_sent,record_received,record_cited,status,close} --session NAME`
-   - JSON-backed audit log at `~/.pulse_sessions/<session>.json`. Each call increments the three counts. Output the audit summary block for the synthesis section.
+   - Usage: `python citation_tracker.py --action {start,record_sent,record_received,record_cited,import_sources,status,close} --session NAME`
+   - Tracks the three counts. `import_sources` normalizes local Xquik, X API v2, or generic JSON and deduplicates Tweet IDs.
 
 3. **Topic Slug Generator**
    - Path: `../skills/pulse/scripts/topic_slug_generator.py`
@@ -101,7 +101,9 @@ python ../skills/pulse/scripts/citation_tracker.py --action start --session "pul
 python ../skills/pulse/scripts/citation_tracker.py --action record_sent --session NAME --query "..."
 python ../skills/pulse/scripts/citation_tracker.py --action record_received --session NAME --count N
 
-# C. Phase 4 (optional): X/Twitter via Grok / X API / browser automation. Skip with note if unavailable.
+# C. Phase 4 (optional): import a supplied export before using a live interface.
+python ../skills/pulse/scripts/citation_tracker.py --action import_sources \
+  --session NAME --input /path/to/x-search.json --platform x
 
 # D. Synthesis — cross-platform pattern detection. For each cited source:
 python ../skills/pulse/scripts/citation_tracker.py --action record_cited --session NAME --url "https://..."
@@ -123,9 +125,10 @@ python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
 
 | Context | Phase 4 behavior |
 |---|---|
-| Claude Code CLI with browser automation | Run X/Twitter via Grok or available interface |
-| Claude Code CLI without browser automation | Skip Phase 4 with documented note in output |
-| Claude.ai web | Skip Phase 4 (browser automation unavailable); note in output |
+| Supplied local X export | Normalize, filter, deduplicate, and analyze it without network access |
+| Claude Code CLI with browser automation | Use a live interface only when no export was supplied |
+| Claude Code CLI without browser automation | Skip Phase 4 when no export was supplied |
+| Claude.ai web | Analyze an attached export. Otherwise skip Phase 4. |
 | Any context | Phases 1–3 always run |
 
 ## Output Standards

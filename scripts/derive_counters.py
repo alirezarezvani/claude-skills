@@ -3,7 +3,7 @@
 
 Walks the canonical tree (excluding sync copies, docs site, audit workspace,
 and VCS/CI internals) and derives the headline numbers that README.md,
-CLAUDE.md, and .claude-plugin/marketplace.json claim:
+CLAUDE.md, marketplace.json, mkdocs.yml, and .codex-plugin/plugin.json claim:
 
   skills              count of SKILL.md files
   plugins_on_disk     count of **/.claude-plugin/plugin.json manifests
@@ -19,11 +19,13 @@ Modes:
   (default)   print a human-readable table
   --json      print the derived counters as JSON
   --check     exit 1 listing mismatches if the headline counters claimed in
-              README.md, root CLAUDE.md ("Current Scope" line), and
-              marketplace.json metadata.description disagree with derived
-              values. Also validates the README "Skills Overview" per-domain
-              table: every domain row's count must equal the SKILL.md count in
-              its linked folder, and every on-disk domain must have a row. CI gate G3.
+              README.md, root CLAUDE.md ("Current Scope" / "Status:" lines),
+              marketplace.json metadata.description, mkdocs.yml
+              site_description, or .codex-plugin/plugin.json descriptions
+              disagree with derived values. Also validates the README
+              "Skills Overview" per-domain table: every domain row's count
+              must equal the SKILL.md count in its linked folder, and every
+              on-disk domain must have a row. CI gate G3.
 
 Stdlib only. No writes ever.
 """
@@ -298,6 +300,32 @@ def run_check(root: Path, derived: dict) -> int:
             print(f"FAIL: cannot parse marketplace.json: {exc}")
             return 1
 
+    # The two sites PR #940 found drifting ungated: the docs-site description
+    # and the Codex plugin manifest (which had lagged nine releases behind).
+    mkdocs = root / "mkdocs.yml"
+    if mkdocs.is_file():
+        # mkdocs.yml carries !!python tags safe_load rejects — read as text and
+        # restrict to the site_description line, mirroring the CLAUDE.md approach.
+        desc_lines = [ln for ln in mkdocs.read_text(encoding="utf-8").splitlines()
+                      if ln.startswith("site_description:")]
+        sources.append(("mkdocs.yml (site_description)", "\n".join(desc_lines)))
+
+    codex_manifest = root / ".codex-plugin" / "plugin.json"
+    if codex_manifest.is_file():
+        try:
+            data = json.loads(codex_manifest.read_text(encoding="utf-8"))
+            # Include the interface descriptions too — they carry their own
+            # counts; only standardized-phrasing claims in them are gated.
+            iface = data.get("interface", {})
+            codex_text = " ".join(str(s) for s in (
+                data.get("description", ""),
+                iface.get("shortDescription", ""),
+                iface.get("longDescription", "")))
+            sources.append((".codex-plugin/plugin.json descriptions", codex_text))
+        except (json.JSONDecodeError, OSError) as exc:
+            print(f"FAIL: cannot parse .codex-plugin/plugin.json: {exc}")
+            return 1
+
     mismatches = []
     for label, text in sources:
         claims = extract_claims(text)
@@ -322,7 +350,7 @@ def run_check(root: Path, derived: dict) -> int:
         print("\nRun `python3 scripts/derive_counters.py` for the ground-truth table.")
         return 1
 
-    print("Counter check passed: README.md, CLAUDE.md, marketplace.json match derived values.")
+    print("Counter check passed: README.md, CLAUDE.md, marketplace.json, mkdocs.yml, .codex-plugin match derived values.")
     return 0
 
 
@@ -334,7 +362,7 @@ def main() -> int:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="exit 1 if README.md / CLAUDE.md / marketplace.json claims drift from derived values",
+        help="exit 1 if claims in README.md / CLAUDE.md / marketplace.json / mkdocs.yml / .codex-plugin drift from derived values",
     )
     args = parser.parse_args()
 

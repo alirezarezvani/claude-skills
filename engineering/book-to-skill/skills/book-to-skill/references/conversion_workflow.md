@@ -382,9 +382,22 @@ Emits `<domain>/<slug>/` with `.claude-plugin/plugin.json`, `README.md`,
 `skills/<slug>/`, then prints the marketplace entry to register. Drop `--dry-run` to write.
 
 **Rights gate.** The emitter defaults to `--distribution local`, which records
-`source.cleared_for_distribution: false` in the manifest. `--distribution shareable` **refuses** unless `--rights` names a basis:
+`source.cleared_for_distribution: false` in `.claude-plugin/authoring-notes.json`.
+`--distribution shareable` **refuses** unless `--rights` names a basis:
 `public-domain`, `open-license`, `internal-docs`, or `author-permission`. Fair use is
 deliberately not an option — it is a defence, not a licence, and not this tool's call.
+
+**Attribution is yours to add, by hand, when the source is someone else's work.** The emitter
+writes a `source` block — how the skill was built — because that is all it can know; it has
+`--source-note` free text and a rights basis, not an upstream URL, author or licence, and a
+half-filled `attribution` block is worse than none. So when `--rights` is anything but
+`internal-docs`, add an `attribution` block beside it in `authoring-notes.json`
+(`derived_from`, `original_author`, `original_license`, `original_copyright`,
+`derivation_note` — the shape the rest of this repo uses), and put the upstream licence
+notice in the package's `LICENSE` and a credit line in its `README.md`. **That last part is
+the obligation:** `authoring-notes.json` is authoring metadata Claude Code never reads, and a
+sidecar JSON file is not a licence notice. `engineering/spinning-up-deep-rl` is the worked
+example.
 
 The emitter also refuses to wrap a skill with validation errors. Fix the source skill first.
 

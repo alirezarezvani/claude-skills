@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 362,
+  "total_skills": 364,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1002,6 +1002,12 @@
       "description": "Use when the user asks to create ERD diagrams, normalize database schemas, design table relationships, or plan schema migrations."
     },
     {
+      "name": "deep-learning-book",
+      "source": "../../engineering/deep-learning-book/skills/deep-learning-book",
+      "category": "engineering-advanced",
+      "description": "Study companion and working knowledge base for the Deep Learning textbook by Goodfellow, Bengio & Courville (MIT Press, 2016), read free at deeplearningbook.org. Indexes all 20 chapters, carries a 2016-to-2026 delta layer naming what the book got right, what was superseded (transformers, AdamW, diffusion, double descent) and what still holds, and ships four deterministic tools: a prerequisite-aware reading-path planner, a training-failure diagnostic, a capacity-and-regularization planner, and a parameter/FLOP/activation-memory calculator. Use when studying or teaching this book, planning a route through it, deciding whether a chapter's advice is still current, or translating its math into a training decision. It points at the official chapters \u2014 it never reproduces them."
+    },
+    {
       "name": "demo-video",
       "source": "../../engineering/demo-video/skills/demo-video",
       "category": "engineering-advanced",
@@ -1225,15 +1231,15 @@
     },
     {
       "name": "run",
-      "source": "../../engineering/autoresearch-agent/skills/run",
-      "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
-    },
-    {
-      "name": "run",
       "source": "../../engineering/agenthub/skills/run",
       "category": "engineering-advanced",
       "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
+    },
+    {
+      "name": "run",
+      "source": "../../engineering/autoresearch-agent/skills/run",
+      "category": "engineering-advanced",
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
     },
     {
       "name": "runbook-generator",
@@ -1318,6 +1324,12 @@
       "source": "../../engineering/skills/spec-driven-workflow",
       "category": "engineering-advanced",
       "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices."
+    },
+    {
+      "name": "spinning-up-deep-rl",
+      "source": "../../engineering/spinning-up-deep-rl/skills/spinning-up-deep-rl",
+      "category": "engineering-advanced",
+      "description": "Knowledge base from \\\"Spinning Up in Deep RL\\\" by Joshua Achiam (OpenAI, MIT-licensed). Use when applying Achiam's frameworks for RL fundamentals and MDPs, the model-free algorithm taxonomy, policy gradient derivations, the six reference algorithms (VPG, TRPO, PPO, DDPG, TD3, SAC), debugging silently-failing RL code, or running rigorous multi-seed RL experiments."
     },
     {
       "name": "sql-database-assistant",
@@ -2220,7 +2232,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 90,
+      "count": 92,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

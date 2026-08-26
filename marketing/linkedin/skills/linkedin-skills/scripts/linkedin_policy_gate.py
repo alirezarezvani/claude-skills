@@ -276,13 +276,19 @@ def _scan(text: str, rules: list, key: str, exemptions: list) -> list:
     hits = []
     for rule in rules:
         matched, excused = [], []
+        # excused holds dicts, so a `snippet in excused` membership test compares a
+        # str against dicts and is always False - the same phrase appearing twice was
+        # re-evaluated and reported twice, making exemptions_applied overstate what
+        # was found. Track the snippet strings separately.
+        excused_snippets: set = set()
         for pat in rule["patterns"]:
             for m in re.finditer(pat, low, re.IGNORECASE):
                 snippet = m.group(0).strip()
-                if not snippet or snippet in matched or snippet in excused:
+                if not snippet or snippet in matched or snippet in excused_snippets:
                     continue
                 reason = _exemption_for(snippet, low, rule.get("exemptions", ()), m.start())
                 if reason:
+                    excused_snippets.add(snippet)
                     excused.append({"id": rule["id"], "snippet": snippet, "why": reason})
                 else:
                     matched.append(snippet)

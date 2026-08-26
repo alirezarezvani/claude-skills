@@ -98,6 +98,16 @@ AUDIENCE_SHAPES = (
 )
 
 
+# "from " kept idiomatic replacements ("from scratch"/"from zero"/"from manual")
+# when the bare prepositions were removed; "into " had none, so a headline built on
+# an explicit transformation lost the signal unless it also used turn/convert. This
+# restores it as the construction itself rather than a bare preposition, so ordinary
+# prose ("putting budget into growth") still scores nothing.
+OUTCOME_SHAPES = (
+    re.compile(r"\bfrom\b[^|,.]{0,30}\b(to|into)\b", re.I),
+)
+
+
 def _find_shapes(text: str, shapes) -> list:
     return [m.group(0).strip() for r in shapes for m in [r.search(text)] if m]
 
@@ -142,7 +152,7 @@ def score_headline(text: str) -> dict:
         })
 
     # --- OUTCOME ------------------------------------------------------------
-    out = _find(low, OUTCOME_MARKERS)
+    out = _find(low, OUTCOME_MARKERS) + _find_shapes(raw, OUTCOME_SHAPES)
     dims["outcome"] = 20 if len(out) >= 2 else (12 if out else 0)
     if not out:
         findings.append({

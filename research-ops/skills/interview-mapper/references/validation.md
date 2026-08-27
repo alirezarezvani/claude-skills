@@ -34,6 +34,33 @@ A single A/B run confuses "proofreading effect" and "the model's run-to-run vari
 - gold-set <15 examples → the threshold is approximate.
 - Latent labels (eNPS, etc.) are unstable by nature — calibration doesn't fix it, only the council + a human.
 
+## Pilot on a real interview (breaking the closed loop)
+
+The fixtures, the gold set and the distortions in this repo were written by the same model that later does the
+mapping. Such an eval checks internal consistency, not whether the skill works on live speech: real ASR breaks
+differently from constructed noise, and a real respondent talks longer and messier. Until a pilot is run, the
+honest status line is "not validated on real data", not "F1 = 1.00".
+
+The minimal pilot — one interview, one person, half a day:
+
+1. Take a REAL transcript (not tidied up for looks) and a human mapping made with the same lens, independently
+   and BEFORE the skill run. No human version — make it first, or there is nothing to compare against; knowing
+   the AI's output spoils the baseline irreversibly.
+2. Run S1–S2 in full. Record three numbers: the share of `rejected` quotes, the number of `dangerous` verdicts
+   from `check_support.py`, and the number of omissions found on the counterfactual pass.
+3. `compare_to_gold.py` → a blind review blank. The 1–5 scores from `references/rubric.md` are set by a human
+   who cannot see which side is the AI's.
+4. Run S3 on the unstable cells and check: are the flagged cells the ones the human also considers disputed? A
+   match says the council works; a mismatch says instability is being caught in the wrong place.
+5. Separately, eyeball the `rejected` quotes. Each one is either a genuine fabrication (the skill did its job)
+   or a correct quote cut by the threshold (a recall miss). The second case feeds calibration directly: those
+   quotes are exactly the near-miss cases the synthetic gold set lacks.
+
+What counts as a failed pilot: a `rejected` share above ~15% while the quotes check out by eye (the threshold
+does not suit your data); `dangerous` verdicts the human does not confirm (the judge is noisy); an average Δ
+below 4 on Layer 1 (facts are not being extracted — the lens does not fit the material, and thresholds are not
+the issue).
+
 ## Sources
 - Powers, D. M. W. — *Evaluation: From Precision, Recall and F-Measure to ROC, Informedness, Markedness and Correlation* (Journal of Machine Learning Technologies, 2011) — the precision/recall/F1 sweep `calibrate_threshold.py` runs against the gold-set.
 - Krippendorff, K. — *Content Analysis: An Introduction to Its Methodology* (SAGE, 4th ed., 2018) — reliability calibration against a labeled set before trusting an automated coder.

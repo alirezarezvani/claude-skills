@@ -44,43 +44,40 @@ Sources: PERC'25, AI&Society 2025, mental-health TA (2507.08002).
 - **Deterministic Quoting**: don't trust the quote text, take it by reference.
 Our `verify_quotes.py` is a hybrid: it fixes (fuzzy transfer) + flags/discards + logs everything transparently.
 
-## Threshold calibration on synthetic data (2026-07)
+## Threshold calibration on synthetic data (2026-07, re-measured 2026-08 after the difflib fix)
 
-Gold set: `evals/gold/` — 52 labeled cases per language, 6 distortion classes
+Gold set: `evals/gold/` — 52 labelled cases per language, 6 distortion classes
 (exact / noise / truncation / splice / paraphrase / hallucination).
-Run: `calibrate_threshold.py`, grid of threshold 70–98 (step 2) x coverage {0.4, 0.5, 0.6, 0.7}.
+Run: `calibrate_threshold.py`, threshold grid 70–98 (step 2) × coverage {0.4, 0.5, 0.6, 0.7}.
 
-Result: coverage in the 0.4–0.7 range doesn't affect P/R/F1 for either language — on this
-gold set, LCS coverage turned out not to be a discriminator with the difflib backend. On
-threshold: RU has a F1=0.90 plateau across 70–82, with the default of 88 giving F1=0.89
-(P=1.00, R=0.79); the best point wins by only 0.01. EN has a F1=1.00 plateau across 70–88,
-and the default of 88 already sits inside that plateau (F1=1.00, P=1.00, R=1.00). Both gains
-are below the 0.03 bar → **the 88/0.6 defaults are left unchanged**. Precision is 1.00 on both
-languages across the whole grid — no false confirmations at any combination; the spread comes
-entirely from recall (noise class).
-A caveat for EN: the F1=1.00 plateau across 70–88 with unchanged P/R signals that the EN
-gold set is not sensitive enough to the threshold (no cases near the decision boundary) —
-not proof that 88 is optimal.
+**Current run.** RU: F1 = 1.00 on the 70–88 plateau (P=1.00, R=1.00), then recall drops
+(90–96 → 0.97, 98 → 0.91). EN: F1 = 1.00 on the 70–90 plateau, then 92 → 0.98, 94 → 0.97, 96 → 0.95,
+98 → 0.90. Coverage across 0.4–0.7 changes no figure in either language — on this gold set LCS coverage
+is not a discriminator. Precision is 1.00 across the whole grid in both languages: no false confirmations
+under any combination, all the spread comes from recall.
+**Defaults 88 / 0.6 are kept** — they sit inside the plateau in both languages.
 
-**The threshold depends on the backend.** Calibration was run on the difflib fallback
-(rapidfuzz wasn't installed). difflib matches the quote against the whole text, and
-SequenceMatcher's autojunk heuristic on texts >200 characters makes scores unstable for
-noisy quotes: the same degree of ASR noise yields ~90 in one spot and ~0 in another,
-depending on position. On our own gold set the noise class showed a score spread from 0 to
-96 for verbatim (is_verbatim=true) quotes — reproduced directly by calling `fuzzy_score()`
-in this session. Separately, on a synthetic quote with one word dropped, difflib scored ≈79
-(cut by the 88 threshold); rapidfuzz isn't installed in this environment, and its score on
-the same pair wasn't re-verified in this session — per a note from a prior calibration
-session it was noticeably higher and more stable (on the order of ≈94, passing the
-threshold), but that figure isn't re-measured here and is offered as a reference point, not
-a fact of the current run. On difflib the gap between verbatim (≈84–100 for most cases) and
-non-verbatim is so large that the exact threshold value barely affects precision — but recall
-on the noise class is unpredictable and depends on the specific text, not just the degree of
-distortion. With rapidfuzz installed (recommended for real work) the noise class behaves
-differently — recalibrate on your own backend.
+### What it was before the fix (and why the numbers changed)
+The previous calibration gave RU F1=0.89 at threshold 88 (R=0.79) and recorded difflib as "structurally
+unreliable": the score of one and the same noisy quote swung 0–96 depending on its position in the text.
+The cause turned out not to be difflib as such, but two defects in `fuzzy_score`:
 
-Honest caveats: synthetic data ≠ real interviews (the distortions are constructed, not
-collected from a real model); the class "verbatim but doesn't support the claim" isn't
-represented here — that's entailment, caught by check_support.py, not the verbatim
-threshold. Before trusting this on your own data — calibrate on your own gold set
-(references/validation.md).
+1. `SequenceMatcher` was called with `autojunk` at its default. On strings longer than 200 characters the
+   heuristic marks as "junk" any character occurring in more than 1% of positions — for natural text that
+   is the space and the frequent letters. Matching then falls apart unpredictably.
+2. The window for the second comparison was sized by the longest matched block. A single dropped word
+   splits the quote into two blocks, so the quote was compared against half of itself.
+
+With `autojunk=False` and a window sized by the quote: on the org-mapping-vmdi fixture (40 verbatim quotes
+with one word dropped) the median score goes 7.9 → 96.8 and 0/40 → 40/40 pass threshold 88; the control
+hallucination is still rejected (5.7 → 40.0, below threshold). The unit-test case that previously scored
+≈87 on difflib and forced the threshold down to 85 now scores 94.3 — exactly the score that used to be
+attributed to rapidfuzz. There is no separate fuzzy backend in the skill, and none is needed.
+
+Honest caveats: synthetic ≠ real interviews (the distortions are constructed, not harvested from a real
+model); a 1.00 plateau across the whole 70–88/90 range means the gold set holds no cases near the decision
+boundary, i.e. it is no longer sensitive to the threshold — that is a caveat about the set, not proof that
+88 is optimal. The "verbatim but does not support the thesis" class is absent here — that is entailment,
+caught by `check_support.py`, not by a verbatim threshold. Before trusting this on your own data, calibrate
+on your own gold set (`references/validation.md`) and stock it with near-miss cases, or the calibration
+measures nothing.

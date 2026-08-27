@@ -13,6 +13,9 @@ set the lens (how to extract) and the output (what to build). Ask the MINIMUM, t
 4. **How many interviews:** 1 / 2–4 / 5+ (determines whether we can talk about patterns: `k=3`).
 5. **Is there a human baseline** to compare against (enables comparison by Δ 1–5).
 
+**Always, when the material is sensitive** (exit, conflict, candidate, medical/HR — treat these as sensitive by default):
+6. **Consent and de-identification** — does the respondent's consent cover THIS kind of processing, and must the text be de-identified before S1? Full gate — `references/ethics.md`. De-identify BEFORE `number_lines.py`, or the quotes stop matching the source.
+
 Ask the user these questions (in Cowork — via option selection). Don't start mapping until axis-1 and axis-2 are clear.
 
 ## Routing matrix (goal × respondent → lens)

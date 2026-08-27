@@ -127,15 +127,21 @@ def fuzzy_score(needle: str, hay: str):
     """Returns (score 0..100, matched_substring_in_hay)."""
     if not needle or not hay:
         return 0.0, ""
-    sm = SequenceMatcher(None, needle, hay)
+    # autojunk=False is required: on hay >200 chars the heuristic marks frequent characters
+    # (space, vowels) as "junk" and matching falls apart — the score of one and the same
+    # quote swings 0..96 depending on its position in the text.
+    sm = SequenceMatcher(None, needle, hay, autojunk=False)
     blocks = sm.get_matching_blocks()
     best = max(blocks, key=lambda b: b.size) if blocks else None
     if not best or best.size == 0:
         return 0.0, ""
-    start = max(0, best.b - 2)
-    end = min(len(hay), best.b + best.size + 2)
+    # The window spans the QUOTE length from the presumed start (best.b - best.a), not the
+    # matched block length: a single dropped word splits the quote into two blocks, and a
+    # block-sized window would compare the quote against half of itself.
+    start = max(0, best.b - best.a)
+    end = min(len(hay), start + len(needle))
     window = hay[start:end]
-    score = SequenceMatcher(None, needle, window).ratio() * 100
+    score = SequenceMatcher(None, needle, window, autojunk=False).ratio() * 100
     return score, window
 
 
@@ -143,7 +149,7 @@ def lcs_coverage(needle: str, hay: str) -> float:
     """Share of the quote covered by the longest common fragment (0..1)."""
     if not needle:
         return 0.0
-    sm = SequenceMatcher(None, needle, hay)
+    sm = SequenceMatcher(None, needle, hay, autojunk=False)
     total = sum(b.size for b in sm.get_matching_blocks())
     return min(1.0, total / max(1, len(needle)))
 

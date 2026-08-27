@@ -24,9 +24,16 @@ import re
 import sys
 import os
 import zipfile
-from xml.etree import ElementTree as ET
+from xml.parsers import expat
 
-_W_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+_W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+_NS_SEP = "|"
+_W_P = f"{_W_NS}{_NS_SEP}p"
+_W_T = f"{_W_NS}{_NS_SEP}t"
+
+# An untrusted .docx inflates two ways: 0.6 MB of archive expands to 208 MB of XML,
+# and 700 bytes of DTD with nested entities expand to gigabytes.
+MAX_DOCX_XML_BYTES = 64 * 1024 * 1024
 
 # Text addressed to the model rather than the interviewer: instruction hijacking and prompt markup.
 INJECTION_PATTERNS = [
@@ -60,16 +67,78 @@ SAMPLE_TEXT = (
 )
 
 
-def read_docx(path):
-    """Reads .docx text via stdlib (zipfile + XML): paragraphs from word/document.xml, text from <w:t>."""
+class DocxError(Exception):
+    """The .docx cannot be read safely: broken XML, a DTD, or over the unpacking limit."""
+
+
+def _read_document_xml(path):
+    """Extracts word/document.xml, refusing to unpack more than the limit.
+
+    The header check is the one that works: zipfile stops at the declared size and
+    catches the CRC mismatch, so understating the header does not slip past the limit.
+    The second check, on the bytes actually read, is a backstop in case an archive
+    reads back differently from what its header promised.
+    """
     with zipfile.ZipFile(path) as z:
-        xml = z.read("word/document.xml")
-    root = ET.fromstring(xml)
-    paragraphs = []
-    for p in root.iter(f"{_W_NS}p"):
-        text = "".join(t.text or "" for t in p.iter(f"{_W_NS}t"))
-        paragraphs.append(text)
-    return "\n".join(paragraphs)
+        info = z.getinfo("word/document.xml")
+        if info.file_size > MAX_DOCX_XML_BYTES:
+            raise DocxError(
+                f"word/document.xml declares {info.file_size} bytes "
+                f"against a limit of {MAX_DOCX_XML_BYTES}"
+            )
+        with z.open("word/document.xml") as fh:
+            xml = fh.read(MAX_DOCX_XML_BYTES + 1)
+    if len(xml) > MAX_DOCX_XML_BYTES:
+        raise DocxError(f"word/document.xml exceeds the limit of {MAX_DOCX_XML_BYTES} bytes")
+    return xml
+
+
+def read_docx(path):
+    """Reads .docx text via stdlib (zipfile + expat): paragraphs from word/document.xml, text from <w:t>.
+
+    expat rather than ElementTree, because only expat can reject a DTD: a legitimate
+    .docx carries none, and nested entities inside a DTD are billion laughs.
+    Every <w:p> at any depth yields a paragraph, and its text includes nested <w:p>
+    (text boxes) — the same as root.iter() did before.
+    """
+    xml = _read_document_xml(path)
+    paragraphs, open_p, t_depth = [], [], 0
+
+    def start(name, attrs):
+        nonlocal t_depth
+        if name == _W_P:
+            open_p.append((len(paragraphs), []))
+            paragraphs.append(None)  # slot in document order, filled on close
+        elif name == _W_T:
+            t_depth += 1
+
+    def end(name):
+        nonlocal t_depth
+        if name == _W_P and open_p:
+            index, chunks = open_p.pop()
+            paragraphs[index] = "".join(chunks)
+        elif name == _W_T and t_depth:
+            t_depth -= 1
+
+    def chars(data):
+        if t_depth:
+            for _, chunks in open_p:
+                chunks.append(data)
+
+    def reject_dtd(name, sysid, pubid, has_internal):
+        raise DocxError("the .docx carries a DTD — rejected (entity-expansion guard)")
+
+    parser = expat.ParserCreate(namespace_separator=_NS_SEP)
+    parser.StartDoctypeDeclHandler = reject_dtd
+    parser.ExternalEntityRefHandler = lambda *args: 0
+    parser.StartElementHandler = start
+    parser.EndElementHandler = end
+    parser.CharacterDataHandler = chars
+    try:
+        parser.Parse(xml, True)
+    except expat.ExpatError as e:
+        raise DocxError(f"broken XML in word/document.xml ({e})") from e
+    return "\n".join(p for p in paragraphs if p is not None)
 
 
 def parse_subtitles(raw):
@@ -118,7 +187,7 @@ def read_source(path):
     if low.endswith(".docx"):
         try:
             return read_docx(path).splitlines(), {}
-        except (zipfile.BadZipFile, KeyError, ET.ParseError) as e:
+        except (zipfile.BadZipFile, KeyError, DocxError) as e:
             sys.exit(f"error: {path}: failed to read .docx ({e})")
     try:
         with open(path, encoding="utf-8") as f:

@@ -157,6 +157,12 @@ def main():
     ap.add_argument(
         "--stability", type=float, default=None, help="deprecated alias of --text-floor"
     )
+    ap.add_argument(
+        "--grounding-floor",
+        type=float,
+        default=0.6,
+        help="Below this mean run grounding, unanimity is suspicious",
+    )
     ap.add_argument("--out", default=None)
     ap.add_argument(
         "--sample", action="store_true", help="Run on 3 built-in sample mapping runs"
@@ -194,6 +200,8 @@ def main():
     report = {}
     flags = []
     low_stab = []
+    ungrounded = []
+    mean_weight = sum(weights) / len(weights) if weights else 1.0
     for cell in cells:
         entries = [r.get(cell, {"label": None, "text": ""}) for r in runs]
         labels = [e["label"] for e in entries]
@@ -216,6 +224,11 @@ def main():
             # Any label disagreement → a human decides. Agreement in substance with different wording is not a flag.
             if agree != "unanimous":
                 flag = True
+            # Unanimity alone does NOT mean "correct": the runs may have converged
+            # because they are biased the same way.
+            elif mean_weight < a.grounding_floor:
+                ungrounded.append(cell)
+                rec["unanimous_but_ungrounded"] = True
         else:
             # no label: flag only on SUBSTANTIAL divergence in content
             if stab < text_floor:
@@ -228,6 +241,9 @@ def main():
             flags.append(cell)
         report[cell] = rec
 
+    # Three independent analysis runs agreeing EVERYWHERE is not luck, it is a sign
+    # that there was no independence.
+    degenerate = N >= 3 and len(cells) >= 5 and not flags
     summary = {
         "runs": N,
         "weights": weights,
@@ -235,8 +251,15 @@ def main():
         "cells_flagged": len(flags),
         "flagged": flags,
         "low_stability_hint": low_stab,
+        "unanimous_but_ungrounded": ungrounded,
+        "council_degenerate": degenerate,
         "note": "flagged = substantive disagreement → a human adjudicates blind. "
-        "low_stability_hint = agreement in substance but different wordings (soft, can be ignored).",
+        "low_stability_hint = agreement in substance but different wordings (soft, can be ignored). "
+        "unanimous_but_ungrounded = the runs agreed but are weakly grounded: that agreement "
+        "does not confirm the conclusion, it may mean identical bias (needs --weights = the "
+        "runs' verified_share). "
+        "council_degenerate = not a single cell diverged: usually means the runs were not "
+        "independent — chat history was fed instead of a fresh context (star-model, S3.1).",
     }
     out = {"summary": summary, "cells": report}
     js = json.dumps(out, ensure_ascii=False, indent=2)

@@ -73,6 +73,33 @@ def choose_lens(goal, respondent):
     return LENS.get(respondent, "templates/org-mapping-vmdi.md")
 
 
+def cost_estimate(n, council_runs, synthesis_reruns, avg_lines):
+    """Estimates the workload: how many times transcripts get read in full.
+
+    S3 feeds the transcript anew on every run (star-model, re-grounding), so the cost grows not as
+    "N interviews" but as "N × runs". Without a number, the choice between N=3 and N=1 is a guess.
+    """
+    per_interview = 1 + council_runs  # S2 once + the reliability council
+    feeds = (
+        n * per_interview + synthesis_reruns
+    )  # synthesis re-reads mappings, not transcripts
+    approx_tokens = (
+        feeds * avg_lines * 15
+    )  # ~15 tokens per transcript line, order of magnitude
+    return {
+        "transcript_feeds": feeds,
+        "per_interview_feeds": per_interview,
+        "assumed_lines_per_transcript": avg_lines,
+        "approx_input_tokens": approx_tokens,
+        "note": (
+            "An order of magnitude, not a bill: it counts transcript feeds, not real tokens. "
+            "The main lever is council_runs: S3 is needed ONLY for the Layer 2 cells marked "
+            '(unstable). N=1 is fine for a pilot, but then the output must say "council not '
+            'run" rather than "consensus".'
+        ),
+    }
+
+
 def main():
     """CLI: builds a deterministic pipeline plan from the intake (goal/respondent/output/N)."""
     ap = argparse.ArgumentParser(
@@ -94,6 +121,18 @@ def main():
         "--sample",
         action="store_true",
         help="Run with built-in sample intake answers (--goal discovery --respondent customer --n 3)",
+    )
+    ap.add_argument(
+        "--council-runs",
+        type=int,
+        default=3,
+        help="Layer 2 runs in S3 (drives the cost estimate; 1 = no council)",
+    )
+    ap.add_argument(
+        "--avg-lines",
+        type=int,
+        default=80,
+        help="Average transcript length in lines — for the cost estimate",
     )
     a = ap.parse_args()
 
@@ -177,6 +216,9 @@ def main():
         "can_synthesize_patterns": can_synthesize,
         "k_triangulation": K,
         "pipeline": steps,
+        "cost": cost_estimate(
+            a.n, max(0, a.council_runs), 2 if can_synthesize else 0, a.avg_lines
+        ),
         "caveats": caveats,
     }
     print(json.dumps(plan, ensure_ascii=False, indent=2))

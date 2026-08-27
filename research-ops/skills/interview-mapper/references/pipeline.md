@@ -42,11 +42,17 @@ Mark the fix type: [F] fact, [D] diarization (speaker mixed up).
    - `line_mismatches` → fix the line number. The script sets the number (`--emit-enriched`), not you.
    - record `verified_share` — you'll need it as the run's weight in S3.
 5. **Entailment — a logged step, not an eyeball call.** For each thesis↔quote pair record a verdict
-   `support ∈ {yes,partial,no}` + why into `support.json`; run it a second time independently (judge 2)
-   into `support2.json`, then `check_support.py support.json --second support2.json`.
+   `support ∈ {yes,partial,no}` + why into `support.json`. The second run is NOT a repeat of the same
+   question: judge 2 works from the refuting prompt (`check_support.py --judge2-prompt`), otherwise one
+   model agrees with itself and there can be no divergence by construction. Then
+   `check_support.py support.json --second support2.json`.
    - `dangerous` — the quote is verbatim but does NOT support the thesis (verbatim ≠ support) → weaken it or send it to a human.
    - `judge_disagreements` — the judges diverged → to a human, don't pick yourself.
-6. Counterfactual + omission: "what contradicts the conclusions? which fragments aren't covered?" → the "Gaps/contradictions" section.
+   - `judge_agreement_suspicious` — the judges never diverged once on a sizable sample: a sign judge 2 echoed judge 1 instead of refuting.
+6. Counterfactual — by eye: "what contradicts the conclusions?". Omission — by script:
+   `coverage_gaps.py --transcript *_proofread_nl.txt --claims claims.json --skip-speaker "Interviewer|Moderator"`
+   returns blocks of utterances covered by no confirmed quote. Read top-down: uncovered small talk is
+   normal, an uncovered substantive chunk is an omission. Both outcomes → the "Gaps/contradictions" section.
 
 ## S3 — Reliability council (Layer 2)
 An expensive step: N runs = N full transcript feeds. Apply it to the Layer 2 cells marked *(unstable)* in
@@ -59,7 +65,9 @@ Sanity threshold: N=3 by default; N=1 is acceptable only for a pilot and must be
 2. `consensus.py run1.json run2.json run3.json --weights w1,w2,w3` (weights = the runs' verified_share).
 3. Result:
    - `flagged` (labels diverged) → mark the cell `[⚑ disputed]`, send it to a human for blind adjudication;
-   - agreeing → `[consensus]`, take the consensus label, take the text from the most grounded run.
+   - agreeing → `[consensus]`, take the consensus label, take the text from the most grounded run;
+   - `unanimous_but_ungrounded` → the runs agreed but are poorly grounded: that agreement does not confirm the conclusion, it may be identical bias. Do not pass such a cell off as consensus without checking the quotes;
+   - `council_degenerate` (not a single cell diverged) → almost always means the runs were not independent: chat history was fed instead of a fresh context. Redo the council per the star model and discard this result.
 4. For the flagged ones — `make_adjudication.py consensus.json run1.json run2.json …` → side-by-side cards for the human.
 
 ## S4 — Final output format

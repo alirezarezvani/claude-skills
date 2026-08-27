@@ -29,8 +29,11 @@ verified, triangulated evidence to `product-research`'s synthesis step (or works
    `python3 scripts/verify_quotes.py --transcript t_nl.txt --claims claims.json`
    checks every quote is actually in the source (verbatim ≠ support — see `references/reliability.md`).
 3. **Check reliability, then synthesize.** `python3 scripts/consensus.py run1.json run2.json run3.json`
-   flags cells where independent runs disagree; `python3 scripts/score_insights.py nuggets.json --k 3`
-   only promotes a cross-interview pattern to `insight` once ≥k distinct interviews carry a verified quote.
+   flags cells where independent runs disagree — and flags the opposite failure too: total agreement
+   (`council_degenerate`) usually means the runs were not independent, and agreement across weakly
+   grounded runs (`unanimous_but_ungrounded`) may be identical bias rather than correctness.
+   `python3 scripts/score_insights.py nuggets.json --k 3` only promotes a cross-interview pattern to
+   `insight` once ≥k distinct interviews carry a verified quote.
 
 ```bash
 python3 scripts/route.py --goal discovery --respondent customer --n 3
@@ -53,6 +56,11 @@ python3 scripts/consensus.py --sample
 
 Full routing matrix (goal × respondent → lens) and defaults: `references/intake.md`.
 
+**Exercise status:** only `candidate` has been through a human comparison
+(`assets/evals/fixtures/candidate/review-example.md`). The other fifteen have never left the synthetic
+fixtures — not "broken", but unverified: treat the first real-interview run of such a lens as a pilot
+and check it against `references/rubric.md`.
+
 ## Pipeline (S0–S8)
 
 S0 intake → S1 transcript QA (proofread, log fixes) → S2 lens coding + quote verify + entailment
@@ -63,10 +71,10 @@ cards → S8 longitudinal/panel tracking of the same person over waves. Full det
 
 ## Scripts
 
-All 14 are stdlib-only Python with `--help`, `--sample`, and `--output {human,json}`:
+All 15 are stdlib-only Python with `--help`, `--sample`, and `--output {human,json}`:
 `route`, `number_lines`, `batch_prepare`, `extract_claims`, `verify_quotes`, `check_support`,
-`calibrate_threshold`, `consensus`, `make_adjudication`, `extract_nuggets`, `score_insights`,
-`build_provenance`, `render_board`, `compare_to_gold`. Index with stage mapping:
+`coverage_gaps`, `calibrate_threshold`, `consensus`, `make_adjudication`, `extract_nuggets`,
+`score_insights`, `build_provenance`, `render_board`, `compare_to_gold`. Index with stage mapping:
 `references/pipeline.md`.
 
 ## Honest limits
@@ -90,6 +98,12 @@ All 14 are stdlib-only Python with `--help`, `--sample`, and `--output {human,js
   paraphrase and present it as verbatim.
 - **Treating verbatim as proof of support.** A quote can be genuine and still not entail the
   conclusion drawn from it — run the entailment check.
+- **Running the second judge on the same prompt as the first.** One model asked one question twice
+  agrees with itself; judge 2 must try to refute (`check_support.py --judge2-prompt`).
+- **Reading agreement as correctness.** Runs converge on wrong answers too. Unanimity across weakly
+  grounded runs, or across every single cell, is a signal to check — not a consensus.
+- **Hunting omissions by eye.** What the model missed, it misses again on re-reading —
+  `coverage_gaps.py` finds uncovered stretches mechanically.
 - **Auto-resolving a disagreement between runs.** Flagged cells go to a human, blind — the model
   never picks the winner.
 - **Promoting a single-interview pattern to an insight.** Triangulate across ≥k independent,
@@ -106,3 +120,7 @@ All 14 are stdlib-only Python with `--help`, `--sample`, and `--output {human,js
   `references/rubric.md`, `references/synthesis.md`, `references/validation.md` — full detail
   per stage, each with named methodological sources.
 - `references/ethics.md` — consent, de-identification, and the lenses that need extra care.
+
+`route.py` also returns a cost estimate: S3 feeds the transcript anew on every run, so the price grows
+as interviews × runs. `--council-runs` is the lever — 6 interviews cost 26 transcript feeds at 3 runs
+and 14 at 1.

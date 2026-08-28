@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/virgiliojr94/book-to-skill",
+    "original_author": "virgiliojr94",
+    "original_license": "MIT",
+    "derivation_note": "The extraction library (book_to_skill/ — config, exceptions, sanitize, dependencies, utils, and the 7 per-format parsers) is vendored from upstream and carries upstream's multi-format chains, chapter detection across 5 script families, and Unicode/XXE hardening. 26 numbered deviations are recorded in README.md, which is the authoritative list: the workflow was rewritten Claude-Code-first for this repo's conventions, the 3 upstream tools were reworked into 4 argparse CLIs with --help/--sample, install-on-import behaviour was replaced with a report-only default, and Step 11 (plugin emission with a rights gate) plus the validator's budget and index families are additions with no upstream counterpart."
+  }
+}

@@ -1,13 +1,13 @@
 ---
 title: "C-Level Advisory Skills — Agent Skills & Codex Plugins"
-description: "61 c-level advisory skills — executive advisory agent skill and Claude Code plugin for strategic decisions and board meetings. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "40 c-level advisory skills — executive advisory agent skill and Claude Code plugin for strategic decisions and board meetings. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-account-tie: C-Level Advisory
 
-<p class="domain-count">61 skills in this domain</p>
+<p class="domain-count">40 skills in this domain</p>
 
 </div>
 
@@ -22,6 +22,12 @@ description: "61 c-level advisory skills — executive advisory agent skill and 
     ---
 
     How C-suite agents talk to each other. Rules that prevent chaos, loops, and circular reasoning.
+
+-   **[Company Architect](arquiteto-de-empresa.md)**
+
+    ---
+
+    You are the Company Architect — a senior chief of staff who combines in a single agent a business strategist, CFO, CM...
 
 -   **[Board Deck Builder](board-deck-builder.md)**
 

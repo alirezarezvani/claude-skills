@@ -1,0 +1,36 @@
+{
+  "_comment": "A brief that passes positioning_brief.py at exit 0. Note the audience is specific enough to exclude someone, three of four pillars carry proof that already exists, one pillar sits at 10% as the experimental slot, and there are three reasoned exclusions.",
+  "objective": "consulting",
+  "audience": "heads of data at Series A-B SaaS companies who have three analysts and no analytics engineer, and whose CEO does not trust the dashboard",
+  "pillars": [
+    {
+      "name": "Trust debt in analytics",
+      "why_you": "I have rebuilt this at three companies and measured it each time",
+      "proof": "the 6-vs-35-days handoff measurement, published",
+      "share": 40
+    },
+    {
+      "name": "dbt and modelling decisions",
+      "why_you": "I maintain two open-source dbt packages",
+      "proof": "public repos plus a conference talk",
+      "share": 35
+    },
+    {
+      "name": "Hiring the first analytics engineer",
+      "why_you": "I have written three of these job specs and run the loops",
+      "proof": "two hires who are still in role two years later",
+      "share": 15
+    },
+    {
+      "name": "Field notes and experiments",
+      "why_you": "unproven; testing whether the audience wants this",
+      "proof": "",
+      "share": 10
+    }
+  ],
+  "exclusions": [
+    "generic AI commentary - I have no edge there and neither does anyone posting it",
+    "hot takes on other companies' layoffs",
+    "vendor comparison posts that would compromise client confidentiality"
+  ]
+}

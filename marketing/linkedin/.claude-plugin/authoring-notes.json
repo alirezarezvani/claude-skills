@@ -1,0 +1,11 @@
+{
+  "source": {
+    "spec": "https://github.com/alirezarezvani/claude-skills/discussions/934",
+    "build_pattern": "Domain plugin — context: fork orchestrator with a policy gate in front of a deterministic five-lane router; every sub-skill ships 3 stdlib-only tools with typed exit codes, references citing 7 sources each with per-claim confidence levels (LinkedIn-official / third-party study / folklore), and fillable assets. Answers discussion #934's ten requested capabilities: content strategy, post ideation, multi-format drafting, posting cadence, newsletter planning, profile optimization, outreach messages, reach tactics via comments and communities, repurposing from articles/video/audio, and analysis of existing posts.",
+    "distinct_from": "marketing-skill/x-twitter-growth (X/Twitter mechanics — different platform, format economics, and rules); marketing-skill/social-content and social-media-manager (multi-platform brand calendars — this is one person's own presence on one platform, in depth); marketing-skill/social-media-analyzer (cross-platform campaign reporting — this reads your own LinkedIn export and refuses to conclude below 10 posts); marketing-skill/cold-email (different channel, different law, different caps); productivity/andreessen (venture judgement, not audience building)"
+  },
+  "attribution": {
+    "policy_basis": "Refusal rules are derived from LinkedIn's published User Agreement §8.2, the Prohibited Software and Extensions help article, and the Professional Community Policies. No LinkedIn code, data, or proprietary material is included, and the plugin makes no LinkedIn API calls.",
+    "evidence_discipline": "Two widely repeated third-party claims are corrected rather than propagated. (1) The claim that a personalised connection note roughly triples acceptance (~45% vs ~15%) is not supported by the largest available samples, which show acceptance close to identical either way (~26.4%); what the note moves is the post-accept reply rate (~5.4% to ~9.4%). (2) The in-body external-link reach reduction (~19% median in a ~1.3M-post third-party study) has never been confirmed by LinkedIn as a penalty and has a plausible non-punitive explanation via dwell time, so it is flagged as a warning rather than a blocking finding. Per-claim confidence levels are carried in every reference."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Opt-in SessionStart/SessionEnd hooks for agent-launcher. BOTH are disabled unless AGENT_LAUNCHER_SESSION=1 is set, so they never fire in unrelated repos. SessionStart surfaces the current CMA launch goal (./my-agent/goal.json) as <agent_launcher_goal> data so a multi-session launch resumes where it stopped. SessionEnd reminds you to checkpoint/advance the goal. Any error exits 0 — a hook can never break a session. Additionally disable SessionEnd with AGENT_LAUNCHER_SESSIONEND=0.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_start.py"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/session_end.py"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/alirezarezvani/claude-skills/agent-launcher/build-sheet.schema.json",
+  "title": "agent-launcher build sheet",
+  "description": "The Phase-1 plan for a Claude Managed Agent. Produced by build_sheet_builder.py, validated by primitives_validator.py, consumed by payload_generator.py.",
+  "type": "object",
+  "required": ["agent_name", "goal", "primitives"],
+  "additionalProperties": false,
+  "properties": {
+    "agent_name": {"type": "string", "minLength": 1, "maxLength": 128},
+    "goal": {"type": "string", "minLength": 1, "description": "One-sentence job the agent does end-to-end."},
+    "primitives": {
+      "type": "object",
+      "required": ["agent", "environment"],
+      "additionalProperties": false,
+      "properties": {
+        "agent": {
+          "type": "object",
+          "required": ["model"],
+          "properties": {
+            "model": {"type": "string"},
+            "system": {"type": "string"},
+            "tools": {"type": "array", "items": {"type": "object"}},
+            "mcp_servers": {"type": "array", "items": {"type": "object"}},
+            "skills": {"type": "array", "items": {"type": "string"}, "maxItems": 20},
+            "multiagent": {"type": "object"}
+          }
+        },
+        "environment": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": {"enum": ["cloud", "self_hosted"]},
+            "networking": {"enum": ["unrestricted", "limited"]},
+            "allowed_hosts": {"type": "array", "items": {"type": "string"}},
+            "packages": {"type": "object"}
+          }
+        },
+        "session": {
+          "type": "object",
+          "properties": {
+            "resources": {"type": "array", "items": {"type": "object"}},
+            "vault_ids": {"type": "array", "items": {"type": "string"}},
+            "memory_stores": {"type": "array", "maxItems": 8, "items": {"type": "object"}}
+          }
+        },
+        "outcome": {
+          "type": "object",
+          "properties": {
+            "description": {"type": "string"},
+            "rubric": {"type": "string", "description": "Required markdown criteria for the grader."},
+            "max_iterations": {"type": "integer", "minimum": 1, "maximum": 20}
+          }
+        },
+        "deployment": {
+          "type": "object",
+          "properties": {
+            "schedule": {
+              "type": "object",
+              "required": ["expression", "timezone"],
+              "properties": {
+                "expression": {"type": "string", "description": "5-field POSIX cron."},
+                "timezone": {"type": "string", "description": "IANA identifier."}
+              }
+            }
+          }
+        }
+      }
+    },
+    "deferrals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["version", "item", "reason", "mechanism"],
+        "properties": {
+          "version": {"type": "string", "pattern": "^v[1-9][0-9]*$"},
+          "item": {"type": "string"},
+          "reason": {"type": "string"},
+          "mechanism": {"type": "string"}
+        }
+      }
+    },
+    "eval_plan": {
+      "type": "object",
+      "properties": {
+        "success_criteria": {"type": "array", "items": {"type": "string"}},
+        "held_back_cases": {"type": "array", "items": {"type": "object"}}
+      }
+    }
+  }
+}

@@ -19,6 +19,14 @@ Environment variables must be set:
 
 If not set, inform the user how to configure them and stop.
 
+> **The TestRail MCP server is not auto-registered (issue #978).** `pw-testrail`
+> was removed from the plugin's `.mcp.json` because it failed to connect for every
+> user (the plugin ships no `node_modules`). The `testrail_*` MCP tools used below,
+> and the `/pw:testrail` command, will fail with "tool not found" until it is
+> enabled manually — see the **Integrations** section of the plugin's `CLAUDE.md`
+> (`cd integrations/testrail-mcp && npm install`, then register the server in your
+> own user/project MCP config). Setting the env vars alone is not sufficient.
+
 ## Capabilities
 
 ### 1. Import Test Cases → Generate Playwright Tests

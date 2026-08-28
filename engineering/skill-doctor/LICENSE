@@ -1,0 +1,34 @@
+MIT License
+
+Copyright (c) 2026 Denver Technologies, Inc.
+Copyright (c) 2026 Alireza Rezvani (rebuild, modifications and additions)
+
+This plugin is a rebuild of the `skill-doctor` skill from
+https://github.com/warpdotdev/common-skills
+(.agents/skills/skill-doctor/ at commit f3b58c81d1cfd5d8eabf2e32edb32db2b0573923),
+copyright Denver Technologies, Inc. The two scoring rubrics under
+skills/skill-doctor/scorers/ are preserved verbatim from upstream; the
+skill-improvement filing bar is preserved inside
+references/skill_edit_governance.md. The three rebuilt command-line tools, the
+aggregation gate, the references, the assets, the agent and the command are
+modifications and additions by this repository, released under the same terms.
+The numbered list in README.md under "Deviations from upstream" records what
+changed.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,13 +1,13 @@
 ---
 title: "Regulatory & Quality Skills — Agent Skills & Codex Plugins"
-description: "18 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "19 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-shield-check-outline: Regulatory & Quality
 
-<p class="domain-count">18 skills in this domain</p>
+<p class="domain-count">19 skills in this domain</p>
 
 </div>
 
@@ -16,6 +16,12 @@ description: "18 regulatory & quality skills — regulatory and quality manageme
 </div>
 
 <div class="grid cards" markdown>
+
+-   **[Agent Decision Receipts](agent-decision-receipts.md)**
+
+    ---
+
+    A log says an action happened. A receipt is tamper-evident: it records who, what, and under which policy, and it is s...
 
 -   **[CAPA Officer](capa-officer.md)**
 

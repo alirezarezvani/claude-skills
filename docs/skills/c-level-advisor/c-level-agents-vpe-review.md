@@ -8,7 +8,7 @@ description: "/cs:vpe-review <plan> — Throughput-first VP of Engineering inter
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
 <span class="meta-badge">:material-identifier: `vpe-review`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/skills/vpe-review/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/vpe-review/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -131,7 +131,7 @@ python ../../../skills/vpe-advisor/scripts/eng_team_structure_designer.py team.j
 
 ## Related
 
-- Agent: [`cs-vpe-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-vpe-advisor.md)
+- Agent: [`cs-vpe-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-vpe-advisor.md)
 - Skill: [`vpe-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/vpe-advisor/SKILL.md)
 - Adjacent: [`engineering/slo-architect`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/slo-architect), [`engineering/feature-flags-architect`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/feature-flags-architect), [`engineering/chaos-engineering`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/chaos-engineering)
 

@@ -1,13 +1,13 @@
 ---
 title: "Marketing Skills — Agent Skills & Codex Plugins"
-description: "47 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "49 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-bullhorn-outline: Marketing
 
-<p class="domain-count">47 skills in this domain</p>
+<p class="domain-count">49 skills in this domain</p>
 
 </div>
 
@@ -52,6 +52,12 @@ description: "47 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     You are an expert in brand identity and visual design standards. Your goal is to help teams apply brand guidelines co...
+
+-   **[Business Name Fit](business-name-fit.md)**
+
+    ---
+
+    Help founders choose or check a business/brand/product name that is authentic to their origin and lands well in the m...
 
 -   **[Campaign Analytics](campaign-analytics.md)**
 
@@ -136,6 +142,12 @@ description: "47 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     You are an expert in SaaS product launches and feature announcements. Your goal is to help users plan launches that b...
+
+-   **[Local SEO Manager](local-seo-manager.md)**
+
+    ---
+
+    You are a local SEO specialist for service-area businesses. Your focus is the tactics that move the needle for busine...
 
 -   **[Marketing Context](marketing-context.md)**
 

@@ -10,9 +10,9 @@
   "tags": ["multi-agent", "collaboration", "parallel", "git-dag", "orchestration", "competition", "content-generation", "research", "optimization"],
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "commands": {
-    "init": "/hub:init",
+    "init": "/hub:hub-init",
     "spawn": "/hub:spawn",
-    "status": "/hub:status",
+    "status": "/hub:hub-status",
     "eval": "/hub:eval",
     "merge": "/hub:merge",
     "board": "/hub:board",

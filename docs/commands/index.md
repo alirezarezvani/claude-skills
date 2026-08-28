@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "124 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">92 commands for quick access to common operations</p>
+<p class="domain-count">124 commands for quick access to common operations</p>
 
 </div>
 
@@ -247,6 +247,30 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Ask the wiki a question. The librarian reads index.md first, picks relevant pages across categories, synthesizes an a...
 
+-   :material-console:{ .lg .middle } **[`/cs-harness`](cs-harness.md)**
+
+    ---
+
+    Parse $ARGUMENTS: the first token is the domain (one of the 18 manifest names under
+
+-   :material-console:{ .lg .middle } **[`/cs-memory`](cs-memory.md)**
+
+    ---
+
+    Argument: $ARGUMENTS (default: status)
+
+-   :material-console:{ .lg .middle } **[`/cs-book-to-plugin`](cs-book-to-plugin.md)**
+
+    ---
+
+    Command: /cs:book-to-plugin <compiled-skill-dir> --domain <domain> --rights <basis>
+
+-   :material-console:{ .lg .middle } **[`/cs-book-to-skill`](cs-book-to-skill.md)**
+
+    ---
+
+    Command: /cs:book-to-skill <path|folder|glob>... skill-name-slug
+
 -   :material-console:{ .lg .middle } **[`/cs-caveman`](cs-caveman.md)**
 
     ---
@@ -277,6 +301,36 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Command: /cs:handoff <next-session-focus>
 
+-   :material-console:{ .lg .middle } **[`/cs-human-gate`](cs-human-gate.md)**
+
+    ---
+
+    Command: /cs:human-gate <artifact> step
+
+-   :material-console:{ .lg .middle } **[`/cs-forgetting-audit`](cs-forgetting-audit.md)**
+
+    ---
+
+    The short pass. Skip the cost and architecture work; answer one question about
+
+-   :material-console:{ .lg .middle } **[`/cs-memory-engineering`](cs-memory-engineering.md)**
+
+    ---
+
+    Run the memory-engineering pass on $ARGUMENTS.
+
+-   :material-console:{ .lg .middle } **[`/cs-skill-doctor`](cs-skill-doctor.md)**
+
+    ---
+
+    Run the skill-doctor pass with $ARGUMENTS (pass any --repo, --days,
+
+-   :material-console:{ .lg .middle } **[`/skillopt-sleep`](skillopt-sleep.md)**
+
+    ---
+
+    You are driving SkillOpt-Sleep: a tool that lets this user's Claude agent
+
 -   :material-console:{ .lg .middle } **[`/cs-scrape`](cs-scrape.md)**
 
     ---
@@ -294,6 +348,48 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Command: /cs:write-a-skill <name-or-description>
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-product`](cs-grill-product.md)**
+
+    ---
+
+    Interrogate this plan — do not execute anything yet:
+
+-   :material-console:{ .lg .middle } **[`/cs-product-loop`](cs-product-loop.md)**
+
+    ---
+
+    Inputs (defaults: discoverylog.json and ost.json in the workspace; shapes in
+
+-   :material-console:{ .lg .middle } **[`/cs-product`](cs-product.md)**
+
+    ---
+
+    Route this inquiry through the product-skills orchestrator:
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-pm`](cs-grill-pm.md)**
+
+    ---
+
+    Interrogate this plan — do not execute anything yet:
+
+-   :material-console:{ .lg .middle } **[`/cs-pm-loop`](cs-pm-loop.md)**
+
+    ---
+
+    Goal:
+
+-   :material-console:{ .lg .middle } **[`/cs-pm`](cs-pm.md)**
+
+    ---
+
+    Route this inquiry through the pm-skills orchestrator:
+
+-   :material-console:{ .lg .middle } **[`/cs-arquiteto`](cs-arquiteto.md)**
+
+    ---
+
+    Command: /cs:arquiteto
 
 -   :material-console:{ .lg .middle } **[`/cs-andreessen`](cs-andreessen.md)**
 
@@ -313,6 +409,18 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Command: /cs:capture <dump-text-or-path>
 
+-   :material-console:{ .lg .middle } **[`/cs-deep-work`](cs-deep-work.md)**
+
+    ---
+
+    Command: /cs:deep-work today's task list
+
+-   :material-console:{ .lg .middle } **[`/cs-time-block`](cs-time-block.md)**
+
+    ---
+
+    Command: /cs:time-block task list + start/end
+
 -   :material-console:{ .lg .middle } **[`/cs-inbox-setup`](cs-inbox-setup.md)**
 
     ---
@@ -325,11 +433,29 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Command: /cs:inbox-triage
 
+-   :material-console:{ .lg .middle } **[`/cs-fable-goal`](cs-fable-goal.md)**
+
+    ---
+
+    Command: /cs:fable-goal <ramble>
+
 -   :material-console:{ .lg .middle } **[`/cs-handoff-setup`](cs-handoff-setup.md)**
 
     ---
 
     Configure the handoff skill. Walks 5 questions (plus 1-2 optional) and writes the config. Re-run any time.
+
+-   :material-console:{ .lg .middle } **[`/cs-meeting-actions`](cs-meeting-actions.md)**
+
+    ---
+
+    Command: /cs:meeting-actions notes file or pasted notes
+
+-   :material-console:{ .lg .middle } **[`/cs-meeting-prep`](cs-meeting-prep.md)**
+
+    ---
+
+    Command: /cs:meeting-prep the meeting
 
 -   :material-console:{ .lg .middle } **[`/cs-reflect`](cs-reflect.md)**
 
@@ -337,11 +463,29 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
 
     Command: /cs:reflect
 
+-   :material-console:{ .lg .middle } **[`/cs-roast`](cs-roast.md)**
+
+    ---
+
+    Command: /cs:roast the idea
+
+-   :material-console:{ .lg .middle } **[`/cs-weekly-review`](cs-weekly-review.md)**
+
+    ---
+
+    Command: /cs:weekly-review directory or notes
+
 -   :material-console:{ .lg .middle } **[`/cs-landing`](cs-landing.md)**
 
     ---
 
     Command: /cs:landing <product-or-brief>
+
+-   :material-console:{ .lg .middle } **[`/cs-deep-research`](cs-deep-research.md)**
+
+    ---
+
+    Command: /cs:deep-research <question>
 
 -   :material-console:{ .lg .middle } **[`/cs-dossier`](cs-dossier.md)**
 
@@ -564,5 +708,53 @@ description: "92 slash commands for Claude Code, Codex CLI, and Gemini CLI — s
     ---
 
     Convert the markdown deck at $ARGUMENTS into a single-file interactive HTML presentation.
+
+-   :material-console:{ .lg .middle } **[`/cs-goal`](cs-goal.md)**
+
+    ---
+
+    The goal is one sentence for one agent. It selects the phase and the loop shape.
+
+-   :material-console:{ .lg .middle } **[`/cs-grade`](cs-grade.md)**
+
+    ---
+
+    Run the grade-iterate skill.
+
+-   :material-console:{ .lg .middle } **[`/cs-grill-agent-launcher`](cs-grill-agent-launcher.md)**
+
+    ---
+
+    Grill the current goal's phase using its SKILL.md "Forcing-question library".
+
+-   :material-console:{ .lg .middle } **[`/cs-interview`](cs-interview.md)**
+
+    ---
+
+    Run the interview skill.
+
+-   :material-console:{ .lg .middle } **[`/cs-launch`](cs-launch.md)**
+
+    ---
+
+    Route through the agent-launcher-orchestrator skill.
+
+-   :material-console:{ .lg .middle } **[`/cs-run-without-you`](cs-run-without-you.md)**
+
+    ---
+
+    Run the run-without-you skill.
+
+-   :material-console:{ .lg .middle } **[`/cs-stage-launch`](cs-stage-launch.md)**
+
+    ---
+
+    Run the stage-launch skill.
+
+-   :material-console:{ .lg .middle } **[`/cs-wrap-up`](cs-wrap-up.md)**
+
+    ---
+
+    Run the wrap-up skill.
 
 </div>

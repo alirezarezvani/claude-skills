@@ -1,0 +1,14 @@
+{
+  "attribution": {
+    "upstream": "TencentCloud/TencentDB-Agent-Memory",
+    "upstream_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+    "upstream_license": "MIT",
+    "relationship": "concept-derived, not vendored",
+    "derivation_note": "No upstream code is included. What was taken is the hierarchical-memory framing — a tier ladder in which a claim is promoted toward always-loaded context rather than written there directly — and the principle that such a system's value lies in what it refuses to promote. Everything else is a native rebuild on Claude Code's own hook surface. Three upstream choices were deliberately rejected: (1) the managed database, replaced by one append-oriented JSONL file per project capped at 500 candidate atoms, because a deployment dependency violates this repo's self-contained-package rule; (2) a proxy layer between agent and model, unnecessary because Claude Code already exposes SessionStart, UserPromptSubmit and SessionEnd, and adding a proxy to obtain hooks the platform provides buys nothing while adding a failure mode on the critical path; (3) LLM-based extraction, replaced by rule-based marker matching, both because root CLAUDE.md forbids LLM calls in skill scripts and because a model call cannot run inside an async teardown hook on a latency budget and its output is not reproducible from the transcript, which would break the cite-don't-invent rule. The full comparison, with the open decisions this design has not closed, is in DESIGN.md; the deviations from DESIGN.md's own planned tree are listed in README.md, which is authoritative for those.",
+    "other_precedents_reused_in_repo": [
+      "engineering/skillopt-sleep — the propose-never-apply staging discipline and async teardown work",
+      "engineering/agent-harness — atomic state writes via temp file plus os.replace",
+      "productivity/handoff — per-hook env-var disable convention and redaction-pattern coverage (re-implemented, not imported, per the no-cross-skill-dependency rule)"
+    ]
+  }
+}

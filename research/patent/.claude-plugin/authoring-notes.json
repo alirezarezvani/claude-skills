@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "megaprompts/11-patent-megaprompt.md",
+    "build_pattern": "Path B (direct conversion). Research-pack shape, sub-use-case-routing variant. 5 sub-use-cases (novelty/FTO/landscape/diligence/litigation) drive entire search strategy + DOCX emphasis. Multi-source: Google Patents + Espacenet + USPTO + optional Lens.org BYOK.",
+    "sibling_of": "research/litreview, research/grants, research/dossier, research/pulse"
+  }
+}

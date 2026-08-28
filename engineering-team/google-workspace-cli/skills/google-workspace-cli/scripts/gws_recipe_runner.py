@@ -16,12 +16,14 @@ Usage:
     python3 gws_recipe_runner.py --search "email"
     python3 gws_recipe_runner.py --describe standup-report
     python3 gws_recipe_runner.py --run standup-report --dry-run
+    python3 gws_recipe_runner.py --run standup-report --yes
     python3 gws_recipe_runner.py --persona pm --list
     python3 gws_recipe_runner.py --list --json
 """
 
 import argparse
 import json
+import shlex
 import subprocess
 import sys
 from dataclasses import dataclass, field, asdict
@@ -308,7 +310,7 @@ def describe_recipe(name: str, output_json: bool):
     print(f"\n{'='*60}\n")
 
 
-def run_recipe(name: str, dry_run: bool):
+def run_recipe(name: str, dry_run: bool, confirmed: bool):
     """Execute a recipe (or print commands in dry-run mode)."""
     recipe = RECIPES.get(name)
     if not recipe:
@@ -323,6 +325,14 @@ def run_recipe(name: str, dry_run: bool):
         print(f"\n  (No commands executed)")
         return
 
+    if not confirmed:
+        print(f"\n  Refusing to execute recipe '{recipe.name}' without --yes.")
+        print(f"  These commands may have real, irreversible side effects (sending mail,")
+        print(f"  deleting files, sharing data, etc). Preview first with --dry-run, then")
+        print(f"  re-run with: --run {recipe.name} --yes")
+        print(f"\n  {TEMPLATE_NOTE}")
+        sys.exit(1)
+
     print(f"\n  Executing recipe: {recipe.name}")
     print(f"  {TEMPLATE_NOTE}\n")
     for cmd in recipe.commands:
@@ -331,7 +341,14 @@ def run_recipe(name: str, dry_run: bool):
             continue
         print(f"  $ {cmd}")
         try:
-            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=30)
+            argv = shlex.split(cmd, comments=True)
+        except ValueError as e:
+            print(f"  Could not parse command: {e}")
+            continue
+        if not argv:
+            continue
+        try:
+            result = subprocess.run(argv, shell=False, capture_output=True, text=True, timeout=30)
             if result.stdout:
                 print(result.stdout)
             if result.returncode != 0 and result.stderr:
@@ -369,6 +386,7 @@ Examples:
   %(prog)s --search "email"                 # Search by keyword
   %(prog)s --describe standup-report        # Full recipe details
   %(prog)s --run standup-report --dry-run   # Preview recipe commands
+  %(prog)s --run standup-report --yes       # Actually execute a recipe
   %(prog)s --personas                       # List all 10 personas
   %(prog)s --list --json                    # JSON output
         """,
@@ -378,6 +396,8 @@ Examples:
     parser.add_argument("--describe", help="Show full details for a recipe")
     parser.add_argument("--run", help="Execute a recipe")
     parser.add_argument("--dry-run", action="store_true", help="Print commands without executing")
+    parser.add_argument("--yes", action="store_true",
+                         help="Confirm execution of a real (non-dry-run) recipe; required to actually run commands")
     parser.add_argument("--persona", help="Filter recipes by persona")
     parser.add_argument("--personas", action="store_true", help="List all personas")
     parser.add_argument("--json", action="store_true", help="Output JSON")
@@ -404,7 +424,7 @@ Examples:
         return
 
     if args.run:
-        run_recipe(args.run, args.dry_run)
+        run_recipe(args.run, args.dry_run, args.yes)
         return
 
 

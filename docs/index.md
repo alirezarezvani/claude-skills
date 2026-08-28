@@ -1,6 +1,6 @@
 ---
 title: Agent Skills & Plugins for Claude Code, Codex, Gemini CLI & 10 More AI Tools
-description: "345 production-ready agent skills, 78 installable plugins, and 90+ slash commands across 17 domains — engineering, product, marketing, compliance, finance, and research. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
+description: "380 production-ready agent skills, 96 installable plugins, and 138 slash commands across 20 domains — engineering, product, marketing, compliance, finance, research, and agent tooling. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
 hide:
   - toc
   - edit

@@ -3,7 +3,7 @@
 
 Walks the canonical tree (excluding sync copies, docs site, audit workspace,
 and VCS/CI internals) and derives the headline numbers that README.md,
-CLAUDE.md, and .claude-plugin/marketplace.json claim:
+CLAUDE.md, marketplace.json, mkdocs.yml, and .codex-plugin/plugin.json claim:
 
   skills              count of SKILL.md files
   plugins_on_disk     count of **/.claude-plugin/plugin.json manifests
@@ -19,11 +19,13 @@ Modes:
   (default)   print a human-readable table
   --json      print the derived counters as JSON
   --check     exit 1 listing mismatches if the headline counters claimed in
-              README.md, root CLAUDE.md ("Current Scope" line), and
-              marketplace.json metadata.description disagree with derived
-              values. Also validates the README "Skills Overview" per-domain
-              table: every domain row's count must equal the SKILL.md count in
-              its linked folder, and every on-disk domain must have a row. CI gate G3.
+              README.md, root CLAUDE.md ("Current Scope" / "Status:" lines),
+              marketplace.json metadata.description, mkdocs.yml
+              site_description, or .codex-plugin/plugin.json descriptions
+              disagree with derived values. Also validates the README
+              "Skills Overview" per-domain table: every domain row's count
+              must equal the SKILL.md count in its linked folder, and every
+              on-disk domain must have a row. CI gate G3.
 
 Stdlib only. No writes ever.
 """
@@ -141,16 +143,26 @@ CLAIM_PATTERNS = {
     "python_tools": re.compile(r"(\d+)\s+Python (?:automation )?tools"),
     "references": re.compile(r"(\d+)\s+reference guides"),
     "plugins_registered": re.compile(r"(\d+)\s+marketplace plugins"),
+    # Anchored on the "(cs-" suffix so prose like "9 more coding agents" or a
+    # skill's own "4 agents, 8 commands" inventory can't false-match.
+    "agents": re.compile(r"(\d+)\s+agents \(cs-"),
+    "commands": re.compile(r"(\d+)\s+slash commands"),
 }
 
 
 def extract_claims(text: str) -> dict:
-    """Return {counter_name: first claimed int} for every pattern found in text."""
+    """Return {counter_name: [every claimed int]} for every pattern found in text.
+
+    All occurrences are collected (not just the first) so a stale duplicate of a
+    headline claim elsewhere in the same file — e.g. a section heading that
+    repeats the skill count — is gated too (caught live on the v2.12.0
+    promotion PR #985, where the README banner said 380 while a section
+    heading still said 370)."""
     claims = {}
     for key, pattern in CLAIM_PATTERNS.items():
-        match = pattern.search(text)
-        if match:
-            claims[key] = int(match.group(1))
+        values = [int(m.group(1)) for m in pattern.finditer(text)]
+        if values:
+            claims[key] = values
     return claims
 
 
@@ -263,14 +275,20 @@ def run_check(root: Path, derived: dict) -> int:
 
     readme = root / "README.md"
     if readme.is_file():
+        # README is scanned in full (unlike CLAUDE.md below): it carries no
+        # version-history prose, so every claim-pattern match in it is a live
+        # headline that must agree with the derived values. If a history
+        # section is ever added to README, restrict this the same way.
         sources.append(("README.md", readme.read_text(encoding="utf-8")))
 
     claude_md = root / "CLAUDE.md"
     if claude_md.is_file():
         text = claude_md.read_text(encoding="utf-8")
-        # Restrict to the "Current Scope" line so history sections don't trip the gate.
-        scope_lines = [ln for ln in text.splitlines() if ln.startswith("**Current Scope:**")]
-        sources.append(("CLAUDE.md (Current Scope line)", "\n".join(scope_lines)))
+        # Restrict to the "Current Scope" and footer "Status:" lines so
+        # history sections don't trip the gate.
+        scope_lines = [ln for ln in text.splitlines()
+                       if ln.startswith("**Current Scope:**") or ln.startswith("**Status:**")]
+        sources.append(("CLAUDE.md (Current Scope / Status lines)", "\n".join(scope_lines)))
 
     marketplace = root / ".claude-plugin" / "marketplace.json"
     if marketplace.is_file():
@@ -282,18 +300,45 @@ def run_check(root: Path, derived: dict) -> int:
             print(f"FAIL: cannot parse marketplace.json: {exc}")
             return 1
 
+    # The two sites PR #940 found drifting ungated: the docs-site description
+    # and the Codex plugin manifest (which had lagged nine releases behind).
+    mkdocs = root / "mkdocs.yml"
+    if mkdocs.is_file():
+        # mkdocs.yml carries !!python tags safe_load rejects — read as text and
+        # restrict to the site_description line, mirroring the CLAUDE.md approach.
+        desc_lines = [ln for ln in mkdocs.read_text(encoding="utf-8").splitlines()
+                      if ln.startswith("site_description:")]
+        sources.append(("mkdocs.yml (site_description)", "\n".join(desc_lines)))
+
+    codex_manifest = root / ".codex-plugin" / "plugin.json"
+    if codex_manifest.is_file():
+        try:
+            data = json.loads(codex_manifest.read_text(encoding="utf-8"))
+            # Include the interface descriptions too — they carry their own
+            # counts; only standardized-phrasing claims in them are gated.
+            iface = data.get("interface", {})
+            codex_text = " ".join(str(s) for s in (
+                data.get("description", ""),
+                iface.get("shortDescription", ""),
+                iface.get("longDescription", "")))
+            sources.append((".codex-plugin/plugin.json descriptions", codex_text))
+        except (json.JSONDecodeError, OSError) as exc:
+            print(f"FAIL: cannot parse .codex-plugin/plugin.json: {exc}")
+            return 1
+
     mismatches = []
     for label, text in sources:
         claims = extract_claims(text)
         if not claims:
             mismatches.append(f"{label}: no recognizable counter claims found")
             continue
-        for key, claimed in claims.items():
+        for key, values in claims.items():
             actual = derived[key]
-            if claimed != actual:
-                mismatches.append(
-                    f"{label}: claims {key}={claimed}, derived {key}={actual}"
-                )
+            for claimed in values:
+                if claimed != actual:
+                    mismatches.append(
+                        f"{label}: claims {key}={claimed}, derived {key}={actual}"
+                    )
 
     mismatches.extend(check_domain_table(root))
     mismatches.extend(check_readme_badges(root, derived))
@@ -305,7 +350,7 @@ def run_check(root: Path, derived: dict) -> int:
         print("\nRun `python3 scripts/derive_counters.py` for the ground-truth table.")
         return 1
 
-    print("Counter check passed: README.md, CLAUDE.md, marketplace.json match derived values.")
+    print("Counter check passed: README.md, CLAUDE.md, marketplace.json, mkdocs.yml, .codex-plugin match derived values.")
     return 0
 
 
@@ -317,7 +362,7 @@ def main() -> int:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="exit 1 if README.md / CLAUDE.md / marketplace.json claims drift from derived values",
+        help="exit 1 if claims in README.md / CLAUDE.md / marketplace.json / mkdocs.yml / .codex-plugin drift from derived values",
     )
     args = parser.parse_args()
 

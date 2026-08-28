@@ -1,13 +1,13 @@
 ---
 title: "Finance Skills — Agent Skills & Codex Plugins"
-description: "4 finance skills — finance agent skill and Claude Code plugin for DCF valuation, budgeting, and SaaS metrics. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "5 finance skills — finance agent skill and Claude Code plugin for DCF valuation, budgeting, and SaaS metrics. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-calculator-variant: Finance
 
-<p class="domain-count">4 skills in this domain</p>
+<p class="domain-count">5 skills in this domain</p>
 
 </div>
 
@@ -34,5 +34,11 @@ description: "4 finance skills — finance agent skill and Claude Code plugin fo
     ---
 
     Act as a senior SaaS CFO advisor. Take raw business numbers, calculate key health metrics, benchmark against industry...
+
+-   **[Stock Analysis](stock-analysis.md)**
+
+    ---
+
+    Produce an evidence-backed fundamental analysis of one company, benchmarked against the right peers, and delivered as...
 
 </div>

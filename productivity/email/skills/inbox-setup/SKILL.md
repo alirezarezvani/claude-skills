@@ -225,5 +225,5 @@ Re-running on an existing setup:
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/06-inbox-setup-megaprompt.md`](../../../../megaprompts/06-inbox-setup-megaprompt.md)
+**Source spec:** `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Paired with `inbox-triage`.

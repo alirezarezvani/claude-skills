@@ -55,6 +55,11 @@ SIGNALS = {
         "prep me for", "competitor research", "investor diligence",
         "interview prep", "research my competitor", "background on",
     ],
+    "deepread": [
+        "deep read", "deeply read", "read this book", "read this pdf",
+        "read this document", "extract the claims", "extract claims from",
+        "knowledge map", "feynman", "argument map",
+    ],
 }
 
 

@@ -1,6 +1,6 @@
 ---
 title: "/cs-litreview — Slash Command for AI Coding Agents"
-description: "/cs:litreview <research-question> — Academic literature orientation. Grill-me intake (question + framework + depth), Consensus recon, framework. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs:litreview <research-question> — Academic literature orientation. Grill-me intake (question + framework + depth), free-lane recon (PubMed. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-litreview
@@ -22,9 +22,9 @@ The `cs-litreview` persona produces a strategically planned mini literature revi
 - Mapping the "lay of the land" before committing to a research direction
 - Want a curated reading list with key authors + foundational papers + gaps
 
-## When NOT to Run (use Consensus directly)
+## When NOT to Run (search directly)
 
-- Looking for ONE specific paper (just search Consensus)
+- Looking for ONE specific paper (just search PubMed/OpenAlex — or Consensus if you use it)
 - Quick lookup with no need for synthesis
 - Field you already know well and just need a recent papers list
 
@@ -49,7 +49,7 @@ After Phase 0 intake + Phase 1 recon + Phase 2 framework + interactive checkpoin
 5. **Key Research Groups** — top 3-5 authors/groups with representative papers
 6. **Open Questions & Gaps** — methodological / population / conceptual
 7. **Bibliography** — alphabetical, hyperlinked, every inline citation matches
-8. **Audit Log** — search table + counts + detected plan tier
+8. **Audit Log** — search table + counts + search lane used (free / free+Consensus)
 
 ## Interactive Checkpoint (Mid-Run)
 
@@ -65,7 +65,7 @@ Framework breakdown:
 | Outcome | ... | Sub-area 4: ... |
 | Cross-cutting | ... | Sub-area 5: ... |
 
-Confirm depth (plan-tier detected: free / ~10 results per search):
+Confirm depth (search lane: free — PubMed + OpenAlex, ~20 results per query per source):
   1. Quick scan (5 searches)
   2. Standard review (10 searches)
   3. Deep dive (20 searches)
@@ -82,10 +82,10 @@ This is the **last cheap moment** to correct course before search budget is cons
 ## Discipline (Research-Pack Convention)
 
 - **One intake question per turn.** Never bundle.
-- **Sequential Consensus calls.** 1 q/sec rate limit. NEVER parallelize.
-- **Plan-tier detected at first search**, reported at checkpoint.
+- **Sequential search calls.** 1 q/sec rate limit. NEVER parallelize (any lane).
+- **Lane check at session start** — if the Consensus MCP tools are not available, use the free lane; do not attempt tier detection. Lane reported at checkpoint.
 - **Halt at checkpoint.** No Phase 3 without confirmation.
-- **Source discipline** — cite only THIS session's Consensus results. Training knowledge labeled `[Not from Consensus]`.
+- **Source discipline** — cite only THIS session's search results. Training knowledge labeled `[Not from search]`.
 - **Three-count tracking** — searches / unique papers / cited.
 - **Retry once after 3s** — then log. 3 consecutive failures → stop.
 
@@ -96,7 +96,8 @@ This is the **last cheap moment** to correct course before search budget is cons
 python ../skills/litreview/scripts/citation_tracker.py --action start --session NAME
 python ../skills/litreview/scripts/framework_recommender.py --question "<Q1>"
 
-# Phase 1 recon (1 Consensus search; record sent + received)
+# Phase 1 recon (1 free-lane search; record sent + received; add Consensus if connected)
+python ../skills/litreview/scripts/free_search.py --query "<broad Q1>" --source both --max 20
 # Phase 2 framework + sub-area generation
 # CHECKPOINT — wait for user
 
@@ -121,25 +122,26 @@ python ../skills/litreview/scripts/citation_tracker.py --action close --session 
 - "I'm doing research on X"
 - "can you help me research X"
 
-**Do NOT trigger for:** single one-off paper searches — that's a plain Consensus search.
+**Do NOT trigger for:** single one-off paper searches — that's a plain PubMed/OpenAlex (or Consensus) query.
 
 ## Anti-Patterns Rejected
 
-- Parallelizing Consensus calls
+- Parallelizing search calls (any lane)
 - Skipping the interactive checkpoint
 - Padding thin results with training knowledge
 - Defaulting to non-PICO without justification
-- Citing papers in chat that didn't come from Consensus this session
-- Hardcoding plan tier instead of detecting
+- Citing papers in chat that didn't come from this session's searches
+- Attempting Consensus plan-tier detection (deleted — the only check is whether the Consensus MCP tools are available)
+- Treating Consensus as required (free lane is the default)
 - Skipping era-gated searches in standard/deep budgets
 - Skipping cross-search intelligence (repeat-hits, recurring authors)
-- Truncating Consensus URLs
+- Truncating source URLs
 
 ## Related
 
 - Agent: [`cs-litreview`](https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview/agents/cs-litreview.md)
 - Skill: [`litreview`](https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview/skills/litreview/SKILL.md)
-- Source spec: [`megaprompts/09-litreview-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/09-litreview-megaprompt.md)
+- Source spec: `megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling: `/cs:pulse` (research pack)
 - Future siblings: `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:syllabus`
 

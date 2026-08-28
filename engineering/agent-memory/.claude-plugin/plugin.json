@@ -1,0 +1,15 @@
+{
+  "name": "agent-memory",
+  "description": "A four-tier memory ladder for Claude Code where promotion is earned by recurrence, not asserted by confidence. L0 raw transcripts are never injected; L1 candidate atoms are gitignored and recalled on lexical relevance per prompt; L2 project context loads once per session; L3 stable persona is always loaded. Promotion from L1 to L2 requires at least three distinct sessions spanning at least two distinct calendar days (a stated claim needs two sessions, still spread across days; a deterministically verified claim is the only single-observation path), and L2 to L3 requires two distinct projects and thirty days. Two gates refuse rather than guess: a claim whose text was altered by the seventeen-pattern redaction pass never promotes on evidence alone, and a claim with an open contradiction freezes until a human resolves it, found by reverse join because the newer atom carries no flag. Three hooks run the loop unattended and every one fails open. Nothing reaches a committed CLAUDE.md without an explicit human adopt that backs both files up first. Ships five stdlib scripts, three hooks, a cs-memory-curator agent, a /cs:memory command, a JSON schema, a sixty-nine-check example validator, and a design document with its open decisions ranked by what they gate.",
+  "version": "2.11.2",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agent-memory",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/agent-memory"
+  ]
+}

@@ -139,6 +139,22 @@ python scripts/skill_review_checklist_runner.py path/to/skill-folder
 
 See [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/skills/write-a-skill/references/companion_tooling.md) for the tool catalogue, cs-skill-author persona agent, and `/cs:write-a-skill` slash command.
 
+## When the knowledge is in a document, not your head
+
+This skill authors from expertise you already have. When the source is a book, a docs folder,
+a standard, or a pile of specs, use `engineering/book-to-skill` instead — it compiles the
+document into a knowledge-base skill (core frameworks + on-demand chapters + glossary +
+patterns + cheatsheet) and can package the result as a plugin.
+
+```
+/cs:book-to-skill <path|folder|glob> [skill-name]     # compile the source
+/cs:book-to-plugin <compiled-skill-dir>               # wrap it as a plugin
+```
+
+Rule of thumb: **author first, compile second.** A hand-written skill states what you want the
+agent to do; a compiled book skill is the reference it consults while doing it. If you have
+both, they are two skills, not one.
+
 ---
 
 **Version:** 1.0.0

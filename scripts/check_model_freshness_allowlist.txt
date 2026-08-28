@@ -1,0 +1,28 @@
+# check_model_freshness.py allowlist — deliberate references only.
+# Format: <file-glob> :: <substring that must appear on the line>
+#
+# A retired model identifier belongs here only when naming it IS the point:
+# a regulatory list frozen at a date, a benchmark labelled as historical, or
+# the deny-list in the linter itself. If the reference is a script default,
+# a price table, or a copy-pasteable command, fix the reference instead.
+#
+# Every entry needs a one-line reason above it.
+
+# The EU AI Act's own systemic-risk examples are frozen in the cited text;
+# renaming them would misquote the regulation.
+*/references/ai_risk_governance.md :: systemic risk
+
+# Benchmarks explicitly published as a dated snapshot, with a staleness
+# warning already at the top of the file.
+*/references/embedding_model_benchmark.md :: ada-002
+*/references/embedding_model_benchmark.md :: text-embedding
+
+# litreview examples where the retired model is the SUBJECT of the literature
+# being reviewed, not a model the skill would call. Renaming these would
+# misdescribe the worked example.
+*/litreview/references/framework_selection.md :: Med-PaLM
+*/litreview/scripts/cross_search_aggregator.py :: medical Q&A
+
+# Dated citation: Computer Use shipped on Claude 3.5 Sonnet, and the "+ later"
+# is the point of the sentence.
+*/notebooklm/references/browser_automation_canon.md :: Computer Use documentation

@@ -1,0 +1,132 @@
+{
+  "skill_name": "stock-analysis",
+  "evals": [
+    {
+      "id": 0,
+      "name": "bank-sector-routing",
+      "prompt": "can you take a look at HDFC Bank for me? want to know if it's fundamentally strong or if i'm better off elsewhere. people keep saying it's cheap now",
+      "expected_output": "A sector-aware analysis that routes to the banks playbook: uses NIM, CASA, ROA, GNPA/NNPA, slippages, credit cost, PCR, CAR/CET1, cost-to-income; explicitly declines to use OPM/ROCE/EV-EBITDA/FCF as inapplicable to a bank; values on P/B against ROE vs cost of equity rather than a generic P/E; cites sources with as-of dates; does not give personalised buy/sell advice.",
+      "files": [],
+      "assertions": [
+        "Does NOT report OPM, ROCE, EV/EBITDA or free cash flow as headline metrics for the bank, or explicitly states they are inapplicable to a deposit-taking lender",
+        "Uses at least five bank-specific metrics from: NIM, CASA, ROA, GNPA, NNPA, slippage ratio, credit cost, PCR, CAR/CET1, cost-to-income, LCR",
+        "Anchors valuation on price-to-book (or price-to-adjusted-book) referenced to ROE versus cost of equity, rather than concluding from P/E alone",
+        "Every headline financial figure is accompanied by a source and a reporting period",
+        "Contains an explicit data-quality note covering as-of date and consolidated-vs-standalone basis",
+        "Addresses the user's 'people say it's cheap' premise directly rather than ignoring it",
+        "Includes a bear case or key-risks section",
+        "Contains a not-financial-advice disclaimer and gives no personalised buy/sell instruction"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "cross-sector-margin-trap",
+      "prompt": "TCS runs about 24% operating margin and Avenue Supermarts (DMart) is around 8%. TCS looks far better on margins so it should be the stronger business right?",
+      "expected_output": "Directly challenges the single-metric premise. Explains margin is sector-bound and not comparable across IT services and grocery retail; brings in asset turnover and DuPont to show a low-margin high-turnover retailer can earn comparable or superior returns on capital; compares ROIC/ROCE, cash conversion, growth durability and reinvestment runway; benchmarks each within its own sector and own history; refuses to declare a winner on margin alone.",
+      "files": [],
+      "assertions": [
+        "Explicitly rejects the premise that a higher operating margin implies the stronger business",
+        "Explains why margins are structurally not comparable across these two sectors (e.g. gross-vs-net revenue recognition, value-add base, capital intensity)",
+        "Introduces asset turnover and/or an explicit DuPont decomposition",
+        "Compares return on capital (ROCE, ROIC or ROE) for both companies as the cross-sector-valid measure",
+        "Benchmarks each company against its OWN sector peers rather than against each other on margin",
+        "Separates the question of business quality from the question of valuation / which is the better buy",
+        "Does not declare a winner on the basis of margin alone"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "deep-dive-bear-case",
+      "prompt": "do a thorough fundamental analysis of Tata Motors - I want the full picture including what could go wrong. thinking about a reasonably sized position so don't sugarcoat it",
+      "expected_output": "Runs deep-dive mode: identifies the auto sector playbook and the situation overlay (cyclical, multi-segment, historically leveraged); separates automotive net debt from the captive finance arm; uses EBITDA per vehicle, volumes vs registrations, capex plus capitalised product development, mid-cycle ROIC; values sum-of-the-parts rather than a single consolidated multiple; includes a serious bear case and specific thesis-invalidation triggers.",
+      "files": [],
+      "assertions": [
+        "Analyses the business by segment rather than as a single consolidated entity",
+        "Separates automotive net debt/cash from any captive finance or lending arm, or explains why that separation matters",
+        "Values using sum-of-the-parts or segment-level multiples rather than one consolidated P/E",
+        "Uses at least three auto-sector-specific metrics (e.g. EBITDA per vehicle, wholesale vs retail registrations, capex plus capitalised product development, mid-cycle ROIC, capacity utilisation, discount per unit)",
+        "Applies a cyclical or situation overlay, including the risk of capitalising peak or trough earnings",
+        "Contains a substantive bear case that is genuinely argued, not a token risk list",
+        "States specific, observable thesis-invalidation triggers",
+        "Includes a data-quality note with as-of dates and sources",
+        "Gives no personalised position sizing despite the user hinting at one"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "document-grounded-red-flags",
+      "prompt": "I've attached selected extracts from Kesar Agro Industries' FY26 annual report. Is this a fundamentally sound company worth investing in?",
+      "expected_output": "A document-grounded read that surfaces the planted abnormalities from the extracts rather than a generic bullish summary: the qualified audit opinion and the unprovided ₹180 cr interest-free related-party advance, the going-concern material uncertainty, related-party tunnelling (loans growing, below-market sales to promoter entities), contingent liabilities (₹420 cr) exceeding net worth (₹350 cr), promoter pledge rising to 71%, the CARO findings (bank returns disagreeing with books, evergreening, unpaid statutory dues, loan default), the CFO churn and mid-year auditor resignation, and the profit-vs-cash divergence. It should escalate these prominently, decline to give a clean bullish verdict, cite the document, and not fabricate figures not in the extract.",
+      "files": ["fixtures/synthetic-ar-excerpt.md"],
+      "assertions": [
+        "Surfaces the qualified audit opinion and the unprovided related-party advance (~₹180 cr) to the promoter entity",
+        "Flags the going-concern material uncertainty and the term-loan default disclosed in CARO",
+        "Identifies related-party leakage / tunnelling (growing interest-free loans and/or below-market sales to promoter-linked entities)",
+        "Notes that contingent liabilities (~₹420 cr) exceed net worth (~₹350 cr)",
+        "Flags the promoter share pledge rising sharply (to ~71% of promoter holding)",
+        "Notes the profit-rising-while-CFO-negative divergence, or the CARO bank-returns-vs-books disagreement, or the CFO/auditor turnover",
+        "Does NOT conclude the company is fundamentally sound / a clear buy; treats governance and accounting findings as potentially disqualifying",
+        "Attributes findings to the annual-report extract and does not invent figures absent from it"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "forensic-mode-routing",
+      "prompt": "Profit at Kesar Agro keeps rising every year but I heard the cash flow is actually negative. Are they cooking the books? I've attached extracts from their FY26 annual report.",
+      "expected_output": "Routes to Forensic mode (the question is 'can these accounts bear weight?', not 'is this a good investment?'). Runs the cash-vs-earnings accruals work (cumulative CFO far below cumulative PAT), a proof-of-cash test (interest income of ~₹3 cr on ~₹200 cr of cash implies a ~1.5% yield versus much higher borrowing cost), reads the CARO bank-returns-vs-books disagreement and the receivables build, and reaches a forensic verdict about how much the numbers can be trusted. It should NOT pivot into a valuation, target price or buy/sell call, because valuing earnings you do not believe is wasted work.",
+      "files": ["fixtures/synthetic-ar-excerpt.md"],
+      "assertions": [
+        "Explicitly frames this as a forensic / earnings-quality question rather than a standard buy-side analysis",
+        "Compares reported profit against operating cash flow over multiple years (accruals / cash-conversion gap)",
+        "Runs a proof-of-cash or interest-income-vs-cash check, or otherwise questions the reported cash balance",
+        "Uses the CARO bank-statement-vs-books disagreement and/or the receivables build as evidence",
+        "Reaches a verdict about the reliability of the accounts rather than a price target",
+        "Does NOT produce a valuation, target price, or personalised buy/sell recommendation"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "recency-gate-stale-data",
+      "prompt": "It's August 2026. A friend built this summary of Meridian Industries from their FY25 (year ended March 2025) annual report: revenue ₹8,400 cr, net profit ₹610 cr, net debt ₹1,200 cr, at a share price around ₹950. Is the stock cheap right now?",
+      "expected_output": "Runs the recency gate before answering: recognises that FY25 (March-2025) data is roughly 15+ months old as of August 2026, that FY26 annual results and at least one FY27 quarter have almost certainly been reported since, and that a 'cheap right now' judgement cannot rest on superseded figures or a stale price. It should state the most-recent-period problem explicitly, decline to deliver a current valuation verdict on the stale data, and say what it would need (the latest annual and quarterly filings, a current price with an as-of date).",
+      "files": [],
+      "assertions": [
+        "Explicitly flags that the FY25 (March-2025) figures are stale as of August 2026 and that newer periods (FY26, and likely an FY27 quarter) should exist",
+        "Runs or references a recency check rather than analysing the provided numbers as if current",
+        "Does not deliver a definitive 'cheap' / 'expensive' verdict resting on the 15-month-old figures without flagging the staleness",
+        "States what current data would be needed (latest annual + quarterly filings, current price with an as-of date)",
+        "Treats the provided figures as needing verification against the primary filings rather than as established facts"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ipo-mode-drhp",
+      "prompt": "Should I apply to the Vayu Mobility IPO? I've attached extracts from their DRHP. The price band is ₹590–620.",
+      "expected_output": "Routes to IPO mode (no market price history, no own-history benchmark). Flags that the offer is overwhelmingly an Offer for Sale (₹1,500 cr of ₹1,800 cr) with only ₹300 cr of fresh capital, i.e. insiders and the PE fund are cashing out; notes the ~3x pre-IPO price step-up within four months; scrutinises the bespoke 'Adjusted EBITDA' add-backs that recur every year; surfaces the promoter's pending criminal proceedings, customer concentration and negative operating cash flow; and assesses the ₹590–620 band on multiples / a forward view rather than any own-history or market-price method. No personalised apply/avoid instruction framed as advice.",
+      "files": ["fixtures/synthetic-drhp-excerpt.md"],
+      "assertions": [
+        "Recognises IPO mode: no trading history, so own-history benchmarking and market-price valuation are unavailable",
+        "Flags that the offer is mostly an Offer for Sale (sellers cashing out) with little fresh capital entering the business",
+        "Notes the steep pre-IPO placement price step-up relative to the price band",
+        "Scrutinises the non-GAAP 'Adjusted EBITDA' add-backs, noting the excluded costs recur every year",
+        "Surfaces at least one of: promoter criminal litigation, customer concentration, negative operating cash flow, or the restatement adjustments",
+        "Assesses the price band using multiples or a forward view rather than own-history or market-price methods",
+        "Gives no personalised 'apply' / 'avoid' instruction framed as investment advice"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "aggregator-primary-source-discipline",
+      "prompt": "Here's what screener.in shows for Aarti Foods: revenue ₹4,200 cr, PAT ₹310 cr, ROCE 19%, total debt ₹500 cr. Based on this, is it a good business?",
+      "expected_output": "Treats the pasted aggregator figures as unverified and not a source of record: it explains that screener.in and similar aggregators are navigation aids for locating the actual filings, not citable sources, and that the analysis must trace these numbers to the company's own annual report and exchange filings (checking consolidated-vs-standalone basis, period, and units) before relying on them. It should proceed with the figures marked as aggregator-sourced / unverified, or ask for the primary documents by name, rather than delivering a confident verdict citing screener as the source.",
+      "files": [],
+      "assertions": [
+        "States that aggregator data (screener.in) is a navigation aid, not a source of record, and should be verified against the primary filings",
+        "Does not present the pasted screener figures as sourced facts underpinning a final verdict",
+        "Marks the provided figures as aggregator-sourced / unverified, or asks for the annual report and exchange filings by name",
+        "Notes at least one verification concern that the aggregator figure hides (consolidated vs standalone, period/as-of, units, or definition of ROCE/debt)",
+        "Any provisional read is explicitly caveated as resting on unverified aggregator data"
+      ]
+    }
+  ]
+}

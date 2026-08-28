@@ -33,7 +33,7 @@ Part of the **research pack** (sibling of `pulse`, `litreview`, `grants`, `paten
 
 ## Source spec
 
-[`megaprompts/10-syllabus-megaprompt.md`](../../megaprompts/10-syllabus-megaprompt.md) (PR #657).
+`megaprompts/10-syllabus-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657).
 
 ## Plugin layout
 

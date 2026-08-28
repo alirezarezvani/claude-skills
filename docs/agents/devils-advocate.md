@@ -1,6 +1,6 @@
 ---
 title: "Devil's Advocate Agent — AI Coding Agent & Codex Skill"
-description: "Devil's Advocate Agent — agent-native AI orchestrator for C-Level Advisory. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "Adversarial reviewer for executive plans, proposals, and decisions. Returns exactly three specific concerns, each severity-rated CRITICAL / HIGH /. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
 # Devil's Advocate Agent

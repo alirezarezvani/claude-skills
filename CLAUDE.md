@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **comprehensive skills library** for Claude AI and Claude Code - reusable, production-ready skill packages that bundle domain expertise, best practices, analysis tools, and strategic frameworks. The repository provides modular skills that teams can download and use directly in their workflows.
 
-**Current Scope:** 364 production-ready skills across 18 domains with 667 Python automation tools, 750 reference guides, 104 agents (cs-* + 7 personas), and 120 slash commands, distributed as 90 marketplace plugins. Headline counters are derived from the tree by `scripts/derive_counters.py` (run with `--check` to verify the docs still match). **v2.11.2 (current)** vendors **engineering/skillopt-sleep/** — started as a verbatim, byte-for-byte copy of `microsoft/SkillOpt`'s `skillopt_sleep` engine (stdlib-only, zero third-party deps) and its Claude Code plugin surface (`skills/`, `hooks/`, `commands/`, `scripts/`), then received 23 targeted patches after ten rounds of adversarial review (see `engineering/skillopt-sleep/README.md`'s numbered "Deviations from upstream" list, the authoritative source — re-apply all 23 on re-vendor). Gives a local agent a nightly "sleep cycle": read-only harvest of past Claude Code session transcripts → mine recurring tasks → replay offline on the user's own API budget → consolidate into `CLAUDE.md`/`SKILL.md` edits behind a held-out validation gate → stage for review; nothing live changes until an explicit `/skillopt-sleep adopt` (which backs up first). Default `mock` backend spends no API budget. The heavier `skillopt` *training* package (benchmark-driven, needs `numpy`/`openai`/`azure-*` + hand-labeled train/val/test data per task) was deliberately **not** vendored — it optimizes one narrow, scoreable task at a time, which doesn't fit this repo's broad domain-expertise skills or its no-ML-in-scripts/no-test-framework conventions; `skillopt_sleep` mines its "benchmark" from real usage instead, which does fit. Attribution preserved in `plugin.json` + `LICENSE` + `README.md` (MIT, © Microsoft Corporation / Yifan Yang), following the same verbatim-vendor pattern as `loop-library/`. **Unreleased (post-v2.11.2)** ships the **productivity coverage expansion** — public audit record `audit/productivity-2026-07/` (all 7 legacy skills scored, 24/24 scripts smoke-tested, coverage map vs the personal-productivity canon) + 3 gap-filling plugins, each with a cs-* agent, /cs:* commands, 3 stdlib scripts and 3 cited references: **weekly-review** (GTD loop; review-gate refuses COMPLETE while a mandatory GET CURRENT step is missing), **deep-work** (time-block planner refusing >4h deep demand, shallow-work budget auditor, focus-session logger), **meetings** (MEET/ASYNC/NOT-READY cost gate, outcome-required agenda builder, action-item extractor with ORPHAN/NO-DUE flags). **Unreleased (post-v2.11.1)** added **productivity/fable-goal** — converts a rambling description of a desired outcome into one polished, copy-paste `/goal` prompt for a fresh autonomous session (ported from `duncan-buildroom/freeskills`). **v2.11.1 (complete)** upgrades **product-team/** and **project-management/** into agent-harness domains: both prose routers rebuilt as `context: fork` orchestrators with deterministic goal routers (exit-code route/ask/refuse), a Jira MCP snapshot bridge (Kanban-Guide-2025 flow metrics + seeded Monte Carlo forecasts, verified end-to-end into velocity_analyzer), a delegation-governance loop gate (human owner / reviewer / machine-checkable acceptance / close refusal), a Torres continuous-discovery cadence tracker + Opportunity Solution Tree linter, cs-pm-orchestrator + cs-product-orchestrator agents, and /cs:pm|grill-pm|pm-loop + /cs:product|grill-product|product-loop commands — plus the public audit record `audit/pm-product-agentic-2026-07/` (AR-rubric scores for all 26 skills, research-backed improvement fields, executable verification criteria). **v2.9.0 (complete)** added the **research-ops/** top-level domain — enterprise Research Operations (orchestrator + clinical-research + research-finance + market-research + product-research), the managed counterpart to the academic research/ domain, with `context: fork` orchestration and a Matt Pocock "Forcing-question library" in every SKILL.md plus `/cs:grill-research-ops`. **v2.8.0 (complete)** added 2 new top-level domains — **business-operations/** (7 internal-ops skills: orchestrator + process-mapper + vendor-management + capacity-planner + internal-comms + knowledge-ops + procurement-optimizer) and **commercial/** (8 per-deal-economics skills: orchestrator + pricing-strategist + deal-desk + partnerships-architect + channel-economics + commercial-policy + rfp-responder + commercial-forecaster) — with orchestrator skills using `context: fork` for chaining, Matt Pocock docs-anchored "Forcing-question library" in every SKILL.md, plus `/cs:grill-bizops` and `/cs:grill-commercial`. **v2.8.2** adds a productivity-shaped `handoff` skill (sibling to engineering/handoff) inspired by Matt Pocock — first-run setup with configurable save location, redaction linter, SessionStart + SessionEnd hooks, fidelity self-check, `--refresh` flag. **v2.8.1** upgraded the engineering role-skills (senior-fullstack / senior-frontend / senior-backend) with karpathy-coder + Matt Pocock decision engines + per-role forcing questions. v2.7.3 ports `alirezarezvani/aeo-box` — AEO (Answer Engine Optimization) skill into marketing-skill/ + security-guidance PreToolUse hook into engineering/. v2.7.0 added 13 Path-B skills across 3 top-level domains (productivity, marketing, research). v2.6.0 added 4 Matt Pocock-derived productivity skills.
+**Current Scope:** 388 production-ready skills across 20 domains with 727 Python automation tools, 842 reference guides, 118 agents (cs-* + 7 personas), and 150 slash commands, distributed as 99 marketplace plugins. Headline counters are derived from the tree by `scripts/derive_counters.py` (run with `--check` to verify the docs still match). **v2.11.2 (current)** vendors **engineering/skillopt-sleep/** — started as a verbatim, byte-for-byte copy of `microsoft/SkillOpt`'s `skillopt_sleep` engine (stdlib-only, zero third-party deps) and its Claude Code plugin surface (`skills/`, `hooks/`, `commands/`, `scripts/`), then received 23 targeted patches after ten rounds of adversarial review (see `engineering/skillopt-sleep/README.md`'s numbered "Deviations from upstream" list, the authoritative source — re-apply all 23 on re-vendor). Gives a local agent a nightly "sleep cycle": read-only harvest of past Claude Code session transcripts → mine recurring tasks → replay offline on the user's own API budget → consolidate into `CLAUDE.md`/`SKILL.md` edits behind a held-out validation gate → stage for review; nothing live changes until an explicit `/skillopt-sleep adopt` (which backs up first). Default `mock` backend spends no API budget. The heavier `skillopt` *training* package (benchmark-driven, needs `numpy`/`openai`/`azure-*` + hand-labeled train/val/test data per task) was deliberately **not** vendored — it optimizes one narrow, scoreable task at a time, which doesn't fit this repo's broad domain-expertise skills or its no-ML-in-scripts/no-test-framework conventions; `skillopt_sleep` mines its "benchmark" from real usage instead, which does fit. Attribution preserved in `.claude-plugin/authoring-notes.json` + `LICENSE` + `README.md` (MIT, © Microsoft Corporation / Yifan Yang), following the same verbatim-vendor pattern as `loop-library/`. **Unreleased (post-v2.11.2, PR #961 merged)** adds the **agent-launcher/** top-level domain — a plugin re-implementation of Anthropic's `launch-your-agent` reference skill (Apache-2.0; independent, not a fork) for building **Claude Managed Agents (CMA)** in the user's own account. Every session starts with a goal (`./my-agent/goal.json`, surfaced by an opt-in `AGENT_LAUNCHER_SESSION=1` SessionStart hook + `/cs:goal`); `loop_compiler.py` compiles that goal into a **bounded grade→iterate loop** (CMA `user.define_outcome` self-grading, `max_iterations` 1..20), a **recurring POSIX-cron scheduled-deployment loop**, or a **single-pass interview→stage→launch workflow**. 6 skills (orchestrator `context: fork` + interview + stage-launch + grade-iterate + run-without-you + wrap-up), 18 stdlib-only deterministic scaffolder tools (NO network/API calls — live launches emitted as BYOK curl that never prints the key), 4 agents, 8 `/cs:*` commands, opt-in hooks, 5 shared references, 4 assets; validators enforce CMA limits (≤20 skills/session, ≤8 memory stores, depth-1 multiagent, `max_iterations` ≤20, ≤1000 deployments/org). Distinct from `engineering/agent-harness` (generic bounded loop over any domain) and `engineering/write-a-skill` (authors Claude Code skills, not CMAs). **Unreleased (post-v2.11.2)** ships the **productivity coverage expansion** — public audit record `audit/productivity-2026-07/` (all 7 legacy skills scored, 24/24 scripts smoke-tested, coverage map vs the personal-productivity canon) + 3 gap-filling plugins, each with a cs-* agent, /cs:* commands, 3 stdlib scripts and 3 cited references: **weekly-review** (GTD loop; review-gate refuses COMPLETE while a mandatory GET CURRENT step is missing), **deep-work** (time-block planner refusing >4h deep demand, shallow-work budget auditor, focus-session logger), **meetings** (MEET/ASYNC/NOT-READY cost gate, outcome-required agenda builder, action-item extractor with ORPHAN/NO-DUE flags). **Unreleased (post-v2.11.1)** added **productivity/fable-goal** — converts a rambling description of a desired outcome into one polished, copy-paste `/goal` prompt for a fresh autonomous session (ported from `duncan-buildroom/freeskills`). **v2.11.1 (complete)** upgrades **product-team/** and **project-management/** into agent-harness domains: both prose routers rebuilt as `context: fork` orchestrators with deterministic goal routers (exit-code route/ask/refuse), a Jira MCP snapshot bridge (Kanban-Guide-2025 flow metrics + seeded Monte Carlo forecasts, verified end-to-end into velocity_analyzer), a delegation-governance loop gate (human owner / reviewer / machine-checkable acceptance / close refusal), a Torres continuous-discovery cadence tracker + Opportunity Solution Tree linter, cs-pm-orchestrator + cs-product-orchestrator agents, and /cs:pm|grill-pm|pm-loop + /cs:product|grill-product|product-loop commands — plus the public audit record `audit/pm-product-agentic-2026-07/` (AR-rubric scores for all 26 skills, research-backed improvement fields, executable verification criteria). **v2.9.0 (complete)** added the **research-ops/** top-level domain — enterprise Research Operations (orchestrator + clinical-research + research-finance + market-research + product-research), the managed counterpart to the academic research/ domain, with `context: fork` orchestration and a Matt Pocock "Forcing-question library" in every SKILL.md plus `/cs:grill-research-ops`. **v2.8.0 (complete)** added 2 new top-level domains — **business-operations/** (7 internal-ops skills: orchestrator + process-mapper + vendor-management + capacity-planner + internal-comms + knowledge-ops + procurement-optimizer) and **commercial/** (8 per-deal-economics skills: orchestrator + pricing-strategist + deal-desk + partnerships-architect + channel-economics + commercial-policy + rfp-responder + commercial-forecaster) — with orchestrator skills using `context: fork` for chaining, Matt Pocock docs-anchored "Forcing-question library" in every SKILL.md, plus `/cs:grill-bizops` and `/cs:grill-commercial`. **v2.8.2** adds a productivity-shaped `handoff` skill (sibling to engineering/handoff) inspired by Matt Pocock — first-run setup with configurable save location, redaction linter, SessionStart + SessionEnd hooks, fidelity self-check, `--refresh` flag. **v2.8.1** upgraded the engineering role-skills (senior-fullstack / senior-frontend / senior-backend) with karpathy-coder + Matt Pocock decision engines + per-role forcing questions. v2.7.3 ports `alirezarezvani/aeo-box` — AEO (Answer Engine Optimization) skill into marketing-skill/ + security-guidance PreToolUse hook into engineering/. v2.7.0 added 13 Path-B skills across 3 top-level domains (productivity, marketing, research). v2.6.0 added 4 Matt Pocock-derived productivity skills.
 
 **Key Distinction**: This is NOT a traditional application. It's a library of skill packages meant to be extracted and deployed by users into their own Claude workflows.
 
@@ -48,6 +48,7 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 | **Finance** | [finance/CLAUDE.md](finance/CLAUDE.md) | Financial analysis, DCF valuation, budgeting, forecasting, SaaS metrics |
 | **Research Operations** | [research-ops/CLAUDE.md](research-ops/CLAUDE.md) | Clinical study design, R&D finance, market research, product research (enterprise counterpart to academic research/) |
 | **Markdown → HTML** | [markdown-html/CLAUDE.md](markdown-html/CLAUDE.md) | Markdown-to-interactive-HTML converter (orchestrator + design-system foundation; md-document/review/slides v2.10.1). Inspired by Shihipar's "Claude Code HTML output" essay |
+| **Agent Launcher** | [agent-launcher/CLAUDE.md](agent-launcher/CLAUDE.md) | Claude Managed Agent (CMA) launcher — session-goal orchestrator + interview / stage-launch / grade-iterate / run-without-you / wrap-up; deterministic BYOK-curl scaffolders; bounded grade→iterate + cron deployment loops. Re-implements anthropics/launch-your-agent (Apache-2.0) |
 | **Standards Library** | [standards/CLAUDE.md](standards/CLAUDE.md) | Communication, quality, git, security standards |
 | **Templates** | [templates/CLAUDE.md](templates/CLAUDE.md) | Template system usage |
 
@@ -75,6 +76,7 @@ claude-code-skills/
 ├── research/                  # 8 academic research skills (orchestrator + 7 specialists)
 ├── research-ops/              # 5 research-ops skills (orchestrator + clinical-research + research-finance + market-research + product-research)
 ├── markdown-html/             # 2 markdown-to-HTML skills v2.10.0 foundation (orchestrator + design-system); md-document/review/slides land in v2.10.1
+├── agent-launcher/            # 6 CMA-launcher skills (session-goal orchestrator + 5 phase skills; 18 BYOK-curl scaffolder tools, opt-in SessionStart goal hook)
 ├── eval-workspace/            # Skill evaluation results (Tessl)
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates
@@ -159,16 +161,136 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.11.2 (skillopt-sleep — vendored nightly self-improvement plugin from microsoft/SkillOpt)
+**Version:** v2.12.0 (consolidated release — 20 domains, 380 skills; full reported-issue triage sweep; first tag since v2.9.0. See CHANGELOG.md [2.12.0].)
+
+---
+
+**Previously: v2.11.2** (skillopt-sleep — vendored nightly self-improvement plugin from microsoft/SkillOpt)
 
 **v2.11.2 highlights — engineering/skillopt-sleep/:**
 
 Vendors `engineering/skillopt-sleep/` — a byte-for-byte start from [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt)'s `skillopt_sleep` engine (32 files, stdlib-only, zero third-party deps) and its Claude Code plugin surface (`skills/`, `hooks/`, `commands/`, `scripts/`), following the same verbatim-vendor pattern as `loop-library/`. Gives a local agent a nightly gated self-improvement cycle: read-only harvest of past Claude Code session transcripts → mine recurring tasks → replay offline on the user's own API budget → consolidate into `CLAUDE.md`/`SKILL.md` edits behind a held-out validation gate → stage for review; nothing live changes until an explicit `/skillopt-sleep adopt` (which backs up first). Default `mock` backend spends no API budget.
 
 - **Deliberately not vendored:** the heavier `skillopt` *training* package (benchmark-driven, needs `numpy`/`openai`/`azure-*` + hand-labeled train/val/test data per task) — it optimizes one narrow, scoreable task at a time, which doesn't fit this repo's broad domain-expertise skills or its no-ML-in-scripts/no-test-framework conventions; `skillopt_sleep` mines its "benchmark" from real usage instead, which does fit.
-- **23 deviations from upstream (6 cosmetic, 17 safety/hardening)**, found across ten rounds of adversarial code review rather than assumed safe from the surface docs. The **numbered list in `engineering/skillopt-sleep/README.md`'s "Deviations from upstream" section is the single source of truth** — `plugin.json`'s `attribution.derivation_note` and this bullet are both summaries of it, kept in sync by hand; if any of the three ever disagree on the count again, README.md wins. Highlights: `redact_secrets()` now covers every artifact that goes live or persists — `proposed_SKILL.md`/`proposed_CLAUDE.md`, the cross-night task archive (`state.json`), `report.md`/`report.json` (previously only `diagnostics.json` was scrubbed, despite `report.md` being the file the SKILL.md's own workflow tells a human to read *first*), and — the gap that survived seven review rounds because every earlier fix was file-level — the CLI's own `cmd_run`/`cmd_harvest` console/`--json`/`--output` output, which read the same unredacted in-memory `Report`/`TaskRecord` objects and (via `scheduler.py`'s cron redirect) could leak straight into `cron.log`; the generated crontab line is fully `shlex.quote()`-d including the `extra` flags param, and `cron.log` itself is now `chmod 600` (previously uncovered by the state/staging chmod pass); `scheduler.py`'s per-project cron-line marker match is now anchored on end-of-line rather than a bare substring test, closing a real bug where scheduling/unscheduling one project could silently drop a sibling project's job whose path happened to be a prefix of it; the previously-dead `max_tokens_per_night` config key now sizes `dream_rollouts` down via the engine's own `plan_depth()` heuristic; a hardcoded internal Azure OpenAI backend (5 internal-looking endpoint hostnames + a Managed Identity client ID) was removed rather than carried forward; tool-shim names reachable via `--tasks-file` are now validated against a safe-identifier allowlist before use as a filename or shell text; `commands/skillopt-sleep.md` now tells the agent to confirm with the user before `schedule` (which installs a real crontab entry immediately, unlike every other action); every directory/file `state.py`/`staging.py` create is `chmod 0700`/`0600` rather than left at the world-readable process umask default.
+- **23 deviations from upstream (6 cosmetic, 17 safety/hardening)**, found across ten rounds of adversarial code review rather than assumed safe from the surface docs. The **numbered list in `engineering/skillopt-sleep/README.md`'s "Deviations from upstream" section is the single source of truth** — the plugin's `authoring-notes.json` `attribution.derivation_note` and this bullet are both summaries of it, kept in sync by hand; if any of the three ever disagree on the count again, README.md wins. Highlights: `redact_secrets()` now covers every artifact that goes live or persists — `proposed_SKILL.md`/`proposed_CLAUDE.md`, the cross-night task archive (`state.json`), `report.md`/`report.json` (previously only `diagnostics.json` was scrubbed, despite `report.md` being the file the SKILL.md's own workflow tells a human to read *first*), and — the gap that survived seven review rounds because every earlier fix was file-level — the CLI's own `cmd_run`/`cmd_harvest` console/`--json`/`--output` output, which read the same unredacted in-memory `Report`/`TaskRecord` objects and (via `scheduler.py`'s cron redirect) could leak straight into `cron.log`; the generated crontab line is fully `shlex.quote()`-d including the `extra` flags param, and `cron.log` itself is now `chmod 600` (previously uncovered by the state/staging chmod pass); `scheduler.py`'s per-project cron-line marker match is now anchored on end-of-line rather than a bare substring test, closing a real bug where scheduling/unscheduling one project could silently drop a sibling project's job whose path happened to be a prefix of it; the previously-dead `max_tokens_per_night` config key now sizes `dream_rollouts` down via the engine's own `plan_depth()` heuristic; a hardcoded internal Azure OpenAI backend (5 internal-looking endpoint hostnames + a Managed Identity client ID) was removed rather than carried forward; tool-shim names reachable via `--tasks-file` are now validated against a safe-identifier allowlist before use as a filename or shell text; `commands/skillopt-sleep.md` now tells the agent to confirm with the user before `schedule` (which installs a real crontab entry immediately, unlike every other action); every directory/file `state.py`/`staging.py` create is `chmod 0700`/`0600` rather than left at the world-readable process umask default.
 - One documented, opt-in exception to CLAUDE.md's "no LLM calls in scripts" anti-pattern (see that section) — `backend.py`'s `claude`/`codex` backends shell out to those CLIs only when a non-`mock` backend is explicitly selected.
 - Registered as its own installable marketplace plugin; **counters:** skills 358 → 359; tools 603 → 635; refs 732 (unchanged); commands 110 → 111; plugins 84 → 85 (derived via `scripts/derive_counters.py --check`).
+
+---
+
+**Unreleased (post-v2.12.0) — engineering/deep-learning-book (companion, not compilation):**
+
+New `engineering/deep-learning-book/` plugin: a study companion for *Deep Learning* by
+Goodfellow, Bengio & Courville (MIT Press, 2016), free to read at deeplearningbook.org.
+Requested as "convert this book into a skill"; built as a **companion** instead, and the
+reasoning is the reusable part.
+
+- **Why not `book-to-skill`.** That skill's rights gate refuses a `shareable` package without
+  `public-domain` / `open-license` / `internal-docs` / `author-permission` — none applies to an
+  MIT Press title whose own site states the HTML-only format exists as a friction against
+  copying under the authors' contract — and its `rights_and_provenance.md` lists publishing a
+  compiled skill of a copyrighted book to a public marketplace under **Do not**. Its hard rule 1
+  also forbids scraping a book from the web, so the pipeline could not have run against a URL.
+  **The rule this sets:** when a user asks to convert a copyrighted work into a *shareable*
+  skill, build a companion that indexes and updates the source, not a compilation that
+  reproduces it; compile only when the gate clears, and keep the output local when it does not.
+  Recorded in `skills/deep-learning-book/references/rights_and_use.md`.
+- **What it is.** The compiled-skill *shape* (master SKILL.md at ~2.0k tokens with a chapter
+  index and topic index, `chapters/ch01..ch20`, glossary, patterns, cheatsheet) filled with
+  original synthesis — no passages, figures, or per-paragraph paraphrase — each chapter file
+  linking to the official free chapter. Passes `book_to_skill`'s own `book_skill_validator.py`
+  clean and every file is inside `token_budget_estimator.py`'s caps.
+- **The differentiator is the delta layer.** A static compilation freezes a source at its
+  publication date; this one dates it. Every chapter carries "What changed after 2016", and
+  `references/book_to_2026_delta.md` gives five corrections with primary citations and per-claim
+  confidence levels: double descent qualifying Ch 5's U-curve, AdamW splitting weight decay from
+  L2 (Ch 7 treats them as interchangeable), transformers displacing Ch 10's recurrence (keep the
+  gradient analysis, drop the architecture advice), diffusion growing out of Ch 14's denoising
+  autoencoders and Ch 18's score matching, and self-supervised learning vindicating Ch 15 while
+  replacing every method it names. Two claims are marked contested rather than propagated (batch
+  norm's "internal covariate shift" mechanism; the strong lottery-ticket form) and two named as
+  folklore. The stated rule: **the conflict is almost always in the recommendation, not the
+  analysis.**
+- **4 stdlib tools, each with a real refusal.** `reading_path_planner.py` (goal → prerequisite
+  closure over the book's actual dependency graph, ordered, priced in weeks; exit 3 for a goal
+  the book does not cover, naming what does; exit 4 with forcing questions when unroutable),
+  `training_diagnostics.py` (Ch 11's rules in priority order, so a NaN is never reported as
+  overfitting; exit 4 rather than diagnosing with no instruments), `capacity_planner.py`
+  (regularization ladder in cost order, with "shrink the model" pushed **last** in the
+  overparameterized regime per double descent; exit 4 on a val-below-train split),
+  `model_arithmetic.py` (params/FLOPs/activation memory per example for conv, linear, MHA and
+  LSTM/GRU stacks; exit 5 naming the layer whose shapes do not connect).
+- 4 references citing 7-8 sources each, 3 assets, `cs-deep-learning-tutor` agent, `/cs:deep-learning`
+  + `/cs:dl-reading-path` + `/cs:dl-diagnose`. **Counters:** skills 386 → 387; tools 723 → 727;
+  refs 838 → 842; agents 116 → 117; commands 146 → 149; plugins 97 → 98 (verified via
+  `scripts/derive_counters.py --check`).
+
+---
+
+**Unreleased (post-v2.12.0) — marketing/linkedin (organic LinkedIn presence, platform rules in code):**
+
+New `marketing/linkedin/` plugin answering [discussion #934](https://github.com/alirezarezvani/claude-skills/discussions/934), which asked for a strategic assistant for growing a LinkedIn presence organically rather than a post generator. Six skills (orchestrator + profile + strategy + content + engagement + analytics), 17 stdlib-only tools, 15 references, 2 agents, 8 `/cs:*` commands.
+
+- **The design constraint is the differentiator.** No LinkedIn credentials, no API calls, no scraping, nothing auto-sent — automated posting/connecting/commenting are prohibited by LinkedIn's User Agreement §8.2, and a restricted account ends a compounding asset. `linkedin_policy_gate.py` runs before any drafting and refuses seven request classes (automation, scraping, engagement pods, bulk messaging, fake identity, fabricated proof, named third-party automation platforms), each carrying the policy anchor **and a compliant substitute** — the gate never just says no. Orchestrator is `context: fork` with a deterministic five-lane router (route 0 / ask 2 / no-signal 3) and cross-lane prerequisites.
+- **Refusals are real, not warnings.** Cadence under 90 min/week returns a comment-only plan rather than a schedule that dies in week five; a newsletter whose six-month cost exceeds the budget is refused before the promise is made; an experiment needing more posts than a quarter allows is reported infeasible rather than quietly re-sized; the pattern miner refuses to test anything below 10 posts and reports `NOTHING_SURVIVED` as a finding.
+- **Evidence discipline — two popular claims corrected rather than propagated** (the `andreessen` precedent). (1) "A personalised note triples connection acceptance (~45% vs ~15%)" is not supported by the largest samples, which show acceptance close to identical either way (~26.4%); what a note actually moves is the **post-accept reply rate** (~5.4% → ~9.4%) — which is why `outreach_message_builder.py` refuses an ask in a first-touch note. (2) The ~19% in-body external-link reach reduction has **never been confirmed by LinkedIn as a penalty** and has a plausible dwell-time explanation, so it is a warning, not a block. Every reference carries per-claim confidence levels (🟢 LinkedIn-official / 🟡 third-party study / 🔴 folklore, named as folklore).
+- **Accessibility is a blocking lint finding, not a footnote.** Unicode pseudo-bold (the output of "bold text generators") fails the linter: screen readers announce those characters as mathematical symbols and LinkedIn search does not index them as words. Engagement bait is also blocking, per the Professional Community Policies. `pattern_miner.py` adds multiple-comparisons accounting and mirrored-candidate de-duplication that no comparable tool implements.
+- All six SKILL.md files are a full **6/6 PASS** on the write-a-skill checklist (binding for post-v2.6.0 skills). Every tool supports `--help`/`--sample`/`--output json` with typed exit codes. **Counters:** skills 380 → 386; tools 706 → 723; refs 823 → 838; agents 114 → 116; commands 138 → 146; plugins 96 → 97 (verified via `scripts/derive_counters.py --check`).
+
+---
+
+**Unreleased (post-v2.12.0) — engineering/spinning-up-deep-rl (the first book compiled by book-to-skill):**
+
+The first knowledge-base plugin produced end-to-end by `engineering/book-to-skill`, from OpenAI's
+[Spinning Up in Deep RL](https://spinningup.openai.com/) (MIT, © 2018 OpenAI; primarily developed by
+Joshua Achiam). Source obtained by cloning `openai/spinningup` and compiling its `docs/` reStructuredText
+tree — 38 files, ~37k words, ~49K tokens — through the full pipeline: `extract_document.py --mode technical`
+→ analysis → 20 chapter files → glossary / patterns / cheatsheet → master `SKILL.md` → `book_skill_validator.py`
+→ `skill_plugin_emitter.py`. Validator passes clean **in `--strict` mode**; every file is inside budget
+(resident core 2,101 / 4,000 tokens; 20 chapters averaging ~1,256 tokens each, loaded on demand).
+
+- **Rights basis is `open-license`, not fair use.** The emitter's Step-11 gate refuses a shareable package
+  without one; MIT permits derivative distribution. Upstream's notice is reproduced in full in the plugin's
+  `LICENSE` alongside this package's own, and the README names the source, the author and the commit-era —
+  a sidecar JSON is not a license notice.
+- **Chapter structure follows the source's own `toctree`**, not a heading scan: user documentation (ch01-06),
+  Introduction to RL Parts 1-3 (ch07-09), resources — the researcher essay, key papers, exercises, benchmarks
+  (ch10-13), one chapter per algorithm in lineage order (ch14-19: VPG → TRPO → PPO, DDPG → TD3 → SAC), and the
+  logger/MPI/ExperimentGrid utilities (ch20).
+- **The cheatsheet carries what a glossary cannot**: the debug-turnaround threshold (under 5 minutes), the seed
+  minimums (3, ideally 10+), the benchmark network defaults that differ by algorithm family ((64,32)/tanh
+  on-policy vs (256,256)/relu off-policy), and Spinning Up's own **parity disclosure** — DDPG/TD3/SAC are
+  research-grade, VPG/TRPO/PPO are not, and the docs say to use OpenAI Baselines for those instead.
+- **One emitter defect found and fixed in the same change.** `skill_plugin_emitter.py` was writing its `source`
+  provenance block into `plugin.json`, which this repo's own `scripts/check_plugin_json.py` hard-fails
+  (issue #954 — Claude Code rejects the whole manifest on any unrecognized key). Its inline comment claimed
+  `source`/`attribution` were "approved extension fields," which had been true and no longer was. The manifest
+  builder now emits spec fields only and a new `_authoring_notes()` writes `.claude-plugin/authoring-notes.json`.
+  Every future `book-to-skill` package gets a manifest that passes CI; the one emitted here was the first to
+  catch it.
+- **write-a-skill checklist: 4/6, and the two remaining are structural, not defects.** A compiled
+  knowledge base is not a hand-authored instruction skill. (2) "SKILL.md under 100 lines" conflicts
+  with the format's mandatory 20-row Chapter Index plus Topic Index; the binding budget here is
+  `book_skill_validator.py`'s 4,000-token cap, and the file sits at 2,101 — trimming to 100 lines
+  would delete exactly the navigation that `budget.over_cap` exists to protect. (3) "no
+  time-sensitive info" fires on "January 2020", which is a **provenance pin on a frozen source**
+  (Spinning Up's last update), not a staleness claim — removing it would make the skill less honest
+  about what it covers. (5) was a real gap and is fixed: the resident core now carries a worked
+  invocation block.
+- **No new Python tools** — a compiled knowledge base ships notes, not scripts, so the tools and references
+  counters are unchanged. **Counters:** skills 387 → 388; agents 117 → 118; commands 149 → 150; plugins
+  98 → 99, on top of `deep-learning-book` which merged into `dev` first (verified via
+  `scripts/derive_counters.py --check`).
+
+---
+
+**Unreleased (post-v2.11.2) — engineering/skill-doctor (grade the agent setup from real sessions):**
+
+Rebuild of [warpdotdev/common-skills](https://github.com/warpdotdev/common-skills)' `skill-doctor` (MIT, © Denver Technologies, Inc., pinned at `f3b58c81`) as a full plugin. Harvests the last N days of local Claude Code / Codex sessions scoped to one repo, has the agent judge each condensed transcript against two verbatim-preserved rubrics (efficiency, code quality — labels only, closed tables), measures which installed skills actually fired, and proposes only the skill edits the evidence justifies — one local, self-contained HTML report; nothing is ever uploaded.
+
+- **22 numbered deviations from upstream** — `engineering/skill-doctor/README.md`'s list is authoritative; `authoring-notes.json` summarizes it. Headline additions: **`score_aggregator.py`, a deterministic gate with no upstream counterpart** — upstream let the scoring LLM average its own scores and assemble `report.json`; here labels map to scores via embedded tables mirroring the rubrics, scores for unsampled sessions are rejected as fabrications, reasons are length-checked, and a suggestion that cites no scored session id (or carries no diff) fails at exit 4. **Collector hardening:** always-on 12-pattern secret redaction before any transcript touches disk (no off switch; per-label counts land in the inventory and report), `chmod 0700/0600` artifacts, plugin-layout skill discovery (`*/skills/*/SKILL.md`), slash-command usage detection mined from `<command-name>` markers before the injection filter drops them. **Renderer replaced:** zero JavaScript (upstream embeds a 1,531-line prebuilt diff bundle + canvas share-image) — pure-CSS diff coloring, native `<details>` collapse, `prefers-color-scheme`, print-to-PDF; Warp branding and the `warp.dev/factories` CTA removed. **Dropped:** the Warp `warp.sqlite` source and its 388-line hand-rolled protobuf decoder (unauditable vendored binary-format code; Warp users should run upstream).
+- Preserved verbatim: both scoring rubrics (`scorers/`) and the skill-improvement filing bar ("would a competent agent with the current instructions still fail this way?"), now §1–§2 of `references/skill_edit_governance.md`. Zero suggestions clearing the bar is a valid, reportable success; proposed edits stay staged under the run's scratch dir until an explicit per-skill yes, and proposals for this repo's skills must pass write-a-skill's 6-item checklist.
+- 3 stdlib tools (all `--help`/`--sample`/`--output json`, typed exit codes; the pipeline smoke-tests end-to-end from `--sample` fixtures including a planted fake secret), 3 references citing 7 sources each, 3 handoff-shape assets, `cs-skill-doctor` agent, `/cs:skill-doctor` command. SKILL.md is a full 6/6 PASS on the write-a-skill checklist. Distinct from `skillopt-sleep` (automated nightly loop; this is one interactive graded pass), `write-a-skill` (authors from expertise; this improves from evidence), and self-eval (grades the current session; this grades a window). **Counters** (this branch merged `dev` after `agent-memory` landed, so these deltas sit on top of it): skills 378 → 379; tools 703 → 706; refs 820 → 823; agents 110 → 111; commands 130 → 131; plugins 95 → 96 (verified via `scripts/derive_counters.py --check`).
 
 ---
 
@@ -177,7 +299,7 @@ Vendors `engineering/skillopt-sleep/` — a byte-for-byte start from [microsoft/
 Derived from [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill) (MIT). Compiles a book, documentation folder, or spec collection (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into an agent skill: a resident master `SKILL.md` (core frameworks + chapter index + topic index, capped at 4k tokens) plus on-demand `chapters/chNN-*.md`, `glossary.md`, `patterns.md`, and a decision `cheatsheet.md`. The agent reads the core, then one chapter — never the whole source again.
 
 - **Vendored close to verbatim:** the extraction library (`scripts/book_to_skill/` — config, exceptions, sanitize, dependencies, utils + 7 per-format parsers) keeps upstream's format chains, chapter detection across Latin/Roman/Chinese/Thai/Korean heading styles, invisible-Unicode (Trojan Source) sanitization and DOCX entity-expansion guard.
-- **25 numbered deviations from upstream** — the list in `engineering/book-to-skill/README.md` is authoritative; `plugin.json`'s `attribution.derivation_note` summarizes it. Highlights: (5) `--install-missing` now defaults to `report` — it prints the pip command and uses the stdlib fallback instead of upstream's TTY prompt that runs `pip install` into the caller's environment; (6) a **rights gate** — `skill_plugin_emitter.py --distribution shareable` refuses without `--rights` from `public-domain|open-license|internal-docs|author-permission`, with `fair-use` deliberately excluded (a defence, not a licence); (10) the two upstream validators merged into one four-family gate, adding **budget** and **index** families — dead chapter links, unindexed chapter files and dangling topic refs are the failure that silently breaks navigation while the skill still looks complete, and upstream had no check for it; (11) folded YAML scalars now parse, so a wrapped description no longer under-reports its length past the 1024-char cap; (12) `discovery_tax.py` → `token_budget_estimator.py` with the optional `tiktoken` path dropped, a post-flight budget audit added, and an explicit **worth-converting verdict** that says "just read it" when the source is under ~3× the compiled skill.
+- **26 numbered deviations from upstream** — the list in `engineering/book-to-skill/README.md` is authoritative; the plugin's `authoring-notes.json` `attribution.derivation_note` summarizes it. Highlights: (5) `--install-missing` now defaults to `report` — it prints the pip command and uses the stdlib fallback instead of upstream's TTY prompt that runs `pip install` into the caller's environment; (6) a **rights gate** — `skill_plugin_emitter.py --distribution shareable` refuses without `--rights` from `public-domain|open-license|internal-docs|author-permission`, with `fair-use` deliberately excluded (a defence, not a licence); (10) the two upstream validators merged into one four-family gate, adding **budget** and **index** families — dead chapter links, unindexed chapter files and dangling topic refs are the failure that silently breaks navigation while the skill still looks complete, and upstream had no check for it; (11) folded YAML scalars now parse, so a wrapped description no longer under-reports its length past the 1024-char cap; (12) `discovery_tax.py` → `token_budget_estimator.py` with the optional `tiktoken` path dropped, a post-flight budget audit added, and an explicit **worth-converting verdict** that says "just read it" when the source is under ~3× the compiled skill.
 - **Repo-native addition with no upstream counterpart — Step 11 / `/cs:book-to-plugin`:** upstream stops at a bare folder in `~/.claude/skills/`, which this library cannot route to. `skill_plugin_emitter.py` wraps a compiled skill as a full plugin package (manifest + `cs-<slug>` agent + `/cs:<slug>` command + README) and prints the marketplace entry; it never edits `marketplace.json` itself, and refuses to wrap a skill carrying validation errors.
 - **Cross-linked into `engineering/write-a-skill`** ("author first, compile second" — that skill authors from expertise in your head, this one compiles from a document on disk).
 - 4 stdlib-only tools (all `--help` / `--sample` / `--output json`), 5 references citing 7–8 sources each, 3 assets, `cs-book-to-skill` agent, 2 commands. **Counters:** skills 362 → 363; tools 644 → 663; refs 741 → 746; agents 102 → 103; commands 116 → 118; plugins 88 → 89 (derived via `scripts/derive_counters.py --check`).
@@ -237,6 +359,66 @@ every quantitative claim re-cited to the primary source.
 
 ---
 
+**Unreleased (post-v2.11.2) — engineering/agent-memory (promotion is earned, not asserted):**
+
+New `engineering/agent-memory/` plugin. Concept derived from
+[TencentCloud/TencentDB-Agent-Memory](https://github.com/TencentCloud/TencentDB-Agent-Memory)
+(MIT) — **no upstream code included**. A four-tier ladder over Claude Code's own
+hooks: **L0** raw transcripts (never injected) → **L1** candidate atoms
+(gitignored, recalled on lexical relevance per prompt) → **L2** project context
+(committed after adopt, loaded every session start) → **L3** stable persona
+(always loaded). Tiers are distinguished by *injection policy*, not storage
+format.
+
+- **Three upstream choices deliberately rejected**, each for a repo rule rather
+  than taste: the managed **database** (self-contained-package rule → one
+  append-oriented JSONL per project, capped at 500 atoms); a **proxy layer**
+  between agent and model (Claude Code already exposes the three interception
+  points — adding a proxy to obtain hooks the platform provides buys nothing and
+  adds a failure mode on the critical path); **LLM-based extraction** (the
+  no-LLM-in-scripts anti-pattern, and a model call cannot run in an async
+  teardown hook on a latency budget, nor reproduce its output from the
+  transcript, which would break "cite, don't invent").
+- **The gates are the design.** L1→L2 needs ≥3 distinct sessions spanning ≥2
+  distinct calendar days (`stated` = 2 sessions, day rule *still applies*;
+  `verified` = 1 observation and is the only day-exempt path); L2→L3 needs ≥2
+  distinct projects + 30 days. Thresholds are tuned toward refusing because the
+  error costs are asymmetric: under-promotion is self-healing (the user restates
+  it, which is itself an observation), over-promotion silently steers every
+  future session.
+- **Two gates refuse rather than guess.** `redacted: true` blocks promotion on
+  *any* volume of evidence — a **durability-independent barrier**, since a
+  secret restated over five sessions passes every recurrence gate; the flag
+  firing means the text was altered, and a lexical filter finding one secret is
+  not proof it found all of them, while L2/L3 are committed to git. An open
+  contradiction freezes both claims, found by **reverse join** (the newer atom
+  carries no flag) rather than a mirrored field.
+- **Three hooks, all fail-open.** `SessionStart` injects L2+L3 and marks
+  L2↔L3 collisions the project-scoped detector structurally cannot see;
+  `UserPromptSubmit` recalls on a **100 ms internal budget** against a monotonic
+  clock (the 1 s hook `timeout` is a wedged-process backstop, not the budget);
+  `SessionEnd` is async and captures → redacts → merges → detects → stages.
+  Measured: spawn+recall p50 ≈ 29 ms / p95 ≈ 31 ms, scoring itself 2–3 ms over
+  500 atoms — **interpreter cold start is the entire cost**, which is why the
+  in-script loop is not worth optimizing further.
+- **Nothing reaches a `CLAUDE.md` without a human.** Promotions land in
+  `.memory/staged/`; `/cs:memory adopt` walks them one at a time and backs both
+  files up first. `cs-memory-curator` refuses to adopt a redacted claim, an
+  unresolvable citation, or to resolve a contradiction itself.
+- 5 stdlib scripts + 3 hooks (`memory_core.py` is a deviation from `DESIGN.md`
+  §10's four-script tree — the **`README.md` deviations list is authoritative**,
+  and §10.1's stale `+6` tool estimate is corrected to `+8` there and in
+  `DESIGN.md`), 3 references citing 6–7 sources each with per-claim confidence
+  levels, a 69-check example validator, and `DESIGN.md` — ~1,400 lines, 44
+  review rounds, open decisions ranked by what they gate, including the one that
+  permits deleting the folder if rule-based recall proves too low.
+- **SKILL.md is a full 6/6 PASS** on the write-a-skill checklist. **Counters:**
+  skills 377 → 378; tools 695 → 703 (+8: 5 scripts + 3 hooks); refs 817 → 820;
+  agents 109 → 110; commands 129 → 130; plugins 94 → 95 (verified via
+  `scripts/derive_counters.py --check`).
+
+---
+
 **Unreleased (post-v2.11.1) — productivity/fable-goal (ramble → autonomous /goal prompt):**
 
 Improved port of `duncan-buildroom/freeskills` `fable-goal` (informal "free to use and modify" grant — quoted, not relicensed; see the `attribution` block). Converts a rambling description of a desired outcome into one polished, copy-paste /goal prompt for a fresh autonomous session — the prompt is the deliverable, never the build. Adds over upstream: wrong-tool check, observable-done principle, six-slot extraction (deliverable/quantity/stakes/tools/quality/destination), per-medium verification defaults, six-point pre-delivery self-check, anti-pattern list + failure-mode catalog reference, second worked example in a non-web medium. Ships `goal_prompt_self_check.py` (stdlib runner for the mechanically checkable self-check subset — word count 150–350, goal line, autonomy directive, verification/freedom/destination language; exit 0/1, `--sample`, `--output json`), `/cs:fable-goal` command. Intentionally no `agents/`/`assets/` (single reasoning pass; see plugin README design notes). SKILL.md is a full PASS on the write-a-skill 6-item checklist. Counters: skills 357 → 358 (this PR also trues up pre-existing engineering-row drift 355 → 357); tools 602 → 603; refs 731 → 732; commands 109 → 110; plugins 83 → 84.
@@ -260,7 +442,7 @@ Extends the v2.11.0 agent-harness layer to the two people-process domains. Publi
 
 **v2.11.0 highlights — agent-harness skill + AR audit of both engineering folders:**
 
-New `engineering/agent-harness/` skill — the thin unifying layer that lets an agent or subagent pick up a goal for any of the repo's 18 domains, decompose it into verifiable tasks, execute them with the domain's own tools, verify each with machine-run checks, retry within caps, escalate to a human on exhausted budgets, and refuse to close until every task is verified or explicitly waived.
+New `engineering/agent-harness/` skill — the thin unifying layer that lets an agent or subagent pick up a goal for any of the repo's 18 (now 19) domains, decompose it into verifiable tasks, execute them with the domain's own tools, verify each with machine-run checks, retry within caps, escalate to a human on exhausted budgets, and refuse to close until every task is verified or explicitly waived.
 
 - **3 stdlib tools:** `harness_manifest_builder.py` (scans a domain folder → `manifest.v1` JSON: skills, tools, exact `--help`/`--sample` checks, static agentic signals), `goal_compiler.py` (goal + manifest → `plan.v1` task plan via deterministic keyword scoring; refuses vague goals exit 3 with forcing questions, no-match exit 4 with nearest candidates), `loop_controller.py` (JSON-backed `init/next/record/verify/close/status` state machine — runs verification checks itself via subprocess to prevent verification theater, caps attempts + iterations with escalation, refuses close while any task is unverified; atomic state writes via `os.replace`).
 - **18 committed per-domain manifests** under `assets/harnesses/` (the whole repo, machine-readable), a JSON schema, `harness-runner` agent, `/cs:harness <domain> <goal>` command, and 3 references citing the 2024–2026 harness canon (Anthropic long-running-agents harness, verifier's law, SWE-agent, Ralph loop, Cognition serialize-writers, plus the repo's own tc-tracker / autoresearch locked-evaluator / loop-library stop-state primitives — reuse, not reinvention).
@@ -426,7 +608,7 @@ Designed and shipped under the `/goal` directive to expand BizOps + Commercial s
 Ported `alirezarezvani/aeo-box` after a full component audit. Distilled the valuable parts into our conventions; skipped repo-specific infra (generic agents, GH workflows, TS scripts).
 
 - **`marketing-skill/skills/aeo/`** (new, 8 files, ~3,200 LOC) — Answer Engine Optimization skill, a discipline distinct from SEO. 3 stdlib Python tools: `aeo_audit.py` (E-E-A-T + structure scoring, 0-100 composite, 8 industries with calibrated thresholds where YMYL industries hit 85+, SaaS/b2b/media 70, ecommerce 65), `aeo_optimizer.py` (conservative/balanced/aggressive rewrites + schema.org JSON-LD injection), `citation_tracker.py` (local-first citation ledger at `~/.aeo-data/citations.json` with verdict EARLY/EMERGING/STRONG). 3 references each citing 8 sources: E-E-A-T canon, per-LLM citation patterns (Perplexity / ChatGPT / Claude / Gemini / Mistral with 73% cross-LLM correlation analysis), AEO vs. SEO strategic choice. New `cs-aeo` agent + `/cs:aeo` slash command. New 8th pod ("AEO") added to marketing-skill.
-- **`engineering/security-guidance/`** (new, 5 files) — PreToolUse security reminder hook ported from David Dworken @ Anthropic (MIT). Preserves 9 upstream patterns verbatim (eval, pickle, dangerouslySetInnerHTML, innerHTML, document.write, new Function, child_process.exec, os.system, GH Actions workflow injection) + adds 3 new patterns (subprocess shell=True, SQL f-string injection, yaml.unsafe_load). Session-state caching prevents nagging (warn once per file+rule combo), 30-day auto-cleanup, disable via `ENABLE_SECURITY_REMINDER=0`. `attribution` block in plugin.json credits upstream. Reference doc `pretooluse_hook_canon.md` cites 8 sources on hook design discipline.
+- **`engineering/security-guidance/`** (new, 5 files) — PreToolUse security reminder hook ported from David Dworken @ Anthropic (MIT). Preserves 9 upstream patterns verbatim (eval, pickle, dangerouslySetInnerHTML, innerHTML, document.write, new Function, child_process.exec, os.system, GH Actions workflow injection) + adds 3 new patterns (subprocess shell=True, SQL f-string injection, yaml.unsafe_load). Session-state caching prevents nagging (warn once per file+rule combo), 30-day auto-cleanup, disable via `ENABLE_SECURITY_REMINDER=0`. `attribution` block in `.claude-plugin/authoring-notes.json` credits upstream. Reference doc `pretooluse_hook_canon.md` cites 8 sources on hook design discipline.
 - **`megaprompts/14-aeo-agentic-megaprompt.md`** — 1,579-line multi-agent AEO application spec preserved verbatim. Keeps Path-B option open for future "build the full agentic AEO app" work.
 - **Marketplace + Codex registry:** 55 → 57 plugins; 303 → 305 indexed skills; `marketing-skill/.claude-plugin/plugin.json` description updated from 7 → 8 pods.
 - **Verification:** all 4 new Python tools pass `--help` and `--sample`; security hook smoke-tested (exits 2 on detection, 0 on cached/clean); all 3 cross-platform syncs (.codex / .gemini / .hermes) re-ran clean.
@@ -511,7 +693,7 @@ This release ships the complete v2 megaprompt collection (`megaprompts/01-13`) a
 **Version:** v2.5.0
 
 **v2.5.0 Highlights — c-level-agents: Founder-Mode Executive Team:**
-- **c-level-agents** plugin (new, `./c-level-advisor/c-level-agents/`) — 8 cs-* persona agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) with moderate voice differentiation, plus 17 /cs:* slash commands surfaced as sub-skills.
+- **c-level-agents** plugin (new, `./c-level-agents/`) — 8 cs-* persona agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff) with moderate voice differentiation, plus 17 /cs:* slash commands surfaced as sub-skills.
 - **Forcing-question office hours (8):** `/cs:office-hours` (YC-style 6-Q intake), and per-role `/cs:cfo-review`, `/cs:cmo-review`, `/cs:cpo-review`, `/cs:cro-review`, `/cs:cto-review`, `/cs:ciso-review`, `/cs:gc-review` (General Counsel — a lane gstack lacks entirely).
 - **Strategic sprint pipeline (5):** `/cs:brief` → `/cs:boardroom` (6-phase deliberation with Phase 2 isolation + devil's-advocate pass) → `/cs:decide` (two-layer memory + preserved dissent) → `/cs:execute` (90-day plan) → `/cs:post-mortem` (scored against pre-committed criteria).
 - **Meta + safety (4):** `/cs:founder-mode` (auto-router), `/cs:onboard` (12-Q founder interview), `/cs:cross-eval` (multi-model consensus with graceful Claude-only fallback), `/cs:freeze` (cooldown lock on irreversible decisions).
@@ -590,11 +772,11 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
 2. **Never rename repo folders or local skill names** to match ClawHub slugs. The repo is the source of truth.
 3. **No paid/commercial service dependencies.** Skills must not require paid third-party API keys or commercial services unless provided by the project itself. Free-tier APIs and BYOK (bring-your-own-key) patterns are acceptable.
 4. **Rate limit: 5 new skills per hour** on ClawHub. Batch publishes must respect this. Use the drip timer (`clawhub-drip.timer`) for bulk operations.
-5. **plugin.json schema** — Required fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills`. Two **approved extension fields** are permitted in the repo (stripped at ClawHub-publish time, if/when a stripping pipeline lands):
+5. **plugin.json schema** — Required fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills`. **No extension fields of any kind** — Claude Code's manifest validator rejects the entire `plugin.json` on any unrecognized key, which made 37+ plugins uninstallable (issue #954). Authoring metadata lives in a sibling file the validator never reads: `.claude-plugin/authoring-notes.json`, holding at most two keys:
    - `source` (object) — provenance metadata for skills built via Path-B megaprompt conversion. Recommended shape: `{spec: "megaprompts/NN-name.md", build_pattern: "...", distinct_from: "..."}`. Used by all 13 v2 megaprompt-derived skills (productivity/, marketing/, research/).
-   - `attribution` (object) — credit metadata for skills derived from external MIT-licensed work. Used by `engineering/caveman`, `engineering/grill-me`, `engineering/grill-with-docs` (Matt Pocock derivatives).
+   - `attribution` (object) — credit metadata for skills derived from external MIT-licensed work. Used by `engineering/caveman`, `engineering/grill-me`, `engineering/grill-with-docs` (Matt Pocock derivatives), `engineering/skillopt-sleep`, `engineering/book-to-skill`, and others. Upstream credit must also remain in the plugin's `README.md`/`LICENSE` — a sidecar JSON file is not a license notice.
 
-   No other extras. The `skills` value depends on the plugin layout. Per the live Claude Code plugin spec ([plugins-reference](https://code.claude.com/docs/en/plugins-reference)), **all paths must be relative to the plugin root and start with `./`**. CC 2.1.144+ returns `Validation errors: skills: Invalid input` on a bare string without the prefix.
+   `scripts/check_plugin_json.py` hard-fails any `plugin.json` still carrying `source`/`attribution` (pointing to the sidecar file) and sanity-checks `authoring-notes.json` where present. Note that `source` **is** a valid key in `marketplace.json`'s `plugins[]` entries — the two schemas are not interchangeable, which is how the key originally leaked into `plugin.json`. The `skills` value depends on the plugin layout. Per the live Claude Code plugin spec ([plugins-reference](https://code.claude.com/docs/en/plugins-reference)), **all paths must be relative to the plugin root and start with `./`**. CC 2.1.144+ returns `Validation errors: skills: Invalid input` on a bare string without the prefix.
 
    **Canonical forms (CC 2.1.144+):**
    - Single-skill plugin (SKILL.md at root): `"skills": ["./"]` (array form required).
@@ -642,6 +824,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** July 17, 2026
-**Version:** v2.11.2 (+ unreleased productivity coverage expansion, fable-goal, book-to-skill)
-**Status:** 364 skills deployed across 18 domains, 90 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)
+**Last Updated:** August 24, 2026
+**Version:** v2.12.0 (consolidated release — see CHANGELOG.md)
+**Status:** 388 production-ready skills across 20 domains, 99 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

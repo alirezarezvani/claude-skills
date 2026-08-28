@@ -101,7 +101,7 @@ small; just read it."
 
 ## Deviations from upstream
 
-**This numbered list is the authoritative record.** `plugin.json`'s
+**This numbered list is the authoritative record.** `.claude-plugin/authoring-notes.json`'s
 `attribution.derivation_note` summarizes it; if the two ever disagree, this list wins.
 
 **Structural**
@@ -245,9 +245,10 @@ small; just read it."
     preventing hand-edit mistakes contradicted the manifest beside it); the symlink guard is
     backed by a **post-copy re-walk** that deletes the package if a link appeared during the
     copy, closing the check-then-act window rather than only narrowing it; and the manifest
-    carries `source.license_scope` stating that the top-level `license` covers the package
+    emits `source.license_scope` stating that the top-level `license` covers the package
     scaffolding, not the compiled notes — a distinction that previously lived only in README
-    prose where a tool reading the manifest alone would miss it.
+    prose where a tool reading the metadata alone would miss it. (Deviation 26 later moved
+    that whole `source` block out of `plugin.json` and into the sidecar.)
 
 21. **The documented quick-start actually runs.** SKILL.md's copy-paste block referenced
     `$WORKDIR` and `$SKILLS_HOME` without ever defining them — following it literally produced
@@ -296,6 +297,21 @@ small; just read it."
     directory stays empty. Also verified that a pre-planted `full_text.txt -> victim` symlink
     leaves the victim's contents intact and is replaced by a 0600 file we own. Degrades to the
     previous path-based checks on platforms without `dir_fd`/`O_NOFOLLOW` (Windows).
+
+26. **Provenance moved out of `plugin.json` into the sidecar the repo actually allows.**
+    The manifest builder wrote its whole `source` block (spec, build pattern, source document,
+    chapter count, distribution, `license_scope`, `rights_basis`) into `plugin.json`, and an
+    inline comment asserted that `source` and `attribution` were "approved extension fields."
+    That had been true and no longer was: Claude Code rejects an entire manifest on any
+    unrecognized key (issue #954), and this repo's own `scripts/check_plugin_json.py` hard-fails
+    a `plugin.json` carrying either field, pointing at `.claude-plugin/authoring-notes.json`
+    instead. So every package the emitter produced failed the repo's blocking CI gate the moment
+    it was committed — a defect that only surfaces at the very last step of the pipeline, which
+    is why it survived. `_plugin_manifest()` now emits spec fields only, and a new
+    `_authoring_notes()` writes the `source` block to `.claude-plugin/authoring-notes.json`.
+    Note that `source` remains a *valid* key in a `marketplace.json` `plugins[]` entry, which is
+    how it leaked into the manifest in the first place; the printed marketplace snippet is
+    unchanged and still correct.
 
 ---
 

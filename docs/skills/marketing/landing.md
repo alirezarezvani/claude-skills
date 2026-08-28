@@ -347,5 +347,5 @@ Run `scripts/html_validator.py --file ${OUTPUT_DIR}/<slug>.html` after generatio
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/04-landing-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/04-landing-megaprompt.md)
+**Source spec:** `megaprompts/04-landing-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Distinct from `product-team/skills/landing-page-generator/`.

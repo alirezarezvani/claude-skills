@@ -34,7 +34,9 @@ class LLMProvider(ABC):
         pass
 
 class OpenAIProvider(LLMProvider):
-    def __init__(self, api_key: str, model: str = "gpt-4"):
+    # No default model: a hardcoded default is the thing that goes stale.
+    # Pass the model your deployment is pinned to, from config.
+    def __init__(self, api_key: str, model: str):
         self.client = OpenAI(api_key=api_key)
         self.model = model
 
@@ -47,7 +49,7 @@ class OpenAIProvider(LLMProvider):
         return response.choices[0].text
 
 class AnthropicProvider(LLMProvider):
-    def __init__(self, api_key: str, model: str = "claude-3-opus"):
+    def __init__(self, api_key: str, model: str = "claude-opus-5"):
         self.client = Anthropic(api_key=api_key)
         self.model = model
 
@@ -158,14 +160,19 @@ def create_chat_messages(user_query: str, context: str) -> List[Dict]:
 ```python
 import tiktoken
 
-def count_tokens(text: str, model: str = "gpt-4") -> int:
-    """Count tokens for a given text and model."""
-    encoding = tiktoken.encoding_for_model(model)
+def count_tokens(text: str, encoding_name: str = "cl100k_base") -> int:
+    """Count tokens for a given text.
+
+    Takes an encoding name rather than a model name: encodings change far more
+    slowly than model IDs, and tiktoken.encoding_for_model() raises KeyError on
+    any model it has not shipped a mapping for yet.
+    """
+    encoding = tiktoken.get_encoding(encoding_name)
     return len(encoding.encode(text))
 
-def truncate_to_token_limit(text: str, max_tokens: int, model: str = "gpt-4") -> str:
+def truncate_to_token_limit(text: str, max_tokens: int, encoding_name: str = "cl100k_base") -> str:
     """Truncate text to fit within token limit."""
-    encoding = tiktoken.encoding_for_model(model)
+    encoding = tiktoken.get_encoding(encoding_name)
     tokens = encoding.encode(text)
 
     if len(tokens) <= max_tokens:
@@ -176,12 +183,13 @@ def truncate_to_token_limit(text: str, max_tokens: int, model: str = "gpt-4") ->
 
 ### Context Window Management
 
-| Model | Context Window | Effective Limit |
-|-------|----------------|-----------------|
-| GPT-4 | 8,192 | ~6,000 (leave room for response) |
-| GPT-4-32k | 32,768 | ~28,000 |
-| Claude 3 | 200,000 | ~180,000 |
-| Llama 3 | 8,192 | ~6,000 |
+Query the model's advertised context window at runtime rather than table it
+here; every fixed number in this position has gone stale within a year.
+
+The rule that does not change: reserve headroom for the response. Budget
+roughly 75-90% of the window for input and leave the remainder for output,
+then cap output explicitly with `max_tokens` so a runaway generation cannot
+overflow the window or the bill.
 
 ### Chunking Strategy
 
@@ -206,12 +214,9 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 100) -> List[st
 
 ### Cost Calculation
 
-| Provider | Input Cost | Output Cost | Example (1K tokens) |
-|----------|------------|-------------|---------------------|
-| GPT-4 | $0.03/1K | $0.06/1K | $0.09 |
-| GPT-3.5 | $0.0005/1K | $0.0015/1K | $0.002 |
-| Claude 3 Opus | $0.015/1K | $0.075/1K | $0.09 |
-| Claude 3 Haiku | $0.00025/1K | $0.00125/1K | $0.0015 |
+Prices move several times a year, so this guide does not carry a rate table.
+Pull the current per-million-token input and output prices from your
+provider's pricing page and inject them as configuration.
 
 ### Cost Tracking
 
@@ -229,26 +234,24 @@ class LLMUsage:
 def calculate_cost(
     input_tokens: int,
     output_tokens: int,
-    model: str
+    input_price_per_mtok: float,
+    output_price_per_mtok: float,
 ) -> float:
-    """Calculate cost based on token usage."""
-    PRICING = {
-        "gpt-4": {"input": 0.03, "output": 0.06},
-        "gpt-3.5-turbo": {"input": 0.0005, "output": 0.0015},
-        "claude-3-opus": {"input": 0.015, "output": 0.075},
-    }
+    """Calculate cost from caller-supplied rates (USD per million tokens).
 
-    prices = PRICING.get(model, {"input": 0.01, "output": 0.03})
-
-    input_cost = (input_tokens / 1000) * prices["input"]
-    output_cost = (output_tokens / 1000) * prices["output"]
+    Rates are parameters, not constants. A hardcoded price table is wrong
+    within a year and silently produces a confidently incorrect business case.
+    Load these from config so they can be updated without a code change.
+    """
+    input_cost = (input_tokens / 1_000_000) * input_price_per_mtok
+    output_cost = (output_tokens / 1_000_000) * output_price_per_mtok
 
     return input_cost + output_cost
 ```
 
 ### Cost Optimization Strategies
 
-1. **Use smaller models for simple tasks** - GPT-3.5 for classification, GPT-4 for reasoning
+1. **Use smaller models for simple tasks** - small tier for classification, large tier for reasoning
 2. **Cache common responses** - Store results for repeated queries
 3. **Batch requests** - Combine multiple items in single prompt
 4. **Truncate context** - Only include relevant information

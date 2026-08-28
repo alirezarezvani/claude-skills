@@ -358,7 +358,7 @@ with open('my_tools_openai.json') as f:
 
 # Use with OpenAI function calling
 response = openai.ChatCompletion.create(
-    model="gpt-4",
+    model=OPENAI_MODEL,  # from config; don't hardcode a model ID
     messages=[{"role": "user", "content": "Search for AI news"}],
     functions=schemas['functions']
 )
@@ -377,7 +377,7 @@ with open('my_tools_anthropic.json') as f:
 # Use with Anthropic tool use
 client = anthropic.Anthropic()
 response = client.messages.create(
-    model="claude-3-opus-20240229",
+    model="claude-opus-5",
     messages=[{"role": "user", "content": "Search for AI news"}],
     tools=schemas['tools']
 )

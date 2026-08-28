@@ -124,7 +124,7 @@ python isms_audit_scheduler.py surveillance_scope.json
 - [cs-soc2-auditor](cs-soc2-auditor.md) — SOC 2 Type II auditor (75% overlap with 27001)
 - [cs-aims-iso42001](cs-aims-iso42001.md) — ISO 42001 AIMS auditor (60% reuse from 27001)
 - [cs-dpo-gdpr](cs-dpo-gdpr.md) — GDPR DPO (Article 32 = 27001 Annex A overlap)
-- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity strategy
+- [cs-ciso-advisor](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/agents/cs-ciso-advisor.md) — Executive cybersecurity strategy
 
 ## References
 

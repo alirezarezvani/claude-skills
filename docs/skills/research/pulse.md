@@ -259,5 +259,5 @@ Sources received: M. Sources cited: K. Training knowledge: 0 ([Background] exclu
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/01-pulse-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/01-pulse-megaprompt.md)
+**Source spec:** `megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Re-grill with `/cs:grill-with-docs` if drift between spec and implementation surfaces.

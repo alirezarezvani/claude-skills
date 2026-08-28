@@ -1,1 +1,0 @@
-../../../engineering-team/playwright-pro/skills/init/SKILL.md

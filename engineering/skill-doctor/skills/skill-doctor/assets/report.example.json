@@ -1,0 +1,49 @@
+{
+  "_comment": "Shape score_aggregator.py emits and render_report.py consumes. Never hand-author this file — it is the aggregator's output, and the renderer refuses a report missing scores/stats/top_findings/suggestions.",
+  "title": "Agent Skill Report",
+  "generated_at": "2026-01-15T10:06:00+00:00",
+  "harness": "claude",
+  "handle": "example-repo",
+  "stats": {
+    "sessions_analyzed": 9,
+    "sessions_scanned": 41,
+    "skills_found": 6,
+    "skills_used": 3,
+    "window_days": 45
+  },
+  "scores": {
+    "efficiency": 0.6444,
+    "code_quality": 0.6,
+    "skill_coverage": 0.4444,
+    "overall": 0.5989
+  },
+  "grade": "F",
+  "top_findings": [
+    "Files were re-read verbatim in 4 of 9 sessions before any edit was attempted",
+    "deploy-checklist never fired in 3 sessions whose first user message contained the word 'deploy'",
+    "Two sessions repeated a fix-test cycle three times on the same lint failure a pre-commit run would have caught"
+  ],
+  "suggestions": [
+    {
+      "skill": "deploy-checklist",
+      "change": "Rewrite the trigger description so the skill fires on 'deploy', 'release', and 'ship'.",
+      "evidence": "In 0f3a2b1c-example-claude-session the user asked to 'deploy the staging build'; the skill never fired.",
+      "sessions": ["0f3a2b1c-example-claude-session"],
+      "proposed_path": "proposed/deploy-checklist/SKILL.md",
+      "diff": "--- a/SKILL.md\n+++ b/SKILL.md\n@@ -1,4 +1,4 @@\n ---\n name: deploy-checklist\n-description: Walk the deployment checklist.\n+description: Use when the user asks to deploy, release, or ship a build — walks the pre-deploy checklist including migrations and rollback tags.\n ---\n"
+    }
+  ],
+  "session_scores": {
+    "0f3a2b1c-example-claude-session": {
+      "efficiency": {
+        "label": "mostly_inefficient",
+        "reason": "Three fix-test cycles on the same import error; a lint run before the first edit would have caught it."
+      },
+      "code_quality": {
+        "label": "block",
+        "reason": "Debug print left in src/api/client.py; retry helper duplicates existing backoff logic."
+      }
+    }
+  },
+  "warnings": []
+}

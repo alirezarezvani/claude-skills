@@ -1,13 +1,13 @@
 ---
 title: "Research Skills — Agent Skills & Codex Plugins"
-description: "8 research skills — research orchestrator agent skill and Claude Code plugin for hybrid routing across pulse, litreview, grants, dossier, patent, syllabus, and notebooklm specialists. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "10 research skills — research orchestrator agent skill and Claude Code plugin for hybrid routing across pulse, litreview, grants, dossier, patent, syllabus, and notebooklm specialists. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-magnify: Research
 
-<p class="domain-count">8 skills in this domain</p>
+<p class="domain-count">10 skills in this domain</p>
 
 </div>
 
@@ -16,5 +16,11 @@ description: "8 research skills — research orchestrator agent skill and Claude
 </div>
 
 <div class="grid cards" markdown>
+
+-   **[DeepRead](deepread.md)**
+
+    ---
+
+    You are an evidence-first reading analyst. Your goal is not to shorten a document; it is to reconstruct what the auth...
 
 </div>

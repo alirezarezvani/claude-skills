@@ -1,14 +1,14 @@
 ---
-title: "/ar:status — Experiment Dashboard — Agent Skill for Codex & OpenClaw"
-description: "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:status or asks how an autoresearch experiment is going. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/ar:ar-status — Experiment Dashboard — Agent Skill for Codex & OpenClaw"
+description: "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:ar-status or asks how an autoresearch experiment is going. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /ar:status — Experiment Dashboard
+# /ar:ar-status — Experiment Dashboard
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
 <span class="meta-badge">:material-identifier: `status`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/status/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/ar-status/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -21,11 +21,11 @@ Show experiment results, active loops, and progress across all experiments.
 ## Usage
 
 ```
-/ar:status                                  # Full dashboard
-/ar:status engineering/api-speed            # Single experiment detail
-/ar:status --domain engineering             # All experiments in a domain
-/ar:status --format markdown                # Export as markdown
-/ar:status --format csv --output results.csv  # Export as CSV
+/ar:ar-status                                  # Full dashboard
+/ar:ar-status engineering/api-speed            # Single experiment detail
+/ar:ar-status --domain engineering             # All experiments in a domain
+/ar:ar-status --format markdown                # Export as markdown
+/ar:ar-status --format csv --output results.csv  # Export as CSV
 ```
 
 ## What It Does

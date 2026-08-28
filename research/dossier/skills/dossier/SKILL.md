@@ -314,5 +314,5 @@ new ExternalHyperlink({
 ---
 
 **Version:** 1.0.0
-**Source spec:** [`megaprompts/12-dossier-megaprompt.md`](../../../../megaprompts/12-dossier-megaprompt.md)
+**Source spec:** `megaprompts/12-dossier-megaprompt.md` (maintainer-local draft spec — gitignored, not present in the public repository)
 **Build pattern:** Path B (direct conversion). Research-pack sibling, hypothesis-testing variant.

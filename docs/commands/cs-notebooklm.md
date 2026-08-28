@@ -149,7 +149,7 @@ python ../skills/notebooklm/scripts/async_action_classifier.py --action audio_ov
 
 - Agent: [`cs-notebooklm`](https://github.com/alirezarezvani/claude-skills/tree/main/research/notebooklm/agents/cs-notebooklm.md)
 - Skill: [`notebooklm`](https://github.com/alirezarezvani/claude-skills/tree/main/research/notebooklm/skills/notebooklm/SKILL.md)
-- Source spec: [`megaprompts/03-notebooklm-megaprompt.md`](https://github.com/alirezarezvani/claude-skills/tree/main/megaprompts/03-notebooklm-megaprompt.md)
+- Source spec: `megaprompts/03-notebooklm-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Research-domain siblings (different shape): `/cs:pulse`, `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:patent`, `/cs:syllabus`
 
 ---

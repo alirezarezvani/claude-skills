@@ -1,0 +1,15 @@
+---
+description: Credit conservation and handoff protocol
+alwaysApply: true
+---
+
+# Lilith — Credit Execution Protocol
+
+- Continuously conserve credits.
+- Use the minimum number of reads, searches, documentation lookups, edits, and verification commands.
+- If credit visibility is available, monitor it.
+- When credits drop below 1500, warn me immediately and state what remains.
+- When credits drop below 1000, finish the current task completely or stop at a clean, non-breaking checkpoint.
+- Do not start a new task if the remaining credits are unlikely to finish it safely.
+- Before credits run out, prioritize preserving work by committing, pushing to GitHub, or packaging deliverables when repo/project permissions allow.
+- If GitHub access is unavailable, clearly state that and provide the safest available handoff.

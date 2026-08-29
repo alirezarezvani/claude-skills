@@ -59,3 +59,67 @@ Background: dark with subtle purple-blue glow gradients. Screenshots: always `bo
 | 3-4s | 8-12 | ~70% |
 | 5-6s | 15-22 | ~75% |
 | 7-8s | 22-30 | ~80% |
+
+## Atlas Cloud Scene Generation
+
+Use this optional path only for conceptual B-roll that cannot be captured from the real
+product. Product UI, results, dashboards, and workflows must use real screenshots.
+
+### Preconditions
+
+1. Confirm `ATLASCLOUD_API_KEY` is set without printing it.
+2. Read the live model catalog at `https://api.atlascloud.ai/api/v1/models`.
+3. Confirm the selected model is an enabled text-to-image model and read its live schema.
+4. Keep the demo-video screenshot and HTML pipeline as the default.
+
+`google/nano-banana-2-lite/text-to-image-developer` is a suitable low-latency example
+when it is present in the live catalog. Its current text-to-image schema accepts a prompt
+and supports a `16:9` aspect ratio.
+
+### Submit Once
+
+Create one request per approved conceptual scene:
+
+```bash
+curl --fail-with-body https://api.atlascloud.ai/api/v1/model/generateImage \
+  -H "Authorization: Bearer $ATLASCLOUD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "User-Agent: demo-video-skill/1.0" \
+  -d '{
+    "model": "google/nano-banana-2-lite/text-to-image-developer",
+    "prompt": "<describe one conceptual scene; do not invent product UI>",
+    "aspect_ratio": "16:9",
+    "resolution": "1k"
+  }'
+```
+
+Do not automatically retry this POST. Save the returned prediction ID immediately. If the
+request fails, use the HTML scene fallback instead of spending on another generation.
+
+### Poll and Save
+
+Poll only the returned prediction with bounded backoff:
+
+```bash
+curl --fail-with-body \
+  -H "Authorization: Bearer $ATLASCLOUD_API_KEY" \
+  -H "User-Agent: demo-video-skill/1.0" \
+  "https://api.atlascloud.ai/api/v1/model/prediction/<prediction-id>"
+```
+
+Stop on `completed` or `failed`, and stop after the agreed timeout. Download the first
+completed output into `demo-output/scenes/` and inspect it before compositing. Reject any
+asset that resembles fabricated product UI, contains broken text, or conflicts with the
+real product branding.
+
+Record each generated asset in `demo-output/generated-assets.json`:
+
+```json
+{
+  "scene": 3,
+  "model": "google/nano-banana-2-lite/text-to-image-developer",
+  "prediction_id": "<prediction-id>",
+  "prompt": "<exact prompt>",
+  "output": "scenes/scene-03-broll.png"
+}
+```

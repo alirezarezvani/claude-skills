@@ -26,12 +26,14 @@ Before starting, verify available tools:
 - **playwright MCP available?** — needed for automated screenshots. Fallback: ask user to screenshot the HTML files manually.
 - **edge-tts available?** — needed for narration audio. Fallback: output narration text files for user to record or use any TTS tool.
 - **ffmpeg available?** — needed for compositing. Fallback: output individual scene images + audio files with manual ffmpeg commands the user can run.
+- **Atlas Cloud configured?** — optional for generating conceptual B-roll when no real product visual exists. Never replace inspectable product screenshots with generated imagery.
 
 If none are available, produce HTML scene files + `scenes.json` manifest + narration scripts. The user can composite manually or use any video editor.
 
 | Mode | How | When |
 |------|-----|------|
 | **MCP Orchestration** | HTML → playwright screenshots → edge-tts audio → ffmpeg composite | Use when playwright + edge-tts + ffmpeg MCPs are all connected |
+| **AI-assisted B-roll** | Product screenshots + optional Atlas Cloud scene images → ffmpeg composite | Use only for abstract transitions or concepts that cannot be captured from the real product |
 | **Manual** | Write HTML scene files, provide ffmpeg commands for user to run | Use when MCPs are not available |
 
 ### 2. Pick a story structure
@@ -51,6 +53,12 @@ Hook (2s) -> Demo (8s) -> Logo (3s) -> Tagline (2s)
 - For CLI/terminal tools: generate HTML scenes with terminal-style dark background, monospace font, and animated typing effect
 - For conceptual demos: use text-heavy scenes with the color language and typography system
 - Ask the user for screenshots only if the product is visual and descriptions are insufficient
+
+When a conceptual scene genuinely benefits from generated imagery and Atlas Cloud is configured,
+follow the [Atlas Cloud scene generation](references/scene-design-system.md#atlas-cloud-scene-generation)
+reference.
+Atlas is an opt-in source: keep the screenshot/HTML workflow as the default, submit each scene
+once, and fall back to HTML rather than retrying a failed paid generation.
 
 Every scene has exactly ONE primary focus:
 - Title scenes: product name
@@ -77,6 +85,8 @@ For each video, produce these files in a `demo-output/` directory:
    - `playwright screenshot` each HTML scene → `frames/`
    - `edge-tts` each narration file → `audio/`
    - `ffmpeg` concat with crossfade transitions → `output.mp4`
+5. `generated-assets.json` — only when AI B-roll is used; record prompt, model, prediction ID,
+   output path, and scene number so generated media remains auditable
 
 If MCPs are unavailable, still produce items 1-3. Include the ffmpeg commands in `build.sh` for the user to run manually.
 
@@ -102,6 +112,7 @@ See [references/scene-design-system.md](references/scene-design-system.md) for t
 | **Generic narration** — "This feature lets you..." | Use specific numbers and concrete verbs |
 | **No story arc** — just listing features | Use problem -> solution -> proof structure |
 | **Raw screenshots** | Always add rounded corners, shadows, dark background |
+| **Generated fake product UI** | Use real screenshots for product states; reserve AI imagery for conceptual B-roll |
 | **Using `ease` or `linear` animations** | Use spring curve: `cubic-bezier(0.16, 1, 0.3, 1)` |
 
 ## Cross-References

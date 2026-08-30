@@ -47,6 +47,35 @@ REFUSE_RULES = [
             r"\bbrowser (extension|plugin|add-?on)\b.{0,40}\b(linkedin|connect|message)\b",
             r"\bscript that (logs? in|clicks?|sends?|connects?)\b",
         ],
+        "exemptions": [
+            {
+                # P7's own substitute names native LinkedIn scheduling as the supported
+                # path, so refusing "auto-post with LinkedIn's scheduler" contradicted
+                # this gate's own advice. The exemption covers POSTING only: LinkedIn's
+                # scheduler publishes posts, it does not connect, message, like or follow,
+                # so those matches still refuse even in the same sentence.
+                "signal": r"\b(linkedin'?s?\s+)?(own|native|built[-\s]?in)\b[^.]{0,40}\bschedul\w*"
+                          r"|\bnative\b[^.]{0,20}\bschedul\w*"
+                          r"|\blinkedin'?s?\s+schedul\w*",
+                "excuses": r"^auto[-\s]?(post|publish|schedul)\w*$",
+                "why": "LinkedIn's own scheduling feature — the supported path named in P7.",
+            },
+            {
+                # Same endorsed action reached through the other P1 pattern:
+                # "automate posting with LinkedIn's native scheduler" matches
+                # \bautomat(e|ed|ing|ion)\b and yields the bare snippet "automate".
+                # That token is far too generic to exempt on the signal alone - "use
+                # the native scheduler and automate my DMs" would sail through - so
+                # this one also requires posting language immediately after the
+                # matched word. "automate my DMs" keeps refusing.
+                "signal": r"\b(linkedin'?s?\s+)?(own|native|built[-\s]?in)\b[^.]{0,40}\bschedul\w*"
+                          r"|\bnative\b[^.]{0,20}\bschedul\w*"
+                          r"|\blinkedin'?s?\s+schedul\w*",
+                "excuses": r"^automat(e|es|ed|ing|ion)$",
+                "context": r"\b(post|posts|posting|publish\w*|content|updates?)\b",
+                "why": "LinkedIn's own scheduling feature, applied to posting.",
+            },
+        ],
         "substitute": "Do the same volume by hand on a capped schedule. "
                       "`linkedin-engagement/scripts/outreach_volume_guard.py` sizes a manual "
                       "cadence you can actually sustain; the plugin drafts the text, you press send.",
@@ -63,6 +92,23 @@ REFUSE_RULES = [
             r"\bemail finder\b", r"\bfind (their|his|her) email\b",
             r"\bbuild(ing)? a (lead )?(list|database)\b.{0,30}\bfrom linkedin\b",
         ],
+        "exemptions": [
+            {
+                # This rule's own substitute tells the user to run LinkedIn's export of
+                # their own data, so refusing "export my connections list as a csv" told
+                # them not to do the thing it recommends. Scoped tightly: only an EXPORT
+                # match, only of the user's own connections/contacts/network/data. A
+                # leads or member-profile database is not the self-export and still
+                # refuses, as does any scrape/crawl/harvest match in the same text.
+                "signal": r"\b(my|our|your)\s+own\b"
+                          r"|\bget a copy of (my|our|your) data\b"
+                          r"|\bdata privacy\b"
+                          r"|\bexport\b[^.]{0,20}\b(my|our|your)\b",
+                "excuses": r"^export\b.*\b(connections?|contacts?|network|data)\b",
+                "why": "LinkedIn's own export of your own data — the substitute this rule "
+                       "recommends.",
+            },
+        ],
         "substitute": "Use LinkedIn's own export of YOUR data (Settings → Data privacy → "
                       "Get a copy of your data) and LinkedIn-native search. Analytics work in "
                       "this plugin runs on your own exported post/profile stats, never on "
@@ -75,6 +121,9 @@ REFUSE_RULES = [
                   "Community Policies (be authentic / no fake engagement)",
         "patterns": [
             r"\b(engagement|comment|like|linkedin) ?pod\b", r"\bpods?\b(?=.{0,30}\b(join|run|group)\b)",
+            # The lookahead above only fires noun-before-verb ("pods to join"); the common
+            # phrasing is verb-first ("join a pod"), which it structurally cannot match.
+            r"\b(join|joining|run|running|start|starting|invite[sd]? me to)\b.{0,20}\bpods?\b",
             r"\bbuy(ing)? (followers?|likes?|comments?|connections?|views?|impressions?)\b",
             r"\b(fake|paid|bought|purchased) (followers?|engagement|likes?|comments?)\b",
             r"\bengagement (group|ring|circle|exchange|swap)\b",
@@ -104,7 +153,7 @@ REFUSE_RULES = [
     },
     {
         "id": "P5-BULK-MESSAGING",
-        "title": "Bulk or unsolicited mass messaging",
+        "title": "Bulk or unsolicited mass messaging or posting",
         "anchor": "LinkedIn User Agreement §8.2 (send or redirect messages by automated means; "
                   "spam) + Professional Community Policies (no spam/unsolicited commercial content)",
         "patterns": [
@@ -113,10 +162,23 @@ REFUSE_RULES = [
             r"\bsend the same (message|dm|note) to\b",
             r"\bcopy[- ]?paste\b.{0,25}\b(dm|message|outreach)\b.{0,25}\b(everyone|all|hundreds)\b",
             r"\bdrip (campaign|sequence)\b.{0,30}\blinkedin\b",
+            # Unsolicited bulk POSTING, not just messaging. Before the P1 exemption
+            # existed, "auto-post to 50 groups without permission" was refused only
+            # incidentally, because P1 refused every automation word. Now that native
+            # scheduling is correctly allowed, the spam itself needs its own rule -
+            # otherwise fixing the self-contradiction quietly permitted the spam.
+            r"\bpost\w*\b[^.]{0,40}\b(to|in|into|across)\b[^.]{0,20}\b\d{2,}\b[^.]{0,20}"
+            r"\b(groups?|communities|forums?|subreddits?)\b",
+            r"\b(spam|blast|dump)\w*\b[^.]{0,30}\b(groups?|communities|feeds?)\b",
+            r"\bwithout permission\b[^.]{0,40}\b(post|group|share|promot)\w*"
+            r"|\b(post|group|share|promot)\w*[^.]{0,40}\bwithout permission\b",
         ],
         "substitute": "Per-person messages with a specific reason, sent by hand, under a weekly "
                       "cap. `outreach_message_builder.py` refuses a template with no "
-                      "person-specific line for exactly this reason.",
+                      "person-specific line for exactly this reason. For groups: post where "
+                      "you are a participating member, on a cadence "
+                      "`cadence_planner.py` says you can sustain, and only where the group's "
+                      "own rules allow it.",
     },
     {
         "id": "P6-FABRICATION",
@@ -215,30 +277,137 @@ SAMPLE_TEXT = ("I want to grow to 20k followers in six months. Plan: use Dux-Sou
                "90 minutes, and blast the same DM to everyone who accepts.")
 
 
-def _scan(text: str, rules: list, key: str) -> list:
+def _scan(text: str, rules: list, key: str, exemptions: list) -> list:
+    """Match rules against text, dropping matches an exemption explains.
+
+    A rule may carry exemptions so it does not refuse the very substitute it
+    recommends. An exemption drops a single matched snippet — never the whole rule
+    — so a sentence that mixes an endorsed action with a prohibited one still
+    refuses on the prohibited part.
+    """
     low = text.lower()
     hits = []
     for rule in rules:
-        matched = []
+        matched, excused = [], []
+        # excused holds dicts, so a `snippet in excused` membership test compares a
+        # str against dicts and is always False - the same phrase appearing twice was
+        # re-evaluated and reported twice, making exemptions_applied overstate what
+        # was found. Track the snippet strings separately.
+        excused_snippets: set = set()
         for pat in rule["patterns"]:
             for m in re.finditer(pat, low, re.IGNORECASE):
                 snippet = m.group(0).strip()
-                if snippet and snippet not in matched:
+                if not snippet:
+                    continue
+                # Every OCCURRENCE is judged on its own position. De-duplicating by
+                # snippet text before this call silently dropped the second use of a
+                # generic word: "automate posting via the native scheduler, and also
+                # automate direct messaging to my whole network" excused the first
+                # "automate", then skipped the second as a duplicate, so the mass-DM
+                # half was never evaluated and the whole request returned ALLOW.
+                # De-duplication is for the display lists only, below.
+                reason = _exemption_for(snippet, low, rule.get("exemptions", ()), m.start())
+                if reason:
+                    if snippet not in excused_snippets:
+                        excused_snippets.add(snippet)
+                        excused.append({"id": rule["id"], "snippet": snippet, "why": reason})
+                elif snippet not in matched:
                     matched.append(snippet)
+        # Record exemptions whether or not the rule still fires. Attaching them only
+        # to a surviving hit hid them in exactly the case that matters most: when
+        # every match is exempted the rule produces no hit at all, so an ALLOW that
+        # recognized and excused a prohibited-looking phrase looked identical to one
+        # that never matched anything.
+        exemptions.extend(excused)
         if matched:
-            hits.append({
+            hit = {
                 "id": rule["id"],
                 "title": rule["title"],
                 "matched": matched[:5],
                 "anchor": rule.get("anchor", ""),
                 key: rule[key],
-            })
+            }
+            if excused:
+                hit["exempted"] = [e["snippet"] for e in excused][:5]
+            hits.append(hit)
     return hits
 
 
+_SENTENCE_SPLIT = re.compile(r"[.!?;\n]")
+
+
+def _sentence_around(text: str, at: int) -> str:
+    """Return the sentence containing offset `at`.
+
+    The signal that makes a match legitimate has to be about THIS action. Searching
+    the whole input let an unrelated aside excuse a match elsewhere: "auto-post
+    daily to 50 groups without permission... LinkedIn's native scheduler is neat,
+    right?" was allowed, because the endorsement in the second sentence excused the
+    spam in the first. That turned a refusal into an ALLOW, which is the one
+    direction this gate must never move by accident.
+    """
+    start = 0
+    for m in _SENTENCE_SPLIT.finditer(text, 0, at):
+        start = m.end()
+    end_match = _SENTENCE_SPLIT.search(text, at)
+    end = end_match.start() if end_match else len(text)
+    return text[start:end]
+
+
+_CLAUSE_BREAK = re.compile(
+    r"[.!?;,\n]|\b(and|but|then|also|plus|while|or|as well as)\b", re.IGNORECASE)
+
+
+def _clause_after(text: str, at: int, span: int, cap: int = 40) -> str:
+    """Return the text just after a match, cut at the first clause boundary.
+
+    `context` exists to require a word IMMEDIATELY after the matched token. A fixed
+    character window is not "immediately": it reaches into the next clause, so the
+    context belonging to a LATER occurrence could excuse an earlier, unrelated one.
+    "automate connects and automate posting via native scheduler" allowed the whole
+    request, because the second clause's "posting" fell inside the first
+    "automate"'s 40-char window - and adding a period in place of "and" refused it.
+    A gate whose verdict turns on incidental phrasing length is not a gate.
+
+    Both bounds apply, whichever is tighter: the clause boundary keeps another
+    clause's words out, and the character cap keeps one long unpunctuated clause
+    from drifting ("automate connecting with recruiters for my posting campaign").
+    """
+    window = text[at + span:at + span + cap]
+    brk = _CLAUSE_BREAK.search(window)
+    return window[:brk.start()] if brk else window
+
+
+def _exemption_for(snippet: str, text: str, exemptions, at: int = 0) -> str:
+    """Return the reason this snippet is exempt, or "" if it is not.
+
+    Two gates always apply: the snippet must be one this exemption can excuse, and
+    the signal that makes it legitimate must appear IN THE SAME SENTENCE as the
+    match. An exemption may add a third, `context`, which must appear just after the
+    matched word - needed where the snippet itself is too generic to exempt safely.
+
+    Sentence scoping costs a false refusal on a legitimate two-sentence phrasing
+    ("I use LinkedIn's native scheduler. I auto-post weekly."), which the user can
+    rephrase. The alternative cost is a false ALLOW on a prohibited tactic, which
+    they cannot detect at all.
+    """
+    scope = _sentence_around(text, at)
+    for ex in exemptions:
+        if not re.search(ex["excuses"], snippet, re.IGNORECASE):
+            continue
+        if not re.search(ex["signal"], scope, re.IGNORECASE):
+            continue
+        ctx = ex.get("context")
+        if ctx and not re.search(ctx, _clause_after(text, at, len(snippet)), re.IGNORECASE):
+            continue
+        return ex["why"]
+    return ""
+
+
 def evaluate(text: str) -> dict:
-    refusals = _scan(text, REFUSE_RULES, "substitute")
-    constraints = _scan(text, CONSTRAIN_RULES, "constraint")
+    exemptions: list = []
+    refusals = _scan(text, REFUSE_RULES, "substitute", exemptions)
+    constraints = _scan(text, CONSTRAIN_RULES, "constraint", exemptions)
     if refusals:
         verdict, code = "REFUSE", 4
     elif constraints:
@@ -250,6 +419,7 @@ def evaluate(text: str) -> dict:
         "exit_code": code,
         "refusals": refusals,
         "constraints": constraints,
+        "exemptions_applied": exemptions,
         "input_preview": text.strip()[:280],
         "standing_constraints": STANDING_CONSTRAINTS,
         "disclaimer": ("Deterministic pattern check against LinkedIn's published policies, not "
@@ -273,6 +443,10 @@ def render_human(result: dict) -> str:
             out.append(f"  [{c['id']}] {c['title']}")
             out.append(f"      matched : {', '.join(c['matched'])}")
             out.append(f"      honor   : {c['constraint']}\n")
+    if result.get("exemptions_applied"):
+        out.append("\nRecognized but exempt — these look like rule matches and are not:\n")
+        for e in result["exemptions_applied"]:
+            out.append(f"  [{e['id']}] '{e['snippet']}' — {e['why']}\n")
     if result["verdict"] == "ALLOW":
         out.append("\nNothing in this request trips a known rule. Proceed.\n")
     out.append("\nStanding constraints (always apply):")
@@ -281,6 +455,25 @@ def render_human(result: dict) -> str:
     out.append("")
     out.append(result["disclaimer"])
     return "\n".join(out)
+
+
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except (OSError, UnicodeDecodeError) as err:
+        # UnicodeDecodeError is a ValueError subclass, not an OSError, so a file that
+        # exists but is not valid UTF-8 escaped the OSError catch as a traceback -
+        # the same failure mode this helper exists to prevent for a bad path.
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
 
 
 def main() -> int:
@@ -300,7 +493,7 @@ def main() -> int:
     elif args.text:
         text = args.text
     elif args.input:
-        text = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        text = _read_input(args.input)
     else:
         ap.error("one of --text, --input, or --sample is required")
 

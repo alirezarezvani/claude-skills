@@ -1,0 +1,260 @@
+[
+  {
+    "cell": "С1.1",
+    "claim": "Came to the museum by accident, was looking for a job closer to home, planned to stay only a couple of months",
+    "quote": "I came here, honestly, by accident — I was looking for a job closer to home, saw a posting on a website, thought I'd stay maybe two months, until something better turned up. And then somehow... I got pulled in, I guess.",
+    "line": 2
+  },
+  {
+    "cell": "С1.2",
+    "claim": "Considered a shopping mall and a library, chose the museum for the schedule and the calm",
+    "quote": "There was that, I went to a shopping mall for a cashier job, and the library was calling me too. But the museum turned out to have a more convenient schedule, and, well, it's calmer here somehow, not as hectic as retail.",
+    "line": 4
+  },
+  {
+    "cell": "С1.3",
+    "claim": "Expected quiet work, in reality the scope turned out to be wider — tours, conflicts with visitors",
+    "quote": "Yes, honestly, I thought it would be a quiet, undemanding little job, you just sit in the gallery. But in fact it turned out — one minute they'd ask me to lead a tour, even though that's not really my job, another minute I'd be dealing with a visitor whose hands wander where they shouldn't.",
+    "line": 6
+  },
+  {
+    "cell": "С1.4",
+    "claim": "Motivators are the team and the emotional response of children; demotivators are pay and bureaucracy",
+    "quote": "What motivates... well, we have a good team, the girls are all like family, we help each other out. And when kids come on tours and their eyes light up — that really gets to me, that's what makes it worth it. And what demotivates — the pay, let's be honest, it's tiny, and there's a lot of bureaucracy, all this paperwork, reports.",
+    "line": 8
+  },
+  {
+    "cell": "С1.5",
+    "claim": "eNPS neutral — recommends with a reservation, not for the money",
+    "quote": "Well... probably yes, but with reservations. I'd say — if money matters to you, don't even look here. But if it's for the soul — then you could try it.",
+    "line": 10
+  },
+  {
+    "cell": "С2.1",
+    "claim": "Thematic arrangement of exhibits at the anniversary exhibition instead of a chronological one",
+    "quote": "I suggested arranging the exhibits not chronologically, as usual, but by theme — kitchen, nursery, living room, so people would feel like they were walking through an apartment. Management liked it, so that's how we did it.",
+    "line": 12
+  },
+  {
+    "cell": "С2.2",
+    "claim": "The task was handed down by the directorate, but the specific decision on thematic presentation was a personal initiative",
+    "quote": "The task itself was handed down from above, the directorate said — we need an exhibition for the anniversary. But how to do it — that I came up with myself, nobody asked specifically for a thematic layout.",
+    "line": 14
+  },
+  {
+    "cell": "С2.3",
+    "claim": "Interaction with collections keepers, education staff, and the facilities manager while preparing the exhibition",
+    "quote": "With the collections keepers, of course, they issued the exhibits. I consulted with the education staff on how best to present the material for different ages. And with the facilities manager — we had to move display cases, he grumbled a bit but helped.",
+    "line": 16
+  },
+  {
+    "cell": "С2.4",
+    "claim": "A month and a half delay for a formal signature even in a successful case",
+    "quote": "Well, it's almost funny — I proposed the idea in March, and it was officially approved only in May. A month and a half of signing paperwork, even though everyone already agreed, it just needed the chief curator's signature, and she was on vacation, so we waited.",
+    "line": 18
+  },
+  {
+    "cell": "С2.5",
+    "claim": "While moving a display case, damage nearly occurred because of a wobbling stand",
+    "quote": "Oh, we almost broke a display case while moving it, honestly. The facilities manager and a worker were carrying it, almost dropped it, the stand was wobbling. It worked out, thank God, nobody even noticed.",
+    "line": 20
+  },
+  {
+    "cell": "С2.6",
+    "claim": "Verbal praise from the department head, but no formal recognition (bonus, order)",
+    "quote": "The department head praised me at the briefing, said well done. But it wasn't reflected in any order, no bonus, nothing like that. A little disappointing, but okay.",
+    "line": 22
+  },
+  {
+    "cell": "С2.7",
+    "claim": "The result rested on personal enthusiasm, there is no systemic process for preparing exhibitions",
+    "quote": "Well, honestly — it was mostly held together by my own enthusiasm. There's no system where, you know, we have a process for preparing thematic exhibitions. Next time, if I don't propose it, nobody will even remember.",
+    "line": 24
+  },
+  {
+    "cell": "С2.П",
+    "claim": "The instructions call for summoning security via a button, in fact the button is broken and the attendant handles it herself",
+    "quote": "Well yes, our job description says that in case of a violation you're supposed to call security using the button. But in fact that button in the far gallery hasn't worked for six months already, I just go and talk to the person myself, however it works out.",
+    "line": 26
+  },
+  {
+    "cell": "С3.1",
+    "claim": "The alarm button has not worked for six months, three requests to facilities without results",
+    "quote": "This whole story with the alarm button — like I said, it hasn't worked for six months. I filed a request with facilities three times, every time they say — we'll pass it on, wait. But there's nothing to wait for, the gallery is big, if something happens, I'm alone, help is far away.",
+    "line": 28
+  },
+  {
+    "cell": "С3.2",
+    "claim": "This is a systemic practice with the equipment overall, not a one-off failure",
+    "quote": "No, it's a genuinely systemic thing, that's just how it is with equipment in general — one time the humidity sensor in storage is acting up, another time the camera in the third gallery has been dead for a year already, it just hangs there for show. Everyone's used to it by now, nobody's surprised.",
+    "line": 30
+  },
+  {
+    "cell": "С3.3",
+    "claim": "Facilities cites lack of budget (resources), the directorate knows but doesn't push a resolution (mixed)",
+    "quote": "Well formally it's facilities, they have the requests pending. But they say — there's no money, it's not in the budget. And the directorate sort of knows, but isn't in a hurry either, because as long as nothing's happened yet — there's apparently no reason to move.",
+    "line": 32
+  },
+  {
+    "cell": "С3.4",
+    "claim": "The problem is \"nobody's\" — formally facilities, but the directorate doesn't push a resolution either",
+    "quote": "Well formally it's facilities, they have the requests pending. But they say — there's no money, it's not in the budget. And the directorate sort of knows, but isn't in a hurry either, because as long as nothing's happened yet — there's apparently no reason to move.",
+    "line": 32
+  },
+  {
+    "cell": "С3.5",
+    "claim": "Besides requests, raised the issue at a staff meeting — promised to include it in the plan, then silence",
+    "quote": "I tried through the union, well, actually it's not quite a union, more like a staff meeting, I raised the issue. They said — we'll include it in next year's plan. And then just a wall, basically, nothing beyond words.",
+    "line": 34
+  },
+  {
+    "cell": "С3.6",
+    "claim": "About 20 minutes of personal time per shift spent compensating for the malfunction",
+    "quote": "My own time — I spend an extra twenty minutes or so per shift, just walking around checking the gallery more often than I should, because I don't trust the equipment. As for money, I don't know, probably it would've been cheaper to fix the button right away than drag it out for years like this.",
+    "line": 36
+  },
+  {
+    "cell": "С3.7",
+    "claim": "The freed-up time would be spent on substantive work with visitors",
+    "quote": "I'd probably spend more time with visitors, telling them things, instead of running to check the gallery every half hour for whether something's broken.",
+    "line": 38
+  },
+  {
+    "cell": "С3.П",
+    "claim": "Zone of silence: avoids a direct answer about risks to the collection's safekeeping",
+    "quote": "Well... (pause) I wouldn't want to put it quite like that, it's probably not really my subject, that's a question for facilities, let's not go into it.",
+    "line": 78,
+    "unstable": true,
+    "note": "zone of silence — the respondent clearly evades even after a follow-up question"
+  },
+  {
+    "cell": "С3.П",
+    "claim": "Repeated evasion after a direct follow-up question about threats to the exhibits' safekeeping",
+    "quote": "There were a couple of moments, yes, but that's probably not for me to tell, we have a separate person who records that kind of thing, I'd rather stay quiet so as not to put anyone on the spot.",
+    "line": 80,
+    "unstable": true,
+    "note": "zone of silence — the respondent clearly evades even after a follow-up question"
+  },
+  {
+    "cell": "С4.1",
+    "claim": "Information channels are a group chat in a messenger app and short weekly briefings for gallery attendants",
+    "quote": "We have a group chat in a messenger app, they post announcements there. And at briefings once a week they tell us things, but the briefings for gallery attendants are separate, quite short, about ten minutes.",
+    "line": 40
+  },
+  {
+    "cell": "С4.2",
+    "claim": "Found out about the schedule change after the fact, two days before it took effect",
+    "quote": "Yes, constantly, honestly. Like, the museum's holiday schedule got changed — they just dropped it in the chat, two days before the holiday, and I'd already planned my shifts for those days differently.",
+    "line": 42
+  },
+  {
+    "cell": "С4.3",
+    "claim": "Strategy filters through partially — knows the general direction, can't articulate the details",
+    "quote": "Well, something like that gets mentioned sometimes at general meetings, about development, about a new exhibition in a couple of years. But in detail, what exactly and why — no, not really clear, more like general phrases.",
+    "line": 44
+  },
+  {
+    "cell": "С4.4",
+    "claim": "Easy with the education staff and collections keepers, difficult with facilities",
+    "quote": "With the education staff it's really easy, they're responsive. With the collections keepers it's fine too, if you arrange things in advance. But with facilities it's hard, it's like there's a wall there — whatever you ask, everything takes forever and grinds along.",
+    "line": 46
+  },
+  {
+    "cell": "С4.5",
+    "claim": "The suggestion box formally exists, but in practice doesn't work",
+    "quote": "Formally we have a suggestion box, there was even an order about it. But in fact nobody looks in there, I dropped a note with an idea once — silence, six months have already passed.",
+    "line": 48
+  },
+  {
+    "cell": "С4.6",
+    "claim": "Two episodes of influence: the thematic exhibition and enlarging the plaque font",
+    "quote": "Well, with that thematic exhibition — that did have an influence, yes. And also when I said that the description plaques were printed in too small a font, elderly visitors were complaining — they redid the font bigger. So it happens, just rarely.",
+    "line": 50
+  },
+  {
+    "cell": "С5.1",
+    "claim": "A visitor burst into tears at the display case with pre-war photographs, recognizing her house",
+    "quote": "Recently there was a case — one elderly woman burst into tears at the display case with pre-war photographs, she said she recognized her house. We talked for about twenty minutes, she was telling me about her childhood. That's honestly what you work for, moments like that.",
+    "line": 52
+  },
+  {
+    "cell": "С5.2",
+    "claim": "Similar recognition cases are a regular occurrence, not a one-off",
+    "quote": "No, actually, something similar happens regularly, since we're a local history museum, a lot of local people come in, someone's grandmother is in a photo, someone recognizes a familiar street. It's really a pattern, not an exception.",
+    "line": 54
+  },
+  {
+    "cell": "С5.3",
+    "claim": "Most often they ask about the bathroom and get confused navigating between galleries",
+    "quote": "Most often they ask where the bathroom is, honestly, there aren't really any signs. And also many don't understand where to go next along the route, the galleries aren't marked with arrows, they get confused.",
+    "line": 56
+  },
+  {
+    "cell": "С5.4",
+    "claim": "Permanent exhibition — school groups; temporary exhibitions — local residents and families",
+    "quote": "For the permanent exhibition it's mostly schoolchildren coming in organized groups, and for the temporary ones it's local residents themselves, families, people interested in the specific topic.",
+    "line": 58
+  },
+  {
+    "cell": "С5.5",
+    "claim": "There are recognizable regular visitors, coming monthly, but no formal tracking",
+    "quote": "Yes, there are elderly women who come literally every month, they even have tea in the lobby sometimes, for them it's like an interest club, socializing. Officially nobody tracks this, I just recognize their faces by now.",
+    "line": 60
+  },
+  {
+    "cell": "С5.6",
+    "claim": "Typical visitor — schoolchildren and elderly local residents, young people are absent",
+    "quote": "The typical one is either schoolchildren sent as part of a program, or elderly local residents. There's not much young people, I think because it's presented a bit boringly, there's no interactivity, plus tickets aren't exactly expensive, but not cheap for a student either.",
+    "line": 62
+  },
+  {
+    "cell": "С5.7",
+    "claim": "Priority change — navigation through the galleries (signage)",
+    "quote": "I'd probably set up proper navigation through the galleries — arrows, signs, because people really do get lost, and then I'm the one who has to go find them all over the building.",
+    "line": 64
+  },
+  {
+    "cell": "С6.1",
+    "claim": "Museum metaphor — a \"grandmother's trunk,\" valuable but dusty contents",
+    "quote": "Well, the museum is like a grandmother's trunk, I suppose. Lots of valuable things inside, but a little dusty, and you don't take everything out at once, only what you remember to show.",
+    "line": 66
+  },
+  {
+    "cell": "С6.2",
+    "claim": "Anchors — the team of gallery attendants and free admission for pensioners on Thursdays",
+    "quote": "This little team of ours, the gallery attendants — the atmosphere of mutual support. And free admission for local pensioners on Thursdays, that's a really important thing, people are used to it.",
+    "line": 68
+  },
+  {
+    "cell": "С6.3",
+    "claim": "Anti-priority — paper reporting that duplicates the electronic tracking system",
+    "quote": "I'd give up the paper reporting, honestly. We still fill out the attendance log by hand, even though there's already an electronic system at the entrance, we're just duplicating it for nothing.",
+    "line": 70
+  },
+  {
+    "cell": "С6.4",
+    "claim": "Intangible needs — recognition and autonomy in small decisions",
+    "quote": "Probably recognition, most of all. And also autonomy — I'd like to decide some small things in the gallery myself, without asking permission for every little thing.",
+    "line": 72
+  },
+  {
+    "cell": "С6.5",
+    "claim": "Advice to the new director — come into the gallery in person, don't rely only on reports",
+    "quote": "I'd say — come into the gallery yourself sometimes, see how it actually works, not just from the reports. A lot becomes clear only once you've stood here yourself for a couple of hours.",
+    "line": 74
+  },
+  {
+    "cell": "С6.6",
+    "claim": "Forecast — optimism with an element of anxiety about possible staff cuts",
+    "quote": "More with optimism, we do have movement after all, they're preparing a new exhibition. Although sometimes, honestly, it creeps up on me — what if they cut the gallery attendant positions, automate everything with these ticket terminals, and then what.",
+    "line": 76,
+    "unstable": true,
+    "note": "unstable cell — latent forecast, mixed optimism/anxiety signal"
+  },
+  {
+    "cell": "МЕТА.противоречие",
+    "claim": "The respondent herself flags the inconsistency: at the start she described the work as calm, later as exhausting with constant rounds",
+    "quote": "Yeah, I guess I got carried away at the start when I said it was calm. Honestly the shift wears you out something fierce, it's just that calm is deceptive — like you're standing still, but your nerves are on edge the whole time.",
+    "line": 82
+  }
+]

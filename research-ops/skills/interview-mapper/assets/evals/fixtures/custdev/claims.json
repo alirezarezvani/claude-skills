@@ -1,0 +1,170 @@
+[
+  {
+    "cell": "C1",
+    "claim": "The problem — manual reconciliation of raw material balances across 4 locations every week from paper forms.",
+    "quote": "Every Monday I sit down and reconcile the raw material balances across all four locations.",
+    "line": 7
+  },
+  {
+    "cell": "C1",
+    "claim": "Data source — photos of paper write-off forms sent by managers via WhatsApp.",
+    "quote": "The managers at each location send me photos of the paper write-off forms in WhatsApp.",
+    "line": 9
+  },
+  {
+    "cell": "C2",
+    "claim": "Specific episode: yesterday's reconciliation took 2 hours 40 minutes.",
+    "quote": "Yesterday specifically it was two hours and forty minutes, I timed it, because it was driving me absolutely crazy.",
+    "line": 12
+  },
+  {
+    "cell": "C2",
+    "claim": "Specific episode: the day before yesterday the milk at the Lenina Street location was off by almost a liter.",
+    "quote": "The day before yesterday that's exactly what happened, at the location on Lenina Street the milk was off by almost a liter for the shift.",
+    "line": 16
+  },
+  {
+    "cell": "C2",
+    "claim": "The manager's reaction to the discrepancy — couldn't explain it, just shrugged.",
+    "quote": "I called the manager, she says, maybe the barista spilled it, maybe she didn't log it, basically she just shrugged.",
+    "line": 17
+  },
+  {
+    "cell": "C3",
+    "claim": "Current workaround — a parallel paper logbook, photographed once a week and kept on the phone.",
+    "quote": "The managers keep a paper logbook at the location, I photograph it once a week and keep copies in a separate folder on my phone, just in case, if the accountant asks.",
+    "line": 42
+  },
+  {
+    "cell": "C3",
+    "claim": "The paper logbook is cross-checked against the Excel spreadsheet manually, by eye.",
+    "quote": "I cross-check it manually, by eye, on that same Monday morning.",
+    "line": 44
+  },
+  {
+    "cell": "C4",
+    "claim": "The cost of the problem in time — 3-4 hours a week just on reconciling, not counting calls.",
+    "quote": "Well usually it's about three to four hours a week just on reconciling, that's not counting the calls to managers when the numbers don't add up.",
+    "line": 14
+  },
+  {
+    "cell": "C4",
+    "claim": "The cost of the problem in money — ~41,000 rubles in unexplained discrepancies documented for May.",
+    "quote": "For May it came out to about forty-one thousand rubles in unexplained discrepancies across all locations, I showed that number to the accountant, she was horrified herself.",
+    "line": 23
+  },
+  {
+    "cell": "C4",
+    "claim": "The respondent sees the amount as noticeable — comparable to a location's rent for 1.5 weeks.",
+    "quote": "That's roughly like the rent for one location for a week and a half, so yes, it's noticeable.",
+    "line": 25
+  },
+  {
+    "cell": "C5",
+    "claim": "All four location managers are involved and find the forms inconvenient to fill out.",
+    "quote": "All four managers complain that filling out the forms is inconvenient, especially in a rush, when there's a line.",
+    "line": 46
+  },
+  {
+    "cell": "C5",
+    "claim": "The accountant is involved and complains about delayed numbers.",
+    "quote": "The accountant complains that the numbers come from me late, because I don't manage to reconcile them in time myself.",
+    "line": 47
+  },
+  {
+    "cell": "C5",
+    "claim": "The co-owner partner asks about discrepancies but doesn't participate in solving the problem.",
+    "quote": "Mostly he just asks, the solution is all on me, he's more focused on marketing.",
+    "line": 50
+  },
+  {
+    "cell": "C6",
+    "claim": "Attempt 1 — in January a programmer was hired for 15,000 rubles to build a Google spreadsheet with formulas.",
+    "quote": "The first — in January I hired a programmer I know, he built me a Google spreadsheet with formulas and automatic discrepancy calculation for fifteen thousand rubles.",
+    "line": 28
+  },
+  {
+    "cell": "C6",
+    "claim": "Attempt 1 abandoned — managers got confused entering data, formulas would break.",
+    "quote": "Then the managers started getting confused about which cell to enter what in, the formulas would break if you typed text instead of a number.",
+    "line": 31
+  },
+  {
+    "cell": "C6",
+    "claim": "Attempt 1 finally abandoned by March.",
+    "quote": "By March I just stopped checking it, junk had piled up in there anyway.",
+    "line": 32
+  },
+  {
+    "cell": "C6",
+    "claim": "Attempt 2 — in April a paid subscription to an inventory management app.",
+    "quote": "The second approach — in April I downloaded an inventory management app, I think it was called something like Cleverence, I don't remember exactly.",
+    "line": 34
+  },
+  {
+    "cell": "C6",
+    "claim": "Attempt 2 — paid about 2000 rubles for a month's subscription.",
+    "quote": "I paid something like two thousand rubles there for a month's subscription.",
+    "line": 35
+  },
+  {
+    "cell": "C6",
+    "claim": "Attempt 2 abandoned — subscription not renewed, money wasted.",
+    "quote": "Then I just gave up on it, didn't renew the subscription, the money was wasted.",
+    "line": 39
+  },
+  {
+    "cell": "A1",
+    "claim": "FACT confirmed by behavior — paid hiring of a programmer for 15,000 rubles.",
+    "quote": "The first — in January I hired a programmer I know, he built me a Google spreadsheet with formulas and automatic discrepancy calculation for fifteen thousand rubles.",
+    "line": 28
+  },
+  {
+    "cell": "A1",
+    "claim": "OPINION/DECLARATION not confirmed by behavior — answer to a hypothetical question, weak signal.",
+    "quote": "Listen, that's exactly what I need, I would definitely buy it, honestly, without a second thought.",
+    "line": 56
+  },
+  {
+    "cell": "A2",
+    "claim": "Sign of NAGGING pain trending toward BURNING — the respondent already paid money for an attempted solution.",
+    "quote": "I paid something like two thousand rubles there for a month's subscription.",
+    "line": 35
+  },
+  {
+    "cell": "A2",
+    "claim": "Limitation of the pain-strength conclusion — the respondent herself distinguishes the documented (May) figure from the estimated (March-April) one.",
+    "quote": "Yes, May I actually calculated from the spreadsheet, but March-April is me estimating from memory right now, I could be off in either direction.",
+    "line": 65
+  },
+  {
+    "cell": "A3",
+    "claim": "Readiness signal — independently searching for a solution in a topical Telegram chat and reviewing competitor websites.",
+    "quote": "In one chat for restaurant owners on Telegram I asked for advice, they threw me about five service names.",
+    "line": 53
+  },
+  {
+    "cell": "A3",
+    "claim": "Limitation of the readiness signal — refusal to prepay upfront without a trial period.",
+    "quote": "Well to prepay sight unseen right now — probably not, I'd try it for a month first, see if it sticks with the managers.",
+    "line": 60
+  },
+  {
+    "cell": "A4",
+    "claim": "The hypothesis about willingness to pay market price for a ready-made solution — disproved by rejecting the price of 15,000 rubles/month.",
+    "quote": "I looked at two of them on their websites, one had pricing starting from fifteen thousand a month, I closed the tab right away, that's expensive for us with four locations.",
+    "line": 54
+  },
+  {
+    "cell": "A5",
+    "claim": "Risk of a false positive — the polite closing remark about the conversation's usefulness has no behavioral backing.",
+    "quote": "Yes, very interesting, you really hit the nail on the head with your questions, I enjoyed it a lot.",
+    "line": 72
+  },
+  {
+    "cell": "A6",
+    "claim": "MAIN INSIGHT: the problem is real — the respondent has already spent money and time on two independent attempts at a solution, including a paid and abandoned attempt with an inventory management app.",
+    "quote": "The second approach — in April I downloaded an inventory management app, I think it was called something like Cleverence, I don't remember exactly.",
+    "line": 34
+  }
+]

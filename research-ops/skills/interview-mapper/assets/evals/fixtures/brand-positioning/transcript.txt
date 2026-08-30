@@ -1,0 +1,81 @@
+1	Interviewer: Thanks for making the time, we'll talk for like twenty minutes, is that okay?
+2	Respondent: Yeah no problem, I've actually got coffee in my hand right now, kind of fitting.
+3	Interviewer: Great. Tell me, right now, without overthinking it — what does the name "Perky" bring to mind for you?
+4	Respondent: Well the first thing that pops into my head is, like, some alarm clock, that sharp ringing sound.
+5	Respondent: For some reason I also remember gym class in school, I can literally picture that gym.
+6	Interviewer: Interesting, why gym class?
+7	Respondent: I don't know, it's just the word, it's like it's pushing you to do something, not just, you know, calmly drink your coffee.
+8	Interviewer: What's the tone for you there, do you actually like that image or does it annoy you?
+9	Respondent: I mean I'd say it's a fine brand, nothing weird, the name's just a bit funny.
+10	Respondent: Although honestly, every time I see the sign, there's this slight, um, like I'm being hurried along, and I don't like being hurried along.
+11	Interviewer: Do you go there yourself regularly?
+12	Respondent: I go almost every weekday, there's a "Perky" right under my office, I grab a cappuccino in the morning, it's my spot.
+13	Interviewer: So this is personal experience, not just something you've heard about them?
+14	Respondent: No no, it's me, every day, literally paying at the register with my own hands.
+15	Interviewer: Now compare it, please, with other chains — there's "Coffee Cult," there's "BlackCat" — how does "Perky" stack up against them?
+16	Respondent: I get "Coffee Cult" sometimes too, if it's near home, they've got more of, well, a grown-up vibe, tastings, they show off the beans.
+17	Respondent: And "BlackCat" I've never actually ordered from myself, honestly, my friend told me about that one, that it's all really stylish there, black cups, that kind of minimalism.
+18	Interviewer: So your impression of "BlackCat" comes from your friend, not personal experience?
+19	Respondent: Yeah exactly, I haven't even walked in there, she just showed me photos from their Instagram.
+20	Interviewer: Have you heard anything about "Perky" from other people, not just your own experience?
+21	Respondent: Well my coworkers at work constantly complain that prices went up, I've heard that a lot, I'm not making that up myself.
+22	Respondent: And I also saw their ad on a billboard coming into the city, there was some slogan about energy.
+23	Interviewer: Coming back to "Coffee Cult" and "BlackCat" — what's weaker about "Perky" next to them?
+24	Respondent: Weaker is, probably, this plainness, with "Coffee Cult" you can really feel that people know their beans.
+25	Respondent: And at "Perky" they just pour it fast, which isn't bad either, but there's no soul to it, kind of.
+26	Interviewer: So what does the name "Perky" actually convey about what kind of place this is?
+27	Respondent: It conveys, basically, that it's about energy, about perking up and running off back to work.
+28	Respondent: But what it doesn't convey at all is that the coffee there is actually good, I mean the baristas are solid, there are even alternative brewing methods.
+29	Interviewer: So the substance gets lost?
+30	Respondent: Yeah, it gets lost, because everyone thinks it's some checkbox grab-and-go spot, but in reality they actually put in effort.
+31	Interviewer: Is the word itself long, hard to say, hard to remember?
+32	Respondent: Not that it's hard, but when I'm telling friends about it, I just say "that coffee place under my office," the name just doesn't come to mind on its own.
+33	Interviewer: If you were coming up with a new name, what would you suggest?
+34	Respondent: I was actually thinking, something like "Jolt" or "Pulse," short, punchy.
+35	Respondent: I like "Jolt" because it keeps that idea of energy, but it doesn't sound as schoolteacher-ish, not like an alarm clock.
+36	Interviewer: And why do you also like "Pulse"?
+37	Respondent: "Pulse" is decent too, but it sounds a bit colder, like it's some tech company, not a coffee shop.
+38	Interviewer: What would you definitely reject out of the options?
+39	Respondent: I'd definitely not go with something with a foreign word like "Energy Cup" — I've already seen something similar at small-time spots, and it sounds cheap.
+40	Interviewer: Are there any brands, maybe not even coffee ones, that you'd want "Perky" to resemble?
+41	Respondent: I like how it's done at this one burger chain, called "Crafthouse," they've got minimalism in the signage, black-and-white, stylish.
+42	Respondent: I also like how "Coffee Cult" does social media, you see people, they show who's brewing the coffee, it feels honest somehow.
+43	Interviewer: Does anything international come to mind as a reference?
+44	Respondent: Well how could it not, Starbucks obviously, just because that's the first thing everyone thinks of for a coffee brand at all.
+45	Interviewer: Now about the visuals — what would you say about "Perky's" logo and design?
+46	Respondent: Their logo is a yellow lightning bolt on a mug, pretty loud, I'd say straight-up acid yellow.
+47	Respondent: The sign at the actual location has already faded a bit, the letters are peeling on the left, it really catches your eye when you walk up.
+48	Interviewer: Have you looked at the website, social media?
+49	Respondent: Honestly their website's so-so, I went there once to check the menu, and it was just some old version sitting there.
+50	Respondent: Their Instagram is okay-ish, but looks like it's run by one person, no big team, posts are infrequent.
+51	Interviewer: How's the brand recognition, from what you can tell, do people in the city know "Perky"?
+52	Respondent: That's actually where it falls apart, if I tell someone "Perky," half of them ask what that even is.
+53	Respondent: Although when I describe it — yellow sign, lightning bolt — they immediately go oh yeah, I've seen that, but the name itself doesn't stick in people's heads.
+54	Interviewer: Who do you think the target audience for this brand is, who is it actually meant for?
+55	Respondent: Well in theory it's for office people who are rushing in the morning, strictly grab-and-go, quick and off to work.
+56	Respondent: But in reality students also go there in the evening to sit around, and that's strange, because the sign and the whole style are absolutely not about sitting around.
+57	Interviewer: So there's a gap between who it was designed for and who actually shows up?
+58	Respondent: Yeah, there's a gap, it's like they haven't figured out for themselves who this place is actually for.
+59	Interviewer: If "Perky" decided to rebrand, how do you think that should be done?
+60	Respondent: I'd start by asking regular customers, not just go and swap out the sign overnight.
+61	Respondent: Because if you change everything abruptly, some people just won't realize it's the same place, and they'll walk right past out of habit.
+62	Interviewer: What risks do you see in the renaming itself?
+63	Respondent: The risk is that they've spent three years building up the brand somehow, a bit clumsily, but there's already recognition through the colors.
+64	Respondent: And if you suddenly change the name but keep the colors and the lightning bolt, everyone will just get confused, that's part of the recognition too.
+65	Interviewer: Coming back to the essence of the brand — you talked about energy, about the substance getting lost, and about them actually putting effort into the coffee. So what's the core essence of "Perky," as you see it?
+66	Respondent: Good question, honestly, I don't fully understand myself what the essence is here.
+67	Respondent: On one hand it's just quick coffee at hand for me, no frills, no nonsense, grab it and run.
+68	Respondent: But on the other hand, when you try their seasonal drinks, you feel like they're actually coming up with something, experimenting, it's not just a quick grab-and-go spot anymore.
+69	Interviewer: So these two things don't really fit together?
+70	Respondent: Well that's exactly the thing, I don't even know myself, is it a checkbox assembly line or a place that genuinely loves coffee, depends on the day, I guess.
+71	Interviewer: Coming back to the comparison — does it ever happen that you mix up "Perky" with one of the competitors?
+72	Respondent: Actually yeah, funny you ask, I was telling a friend recently that I saw a new seasonal lineup at "Coffee Cult," I said, "Perky" made these cool new cups.
+73	Respondent: And then I corrected myself, I said, wait no, that wasn't "Perky," I mixed it up, "Coffee Cult" has those cups, "Perky" has a different design.
+74	Interviewer: Why do you think that happened, that you mixed them up?
+75	Respondent: Probably because they're both yellow-brown in their design, both have these warm tones, and they're both right next to each other on the same street.
+76	Interviewer: Coming back to coworkers complaining about prices — how do you feel about the price yourself?
+77	Respondent: I've kind of gotten used to it, I just pay and pay, but when a friend from another city said the same coffee is cheaper where he is, it stung a little.
+78	Interviewer: Overall — if you had to describe your attitude toward "Perky" right now in one phrase?
+79	Respondent: Well like I said, a fine brand, nothing wrong with it overall, I go there every day after all, so it must work for me in practice.
+80	Interviewer: Thank you so much, that's everything I wanted to ask.
+81	Respondent: No problem at all, reach out if you need anything.

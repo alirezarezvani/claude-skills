@@ -1,0 +1,91 @@
+1	Interviewer: Thanks for making time. We're doing a short deal debrief — want to understand what ended up mattering.
+2	Client: Sure, no problem, I've just got maybe forty minutes, then I've got a meeting.
+3	Interviewer: We'll make it work. Let's start from the beginning: how did the need to choose a warehouse management system even come up?
+4	Client: Well, look, our warehouse in Kashira was growing, three sites already.
+5	Client: The old setup was Excel plus some custom thing built by a developer who left in March.
+6	Client: Basically it became clear we couldn't keep going like that, but nobody got around to it for six months, and then the CEO said — okay, that's it, we're looking for a system.
+7	Interviewer: And you went out to look at solutions on the market. Who did you actually talk to, besides us?
+8	Client: We looked at three options. You, Stackly.
+9	Client: Then LogiCore — they're the ones known for the CRM module, they've also got industry case studies in distribution.
+10	Client: And one more totally local outfit, forgot the name, but that fell through right away on price, they turned out too expensive for us.
+11	Interviewer: So in the end the finalists were us and LogiCore?
+12	Client: Yeah, the finalists were you and LogiCore, we filtered out the third one already at the call stage, about two weeks in.
+13	Interviewer: Did you consider just not changing anything at all?
+14	Client: We discussed it, honestly, the CEO first said let's just grind through another year on the old system.
+15	Client: But after we lost a shipment twice in April because of confusion in the stock counts, everyone agreed we couldn't keep dragging it out.
+16	Interviewer: Okay. What criteria did you actually compare on, what mattered to you?
+17	Client: Well, price, of course, can't get around that.
+18	Client: Functionality for product labeling — that's critical for us, the mandatory labeling requirement and all that.
+19	Client: Also support, because we'd already gotten burned when tech support didn't answer for three days straight on the previous system.
+20	Client: And also, why hide it, reputation — who these vendors even are, who recommended them, whether there are case studies in our industry.
+21	Interviewer: On each of these points — how did we and LogiCore look?
+22	Client: On price you were about fifteen percent cheaper, that was nice, not gonna lie.
+23	Client: On labeling, LogiCore had it right out of the box, but with you it needed custom dev work, you said so yourselves, three to four weeks.
+24	Interviewer: What about support?
+25	Client: Now this part came out funny.
+26	Client: On your demo, the engineer straight up couldn't answer a question about 1C integration on the spot, said he'd check and get back.
+27	Client: And at LogiCore they had an architect right there on the call, laid out everything step by step.
+28	Interviewer: And on reputation?
+29	Client: About even there, honestly, both vendors sent us three references each early on, we didn't even call all of them, no time.
+30	Interviewer: Let's talk about the sales process itself. How did getting to know us go, and LogiCore?
+31	Client: You responded fast, literally the day after we submitted the request, that's a plus.
+32	Client: The demo was four days later.
+33	Client: LogiCore took a bit longer getting going, we waited about three days for the manager to respond, but when they came — it was straight away with a ready-made scenario built for our profile, for distribution, not a generic template.
+34	Interviewer: So their demo was more targeted?
+35	Client: Yeah, exactly. It was like they already knew we had three warehouses and the labeling requirement.
+36	Client: And your manager on the first call was asking general stuff, like starting from zero, we had to explain everything all over again.
+37	Interviewer: Tell me, was there a specific moment, a conversation, a demo, after which it became clear which way things were leaning?
+38	Client: Well, it's funny, but yeah.
+39	Client: It was at the second demo with LogiCore, about three weeks after we started.
+40	Client: Their architect, right in front of our logistics director, spun up a live test environment in real time and showed goods receiving with labeling, the whole cycle, in about ten minutes.
+41	Client: And right in that moment our logistics director turned to the CFO and said: look, this is exactly what we need, no song and dance.
+42	Interviewer: Did we have anything similar?
+43	Client: You also had a demo, but it was more of a talk about the system architecture, slides, a product roadmap.
+44	Client: Also decent, honestly, but not as hands-on.
+45	Client: Maybe if you'd also spun up a live environment — I don't know, maybe things would've gone differently, it's hard to say for sure, that's just me guessing at this point.
+46	Interviewer: Who actually made the decision in the end, who was involved?
+47	Client: Formally the decision is mine, I'm the procurement director.
+48	Client: But in practice everyone listened hard to the logistics director, he's the one who'll be working with the system every day, his word carried a lot of weight.
+49	Client: The CFO also looked at the numbers, but he was more signing off than deciding.
+50	Client: The CEO delegated it pretty much entirely, asked only once — is the vendor reliable at all, won't they go under in a year.
+51	Interviewer: And whose opinion turned out to be decisive?
+52	Client: Honestly, the logistics director's.
+53	Client: After that demo with the receiving process he flat out said: I'm for LogiCore, and that was that, after that we were just finalizing paperwork.
+54	Interviewer: Look, the CFO was watching the numbers — am I right that price still wasn't the last factor?
+55	Client: Price was a factor, but not the decisive one.
+56	Client: LogiCore's price, by the way, was higher than yours by about twelve to fifteen percent, but we agreed to it.
+57	Client: Because we figured the custom work on your labeling would eat up that difference through downtime and audit risk.
+58	Interviewer: So you overpaid on purpose?
+59	Client: Yeah, we overpaid for the functionality already being ready and not having to wait for custom dev, for us that was worth more than the money saved.
+60	Interviewer: If our labeling had also been out of the box at demo time, would the decision have been different?
+61	Client: Probably yes, most likely yes, I think LogiCore wouldn't have won so clearly then.
+62	Client: But again, that's all hindsight guessing, hard to say for sure, other things could've played out differently too back then.
+63	Interviewer: Okay, and if we're being completely honest — name the main reason you ended up not choosing us?
+64	Client: Well, for the record — let's put it this way, LogiCore turned out to have a more mature product for our profile at the time of the decision, ready-made labeling, industry experience with distribution.
+65	Client: Nothing personal, your product was just half a step behind specifically on that feature.
+66	Interviewer: And off the record?
+67	Client: Well, between us — off the record, honestly, I feel like it wasn't only about the labeling.
+68	Client: Our logistics director spent two years before this working at a company that was already running on LogiCore, he had a contact there he knew personally.
+69	Client: He called him, asked how it actually works in real life, not on a demo, and got the answer that it's fine, stable.
+70	Client: That trust through someone he knew, I think, really tipped the scales, and the labeling — that's more like a nice, presentable justification for the board.
+71	Interviewer: So the official reason and the real one are a bit different things?
+72	Client: There's something to that, yeah.
+73	Client: Officially — functionality.
+74	Client: But in reality, probably around sixty percent of it was personal trust plus that impressive demo with the live environment.
+75	Client: But I don't want it to sound like the product had nothing to do with it at all, the labeling really was a weak spot.
+76	Interviewer: Would you be able to come back to us in the future if something changes?
+77	Client: Look, the contract with LogiCore is for two years.
+78	Client: But if you get ready-made labeling and make noise about it in the market, I wouldn't rule out that in a year or a year and a half we'd take another look.
+79	Client: Especially if LogiCore starts running into its own problems, which happens.
+80	Interviewer: Is everything going smoothly with LogiCore right now, at the start of implementation?
+81	Client: So far yes, but implementation only starts in two weeks, too early to say.
+82	Client: Sometimes after signing a completely different story starts than what was shown at the demo, so I won't try to predict it ahead of time.
+83	Interviewer: What would you recommend we change going forward, to win deals like this?
+84	Client: In your position I'd show a live environment with labeling right away at the demo for distribution clients, not slides with a roadmap.
+85	Client: And make sure there's a technical person right there at the demo who can answer about integrations, instead of pushing it to later.
+86	Interviewer: Anything else important we didn't ask about?
+87	Client: Maybe just this — I wouldn't say it was an easy win for LogiCore.
+88	Client: There was actually a moment when our CFO almost swung everything back toward you because of price, literally a week before the final decision, but the demo with the live environment still won out in the end.
+89	Client: So don't be too discouraged, you were genuinely close.
+90	Interviewer: Thank you so much, this is very helpful.
+91	Client: You're welcome, good luck to you, it really was a good product, just not this time.

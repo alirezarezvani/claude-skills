@@ -1,0 +1,248 @@
+[
+  {
+    "cell": "V1",
+    "claim": "First visit, hadn't been there before",
+    "quote": "No, first time, I actually found out about it by accident.",
+    "line": 4
+  },
+  {
+    "cell": "V1",
+    "claim": "Went with her 10-year-old niece",
+    "quote": "I went with my niece, she's ten",
+    "line": 2
+  },
+  {
+    "cell": "V2",
+    "claim": "Found out about the museum from a friend's stories about the mirror room",
+    "quote": "My friend sent me a clip in her stories, something about a room with endless mirrors",
+    "line": 6
+  },
+  {
+    "cell": "V2",
+    "claim": "The museum's website raised doubts about whether it was still current",
+    "quote": "the website looked pretty old, honestly, I even started doubting the museum was still open",
+    "line": 10
+  },
+  {
+    "cell": "V2",
+    "claim": "Expected an interactive science center for kids",
+    "quote": "I thought it would be something like an interactive science center, you know, like for kids, with a bunch of stuff you can touch with your hands",
+    "line": 14
+  },
+  {
+    "cell": "V2",
+    "claim": "Entry barrier: complicated navigation to the museum",
+    "quote": "the museum turned out to be kind of out of the way, behind a market, the GPS glitched twice because the entrance is from the courtyard, not from the main street",
+    "line": 16
+  },
+  {
+    "cell": "V2",
+    "claim": "Barrier: slow ticket counter",
+    "quote": "Slow, honestly, we stood there for like ten minutes, even though there weren't many people",
+    "line": 22
+  },
+  {
+    "cell": "V3",
+    "claim": "The mirror room — peak of delight",
+    "quote": "That was just wow, honestly, even better than in the video, there's also quiet music playing there, and the lighting slowly changes color, we hung around there for like fifteen minutes, taking photos",
+    "line": 36
+  },
+  {
+    "cell": "V3",
+    "claim": "The laser maze was also enjoyable",
+    "quote": "Also great, actually, fun, we ran around, jumped over the beams",
+    "line": 50
+  },
+  {
+    "cell": "V4",
+    "claim": "Friction: no parking",
+    "quote": "there's no proper parking either, I ended up right by the curb",
+    "line": 18
+  },
+  {
+    "cell": "V4",
+    "claim": "Friction: one ticket counter and the cashier gets distracted by phone calls",
+    "quote": "one ticket counter, and the same cashier both sells tickets and answers questions on the phone",
+    "line": 20
+  },
+  {
+    "cell": "V4",
+    "claim": "Friction: no signs to the restroom",
+    "quote": "We looked for the restroom, actually, it took a while, there are no signs at all, we had to ask the attendant",
+    "line": 66
+  },
+  {
+    "cell": "V4",
+    "claim": "Friction: restroom was dirty, no paper",
+    "quote": "it wasn't very clean, honestly, and there was no paper",
+    "line": 68
+  },
+  {
+    "cell": "V4",
+    "claim": "Friction: unexpected extra charge for the laser maze",
+    "quote": "nobody warned us at the entrance that some halls were separately paid, I found out about it already standing in front of the door, from the attendant",
+    "line": 44
+  },
+  {
+    "cell": "V5",
+    "claim": "Plaques are small and glare, hard to read",
+    "quote": "I tried, but the font was tiny, and the display glass was glaring from the lamps too, I never managed to finish reading a couple of them",
+    "line": 32
+  },
+  {
+    "cell": "V5",
+    "claim": "The illusion hall has no explanation of the physics behind the effect",
+    "quote": "here it was just plaques again, without any real explanation of how it works physically",
+    "line": 58
+  },
+  {
+    "cell": "V5",
+    "claim": "No commentary from the attendant in the mirror room",
+    "quote": "there was just a woman sitting in the corner watching to make sure nobody touched the mirrors with their hands, there was no commentary at all",
+    "line": 40
+  },
+  {
+    "cell": "V6",
+    "claim": "The child's emotion as an indicator of the peak experience",
+    "quote": "my niece was just screaming with delight, jumping around",
+    "line": 38
+  },
+  {
+    "cell": "V6",
+    "claim": "Spontaneous interaction with another family in the mirror room",
+    "quote": "a family with kids in the mirror room, we took photos together, exchanged a couple of jokes, it was fun",
+    "line": 80
+  },
+  {
+    "cell": "V6",
+    "claim": "Took a lot of photos specifically in the mirror room",
+    "quote": "A whole lot in the mirror room, then a bit more in the maze",
+    "line": 82
+  },
+  {
+    "cell": "V6",
+    "claim": "Shared the experience in her stories",
+    "quote": "Yes, I posted them in my stories, actually, exactly like that friend who started all this",
+    "line": 84
+  },
+  {
+    "cell": "V7",
+    "claim": "Didn't find a cafe or a coffee machine",
+    "quote": "I thought there would at least be coffee from a machine, but there was nothing at all, no vending machine, no snack bar",
+    "line": 70
+  },
+  {
+    "cell": "V7",
+    "claim": "The gift stand didn't take cards, couldn't buy a magnet",
+    "quote": "a small stand with magnets and postcards near the exit, but it didn't take cards, cash only, and I didn't have small bills",
+    "line": 74
+  },
+  {
+    "cell": "V7",
+    "claim": "Missed having an audio guide or a tour guide",
+    "quote": "I would've liked an audio guide or a tour guide at least on some schedule",
+    "line": 86
+  },
+  {
+    "cell": "V7",
+    "claim": "Summary list of unmet demand",
+    "quote": "Online ticket purchases were definitely missing, and a proper cafe, and signs to the restroom",
+    "line": 88
+  },
+  {
+    "cell": "V8",
+    "claim": "Willing to return, but not soon and mainly for the mirror room",
+    "quote": "Probably yes, but not soon, maybe in six months to a year, and mostly for the mirror room",
+    "line": 98
+  },
+  {
+    "cell": "V8",
+    "claim": "Will tell acquaintances selectively: the room is a must, the planetarium isn't recommended",
+    "quote": "I'll say the mirror room is a must-see, it's just gorgeous, but you can skip the rest, especially I wouldn't recommend the planetarium, and I'll warn them that some halls cost extra",
+    "line": 94
+  },
+  {
+    "cell": "V8",
+    "claim": "Already told a coworker and showed photos",
+    "quote": "I told a coworker on Monday, showed her photos from the mirror room, she got excited to go too, with her son",
+    "line": 96
+  },
+  {
+    "cell": "A1",
+    "claim": "eNPS closer to neutral with a positive skew driven by a single element (unstable category)",
+    "quote": "Overall, yes, because of the mirror room, it was worth it for that alone",
+    "line": 92
+  },
+  {
+    "cell": "A1",
+    "claim": "What would shift it toward promoter: fix the planetarium and add a cafe",
+    "quote": "If they fixed the planetarium and had a cafe, I'd come back a lot more willingly",
+    "line": 100
+  },
+  {
+    "cell": "A2",
+    "claim": "Emotional peak of the arc — the mirror room",
+    "quote": "That was just wow",
+    "line": 36
+  },
+  {
+    "cell": "A2",
+    "claim": "Emotional low of the arc — the mini-planetarium at the end of the route",
+    "quote": "That's where it really fell apart, honestly, the projector was flickering, the picture was jittering, the sound was crackling",
+    "line": 62
+  },
+  {
+    "cell": "A3",
+    "claim": "Moment of truth — the mirror room outweighed the rest of the visit",
+    "quote": "It's like a good song with terrible sound at the end, you know, the mirror room is just gorgeous, but toward the finale everything fell apart into disappointment with that planetarium and no food",
+    "line": 90
+  },
+  {
+    "cell": "A4",
+    "claim": "Structural barrier (museum location) is secondary relative to the operational ones",
+    "quote": "the museum turned out to be kind of out of the way, behind a market, the GPS glitched twice",
+    "line": 16
+  },
+  {
+    "cell": "A4",
+    "claim": "The key barrier is operational — malfunctioning planetarium equipment",
+    "quote": "the projector was flickering, the picture was jittering, the sound was crackling, it felt like the equipment was really old and nobody had fixed it in a long time",
+    "line": 62
+  },
+  {
+    "cell": "A5",
+    "claim": "Metaphor for the visit — a song with terrible sound at the end",
+    "quote": "It's like a good song with terrible sound at the end",
+    "line": 90
+  },
+  {
+    "cell": "A6",
+    "claim": "Main insight: the peak comes at the front of the route, but the visit physically ends on the weakest link",
+    "quote": "I'll say the mirror room is a must-see, it's just gorgeous, but you can skip the rest, especially I wouldn't recommend the planetarium",
+    "line": 94
+  },
+  {
+    "cell": "A1_ambiguous_note",
+    "claim": "The respondent gives no numeric score, the recommendation is split into parts",
+    "quote": "I'll warn them that some halls cost extra",
+    "line": 94
+  },
+  {
+    "cell": "ambiguous_doplata_intent",
+    "claim": "The respondent herself is unsure whether it was a mistake or a deliberate museum practice",
+    "quote": "maybe they just forgot to update the information on the website, or maybe they deliberately don't write it so a person already there doesn't turn around and leave, it's hard to say for sure",
+    "line": 106
+  },
+  {
+    "cell": "ambiguous_smotritelnitsa_moment",
+    "claim": "The moment with the attendant singing along is meaningful to the visitor but unlikely to be noticed by the museum",
+    "quote": "she quietly sang along to the song playing from the speakers, I'm not even sure if she noticed that I heard it, but for some reason it made me feel so warm, really human",
+    "line": 102
+  },
+  {
+    "cell": "ambiguous_smotritelnitsa_moment",
+    "claim": "The respondent herself believes the museum is unlikely to track such moments",
+    "quote": "I doubt it, honestly, it's not part of the program, just a coincidence, I doubt they track or value that in any way",
+    "line": 104
+  }
+]

@@ -1,0 +1,76 @@
+Interviewer: Thanks for agreeing to talk before you go. How are you holding up, everything okay?
+Respondent: Yeah, I'm fine, I've got time, this last week is pretty relaxed anyway, they're already cutting off my access bit by bit.
+Interviewer: Funny. Okay look, this is an informal conversation, not for any official record, I just want to understand what actually happened.
+Respondent: Sure, let's do it, but only if it's honest — actually honest, not like in the resignation letter.
+Interviewer: What's in the resignation letter?
+Respondent: In the letter it's "by my own choice," and in the conversation with HR I said "moving to be with family," everyone writes that kind of thing.
+Interviewer: And what's the real story?
+Respondent: The real story is there's no move at all, I'm staying in the same city, it's just... a convenient phrasing so I don't stir up drama on the way out.
+Interviewer: Okay, let's go with the real story then. You've been at the lab three years, right?
+Respondent: Three and a half, yeah, since almost the founding of the sequencing division.
+Interviewer: Tell me how you actually got to the decision to leave.
+Respondent: Well it wasn't a single moment, it built up over time, but if I'm being totally honest — basically, I realized that was it, done, sometime in March.
+Interviewer: What happened in March?
+Respondent: In March they shut down the oncomarker panel project, you remember, I'd put six months into that.
+Interviewer: I remember, I think they said it was about the budget.
+Respondent: Yeah, officially it was the budget, but the real story is Dmitry just gave priority to his favorite direction, the one tied to equipment procurement, there was a kickback... not a kickback, I don't mean it that way, but there was personal interest, let's put it that way.
+Interviewer: Did you say that to anyone at the time?
+Respondent: Yeah, in April of last... no, this year, in April I went to Ira, the department head, and told her straight up — look, if this keeps up, I won't be able to work, I feel like they're just using my expertise and then tossing it aside.
+Interviewer: And what did she say?
+Respondent: She said "I understand, I'll take it up the chain," and she sort of did, but nothing actually changed, two weeks later they told me "well, just keep running the current protocols for now."
+Interviewer: So after March everything was already decided?
+Respondent: You know, I'd say no, not yet everything, I still thought maybe the team would regroup somehow, I guess I was fooling myself.
+Interviewer: When did it become truly irreversible?
+Respondent: This is funny, but I can name the exact day. It was May 14th, we had an all-hands meeting, and Dmitry announced that my position was being reorganized into a "multifunctional" role, like now I'd also be handling procurement part-time.
+Interviewer: And was that the last straw?
+Respondent: Well, not exactly the last straw, it was more like... the thing after which I realized there's no going back, I was literally sitting in the meeting room thinking — okay, that's it, this is definitely over, I didn't go into science to push procurement paperwork around.
+Interviewer: And the actual trigger — the specific event that pushed you to start looking for offers — was that separate?
+Respondent: Yeah, it was, literally three days after the meeting, May 17th, they cut my reagent budget by 40 percent with no warning, I found out about it from the storekeeper, not from my manager, and that's when I messaged a friend at MedGenom that same evening, asked if they had any openings.
+Interviewer: Wait, but you said earlier you'd already been looking at options before that?
+Respondent: Yeah I mean, I'd occasionally browse LinkedIn, everyone does that, it doesn't mean I was actively searching.
+Interviewer: So were you looking before May 14th or not?
+Respondent: Well... probably yes, I applied to a couple of openings back in February, if I'm honest, just half-heartedly, just in case.
+Interviewer: Okay, let's go back, so you messaged your friend on May 17th.
+Respondent: Yeah, and within a week there was an interview, the offer came through in June.
+Interviewer: Where exactly are you going, if it's not a secret?
+Respondent: To MedGenom, it's a private lab, it'll be a lead specialist position for NGS panels.
+Interviewer: Why there and not somewhere else you were looking at?
+Respondent: I looked at two other places, but either the pay wasn't right at all, or it wasn't a fit for my profile. At MedGenom the pay is noticeably higher, around thirty percent, and more importantly, there's a scientific lead for the new division, I talked to him, they already have budget approved two years out for a specific project.
+Interviewer: So was it mainly the money or the budget stability?
+Respondent: Both, honestly I don't know which one tipped the scale, probably predictability in the end. Though the money is nice too, no denying it.
+Interviewer: What kept you here so long, given the problems clearly weren't just from the last month?
+Respondent: The team. We really had a strong team, three people I'd go into any project with. And also, no point hiding it, habit — I've been here since the lab first opened, it was hard to picture myself somewhere else.
+Interviewer: Did any projects keep you there?
+Respondent: Yeah, the rare hereditary disease panel was mine, I poured my heart into it, it was hard to think about dropping it halfway through.
+Interviewer: You mentioned raising the issue with Ira in April. Were there earlier times you brought this up to management?
+Respondent: Yeah, back in November of last year, at the year-end review meeting, I wrote in the group chat, not exactly a complaint, but I pointed out that the workload was distributed unevenly, that some people were carrying non-core tasks.
+Interviewer: Was there a reaction?
+Respondent: Dmitry replied with an emoji and something like "we value your engagement," and that was it, the topic never came up again.
+Interviewer: Did you ever talk to him one-on-one directly?
+Respondent: Once, in January, I went into his office, told him I felt burned out from constantly putting out fires instead of doing steady, methodical work. He said everyone's like that right now, just need to tough out the quarter.
+Interviewer: Look, here's the thing — you said at first that things were more or less fine until March, but now it turns out you were already complaining back in November and January. How does that fit together?
+Respondent: Well... yeah, I guess I wasn't quite accurate there. If I'm being completely honest, it had been building for a long time, March was just the point where I stopped believing anything would change, not the point where it all started.
+Interviewer: Okay, that's important. Look, you said "burnout" — is that the main cause overall, or is it more a consequence of the management decisions?
+Respondent: Good question. I'm not sure. On one hand yes, I'm exhausted, physically too, sleeping badly. On the other hand — if Dmitry had actually listened back in January and changed something about the priorities, I probably would have stayed, and the burnout would have gone away. So I don't know, whether one causes the other or they're two separate things.
+Interviewer: Got it, let's mark that as an open question. What's going to be different there that wasn't here?
+Respondent: Transparent budget allocation, a clear two-year plan, and, nice bonus, there's nothing like turning scientific positions into administrative ones.
+Interviewer: And what will you miss?
+Respondent: The team. And our equipment's actually pretty good, honestly, they only got a new sequencer in last year, it's a shame to leave it behind.
+Interviewer: And what will you definitely not miss?
+Respondent: This atmosphere where decisions get made in one office with no explanation. And the Friday meetings that always dragged on for two hours with no agenda.
+Interviewer: Look, if a month ago, say mid-April, management had suddenly revisited the budget and restored priority to your project — would you have stayed?
+Respondent: Probably yes. If it had been a real reconsideration, not a one-time handout. What mattered to me wasn't a one-off concession, but knowing it would stay that way going forward.
+Interviewer: And if a month ago, but without changing the priorities, they'd just apologized and promised to think about it?
+Respondent: No, that wouldn't have worked anymore, I'd heard enough promises, after January I stopped believing words without actions.
+Interviewer: Which colleagues did you tell about the reasons for leaving?
+Respondent: Two of my closest, Katya and Roma. Told them how it really was, no sugarcoating, actually, they're also looking around right now.
+Interviewer: And what will you tell everyone else, at the farewell gathering, say?
+Respondent: Well, the same thing as in the resignation letter — moving, new opportunities, all that. I don't see the point of burning bridges publicly.
+Interviewer: And if someone from the industry asks you personally, not publicly?
+Respondent: I'll be honest but neutral. I won't badmouth anyone, I'll just say we didn't see eye to eye on the management approach to priorities.
+Interviewer: Look, is there a chance your leaving affects the others somehow, pulls anyone along with you?
+Respondent: Katya is definitely considering options, but I don't think it's directly because of me, she's got her own similar reasons, the workload distribution hits everyone the same way.
+Interviewer: Last one — if you had to say it in one sentence, what are you really leaving because of?
+Respondent: Because my expertise got devalued by a management decision, and when I tried to raise it ahead of time — three times, November, January, April — I wasn't heard, and the point of no return came on May 14th at that meeting, and the trigger was the reagent budget cut on May 17th.
+Interviewer: Thank you, this was a very honest conversation, good luck at MedGenom.
+Respondent: Thanks, honestly it was helpful just to talk it all through myself.

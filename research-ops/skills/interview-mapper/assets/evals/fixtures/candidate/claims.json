@@ -1,0 +1,170 @@
+[
+  {
+    "cell": "K1",
+    "claim": "Candidate names high-load services and transactional logic in fintech as key experience",
+    "quote": "I worked closely with high-load services, message queues, and generally with money, meaning with transactional logic, where a mistake is costly",
+    "line": 7
+  },
+  {
+    "cell": "K1",
+    "claim": "Five years of Python experience, three years in fintech, currently mid-plus developer at Roltech",
+    "quote": "I've been writing Python for five years, three of those specifically in fintech, right now I work at a company called Roltech as a mid-plus developer",
+    "line": 6
+  },
+  {
+    "cell": "K2",
+    "claim": "Strong STAR: incident with the payment authorization service failing last March",
+    "quote": "we had a case in March last year, the payment authorization service started failing under load during peak hours",
+    "line": 10
+  },
+  {
+    "cell": "K2",
+    "claim": "Strong STAR: action — found N+1 query, rewrote to batch fetching, added Redis cache with 30s TTL",
+    "quote": "found that we had an N+1 query to the database on every authorization, rewrote that piece to use batch fetching and added a Redis cache with a thirty-second TTL",
+    "line": 12
+  },
+  {
+    "cell": "K2",
+    "claim": "Strong STAR: measurable result — p99 latency dropped from 1200 to 180 ms, timeouts fell almost to zero",
+    "quote": "p99 latency dropped from 1200 milliseconds to 180 milliseconds, and the number of timeouts in production went down to practically zero",
+    "line": 13
+  },
+  {
+    "cell": "K2",
+    "claim": "Weakly verifiable STAR: microservices migration, described impersonally through 'we', without the candidate's specific role",
+    "quote": "Well, we all generally worked on it together, I was involved too, I wrote part of the code, I attended the architecture calls",
+    "line": 23
+  },
+  {
+    "cell": "K2",
+    "claim": "Weakly verifiable STAR: candidate refuses to name a personal contribution to the migration, no measurable personal result",
+    "quote": "I'm not ready to say that this particular service is personally mine, we all moved the project forward together",
+    "line": 25
+  },
+  {
+    "cell": "K3",
+    "claim": "Motivation to leave — hit a growth ceiling, no senior position at the current job",
+    "quote": "I've hit a growth ceiling, there just isn't a senior position there, the headcount is small, the next step up is team lead, and I'm not ready to manage people yet, I want to grow specifically as an engineer",
+    "line": 27
+  },
+  {
+    "cell": "K3",
+    "claim": "Wants more autonomy in architectural decisions, currently everything is decided from above",
+    "quote": "I want more autonomy in architectural decisions, right now a lot gets decided from above, without my input",
+    "line": 28
+  },
+  {
+    "cell": "K4",
+    "claim": "First 90 days: get familiar with the system, take on a medium task, by the third month lead the performance work on the payment service",
+    "quote": "by the third month I'd like to already be leading a separate area, for example the performance of the payment service",
+    "line": 33
+  },
+  {
+    "cell": "K4",
+    "claim": "Expects to participate in design reviews for new services, not just writing code against a ready-made spec",
+    "quote": "participating in design reviews for new services, not just writing code against a ready-made spec",
+    "line": 35
+  },
+  {
+    "cell": "K5",
+    "claim": "Failure: a billing release led to double-charging about 5% of customers",
+    "quote": "after the release about five percent of customers got double-charged",
+    "line": 37
+  },
+  {
+    "cell": "K5",
+    "claim": "Candidate acknowledges his own technical shortcoming — didn't account for a race condition in the idempotency locking logic",
+    "quote": "I didn't account for a race condition on request retries in rare cases, there was a window of a few milliseconds where two requests could pass the idempotency check at the same time, that's my shortcoming in the locking logic",
+    "line": 42
+  },
+  {
+    "cell": "K5",
+    "claim": "Candidate shifts responsibility onto external circumstances — management's tight deadlines and the infrastructure team's config change",
+    "quote": "QA didn't have time to run the full regression because of the tight deadlines management set for us, and on top of that the infrastructure team changed the queue config right before the release, without warning",
+    "line": 39
+  },
+  {
+    "cell": "K6",
+    "claim": "Candidate's question about the code review process and number of approvers for a merge",
+    "quote": "how is your code review process set up, how many approvers are needed to merge into master",
+    "line": 57
+  },
+  {
+    "cell": "K6",
+    "claim": "Candidate's question about balancing feature velocity against tech debt, personally important to him",
+    "quote": "what's your approach to balancing feature velocity against tech debt, is there dedicated time for refactoring, or does product decide everything",
+    "line": 61
+  },
+  {
+    "cell": "K7",
+    "claim": "Salary expectations: range of 350-400 thousand rubles take-home",
+    "quote": "I'm expecting a range from three hundred fifty to four hundred thousand rubles take-home",
+    "line": 47
+  },
+  {
+    "cell": "K7",
+    "claim": "Start timeline — three weeks after the offer (two-week notice period plus a week off)",
+    "quote": "realistically three weeks after the offer",
+    "line": 49
+  },
+  {
+    "cell": "K7",
+    "claim": "Work format — hybrid, two-three days in the office",
+    "quote": "I prefer hybrid, two-three days in the office, the rest remote",
+    "line": 51
+  },
+  {
+    "cell": "A1",
+    "claim": "SPECIFIC FACT: the latency episode is confirmed with numbers and documented by a postmortem in Jira — verifiable",
+    "quote": "it was filed as a separate incident in Jira, there's a postmortem with graphs, I can attach the link if you need it for a reference",
+    "line": 17
+  },
+  {
+    "cell": "A1",
+    "claim": "GENERAL DECLARATION: the microservices migration episode has no specific role and no numbers — not verifiable",
+    "quote": "I can't give exact numbers right now, I'd need to check the dashboard, but subjectively it grew noticeably, probably several times over",
+    "line": 69
+  },
+  {
+    "cell": "A2",
+    "claim": "In the latency episode, the candidate attributes the result to himself (the main implementation and solution is his)",
+    "quote": "the main implementation and solution — that's mine, yes",
+    "line": 15
+  },
+  {
+    "cell": "A2",
+    "claim": "In the migration episode, the result is attributed to the team, the candidate's role is blurred",
+    "quote": "we all moved the project forward together",
+    "line": 25
+  },
+  {
+    "cell": "A3",
+    "claim": "UNSTABLE: mixed locus of responsibility for the failure — acknowledges his own technical mistake but then shifts the main blame to external deadlines and a config change",
+    "quote": "if we'd been given a reasonable testing timeline and the queue config hadn't been touched at the last moment, we would have caught it back on staging",
+    "line": 43
+  },
+  {
+    "cell": "A4",
+    "claim": "Role fit: direct experience with high-load payment services and transactional logic matches the payments team job profile",
+    "quote": "the payment authorization service started failing under load during peak hours",
+    "line": 10
+  },
+  {
+    "cell": "A5",
+    "claim": "Risk/ambiguity: willingness to relocate is undetermined, the candidate gives no clear yes or no",
+    "quote": "I can't say a clear yes or no right now, I'd need to understand the details on relocation compensation",
+    "line": 53
+  },
+  {
+    "cell": "A5",
+    "claim": "Risk: the candidate has a parallel process with an offer in a week and a half to two weeks — a tight decision window",
+    "quote": "they said they'd give an offer in about a week and a half to two weeks, so that's a reference point for my timeline too",
+    "line": 55
+  },
+  {
+    "cell": "A6",
+    "claim": "Main insight: the candidate confirms his experience with high-load payment services with a strong, verifiable episode, but the second STAR is weakly verifiable and there is a risk of blurred self-attribution on failure; recommendation — request a reference from the previous job and clarify the personal contribution to the migration",
+    "quote": "the main implementation and solution — that's mine, yes",
+    "line": 15
+  }
+]

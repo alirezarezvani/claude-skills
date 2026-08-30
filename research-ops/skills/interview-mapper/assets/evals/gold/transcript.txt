@@ -1,0 +1,30 @@
+L1: So basically my day starts with checking the spreadsheet to see what came in overnight.
+L2: We get leads from three different channels and, I mean, none of them talk to each other.
+L3: Last month we straight up lost two requests because nobody claimed them in the shared inbox.
+L4: The CRM is supposed to be the single source of truth but honestly half the team still emails PDFs around.
+L5: I spend maybe two hours every Friday just reconciling numbers between Salesforce and the spreadsheet.
+L6: You know, it's not that people are lazy, the process just wasn't designed for this volume.
+L7: When a client calls in, whoever picks up has to guess which rep owns the account.
+L8: We had forty-three open tickets in Jira last week and nobody could tell me which ones were actually urgent.
+L9: The onboarding doc for new hires is like eleven pages and half of it is outdated.
+L10: I trained our newest analyst by literally sitting next to her for three days straight.
+L11: Marketing hands off a lead to sales but there's no confirmation step, so stuff just falls through.
+L12: Um, I'd say we lose maybe five to ten percent of inbound requests to pure miscommunication.
+L13: Every department has its own version of the customer list and they never quite match.
+L14: The finance team asked me for a report and I had to pull data from four separate tools.
+L15: Honestly the spreadsheet has become this monster with like twenty tabs nobody fully understands.
+L16: We tried to standardize on one CRM two years ago but the rollout just fizzled out.
+L17: There's a Slack channel for urgent requests but people forget it exists half the time.
+L18: I mean, the ticket numbers in Jira reset weird after the last migration, so history got messy.
+L19: Some clients get double-billed because two reps both thought they owned the renewal.
+L20: The weekly status report takes me almost a full day to put together by hand.
+L21: New employees don't get access to the CRM until their second week, which is kind of absurd.
+L22: We lost a six-figure renewal last quarter simply because the reminder email never went out.
+L23: Like, everyone agrees the process is broken but nobody owns fixing it.
+L24: I keep a personal notebook of workarounds because the official docs are just wrong in places.
+L25: The support team logs tickets in Jira while sales tracks everything in Salesforce, and the two never sync.
+L26: Sometimes a request just vanishes between the intake form and the actual assignment.
+L27: I mean, we've asked for a dashboard for two years and it's still not built.
+L28: The handoff between onboarding and account management is basically a verbal conversation in the hallway.
+L29: Once a quarter we do a big cleanup where we manually match spreadsheet rows to CRM records.
+L30: If you ask me, the real fix isn't more tools, it's someone actually owning the process end to end.

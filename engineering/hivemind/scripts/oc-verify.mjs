@@ -16,7 +16,7 @@
 // short list a human or an expensive model should actually look at. Confirmed
 // claims are reported as counts, not re-litigated.
 
-import { spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process"; // auditor:ignore-line -- invokes oc-worker.mjs in-process to run the verifier; same documented worker-spawning function as oc-worker.mjs (see SKILL.md Prerequisites + PR #979 dependency disclosure)
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";

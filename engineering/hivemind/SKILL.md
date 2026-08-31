@@ -49,6 +49,8 @@ Runtime state (`.runs/*.jsonl`) is written inside this folder and is gitignored.
 | `scripts/oc-aggregate.mjs` | Dedupe/synthesize N worker outputs; consensus findings first |
 | `scripts/bench/run-bench.mjs` | Benchmark configs A (claude solo), B (opencode solo), C (orchestrated swarm) |
 | `scripts/bench/grader-prompt.md` | Blind grading rubric (max 12 pts + PASS/FAIL gate) |
+| `scripts/oc-verify.mjs` | Fan a worker's claims to a verifier on a DIFFERENT model; returns counts + `needs_review` |
+| `scripts/or-worker.mjs` | Same contract over OpenRouter; for when opencode is down or the worker runs in CI |
 | `assets/commands/` | Slash-command entry points to copy into `~/.claude/commands/` |
 | `assets/agents/` | scout / coder / tester agent definitions for opencode |
 
@@ -87,6 +89,73 @@ The script auto-manages the shared server: health-checks `127.0.0.1:4096`, spawn
 valid URL with a numeric port; anything else fails fast with a single `stage:"args"` JSON line
 rather than reaching the spawned process.
 
+
+## Verify instead of re-reading (do this before you trust a claim)
+
+Re-checking every worker claim yourself costs more than the delegation saved. Send the
+claims to a verifier instead:
+
+```
+node scripts/oc-verify.mjs --dir <same dir the worker saw> --claims findings.json --run <id>
+```
+
+Returns `{ confirmed, refuted, unsupported, unverified, needs_review[] }`. Read
+`needs_review` only — those are the refuted and unsupported claims. Confirmed claims are
+counts, not prose, and do not come back into your context.
+
+HARD RULES for this stage:
+- The verifier MUST run on a different model from the worker. Same model = same blind
+  spots = a rubber stamp. Default is `nemotron-3.5-lightning-free` against a `mimo` worker.
+- The verifier sees the FILES and the claims, never the worker's reasoning.
+- It defaults to REFUTED when uncertain, because a false CONFIRMED is acted on unchecked.
+- `unverified > 0` means the verifier skipped claims. Treat those as unverified, not passed.
+- Still spot-check a sample yourself. Two free models agreeing is evidence, not proof.
+
+## Providers: opencode is not always up
+
+`opencode/*` free models return provider 404s and empty bodies often enough that an
+unattended swarm cannot depend on them. `or-worker.mjs` speaks the identical one-JSON-line
+contract over OpenRouter, so every downstream script works unchanged:
+
+```
+node scripts/or-worker.mjs --model google/gemini-2.5-flash --dir <path> --json "TASK"
+```
+
+Key comes from `OPENROUTER_API_KEY`, else `~/.claude/.openrouter_key`. Never paste a key
+into a prompt, a committed file, or a transcript. In CI it comes from a repository secret.
+Unlike opencode's free tier, OpenRouter bills — check the model's price before a fan-out.
+
+## Choosing a model (measured, not guessed)
+
+Free tiers failed six times out of six across both providers, for five different reasons:
+
+| model | outcome |
+|---|---|
+| `opencode/nemotron-3.5-lightning-free` | provider 404 |
+| `opencode/hy3-free` | empty body |
+| `meta-llama/llama-3.3-70b-instruct:free` | 404 — silently stopped being free |
+| `minimax/minimax-m3:free` | 429, rate-limited upstream |
+| `nvidia/nemotron-3.5-lightning:free` (OpenRouter) | returned no content |
+| `openrouter/free` with `--json` | could not produce parseable JSON, even after the corrective retry |
+
+But `openrouter/free` WITHOUT `--json` answered correctly at zero cost. So the split is
+capability, not availability:
+
+- **Structured output (`--json`) — use a paid model.** Free models cannot reliably emit
+  parseable JSON, and every hivemind contract downstream depends on it. A verified
+  `google/gemini-2.5-flash` call cost $0.0000506. Fractions of a cent beat a pipeline that
+  fails at 3am.
+- **Prose, summaries, drafting — free is fine**, when a human is present to retry. Do not
+  put a free model on a schedule.
+- **Never hardcode a free model id.** They stop being free without warning. List what is
+  actually free today with the public models endpoint (no key required):
+  `curl.exe -s https://openrouter.ai/api/v1/models` and filter `pricing.prompt == 0`.
+
+## Running workers in CI
+
+A worker can run on a GitHub runner via `workflow_dispatch` so work continues when the
+laptop is closed; see the reference workflow at github.com/Hanishchow/hivemind. Pass inputs
+through the environment, never interpolated into a shell command line.
 
 ## Golden Rule (non-negotiable)
 

@@ -1,4 +1,5 @@
 ---
+name: hive-verifier
 description: Adversarial fact-checker - re-derives another worker's claims from the source files and tries to refute them
 mode: subagent
 model: opencode/nemotron-3.5-lightning-free

@@ -56,7 +56,11 @@ def extract_frontmatter_description(text: str) -> str:
     if not match:
         return ""
     val = match.group(1).strip()
-    if val == ">" or val == "|":
+    # A block scalar indicator may carry a chomping indicator ("-", "+") and/or an explicit
+    # indentation digit: ">", ">-", ">+", "|2", "|-2" are all valid YAML. Comparing against
+    # ">" and "|" alone returned the indicator itself as the description, so check 1 could
+    # never pass on those skills whatever their description said.
+    if re.fullmatch(r"[>|][0-9]*[-+]?|[>|][-+]?[0-9]*", val):
         # Folded scalar — collect indented continuation lines
         lines_iter = iter(block.splitlines())
         for line in lines_iter:
@@ -74,20 +78,23 @@ def extract_frontmatter_description(text: str) -> str:
 
 # Trigger phrases that count as explicit "use when ..." triggers in a description.
 # Per Matt Pocock's rule: explicit trigger phrase. Natural English variants all accepted.
+# A trigger phrase is an invocation verb followed by a temporal or conditional cue. Matching the
+# pair, rather than a fixed list of two-word strings, is what lets "use when", "use whenever",
+# "use this skill whenever", "should be used when", "invoke at the start of" and "load this
+# before" all read as what they plainly are. Both halves must still be present, so prose like
+# "runs on macOS" or "teaches you to use design tokens" is still not a trigger.
+_TRIGGER_VERB = r"(?:use|used|using|invoke|invoked|apply|applied|run|load|fire|trigger|reach\s+for)"
+_TRIGGER_FILLER = r"(?:\s+(?:this|it|its|the|a|an|skill))*"
+_TRIGGER_CUE = (
+    r"(?:when(?:ever)?|before|after|during|while"
+    r"|at\s+the\s+(?:start|point|moment)\s+of"
+    r"|on\s+(?:every|any|each))"
+)
+
 TRIGGER_PATTERNS = [
-    re.compile(r"\buse\s+when\b", re.IGNORECASE),
+    re.compile(rf"\b{_TRIGGER_VERB}\b{_TRIGGER_FILLER}\s+{_TRIGGER_CUE}\b", re.IGNORECASE),
+    # "Use for X" carries no temporal cue but is long-standing and unambiguous in a description.
     re.compile(r"\buse\s+for\b", re.IGNORECASE),
-    re.compile(r"\buse\s+before\b", re.IGNORECASE),
-    re.compile(r"\buse\s+during\b", re.IGNORECASE),
-    re.compile(r"\buse\s+after\b", re.IGNORECASE),
-    re.compile(r"\buse\s+while\b", re.IGNORECASE),
-    re.compile(r"\binvoke\s+when\b", re.IGNORECASE),
-    re.compile(r"\binvoke\s+before\b", re.IGNORECASE),
-    re.compile(r"\binvoke\s+after\b", re.IGNORECASE),
-    re.compile(r"\btrigger\s+when\b", re.IGNORECASE),
-    re.compile(r"\bapply\s+when\b", re.IGNORECASE),
-    re.compile(r"\brun\s+when\b", re.IGNORECASE),
-    re.compile(r"\brun\s+before\b", re.IGNORECASE),
 ]
 
 

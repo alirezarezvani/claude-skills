@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tests for skill_review_checklist_runner.py and skill_description_validator.py - trigger detection
+Tests for _skill_frontmatter.py and the scripts that share it - trigger detection
 
 This test module validates that check 1 ("Description includes triggers") reads a description
 correctly and recognises the trigger phrasings skill authors actually write:
@@ -11,8 +11,8 @@ correctly and recognises the trigger phrasings skill authors actually write:
   "should be used when", "use on every", "invoke at the start of", "load this before")
 - Prose that merely contains an invocation verb is still NOT a trigger, so the check keeps
   its teeth ("runs on macOS", "teaches you to use design tokens")
-
-Both scripts carry their own copy of TRIGGER_PATTERNS, so both are covered here.
+- The reader, the trigger patterns and the limits are shared rather than copied, so the
+  scripts cannot drift apart again
 
 Run with: python -m unittest test_review_checklist_runner
 """
@@ -25,13 +25,16 @@ from pathlib import Path
 SCRIPTS_DIR = Path(__file__).parent.parent / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
-from skill_review_checklist_runner import (  # noqa: E402
-    check_description_has_trigger,
-    extract_frontmatter_description,
-)
-from skill_description_validator import (  # noqa: E402
+import _skill_frontmatter  # noqa: E402
+import skill_description_validator as validator  # noqa: E402
+import skill_review_checklist_runner as runner  # noqa: E402
+import skill_structure_validator as structure  # noqa: E402
+from _skill_frontmatter import (  # noqa: E402
+    MAX_DESCRIPTION_CHARS,
+    MAX_SKILL_MD_LINES,
+    extract_description,
     extract_frontmatter,
-    TRIGGER_PATTERNS as VALIDATOR_TRIGGER_PATTERNS,
+    has_trigger,
 )
 
 HEAD = "---\nname: x\ndescription: "
@@ -54,27 +57,23 @@ class TestBlockScalarIndicators(unittest.TestCase):
 
     INDICATORS = [">", ">-", ">+", "|", "|-", "|+", ">2"]
 
-    def test_runner_reads_description_under_every_indicator(self):
+    def test_description_is_read_under_every_indicator(self):
         for ind in self.INDICATORS:
             with self.subTest(indicator=ind):
-                got = extract_frontmatter_description(block(ind, USE_WHEN))
-                self.assertNotIn(ind, got, f"indicator {ind!r} returned as the description")
-                self.assertIn("Use when asked", got)
+                got = extract_description(block(ind, USE_WHEN))
+                self.assertNotIn(ind, got, f"indicator {ind!r} kept as part of the description")
+                self.assertEqual(got, USE_WHEN)
 
-    def test_runner_check_passes_under_every_indicator(self):
+    def test_check_one_passes_under_every_indicator(self):
         for ind in self.INDICATORS:
             with self.subTest(indicator=ind):
-                self.assertTrue(check_description_has_trigger(block(ind, USE_WHEN))["pass"])
+                self.assertTrue(runner.check_description_has_trigger(block(ind, USE_WHEN))["pass"])
 
-    def test_validator_does_not_keep_the_indicator_in_the_value(self):
-        for ind in self.INDICATORS:
-            with self.subTest(indicator=ind):
-                desc = extract_frontmatter(block(ind, USE_WHEN)).get("description", "")
-                self.assertFalse(
-                    desc.startswith(ind),
-                    f"indicator {ind!r} left at the start of the description",
-                )
-                self.assertIn("Use when asked", desc)
+    def test_a_plain_value_is_untouched(self):
+        self.assertEqual(extract_description(plain(USE_WHEN)), USE_WHEN)
+
+    def test_other_frontmatter_keys_still_parse(self):
+        self.assertEqual(extract_frontmatter(block(">-", USE_WHEN)).get("name"), "x")
 
 
 class TestTriggerPhrasings(unittest.TestCase):
@@ -95,18 +94,11 @@ class TestTriggerPhrasings(unittest.TestCase):
         "A gate. Run before the PDF leaves the building.",
     ]
 
-    def test_runner_accepts(self):
+    def test_accepted(self):
         for desc in self.ACCEPTED:
             with self.subTest(description=desc):
-                self.assertTrue(check_description_has_trigger(plain(desc))["pass"])
-
-    def test_validator_accepts(self):
-        for desc in self.ACCEPTED:
-            with self.subTest(description=desc):
-                self.assertTrue(
-                    any(p.search(desc) for p in VALIDATOR_TRIGGER_PATTERNS),
-                    "validator did not recognise a trigger the runner accepts",
-                )
+                self.assertTrue(has_trigger(desc))
+                self.assertTrue(runner.check_description_has_trigger(plain(desc))["pass"])
 
 
 class TestStillRejectsNonTriggers(unittest.TestCase):
@@ -120,27 +112,47 @@ class TestStillRejectsNonTriggers(unittest.TestCase):
         "Helps with documents.",
     ]
 
-    def test_runner_rejects(self):
+    def test_rejected(self):
         for desc in self.REJECTED:
             with self.subTest(description=desc):
-                self.assertFalse(check_description_has_trigger(plain(desc))["pass"])
-
-    def test_validator_rejects(self):
-        for desc in self.REJECTED:
-            with self.subTest(description=desc):
-                self.assertFalse(any(p.search(desc) for p in VALIDATOR_TRIGGER_PATTERNS))
+                self.assertFalse(has_trigger(desc))
+                self.assertFalse(runner.check_description_has_trigger(plain(desc))["pass"])
 
 
-class TestTwoScriptsAgree(unittest.TestCase):
-    """TRIGGER_PATTERNS is duplicated across the two scripts; they must not drift apart."""
+class TestSharedRatherThanCopied(unittest.TestCase):
+    """The patterns, the reader and the limits are one definition, not several.
 
-    def test_same_verdict_on_every_case(self):
-        cases = (TestTriggerPhrasings.ACCEPTED + TestStillRejectsNonTriggers.REJECTED)
-        for desc in cases:
-            with self.subTest(description=desc):
-                runner = check_description_has_trigger(plain(desc))["pass"]
-                validator = any(p.search(desc) for p in VALIDATOR_TRIGGER_PATTERNS)
-                self.assertEqual(runner, validator, "the two copies disagree")
+    Identity rather than equality: two equal copies are exactly what drifted before.
+    """
+
+    def test_trigger_patterns_are_the_same_object(self):
+        self.assertIs(validator.TRIGGER_PATTERNS, _skill_frontmatter.TRIGGER_PATTERNS)
+
+    def test_frontmatter_reader_is_the_same_function(self):
+        self.assertIs(validator.extract_frontmatter, _skill_frontmatter.extract_frontmatter)
+        self.assertIs(runner.extract_description, _skill_frontmatter.extract_description)
+
+    def test_find_skill_md_is_the_same_function(self):
+        self.assertIs(runner.find_skill_md, _skill_frontmatter.find_skill_md)
+        self.assertIs(structure.find_skill_md, _skill_frontmatter.find_skill_md)
+
+    def test_limits_are_single_sourced(self):
+        self.assertEqual(structure.DEFAULT_MAX_LINES, MAX_SKILL_MD_LINES)
+        self.assertEqual(
+            runner.check_skill_md_length.__defaults__[0], MAX_SKILL_MD_LINES
+        )
+        self.assertEqual(
+            validator.check_length.__defaults__[0], MAX_DESCRIPTION_CHARS
+        )
+
+    def test_no_script_redefines_them(self):
+        """Guards against a future copy being pasted back in."""
+        for path in SCRIPTS_DIR.glob("skill_*.py"):
+            body = path.read_text()
+            with self.subTest(script=path.name):
+                self.assertNotIn("TRIGGER_PATTERNS = [", body)
+                self.assertNotIn("def extract_frontmatter(", body)
+                self.assertNotIn("def find_skill_md(", body)
 
 
 if __name__ == "__main__":

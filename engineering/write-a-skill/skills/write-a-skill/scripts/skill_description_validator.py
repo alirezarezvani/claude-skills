@@ -22,6 +22,7 @@ Usage:
 
 import argparse
 import json
+import os
 import re
 import sys
 from typing import Any, Dict, List, Optional
@@ -47,66 +48,21 @@ description: {SAMPLE_DESCRIPTION}
 
 
 # First-person pronouns + second-person pronouns to flag
+# Shared with the other write-a-skill scripts so they cannot drift apart. The directory is put
+# on the path explicitly, so the script still runs from any working directory.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _skill_frontmatter import (  # noqa: E402
+    MAX_DESCRIPTION_CHARS,
+    TRIGGER_PATTERNS,
+    extract_frontmatter,
+)
+
 FIRST_PERSON = {"i", "me", "my", "myself", "we", "us", "our", "ours", "ourselves"}
 SECOND_PERSON = {"you", "your", "yours", "yourself"}
 
 # Trigger phrases that count as explicit "use when" triggers
 # Per Matt Pocock's rule: descriptions need an explicit trigger so agents know when to invoke.
 # Natural English variants are all accepted: "Use when/before/during/after/for/while ..." etc.
-# A trigger phrase is an invocation verb followed by a temporal or conditional cue. Matching the
-# pair, rather than a fixed list of two-word strings, is what lets "use when", "use whenever",
-# "use this skill whenever", "should be used when", "invoke at the start of" and "load this
-# before" all read as what they plainly are. Both halves must still be present, so prose like
-# "runs on macOS" or "teaches you to use design tokens" is still not a trigger.
-_TRIGGER_VERB = r"(?:use|used|using|invoke|invoked|apply|applied|run|load|fire|trigger|reach\s+for)"
-_TRIGGER_FILLER = r"(?:\s+(?:this|it|its|the|a|an|skill))*"
-_TRIGGER_CUE = (
-    r"(?:when(?:ever)?|before|after|during|while"
-    r"|at\s+the\s+(?:start|point|moment)\s+of"
-    r"|on\s+(?:every|any|each))"
-)
-
-TRIGGER_PATTERNS = [
-    re.compile(rf"\b{_TRIGGER_VERB}\b{_TRIGGER_FILLER}\s+{_TRIGGER_CUE}\b", re.IGNORECASE),
-    # "Use for X" carries no temporal cue but is long-standing and unambiguous in a description.
-    re.compile(r"\buse\s+for\b", re.IGNORECASE),
-]
-
-
-def extract_frontmatter(text: str) -> Dict[str, str]:
-    """Extract YAML frontmatter as a flat dict. Stdlib-only — minimal YAML parser
-    sufficient for SKILL.md frontmatter (key: value pairs, no nesting)."""
-    if not text.startswith("---"):
-        return {}
-    end = text.find("\n---", 3)
-    if end == -1:
-        return {}
-    block = text[3:end].strip()
-    out: Dict[str, str] = {}
-    current_key: Optional[str] = None
-    buffer: List[str] = []
-    for line in block.splitlines():
-        if ":" in line and not line.startswith(" ") and not line.startswith("\t"):
-            # Flush previous
-            if current_key:
-                out[current_key] = " ".join(buffer).strip()
-                buffer = []
-            key, _, val = line.partition(":")
-            current_key = key.strip()
-            val = val.strip()
-            # Same set as the runner: any block scalar indicator introduces the value on the
-            # following lines and must not be kept as part of it. Testing only against ">"
-            # left ">-", "|" and "|-" prepended to the description, which corrupts both the
-            # length check and anything matched against the text.
-            if val and not re.fullmatch(r"[>|][0-9]*[-+]?|[>|][-+]?[0-9]*", val):
-                buffer.append(val)
-        elif current_key and line.strip():
-            buffer.append(line.strip())
-    if current_key:
-        out[current_key] = " ".join(buffer).strip()
-    return out
-
-
 def check_present(desc: str) -> Dict[str, Any]:
     return {
         "rule": "description_present",
@@ -115,7 +71,7 @@ def check_present(desc: str) -> Dict[str, Any]:
     }
 
 
-def check_length(desc: str, max_chars: int = 1024) -> Dict[str, Any]:
+def check_length(desc: str, max_chars: int = MAX_DESCRIPTION_CHARS) -> Dict[str, Any]:
     n = len(desc)
     return {
         "rule": "description_length",

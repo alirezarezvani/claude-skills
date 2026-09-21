@@ -77,16 +77,18 @@ jobs:
 
       - name: Python syntax check (blocking)
         run: |
-          # Covers every top-level skill domain + scripts/. When adding a new
-          # domain folder, add it here (audit gate G9: this list previously
-          # skipped 8 post-v2.7 domains).
-          python -m compileall \
-            marketing-skill product-team c-level-advisor \
-            engineering-team ra-qm-team engineering \
-            business-growth finance project-management \
-            productivity marketing research \
-            business-operations commercial research-ops \
-            compliance-os markdown-html scripts
+          # Derived from the tree, not hand-listed. The hand-written list was
+          # incomplete twice (8 post-v2.7 domains, then agent-launcher with 20
+          # files), and compileall exits 0 on a path it cannot list, so a stale
+          # entry silences this gate instead of failing it. An empty list is
+          # equally silent: compileall with no arguments compiles sys.path.
+          set -- $(git ls-files '*.py' | cut -d/ -f1 | sort -u)
+          if [ "$#" -eq 0 ]; then
+            echo "::error::no tracked Python files found — refusing to run a gate that would check nothing"
+            exit 1
+          fi
+          echo "Checking $# domain(s): $*"
+          python -m compileall -q "$@"
 
       - name: Validate plugin.json manifests (blocking — guards #539 + #686)
         run: |

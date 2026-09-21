@@ -335,6 +335,61 @@ def generate_skills_index(repo_root: Path, skills: List[Dict], dry_run: bool = F
     return index
 
 
+def prune_orphan_symlinks(repo_root: Path, skills: List[Dict], dry_run: bool = False,
+                          verbose: bool = False) -> Dict:
+    """
+    Reconcile .codex/skills/ against the discovered skills.
+
+    create_symlinks() and validate_symlinks() both walk the discovered skills,
+    so a link left behind by an earlier sync generation is visited by neither:
+    it survives every run, and every run reports success. Walking the target
+    directory is the only way to see it.
+
+    A link is removed only where nothing can be lost by removing it: it
+    dangles, or it resolves to a directory with no SKILL.md. Codex has nothing
+    to load through it either way.
+
+    A link that resolves to a real skill but that no discovered skill claims is
+    reported, not removed. That is what a gap in SKILL_DOMAINS looks like from
+    this side, and deleting on it would turn a discovery bug into data loss.
+
+    Returns {"removed": [...], "unclaimed": [...], "errors": [...]}.
+    """
+    codex_skills_dir = repo_root / ".codex" / "skills"
+    if not codex_skills_dir.is_dir():
+        return {"removed": [], "unclaimed": [], "errors": []}
+
+    claimed = {skill["name"] for skill in skills}
+    removed, unclaimed, errors = [], [], []
+
+    for entry in sorted(codex_skills_dir.iterdir()):
+        if entry.name in claimed or not entry.is_symlink():
+            continue
+
+        target = os.readlink(entry)
+        loadable = (entry / "SKILL.md").exists()
+        if loadable:
+            unclaimed.append(f"{entry.name}: resolves to a skill no domain claims "
+                             f"(-> {target}); check SKILL_DOMAINS before removing it")
+            if verbose:
+                print(f"  [UNCLAIMED] {entry.name} -> {target}")
+            continue
+
+        reason = "dangling" if not entry.exists() else "no SKILL.md behind it"
+        try:
+            if not dry_run:
+                entry.unlink()
+            removed.append(f"{entry.name} ({reason}, was -> {target})")
+            if verbose:
+                print(f"  [REMOVED] {entry.name} -> {target} ({reason})")
+        except OSError as exc:
+            errors.append(f"{entry.name}: {exc}")
+            if verbose:
+                print(f"  [ERROR] {entry.name}: {exc}")
+
+    return {"removed": removed, "unclaimed": unclaimed, "errors": errors}
+
+
 def validate_symlinks(repo_root: Path, skills: List[Dict]) -> List[str]:
     """
     Validate that all symlinks resolve to valid SKILL.md files.
@@ -414,6 +469,9 @@ def main():
 
     symlink_results = create_symlinks(repo_root, skills, args.dry_run, args.verbose)
 
+    # Walks .codex/skills/ itself; create_symlinks above walks the skills.
+    prune_results = prune_orphan_symlinks(repo_root, skills, args.dry_run, args.verbose)
+
     # Generate index
     if not args.json:
         print(f"{mode}Generating .codex/skills-index.json...")
@@ -433,6 +491,7 @@ def main():
             "dry_run": args.dry_run,
             "total_skills": len(skills),
             "symlinks": symlink_results,
+            "orphans": prune_results,
             "index_generated": not args.dry_run,
             "validation_errors": validation_errors if args.validate else None
         }
@@ -446,6 +505,14 @@ def main():
         print(f"Symlinks created: {len(symlink_results['created'])}")
         print(f"Symlinks updated: {len(symlink_results['updated'])}")
         print(f"Symlinks unchanged: {len(symlink_results['unchanged'])}")
+        verb = "would remove" if args.dry_run else "removed"
+        print(f"Orphan symlinks {verb}: {len(prune_results['removed'])}")
+        for item in prune_results['removed']:
+            print(f"  - {item}")
+        if prune_results['unclaimed']:
+            print(f"Unclaimed symlinks (kept): {len(prune_results['unclaimed'])}")
+            for item in prune_results['unclaimed']:
+                print(f"  - {item}")
 
         if symlink_results['errors']:
             print(f"Errors: {len(symlink_results['errors'])}")
@@ -470,8 +537,11 @@ def main():
             print(f"Index written to: .codex/skills-index.json")
             print(f"Symlinks created in: .codex/skills/")
 
-    # Exit with error if there were issues
-    if symlink_results['errors'] or validation_errors:
+    # Exit with error if there were issues. An unclaimed symlink counts: it is
+    # a loadable skill that no domain claims, which is what a missing
+    # SKILL_DOMAINS entry looks like from the target directory.
+    if (symlink_results['errors'] or validation_errors
+            or prune_results['errors'] or prune_results['unclaimed']):
         sys.exit(1)
 
     sys.exit(0)

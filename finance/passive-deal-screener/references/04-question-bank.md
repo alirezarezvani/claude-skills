@@ -38,7 +38,7 @@ evasion so an LP can recognize it in real time.
 7. [Distribution timing](#distribution-timing) — `Q-DIST-01`–`Q-DIST-02`
 8. [LP liquidity / secondary market](#lp-liquidity--secondary-market) — `Q-LIQ-01`–`Q-LIQ-02`
 
-25 questions across 8 categories. Cross-references span 20 distinct flag IDs
+25 questions across 8 categories. Cross-references span 28 distinct flag IDs
 from `03-red-flag-library.md`.
 
 ---

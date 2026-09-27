@@ -105,3 +105,6 @@ python financial-analyst/scripts/forecast_builder.py forecast_data.json --format
 **Skills Deployed:** 3/3 finance skills production-ready
 **Total Tools:** 7 Python automation tools
 **Commands:** /financial-health, /saas-health
+
+## passive-deal-screener
+Screens private deals from the passive LP perspective: equity syndications, preferred equity, hard money / bridge funds, and private credit, pasted from any source. Stress-tests returns against public benchmarks plus an illiquidity premium, converts the fee stack to gross-to-net drag, and surfaces red flags, missing disclosures, and GP questions with bad-answer signals. Two stdlib-only tools: fee_drag_calculator.py, benchmark_comparator.py.

@@ -220,7 +220,10 @@ def parse_args(argv):
     num("--admin-fee", "Annual admin/IR fee, %%")
     num("--servicing-fee", "Annual servicing fee, %%")
     num("--fund-mgmt-fee", "Annual fund mgmt fee, %%")
-    p.add_argument("--json", action="store_true", help="Emit JSON instead of a human-readable summary")
+    p.add_argument("--format", choices=("text", "json"), default="text",
+                   help="Output format (default: text)")
+    p.add_argument("--json", action="store_const", dest="format", const="json",
+                   help="Shorthand for --format json")
     p.add_argument("--self-check", action="store_true", help="Run internal checks against `02` and exit")
     return p.parse_args(argv)
 
@@ -409,7 +412,7 @@ def main(argv=None):
         print("error: inputs compound past float range - check gross-irr and hold-years units",
               file=sys.stderr)
         return 2
-    if args.json:
+    if args.format == "json":
         print(json.dumps(result, indent=2))
     else:
         print(format_human(result))

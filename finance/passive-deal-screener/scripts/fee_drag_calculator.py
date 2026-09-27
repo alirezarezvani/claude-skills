@@ -259,6 +259,9 @@ def validate_params(params):
 
     if params["hold_years"] <= 0:
         errors.append("hold-years must be greater than 0")
+    elif params["hold_years"] > 100:
+        # Also keeps (1 + g) ** hold_years inside float range.
+        errors.append("hold-years above 100 is not a deal hold - check units (years, not months)")
     for f in fee_fields:
         if params[f] < 0:
             errors.append(f"{f.replace('_', '-')} cannot be negative (fees are a % >= 0)")
@@ -272,6 +275,9 @@ def validate_params(params):
         errors.append("gross-irr below -100% is impossible (terminal value can't go below 0)")
 
     # Warnings: runnable, but the numbers look like a unit slip.
+    if 30 < params["hold_years"] <= 100:
+        warnings.append(f"hold-years {params['hold_years']:g} is unusually long - "
+                        "check units (years, not months)")
     if params["gross_irr"] > 100:
         warnings.append(f"gross-irr {params['gross_irr']:g}% is implausibly high - "
                         "check units (15 means 15%, not 0.15)")
@@ -362,6 +368,7 @@ def _self_check():
 
     # Input validation: a known-bad input must be rejected; a suspect one warned.
     for argv, label in ((["--hold-years", "0"], "hold-years 0"),
+                        (["--hold-years", "7000"], "hold-years 7000"),
                         (["--gross-irr", "nan"], "gross-irr nan"),
                         (["--mgmt-fee", "inf"], "mgmt-fee inf")):
         if not validate_params(args_to_params(parse_args(argv))[0])[0]:
@@ -396,7 +403,12 @@ def main(argv=None):
         for e in errors:
             print(f"error: {e}", file=sys.stderr)
         return 2
-    result = compute_fee_drag(params, assumed)
+    try:
+        result = compute_fee_drag(params, assumed)
+    except OverflowError:
+        print("error: inputs compound past float range - check gross-irr and hold-years units",
+              file=sys.stderr)
+        return 2
     if args.json:
         print(json.dumps(result, indent=2))
     else:

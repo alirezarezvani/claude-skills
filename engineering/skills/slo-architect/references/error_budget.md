@@ -45,13 +45,17 @@ The alert fires only when BOTH windows show high burn. This filters spikes (only
 
 ### Recommended thresholds
 
+For a 30-day SLO reporting window:
+
 | Alert | Long window | Short window | Burn rate threshold | % budget at fire | Severity |
 |---|---|---|---|---|---|
 | Fast burn | 1h | 5m | 14.4 | 2% in 1h | page |
 | Slow burn | 6h | 30m | 6 | 5% in 6h | page |
 | Ticket | 3d | 6h | 1 | 10% in 3d | ticket |
 
-The numbers come from: `burn_rate × bad_event_rate > slo_target_violation_rate`.
+Burn rate is `observed_bad_fraction / allowed_bad_fraction`, where `allowed_bad_fraction = 1 - target_percent / 100`. To consume a chosen budget fraction over a long alert window, use `burn_rate_threshold = budget_fraction × SLO_window_hours / long_alert_window_hours`. An error-ratio alert compares `observed_bad_fraction > burn_rate_threshold × allowed_bad_fraction` in both its long and short windows.
+
+For 30 days (720 hours), the multipliers above are `0.02 × 720 / 1 = 14.4`, `0.05 × 720 / 6 = 6`, and `0.10 × 720 / 72 = 1`. For 28 days (672 hours), the same budget fractions and alert windows give 13.44, 5.6, and approximately 0.933. The target determines the allowed bad-event fraction; it does not change these multipliers.
 
 `error_budget_calculator.py` computes these for any target+window. Output is PromQL-shaped:
 

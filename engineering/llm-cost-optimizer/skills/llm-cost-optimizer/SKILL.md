@@ -124,7 +124,7 @@ Remove filler without losing meaning. Audit each prompt for token efficiency.
 
 Cache LLM responses keyed by embedding similarity, not exact match. Serve cached responses for semantically equivalent questions.
 
-Tools: GPTCache, LangChain cache, custom Redis + embedding lookup.
+Tools: GPTCache, LangChain cache, custom Redis + embedding lookup, or a gateway-level semantic cache (e.g., LiteLLM Proxy, Bifrost).
 
 Threshold guidance: cosine similarity >0.95 = safe to serve cached response.
 

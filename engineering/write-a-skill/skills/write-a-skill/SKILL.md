@@ -133,7 +133,7 @@ Validation tools + cs-* wrapper sit alongside this skill. Run all 6 review-check
 python scripts/skill_review_checklist_runner.py path/to/skill-folder
 ```
 
-See [references/companion_tooling.md](references/companion_tooling.md) for the tool catalogue, cs-skill-author persona agent, and `/cs:write-a-skill` slash command.
+See [references/companion_tooling.md](references/companion_tooling.md) for the tool catalogue, cs-skill-author persona agent, and `/cs-write-a-skill` slash command.
 
 ## When the knowledge is in a document, not your head
 
@@ -143,8 +143,8 @@ document into a knowledge-base skill (core frameworks + on-demand chapters + glo
 patterns + cheatsheet) and can package the result as a plugin.
 
 ```
-/cs:book-to-skill <path|folder|glob> [skill-name]     # compile the source
-/cs:book-to-plugin <compiled-skill-dir>               # wrap it as a plugin
+/cs-book-to-skill <path|folder|glob> [skill-name]     # compile the source
+/cs-book-to-plugin <compiled-skill-dir>               # wrap it as a plugin
 ```
 
 Rule of thumb: **author first, compile second.** A hand-written skill states what you want the

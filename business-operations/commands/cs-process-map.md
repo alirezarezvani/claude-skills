@@ -3,7 +3,7 @@ description: Map an internal business process (BPMN-style swim lanes), measure c
 argument-hint: "<process description or path to process JSON>"
 ---
 
-# /cs:process-map — BPMN-style process mapping + bottleneck detection
+# /cs-process-map — BPMN-style process mapping + bottleneck detection
 
 Run the `process-mapper` skill on this input:
 

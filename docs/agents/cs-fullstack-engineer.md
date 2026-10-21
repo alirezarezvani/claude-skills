@@ -172,7 +172,7 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 This agent is invokable by:
 
-1. **Slash command:** `/cs:fullstack-review <prompt>`
+1. **Slash command:** `/cs-fullstack-review <prompt>`
 2. **Other agents:** `Agent({subagent_type:"cs-fullstack-engineer", prompt:"..."})`
 3. **Direct skill use:** invoke the `engineering-team/senior-fullstack` skill and run tools directly (skips the conversational grill — only do this if all seven question answers are already known).
 

@@ -122,7 +122,7 @@ The sample correctly flags an unvalidated serum-cytokine surrogate (cannot be pr
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is your primary endpoint a clinical outcome or a surrogate — and if surrogate, is it on FDA's validated table?"**
    Recommended: clinical outcome unless the surrogate is validated for this indication.

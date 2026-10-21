@@ -143,7 +143,7 @@ done
 
 - Skill: [../skills/write-a-skill/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/skills/write-a-skill/SKILL.md)
 - Companion tooling: [../skills/write-a-skill/references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/skills/write-a-skill/references/companion_tooling.md)
-- Sibling command: [`/cs:write-a-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/commands/cs-write-a-skill.md)
+- Sibling command: [`/cs-write-a-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/commands/cs-write-a-skill.md)
 
 ---
 

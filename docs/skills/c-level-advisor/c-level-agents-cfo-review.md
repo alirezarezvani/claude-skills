@@ -1,9 +1,9 @@
 ---
-title: "/cs:cfo-review — CFO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cfo-review — CFO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cfo-review — CFO Forcing Questions
+# /c-level-agents:cfo-review — CFO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any pl
 </div>
 
 
-**Command:** `/cs:cfo-review <plan>`
+**Command:** `/c-level-agents:cfo-review <plan>`
 
 The numerate skeptic stress-tests anything that touches money. Six questions before any spend or fundraise.
 
@@ -102,9 +102,9 @@ The numerate skeptic stress-tests anything that touches money. Six questions bef
 
 ## Routing
 
-- `/cs:decide` — log the verdict
-- `/cs:execute` — build 90-day plan if GREEN
-- `/cs:boardroom` — escalate if multi-role implications
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:execute` — build 90-day plan if GREEN
+- `/c-level-agents:boardroom` — escalate if multi-role implications
 
 ## Related
 

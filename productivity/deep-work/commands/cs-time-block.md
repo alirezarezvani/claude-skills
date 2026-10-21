@@ -1,14 +1,14 @@
 ---
 name: "cs-time-block"
-description: "/cs:time-block — Build today's time-block plan from a task list, fast: deep blocks of at least 90 minutes in the earliest hours under a hard 4-hour ceiling, shallow work batched into at most two windows, 10-minute buffers, fixed lunch, immovable hard stop. The quick variant of /cs:deep-work — schedule only, no audit, no ledger."
+description: "/cs-time-block — Build today's time-block plan from a task list, fast: deep blocks of at least 90 minutes in the earliest hours under a hard 4-hour ceiling, shallow work batched into at most two windows, 10-minute buffers, fixed lunch, immovable hard stop. The quick variant of /cs-deep-work — schedule only, no audit, no ledger."
 argument-hint: "[task list with minutes, plus start/end times]"
 ---
 
-# /cs:time-block — Just Build Today's Blocks
+# /cs-time-block — Just Build Today's Blocks
 
-**Command:** `/cs:time-block [task list + start/end]`
+**Command:** `/cs-time-block [task list + start/end]`
 
-The quick variant of `/cs:deep-work`: skip the shallow audit and the ledger, take a ready task
+The quick variant of `/cs-deep-work`: skip the shallow audit and the ledger, take a ready task
 list, and emit the time-blocked day. Same arithmetic, same refusals — deep work first and
 earliest, capped at 4 hours; shallow work batched; the hard stop does not move.
 
@@ -20,9 +20,9 @@ earliest, capped at 4 hours; shallow work batched; the hard stop does not move.
 
 ## When NOT to Run
 
-- The task list hasn't been triaged — shallow work will eat the plan → run `/cs:deep-work` (it
+- The task list hasn't been triaged — shallow work will eat the plan → run `/cs-deep-work` (it
   audits first)
-- You need to pick WHAT matters today → `/cs:andreessen` (3x5 card)
+- You need to pick WHAT matters today → `/cs-andreessen` (3x5 card)
 - Team capacity or sprint planning → `project-management` skills
 
 ## What You Get
@@ -42,7 +42,7 @@ not failing.
 ## Discipline
 
 - **Every task needs minutes and a mode** — `"name:minutes:deep|shallow"`. If the user doesn't
-  know a task's mode, that's the tell to run `/cs:deep-work` instead.
+  know a task's mode, that's the tell to run `/cs-deep-work` instead.
 - **Deep demand past 4 hours is deferred by name** — never shrunk below 90 minutes or squeezed.
 - **Overflow past `--end` is deferred by name** — the day never silently extends.
 - **Revision is normal** — a broken day is re-planned from the current time, same rules.
@@ -71,7 +71,7 @@ python ../skills/deep-work/scripts/time_block_planner.py --start 13:00 --end 17:
 
 ## Related
 
-- Full workflow: [`/cs:deep-work`](cs-deep-work.md) — audit + plan + ledger + shutdown
+- Full workflow: [`/cs-deep-work`](cs-deep-work.md) — audit + plan + ledger + shutdown
 - Agent: [`cs-deep-work`](../agents/cs-deep-work.md)
 - Skill: [`deep-work`](../skills/deep-work/SKILL.md)
 

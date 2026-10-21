@@ -18,7 +18,7 @@ Every workflow-creation session opens with an intake question set (what task, wh
 | **3 references** | `skills/workflow-builder/references/` | API reference · orchestration patterns · decision + intake guide (7-8 sources each). |
 | **Templates + example** | `skills/workflow-builder/assets/` | Fan-out / pipeline / loop starters + a complete PR-triage workflow. |
 | **Persona agent** | `agents/cs-workflow-architect.md` | Design-first interrogator that refuses to write before the topology is confirmed. |
-| **Slash command** | `commands/cs-workflow-build.md` | `/cs:workflow-build <task>` — runs the full intake → scaffold → validate flow. |
+| **Slash command** | `commands/cs-workflow-build.md` | `/cs-workflow-build <task>` — runs the full intake → scaffold → validate flow. |
 
 ## Quick start
 

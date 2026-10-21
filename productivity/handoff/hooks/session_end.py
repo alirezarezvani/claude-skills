@@ -84,7 +84,7 @@ def _remind() -> None:
     print("Session ending — no recent handoff detected.")
     print()
     print("Want to capture state for next time? In a future session, run:")
-    print("  /cs:handoff \"<what the next session should do>\"")
+    print("  /cs-handoff \"<what the next session should do>\"")
     print()
     print("Disable this reminder: HANDOFF_SESSIONEND=0")
     print("=" * 60)

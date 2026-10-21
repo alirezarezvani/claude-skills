@@ -1,12 +1,12 @@
 ---
 name: "cs-linkedin-outreach"
-description: "/cs:linkedin-outreach — Build a weekly commenting roster inside a real time budget, and write one outreach message at a time that refuses to be a template. Caps volume against LinkedIn's observed invitation limits and refuses automation-shaped plans. Nothing is ever sent."
+description: "/cs-linkedin-outreach — Build a weekly commenting roster inside a real time budget, and write one outreach message at a time that refuses to be a template. Caps volume against LinkedIn's observed invitation limits and refuses automation-shaped plans. Nothing is ever sent."
 argument-hint: "[who you want to reach, and how much time you have]"
 ---
 
-# /cs:linkedin-outreach — Comments first, messages second
+# /cs-linkedin-outreach — Comments first, messages second
 
-**Command:** `/cs:linkedin-outreach [who, and how much time]`
+**Command:** `/cs-linkedin-outreach [who, and how much time]`
 
 **Nothing here is sent.** No credentials, no API calls. Automated connecting, messaging,
 commenting, liking, and sharing are prohibited by LinkedIn's User Agreement §8.2.

@@ -5,14 +5,14 @@ argument-hint: "[goal of next session]"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 
-# /cs:handoff
+# /cs-handoff
 
 Compact the current conversation into a handoff document for another agent to pick up.
 
 ## Invocation
 
 ```
-/cs:handoff [optional description of what the next session will focus on]
+/cs-handoff [optional description of what the next session will focus on]
 ```
 
 The argument (if provided) becomes the **Goal of next session** verbatim. Without it, infer from the most recent unresolved thread.
@@ -21,7 +21,7 @@ The argument (if provided) becomes the **Goal of next session** verbatim. Withou
 
 1. **Check first-run state.** Run `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/config_loader.py --status`.
    - If `should_prompt_setup: true`, ask the user: *"Run setup now? (Y/n)"*.
-     - **Y** → invoke `/cs:handoff-setup`, then return here.
+     - **Y** → invoke `/cs-handoff-setup`, then return here.
      - **N** → mark declined: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/setup.py --decline`. Continue with defaults.
 2. **Run cleanup of stale scaffolds.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/cleanup.py`. mtime-guarded — never deletes edited files.
 3. **Walk the checklist.** Open `skills/handoff/references/handoff_prompt.md` and apply every step against the conversation.

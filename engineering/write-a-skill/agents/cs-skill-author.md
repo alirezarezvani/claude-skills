@@ -139,7 +139,7 @@ done
 
 - Skill: [../skills/write-a-skill/SKILL.md](../skills/write-a-skill/SKILL.md)
 - Companion tooling: [../skills/write-a-skill/references/companion_tooling.md](../skills/write-a-skill/references/companion_tooling.md)
-- Sibling command: [`/cs:write-a-skill`](../commands/cs-write-a-skill.md)
+- Sibling command: [`/cs-write-a-skill`](../commands/cs-write-a-skill.md)
 
 ---
 

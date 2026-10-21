@@ -52,7 +52,7 @@ Recommended: [answer + canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:product` (question) or `/cs:product-loop`
+- All branches resolved → invoke `/cs-product` (question) or `/cs-product-loop`
   (recurring discovery) with the locked decisions inlined.
 - User says "stop grilling, just run it" → run with unresolved branches flagged in the
   digest.
@@ -62,4 +62,4 @@ Recommended: [answer + canon-cited rationale]
 
 - `engineering/grill-me` — generic plan interrogation. This grills against the product
   canon.
-- `/cs:product` — routes; this refuses to route until decisions are locked.
+- `/cs-product` — routes; this refuses to route until decisions are locked.

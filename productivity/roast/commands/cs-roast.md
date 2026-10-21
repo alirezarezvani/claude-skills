@@ -1,12 +1,12 @@
 ---
 name: "cs-roast"
-description: "/cs:roast — Convene a 5-angle adversarial panel (Critic, Champion, Analyst, Investigator, Customer) on an idea, then a Judge delivers one GO / RESHAPE / KILL verdict with the cheapest 48-hour test to de-risk it. Pressure-test before you build."
+description: "/cs-roast — Convene a 5-angle adversarial panel (Critic, Champion, Analyst, Investigator, Customer) on an idea, then a Judge delivers one GO / RESHAPE / KILL verdict with the cheapest 48-hour test to de-risk it. Pressure-test before you build."
 argument-hint: "[the idea to roast]"
 ---
 
-# /cs:roast — 5-Angle Idea Panel → One Verdict
+# /cs-roast — 5-Angle Idea Panel → One Verdict
 
-**Command:** `/cs:roast [the idea]`
+**Command:** `/cs-roast [the idea]`
 
 Claude's default is to agree with you. `/roast` is the opposite. It convenes five independent
 reviewers who tear an idea apart and build it up from every angle, then acts as the Judge to deliver
@@ -22,7 +22,7 @@ one honest verdict. Run it before you sink time and money into building the wron
 ## When NOT to Run
 
 - You want encouragement or gentle brainstorming. This exists to tell you the idea is dead when it is.
-- A cross-functional enterprise decision needing the full C-suite → use `/cs:boardroom`.
+- A cross-functional enterprise decision needing the full C-suite → use `/c-level-agents:boardroom`.
 - A purely factual lookup with no decision attached.
 
 ## What You Get
@@ -78,7 +78,7 @@ python ../skills/roast/scripts/cheapest_test_designer.py --risk price --price 99
 
 - Agent: [`cs-roast-judge`](../agents/cs-roast-judge.md)
 - Skill: [`roast`](../skills/roast/SKILL.md)
-- Siblings: `/cs:andreessen` (single market-first lens), `/cs:boardroom` (enterprise C-suite)
+- Siblings: `/cs-andreessen` (single market-first lens), `/c-level-agents:boardroom` (enterprise C-suite)
 
 ---
 

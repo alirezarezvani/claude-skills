@@ -375,7 +375,7 @@ This skill does NOT reimplement scope owned by the POWERFUL-tier specialists. It
 | Pre-commit Karpathy review | `engineering/karpathy-coder/` |
 | Pre-flight architecture grill | `engineering/grill-me/` |
 
-The `cs-fullstack-engineer` agent (in `agents/engineering/cs-fullstack-engineer.md`) orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-fullstack-engineer", prompt: "..."})` or via the slash command `/cs:fullstack-review <your problem>`.
+The `cs-fullstack-engineer` agent (in `agents/engineering/cs-fullstack-engineer.md`) orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-fullstack-engineer", prompt: "..."})` or via the slash command `/cs-fullstack-review <your problem>`.
 
 ---
 
@@ -405,7 +405,7 @@ Summary of the seven questions (full content in the reference):
 
 This skill is invokable by any other agent or skill via three surfaces:
 
-1. **Slash command:** `/cs:fullstack-review <prompt>` — runs the full grill + decision engine + composition routing.
+1. **Slash command:** `/cs-fullstack-review <prompt>` — runs the full grill + decision engine + composition routing.
 2. **Agent subagent:** `Agent({subagent_type: "cs-fullstack-engineer", prompt: "..."})` — forks context, returns ≤ 200-word digest.
 3. **Direct tool call:** `python scripts/fullstack_decision_engine.py ...` — deterministic profile match without the conversational grill (use when inputs are already known).
 

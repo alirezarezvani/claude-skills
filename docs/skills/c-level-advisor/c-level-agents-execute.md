@@ -1,9 +1,9 @@
 ---
-title: "/cs:execute — 90-Day Execution Plan — Agent Skill for Executives"
-description: "/cs:execute <decision> — Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:execute — 90-Day Execution Plan — Agent Skill for Executives"
+description: "/c-level-agents:execute <decision> — Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:execute — 90-Day Execution Plan
+# /c-level-agents:execute — 90-Day Execution Plan
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,20 +16,20 @@ description: "/cs:execute <decision> — Generate a 90-day execution plan with w
 </div>
 
 
-**Command:** `/cs:execute <decision-path>`
+**Command:** `/c-level-agents:execute <decision-path>`
 
 Turns an approved decision into a 90-day plan with weekly milestones, named DRIs, and a check-in cadence. Where most decisions die: between "we decided" and "what's next Monday?"
 
 ## Pipeline Position
 
 ```
-/cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
+/c-level-agents:office-hours  →  /c-level-agents:brief  →  /c-level-agents:boardroom  →  /c-level-agents:decide  →  /c-level-agents:execute  →  /c-level-agents:post-mortem
                                                                        ↑ you are here
 ```
 
 ## Input
 
-An approved decision record (output of `/cs:decide`).
+An approved decision record (output of `/c-level-agents:decide`).
 
 ## Output Plan Format
 
@@ -37,7 +37,7 @@ Saved to `~/.claude/execution/YYYY-MM-DD-<slug>.md`:
 
 ```markdown
 # Execution Plan: <decision title>
-**Decision:** <link to /cs:decide record>
+**Decision:** <link to /c-level-agents:decide record>
 **Owner (Sponsor):** <founder or exec>
 **Start:** YYYY-MM-DD
 **Checkpoint:** YYYY-MM-DD (90d)
@@ -97,8 +97,8 @@ Saved to `~/.claude/execution/YYYY-MM-DD-<slug>.md`:
 
 ## Routing
 
-- `/cs:post-mortem <decision>` — at day 90 (or earlier if kill criteria trigger)
-- `/cs:boardroom` — if a checkpoint reveals a need to re-decide
+- `/c-level-agents:post-mortem <decision>` — at day 90 (or earlier if kill criteria trigger)
+- `/c-level-agents:boardroom` — if a checkpoint reveals a need to re-decide
 
 ## Related
 

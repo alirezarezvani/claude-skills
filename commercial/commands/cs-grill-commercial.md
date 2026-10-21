@@ -1,9 +1,9 @@
 ---
-description: Matt Pocock-style docs-anchored grilling for a Commercial plan, deal, pricing decision, or forecast. Walks the user's plan against the SaaS pricing canon (Skok, Tunguz, Bessemer, Ramanujam, ProfitWell, Winning by Design) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs:commercial on a fuzzy plan.
+description: Matt Pocock-style docs-anchored grilling for a Commercial plan, deal, pricing decision, or forecast. Walks the user's plan against the SaaS pricing canon (Skok, Tunguz, Bessemer, Ramanujam, ProfitWell, Winning by Design) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs-commercial on a fuzzy plan.
 argument-hint: "<plan, deal, pricing question, or fuzzy commercial problem>"
 ---
 
-# /cs:grill-commercial — Commercial grill against the SaaS pricing canon
+# /cs-grill-commercial — Commercial grill against the SaaS pricing canon
 
 Apply Matt Pocock's `grill-with-docs` discipline to this Commercial plan / problem:
 
@@ -65,7 +65,7 @@ Recommended: named role + named person, not "the team".
 
 ### Branch 5 — Now invoke the sub-skill
 
-Only after branches 1-4 are locked, invoke `/cs:commercial` with the synthesized inquiry.
+Only after branches 1-4 are locked, invoke `/cs-commercial` with the synthesized inquiry.
 
 ## Output format per turn
 
@@ -78,7 +78,7 @@ Recommended: [answer + canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:commercial <synthesized>`
+- All branches resolved → invoke `/cs-commercial <synthesized>`
 - User says "stop grilling, just run it" → invoke with whatever's resolved, flag unresolved branches in digest
 - User abandons → no sub-skill, save partial grill to `commercial-grill-{timestamp}.md`
 
@@ -86,4 +86,4 @@ Recommended: [answer + canon-cited rationale]
 
 - `engineering/grill-me` (Matt Pocock) — generic
 - `engineering/grill-with-docs` (Matt Pocock) — codebase + ADR-anchored for engineering. This is **Commercial-domain grilling** against the SaaS pricing canon.
-- `/cs:commercial` — **executes** routing. This **interrogates** first.
+- `/cs-commercial` — **executes** routing. This **interrogates** first.

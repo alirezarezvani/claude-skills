@@ -1,11 +1,11 @@
 ---
 name: "cs-book-to-plugin"
-description: "/cs:book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent + /cs:* command + README) so the rest of the library can route to it. Use after /cs:book-to-skill, or when an existing knowledge-base skill folder needs to become an installable plugin."
+description: "/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent + /cs:* command + README) so the rest of the library can route to it. Use after /cs-book-to-skill, or when an existing knowledge-base skill folder needs to become an installable plugin."
 ---
 
-# /cs:book-to-plugin — Ingest a Compiled Skill into the Library
+# /cs-book-to-plugin — Ingest a Compiled Skill into the Library
 
-**Command:** `/cs:book-to-plugin <compiled-skill-dir> [--domain <domain>] [--rights <basis>]`
+**Command:** `/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] [--rights <basis>]`
 
 A folder in `~/.claude/skills/` is invisible to this repository: no manifest, no agent, no
 command, no marketplace entry, so nothing else in the library can route to it. This command
@@ -69,5 +69,5 @@ python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" \
 
 ## Related
 
-- `/cs:book-to-skill` — compile the source in the first place
-- `/cs:plugin-audit` — 8-phase audit of the emitted package before merge
+- `/cs-book-to-skill` — compile the source in the first place
+- `/plugin-audit` — 8-phase audit of the emitted package before merge

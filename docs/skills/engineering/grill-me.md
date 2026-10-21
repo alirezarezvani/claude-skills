@@ -54,7 +54,7 @@ Recommended answer: [your call + 1-sentence rationale]
 
 ## Tooling
 
-See [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me/skills/grill-me/references/companion_tooling.md). Tools: extractor + generator + tracker. Agent: `cs-grill-master`. Command: `/cs:grill-me`.
+See [references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me/skills/grill-me/references/companion_tooling.md). Tools: extractor + generator + tracker. Agent: `cs-grill-master`. Command: `/cs-grill-me`.
 
 ---
 

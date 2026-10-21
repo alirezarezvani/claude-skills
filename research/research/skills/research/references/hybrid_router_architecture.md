@@ -55,7 +55,7 @@ When these constraints are violated, the orchestrator slowly becomes a competito
 ## Sequencing: What Runs When
 
 ```
-T+0  User invokes /cs:research with their question
+T+0  User invokes /cs-research with their question
 T+0  Q1 (research question) — always asked
 T+0  Q2 (output preference) — always asked
 T+0  Classifier runs (deterministic, sub-millisecond)

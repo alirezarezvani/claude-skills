@@ -1,6 +1,6 @@
 ---
 title: "/cs-book-to-plugin — Slash Command for AI Coding Agents"
-description: "/cs:book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent +. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent +. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-book-to-plugin
@@ -11,7 +11,7 @@ description: "/cs:book-to-plugin <compiled-skill-dir> [--domain <domain>] — wr
 </div>
 
 
-**Command:** `/cs:book-to-plugin <compiled-skill-dir> [--domain <domain>] [--rights <basis>]`
+**Command:** `/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] [--rights <basis>]`
 
 A folder in `~/.claude/skills/` is invisible to this repository: no manifest, no agent, no
 command, no marketplace entry, so nothing else in the library can route to it. This command
@@ -75,5 +75,5 @@ python3 "$SKILL_ROOT/scripts/skill_plugin_emitter.py" \
 
 ## Related
 
-- `/cs:book-to-skill` — compile the source in the first place
-- `/cs:plugin-audit` — 8-phase audit of the emitted package before merge
+- `/cs-book-to-skill` — compile the source in the first place
+- `/plugin-audit` — 8-phase audit of the emitted package before merge

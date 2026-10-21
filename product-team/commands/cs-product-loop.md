@@ -3,7 +3,7 @@ description: Run the continuous-discovery loop — score the weekly cadence (Tor
 argument-hint: "[path to discovery_log.json] [path to ost.json]"
 ---
 
-# /cs:product-loop — the continuous-discovery loop
+# /cs-product-loop — the continuous-discovery loop
 
 Inputs (defaults: `discovery_log.json` and `ost.json` in the workspace; shapes in
 `product-team/skills/product-skills/assets/`):

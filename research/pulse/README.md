@@ -23,7 +23,7 @@ The skill is **recency-oriented** — it captures the current conversation, not 
 
 ## Source spec
 
-`megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). The megaprompt is canonical; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
+`megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). The megaprompt is canonical; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs-grill-with-docs` if they diverge.
 
 ## Plugin layout
 
@@ -37,7 +37,7 @@ The skill is **recency-oriented** — it captures the current conversation, not 
 | `skills/pulse/references/cross_platform_synthesis.md` | Consensus/controversy/pain detection across platforms (7+ sources) |
 | `skills/pulse/references/parallel_execution_discipline.md` | 1 q/sec rationale + plan-tier signals (7+ sources) |
 | `agents/cs-pulse.md` | Pulse persona (forcing intake, three-count enforcer, graceful degradation) |
-| `commands/cs-pulse.md` | `/cs:pulse <topic>` slash command for explicit invocation |
+| `commands/cs-pulse.md` | `/cs-pulse <topic>` slash command for explicit invocation |
 
 ## Quick start
 

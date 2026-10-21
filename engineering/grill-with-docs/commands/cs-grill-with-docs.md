@@ -1,11 +1,11 @@
 ---
 name: "cs-grill-with-docs"
-description: "/cs:grill-with-docs <path-to-plan> — Start a docs-anchored grilling session. Pre-flights CONTEXT.md + docs/adr/ linters, then interrogates the plan one decision at a time, updating glossary + writing ADRs inline as they crystallise."
+description: "/cs-grill-with-docs <path-to-plan> — Start a docs-anchored grilling session. Pre-flights CONTEXT.md + docs/adr/ linters, then interrogates the plan one decision at a time, updating glossary + writing ADRs inline as they crystallise."
 ---
 
-# /cs:grill-with-docs — Docs-Anchored Plan Interrogation
+# /cs-grill-with-docs — Docs-Anchored Plan Interrogation
 
-**Command:** `/cs:grill-with-docs <path-to-plan>`
+**Command:** `/cs-grill-with-docs <path-to-plan>`
 
 The `cs-grill-with-docs` persona pre-flights the project's documented language and decisions, then walks the plan one branch at a time — challenging fuzzy terms against `CONTEXT.md`, surfacing code-vs-glossary contradictions, and writing ADRs only when the 3-criteria gate is met.
 
@@ -16,7 +16,7 @@ The `cs-grill-with-docs` persona pre-flights the project's documented language a
 - Resolving ambiguity introduced by drift between glossary and code
 - Pre-mortem on an architectural decision before it lands
 
-## When NOT to Run (use `/cs:grill-me` instead)
+## When NOT to Run (use `/cs-grill-me` instead)
 
 - The repo has no `CONTEXT.md` and no `docs/adr/` and you don't want to seed them
 - You want a plan-only grill in a vacuum (the docs anchor would add no signal)
@@ -91,8 +91,8 @@ Recommended: [position] because [rationale grounded in the anchor]
 - Agent: [`cs-grill-with-docs`](../agents/cs-grill-with-docs.md)
 - Skill: [`grill-with-docs`](../skills/grill-with-docs/SKILL.md)
 - Format specs: [ADR-FORMAT](../skills/grill-with-docs/ADR-FORMAT.md), [CONTEXT-FORMAT](../skills/grill-with-docs/CONTEXT-FORMAT.md)
-- Sibling skill: `/cs:grill-me` (plan-only grill)
-- Adjacent: `/cs:caveman`, `/cs:handoff`, `/cs:write-a-skill`
+- Sibling skill: `/cs-grill-me` (plan-only grill)
+- Adjacent: `/cs-caveman`, `/cs-handoff`, `/cs-write-a-skill`
 
 ---
 

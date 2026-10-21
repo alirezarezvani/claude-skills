@@ -8,7 +8,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "388 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 727 Python tools, 842 reference guides, 118 agents (cs-* + personas), 150 slash commands across 99 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs:pm and /cs:product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "description": "388 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 727 Python tools, 842 reference guides, 118 agents (cs-* + personas), 150 slash commands across 100 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs-pm and /cs-product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
     "version": "2.12.0"
   },
   "plugins": [
@@ -61,7 +61,7 @@
     {
       "name": "c-level-agents",
       "source": "./c-level-agents",
-      "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) with distinct cognitive voices, plus 21 /cs:* slash commands — forcing-question office hours (CFO/CMO/CPO/CRO/CTO/CISO/GC/CDO/CAIO/CCO/VPE reviews), strategic sprint pipeline (brief → boardroom → decide → execute → post-mortem), and meta routing (/cs:founder-mode auto-router, /cs:onboard, /cs:cross-eval multi-model consensus, /cs:freeze cooldown lock). Wraps the 33 c-level skills with cognitive gearing, persona voice, and artifact-driven handoffs. The business-domain answer to YC Garry Tan's gstack.",
+      "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) with distinct cognitive voices, plus 21 /cs:* slash commands — forcing-question office hours (CFO/CMO/CPO/CRO/CTO/CISO/GC/CDO/CAIO/CCO/VPE reviews), strategic sprint pipeline (brief → boardroom → decide → execute → post-mortem), and meta routing (/c-level-agents:founder-mode auto-router, /cs-onboard, /c-level-agents:cross-eval multi-model consensus, /c-level-agents:freeze cooldown lock). Wraps the 33 c-level skills with cognitive gearing, persona voice, and artifact-driven handoffs. The business-domain answer to YC Garry Tan's gstack.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -268,7 +268,7 @@
     {
       "name": "engineering-skills",
       "source": "./engineering-team",
-      "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock — each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs:fullstack-review, /cs:frontend-review, /cs:backend-review, /cs:engineer-grill slash commands.",
+      "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock — each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs-fullstack-review, /cs-frontend-review, /cs-backend-review, /cs-engineer-grill slash commands.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -315,7 +315,7 @@
     {
       "name": "product-skills",
       "source": "./product-team",
-      "description": "13 bundled product skills with 22 Python tools: product-skills fork-orchestrator with continuous-discovery loop (deterministic 16-lane router, Torres cadence tracker, OST linter, /cs:product + /cs:grill-product + /cs:product-loop), product manager toolkit (RICE, PRDs), product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, spec-to-repo. Companion standalone plugins: agile-product-owner, code-to-prd, apple-hig-expert, research-summarizer.",
+      "description": "13 bundled product skills with 22 Python tools: product-skills fork-orchestrator with continuous-discovery loop (deterministic 16-lane router, Torres cadence tracker, OST linter, /cs-product + /cs-grill-product + /cs-product-loop), product manager toolkit (RICE, PRDs), product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, spec-to-repo. Companion standalone plugins: agile-product-owner, code-to-prd, apple-hig-expert, research-summarizer.",
       "version": "2.11.1",
       "author": {
         "name": "Alireza Rezvani"
@@ -342,7 +342,7 @@
     {
       "name": "pm-skills",
       "source": "./project-management",
-      "description": "9 project management skills with 15 Python tools: pm-skills fork-orchestrator with agentic delivery loop (deterministic 8-lane router, Jira MCP snapshot bridge to Kanban flow metrics + Monte Carlo forecasts, delegation-governance gate, /cs:pm + /cs:grill-pm + /cs:pm-loop), senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator, meeting analyzer, team communications. Bundled Atlassian Remote MCP.",
+      "description": "9 project management skills with 15 Python tools: pm-skills fork-orchestrator with agentic delivery loop (deterministic 8-lane router, Jira MCP snapshot bridge to Kanban flow metrics + Monte Carlo forecasts, delegation-governance gate, /cs-pm + /cs-grill-pm + /cs-pm-loop), senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator, meeting analyzer, team communications. Bundled Atlassian Remote MCP.",
       "version": "2.11.1",
       "author": {
         "name": "Alireza Rezvani"
@@ -846,7 +846,7 @@
     {
       "name": "write-a-skill",
       "source": "./engineering/write-a-skill",
-      "description": "Skill-author skill: create new agent skills with proper structure, progressive disclosure, and bundled resources. Derived from Matt Pocock's MIT-licensed write-a-skill with: (1) 3 stdlib Python validation tools (description validator, structure validator, review-checklist runner — all enforcing Matt's 6-item checklist), (2) 4 references citing 7-8 authoritative sources each (progressive disclosure principles, description design patterns, quality gates, companion tooling), (3) cs-skill-author persona agent + /cs:write-a-skill slash command. Matt's voice and 3-phase workflow (Gather → Draft → Review) preserved verbatim per MIT.",
+      "description": "Skill-author skill: create new agent skills with proper structure, progressive disclosure, and bundled resources. Derived from Matt Pocock's MIT-licensed write-a-skill with: (1) 3 stdlib Python validation tools (description validator, structure validator, review-checklist runner — all enforcing Matt's 6-item checklist), (2) 4 references citing 7-8 authoritative sources each (progressive disclosure principles, description design patterns, quality gates, companion tooling), (3) cs-skill-author persona agent + /cs-write-a-skill slash command. Matt's voice and 3-phase workflow (Gather → Draft → Review) preserved verbatim per MIT.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -865,7 +865,7 @@
     {
       "name": "book-to-skill",
       "source": "./engineering/book-to-skill",
-      "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills: a master SKILL.md with core frameworks and a topic index, on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Ships 4 stdlib-only tools (multi-format extractor with invisible-Unicode sanitization, four-family generated-skill validator covering frontmatter/safety/budget/index, pre- and post-flight token budget estimator with a worth-converting verdict, and a plugin emitter that wraps a compiled skill as an installable claude-skills package behind a rights gate), 5 references citing 7-8 sources each, a cs-book-to-skill agent, and /cs:book-to-skill + /cs:book-to-plugin commands. Derived from virgiliojr94/book-to-skill (MIT).",
+      "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills: a master SKILL.md with core frameworks and a topic index, on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Ships 4 stdlib-only tools (multi-format extractor with invisible-Unicode sanitization, four-family generated-skill validator covering frontmatter/safety/budget/index, pre- and post-flight token budget estimator with a worth-converting verdict, and a plugin emitter that wraps a compiled skill as an installable claude-skills package behind a rights gate), 5 references citing 7-8 sources each, a cs-book-to-skill agent, and /cs-book-to-skill + /cs-book-to-plugin commands. Derived from virgiliojr94/book-to-skill (MIT).",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -885,7 +885,7 @@
     {
       "name": "workflow-builder",
       "source": "./engineering/workflow-builder",
-      "description": "Workflow-builder skill: design and write deterministic multi-agent workflow scripts (.js files in .claude/workflows/) for Claude Code's Workflow tool (CLAUDE_CODE_WORKFLOWS=1, /workflows). Every session opens with an intake question set; when the user is vague, a stdlib recommendation engine infers and proposes a topology with rationale instead of stalling. Ships 3 stdlib Python tools (intake recommendation engine, .js validator enforcing pure-literal-meta / no-non-determinism / guarded-loop / parallel-thunk rules, topology scaffolder), 3 references citing 7-8 authoritative sources each (API surface, orchestration patterns, decision + intake guide), templates + a runnable example, cs-workflow-architect persona agent + /cs:workflow-build slash command. Use when building, scaffolding, or running a custom Claude Code workflow or orchestrating sub-agents (fan-out, pipeline, loop, judge-panel).",
+      "description": "Workflow-builder skill: design and write deterministic multi-agent workflow scripts (.js files in .claude/workflows/) for Claude Code's Workflow tool (CLAUDE_CODE_WORKFLOWS=1, /workflows). Every session opens with an intake question set; when the user is vague, a stdlib recommendation engine infers and proposes a topology with rationale instead of stalling. Ships 3 stdlib Python tools (intake recommendation engine, .js validator enforcing pure-literal-meta / no-non-determinism / guarded-loop / parallel-thunk rules, topology scaffolder), 3 references citing 7-8 authoritative sources each (API surface, orchestration patterns, decision + intake guide), templates + a runnable example, cs-workflow-architect persona agent + /cs-workflow-build slash command. Use when building, scaffolding, or running a custom Claude Code workflow or orchestrating sub-agents (fan-out, pipeline, loop, judge-panel).",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -906,7 +906,7 @@
     {
       "name": "caveman",
       "source": "./engineering/caveman",
-      "description": "Ultra-compressed communication mode. Cuts token usage 20-50% (75% upper bound) by dropping filler, articles, pleasantries, and hedging while keeping full technical accuracy. Derived from Matt Pocock's MIT-licensed caveman with: (1) 3 stdlib Python tools (deterministic compressor, token-savings estimator with $/Mtok cost extrapolation, lint that detects banned vocab with code-block + exception-zone whitelisting), (2) 3 references citing 7-8 sources (compression principles, when caveman backfires, companion tooling), (3) cs-caveman-mode persona agent + /cs:caveman slash command. Matt's persistence rules + auto-clarity exception preserved verbatim per MIT.",
+      "description": "Ultra-compressed communication mode. Cuts token usage 20-50% (75% upper bound) by dropping filler, articles, pleasantries, and hedging while keeping full technical accuracy. Derived from Matt Pocock's MIT-licensed caveman with: (1) 3 stdlib Python tools (deterministic compressor, token-savings estimator with $/Mtok cost extrapolation, lint that detects banned vocab with code-block + exception-zone whitelisting), (2) 3 references citing 7-8 sources (compression principles, when caveman backfires, companion tooling), (3) cs-caveman-mode persona agent + /cs-caveman slash command. Matt's persistence rules + auto-clarity exception preserved verbatim per MIT.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -943,7 +943,7 @@
     {
       "name": "agent-harness",
       "source": "./engineering/agent-harness",
-      "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs:harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
+      "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs-harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -964,7 +964,7 @@
     {
       "name": "memory-engineering",
       "source": "./engineering/memory-engineering",
-      "description": "Engineer an agent's forgetting, not just its remembering. Four deterministic stdlib scripts implement the four lenses of agent memory: a cost profiler that splits construction from query spend and reports cost per correct answer (construction energy exceeds total query energy across 300 queries in the Stanford characterization); an architecture picker that scores the four paradigm families — long-context, flat RAG, structure-augmented RAG, agentic — disqualifies on hard constraints, names the cost the winning choice makes you pay, and refuses to pick when the top two tie; a density auditor that classifies every record in a memory directory or JSONL export as FACT / SKILL / LOG / PROSE, finds near-duplicates, and flags stale wording; and a forgetting-policy linter that fails any design with no forgetting rule. Ships cs-memory-engineer agent, /cs:memory-engineering and /cs:forgetting-audit commands, 4 references, and a seven-question forcing worksheet.",
+      "description": "Engineer an agent's forgetting, not just its remembering. Four deterministic stdlib scripts implement the four lenses of agent memory: a cost profiler that splits construction from query spend and reports cost per correct answer (construction energy exceeds total query energy across 300 queries in the Stanford characterization); an architecture picker that scores the four paradigm families — long-context, flat RAG, structure-augmented RAG, agentic — disqualifies on hard constraints, names the cost the winning choice makes you pay, and refuses to pick when the top two tie; a density auditor that classifies every record in a memory directory or JSONL export as FACT / SKILL / LOG / PROSE, finds near-duplicates, and flags stale wording; and a forgetting-policy linter that fails any design with no forgetting rule. Ships cs-memory-engineer agent, /cs-memory-engineering and /cs-forgetting-audit commands, 4 references, and a seven-question forcing worksheet.",
       "version": "2.11.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -985,7 +985,7 @@
     {
       "name": "skill-doctor",
       "source": "./engineering/skill-doctor",
-      "description": "Grade an agent setup from real conversation history — a rebuild of warpdotdev/common-skills' skill-doctor (MIT). Harvests recent local Claude Code and Codex sessions scoped to one repo, condenses and secret-redacts transcripts (12-pattern redactor, chmod-0600 artifacts, nothing uploaded), has the agent judge each transcript against two verbatim-preserved rubrics (efficiency, code quality — labels only), then runs a deterministic aggregation gate that derives every number from the label tables, refuses scores for unsampled sessions and suggestions that cite no scored session, and renders one self-contained zero-JS HTML report (dark-mode, print-to-PDF). Proposed skill edits stay staged as diffs until an explicit per-skill yes; zero suggestions is a valid, reportable success. Ships cs-skill-doctor agent, /cs:skill-doctor command, 3 stdlib tools, 3 references citing 7 sources each.",
+      "description": "Grade an agent setup from real conversation history — a rebuild of warpdotdev/common-skills' skill-doctor (MIT). Harvests recent local Claude Code and Codex sessions scoped to one repo, condenses and secret-redacts transcripts (12-pattern redactor, chmod-0600 artifacts, nothing uploaded), has the agent judge each transcript against two verbatim-preserved rubrics (efficiency, code quality — labels only), then runs a deterministic aggregation gate that derives every number from the label tables, refuses scores for unsampled sessions and suggestions that cite no scored session, and renders one self-contained zero-JS HTML report (dark-mode, print-to-PDF). Proposed skill edits stay staged as diffs until an explicit per-skill yes; zero suggestions is a valid, reportable success. Ships cs-skill-doctor agent, /cs-skill-doctor command, 3 stdlib tools, 3 references citing 7 sources each.",
       "version": "2.11.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -1007,7 +1007,7 @@
     {
       "name": "grill-me",
       "source": "./engineering/grill-me",
-      "description": "Relentless plan-and-design interrogator. Walks the decision tree one branch at a time, asking forcing questions sequentially with recommended answers. Explores codebase before asking. Derived from Matt Pocock's MIT-licensed grill-me with: (1) 3 stdlib Python tools (decision-tree extractor across 6 branch kinds, question generator with dependency-aware ordering, JSON-backed session tracker for multi-day grills), (2) 3 references citing 7-8 sources (6 forcing-question patterns, when to stop grilling, companion tooling), (3) cs-grill-master persona agent + /cs:grill-me slash command. Matt's relentless one-at-a-time interview discipline preserved verbatim per MIT.",
+      "description": "Relentless plan-and-design interrogator. Walks the decision tree one branch at a time, asking forcing questions sequentially with recommended answers. Explores codebase before asking. Derived from Matt Pocock's MIT-licensed grill-me with: (1) 3 stdlib Python tools (decision-tree extractor across 6 branch kinds, question generator with dependency-aware ordering, JSON-backed session tracker for multi-day grills), (2) 3 references citing 7-8 sources (6 forcing-question patterns, when to stop grilling, companion tooling), (3) cs-grill-master persona agent + /cs-grill-me slash command. Matt's relentless one-at-a-time interview discipline preserved verbatim per MIT.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1026,7 +1026,7 @@
     {
       "name": "handoff-engineering",
       "source": "./engineering/handoff",
-      "description": "Conversation-handoff document generator. Compacts the current session into a markdown handoff for a fresh agent — references existing artifacts (PRDs, plans, ADRs, issues, commits) by path/URL instead of duplicating them. Derived from Matt Pocock's MIT-licensed handoff with: (1) 3 stdlib Python tools (template generator tailored to 5 next-session emphases, artifact deduplicator across 5 categories of duplication, skill recommender matching content to 14 skills in this repo), (2) 4 references citing 7-8 sources (handoff structure, deduplication discipline, next-session skill matching, companion tooling), (3) cs-handoff-author persona agent + /cs:handoff slash command. Matt's no-duplication discipline + mktemp convention preserved verbatim per MIT.",
+      "description": "Conversation-handoff document generator. Compacts the current session into a markdown handoff for a fresh agent — references existing artifacts (PRDs, plans, ADRs, issues, commits) by path/URL instead of duplicating them. Derived from Matt Pocock's MIT-licensed handoff with: (1) 3 stdlib Python tools (template generator tailored to 5 next-session emphases, artifact deduplicator across 5 categories of duplication, skill recommender matching content to 14 skills in this repo), (2) 4 references citing 7-8 sources (handoff structure, deduplication discipline, next-session skill matching, companion tooling), (3) cs-handoff-author persona agent + /cs-handoff slash command. Matt's no-duplication discipline + mktemp convention preserved verbatim per MIT.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1824,7 +1824,7 @@
     {
       "name": "claude-coach",
       "source": "./engineering/claude-coach",
-      "description": "Personal Claude power-user coach. Delivers a personalized, ranked cheat-code glossary on first activation, then surfaces at most one tip per turn when it would genuinely improve the next attempt. Ships cheat-codes glossary, coaching-rules decision tree, three stdlib Python tools, cs-claude-coach agent, and /cs:claude-coach command.",
+      "description": "Personal Claude power-user coach. Delivers a personalized, ranked cheat-code glossary on first activation, then surfaces at most one tip per turn when it would genuinely improve the next attempt. Ships cheat-codes glossary, coaching-rules decision tree, three stdlib Python tools, cs-claude-coach agent, and /cs-claude-coach command.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -1841,7 +1841,7 @@
     {
       "name": "grill-with-docs",
       "source": "./engineering/grill-with-docs",
-      "description": "Docs-anchored grilling session — interrogates a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), updating those files inline as terminology and decisions crystallise. Derived from Matt Pocock's MIT-licensed grill-with-docs with stdlib validators (CONTEXT.md linter, ADR scanner, glossary-code consistency), reference docs, cs-grill-with-docs agent, and /cs:grill-with-docs command.",
+      "description": "Docs-anchored grilling session — interrogates a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), updating those files inline as terminology and decisions crystallise. Derived from Matt Pocock's MIT-licensed grill-with-docs with stdlib validators (CONTEXT.md linter, ADR scanner, glossary-code consistency), reference docs, cs-grill-with-docs agent, and /cs-grill-with-docs command.",
       "version": "2.9.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -2008,7 +2008,7 @@
     {
       "name": "agent-launcher-skills",
       "source": "./agent-launcher",
-      "description": "Build, launch, grade, and schedule Claude Managed Agents (CMA) in your own Anthropic account — a plugin re-implementation of Anthropic's launch-your-agent reference skill (Apache-2.0; independent, not a fork). Every session starts with a goal (./my-agent/goal.json, opt-in SessionStart hook, driven by /cs:goal); loop_compiler.py compiles it into a bounded grade->iterate loop (max_iterations 1..20), a recurring cron scheduled-deployment loop, or a single-pass interview->stage->launch workflow. 6 skills: orchestrator (context: fork goal router) + interview + stage-launch + grade-iterate + run-without-you + wrap-up. 18 stdlib-only deterministic scaffolders (no network/API calls; live launches emitted as BYOK curl that never prints the key), 4 agents, 8 commands, hooks, 5 references, 4 assets. Validators enforce CMA limits. Distinct from engineering/agent-harness (generic domain loop) and write-a-skill (authors Claude Code skills, not CMAs).",
+      "description": "Build, launch, grade, and schedule Claude Managed Agents (CMA) in your own Anthropic account — a plugin re-implementation of Anthropic's launch-your-agent reference skill (Apache-2.0; independent, not a fork). Every session starts with a goal (./my-agent/goal.json, opt-in SessionStart hook, driven by /cs-goal); loop_compiler.py compiles it into a bounded grade->iterate loop (max_iterations 1..20), a recurring cron scheduled-deployment loop, or a single-pass interview->stage->launch workflow. 6 skills: orchestrator (context: fork goal router) + interview + stage-launch + grade-iterate + run-without-you + wrap-up. 18 stdlib-only deterministic scaffolders (no network/API calls; live launches emitted as BYOK curl that never prints the key), 4 agents, 8 commands, hooks, 5 references, 4 assets. Validators enforce CMA limits. Distinct from engineering/agent-harness (generic domain loop) and write-a-skill (authors Claude Code skills, not CMAs).",
       "version": "2.11.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -2033,7 +2033,7 @@
     {
       "name": "agent-memory",
       "source": "./engineering/agent-memory",
-      "description": "A four-tier memory ladder for Claude Code where promotion is earned by recurrence, not asserted by confidence. L0 raw transcripts are never injected; L1 candidate atoms are gitignored and recalled on lexical relevance per prompt; L2 project context loads each session start; L3 stable persona is always loaded. L1 to L2 needs three distinct sessions spanning two distinct calendar days (a stated claim needs two; a verified claim is the only single-observation path); L2 to L3 needs two projects and thirty days. Two gates refuse rather than guess: a claim altered by the redaction pass never promotes on evidence alone, and a contradicted claim freezes until a human resolves it. Three hooks run the loop unattended and every one fails open. Nothing reaches a committed CLAUDE.md without an explicit human adopt. Ships 5 stdlib scripts, 3 hooks, a cs-memory-curator agent, /cs:memory, a JSON schema, and a 69-check validator. Concept from TencentCloud/TencentDB-Agent-Memory (MIT); no upstream code included.",
+      "description": "A four-tier memory ladder for Claude Code where promotion is earned by recurrence, not asserted by confidence. L0 raw transcripts are never injected; L1 candidate atoms are gitignored and recalled on lexical relevance per prompt; L2 project context loads each session start; L3 stable persona is always loaded. L1 to L2 needs three distinct sessions spanning two distinct calendar days (a stated claim needs two; a verified claim is the only single-observation path); L2 to L3 needs two projects and thirty days. Two gates refuse rather than guess: a claim altered by the redaction pass never promotes on evidence alone, and a contradicted claim freezes until a human resolves it. Three hooks run the loop unattended and every one fails open. Nothing reaches a committed CLAUDE.md without an explicit human adopt. Ships 5 stdlib scripts, 3 hooks, a cs-memory-curator agent, /cs-memory, a JSON schema, and a 69-check validator. Concept from TencentCloud/TencentDB-Agent-Memory (MIT); no upstream code included.",
       "version": "2.11.2",
       "author": {
         "name": "Alireza Rezvani"
@@ -2054,7 +2054,7 @@
     {
       "name": "spinning-up-deep-rl",
       "source": "./engineering/spinning-up-deep-rl",
-      "description": "Knowledge base compiled from OpenAI's Spinning Up in Deep RL (MIT, Joshua Achiam) by engineering/book-to-skill. A resident core carries the RL optimization problem, the model-free taxonomy, the policy-gradient template with its five valid weights, the safe-step family (VPG to TRPO to PPO) and the overestimation family (DDPG to TD3 and SAC); 20 on-demand chapters cover key concepts and MDPs, the algorithm taxonomy and model bias, the policy gradient derivation with the log-derivative trick and EGLP lemma, Achiam's researcher essay, the key-papers topic map, the exercises including the silent DDPG broadcasting bug, the benchmark parity disclosure, one chapter per algorithm, and the logger/MPI/ExperimentGrid utilities. Ships a glossary, a patterns file with 16 techniques, a decision cheatsheet with thresholds, a cs-spinning-up-deep-rl agent and /cs:spinning-up-deep-rl. Structured study notes, not a reproduction of the source.",
+      "description": "Knowledge base compiled from OpenAI's Spinning Up in Deep RL (MIT, Joshua Achiam) by engineering/book-to-skill. A resident core carries the RL optimization problem, the model-free taxonomy, the policy-gradient template with its five valid weights, the safe-step family (VPG to TRPO to PPO) and the overestimation family (DDPG to TD3 and SAC); 20 on-demand chapters cover key concepts and MDPs, the algorithm taxonomy and model bias, the policy gradient derivation with the log-derivative trick and EGLP lemma, Achiam's researcher essay, the key-papers topic map, the exercises including the silent DDPG broadcasting bug, the benchmark parity disclosure, one chapter per algorithm, and the logger/MPI/ExperimentGrid utilities. Ships a glossary, a patterns file with 16 techniques, a decision cheatsheet with thresholds, a cs-spinning-up-deep-rl agent and /cs-spinning-up-deep-rl. Structured study notes, not a reproduction of the source.",
       "version": "1.0.0",
       "author": {
         "name": "Alireza Rezvani"
@@ -2091,6 +2091,23 @@
         "optimization",
         "generative-models",
         "engineering"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "loop-library",
+      "source": "./loop-library",
+      "description": "Discover, compare, audit, repair, adapt, and design repeatable AI-agent loops with explicit triggers, actions, verification, stopping conditions, guardrails, and handoffs. Vendored verbatim from the Forward Future Loop Library (MIT).",
+      "version": "2.9.0",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "loops",
+        "agent-loops",
+        "automation",
+        "verification",
+        "guardrails"
       ],
       "category": "development"
     }

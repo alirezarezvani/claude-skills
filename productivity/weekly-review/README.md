@@ -3,7 +3,7 @@
 > Close every open loop once a week. David Allen called the weekly review the "critical success
 > factor" of the whole method — the system is only trustworthy if it gets reviewed.
 
-`/cs:weekly-review` walks the three-phase GTD ritual — **GET CLEAR → GET CURRENT → GET CREATIVE** —
+`/cs-weekly-review` walks the three-phase GTD ritual — **GET CLEAR → GET CURRENT → GET CREATIVE** —
 and refuses to call the review COMPLETE while any of the five mandatory GET CURRENT steps is
 unaccounted for. Deterministic scripts do the inventory and the gating; you (and Claude) do the
 thinking.
@@ -33,13 +33,13 @@ python skills/weekly-review/scripts/weekly_review_gate.py --done "1,2,3,4,5,6,7,
 python skills/weekly-review/scripts/commitment_auditor.py --input commitments.json
 ```
 
-Or just say **"run my weekly review"** or run `/cs:weekly-review`.
+Or just say **"run my weekly review"** or run `/cs-weekly-review`.
 
 ## What's in the box
 
 - **Skill:** [`skills/weekly-review/SKILL.md`](skills/weekly-review/SKILL.md)
 - **Agent:** [`agents/cs-weekly-review.md`](agents/cs-weekly-review.md)
-- **Command:** [`commands/cs-weekly-review.md`](commands/cs-weekly-review.md) — `/cs:weekly-review`
+- **Command:** [`commands/cs-weekly-review.md`](commands/cs-weekly-review.md) — `/cs-weekly-review`
 - **3 stdlib scripts:** `open_loop_scanner.py`, `weekly_review_gate.py`, `commitment_auditor.py`
 - **3 references** (5-7 sources each): the GTD weekly-review canon, the psychology of open loops
   (Zeigarnik, attention residue, plan-making), and sustainable review-cadence design

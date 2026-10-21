@@ -5,7 +5,7 @@ A complete virtual board of directors: 28 skills covering 10 executive roles, or
 ## Architecture
 
 ```
-/cs:setup (Founder Interview) → company-context.md
+/cs-onboard setup (Founder Interview) → company-context.md
                 │
         Chief of Staff (Router)
                 │
@@ -100,11 +100,11 @@ Existing `cs-ceo-advisor` and `cs-cto-advisor` live in `/agents/c-level/` and in
 
 ### 17 /cs:* Slash Commands (in `../c-level-agents/skills/`)
 
-**Forcing-question office hours (8):** `/cs:office-hours`, `/cs:cfo-review`, `/cs:cmo-review`, `/cs:cpo-review`, `/cs:cro-review`, `/cs:cto-review`, `/cs:ciso-review`, `/cs:gc-review`
+**Forcing-question office hours (8):** `/c-level-agents:office-hours`, `/c-level-agents:cfo-review`, `/c-level-agents:cmo-review`, `/c-level-agents:cpo-review`, `/c-level-agents:cro-review`, `/c-level-agents:cto-review`, `/c-level-agents:ciso-review`, `/c-level-agents:gc-review`
 
-**Strategic sprint pipeline (5):** `/cs:brief` → `/cs:boardroom` → `/cs:decide` → `/cs:execute` → `/cs:post-mortem`
+**Strategic sprint pipeline (5):** `/c-level-agents:brief` → `/c-level-agents:boardroom` → `/c-level-agents:decide` → `/c-level-agents:execute` → `/c-level-agents:post-mortem`
 
-**Meta + safety (4):** `/cs:founder-mode` (auto-router), `/cs:onboard` (founder interview), `/cs:cross-eval` (multi-model consensus), `/cs:freeze` (cooldown lock)
+**Meta + safety (4):** `/c-level-agents:founder-mode` (auto-router), `/cs-onboard` (founder interview), `/c-level-agents:cross-eval` (multi-model consensus), `/c-level-agents:freeze` (cooldown lock)
 
 See [c-level-agents/README.md](../c-level-agents/README.md) for the full plugin guide and [c-level-agents/references/persona-voices.md](../c-level-agents/references/persona-voices.md) for voice specs.
 

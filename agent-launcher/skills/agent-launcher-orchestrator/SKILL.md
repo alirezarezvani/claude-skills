@@ -23,7 +23,7 @@ an independent re-implementation; CMA semantics come from
 ## The through-line: the session goal
 
 State lives at `./my-agent/goal.json` (the user's folder). Manage it with
-`goal_state.py` (init / set / status / advance) — it also backs the `/cs:goal`
+`goal_state.py` (init / set / status / advance) — it also backs the `/cs-goal`
 command and the opt-in `SessionStart` hook. The goal's `phase` selects the lane;
 the phase + recurrence selects the loop shape.
 

@@ -106,7 +106,7 @@ See `references/ip_and_regulatory.md` for sequencing.
 2. Run `contract_risk_scanner.py path/to/contract.txt`
 3. For each HIGH risk finding, draft a counter-proposal
 4. Bring the redline + counter-proposals to outside counsel
-5. Log the decision via `/cs:decide`
+5. Log the decision via `/c-level-agents:decide`
 
 ### Workflow 2: Term Sheet Response
 1. Save the term sheet as a JSON file matching the schema in `term_sheet_analyzer.py --help`
@@ -114,7 +114,7 @@ See `references/ip_and_regulatory.md` for sequencing.
 3. Review the founder-friendliness score and per-clause flags
 4. Negotiate the worst 3 clauses (don't try to win all 20)
 5. Always have a securities/venture attorney review before signing
-6. Log via `/cs:decide` with `/cs:freeze 30` to prevent regret-driven re-opening
+6. Log via `/c-level-agents:decide` with `/c-level-agents:freeze 30` to prevent regret-driven re-opening
 
 ### Workflow 3: IP Hygiene Audit
 1. Confirm every employee and contractor (past 12 months) signed invention assignment
@@ -130,7 +130,7 @@ See `references/ip_and_regulatory.md` for sequencing.
 4. Document the regulatory roadmap and budget alongside the product roadmap
 5. Pair with `cs-ciso-advisor` for ISO 27001 / SOC 2 sequencing
 
-## Output Standard (when invoked via `/cs:gc-review`)
+## Output Standard (when invoked via `/c-level-agents:gc-review`)
 
 ```
 **Bottom Line:** [sign / negotiate / do not sign]
@@ -146,7 +146,7 @@ See `references/ip_and_regulatory.md` for sequencing.
 - `c-level-advisor/skills/cfo-advisor/` — Term sheet → dilution math
 - `c-level-advisor/skills/ma-playbook/` — Acquisition agreements, integration playbooks
 - `ra-qm-team/` — ISO 13485, MDR, FDA 510(k), GDPR execution
-- `c-level-agents/skills/gc-review/SKILL.md` — `/cs:gc-review` slash command
+- `c-level-agents/skills/gc-review/SKILL.md` — `/c-level-agents:gc-review` slash command
 
 ## References
 

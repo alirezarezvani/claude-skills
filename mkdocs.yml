@@ -1,6 +1,6 @@
 site_name: Claude Code Skills & Agent Plugins
 site_url: https://alirezarezvani.github.io/claude-skills/
-site_description: "388 production-ready skills across 20 domains, 99 marketplace plugins, and 150 slash commands — engineering, product, marketing, compliance, finance, research, and agent tooling. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
+site_description: "388 production-ready skills across 20 domains, 100 marketplace plugins, and 150 slash commands — engineering, product, marketing, compliance, finance, research, and agent tooling. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
 site_author: Alireza Rezvani
 repo_url: https://github.com/alirezarezvani/claude-skills
 repo_name: alirezarezvani/claude-skills
@@ -370,27 +370,27 @@ nav:
       - "VP Engineering Advisor": skills/c-level-advisor/vpe-advisor.md
       - Founder-Mode Commands (c-level-agents):
         - "c-level-agents Index": skills/c-level-advisor/c-level-agents.md
-        - "/cs:office-hours": skills/c-level-advisor/c-level-agents-office-hours.md
-        - "/cs:cfo-review": skills/c-level-advisor/c-level-agents-cfo-review.md
-        - "/cs:cmo-review": skills/c-level-advisor/c-level-agents-cmo-review.md
-        - "/cs:cpo-review": skills/c-level-advisor/c-level-agents-cpo-review.md
-        - "/cs:cro-review": skills/c-level-advisor/c-level-agents-cro-review.md
-        - "/cs:cto-review": skills/c-level-advisor/c-level-agents-cto-review.md
-        - "/cs:ciso-review": skills/c-level-advisor/c-level-agents-ciso-review.md
-        - "/cs:gc-review": skills/c-level-advisor/c-level-agents-gc-review.md
-        - "/cs:cdo-review": skills/c-level-advisor/c-level-agents-cdo-review.md
-        - "/cs:caio-review": skills/c-level-advisor/c-level-agents-caio-review.md
-        - "/cs:cco-review": skills/c-level-advisor/c-level-agents-cco-review.md
-        - "/cs:vpe-review": skills/c-level-advisor/c-level-agents-vpe-review.md
-        - "/cs:brief": skills/c-level-advisor/c-level-agents-brief.md
-        - "/cs:boardroom": skills/c-level-advisor/c-level-agents-boardroom.md
-        - "/cs:decide": skills/c-level-advisor/c-level-agents-decide.md
-        - "/cs:execute": skills/c-level-advisor/c-level-agents-execute.md
-        - "/cs:post-mortem": skills/c-level-advisor/c-level-agents-post-mortem.md
-        - "/cs:founder-mode": skills/c-level-advisor/c-level-agents-founder-mode.md
-        - "/cs:onboard": skills/c-level-advisor/c-level-agents-onboard.md
-        - "/cs:cross-eval": skills/c-level-advisor/c-level-agents-cross-eval.md
-        - "/cs:freeze": skills/c-level-advisor/c-level-agents-freeze.md
+        - "/c-level-agents:office-hours": skills/c-level-advisor/c-level-agents-office-hours.md
+        - "/c-level-agents:cfo-review": skills/c-level-advisor/c-level-agents-cfo-review.md
+        - "/c-level-agents:cmo-review": skills/c-level-advisor/c-level-agents-cmo-review.md
+        - "/c-level-agents:cpo-review": skills/c-level-advisor/c-level-agents-cpo-review.md
+        - "/c-level-agents:cro-review": skills/c-level-advisor/c-level-agents-cro-review.md
+        - "/c-level-agents:cto-review": skills/c-level-advisor/c-level-agents-cto-review.md
+        - "/c-level-agents:ciso-review": skills/c-level-advisor/c-level-agents-ciso-review.md
+        - "/c-level-agents:gc-review": skills/c-level-advisor/c-level-agents-gc-review.md
+        - "/c-level-agents:cdo-review": skills/c-level-advisor/c-level-agents-cdo-review.md
+        - "/c-level-agents:caio-review": skills/c-level-advisor/c-level-agents-caio-review.md
+        - "/c-level-agents:cco-review": skills/c-level-advisor/c-level-agents-cco-review.md
+        - "/c-level-agents:vpe-review": skills/c-level-advisor/c-level-agents-vpe-review.md
+        - "/c-level-agents:brief": skills/c-level-advisor/c-level-agents-brief.md
+        - "/c-level-agents:boardroom": skills/c-level-advisor/c-level-agents-boardroom.md
+        - "/c-level-agents:decide": skills/c-level-advisor/c-level-agents-decide.md
+        - "/c-level-agents:execute": skills/c-level-advisor/c-level-agents-execute.md
+        - "/c-level-agents:post-mortem": skills/c-level-advisor/c-level-agents-post-mortem.md
+        - "/c-level-agents:founder-mode": skills/c-level-advisor/c-level-agents-founder-mode.md
+        - "/cs-onboard": skills/c-level-advisor/c-level-agents-onboard.md
+        - "/c-level-agents:cross-eval": skills/c-level-advisor/c-level-agents-cross-eval.md
+        - "/c-level-agents:freeze": skills/c-level-advisor/c-level-agents-freeze.md
       - Executive Mentor:
         - "Executive Mentor": skills/c-level-advisor/executive-mentor.md
         - "Board Prep": skills/c-level-advisor/executive-mentor-board-prep.md
@@ -603,45 +603,45 @@ nav:
     - "/operator-audit": commands/operator-audit.md
     - "/chaos-experiment": commands/chaos-experiment.md
     - "/slo-design": commands/slo-design.md
-    - "/cs:aeo": commands/cs-aeo.md
-    - "/cs:workflow-build": commands/cs-workflow-build.md
-    - "/cs:bizops (v2.8.0 — BizOps router)": commands/cs-bizops.md
-    - "/cs:grill-bizops (v2.8.0 — Matt grill bizops)": commands/cs-grill-bizops.md
-    - "/cs:process-map (v2.8.0)": commands/cs-process-map.md
-    - "/cs:vendor-review (v2.8.0)": commands/cs-vendor-review.md
-    - "/cs:capacity-plan (v2.8.0)": commands/cs-capacity-plan.md
-    - "/cs:internal-comms (v2.8.0)": commands/cs-internal-comms.md
-    - "/cs:knowledge-ops (v2.8.0)": commands/cs-knowledge-ops.md
-    - "/cs:procurement (v2.8.0)": commands/cs-procurement.md
-    - "/cs:commercial (v2.8.0 — Commercial router)": commands/cs-commercial.md
-    - "/cs:grill-commercial (v2.8.0 — Matt grill commercial)": commands/cs-grill-commercial.md
-    - "/cs:pricing-strategy (v2.8.0)": commands/cs-pricing-strategy.md
-    - "/cs:deal-review (v2.8.0)": commands/cs-deal-review.md
-    - "/cs:partner-tier (v2.8.0)": commands/cs-partner-tier.md
-    - "/cs:channel-econ (v2.8.0)": commands/cs-channel-econ.md
-    - "/cs:commercial-policy (v2.8.0)": commands/cs-commercial-policy.md
-    - "/cs:rfp-respond (v2.8.0)": commands/cs-rfp-respond.md
-    - "/cs:commercial-forecast (v2.8.0)": commands/cs-commercial-forecast.md
-    - "/cs:andreessen (Market-First Verdict)": commands/cs-andreessen.md
-    - "/cs:pmf-check (Product/Market Fit)": commands/cs-pmf-check.md
-    - "/cs:research-ops (v2.9.0 — Research Ops router)": commands/cs-research-ops.md
-    - "/cs:grill-research-ops (v2.9.0 — Matt grill research-ops)": commands/cs-grill-research-ops.md
-    - "/cs:clinical-research (v2.9.0)": commands/cs-clinical-research.md
-    - "/cs:research-finance (v2.9.0)": commands/cs-research-finance.md
-    - "/cs:market-research (v2.9.0)": commands/cs-market-research.md
-    - "/cs:product-research (v2.9.0)": commands/cs-product-research.md
-    - "/cs:markdown-html (Doctype Router)": commands/cs-markdown-html.md
-    - "/cs:design-system (Brand Onboarding)": commands/cs-design-system.md
-    - "/cs:md-document (Long-Form HTML)": commands/cs-md-document.md
-    - "/cs:md-review (Code-Review HTML)": commands/cs-md-review.md
-    - "/cs:md-slides (Slide-Deck HTML)": commands/cs-md-slides.md
-    - "/cs:grill-markdown-html (Plan Grill)": commands/cs-grill-markdown-html.md
-    - "/cs:launch (CMA Launcher Entry)": commands/cs-launch.md
-    - "/cs:goal (Session Goal)": commands/cs-goal.md
-    - "/cs:interview (CMA Phase 1)": commands/cs-interview.md
-    - "/cs:stage-launch (CMA Phase 2)": commands/cs-stage-launch.md
-    - "/cs:grade (CMA Phase 3 Loop)": commands/cs-grade.md
-    - "/cs:run-without-you (CMA Phase 4 Cron)": commands/cs-run-without-you.md
-    - "/cs:wrap-up (CMA Close-Out)": commands/cs-wrap-up.md
-    - "/cs:grill-agent-launcher (Plan Grill)": commands/cs-grill-agent-launcher.md
-    - "/cs:scrape (Scraping Architect)": commands/cs-scrape.md
+    - "/cs-aeo": commands/cs-aeo.md
+    - "/cs-workflow-build": commands/cs-workflow-build.md
+    - "/cs-bizops (v2.8.0 — BizOps router)": commands/cs-bizops.md
+    - "/cs-grill-bizops (v2.8.0 — Matt grill bizops)": commands/cs-grill-bizops.md
+    - "/cs-process-map (v2.8.0)": commands/cs-process-map.md
+    - "/cs-vendor-review (v2.8.0)": commands/cs-vendor-review.md
+    - "/cs-capacity-plan (v2.8.0)": commands/cs-capacity-plan.md
+    - "/cs-internal-comms (v2.8.0)": commands/cs-internal-comms.md
+    - "/cs-knowledge-ops (v2.8.0)": commands/cs-knowledge-ops.md
+    - "/cs-procurement (v2.8.0)": commands/cs-procurement.md
+    - "/cs-commercial (v2.8.0 — Commercial router)": commands/cs-commercial.md
+    - "/cs-grill-commercial (v2.8.0 — Matt grill commercial)": commands/cs-grill-commercial.md
+    - "/cs-pricing-strategy (v2.8.0)": commands/cs-pricing-strategy.md
+    - "/cs-deal-review (v2.8.0)": commands/cs-deal-review.md
+    - "/cs-partner-tier (v2.8.0)": commands/cs-partner-tier.md
+    - "/cs-channel-econ (v2.8.0)": commands/cs-channel-econ.md
+    - "/cs-commercial-policy (v2.8.0)": commands/cs-commercial-policy.md
+    - "/cs-rfp-respond (v2.8.0)": commands/cs-rfp-respond.md
+    - "/cs-commercial-forecast (v2.8.0)": commands/cs-commercial-forecast.md
+    - "/cs-andreessen (Market-First Verdict)": commands/cs-andreessen.md
+    - "/cs-pmf-check (Product/Market Fit)": commands/cs-pmf-check.md
+    - "/cs-research-ops (v2.9.0 — Research Ops router)": commands/cs-research-ops.md
+    - "/cs-grill-research-ops (v2.9.0 — Matt grill research-ops)": commands/cs-grill-research-ops.md
+    - "/cs-clinical-research (v2.9.0)": commands/cs-clinical-research.md
+    - "/cs-research-finance (v2.9.0)": commands/cs-research-finance.md
+    - "/cs-market-research (v2.9.0)": commands/cs-market-research.md
+    - "/cs-product-research (v2.9.0)": commands/cs-product-research.md
+    - "/cs-markdown-html (Doctype Router)": commands/cs-markdown-html.md
+    - "/cs-design-system (Brand Onboarding)": commands/cs-design-system.md
+    - "/cs-md-document (Long-Form HTML)": commands/cs-md-document.md
+    - "/cs-md-review (Code-Review HTML)": commands/cs-md-review.md
+    - "/cs-md-slides (Slide-Deck HTML)": commands/cs-md-slides.md
+    - "/cs-grill-markdown-html (Plan Grill)": commands/cs-grill-markdown-html.md
+    - "/cs-launch (CMA Launcher Entry)": commands/cs-launch.md
+    - "/cs-goal (Session Goal)": commands/cs-goal.md
+    - "/cs-interview (CMA Phase 1)": commands/cs-interview.md
+    - "/cs-stage-launch (CMA Phase 2)": commands/cs-stage-launch.md
+    - "/cs-grade (CMA Phase 3 Loop)": commands/cs-grade.md
+    - "/cs-run-without-you (CMA Phase 4 Cron)": commands/cs-run-without-you.md
+    - "/cs-wrap-up (CMA Close-Out)": commands/cs-wrap-up.md
+    - "/cs-grill-agent-launcher (Plan Grill)": commands/cs-grill-agent-launcher.md
+    - "/cs-scrape (Scraping Architect)": commands/cs-scrape.md

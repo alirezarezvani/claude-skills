@@ -2,7 +2,7 @@
 
 **Principle (Karpathy #2, Simplicity First):** do not reimplement scope that the POWERFUL-tier specialists already own. This skill is the *backend orchestrator*; the specialists are the *implementers*.
 
-This map is the routing table for the `cs-backend-engineer` agent and the `/cs:backend-review` command.
+This map is the routing table for the `cs-backend-engineer` agent and the `/cs-backend-review` command.
 
 ## Composition routing table
 

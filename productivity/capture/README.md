@@ -20,7 +20,7 @@ When the dump is small (≤5 items, unrelated), the skill drops into a compresse
 
 ## Source spec
 
-This skill is a Path-B direct conversion of `megaprompts/05-capture-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). The megaprompt is the canonical spec; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
+This skill is a Path-B direct conversion of `megaprompts/05-capture-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657). The megaprompt is the canonical spec; this plugin is the working implementation. Drift between the two is a bug — re-grill with `/cs-grill-with-docs` if they diverge.
 
 ## Plugin layout
 
@@ -34,7 +34,7 @@ This skill is a Path-B direct conversion of `megaprompts/05-capture-megaprompt.m
 | `skills/capture/references/voice_preservation.md` | Concrete examples of corporate-speak anti-patterns |
 | `skills/capture/references/complexity_matching.md` | When to compress vs full 4-section, with worked examples |
 | `agents/cs-capture.md` | Capture-organizer persona (no-fabrication, voice-preservation enforcer) |
-| `commands/cs-capture.md` | `/cs:capture <dump>` slash command for explicit invocation |
+| `commands/cs-capture.md` | `/cs-capture <dump>` slash command for explicit invocation |
 
 ## Quick start
 

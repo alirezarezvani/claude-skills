@@ -10,7 +10,7 @@ This is not a soft preference. It is the safety property that makes the skill sa
 
 The discipline is enforced at three layers:
 
-1. **In the skill body** — stated multiple times in `SKILL.md`, in `cs-inbox-triage.md` (agent), and in `/cs:inbox-triage` (command)
+1. **In the skill body** — stated multiple times in `SKILL.md`, in `cs-inbox-triage.md` (agent), and in `/cs-inbox-triage` (command)
 2. **In the draft mechanics** — every draft creation explicitly uses the "draft" verb of the email tool (Gmail's `drafts.create`, Outlook's `Messages.SaveAsDraft`, etc.) — never `send`, `transmit`, `dispatch`
 3. **In the post-run validator** — `scripts/draft_safety_validator.py` scans the action log for any send-shaped tool call and FAILs the run if detected
 

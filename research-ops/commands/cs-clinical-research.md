@@ -3,7 +3,7 @@ description: Clinical study design. Select and classify endpoints, estimate samp
 argument-hint: "<study context: indication, design, endpoints, effect size, target enrollment>"
 ---
 
-# /cs:clinical-research — Endpoint selection + sample-size + phase-gate feasibility
+# /cs-clinical-research — Endpoint selection + sample-size + phase-gate feasibility
 
 Run the `clinical-research` skill on this input:
 

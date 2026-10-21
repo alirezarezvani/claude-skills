@@ -1,12 +1,12 @@
 ---
 name: "cs-human-gate"
-description: "/cs:human-gate — Get real human review on an artifact and prove it happened. Builds a single-file review page, collects batched feedback as structured data, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has looked at all. Non-blocking: hands over the path and ends the turn."
+description: "/cs-human-gate — Get real human review on an artifact and prove it happened. Builds a single-file review page, collects batched feedback as structured data, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has looked at all. Non-blocking: hands over the path and ends the turn."
 argument-hint: "[path to the .md or .html artifact] [optional: open|status|collect|close]"
 ---
 
-# /cs:human-gate — Human Verification Gate
+# /cs-human-gate — Human Verification Gate
 
-**Command:** `/cs:human-gate <artifact> [step]`
+**Command:** `/cs-human-gate <artifact> [step]`
 
 Machine checks answer *"do the tests pass?"*. This answers the other one:
 **has a person actually looked at this, and are their objections resolved?**

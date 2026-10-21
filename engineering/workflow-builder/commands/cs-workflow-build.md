@@ -1,11 +1,11 @@
 ---
 name: "cs-workflow-build"
-description: "/cs:workflow-build <task-description> — Design and write a deterministic Claude Code workflow (.js). Opens with intake questions, infers-and-proposes a topology when the request is vague, then scaffolds + validates the file. Use when building or running a custom Claude Code workflow."
+description: "/cs-workflow-build <task-description> — Design and write a deterministic Claude Code workflow (.js). Opens with intake questions, infers-and-proposes a topology when the request is vague, then scaffolds + validates the file. Use when building or running a custom Claude Code workflow."
 ---
 
-# /cs:workflow-build — Workflow Architect Intake
+# /cs-workflow-build — Workflow Architect Intake
 
-**Command:** `/cs:workflow-build <task-description>`
+**Command:** `/cs-workflow-build <task-description>`
 
 Designs a deterministic multi-agent workflow for Claude Code's Workflow tool. Always opens with intake; never writes a file before the topology is confirmed.
 
@@ -88,7 +88,7 @@ export CLAUDE_CODE_WORKFLOWS=1   # the feature is off by default
 
 - Agent: [`cs-workflow-architect`](../agents/cs-workflow-architect.md)
 - Skill: [`workflow-builder`](../skills/workflow-builder/SKILL.md)
-- Adjacent: `/cs:write-a-skill` (authoring skills, not workflows)
+- Adjacent: `/cs-write-a-skill` (authoring skills, not workflows)
 
 ---
 

@@ -125,6 +125,13 @@ jobs:
         run: |
           python3 scripts/check_model_freshness.py --all
 
+      # /cs:<name> looks like a namespace but Claude Code runs plugin commands as
+      # /<plugin>:<name> or bare /<name>, so /cs:<name> matches nothing. The tree
+      # was swept to /cs-<name> in Oct 2026; this keeps it that way.
+      - name: Slash-command reference lint (blocking)
+        run: |
+          python3 scripts/check_command_refs.py
+
       - name: Script --help smoke gate (gate G8 — blocking)
         run: |
           python3 scripts/smoke_scripts.py

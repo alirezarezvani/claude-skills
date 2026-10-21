@@ -3,7 +3,7 @@ description: Top-level markdown-to-HTML router. Classifies the input markdown (d
 argument-hint: "<path to markdown file>"
 ---
 
-# /cs:markdown-html — Markdown-to-HTML router
+# /cs-markdown-html — Markdown-to-HTML router
 
 Route this conversion through the `markdown-html-orchestrator` skill:
 
@@ -55,4 +55,4 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_reso
 
 ## Status
 
-All five skills are live (orchestrator + `design-system` + the three converters). This command runs the classifier + design-system gate, then hands the conversion to the routed converter sub-skill (`/cs:md-document`, `/cs:md-review`, or `/cs:md-slides`). Never render HTML inline — the converter scripts own the rendering.
+All five skills are live (orchestrator + `design-system` + the three converters). This command runs the classifier + design-system gate, then hands the conversion to the routed converter sub-skill (`/cs-md-document`, `/cs-md-review`, or `/cs-md-slides`). Never render HTML inline — the converter scripts own the rendering.

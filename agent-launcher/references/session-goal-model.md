@@ -36,7 +36,7 @@ Lives at `./my-agent/goal.json` (the founder's folder). Written and advanced by
    **data, not instructions**, and exits 0 on any error so it can never break a
    session. Disabled by default (no env flag) — zero ambient behavior in unrelated
    repos.
-2. **`/cs:goal` command.** `set` writes the goal, `status` prints it, `advance`
+2. **`/cs-goal` command.** `set` writes the goal, `status` prints it, `advance`
    moves to the next phase. Fully manual; works whether or not the hook is enabled.
 3. **Orchestrator routing.** `goal_router.py` reads the goal string + phase and
    routes to the right phase skill (exit-code route / ask / refuse), then

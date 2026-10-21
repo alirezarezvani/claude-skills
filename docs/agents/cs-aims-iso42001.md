@@ -125,7 +125,7 @@ python aims_audit_scheduler.py audit_scope.json
 ## References
 
 - Skill: [../../ra-qm-team/skills/iso42001-specialist/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/iso42001-specialist/SKILL.md)
-- Sibling command: [`/cs:aims-audit`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/aims-audit/SKILL.md)
+- Sibling command: [`/compliance-os:aims-audit`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/aims-audit/SKILL.md)
 
 ---
 

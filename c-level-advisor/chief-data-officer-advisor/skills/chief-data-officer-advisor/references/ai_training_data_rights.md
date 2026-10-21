@@ -112,7 +112,7 @@ For every new AI training initiative:
 6. **For GO:** Document the lawful basis and maintain the provenance log.
 7. **Cross-check with cs-general-counsel-advisor** on top-3 mitigation items.
 8. **Cross-check with cs-ciso-advisor** on data flow security.
-9. **Log the decision via `/cs:decide`.**
+9. **Log the decision via `/c-level-agents:decide`.**
 
 ## When This Reference Doesn't Help
 

@@ -17,7 +17,7 @@ This guide covers the 9 production-ready project management skills, 15 Python au
 
 **Total Tools:** 15 Python automation tools
 **Agents:** 2 — cs-pm-orchestrator (routing + delivery loop) and cs-project-manager (legacy per-skill orchestration)
-**Slash Commands:** 6 (/cs:pm, /cs:grill-pm, /cs:pm-loop, /sprint-health, /project-health, /retro)
+**Slash Commands:** 6 (/cs-pm, /cs-grill-pm, /cs-pm-loop, /sprint-health, /project-health, /retro)
 **Key Feature:** Atlassian MCP Server integration for direct Jira/Confluence operations
 
 ## Orchestrator & Delivery Loop (pm-skills)

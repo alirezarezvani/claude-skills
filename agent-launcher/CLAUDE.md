@@ -49,7 +49,7 @@ independent re-implementation, not a fork.
 
 Every SKILL.md ships a "Forcing-question library" (Matt Pocock grill-with-docs):
 walk one question at a time, recommend an answer, cite the reference. The
-`/cs:grill-agent-launcher` command surfaces them.
+`/cs-grill-agent-launcher` command surfaces them.
 
 ## When editing
 

@@ -130,7 +130,7 @@ python isms_audit_scheduler.py surveillance_scope.json
 
 - Skill: [../../ra-qm-team/skills/isms-audit-expert/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/isms-audit-expert/SKILL.md)
 - Playbook: [../../ra-qm-team/skills/isms-audit-expert/references/iso27001_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/isms-audit-expert/references/iso27001_audit_playbook.md)
-- Sibling command: [`/cs:iso27001-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/iso27001-audit-prep/SKILL.md)
+- Sibling command: [`/compliance-os:iso27001-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/iso27001-audit-prep/SKILL.md)
 
 ---
 

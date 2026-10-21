@@ -1,11 +1,11 @@
 ---
 name: "cs-dossier"
-description: "/cs:dossier <entity> — Decision-grade entity research with mandatory hypothesis-testing. 6-Q grill-me intake (Q4 hypothesis MANDATORY) → ≥30% disconfirming search budget → 9-section .docx with verdict (SUPPORTED/PARTIALLY/DISPROVEN/INCONCLUSIVE) + 3-5 finding-tied conversation hooks."
+description: "/cs-dossier <entity> — Decision-grade entity research with mandatory hypothesis-testing. 6-Q grill-me intake (Q4 hypothesis MANDATORY) → ≥30% disconfirming search budget → 9-section .docx with verdict (SUPPORTED/PARTIALLY/DISPROVEN/INCONCLUSIVE) + 3-5 finding-tied conversation hooks."
 ---
 
-# /cs:dossier — Decision-Grade Entity Research
+# /cs-dossier — Decision-Grade Entity Research
 
-**Command:** `/cs:dossier <entity>`
+**Command:** `/cs-dossier <entity>`
 
 The `cs-dossier` persona produces a hypothesis-tested research dossier on a specific company, person, nonprofit, or government org — **NOT** a generic profile.
 
@@ -132,8 +132,8 @@ Every fact in the DOCX tagged with tier (primary / secondary / tertiary):
 - Agent: [`cs-dossier`](../agents/cs-dossier.md)
 - Skill: [`dossier`](../skills/dossier/SKILL.md)
 - Source spec: `megaprompts/12-dossier-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Siblings: `/cs:litreview`, `/cs:grants`, `/cs:pulse`
-- Future: `/cs:patent`, `/cs:syllabus`
+- Siblings: `/cs-litreview`, `/cs-grants`, `/cs-pulse`
+- Future: `/cs-patent`, `/cs-syllabus`
 
 ---
 

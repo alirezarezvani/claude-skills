@@ -2,7 +2,7 @@
 
 **Principle (Karpathy #2, Simplicity First):** do not reimplement scope that the POWERFUL-tier engineering specialists already own. This skill is the *fullstack orchestrator*; the specialists are the *implementers*. Fork into them — do not duplicate them.
 
-This map is the routing table for the `cs-fullstack-engineer` agent and the `/cs:fullstack-review` command.
+This map is the routing table for the `cs-fullstack-engineer` agent and the `/cs-fullstack-review` command.
 
 ## Composition routing table
 

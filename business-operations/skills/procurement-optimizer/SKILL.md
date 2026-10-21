@@ -142,7 +142,7 @@ cd business-operations/skills/procurement-optimizer && python3 scripts/spend_cat
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Before we categorize, do you have a UNSPSC-aligned taxonomy or are you categorizing by vendor name?"**
    Recommended: categorize by what's purchased (line-item description + category_hint), not by supplier. A single supplier can span multiple categories.

@@ -95,7 +95,7 @@ count dropped, reason — capped at 200 lines, mode 0600.
 
 **Not stderr.** The capture hook is `async`, so its stderr goes nowhere a human
 reads. "We log the loss" to a stream nobody sees is a fiction. The log is also
-surfaced by `/cs:memory status` for recent entries: a log nobody is pointed at is
+surfaced by `/cs-memory status` for recent entries: a log nobody is pointed at is
 the same as no log.
 
 ## 6. Never emit two contradictory lines unmarked

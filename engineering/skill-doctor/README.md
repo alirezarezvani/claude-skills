@@ -113,7 +113,7 @@ in `.claude-plugin/authoring-notes.json` summarizes it; if the two ever disagree
 12. **Slash-command usage detection.** Claude Code `<command-name>` markers in
     user turns are mined for skill usage before the injected-content filter
     drops them (upstream only detected the `Skill` tool and path mentions), and
-    namespaced invocations like `/cs:foo` match skill `foo`.
+    namespaced invocations like `/my-plugin:foo` match skill `foo`.
 13. **Deterministic ordering.** Session sort keys are tie-broken by path/id so
     two runs over the same history sample identically; `--sample` runs the whole
     pipeline on fixed synthetic fixtures (one with a planted fake secret, so the

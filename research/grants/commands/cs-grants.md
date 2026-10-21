@@ -1,11 +1,11 @@
 ---
 name: "cs-grants"
-description: "/cs:grants <research-idea> — NIH funding intelligence. 6-Q grill-me intake (idea + career stage + prelim + environment + posture + institutes) → 5-facet Consensus positioning + RePORTER POST institute mapping + NOSI fetches → 9-section .docx with mandatory program officer recommendation."
+description: "/cs-grants <research-idea> — NIH funding intelligence. 6-Q grill-me intake (idea + career stage + prelim + environment + posture + institutes) → 5-facet Consensus positioning + RePORTER POST institute mapping + NOSI fetches → 9-section .docx with mandatory program officer recommendation."
 ---
 
-# /cs:grants — NIH Funding Intelligence
+# /cs-grants — NIH Funding Intelligence
 
-**Command:** `/cs:grants <research-idea>`
+**Command:** `/cs-grants <research-idea>`
 
 The `cs-grants` persona produces a strategic NIH funding overview as an editable `.docx` for clinical researchers.
 
@@ -120,7 +120,7 @@ grants_<topic-slug>_<YYYY-MM-DD>.docx
 - Agent: [`cs-grants`](../agents/cs-grants.md)
 - Skill: [`grants`](../skills/grants/SKILL.md)
 - Source spec: `megaprompts/08-grants-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling: `/cs:litreview` (academic literature, no RePORTER)
+- Sibling: `/cs-litreview` (academic literature, no RePORTER)
 
 ---
 

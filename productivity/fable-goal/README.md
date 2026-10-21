@@ -19,14 +19,14 @@ Get out of the model's way. A great /goal prompt nails the *what*, grants explic
 ## Usage
 
 ```
-/cs:fable-goal I keep manually sorting the podcast files my editor sends, write me a prompt so a session builds me something for that
+/cs-fable-goal I keep manually sorting the podcast files my editor sends, write me a prompt so a session builds me something for that
 ```
 
 Or just ramble and say "turn this into a goal prompt."
 
 ## Design notes
 
-Unlike sibling `productivity/*` plugins, this one intentionally ships no `agents/` persona and no `assets/`: the skill is a single reasoning pass with nothing to orchestrate in parallel, invoked via `/cs:fable-goal`, and its output is one prose block with no templates to fill. `scripts/goal_prompt_self_check.py` covers the mechanically checkable subset of the pre-delivery self-check (word count, goal line, autonomy directive, verification/freedom/destination language); deliverable concreteness and live-environment resource verification remain author judgment.
+Unlike sibling `productivity/*` plugins, this one intentionally ships no `agents/` persona and no `assets/`: the skill is a single reasoning pass with nothing to orchestrate in parallel, invoked via `/cs-fable-goal`, and its output is one prose block with no templates to fill. `scripts/goal_prompt_self_check.py` covers the mechanically checkable subset of the pre-delivery self-check (word count, goal line, autonomy directive, verification/freedom/destination language); deliverable concreteness and live-environment resource verification remain author judgment.
 
 ## Attribution
 

@@ -18,9 +18,9 @@ v2.8.0 — 7 skills (orchestrator + 6 sub-skills), 18 stdlib Python tools, 24 re
 
 ## Commands
 
-- `/cs:bizops <inquiry>` — top-level router
-- `/cs:grill-bizops <plan>` — Matt Pocock-style docs-anchored grilling
-- `/cs:process-map`, `/cs:vendor-review`, `/cs:capacity-plan`, `/cs:internal-comms`, `/cs:knowledge-ops`, `/cs:procurement` — direct per-skill invocation
+- `/cs-bizops <inquiry>` — top-level router
+- `/cs-grill-bizops <plan>` — Matt Pocock-style docs-anchored grilling
+- `/cs-process-map`, `/cs-vendor-review`, `/cs-capacity-plan`, `/cs-internal-comms`, `/cs-knowledge-ops`, `/cs-procurement` — direct per-skill invocation
 
 ## Agent
 

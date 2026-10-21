@@ -17,7 +17,7 @@ repo-native shape:
 
 - **Every session starts with a goal.** A `./my-agent/goal.json` state file holds
   the current goal + phase. An opt-in `SessionStart` hook (env-gated) surfaces it;
-  the `/cs:goal` command sets/advances it manually. The goal is the single source
+  the `/cs-goal` command sets/advances it manually. The goal is the single source
   of "what are we launching, and where are we in launching it".
 - **Goals become loops or workflows.** A deterministic `loop_compiler.py` turns a
   goal + phase into one of:
@@ -91,9 +91,9 @@ Every tool passes `--help` and `--sample` (exit 0), stdlib-only.
 
 ### Commands (8)
 
-`/cs:launch` (main entry / resume), `/cs:goal` (set/show/advance goal),
-`/cs:interview`, `/cs:stage-launch`, `/cs:grade`, `/cs:run-without-you`,
-`/cs:wrap-up`, `/cs:grill-agent-launcher` (Matt Pocock docs-anchored grill).
+`/cs-launch` (main entry / resume), `/cs-goal` (set/show/advance goal),
+`/cs-interview`, `/cs-stage-launch`, `/cs-grade`, `/cs-run-without-you`,
+`/cs-wrap-up`, `/cs-grill-agent-launcher` (Matt Pocock docs-anchored grill).
 
 ### Hooks (opt-in, env-gated)
 

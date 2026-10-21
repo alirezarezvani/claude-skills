@@ -3,7 +3,7 @@ description: Internal-only change-management comms using ADKAR (Prosci) + Kotter
 argument-hint: "<change description: type, audience, magnitude, effective date>"
 ---
 
-# /cs:internal-comms — Internal change comms (ADKAR + Kotter)
+# /cs-internal-comms — Internal change comms (ADKAR + Kotter)
 
 Run the `internal-comms` skill on this input:
 

@@ -140,7 +140,7 @@ python audit_schedule_optimizer.py audit_scope.json
 
 - Skill: [../../ra-qm-team/skills/qms-audit-expert/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/qms-audit-expert/SKILL.md)
 - Playbook: [../../ra-qm-team/skills/qms-audit-expert/references/iso13485_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/qms-audit-expert/references/iso13485_audit_playbook.md)
-- Sibling command: [`/cs:iso13485-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/iso13485-audit-prep/SKILL.md)
+- Sibling command: [`/compliance-os:iso13485-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/iso13485-audit-prep/SKILL.md)
 
 ---
 

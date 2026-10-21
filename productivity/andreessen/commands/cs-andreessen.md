@@ -1,11 +1,11 @@
 ---
 name: "cs-andreessen"
-description: "/cs:andreessen — Marc Andreessen-mode verdict on a venture, idea, feature, or career bet. Market-first, no hedging, no disclaimers, explicit confidence levels, strongest counterargument first. Issues BUILD-POUR-FUEL / MARKET-FIRST-DERISK / KILL-OR-REPICK-MARKET backed by deterministic tools. Also runs the 3x5-card + Anti-Todo daily routine."
+description: "/cs-andreessen — Marc Andreessen-mode verdict on a venture, idea, feature, or career bet. Market-first, no hedging, no disclaimers, explicit confidence levels, strongest counterargument first. Issues BUILD-POUR-FUEL / MARKET-FIRST-DERISK / KILL-OR-REPICK-MARKET backed by deterministic tools. Also runs the 3x5-card + Anti-Todo daily routine."
 ---
 
-# /cs:andreessen — Market-First Decision Mode
+# /cs-andreessen — Market-First Decision Mode
 
-**Command:** `/cs:andreessen`
+**Command:** `/cs-andreessen`
 
 The `cs-andreessen` persona pressure-tests a bet through Andreessen's frameworks and issues a hard
 verdict in a fixed anti-sycophancy voice. It does not balance, hedge, or reassure.
@@ -85,8 +85,8 @@ python ../skills/andreessen/scripts/anti_todo_card.py --summary
 
 - Agent: [`cs-andreessen`](../agents/cs-andreessen.md)
 - Skill: [`andreessen`](../skills/andreessen/SKILL.md)
-- Companion command: [`/cs:pmf-check`](./cs-pmf-check.md)
-- Siblings: `/cs:reflect`, `/cs:capture` (productivity)
+- Companion command: [`/cs-pmf-check`](./cs-pmf-check.md)
+- Siblings: `/cs-reflect`, `/cs-capture` (productivity)
 
 ---
 

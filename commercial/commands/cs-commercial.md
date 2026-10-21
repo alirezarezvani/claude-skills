@@ -3,7 +3,7 @@ description: "Top-level Commercial router. Routes the inquiry to one of seven Co
 argument-hint: "<inquiry>"
 ---
 
-# /cs:commercial — Commercial router
+# /cs-commercial — Commercial router
 
 Use the `cs-commercial-orchestrator` agent + `commercial-skills` orchestrator skill to handle this inquiry:
 

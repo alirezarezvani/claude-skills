@@ -111,7 +111,7 @@ The sample (a 28%-discount enterprise SaaS deal with uncapped indemnity + MFN) c
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-commercial` or the Commercial orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-commercial` or the Commercial orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"What's the gross margin at full discount, AND what does next quarter's pipeline look like at the same terms?"**
    Recommended: model both. Refuse to approve until the AE can articulate the precedent risk.

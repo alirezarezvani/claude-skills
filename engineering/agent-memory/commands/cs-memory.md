@@ -3,7 +3,7 @@ description: Inspect, trace, and adopt the tiered agent-memory store (status | w
 argument-hint: "status | why \"<claim>\" | contested | adopt | forget \"<claim>\""
 ---
 
-# /cs:memory — curate what the agent remembers
+# /cs-memory — curate what the agent remembers
 
 Argument: `$ARGUMENTS` (default: `status`)
 

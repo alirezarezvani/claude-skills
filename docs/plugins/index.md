@@ -215,7 +215,7 @@ Every plugin follows the same minimal schema for maximum portability:
 | **OpenClaw** | :material-check: | :material-check: | :material-close: | :material-close: |
 
 !!! tip "Full feature support"
-    Slash commands (like `/cs:research`, `/pw:generate`) and agent spawning (like `cs-research`) are Claude Code features. On other platforms the underlying skills and Python tools work — just without the command/agent wrappers.
+    Slash commands (like `/cs-research`, `/pw:generate`) and agent spawning (like `cs-research`) are Claude Code features. On other platforms the underlying skills and Python tools work — just without the command/agent wrappers.
 
 ---
 

@@ -19,10 +19,10 @@ description: "Multi-agent board meeting protocol for strategic decisions. Runs a
 Structured multi-agent deliberation that prevents groupthink, captures minority views, and produces clean, actionable decisions.
 
 ## Keywords
-board meeting, executive deliberation, strategic decision, C-suite, multi-agent, /cs:boardroom, founder review, decision extraction, independent perspectives
+board meeting, executive deliberation, strategic decision, C-suite, multi-agent, /c-level-agents:boardroom, founder review, decision extraction, independent perspectives
 
 ## Invoke
-`/cs:boardroom [topic]` — e.g. `/cs:boardroom Should we expand to Spain in Q3?`
+`/c-level-agents:boardroom [topic]` — e.g. `/c-level-agents:boardroom Should we expand to Spain in Q3?`
 
 ---
 
@@ -112,7 +112,7 @@ Options: ✅ Approve | ✏️ Modify | ❌ Reject | ❓ Ask follow-up
 **Rules:**
 - User corrections OVERRIDE agent proposals. No pushback. No "but the CFO said..."
 - 30-min inactivity → auto-close as "pending review"
-- Reopen any time with `/cs:boardroom resume`
+- Reopen any time with `/c-level-agents:boardroom resume`
 
 ---
 

@@ -34,15 +34,15 @@ python skills/deep-work/scripts/focus_session_logger.py log --minutes 90 --label
 python skills/deep-work/scripts/focus_session_logger.py status --target 15
 ```
 
-Or just say **"plan my deep work day: …"**, run `/cs:deep-work` (full workflow), or
-`/cs:time-block` (quick plan from a task list).
+Or just say **"plan my deep work day: …"**, run `/cs-deep-work` (full workflow), or
+`/cs-time-block` (quick plan from a task list).
 
 ## What's in the box
 
 - **Skill:** [`skills/deep-work/SKILL.md`](skills/deep-work/SKILL.md)
 - **Agent:** [`agents/cs-deep-work.md`](agents/cs-deep-work.md)
-- **Commands:** [`commands/cs-deep-work.md`](commands/cs-deep-work.md) — `/cs:deep-work`;
-  [`commands/cs-time-block.md`](commands/cs-time-block.md) — `/cs:time-block`
+- **Commands:** [`commands/cs-deep-work.md`](commands/cs-deep-work.md) — `/cs-deep-work`;
+  [`commands/cs-time-block.md`](commands/cs-time-block.md) — `/cs-time-block`
 - **3 stdlib scripts:** `shallow_work_auditor.py`, `time_block_planner.py`, `focus_session_logger.py`
 - **3 references** (6-7 sources each: Newport, Leroy, Mark, Ericsson, Csikszentmihalyi, Graham,
   Gollwitzer, Eyal, Parkinson, Zeigarnik, Masicampo & Baumeister, Perlow, RescueTime, Atlassian),

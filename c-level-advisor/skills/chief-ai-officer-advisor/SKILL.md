@@ -160,7 +160,7 @@ python scripts/model_buildvsbuy_calculator.py use_case.json
 # 2. Review 3-year TCO + breakeven
 # 3. Cross-check with cs-cfo-advisor on budget commitment
 # 4. Cross-check with cs-cto-advisor on engineering capacity (esp. for fine-tune)
-# 5. Log via /cs:decide; consider /cs:freeze 60 on multi-year vendor commitment
+# 5. Log via /c-level-agents:decide; consider /c-level-agents:freeze 60 on multi-year vendor commitment
 ```
 
 ### Workflow 2: AI Risk Classification (2-4 hours)
@@ -173,7 +173,7 @@ python scripts/ai_risk_classifier.py use_case.json
 # 3. For LIMITED-RISK: implement transparency requirements
 # 4. Cross-check with cs-general-counsel-advisor on contractual implications
 # 5. Cross-check with cs-ciso-advisor on technical safeguards
-# 6. Log via /cs:decide
+# 6. Log via /c-level-agents:decide
 ```
 
 ### Workflow 3: API-to-Self-Hosted Breakeven (1 day)
@@ -186,7 +186,7 @@ python scripts/ai_cost_economics.py workload.json
 # 3. Estimate migration cost (engineering time + risk)
 # 4. Cross-check with cs-cfo-advisor on capex commitment
 # 5. Cross-check with cs-cto-advisor on platform readiness
-# 6. Log via /cs:decide; pair with /cs:freeze if signing GPU commitment
+# 6. Log via /c-level-agents:decide; pair with /c-level-agents:freeze if signing GPU commitment
 ```
 
 ### Workflow 4: AI Team Roadmap (1 week)

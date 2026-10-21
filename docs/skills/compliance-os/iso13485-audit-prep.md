@@ -1,9 +1,9 @@
 ---
-title: "/cs:iso13485-audit-prep — ISO 13485 QMS Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:iso13485-audit-prep <scope> — ISO 13485 QMS audit 6-question forcing interrogation. Design controls + CAPA + post-market focused. Use before. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:iso13485-audit-prep — ISO 13485 QMS Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:iso13485-audit-prep <scope> — ISO 13485 QMS audit 6-question forcing interrogation. Design controls + CAPA + post-market focused. Use before. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:iso13485-audit-prep — ISO 13485 QMS Forcing Questions
+# /compliance-os:iso13485-audit-prep — ISO 13485 QMS Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:iso13485-audit-prep <scope> — ISO 13485 QMS audit 6-question
 </div>
 
 
-**Command:** `/cs:iso13485-audit-prep <scope>`
+**Command:** `/compliance-os:iso13485-audit-prep <scope>`
 
 The ISO 13485 QMS auditor pressure-tests any medical-device QMS work. Six traceability-obsessed questions before any internal audit, MDR / FDA QSR review, or product launch.
 
@@ -149,12 +149,12 @@ python ../../skills/compliance-os/scripts/audit_simulator.py iso13485_scope.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:fda-qsr-audit-prep` — for FDA-specific overlay
-- `/cs:aims-audit` — for AI-enabled medical device ISO 42001 layer
-- `/cs:gdpr-audit-prep` — for personal-data overlap (clinical data, customer data)
-- `/cs:cpo-review` — for executive product strategy decisions
-- `/cs:decide` — to log the verdict
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:fda-qsr-audit-prep` — for FDA-specific overlay
+- `/compliance-os:aims-audit` — for AI-enabled medical device ISO 42001 layer
+- `/compliance-os:gdpr-audit-prep` — for personal-data overlap (clinical data, customer data)
+- `/c-level-agents:cpo-review` — for executive product strategy decisions
+- `/c-level-agents:decide` — to log the verdict
 
 ## Related
 

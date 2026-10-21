@@ -44,7 +44,7 @@ python3 product-team/skills/product-skills/scripts/product_goal_router.py --text
 - Experiments carry computed sample size + MDE, never gut feel.
 - Prioritization names its framework (RICE / WSJF / opportunity score) and why.
 - AI features get an eval spec (golden set + rubric + guardrails) in the PRD.
-- Recurring discovery work goes to `/cs:product-loop` instead.
+- Recurring discovery work goes to `/cs-product-loop` instead.
 
 ## Distinct from
 

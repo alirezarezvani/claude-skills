@@ -1,9 +1,9 @@
 ---
-title: "/cs:onboard — Founder Interview — Agent Skill for Executives"
-description: "/cs:onboard — Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/cs-onboard — Founder Interview — Agent Skill for Executives"
+description: "/cs-onboard — Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:onboard — Founder Interview
+# /cs-onboard — Founder Interview
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:onboard — Founder interview that populates ~/.claude/company
 </div>
 
 
-**Command:** `/cs:onboard`
+**Command:** `/cs-onboard`
 
 The first command to run when adopting c-level-agents. A structured founder interview that produces `~/.claude/company-context.md` — the file every cs-* advisor reads before responding. Without this, the advisors are guessing.
 
@@ -25,7 +25,7 @@ The first command to run when adopting c-level-agents. A structured founder inte
 `~/.claude/company-context.md` — a single file with the durable facts about the company. Read by:
 - `cs-chief-of-staff` (routing decisions)
 - Every cs-* advisor (context for any question)
-- `/cs:brief` (assumptions in any new decision)
+- `/c-level-agents:brief` (assumptions in any new decision)
 
 ## The Interview (12 Questions)
 
@@ -116,7 +116,7 @@ The intake summary captured by the 12 questions:
 - After a major pivot or product launch
 - After 6+ months (most facts have drifted)
 - After a major hire (team distribution changes)
-- Always before a `/cs:boardroom` for a high-stakes decision
+- Always before a `/c-level-agents:boardroom` for a high-stakes decision
 
 ## Persistence
 

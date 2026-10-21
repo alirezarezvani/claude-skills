@@ -39,11 +39,11 @@ The `decision-logger` skill writes approved decisions to a known path. Set the e
 export CS_DECISION_LOG_DIR=~/company-vault/10-decisions/
 ```
 
-Every `/cs:decide` invocation now writes a dated decision file into the vault. Boardroom transcripts go to `20-boardroom/`. Post-mortems go to `30-postmortems/`.
+Every `/c-level-agents:decide` invocation now writes a dated decision file into the vault. Boardroom transcripts go to `20-boardroom/`. Post-mortems go to `30-postmortems/`.
 
 ### 4. Let llm-wiki index everything
 
-Run `/wiki-ingest` periodically (or wire it into a hook) so the wiki-linter cross-links decisions, post-mortems, and brief artifacts. Now a future `/cs:office-hours` call can pull "what did we decide about X six months ago?" from the vault.
+Run `/wiki-ingest` periodically (or wire it into a hook) so the wiki-linter cross-links decisions, post-mortems, and brief artifacts. Now a future `/c-level-agents:office-hours` call can pull "what did we decide about X six months ago?" from the vault.
 
 ## Recommended Vault Layout
 
@@ -54,12 +54,12 @@ Run `/wiki-ingest` periodically (or wire it into a hook) so the wiki-linter cros
 ├── 10-decisions/                    ← decision-logger output
 │   ├── 2026-05-12-pricing-v3.md
 │   └── ...
-├── 20-boardroom/                    ← /cs:boardroom artifacts
+├── 20-boardroom/                    ← /c-level-agents:boardroom artifacts
 │   └── 2026-05-12-series-b-go.md
-├── 30-postmortems/                  ← /cs:post-mortem artifacts
+├── 30-postmortems/                  ← /c-level-agents:post-mortem artifacts
 │   └── 2026-04-30-q1-miss.md
-├── 40-briefs/                       ← /cs:brief artifacts
-├── 50-execution/                    ← /cs:execute plans
+├── 40-briefs/                       ← /c-level-agents:brief artifacts
+├── 50-execution/                    ← /c-level-agents:execute plans
 └── 60-references/                   ← pasted research, links
 ```
 
@@ -70,7 +70,7 @@ Once the vault is wired, the bridge unlocks:
 ```
 /wiki-query "decisions about pricing"      # find all pricing decisions
 /wiki-query "post-mortems Q1 2026"          # find retrospectives
-/cs:founder-mode "should we raise now?"    # context-aware routing — pulls last fundraising decision
+/c-level-agents:founder-mode "should we raise now?"    # context-aware routing — pulls last fundraising decision
 ```
 
 ## Why This Beats gstack's `gbrain`

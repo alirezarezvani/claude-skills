@@ -1,6 +1,6 @@
 ---
 title: "/cs-syllabus — Slash Command for AI Coding Agents"
-description: "/cs:syllabus <syllabus-file-or-paste> — Generate curated supplementary reading list from any course syllabus. 3-Q grill-me (input format + audience +. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-syllabus <syllabus-file-or-paste> — Generate curated supplementary reading list from any course syllabus. 3-Q grill-me (input format + audience +. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-syllabus
@@ -11,7 +11,7 @@ description: "/cs:syllabus <syllabus-file-or-paste> — Generate curated supplem
 </div>
 
 
-**Command:** `/cs:syllabus <syllabus-file-or-paste>`
+**Command:** `/cs-syllabus <syllabus-file-or-paste>`
 
 The `cs-syllabus` persona produces a `.docx` reading list of recent peer-reviewed research per course section.
 
@@ -141,7 +141,7 @@ python ../skills/syllabus/scripts/citation_tracker.py --action close --session N
 - Agent: [`cs-syllabus`](https://github.com/alirezarezvani/claude-skills/tree/main/research/syllabus/agents/cs-syllabus.md)
 - Skill: [`syllabus`](https://github.com/alirezarezvani/claude-skills/tree/main/research/syllabus/skills/syllabus/SKILL.md)
 - Source spec: `megaprompts/10-syllabus-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Siblings: `/cs:litreview`, `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:pulse`
+- Siblings: `/cs-litreview`, `/cs-grants`, `/cs-patent`, `/cs-dossier`, `/cs-pulse`
 
 ---
 

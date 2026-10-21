@@ -20,9 +20,9 @@ This is the bundle index, not an advisor. It tells you what exists and where to 
 
 ## Start Here
 
-1. **Onboard** — the `cs-onboard` skill runs the founder interview (`/cs:setup`, 7 dimensions, ~45 min) and writes `~/.claude/company-context.md`. Refresh quarterly with `/cs:update`. This is the canonical context schema every advisor reads.
+1. **Onboard** — the `cs-onboard` skill runs the founder interview (`/cs-onboard setup`, 7 dimensions, ~45 min) and writes `~/.claude/company-context.md`. Refresh quarterly with `/cs-onboard update`. This is the canonical context schema every advisor reads.
 2. **Ask** — the `chief-of-staff` skill routes any question to the right advisor(s). See its routing matrix for all 14 roles.
-3. **Big decisions** — the `board-meeting` skill runs a **6-phase** deliberation: (1) context gathering → (2) independent contributions (isolated) → (3) critic analysis → (4) synthesis → (5) founder review (full stop) → (6) decision extraction. Invoked via `/cs:boardroom` in the c-level-agents plugin.
+3. **Big decisions** — the `board-meeting` skill runs a **6-phase** deliberation: (1) context gathering → (2) independent contributions (isolated) → (3) critic analysis → (4) synthesis → (5) founder review (full stop) → (6) decision extraction. Invoked via `/c-level-agents:boardroom` in the c-level-agents plugin.
 4. **Memory** — decisions land in the canonical two-layer layout `~/.claude/decisions/{raw,approved}/` (see [`agent-protocol/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/agent-protocol/SKILL.md) → "Decision Memory (Canonical Layout)").
 
 ## What's in the Bundle (33 skills)

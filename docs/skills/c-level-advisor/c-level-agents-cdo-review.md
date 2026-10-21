@@ -1,9 +1,9 @@
 ---
-title: "/cs:cdo-review — CDO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cdo-review — CDO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cdo-review — CDO Forcing Questions
+# /c-level-agents:cdo-review — CDO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer inter
 </div>
 
 
-**Command:** `/cs:cdo-review <plan>`
+**Command:** `/c-level-agents:cdo-review <plan>`
 
 The decision-driven CDO pressure-tests any plan that touches data strategy. Six questions before any commitment to a data architecture, AI training run, data productization, or data team hire.
 
@@ -119,12 +119,12 @@ python ../../../skills/chief-data-officer-advisor/scripts/data_asset_valuator.py
 
 ## Routing
 
-- `/cs:gc-review` — for any productization or licensing path
-- `/cs:ciso-review` — for any architecture change touching customer data
-- `/cs:cfo-review` — for build-vs-buy TCO and M&A valuation math
+- `/c-level-agents:gc-review` — for any productization or licensing path
+- `/c-level-agents:ciso-review` — for any architecture change touching customer data
+- `/c-level-agents:cfo-review` — for build-vs-buy TCO and M&A valuation math
 - `cs-chro-advisor` agent — for data team hires (comp, ladder, leveling)
-- `/cs:decide` — log the verdict
-- `/cs:freeze 90` — on multi-year infrastructure contracts
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 90` — on multi-year infrastructure contracts
 
 ## Related
 

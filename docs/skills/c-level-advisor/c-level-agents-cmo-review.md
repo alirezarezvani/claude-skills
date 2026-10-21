@@ -1,9 +1,9 @@
 ---
-title: "/cs:cmo-review — CMO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cmo-review <plan> — Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cmo-review — CMO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cmo-review <plan> — Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cmo-review — CMO Forcing Questions
+# /c-level-agents:cmo-review — CMO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cmo-review <plan> — Narrative-first interrogation of positio
 </div>
 
 
-**Command:** `/cs:cmo-review <plan>`
+**Command:** `/c-level-agents:cmo-review <plan>`
 
 The narrative-first strategist pressure-tests positioning before debating tactics.
 
@@ -97,9 +97,9 @@ One-sentence statement: <here>
 
 ## Routing
 
-- `/cs:cro-review` — pipeline contribution check
-- `/cs:cpo-review` — product ↔ positioning alignment
-- `/cs:decide` — log the verdict
+- `/c-level-agents:cro-review` — pipeline contribution check
+- `/c-level-agents:cpo-review` — product ↔ positioning alignment
+- `/c-level-agents:decide` — log the verdict
 
 ## Related
 

@@ -1,9 +1,9 @@
 ---
-description: Matt Pocock-style docs-anchored grilling for a BizOps plan or design. Walks the user's plan against the BizOps canon (Lean, Theory of Constraints, Gartner TPRM, DORA) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs:bizops on a fuzzy plan.
+description: Matt Pocock-style docs-anchored grilling for a BizOps plan or design. Walks the user's plan against the BizOps canon (Lean, Theory of Constraints, Gartner TPRM, DORA) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs-bizops on a fuzzy plan.
 argument-hint: "<plan, design, or fuzzy problem statement>"
 ---
 
-# /cs:grill-bizops — BizOps grill against the canon
+# /cs-grill-bizops — BizOps grill against the canon
 
 Apply Matt Pocock's `grill-with-docs` discipline to this BizOps plan / problem:
 
@@ -50,7 +50,7 @@ For PROCUREMENT: "Spend or supplier consolidation goal?" — Recommended: consol
 
 ### Branch 5 — Now invoke the sub-skill
 
-Only after branches 1-4 are resolved, invoke `/cs:bizops` to route to the right sub-skill.
+Only after branches 1-4 are resolved, invoke `/cs-bizops` to route to the right sub-skill.
 
 ## Output format per turn
 
@@ -63,12 +63,12 @@ Recommended: [answer + 1-sentence canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:bizops <synthesized inquiry>`
-- User says "stop grilling, just run it" → invoke `/cs:bizops` with whatever's resolved, flag the unresolved branches in the digest
+- All branches resolved → invoke `/cs-bizops <synthesized inquiry>`
+- User says "stop grilling, just run it" → invoke `/cs-bizops` with whatever's resolved, flag the unresolved branches in the digest
 - User abandons → no sub-skill invocation, save the partial grill to `bizops-grill-{timestamp}.md`
 
 ## Distinct from
 
 - `engineering/grill-me` (Matt Pocock) — generic plan grilling, no domain canon
 - `engineering/grill-with-docs` (Matt Pocock) — codebase + ADR-anchored grilling for engineering. This is **BizOps-domain grilling**.
-- `/cs:bizops` — that **executes** the routing. This **interrogates** before executing.
+- `/cs-bizops` — that **executes** the routing. This **interrogates** before executing.

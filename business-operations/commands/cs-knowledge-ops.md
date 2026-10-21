@@ -3,7 +3,7 @@ description: Company SOP + runbook authoring with 5W2H completeness checks. NOT 
 argument-hint: "<process / system / incident to document>"
 ---
 
-# /cs:knowledge-ops — Company SOPs + runbooks
+# /cs-knowledge-ops — Company SOPs + runbooks
 
 Run the `knowledge-ops` skill on this input:
 

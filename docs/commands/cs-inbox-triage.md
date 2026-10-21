@@ -1,6 +1,6 @@
 ---
 title: "/cs-inbox-triage — Slash Command for AI Coding Agents"
-description: "/cs:inbox-triage — Recurring email triage execution. Reads 7-file KB built by /cs:inbox-setup. Classifies recent emails, drafts replies (NEVER. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-inbox-triage — Recurring email triage execution. Reads 7-file KB built by /cs-inbox-setup. Classifies recent emails, drafts replies (NEVER. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-inbox-triage
@@ -11,9 +11,9 @@ description: "/cs:inbox-triage — Recurring email triage execution. Reads 7-fil
 </div>
 
 
-**Command:** `/cs:inbox-triage`
+**Command:** `/cs-inbox-triage`
 
-The `cs-inbox-triage` persona processes your inbox using the knowledge base built by `/cs:inbox-setup`. Designed for recurring runs (1-3x/day) with light intake — most invocations skip questions and run with KB-default preferences.
+The `cs-inbox-triage` persona processes your inbox using the knowledge base built by `/cs-inbox-setup`. Designed for recurring runs (1-3x/day) with light intake — most invocations skip questions and run with KB-default preferences.
 
 ## When to Run
 
@@ -21,7 +21,7 @@ The `cs-inbox-triage` persona processes your inbox using the knowledge base buil
 - **On-demand** — outside cadence (after a long break, before a meeting, etc.)
 - **Pre-triage scan** — quick check of overdue tracker items only
 
-**Do NOT run if** the KB doesn't exist yet — the skill will halt and direct you to `/cs:inbox-setup` first.
+**Do NOT run if** the KB doesn't exist yet — the skill will halt and direct you to `/cs-inbox-setup` first.
 
 ## DRAFTS ONLY — Non-Negotiable
 
@@ -88,7 +88,7 @@ python ../skills/inbox-triage/scripts/draft_safety_validator.py \
 ## Stop Conditions
 
 - All 10 steps complete → report delivered + KB updated + log written
-- KB files missing → halt; direct to `/cs:inbox-setup`
+- KB files missing → halt; direct to `/cs-inbox-setup`
 - Email tool unavailable → halt; tell user which tool is needed
 - 100+ new emails → flag volume; offer to focus on priority categories only
 - User says "stop" → produce partial report from what's been processed; flag the rest
@@ -125,7 +125,7 @@ python ../skills/inbox-triage/scripts/draft_safety_validator.py \
 
 ## Related
 
-- Companion: [`/cs:inbox-setup`](./cs-inbox-setup.md) — must run first
+- Companion: [`/cs-inbox-setup`](./cs-inbox-setup.md) — must run first
 - Agent: [`cs-inbox-triage`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/agents/cs-inbox-triage.md)
 - Skill: [`inbox-triage`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/SKILL.md)
 - Source spec: `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)

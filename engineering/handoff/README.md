@@ -13,7 +13,7 @@ Conversation-handoff document generator. Saves the current state of a conversati
 | **3 stdlib Python tools** | `skills/handoff/scripts/` | Template generator (tailored to next-session focus), artifact deduplicator (find references that should replace inline content), skill recommender (which skills next session needs) |
 | **3 in-depth references** (5+ sources each) | `skills/handoff/references/` | Handoff structure · Deduplication discipline · Skill matching for next session |
 | **cs-handoff-author persona agent** | `agents/cs-handoff-author.md` | Continuity-focused handoff author with hard rule against duplication |
-| **`/cs:handoff` slash command** | `commands/cs-handoff.md` | One-shot handoff generation with argument hint |
+| **`/cs-handoff` slash command** | `commands/cs-handoff.md` | One-shot handoff generation with argument hint |
 
 ## Matt's original (preserved)
 

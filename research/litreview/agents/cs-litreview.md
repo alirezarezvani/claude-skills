@@ -167,7 +167,7 @@ research_guide_{topic-slug}_{date}.docx
 
 - Skill: [../skills/litreview/SKILL.md](../skills/litreview/SKILL.md)
 - Source spec: `megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:litreview`](../commands/cs-litreview.md)
+- Sibling command: [`/cs-litreview`](../commands/cs-litreview.md)
 
 ---
 

@@ -194,7 +194,7 @@ Re-grill trigger: [language drift signal, ADR supersession, new bounded context]
 
 - Skill: [../skills/grill-with-docs/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/skills/grill-with-docs/SKILL.md)
 - Format specs: [ADR-FORMAT.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/skills/grill-with-docs/ADR-FORMAT.md), [CONTEXT-FORMAT.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/skills/grill-with-docs/CONTEXT-FORMAT.md)
-- Sibling command: [`/cs:grill-with-docs`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/commands/cs-grill-with-docs.md)
+- Sibling command: [`/cs-grill-with-docs`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-with-docs/commands/cs-grill-with-docs.md)
 
 ---
 

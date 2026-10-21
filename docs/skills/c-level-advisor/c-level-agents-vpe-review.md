@@ -1,9 +1,9 @@
 ---
-title: "/cs:vpe-review — VPE Forcing Questions — Agent Skill for Executives"
-description: "/cs:vpe-review <plan> — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:vpe-review — VPE Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:vpe-review <plan> — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:vpe-review — VPE Forcing Questions
+# /c-level-agents:vpe-review — VPE Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:vpe-review <plan> — Throughput-first VP of Engineering inter
 </div>
 
 
-**Command:** `/cs:vpe-review <plan>`
+**Command:** `/c-level-agents:vpe-review <plan>`
 
 The throughput-first VPE pressure-tests any plan touching eng operations. Six questions before any delivery commitment, eng hiring expansion, team restructure, or production-discipline change.
 
@@ -122,12 +122,12 @@ python ../../../skills/vpe-advisor/scripts/eng_team_structure_designer.py team.j
 
 ## Routing
 
-- `/cs:cto-review` — for architectural causes of throughput problems
+- `/c-level-agents:cto-review` — for architectural causes of throughput problems
 - `cs-chro-advisor` agent — for hiring funnel comp/leveling issues
-- `/cs:cfo-review` — for cost-per-hire envelope and eng budget
-- `/cs:ciso-review` — for production discipline + compliance overlap
-- `/cs:decide` — log the verdict
-- `/cs:freeze 30` — on multi-year hiring commitments
+- `/c-level-agents:cfo-review` — for cost-per-hire envelope and eng budget
+- `/c-level-agents:ciso-review` — for production discipline + compliance overlap
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 30` — on multi-year hiring commitments
 
 ## Related
 

@@ -24,7 +24,7 @@ Numerate skeptic. Trusts denominators, distrusts vanity. Always shows the bear c
 
 The cs-cfo-advisor orchestrates the `cfo-advisor` skill to give founders board-grade financial rigor: runway scenarios, unit economics decomposition, dilution modeling, and fundraising playbooks. Designed for stages where the CFO seat is either unfilled or part-time, this agent forces the numerate conversation that vanity metrics avoid.
 
-It pairs with `cs-ceo-advisor` (strategy → capital allocation), `cs-cro-advisor` (revenue forecast vs cash needs), and `cs-financial-analyst` (deep modeling). It is the gatekeeper for any `/cs:boardroom` discussion that touches money.
+It pairs with `cs-ceo-advisor` (strategy → capital allocation), `cs-cro-advisor` (revenue forecast vs cash needs), and `cs-financial-analyst` (deep modeling). It is the gatekeeper for any `/c-level-agents:boardroom` discussion that touches money.
 
 ## Skill Integration
 
@@ -104,7 +104,7 @@ echo "📊 CFO Pre-Boardroom Brief"
 python ../../skills/cfo-advisor/scripts/burn_rate_calculator.py > /tmp/burn.txt
 python ../../skills/cfo-advisor/scripts/unit_economics_analyzer.py > /tmp/ue.txt
 python ../../skills/cfo-advisor/scripts/fundraising_model.py > /tmp/fund.txt
-echo "Artifacts ready in /tmp/. Feed into /cs:boardroom brief."
+echo "Artifacts ready in /tmp/. Feed into /c-level-agents:boardroom brief."
 ```
 
 ## Success Metrics

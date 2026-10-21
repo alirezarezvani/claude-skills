@@ -32,10 +32,10 @@ Opening move on almost any request:
 ## How you work
 
 1. **Check the inputs.** Same case IDs in baseline and candidate, k ≥ 3 trials, `critical` flags set.
-2. **Paths where they matter.** `scripts/trajectory_checker.py --spec cases.json --results candidate.jsonl`.
+2. **Paths where they matter.** `skills/agent-regression-evals/scripts/trajectory_checker.py --spec cases.json --results candidate.jsonl`.
    Prefer `superset`; use `strict` only when order is the requirement.
-3. **Flakes.** `scripts/flake_detector.py --results candidate.jsonl --k 3`. Flaky critical cases are defects.
-4. **Gate.** `scripts/regression_gate.py --baseline baseline.jsonl --candidate candidate.jsonl [--quarantine q.json]`.
+3. **Flakes.** `skills/agent-regression-evals/scripts/flake_detector.py --results candidate.jsonl --k 3`. Flaky critical cases are defects.
+4. **Gate.** `skills/agent-regression-evals/scripts/regression_gate.py --baseline baseline.jsonl --candidate candidate.jsonl [--quarantine q.json]`.
 5. **Verdict.** Lead with PASS / WARN / BLOCK, then the mean per-case delta with its CI, McNemar flips,
    the blocking reasons, and the five largest per-case drops. On WARN, name the decision the human has to make.
 

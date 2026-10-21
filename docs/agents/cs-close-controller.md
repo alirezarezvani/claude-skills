@@ -38,13 +38,13 @@ Opening move on almost any request:
 
 ## How you work
 
-1. **Calendar.** `scripts/close_calendar_planner.py --plan close_plan.json`. Report the critical path,
+1. **Calendar.** `skills/month-end-close/scripts/close_calendar_planner.py --plan close_plan.json`. Report the critical path,
    its owner concentration, every BLOCKER, and the one change that would remove the most days.
-2. **Reconciliations.** `scripts/reconciliation_matcher.py --gl ... --source ... --gl-balance ... --source-balance ...`
+2. **Reconciliations.** `skills/month-end-close/scripts/reconciliation_matcher.py --gl ... --source ... --gl-balance ... --source-balance ...`
    per account. Report the proof, the unexplained difference with its hints, items past escalation, and journal entries needed.
-3. **Flux.** `scripts/flux_analyzer.py --input tb_compare.csv --pct <policy> --abs <policy>`. List each material
+3. **Flux.** `skills/month-end-close/scripts/flux_analyzer.py --input tb_compare.csv --pct <policy> --abs <policy> --reviewer <name>`. List each material
    account whose explanation fails, and what a passing one would contain.
-4. **Sign-off.** Hand over `assets/reconciliation_signoff.md` with the evidence fields filled from the run.
+4. **Sign-off.** Hand over `skills/month-end-close/assets/reconciliation_signoff.md` with the evidence fields filled from the run.
 
 ## Scope boundaries
 

@@ -30,7 +30,7 @@ and lint it with `--managed` before proposing it.
 2. **Effective policy** in plain words: what runs unprompted, what asks, what is denied, which MCP servers and plugins load.
 3. **Warnings** grouped by script.
 4. **Adoption stage**, if summaries were given.
-5. **Next phase** from `assets/rollout_plan.md` and its exit criterion.
+5. **Next phase** from `skills/claude-code-team-rollout/assets/rollout_plan.md` and its exit criterion.
 
 ## Do not
 

@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.13.0 (October triage and quality-audit release: runnable command names, self-contained c-level-agents/compliance-os, hivemind as an opt-in plugin, six new skills from the community backlog. See CHANGELOG.md [2.13.0].)
+**Version:** v2.14.0 (audit skills release: agent-regression-evals, coding-agent-rollout and month-end-close plugins, open-source-first youtube-full, claude-coach plugin renamed to power-user-coach with a one-time reinstall. See CHANGELOG.md [2.14.0].)
+
+**Previously: v2.13.0** (October triage and quality-audit release: runnable command names, self-contained c-level-agents/compliance-os, hivemind as an opt-in plugin, six new skills from the community backlog. See CHANGELOG.md [2.13.0].)
 
 **Previously: v2.12.0** (consolidated release — 20 domains, 380 skills; full reported-issue triage sweep; first tag since v2.9.0. See CHANGELOG.md [2.12.0].)
 
@@ -180,7 +182,7 @@ Vendors `engineering/skillopt-sleep/` — a byte-for-byte start from [microsoft/
 
 ---
 
-**Unreleased (post-v2.13.0) — three audit-proposed skills (agent-regression-evals, coding-agent-rollout, month-end-close):**
+**v2.14.0 — three audit-proposed skills (agent-regression-evals, coding-agent-rollout, month-end-close):**
 
 Built from the October quality audit's new-skill proposals, ranked by impact on teams. Each is a
 standalone plugin mirrored into its domain bundle (`engineering/skills/`, `finance/skills/`), with
@@ -857,5 +859,5 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 ---
 
 **Last Updated:** October 21, 2026
-**Version:** v2.13.0 (October triage and quality-audit release — see CHANGELOG.md)
+**Version:** v2.14.0 (audit skills release — see CHANGELOG.md)
 **Status:** 398 production-ready skills across 20 domains, 104 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

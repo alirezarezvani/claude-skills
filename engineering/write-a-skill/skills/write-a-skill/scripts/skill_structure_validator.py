@@ -28,21 +28,21 @@ from typing import Any, Dict, List, Set, Tuple
 
 
 # Default max-lines threshold from Matt Pocock's write-a-skill review checklist
-DEFAULT_MAX_LINES = 100
+# Shared with the other write-a-skill scripts so they cannot drift apart. The directory is put
+# on the path explicitly, so the script still runs from any working directory.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _skill_frontmatter import (  # noqa: E402
+    MAX_SKILL_MD_LINES,
+    find_skill_md,
+)
+
+DEFAULT_MAX_LINES = MAX_SKILL_MD_LINES
 
 # Reference filename patterns Matt's pattern recognizes
 REFERENCE_FILE_PATTERNS = ["REFERENCE.md", "EXAMPLES.md", "references", "examples"]
 
 # Script folder names
 SCRIPT_FOLDERS = ["scripts"]
-
-
-def find_skill_md(folder: str) -> str:
-    """Find SKILL.md at folder root; return its path or empty string."""
-    candidate = os.path.join(folder, "SKILL.md")
-    if os.path.isfile(candidate):
-        return candidate
-    return ""
 
 
 def count_lines(filepath: str) -> int:

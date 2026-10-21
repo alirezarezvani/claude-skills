@@ -5,7 +5,7 @@ argument-hint: [target-branch]
 
 ## Variables
 
-TARGET_BRANCH: $1 (defaults to `main`)
+TARGET_BRANCH: $ARGUMENTS (defaults to `dev`; this repo never opens PRs against `main`, which only receives maintainer promotion PRs from `dev`)
 SOURCE_BRANCH: current branch (`git branch --show-current`)
 
 ## Workflow

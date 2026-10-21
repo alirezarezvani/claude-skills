@@ -78,7 +78,7 @@ def main() -> int:
 
     if args.sample:
         sheet = json.loads((Path(__file__).resolve().parents[3] / "assets" / "example-build-sheet.json").read_text())
-        _emit(inventory(sheet, {"phase": "wrap-up", "phases_done": ["interview", "stage-launch", "grade-iterate", "run-without-you"]}), False)
+        _emit(inventory(sheet, {"phase": "wrap-up", "phases_done": ["interview", "stage-launch", "grade-iterate", "run-without-you"]}), args.json)
         return 0
 
     if not args.sheet:

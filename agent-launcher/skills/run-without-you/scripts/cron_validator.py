@@ -92,12 +92,20 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.sample:
+        results = []
         for expr, tz in [("0 9 * * *", "Europe/Berlin"), ("*/15 0-6 * * 1-5", "America/New_York"),
                          ("0 25 * * *", "UTC"), ("0 9 * *", "Mars/Olympus")]:
             ok, errs = validate_cron(expr)
             tzok, tznote = validate_tz(tz)
+            if args.json:
+                results.append({"cron": expr, "cron_valid": ok, "cron_errors": errs,
+                                "timezone": tz, "timezone_valid": tzok, "timezone_note": tznote})
+                continue
             print(f"[{'OK ' if ok and tzok else 'BAD'}] {expr!r} @ {tz}: "
                   f"{'valid' if ok else errs}; tz {'valid' if tzok else tznote}")
+        if args.json:
+            print(json.dumps({"samples": results, "dst_note": DST_NOTE}, indent=2))
+            return 0
         print(f"\n{DST_NOTE}")
         return 0
 

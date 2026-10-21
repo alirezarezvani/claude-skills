@@ -1,6 +1,6 @@
 ---
 title: "/compliance-os:fda-qsr-audit-prep — FDA QSR Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/compliance-os:fda-qsr-audit-prep <scope> — FDA 21 CFR 820 (QSR / QMSR) audit 6-question forcing interrogation. Post-Feb 2026 substantially harmonized with ISO. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/compliance-os:fda-qsr-audit-prep [scope] — FDA 21 CFR 820 (QSR / QMSR) audit 6-question forcing interrogation. Post-Feb 2026 substantially. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /compliance-os:fda-qsr-audit-prep — FDA QSR Forcing Questions
@@ -80,13 +80,13 @@ The FDA QSR auditor pressure-tests any US medical-device QSR work. Six questions
 
 ```bash
 # 1. QSR compliance posture
-python ra-qm-team/skills/fda-consultant-specialist/scripts/qsr_compliance_checker.py compliance_state.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/qsr_compliance_checker.py compliance_state.json
 
 # 2. FDA submission tracking (510(k) / PMA / IDE)
-python ra-qm-team/skills/fda-consultant-specialist/scripts/fda_submission_tracker.py submissions.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/fda_submission_tracker.py submissions.json
 
 # 3. HIPAA overlap (if connected device handles PHI)
-python ra-qm-team/skills/fda-consultant-specialist/scripts/hipaa_risk_assessment.py phi_inventory.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/hipaa_risk_assessment.py phi_inventory.json
 
 # 4. Mock FDA inspection
 python ../../skills/compliance-os/scripts/audit_simulator.py fda_qsr_scope.json
@@ -159,7 +159,7 @@ python ../../skills/compliance-os/scripts/audit_simulator.py fda_qsr_scope.json
 ## Related
 
 - Agent: [`cs-fda-qsr-auditor`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/agents/cs-fda-qsr-auditor.md)
-- Skill: [`fda-consultant-specialist`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/fda-consultant-specialist/SKILL.md)
+- Skill: [`fda-consultant-specialist`](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/SKILL.md)
 - Adjacent: [`skills/iso13485-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/iso13485-audit-prep), [`skills/compliance-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-readiness)
 
 ---

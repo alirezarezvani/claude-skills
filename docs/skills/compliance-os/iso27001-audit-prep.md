@@ -1,6 +1,6 @@
 ---
 title: "/compliance-os:iso27001-audit-prep — ISO 27001 ISMS Audit Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/compliance-os:iso27001-audit-prep <scope> — ISO 27001 ISMS audit readiness 6-question forcing interrogation. Use before annual Clause 9.2 internal audit. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/compliance-os:iso27001-audit-prep [scope] — ISO 27001 ISMS audit readiness 6-question forcing interrogation. Use before annual Clause 9.2 internal. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /compliance-os:iso27001-audit-prep — ISO 27001 ISMS Audit Forcing Questions
@@ -34,7 +34,7 @@ The ISO 27001 ISMS auditor pressure-tests any ISMS work. Six sample-driven quest
 ### 1. What's the audit scope, and is rolling 3-year coverage on track?
 **No 3-year coverage discipline, no defensible programme.**
 - Every Clause 4-10 + every applicable Annex A control must be audited at least once per 3-year cycle
-- Run `isms_audit_scheduler.py` in `ra-qm-team/skills/isms-audit-expert/`
+- Run `isms_audit_scheduler.py` in `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/`
 - Confirm auditor independence — no self-audit on any sample
 
 ### 2. When was the risk register last refreshed, and are treatments linked to Annex A controls?
@@ -76,7 +76,7 @@ The ISO 27001 ISMS auditor pressure-tests any ISMS work. Six sample-driven quest
 
 ```bash
 # 1. Audit programme planning
-python ra-qm-team/skills/isms-audit-expert/scripts/isms_audit_scheduler.py audit_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/scripts/isms_audit_scheduler.py audit_scope.json
 
 # 2. Mock audit for readiness check
 python ../../skills/compliance-os/scripts/audit_simulator.py iso27001_scope.json
@@ -140,8 +140,8 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 ## Related
 
 - Agent: [`cs-ciso-iso27001`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/agents/cs-ciso-iso27001.md)
-- Skill: [`isms-audit-expert`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/isms-audit-expert/SKILL.md)
-- Playbook: [iso27001_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/isms-audit-expert/references/iso27001_audit_playbook.md)
+- Skill: [`isms-audit-expert`](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/SKILL.md)
+- Playbook: [iso27001_audit_playbook.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/iso27001_audit_playbook.md)
 - Adjacent: [`skills/soc2-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/soc2-audit-prep), [`skills/aims-audit`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/aims-audit), [`skills/gdpr-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/gdpr-audit-prep), [`skills/compliance-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-readiness)
 
 ---

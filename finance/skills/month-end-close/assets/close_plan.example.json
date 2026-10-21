@@ -1,0 +1,103 @@
+{
+  "period": "2026-10",
+  "close_start": "2026-11-02",
+  "target_wd": 5,
+  "holidays": [],
+  "tasks": [
+    {
+      "id": "ap-cutoff",
+      "name": "AP cut-off and invoice accrual",
+      "owner": "Dana",
+      "duration_days": 1,
+      "depends_on": []
+    },
+    {
+      "id": "ar-cutoff",
+      "name": "AR cut-off and billing",
+      "owner": "Sam",
+      "duration_days": 1,
+      "depends_on": []
+    },
+    {
+      "id": "payroll",
+      "name": "Payroll accrual",
+      "owner": "Dana",
+      "duration_days": 0.5,
+      "depends_on": []
+    },
+    {
+      "id": "bank-rec",
+      "name": "Bank reconciliations",
+      "owner": "Sam",
+      "reviewer": "Lee",
+      "duration_days": 1,
+      "depends_on": [
+        "ar-cutoff"
+      ],
+      "key_control": true,
+      "deadline_wd": 2
+    },
+    {
+      "id": "accruals",
+      "name": "Accruals and prepaids",
+      "owner": "Dana",
+      "reviewer": "Dana",
+      "duration_days": 1,
+      "depends_on": [
+        "ap-cutoff",
+        "payroll"
+      ],
+      "key_control": true
+    },
+    {
+      "id": "fixed-assets",
+      "name": "Depreciation run",
+      "owner": "Priya",
+      "duration_days": 0.5,
+      "depends_on": [
+        "ap-cutoff"
+      ]
+    },
+    {
+      "id": "interco",
+      "name": "Intercompany matching and eliminations",
+      "owner": "Dana",
+      "duration_days": 1.5,
+      "depends_on": [
+        "accruals",
+        "bank-rec"
+      ],
+      "deadline_wd": 3
+    },
+    {
+      "id": "consolidation",
+      "name": "Consolidation and FX translation",
+      "owner": "Lee",
+      "duration_days": 1,
+      "depends_on": [
+        "interco",
+        "fixed-assets"
+      ]
+    },
+    {
+      "id": "flux",
+      "name": "Flux review",
+      "owner": "Lee",
+      "reviewer": "CFO",
+      "duration_days": 1,
+      "depends_on": [
+        "consolidation"
+      ],
+      "key_control": true
+    },
+    {
+      "id": "reporting",
+      "name": "Management reporting pack",
+      "owner": "",
+      "duration_days": 0.5,
+      "depends_on": [
+        "flux"
+      ]
+    }
+  ]
+}

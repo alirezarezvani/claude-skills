@@ -1,6 +1,6 @@
 ---
 title: "Finance Skills — Router — Agent Skill for Finance"
-description: "Router/index for the 2 finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts). Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Router/index for the finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts). Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Finance Skills — Router
@@ -16,7 +16,7 @@ description: "Router/index for the 2 finance skills bundled in this plugin: fina
 </div>
 
 
-This plugin bundles **2 finance skills** (this router is the 3rd folder under `finance/skills/`). Each skill is self-contained.
+This plugin bundles the finance skills below plus this router. Each skill is self-contained.
 
 ## Routing table
 
@@ -24,6 +24,7 @@ This plugin bundles **2 finance skills** (this router is the 3rd folder under `f
 |---|---|---|
 | Ratio analysis, DCF valuation, budget variance, driver-based forecasts | financial-analyst | `skills/financial-analyst/` |
 | ARR/MRR, churn, CAC/LTV, NRR, quick ratio, SaaS benchmarks | saas-metrics-coach | `skills/saas-metrics-coach/` |
+| Month-end close, close calendar, bank or sub-ledger reconciliation, flux / variance explanations | month-end-close | `skills/month-end-close/` |
 
 If both match (e.g., "value my SaaS company"), ask whether the user wants statement-level analysis (financial-analyst) or SaaS operating metrics (saas-metrics-coach).
 

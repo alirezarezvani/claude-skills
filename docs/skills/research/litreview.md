@@ -1,6 +1,6 @@
 ---
 title: "Litreview — Academic Literature Orientation — Agent Skill for Research Workflows"
-description: "Academic literature orientation skill that searches papers via free keyless APIs (PubMed E-utilities + OpenAlex) by default — with the Consensus MCP. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Searches academic literature through free, keyless PubMed and OpenAlex APIs, optionally augments results with Consensus MCP when connected, builds a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Litreview — Academic Literature Orientation

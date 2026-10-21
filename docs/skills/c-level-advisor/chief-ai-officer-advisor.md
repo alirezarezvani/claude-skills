@@ -80,7 +80,7 @@ The decision is not "use AI or not" — it's **API vs fine-tune vs in-house** fo
 
 The 2026 question every founder is facing: **does this AI use case trigger high-risk regulatory obligations?**
 
-**EU AI Act (in force 2026) tiers:**
+**EU AI Act tiers** (high-risk obligations apply from 2 Dec 2027 for Annex III and 2 Aug 2028 for Annex I, per the 2026 AI Omnibus; transparency from 2 Aug 2026):
 
 | Tier | Examples | Obligations |
 |---|---|---|
@@ -94,7 +94,7 @@ The 2026 question every founder is facing: **does this AI use case trigger high-
 **US state patchwork (non-exhaustive):**
 
 - NYC LL 144 — Automated Employment Decision Tools (AEDTs) require annual bias audit + candidate notice
-- Colorado AI Act / SB 21-169 — AI in consumer decisions (credit, insurance, employment, housing)
+- Colorado SB 26-189 (effective 1 Jan 2027, replaced SB 24-205) — notice, adverse-outcome explanation, data correction and human review for AI in consequential consumer decisions; no impact assessment
 - Illinois HB 53 — AI in interview/hiring
 - California SB 1001 — Bot disclosure
 - Texas TCPA — Biometric identifier capture

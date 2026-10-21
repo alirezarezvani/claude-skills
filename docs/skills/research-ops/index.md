@@ -1,13 +1,13 @@
 ---
 title: "Research Operations Skills — Agent Skills & Codex Plugins"
-description: "5 research operations skills — enterprise research operations agent skill and Claude Code plugin for clinical study design, R&D finance, market sizing, and product research. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "6 research operations skills — enterprise research operations agent skill and Claude Code plugin for clinical study design, R&D finance, market sizing, and product research. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-flask-outline: Research Operations
 
-<p class="domain-count">5 skills in this domain</p>
+<p class="domain-count">6 skills in this domain</p>
 
 </div>
 
@@ -22,6 +22,12 @@ description: "5 research operations skills — enterprise research operations ag
     ---
 
     Prospective clinical study DESIGN: endpoints, sample size / power, and phase-gate feasibility. Every output is an est...
+
+-   **[Interview Mapper](interview-mapper.md)**
+
+    ---
+
+    Turns one interview transcript into a structured mapping where every conclusion is grounded in a
 
 -   **[market-research](market-research.md)**
 

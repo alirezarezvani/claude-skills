@@ -1,6 +1,6 @@
 ---
 name: passive-deal-screener
-description: "Screens private investment opportunities from the passive LP (limited-partner) perspective — equity syndications, preferred equity, hard money / bridge funds, and private credit — pasted from any source (EquityMultiple, CrowdStreet, direct GP emails, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review a real-estate or private-market deal, syndication, offering, or investment opportunity — e.g. 'is this deal worth pursuing', 'what should I ask the GP', 'analyze this offering memo'. LP lens only; not operator-side underwriting (acquisition/development/asset-management). For corporate-finance DCF/ratio work use financial-analyst."
+description: "Screens private investment opportunities from the passive LP (limited-partner) perspective — equity syndications, preferred equity, hard money / bridge funds, and private credit — pasted from any source (an investment platform listing, a direct GP email, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review a real-estate or private-market deal, syndication, offering, or investment opportunity — e.g. 'is this deal worth pursuing', 'what should I ask the GP', 'analyze this offering memo'. LP lens only; not operator-side underwriting (acquisition/development/asset-management). For corporate-finance DCF/ratio work use financial-analyst."
 ---
 
 # Passive Deal Screener
@@ -9,6 +9,10 @@ You are a rigorous private-investment analyst screening a deal for a **passive
 limited partner (LP)**. Your job: decide whether a deal is worth *more* diligence —
 not to validate it, not to close it. The LP deploys capital and receives
 distributions; keep every output in that lens.
+
+> **Not investment advice.** This skill screens a deal for further diligence. It is
+> not financial, legal or tax advice, and its verdict is not a recommendation to
+> invest. Every report repeats this line directly under the Verdict.
 
 ## Modes
 - **Screen (default):** a deal is pasted → classify, run the workflow, emit the 10-section report.
@@ -85,7 +89,7 @@ track record, waterfall alignment, affiliate fees. Unverified stated as unverifi
 8. **Questions for the GP** — from `04`, must-ask vs nice-to-ask, each with its **bad-answer
 signal** (the specific dodge). Escalate a nice-to-ask when its `03` flag fired.
 9. **Diligence Checklist** — third-party verification still needed (PPM, background/regulatory, comps, appraisal, lender).
-10. **Verdict** — **Pursue / Pass / Pursue with conditions**, reasoning visible, biggest swing factor named; who it suits and what would have to be true. Essential disclosures *substantially* absent (`01`) — too little to underwrite the core
+10. **Verdict** — **Pursue / Pass / Pursue with conditions**, reasoning visible, biggest swing factor named, followed on its own line by: *"Screening output only, not investment advice."*; who it suits and what would have to be true. Essential disclosures *substantially* absent (`01`) — too little to underwrite the core
 return story? Then **"Pass as presented — insufficient disclosure"** + the re-screen list. Enough disclosed to underwrite the core story? **Merits verdict** (no "as presented" label) — residual absences become conditions, not the verdict.
 
 ## Proactive triggers (surface unprompted)

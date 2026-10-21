@@ -3,6 +3,8 @@
 
 **Verdict: Pursue with conditions.** This is a well-built fund. Leverage is disclosed and moderate, the loan book is broad, loss history is disclosed through the cycle, and the IRR is shown both levered and unlevered. No RED flag fires. The biggest swing factor is the fee base. A 1.5% fee on *gross assets* at ~1.1x leverage works out to roughly **310 bps per year on your equity**, not 150. Add the incentive fee, whose rate and hurdle aren't given, and the unlevered net IRR is the number that has to clear HYG plus the illiquidity hurdle. The conditions are confirmations, not fixes.
 
+*Screening output only, not investment advice.*
+
 ---
 
 ## 1. Deal Snapshot

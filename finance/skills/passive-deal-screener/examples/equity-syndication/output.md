@@ -3,6 +3,8 @@
 
 **Verdict: Pursue with conditions.** As underwritten, this is a financing story: the 16% / 2.0x rests on 50bps of exit-cap compression (5.5% in, 5.0% out) and on floating-rate bridge debt that has to be refinanced well before the 5-year exit. It is worth more diligence only if the GP can show the IRR at a flat 5.5% exit cap, the full debt and rate-cap terms, and a realized, net-to-LP restatement of the "30% IRR" track record. **Biggest swing factor: the exit cap.**
 
+*Screening output only, not investment advice.*
+
 Confidence tags: 🟢 stated in the deal or taken from a reference · 🟡 inferred · 🔴 assumed or unverifiable.
 
 ---

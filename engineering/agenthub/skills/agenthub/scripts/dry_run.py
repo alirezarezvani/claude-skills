@@ -253,7 +253,7 @@ def check_cross_domain(results):
         ("CLAUDE.md", "content drafts"),
         ("SKILL.md", "content variation"),
         ("README.md", "content generation"),
-        ("skills/run/SKILL.md", "--judge"),
+        ("skills/hub-run/SKILL.md", "--judge"),
         ("skills/init/SKILL.md", "LLM judge"),
         ("skills/eval/SKILL.md", "narrative"),
         ("skills/board/SKILL.md", "Storytelling"),

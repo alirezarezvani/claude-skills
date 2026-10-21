@@ -234,9 +234,9 @@
         "path": "engineering/merge"
       },
       {
-        "name": "run",
-        "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end.",
-        "path": "engineering/run"
+        "name": "hub-run",
+        "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end.",
+        "path": "engineering/hub-run"
       },
       {
         "name": "spawn",
@@ -264,9 +264,9 @@
         "path": "engineering/loop"
       },
       {
-        "name": "run",
-        "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration.",
-        "path": "engineering/run"
+        "name": "ar-run",
+        "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:ar-run or asks for one manual autoresearch iteration.",
+        "path": "engineering/ar-run"
       },
       {
         "name": "setup",

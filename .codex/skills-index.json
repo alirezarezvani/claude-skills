@@ -888,6 +888,12 @@
       "description": "Resume a paused experiment. Checkout the experiment branch, read results history, continue iterating. Use when the user runs /ar:ar-resume or asks to pick up a previously started autoresearch experiment."
     },
     {
+      "name": "ar-run",
+      "source": "../../engineering/autoresearch-agent/skills/ar-run",
+      "category": "engineering-advanced",
+      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:ar-run or asks for one manual autoresearch iteration."
+    },
+    {
       "name": "ar-status",
       "source": "../../engineering/autoresearch-agent/skills/ar-status",
       "category": "engineering-advanced",
@@ -1110,6 +1116,12 @@
       "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task."
     },
     {
+      "name": "hub-run",
+      "source": "../../engineering/agenthub/skills/hub-run",
+      "category": "engineering-advanced",
+      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end."
+    },
+    {
       "name": "hub-status",
       "source": "../../engineering/agenthub/skills/hub-status",
       "category": "engineering-advanced",
@@ -1234,18 +1246,6 @@
       "source": "../../engineering/skills/rag-architect",
       "category": "engineering-advanced",
       "description": "Use when the user asks to design a RAG pipeline, choose a chunking strategy or embedding model, pick a vector database, or evaluate retrieval quality (precision@k, recall@k, NDCG). Examples: 'design a RAG system for our docs', 'what chunk size should I use for this corpus', 'evaluate my retriever against ground truth'. NOT for general LLM cost tuning (use llm-cost-optimizer) or agent loops over retrieval (use agenthub)."
-    },
-    {
-      "name": "run",
-      "source": "../../engineering/autoresearch-agent/skills/run",
-      "category": "engineering-advanced",
-      "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
-    },
-    {
-      "name": "run",
-      "source": "../../engineering/agenthub/skills/run",
-      "category": "engineering-advanced",
-      "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
     },
     {
       "name": "runbook-generator",

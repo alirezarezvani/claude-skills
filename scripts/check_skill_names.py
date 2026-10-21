@@ -27,6 +27,9 @@ RESERVED = {
     "logout", "mcp", "memory", "model", "permissions", "plugin", "pr",
     "resume", "review", "rewind", "settings", "status", "terminal", "todos",
     "usage", "vim",
+    # Bundled skill, not a built-in command, but two plugins both named a skill
+    # `run`, which also made the .codex/skills/run symlink flip between them.
+    "run",
 }
 
 SKIP_DIRS = {".git", ".gemini", ".codex", ".vibe", ".hermes", "docs",

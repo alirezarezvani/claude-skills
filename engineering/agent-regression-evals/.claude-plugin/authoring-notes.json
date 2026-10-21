@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "audit/claude-skills quality audit October 2026, new-skill proposal #2",
+    "build_pattern": "Statistics-first eval gate: 3 deterministic stdlib scripts (trajectory grading, flake detection, paired regression gate) with blocking exit codes. Formulas cited to primary sources: pass@k (Chen et al. 2021), pass^k (Yao et al. 2024, tau-bench), per-question paired differences and resampling (Miller 2024), Wilson interval (NIST), exact McNemar; match-mode names follow LangChain agentevals; outcome-over-path guidance from Anthropic's 'Demystifying evals for AI agents'.",
+    "distinct_from": "prompt-governance (versions and registers prompts; this gates a change with statistics); self-eval (grades one session's work); agenthub eval (ranks parallel agents in one session); skill-tester (validates skill packages, not agent behaviour)"
+  }
+}

@@ -1,0 +1,41 @@
+# Example CI job: block a pull request when the agent regresses.
+# Adapt the "run evals" step to however your agent is executed. The gate itself
+# needs only Python 3 and the two JSONL files; it makes no network calls.
+#
+# Exit codes from regression_gate.py: 0 PASS, 2 WARN, 3 bad input, 4 BLOCK.
+# This job fails on 3 and 4 and surfaces 2 as a warning for a human to read.
+
+name: agent-regression-evals
+on:
+  pull_request:
+    paths: ["agent/**", "prompts/**", "tools/**"]
+
+jobs:
+  eval-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run eval suite on the candidate (3 trials per case)
+        run: ./scripts/run_evals.sh --trials 3 --out evals/candidate.jsonl   # your runner
+
+      - name: Fetch the baseline from the default branch's last green run
+        run: ./scripts/fetch_baseline.sh evals/baseline.jsonl               # your storage
+
+      - name: Flaky cases
+        run: |
+          python3 skills/agent-regression-evals/scripts/flake_detector.py \
+            --results evals/candidate.jsonl --k 3 || [ $? -eq 2 ]
+
+      - name: Regression gate
+        run: |
+          set +e
+          python3 skills/agent-regression-evals/scripts/regression_gate.py \
+            --baseline evals/baseline.jsonl --candidate evals/candidate.jsonl \
+            --quarantine evals/quarantine.json --output json > gate.json
+          code=$?
+          python3 skills/agent-regression-evals/scripts/regression_gate.py \
+            --baseline evals/baseline.jsonl --candidate evals/candidate.jsonl \
+            --quarantine evals/quarantine.json
+          if [ $code -eq 2 ]; then echo "::warning::eval gate WARN - read gate.json"; exit 0; fi
+          exit $code

@@ -1,0 +1,71 @@
+1	Interviewer: Good afternoon, thanks for making the time. Today we're discussing the Senior Backend Developer position in Python on the payments team, am I right that you applied specifically for this opening?
+2	Candidate: Yes, good afternoon, that's right, I saw the posting on a job board, payments backend, that caught my interest.
+3	Interviewer: Before we start, let me briefly explain the format — about forty-five minutes, we'll talk about experience, a couple of cases, then conditions, and at the end you'll be able to ask questions.
+4	Candidate: Okay, sounds clear, I'm ready.
+5	Interviewer: Great, so to start, tell me about yourself in general, what's your main experience right now, what do you consider key for this role.
+6	Candidate: Well, let's see, I've been writing Python for five years, three of those specifically in fintech, right now I work at a company called Roltech as a mid-plus developer.
+7	Candidate: I consider the key experience to be that I worked closely with high-load services, message queues, and generally with money, meaning with transactional logic, where a mistake is costly.
+8	Candidate: I also have mentoring experience, I onboarded two juniors onto the project over the past year.
+9	Interviewer: Good, let's get into specifics then, can you tell me about a case where exactly this high-load services experience came in handy, what specifically did you do and what was the result?
+10	Candidate: Yes, of course, we had a case in March last year, the payment authorization service started failing under load during peak hours, somewhere around six to eight in the evening.
+11	Candidate: I was the one responsible for this service at the time, well, I mean I owned it technically, and I was tasked with figuring out why latency was climbing.
+12	Candidate: I profiled the service, found that we had an N+1 query to the database on every authorization, rewrote that piece to use batch fetching and added a Redis cache with a thirty-second TTL.
+13	Candidate: As a result, p99 latency dropped from 1200 milliseconds to 180 milliseconds, and the number of timeouts in production went down to practically zero, that was visible in the Grafana dashboards already the next day.
+14	Interviewer: Great case, and who else was involved in this story, did you do it alone?
+15	Candidate: I did the investigation and most of the code myself, the review was done by the team lead, but the main implementation and solution — that's mine, yes.
+16	Interviewer: And can this latency metric be verified somehow, do you still have the graphs or the ticket?
+17	Candidate: Yes, it was filed as a separate incident in Jira, there's a postmortem with graphs, I can attach the link if you need it for a reference.
+18	Interviewer: That would be useful, thanks. Okay, now tell me about one more episode where teamwork skills came in handy, again with specifics, please.
+19	Candidate: Well, we had this whole story with the migration to microservices, we were moving off the monolith for pretty much all of last year.
+20	Interviewer: And what specifically did you do in this migration?
+21	Candidate: We split the monolith into several services, set up inter-service communication, well, in some places through Kafka, in some places synchronously.
+22	Interviewer: And what was your role there, what specifically did you do, and what did the team do?
+23	Candidate: Well, we all generally worked on it together, I was involved too, I wrote part of the code, I attended the architecture calls.
+24	Interviewer: Can you name at least one service that you personally carved out of the monolith, and what changed there in terms of metrics?
+25	Candidate: Well, it's hard to say one-to-one exactly, it was teamwork, I'm not ready to say that this particular service is personally mine, we all moved the project forward together.
+26	Interviewer: Okay, got it, let's move on. Tell me about your motivation — why are you looking for a new place now, what's not working for you at your current job?
+27	Candidate: To be honest, things are pretty good at Roltech, but I've hit a growth ceiling, there just isn't a senior position there, the headcount is small, the next step up is team lead, and I'm not ready to manage people yet, I want to grow specifically as an engineer.
+28	Candidate: Plus I want more autonomy in architectural decisions, right now a lot gets decided from above, without my input.
+29	Interviewer: And why our company specifically, what caught your attention?
+30	Candidate: You work with a large volume of transactions, that's interesting to me from an engineering standpoint, plus your job posting mentions Kubernetes and doing it hands-on, not through a separate DevOps team, that resonates with me.
+31	Interviewer: Okay. And how do you see your role here, what do you plan to work on in the first ninety days?
+32	Candidate: In the first month I want to get familiar with the system, look at the codebase, talk to the team, understand where the pain points are.
+33	Candidate: Then, probably, take on some medium-sized task to show that I can get up to speed quickly, and by the third month I'd like to already be leading a separate area, for example the performance of the payment service.
+34	Interviewer: You mentioned architectural decisions — what are you counting on in terms of scope of responsibility, specifically?
+35	Candidate: I'm counting on participating in design reviews for new services, not just writing code against a ready-made spec.
+36	Interviewer: Okay, now let's talk about a difficult experience. Tell me about a situation where something seriously didn't work out, there was a failure, and what you did.
+37	Candidate: Yes, there was a case, the year before last we had a release of a new billing version, and after the release about five percent of customers got double-charged.
+38	Interviewer: What happened there technically and what was your role?
+39	Candidate: I wrote part of the idempotency logic for that release, there was an idempotency key that I implemented, but it later turned out that our test environment had been configured incorrectly, QA didn't have time to run the full regression because of the tight deadlines management set for us, and on top of that the infrastructure team changed the queue config right before the release, without warning.
+40	Candidate: So in fact the bug surfaced because of a coincidence of several factors at once, the deadlines were tight from above, the test environment wasn't ready, and then this config change on top of it.
+41	Interviewer: And what did you personally do wrong, if we break down specifically your part of the code?
+42	Candidate: Well, if we break down specifically the code — yes, I didn't account for a race condition on request retries in rare cases, there was a window of a few milliseconds where two requests could pass the idempotency check at the same time, that's my shortcoming in the locking logic.
+43	Candidate: But overall I think that if we'd been given a reasonable testing timeline and the queue config hadn't been touched at the last moment, we would have caught it back on staging.
+44	Interviewer: I see, and what did you do to fix it and make sure it doesn't happen again?
+45	Candidate: I added a distributed lock via Redis Redlock on the idempotency key, and together with QA we agreed that billing releases don't ship anymore without a full regression, that's already become a team rule.
+46	Interviewer: Okay, thanks for the honesty. Now a few questions about conditions. What salary are you expecting?
+47	Candidate: I'm expecting a range from three hundred fifty to four hundred thousand rubles take-home, depending on the final offer and the bonus portion.
+48	Interviewer: And how are things looking timeline-wise, if we make you an offer?
+49	Candidate: I need to work a two-week notice period by law, plus I want a week off between jobs, so realistically three weeks after the offer.
+50	Interviewer: What work format works for you, office, hybrid, remote?
+51	Candidate: I prefer hybrid, two-three days in the office, the rest remote, but if it needs to be more often in the first months for onboarding, I'm ready to adjust.
+52	Interviewer: Our office is in a different city, is relocation something you'd consider at all, or is that a firm no?
+53	Candidate: Depends on the conditions, I guess I'm ready to discuss it, but I can't say a clear yes or no right now, I'd need to understand the details on relocation compensation.
+54	Interviewer: Got it, that's fine, we'll discuss it separately if we get to an offer. One more question — do you have any other active offers right now, any deadlines for a decision?
+55	Candidate: Yes, there's another process at the final stage at another company, they said they'd give an offer in about a week and a half to two weeks, so that's a reference point for my timeline too.
+56	Interviewer: Thanks, noted. Okay, good. Now it's your turn — what questions do you have for us?
+57	Candidate: Yes, I have a few questions. First — how is your code review process set up, how many approvers are needed to merge into master?
+58	Interviewer: Usually two reviewers, one of them the team lead for that area.
+59	Candidate: Got it, second question — what's your on-call schedule like, is there pay for night alerts, and how often does production actually go down at night?
+60	Interviewer: On-call rotates every six weeks, there is compensation, night incidents do happen but not often, something serious maybe once a quarter.
+61	Candidate: Okay, and a third question, fairly important to me — what's your approach to balancing feature velocity against tech debt, is there dedicated time for refactoring, or does product decide everything?
+62	Interviewer: We have about twenty percent of the sprint for tech debt, but in practice it sometimes gets pushed aside for deadlines.
+63	Candidate: Got it, thanks, that matters to me, because I don't want to end up again in a situation where quality gets sacrificed for deadlines.
+64	Interviewer: Makes sense. One more question from me — you mentioned mentoring juniors, tell me a bit more about what specifically you did?
+65	Candidate: I did code reviews for them twice a week, explained patterns, one of them, Dima, grew over six months to a level where he started handling small tasks on his own without my oversight, that was noticeable because his pull requests started passing review with almost no comments.
+66	Interviewer: Okay, that's a good example. Last question — tell me, what happened with team performance overall during that microservices migration, are there any numbers?
+67	Candidate: Release velocity went up overall, we started deploying more often, the team became more autonomous in terms of rolling out services independently of each other.
+68	Interviewer: And in numbers, if possible, how much did release frequency increase?
+69	Candidate: I can't give exact numbers right now, I'd need to check the dashboard, but subjectively it grew noticeably, probably several times over.
+70	Interviewer: Okay, thank you very much for the detailed answers, that's everything from me, next we'll discuss with the team and get back to you with feedback within a week.
+71	Candidate: Thank you, I'll be waiting, it was interesting to talk.

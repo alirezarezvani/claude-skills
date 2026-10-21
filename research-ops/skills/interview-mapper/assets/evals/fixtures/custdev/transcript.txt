@@ -1,0 +1,74 @@
+Interviewer: Thanks for agreeing to talk, it'll take about twenty-five minutes, is that okay?
+Respondent: Yeah, no problem, I've got a gap between locations right now anyway.
+Interviewer: Tell me what you do, how many locations you have right now.
+Respondent: I run a coffee shop chain, four locations around the city, I'm the operations director, co-owner.
+Interviewer: Let's not talk about the idea yet, let's talk about how your day is structured. Tell me about yesterday, how did your workday start.
+Respondent: Yesterday morning I was actually dealing with the write-offs from last week.
+Respondent: Every Monday I sit down and reconcile the raw material balances across all four locations.
+Interviewer: How exactly do you do that, where do you pull the numbers from?
+Respondent: The managers at each location send me photos of the paper write-off forms in WhatsApp.
+Respondent: I open these photos one by one and manually type the numbers into an Excel spreadsheet.
+Interviewer: How long did that take yesterday?
+Respondent: Yesterday specifically it was two hours and forty minutes, I timed it, because it was driving me absolutely crazy.
+Interviewer: And on average how much time does it take per week?
+Respondent: Well usually it's about three to four hours a week just on reconciling, that's not counting the calls to managers when the numbers don't add up.
+Interviewer: And does that happen, that the numbers don't add up?
+Respondent: The day before yesterday that's exactly what happened, at the location on Lenina Street the milk was off by almost a liter for the shift.
+Respondent: I called the manager, she says, maybe the barista spilled it, maybe she didn't log it, basically she just shrugged.
+Interviewer: And what did you do next?
+Respondent: I spent another forty minutes or so, called the accountant so she could cross-check it against the month's purchases.
+Respondent: In the end we wrote it off as a margin of error, but it left a bad feeling, because that's already the third time this month.
+Interviewer: You said third time this month — have you actually calculated what that costs in money?
+Respondent: I have calculated it, yes, I have a separate tab in Excel for this year.
+Respondent: For May it came out to about forty-one thousand rubles in unexplained discrepancies across all locations, I showed that number to the accountant, she was horrified herself.
+Interviewer: Forty-one thousand — is that a noticeable amount for you?
+Respondent: That's roughly like the rent for one location for a week and a half, so yes, it's noticeable.
+Interviewer: You mentioned you already tried to do something about this. Tell me what exactly.
+Respondent: I actually tried two approaches.
+Respondent: The first — in January I hired a programmer I know, he built me a Google spreadsheet with formulas and automatic discrepancy calculation for fifteen thousand rubles.
+Interviewer: And how did that spreadsheet work out?
+Respondent: The first two weeks it seemed to work, I was happy about it.
+Respondent: Then the managers started getting confused about which cell to enter what in, the formulas would break if you typed text instead of a number.
+Respondent: By March I just stopped checking it, junk had piled up in there anyway.
+Interviewer: Okay, and the second approach?
+Respondent: The second approach — in April I downloaded an inventory management app, I think it was called something like Cleverence, I don't remember exactly.
+Respondent: I paid something like two thousand rubles there for a month's subscription.
+Interviewer: What happened with that app?
+Respondent: You had to enter every single raw material item manually with units of measurement, and I have over a hundred and thirty item names.
+Respondent: I did that for two evenings in a row, about five hours total, and didn't even get through half the item list.
+Respondent: Then I just gave up on it, didn't renew the subscription, the money was wasted.
+Interviewer: Look, are you still using anything else besides this right now? Maybe there's some in-between solution?
+Respondent: There is, yes, a kind of workaround.
+Respondent: The managers keep a paper logbook at the location, I photograph it once a week and keep copies in a separate folder on my phone, just in case, if the accountant asks.
+Interviewer: Do you cross-check the paper logbook against the Excel spreadsheet somehow?
+Respondent: I cross-check it manually, by eye, on that same Monday morning.
+Interviewer: Who else is aware of this problem, who else runs into it?
+Respondent: All four managers complain that filling out the forms is inconvenient, especially in a rush, when there's a line.
+Respondent: The accountant complains that the numbers come from me late, because I don't manage to reconcile them in time myself.
+Respondent: The second co-owner, my partner, also asks periodically why there's a discrepancy again, I explain it to him verbally.
+Interviewer: Does your partner participate in solving it somehow, or does he just ask?
+Respondent: Mostly he just asks, the solution is all on me, he's more focused on marketing.
+Interviewer: Look, have you googled anything else besides that app, maybe looked at articles, forums?
+Respondent: Yes, I googled it, that happened.
+Respondent: In one chat for restaurant owners on Telegram I asked for advice, they threw me about five service names.
+Respondent: I looked at two of them on their websites, one had pricing starting from fifteen thousand a month, I closed the tab right away, that's expensive for us with four locations.
+Interviewer: What if a service specifically for tracking write-offs in a small coffee shop chain appeared, would you use it?
+Respondent: Listen, that's exactly what I need, I would definitely buy it, honestly, without a second thought.
+Interviewer: And how much would you be willing to pay for it per month, do you think?
+Respondent: Well probably five to seven thousand a month would be fine, I don't know exactly, I'd have to think it through.
+Interviewer: Look, you mentioned you already paid for a subscription to one service and for the programmer's work. If such a tool existed right now, would you prepay an annual subscription sight unseen?
+Respondent: Well to prepay sight unseen right now — probably not, I'd try it for a month first, see if it sticks with the managers.
+Interviewer: Look, you talked about the third time this month with discrepancies. Was the picture similar in April and March?
+Respondent: In March, I think, it also happened a couple of times, but back then I wasn't tracking it as strictly, I don't have the full number.
+Respondent: In April, I think, it was minor, maybe ten thousand at most, but that's just off the top of my head, not from the spreadsheet.
+Interviewer: So for May the figure of forty-one thousand — you actually have that documented, but for March-April it's more of a gut feeling?
+Respondent: Yes, May I actually calculated from the spreadsheet, but March-April is me estimating from memory right now, I could be off in either direction.
+Interviewer: Coming back to the process itself — if you had a magic button, what would it do?
+Respondent: It would automatically cross-check the forms against the warehouse and send me only the items where the discrepancy is above some threshold.
+Respondent: So I wouldn't have to scroll through all hundred and thirty items by hand every Monday.
+Interviewer: And if such a button existed, but it required the managers to spend a week getting used to a new interface first — would that be a problem?
+Respondent: Probably, yeah, one of my managers barely managed to figure out a new smartphone last year, I'd have to work with her separately on this.
+Interviewer: Okay, last question: how did you find our conversation overall, was it useful?
+Respondent: Yes, very interesting, you really hit the nail on the head with your questions, I enjoyed it a lot.
+Interviewer: Thank you for not begrudging the time to explain in such detail.
+Respondent: Thank you, reach out if you need anything.

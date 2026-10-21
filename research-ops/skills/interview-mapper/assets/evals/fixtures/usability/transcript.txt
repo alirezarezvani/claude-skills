@@ -1,0 +1,74 @@
+1	Moderator: Thanks for agreeing to this. Just a reminder — this is the mobile app for Aurora Bank, the previous version, which you haven't seen yet. Today's task: you got a notification about a charge of $48.00 at an electronics store that you didn't make. You need to dispute this transaction and also temporarily lower the limit on online purchases for the card to $50 per month, to protect yourself. Please say out loud everything you're doing and thinking, even if it seems obvious.
+2	Participant: Okay, got it. Starting now. So, opening the app.
+3	Participant: Okay, so here's the main screen. There's the balance, and some tiles at the bottom — "Payments," "Cards," "More." I probably need the transaction history.
+4	Moderator: What do you expect to see if you tap on the balance?
+5	Participant: Well, I think there'll be a list of recent transactions, that's usually how banks do it.
+6	Participant: Tapping on the balance.
+7	Participant: Hm. Nothing happened? Or maybe that was just an animation.
+8	Participant: Okay, let me try the "Cards" tab at the bottom.
+9	Participant: Okay, the cards opened, here's my debit card, here's the credit one. Tapping the debit one.
+10	Participant: Okay, here are the card details, number, expiration date. But where are the transactions?
+11	Participant: Weird, I thought that if you open the card, it would immediately show the list of recent charges on it.
+12	Participant: Scrolling down... ah, here at the bottom it says "History" in small print. Why isn't this at the top?
+13	Participant: Well, I guess I'm just not being careful enough myself, I should have looked at the whole screen right away instead of tapping around immediately.
+14	Moderator: Please continue.
+15	Participant: Going into "History." Here's the list of transactions, date, store, amount. Looking for the charge of $48.00.
+16	Participant: So... here it is, "TechnoWorld," minus $48.00, yesterday. Tapping on it.
+17	Participant: The detailed transaction card opened. Amount, date, category "Electronics," card number. Looking for a button like "Dispute" or "Report."
+18	Participant: At the bottom of the card there's only one button — "Repeat Payment." Why would I repeat a payment I never made?
+19	Participant: This is really strange, it's as if it's meant for someone who wants to buy something again, not for a disputed transaction.
+20	Moderator: What would you do next?
+21	Participant: I guess I'll look for three dots somewhere, that's usually where extra menus are hidden.
+22	Participant: Okay, there are three dots in the corner of the card. Tapping it.
+23	Participant: A menu popped up: "Add to Favorites," "Export Receipt," "Share." Not it again.
+24	Participant: I really don't understand where to report this transaction here. Maybe it's not even done through the transaction at all?
+25	Participant: Let me try "More" on the main screen, there's usually all sorts of settings and support there.
+26	Participant: Okay, opened "More" — here's "Support," "Notification Settings," "About the App," "Log Out."
+27	Participant: Tapping "Support."
+28	Participant: There's a chat with a bot here. Well, let me try writing in the chat.
+29	Participant: Writing: "I want to dispute a transaction." The bot sent three button options: "Card Didn't Arrive," "Login Problem," "Other."
+30	Participant: Tapping "Other."
+31	Participant: The bot writes: "Please describe in detail, an agent will respond within 24 hours." Twenty-four hours is a long time, if money was just fraudulently taken from me right now.
+32	Participant: Although, okay, maybe there's a separate quick button for this somewhere, I just don't see it.
+33	Moderator: What would be, in your opinion, the ideal button for this?
+34	Participant: Well, right on the transaction card — "This Wasn't Me" or "Dispute Payment," big, noticeable, maybe red.
+35	Participant: Going back to the transaction history, to that transaction's card.
+36	Participant: Looking at everything carefully again... oh, there's actually a swipe left on the row itself in the list, I haven't tried that.
+37	Participant: Going back to the history list, swiping the TechnoWorld row to the left.
+38	Participant: Oh! There it is, it appeared — "Dispute," in red. This is what I need, I didn't think you had to swipe the row specifically, not the card itself.
+39	Participant: Tapping "Dispute."
+40	Participant: A form opened — reason for dispute, checkboxes: "Not My Transaction," "Duplicate Charge," "Doesn't Match Item." Selecting "Not My Transaction."
+41	Participant: Next it asks to attach a comment, writing "charge made without my involvement, please block and refund the funds."
+42	Participant: Tapping "Submit."
+43	Participant: A message came in — "Request #558212 accepted, status can be tracked in the Requests section." Great, got that sorted, although it took longer than I expected.
+44	Moderator: Good, let's move on to the second part — lowering the online purchase limit to $50 a month.
+45	Participant: Okay, limits... that's probably also under the card, since the details were there.
+46	Participant: Going back to cards, opening the debit card again.
+47	Participant: Besides the details and history, I don't see anything here that looks like limits. Maybe it's in the card's own settings, not in the general section.
+48	Participant: Scrolling the card back and forth... no, I don't see a "Limits" option.
+49	Participant: Trying the gear icon at the top right of the card screen.
+50	Participant: Card settings opened: "Block Card," "Reissue," "PIN Code," "Transaction Limits."
+51	Participant: There it is, found it, "Transaction Limits." Tapping it.
+52	Participant: Here are some sliders: "ATM Withdrawal," "Transfers," "In-Store Payments," "Online Payments."
+53	Participant: I need the last one — "Online Payments." It currently shows $1,500 a month.
+54	Participant: Trying to move the slider with my finger to $50.
+55	Participant: For some reason it jumps straight to zero or to $100, I can't get it exactly to $50, the step is too big.
+56	Participant: It feels like the slider jumps along some fixed marks, not smoothly.
+57	Moderator: What did you assume about how this slider should behave?
+58	Participant: I thought you could type in the exact number by hand, not just drag with your finger. Like in most apps — either a slider, or a text field next to it.
+59	Participant: Looking to see if there's an edit icon nearby... no, I don't see one.
+60	Participant: Okay, trying again to drag more slowly, closer to the mark I need.
+61	Participant: Managed to get it to about $50, roughly $50 give or take, hard to tell exactly by the scale.
+62	Participant: At the bottom there's a "Save" button. Tapping it.
+63	Participant: A window appeared — "Confirm the limit change with the code from the SMS."
+64	Participant: Entering the code... so, where do I type it, there's just an empty line here with no placeholder, at first I thought this was a bug and the screen had frozen.
+65	Participant: Ah, you just need to start typing, the field turns out to be active, it's just that visually the border isn't visible.
+66	Participant: Typing in the code, tapping "Confirm."
+67	Participant: It says — "Limit Changed." Good, I guess, but I'm not entirely sure it's exactly $50 and not $52 or something like that, the scale is too coarse to check by eye.
+68	Participant: Well, I guess that's probably normal, I most likely just didn't drag carefully enough, not that there's something wrong with the slider itself.
+69	Moderator: How do you feel overall about this part?
+70	Participant: I managed to submit the request for the disputed transaction, though not on the first try — I didn't think the button was hidden behind a swipe, I'm just not used to swiping list rows at all, I usually tap directly on the entry itself.
+71	Participant: I sorted out the limit too, but I'm not a hundred percent sure of the exact figure, it would be more reassuring if you could type in the number as digits.
+72	Participant: Overall, honestly, it was a bit annoying that the "Repeat Payment" button on the card is the only one — that's really confusing, it seems like nothing at all is provided here for disputed transactions.
+73	Moderator: Thank you, that's all.
+74	Participant: Yes, it was interesting, but I'm probably just not the most frequent user of apps like this, someone more experienced would have found it faster.

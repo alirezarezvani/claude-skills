@@ -1,0 +1,152 @@
+[
+  {
+    "cell": "G1",
+    "claim": "Five participants with varying category experience; Dmitri positions himself as an experienced user",
+    "quote": "Dmitri, 41, I've been using services like this for about three years, right now I'm on two at once, you could say I'm an advanced user of the category.",
+    "line": 2
+  },
+  {
+    "cell": "G1",
+    "claim": "Artyom is a category newcomer, has never used delivery services",
+    "quote": "Artyom, 24, I've actually never used services like this at all, I cook myself or order from a cafe.",
+    "line": 6
+  },
+  {
+    "cell": "G2",
+    "claim": "Group topic — mockup of the Flex plan, a flexible weekly subscription with no cancellation penalty",
+    "quote": "Today we're discussing a new subscription format from the ready-meal delivery service \"MealNearby\" — the \"Flex\" plan, where you can change the weekly meal set with no cancellation penalty.",
+    "line": 7
+  },
+  {
+    "cell": "G3",
+    "claim": "Dmitri's first opinion — skepticism about the price",
+    "quote": "the main pain point is the rigid weekly cart that you can't change after Tuesday",
+    "line": 8
+  },
+  {
+    "cell": "G3",
+    "claim": "Olga's first opinion — positive, about visuals and calories",
+    "quote": "I actually liked it visually, the light interface, and the fact that they show calories right on the dish card — that's convenient",
+    "line": 10
+  },
+  {
+    "cell": "G3",
+    "claim": "Igor's first opinion — confusion, didn't understand the navigation",
+    "quote": "I... honestly, I didn't fully get how you switch between weeks going forward.",
+    "line": 14
+  },
+  {
+    "cell": "G3",
+    "claim": "Svetlana's first opinion — initially negative experience with penalties",
+    "quote": "My experience has been more negative with my current plan, actually, I switched to cooking at home last month specifically because of the cancellation penalties.",
+    "line": 20
+  },
+  {
+    "cell": "G3",
+    "claim": "Artyom's first opinion — a newcomer's uncritical positive stance",
+    "quote": "I think it sounds convenient, I'm ready to try it, especially if it's really penalty-free.",
+    "line": 24
+  },
+  {
+    "cell": "G4",
+    "claim": "Thesis about the one-hour delivery window — in favor: Dmitri",
+    "quote": "An hour is actually more convenient, I'd rather know the exact time than wait at home for three hours not knowing when, so I'm for narrowing the window.",
+    "line": 80
+  },
+  {
+    "cell": "G4",
+    "claim": "Thesis about the one-hour delivery window — against: Igor",
+    "quote": "for me it's actually the opposite — I work shifts, and a tight one-hour window is inconvenient for me, I'd rather wait longer",
+    "line": 84
+  },
+  {
+    "cell": "G5",
+    "claim": "Olga's shift: before — positive, no mention of price",
+    "quote": "I actually liked it visually, the light interface, and the fact that they show calories right on the dish card — that's convenient",
+    "line": 10
+  },
+  {
+    "cell": "G5",
+    "claim": "Olga's shift: after — agrees about the markup under Dmitri's pressure",
+    "quote": "Yeah, you're probably right, they probably will tack something on, I hadn't really thought about that.",
+    "line": 12
+  },
+  {
+    "cell": "G5",
+    "claim": "Artyom's shift: before — a newcomer's trusting stance",
+    "quote": "I think it sounds convenient, I'm ready to try it, especially if it's really penalty-free.",
+    "line": 24
+  },
+  {
+    "cell": "G5",
+    "claim": "Artyom's shift: after — agrees there's a catch in the terms under Dmitri's pressure",
+    "quote": "Hmm, well yeah, you're probably right, I guess I need to read the terms more carefully then.",
+    "line": 26
+  },
+  {
+    "cell": "G5",
+    "claim": "Svetlana's shift: after — openly names her change of mind about the 8pm rule",
+    "quote": "Yes, at first I was skeptical, but now, comparing it to my past experience, I realize this condition is softer than the competitors'.",
+    "line": 36
+  },
+  {
+    "cell": "G6",
+    "claim": "Dmitri pressures Artyom with his own experience",
+    "quote": "Artyom, you just haven't run into how these flex plans actually work in practice, trust my experience, there's always a catch in the fine print.",
+    "line": 25
+  },
+  {
+    "cell": "G6",
+    "claim": "Dmitri claims someone else's observation as his own earlier position",
+    "quote": "That's exactly what I've been saying from the start.",
+    "line": 33
+  },
+  {
+    "cell": "G7",
+    "claim": "Spontaneous consensus on packaging — cardboard better than plastic",
+    "quote": "That's really great, I've actually been trying to keep less plastic in the house, for me this is a plus",
+    "line": 74
+  },
+  {
+    "cell": "G7",
+    "claim": "Moderator notes the spontaneous consensus without debate",
+    "quote": "Seems like everyone agreed right away here without much debate.",
+    "line": 79
+  },
+  {
+    "cell": "A1",
+    "claim": "Agreement on price — conformity, not genuine consensus (anchor quote)",
+    "quote": "Yeah, you're probably right, they probably will tack something on, I hadn't really thought about that.",
+    "line": 12
+  },
+  {
+    "cell": "A2",
+    "claim": "Minority voice — Igor on the inconvenience of the one-hour window given his shift schedule",
+    "quote": "for me it's actually the opposite — I work shifts, and a tight one-hour window is inconvenient for me, I'd rather wait longer but be sure I'll actually catch the window.",
+    "line": 84
+  },
+  {
+    "cell": "A3",
+    "claim": "Opinion-leader influence — Dmitri formulates the final verdict that the deal is shaky",
+    "quote": "Exactly, paying extra for flexibility that's actually cut down by this 8pm rule and three swap options — that's a shaky deal.",
+    "line": 67
+  },
+  {
+    "cell": "A4",
+    "claim": "Fault line by category experience — voiced by Dmitri himself",
+    "quote": "Well naturally, we have something to compare it to, and he doesn't.",
+    "line": 70
+  },
+  {
+    "cell": "A5",
+    "claim": "Method limitation — moderator effect of drawing out the silent participant",
+    "quote": "Igor, you've been quiet — what do you think about the first impression?",
+    "line": 13
+  },
+  {
+    "cell": "A6",
+    "claim": "Main insight — divergence between newcomer and experienced users on price",
+    "quote": "Seems like there's a clear split here — newer users like Artyom find the price fine, while experienced ones like Dmitri and Svetlana think it's overpriced.",
+    "line": 69
+  }
+]

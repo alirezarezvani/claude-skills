@@ -1,0 +1,128 @@
+[
+  {
+    "cell": "M1",
+    "claim": "Artem demands changing the split from 50/50 to 70/30 in his favor",
+    "quote": "I want to revisit the split. Fifty-fifty isn't fair, I want seventy-thirty in my favor, period, that's not up for discussion.",
+    "line": 8
+  },
+  {
+    "cell": "M2",
+    "claim": "The real interest is recognition of contribution, not the number itself",
+    "quote": "honestly — it's not about the number itself. I need someone to acknowledge that without me there's no product.",
+    "line": 12
+  },
+  {
+    "cell": "M2",
+    "claim": "Veto power over technical decisions could satisfy the interest without changing the split",
+    "quote": "Although if the split stayed fifty-fifty, but something like veto power over technical decisions showed up — maybe I wouldn't even be raising the share question at all.",
+    "line": 14
+  },
+  {
+    "cell": "M3",
+    "claim": "Partnership started 2.5 years ago on a verbal agreement",
+    "quote": "Maxim and I met two and a half years ago, back at our previous job, he was in sales there, I was in development, we left together, I coded, he found clients, it was all on trust, no real paperwork, brotherly-style.",
+    "line": 4
+  },
+  {
+    "cell": "M3",
+    "claim": "Turning point — hiring Maxim's wife without agreement",
+    "quote": "The turning point happened last spring, when Maxim hired his wife Olya for the project manager position, without my agreement, just presented it as a done deal.",
+    "line": 16
+  },
+  {
+    "cell": "M4",
+    "claim": "Artem considers Maxim responsible for the QuickPay situation",
+    "quote": "Maxim. A hundred percent Maxim. He put Olya in charge of sorting out priorities, knowing she doesn't understand technical urgency, and didn't put any safety net in place.",
+    "line": 30
+  },
+  {
+    "cell": "M4",
+    "claim": "Artem does not consider Olya malicious, places responsibility on Maxim's choice",
+    "quote": "I don't think she did it maliciously, she just didn't understand the consequences, but the choice to put her in that role — that's Maxim's choice.",
+    "line": 32
+  },
+  {
+    "cell": "M5",
+    "claim": "First resolution attempt — formalizing the prioritization process in March, held for 3 weeks",
+    "quote": "The first time in March, I proposed formalizing the prioritization process so that only I would make urgency decisions, he agreed verbally, it held for three weeks, then everything went back to how it was.",
+    "line": 34
+  },
+  {
+    "cell": "M5",
+    "claim": "Third-party attempt (accountant) fizzled out after two weeks",
+    "quote": "We tried once, went to our accountant Sveta, she tried to calculate who's actually contributing how much by the hour, but that turned into yet another argument about who counts hours and how, and it fizzled out from there, dropped it after about two weeks.",
+    "line": 70
+  },
+  {
+    "cell": "M6",
+    "claim": "BATNA — leave and take the key client QuickPay with him",
+    "quote": "If we don't reach an agreement — I'm leaving and taking the key client with me, QuickPay, I already have a direct contact with their CTO, they said they'd be willing to work with me directly as an independent contractor",
+    "line": 40
+  },
+  {
+    "cell": "M6",
+    "claim": "BATNA is already partly in preparation — a draft proposal exists",
+    "quote": "Not yet, nothing official, but yes, I've been feeling it out, that's not empty talk, I even have a draft proposal ready, if it really comes down to it.",
+    "line": 42
+  },
+  {
+    "cell": "M7",
+    "claim": "Red line 1 — Olya must not make technical decisions",
+    "quote": "Olya has no right to make technical decisions — that's a red line, no discussion whatsoever.",
+    "line": 46
+  },
+  {
+    "cell": "M7",
+    "claim": "Red line 2 — the share cannot go below 50%",
+    "quote": "I won't agree to any reduction of the share below fifty, under no circumstances at all, not even temporarily. That's the baseline, below it I just exit the partnership.",
+    "line": 50
+  },
+  {
+    "cell": "M8",
+    "claim": "Residual personal warmth alongside business distrust",
+    "quote": "I don't feel hatred toward him, we still sometimes call each other in the evening just to chat about football, like nothing's happening, it's a stupid feeling of being split in two.",
+    "line": 52
+  },
+  {
+    "cell": "M8",
+    "claim": "Estimate of remaining trust — about 30%, trust in intentions but not in behavior",
+    "quote": "It's still there, maybe thirty percent of what it used to be. I believe he doesn't want to deliberately set me up, I don't believe he's capable of telling his wife \"no\" in time, when the business needs it.",
+    "line": 54
+  },
+  {
+    "cell": "A1",
+    "claim": "POSITION-INTEREST GAP EXISTS AND IS WIDE — room for compromise is in rights, not in the split",
+    "quote": "if the split stayed fifty-fifty, but something like veto power over technical decisions showed up — maybe I wouldn't even be raising the share question at all.",
+    "line": 14
+  },
+  {
+    "cell": "A2",
+    "claim": "INTEREST COMPATIBILITY PARTIALLY VISIBLE, NOT CONFIRMED — both sides are invested in keeping the client QuickPay, they diverge on method",
+    "quote": "it's bad for both of us to lose them, so I can't say we're exactly in different camps on this",
+    "line": 64
+  },
+  {
+    "cell": "A2",
+    "claim": "The respondent himself notes uncertainty in this interpretation",
+    "quote": "Maybe this isn't even about different interests at all, but about different ways of achieving the same thing, I'm not sure, I need to think about it.",
+    "line": 66
+  },
+  {
+    "cell": "A3",
+    "claim": "READINESS TO SETTLE — MEDIUM, UNSTABLE",
+    "quote": "medium, leaning toward high. I genuinely want to keep the company, I just I'm not willing to keep it on the current terms, for me the line between \"partnership\" and \"being used\" is very thin right now. Although honestly, on bad days I'd say readiness is low overall, it really fluctuates day to day.",
+    "line": 72
+  },
+  {
+    "cell": "A4",
+    "claim": "Verifiable fact — Olya's hiring without agreement, specific salary",
+    "quote": "Hiring his wife at a salary of a hundred and twenty thousand is a major decision, and I found out after the fact from a chat with the accountant.",
+    "line": 18
+  },
+  {
+    "cell": "A4",
+    "claim": "Unverifiable interpretation of Maxim's motives",
+    "quote": "I think it matters to him to feel like an equal partner, not like \"the guy who hired the tech person,\" he's got some kind of complex about it, that without me there's, like, code, but without him there's more or less enough sales too, honestly I don't know, I haven't asked him directly.",
+    "line": 56
+  }
+]

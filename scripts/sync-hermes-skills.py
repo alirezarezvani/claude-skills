@@ -52,6 +52,8 @@ DOMAIN_DIRS = [
     "compliance-os",  # ISO 13485/27001, SOC 2, GDPR, FDA QSR, EU AI Act audit-prep + orchestrator
     "markdown-html",  # v2.10.x — orchestrator, design-system, md-document, md-review, md-slides
     "agent-launcher",  # unreleased post-v2.11.2 — CMA launcher: orchestrator + interview + stage-launch + grade-iterate + run-without-you + wrap-up
+    "c-level-agents",  # v2.5.0 — founder-mode persona layer (boardroom, office-hours, *-review); self-contained since v2.13.0
+    "loop-library",    # vendored loop catalog — SKILL.md sits at the domain root
 ]
 
 
@@ -63,16 +65,34 @@ def discover_skills(repo_root, domains=None):
       2. <domain>/skills/<skill>/SKILL.md  — flat-with-skills-dir pattern (e.g., c-level-advisor/skills/)
       3. <domain>/<plugin>/skills/<skill>/SKILL.md — nested plugin pattern (e.g., research/research/skills/research/)
 
-    Dedupes by SKILL.md path so a skill discovered under multiple patterns is only counted once.
+      0. <domain>/SKILL.md                 — single-skill domain (e.g., loop-library/)
+
+    Dedupes by SKILL.md path so a skill discovered under multiple patterns is only counted once,
+    and by (domain, name) so a bundle copy and its standalone-plugin twin (e.g.
+    engineering/skills/slo-architect and engineering/slo-architect/skills/slo-architect)
+    map to one mirror entry. The first one found wins: the bundle's skills/ copy.
     """
     skills = []
     seen_paths: set = set()
+    seen_names: set = set()
     search_domains = domains or DOMAIN_DIRS
 
     for domain in search_domains:
         domain_path = repo_root / domain
         if not domain_path.is_dir():
             continue
+
+        # Pattern 0: <domain>/SKILL.md
+        root_skill_md = domain_path / "SKILL.md"
+        if root_skill_md.exists():
+            seen_paths.add(str(root_skill_md))
+            seen_names.add((domain, domain))
+            skills.append({
+                "domain": domain,
+                "name": domain,
+                "source": domain_path,
+                "skill_md": root_skill_md,
+            })
 
         # Pattern 2: <domain>/skills/<skill>/SKILL.md
         skills_subdir = domain_path / "skills"
@@ -81,8 +101,9 @@ def discover_skills(repo_root, domains=None):
                 if not skill_dir.is_dir():
                     continue
                 skill_md = skill_dir / "SKILL.md"
-                if skill_md.exists() and str(skill_md) not in seen_paths:
+                if skill_md.exists() and str(skill_md) not in seen_paths and (domain, skill_dir.name) not in seen_names:
                     seen_paths.add(str(skill_md))
+                    seen_names.add((domain, skill_dir.name))
                     skills.append({
                         "domain": domain,
                         "name": skill_dir.name,
@@ -93,13 +114,14 @@ def discover_skills(repo_root, domains=None):
         # Pattern 1: <domain>/<skill>/SKILL.md (flat)
         # Pattern 3: <domain>/<plugin>/skills/<skill>/SKILL.md (nested plugin)
         for entry in sorted(domain_path.iterdir()):
-            if not entry.is_dir() or entry.name in {"skills", ".claude-plugin", ".codex-plugin"}:
+            if not entry.is_dir() or entry.name in {"skills", "vendor", ".claude-plugin", ".codex-plugin"}:
                 continue
 
             # Pattern 1
             skill_md = entry / "SKILL.md"
-            if skill_md.exists() and str(skill_md) not in seen_paths:
+            if skill_md.exists() and str(skill_md) not in seen_paths and (domain, entry.name) not in seen_names:
                 seen_paths.add(str(skill_md))
+                seen_names.add((domain, entry.name))
                 skills.append({
                     "domain": domain,
                     "name": entry.name,
@@ -116,8 +138,9 @@ def discover_skills(repo_root, domains=None):
                 if not inner.is_dir():
                     continue
                 inner_skill_md = inner / "SKILL.md"
-                if inner_skill_md.exists() and str(inner_skill_md) not in seen_paths:
+                if inner_skill_md.exists() and str(inner_skill_md) not in seen_paths and (domain, inner.name) not in seen_names:
                     seen_paths.add(str(inner_skill_md))
+                    seen_names.add((domain, inner.name))
                     skills.append({
                         "domain": domain,
                         "name": inner.name,

@@ -21,8 +21,13 @@ third-party CLI. It is not bundled — install and authenticate it yourself firs
 | Default model `opencode/mimo-v2.5-free` | A free tier offered by opencode, not by Anthropic. Availability, rate limits, and pricing are opencode's to change — override with `--model` at any time. |
 | Windows only: `OPENCODE_GIT_BASH_PATH` | Point at `C:\Program Files\Git\bin\bash.exe`, set persistently. |
 
-Nothing here calls the Anthropic API on the worker side; worker traffic goes to
-opencode's endpoints. Do not delegate secrets or private code you would not send there.
+## Data flow (read before installing)
+
+Hivemind is opt-in and ships outside every domain bundle. Each worker sends its
+prompt, plus any files or diffs you give it, to opencode's endpoints and the model
+behind the `--model` you pick. Nothing on the worker side calls the Anthropic API.
+Delegate only code you are allowed to send to that provider, and never delegate
+secrets.
 
 ## Setup
 

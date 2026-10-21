@@ -8,7 +8,7 @@ The pair shares a strict 7-file knowledge-base contract at `${WORKSPACE}/Email/`
 
 ```
 ┌──────────────────────┐         ┌──────────────────────────────┐
-│   /cs:inbox-setup    │   ───►  │  ${WORKSPACE}/Email/          │
+│   /cs-inbox-setup    │   ───►  │  ${WORKSPACE}/Email/          │
 │                      │  writes │  ├── email-taxonomy.md         │
 │  Interactive         │         │  ├── email-patterns.md         │
 │  interview (~25-31   │         │  ├── evaluation-framework.md*  │
@@ -21,7 +21,7 @@ The pair shares a strict 7-file knowledge-base contract at `${WORKSPACE}/Email/`
                                           │ reads + appends
                                           ▼
                                  ┌──────────────────────────────┐
-                                 │   /cs:inbox-triage           │
+                                 │   /cs-inbox-triage           │
                                  │                              │
                                  │   Recurring (1-3x/day) or    │
                                  │   on-demand. Classifies      │
@@ -79,7 +79,7 @@ The contract is the **integration boundary** between the two skills. Any drift b
 - `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657)
 - `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo) (PR #657)
 
-The megaprompts are canonical; these plugins are working implementations. Drift between any megaprompt and its skill is a bug — re-grill with `/cs:grill-with-docs` if they diverge.
+The megaprompts are canonical; these plugins are working implementations. Drift between any megaprompt and its skill is a bug — re-grill with `/cs-grill-with-docs` if they diverge.
 
 ## Plugin layout
 
@@ -91,8 +91,8 @@ engineering/email/
 │   ├── cs-inbox-setup.md           ← interview persona, 8-section grill enforcer
 │   └── cs-inbox-triage.md          ← recurring-run persona, DRAFTS-ONLY enforcer
 ├── commands/
-│   ├── cs-inbox-setup.md           ← /cs:inbox-setup
-│   └── cs-inbox-triage.md          ← /cs:inbox-triage
+│   ├── cs-inbox-setup.md           ← /cs-inbox-setup
+│   └── cs-inbox-triage.md          ← /cs-inbox-triage
 └── skills/
     ├── inbox-setup/
     │   ├── SKILL.md                ← Path-B converted from megaprompt 06
@@ -120,10 +120,10 @@ engineering/email/
 
 ```bash
 # 1. Run inbox-setup ONCE (interactive interview):
-#    Use /cs:inbox-setup or trigger phrases like "set up my inbox"
+#    Use /cs-inbox-setup or trigger phrases like "set up my inbox"
 
 # 2. After setup, run inbox-triage on cadence (e.g., 2x/day):
-#    Use /cs:inbox-triage or trigger phrases like "triage my inbox"
+#    Use /cs-inbox-triage or trigger phrases like "triage my inbox"
 
 # Validate the KB contract at any time:
 python skills/inbox-setup/scripts/kb_validator.py --workspace ${WORKSPACE}

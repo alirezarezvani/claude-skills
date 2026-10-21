@@ -1,6 +1,6 @@
 ---
 title: "/cs-workflow-build — Slash Command for AI Coding Agents"
-description: "/cs:workflow-build <task-description> — Design and write a deterministic Claude Code workflow (.js). Opens with intake questions, infers-and-proposes. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-workflow-build <task-description> — Design and write a deterministic Claude Code workflow (.js). Opens with intake questions, infers-and-proposes. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-workflow-build
@@ -11,7 +11,7 @@ description: "/cs:workflow-build <task-description> — Design and write a deter
 </div>
 
 
-**Command:** `/cs:workflow-build <task-description>`
+**Command:** `/cs-workflow-build <task-description>`
 
 Designs a deterministic multi-agent workflow for Claude Code's Workflow tool. Always opens with intake; never writes a file before the topology is confirmed.
 
@@ -94,7 +94,7 @@ export CLAUDE_CODE_WORKFLOWS=1   # the feature is off by default
 
 - Agent: [`cs-workflow-architect`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/workflow-builder/agents/cs-workflow-architect.md)
 - Skill: [`workflow-builder`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/workflow-builder/skills/workflow-builder/SKILL.md)
-- Adjacent: `/cs:write-a-skill` (authoring skills, not workflows)
+- Adjacent: `/cs-write-a-skill` (authoring skills, not workflows)
 
 ---
 

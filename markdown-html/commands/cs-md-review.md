@@ -3,14 +3,14 @@ description: Convert a markdown PR writeup or code review (with ```diff blocks a
 argument-hint: "<path to markdown> --reviewer \"<name>\" [--title \"<PR title>\"] [--severity-convention \"<a,b,c,d>\"]"
 ---
 
-# /cs:md-review — Code-review markdown → 2-column HTML
+# /cs-md-review — Code-review markdown → 2-column HTML
 
 Convert the review markdown at **$ARGUMENTS** into a single-file 2-column HTML review.
 
 ## Pre-flight gates (refuse, never override)
 
 1. **Input < 100 lines** → refuse (markdown wins below Shihipar's threshold).
-2. **Design-system not onboarded** → refuse, surface `/cs:design-system`.
+2. **Design-system not onboarded** → refuse, surface `/cs-design-system`.
 3. **`--reviewer` missing** → refuse (a code review must name a human reviewer).
 4. **No diff hunks present** → refuse, route to `md-document` instead.
 5. **Output directory unwritable** → refuse, ask user for alternate via `--out`.

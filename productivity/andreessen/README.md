@@ -47,8 +47,8 @@ andreessen/
 ├── README.md
 ├── agents/cs-andreessen.md
 ├── commands/
-│   ├── cs-andreessen.md          # /cs:andreessen — full verdict mode
-│   └── cs-pmf-check.md           # /cs:pmf-check — focused PMF interrogation
+│   ├── cs-andreessen.md          # /cs-andreessen — full verdict mode
+│   └── cs-pmf-check.md           # /cs-pmf-check — focused PMF interrogation
 └── skills/andreessen/
     ├── SKILL.md
     ├── assets/example_3x5_card.md
@@ -85,8 +85,8 @@ python skills/andreessen/scripts/anti_todo_card.py --summary
 
 ## Slash commands
 
-- `/cs:andreessen` — full market-first verdict mode (venture / idea / feature / career bet, or daily card).
-- `/cs:pmf-check` — focused before/after product/market fit interrogation.
+- `/cs-andreessen` — full market-first verdict mode (venture / idea / feature / career bet, or daily card).
+- `/cs-pmf-check` — focused before/after product/market fit interrogation.
 
 ## Attribution
 

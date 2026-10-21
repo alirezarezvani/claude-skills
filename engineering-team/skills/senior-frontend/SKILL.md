@@ -535,7 +535,7 @@ This skill does NOT reimplement scope owned by the POWERFUL-tier specialists. It
 | Pre-commit Karpathy review | `engineering/karpathy-coder/` |
 | Pre-flight architecture grill | `engineering/grill-me/` |
 
-The `cs-frontend-engineer` agent orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-frontend-engineer", prompt: "..."})` or via `/cs:frontend-review <your problem>`.
+The `cs-frontend-engineer` agent orchestrates these forks via `context: fork`. Invoke it from another agent with `Agent({subagent_type: "cs-frontend-engineer", prompt: "..."})` or via `/cs-frontend-review <your problem>`.
 
 ---
 
@@ -565,7 +565,7 @@ Summary:
 
 Three surfaces:
 
-1. **Slash command:** `/cs:frontend-review <prompt>` — full grill + decision engine + composition routing.
+1. **Slash command:** `/cs-frontend-review <prompt>` — full grill + decision engine + composition routing.
 2. **Agent subagent:** `Agent({subagent_type: "cs-frontend-engineer", prompt: "..."})` — forks context, returns ≤ 200-word digest.
 3. **Direct tool call:** `python scripts/frontend_decision_engine.py ...` — deterministic profile match when inputs are known.
 

@@ -1,9 +1,9 @@
 ---
-title: "/cs:cro-review — CRO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cro-review — CRO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cro-review <plan> — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cro-review — CRO Forcing Questions
+# /c-level-agents:cro-review — CRO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of reven
 </div>
 
 
-**Command:** `/cs:cro-review <plan>`
+**Command:** `/c-level-agents:cro-review <plan>`
 
 The pipeline-paranoid operator pressure-tests revenue assumptions. Six questions that surface next-quarter pain this quarter.
 
@@ -105,10 +105,10 @@ python ../../../skills/cro-advisor/scripts/churn_analyzer.py
 
 ## Routing
 
-- `/cs:cfo-review` — does this hit the cash plan?
-- `/cs:cmo-review` — is pipeline source-mix healthy?
-- `/cs:execute` — quarterly plan if GREEN
-- `/cs:boardroom` — if RED
+- `/c-level-agents:cfo-review` — does this hit the cash plan?
+- `/c-level-agents:cmo-review` — is pipeline source-mix healthy?
+- `/c-level-agents:execute` — quarterly plan if GREEN
+- `/c-level-agents:boardroom` — if RED
 
 ## Related
 

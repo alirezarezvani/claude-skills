@@ -19,7 +19,7 @@ description: "Two-layer memory architecture for board meeting decisions. Manages
 Two-layer memory system. Layer 1 stores everything. Layer 2 stores only what the founder approved. Future meetings read Layer 2 only — this prevents hallucinated consensus from past debates bleeding into new deliberations.
 
 ## Keywords
-decision log, memory, approved decisions, action items, board minutes, /cs:decisions, /cs:review, conflict detection, DO_NOT_RESURFACE
+decision log, memory, approved decisions, action items, board minutes, /decision-logger decisions, /decision-logger review, conflict detection, DO_NOT_RESURFACE
 
 ## Quick Start
 
@@ -38,18 +38,18 @@ python scripts/decision_tracker.py --search "pricing" # Search decisions
 
 | Command | Effect |
 |---------|--------|
-| `/cs:decisions` | Last 10 approved decisions |
-| `/cs:decisions --all` | Full history |
-| `/cs:decisions --owner CMO` | Filter by owner |
-| `/cs:decisions --topic pricing` | Search by keyword |
-| `/cs:review` | Action items due within 7 days |
-| `/cs:review --overdue` | Items past deadline |
+| `/decision-logger decisions` | Last 10 approved decisions |
+| `/decision-logger decisions --all` | Full history |
+| `/decision-logger decisions --owner CMO` | Filter by owner |
+| `/decision-logger decisions --topic pricing` | Search by keyword |
+| `/decision-logger review` | Action items due within 7 days |
+| `/decision-logger review --overdue` | Items past deadline |
 
 ---
 
 ## Two-Layer Architecture
 
-Storage follows the canonical two-layer decision memory (see [`agent-protocol/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/agent-protocol/SKILL.md) → "Decision Memory (Canonical Layout)") — the same layout `/cs:decide` writes.
+Storage follows the canonical two-layer decision memory (see [`agent-protocol/SKILL.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/agent-protocol/SKILL.md) → "Decision Memory (Canonical Layout)") — the same layout `/c-level-agents:decide` writes.
 
 ### Layer 1 — Raw Transcripts
 **Location:** `~/.claude/decisions/raw/YYYY-MM-DD-<slug>.md`

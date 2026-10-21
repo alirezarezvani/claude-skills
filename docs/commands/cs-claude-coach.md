@@ -28,9 +28,9 @@ Activates the `claude-coach` skill. From this point on, the conversation gains:
 ## Examples
 
 ```
-/cs:claude-coach
-/cs:claude-coach writing, coding
-/cs:claude-coach research, learning
+/cs-claude-coach
+/cs-claude-coach writing, coding
+/cs-claude-coach research, learning
 ```
 
 ## To turn it off

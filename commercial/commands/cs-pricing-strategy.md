@@ -3,7 +3,7 @@ description: Pricing model selection (subscription / usage / value / hybrid), Va
 argument-hint: "<pricing context: industry, deal size, customer count, value drivers>"
 ---
 
-# /cs:pricing-strategy — Pricing model + WTP + packaging
+# /cs-pricing-strategy — Pricing model + WTP + packaging
 
 Run the `pricing-strategist` skill on this input:
 

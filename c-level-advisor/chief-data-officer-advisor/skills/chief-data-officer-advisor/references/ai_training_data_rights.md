@@ -70,7 +70,7 @@ If any EU resident data flows, GDPR applies. Pick exactly one lawful basis per p
 
 ## EU AI Act High-Risk Triggers
 
-The EU AI Act (in force 2026) imposes additional data governance requirements for high-risk AI systems. You are high-risk if your AI is used for:
+The EU AI Act (high-risk obligations from 2 Dec 2027 for Annex III systems, per the 2026 AI Omnibus) imposes additional data governance requirements for high-risk AI systems. You are high-risk if your AI is used for:
 
 - Biometric identification (other than verification)
 - Critical infrastructure management
@@ -94,7 +94,7 @@ If you're low-risk (most B2B SaaS), the heavy obligations are GDPR-side, not AI-
 | Law | What it covers |
 |---|---|
 | California CCPA / CPRA | Right to know, delete, opt-out of sale (incl. some training scenarios) |
-| Colorado AI Act (CO SB 21-169 successor) | Bias audit requirements for AI in consumer decisions |
+| Colorado SB 26-189 (effective 1 Jan 2027) | Notice, adverse-outcome explanation, data correction and human review for AI in consequential consumer decisions (the impact-assessment duty of SB 24-205 was dropped) |
 | New York City Local Law 144 | Bias audit required for AI in hiring (NYC employers) |
 | Illinois BIPA | Biometric data requires explicit written consent |
 | Texas TCPA | Capture-of-biometric-identifier rules |
@@ -112,7 +112,7 @@ For every new AI training initiative:
 6. **For GO:** Document the lawful basis and maintain the provenance log.
 7. **Cross-check with cs-general-counsel-advisor** on top-3 mitigation items.
 8. **Cross-check with cs-ciso-advisor** on data flow security.
-9. **Log the decision via `/cs:decide`.**
+9. **Log the decision via `/c-level-agents:decide`.**
 
 ## When This Reference Doesn't Help
 

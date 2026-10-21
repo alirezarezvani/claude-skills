@@ -40,12 +40,12 @@ Each SKILL.md ships a "Forcing-question library" section (cited-canon grilling, 
 ## Agent + command pattern
 
 - `cs-markdown-html-orchestrator` — density-first markdown-to-HTML converter. Voice: "What decision does this HTML drive — is the reader skimming, deciding, or presenting?"
-- `/cs:markdown-html <path>.md` — top-level router (classifier + route + recommend)
-- `/cs:grill-markdown-html <path>.md` — Matt-Pocock-style 5-question grill before conversion
-- `/cs:design-system` — surface the onboarding wizard
+- `/cs-markdown-html <path>.md` — top-level router (classifier + route + recommend)
+- `/cs-grill-markdown-html <path>.md` — Matt-Pocock-style 5-question grill before conversion
+- `/cs-design-system` — surface the onboarding wizard
 
 Per-sub-skill commands (all live):
-- `/cs:md-document`, `/cs:md-review`, `/cs:md-slides`
+- `/cs-md-document`, `/cs-md-review`, `/cs-md-slides`
 
 ## Anti-patterns (domain-level)
 

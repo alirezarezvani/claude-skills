@@ -50,9 +50,9 @@ get the exact install command.
 ## Use
 
 ```
-/cs:book-to-skill ~/books/thinking-in-systems.pdf meadows-systems
-/cs:book-to-skill ./docs/architecture/ '*.md' internal-arch
-/cs:book-to-plugin ~/.claude/skills/meadows-systems --domain engineering
+/cs-book-to-skill ~/books/thinking-in-systems.pdf meadows-systems
+/cs-book-to-skill ./docs/architecture/ '*.md' internal-arch
+/cs-book-to-plugin ~/.claude/skills/meadows-systems --domain engineering
 ```
 
 Or drive the tools yourself:

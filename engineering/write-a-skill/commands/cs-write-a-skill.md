@@ -1,11 +1,11 @@
 ---
 name: "cs-write-a-skill"
-description: "/cs:write-a-skill <name-or-description> — Author a new agent skill with Matt Pocock's 3-phase workflow (Gather → Draft → Review). Runs 6 review-checklist items + 3 validator tools as a gate. Use when starting a new skill in this repo."
+description: "/cs-write-a-skill <name-or-description> — Author a new agent skill with Matt Pocock's 3-phase workflow (Gather → Draft → Review). Runs 6 review-checklist items + 3 validator tools as a gate. Use when starting a new skill in this repo."
 ---
 
-# /cs:write-a-skill — Skill-Author Forcing Questions
+# /cs-write-a-skill — Skill-Author Forcing Questions
 
-**Command:** `/cs:write-a-skill <name-or-description>`
+**Command:** `/cs-write-a-skill <name-or-description>`
 
 The skill-author persona pressure-tests any new-skill commit. Six forcing questions before any merge, matching Matt Pocock's review checklist.
 
@@ -124,9 +124,9 @@ grep -r "derived_from\|original_author" path/to/skill-folder/
 
 ## Routing
 
-- `/cs:karpathy-check` — for code-quality concerns in scripts/
-- `/cs:tdd` — for testing discipline (different from skill quality gates)
-- `/cs:decide` — to log the verdict
+- `/karpathy-check` — for code-quality concerns in scripts/
+- `/tdd` — for testing discipline (different from skill quality gates)
+- `/c-level-agents:decide` — to log the verdict
 
 ## Related
 

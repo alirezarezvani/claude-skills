@@ -1,6 +1,6 @@
 ---
 title: "/cs-pmf-check — Slash Command for AI Coding Agents"
-description: "/cs:pmf-check — Are you before or after product/market fit? A focused Andreessen-mode interrogation that scores the felt signals + the Sean Ellis 40%. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-pmf-check — Are you before or after product/market fit? A focused Andreessen-mode interrogation that scores the felt signals + the Sean Ellis 40%. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-pmf-check
@@ -11,7 +11,7 @@ description: "/cs:pmf-check — Are you before or after product/market fit? A fo
 </div>
 
 
-**Command:** `/cs:pmf-check`
+**Command:** `/cs-pmf-check`
 
 A focused slice of the `cs-andreessen` persona aimed at one question: are you before or after
 product/market fit? Per Andreessen, PMF is the only milestone that matters and it is **not subtle** —
@@ -55,7 +55,7 @@ python ../skills/andreessen/scripts/pmf_signal_scorer.py \
 
 - Agent: [`cs-andreessen`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/andreessen/agents/cs-andreessen.md)
 - Skill: [`andreessen`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/andreessen/skills/andreessen/SKILL.md)
-- Parent command: [`/cs:andreessen`](./cs-andreessen.md)
+- Parent command: [`/cs-andreessen`](./cs-andreessen.md)
 
 ---
 

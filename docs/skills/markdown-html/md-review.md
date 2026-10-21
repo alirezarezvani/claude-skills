@@ -32,12 +32,12 @@ diff_parser.py  →  annotation_extractor.py  →  review_html_renderer.py
 | Symptom | Action |
 |---|---|
 | `markdown-html-orchestrator` routes input as REVIEW | Invoke this skill |
-| User runs `/cs:md-review <path>.md` directly | Invoke this skill |
+| User runs `/cs-md-review <path>.md` directly | Invoke this skill |
 | Input contains ` ```diff ` fenced blocks + `> [!MAJOR]`/`> [!BLOCKER]`/etc. callouts | Invoke this skill |
 | Input is a long-form spec / report (no diff blocks) | Route to `md-document` instead |
 | Input is a slide deck | Route to `md-slides` instead |
 | Input < 100 lines | Refuse (Shihipar threshold) |
-| Design-system not onboarded | Refuse; surface `/cs:design-system` |
+| Design-system not onboarded | Refuse; surface `/cs-design-system` |
 
 ## Pipeline
 

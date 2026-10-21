@@ -57,7 +57,7 @@ Exit 3 has no signal — ask what they want to walk away with, rather than guess
 ## Step 3 — Forcing questions
 
 One at a time, each with a recommended answer. Stop as soon as the lane can run honestly.
-`/cs:grill-linkedin` walks all five with the recommendation and the canon behind each.
+`/cs-grill-linkedin` walks all five with the recommendation and the canon behind each.
 
 1. What has to be true in 90 days for this to have been worth it? *(Not a follower count.)*
 2. Who is this for, specifically enough that someone is excluded?

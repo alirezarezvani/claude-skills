@@ -21,7 +21,7 @@ Multi-framework compliance program orchestration. **Four decisions, no per-frame
 3. **What does a mock audit produce?** — `audit_simulator.py` generates 8–15 finding scenarios with severity distribution matching IIA expectations + interview questions per control
 4. **What's the unified evidence checklist?** — `evidence_pool_generator.py` consolidates evidence across enabled frameworks; outputs which artefact satisfies which controls across which frameworks
 
-This skill is **NOT** a per-framework deep-dive. The per-framework skills (`ra-qm-team/skills/iso42001-specialist/`, `compliance-team-eu-ai-act/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`, etc.) do the operational work. Compliance OS orchestrates them.
+This skill is **NOT** a per-framework deep-dive. The per-framework skills (`${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/`, `compliance-team-eu-ai-act/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/`, etc.) do the operational work. Compliance OS orchestrates them.
 
 This skill is **NOT** a substitute for binding legal advice. Cross-framework mappings reflect published guidance (ISO standards, regulations, EDPB/Commission guidance, IIA / AICPA professional standards). Novel cross-walks should be reviewed with counsel.
 
@@ -180,17 +180,17 @@ python scripts/evidence_pool_generator.py program.json
 
 ## Adjacent Skills
 
-- `ra-qm-team/skills/iso42001-specialist/` — ISO 42001 deep-dive (paired with compliance-team-iso42001 plugin)
-- `ra-qm-team/skills/eu-ai-act-specialist/` — EU AI Act deep-dive (paired with compliance-team-eu-ai-act plugin)
-- `ra-qm-team/skills/information-security-manager-iso27001/` — ISO 27001 ISMS deep-dive
-- `ra-qm-team/skills/quality-manager-qms-iso13485/` — ISO 13485 QMS deep-dive
-- `ra-qm-team/skills/gdpr-dsgvo-expert/` — GDPR deep-dive
-- `ra-qm-team/skills/soc2-compliance/` — SOC 2 deep-dive
-- `ra-qm-team/skills/fda-consultant-specialist/` — FDA QSR deep-dive
-- `ra-qm-team/skills/mdr-745-specialist/` — EU MDR 745 deep-dive
-- `ra-qm-team/skills/risk-management-specialist/` — ISO 14971 deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/` — ISO 42001 deep-dive (paired with compliance-team-iso42001 plugin)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/` — EU AI Act deep-dive (paired with compliance-team-eu-ai-act plugin)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/information-security-manager-iso27001/` — ISO 27001 ISMS deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/quality-manager-qms-iso13485/` — ISO 13485 QMS deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/` — GDPR deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/` — SOC 2 deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/` — FDA QSR deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/mdr-745-specialist/` — EU MDR 745 deep-dive
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/risk-management-specialist/` — ISO 14971 deep-dive
 - `c-level-advisor/chief-ai-officer-advisor/` — Executive AI risk decisions (build-vs-buy, model selection)
-- `c-level-advisor/skills/general-counsel-advisor/` — Legal review for novel cases
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/` — Legal review for novel cases
 
 ## References
 

@@ -90,7 +90,7 @@ cd business-operations/skills/process-mapper && python3 scripts/process_document
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Before invoking the tools, the orchestrator (or `/cs:grill-bizops`) walks the user through these questions **one at a time, with a recommended answer + canon citation**. Never bundled.
+Before invoking the tools, the orchestrator (or `/cs-grill-bizops`) walks the user through these questions **one at a time, with a recommended answer + canon citation**. Never bundled.
 
 1. **"Do you have measured cycle times for the top-3 longest stages, or only estimates?"**
    Recommended: insist on measured data.

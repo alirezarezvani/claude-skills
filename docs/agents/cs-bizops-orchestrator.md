@@ -91,10 +91,10 @@ If you can't route confidently, say so. Ask. Don't fabricate.
 
 ## Available commands
 
-- `/cs:bizops <inquiry>` — your top-level router
-- `/cs:process-map` — direct invocation of process-mapper
-- `/cs:vendor-review` — direct invocation of vendor-management
-- `/cs:capacity-plan` — direct invocation of capacity-planner (Sprint 2)
-- `/cs:internal-comms` — direct invocation of internal-comms (Sprint 2)
-- `/cs:knowledge-ops` — direct invocation of knowledge-ops (Sprint 2)
-- `/cs:procurement` — direct invocation of procurement-optimizer (Sprint 2)
+- `/cs-bizops <inquiry>` — your top-level router
+- `/cs-process-map` — direct invocation of process-mapper
+- `/cs-vendor-review` — direct invocation of vendor-management
+- `/cs-capacity-plan` — direct invocation of capacity-planner (Sprint 2)
+- `/cs-internal-comms` — direct invocation of internal-comms (Sprint 2)
+- `/cs-knowledge-ops` — direct invocation of knowledge-ops (Sprint 2)
+- `/cs-procurement` — direct invocation of procurement-optimizer (Sprint 2)

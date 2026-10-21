@@ -1,9 +1,9 @@
 ---
-title: "/cs:fda-qsr-audit-prep — FDA QSR Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:fda-qsr-audit-prep <scope> — FDA 21 CFR 820 (QSR / QMSR) audit 6-question forcing interrogation. Post-Feb 2026 substantially harmonized with ISO. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:fda-qsr-audit-prep — FDA QSR Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:fda-qsr-audit-prep <scope> — FDA 21 CFR 820 (QSR / QMSR) audit 6-question forcing interrogation. Post-Feb 2026 substantially harmonized with ISO. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:fda-qsr-audit-prep — FDA QSR Forcing Questions
+# /compliance-os:fda-qsr-audit-prep — FDA QSR Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:fda-qsr-audit-prep <scope> — FDA 21 CFR 820 (QSR / QMSR) aud
 </div>
 
 
-**Command:** `/cs:fda-qsr-audit-prep <scope>`
+**Command:** `/compliance-os:fda-qsr-audit-prep <scope>`
 
 The FDA QSR auditor pressure-tests any US medical-device QSR work. Six questions before any internal audit, FDA inspection, Form 483 response, or recall decision.
 
@@ -151,10 +151,10 @@ python ../../skills/compliance-os/scripts/audit_simulator.py fda_qsr_scope.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:iso13485-audit-prep` — for ISO 13485 cross-walk pair (substantially harmonized)
-- `/cs:gdpr-audit-prep` — if connected device handles personal data
-- `/cs:gc-review` — for Warning Letter response coordination
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:iso13485-audit-prep` — for ISO 13485 cross-walk pair (substantially harmonized)
+- `/compliance-os:gdpr-audit-prep` — if connected device handles personal data
+- `/c-level-agents:gc-review` — for Warning Letter response coordination
 
 ## Related
 

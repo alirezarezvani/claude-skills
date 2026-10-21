@@ -4,9 +4,11 @@ This reference answers exactly one decision: **for a specific AI use case, which
 
 Pair with `scripts/ai_risk_classifier.py` for automation. **Not legal advice.**
 
-## EU AI Act — The Centerpiece (in force 2026)
+## EU AI Act — The Centerpiece (phased application 2025–2028)
 
 The EU AI Act (Regulation (EU) 2024/1689) is the most comprehensive AI regulation globally. It applies to any AI system **placed on the EU market or whose output is used in the EU**, regardless of where the provider is established.
+
+**Application dates (as amended by Regulation (EU) 2026/1744, the AI Omnibus, in force 27 Jul 2026):** Article 5 prohibitions and AI literacy from 2 Feb 2025; GPAI obligations from 2 Aug 2025; Article 50 transparency from 2 Aug 2026; Annex III high-risk obligations from **2 Dec 2027**; Annex I (AI in products such as medical devices) from **2 Aug 2028**.
 
 ### Risk Tiers (Article 5–7, Annex III)
 
@@ -115,12 +117,13 @@ US voluntary framework, increasingly referenced in B2B contracts and federal pro
 - **Penalty:** $375-$1,500 per violation per day
 - **Citation:** NYC Local Law 144 of 2021; 6 RCNY § 5-300
 
-### Colorado AI Act (SB 21-169 and 2024 amendments)
+### Colorado AI law (SB 26-189, replacing SB 24-205)
 
-- **Trigger:** High-risk AI in consumer-impacting decisions (employment, credit, insurance, healthcare, housing, government services, legal services)
-- **Obligations:** Reasonable care to protect from algorithmic discrimination; annual impact assessment; consumer notice when used; right to appeal; comprehensive risk management policy
-- **Effective:** February 2026
-- **Citation:** Colorado SB 21-169; CRS § 6-1-1701 et seq.
+- **Trigger:** Automated decision-making technology used in *consequential decisions* about consumers (employment, education, lending and financial services, insurance, healthcare, housing, essential government services, legal services)
+- **Obligations:** Notice-based regime. Deployers give consumer notice at the point of use, a plain-language explanation within 30 days of an adverse outcome, a way to correct personal data, and human review. Developers give deployers technical documentation and notify them of material updates. SB 24-205's annual impact assessments, attorney-general filings, affirmative anti-discrimination duty and general AI-interaction disclosure were **removed**.
+- **Liability:** Fault is allocated between developer and deployer (no joint and several liability); 60-day notice-and-cure period for enforcement, sunsetting three years after the effective date
+- **Effective:** 1 January 2027 (signed 14 May 2026). SB 24-205, the original Colorado AI Act, never took effect: enforcement was stayed by a federal court order in April 2026 and SB 26-189 repealed and re-enacted its framework.
+- **Citation:** Colorado SB 26-189 (2026); CRS § 6-1-1701 et seq. Do not confuse with SB 21-169, a separate 2021 law on unfair discrimination by insurers using external consumer data and algorithms.
 
 ### Illinois (multiple laws)
 
@@ -218,7 +221,7 @@ This reference is about strategic risk classification and governance program des
 - EU AI Act: Regulation (EU) 2024/1689 of the European Parliament and of the Council (12 July 2024)
 - NIST AI RMF 1.0: "Artificial Intelligence Risk Management Framework" (January 2023) + AI RMF Playbook
 - NYC Local Law 144 of 2021; 6 RCNY § 5-300
-- Colorado AI Act, SB 21-169 and 2024 amendments; CRS § 6-1-1701
+- Colorado SB 26-189 (2026), repealing and re-enacting SB 24-205; CRS § 6-1-1701
 - Illinois HB 53 (820 ILCS 42/); BIPA (740 ILCS 14/); HB 3773 (2024)
 - California SB 1001 (Business & Professions Code § 17940); AB 2013 (2024); CCPA/CPRA
 - CFPB Circular 2023-03 (adverse action notices)

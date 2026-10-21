@@ -124,7 +124,7 @@ All scripts: stdlib only. `--help` and `--sample` work on all three.
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-commercial` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-commercial` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"What conversion rate are you using, and is it last-4Q or last-12Q?"**
    Recommended: a 70/30 blend (last-4Q weighted 70%, last-12Q weighted 30%). Last-12Q alone hides recent slowdown; last-4Q alone overfits one bad quarter.

@@ -63,6 +63,9 @@ def main() -> int:
     if args.sample:
         sheet = json.loads((Path(__file__).resolve().parents[3] / "assets" / "example-build-sheet.json").read_text())
         cands = suggest(sheet)[:2]
+        if args.json:
+            print(json.dumps(cands, indent=2))
+            return 0
         for i, c in enumerate(cands, 1):
             print(f"{i}. {c['title']}\n   why: {c['why']}\n   how: {c['mechanism']}")
         return 0

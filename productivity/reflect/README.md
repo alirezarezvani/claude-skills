@@ -35,7 +35,7 @@ productivity/reflect/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── agents/cs-reflect.md             ← reflection persona, honest-output enforcer
-├── commands/cs-reflect.md           ← /cs:reflect (or auto-triggers on phrases)
+├── commands/cs-reflect.md           ← /cs-reflect (or auto-triggers on phrases)
 └── skills/reflect/
     ├── SKILL.md
     ├── references/

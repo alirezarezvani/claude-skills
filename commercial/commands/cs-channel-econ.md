@@ -3,7 +3,7 @@ description: Direct vs partner-led channel economics — fully-loaded cost-to-se
 argument-hint: "<channels with deal count + ARR + costs, or path to channel JSON>"
 ---
 
-# /cs:channel-econ — Direct vs partner economics
+# /cs-channel-econ — Direct vs partner economics
 
 Run the `channel-economics` skill on this input:
 

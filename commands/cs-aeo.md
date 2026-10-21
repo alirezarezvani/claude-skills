@@ -1,20 +1,20 @@
 ---
 name: "cs-aeo"
-description: "/cs:aeo — Answer Engine Optimization workflow. Audit content for E-E-A-T + structure signals that drive LLM citation (ChatGPT, Perplexity, Claude, Gemini, Mistral). Optimize content in 3 modes (conservative/balanced/aggressive). Track which LLMs cite which pages via local ledger. Industry-aware thresholds (8 industries with YMYL calibration). Distinct from SEO — refuses to optimize one at expense of the other."
+description: "/cs-aeo — Answer Engine Optimization workflow. Audit content for E-E-A-T + structure signals that drive LLM citation (ChatGPT, Perplexity, Claude, Gemini, Mistral). Optimize content in 3 modes (conservative/balanced/aggressive). Track which LLMs cite which pages via local ledger. Industry-aware thresholds (8 industries with YMYL calibration). Distinct from SEO — refuses to optimize one at expense of the other."
 ---
 
-# /cs:aeo — Answer Engine Optimization
+# /cs-aeo — Answer Engine Optimization
 
-**Command:** `/cs:aeo [action] [args]`
+**Command:** `/cs-aeo [action] [args]`
 
 The `cs-aeo` command is the **entry point for AEO workflows**: audit → optimize → publish → track citations.
 
-## Distinct From `/cs:seo-audit`
+## Distinct From `/seo-audit`
 
 These share a foundation (E-E-A-T) but optimize for different conversion events:
 
-- **`/cs:seo-audit`** — optimizes for ranking + click-through in Google/Bing search results
-- **`/cs:aeo`** (this command) — optimizes for being cited as authoritative source by LLMs
+- **`/seo-audit`** — optimizes for ranking + click-through in Google/Bing search results
+- **`/cs-aeo`** (this command) — optimizes for being cited as authoritative source by LLMs
 
 They can run on the same content. The cs-aeo agent will surface this and recommend running both for high-leverage pages.
 
@@ -28,7 +28,7 @@ They can run on the same content. The cs-aeo agent will surface this and recomme
 
 ## When NOT To Run
 
-- Pure click-through SEO without AI-citation intent → use `/cs:seo-audit`
+- Pure click-through SEO without AI-citation intent → use `/seo-audit`
 - Brand-voice content with no factual claims (citations require facts)
 - Time-sensitive news (LLM training lag means citation comes months later)
 - Topics where LLMs already have strong training (e.g., elementary math)
@@ -38,9 +38,9 @@ They can run on the same content. The cs-aeo agent will surface this and recomme
 ### `audit` — Score content for AEO readiness
 
 ```bash
-/cs:aeo audit --input post.md --industry saas
-/cs:aeo audit --url https://example.com/blog/post --industry healthcare
-/cs:aeo audit --sample
+/cs-aeo audit --input post.md --industry saas
+/cs-aeo audit --url https://example.com/blog/post --industry healthcare
+/cs-aeo audit --sample
 ```
 
 Returns composite 0-100 with per-dimension breakdown (E-E-A-T + Structure) and top 5 fixes in priority order.
@@ -48,8 +48,8 @@ Returns composite 0-100 with per-dimension breakdown (E-E-A-T + Structure) and t
 ### `optimize` — Generate AEO-improved variant
 
 ```bash
-/cs:aeo optimize --input post.md --mode balanced --output post-aeo.md
-/cs:aeo optimize --input post.md --mode aggressive --industry finance
+/cs-aeo optimize --input post.md --mode balanced --output post-aeo.md
+/cs-aeo optimize --input post.md --mode aggressive --industry finance
 ```
 
 Three modes:
@@ -60,7 +60,7 @@ Three modes:
 ### `track` — Log a citation you observed in an LLM response
 
 ```bash
-/cs:aeo track --url https://example.com/post --llm perplexity --query "what is AEO" --date 2026-05-17
+/cs-aeo track --url https://example.com/post --llm perplexity --query "what is AEO" --date 2026-05-17
 ```
 
 Maintains a local ledger at `~/.aeo-data/citations.json`. No telemetry.
@@ -68,7 +68,7 @@ Maintains a local ledger at `~/.aeo-data/citations.json`. No telemetry.
 ### `report` — Aggregate citation report for a URL
 
 ```bash
-/cs:aeo report --url https://example.com/post
+/cs-aeo report --url https://example.com/post
 ```
 
 Returns total citations, LLM coverage, velocity, top queries, verdict (EARLY / EMERGING / STRONG).
@@ -76,7 +76,7 @@ Returns total citations, LLM coverage, velocity, top queries, verdict (EARLY / E
 ### `export` — Emit citation ledger as CSV
 
 ```bash
-/cs:aeo export --output citations.csv
+/cs-aeo export --output citations.csv
 ```
 
 For reporting to clients / stakeholders.
@@ -156,7 +156,7 @@ Content for YMYL topics scoring below threshold is unlikely to be cited regardle
 
 - Agent: [`cs-aeo`](agents/marketing/cs-aeo.md)
 - Skill: [`aeo`](marketing-skill/skills/aeo/SKILL.md)
-- Companion: `/cs:seo-audit` (SEO + AEO often run together)
+- Companion: `/seo-audit` (SEO + AEO often run together)
 - Source: ported from [`alirezarezvani/aeo-box`](https://github.com/alirezarezvani/aeo-box)
 
 ---

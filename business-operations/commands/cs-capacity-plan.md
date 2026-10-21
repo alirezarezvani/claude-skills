@@ -3,7 +3,7 @@ description: Model headcount + tooling capacity for ops teams (CX/Support/CS/Biz
 argument-hint: "<team + demand intake or path to capacity JSON>"
 ---
 
-# /cs:capacity-plan — Ops capacity sizing + utilization risk + hiring sequence
+# /cs-capacity-plan — Ops capacity sizing + utilization risk + hiring sequence
 
 Run the `capacity-planner` skill on this input:
 

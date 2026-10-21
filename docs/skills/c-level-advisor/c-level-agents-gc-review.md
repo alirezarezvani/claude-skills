@@ -1,9 +1,9 @@
 ---
-title: "/cs:gc-review — General Counsel Forcing Questions — Agent Skill for Executives"
-description: "/cs:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:gc-review — General Counsel Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:gc-review — General Counsel Forcing Questions
+# /c-level-agents:gc-review — General Counsel Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:gc-review <plan> — General Counsel interrogation of contract
 </div>
 
 
-**Command:** `/cs:gc-review <plan>`
+**Command:** `/c-level-agents:gc-review <plan>`
 
 The General Counsel lens. Six questions before any contract, term sheet, IP move, or regulatory commitment. This is a lane gstack has zero of — and one where a single missed clause costs more than a year of engineering.
 
@@ -113,9 +113,9 @@ The General Counsel lens. Six questions before any contract, term sheet, IP move
 
 ## Routing
 
-- `/cs:ciso-review` — for any data-touching contract
-- `/cs:cfo-review` — for any commitment > 1 year or > 1% of revenue
-- `/cs:decide` — log the verdict after outside counsel review
+- `/c-level-agents:ciso-review` — for any data-touching contract
+- `/c-level-agents:cfo-review` — for any commitment > 1 year or > 1% of revenue
+- `/c-level-agents:decide` — log the verdict after outside counsel review
 
 ## Workflow Integration with `general-counsel-advisor` skill
 

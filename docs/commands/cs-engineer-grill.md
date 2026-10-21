@@ -87,6 +87,6 @@ Questions live in `engineering-team/skills/senior-backend/references/forcing_que
 
 ## Related commands
 
-- `/cs:fullstack-review`, `/cs:frontend-review`, `/cs:backend-review` — single-lane deep dives
+- `/cs-fullstack-review`, `/cs-frontend-review`, `/cs-backend-review` — single-lane deep dives
 - `/karpathy-check` — Karpathy review before commit
-- `/cs:grill-bizops`, `/cs:grill-commercial` — sibling cross-domain grills (BizOps + Commercial v2.8.0)
+- `/cs-grill-bizops`, `/cs-grill-commercial` — sibling cross-domain grills (BizOps + Commercial v2.8.0)

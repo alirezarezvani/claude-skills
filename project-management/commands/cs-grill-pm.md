@@ -1,9 +1,9 @@
 ---
-description: Matt Pocock-style interrogation of a delivery plan against the PM canon (Kanban Guide 2025, Vacanti, DORA 2025, EBM, Klein, GitLab async-first). One forcing question per turn with a recommended answer; refuses to invoke any sub-skill or start a loop until the lane-defining decisions are locked. Use before running /cs:pm or /cs:pm-loop on a fuzzy plan.
+description: Matt Pocock-style interrogation of a delivery plan against the PM canon (Kanban Guide 2025, Vacanti, DORA 2025, EBM, Klein, GitLab async-first). One forcing question per turn with a recommended answer; refuses to invoke any sub-skill or start a loop until the lane-defining decisions are locked. Use before running /cs-pm or /cs-pm-loop on a fuzzy plan.
 argument-hint: "<delivery plan, goal, or status quo to interrogate>"
 ---
 
-# /cs:grill-pm — grill a delivery plan before running it
+# /cs-grill-pm — grill a delivery plan before running it
 
 Interrogate this plan — do not execute anything yet:
 
@@ -45,7 +45,7 @@ Recommended: [answer + canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:pm` (question) or `/cs:pm-loop` (goal) with the
+- All branches resolved → invoke `/cs-pm` (question) or `/cs-pm-loop` (goal) with the
   locked decisions inlined.
 - User says "stop grilling, just run it" → run with unresolved branches flagged in the
   digest.
@@ -54,4 +54,4 @@ Recommended: [answer + canon-cited rationale]
 ## Distinct from
 
 - `engineering/grill-me` — generic plan interrogation. This grills against the PM canon.
-- `/cs:pm` — routes; this refuses to route until decisions are locked.
+- `/cs-pm` — routes; this refuses to route until decisions are locked.

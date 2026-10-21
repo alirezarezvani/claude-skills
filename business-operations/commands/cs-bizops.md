@@ -3,7 +3,7 @@ description: "Top-level Business Operations router. Routes the inquiry to one of
 argument-hint: "<inquiry>"
 ---
 
-# /cs:bizops — Business Operations router
+# /cs-bizops — Business Operations router
 
 Use the `cs-bizops-orchestrator` agent + `business-operations-skills` orchestrator skill to handle this inquiry:
 

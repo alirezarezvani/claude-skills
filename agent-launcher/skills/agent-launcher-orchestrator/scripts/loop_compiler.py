@@ -153,6 +153,7 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.sample:
+        results = []
         for kw in [
             dict(phase="interview"),
             dict(phase="grade-iterate", max_iterations=99),
@@ -161,8 +162,13 @@ def main() -> int:
         ]:
             plan = compile_plan(kw.get("phase"), kw.get("max_iterations", 3), kw.get("cron"),
                                 kw.get("timezone"), kw.get("event"), kw.get("nest_outcome", False))
+            if args.json:
+                results.append({"input": kw, "plan": plan})
+                continue
             print(f"--- {kw} ---")
             _emit(plan, False)
+        if args.json:
+            print(json.dumps(results, indent=2))
         return 0
 
     phase = args.phase or load_phase(Path(args.out_dir))

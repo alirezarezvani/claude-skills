@@ -1,6 +1,6 @@
 ---
 title: "/cs-webinar — Slash Command for AI Coding Agents"
-description: "/cs:webinar — Webinar & virtual-event marketing workflow. Plan a webinar from scratch (sized backward from the business goal), rescue one whose. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-webinar — Webinar & virtual-event marketing workflow. Plan a webinar from scratch (sized backward from the business goal), rescue one whose. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-webinar
@@ -11,7 +11,7 @@ description: "/cs:webinar — Webinar & virtual-event marketing workflow. Plan a
 </div>
 
 
-**Command:** `/cs:webinar [mode] [args]`
+**Command:** `/cs-webinar [mode] [args]`
 
 The `cs-webinar` command is the **entry point for webinar workflows**: plan → promote → run → follow up, or diagnose → fix → re-run.
 
@@ -24,7 +24,7 @@ The `cs-webinar` command is the **entry point for webinar workflows**: plan → 
 
 ## When NOT To Run
 
-- Full product launch (not just a webinar) → use `/cs:launch` / launch-strategy
+- Full product launch (not just a webinar) → use `/cs-launch` / launch-strategy
 - Generic lifecycle nurture email unrelated to an event → use the `emails` skill
 - In-person field-event logistics (venue, catering, booth) → out of scope
 
@@ -33,7 +33,7 @@ The `cs-webinar` command is the **entry point for webinar workflows**: plan → 
 ### `plan` — Design the whole motion from scratch
 
 ```bash
-/cs:webinar plan
+/cs-webinar plan
 ```
 
 Walks the intake, locks the promise + format, sizes the funnel backward from the business goal,
@@ -43,7 +43,7 @@ using `marketing-skill/skills/webinar-marketing/templates/webinar-plan-template.
 ### `rescue` — Diagnose and fix an underperforming webinar
 
 ```bash
-/cs:webinar rescue --input funnel.json
+/cs-webinar rescue --input funnel.json
 ```
 
 Scores the funnel, names the weakest stage, and returns ranked fixes targeting the actual bottleneck
@@ -52,7 +52,7 @@ Scores the funnel, names the weakest stage, and returns ranked fixes targeting t
 ### `evergreen` — Convert a past webinar to on-demand
 
 ```bash
-/cs:webinar evergreen
+/cs-webinar evergreen
 ```
 
 Maps the on-demand registration → watch → follow-up automation, with honest live-vs-simulated framing.
@@ -60,8 +60,8 @@ Maps the on-demand registration → watch → follow-up automation, with honest 
 ### `score` — Run the funnel scorer directly
 
 ```bash
-/cs:webinar score --input funnel.json
-/cs:webinar score                 # embedded sample data
+/cs-webinar score --input funnel.json
+/cs-webinar score                 # embedded sample data
 ```
 
 ## Minimal Intake (3 Questions)
@@ -145,7 +145,7 @@ The scorer calibrates per audience temperature (warmer audiences convert better 
 
 - Agent: [`cs-webinar-marketer`](https://github.com/alirezarezvani/claude-skills/tree/main/agents/marketing/cs-webinar-marketer.md)
 - Skill: [`webinar-marketing`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/webinar-marketing/SKILL.md)
-- Companion: `/cs:aeo` (get supporting content cited by AI search), launch-strategy (full launches)
+- Companion: `/cs-aeo` (get supporting content cited by AI search), launch-strategy (full launches)
 
 ---
 

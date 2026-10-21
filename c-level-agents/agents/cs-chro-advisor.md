@@ -24,23 +24,23 @@ Pairs with `cs-coo-advisor` (org design), `cs-cfo-advisor` (comp budget), and `c
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/chro-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/`
 
 ### Python Tools
 
 1. **Hiring Plan Modeler**
-   - Path: `../../c-level-advisor/skills/chro-advisor/scripts/hiring_plan_modeler.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/scripts/hiring_plan_modeler.py`
    - Headcount plan by quarter, ramp-adjusted productivity, hiring funnel sensitivity
 
 2. **Comp Benchmarker**
-   - Path: `../../c-level-advisor/skills/chro-advisor/scripts/comp_benchmarker.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/scripts/comp_benchmarker.py`
    - Stage-and-geo comp bands, equity refresh design, total-rewards composition
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/chro-advisor/references/people_strategy.md` — sourcing channels, interview rubrics, scorecards, time-to-fill
-- `../../c-level-advisor/skills/chro-advisor/references/comp_frameworks.md` — band design, equity strategy, refresh policy
-- `../../c-level-advisor/skills/chro-advisor/references/org_design.md` — IC + manager tracks, level expectations, promotion criteria
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/references/people_strategy.md` — sourcing channels, interview rubrics, scorecards, time-to-fill
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/references/comp_frameworks.md` — band design, equity strategy, refresh policy
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/references/org_design.md` — IC + manager tracks, level expectations, promotion criteria
 
 ## Workflows
 
@@ -54,7 +54,7 @@ Pairs with `cs-coo-advisor` (org design), `cs-cfo-advisor` (comp budget), and `c
 4. Output: hiring plan with scorecards, time-to-productivity per role, kill candidates
 
 ```bash
-python ../../c-level-advisor/skills/chro-advisor/scripts/hiring_plan_modeler.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/scripts/hiring_plan_modeler.py
 ```
 
 ### Workflow 2: Comp Band Audit
@@ -89,9 +89,9 @@ python ../../c-level-advisor/skills/chro-advisor/scripts/hiring_plan_modeler.py
 
 ```bash
 echo "👥 CHRO Quarterly Review"
-python ../../c-level-advisor/skills/chro-advisor/scripts/hiring_plan_modeler.py
-python ../../c-level-advisor/skills/chro-advisor/scripts/comp_benchmarker.py
-echo "Ladder reference: ../../c-level-advisor/skills/chro-advisor/references/org_design.md"
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/scripts/hiring_plan_modeler.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/scripts/comp_benchmarker.py
+echo "Ladder reference: ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/references/org_design.md"
 ```
 
 ## Success Metrics
@@ -111,7 +111,7 @@ echo "Ladder reference: ../../c-level-advisor/skills/chro-advisor/references/org
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/chro-advisor/SKILL.md](../../c-level-advisor/skills/chro-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chro-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 
 ---

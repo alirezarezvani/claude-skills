@@ -34,8 +34,8 @@ If you did not build forgetting, you do not have it.
 ## Use
 
 ```bash
-/cs:memory-engineering ~/.claude/memory      # full four-lens pass
-/cs:forgetting-audit design.json             # just the blocking gate
+/cs-memory-engineering ~/.claude/memory      # full four-lens pass
+/cs-forgetting-audit design.json             # just the blocking gate
 ```
 
 Or run the scripts directly — each has `--help`, `--sample`, and `--output json`:

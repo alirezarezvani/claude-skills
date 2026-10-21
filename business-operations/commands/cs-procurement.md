@@ -3,7 +3,7 @@ description: Spend categorization + supplier rationalization + purchasing-cycle 
 argument-hint: "<spend export path or category to analyze>"
 ---
 
-# /cs:procurement — Spend audit + supplier consolidation
+# /cs-procurement — Spend audit + supplier consolidation
 
 Run the `procurement-optimizer` skill on this input:
 

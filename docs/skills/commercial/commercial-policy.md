@@ -101,7 +101,7 @@ All three: stdlib-only, `--help`, `--sample`, `--input <json>`, `--output {markd
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-commercial` or the Commercial orchestrator before the skill runs. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-commercial` or the Commercial orchestrator before the skill runs. Recommended answer + canon citation per question. Never bundled.
 
 1. **"What's your observed discount distribution across the last 4 quarters — and is the median inside or outside your current matrix?"**
    Recommended: pull the corpus before designing any band. If the observed median is outside the matrix, the matrix is rhetoric.

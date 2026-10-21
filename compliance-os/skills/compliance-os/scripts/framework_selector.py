@@ -209,7 +209,7 @@ def _rationale(profile: Dict[str, Any], selected: List[str]) -> List[str]:
     if "iso_42001" in selected:
         notes.append("ISO 42001: AI in products; voluntary management system; satisfies Article 17 EU AI Act QMS.")
     if "eu_ai_act" in selected:
-        notes.append("EU AI Act: AI deployed in EU; binding; Article 5 prohibitions in force; high-risk obligations 2 Aug 2026.")
+        notes.append("EU AI Act: AI deployed in EU; binding; Article 5 prohibitions in force; Article 50 transparency from 2 Aug 2026; high-risk obligations 2 Dec 2027 (Annex III) / 2 Aug 2028 (Annex I) per Regulation (EU) 2026/1744.")
     if "iso_13485" in selected:
         notes.append("ISO 13485: medical device manufacturer; required for MDR / FDA submissions.")
     if "iso_14971" in selected:
@@ -273,7 +273,7 @@ def render_text(r: Dict[str, Any], source: str) -> str:
     lines.append("  ISO 27001: enterprise B2B procurement requirement; foundation for AIMS + SOC 2")
     lines.append("  SOC 2: US enterprise B2B procurement requirement; overlap ~75% with ISO 27001")
     lines.append("  ISO 42001: AI in products; voluntary AIMS; satisfies parts of Article 17 AI Act")
-    lines.append("  EU AI Act: AI in EU; binding; phased application through 2027")
+    lines.append("  EU AI Act: AI in EU; binding; phased application through Aug 2028")
     return "\n".join(lines)
 
 

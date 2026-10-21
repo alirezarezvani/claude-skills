@@ -1,11 +1,11 @@
 ---
 name: "cs-book-to-skill"
-description: "/cs:book-to-skill <path|folder|glob>... [skill-name] — convert a book, documentation folder, or source collection into a structured agent skill (core frameworks + on-demand chapters + glossary + patterns + cheatsheet). Use when the user wants to study a document with an agent, apply an author's frameworks while working, or turn internal docs into a reusable knowledge base."
+description: "/cs-book-to-skill <path|folder|glob>... [skill-name] — convert a book, documentation folder, or source collection into a structured agent skill (core frameworks + on-demand chapters + glossary + patterns + cheatsheet). Use when the user wants to study a document with an agent, apply an author's frameworks while working, or turn internal docs into a reusable knowledge base."
 ---
 
-# /cs:book-to-skill — Compile a Source into an Agent Skill
+# /cs-book-to-skill — Compile a Source into an Agent Skill
 
-**Command:** `/cs:book-to-skill <path|folder|glob>... [skill-name-slug]`
+**Command:** `/cs-book-to-skill <path|folder|glob>... [skill-name-slug]`
 
 Runs the converter end to end: extract → analyze → chapter files → supporting files → master
 `SKILL.md` → validate. Add "analyze only" to stop after the extraction report.
@@ -77,10 +77,10 @@ python3 "$SKILL_ROOT/scripts/token_budget_estimator.py" --skill-dir "$SKILLS_HOM
 ✅ <slug> — <Title> by <Author>   <N> chapters
    SKILL.md ~<N> tokens (resident) · chapters ~<N> each (on demand)
    validator: <N> error(s), <N> warning(s)
-   next: /cs:book-to-plugin to package it for this repo
+   next: /cs-book-to-plugin to package it for this repo
 ```
 
 ## Related
 
-- `/cs:book-to-plugin` — wrap a compiled skill as a claude-skills plugin
-- `/cs:write-a-skill` — author a skill from your own expertise instead of a document
+- `/cs-book-to-plugin` — wrap a compiled skill as a claude-skills plugin
+- `/cs-write-a-skill` — author a skill from your own expertise instead of a document

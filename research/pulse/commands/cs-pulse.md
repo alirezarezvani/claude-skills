@@ -1,11 +1,11 @@
 ---
 name: "cs-pulse"
-description: "/cs:pulse <topic> — Multi-source recency research. Grill-me intake (topic / angle / window / scope), then parallel Reddit + HN + Web (1 q/sec per platform), optional X/Twitter, cross-platform synthesis. Output: ${RESEARCH_DIR}/pulse/<slug>-<date>.md + full briefing in chat."
+description: "/cs-pulse <topic> — Multi-source recency research. Grill-me intake (topic / angle / window / scope), then parallel Reddit + HN + Web (1 q/sec per platform), optional X/Twitter, cross-platform synthesis. Output: ${RESEARCH_DIR}/pulse/<slug>-<date>.md + full briefing in chat."
 ---
 
-# /cs:pulse — Multi-Source Recency Research
+# /cs-pulse — Multi-Source Recency Research
 
-**Command:** `/cs:pulse <topic>`
+**Command:** `/cs-pulse <topic>`
 
 The `cs-pulse` persona takes the pulse of a topic across Reddit, Hacker News, the open web, and (optionally) X/Twitter — within a configurable recent window — and synthesizes a single coherent briefing.
 
@@ -16,7 +16,7 @@ The `cs-pulse` persona takes the pulse of a topic across Reddit, Hacker News, th
 - Trend discovery / tool comparisons / audience sentiment
 - Pre-content-creation reconnaissance
 
-The skill ALSO triggers automatically without `/cs:pulse` when you use trigger phrases:
+The skill ALSO triggers automatically without `/cs-pulse` when you use trigger phrases:
 - "pulse on [topic]"
 - "what's happening with [topic]"
 - "what are people saying about [topic]"
@@ -25,7 +25,7 @@ The skill ALSO triggers automatically without `/cs:pulse` when you use trigger p
 - "trending: [topic]"
 - "find me info on [topic]"
 
-`/cs:pulse` is the explicit form.
+`/cs-pulse` is the explicit form.
 
 ## Forcing Intake (2–4 Questions, One at a Time)
 
@@ -125,7 +125,7 @@ python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
 - Agent: [`cs-pulse`](../agents/cs-pulse.md)
 - Skill: [`pulse`](../skills/pulse/SKILL.md)
 - Source spec: `megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling research skills (after build): `/cs:litreview`, `/cs:grants`, `/cs:syllabus`, `/cs:patent`, `/cs:dossier`, `/cs:research` (router)
+- Sibling research skills (after build): `/cs-litreview`, `/cs-grants`, `/cs-syllabus`, `/cs-patent`, `/cs-dossier`, `/cs-research` (router)
 
 ---
 

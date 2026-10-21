@@ -1,9 +1,9 @@
 ---
-title: "/cs:caio-review — CAIO Forcing Questions — Agent Skill for Executives"
-description: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:caio-review — CAIO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:caio-review <plan> — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:caio-review — CAIO Forcing Questions
+# /c-level-agents:caio-review — CAIO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer interro
 </div>
 
 
-**Command:** `/cs:caio-review <plan>`
+**Command:** `/c-level-agents:caio-review <plan>`
 
 The eval-demanding CAIO pressure-tests any plan that involves AI. Six questions before any AI feature ships, any multi-year vendor commitment, or any AI team expansion.
 
@@ -132,13 +132,13 @@ python ../../../skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py wor
 
 ## Routing
 
-- `/cs:cdo-review` — for any training-data implications
-- `/cs:gc-review` — for AI vendor contracts, output liability, training-data licensing
-- `/cs:ciso-review` — for prompt injection / jailbreak / training-data poisoning threat model
-- `/cs:cfo-review` — for multi-year vendor or GPU commitment TCO
+- `/c-level-agents:cdo-review` — for any training-data implications
+- `/c-level-agents:gc-review` — for AI vendor contracts, output liability, training-data licensing
+- `/c-level-agents:ciso-review` — for prompt injection / jailbreak / training-data poisoning threat model
+- `/c-level-agents:cfo-review` — for multi-year vendor or GPU commitment TCO
 - `cs-chro-advisor` agent — for AI team hires (comp, ladder, leveling)
-- `/cs:decide` — log the verdict
-- `/cs:freeze 60` — on multi-year AI commitments
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 60` — on multi-year AI commitments
 
 ## Related
 

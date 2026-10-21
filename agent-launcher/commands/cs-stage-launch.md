@@ -3,7 +3,7 @@ description: Phase 2 — turn a build sheet into exact API payloads and a resuma
 argument-hint: "[optional: path to build-sheet.json, default ./my-agent/build-sheet.json]"
 ---
 
-# /cs:stage-launch — Phase 2: Stage → Launch
+# /cs-stage-launch — Phase 2: Stage → Launch
 
 Run the `stage-launch` skill.
 

@@ -3,7 +3,7 @@ description: Phase 4 — make the agent run without you. Turn a graded agent int
 argument-hint: "[optional: cron expression, e.g. \"0 9 * * *\"]"
 ---
 
-# /cs:run-without-you — Phase 4: Run Without You
+# /cs-run-without-you — Phase 4: Run Without You
 
 Run the `run-without-you` skill.
 

@@ -79,7 +79,7 @@ open: a broken memory system costs you memory, never a session.
 1. **Redact before writing.** Every atom passes the filter before it reaches
    disk. Anything altered is quarantined from promotion.
 2. **Propose, never apply.** Promotions land in `.memory/staged/`. Only an
-   explicit `/cs:memory adopt` touches a `CLAUDE.md`, and it backs both up first.
+   explicit `/cs-memory adopt` touches a `CLAUDE.md`, and it backs both up first.
 3. **Cite, don't invent.** Every atom carries a back-pointer to the transcript
    line that produced it. `--why` resolving to *ambiguous* prints nothing rather
    than guess: a wrong citation is worse than a missing one.

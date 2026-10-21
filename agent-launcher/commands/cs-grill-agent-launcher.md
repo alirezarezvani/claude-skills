@@ -3,7 +3,7 @@ description: Matt Pocock docs-anchored grill for an agent-launcher goal — walk
 argument-hint: "[optional: phase name to grill — interview | grade-iterate | run-without-you]"
 ---
 
-# /cs:grill-agent-launcher — pressure-test the plan
+# /cs-grill-agent-launcher — pressure-test the plan
 
 Grill the current goal's phase using its SKILL.md "Forcing-question library".
 

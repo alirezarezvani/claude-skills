@@ -107,7 +107,7 @@ cd business-operations/skills/internal-comms && python3 scripts/comms_template_f
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Before invoking the tools, the orchestrator (or `/cs:grill-bizops`) walks the user through these questions **one at a time, with a recommended answer + canon citation**. Never bundled.
+Before invoking the tools, the orchestrator (or `/cs-grill-bizops`) walks the user through these questions **one at a time, with a recommended answer + canon citation**. Never bundled.
 
 1. **"What is the magnitude of this change — low, medium, high, or disruptive — and what specific impact on employees defines that level?"**
    Recommended: assume one level higher than instinct. Layoffs are always `disruptive`, never `high`.

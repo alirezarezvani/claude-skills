@@ -19,9 +19,9 @@ v2.8.0 — 8 skills (orchestrator + 7 sub-skills), 21 stdlib Python tools, 28 re
 
 ## Commands
 
-- `/cs:commercial <inquiry>` — top-level router
-- `/cs:grill-commercial <plan>` — Matt Pocock-style grilling against SaaS pricing canon
-- `/cs:pricing-strategy`, `/cs:deal-review`, `/cs:partner-tier`, `/cs:channel-econ`, `/cs:commercial-policy`, `/cs:rfp-respond`, `/cs:commercial-forecast` — direct per-skill invocation
+- `/cs-commercial <inquiry>` — top-level router
+- `/cs-grill-commercial <plan>` — Matt Pocock-style grilling against SaaS pricing canon
+- `/cs-pricing-strategy`, `/cs-deal-review`, `/cs-partner-tier`, `/cs-channel-econ`, `/cs-commercial-policy`, `/cs-rfp-respond`, `/cs-commercial-forecast` — direct per-skill invocation
 
 ## Agent
 

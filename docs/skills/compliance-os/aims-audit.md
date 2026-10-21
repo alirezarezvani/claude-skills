@@ -1,9 +1,9 @@
 ---
-title: "/cs:aims-audit — AIMS ISO 42001 Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation. Use before certification stage 1, before annual internal. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:aims-audit — AIMS ISO 42001 Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation. Use before certification stage 1, before annual internal. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:aims-audit — AIMS ISO 42001 Forcing Questions
+# /compliance-os:aims-audit — AIMS ISO 42001 Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-que
 </div>
 
 
-**Command:** `/cs:aims-audit <scope>`
+**Command:** `/compliance-os:aims-audit <scope>`
 
 The ISO 42001 AIMS specialist pressure-tests any AI Management System work. Six questions before any certification commitment, internal audit cycle, or new-system onboarding.
 
@@ -125,12 +125,12 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:ai-act-readiness` — if EU AI Act also applies
-- `/cs:caio-review` — for executive AI strategy decisions
-- `/cs:ciso-review` — for ISO 27001 cross-framework alignment
-- `/cs:decide` — to log the verdict
-- `/cs:freeze 30` — on certification commitments
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:ai-act-readiness` — if EU AI Act also applies
+- `/c-level-agents:caio-review` — for executive AI strategy decisions
+- `/c-level-agents:ciso-review` — for ISO 27001 cross-framework alignment
+- `/c-level-agents:decide` — to log the verdict
+- `/c-level-agents:freeze 30` — on certification commitments
 
 ## Related
 

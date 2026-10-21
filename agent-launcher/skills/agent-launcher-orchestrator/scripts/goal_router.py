@@ -137,6 +137,7 @@ def main() -> int:
     args = ap.parse_args()
 
     if args.sample:
+        results = []
         for g in [
             "grade my agent until the rubric passes",
             "run the report every morning at 9am",
@@ -146,7 +147,12 @@ def main() -> int:
             "go",  # refuse
         ]:
             r = route(g, None)
+            if args.json:
+                results.append({"goal": g, **r})
+                continue
             print(f"[{r['decision']:6}] {g!r} -> {r.get('lane') or r.get('candidates') or r.get('need')}")
+        if args.json:
+            print(json.dumps(results, indent=2))
         return 0
 
     goal = args.goal

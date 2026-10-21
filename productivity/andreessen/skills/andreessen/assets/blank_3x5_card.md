@@ -13,7 +13,7 @@ The front is capped at 3-5 — never more. Throw the card away at end of day; st
 - [ ] 4.   ← optional
 - [ ] 5.   ← optional, hard cap
 
-> Each item should move the dominant strategic variable (the thing your `/cs:andreessen` verdict
+> Each item should move the dominant strategic variable (the thing your `/cs-andreessen` verdict
 > said matters most), not just whatever is loudest in your inbox.
 
 ## BACK — Anti-Todo List (what you actually got done)

@@ -24,7 +24,7 @@ Both ship as separate plugins; pick whichever matches the situation. The `grill-
 | **3 stdlib Python tools** | `skills/grill-with-docs/scripts/` | Lint CONTEXT.md format · Walk docs/adr/ for numbering + body integrity · Cross-reference bold terms in CONTEXT.md against codebase usage (dead glossary + code-only common nouns) |
 | **3 in-depth references** (7+ sources each) | `skills/grill-with-docs/references/` | Ubiquitous language canon · ADR practice canon · CONTEXT.md as living artifact |
 | **cs-grill-with-docs persona agent** | `agents/cs-grill-with-docs.md` | Docs-aware grill voice; pre-flights the linters before the first question |
-| **`/cs:grill-with-docs` slash command** | `commands/cs-grill-with-docs.md` | Activation + workflow handoff |
+| **`/cs-grill-with-docs` slash command** | `commands/cs-grill-with-docs.md` | Activation + workflow handoff |
 
 ## Matt's original (preserved)
 
@@ -45,7 +45,7 @@ python skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
 python skills/grill-with-docs/scripts/glossary_code_consistency.py \
   --context CONTEXT.md --code src/
 
-# 4. Use /cs:grill-with-docs to start the session
+# 4. Use /cs-grill-with-docs to start the session
 ```
 
 ## License

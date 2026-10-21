@@ -3,7 +3,7 @@ description: Per-deal review. Score margin + risk, route discount approval to th
 argument-hint: "<deal context: ARR, term, discount, customer tier, strategic value>"
 ---
 
-# /cs:deal-review — Per-deal scoring + discount routing + redline
+# /cs-deal-review — Per-deal scoring + discount routing + redline
 
 Run the `deal-desk` skill on this input:
 

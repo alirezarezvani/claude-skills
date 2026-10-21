@@ -127,7 +127,7 @@ The sample market triangulates a ~$1.47B top-down SAM against the bottoms-up fig
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is your TAM top-down or bottoms-up — and have you computed it both ways to triangulate?"**
    Recommended: both; reconcile the delta before quoting a number.

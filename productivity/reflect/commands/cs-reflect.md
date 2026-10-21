@@ -1,11 +1,11 @@
 ---
 name: "cs-reflect"
-description: "/cs:reflect — Mid-conversation reflection: halts current thread, re-reads full conversation from original goal forward, runs 5-dimension analysis (Macro / Gap / Reflective / Bias / Contextual), ends with Continue / Pivot / Pause recommendation. Flowing prose, no headers. Honest output — no manufactured problems."
+description: "/cs-reflect — Mid-conversation reflection: halts current thread, re-reads full conversation from original goal forward, runs 5-dimension analysis (Macro / Gap / Reflective / Bias / Contextual), ends with Continue / Pivot / Pause recommendation. Flowing prose, no headers. Honest output — no manufactured problems."
 ---
 
-# /cs:reflect — Mid-Conversation Reassessment
+# /cs-reflect — Mid-Conversation Reassessment
 
-**Command:** `/cs:reflect`
+**Command:** `/cs-reflect`
 
 The `cs-reflect` persona pauses execution and honestly reassesses where the conversation has been heading.
 
@@ -106,8 +106,8 @@ python ../skills/reflect/scripts/directional_recommendation_validator.py --outpu
 - Agent: [`cs-reflect`](../agents/cs-reflect.md)
 - Skill: [`reflect`](../skills/reflect/SKILL.md)
 - Source spec: `megaprompts/02-reflect-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling: `/cs:capture` (productivity, brain-dump organizer)
-- Adjacent (different shape): `/cs:grill-me`, `/cs:grill-with-docs`
+- Sibling: `/cs-capture` (productivity, brain-dump organizer)
+- Adjacent (different shape): `/cs-grill-me`, `/cs-grill-with-docs`
 
 ---
 

@@ -86,7 +86,7 @@ python ../skills/workflow-builder/scripts/validate_workflow.py .claude/workflows
 ## Related
 
 - Skill: [`workflow-builder`](../skills/workflow-builder/SKILL.md)
-- Command: [`/cs:workflow-build`](../commands/cs-workflow-build.md)
+- Command: [`/cs-workflow-build`](../commands/cs-workflow-build.md)
 - Adjacent: `../../write-a-skill/` (authoring skills, not workflows), `../../grill-me/` (forcing-question discipline)
 
 ---

@@ -1,9 +1,9 @@
 ---
-title: "/cs:cross-eval — Multi-Model Consensus — Agent Skill for Executives"
-description: "/cs:cross-eval <memo> — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use."
+title: "/c-level-agents:cross-eval — Multi-Model Consensus — Agent Skill for Executives"
+description: "/c-level-agents:cross-eval <memo> — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use."
 ---
 
-# /cs:cross-eval — Multi-Model Consensus
+# /c-level-agents:cross-eval — Multi-Model Consensus
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cross-eval <memo> — Multi-model consensus on a board memo or
 </div>
 
 
-**Command:** `/cs:cross-eval <memo-or-brief>`
+**Command:** `/c-level-agents:cross-eval <memo-or-brief>`
 
 Runs the same memo through multiple model providers and reconciles divergences. Use for **high-stakes, irreversible decisions** where single-model bias is too costly: M&A, major fundraises, layoffs, strategic pivots, regulatory commitments.
 
@@ -112,9 +112,9 @@ This is weaker than true multi-model. Treat the result as suggestive, not conclu
 
 ## Routing
 
-- `/cs:decide` — if consensus is GO
-- `/cs:freeze` — if consensus is PAUSE
-- `/cs:boardroom` (re-run) — if consensus is STOP
+- `/c-level-agents:decide` — if consensus is GO
+- `/c-level-agents:freeze` — if consensus is PAUSE
+- `/c-level-agents:boardroom` (re-run) — if consensus is STOP
 
 ## Related
 

@@ -109,7 +109,7 @@ cd commercial/skills/pricing-strategist && python3 scripts/pricing_model_picker.
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-commercial` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-commercial` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is your customer paying for outcomes, seats, or usage?"**
    Recommended: outcomes (value-based) if you can measure them; usage if marginal cost is variable; seats only if usage is roughly flat per user.

@@ -3,7 +3,7 @@ description: Market research methodology. Size a market as TAM/SAM/SOM computed 
 argument-hint: "<market context: total market value, customer count, price, survey params, candidate segments>"
 ---
 
-# /cs:market-research — TAM/SAM/SOM + survey sampling + segmentation
+# /cs-market-research — TAM/SAM/SOM + survey sampling + segmentation
 
 Run the `market-research` skill on this input:
 

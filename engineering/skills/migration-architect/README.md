@@ -303,7 +303,7 @@ jobs:
   validate-migration:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Validate Migration Plan
         run: |
           python3 scripts/migration_planner.py \

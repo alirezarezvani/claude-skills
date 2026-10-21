@@ -77,7 +77,7 @@ python ../../skills/chief-customer-officer-advisor/scripts/retention_decompositi
 # 4. Cross-check expansion math with cs-cro-advisor
 # 5. Cross-check product gaps surfaced by churn with cs-cpo-advisor
 # 6. Output: top-3 leakage points + 90-day mitigation plan
-# 7. Log via /cs:decide
+# 7. Log via /c-level-agents:decide
 ```
 
 ### Workflow 2: Customer Segmentation Audit (1 day)
@@ -90,7 +90,7 @@ python ../../skills/chief-customer-officer-advisor/scripts/customer_segmentation
 # 3. Surface kill list (customers where support cost > 50% of ARR AND ICP fit < 5)
 # 4. Surface upgrade candidates (high ICP fit + expansion potential)
 # 5. For kill list: decide path — non-renewal / downgrade-to-tech-touch / raise-price
-# 6. Log via /cs:decide
+# 6. Log via /c-level-agents:decide
 ```
 
 ### Workflow 3: CS Team Sizing (1 week)
@@ -103,7 +103,7 @@ python ../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calculato
 # 3. Review manager-trigger thresholds (CS manager needed if any tier has 5+ CSMs)
 # 4. Cross-check 12mo cost with cs-cfo-advisor
 # 5. Cross-check hiring plan + comp design with cs-chro-advisor
-# 6. Output: 12-month hiring plan; log via /cs:decide
+# 6. Output: 12-month hiring plan; log via /c-level-agents:decide
 ```
 
 ### Workflow 4: CS Team Roadmap (1 week)
@@ -169,7 +169,7 @@ python ../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calculato
 
 - Skill: [../../skills/chief-customer-officer-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/chief-customer-officer-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:cco-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/cco-review/SKILL.md)
+- Sibling command: [`/c-level-agents:cco-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/cco-review/SKILL.md)
 
 ---
 

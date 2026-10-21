@@ -16,7 +16,7 @@ Convert the markdown deck at **$ARGUMENTS** into a single-file interactive HTML 
 ## Pre-flight gates (refuse, never override)
 
 1. **Input < 100 lines** → refuse (markdown wins below Shihipar's threshold).
-2. **Design-system not onboarded** → refuse, surface `/cs:design-system`.
+2. **Design-system not onboarded** → refuse, surface `/cs-design-system`.
 3. **No clear slide boundaries** (auto mode: need ≥ 3 HR or ≥ 5 H1) → refuse, route to md-document.
 4. **1-slide deck** → refuse (it's a poster, not a deck).
 5. **`--strict-notes` with < 50% notes coverage** → refuse.

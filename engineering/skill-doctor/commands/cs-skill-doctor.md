@@ -3,7 +3,7 @@ description: Grade the agent setup from real local session history — rubric-sc
 argument-hint: "[optional: --repo PATH | --days N | --harness claude|codex | a question about the setup]"
 ---
 
-# /cs:skill-doctor
+# /cs-skill-doctor
 
 Run the skill-doctor pass with `$ARGUMENTS` (pass any `--repo`, `--days`,
 `--harness`, `--include-subagents` flags through to the collector).

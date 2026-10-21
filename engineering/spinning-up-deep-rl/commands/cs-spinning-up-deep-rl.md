@@ -1,11 +1,11 @@
 ---
 name: "cs-spinning-up-deep-rl"
-description: "/cs:spinning-up-deep-rl [topic | framework | chNN] — query the knowledge base compiled from Spinning Up in Deep RL by Joshua Achiam (OpenAI). Use when applying its frameworks while working, looking up a term, or reading one chapter's summary."
+description: "/cs-spinning-up-deep-rl [topic | framework | chNN] — query the knowledge base compiled from Spinning Up in Deep RL by Joshua Achiam (OpenAI). Use when applying its frameworks while working, looking up a term, or reading one chapter's summary."
 ---
 
-# /cs:spinning-up-deep-rl — Spinning Up in Deep RL
+# /cs-spinning-up-deep-rl — Spinning Up in Deep RL
 
-**Command:** `/cs:spinning-up-deep-rl [topic | framework name | chNN]`
+**Command:** `/cs-spinning-up-deep-rl [topic | framework name | chNN]`
 
 ## When to run
 

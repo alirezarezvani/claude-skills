@@ -51,8 +51,8 @@ python3 memory_promote.py                        # dry-run the gates; writes not
 python3 validate_examples.py                     # 69 checks over the spec + schema
 ```
 
-Every script takes `--sample` and `--output json`. `/cs:memory` wraps all of it;
-`/cs:memory adopt` is the only path that writes to a `CLAUDE.md`, and it backs
+Every script takes `--sample` and `--output json`. `/cs-memory` wraps all of it;
+`/cs-memory adopt` is the only path that writes to a `CLAUDE.md`, and it backs
 both files up first.
 
 ## Contents

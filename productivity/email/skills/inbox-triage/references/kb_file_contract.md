@@ -23,7 +23,7 @@ The skill performs read validation **first**, before any other step. If validati
 ```
 HALT.
 Knowledge base not found at ${WORKSPACE}/Email/.
-Run /cs:inbox-setup first to build it.
+Run /cs-inbox-setup first to build it.
 The triage skill needs at minimum email-taxonomy.md and email-patterns.md to operate.
 ```
 
@@ -126,7 +126,7 @@ grep -A 0 'email-taxonomy\|email-patterns\|evaluation-framework\|rate-card\|bloc
   megaprompts/06-inbox-setup-megaprompt.md megaprompts/07-inbox-triage-megaprompt.md
 ```
 
-Any divergence is a bug. Re-grill with `/cs:grill-with-docs` against both megaprompts to surface and fix.
+Any divergence is a bug. Re-grill with `/cs-grill-with-docs` against both megaprompts to surface and fix.
 
 ## Why This Contract Is Strict
 

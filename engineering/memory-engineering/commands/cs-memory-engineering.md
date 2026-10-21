@@ -3,7 +3,7 @@ description: Price, choose, audit and gate an agent memory system — the full f
 argument-hint: "[memory dir, design spec JSON, or a question about a memory system]"
 ---
 
-# /cs:memory-engineering
+# /cs-memory-engineering
 
 Run the memory-engineering pass on `$ARGUMENTS`.
 

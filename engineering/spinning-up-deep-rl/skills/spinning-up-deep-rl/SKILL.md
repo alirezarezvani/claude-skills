@@ -16,9 +16,9 @@ description: "Knowledge base from \"Spinning Up in Deep RL\" by Joshua Achiam (O
 - **"what chapters do you have?"** — the full index
 
 ```
-/cs:spinning-up-deep-rl                      # core frameworks + chapter index
-/cs:spinning-up-deep-rl entropy regularization   # topic index -> ch19, read that chapter
-/cs:spinning-up-deep-rl ch09                 # one chapter summary
+/cs-spinning-up-deep-rl                      # core frameworks + chapter index
+/cs-spinning-up-deep-rl entropy regularization   # topic index -> ch19, read that chapter
+/cs-spinning-up-deep-rl ch09                 # one chapter summary
 ```
 
 When you ask about something not in Core Frameworks, I read the relevant chapter file before

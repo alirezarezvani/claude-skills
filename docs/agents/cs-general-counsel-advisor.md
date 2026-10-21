@@ -76,7 +76,7 @@ python ../../skills/general-counsel-advisor/scripts/term_sheet_analyzer.py term_
 # 2. Identify the top 3 NEGOTIATE / CRITICAL items
 # 3. Cross-check with cs-cfo-advisor for dilution math
 # 4. Decide which 3 to fight for (don't try to win all 20)
-# 5. Log via /cs:decide and /cs:freeze 30 to prevent regret-driven re-opening
+# 5. Log via /c-level-agents:decide and /c-level-agents:freeze 30 to prevent regret-driven re-opening
 ```
 
 **Expected Output:** Founder-friendliness score, prioritized counter-list, decision memo.
@@ -139,8 +139,8 @@ echo "📋 Required before sign:"
 echo "  ☐ All CRITICAL findings addressed or accepted with documented reason"
 echo "  ☐ Outside counsel review complete (or waived in writing)"
 echo "  ☐ DPA executed if personal data flows"
-echo "  ☐ /cs:decide logged"
-echo "  ☐ /cs:freeze applied if irreversible (term sheet, M&A LOI, employment exec)"
+echo "  ☐ /c-level-agents:decide logged"
+echo "  ☐ /c-level-agents:freeze applied if irreversible (term sheet, M&A LOI, employment exec)"
 ```
 
 ## Success Metrics
@@ -162,7 +162,7 @@ echo "  ☐ /cs:freeze applied if irreversible (term sheet, M&A LOI, employment 
 
 - Skill: [../../skills/general-counsel-advisor/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/skills/general-counsel-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md)
-- Sibling command: [`/cs:gc-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/gc-review/SKILL.md)
+- Sibling command: [`/c-level-agents:gc-review`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/skills/gc-review/SKILL.md)
 
 ---
 

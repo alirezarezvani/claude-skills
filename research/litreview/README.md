@@ -37,7 +37,7 @@ research/litreview/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── agents/cs-litreview.md             ← academic-research persona, checkpoint enforcer
-├── commands/cs-litreview.md           ← /cs:litreview <research-question>
+├── commands/cs-litreview.md           ← /cs-litreview <research-question>
 └── skills/litreview/
     ├── SKILL.md                        ← Path-B converted from megaprompt 09
     ├── references/

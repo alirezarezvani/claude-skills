@@ -122,7 +122,7 @@ The sample budget excludes the sequencer (capital equipment) and CRO subaward fr
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is this spend in the research phase or the development phase — and can you evidence technical feasibility?"**
    Recommended: research = expense; development = capitalize-candidate only with feasibility evidence, routed to a named finance owner.

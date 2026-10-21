@@ -75,7 +75,7 @@ repo's `derive_counters.py --check` discipline.
 
 - State directory is **`.agent-harness/`** — never `.agenthub/`, `.autoresearch/`, or
   `docs/TC/`, which belong to sibling skills.
-- Command is **`/cs:harness`** — `/hub:*`, `/ar:*`, `/si:*`, `/tc` are taken.
+- Command is **`/cs-harness`** — `/hub:*`, `/ar:*`, `/si:*`, `/tc` are taken.
 - The runtime agent is **`harness-runner`** — "orchestrator" already denotes the
   `context: fork` domain routers, and `hub-coordinator` / `experiment-runner` are taken.
 - The bare name "loop" is overloaded in this repo (the `/loop` scheduler skill,

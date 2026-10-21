@@ -1,9 +1,9 @@
 ---
-title: "/cs:iso27001-audit-prep — ISO 27001 ISMS Audit Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:iso27001-audit-prep <scope> — ISO 27001 ISMS audit readiness 6-question forcing interrogation. Use before annual Clause 9.2 internal audit. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:iso27001-audit-prep — ISO 27001 ISMS Audit Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:iso27001-audit-prep <scope> — ISO 27001 ISMS audit readiness 6-question forcing interrogation. Use before annual Clause 9.2 internal audit. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:iso27001-audit-prep — ISO 27001 ISMS Audit Forcing Questions
+# /compliance-os:iso27001-audit-prep — ISO 27001 ISMS Audit Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:iso27001-audit-prep <scope> — ISO 27001 ISMS audit readiness
 </div>
 
 
-**Command:** `/cs:iso27001-audit-prep <scope>`
+**Command:** `/compliance-os:iso27001-audit-prep <scope>`
 
 The ISO 27001 ISMS auditor pressure-tests any ISMS work. Six sample-driven questions before any internal audit, stage 1 readiness, or surveillance audit.
 
@@ -130,12 +130,12 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:soc2-audit-prep` — for SOC 2 cross-walk pair (75% overlap)
-- `/cs:aims-audit` — for ISO 42001 AIMS cross-walk
-- `/cs:gdpr-audit-prep` — for Article 32 organizational measures overlap
-- `/cs:ciso-review` — for executive cybersecurity strategy
-- `/cs:decide` — to log the verdict
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:soc2-audit-prep` — for SOC 2 cross-walk pair (75% overlap)
+- `/compliance-os:aims-audit` — for ISO 42001 AIMS cross-walk
+- `/compliance-os:gdpr-audit-prep` — for Article 32 organizational measures overlap
+- `/c-level-agents:ciso-review` — for executive cybersecurity strategy
+- `/c-level-agents:decide` — to log the verdict
 
 ## Related
 

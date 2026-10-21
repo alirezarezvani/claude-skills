@@ -1,9 +1,9 @@
 ---
-title: "/cs:ai-act-readiness — EU AI Act Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:ai-act-readiness — EU AI Act Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:ai-act-readiness — EU AI Act Forcing Questions
+# /compliance-os:ai-act-readiness — EU AI Act Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing int
 </div>
 
 
-**Command:** `/cs:ai-act-readiness <system>`
+**Command:** `/compliance-os:ai-act-readiness <system>`
 
 The EU AI Act compliance operator pressure-tests any AI system before EU deployment. Six Article-cited questions before any EU placement, conformity assessment, or annual compliance refresh.
 
@@ -142,12 +142,12 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view (combine with ISO 42001 + GDPR)
-- `/cs:aims-audit` — for ISO 42001 deep-dive
-- `/cs:caio-review` — for executive AI strategy decisions
-- `/cs:gc-review` — for novel-case legal review (GPAI threshold, Article 5 boundary, substantial-modification)
-- `/cs:decide` — to log the verdict
-- `/cs:freeze 30` — on EU launch commitments (regulatory exposure)
+- `/compliance-os:compliance-readiness` — for multi-framework view (combine with ISO 42001 + GDPR)
+- `/compliance-os:aims-audit` — for ISO 42001 deep-dive
+- `/c-level-agents:caio-review` — for executive AI strategy decisions
+- `/c-level-agents:gc-review` — for novel-case legal review (GPAI threshold, Article 5 boundary, substantial-modification)
+- `/c-level-agents:decide` — to log the verdict
+- `/c-level-agents:freeze 30` — on EU launch commitments (regulatory exposure)
 
 ## Related
 

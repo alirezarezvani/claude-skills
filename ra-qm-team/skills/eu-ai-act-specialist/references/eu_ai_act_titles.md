@@ -34,7 +34,7 @@ The Act has 13 Titles + 13 Annexes. Adopted as Regulation (EU) 2024/1689 (the "A
 
 ## Title III — High-Risk AI Systems (Articles 6–49)
 
-The densest part of the regulation. **Title III general high-risk obligations in force 2 Aug 2026; Annex I sectoral 2 Aug 2027.**
+The densest part of the regulation. **Annex III stand-alone high-risk obligations apply from 2 Dec 2027; Annex I sectoral (product-embedded) from 2 Aug 2028**, per Regulation (EU) 2026/1744 (the AI Omnibus, in force 27 Jul 2026), which deferred the original 2 Aug 2026 / 2027 dates. Article 50 transparency obligations were not deferred and apply from 2 Aug 2026.
 
 ### Chapter 1 — Classification (Articles 6–7)
 

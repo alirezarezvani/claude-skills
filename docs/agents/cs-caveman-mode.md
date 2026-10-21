@@ -64,7 +64,7 @@ Differentiates clearly:
 
 ### Workflow 1: Activation
 
-User types "caveman mode" / "talk like caveman" / `/cs:caveman` →
+User types "caveman mode" / "talk like caveman" / `/cs-caveman` →
 - Activate. Respond terse every turn from now on.
 - No "OK, switching to caveman mode" — just BEGIN.
 
@@ -115,7 +115,7 @@ No headers. No preamble. No bullets unless list semantics required.
 
 - Skill: [../skills/caveman/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman/skills/caveman/SKILL.md)
 - Companion tooling: [../skills/caveman/references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman/skills/caveman/references/companion_tooling.md)
-- Sibling command: [`/cs:caveman`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman/commands/cs-caveman.md)
+- Sibling command: [`/cs-caveman`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman/commands/cs-caveman.md)
 
 ---
 

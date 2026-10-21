@@ -89,7 +89,7 @@ The routed converter sub-skill's renderer (`md-document/scripts/`, `md-review/sc
 
 ## Forcing-question library (Matt Pocock grill-with-docs pattern)
 
-Walk these one at a time, with a recommended answer per question, citing the canon. Lift this list into `/cs:grill-markdown-html` for plan-stage interrogation.
+Walk these one at a time, with a recommended answer per question, citing the canon. Lift this list into `/cs-grill-markdown-html` for plan-stage interrogation.
 
 1. **What decision does this HTML drive — is the reader skimming, deciding, or presenting?**
    Recommended: name it first; density follows from purpose. Canon: Shihipar — "match output format to consumption context"; Tufte — *Visual Display of Quantitative Information*, ch. 1.

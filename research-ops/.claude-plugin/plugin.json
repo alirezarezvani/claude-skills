@@ -14,6 +14,7 @@
     "./skills/clinical-research",
     "./skills/research-finance",
     "./skills/market-research",
-    "./skills/product-research"
+    "./skills/product-research",
+    "./skills/interview-mapper"
   ]
 }

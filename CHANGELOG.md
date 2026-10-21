@@ -55,6 +55,12 @@ references 859 → 877; agents 120 → 123; commands 151 → 157; plugins 101 �
 
 ### Fixed
 
+- **`claude-coach` plugin renamed to `power-user-coach`.** Claude Code reserves plugin names
+  starting with `claude-`, so `claude plugin validate .` failed on the whole marketplace. The
+  skill, the `/claude-coach` and `/cs-claude-coach` commands and the `cs-claude-coach` agent keep
+  their names; only the plugin name changes. Existing installs need one reinstall:
+  `/plugin uninstall claude-coach@claude-code-skills` then
+  `/plugin install power-user-coach@claude-code-skills`.
 - **Plugin names match their install names.** Four plugins installed under one name and
   registered commands under another (`capture-skill` / `capture`, `email-pair` / `email`,
   `reflect-skill` / `reflect`, `research-orchestrator` / `research`). Their `plugin.json`

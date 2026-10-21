@@ -1840,7 +1840,7 @@
       "category": "development"
     },
     {
-      "name": "claude-coach",
+      "name": "power-user-coach",
       "source": "./engineering/claude-coach",
       "description": "Personal Claude power-user coach. Delivers a personalized, ranked cheat-code glossary on first activation, then surfaces at most one tip per turn when it would genuinely improve the next attempt. Ships cheat-codes glossary, coaching-rules decision tree, three stdlib Python tools, cs-claude-coach agent, and /cs-claude-coach command.",
       "version": "2.9.0",

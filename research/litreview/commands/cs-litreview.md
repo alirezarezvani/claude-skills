@@ -99,7 +99,7 @@ python ../skills/litreview/scripts/free_search.py --query "<broad Q1>" --source 
 #   5/10/20 searches across sub-areas + review + era-gated + follow-up
 
 # Phase 4 cross-search aggregation + DOCX
-python ../skills/litreview/scripts/cross_search_aggregator.py --session NAME
+python ../skills/litreview/scripts/cross_search_aggregator.py --results-file results.json  # Phase 3 search results; format in the script docstring
 # Generate DOCX via Node.js docx library
 python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx  # zip-integrity check; then confirm required sections present
 

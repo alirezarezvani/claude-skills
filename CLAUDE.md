@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.12.0 (consolidated release — 20 domains, 380 skills; full reported-issue triage sweep; first tag since v2.9.0. See CHANGELOG.md [2.12.0].)
+**Version:** v2.13.0 (October triage and quality-audit release: runnable command names, self-contained c-level-agents/compliance-os, hivemind as an opt-in plugin, six new skills from the community backlog. See CHANGELOG.md [2.13.0].)
+
+**Previously: v2.12.0** (consolidated release — 20 domains, 380 skills; full reported-issue triage sweep; first tag since v2.9.0. See CHANGELOG.md [2.12.0].)
 
 ---
 
@@ -827,6 +829,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** August 24, 2026
-**Version:** v2.12.0 (consolidated release — see CHANGELOG.md)
+**Last Updated:** October 21, 2026
+**Version:** v2.13.0 (October triage and quality-audit release — see CHANGELOG.md)
 **Status:** 392 production-ready skills across 20 domains, 101 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

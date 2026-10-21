@@ -1,9 +1,9 @@
 ---
-name: rooagi-red-green-proof
+name: red-green-proof
 description: Turns a suspected bug into a proven one. Verify the cause against reality before claiming it, write a test that FAILS on the current code, apply the fix, watch it pass — then revert the fix and confirm the test goes red again, because a test that passes both ways proves nothing. Invoked bare after a debugging conversation, it takes the target from context rather than asking. Use when fixing a bug, investigating an incident, hardening a flaky area, or when asked to "add tests that reveal the bug". Triggers on "/red-green-proof", "prove the bug", "red-green", "make the test fail first", "is that test load-bearing", "reveal the bug with a test".
 ---
 
-# RooAGI Red-Green-Proof
+# Red-Green-Proof
 
 A bug is not fixed because the tests pass. A bug is fixed when a test **fails without your fix and passes with it**, and you have watched it do both.
 

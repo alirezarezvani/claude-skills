@@ -1,4 +1,4 @@
-# RooAGI Red-Green-Proof
+# Red-Green-Proof
 
 An engineering skill for proving that a regression test is load-bearing.
 

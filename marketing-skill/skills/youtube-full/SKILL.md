@@ -6,163 +6,145 @@ license: "MIT"
 
 # youtube-full — YouTube Transcripts, Search, and Channel Data
 
-Covers transcript extraction, video search, channel browsing, in-channel search, playlist extraction, and new-upload monitoring via TranscriptAPI.
+Covers transcript extraction, video search, channel browsing, in-channel search, playlist extraction, and new-upload monitoring. The default path is free and open source: `yt-dlp`, `youtube-transcript-api` and YouTube's public RSS feeds. No account and no API key are needed.
 
-> **Source:** Ported from [ZeroPointRepo/youtube-skills](https://github.com/ZeroPointRepo/youtube-skills) (MIT). Original skill authored by ZeroPointRepo contributors. Adapted for the claude-skills format.
+> **Source:** Ported from [ZeroPointRepo/youtube-skills](https://github.com/ZeroPointRepo/youtube-skills) (MIT). Original skill authored by ZeroPointRepo contributors. Adapted for the claude-skills format, reworked to be open-source first.
 
-> **BYOK / free-tier note:** TranscriptAPI is a commercial service (BYOK — you bring your own key; 100 free credits included, no card required). For local/self-hosted extraction without an API key, use `youtube-transcript-api` (Python) or `yt-dlp` as OSS fallbacks. See [Anti-Patterns](#anti-patterns) for guidance.
+## Setup
 
-## API Setup
+```bash
+pip install yt-dlp youtube-transcript-api
+```
 
-Every request to `transcriptapi.com` requires two headers:
-
-- `Authorization: Bearer $TRANSCRIPT_API_KEY`
-- `User-Agent: ClaudeCode/1.0`
-
-If `TRANSCRIPT_API_KEY` is not set, prompt the user to get a free key at `https://transcriptapi.com` (100 free credits, no card required) and store it as `TRANSCRIPT_API_KEY`.
+Both are open source (yt-dlp: Unlicense; youtube-transcript-api: MIT) and run locally. Nothing is sent anywhere except YouTube itself. If they are missing, tell the user the install command; do not install packages into their environment without asking.
 
 ## Operations
 
-### Get transcript (1 credit)
+Accept a full URL, a `youtu.be` link, or a bare 11-character video ID. `youtube_transcript_api` takes the bare ID only, so extract it from a URL first (`v=` parameter, or the path segment after `youtu.be/` or `/shorts/`).
 
-```
-GET https://transcriptapi.com/api/v2/youtube/transcript
-  ?video_url={URL_OR_ID}&format=text&include_timestamp=true&send_metadata=true
-```
+### Get transcript
 
-Use this for any "get transcript", "summarize video", or "extract quotes" request.
-
-### Search YouTube (1 credit)
-
-```
-GET https://transcriptapi.com/api/v2/youtube/search
-  ?q={QUERY}&type=video&limit=20
+```bash
+youtube_transcript_api VIDEO_ID --languages en --format text     # plain text
+youtube_transcript_api VIDEO_ID --languages en --format json     # with start/duration timestamps
+youtube_transcript_api VIDEO_ID --list-transcripts               # which languages exist
 ```
 
-Use this when the user wants to find videos on a topic. Follow with transcript calls on selected results.
+In Python (v1.x API): `YouTubeTranscriptApi().fetch("VIDEO_ID", languages=["en"])`. Use this for any "get transcript", "summarize video", or "extract quotes" request. Pass the user's language first in `--languages` and fall back to `en`.
 
-### Channel — latest uploads (FREE)
+If it fails, fall back to subtitles via yt-dlp:
 
-```
-GET https://transcriptapi.com/api/v2/youtube/channel/latest
-  ?channel={@HANDLE_OR_ID}
-```
-
-Returns the 15 most recent uploads with view counts and publish timestamps. Use before fetching transcripts to check whether uploads are new.
-
-### Channel — all videos (1 credit/page)
-
-```
-GET https://transcriptapi.com/api/v2/youtube/channel/videos
-  ?channel={@HANDLE_OR_ID}
+```bash
+yt-dlp --skip-download --write-subs --write-auto-subs --sub-langs "en.*" \
+  --convert-subs srt -o "%(id)s.%(ext)s" "URL"
 ```
 
-Paginate with `?continuation=TOKEN` on subsequent pages.
+### Video metadata
 
-### In-channel search (1 credit)
-
-```
-GET https://transcriptapi.com/api/v2/youtube/channel/search
-  ?channel={@HANDLE_OR_ID}&q={QUERY}&limit=30
+```bash
+yt-dlp -J --skip-download "URL"          # title, channel, upload_date, duration, description, chapters
 ```
 
-Prefer this over broad YouTube search when the user already knows the channel.
+### Search YouTube
 
-### Playlist extraction (1 credit/page)
-
-```
-GET https://transcriptapi.com/api/v2/youtube/playlist/videos
-  ?playlist={PLAYLIST_URL_OR_ID}
+```bash
+yt-dlp "ytsearch20:QUERY" --flat-playlist --print "%(id)s | %(title)s | %(channel)s"
 ```
 
-Paginate with `?continuation=TOKEN`. Response includes `playlist_info`, `results`, `has_more`.
+Follow with transcript calls on the results the user picks.
 
-### Resolve handle (FREE)
+### Channel — latest uploads
+
+The public RSS feed returns the 15 most recent uploads, with no tool needed:
 
 ```
-GET https://transcriptapi.com/api/v2/youtube/channel/resolve
-  ?input={@HANDLE_OR_URL}
+https://www.youtube.com/feeds/videos.xml?channel_id=UC...
 ```
 
-Returns `{"channel_id": "UC...", "resolved_from": "@handle"}`.
+### Channel — all videos
 
-## Credit Costs Summary
+```bash
+yt-dlp --flat-playlist --print "%(id)s | %(title)s" "https://www.youtube.com/@HANDLE/videos"
+```
 
-| Endpoint           | Cost     |
-|--------------------|----------|
-| transcript         | 1        |
-| search             | 1        |
-| channel/resolve    | free     |
-| channel/latest     | free     |
-| channel/videos     | 1/page   |
-| channel/search     | 1        |
-| playlist/videos    | 1/page   |
+Add `-I 1:50` to cap the count.
 
-Failed or rate-limited calls return a structured error and cost zero credits.
+### In-channel search
+
+```bash
+yt-dlp --flat-playlist --print "%(id)s | %(title)s" "https://www.youtube.com/@HANDLE/search?query=QUERY"
+```
+
+If that returns nothing, list the channel's videos and filter titles locally.
+
+### Playlist extraction
+
+```bash
+yt-dlp --flat-playlist --print "%(playlist_index)s | %(id)s | %(title)s" "PLAYLIST_URL"
+```
+
+### Resolve a handle to a channel ID
+
+```bash
+yt-dlp -I 1 --flat-playlist --print "%(channel_id)s" "https://www.youtube.com/@HANDLE/videos"
+```
+
+The RSS feed needs the `UC...` channel ID, not the handle.
 
 ## Common Workflows
 
 ### Research workflow
 
-1. Search (`/search?q=...`) — pick the most relevant results
-2. Fetch transcripts (`/transcript?video_url=...`) for selected videos
-3. Summarize or extract quotes from transcript text
+1. Search with `ytsearchN:` and pick the most relevant results
+2. Fetch transcripts for the selected videos
+3. Summarize or extract quotes, citing video ID and timestamp
 
 ### Channel monitoring
 
-1. `channel/latest` (free) — check for new uploads
-2. If new videos found, fetch transcripts
-3. Extract signal (announcements, topics)
+1. Resolve the handle to a channel ID once
+2. Poll the RSS feed and compare video IDs against the last run
+3. Fetch transcripts only for the new videos
 
 ### Playlist to corpus
 
-1. `playlist/videos` — get all video IDs in the playlist
-2. Batch-fetch transcripts, pausing if near credit limit
-3. Assemble transcripts into a searchable document set
+1. List the playlist's video IDs
+2. Fetch transcripts one by one, pausing between requests
+3. Assemble them into a searchable document set, one file per video
 
 ## Decision Rules
 
-- When the user provides a YouTube URL, video ID, or @handle, use the matching endpoint directly — do not search first
-- When the user says "monitor" or "check for new uploads", use `channel/latest` (free) first
-- Use `channel/search` when the user knows which channel and wants to find a topic within it
-- Use `search` (type=channel) to find a channel when the user doesn't know the handle
-- Do not batch-transcribe an entire channel unless the user explicitly asks for that
+- When the user provides a YouTube URL, video ID, or @handle, use the matching operation directly. Do not search first.
+- When the user says "monitor" or "check for new uploads", use the RSS feed.
+- Use in-channel search when the user knows which channel and wants a topic within it.
+- Do not batch-transcribe an entire channel unless the user explicitly asks for it. Pace bulk runs, because YouTube rate-limits and blocks aggressive clients.
 
 ## Error Handling
 
-| Code     | Cause               | Action                                    |
-|----------|---------------------|-------------------------------------------|
-| 401      | Bad API key         | Check TRANSCRIPT_API_KEY                  |
-| 402      | No credits          | Inform user, direct to transcriptapi.com/billing |
-| 403/1010 | Missing User-Agent  | Add User-Agent header                     |
-| 404      | No captions found   | Inform user — zero credits charged        |
-| 408      | Timeout             | Retry once after 2 seconds                |
-| 429      | Rate limited        | Respect Retry-After header                |
+| Symptom | Cause | Action |
+|---------|-------|--------|
+| `TranscriptsDisabled` / `NoTranscriptFound` | Video has no captions in that language | Try `--list-transcripts`, then another language; otherwise tell the user |
+| `RequestBlocked` / `IpBlocked`, HTTP 429, "Sign in to confirm you're not a bot" | YouTube is blocking this IP (common from cloud and datacenter hosts) | Slow down; run from a residential connection; or use the optional backend below |
+| `VideoUnavailable` | Private, removed, or region-locked | Tell the user; this skill cannot access it |
+| yt-dlp extractor error | YouTube changed its site | `pip install -U yt-dlp` and retry once |
+
+## Optional: hosted backend (third-party, commercial)
+
+Only when the open-source path is blocked (typically IP blocking on a cloud host) and the user asks for an alternative, you may mention that hosted transcript APIs exist, for example TranscriptAPI (transcriptapi.com, bring your own key, paid credits after a free allowance). Using one sends the requested video IDs and queries to that third party. Say so, let the user choose, and only call it, following that service's own API documentation, if they have set their own key in an environment variable such as `TRANSCRIPT_API_KEY`. Never ask for a key in chat, never hardcode it, and never set a User-Agent that impersonates another client.
 
 ## Limitations
 
-- Transcripts require captions (manual or auto-generated). Some videos have no captions — this returns a 404 and costs zero credits.
+- Transcripts require captions (manual or auto-generated). Some videos have none.
 - Private and age-restricted videos are not accessible.
-- Live stream transcripts are unstable until the stream ends.
-- Rate limit: 300 requests/minute on the free tier.
-- This skill does not download audio or video files. For local file download, use `yt-dlp` directly.
+- Live-stream transcripts are unstable until the stream ends.
+- YouTube changes its site often. Keep `yt-dlp` current.
+- This skill does not download audio or video files.
 
 ## Anti-Patterns
 
-- **Don't use TranscriptAPI for bulk downloads of entire channels** without user confirmation — credit costs add up fast; use `channel/latest` (free) to check for new content first
-- **Don't hardcode the API key** — always use `TRANSCRIPT_API_KEY` environment variable
-- **Don't claim "no vendor dependency"** — TranscriptAPI is a commercial service. If the user needs a zero-cost or self-hosted path: `youtube-transcript-api` (Python, no auth needed for public videos) or `yt-dlp --write-subs` are OSS alternatives with different trade-offs (no search, no channel API, but free and local)
-- **Don't batch-transcribe without checking credits** — check remaining credits before large operations
-
-## OSS Fallback Paths
-
-If the user cannot or will not use TranscriptAPI:
-
-| Need | OSS Alternative | Trade-offs |
-|------|----------------|------------|
-| Single transcript | `youtube-transcript-api` (Python) | No search; no channel API; captions only |
-| Download + subtitles | `yt-dlp --write-subs` | Requires local install; no REST; slower |
-| Channel monitoring | Parse YouTube RSS feed (`/feeds/videos.xml?channel_id=...`) | Free, no auth; limited metadata |
+- **Don't default to a paid service.** The open-source tools cover every operation above.
+- **Don't scrape at volume.** Bulk channel pulls get the user's IP blocked. Confirm scope first.
+- **Don't invent transcript text** when fetching fails. Report the failure and the cause.
+- **Don't strip timestamps** when the user may need to cite or jump to a moment.
 
 ## Cross-References
 

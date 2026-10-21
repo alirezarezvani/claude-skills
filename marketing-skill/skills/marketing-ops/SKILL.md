@@ -74,7 +74,7 @@ User wants to assess their marketing → you run a cross-functional audit touchi
 | "Social media strategy," "social calendar," "community" | **social-media-manager** | Not social-content (that's for individual posts) |
 | "X growth," "Twitter growth," "grow my X account" | **x-twitter-growth** | Not social-content (that's cross-platform posts) |
 | "YouTube," "video SEO," "channel strategy," "thumbnails" | **youtube-full** | Not video-content-strategist (that's platform-agnostic strategy) |
-| "Video strategy," "short-form video," "video content plan" | **video-content-strategist** (sibling folder `video-content-strategist/`) | Not youtube-full (that's YouTube-specific + API-backed) |
+| "Video strategy," "short-form video," "video content plan" | **video-content-strategist** (sibling folder `video-content-strategist/`) | Not youtube-full (that's YouTube-specific data: transcripts, search, channels) |
 | "Webinar," "webinar funnel," "registration rate," "show-up rate" | **webinar-marketing** | |
 | "App Store," "Play Store," "ASO," "app keywords" | **app-store-optimization** | Not seo-audit (that's web search) |
 

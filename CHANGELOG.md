@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **`youtube-full` is open-source first.** Every operation (transcripts, search, channel and
+  playlist listing, upload monitoring, handle resolution) now runs on `yt-dlp`,
+  `youtube-transcript-api` and YouTube's public RSS feeds, with no account or API key. The
+  commercial TranscriptAPI backend is now an optional fallback that the agent mentions only
+  when the open-source path is blocked and the user asks, with a note on what data it sends.
+  The sign-up prompt and the `User-Agent: ClaudeCode/1.0` header are removed.
+
 ### Fixed
 
 - **Plugin names match their install names.** Four plugins installed under one name and

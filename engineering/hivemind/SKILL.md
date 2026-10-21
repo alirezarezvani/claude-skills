@@ -21,8 +21,18 @@ third-party CLI. It is not bundled — install and authenticate it yourself firs
 | Default model `opencode/mimo-v2.5-free` | A free tier offered by opencode, not by Anthropic. Availability, rate limits, and pricing are opencode's to change — override with `--model` at any time. |
 | Windows only: `OPENCODE_GIT_BASH_PATH` | Point at `C:\Program Files\Git\bin\bash.exe`, set persistently. |
 
-Nothing here calls the Anthropic API on the worker side; worker traffic goes to
-opencode's endpoints. Do not delegate secrets or private code you would not send there.
+## Data flow (read before installing)
+
+Hivemind is opt-in and ships outside every domain bundle. **By default your code
+leaves your machine:** the default model, `opencode/mimo-v2.5-free`, runs on
+opencode's hosted service, so each worker sends its prompt, plus any files or diffs
+you give it, to opencode's endpoints. Nothing on the worker side calls the Anthropic
+API.
+
+To keep code local, point `--model` at a model served on your own machine (for
+example an Ollama or LM Studio provider configured in your opencode config). With a
+hosted model, delegate only code you are allowed to send to that provider, and never
+delegate secrets.
 
 ## Setup
 
@@ -49,8 +59,9 @@ Runtime state (`.runs/*.jsonl`) is written inside this folder and is gitignored.
 | `scripts/oc-aggregate.mjs` | Dedupe/synthesize N worker outputs; consensus findings first |
 | `scripts/bench/run-bench.mjs` | Benchmark configs A (claude solo), B (opencode solo), C (orchestrated swarm) |
 | `scripts/bench/grader-prompt.md` | Blind grading rubric (max 12 pts + PASS/FAIL gate) |
+| `scripts/oc-verify.mjs` | Fan a worker's claims to a verifier on a DIFFERENT model; returns counts + `needs_review` |
 | `assets/commands/` | Slash-command entry points to copy into `~/.claude/commands/` |
-| `assets/agents/` | scout / coder / tester agent definitions for opencode |
+| `assets/agents/` | scout / coder / tester / verifier agent definitions for opencode |
 
 Slash commands (ship in `assets/commands/`, copy to `~/.claude/commands/`):
 - `/hive <task>` - AUTO-ROUTER. Classifies task -> single worker, generic swarm, or template. Default entry point; prefer this over manual routing.
@@ -69,13 +80,16 @@ Worker agents (ship in `assets/agents/`, copy to `~/.config/opencode/agent/`):
 ## Invocation contract
 
 ```
-node "<skill-dir>\scripts\oc-worker.mjs" [--agent scout|coder|tester] [--dir <path>] [--model <p/m>] [--timeout 900] [--run <id> --label <name>] "TASK TEXT"
+node "<skill-dir>\scripts\oc-worker.mjs" [--agent scout|coder|tester] [--dir <path>] [--model <p/m>] [--timeout 900] [--run <id> --label <name>] [--json] "TASK TEXT"
 ```
 
 Returns exactly ONE compact JSON line:
 `{ ok, result, tokens:{total,input,output,cache}, cost_usd, duration_ms, label, agent, model }`
 
-On failure: `{ ok:false, stage:"args"|"exec"|"api"|"parse"|"empty", error }` with stderr capped at 300 chars.
+On failure: `{ ok:false, stage:"args"|"exec"|"api"|"parse"|"empty"|"schema", error }` with stderr capped at 300 chars.
+
+`--json` makes `result` a JSON value: the script extracts it from the reply, gives the model one
+corrective retry, and fails with `stage:"schema"` if it still gets no parseable JSON.
 
 `--run <id>` + `--label <name>` append lifecycle events (start/done/fail) to `.runs/<id>.jsonl`
 inside this skill dir. Use them for EVERY swarm worker so progress is recoverable via
@@ -87,6 +101,35 @@ The script auto-manages the shared server: health-checks `127.0.0.1:4096`, spawn
 valid URL with a numeric port; anything else fails fast with a single `stage:"args"` JSON line
 rather than reaching the spawned process.
 
+
+## Verify instead of re-reading (do this before you trust a claim)
+
+Re-checking every worker claim yourself costs more than the delegation saved. Send the
+claims to a verifier instead:
+
+```
+node scripts/oc-verify.mjs --dir <same dir the worker saw> --claims findings.json --run <id>
+```
+
+Returns `{ confirmed, refuted, unsupported, unverified, needs_review[] }`. Read
+`needs_review` only — those are the refuted and unsupported claims. Confirmed claims are
+counts, not prose, and do not come back into your context.
+
+HARD RULES for this stage:
+- The verifier MUST run on a different model from the worker. Same model = same blind
+  spots = a rubber stamp. The verifier defaults to `opencode/nemotron-3.5-lightning-free`
+  against the worker's default `opencode/mimo-v2.5-free`; pass `--model` if you change either.
+- The verifier sees the FILES and the claims, never the worker's reasoning.
+- It defaults to REFUTED when uncertain, because a false CONFIRMED is acted on unchecked.
+- `unverified > 0` means the verifier skipped claims. Treat those as unverified, not passed.
+- Still spot-check a sample yourself. Two free models agreeing is evidence, not proof.
+
+## Free models are not always up
+
+Free `opencode/*` models return provider 404s and empty bodies often enough that an
+unattended swarm cannot depend on any one of them. Never hardcode a free model id: they
+stop being free without warning. Pass `--model` explicitly for scheduled or bulk work, and
+when a free model fails twice, follow the fallback ladder below rather than retrying.
 
 ## Golden Rule (non-negotiable)
 

@@ -37,7 +37,7 @@ function logRun(event, extra = {}) {
 }
 
 function parseArgs(argv) {
-  const out = { agent: null, model: null, dir: null, timeoutMs: 600000, run: null, label: null, task: [] };
+  const out = { agent: null, model: null, dir: null, timeoutMs: 600000, run: null, label: null, json: false, task: [] };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--agent") out.agent = argv[++i] ?? null;
@@ -46,6 +46,7 @@ function parseArgs(argv) {
     else if (a === "--timeout") out.timeoutMs = Number(argv[++i]) * 1000 || out.timeoutMs;
     else if (a === "--run") out.run = argv[++i] ?? null;
     else if (a === "--label") out.label = argv[++i] ?? null;
+    else if (a === "--json") out.json = true;
     else out.task.push(a);
   }
   out.task = out.task.join(" ").trim();
@@ -150,11 +151,33 @@ async function main() {
     fail(parsed.stage, parsed.error, { duration_ms: Date.now() - t0, model: opts.model });
   }
 
+  // --json: dig the structured value out, and give the model exactly one
+  // corrective retry before giving up. Unparseable output is the single most
+  // common way a worker "succeeds" while being useless to the caller.
+  let payload = parsed.result;
+  if (opts.json) {
+    let value = extractJson(parsed.result);
+    if (value === null) {
+      const strict = spawnSync(bin, [...baseArgs, "--format", "json",
+        opts.task + "\n\nYour previous reply could not be parsed. Reply with the JSON value ONLY: no prose, no explanation, no markdown fence."],
+        { encoding: "utf8", maxBuffer: 256 * 1024 * 1024, timeout: opts.timeoutMs, windowsHide: true });
+      const reparsed = strict.stdout ? parseNdjson(strict.stdout) : { ok: false };
+      if (reparsed.ok) value = extractJson(reparsed.result);
+      if (value !== null && reparsed.ok) parsed.tokens = mergeTokens(parsed.tokens, reparsed.tokens);
+    }
+    if (value === null) {
+      fail("schema", "worker did not return parseable JSON after a corrective retry",
+        { duration_ms: Date.now() - t0, model: opts.model });
+    }
+    payload = JSON.stringify(value);
+  }
+
   const duration = Date.now() - t0;
-  logRun("done", { tokens_total: parsed.tokens?.total ?? null, duration_ms: duration });
+  logRun("done", { tokens_total: parsed.tokens?.total ?? null, duration_ms: duration, json: opts.json });
   console.log(JSON.stringify({
     ok: true,
-    result: parsed.result.slice(-20000),
+    json: opts.json || undefined,
+    result: payload.slice(-20000),
     tokens: parsed.tokens,
     cost_usd: parsed.costUsd,
     session_id: parsed.sessionId,
@@ -188,6 +211,36 @@ function parseNdjson(stdout) {
   if (!result && !sawFinish) return { ok: false, stage: "parse", error: "no text parts and no step_finish in stream" };
   if (!result) return { ok: false, stage: "empty", error: "worker produced no text output" };
   return { ok: true, result, tokens, costUsd, sessionId };
+}
+
+
+// Workers reliably bury their JSON in a fenced block after a paragraph of
+// thinking, so --json digs it out rather than making every caller re-invent
+// the same regex. Returns null when there is no parseable JSON value.
+function mergeTokens(a, b) {
+  if (!a) return b || null;
+  if (!b) return a;
+  const c = { ...a };
+  for (const k of ["total", "input", "output", "reasoning"]) c[k] = (a[k] || 0) + (b[k] || 0);
+  return c;
+}
+
+function extractJson(text) {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  const candidates = [];
+  if (fenced) candidates.push(fenced[1]);
+  candidates.push(text);
+  for (const c of candidates) {
+    const s = c.trim();
+    for (const [open, close] of [["[", "]"], ["{", "}"]]) {
+      const i = s.indexOf(open), j = s.lastIndexOf(close);
+      if (i !== -1 && j > i) {
+        try { return JSON.parse(s.slice(i, j + 1)); } catch {}
+      }
+    }
+    try { return JSON.parse(s); } catch {}
+  }
+  return null;
 }
 
 function existsDir(p) {

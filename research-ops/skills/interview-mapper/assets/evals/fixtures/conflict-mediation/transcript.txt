@@ -1,0 +1,74 @@
+1	Mediator: Thanks for making the time. Quick reminder on the format — this is a conversation with just you, separate from Maxim, I won't repeat back to him word-for-word what you say, I work with it afterward in aggregate. Are you comfortable with that?
+2	Artem: Yeah, comfortable, honestly it's even easier this way, because with him in the room I can't say half of it properly, I just snap right away.
+3	Mediator: Good, so let's start from the beginning — how did you two actually launch the studio?
+4	Artem: Maxim and I met two and a half years ago, back at our previous job, he was in sales there, I was in development, we left together, I coded, he found clients, it was all on trust, no real paperwork, brotherly-style.
+5	Mediator: And how did you split the shares?
+6	Artem: Fifty-fifty, verbally, I didn't even think to formalize it properly back then, I was an idiot.
+7	Mediator: What matters most to you right now in this situation, why did you actually come to mediation?
+8	Artem: I want to revisit the split. Fifty-fifty isn't fair, I want seventy-thirty in my favor, period, that's not up for discussion.
+9	Mediator: Seventy-thirty. Why that specific number?
+10	Artem: Because I'm carrying the entire product. The whole codebase is mine, I close every critical production bug at night, Maxim hasn't written a single line of code in the last year, just calls and presentations.
+11	Mediator: Why do you specifically need a new percentage split, rather than something else? What is it supposed to give you?
+12	Artem: Well... (long pause) honestly — it's not about the number itself. I need someone to acknowledge that without me there's no product. Right now I feel like a hired employee, just without the salary of a hired employee, but on paper I'm supposedly an equal partner.
+13	Mediator: So the recognition of your contribution matters, and the share is a way to express that?
+14	Artem: Yeah, probably that's it. Although if the split stayed fifty-fifty, but something like veto power over technical decisions showed up — maybe I wouldn't even be raising the share question at all.
+15	Mediator: Okay, that's important, we'll come back to it. Tell me how things actually got to where they are now, from your side.
+16	Artem: The first year everything was great, we both worked equally hard, I wasn't complaining. The turning point happened last spring, when Maxim hired his wife Olya for the project manager position, without my agreement, just presented it as a done deal.
+17	Mediator: How was hiring decided before that?
+18	Artem: We had a gentlemen's agreement — major decisions together, the two of us. Hiring his wife at a salary of a hundred and twenty thousand is a major decision, and I found out after the fact from a chat with the accountant.
+19	Mediator: And what happened after that?
+20	Artem: After that Olya started getting into development task prioritization, even though she's not technical at all, and Maxim always backed her up in disputes with me, even when she was objectively wrong.
+21	Mediator: Do you have an example of a dispute where, in your view, she was wrong?
+22	Artem: As many as you want, here's one — in February she pushed a feature for the client FinTrade to the top of the priority list, even though we had a burning bug about lost payments for another client, QuickPay, because of that we nearly lost QuickPay, they were threatening to sue.
+23	Mediator: Is that the case you wrote about in your mediation application?
+24	Artem: Yes, that exact one. QuickPay is forty percent of our revenue, by the way. Because of the FinTrade priority we missed the fix deadline by eleven days, QuickPay were literally writing that they're leaving for competitors.
+25	Mediator: How did it end up getting resolved with QuickPay?
+26	Artem: In the end I fixed it myself, no sleep for two days, apologized to their CTO in person, talked them into staying, gave them three months of free service on our behalf, without asking anyone, if I'm honest.
+27	Mediator: Does Maxim know you gave a discount without approval?
+28	Artem: He knows, after the fact, he wasn't too happy about the amount, said I was throwing around company money, but I think I saved a contract that we nearly lost in the first place because of his wife.
+29	Mediator: Who do you think is responsible for this situation with QuickPay?
+30	Artem: Maxim. A hundred percent Maxim. He put Olya in charge of sorting out priorities, knowing she doesn't understand technical urgency, and didn't put any safety net in place.
+31	Mediator: And Olya herself, in your view, what role did she play here?
+32	Artem: She was doing what seemed important for the client who was in direct contact with her, I don't think she did it maliciously, she just didn't understand the consequences, but the choice to put her in that role — that's Maxim's choice.
+33	Mediator: Did you two try discussing this together at all, before coming to mediation?
+34	Artem: We tried, twice. The first time in March, I proposed formalizing the prioritization process so that only I would make urgency decisions, he agreed verbally, it held for three weeks, then everything went back to how it was.
+35	Mediator: And the second time?
+36	Artem: The second time was in May, already after the QuickPay case, that was a big conversation, I snapped, said too much, called Olya incompetent to his face, he got offended, walked out, we barely spoke for a week.
+37	Mediator: What changed after that conversation?
+38	Artem: Nothing really changed, except that it got colder. Now every other day he reminds me that the split is fifty-fifty and that "without him there'd be no sales at all," like we're competing over who matters more.
+39	Mediator: Look, here's an important question — what will you do if mediation doesn't lead to an agreement?
+40	Artem: If we don't reach an agreement — I'm leaving and taking the key client with me, QuickPay, I already have a direct contact with their CTO, they said they'd be willing to work with me directly as an independent contractor, I've been seriously thinking about it for the last two months.
+41	Mediator: Have you already taken any steps in that direction?
+42	Artem: Not yet, nothing official, but yes, I've been feeling it out, that's not empty talk, I even have a draft proposal ready, if it really comes down to it.
+43	Mediator: So leaving with the client is your fallback position if mediation doesn't work.
+44	Artem: Yes, but I really don't want to push it that far, we've built so much together, I just need to know that I have somewhere to go, otherwise I'm negotiating from a position of weakness.
+45	Mediator: Is there anything you absolutely will not agree to, under any circumstances?
+46	Artem: Olya has no right to make technical decisions — that's a red line, no discussion whatsoever. She can stay as project manager, talk to clients, but task priorities go through me or through a neutral process only.
+47	Mediator: What about her presence in the company at all, her employment?
+48	Artem: That's different, I'm not demanding she be fired, although honestly it would be simpler, but I understand that's overreaching on my part, family is family. What matters to me is the authority, not the person.
+49	Mediator: Any other red lines?
+50	Artem: Also — I won't agree to any reduction of the share below fifty, under no circumstances at all, not even temporarily. That's the baseline, below it I just exit the partnership.
+51	Mediator: How do you feel about Maxim overall right now, if you set aside the specific disputes?
+52	Artem: You know, it's strange, but I don't feel hatred toward him, we still sometimes call each other in the evening just to chat about football, like nothing's happening, it's a stupid feeling of being split in two.
+53	Mediator: So some part of the trust is still there?
+54	Artem: It's still there, maybe thirty percent of what it used to be. I believe he doesn't want to deliberately set me up, I don't believe he's capable of telling his wife "no" in time, when the business needs it.
+55	Mediator: What do you think matters to Maxim right now, from an outside view?
+56	Artem: I think it matters to him to feel like an equal partner, not like "the guy who hired the tech person," he's got some kind of complex about it, that without me there's, like, code, but without him there's more or less enough sales too, honestly I don't know, I haven't asked him directly.
+57	Mediator: And on the money side — how do you actually split profit right now, is there anything else important to you there?
+58	Artem: Profit is split evenly, but this past year I've been reinvesting almost all of my half into cloud servers, and he takes his entire half for himself, I found that out by accident, I saw a statement when he forgot to log out.
+59	Mediator: Have you discussed that with him?
+60	Artem: No, haven't discussed it yet, honestly I was holding onto that fact, wanted to use it in mediation, that's probably not very fair on my part, but it was really hurtful.
+61	Mediator: Look, what do you think is the scariest thing for Maxim right now, what is he afraid of in this situation?
+62	Artem: Probably losing QuickPay for good, that's a sore subject for him too, at a meeting with an investor in June he actually referenced them as the main case, "here's a client that's stuck with us for three years," it really matters to him that this contract doesn't fall apart.
+63	Mediator: And does it matter to you that QuickPay stays?
+64	Artem: It matters to me more than to him, honestly, I'm the one who built the relationship personally, but yes, it's bad for both of us to lose them, so I can't say we're exactly in different camps on this.
+65	Mediator: So on the question of retaining this client you're both equally invested?
+66	Artem: Well... probably, yeah, although I've never put it that directly before, we just see the way to retain them differently, he does it through relationships and discounts, I do it through making sure bugs don't surface. Maybe this isn't even about different interests at all, but about different ways of achieving the same thing, I'm not sure, I need to think about it.
+67	Mediator: Okay, you mentioned company growth — does it matter to both of you that the business grows, or is there a divergence there too?
+68	Artem: Probably matters to both of us, but I've had this feeling for a while now that company growth, for him, is growth of his personal importance, and for me it's just about the code not falling apart under load, I don't know, maybe I'm just tired and seeing everything in black.
+69	Mediator: Did you try bringing in a third party before mediation — a lawyer, an accountant, a mutual friend?
+70	Artem: We tried once, went to our accountant Sveta, she tried to calculate who's actually contributing how much by the hour, but that turned into yet another argument about who counts hours and how, and it fizzled out from there, dropped it after about two weeks.
+71	Mediator: How would you rate your current readiness for some kind of compromise — high, medium, low?
+72	Artem: I'd say medium, leaning toward high. I genuinely want to keep the company, I just I'm not willing to keep it on the current terms, for me the line between "partnership" and "being used" is very thin right now. Although honestly, on bad days I'd say readiness is low overall, it really fluctuates day to day.
+73	Mediator: Last question for now — in one sentence, what's the whole conflict actually about?
+74	Artem: It's about the fact that I've been carrying the tech and the product alone for two years, and business decisions, including hiring relatives, get made without me, and I'm sick of being the one who gets asked last.

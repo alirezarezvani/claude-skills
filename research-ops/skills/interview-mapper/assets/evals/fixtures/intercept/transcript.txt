@@ -1,0 +1,48 @@
+Interviewer: Hi there! Can I grab literally thirty seconds, you were just at our booth?
+Respondent: Yeah-yeah, I was, but I'm really in a rush, I've got a meeting in another hall in seven minutes.
+Interviewer: Got it, I'll try to keep it really short, just a couple questions.
+Respondent: Go ahead, just really fast.
+Interviewer: Okay. You just tried the demo version of our CRM on the tablet at the booth — what's the first thing you felt when the screen loaded?
+Respondent: Honestly? I was pleasantly surprised it didn't lag, I usually wait like ten seconds for stuff to load at trade shows.
+Interviewer: So the speed grabbed you in the very first second.
+Respondent: Yeah, exactly the speed. Right in the moment I thought "oh, snappy".
+Interviewer: And about the system itself, about "Keynode" — had you heard of it before or is this the first time you're seeing the name?
+Respondent: First time seeing it, honestly. My colleague dragged me over to the booth, I wouldn't have come on my own.
+Interviewer: I see, so you didn't know anything about the brand beforehand.
+Respondent: Nothing at all, zero, I heard the name itself for the first time literally a minute ago.
+Interviewer: Okay, that's important. You watched the demo for about forty seconds, then stepped away — what made you step away?
+Respondent: My colleague called me over, said we're expected at the next booth, that's all, no negativity at all.
+Interviewer: Got it. And in terms of the feel of the interface itself, not the speed — what would you say?
+Respondent: Well I didn't really get a proper look, there were three screens, I only saw one.
+Interviewer: Which screen exactly did you manage to see?
+Respondent: I think the client list, they opened one card, and that's it, there wasn't any more time.
+Interviewer: Okay. What are your plans going forward — will you come back after the meeting, or?
+Respondent: Probably not, our schedule's packed, but if there's time at lunch — I'll swing by.
+Interviewer: Noted. And if you weren't in a rush right now, what else would you want to see?
+Respondent: Reports probably, how the dashboards are built, that's critical for us.
+Interviewer: Okay, last question. Rate your overall impression of these forty seconds.
+Respondent: Positive, but that doesn't mean we'll buy it, I'll be honest, I saw way too little.
+Interviewer: I understand, thank you very much, sorry for holding you up.
+Respondent: No worries at all. Although you know, thinking about it — speed is nice of course, but it doesn't decide anything by itself, we've already got three fast systems, and what good is that.
+Interviewer: So just a second ago you were saying "snappy, I liked it", and now you're saying "it doesn't decide anything" — how does that fit together?
+Respondent: Yeah well, I guess in that first second I was just happy because it didn't freeze, but once I thought about it — there's plenty of systems like that on the market.
+Interviewer: Got it, thanks, that's valuable. Fifteen more seconds okay?
+Respondent: Go ahead, but I really am running now.
+Interviewer: Does anyone at your company already use something similar?
+Respondent: We have our own CRM, custom-built, old, and honestly that's exactly why we're walking the show, looking for a replacement.
+Interviewer: And how many people currently use that custom-built system?
+Respondent: About fifteen people, but that's not important right now, let's move on, I really am running.
+Interviewer: Okay, sorry. And the demo at the booth — was that the first demo today or which one so far?
+Respondent: Third one. The first two didn't grab me at all, so compared to those yours looked pretty good.
+Interviewer: So the comparison with the previous booths played a role too.
+Respondent: Yeah probably, if this demo had been the first one of the day, I probably wouldn't have reacted the same way.
+Interviewer: Okay, last thing: how was the booth manager who ran the demo?
+Respondent: Fine, he was rushing to explain, but that's understandable, there was a small line here.
+Interviewer: Thank you so much, sorry for holding you up.
+Respondent: All good, good luck to you.
+Interviewer: Oh, wait a second, can I get a contact to send over materials?
+Respondent: Sure, quick, here's a business card, but I don't answer email right away, it all goes through an assistant on our end.
+Interviewer: Last thing — what's your name, so I can label the materials?
+Respondent: Igor, just Igor is fine, that's it, gotta run.
+Interviewer: Got it, thanks, all noted.
+Respondent: Yeah, running, I had seven minutes and twelve have already passed.

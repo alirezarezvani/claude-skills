@@ -7,6 +7,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.13.0] - 2026-10-21 — October triage and quality-audit release
+
+First release since v2.12.0. It clears the community backlog that built up over the summer,
+fixes every user-facing defect the October quality audit found, and adds six skills and two
+plugins. Totals: 392 skills, 746 Python tools, 859 references, 120 agents, 151 commands and
+101 marketplace plugins (derived by `scripts/derive_counters.py`).
+
+### Fixed — quality-audit sweep (#1039)
+
+- **Command names that run.** Claude Code runs a plugin command as `/<plugin>:<name>` or as a
+  bare `/<name>`, never as `/cs:<name>`. Every `/cs:<name>` reference in docs, skill
+  descriptions and hook messages now uses a form that resolves (`/cs-<name>`, or the fully
+  qualified `/c-level-agents:decide` style for generic names). The new blocking gate
+  `scripts/check_command_refs.py` keeps it that way. Entries below keep the old spelling as
+  history.
+- **c-level-agents and compliance-os work when installed on their own.** Their agents called
+  scripts through `../../` paths outside the plugin, which a marketplace install does not
+  copy. Each plugin now carries a `vendor/` of relative symlinks, referenced through
+  `${CLAUDE_PLUGIN_ROOT}`.
+- **Orphan skills are installable.** `loop-library` has its own plugin; `boost-asio-pro`,
+  `minimalist` and `strict-api` join the `engineering-advanced-skills` bundle.
+- **Regulatory dates.** EU AI Act timelines follow Regulation (EU) 2026/1744, and the
+  Colorado references cite SB 26-189 instead of the unrelated SB 21-169.
+- **Hooks and scripts.** Two plugin hooks now read stdin JSON and reach Claude; agent-launcher
+  `--sample` honours `--json`; agenthub asks before it merges.
+- **No third-party plugin for cloners.** `.claude/settings.json` no longer enables an
+  external marketplace plugin for everyone who clones the repo.
+
+### Added — community contributions (merged with maintainer fixes)
+
+- **`engineering/hivemind` is an opt-in plugin.** It orchestrates opencode workers on free or
+  local open models and ships outside every bundle. Its README and SKILL.md say plainly that
+  the default model sends code to opencode's hosted service, and how to keep code local with
+  `--model`. It gains a claim-verification stage (`oc-verify.mjs`, plus a verifier persona
+  that runs on a different model) and a `--json` contract with one corrective retry (from
+  #1003 by @Hanishchow; the proposed OpenRouter provider was left out pending a security
+  review).
+- **`research-ops/interview-mapper`**: transcript coding, quote verification against the
+  source, a reliability council and insight synthesis (#992 by @Socialpranker, closes #910).
+- **`finance/passive-deal-screener`**: screens private deals from the passive LP side with
+  fee-drag and benchmark tools. Every verdict carries a not-investment-advice line (#1026 by
+  @dhoovDB).
+- **`engineering-team/red-green-proof`**: prove a bug with a test that fails, passes on the
+  fix, and fails again when the fix is reverted (#1000 by @rooagidev).
+- **`marketing-skill/ai-decision-authority`**: sorts marketing and GTM decisions into
+  AI-primary, collaborative and human-primary zones by stakes and reversibility (#998 by
+  @kubersharmax).
+
 ### Fixed — October 2026 issue-triage sweep
 
 - **Codex-valid SKILL.md frontmatter (#1027).** 77 skills carried `version` / `author` /

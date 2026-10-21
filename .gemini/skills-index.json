@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 434,
+  "total_skills": 440,
   "skills": [
     {
       "name": "content-strategist",
@@ -2172,6 +2172,36 @@
       "name": "research-ops-skills",
       "category": "research-ops",
       "description": "Use when planning, funding, scoping, or synthesizing enterprise research across workstreams \u2014 clinical study design, R&D program finance, market sizing/surveys, or product/user research. Triggers on \"design this clinical study\", \"what sample size\", \"R&D budget\", \"burn rate\", \"capitalize or expense\", \"TAM SAM SOM\", \"market sizing\", \"survey design\", \"segment the market\", \"plan user interviews\", \"usability test\", \"synthesize research insights\". Forks context to route to one of four Research-Operations sub-skills (clinical-research, research-finance, market-research, product-research) and returns a digest. Distinct from ra-qm-team (regulatory submission), finance (corporate close/valuation), research/grants (funding discovery), product-team (persona/journey/live experiments), and marketing-skill (campaign analytics)."
+    },
+    {
+      "name": "red-green-proof",
+      "category": "engineering",
+      "description": "Turns a suspected bug into a proven one. Verify the cause against reality before claiming it, write a test that FAILS on the current code, apply the fix, watch it pass \u2014 then revert the fix and confirm the test goes red again, because a test that passes both ways proves nothing. Invoked bare after a debugging conversation, it takes the target from context rather than asking. Use when fixing a bug, investigating an incident, hardening a flaky area, or when asked to \"add tests that reveal the bug\". Triggers on \"/red-green-proof\", \"prove the bug\", \"red-green\", \"make the test fail first\", \"is that test load-bearing\", \"reveal the bug with a test\"."
+    },
+    {
+      "name": "deep-learning-book",
+      "category": "engineering-advanced",
+      "description": "Study companion and working knowledge base for the Deep Learning textbook by Goodfellow, Bengio & Courville (MIT Press, 2016), read free at deeplearningbook.org. Indexes all 20 chapters, carries a 2016-to-2026 delta layer naming what the book got right, what was superseded (transformers, AdamW, diffusion, double descent) and what still holds, and ships four deterministic tools: a prerequisite-aware reading-path planner, a training-failure diagnostic, a capacity-and-regularization planner, and a parameter/FLOP/activation-memory calculator. Use when studying or teaching this book, planning a route through it, deciding whether a chapter's advice is still current, or translating its math into a training decision. It points at the official chapters \u2014 it never reproduces them."
+    },
+    {
+      "name": "spinning-up-deep-rl",
+      "category": "engineering-advanced",
+      "description": "Knowledge base from \\\"Spinning Up in Deep RL\\\" by Joshua Achiam (OpenAI, MIT-licensed). Use when applying Achiam's frameworks for RL fundamentals and MDPs, the model-free algorithm taxonomy, policy gradient derivations, the six reference algorithms (VPG, TRPO, PPO, DDPG, TD3, SAC), debugging silently-failing RL code, or running rigorous multi-seed RL experiments."
+    },
+    {
+      "name": "passive-deal-screener",
+      "category": "finance",
+      "description": "Screens private investment opportunities from the passive LP (limited-partner) perspective \u2014 equity syndications, preferred equity, hard money / bridge funds, and private credit \u2014 pasted from any source (an investment platform listing, a direct GP email, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review a real-estate or private-market deal, syndication, offering, or investment opportunity \u2014 e.g. 'is this deal worth pursuing', 'what should I ask the GP', 'analyze this offering memo'. LP lens only; not operator-side underwriting (acquisition/development/asset-management). For corporate-finance DCF/ratio work use financial-analyst."
+    },
+    {
+      "name": "ai-decision-authority",
+      "category": "marketing",
+      "description": "Routes marketing and GTM decisions into three AI governance zones (AI-Primary, Collaborative, Human-Primary) by stakes and reversibility. Use when deciding which AI outputs need human review, whether an agent may act autonomously on a task, why AI adoption is collapsing under review requirements, or when auditing a list of workflows for safe autonomy. Triggers on 'should a human review this', 'can the agent just do this', 'AI governance policy', 'human in the loop'."
+    },
+    {
+      "name": "interview-mapper",
+      "category": "research-ops",
+      "description": "Maps a single interview transcript into a verbatim-grounded, lens-coded structure and checks whether analytic conclusions hold across independent re-runs. Use when the user wants to code, map, interpret, or make sense of an interview transcript, depth interview, custdev/JTBD/expert/usability/exit/win-loss/focus-group session, or wants cross-interview synthesis (insight cards, patterns) built up from coded transcripts \u2014 even if they don't name a method. Every conclusion must carry a verbatim quote verified against the source text; unstable conclusions are flagged for a human, never resolved by a single silent pass. Not for generating new interviews, not for plain audio transcription, and not for research-method or sample-size planning above the transcript (see product-research)."
     }
   ],
   "categories": {
@@ -2208,15 +2238,15 @@
       "description": "Compliance-os resources"
     },
     "engineering": {
-      "count": 53,
+      "count": 54,
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 91,
+      "count": 93,
       "description": "Engineering-advanced resources"
     },
     "finance": {
-      "count": 5,
+      "count": 6,
       "description": "Finance resources"
     },
     "markdown-html": {
@@ -2224,7 +2254,7 @@
       "description": "Markdown-html resources"
     },
     "marketing": {
-      "count": 49,
+      "count": 50,
       "description": "Marketing resources"
     },
     "marketing-top-level": {
@@ -2252,7 +2282,7 @@
       "description": "Research resources"
     },
     "research-ops": {
-      "count": 5,
+      "count": 6,
       "description": "Research-ops resources"
     }
   }

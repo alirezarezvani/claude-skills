@@ -24,23 +24,23 @@ Pairs with `cs-cmo-advisor` (positioning ↔ product), `cs-cro-advisor` (win/los
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/cpo-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/`
 
 ### Python Tools
 
 1. **PMF Scorer**
-   - Path: `../../c-level-advisor/skills/cpo-advisor/scripts/pmf_scorer.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/pmf_scorer.py`
    - Sean Ellis test, retention cohort score, organic-pull score → composite PMF rating
 
 2. **Portfolio Analyzer**
-   - Path: `../../c-level-advisor/skills/cpo-advisor/scripts/portfolio_analyzer.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/portfolio_analyzer.py`
    - 3-horizon analysis, kill candidates, double-down candidates, resource allocation
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/cpo-advisor/references/product_strategy.md` — vision design, North Star metrics, opportunity solution tree
-- `../../c-level-advisor/skills/cpo-advisor/references/product_org_design.md` — 3-horizon, ROI vs strategic fit, kill criteria
-- `../../c-level-advisor/skills/cpo-advisor/references/pmf_playbook.md` — Sean Ellis, retention, organic pull, what PMF actually looks like
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/references/product_strategy.md` — vision design, North Star metrics, opportunity solution tree
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/references/product_org_design.md` — 3-horizon, ROI vs strategic fit, kill criteria
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/references/pmf_playbook.md` — Sean Ellis, retention, organic pull, what PMF actually looks like
 
 ### Adjacent Execution
 
@@ -58,7 +58,7 @@ Pairs with `cs-cmo-advisor` (positioning ↔ product), `cs-cro-advisor` (win/los
 4. Output: composite PMF score, weakest signal, top-3 fixes to lift it
 
 ```bash
-python ../../c-level-advisor/skills/cpo-advisor/scripts/pmf_scorer.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/pmf_scorer.py
 ```
 
 ### Workflow 2: Portfolio Rationalization
@@ -93,8 +93,8 @@ python ../../c-level-advisor/skills/cpo-advisor/scripts/pmf_scorer.py
 
 ```bash
 echo "✂️  CPO Portfolio Audit"
-python ../../c-level-advisor/skills/cpo-advisor/scripts/portfolio_analyzer.py
-python ../../c-level-advisor/skills/cpo-advisor/scripts/pmf_scorer.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/portfolio_analyzer.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/pmf_scorer.py
 echo "Pair with RICE: python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py"
 ```
 
@@ -115,7 +115,7 @@ echo "Pair with RICE: python ../../product-team/skills/product-manager-toolkit/s
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/cpo-advisor/SKILL.md](../../c-level-advisor/skills/cpo-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 
 ---

@@ -50,9 +50,9 @@ All four tools run with embedded samples if no JSON is provided. All use stdlib 
 
 | Command | Purpose |
 |---|---|
-| `/cs:compliance-readiness` | 6-question forcing interrogation for compliance program readiness |
-| `/cs:aims-audit` | 6-question forcing interrogation specific to ISO 42001 internal audit |
-| `/cs:ai-act-readiness` | 6-question forcing interrogation specific to EU AI Act compliance |
+| `/compliance-os:compliance-readiness` | 6-question forcing interrogation for compliance program readiness |
+| `/compliance-os:aims-audit` | 6-question forcing interrogation specific to ISO 42001 internal audit |
+| `/compliance-os:ai-act-readiness` | 6-question forcing interrogation specific to EU AI Act compliance |
 
 ## cs-* persona agents
 
@@ -61,6 +61,10 @@ All four tools run with embedded samples if no JSON is provided. All use stdlib 
 | `cs-compliance-officer` | Multi-framework orchestrator. "Which frameworks apply, and where do they overlap?" |
 | `cs-aims-iso42001` | AIMS implementation operator. "What's the gap against Clauses 4-10?" |
 | `cs-ai-act-compliance` | EU AI Act Article-cited operator. "What's the risk tier per Article 6?" |
+
+## Bundled tools (`vendor/`)
+
+The agents and skills here run the analysis scripts and read the references that live in ra-qm-team and c-level-advisor. `vendor/` holds relative symlinks to those skill folders, and the files reference them as `${CLAUDE_PLUGIN_ROOT}/vendor/...`. Claude Code dereferences symlinks that stay inside the marketplace when it copies a plugin into its cache, so an install of this plugin alone carries the real files. Edit the source skill, never the link target path.
 
 ## What this is NOT
 

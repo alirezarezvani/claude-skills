@@ -24,23 +24,23 @@ Pairs with `cs-cpo-advisor` (positioning ↔ product), `cs-cro-advisor` (positio
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/cmo-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/`
 
 ### Python Tools
 
 1. **Marketing Budget Modeler**
-   - Path: `../../c-level-advisor/skills/cmo-advisor/scripts/marketing_budget_modeler.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/marketing_budget_modeler.py`
    - Allocates budget across paid/content/events/partnerships with payback by channel
 
 2. **Growth Model Simulator**
-   - Path: `../../c-level-advisor/skills/cmo-advisor/scripts/growth_model_simulator.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/growth_model_simulator.py`
    - Simulates funnel: impressions → leads → opportunities → wins, with assumption sensitivity
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/cmo-advisor/references/brand_positioning.md` — category design, message house, narrative arcs
-- `../../c-level-advisor/skills/cmo-advisor/references/growth_frameworks.md` — channel-specific motions, PLG vs sales-led
-- `../../c-level-advisor/skills/cmo-advisor/references/marketing_org.md` — attribution, cadence, content ops
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/references/brand_positioning.md` — category design, message house, narrative arcs
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/references/growth_frameworks.md` — channel-specific motions, PLG vs sales-led
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/references/marketing_org.md` — attribution, cadence, content ops
 
 ### Adjacent Execution
 
@@ -67,7 +67,7 @@ Pairs with `cs-cpo-advisor` (positioning ↔ product), `cs-cro-advisor` (positio
 4. Output: new allocation, 90-day test plan, success metrics
 
 ```bash
-python ../../c-level-advisor/skills/cmo-advisor/scripts/marketing_budget_modeler.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/marketing_budget_modeler.py
 ```
 
 ### Workflow 3: Pipeline-Generation Pressure Test
@@ -93,8 +93,8 @@ python ../../c-level-advisor/skills/cmo-advisor/scripts/marketing_budget_modeler
 
 ```bash
 echo "📣 CMO Quarterly Plan"
-python ../../c-level-advisor/skills/cmo-advisor/scripts/marketing_budget_modeler.py
-python ../../c-level-advisor/skills/cmo-advisor/scripts/growth_model_simulator.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/marketing_budget_modeler.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/growth_model_simulator.py
 echo "📚 Reference: positioning + playbooks"
 ```
 
@@ -115,7 +115,7 @@ echo "📚 Reference: positioning + playbooks"
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/cmo-advisor/SKILL.md](../../c-level-advisor/skills/cmo-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 
 ---

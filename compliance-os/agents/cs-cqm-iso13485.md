@@ -35,29 +35,29 @@ Differentiates clearly:
 
 ## Skill Integration
 
-**Skill Location:** `../../ra-qm-team/skills/qms-audit-expert/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/`
 
 ### Python Tools
 
 1. **Audit Schedule Optimizer**
-   - Path: `../../ra-qm-team/skills/qms-audit-expert/scripts/audit_schedule_optimizer.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/scripts/audit_schedule_optimizer.py`
    - Usage: `python audit_schedule_optimizer.py audit_scope.json`
    - Returns: optimized audit plan with prioritization on design controls + CAPA + post-market; auditor independence checks
 
 ### Knowledge Bases
 
-- `../../ra-qm-team/skills/qms-audit-expert/references/iso13485-audit-guide.md` — ISO 13485 audit guide
-- `../../ra-qm-team/skills/qms-audit-expert/references/nonconformity-classification.md` — Nonconformity classification
-- `../../ra-qm-team/skills/qms-audit-expert/references/iso13485_audit_playbook.md` — Full 7-phase audit playbook (NEW in Phase 2)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/references/iso13485-audit-guide.md` — ISO 13485 audit guide
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/references/nonconformity-classification.md` — Nonconformity classification
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/references/iso13485_audit_playbook.md` — Full 7-phase audit playbook (NEW in Phase 2)
 
 ### Adjacent Skills
 
-- `../../ra-qm-team/skills/quality-manager-qms-iso13485/` — QMS implementation depth
-- `../../ra-qm-team/skills/capa-officer/` — CAPA closure + root cause + effectiveness verification
-- `../../ra-qm-team/skills/risk-management-specialist/` — ISO 14971 risk file
-- `../../ra-qm-team/skills/mdr-745-specialist/` — EU MDR technical documentation
-- `../../ra-qm-team/skills/fda-consultant-specialist/` — FDA QSR + 510(k) / PMA submissions
-- `../../ra-qm-team/skills/quality-documentation-manager/` — DHF / DMR / DHR management
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/quality-manager-qms-iso13485/` — QMS implementation depth
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/capa-officer/` — CAPA closure + root cause + effectiveness verification
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/risk-management-specialist/` — ISO 14971 risk file
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/mdr-745-specialist/` — EU MDR technical documentation
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/` — FDA QSR + 510(k) / PMA submissions
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/quality-documentation-manager/` — DHF / DMR / DHR management
 - `../skills/compliance-os/` — Meta-orchestrator
 
 ## Workflows
@@ -134,9 +134,9 @@ python audit_schedule_optimizer.py audit_scope.json
 
 ## References
 
-- Skill: [../../ra-qm-team/skills/qms-audit-expert/SKILL.md](../../ra-qm-team/skills/qms-audit-expert/SKILL.md)
-- Playbook: [../../ra-qm-team/skills/qms-audit-expert/references/iso13485_audit_playbook.md](../../ra-qm-team/skills/qms-audit-expert/references/iso13485_audit_playbook.md)
-- Sibling command: [`/cs:iso13485-audit-prep`](../skills/iso13485-audit-prep/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/SKILL.md)
+- Playbook: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/references/iso13485_audit_playbook.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/references/iso13485_audit_playbook.md)
+- Sibling command: [`/compliance-os:iso13485-audit-prep`](../skills/iso13485-audit-prep/SKILL.md)
 
 ---
 

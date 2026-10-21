@@ -27,7 +27,7 @@ The cs-compliance-officer orchestrates the `compliance-os` skill across the four
 
 Differentiates clearly:
 
-- **vs per-framework specialist skills** (`ra-qm-team/skills/iso42001-specialist/`, `compliance-team-eu-ai-act/`, `gdpr-dsgvo-expert/`, etc.): per-framework skills do operational depth; compliance-os orchestrates them. Compliance officer routes work to the right specialist.
+- **vs per-framework specialist skills** (`${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/`, `compliance-team-eu-ai-act/`, `gdpr-dsgvo-expert/`, etc.): per-framework skills do operational depth; compliance-os orchestrates them. Compliance officer routes work to the right specialist.
 - **vs cs-quality-regulatory** (existing): cs-quality-regulatory orchestrates ra-qm-team skills with a medical-device emphasis (ISO 13485 / MDR / FDA / 14971). cs-compliance-officer is broader (9-framework scope including AI + SOC 2) and adds cross-framework overlap + meta-audit simulation.
 - **vs cs-caio-advisor** (executive AI): CAIO decides whether to ship AI features at all. Compliance officer captures those decisions in audit-ready evidence and ensures the AIMS + EU AI Act obligations are met.
 - **vs cs-general-counsel-advisor**: GC handles legal exposure (contracts, IP, term sheets). Compliance officer handles certification + regulatory posture.
@@ -77,8 +77,8 @@ Differentiates clearly:
 python ../skills/compliance-os/scripts/framework_selector.py profile.json
 
 # 2. For each applicable framework, route gap-analysis to specialist
-#    e.g. ISO 42001 -> ra-qm-team/skills/iso42001-specialist/scripts/aims_gap_analyzer.py
-#    e.g. ISO 27001 -> ra-qm-team/skills/information-security-manager-iso27001/scripts/compliance_checker.py
+#    e.g. ISO 42001 -> ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_gap_analyzer.py
+#    e.g. ISO 27001 -> ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/information-security-manager-iso27001/scripts/compliance_checker.py
 
 # 3. Cross-framework reuse map
 python ../skills/compliance-os/scripts/cross_framework_mapper.py program.json
@@ -189,7 +189,7 @@ python ../skills/compliance-os/scripts/evidence_pool_generator.py program.json
 ## References
 
 - Skill: [../skills/compliance-os/SKILL.md](../skills/compliance-os/SKILL.md)
-- Sibling commands: [`/cs:compliance-readiness`](../skills/compliance-readiness/SKILL.md), [`/cs:aims-audit`](../skills/aims-audit/SKILL.md), [`/cs:ai-act-readiness`](../skills/ai-act-readiness/SKILL.md)
+- Sibling commands: [`/compliance-os:compliance-readiness`](../skills/compliance-readiness/SKILL.md), [`/compliance-os:aims-audit`](../skills/aims-audit/SKILL.md), [`/compliance-os:ai-act-readiness`](../skills/ai-act-readiness/SKILL.md)
 
 ---
 

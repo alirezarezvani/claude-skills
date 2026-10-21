@@ -1,7 +1,8 @@
 ---
 name: "setup"
 description: "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user runs /ar:setup or asks to start optimizing a file with the autoresearch loop."
-command: /ar:setup
+metadata:
+  command: /ar:setup
 ---
 
 # /ar:setup — Create New Experiment
@@ -74,4 +75,4 @@ python {skill_path}/scripts/setup_experiment.py --list-evaluators
 Report to the user:
 - Experiment path and branch name
 - Whether the eval command worked and the baseline metric
-- Suggest: "Run `/ar:run {domain}/{name}` to start iterating, or `/ar:loop {domain}/{name}` for autonomous mode."
+- Suggest: "Run `/ar:ar-run {domain}/{name}` to start iterating, or `/ar:loop {domain}/{name}` for autonomous mode."

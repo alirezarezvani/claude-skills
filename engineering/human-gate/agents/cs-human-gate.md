@@ -1,7 +1,6 @@
 ---
 name: cs-human-gate
 description: Runs the human-verification lane of an agent loop. Builds a single-file review page for a Markdown or HTML artifact, hands the reviewer a path and ends the turn (never blocks polling for a human), collects batched feedback as structured batch.v1 data, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed at all. Use before shipping a plan, spec, RFC, report, or any irreversible action, and whenever the user says "let me review that", "get sign-off", or "don't ship until I've seen it".
-skills: engineering/human-gate/skills/human-gate
 domain: engineering
 model: opus
 tools: [Read, Write, Edit, Glob, Grep, Bash]

@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed — October 2026 issue-triage sweep
+
+- **Codex-valid SKILL.md frontmatter (#1027).** 77 skills carried `version` / `author` /
+  `tags` / `compatible_tools` (and similar) at the top level and 36 descriptions contained
+  `<` or `>`; Codex's skill validator rejects both. The keys now sit under `metadata:` and the
+  descriptions are reworded (`/cs:x <arg>` is now `/cs:x [arg]`). `check_frontmatter.py`
+  fails a SKILL.md that reintroduces either.
+- **Agent frontmatter (from #939, by @benrfairless).** Dead `skills:` values removed from 86
+  agents rather than switched on as preloads, and the ignored `context: fork` removed from 11.
+  The agent template no longer suggests `skills:`, and the gate rejects both keys on agents.
+- **Name collisions.** The two `handoff` plugins are now `handoff-engineering` and
+  `handoff-productivity`. agenthub's and autoresearch-agent's `run` skills are now `hub-run`
+  (`/hub:hub-run`) and `ar-run` (`/ar:ar-run`); `run` joins the reserved-name gate.
+- **Mirrors.** `loop-library` is in the Codex index (#1019); the Gemini sync no longer ships
+  `agents/personas/README.md` and `TEMPLATE.md` as skills (#1001).
+- **focused-fix (#1034)** no longer requires the unbundled `superpowers` plugin.
+
 ### Added — engineering/spinning-up-deep-rl: the first book compiled by book-to-skill
 
 Knowledge-base plugin compiled end-to-end by `engineering/book-to-skill` from OpenAI's

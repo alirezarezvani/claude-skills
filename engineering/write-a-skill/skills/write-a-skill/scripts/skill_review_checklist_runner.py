@@ -29,6 +29,16 @@ import sys
 from typing import Any, Dict, List
 
 
+# Shared with the other write-a-skill scripts so they cannot drift apart. The directory is put
+# on the path explicitly, so the script still runs from any working directory.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _skill_frontmatter import (  # noqa: E402
+    MAX_SKILL_MD_LINES,
+    extract_description,
+    find_skill_md,
+    has_trigger,
+)
+
 # Phrases that suggest time-sensitive content
 TIME_SENSITIVE_PATTERNS = [
     re.compile(r"\bas\s+of\s+\d{4}\b", re.IGNORECASE),
@@ -38,71 +48,18 @@ TIME_SENSITIVE_PATTERNS = [
 ]
 
 
-def find_skill_md(folder: str) -> str:
-    candidate = os.path.join(folder, "SKILL.md")
-    return candidate if os.path.isfile(candidate) else ""
-
-
-def extract_frontmatter_description(text: str) -> str:
-    """Extract description from YAML frontmatter (single key)."""
-    if not text.startswith("---"):
-        return ""
-    end = text.find("\n---", 3)
-    if end == -1:
-        return ""
-    block = text[3:end]
-    # Match "description: ..." potentially spanning multiple lines (>- folded)
-    match = re.search(r"^description:\s*(.*)$(?:\n[ ]+(.*))*", block, re.MULTILINE)
-    if not match:
-        return ""
-    val = match.group(1).strip()
-    if val == ">" or val == "|":
-        # Folded scalar — collect indented continuation lines
-        lines_iter = iter(block.splitlines())
-        for line in lines_iter:
-            if line.strip().startswith("description:"):
-                break
-        collected = []
-        for line in lines_iter:
-            if line.startswith(" ") or line.startswith("\t"):
-                collected.append(line.strip())
-            else:
-                break
-        val = " ".join(collected)
-    return val
-
-
-# Trigger phrases that count as explicit "use when ..." triggers in a description.
-# Per Matt Pocock's rule: explicit trigger phrase. Natural English variants all accepted.
-TRIGGER_PATTERNS = [
-    re.compile(r"\buse\s+when\b", re.IGNORECASE),
-    re.compile(r"\buse\s+for\b", re.IGNORECASE),
-    re.compile(r"\buse\s+before\b", re.IGNORECASE),
-    re.compile(r"\buse\s+during\b", re.IGNORECASE),
-    re.compile(r"\buse\s+after\b", re.IGNORECASE),
-    re.compile(r"\buse\s+while\b", re.IGNORECASE),
-    re.compile(r"\binvoke\s+when\b", re.IGNORECASE),
-    re.compile(r"\binvoke\s+before\b", re.IGNORECASE),
-    re.compile(r"\binvoke\s+after\b", re.IGNORECASE),
-    re.compile(r"\btrigger\s+when\b", re.IGNORECASE),
-    re.compile(r"\bapply\s+when\b", re.IGNORECASE),
-    re.compile(r"\brun\s+when\b", re.IGNORECASE),
-    re.compile(r"\brun\s+before\b", re.IGNORECASE),
-]
-
-
 def check_description_has_trigger(text: str) -> Dict[str, Any]:
-    desc = extract_frontmatter_description(text)
-    has_trigger = any(p.search(desc) for p in TRIGGER_PATTERNS)
+    desc = extract_description(text)
+    has_trigger_phrase = has_trigger(desc)
     return {
         "rule": "1. Description includes triggers",
-        "pass": has_trigger,
-        "detail": ("Found explicit trigger phrase" if has_trigger
+        "pass": has_trigger_phrase,
+        "detail": ("Found explicit trigger phrase" if has_trigger_phrase
                    else "Missing explicit trigger phrase (Use when/before/after/for ...)"),
     }
 
 
-def check_skill_md_length(filepath: str, max_lines: int = 100) -> Dict[str, Any]:
+def check_skill_md_length(filepath: str, max_lines: int = MAX_SKILL_MD_LINES) -> Dict[str, Any]:
     with open(filepath, "r", encoding="utf-8") as f:
         lines = sum(1 for _ in f)
     return {
@@ -196,7 +153,7 @@ def analyze(folder: str) -> Dict[str, Any]:
 
     checks = [
         check_description_has_trigger(text),
-        check_skill_md_length(skill_md, max_lines=100),
+        check_skill_md_length(skill_md, max_lines=MAX_SKILL_MD_LINES),
         check_no_time_sensitive(text),
         check_consistent_terminology(text),
         check_concrete_examples(text),

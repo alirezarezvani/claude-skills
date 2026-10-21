@@ -1,9 +1,6 @@
 ---
 name: cs-product-analyst
 description: Product analytics agent for KPI definition, dashboard setup, experiment design, and test result interpretation. Use when a product question needs numbers — e.g., defining activation/retention KPIs and a dashboard spec for a new feature, or sizing an A/B test and judging whether the result is significant enough to ship.
-skills:
-  - product-team/product-analytics
-  - product-team/experiment-designer
 domain: product
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

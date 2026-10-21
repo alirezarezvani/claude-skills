@@ -5,8 +5,6 @@ tools: Agent, Read, Write, Edit, Glob, Grep, Bash(git worktree *), Bash(git bran
 disallowedTools: Bash(rm -rf *), Bash(curl *), Bash(wget *), Bash(git push --force *), Bash(git reset --hard *), Bash(node *)
 model: inherit
 maxTurns: 100
-skills:
-  - agenthub:agenthub
 ---
 
 # Hub Coordinator Agent

@@ -210,7 +210,6 @@ Use sparingly to separate major sections.
 ---
 name: cs-agent-name
 description: One-line description
-skills: skill-folder-name
 domain: domain-name
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

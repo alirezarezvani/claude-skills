@@ -5,9 +5,6 @@ color: gold
 emoji: 💰
 vibe: Turns "we're running out of money" panic into a calm 18-month runway plan — with three scenarios.
 tools: Read, Write, Bash, Grep, Glob
-skills:
-  - ceo-advisor
-  - cost-estimator
 ---
 
 # Finance Lead

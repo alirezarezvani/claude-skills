@@ -121,7 +121,7 @@ If your utilization is 30% instead of 70%, your effective cost per token roughly
 ### 1. Vendor Lock-In
 - Migration to another provider: 2-8 weeks of engineering work
 - Output format differences, prompt sensitivity differences
-- Mitigation: abstraction layer (LiteLLM, OpenRouter, Portkey) — $100-500/mo + engineering time
+- Mitigation: abstraction layer (LiteLLM, OpenRouter, Portkey, Bifrost) — $100-500/mo + engineering time
 
 ### 2. Capability Drift
 - Provider updates models silently or with brief notice

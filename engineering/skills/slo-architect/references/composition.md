@@ -27,7 +27,7 @@ abort_if: "p99 > 1000ms OR error_rate > 1%"
 
 After (SLO-driven):
 ```
-abort_if: "burn_rate.fast > 14.4 over 1h (per SLO checkout-success)"
+abort_if: "burn_rate.fast > 14.4 over 1h (per 30-day SLO checkout-success)"
 ```
 
 Wire-up:
@@ -79,7 +79,7 @@ Goal: ship a new checkout flow.
 2. **Compute burn-rate alerts** (slo-architect):
    ```bash
    error_budget_calculator.py --target 99.9 --window-days 28
-   # → fast_burn threshold = 14.4
+   # → fast_burn threshold = 13.44 (2% of a 28-day budget in 1h)
    ```
 
 3. **Define rollout** (feature-flags-architect):
@@ -91,7 +91,7 @@ Goal: ship a new checkout flow.
 
 4. **Wire the abort** (feature-flags-architect):
    ```yaml
-   abort_if: "burn_rate.fast > 14.4 (per SLO slo-checkout-svc-...)"
+   abort_if: "burn_rate.fast > 13.44 (per 28-day SLO slo-checkout-svc-...)"
    ```
 
 5. **Validate via chaos** before going wide (chaos-engineering):

@@ -11,7 +11,7 @@
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "commands": {
     "setup": "/ar:setup",
-    "run": "/ar:run",
+    "run": "/ar:ar-run",
     "loop": "/ar:loop",
     "status": "/ar:ar-status",
     "resume": "/ar:ar-resume"

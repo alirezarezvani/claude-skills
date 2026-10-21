@@ -16,7 +16,7 @@
     "eval": "/hub:eval",
     "merge": "/hub:merge",
     "board": "/hub:board",
-    "run": "/hub:run"
+    "run": "/hub:hub-run"
   },
   "agents": [
     "hub-coordinator"

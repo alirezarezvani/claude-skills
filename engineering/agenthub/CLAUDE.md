@@ -12,7 +12,7 @@ Use the `/hub:` namespace for all commands:
 - `/hub:eval` — Rank agent results by metric or LLM judge
 - `/hub:merge` — Merge the winning branch, archive losers
 - `/hub:board` — Read/write the agent message board
-- `/hub:run` — One-shot lifecycle: init → baseline → spawn → eval → merge
+- `/hub:hub-run` — One-shot lifecycle: init → baseline → spawn → eval → merge
 
 ## How It Works
 

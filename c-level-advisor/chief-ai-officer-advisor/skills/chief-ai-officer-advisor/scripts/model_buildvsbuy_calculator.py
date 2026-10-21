@@ -204,7 +204,7 @@ def pick_recommendation(profile: Dict[str, Any], costs: Dict[str, float]) -> Tup
                 "Iterate on prompt engineering and eval discipline before committing to fine-tune."
             ),
             [
-                "Vendor lock-in: build abstraction layer (LiteLLM, OpenRouter) for multi-vendor failover",
+                "Vendor lock-in: build abstraction layer (LiteLLM, OpenRouter, Bifrost) for multi-vendor failover",
                 "Capability drift between model versions: pin model IDs and run regression evals on upgrades",
                 "Rate limits at QPS spikes: confirm Tier-4+ pricing with provider",
             ],

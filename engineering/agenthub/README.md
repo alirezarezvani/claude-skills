@@ -6,7 +6,7 @@ AgentHub spawns N parallel agents in isolated git worktrees to compete on the sa
 
 ```bash
 # One command — full lifecycle
-/hub:run --task "Reduce p50 latency" --agents 3 \
+/hub:hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 ```
@@ -41,7 +41,7 @@ Or step by step:
 | `/hub:eval` | Rank results by metric or LLM judge | `/hub:eval --judge` (LLM judge mode) |
 | `/hub:merge` | Merge winner, archive losers, cleanup | `/hub:merge --agent agent-2` (force pick) |
 | `/hub:board` | Read/write the message board | `/hub:board --read progress` |
-| `/hub:run` | One-shot full lifecycle | `/hub:run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
+| `/hub:hub-run` | One-shot full lifecycle | `/hub:hub-run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
 
 ## The Optimizer Pattern
 
@@ -50,7 +50,7 @@ AgentHub's most powerful pattern: N agents compete using different strategies, e
 ### How It Works
 
 ```
-/hub:run --task "Reduce p50 latency" --agents 3 \
+/hub:hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 ```
@@ -76,7 +76,7 @@ The `optimizer` template embeds the iteration loop directly in each agent's disp
 
 ### Agent Templates
 
-Templates define the dispatch prompt pattern. Use `--template` with `/hub:spawn` or `/hub:run`:
+Templates define the dispatch prompt pattern. Use `--template` with `/hub:spawn` or `/hub:hub-run`:
 
 | Template | Pattern | Use Case |
 |----------|---------|----------|
@@ -90,7 +90,7 @@ Templates live in `references/agent-templates.md`.
 ### Example: 3 Strategies Competing on API Latency
 
 ```bash
-/hub:run --task "Reduce API p50 latency below 150ms" --agents 3 \
+/hub:hub-run --task "Reduce API p50 latency below 150ms" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 ```
@@ -114,7 +114,7 @@ AgentHub automatically:
 ### Example: 3 Agents Drafting Competing Blog Posts
 
 ```bash
-/hub:run --task "Write a 1500-word blog post on zero-downtime deployments" \
+/hub:hub-run --task "Write a 1500-word blog post on zero-downtime deployments" \
   --agents 3 --judge
 ```
 

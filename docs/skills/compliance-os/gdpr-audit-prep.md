@@ -1,6 +1,6 @@
 ---
 title: "/compliance-os:gdpr-audit-prep — GDPR DPO Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/compliance-os:gdpr-audit-prep <scope> — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review, post-breach internal. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/compliance-os:gdpr-audit-prep [scope] — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /compliance-os:gdpr-audit-prep — GDPR DPO Forcing Questions
@@ -83,13 +83,13 @@ The GDPR DPO auditor pressure-tests any privacy compliance work. Six Article-cit
 
 ```bash
 # 1. Compliance posture
-python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json
 
 # 2. DPIA for high-risk activities
-python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json
 
 # 3. DSAR workflow validation
-python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py dsar_log.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py dsar_log.json
 
 # 4. Cross-framework reuse with ISO 27001 + SOC 2 + ISO 42001
 python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
@@ -167,8 +167,8 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 ## Related
 
 - Agent: [`cs-dpo-gdpr`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/agents/cs-dpo-gdpr.md)
-- Skill: [`gdpr-dsgvo-expert`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
-- Playbook: [gdpr_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
+- Skill: [`gdpr-dsgvo-expert`](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/SKILL.md)
+- Playbook: [gdpr_audit_playbook.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
 - Adjacent: [`skills/iso27001-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/iso27001-audit-prep), [`skills/ai-act-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/ai-act-readiness), [`skills/soc2-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/soc2-audit-prep), [`skills/compliance-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-readiness)
 
 ---

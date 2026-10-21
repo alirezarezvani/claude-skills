@@ -246,7 +246,7 @@ Every plugin follows the same minimal schema for maximum portability:
 | `behuman` | Standalone | development | `./engineering/behuman` |
 | `caveman` | Standalone | development | `./engineering/caveman` |
 | `chaos-engineering` | Standalone | development | `./engineering/chaos-engineering` |
-| `claude-coach` | Standalone | development | `./engineering/claude-coach` |
+| `power-user-coach` | Standalone | development | `./engineering/claude-coach` |
 | `code-tour` | Standalone | development | `./engineering/code-tour` |
 | `data-quality-auditor` | Standalone | development | `./engineering/data-quality-auditor` |
 | `demo-video` | Standalone | development | `./engineering/demo-video` |

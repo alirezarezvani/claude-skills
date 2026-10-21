@@ -201,6 +201,47 @@ def check_marketplace_descriptions():
     return errors
 
 
+# Marketplace entry name -> plugin.json name, where the two deliberately differ.
+# The marketplace name is the install key (`name@claude-code-skills` in users'
+# enabledPlugins); the plugin.json name is the command/agent namespace
+# (`/<name>:<command>`). Renaming either side breaks something that already
+# ships, so a mismatch is only allowed when it is listed here with its reason.
+NAME_MISMATCH_ALLOWED = {
+    # Installed as self-improving-agent; its commands ship as /si:* (180+ doc refs).
+    "self-improving-agent": "si",
+}
+
+
+def check_marketplace_names():
+    """Each marketplace entry's name must match its plugin.json name, so the
+    install key and the command namespace a user sees are the same word."""
+    path = os.path.join(REPO, ".claude-plugin", "marketplace.json")
+    errors = []
+    try:
+        with open(path) as f:
+            data = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        return [f"marketplace.json unreadable: {e}"]
+    for p in data.get("plugins", []):
+        src = p.get("source")
+        if not isinstance(src, str):
+            continue
+        manifest = os.path.join(REPO, src, ".claude-plugin", "plugin.json")
+        try:
+            with open(manifest) as f:
+                name = json.load(f).get("name")
+        except (OSError, json.JSONDecodeError):
+            continue  # validate() already reports unreadable manifests
+        mp_name = p.get("name")
+        if name != mp_name and NAME_MISMATCH_ALLOWED.get(mp_name) != name:
+            errors.append(
+                f"marketplace.json: '{mp_name}' installs {src}, whose plugin.json "
+                f"name is '{name}'. Keep the marketplace name (existing installs "
+                f"are keyed on it) and align plugin.json, or add a reasoned "
+                f"entry to NAME_MISMATCH_ALLOWED")
+    return errors
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     g = ap.add_mutually_exclusive_group(required=True)
@@ -231,14 +272,14 @@ def main():
         else:
             print(f"OK   {rel}")
     if args.all:
-        mp_errors = check_marketplace_descriptions()
+        mp_errors = check_marketplace_descriptions() + check_marketplace_names()
         if mp_errors:
             failed += 1
             print("FAIL .claude-plugin/marketplace.json")
             for e in mp_errors:
                 print(f"  - {e}")
         else:
-            print("OK   .claude-plugin/marketplace.json (all plugin descriptions <= 1024 chars)")
+            print("OK   .claude-plugin/marketplace.json (descriptions <= 1024 chars, names match plugin.json)")
     if warned:
         print(f"\n{warned} file(s) passed with warnings (legacy schema)", file=sys.stderr)
     if failed:

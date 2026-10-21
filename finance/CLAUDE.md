@@ -1,6 +1,6 @@
 # Finance Skills - Claude Code Guidance
 
-This guide covers 4 production-ready finance skills and their Python automation tools.
+This guide covers 5 production-ready finance skills and their Python automation tools.
 
 ## Finance Skills Overview
 
@@ -9,8 +9,9 @@ This guide covers 4 production-ready finance skills and their Python automation 
 2. **saas-metrics-coach/** - SaaS financial health: ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, 12-month projections (3 Python tools)
 3. **business-investment-advisor/** - Investment thesis evaluation, ROI modeling, capital allocation guidance
 4. **passive-deal-screener/** - Screens private deals from the passive LP perspective: equity syndications, preferred equity, hard money / bridge funds, and private credit, pasted from any source. Stress-tests returns against public benchmarks plus an illiquidity premium, converts the fee stack to gross-to-net drag, and surfaces red flags, missing disclosures, and GP questions with bad-answer signals (2 Python tools: `fee_drag_calculator.py`, `benchmark_comparator.py`)
+5. **month-end-close/** - Runs the accounting close: close calendar on its critical path with owner and reviewer checks, reconciliation proof with aging and transposition hints, and a flux gate that refuses boilerplate explanations (3 Python tools: `close_calendar_planner.py`, `reconciliation_matcher.py`, `flux_analyzer.py`; standalone plugin with `/cs-month-end-close` and `/cs-flux-review`)
 
-**Total Tools:** 9 Python automation tools; 5 knowledge bases and 6 templates across skills 1-3, plus 5 reference files in passive-deal-screener
+**Total Tools:** 12 Python automation tools; 5 knowledge bases and 6 templates across skills 1-3, plus 5 reference files in passive-deal-screener
 
 **Commands:** 2 (`/financial-health`, `/saas-health`)
 
@@ -104,5 +105,5 @@ python financial-analyst/scripts/forecast_builder.py forecast_data.json --format
 
 **Last Updated:** May 10, 2026
 **Skills Deployed:** 4 finance skills documented here (domain totals: `scripts/derive_counters.py`)
-**Total Tools:** 9 Python automation tools
+**Total Tools:** 12 Python automation tools
 **Commands:** /financial-health, /saas-health

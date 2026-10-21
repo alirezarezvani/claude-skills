@@ -1,0 +1,7 @@
+date,amount,ref,description
+2026-10-03,12500.00,INV-1001,Customer receipt Acme
+2026-10-07,-4200.00,CHK-5521,Office lease
+2026-10-15,-860.40,CHK-5522,Utilities
+2026-10-28,-1500.00,CHK-5530,Contractor payment
+2026-10-31,7300.00,DEP-1031,Deposit Beta Corp
+2026-07-14,-240.00,CHK-5390,Vendor refund never cashed

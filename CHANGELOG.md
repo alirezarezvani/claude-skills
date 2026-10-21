@@ -7,6 +7,87 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.0] - 2026-10-21 — Audit skills, open-source YouTube and plugin-name fixes
+
+Three new plugins from the October audit's new-skill proposals, an open-source-first YouTube
+plugin, and plugin-name fixes that make `claude plugin validate .` pass on the whole marketplace.
+Totals: 398 skills, 766 Python tools, 877 references, 123 agents, 157 commands and 104
+marketplace plugins (derived by `scripts/derive_counters.py`).
+
+> **Action needed for `claude-coach` users (one time).** The plugin is now `power-user-coach`.
+> An existing install shows as "not found in marketplace" until you reinstall:
+> `/plugin uninstall claude-coach@claude-code-skills` then
+> `/plugin install power-user-coach@claude-code-skills`. The skill, commands and agent keep
+> their names.
+
+### Added — three skills from the October audit's new-skill proposals
+
+Each ships as its own marketplace plugin and is mirrored into its domain bundle, with a cs-*
+agent, two `/cs-*` commands, three or four stdlib scripts (all `--help` / `--sample` /
+`--output json`, typed exit codes), three references with per-claim confidence markers, and
+example assets. Each SKILL.md passes the write-a-skill 6-item checklist. Evaluated with
+skill-creator against a no-skill baseline on one realistic prompt per skill: 21/21 assertions
+with the skill, 17/21 without.
+
+- **engineering/agent-regression-evals** — proves an agent, prompt, model or tool change did not
+  make the agent worse. `trajectory_checker.py` grades tool-call paths (strict / unordered /
+  subset / superset; forbidden tools block in every mode); `flake_detector.py` classifies cases
+  from repeated trials, reports pass@k and pass^k with Wilson intervals, and warns when failures
+  cluster in late trials (shared state between trials); `regression_gate.py` averages trials per
+  case, then blocks on a paired CI below zero, a one-sided McNemar result, a critical-case
+  regression, a dropped case, or a quarantine entry without owner and expiry.
+- **engineering/coding-agent-rollout** — for rolling Claude Code out to a team.
+  `settings_linter.py` checks shared, local, user and managed settings against the documented
+  precedence and permission rules (dead `bypassPermissions` in project files, ignored `mcp__*`
+  allows, literal credentials, missing secret denies); `mcp_plugin_inventory.py` lists every MCP
+  server, plugin and marketplace against an approved list and blocks credentials in env,
+  headers, args or URLs; `claude_md_layering_audit.py` resolves CLAUDE.md layers and `@imports`
+  and finds contradictions and token-budget overruns; `adoption_tracker.py` turns local session
+  files into counts only, never transcripts.
+- **finance/month-end-close** — runs the accounting close. `close_calendar_planner.py` orders
+  tasks by dependency, finds the critical path, maps WD+n deadlines to dates and blocks on
+  missing owners or self-reviewed key controls; `reconciliation_matcher.py` matches GL to bank or
+  sub-ledger, builds the proof, ages open items and names likely causes of an unexplained
+  difference (carried-in opening balance, transposition, missed or doubled posting);
+  `flux_analyzer.py` applies the entity's own threshold rule and refuses boilerplate,
+  unquantified or self-reviewed explanations. Control expectations cite COSO 2013 and PCAOB
+  AS 2201, AS 2305 and SAPA 11.
+
+**Counters:** skills 392 → 398 (3 skills, each standalone and bundled); tools 746 → 766;
+references 859 → 877; agents 120 → 123; commands 151 → 157; plugins 101 → 104 (verified via
+`scripts/derive_counters.py --check`).
+
+### Changed
+
+- **`youtube-full` is open-source first.** Every operation (transcripts, search, channel and
+  playlist listing, upload monitoring, handle resolution) now runs on `yt-dlp`,
+  `youtube-transcript-api` and YouTube's public RSS feeds, with no account or API key. The
+  commercial TranscriptAPI backend is now an optional fallback that the agent mentions only
+  when the open-source path is blocked and the user asks, with a note on what data it sends.
+  The sign-up prompt and the `User-Agent: ClaudeCode/1.0` header are removed.
+
+### Fixed
+
+- **`claude-coach` plugin renamed to `power-user-coach`.** Claude Code reserves plugin names
+  starting with `claude-`, so `claude plugin validate .` failed on the whole marketplace. The
+  skill, the `/claude-coach` and `/cs-claude-coach` commands and the `cs-claude-coach` agent keep
+  their names; only the plugin name changes. Existing installs need one reinstall:
+  `/plugin uninstall claude-coach@claude-code-skills` then
+  `/plugin install power-user-coach@claude-code-skills`.
+- **Plugin names match their install names.** Four plugins installed under one name and
+  registered commands under another (`capture-skill` / `capture`, `email-pair` / `email`,
+  `reflect-skill` / `reflect`, `research-orchestrator` / `research`). Their `plugin.json`
+  names now match the marketplace names, so existing installs keep working (Claude Code keys
+  installs on the marketplace name) and only the `/<plugin>:<command>` form changes; the bare
+  `/cs-capture`, `/cs-inbox-setup`, `/cs-inbox-triage`, `/cs-reflect` and `/cs-research`
+  commands are unchanged. `self-improving-agent` keeps its `/si:*` namespace as a documented
+  exception. `check_plugin_json.py --all` now fails on any undocumented mismatch.
+- **Vibe and Hermes mirrors refreshed.** `.vibe/` and `.hermes/` now carry all 379 skills:
+  the six merged since the last sync, the 22 `c-level-agents` skills under their own domain
+  (they were stale links under `c-level-advisor/`, outside the index), and `loop-library`.
+  The sync scripts now include those two domains, find a `SKILL.md` at the domain root, and
+  list a bundle copy and its standalone-plugin twin once instead of twice.
+
 ## [2.13.0] - 2026-10-21 — October triage and quality-audit release
 
 First release since v2.12.0. It clears the community backlog that built up over the summer,

@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "audit/claude-skills quality audit October 2026, new-skill proposal #1",
+    "build_pattern": "Four-phase team rollout (guardrails, inventory, instructions, adoption) with 4 deterministic stdlib scripts and blocking exit codes. Every settings key, scope, path, precedence rule and import limit verified against code.claude.com/docs (settings, settings-reference, permissions, managed-settings, managed-mcp, mcp, memory, env-vars, monitoring-usage, claude-directory) and against Claude Code 2.1.306 locally; the known-keys list in settings_linter.py is a snapshot of the settings reference and unknown keys are INFO, not errors.",
+    "distinct_from": "claude-coach (coaches one person's usage); skill-doctor (grades sessions to improve installed skills); security-guidance (a hook that warns on risky code patterns); prompt-governance (prompts in production apps, not the coding agent's configuration)"
+  }
+}

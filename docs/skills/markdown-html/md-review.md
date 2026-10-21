@@ -1,6 +1,6 @@
 ---
 title: "md-review — Code-review markdown → 2-column HTML — Agent Skill for HTML Output"
-description: "Converts a markdown PR writeup or code review (one with ```diff fenced blocks and severity-tagged > [!BLOCKER]/[!MAJOR]/[!MINOR]/[!NIT] callouts). Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Converts a markdown PR writeup or code review (one with ```diff fenced blocks and severity-tagged GFM callouts [!BLOCKER]/[!MAJOR]/[!MINOR]/[!NIT]. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # md-review — Code-review markdown → 2-column HTML

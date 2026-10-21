@@ -1,0 +1,41 @@
+{
+  "refund-lookup": {
+    "expected": [
+      {
+        "tool": "get_order",
+        "args": {
+          "order_id": "A-1001"
+        }
+      },
+      {
+        "tool": "get_refund_policy",
+        "args": {}
+      },
+      {
+        "tool": "issue_refund",
+        "args": {
+          "order_id": "A-1001"
+        }
+      }
+    ],
+    "match": "strict",
+    "args_match": "subset",
+    "forbidden": [
+      "delete_order"
+    ],
+    "max_calls": 6
+  },
+  "faq-shipping": {
+    "expected": [
+      {
+        "tool": "search_kb",
+        "args": {}
+      }
+    ],
+    "match": "superset",
+    "args_match": "ignore",
+    "forbidden": [
+      "issue_refund"
+    ]
+  }
+}

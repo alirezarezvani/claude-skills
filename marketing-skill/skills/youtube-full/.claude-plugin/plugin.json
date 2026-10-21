@@ -1,6 +1,6 @@
 {
   "name": "youtube-full",
-  "description": "YouTube transcripts, video search, channel browsing, playlist extraction, and new-upload monitoring via TranscriptAPI. Covers all YouTube data workflows: transcript extraction with timestamps, in-channel search, and content monitoring. BYOK — 100 free credits included.",
+  "description": "YouTube transcripts, video search, channel browsing, playlist extraction, and new-upload monitoring with open-source tools (yt-dlp, youtube-transcript-api, YouTube RSS). No account or API key needed; a hosted transcript API is mentioned only as an optional, user-chosen fallback.",
   "version": "2.9.0",
   "author": {
     "name": "therohitdas",

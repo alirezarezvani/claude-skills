@@ -1,0 +1,8 @@
+account,name,current,prior,explanation,evidence,owner
+4000,Subscription revenue,1250000,1120000,"Net new ARR 140k from 6 enterprise deals closed Sep; churn -10k (2 SMB logos)",CRM export oct-arr.xlsx,Sam
+5100,Hosting costs,182000,141000,timing,,Priya
+6200,Contractors,64000,61000,,,Dana
+6300,Travel,18500,9200,"Two offsites (Berlin 6.1k, Lisbon 3.4k) budgeted in Q4",TE report 10/2026,Dana
+2100,Accrued liabilities,-96000,-150000,"Released 60k legal accrual after settlement signed 14 Oct; new 6k audit fee accrual",Settlement agreement,Lee
+1500,Prepaid expenses,-4000,22000,Reclass error suspected,,Lee
+6900,Bank charges,2400,1100,"Higher charges",,Sam

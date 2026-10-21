@@ -10,14 +10,28 @@ A personal coach that teaches you to use Claude at its full capability — witho
 
 ## Installation
 
-1. Place the `claude-coach/` folder in your skills directory
-2. Start a new conversation
-3. Say one of:
-   - "Coach me on Claude"
-   - "Teach me the Claude cheat codes"
-   - "Make me a Claude power user"
+```
+/plugin install power-user-coach --marketplace alirezarezvani/claude-skills
+```
+
+Or place the `skills/claude-coach/` folder in your skills directory. Then start a new conversation and say one of:
+
+- "Coach me on Claude"
+- "Teach me the Claude cheat codes"
+- "Make me a Claude power user"
 
 The skill activates and stays on for the rest of the conversation.
+
+### Upgrading from `claude-coach`
+
+The plugin used to be called `claude-coach`. Claude Code reserves plugin names that start with `claude-` for Anthropic, so `claude plugin validate` rejected this marketplace. The plugin is now `power-user-coach`. An existing install shows "Plugin claude-coach not found in marketplace" after the next marketplace update. Reinstall it once:
+
+```
+/plugin uninstall claude-coach@claude-code-skills
+/plugin install power-user-coach@claude-code-skills
+```
+
+The skill, `/claude-coach`, `/cs-claude-coach` and the `cs-claude-coach` agent keep their names. Only the namespaced form changes, to `/power-user-coach:claude-coach`.
 
 ## Usage
 

@@ -40,36 +40,36 @@ Differentiates clearly:
 
 ## Skill Integration
 
-**Skill Location:** [`skills/gdpr-dsgvo-expert`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert)
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/`
 
 ### Python Tools
 
 1. **GDPR Compliance Checker**
-   - Path: [`scripts/gdpr_compliance_checker.py`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py)
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py`
    - Usage: `python gdpr_compliance_checker.py compliance_state.json`
    - Returns: compliance posture across Articles 5, 6, 9, 30, 32, 33-34, 35 with gap analysis
 
 2. **DPIA Generator**
-   - Path: [`scripts/dpia_generator.py`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/scripts/dpia_generator.py)
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/dpia_generator.py`
    - Usage: `python dpia_generator.py processing_activity.json`
    - Returns: DPIA per Article 35(7) required elements; identifies residual high risk requiring Article 36 prior consultation
 
 3. **Data Subject Rights Tracker**
-   - Path: [`scripts/data_subject_rights_tracker.py`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py)
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py`
    - Usage: `python data_subject_rights_tracker.py dsar_log.json`
    - Returns: DSAR workflow completeness + response timing vs Article 12(3) 1-month SLA
 
 ### Knowledge Bases
 
-- [`references/gdpr_compliance_guide.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_compliance_guide.md) — Full GDPR compliance guide
-- [`references/german_bdsg_requirements.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/references/german_bdsg_requirements.md) — German BDSG sectoral overlay
-- [`references/dpia_methodology.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/references/dpia_methodology.md) — DPIA methodology
-- [`references/gdpr_audit_playbook.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md) — Full 7-phase audit playbook (NEW in Phase 2)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/gdpr_compliance_guide.md` — Full GDPR compliance guide
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/german_bdsg_requirements.md` — German BDSG sectoral overlay
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/dpia_methodology.md` — DPIA methodology
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md` — Full 7-phase audit playbook (NEW in Phase 2)
 
 ### Adjacent Skills
 
-- [`skills/information-security-manager-iso27001`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/information-security-manager-iso27001) — Article 32 organizational measures
-- [`skills/soc2-compliance`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance) — SOC 2 Privacy criteria overlap
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/information-security-manager-iso27001/` — Article 32 organizational measures
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/` — SOC 2 Privacy criteria overlap
 - [`skills/compliance-os`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-os) — Meta-orchestrator
 - [`c-level-advisor/general-counsel-advisor`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/general-counsel-advisor) — Novel-case legal review
 
@@ -151,8 +151,8 @@ python dpia_generator.py processing_activity.json
 
 ## References
 
-- Skill: [../../ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
-- Playbook: [../../ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/SKILL.md)
+- Playbook: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
 - Sibling command: [`/compliance-os:gdpr-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/gdpr-audit-prep/SKILL.md)
 
 ---

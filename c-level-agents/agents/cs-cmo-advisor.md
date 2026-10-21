@@ -1,7 +1,6 @@
 ---
 name: cs-cmo-advisor
 description: Narrative-first CMO advisor for ICP definition, positioning, message house, channel mix, and category creation
-skills: c-level-advisor/skills/cmo-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

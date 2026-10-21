@@ -149,7 +149,13 @@ def check_file(path, repo_root):
     for key in data:
         if key in spec:
             continue
-        if kind == "skill" and key in METADATA_ONLY_KEYS:
+        if kind == "agent" and key == "skills":
+            # Valid spec key, but it preloads every listed skill on each spawn;
+            # this repo's agents load skills on demand instead (PR #939).
+            errors.append("`skills:` preloads skill bodies on every spawn; reference the skill in the body instead")
+        elif kind == "agent" and key == "context":
+            errors.append("`context` is a skill field; it is ignored in agent frontmatter")
+        elif kind == "skill" and key in METADATA_ONLY_KEYS:
             # Codex's quick_validate.py rejects these at the top level (#1027).
             errors.append(f"`{key}` belongs under `metadata:`, not at the top level")
         elif key in KNOWN_REPO_EXTRAS:

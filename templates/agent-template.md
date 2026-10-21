@@ -1,7 +1,6 @@
 ---
 name: cs-agent-name
 description: What this agent does, followed by trigger phrasing. MUST include a "Use when…" (or "Spawn when…" / "Invoke via…") clause plus at least 1 concrete trigger example. Up to 1024 characters allowed — completeness of triggers beats brevity. Example — "Senior backend engineer agent. Use when designing APIs, picking a database, or extracting a service from a monolith (e.g., 'help me choose between Postgres and DynamoDB')."
-skills: skill-folder-name
 domain: domain-name
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

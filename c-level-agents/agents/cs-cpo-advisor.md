@@ -1,7 +1,6 @@
 ---
 name: cs-cpo-advisor
 description: JTBD-driven CPO advisor for product vision, portfolio strategy, PMF, North Star metrics, and roadmap focus
-skills: c-level-advisor/skills/cpo-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

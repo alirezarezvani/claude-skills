@@ -7,6 +7,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — three skills from the October audit's new-skill proposals
+
+Each ships as its own marketplace plugin and is mirrored into its domain bundle, with a cs-*
+agent, two `/cs-*` commands, three or four stdlib scripts (all `--help` / `--sample` /
+`--output json`, typed exit codes), three references with per-claim confidence markers, and
+example assets. Each SKILL.md passes the write-a-skill 6-item checklist. Evaluated with
+skill-creator against a no-skill baseline on one realistic prompt per skill: 21/21 assertions
+with the skill, 17/21 without.
+
+- **engineering/agent-regression-evals** — proves an agent, prompt, model or tool change did not
+  make the agent worse. `trajectory_checker.py` grades tool-call paths (strict / unordered /
+  subset / superset; forbidden tools block in every mode); `flake_detector.py` classifies cases
+  from repeated trials, reports pass@k and pass^k with Wilson intervals, and warns when failures
+  cluster in late trials (shared state between trials); `regression_gate.py` averages trials per
+  case, then blocks on a paired CI below zero, a one-sided McNemar result, a critical-case
+  regression, a dropped case, or a quarantine entry without owner and expiry.
+- **engineering/claude-code-team-rollout** — for rolling Claude Code out to a team.
+  `settings_linter.py` checks shared, local, user and managed settings against the documented
+  precedence and permission rules (dead `bypassPermissions` in project files, ignored `mcp__*`
+  allows, literal credentials, missing secret denies); `mcp_plugin_inventory.py` lists every MCP
+  server, plugin and marketplace against an approved list and blocks credentials in env,
+  headers, args or URLs; `claude_md_layering_audit.py` resolves CLAUDE.md layers and `@imports`
+  and finds contradictions and token-budget overruns; `adoption_tracker.py` turns local session
+  files into counts only, never transcripts.
+- **finance/month-end-close** — runs the accounting close. `close_calendar_planner.py` orders
+  tasks by dependency, finds the critical path, maps WD+n deadlines to dates and blocks on
+  missing owners or self-reviewed key controls; `reconciliation_matcher.py` matches GL to bank or
+  sub-ledger, builds the proof, ages open items and names likely causes of an unexplained
+  difference (carried-in opening balance, transposition, missed or doubled posting);
+  `flux_analyzer.py` applies the entity's own threshold rule and refuses boilerplate,
+  unquantified or self-reviewed explanations. Control expectations cite COSO 2013 and PCAOB
+  AS 2201, AS 2305 and SAPA 11.
+
+**Counters:** skills 392 → 398 (3 skills, each standalone and bundled); tools 746 → 766;
+references 859 → 877; agents 120 → 123; commands 151 → 157; plugins 101 → 104 (verified via
+`scripts/derive_counters.py --check`).
+
 ## [2.13.0] - 2026-10-21 — October triage and quality-audit release
 
 First release since v2.12.0. It clears the community backlog that built up over the summer,

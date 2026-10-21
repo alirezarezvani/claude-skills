@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "audit/claude-skills quality audit October 2026, new-skill proposal (finance close)",
+    "build_pattern": "Three-gate close (calendar critical path, reconciliation proof, flux explanation lint) with 3 deterministic stdlib scripts and blocking exit codes. Control expectations cited to COSO 2013 Principles 10 and 12, PCAOB AS 2201, AS 2305 and Staff Audit Practice Alert 11; aging buckets from a published university reconciliation policy; benchmark figures labelled by confidence.",
+    "distinct_from": "financial-analyst (ratios, DCF, budgets, forecasts); saas-metrics-coach (SaaS unit economics); research-finance (R&D program budgets and capitalisation); this plugin runs the accounting close itself"
+  }
+}

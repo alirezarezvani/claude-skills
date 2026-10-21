@@ -44,8 +44,23 @@ with the skill, 17/21 without.
 references 859 → 877; agents 120 → 123; commands 151 → 157; plugins 101 → 104 (verified via
 `scripts/derive_counters.py --check`).
 
+### Changed
+
+- **`youtube-full` is open-source first.** Every operation (transcripts, search, channel and
+  playlist listing, upload monitoring, handle resolution) now runs on `yt-dlp`,
+  `youtube-transcript-api` and YouTube's public RSS feeds, with no account or API key. The
+  commercial TranscriptAPI backend is now an optional fallback that the agent mentions only
+  when the open-source path is blocked and the user asks, with a note on what data it sends.
+  The sign-up prompt and the `User-Agent: ClaudeCode/1.0` header are removed.
+
 ### Fixed
 
+- **`claude-coach` plugin renamed to `power-user-coach`.** Claude Code reserves plugin names
+  starting with `claude-`, so `claude plugin validate .` failed on the whole marketplace. The
+  skill, the `/claude-coach` and `/cs-claude-coach` commands and the `cs-claude-coach` agent keep
+  their names; only the plugin name changes. Existing installs need one reinstall:
+  `/plugin uninstall claude-coach@claude-code-skills` then
+  `/plugin install power-user-coach@claude-code-skills`.
 - **Plugin names match their install names.** Four plugins installed under one name and
   registered commands under another (`capture-skill` / `capture`, `email-pair` / `email`,
   `reflect-skill` / `reflect`, `research-orchestrator` / `research`). Their `plugin.json`

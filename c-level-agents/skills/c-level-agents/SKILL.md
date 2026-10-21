@@ -1,6 +1,6 @@
 ---
 name: "c-level-agents"
-description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /cs:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /cs:* commands, or when orchestrating multi-role decisions."
+description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /c-level-agents:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /c-level-agents:* commands, or when orchestrating multi-role decisions."
 license: MIT
 metadata:
   version: 1.0.0
@@ -32,7 +32,7 @@ Each agent wraps an existing c-level skill and adds:
 
 See `../../references/persona-voices.md` for voice specs.
 
-### 21 /cs:* Slash Commands (in `skills/`)
+### 21 /c-level-agents:* Slash Commands (in `skills/`)
 
 **Forcing-question office hours (12):**
 - `/c-level-agents:office-hours` — YC-style 6-question intake
@@ -73,7 +73,7 @@ User question
    │
    ├─ Single-role? → cs-{role}-advisor agent
    │                     ↓
-   │                  /cs:{role}-review command (forcing Qs)
+   │                  /cs-{role}-review command (forcing Qs)
    │                     ↓
    │                  Skill tools + references
    │                     ↓

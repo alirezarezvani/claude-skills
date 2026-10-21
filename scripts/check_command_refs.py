@@ -3,11 +3,11 @@
 
 Claude Code names a plugin command `/<plugin>:<name>` and also accepts the bare
 `/<name>` when nothing else claims it. This repo's commands are named `cs-<name>`,
-so they run as `/cs-<name>`. The old `/cs:<name>` spelling looks like a namespace
+so they run as `/cs-<name>`. The old `/cs-<name>` spelling looks like a namespace
 but matches nothing, so a user who copies it from our docs gets "unknown command".
 
 Scans the canonical tree (mirrors, CHANGELOG.md and the audit/ record excluded,
-since those preserve history) and fails on any `/cs:<name>` reference.
+since those preserve history) and fails on any `/cs-<name>` reference.
 
 Exit codes: 0 = clean, 1 = stale references found.
 
@@ -29,7 +29,7 @@ EXCLUDED_TOP_LEVEL = {
 }
 EXCLUDED_FILES = {"CHANGELOG.md", "check_command_refs.py"}
 EXTENSIONS = (".md", ".json", ".py", ".sh", ".yml", ".yaml", ".txt")
-STALE = re.compile(r"/cs:[a-z0-9][a-z0-9-]*")
+STALE = re.compile(r"/cs:[a-z0-9*<{][a-z0-9-}>]*")
 
 
 def scan(root):
@@ -54,7 +54,7 @@ def scan(root):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Fail on /cs:<name> command references, which Claude Code cannot run.")
+    ap = argparse.ArgumentParser(description="Fail on /cs-<name> command references, which Claude Code cannot run.")
     ap.add_argument("--json", action="store_true", help="Emit JSON instead of human-readable output")
     ap.add_argument("--root", default=REPO_ROOT, help="Repo root (default: parent of this script)")
     args = ap.parse_args()

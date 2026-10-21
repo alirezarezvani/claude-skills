@@ -199,7 +199,7 @@ def analyze(profile: Dict[str, Any]) -> Dict[str, Any]:
         )
         caveats = [
             "API costs scale linearly with token volume; revisit when volume doubles",
-            "Build multi-vendor abstraction (LiteLLM / OpenRouter) for failover",
+            "Build multi-vendor abstraction (LiteLLM / OpenRouter / Bifrost) for failover",
             "Pin model IDs; run regression evals on every model upgrade",
         ]
     elif self_hosted_high["total"] < api_chosen_cost:

@@ -33,7 +33,7 @@ independent re-implementation, not a fork.
 - `skills/{interview,stage-launch,grade-iterate,run-without-you,wrap-up}/` — one
   phase each, 3 tools each.
 - `agents/` — `cs-agent-launcher-orchestrator` + 3 phase specialists.
-- `commands/` — 8 `/cs:*` commands.
+- `commands/` — 8 `/cs-*` commands.
 - `hooks/` — opt-in `session_start.py` / `session_end.py` + `hooks.json`.
 - `references/` — 5 shared docs. `assets/` — schema + templates + example.
 

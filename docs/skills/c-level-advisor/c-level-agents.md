@@ -1,6 +1,6 @@
 ---
 title: "c-level-agents — Founder-Mode Executive Team — Agent Skill for Executives"
-description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /cs:* slash. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /c-level-agents:* slash. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # c-level-agents — Founder-Mode Executive Team
@@ -34,7 +34,7 @@ Each agent wraps an existing c-level skill and adds:
 
 See [`references/persona-voices.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/persona-voices.md) for voice specs.
 
-### 21 /cs:* Slash Commands (in `skills/`)
+### 21 /c-level-agents:* Slash Commands (in `skills/`)
 
 **Forcing-question office hours (12):**
 - `/c-level-agents:office-hours` — YC-style 6-question intake
@@ -75,7 +75,7 @@ User question
    │
    ├─ Single-role? → cs-{role}-advisor agent
    │                     ↓
-   │                  /cs:{role}-review command (forcing Qs)
+   │                  /cs-{role}-review command (forcing Qs)
    │                     ↓
    │                  Skill tools + references
    │                     ↓

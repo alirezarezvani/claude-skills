@@ -172,7 +172,7 @@ A converter suite operationalizing Thariq Shihipar's thesis that markdown collap
 ## Agents and slash commands
 
 - **Agents (`agents/`):** 96 total, mostly `cs-*` prefixed personas (e.g. `cs-ceo-advisor`, `cs-senior-engineer`, `cs-aeo`, domain orchestrators) plus 7 general personas. Agents orchestrate skills and carry a distinct operating voice.
-- **Slash commands (`commands/`):** 102 total, including `/prd`, `/rice`, `/okr`, `/tdd`, `/changelog`, `/slo-design`, `/chaos-experiment`, `/plugin-audit`, `/seo-auditor`, and the `/cs:*` family (office-hours, boardroom, bizops, commercial, research-ops, markdown-html routers, and per-skill commands).
+- **Slash commands (`commands/`):** 102 total, including `/prd`, `/rice`, `/okr`, `/tdd`, `/changelog`, `/slo-design`, `/chaos-experiment`, `/plugin-audit`, `/seo-auditor`, and the `/cs-*` family (office-hours, boardroom, bizops, commercial, research-ops, markdown-html routers, and per-skill commands).
 
 ---
 

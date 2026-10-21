@@ -12,7 +12,7 @@ But teams need:
 3. **Audit simulation** — practice internal audits before the real ones
 4. **Unified evidence pool** — collect evidence once, satisfy multiple frameworks
 
-Compliance OS provides exactly that. Four stdlib Python tools + 4 in-depth references + 3 cs-* personas + 3 /cs:* commands.
+Compliance OS provides exactly that. Four stdlib Python tools + 4 in-depth references + 3 cs-* personas + 3 /cs-* commands.
 
 ## Supported frameworks (9)
 

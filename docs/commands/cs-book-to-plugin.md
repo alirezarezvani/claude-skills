@@ -24,7 +24,7 @@ closes that gap.
 ├── .claude-plugin/plugin.json     manifest, ./skills/<slug>, provenance + rights metadata
 ├── README.md                      what the skill knows, where it came from, its limits
 ├── agents/cs-<slug>.md            persona that answers from the source and cites chapters
-├── commands/cs-<slug>.md          /cs:<slug> [topic | framework | chNN]
+├── commands/cs-<slug>.md          /cs-<slug> [topic | framework | chNN]
 └── skills/<slug>/                 the compiled skill, copied verbatim
 ```
 

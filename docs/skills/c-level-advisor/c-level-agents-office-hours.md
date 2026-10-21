@@ -100,7 +100,7 @@ After the founder answers all six, this command produces a one-page brief:
 ## Routing
 
 After the brief is GREEN, route to:
-- Single-role question → corresponding `/cs:{role}-review`
+- Single-role question → corresponding `/cs-{role}-review`
 - Multi-role question → `/c-level-agents:brief` then `/c-level-agents:boardroom`
 
 ## Why This Works

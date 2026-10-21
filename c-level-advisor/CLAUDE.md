@@ -1,6 +1,6 @@
 # C-Level Advisory Skills — Claude Code Guidance
 
-A complete virtual board of directors: 28 skills covering 10 executive roles, orchestration, cross-cutting capabilities, and culture & collaboration frameworks — plus the new **c-level-agents** plugin layer that surfaces 8 cs-* persona agents and 17 `/cs:*` slash commands on top of the skills.
+A complete virtual board of directors: 28 skills covering 10 executive roles, orchestration, cross-cutting capabilities, and culture & collaboration frameworks — plus the new **c-level-agents** plugin layer that surfaces 8 cs-* persona agents and 17 `/cs-*` slash commands on top of the skills.
 
 ## Architecture
 
@@ -98,7 +98,7 @@ A separate plugin at the repo's top-level `c-level-agents/` directory (moved out
 
 Existing `cs-ceo-advisor` and `cs-cto-advisor` live in `/agents/c-level/` and integrate with the same protocol.
 
-### 17 /cs:* Slash Commands (in `../c-level-agents/skills/`)
+### 17 /cs-* Slash Commands (in `../c-level-agents/skills/`)
 
 **Forcing-question office hours (8):** `/c-level-agents:office-hours`, `/c-level-agents:cfo-review`, `/c-level-agents:cmo-review`, `/c-level-agents:cpo-review`, `/c-level-agents:cro-review`, `/c-level-agents:cto-review`, `/c-level-agents:ciso-review`, `/c-level-agents:gc-review`
 
@@ -155,7 +155,7 @@ python decision-logger/scripts/decision_tracker.py
 ---
 
 **Last Updated:** 2026-05-13
-**Skills Deployed:** 33 skills (15 roles incl. General Counsel, CDO, CAIO, CCO, and VPE + 5 mentor commands + 6 orchestration + 6 cross-cutting + 6 culture) + 21 /cs:* sub-skills in c-level-agents plugin
+**Skills Deployed:** 33 skills (15 roles incl. General Counsel, CDO, CAIO, CCO, and VPE + 5 mentor commands + 6 orchestration + 6 cross-cutting + 6 culture) + 21 /cs-* sub-skills in c-level-agents plugin
 **Agents:** 15 cs-* (cs-ceo, cs-cto in /agents/c-level/; 13 in ../c-level-agents/agents/ including new cs-vpe-advisor)
 **Python Tools:** 39 (stdlib-only) — +3 with vpe-advisor (delivery_throughput_analyzer, eng_hiring_funnel_calculator, eng_team_structure_designer)
 **Reference Docs:** 73 (71 in skills + 2 in c-level-agents/references)

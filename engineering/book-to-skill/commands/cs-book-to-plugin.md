@@ -1,6 +1,6 @@
 ---
 name: "cs-book-to-plugin"
-description: "/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent + /cs:* command + README) so the rest of the library can route to it. Use after /cs-book-to-skill, or when an existing knowledge-base skill folder needs to become an installable plugin."
+description: "/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent + /cs-* command + README) so the rest of the library can route to it. Use after /cs-book-to-skill, or when an existing knowledge-base skill folder needs to become an installable plugin."
 ---
 
 # /cs-book-to-plugin — Ingest a Compiled Skill into the Library
@@ -18,7 +18,7 @@ closes that gap.
 ├── .claude-plugin/plugin.json     manifest, ./skills/<slug>, provenance + rights metadata
 ├── README.md                      what the skill knows, where it came from, its limits
 ├── agents/cs-<slug>.md            persona that answers from the source and cites chapters
-├── commands/cs-<slug>.md          /cs:<slug> [topic | framework | chNN]
+├── commands/cs-<slug>.md          /cs-<slug> [topic | framework | chNN]
 └── skills/<slug>/                 the compiled skill, copied verbatim
 ```
 

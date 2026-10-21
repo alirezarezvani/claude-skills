@@ -1,6 +1,6 @@
 # c-level-agents — Founder-Mode Executive Team
 
-A virtual C-suite for Claude Code. Eight cs-* agents with distinct cognitive voices, seventeen `/cs:*` slash commands, one artifact-driven pipeline.
+A virtual C-suite for Claude Code. Eight cs-* agents with distinct cognitive voices, seventeen `/c-level-agents:*` slash commands, one artifact-driven pipeline.
 
 This plugin is the **surface layer** on top of the 28 c-level skills already in this repo. The skills provide frameworks and Python tools; this plugin adds:
 

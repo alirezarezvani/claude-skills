@@ -70,7 +70,7 @@ agent-launcher/
 ├── SPEC.md                     # the build goal (verification target)
 ├── skills/                     # 6 skills, 3 stdlib tools each
 ├── agents/                     # 4 agents (orchestrator + interviewer + grader + deployer)
-├── commands/                   # 8 /cs:* commands
+├── commands/                   # 8 /cs-* commands
 ├── hooks/                      # opt-in SessionStart / SessionEnd
 ├── references/                 # 5 shared reference docs
 └── assets/                     # build-sheet schema, overview + NEXT-DIRECTIONS templates, example

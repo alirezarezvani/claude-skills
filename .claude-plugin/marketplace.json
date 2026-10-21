@@ -924,7 +924,7 @@
     {
       "name": "hivemind",
       "source": "./engineering/hivemind",
-      "description": "Opt-in, outside every domain bundle: orchestrate opencode workers from Claude Code to cut token costs, with single workers or parallel scout/coder/tester swarms on free or open-source models and worktree isolation. Requires the third-party opencode CLI and an opencode account; worker prompts and code go to opencode's endpoints, so install it only if you accept that data flow.",
+      "description": "Opt-in, outside every domain bundle: orchestrate opencode workers from Claude Code to cut token costs, with single workers or parallel scout/coder/tester swarms on free or open-source models and worktree isolation. Requires the third-party opencode CLI and an opencode account; by default worker prompts and code go to opencode's hosted service (point --model at a local model to keep code on your machine), so install it only if you accept that data flow.",
       "version": "2.12.0",
       "author": {
         "name": "Alireza Rezvani"

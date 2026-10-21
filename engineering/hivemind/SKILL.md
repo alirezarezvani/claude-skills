@@ -23,11 +23,16 @@ third-party CLI. It is not bundled — install and authenticate it yourself firs
 
 ## Data flow (read before installing)
 
-Hivemind is opt-in and ships outside every domain bundle. Each worker sends its
-prompt, plus any files or diffs you give it, to opencode's endpoints and the model
-behind the `--model` you pick. Nothing on the worker side calls the Anthropic API.
-Delegate only code you are allowed to send to that provider, and never delegate
-secrets.
+Hivemind is opt-in and ships outside every domain bundle. **By default your code
+leaves your machine:** the default model, `opencode/mimo-v2.5-free`, runs on
+opencode's hosted service, so each worker sends its prompt, plus any files or diffs
+you give it, to opencode's endpoints. Nothing on the worker side calls the Anthropic
+API.
+
+To keep code local, point `--model` at a model served on your own machine (for
+example an Ollama or LM Studio provider configured in your opencode config). With a
+hosted model, delegate only code you are allowed to send to that provider, and never
+delegate secrets.
 
 ## Setup
 

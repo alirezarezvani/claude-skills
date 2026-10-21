@@ -41,6 +41,11 @@ DOMAIN_MAP = {
 }
 
 
+# Skills kept off every mirror on purpose. hivemind sends code to a third-party
+# service, so under the vendor rule it stays in the tree but is never registered.
+UNREGISTERED_SKILLS = {"hivemind"}
+
+
 def find_skills(repo_root: Path) -> List[Dict]:
     """
     Scan repository for all skills (SKILL.md files).
@@ -65,6 +70,8 @@ def find_skills(repo_root: Path) -> List[Dict]:
             continue
 
         skill_dir = skill_md.parent
+        if skill_dir.name in UNREGISTERED_SKILLS:
+            continue
         
         # Determine skill name
         if skill_dir == repo_root:

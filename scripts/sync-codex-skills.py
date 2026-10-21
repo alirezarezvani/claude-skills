@@ -103,6 +103,11 @@ SKILL_DOMAINS = {
 }
 
 
+# Skills kept off every mirror on purpose. hivemind sends code to a third-party
+# service, so under the vendor rule it stays in the tree but is never registered.
+UNREGISTERED_SKILLS = {"hivemind"}
+
+
 def find_skills(repo_root: Path) -> List[Dict]:
     """
     Scan repository for all skills (folders containing SKILL.md).
@@ -148,6 +153,8 @@ def find_skills(repo_root: Path) -> List[Dict]:
                     continue
                 # Skip subfolders that are themselves nested plugins or special dirs
                 if skill_path.name in {"skills", ".claude-plugin", ".codex-plugin"}:
+                    continue
+                if skill_path.name in UNREGISTERED_SKILLS:
                     continue
 
                 skill_md = skill_path / "SKILL.md"
@@ -362,7 +369,8 @@ def prune_orphan_symlinks(repo_root: Path, skills: List[Dict], dry_run: bool = F
     directory is the only way to see it.
 
     A link is removed only where nothing can be lost by removing it: it
-    dangles, or it resolves to a directory with no SKILL.md. Codex has nothing
+    dangles, it resolves to a directory with no SKILL.md, or its skill is in
+    UNREGISTERED_SKILLS. Codex has nothing
     to load through it either way.
 
     A link that resolves to a real skill but that no discovered skill claims is
@@ -384,14 +392,19 @@ def prune_orphan_symlinks(repo_root: Path, skills: List[Dict], dry_run: bool = F
 
         target = os.readlink(entry)
         loadable = (entry / "SKILL.md").exists()
-        if loadable:
+        if loadable and entry.name not in UNREGISTERED_SKILLS:
             unclaimed.append(f"{entry.name}: resolves to a skill no domain claims "
                              f"(-> {target}); check SKILL_DOMAINS before removing it")
             if verbose:
                 print(f"  [UNCLAIMED] {entry.name} -> {target}")
             continue
 
-        reason = "dangling" if not entry.exists() else "no SKILL.md behind it"
+        if entry.name in UNREGISTERED_SKILLS:
+            reason = "unregistered on purpose"
+        elif not entry.exists():
+            reason = "dangling"
+        else:
+            reason = "no SKILL.md behind it"
         try:
             if not dry_run:
                 entry.unlink()

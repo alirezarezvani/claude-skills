@@ -85,6 +85,11 @@ KNOWN_REPO_EXTRAS = {
     "category", "dependencies", "not_for", "agents", "source", "attribution",
 }
 
+# Descriptive extras a SKILL.md may carry only nested under `metadata:`. Codex's
+# skill validator allows name/description/license/allowed-tools/metadata at the
+# top level and nothing else (#1027); runtime keys in SKILL_SPEC_KEYS stay put.
+METADATA_ONLY_KEYS = KNOWN_REPO_EXTRAS - {"license", "metadata", "source", "attribution"}
+
 # Combined description + when_to_use budget per entry in the skill listing.
 DESC_CAP = 1536
 
@@ -144,10 +149,16 @@ def check_file(path, repo_root):
     for key in data:
         if key in spec:
             continue
-        if key in KNOWN_REPO_EXTRAS:
+        if kind == "skill" and key in METADATA_ONLY_KEYS:
+            # Codex's quick_validate.py rejects these at the top level (#1027).
+            errors.append(f"`{key}` belongs under `metadata:`, not at the top level")
+        elif key in KNOWN_REPO_EXTRAS:
             offspec.append(key)
         else:
             warnings.append(f"unrecognized key `{key}` (not in the {kind} frontmatter spec)")
+
+    if kind == "skill" and re.search(r"[<>]", str(data.get("description") or "")):
+        errors.append("description contains `<` or `>`, which Codex's skill validator rejects")
 
     listing = len(str(data.get("description") or "")) + len(str(data.get("when_to_use") or ""))
     if kind != "agent" and listing > DESC_CAP:

@@ -1,11 +1,12 @@
 ---
 name: research-finance
 description: Use when managing the money for an internal R&D program or portfolio — building a multi-period program budget with the F&A (indirect) split, tracking burn rate and runway against value-inflection milestones, or routing R&D cost items to a capitalize-vs-expense determination. Every budget output surfaces its assumptions block; capitalize-vs-expense is decision-support only and routes to a named finance owner — it never books an entry or decides accounting treatment. Distinct from finance/financial-analysis (corporate DCF, close, valuation) and research/grants (funding discovery — this manages money already won).
-version: 2.9.0
-author: claude-code-skills
 license: MIT
-tags: [research-ops, research-finance, rd-budget, burn-rate, runway, fa-rate, capitalize-vs-expense, portfolio]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.9.0
+  author: claude-code-skills
+  tags: [research-ops, research-finance, rd-budget, burn-rate, runway, fa-rate, capitalize-vs-expense, portfolio]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # research-finance

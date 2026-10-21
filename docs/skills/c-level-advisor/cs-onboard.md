@@ -1,6 +1,6 @@
 ---
 title: "C-Suite Onboarding — Agent Skill for Executives"
-description: "Founder onboarding interview that captures company context across 7 dimensions. Invoke with /cs-onboard setup for initial interview or /cs-onboard update for. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Founder onboarding interview that captures company context across 7 dimensions. Invoke with /cs-onboard setup for initial interview or /cs-onboard. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # C-Suite Onboarding

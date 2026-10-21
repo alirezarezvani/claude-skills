@@ -1,13 +1,13 @@
 ---
 title: "Engineering - Core Skills — Agent Skills & Codex Plugins"
-description: "53 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "54 engineering - core skills — engineering agent skill and Claude Code plugin for code generation, DevOps, architecture, and testing. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-code-braces: Engineering - Core
 
-<p class="domain-count">53 skills in this domain</p>
+<p class="domain-count">54 skills in this domain</p>
 
 </div>
 
@@ -106,6 +106,12 @@ description: "53 engineering - core skills — engineering agent skill and Claud
     ---
 
     > TL;DR: Abstract roles find abstract problems. Named engineers with documented, sourced philosophies find problems y...
+
+-   **[Red-Green-Proof](red-green-proof.md)**
+
+    ---
+
+    A bug is not fixed because the tests pass. A bug is fixed when a test fails without your fix and passes with it, and ...
 
 -   **[Red Team](red-team.md)**
 

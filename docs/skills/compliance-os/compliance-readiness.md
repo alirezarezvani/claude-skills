@@ -1,6 +1,6 @@
 ---
 title: "/compliance-os:compliance-readiness — Compliance Officer Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/compliance-os:compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "/compliance-os:compliance-readiness [program] — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # /compliance-os:compliance-readiness — Compliance Officer Forcing Questions
@@ -140,7 +140,7 @@ python ../../skills/compliance-os/scripts/audit_simulator.py scope.json
 
 - Agent: [`cs-compliance-officer`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/agents/cs-compliance-officer.md)
 - Skill: [`compliance-os`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-os/SKILL.md)
-- Adjacent: `ra-qm-team/skills/iso42001-specialist/`, `ra-qm-team/skills/eu-ai-act-specialist/`, `ra-qm-team/skills/information-security-manager-iso27001/`, `ra-qm-team/skills/soc2-compliance/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`
+- Adjacent: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/information-security-manager-iso27001/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/`
 
 ---
 

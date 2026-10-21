@@ -78,10 +78,10 @@ Resuming: engineering/api-speed
 
 ```
 How would you like to continue?
-  1. Single iteration (/ar:run)  — I'll make one change and evaluate
+  1. Single iteration (/ar:ar-run)  — I'll make one change and evaluate
   2. Start a loop (/ar:loop)     — Autonomous with scheduled interval
   3. Just show me the results    — I'll review and decide
 ```
 
 If the user picks loop, hand off to `/ar:loop` with the experiment pre-selected.
-If single, hand off to `/ar:run`.
+If single, hand off to `/ar:ar-run`.

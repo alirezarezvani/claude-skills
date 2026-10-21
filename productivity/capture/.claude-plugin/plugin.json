@@ -1,5 +1,5 @@
 {
-  "name": "capture",
+  "name": "capture-skill",
   "description": "Brain-dump organizer. Ingests an unstructured stream of mixed thoughts, tasks, ideas and transforms it into a clean four-section actionable system (Projects/Ideas, Tasks, Connections, How I Can Help) with zero information loss. Fast-to-action by design — no upfront intake. Asks at most one mid-organization clarifying question when a single item is genuinely ambiguous between task and project. Workspace detection is real (Glob/Grep) — never fabricates connections. Source spec: megaprompts/05-capture-megaprompt.md (PR #657).",
   "version": "2.9.0",
   "author": {

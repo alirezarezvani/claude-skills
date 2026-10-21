@@ -44,6 +44,22 @@ with the skill, 17/21 without.
 references 859 → 877; agents 120 → 123; commands 151 → 157; plugins 101 → 104 (verified via
 `scripts/derive_counters.py --check`).
 
+### Fixed
+
+- **Plugin names match their install names.** Four plugins installed under one name and
+  registered commands under another (`capture-skill` / `capture`, `email-pair` / `email`,
+  `reflect-skill` / `reflect`, `research-orchestrator` / `research`). Their `plugin.json`
+  names now match the marketplace names, so existing installs keep working (Claude Code keys
+  installs on the marketplace name) and only the `/<plugin>:<command>` form changes; the bare
+  `/cs-capture`, `/cs-inbox-setup`, `/cs-inbox-triage`, `/cs-reflect` and `/cs-research`
+  commands are unchanged. `self-improving-agent` keeps its `/si:*` namespace as a documented
+  exception. `check_plugin_json.py --all` now fails on any undocumented mismatch.
+- **Vibe and Hermes mirrors refreshed.** `.vibe/` and `.hermes/` now carry all 379 skills:
+  the six merged since the last sync, the 22 `c-level-agents` skills under their own domain
+  (they were stale links under `c-level-advisor/`, outside the index), and `loop-library`.
+  The sync scripts now include those two domains, find a `SKILL.md` at the domain root, and
+  list a bundle copy and its standalone-plugin twin once instead of twice.
+
 ## [2.13.0] - 2026-10-21 — October triage and quality-audit release
 
 First release since v2.12.0. It clears the community backlog that built up over the summer,

@@ -84,4 +84,4 @@ python {skill_path}/scripts/setup_experiment.py --list-evaluators
 Report to the user:
 - Experiment path and branch name
 - Whether the eval command worked and the baseline metric
-- Suggest: "Run `/ar:run {domain}/{name}` to start iterating, or `/ar:loop {domain}/{name}` for autonomous mode."
+- Suggest: "Run `/ar:ar-run {domain}/{name}` to start iterating, or `/ar:loop {domain}/{name}` for autonomous mode."

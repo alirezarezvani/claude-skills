@@ -1,6 +1,6 @@
 ---
 title: "Company Context Engine — Agent Skill for Executives"
-description: "Loads and manages company context for all C-suite advisor skills. Reads ~/.claude/company-context.md, detects stale context (>90 days), enriches. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Loads and manages company context for all C-suite advisor skills. Reads ~/.claude/company-context.md, detects stale context (older than 90 days). Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Company Context Engine

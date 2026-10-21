@@ -74,12 +74,14 @@ Update session state to `evaluating`
 
 ### 4. Merge Phase
 
-1. Merge the winner: `git merge --no-ff hub/{session}/{winner}/attempt-1`
-2. Tag losers for archival: `git tag hub/archive/{session}/agent-{i} hub/{session}/agent-{i}/attempt-1`
-3. Delete loser branch refs (commits preserved via tags)
-4. Clean up worktrees: `git worktree remove` for each agent
-5. Post merge summary to `.agenthub/board/results/merge-summary.md`
-6. Update session state to `merged`
+1. Present the ranked results and the proposed winner to the user, and wait for an explicit go-ahead before merging. Merging and deleting branches changes the user's repository, so never do either on your own.
+2. Merge the winner: `git merge --no-ff hub/{session}/{winner}/attempt-1`
+3. Tag losers for archival: `git tag hub/archive/{session}/agent-{i} hub/{session}/agent-{i}/attempt-1`
+4. Verify every archive tag exists (`git tag --list 'hub/archive/{session}/*'`) before deleting anything. If a tag is missing, stop and report; do not delete that branch.
+5. Delete loser branch refs (commits preserved via tags)
+6. Clean up worktrees: `git worktree remove` for each agent
+7. Post merge summary to `.agenthub/board/results/merge-summary.md`
+8. Update session state to `merged`
 
 ## Hard Rules
 

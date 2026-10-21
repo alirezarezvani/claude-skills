@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 391,
+  "total_skills": 397,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -996,6 +996,18 @@
       "description": "Use when a project's CLAUDE.md has grown past what anyone reads and you want the agent to learn durable facts from its own sessions instead \u2014 or when asking why the agent keeps re-learning the same correction, why a remembered rule is wrong, or where a memory line came from. Implements a four-tier store (L0 transcripts / L1 candidates / L2 project context / L3 stable persona) where promotion is earned by recurrence across sessions and days, never by one confident statement, and nothing reaches a committed file without a human adopting it."
     },
     {
+      "name": "agent-regression-evals",
+      "source": "../../engineering/skills/agent-regression-evals",
+      "category": "engineering-advanced",
+      "description": "Use when an agent, prompt, model or tool change needs proof it did not make the agent worse \u2014 setting up a regression eval suite, deciding whether a pass-rate drop is real or noise, grading tool-call trajectories, finding flaky eval cases, or wiring an eval gate into CI that blocks the merge. Runs repeated trials, reports pass@k and pass^k, compares candidate to baseline with paired statistics, and refuses to pass a dropped case, a critical-case regression, or a forbidden tool call."
+    },
+    {
+      "name": "agent-regression-evals",
+      "source": "../../engineering/agent-regression-evals/skills/agent-regression-evals",
+      "category": "engineering-advanced",
+      "description": "Use when an agent, prompt, model or tool change needs proof it did not make the agent worse \u2014 setting up a regression eval suite, deciding whether a pass-rate drop is real or noise, grading tool-call trajectories, finding flaky eval cases, or wiring an eval gate into CI that blocks the merge. Runs repeated trials, reports pass@k and pass^k, compares candidate to baseline with paired statistics, and refuses to pass a dropped case, a critical-case regression, or a forbidden tool call."
+    },
+    {
       "name": "agent-workflow-designer",
       "source": "../../engineering/skills/agent-workflow-designer",
       "category": "engineering-advanced",
@@ -1120,6 +1132,18 @@
       "source": "../../engineering/skills/codebase-onboarding",
       "category": "engineering-advanced",
       "description": "Analyze a codebase and generate onboarding documentation for engineers, tech leads, and contractors. Fast fact-gathering and repeatable onboarding outputs. Use when onboarding a new engineer, writing architecture-overview docs for a new project, or producing tech-lead briefings for unfamiliar repos."
+    },
+    {
+      "name": "coding-agent-rollout",
+      "source": "../../engineering/skills/coding-agent-rollout",
+      "category": "engineering-advanced",
+      "description": "Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way \u2014 writing or reviewing shared and managed settings.json permissions, deciding which MCP servers, plugins and marketplaces to approve, cleaning up layered CLAUDE.md files, or measuring whether the team actually uses it. Lints settings across scopes, inventories every MCP server and plugin against an approved list, resolves CLAUDE.md layers and imports, and turns local session data into privacy-safe adoption counts."
+    },
+    {
+      "name": "coding-agent-rollout",
+      "source": "../../engineering/coding-agent-rollout/skills/coding-agent-rollout",
+      "category": "engineering-advanced",
+      "description": "Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way \u2014 writing or reviewing shared and managed settings.json permissions, deciding which MCP servers, plugins and marketplaces to approve, cleaning up layered CLAUDE.md files, or measuring whether the team actually uses it. Lints settings across scopes, inventories every MCP server and plugin against an approved list, resolves CLAUDE.md layers and imports, and turns local session data into privacy-safe adoption counts."
     },
     {
       "name": "collab-proof",
@@ -1545,13 +1569,25 @@
       "name": "finance-skills",
       "source": "../../finance/skills/finance-skills",
       "category": "finance",
-      "description": "Router/index for the 2 finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts) and saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics')."
+      "description": "Router/index for the finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts), saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio) and month-end-close (close calendar, reconciliations, flux review). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics')."
     },
     {
       "name": "financial-analyst",
       "source": "../../finance/skills/financial-analyst",
       "category": "finance",
       "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projections, or spreadsheet analysis."
+    },
+    {
+      "name": "month-end-close",
+      "source": "../../finance/skills/month-end-close",
+      "category": "finance",
+      "description": "Use when running, planning or speeding up a month-end (or quarter-end) close \u2014 building or reviewing the close checklist and calendar, reconciling a bank statement or sub-ledger to the general ledger, writing or reviewing flux (variance) explanations, or finding why the close takes too many days. Orders close tasks by dependency and finds the critical path, proves each reconciliation and ages what is left, and refuses to sign off material fluctuations explained with boilerplate."
+    },
+    {
+      "name": "month-end-close",
+      "source": "../../finance/month-end-close/skills/month-end-close",
+      "category": "finance",
+      "description": "Use when running, planning or speeding up a month-end (or quarter-end) close \u2014 building or reviewing the close checklist and calendar, reconciling a bank statement or sub-ledger to the general ledger, writing or reviewing flux (variance) explanations, or finding why the close takes too many days. Orders close tasks by dependency and finds the critical path, proves each reconciliation and ages what is left, and refuses to sign off material fluctuations explained with boilerplate."
     },
     {
       "name": "passive-deal-screener",
@@ -2394,12 +2430,12 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 93,
+      "count": 97,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
     "finance": {
-      "count": 6,
+      "count": 8,
       "source": "../../finance",
       "description": "Financial analysis, valuation, and forecasting skills"
     },

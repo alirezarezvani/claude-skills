@@ -1,13 +1,13 @@
 ---
 title: "Marketing Skills — Agent Skills & Codex Plugins"
-description: "49 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "50 marketing skills — marketing agent skill and Claude Code plugin for content, SEO, CRO, and growth. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-bullhorn-outline: Marketing
 
-<p class="domain-count">49 skills in this domain</p>
+<p class="domain-count">50 skills in this domain</p>
 
 </div>
 
@@ -34,6 +34,12 @@ description: "49 marketing skills — marketing agent skill and Claude Code plug
     ---
 
     Get your content cited by ChatGPT, Perplexity, Claude, Gemini, and Mistral as the authoritative source.
+
+-   **[AI Decision Authority](ai-decision-authority.md)**
+
+    ---
+
+    Decide which AI outputs a human must approve, and which an agent can own outright.
 
 -   **[Analytics Tracking](analytics-tracking.md)**
 

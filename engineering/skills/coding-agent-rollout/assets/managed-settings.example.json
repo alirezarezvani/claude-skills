@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "disableBypassPermissionsMode": "disable",
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(//**/*.pem)",
+      "Read(//**/id_rsa*)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)",
+      "Bash(git push --force *)",
+      "Bash(sudo *)",
+      "Bash(curl * | sh)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(npm publish *)",
+      "Bash(terraform apply *)",
+      "Bash(kubectl apply *)"
+    ]
+  },
+  "allowManagedHooksOnly": true,
+  "allowedMcpServers": [
+    { "serverName": "github" },
+    { "serverUrl": "https://mcp.internal.example.com/*" }
+  ],
+  "strictKnownMarketplaces": [
+    { "source": "github", "repo": "alirezarezvani/claude-skills" },
+    { "source": "github", "repo": "your-org/claude-marketplace" }
+  ],
+  "cleanupPeriodDays": 30,
+  "env": {
+    "DISABLE_ERROR_REPORTING": "1"
+  }
+}

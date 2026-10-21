@@ -1,6 +1,6 @@
 ---
 title: "Zero-Hallucination Coder — Agent Skill for Codex & OpenClaw"
-description: "Runs a disciplined Discuss -> Map -> Decompose -> Execute -> Verify loop that grounds code in verified structure — no invented APIs, no assumed. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Runs a disciplined Discuss → Map → Decompose → Execute → Verify loop that grounds code in verified structure — no invented APIs, no assumed imports. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Zero-Hallucination Coder

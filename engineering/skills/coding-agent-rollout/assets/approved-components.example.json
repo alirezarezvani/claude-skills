@@ -1,0 +1,5 @@
+{
+  "servers": ["github", "postgres", "https://mcp.internal.example.com/docs"],
+  "plugins": ["code-review@claude-plugins-official", "agent-regression-evals@claude-code-skills"],
+  "marketplaces": ["claude-plugins-official", "claude-code-skills"]
+}

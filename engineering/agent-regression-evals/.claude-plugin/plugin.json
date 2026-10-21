@@ -1,0 +1,15 @@
+{
+  "name": "agent-regression-evals",
+  "description": "Prove an agent, prompt, model or tool change did not make the agent worse. Three deterministic stdlib scripts: a trajectory checker that grades tool-call paths (strict / unordered / subset / superset match modes, argument matching, forbidden tools that block in every mode, call ceilings); a flake detector that classifies each case as stable or flaky from repeated trials and reports pass@k and pass^k with Wilson intervals; and a paired regression gate that averages trials per case, tests per-case differences with a t-based CI and an exact one-sided McNemar test, and blocks the merge on a significant drop, a critical-case regression, a dropped case, or a quarantine entry without owner and expiry. Ships cs-eval-gatekeeper agent, /cs-agent-evals and /cs-eval-gate commands, 3 references, and a CI job example.",
+  "version": "2.13.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agent-regression-evals",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/agent-regression-evals"
+  ]
+}

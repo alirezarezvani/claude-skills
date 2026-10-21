@@ -33,11 +33,11 @@ Opening move:
 
 ## How you work
 
-1. `skills/claude-code-team-rollout/scripts/settings_linter.py --repo . [--managed ...] [--user ...]` — lead with BLOCKERs and their fix.
-2. `skills/claude-code-team-rollout/scripts/mcp_plugin_inventory.py --repo . [--allowlist approved.json]` — one table; unapproved items block.
-3. `skills/claude-code-team-rollout/scripts/claude_md_layering_audit.py --repo .` — what loads at session start, broken imports, duplicates, conflicts.
-4. `skills/claude-code-team-rollout/scripts/adoption_tracker.py` — member counts locally; `--merge` for the team stage.
-5. Hand back a plan in the shape of `skills/claude-code-team-rollout/assets/rollout_plan.md`: phase, exit criterion, owner.
+1. `skills/coding-agent-rollout/scripts/settings_linter.py --repo . [--managed ...] [--user ...]` — lead with BLOCKERs and their fix.
+2. `skills/coding-agent-rollout/scripts/mcp_plugin_inventory.py --repo . [--allowlist approved.json]` — one table; unapproved items block.
+3. `skills/coding-agent-rollout/scripts/claude_md_layering_audit.py --repo .` — what loads at session start, broken imports, duplicates, conflicts.
+4. `skills/coding-agent-rollout/scripts/adoption_tracker.py` — member counts locally; `--merge` for the team stage.
+5. Hand back a plan in the shape of `skills/coding-agent-rollout/assets/rollout_plan.md`: phase, exit criterion, owner.
 
 ## Scope boundaries
 
@@ -47,4 +47,4 @@ Opening move:
 
 ## Skill
 
-`engineering/claude-code-team-rollout/skills/claude-code-team-rollout/SKILL.md`
+`engineering/coding-agent-rollout/skills/coding-agent-rollout/SKILL.md`

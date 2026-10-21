@@ -1,20 +1,15 @@
 ---
-title: "Claude Code Team Rollout — Agent Skill for Codex & OpenClaw"
-description: "Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way — writing or reviewing shared and managed."
+name: coding-agent-rollout
+description: Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way — writing or reviewing shared and managed settings.json permissions, deciding which MCP servers, plugins and marketplaces to approve, cleaning up layered CLAUDE.md files, or measuring whether the team actually uses it. Lints settings across scopes, inventories every MCP server and plugin against an approved list, resolves CLAUDE.md layers and imports, and turns local session data into privacy-safe adoption counts.
+argument-hint: "[repo path | managed-settings.json | 'measure adoption']"
+license: MIT
+metadata:
+  version: 1.0.0
+  build_pattern: "Four-phase rollout (guardrails, inventory, instructions, adoption) with 4 deterministic stdlib scripts and blocking exit codes; every settings key and path verified against code.claude.com/docs"
+  distinct_from: "claude-coach (coaches one person's usage); skill-doctor (grades sessions to improve installed skills); security-guidance (a hook that warns on risky code patterns); prompt-governance (prompts in production apps, not the coding agent's configuration)"
 ---
 
 # Claude Code Team Rollout
-
-<div class="page-meta" markdown>
-<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
-<span class="meta-badge">:material-identifier: `claude-code-team-rollout`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/SKILL.md">Source</a></span>
-</div>
-
-<div class="install-banner" markdown>
-<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
-</div>
-
 
 > **Portability:** 4 stdlib scripts, no network, no LLM calls. They read config and counts; they change nothing.
 
@@ -37,7 +32,7 @@ python scripts/adoption_tracker.py --member alice --output json > alice.json
 python scripts/adoption_tracker.py --merge *.json --seats 12 --weeks-since-launch 6
 ```
 
-Start from [`assets/managed-settings.example.json`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/assets/managed-settings.example.json):
+Start from [`assets/managed-settings.example.json`](assets/managed-settings.example.json):
 bypass mode disabled, secrets denied, risky commands on `ask`, managed hooks
 only, an MCP and marketplace allowlist. Ship it through MDM before the first
 seat; policy added after habits form becomes a negotiation.
@@ -78,9 +73,9 @@ All support `--sample` and `--output json`.
 
 ## References and assets
 
-- [`references/settings_and_permissions.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/references/settings_and_permissions.md) — scopes, precedence, rule syntax, managed-only keys (7 sources)
-- [`references/mcp_and_plugin_governance.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/references/mcp_and_plugin_governance.md) — MCP scopes, allowlists, marketplaces, pinning (6 sources)
-- [`references/memory_and_adoption.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/references/memory_and_adoption.md) — CLAUDE.md layering, transcripts, OpenTelemetry, adoption stages (6 sources)
-- [`assets/managed-settings.example.json`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/assets/managed-settings.example.json) — baseline team policy
-- [`assets/approved-components.example.json`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/assets/approved-components.example.json) — allowlist format for step 2
-- [`assets/rollout_plan.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skills/claude-code-team-rollout/assets/rollout_plan.md) — four-phase plan with exit criteria per phase
+- [`references/settings_and_permissions.md`](references/settings_and_permissions.md) — scopes, precedence, rule syntax, managed-only keys (7 sources)
+- [`references/mcp_and_plugin_governance.md`](references/mcp_and_plugin_governance.md) — MCP scopes, allowlists, marketplaces, pinning (6 sources)
+- [`references/memory_and_adoption.md`](references/memory_and_adoption.md) — CLAUDE.md layering, transcripts, OpenTelemetry, adoption stages (6 sources)
+- [`assets/managed-settings.example.json`](assets/managed-settings.example.json) — baseline team policy
+- [`assets/approved-components.example.json`](assets/approved-components.example.json) — allowlist format for step 2
+- [`assets/rollout_plan.md`](assets/rollout_plan.md) — four-phase plan with exit criteria per phase

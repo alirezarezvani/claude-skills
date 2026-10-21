@@ -1,4 +1,4 @@
-# claude-code-team-rollout
+# coding-agent-rollout
 
 > One engineer's Claude Code setup is a preference. A team's is a policy.
 
@@ -12,7 +12,7 @@ overnight. This plugin makes the policy readable and then checks it.
 
 ```bash
 /plugin marketplace add alirezarezvani/claude-skills
-/plugin install claude-code-team-rollout
+/plugin install coding-agent-rollout
 ```
 
 ## Use

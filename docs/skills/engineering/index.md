@@ -77,17 +77,17 @@ description: "90 engineering - powerful skills — advanced agent-native skill a
 
     Tier: POWERFUL
 
--   **[Claude Code Team Rollout](claude-code-team-rollout.md)**
-
-    ---
-
-    > Portability: 4 stdlib scripts, no network, no LLM calls. They read config and counts; they change nothing.
-
 -   **[Codebase Onboarding](codebase-onboarding.md)**
 
     ---
 
     Tier: POWERFUL
+
+-   **[Claude Code Team Rollout](coding-agent-rollout.md)**
+
+    ---
+
+    > Portability: 4 stdlib scripts, no network, no LLM calls. They read config and counts; they change nothing.
 
 -   **[Database Designer - POWERFUL Tier Skill](database-designer.md)**
 

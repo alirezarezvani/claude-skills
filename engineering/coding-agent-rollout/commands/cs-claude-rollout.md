@@ -10,18 +10,18 @@ Audit the Claude Code setup for `$ARGUMENTS` (default: the current repository) a
 ## Run
 
 ```bash
-python skills/claude-code-team-rollout/scripts/settings_linter.py --repo <repo> [--managed <managed-settings.json>]
-python skills/claude-code-team-rollout/scripts/mcp_plugin_inventory.py --repo <repo> [--allowlist <approved.json>]
-python skills/claude-code-team-rollout/scripts/claude_md_layering_audit.py --repo <repo>
+python skills/coding-agent-rollout/scripts/settings_linter.py --repo <repo> [--managed <managed-settings.json>]
+python skills/coding-agent-rollout/scripts/mcp_plugin_inventory.py --repo <repo> [--allowlist <approved.json>]
+python skills/coding-agent-rollout/scripts/claude_md_layering_audit.py --repo <repo>
 ```
 
 If the user has adoption summaries, add:
 
 ```bash
-python skills/claude-code-team-rollout/scripts/adoption_tracker.py --merge <summaries...> --seats <N> [--weeks-since-launch <W>]
+python skills/coding-agent-rollout/scripts/adoption_tracker.py --merge <summaries...> --seats <N> [--weeks-since-launch <W>]
 ```
 
-No managed settings yet? Start from `skills/claude-code-team-rollout/assets/managed-settings.example.json`
+No managed settings yet? Start from `skills/coding-agent-rollout/assets/managed-settings.example.json`
 and lint it with `--managed` before proposing it.
 
 ## Report
@@ -30,7 +30,7 @@ and lint it with `--managed` before proposing it.
 2. **Effective policy** in plain words: what runs unprompted, what asks, what is denied, which MCP servers and plugins load.
 3. **Warnings** grouped by script.
 4. **Adoption stage**, if summaries were given.
-5. **Next phase** from `skills/claude-code-team-rollout/assets/rollout_plan.md` and its exit criterion.
+5. **Next phase** from `skills/coding-agent-rollout/assets/rollout_plan.md` and its exit criterion.
 
 ## Do not
 

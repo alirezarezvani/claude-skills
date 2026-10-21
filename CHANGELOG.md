@@ -23,7 +23,7 @@ with the skill, 17/21 without.
   cluster in late trials (shared state between trials); `regression_gate.py` averages trials per
   case, then blocks on a paired CI below zero, a one-sided McNemar result, a critical-case
   regression, a dropped case, or a quarantine entry without owner and expiry.
-- **engineering/claude-code-team-rollout** — for rolling Claude Code out to a team.
+- **engineering/coding-agent-rollout** — for rolling Claude Code out to a team.
   `settings_linter.py` checks shared, local, user and managed settings against the documented
   precedence and permission rules (dead `bypassPermissions` in project files, ignored `mcp__*`
   allows, literal credentials, missing secret denies); `mcp_plugin_inventory.py` lists every MCP

@@ -2214,12 +2214,12 @@
       "description": "Use when an agent, prompt, model or tool change needs proof it did not make the agent worse \u2014 setting up a regression eval suite, deciding whether a pass-rate drop is real or noise, grading tool-call trajectories, finding flaky eval cases, or wiring an eval gate into CI that blocks the merge. Runs repeated trials, reports pass@k and pass^k, compares candidate to baseline with paired statistics, and refuses to pass a dropped case, a critical-case regression, or a forbidden tool call."
     },
     {
-      "name": "claude-code-team-rollout",
+      "name": "coding-agent-rollout",
       "category": "engineering-advanced",
       "description": "Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way \u2014 writing or reviewing shared and managed settings.json permissions, deciding which MCP servers, plugins and marketplaces to approve, cleaning up layered CLAUDE.md files, or measuring whether the team actually uses it. Lints settings across scopes, inventories every MCP server and plugin against an approved list, resolves CLAUDE.md layers and imports, and turns local session data into privacy-safe adoption counts."
     },
     {
-      "name": "skills-claude-code-team-rollout",
+      "name": "skills-coding-agent-rollout",
       "category": "engineering-advanced",
       "description": "Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way \u2014 writing or reviewing shared and managed settings.json permissions, deciding which MCP servers, plugins and marketplaces to approve, cleaning up layered CLAUDE.md files, or measuring whether the team actually uses it. Lints settings across scopes, inventories every MCP server and plugin against an approved list, resolves CLAUDE.md layers and imports, and turns local session data into privacy-safe adoption counts."
     },

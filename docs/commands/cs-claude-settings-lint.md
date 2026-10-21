@@ -7,12 +7,12 @@ description: "Lint Claude Code settings across shared, local, user and managed s
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-console: Slash Command</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/2-claude-skills/tree/main/engineering/claude-code-team-rollout/commands/cs-claude-settings-lint.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/2-claude-skills/tree/main/engineering/coding-agent-rollout/commands/cs-claude-settings-lint.md">Source</a></span>
 </div>
 
 
 ```bash
-python skills/claude-code-team-rollout/scripts/settings_linter.py --repo <repo> [--managed <file>] [--user <file>]
+python skills/coding-agent-rollout/scripts/settings_linter.py --repo <repo> [--managed <file>] [--user <file>]
 ```
 
 Remember while reading the result: `permissions.allow` arrays **merge** across scopes, and evaluation is

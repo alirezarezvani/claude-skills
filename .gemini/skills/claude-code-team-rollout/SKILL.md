@@ -1,1 +1,0 @@
-../../../engineering/claude-code-team-rollout/skills/claude-code-team-rollout/SKILL.md

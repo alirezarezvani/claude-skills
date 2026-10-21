@@ -180,7 +180,7 @@ Vendors `engineering/skillopt-sleep/` — a byte-for-byte start from [microsoft/
 
 ---
 
-**Unreleased (post-v2.13.0) — three audit-proposed skills (agent-regression-evals, claude-code-team-rollout, month-end-close):**
+**Unreleased (post-v2.13.0) — three audit-proposed skills (agent-regression-evals, coding-agent-rollout, month-end-close):**
 
 Built from the October quality audit's new-skill proposals, ranked by impact on teams. Each is a
 standalone plugin mirrored into its domain bundle (`engineering/skills/`, `finance/skills/`), with

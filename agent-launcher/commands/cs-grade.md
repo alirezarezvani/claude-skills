@@ -3,7 +3,7 @@ description: Phase 3 — the bounded grade→iterate loop. Define a CMA outcome 
 argument-hint: "[optional: path to build-sheet.json]"
 ---
 
-# /cs:grade — Phase 3: Grade → Iterate
+# /cs-grade — Phase 3: Grade → Iterate
 
 Run the `grade-iterate` skill.
 

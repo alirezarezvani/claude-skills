@@ -1,11 +1,11 @@
 ---
 name: "cs-landing"
-description: "/cs:landing <product-or-brief> — Generate a premium single-file HTML landing page with GSAP 3D animations, scroll-triggered reveals, and mouse-parallax depth. Grill-me intake (4 questions) locks down product / audience / brand / tone before any markup. Output: ${OUTPUT_DIR}/<product-kebab>.html or HTML artifact."
+description: "/cs-landing <product-or-brief> — Generate a premium single-file HTML landing page with GSAP 3D animations, scroll-triggered reveals, and mouse-parallax depth. Grill-me intake (4 questions) locks down product / audience / brand / tone before any markup. Output: ${OUTPUT_DIR}/<product-kebab>.html or HTML artifact."
 ---
 
-# /cs:landing — Premium HTML Landing Page Generator
+# /cs-landing — Premium HTML Landing Page Generator
 
-**Command:** `/cs:landing <product-or-brief>`
+**Command:** `/cs-landing <product-or-brief>`
 
 The `cs-landing` persona generates one polished, self-contained `.html` landing page with GSAP animations, mouse parallax, and 3D CSS effects.
 
@@ -21,7 +21,7 @@ If you need **conversion-optimized lead-gen** with copy frameworks (PAS / AIDA /
 
 | Need | Skill |
 |---|---|
-| Visual premium one-pager | **`/cs:landing`** (this command) |
+| Visual premium one-pager | **`/cs-landing`** (this command) |
 | Conversion-optimized lead-gen | `landing-page-generator` |
 
 ## Trigger Phrases (auto-invoke without /cs:)
@@ -116,7 +116,7 @@ python ../skills/landing/scripts/html_validator.py \
 - Skill: [`landing`](../skills/landing/SKILL.md)
 - Source spec: `megaprompts/04-landing-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
 - Sibling (different optimization): `product-team/skills/landing-page-generator/`
-- Adjacent v2 commands: `/cs:capture`, `/cs:pulse`, `/cs:inbox-setup`, `/cs:inbox-triage`
+- Adjacent v2 commands: `/cs-capture`, `/cs-pulse`, `/cs-inbox-setup`, `/cs-inbox-triage`
 
 ---
 

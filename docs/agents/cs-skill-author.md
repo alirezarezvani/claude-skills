@@ -101,7 +101,7 @@ python ../../karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py p
 # 1. Verify license + permissibility
 # 2. Copy upstream SKILL.md content verbatim where appropriate
 # 3. Add attribution: README.md credits + .claude-plugin/authoring-notes.json attribution block + SKILL.md derivation metadata (never in plugin.json — CI hard-fails extension keys there)
-# 4. Add wrapper layer per this repo's pattern (validators + references + cs-* + /cs:*)
+# 4. Add wrapper layer per this repo's pattern (validators + references + cs-* + /cs-*)
 # 5. Validate per Workflow 1
 ```
 
@@ -143,7 +143,7 @@ done
 
 - Skill: [../skills/write-a-skill/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/skills/write-a-skill/SKILL.md)
 - Companion tooling: [../skills/write-a-skill/references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/skills/write-a-skill/references/companion_tooling.md)
-- Sibling command: [`/cs:write-a-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/commands/cs-write-a-skill.md)
+- Sibling command: [`/cs-write-a-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill/commands/cs-write-a-skill.md)
 
 ---
 

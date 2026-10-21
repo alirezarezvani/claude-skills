@@ -165,7 +165,7 @@ python scripts/conformity_assessment_planner.py system.json
 
 1. List all AI systems on or planned for EU market
 2. Run classifier for each — Article 5 prohibited list may expand via delegated acts
-3. Run obligation tracker — deadlines shift as Title III phases in (2025 → 2026 → 2027)
+3. Run obligation tracker — deadlines shift as the Act phases in (2025 → Art. 50 in Aug 2026 → Annex III high-risk Dec 2027 → Annex I Aug 2028, per Regulation (EU) 2026/1744). Re-check the dates on every refresh: the Omnibus showed they can move
 4. For each high-risk system: verify post-market monitoring data flow + serious incident reporting capacity
 5. Update Annex IV technical documentation per Article 11 ongoing requirement
 6. Pair with ISO 42001 management review (Clause 9.3) if both operate

@@ -17,8 +17,8 @@ python3 skills/product-skills/scripts/discovery_cadence_tracker.py --input disco
 python3 skills/product-skills/scripts/ost_linter.py --input ost.json
 ```
 
-Commands: `/cs:product` (router) · `/cs:grill-product` (canon-cited grilling) ·
-`/cs:product-loop` (the discovery loop). Agent: `cs-product-orchestrator`. Build-scale
+Commands: `/cs-product` (router) · `/cs-grill-product` (canon-cited grilling) ·
+`/cs-product-loop` (the discovery loop). Agent: `cs-product-orchestrator`. Build-scale
 goals compile through `engineering/agent-harness` with the `product-team.json` manifest.
 Hard rules: no roadmap cites a tree that fails the linter; single-participant claims are
 anecdotes; AI features ship with eval specs (see
@@ -49,7 +49,7 @@ anecdotes; AI features ship with eval specs (see
 
 **Agents:** 6 (cs-product-orchestrator, cs-product-manager, cs-agile-product-owner, cs-product-strategist, cs-ux-researcher, cs-product-analyst)
 
-**Slash Commands:** 11 (/cs:product, /cs:grill-product, /cs:product-loop, /rice, /okr, /persona, /user-story, /competitive-matrix, /prd, /sprint-plan, /code-to-prd)
+**Slash Commands:** 11 (/cs-product, /cs-grill-product, /cs-product-loop, /rice, /okr, /persona, /user-story, /competitive-matrix, /prd, /sprint-plan, /code-to-prd)
 
 ## Python Automation Tools
 

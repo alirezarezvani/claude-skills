@@ -18,7 +18,7 @@ Goal:
 ## Sequence (gates are blocking — never skip forward)
 
 1. **Intake gate** — the goal must name an observable outcome and its proof. If vague,
-   run the `/cs:grill-pm` branches first (one question per turn). Do not loop on fuzz.
+   run the `/cs-grill-pm` branches first (one question per turn). Do not loop on fuzz.
 2. **Observe** — pull fresh data: `mcp__atlassian__getAccessibleAtlassianResources` (get
    cloudId) → `mcp__atlassian__searchJiraIssuesUsingJql` → save `snapshot.json`, then:
    ```bash

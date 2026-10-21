@@ -51,7 +51,7 @@ Recommended: [answer + canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:pm` (question) or `/cs:pm-loop` (goal) with the
+- All branches resolved → invoke `/cs-pm` (question) or `/cs-pm-loop` (goal) with the
   locked decisions inlined.
 - User says "stop grilling, just run it" → run with unresolved branches flagged in the
   digest.
@@ -60,4 +60,4 @@ Recommended: [answer + canon-cited rationale]
 ## Distinct from
 
 - `engineering/grill-me` — generic plan interrogation. This grills against the PM canon.
-- `/cs:pm` — routes; this refuses to route until decisions are locked.
+- `/cs-pm` — routes; this refuses to route until decisions are locked.

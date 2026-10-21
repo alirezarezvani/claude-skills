@@ -111,7 +111,7 @@ Use that context and only ask for information not already covered.
 
 | Domain | Context File | Created By |
 |--------|-------------|-----------|
-| C-Suite | `company-context.md` | `/cs:setup` (cs-onboard skill) |
+| C-Suite | `company-context.md` | `/cs-onboard setup` (cs-onboard skill) |
 | Marketing | `marketing-context.md` | marketing-context skill |
 | Engineering | `project-context.md` | codebase-onboarding skill |
 | Product | `product-context.md` | product-strategist skill |

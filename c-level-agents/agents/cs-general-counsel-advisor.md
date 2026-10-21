@@ -26,27 +26,27 @@ Pairs with `cs-cfo-advisor` (term-sheet → dilution math), `cs-ciso-advisor` (d
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/general-counsel-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/`
 
 ### Python Tools
 
 1. **Contract Risk Scanner**
-   - Path: `../../c-level-advisor/skills/general-counsel-advisor/scripts/contract_risk_scanner.py`
-   - Usage: `python ../../c-level-advisor/skills/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/contract_risk_scanner.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt`
    - Scans contract text for 12 founder-killer clauses: auto-renew traps, uncapped indemnity, one-sided liability, vague IP, aggressive non-compete, one-sided venue, missing DPA, MFN pricing, broad audit rights, perpetual license-back, force majeure asymmetry, broad non-solicit
    - Output: ranked findings (CRITICAL / HIGH / MEDIUM) with excerpt, why-it-matters, suggested redline
 
 2. **Term Sheet Analyzer**
-   - Path: `../../c-level-advisor/skills/general-counsel-advisor/scripts/term_sheet_analyzer.py`
-   - Usage: `python ../../c-level-advisor/skills/general-counsel-advisor/scripts/term_sheet_analyzer.py term_sheet.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/term_sheet_analyzer.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/term_sheet_analyzer.py term_sheet.json`
    - Scores a term sheet 0-100 across 12 dimensions: liquidation preference, anti-dilution, option pool, board, vesting, pro-rata, drag-along, protective provisions, info rights, dividends, valuation/dilution, holistic
    - Output: founder-friendliness grade (FOUNDER_FRIENDLY / NEGOTIATE / HOSTILE) + per-clause flags
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/general-counsel-advisor/references/contracts_playbook.md` — 7 startup contract types (MSA, SaaS, NDA, DPA, employment, contractor, equity), top redlines per type, quick triage heuristics
-- `../../c-level-advisor/skills/general-counsel-advisor/references/ip_and_regulatory.md` — IP inventory (patents, copyright, trademark, trade secrets), invention assignment, OSS license compliance, regulatory trigger matrix (HIPAA, GDPR, FDA, fintech, AI Act), SOC 2 → ISO sequencing
-- `../../c-level-advisor/skills/general-counsel-advisor/references/term_sheet_decoder.md` — Full term sheet glossary, founder-friendly defaults cheat sheet, negotiation strategy, the three clauses that matter most
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/references/contracts_playbook.md` — 7 startup contract types (MSA, SaaS, NDA, DPA, employment, contractor, equity), top redlines per type, quick triage heuristics
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/references/ip_and_regulatory.md` — IP inventory (patents, copyright, trademark, trade secrets), invention assignment, OSS license compliance, regulatory trigger matrix (HIPAA, GDPR, FDA, fintech, AI Act), SOC 2 → ISO sequencing
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/references/term_sheet_decoder.md` — Full term sheet glossary, founder-friendly defaults cheat sheet, negotiation strategy, the three clauses that matter most
 
 ## Workflows
 
@@ -56,7 +56,7 @@ Pairs with `cs-cfo-advisor` (term-sheet → dilution math), `cs-ciso-advisor` (d
 ```bash
 # 1. Save contract as text
 # 2. Scan for the 12 common founder-killer clauses
-python ../../c-level-advisor/skills/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt
 # 3. For each CRITICAL/HIGH finding, draft a counter-proposal
 # 4. Send redlines + counter-proposals to outside counsel
 ```
@@ -68,11 +68,11 @@ python ../../c-level-advisor/skills/general-counsel-advisor/scripts/contract_ris
 
 ```bash
 # 1. Build term_sheet.json matching the schema (see --help)
-python ../../c-level-advisor/skills/general-counsel-advisor/scripts/term_sheet_analyzer.py term_sheet.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/term_sheet_analyzer.py term_sheet.json
 # 2. Identify the top 3 NEGOTIATE / CRITICAL items
 # 3. Cross-check with cs-cfo-advisor for dilution math
 # 4. Decide which 3 to fight for (don't try to win all 20)
-# 5. Log via /cs:decide and /cs:freeze 30 to prevent regret-driven re-opening
+# 5. Log via /c-level-agents:decide and /c-level-agents:freeze 30 to prevent regret-driven re-opening
 ```
 
 **Expected Output:** Founder-friendliness score, prioritized counter-list, decision memo.
@@ -124,19 +124,19 @@ echo "Source: $CONTRACT"
 echo ""
 
 # 1. Risk scan
-python ../../c-level-advisor/skills/general-counsel-advisor/scripts/contract_risk_scanner.py "$CONTRACT"
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/contract_risk_scanner.py "$CONTRACT"
 
 echo ""
 echo "📚 Reference checks:"
-echo "- Contracts playbook: ../../c-level-advisor/skills/general-counsel-advisor/references/contracts_playbook.md"
-echo "- Regulatory triggers: ../../c-level-advisor/skills/general-counsel-advisor/references/ip_and_regulatory.md"
+echo "- Contracts playbook: ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/references/contracts_playbook.md"
+echo "- Regulatory triggers: ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/references/ip_and_regulatory.md"
 echo ""
 echo "📋 Required before sign:"
 echo "  ☐ All CRITICAL findings addressed or accepted with documented reason"
 echo "  ☐ Outside counsel review complete (or waived in writing)"
 echo "  ☐ DPA executed if personal data flows"
-echo "  ☐ /cs:decide logged"
-echo "  ☐ /cs:freeze applied if irreversible (term sheet, M&A LOI, employment exec)"
+echo "  ☐ /c-level-agents:decide logged"
+echo "  ☐ /c-level-agents:freeze applied if irreversible (term sheet, M&A LOI, employment exec)"
 ```
 
 ## Success Metrics
@@ -156,9 +156,9 @@ echo "  ☐ /cs:freeze applied if irreversible (term sheet, M&A LOI, employment 
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/general-counsel-advisor/SKILL.md](../../c-level-advisor/skills/general-counsel-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
-- Sibling command: [`/cs:gc-review`](../skills/gc-review/SKILL.md)
+- Sibling command: [`/c-level-agents:gc-review`](../skills/gc-review/SKILL.md)
 
 ---
 

@@ -1,11 +1,11 @@
 ---
 name: "cs-arquiteto"
-description: "/cs:arquiteto — Builds a company from scratch as an OKF bundle (tree of .md with type + link graph). Guides the 12-phase interview, one at a time, and generates conformant markdown concepts. In English."
+description: "/cs-arquiteto — Builds a company from scratch as an OKF bundle (tree of .md with type + link graph). Guides the 12-phase interview, one at a time, and generates conformant markdown concepts. In English."
 ---
 
-# /cs:arquiteto — Company Architect
+# /cs-arquiteto — Company Architect
 
-**Command:** `/cs:arquiteto`
+**Command:** `/cs-arquiteto`
 
 ## When to run
 

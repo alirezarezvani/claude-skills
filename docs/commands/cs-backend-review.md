@@ -75,8 +75,8 @@ Profiles live at `engineering-team/skills/senior-backend/profiles/`. Four built-
 
 ## Related commands
 
-- `/cs:fullstack-review` — full-stack lens (parent)
-- `/cs:frontend-review` — for API consumer side
-- `/cs:engineer-grill` — cross-role 21-question grill
+- `/cs-fullstack-review` — full-stack lens (parent)
+- `/cs-frontend-review` — for API consumer side
+- `/cs-engineer-grill` — cross-role 21-question grill
 - `/slo-design` — explicit SLO design via slo-architect
 - `/karpathy-check` — Karpathy 4-principle review

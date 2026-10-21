@@ -204,7 +204,7 @@ Which should I tackle?
 
 - Skill: [../skills/capture/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/skills/capture/SKILL.md)
 - Source spec: `megaprompts/05-capture-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:capture`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/commands/cs-capture.md)
+- Sibling command: [`/cs-capture`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/commands/cs-capture.md)
 
 ---
 

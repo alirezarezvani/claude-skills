@@ -78,5 +78,5 @@ Hard outputs:
 
 ## Available commands
 
-`/cs:pm <inquiry>` (router) · `/cs:grill-pm <plan>` (grill first) · `/cs:pm-loop <goal>`
+`/cs-pm <inquiry>` (router) · `/cs-grill-pm <plan>` (grill first) · `/cs-pm-loop <goal>`
 (delivery loop) · plus the domain's `/sprint-health`, `/project-health`, `/retro`.

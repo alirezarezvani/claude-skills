@@ -184,7 +184,7 @@ def read_kb(workspace: Path) -> Dict[str, Any]:
 
     email_dir = workspace / "Email"
     if not email_dir.exists():
-        add_issue("FAIL", f"{email_dir} does not exist. Run /cs:inbox-setup first.")
+        add_issue("FAIL", f"{email_dir} does not exist. Run /cs-inbox-setup first.")
         return {"verdict": "FAIL", "issues": issues, "files": {}}
 
     files: Dict[str, Any] = {}
@@ -193,7 +193,7 @@ def read_kb(workspace: Path) -> Dict[str, Any]:
     for fn in REQUIRED_CORE:
         loaded = load_file(workspace, fn)
         if loaded is None:
-            add_issue("FAIL", f"Required core file missing: Email/{fn}. Run /cs:inbox-setup first.")
+            add_issue("FAIL", f"Required core file missing: Email/{fn}. Run /cs-inbox-setup first.")
             files[fn] = {"present": False}
             continue
         if loaded["size"] == 0:
@@ -227,7 +227,7 @@ def read_kb(workspace: Path) -> Dict[str, Any]:
     # triage-log/ directory
     triage_log = email_dir / LOG_DIR
     if not triage_log.exists():
-        add_issue("FAIL", f"Email/{LOG_DIR}/ missing. Run /cs:inbox-setup first.")
+        add_issue("FAIL", f"Email/{LOG_DIR}/ missing. Run /cs-inbox-setup first.")
         files[LOG_DIR] = {"present": False}
     elif not triage_log.is_dir():
         add_issue("FAIL", f"Email/{LOG_DIR} exists but is not a directory.")

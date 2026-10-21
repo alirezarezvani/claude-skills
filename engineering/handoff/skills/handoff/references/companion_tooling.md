@@ -27,9 +27,9 @@ Matt's SKILL.md specifies:
 
 Lives at `../agents/cs-handoff-author.md`. Voice: continuity-focused, no-duplication-tolerated. The persona's hard rule: **if you find yourself typing content from a PRD/plan/ADR/issue, stop and replace with a reference**.
 
-## `/cs:handoff` Slash Command
+## `/cs-handoff` Slash Command
 
-Lives at `../commands/cs-handoff.md`. Single-trigger handoff with argument hint per Matt's convention: `/cs:handoff <what-next-session-is-for>`.
+Lives at `../commands/cs-handoff.md`. Single-trigger handoff with argument hint per Matt's convention: `/cs-handoff <what-next-session-is-for>`.
 
 ## Why Wrap Matt's Original
 

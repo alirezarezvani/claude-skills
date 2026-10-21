@@ -1,9 +1,9 @@
 ---
-title: "/cs:boardroom — Multi-Role Boardroom Deliberation — Agent Skill for Executives"
-description: "/cs:boardroom <brief> — 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:boardroom — Multi-Role Boardroom Deliberation — Agent Skill for Executives"
+description: "/c-level-agents:boardroom <brief> — 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:boardroom — Multi-Role Boardroom Deliberation
+# /c-level-agents:boardroom — Multi-Role Boardroom Deliberation
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,14 +16,14 @@ description: "/cs:boardroom <brief> — 6-phase multi-role deliberation across t
 </div>
 
 
-**Command:** `/cs:boardroom <brief-path>`
+**Command:** `/c-level-agents:boardroom <brief-path>`
 
 Runs the `board-meeting` skill protocol across the C-suite for a single strategy brief. This is the **heart of the plugin** — the multi-role deliberation that gstack's review chain only approximates.
 
 ## Pipeline Position
 
 ```
-/cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
+/c-level-agents:office-hours  →  /c-level-agents:brief  →  /c-level-agents:boardroom  →  /c-level-agents:decide  →  /c-level-agents:execute  →  /c-level-agents:post-mortem
                                      ↑ you are here
 ```
 
@@ -60,7 +60,7 @@ Runs the `board-meeting` skill protocol across the C-suite for a single strategy
 ### Phase 6 — Decision Hand-off
 - Memo is presented to the founder.
 - Founder accepts, modifies, or rejects.
-- Approved memo routes to `/cs:decide` for logging.
+- Approved memo routes to `/c-level-agents:decide` for logging.
 
 ## Output: Board Memo
 
@@ -69,7 +69,7 @@ Saved to `~/.claude/boardroom/YYYY-MM-DD-<slug>.md`:
 ```markdown
 # Board Memo: <topic>
 **Date:** YYYY-MM-DD
-**Brief:** <link to /cs:brief file>
+**Brief:** <link to /c-level-agents:brief file>
 **Status:** AWAITING FOUNDER DECISION | APPROVED | REJECTED
 
 ## Question
@@ -98,10 +98,10 @@ Saved to `~/.claude/boardroom/YYYY-MM-DD-<slug>.md`:
 [Copied from brief, refined by the panel]
 
 ## Recommended Decision Path
-- `/cs:decide` → log the decision
-- `/cs:execute` → 90-day plan
-- `/cs:cross-eval` → multi-model sanity check (optional, high-stakes)
-- `/cs:freeze N` → cooldown lock (optional, irreversible)
+- `/c-level-agents:decide` → log the decision
+- `/c-level-agents:execute` → 90-day plan
+- `/c-level-agents:cross-eval` → multi-model sanity check (optional, high-stakes)
+- `/c-level-agents:freeze N` → cooldown lock (optional, irreversible)
 ```
 
 ## Why Phase 2 Isolation Matters
@@ -110,7 +110,7 @@ If advisors see each other's positions before forming their own, they anchor. Ph
 
 ## Why This Beats gstack's Review Chain
 
-| | gstack `/autoplan` | `/cs:boardroom` |
+| | gstack `/autoplan` | `/c-level-agents:boardroom` |
 |---|---|---|
 | Roles | CEO → design → eng (3) | Up to 10 C-roles |
 | Order | Sequential | Phase 2 isolation, then simultaneous |
@@ -131,9 +131,9 @@ If advisors see each other's positions before forming their own, they anchor. Ph
 
 ## Routing
 
-- `/cs:decide` — log approved memo
-- `/cs:cross-eval` — high-stakes second opinion
-- `/cs:freeze` — cooldown lock
+- `/c-level-agents:decide` — log approved memo
+- `/c-level-agents:cross-eval` — high-stakes second opinion
+- `/c-level-agents:freeze` — cooldown lock
 
 ## Related
 

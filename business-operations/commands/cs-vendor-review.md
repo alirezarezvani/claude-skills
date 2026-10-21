@@ -3,7 +3,7 @@ description: Score vendors on a multi-dimensional scorecard (reliability / suppo
 argument-hint: "<vendor catalog JSON path or vendor list>"
 ---
 
-# /cs:vendor-review — Vendor scorecard + SLA + risk
+# /cs-vendor-review — Vendor scorecard + SLA + risk
 
 Run the `vendor-management` skill on this input:
 

@@ -1,12 +1,12 @@
 ---
 name: "cs-linkedin-analyze"
-description: "/cs:linkedin-analyze — Read your own exported LinkedIn post data, report medians and outlier bands rather than misleading means, test candidate patterns against a seeded permutation null with multiple-comparisons accounting, and size a real experiment. Refuses to conclude anything below 10 posts."
+description: "/cs-linkedin-analyze — Read your own exported LinkedIn post data, report medians and outlier bands rather than misleading means, test candidate patterns against a seeded permutation null with multiple-comparisons accounting, and size a real experiment. Refuses to conclude anything below 10 posts."
 argument-hint: "[path to your LinkedIn post export, or the pattern you think you see]"
 ---
 
-# /cs:linkedin-analyze — Describe honestly, refuse to over-conclude
+# /cs-linkedin-analyze — Describe honestly, refuse to over-conclude
 
-**Command:** `/cs:linkedin-analyze [export path or the claim to test]`
+**Command:** `/cs-linkedin-analyze [export path or the claim to test]`
 
 Your own data only. Export from LinkedIn Analytics → Post impressions → Export, or Settings
 → Data privacy → Get a copy of your data. Nothing is fetched; scraping post data is

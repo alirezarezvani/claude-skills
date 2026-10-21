@@ -5,15 +5,15 @@ argument-hint: "[--project to set project-specific overrides]"
 allowed-tools: ["Bash"]
 ---
 
-# /cs:handoff-setup
+# /cs-handoff-setup
 
 Configure the handoff skill. Walks 5 questions (plus 1-2 optional) and writes the config. Re-run any time.
 
 ## Invocation
 
 ```
-/cs:handoff-setup                 # configure global defaults
-/cs:handoff-setup --project       # set project-specific overrides
+/cs-handoff-setup                 # configure global defaults
+/cs-handoff-setup --project       # set project-specific overrides
 ```
 
 ## Questions

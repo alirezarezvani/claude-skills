@@ -3,7 +3,7 @@ description: Main entry / resume for building a Claude Managed Agent. Runs the a
 argument-hint: "[optional: a one-sentence goal to set first]"
 ---
 
-# /cs:launch — build/resume a Claude Managed Agent
+# /cs-launch — build/resume a Claude Managed Agent
 
 Route through the `agent-launcher-orchestrator` skill.
 
@@ -23,6 +23,6 @@ Route through the `agent-launcher-orchestrator` skill.
 
 ## Refusals
 
-- No goal set → run `/cs:goal set "..."` first.
+- No goal set → run `/cs-goal set "..."` first.
 - Under-3-word goal → get one sentence naming the one job.
 - Never touch the network or the API key.

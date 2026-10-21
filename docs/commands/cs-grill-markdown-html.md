@@ -91,4 +91,4 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifi
 - **Refuse, don't override.** If Q2 or Q3 fails, the conversion does not proceed. The grill protects against silent-failure.
 - **Walk depth-first.** Finish all 5 questions for THIS conversion before starting a different one.
 
-After Q5, hand off to `/cs:markdown-html <path>` to actually run the conversion with the confirmed answers in hand.
+After Q5, hand off to `/cs-markdown-html <path>` to actually run the conversion with the confirmed answers in hand.

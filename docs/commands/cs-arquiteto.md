@@ -1,6 +1,6 @@
 ---
 title: "/cs-arquiteto — Slash Command for AI Coding Agents"
-description: "/cs:arquiteto — Builds a company from scratch as an OKF bundle (tree of .md with type + link graph). Guides the 12-phase interview, one at a time. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-arquiteto — Builds a company from scratch as an OKF bundle (tree of .md with type + link graph). Guides the 12-phase interview, one at a time. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-arquiteto
@@ -11,7 +11,7 @@ description: "/cs:arquiteto — Builds a company from scratch as an OKF bundle (
 </div>
 
 
-**Command:** `/cs:arquiteto`
+**Command:** `/cs-arquiteto`
 
 ## When to run
 

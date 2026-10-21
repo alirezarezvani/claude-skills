@@ -17,7 +17,7 @@ The pipeline, in order, because the order is the safety property:
   6. promote      L1->L2->L3 on recurrence, staged to .memory/staged/
 
 Step 6 NEVER writes CLAUDE.md. Adoption is a separate, explicit, human step
-(`/cs:memory adopt`), which backs both CLAUDE.md files up first.
+(`/cs-memory adopt`), which backs both CLAUDE.md files up first.
 
 A missing .memory/atoms.jsonl is the normal first-run state, not an error.
 Disable with AGENT_MEMORY_SESSIONEND=0.

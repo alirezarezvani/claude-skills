@@ -3,7 +3,7 @@ description: Partner tier classification (Referral / Reseller / OEM / SI / Strat
 argument-hint: "<partner intake: type, evidence of independent demand, commitments>"
 ---
 
-# /cs:partner-tier — Partner tier + joint GTM + revshare
+# /cs-partner-tier — Partner tier + joint GTM + revshare
 
 Run the `partnerships-architect` skill on this input:
 

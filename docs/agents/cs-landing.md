@@ -25,7 +25,7 @@ description: "Premium HTML landing page generator persona. Walks 3-4 forcing int
 **FOUC reminder (internal discipline):**
 > "Generating with `gsap.set()` initial states on every animated element. No flash of unstyled content."
 
-**Closing:** "Generated: `${OUTPUT_DIR}/<product-kebab>.html`. Single file, all CSS+JS inline, only externals are Google Fonts + GSAP CDN. Open in browser to preview. Re-run /cs:landing if you want a variant."
+**Closing:** "Generated: `${OUTPUT_DIR}/<product-kebab>.html`. Single file, all CSS+JS inline, only externals are Google Fonts + GSAP CDN. Open in browser to preview. Re-run /cs-landing if you want a variant."
 
 Visual-premium-focused, motion-aware, brand-respecting. Refuses to ship a generic page.
 
@@ -173,7 +173,7 @@ Instead of writing to ./landing-pages/<slug>.html:
 
 - Skill: [../skills/landing/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/marketing/landing/skills/landing/SKILL.md)
 - Source spec: `megaprompts/04-landing-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:landing`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing/landing/commands/cs-landing.md)
+- Sibling command: [`/cs-landing`](https://github.com/alirezarezvani/claude-skills/tree/main/marketing/landing/commands/cs-landing.md)
 
 ---
 

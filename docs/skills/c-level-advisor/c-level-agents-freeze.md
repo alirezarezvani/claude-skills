@@ -1,9 +1,9 @@
 ---
-title: "/cs:freeze — Cooldown Lock on a Decision — Agent Skill for Executives"
-description: "/cs:freeze <decision> <days> — Lock a strategic decision for a cooldown period to prevent impulse reversal. Mirrors gstack's safety primitives for. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:freeze — Cooldown Lock on a Decision — Agent Skill for Executives"
+description: "/c-level-agents:freeze <decision> <days> — Lock a strategic decision for a cooldown period to prevent impulse reversal. Mirrors gstack's safety primitives for. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:freeze — Cooldown Lock on a Decision
+# /c-level-agents:freeze — Cooldown Lock on a Decision
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:freeze <decision> <days> — Lock a strategic decision for a c
 </div>
 
 
-**Command:** `/cs:freeze <decision-path> <days>`
+**Command:** `/c-level-agents:freeze <decision-path> <days>`
 
 Locks a decision for a defined cooldown period. During the freeze, the chief-of-staff router refuses to re-litigate the decision unless a kill criterion explicitly triggers.
 
@@ -64,7 +64,7 @@ The decision record is updated in place:
 **Status:** FROZEN
 **Frozen until:** YYYY-MM-DD
 **Reason for freeze:** <text>
-**Override condition:** Kill criterion <name> triggers OR founder issues `/cs:unfreeze` with stated reason
+**Override condition:** Kill criterion <name> triggers OR founder issues `/c-level-agents:freeze release` with stated reason
 ```
 
 The active-freezes index is updated:
@@ -75,7 +75,7 @@ The active-freezes index is updated:
 
 | Decision | Frozen until | Override condition |
 |---|---|---|
-| <decision title> | YYYY-MM-DD | <kill criterion or /cs:unfreeze> |
+| <decision title> | YYYY-MM-DD | <kill criterion or /c-level-agents:freeze release> |
 ```
 
 ## Override
@@ -83,14 +83,14 @@ The active-freezes index is updated:
 To unfreeze before the period ends, the founder runs:
 
 ```
-/cs:unfreeze <decision> <reason>
+/c-level-agents:freeze release <decision> <reason>
 ```
 
 The unfreeze is logged in the decision history (preserved permanently). Forced overrides create a paper trail that surfaces at post-mortem.
 
 ## Auto-Override
 
-If a kill criterion in the decision triggers, the freeze auto-releases and the chief-of-staff routes immediately to `/cs:post-mortem`. The freeze does not protect against reality; it protects against impulse.
+If a kill criterion in the decision triggers, the freeze auto-releases and the chief-of-staff routes immediately to `/c-level-agents:post-mortem`. The freeze does not protect against reality; it protects against impulse.
 
 ## Why This Beats "Just Don't Re-Decide"
 
@@ -98,9 +98,9 @@ Founders have authority. Without an explicit lock + log, every wobble produces a
 
 ## Routing
 
-- `/cs:unfreeze` — explicit early release
-- `/cs:post-mortem` — auto-triggered if kill criterion fires
-- `/cs:boardroom` — blocked until unfreeze or expiry
+- `/c-level-agents:freeze release` — explicit early release
+- `/c-level-agents:post-mortem` — auto-triggered if kill criterion fires
+- `/c-level-agents:boardroom` — blocked until unfreeze or expiry
 
 ## Related
 

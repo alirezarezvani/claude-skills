@@ -42,7 +42,7 @@ SKILL_DOMAINS = {
     },
     "c-level-agents": {
         "category": "c-level",
-        "description": "Founder-mode executive persona layer: 13 cs-* C-suite agents and the /cs:* office-hours, sprint-pipeline, and routing skills that wrap the c-level-advisor skills"
+        "description": "Founder-mode executive persona layer: 13 cs-* C-suite agents and the /c-level-agents:* office-hours, sprint-pipeline, and routing skills that wrap the c-level-advisor skills"
     },
     "project-management": {
         "category": "project-management",

@@ -1,6 +1,6 @@
 ---
 title: "/cs-deep-research — Slash Command for AI Coding Agents"
-description: "/cs:deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-deep-research
@@ -11,7 +11,7 @@ description: "/cs:deep-research <question> — Disciplined multi-source investig
 </div>
 
 
-**Command:** `/cs:deep-research <question>`
+**Command:** `/cs-deep-research <question>`
 
 The `cs-deep-research` persona turns "research this" into an auditable, reusable investigation — the workflow to reach for when getting the answer *wrong* costs more than the tokens spent getting it right.
 
@@ -26,7 +26,7 @@ The `cs-deep-research` persona turns "research this" into an auditable, reusable
 
 - Quick fact-checks → answer directly.
 - Structured 12-dimension competitor scoring → `competitive-teardown`.
-- Fast topic overviews where decision risk is low → the **research router** (`/cs:research`).
+- Fast topic overviews where decision risk is low → the **research router** (`/cs-research`).
 
 ## What You Get
 
@@ -60,7 +60,7 @@ The `cs-deep-research` persona turns "research this" into an auditable, reusable
 
 - Agent: [`cs-deep-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/agents/cs-deep-research.md)
 - Skill: [`deep-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/skills/deep-research/SKILL.md)
-- Siblings: `/cs:pulse` (recency), the research router, `litreview` / `dossier` / `patent`
+- Siblings: `/cs-pulse` (recency), the research router, `litreview` / `dossier` / `patent`
 
 ---
 

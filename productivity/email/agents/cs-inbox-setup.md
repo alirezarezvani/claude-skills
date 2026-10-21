@@ -173,9 +173,9 @@ Files created in ${WORKSPACE}/Email/:
   - tracker.md                  ({active follow-ups count} active)
   - triage-log/                 (empty, will fill on triage runs)
 
-Run /cs:inbox-triage to process your inbox.
+Run /cs-inbox-triage to process your inbox.
 First runs need oversight — system learns from edits and overrides.
-Re-run /cs:inbox-setup when business/pricing/priorities change.
+Re-run /cs-inbox-setup when business/pricing/priorities change.
 ```
 
 ## Success Metrics
@@ -197,7 +197,7 @@ Re-run /cs:inbox-setup when business/pricing/priorities change.
 
 - Skill: [../skills/inbox-setup/SKILL.md](../skills/inbox-setup/SKILL.md)
 - Source spec: `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:inbox-setup`](../commands/cs-inbox-setup.md)
+- Sibling command: [`/cs-inbox-setup`](../commands/cs-inbox-setup.md)
 
 ---
 

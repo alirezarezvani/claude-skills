@@ -170,7 +170,7 @@ Responses come back independently (no agent sees another's response before formi
 
 ## Decision Memory (Canonical Layout)
 
-All C-suite skills and `/cs:*` commands read and write decisions in **one** place — the two-layer model owned by `/cs:decide` and the decision-logger skill:
+All C-suite skills and `/cs-*` commands read and write decisions in **one** place — the two-layer model owned by `/c-level-agents:decide` and the decision-logger skill:
 
 ```
 ~/.claude/decisions/
@@ -182,8 +182,8 @@ All C-suite skills and `/cs:*` commands read and write decisions in **one** plac
 
 **Rules:**
 - **Layer 1 (raw)** stores everything, including rejected arguments. Reference only — never feeds future sessions automatically.
-- **Layer 2 (approved)** stores only founder-approved decisions. This is what board meetings, `/cs:office-hours`, and `/cs:founder-mode` load. Prevents hallucinated consensus.
-- Writers: `/cs:decide` and the Chief of Staff (post board-meeting Phase 5). Individual role agents never write decisions directly.
+- **Layer 2 (approved)** stores only founder-approved decisions. This is what board meetings, `/c-level-agents:office-hours`, and `/c-level-agents:founder-mode` load. Prevents hallucinated consensus.
+- Writers: `/c-level-agents:decide` and the Chief of Staff (post board-meeting Phase 5). Individual role agents never write decisions directly.
 - decision-logger, chief-of-staff, and board-meeting all use this layout. Their SKILL.md files link here rather than defining their own paths.
 
 **Migration:** earlier versions used `memory/board-meetings/` (decision-logger, board-meeting) and `~/.claude/decision-log.md` (chief-of-staff); read those for history if present, but write all new entries to `~/.claude/decisions/`.

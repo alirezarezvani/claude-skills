@@ -43,7 +43,7 @@ research/notebooklm/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── agents/cs-notebooklm.md          ← browser-automation persona, async-discipline enforcer
-├── commands/cs-notebooklm.md        ← /cs:notebooklm (or auto-triggers on phrases)
+├── commands/cs-notebooklm.md        ← /cs-notebooklm (or auto-triggers on phrases)
 └── skills/notebooklm/
     ├── SKILL.md
     ├── references/

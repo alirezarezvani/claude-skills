@@ -14,11 +14,11 @@ goal, deterministic scaffolders, and explicit loop/workflow compilation.
 
 | Phase | Skill | Command | Loop/workflow |
 |---|---|---|---|
-| 1 · Interview → Plan | `interview` | `/cs:interview` | single-pass workflow |
-| 2 · Stage → Launch | `stage-launch` | `/cs:stage-launch` | single-pass workflow |
-| 3 · Grade → Iterate | `grade-iterate` | `/cs:grade` | **grade→iterate loop** (bounded by `max_iterations`) |
-| 4 · Run Without You | `run-without-you` | `/cs:run-without-you` | **recurring cron deployment loop** |
-| — · Close out | `wrap-up` | `/cs:wrap-up` | — |
+| 1 · Interview → Plan | `interview` | `/cs-interview` | single-pass workflow |
+| 2 · Stage → Launch | `stage-launch` | `/cs-stage-launch` | single-pass workflow |
+| 3 · Grade → Iterate | `grade-iterate` | `/cs-grade` | **grade→iterate loop** (bounded by `max_iterations`) |
+| 4 · Run Without You | `run-without-you` | `/cs-run-without-you` | **recurring cron deployment loop** |
+| — · Close out | `wrap-up` | `/cs-wrap-up` | — |
 
 `agent-launcher-orchestrator` (`context: fork`) reads the session goal, routes to
 the right phase, and compiles the loop.
@@ -27,12 +27,12 @@ the right phase, and compiles the loop.
 
 - State lives in `./my-agent/goal.json` (your folder — it keeps working after the
   session ends).
-- **Set it:** `/cs:goal set "Launch an agent that triages my inbox every morning"`.
+- **Set it:** `/cs-goal set "Launch an agent that triages my inbox every morning"`.
 - **Resume it automatically:** enable the opt-in hook with
   `export AGENT_LAUNCHER_SESSION=1`; the `SessionStart` hook surfaces the current
   goal + phase so you pick up exactly where you left off. Disabled by default — no
   ambient behavior in unrelated repos.
-- **Advance it:** `/cs:goal advance` moves to the next phase.
+- **Advance it:** `/cs-goal advance` moves to the next phase.
 
 ## Loops vs workflows
 
@@ -59,8 +59,8 @@ See [`references/loops-and-workflows.md`](references/loops-and-workflows.md).
 
 ```bash
 export AGENT_LAUNCHER_SESSION=1          # optional: auto-surface the goal each session
-/cs:goal set "Nightly repo dependency auditor that writes report.md"
-/cs:launch                               # runs the orchestrator from the current phase
+/cs-goal set "Nightly repo dependency auditor that writes report.md"
+/cs-launch                               # runs the orchestrator from the current phase
 ```
 
 ## Layout
@@ -70,7 +70,7 @@ agent-launcher/
 ├── SPEC.md                     # the build goal (verification target)
 ├── skills/                     # 6 skills, 3 stdlib tools each
 ├── agents/                     # 4 agents (orchestrator + interviewer + grader + deployer)
-├── commands/                   # 8 /cs:* commands
+├── commands/                   # 8 /cs-* commands
 ├── hooks/                      # opt-in SessionStart / SessionEnd
 ├── references/                 # 5 shared reference docs
 └── assets/                     # build-sheet schema, overview + NEXT-DIRECTIONS templates, example

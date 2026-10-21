@@ -193,7 +193,7 @@ python ../skills/compliance-os/scripts/evidence_pool_generator.py program.json
 ## References
 
 - Skill: [../skills/compliance-os/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-os/SKILL.md)
-- Sibling commands: [`/cs:compliance-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-readiness/SKILL.md), [`/cs:aims-audit`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/aims-audit/SKILL.md), [`/cs:ai-act-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/ai-act-readiness/SKILL.md)
+- Sibling commands: [`/compliance-os:compliance-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/compliance-readiness/SKILL.md), [`/compliance-os:aims-audit`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/aims-audit/SKILL.md), [`/compliance-os:ai-act-readiness`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/ai-act-readiness/SKILL.md)
 
 ---
 

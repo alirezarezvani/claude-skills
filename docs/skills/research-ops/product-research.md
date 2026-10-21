@@ -126,7 +126,7 @@ The synthesizer sample correctly promotes "import-confusion" (3 independent part
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is this study generative (discover problems) or evaluative (test a solution)?"**
    Recommended: name it first — the method follows from the goal.

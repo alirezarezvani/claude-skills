@@ -1,11 +1,11 @@
 ---
 name: "cs-pmf-check"
-description: "/cs:pmf-check — Are you before or after product/market fit? A focused Andreessen-mode interrogation that scores the felt signals + the Sean Ellis 40% gate and issues BEFORE-PMF / APPROACHING-PMF / AFTER-PMF with explicit confidence and a single next move."
+description: "/cs-pmf-check — Are you before or after product/market fit? A focused Andreessen-mode interrogation that scores the felt signals + the Sean Ellis 40% gate and issues BEFORE-PMF / APPROACHING-PMF / AFTER-PMF with explicit confidence and a single next move."
 ---
 
-# /cs:pmf-check — Product/Market Fit Interrogation
+# /cs-pmf-check — Product/Market Fit Interrogation
 
-**Command:** `/cs:pmf-check`
+**Command:** `/cs-pmf-check`
 
 A focused slice of the `cs-andreessen` persona aimed at one question: are you before or after
 product/market fit? Per Andreessen, PMF is the only milestone that matters and it is **not subtle** —
@@ -49,7 +49,7 @@ python ../skills/andreessen/scripts/pmf_signal_scorer.py \
 
 - Agent: [`cs-andreessen`](../agents/cs-andreessen.md)
 - Skill: [`andreessen`](../skills/andreessen/SKILL.md)
-- Parent command: [`/cs:andreessen`](./cs-andreessen.md)
+- Parent command: [`/cs-andreessen`](./cs-andreessen.md)
 
 ---
 

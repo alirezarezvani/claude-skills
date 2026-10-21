@@ -1,11 +1,11 @@
 ---
 name: "cs-inbox-setup"
-description: "/cs:inbox-setup — Interactive 8-section interview that builds a personalized 7-file email-triage knowledge base. ~25-31 grill-me questions, one at a time. Run ONCE; re-run when business/pricing/priorities change. Companion to /cs:inbox-triage."
+description: "/cs-inbox-setup — Interactive 8-section interview that builds a personalized 7-file email-triage knowledge base. ~25-31 grill-me questions, one at a time. Run ONCE; re-run when business/pricing/priorities change. Companion to /cs-inbox-triage."
 ---
 
-# /cs:inbox-setup — Email Triage Onboarding
+# /cs-inbox-setup — Email Triage Onboarding
 
-**Command:** `/cs:inbox-setup`
+**Command:** `/cs-inbox-setup`
 
 The `cs-inbox-setup` persona walks an 8-section interview to build your personalized email triage knowledge base in `${WORKSPACE}/Email/`.
 
@@ -22,8 +22,8 @@ Do NOT run if your existing KB still represents reality. Re-running is expensive
 
 This is one half of a pair:
 
-- `/cs:inbox-setup` (this command) — **writes** the KB (run once)
-- `/cs:inbox-triage` — **reads + appends** the KB (run recurringly)
+- `/cs-inbox-setup` (this command) — **writes** the KB (run once)
+- `/cs-inbox-triage` — **reads + appends** the KB (run recurringly)
 
 Both share a strict 7-file contract. See [`kb_file_contract.md`](../skills/inbox-setup/references/kb_file_contract.md) for the spec.
 
@@ -61,7 +61,7 @@ After ~25-31 questions across 8 sections (about 15-20 min), the skill produces t
 5. **Blocklist & Patterns** — skip-senders, decline-patterns, time-wasters (3 Q) → writes `blocklist.md`
 6. **Current State** — active threads, overdue replies, deadlines (3 Q) → writes `tracker.md` + creates `triage-log/`
 7. **Report Preferences** — delivery format, detail level, top-of-report priorities (3 Q) → appends to `email-taxonomy.md`
-8. **Confirmation & Handoff** — file inventory + handoff message → directs you to `/cs:inbox-triage`
+8. **Confirmation & Handoff** — file inventory + handoff message → directs you to `/cs-inbox-triage`
 
 **Stop condition:** ~25-31 questions total (S4 skip drops ~6). Hard ceiling 35. Never re-open after S8 — re-run the skill to change preferences.
 
@@ -120,7 +120,7 @@ python ../skills/inbox-setup/scripts/section_progress_tracker.py --action close 
 
 ## Related
 
-- Companion: [`/cs:inbox-triage`](./cs-inbox-triage.md) — runs after setup is complete
+- Companion: [`/cs-inbox-triage`](./cs-inbox-triage.md) — runs after setup is complete
 - Agent: [`cs-inbox-setup`](../agents/cs-inbox-setup.md)
 - Skill: [`inbox-setup`](../skills/inbox-setup/SKILL.md)
 - Source spec: `megaprompts/06-inbox-setup-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)

@@ -194,7 +194,7 @@ python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
 
 - Skill: [../skills/pulse/SKILL.md](../skills/pulse/SKILL.md)
 - Source spec: `megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:pulse`](../commands/cs-pulse.md)
+- Sibling command: [`/cs-pulse`](../commands/cs-pulse.md)
 
 ---
 

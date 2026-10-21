@@ -1,14 +1,14 @@
 ---
 name: "cs-deep-work"
-description: "/cs:deep-work — Plan a deep work day the Cal Newport way: audit the task list deep vs shallow against a budget, build an energy-first time-blocked schedule with a hard 4-hour deep ceiling and an immovable hard stop, then log focus sessions and close with the shutdown ritual."
+description: "/cs-deep-work — Plan a deep work day the Cal Newport way: audit the task list deep vs shallow against a budget, build an energy-first time-blocked schedule with a hard 4-hour deep ceiling and an immovable hard stop, then log focus sessions and close with the shutdown ritual."
 argument-hint: "[today's task list, with rough minutes per task]"
 ---
 
-# /cs:deep-work — Audit the Shallow, Block the Day, Bank the Hours
+# /cs-deep-work — Audit the Shallow, Block the Day, Bank the Hours
 
-**Command:** `/cs:deep-work [today's task list]`
+**Command:** `/cs-deep-work [today's task list]`
 
-A calendar full of reactions is not a plan. `/cs:deep-work` runs the full attention-first
+A calendar full of reactions is not a plan. `/cs-deep-work` runs the full attention-first
 workflow: classify every task deep vs shallow, audit the shallow share against a budget, build a
 time-blocked day where deep work owns the earliest hours, and close the loop with a focus-session
 ledger and a shutdown ritual.
@@ -22,9 +22,9 @@ ledger and a shutdown ritual.
 
 ## When NOT to Run
 
-- You need to pick WHAT matters today → run `/cs:andreessen` (3x5 card) first, then come back
+- You need to pick WHAT matters today → run `/cs-andreessen` (3x5 card) first, then come back
 - Team-level capacity or sprint math → `project-management` skills, not personal attention
-- You just want a quick schedule from a ready task list with no audit → `/cs:time-block`
+- You just want a quick schedule from a ready task list with no audit → `/cs-time-block`
 
 ## What You Get
 
@@ -86,8 +86,8 @@ python ../skills/deep-work/scripts/focus_session_logger.py streak
 
 - Agent: [`cs-deep-work`](../agents/cs-deep-work.md)
 - Skill: [`deep-work`](../skills/deep-work/SKILL.md)
-- Quick variant: [`/cs:time-block`](cs-time-block.md) — schedule only, no audit
-- Siblings: `/cs:andreessen` (picks WHAT today; run before this), `/cs:reflect` (weekly reflection)
+- Quick variant: [`/cs-time-block`](cs-time-block.md) — schedule only, no audit
+- Siblings: `/cs-andreessen` (picks WHAT today; run before this), `/cs-reflect` (weekly reflection)
 
 ---
 

@@ -217,7 +217,7 @@ npx playwright show-report
 - name: "run-e2e-tests"
   run: npx playwright test
 - name: "upload-report"
-  uses: actions/upload-artifact@v3
+  uses: actions/upload-artifact@v4
   with:
     name: "playwright-report"
     path: playwright-report/

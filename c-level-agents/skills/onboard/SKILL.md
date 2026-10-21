@@ -1,11 +1,11 @@
 ---
 name: "onboard"
-description: "/cs:onboard — Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context — e.g. before a first /cs:boardroom or after a fundraise changes the numbers."
+description: "/cs-onboard — Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context — e.g. before a first /c-level-agents:boardroom or after a fundraise changes the numbers."
 ---
 
-# /cs:onboard — Founder Interview
+# /cs-onboard — Founder Interview
 
-**Command:** `/cs:onboard`
+**Command:** `/cs-onboard`
 
 The first command to run when adopting c-level-agents. A structured founder interview that produces `~/.claude/company-context.md` — the file every cs-* advisor reads before responding. Without this, the advisors are guessing.
 
@@ -14,7 +14,7 @@ The first command to run when adopting c-level-agents. A structured founder inte
 `~/.claude/company-context.md` — a single file with the durable facts about the company. Read by:
 - `cs-chief-of-staff` (routing decisions)
 - Every cs-* advisor (context for any question)
-- `/cs:brief` (assumptions in any new decision)
+- `/c-level-agents:brief` (assumptions in any new decision)
 
 ## The Interview (12 Questions)
 
@@ -40,7 +40,7 @@ The first command to run when adopting c-level-agents. A structured founder inte
 
 ## Output Format
 
-**Canonical schema:** `~/.claude/company-context.md` is owned by the [`cs-onboard`](../../../c-level-advisor/skills/cs-onboard/SKILL.md) skill and follows its 7-dimension schema (`../../../c-level-advisor/skills/cs-onboard/templates/company-context-template.md`): Company Identity, Stage & Scale, Founder Profile, Team & Culture, Market & Competition, Current Challenges, Goals & Ambition. The 12 questions above are a faster structured intake that populates that same file — Identity/Business/Financial → Stage & Scale, Team → Team & Culture, Quarter priorities/risks → Current Challenges + Goals & Ambition. Write `[not captured]` for dimensions the quick intake doesn't reach (Founder Profile, Market & Competition); run the full `cs-onboard` interview to fill them. Never create a second context file or a divergent layout.
+**Canonical schema:** `~/.claude/company-context.md` is owned by the [`cs-onboard`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cs-onboard/SKILL.md) skill and follows its 7-dimension schema (`${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cs-onboard/templates/company-context-template.md`): Company Identity, Stage & Scale, Founder Profile, Team & Culture, Market & Competition, Current Challenges, Goals & Ambition. The 12 questions above are a faster structured intake that populates that same file — Identity/Business/Financial → Stage & Scale, Team → Team & Culture, Quarter priorities/risks → Current Challenges + Goals & Ambition. Write `[not captured]` for dimensions the quick intake doesn't reach (Founder Profile, Market & Competition); run the full `cs-onboard` interview to fill them. Never create a second context file or a divergent layout.
 
 The intake summary captured by the 12 questions:
 
@@ -105,7 +105,7 @@ The intake summary captured by the 12 questions:
 - After a major pivot or product launch
 - After 6+ months (most facts have drifted)
 - After a major hire (team distribution changes)
-- Always before a `/cs:boardroom` for a high-stakes decision
+- Always before a `/c-level-agents:boardroom` for a high-stakes decision
 
 ## Persistence
 
@@ -117,8 +117,8 @@ By default, `~/.claude/company-context.md` is local to the founder's machine. To
 
 ## Related
 
-- Skill: [`cs-onboard`](../../../c-level-advisor/skills/cs-onboard/SKILL.md) — the underlying interview protocol
-- Skill: [`context-engine`](../../../c-level-advisor/skills/context-engine/SKILL.md) — reads this file
+- Skill: [`cs-onboard`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cs-onboard/SKILL.md) — the underlying interview protocol
+- Skill: [`context-engine`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/context-engine/SKILL.md) — reads this file
 - Reference: [`../../references/llm-wiki-bridge.md`](../../references/llm-wiki-bridge.md)
 
 ---

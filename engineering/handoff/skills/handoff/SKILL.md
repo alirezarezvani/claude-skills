@@ -33,7 +33,7 @@ If the user passed arguments, treat them as a description of what the next sessi
 
 ## Tooling
 
-See [references/companion_tooling.md](references/companion_tooling.md). Tools: template + dedup + recommender. Agent: `cs-handoff-author`. Command: `/cs:handoff`.
+See [references/companion_tooling.md](references/companion_tooling.md). Tools: template + dedup + recommender. Agent: `cs-handoff-author`. Command: `/cs-handoff`.
 
 ---
 

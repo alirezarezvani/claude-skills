@@ -34,7 +34,7 @@ research/dossier/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── agents/cs-dossier.md             ← hypothesis-testing persona; Q4 enforcer
-├── commands/cs-dossier.md           ← /cs:dossier <entity>
+├── commands/cs-dossier.md           ← /cs-dossier <entity>
 └── skills/dossier/
     ├── SKILL.md
     ├── references/

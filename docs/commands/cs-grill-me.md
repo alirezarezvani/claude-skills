@@ -1,6 +1,6 @@
 ---
 title: "/cs-grill-me — Slash Command for AI Coding Agents"
-description: "/cs:grill-me <path-to-plan> — Start a relentless interrogation of a plan or design. Walks decision tree one branch at a time. One question per turn. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-grill-me <path-to-plan> — Start a relentless interrogation of a plan or design. Walks decision tree one branch at a time. One question per turn. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-grill-me
@@ -11,7 +11,7 @@ description: "/cs:grill-me <path-to-plan> — Start a relentless interrogation o
 </div>
 
 
-**Command:** `/cs:grill-me <path-to-plan>`
+**Command:** `/cs-grill-me <path-to-plan>`
 
 The grill-master persona interrogates a plan one decision branch at a time.
 
@@ -82,7 +82,7 @@ Recommended: [position] because [1-sentence rationale]
 
 - Agent: [`cs-grill-master`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me/agents/cs-grill-master.md)
 - Skill: [`grill-me`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me/skills/grill-me/SKILL.md)
-- Adjacent: `/cs:caveman`, `/cs:handoff`, `/cs:write-a-skill`
+- Adjacent: `/cs-caveman`, `/cs-handoff`, `/cs-write-a-skill`
 
 ---
 

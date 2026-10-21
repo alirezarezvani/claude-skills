@@ -35,31 +35,31 @@ Differentiates clearly:
 
 ## Skill Integration
 
-**Skill Location:** `../../ra-qm-team/skills/eu-ai-act-specialist/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/`
 
 ### Python Tools
 
 1. **AI System Risk Classifier**
-   - Path: `../../ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_system_risk_classifier.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/scripts/ai_system_risk_classifier.py`
    - Usage: `python ai_system_risk_classifier.py systems.json`
    - Returns: tier (prohibited / high_risk / limited_risk / minimal_risk) with citing Article + Annex; Article 6(3) carve-out logic; Article 51 systemic-risk GPAI detection (10^25 FLOPs threshold)
 
 2. **Conformity Assessment Planner**
-   - Path: `../../ra-qm-team/skills/eu-ai-act-specialist/scripts/conformity_assessment_planner.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/scripts/conformity_assessment_planner.py`
    - Usage: `python conformity_assessment_planner.py system.json`
    - Returns: Module A (Annex VI internal control) vs Module H (Annex VII full QMS + notified body) routing per Article 43; 8-item Annex IV technical documentation checklist with ISO 42001/27001 reuse map
 
 3. **AI Act Obligation Tracker**
-   - Path: `../../ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py`
    - Usage: `python ai_act_obligation_tracker.py roles.json`
    - Returns: deadline-sorted obligation matrix per Article 113 phasing; per-role (provider / deployer / importer / distributor / authorized representative); GPAI Articles 51-55
 
 ### Knowledge Bases
 
-- `../../ra-qm-team/skills/eu-ai-act-specialist/references/eu_ai_act_titles.md` — Titles I-XII walkthrough with Article-level requirements
-- `../../ra-qm-team/skills/eu-ai-act-specialist/references/high_risk_systems_annex_iii.md` — 8 high-risk categories + Article 6(2)-(3) decision tree + carve-out test
-- `../../ra-qm-team/skills/eu-ai-act-specialist/references/gpai_obligations.md` — Articles 51-55 + Annex XI-XIII + Code of Practice + systemic-risk threshold
-- `../../ra-qm-team/skills/eu-ai-act-specialist/references/cross_framework_mapping_ai_act.md` — AI Act ↔ ISO 42001 ↔ NIST AI RMF ↔ GDPR cross-walk with Article 17(1) item-by-item mapping
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/references/eu_ai_act_titles.md` — Titles I-XII walkthrough with Article-level requirements
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/references/high_risk_systems_annex_iii.md` — 8 high-risk categories + Article 6(2)-(3) decision tree + carve-out test
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/references/gpai_obligations.md` — Articles 51-55 + Annex XI-XIII + Code of Practice + systemic-risk threshold
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/references/cross_framework_mapping_ai_act.md` — AI Act ↔ ISO 42001 ↔ NIST AI RMF ↔ GDPR cross-walk with Article 17(1) item-by-item mapping
 
 ## Workflows
 
@@ -127,8 +127,8 @@ python conformity_assessment_planner.py system.json
 
 ## References
 
-- Skill: [../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md](../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md)
-- Sibling command: [`/cs:ai-act-readiness`](../skills/ai-act-readiness/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/SKILL.md)
+- Sibling command: [`/compliance-os:ai-act-readiness`](../skills/ai-act-readiness/SKILL.md)
 
 ---
 

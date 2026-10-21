@@ -3,7 +3,7 @@
 
 Stdlib-only. Takes a use case profile and outputs:
   - Risk tier (PROHIBITED / HIGH / LIMITED / MINIMAL) under EU AI Act
-  - US state law triggers (NYC LL 144, CO SB 21-169 successor, IL HB 53, CA SB 1001)
+  - US state law triggers (NYC LL 144, CO SB 26-189, IL HB 53, CA SB 1001)
   - Industry-specific overlays (FDA, NYDFS, NAIC)
   - Required controls + conformity assessment trigger
   - Citations to specific articles / regulations
@@ -210,16 +210,18 @@ def us_state_triggers(profile: Dict[str, Any]) -> List[Dict[str, str]]:
             "citation": "NYC Local Law 144 of 2021; 6 RCNY § 5-300",
         })
 
-    # Colorado AI Act / SB 21-169 successor
+    # Colorado SB 26-189 (effective 2027-01-01; repealed and re-enacted SB 24-205)
     if "CO" in states and domain in {"employment", "credit", "education", "insurance", "essential-services"}:
         triggers.append({
-            "law": "Colorado AI Act (SB 21-169 / 2024 amendments)",
-            "trigger": f"High-risk AI system in consumer decisions ({domain})",
+            "law": "Colorado SB 26-189 (replaces the Colorado AI Act, SB 24-205)",
+            "trigger": f"Automated decision-making technology in a consequential consumer decision ({domain})",
             "obligations": (
-                "Reasonable care to protect from algorithmic discrimination; impact assessment; "
-                "consumer notice; right to opt-out of profiling; risk management policy."
+                "Deployer: consumer notice at point of use; plain-language explanation within 30 days "
+                "of an adverse outcome; data correction; human review. Developer: technical "
+                "documentation and material-update notices to deployers. No impact assessment or "
+                "AG filing. Effective 2027-01-01; 60-day cure period."
             ),
-            "citation": "Colorado SB 21-169 (as amended)",
+            "citation": "Colorado SB 26-189 (2026); CRS § 6-1-1701 et seq.",
         })
 
     # Illinois HB 53 — AI in employment interviews

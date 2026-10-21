@@ -7,7 +7,7 @@ The handoff doc has exactly five sections. Use these headers verbatim — the Se
 One or two sentences. Either taken from the user's `argument-hint` value, or inferred from the most recent unresolved thread in the conversation.
 
 **Good:**
-> Finish wiring the redaction linter into `/cs:handoff` and ship a draft PR before EOD.
+> Finish wiring the redaction linter into `/cs-handoff` and ship a draft PR before EOD.
 
 **Bad:**
 > Continue working on the handoff skill.
@@ -70,14 +70,14 @@ Paths and URLs. No bodies.
 ```markdown
 ---
 generated_at: 2026-05-21T17:42:00Z
-goal: "Finish wiring the redaction linter into /cs:handoff and ship a draft PR before EOD."
+goal: "Finish wiring the redaction linter into /cs-handoff and ship a draft PR before EOD."
 ---
 
 # Handoff — 2026-05-21
 
 ## Goal of next session
 
-Finish wiring the redaction linter into `/cs:handoff` and ship a draft PR before EOD.
+Finish wiring the redaction linter into `/cs-handoff` and ship a draft PR before EOD.
 
 ## State of play
 

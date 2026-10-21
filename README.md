@@ -2,7 +2,7 @@
 
 **388 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
 
-The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing (incl. AEO — Answer Engine Optimization for LLM citation), security (PreToolUse hooks), compliance, C-level advisory (incl. founder-mode CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE personas + 21 /cs:* slash commands), productivity (capture/email/reflect/weekly-review/deep-work/meetings), an academic research stack (litreview/grants/dossier/patent/syllabus/pulse/notebooklm/deep-research + hybrid router), and enterprise Research Operations (clinical-research/research-finance/market-research/product-research, v2.9.0).
+The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing (incl. AEO — Answer Engine Optimization for LLM citation), security (PreToolUse hooks), compliance, C-level advisory (incl. founder-mode CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE personas + 21 /c-level-agents:* slash commands), productivity (capture/email/reflect/weekly-review/deep-work/meetings), an academic research stack (litreview/grants/dossier/patent/syllabus/pulse/notebooklm/deep-research + hybrid router), and enterprise Research Operations (clinical-research/research-finance/market-research/product-research, v2.9.0).
 
 **Works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Hermes Agent[^hermes] · Mistral Vibe[^vibe] · Cursor · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 
@@ -168,7 +168,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **🏥 Regulatory & QM** | 19 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management, agent-decision-receipts (PQ-signed action receipts) | [ra-qm-team/](ra-qm-team/) |
 | **🛡️ Compliance OS** | 9 | Compliance operating system — controls, evidence, audit-readiness workflows | [compliance-os/](compliance-os/) |
 | **💼 C-Level Advisory** | 46 | Full C-suite (CEO/CTO/CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE) + executive mentor + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
-| **🎩 C-Level Agents (founder mode)** | 22 | 13 cs-* persona agents + 21 /cs:* commands — office hours, boardroom, strategic sprint pipeline, cross-eval, freeze | [c-level-agents/](c-level-agents/) |
+| **🎩 C-Level Agents (founder mode)** | 22 | 13 cs-* persona agents + 21 /c-level-agents:* commands — office hours, boardroom, strategic sprint pipeline, cross-eval, freeze | [c-level-agents/](c-level-agents/) |
 | **📈 Business & Growth** | 5 | Customer success, sales engineer, revenue ops, contracts & proposals, BizDev toolkit | [business-growth/](business-growth/) |
 | **🏭 Business Operations** | 7 | Orchestrator + process-mapper, vendor-management, capacity-planner, internal-comms, knowledge-ops, procurement-optimizer | [business-operations/](business-operations/) |
 | **🤝 Commercial** | 8 | Orchestrator + pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster | [commercial/](commercial/) |

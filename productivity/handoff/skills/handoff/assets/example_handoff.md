@@ -1,6 +1,6 @@
 ---
 generated_at: 2026-05-21T16:30:00Z
-goal: "Finish wiring the redaction linter into /cs:handoff and ship a draft PR before EOD."
+goal: "Finish wiring the redaction linter into /cs-handoff and ship a draft PR before EOD."
 ---
 
 # Handoff — 2026-05-21
@@ -11,7 +11,7 @@ goal: "Finish wiring the redaction linter into /cs:handoff and ship a draft PR b
 
 ## Goal of next session
 
-Finish wiring the redaction linter into `/cs:handoff` and ship a draft PR before EOD.
+Finish wiring the redaction linter into `/cs-handoff` and ship a draft PR before EOD.
 
 ## State of play
 

@@ -1,12 +1,12 @@
 ---
 name: "cs-linkedin-post"
-description: "/cs:linkedin-post — Pick the format the material actually supports, draft to the ~140-character mobile fold, and lint 0-100 across mechanics, hook, integrity, and accessibility. Blocking findings for the 3,000-character cap, engagement bait, and Unicode pseudo-bold."
+description: "/cs-linkedin-post — Pick the format the material actually supports, draft to the ~140-character mobile fold, and lint 0-100 across mechanics, hook, integrity, and accessibility. Blocking findings for the 3,000-character cap, engagement bait, and Unicode pseudo-bold."
 argument-hint: "[the post idea, or paste a draft to be reviewed]"
 ---
 
-# /cs:linkedin-post — Format, draft, lint
+# /cs-linkedin-post — Format, draft, lint
 
-**Command:** `/cs:linkedin-post [idea or draft]`
+**Command:** `/cs-linkedin-post [idea or draft]`
 
 ## When to run
 
@@ -16,9 +16,9 @@ argument-hint: "[the post idea, or paste a draft to be reviewed]"
 
 ## When NOT to run
 
-- No positioning brief yet → [`/cs:linkedin-plan`](cs-linkedin-plan.md) first
-- A comment or a DM → [`/cs:linkedin-outreach`](cs-linkedin-outreach.md); different craft
-- Repurposing a long source → [`/cs:linkedin-repurpose`](cs-linkedin-repurpose.md)
+- No positioning brief yet → [`/cs-linkedin-plan`](cs-linkedin-plan.md) first
+- A comment or a DM → [`/cs-linkedin-outreach`](cs-linkedin-outreach.md); different craft
+- Repurposing a long source → [`/cs-linkedin-repurpose`](cs-linkedin-repurpose.md)
 
 ## What you get
 

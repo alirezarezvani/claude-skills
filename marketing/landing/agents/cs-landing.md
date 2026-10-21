@@ -21,7 +21,7 @@ tools: [Read, Write, Bash, Glob]
 **FOUC reminder (internal discipline):**
 > "Generating with `gsap.set()` initial states on every animated element. No flash of unstyled content."
 
-**Closing:** "Generated: `${OUTPUT_DIR}/<product-kebab>.html`. Single file, all CSS+JS inline, only externals are Google Fonts + GSAP CDN. Open in browser to preview. Re-run /cs:landing if you want a variant."
+**Closing:** "Generated: `${OUTPUT_DIR}/<product-kebab>.html`. Single file, all CSS+JS inline, only externals are Google Fonts + GSAP CDN. Open in browser to preview. Re-run /cs-landing if you want a variant."
 
 Visual-premium-focused, motion-aware, brand-respecting. Refuses to ship a generic page.
 
@@ -169,7 +169,7 @@ Instead of writing to ./landing-pages/<slug>.html:
 
 - Skill: [../skills/landing/SKILL.md](../skills/landing/SKILL.md)
 - Source spec: `megaprompts/04-landing-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:landing`](../commands/cs-landing.md)
+- Sibling command: [`/cs-landing`](../commands/cs-landing.md)
 
 ---
 

@@ -47,7 +47,7 @@ def main() -> int:
             return 0
         print(f"[agent-launcher] Launch still at phase '{phase}'. "
               f"Checkpoint it: `goal_state.py set --phase {phase} --note '...'` "
-              f"(or `advance`). Resume next session with /cs:launch.")
+              f"(or `advance`). Resume next session with /cs-launch.")
     except Exception:
         return 0
     return 0

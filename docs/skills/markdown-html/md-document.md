@@ -30,12 +30,12 @@ Output is one `.html` file with sticky TOC, search filter, scrollspy, code-copy 
 | Symptom | Action |
 |---|---|
 | `markdown-html-orchestrator` routes input as DOCUMENT | Invoke this skill |
-| User runs `/cs:md-document <path>.md` directly | Invoke this skill |
+| User runs `/cs-md-document <path>.md` directly | Invoke this skill |
 | User says "convert this spec/report/RFC/plan to HTML" | Invoke this skill |
 | Input is a code review (has ` ```diff ` blocks) | Route to `md-review` instead |
 | Input is a slide deck (clear `---` boundaries) | Route to `md-slides` instead |
 | Input is < 100 lines | Refuse (Shihipar threshold — markdown still wins) |
-| Design-system not onboarded | Refuse, surface `/cs:design-system` |
+| Design-system not onboarded | Refuse, surface `/cs-design-system` |
 
 ## Pipeline
 
@@ -77,7 +77,7 @@ Out of scope: nested lists, HTML inlines, footnotes, definition lists, task list
 ## Hard rules
 
 1. **Refuses input < 100 lines.** Markdown wins below the threshold (Shihipar).
-2. **Refuses without onboarding.** `config_loader.setup_completed()` must return `True`. Otherwise surface `/cs:design-system`.
+2. **Refuses without onboarding.** `config_loader.setup_completed()` must return `True`. Otherwise surface `/cs-design-system`.
 3. **Single-file output.** All CSS + JS inline. Only externals are `fonts.googleapis.com` and `cdn.jsdelivr.net` (Prism). Anything else is a regression.
 4. **Customization must change behavior.** `design_style=editorial` produces 720px-wide layout with 1.75 line-height; `playful` rounds the callouts and adds shadow; `technical` is dense with 0.875rem code. Smoke-tested.
 5. **WCAG-compliant tokens.** Inherits the design-system's WCAG AA palette — body text ≥ 4.5:1 contrast, links iteratively walked to 4.5:1.

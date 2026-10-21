@@ -21,7 +21,7 @@ GOAL → goal_compiler → PLAN → loop_controller: [execute → verify]* → C
 | `assets/harness_manifest.schema.json` | Manifest schema |
 | `references/` | Agentic-loop canon, verification discipline, domain-harness design (cited) |
 | `agents/harness-runner.md` | Stateless one-task-per-invocation executor |
-| `commands/cs-harness.md` | `/cs:harness <domain> <goal>` end-to-end driver |
+| `commands/cs-harness.md` | `/cs-harness <domain> <goal>` end-to-end driver |
 
 All tools are stdlib-only, pass `--help` and `--sample`, and emit JSON.
 

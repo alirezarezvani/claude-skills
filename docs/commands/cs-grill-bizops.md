@@ -56,7 +56,7 @@ For PROCUREMENT: "Spend or supplier consolidation goal?" — Recommended: consol
 
 ### Branch 5 — Now invoke the sub-skill
 
-Only after branches 1-4 are resolved, invoke `/cs:bizops` to route to the right sub-skill.
+Only after branches 1-4 are resolved, invoke `/cs-bizops` to route to the right sub-skill.
 
 ## Output format per turn
 
@@ -69,12 +69,12 @@ Recommended: [answer + 1-sentence canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:bizops <synthesized inquiry>`
-- User says "stop grilling, just run it" → invoke `/cs:bizops` with whatever's resolved, flag the unresolved branches in the digest
+- All branches resolved → invoke `/cs-bizops <synthesized inquiry>`
+- User says "stop grilling, just run it" → invoke `/cs-bizops` with whatever's resolved, flag the unresolved branches in the digest
 - User abandons → no sub-skill invocation, save the partial grill to `bizops-grill-{timestamp}.md`
 
 ## Distinct from
 
 - `engineering/grill-me` (Matt Pocock) — generic plan grilling, no domain canon
 - `engineering/grill-with-docs` (Matt Pocock) — codebase + ADR-anchored grilling for engineering. This is **BizOps-domain grilling**.
-- `/cs:bizops` — that **executes** the routing. This **interrogates** before executing.
+- `/cs-bizops` — that **executes** the routing. This **interrogates** before executing.

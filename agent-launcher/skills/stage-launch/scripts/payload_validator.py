@@ -156,7 +156,7 @@ def main() -> int:
         (d / "payloads" / "03-session.json").write_text('{"environment_id":"${ENV_ID}","agent":{"type":"agent","id":"${AGENT_ID}"}}')
         (d / "payloads" / "04-kickoff.json").write_text('{"events":[{"type":"user.message","content":"go"},{"type":"user.define_outcome","rubric":"- works","max_iterations":5}]}')
         v, c = validate(d)
-        _emit(v, c, False)
+        _emit(v, c, args.json)
         return 0
 
     v, c = validate(Path(args.dir))

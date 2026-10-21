@@ -61,7 +61,7 @@ Example -- destructive op:
 
 ## Tooling
 
-See [references/companion_tooling.md](references/companion_tooling.md). Tools: compressor + estimator + lint. Agent: `cs-caveman-mode`. Command: `/cs:caveman`.
+See [references/companion_tooling.md](references/companion_tooling.md). Tools: compressor + estimator + lint. Agent: `cs-caveman-mode`. Command: `/cs-caveman`.
 
 ---
 

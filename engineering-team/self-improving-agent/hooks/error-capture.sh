@@ -3,6 +3,11 @@
 # Fires on PostToolUse (Bash) to detect command failures.
 # Zero output on success — only captures when errors are detected.
 #
+# Contract (https://code.claude.com/docs/en/hooks): the hook payload arrives
+# as JSON on stdin (tool_response carries the command's stdout/stderr), and
+# PostToolUse output only reaches Claude as hookSpecificOutput.additionalContext
+# JSON. Plain stdout from a PostToolUse hook goes to the debug log.
+#
 # When installed via `/plugin install self-improving-agent@claude-code-skills`
 # this hook is registered automatically from the plugin's hooks.json. No
 # manual wiring is required.
@@ -27,7 +32,19 @@
 
 set -e
 
-OUTPUT="${CLAUDE_TOOL_OUTPUT:-}"
+# Pull stdout + stderr out of the stdin payload; python3 instead of jq so the
+# hook needs nothing beyond the interpreter the plugin's scripts already use.
+OUTPUT=$(python3 -c '
+import json, sys
+try:
+    r = json.load(sys.stdin).get("tool_response") or {}
+except ValueError:
+    sys.exit(0)
+if isinstance(r, dict):
+    print("\n".join(str(r.get(k) or "") for k in ("stdout", "stderr")))
+else:
+    print(r)
+' 2>/dev/null || true)
 
 # Exit silently if no output or empty
 [ -z "$OUTPUT" ] && exit 0
@@ -107,13 +124,12 @@ done
 # Extract relevant error context (first 5 lines containing the pattern)
 error_context=$(echo "$OUTPUT" | grep -i -m 5 "$matched_pattern" | head -5)
 
-# Output a concise reminder — ~40 tokens
-cat << EOF
-<error-detected>
-Command error detected (pattern: "$matched_pattern").
-If this was unexpected or required investigation to fix, save the solution:
-  /si:remember "explanation of what went wrong and the fix"
-Or if this is a known pattern, check: /si:memory-review
-Context: $(echo "$error_context" | head -2 | tr '\n' ' ' | cut -c1-200)
-</error-detected>
-EOF
+# Output a concise reminder — ~40 tokens — as additionalContext JSON so it
+# actually reaches Claude next to the tool result.
+context=$(echo "$error_context" | head -2 | tr '\n' ' ' | cut -c1-200)
+REMINDER="Command error detected (pattern: \"$matched_pattern\"). If it took investigation to fix, the solution can be saved with /si:remember; known patterns are listed by /si:memory-review. Context: $context" \
+    python3 -c '
+import json, os
+print(json.dumps({"hookSpecificOutput": {"hookEventName": "PostToolUse",
+                                         "additionalContext": os.environ["REMINDER"]}}))
+'

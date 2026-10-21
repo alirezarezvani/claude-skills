@@ -3,7 +3,7 @@
 
 The upstream converter stops at a bare skill folder in a personal skills home
 (`~/.claude/skills/<slug>/`). That folder is invisible to this repository: it
-has no plugin manifest, no `cs-*` agent, no `/cs:*` command, and no marketplace
+has no plugin manifest, no `cs-*` agent, no `/cs-*` command, and no marketplace
 entry, so nothing else in the library can route to it.
 
 This tool closes that gap. Point it at a generated book skill and it emits the
@@ -14,7 +14,7 @@ plugin package this repo's conventions require:
     ├── .claude-plugin/authoring-notes.json   provenance the manifest may not carry
     ├── README.md                      what the skill knows and where it came from
     ├── agents/cs-<slug>.md            persona that answers from the book
-    ├── commands/cs-<slug>.md          /cs:<slug> entry point
+    ├── commands/cs-<slug>.md          /cs-<slug> entry point
     └── skills/<slug>/                 the generated skill, copied verbatim
 
 and prints the marketplace.json entry to paste into `.claude-plugin/`. It never
@@ -273,14 +273,14 @@ def _command_markdown(identity: dict, domain: str, source_note: str) -> str:
     slug = identity["slug"]
     return f"""---
 name: "cs-{slug}"
-description: "/cs:{slug} [topic | framework | chNN] — query the knowledge base compiled from \
+description: "/cs-{slug} [topic | framework | chNN] — query the knowledge base compiled from \
 {source_note or identity['title']}. Use when applying its frameworks while working, looking up a \
 term, or reading one chapter's summary."
 ---
 
-# /cs:{slug} — {identity['title']}
+# /cs-{slug} — {identity['title']}
 
-**Command:** `/cs:{slug} [topic | framework name | chNN]`
+**Command:** `/cs-{slug} [topic | framework name | chNN]`
 
 ## When to run
 
@@ -333,9 +333,9 @@ Knowledge-base plugin compiled from **{source_note or identity['title']}** by
 ## Use
 
 ```
-/cs:{slug}                    # core frameworks + chapter index
-/cs:{slug} <topic>            # resolve via topic index, read one chapter
-/cs:{slug} ch05               # read one chapter summary
+/cs-{slug}                    # core frameworks + chapter index
+/cs-{slug} <topic>            # resolve via topic index, read one chapter
+/cs-{slug} ch05               # read one chapter summary
 ```
 
 Or invoke the `cs-{slug}` agent for a working session anchored to this source.

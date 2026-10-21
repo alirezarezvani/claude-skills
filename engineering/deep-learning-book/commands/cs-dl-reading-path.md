@@ -1,12 +1,12 @@
 ---
 name: "cs-dl-reading-path"
-description: "/cs:dl-reading-path — Build a prerequisite-closed reading path through the Deep Learning book from a goal, a background and the hours you actually have. Refuses to route a goal the 2016 book does not cover, and names what covers it instead."
+description: "/cs-dl-reading-path — Build a prerequisite-closed reading path through the Deep Learning book from a goal, a background and the hours you actually have. Refuses to route a goal the 2016 book does not cover, and names what covers it instead."
 argument-hint: "[your goal — what you want to be able to do after reading]"
 ---
 
-# /cs:dl-reading-path — A route, not a page count
+# /cs-dl-reading-path — A route, not a page count
 
-**Command:** `/cs:dl-reading-path [goal]`
+**Command:** `/cs-dl-reading-path [goal]`
 
 The book's part order is not its dependency order. Front-to-back means weeks in Chapters 2–4
 before touching a network, which is where most readers stop.

@@ -159,7 +159,7 @@ python ../../skills/vpe-advisor/scripts/delivery_throughput_analyzer.py sprint_m
 # 3. Identify top bottleneck (longest wait stage)
 # 4. Cross-check with cs-cto-advisor on architectural causes
 # 5. Output: 90-day fix plan with one bottleneck owned by one engineer
-# 6. Log via /cs:decide
+# 6. Log via /c-level-agents:decide
 ```
 
 ### Workflow 2: Hiring Funnel Diagnosis (1 day)

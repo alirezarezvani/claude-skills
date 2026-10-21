@@ -38,7 +38,7 @@ Differentiates clearly:
 
 - **vs cs-grill-master** (plan interrogation): different mode (continuity vs interrogation)
 - **vs cs-skill-author** (skill authoring): different domain (handoff content vs skill files)
-- **vs `/cs:decide`** (decision logging): different artifact (handoff is forward-looking; decide is backward-looking)
+- **vs `/c-level-agents:decide`** (decision logging): different artifact (handoff is forward-looking; decide is backward-looking)
 
 **Hard rule:** never duplicate content already in another artifact. References only.
 
@@ -171,7 +171,7 @@ Length target: 50-100 lines. Anything longer suggests duplication.
 
 - Skill: [../skills/handoff/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/handoff/skills/handoff/SKILL.md)
 - Companion tooling: [../skills/handoff/references/companion_tooling.md](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/handoff/skills/handoff/references/companion_tooling.md)
-- Sibling command: [`/cs:handoff`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/handoff/commands/cs-handoff.md)
+- Sibling command: [`/cs-handoff`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/handoff/commands/cs-handoff.md)
 
 ---
 

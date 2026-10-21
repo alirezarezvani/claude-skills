@@ -1,12 +1,12 @@
 ---
 name: "cs-deep-research"
-description: "/cs:deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans out parallel search sub-agents, triangulates every thesis against >=3 independent sources, saves each source to its own file with verbatim quotes, runs an adversarial pass, and emits an auditable, reusable research folder with a refresh protocol. The heavyweight alternative to the fast research router."
+description: "/cs-deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans out parallel search sub-agents, triangulates every thesis against >=3 independent sources, saves each source to its own file with verbatim quotes, runs an adversarial pass, and emits an auditable, reusable research folder with a refresh protocol. The heavyweight alternative to the fast research router."
 argument-hint: "[the question or decision to research]"
 ---
 
-# /cs:deep-research — Disciplined Meta-Research
+# /cs-deep-research — Disciplined Meta-Research
 
-**Command:** `/cs:deep-research <question>`
+**Command:** `/cs-deep-research <question>`
 
 The `cs-deep-research` persona turns "research this" into an auditable, reusable investigation — the workflow to reach for when getting the answer *wrong* costs more than the tokens spent getting it right.
 
@@ -21,7 +21,7 @@ The `cs-deep-research` persona turns "research this" into an auditable, reusable
 
 - Quick fact-checks → answer directly.
 - Structured 12-dimension competitor scoring → `competitive-teardown`.
-- Fast topic overviews where decision risk is low → the **research router** (`/cs:research`).
+- Fast topic overviews where decision risk is low → the **research router** (`/cs-research`).
 
 ## What You Get
 
@@ -55,7 +55,7 @@ The `cs-deep-research` persona turns "research this" into an auditable, reusable
 
 - Agent: [`cs-deep-research`](../agents/cs-deep-research.md)
 - Skill: [`deep-research`](../skills/deep-research/SKILL.md)
-- Siblings: `/cs:pulse` (recency), the research router, `litreview` / `dossier` / `patent`
+- Siblings: `/cs-pulse` (recency), the research router, `litreview` / `dossier` / `patent`
 
 ---
 

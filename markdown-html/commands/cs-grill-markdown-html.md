@@ -1,9 +1,9 @@
 ---
-description: Matt-Pocock-style forcing-question grill for markdown-html conversions. Walks 5 cited-canon questions (purpose, line-count threshold, design-system onboarding, output path, doctype confidence) one at a time with a recommended answer. Run before /cs:markdown-html when you want clarity about what the HTML is for, not just a route to the closest sub-skill.
+description: Matt-Pocock-style forcing-question grill for markdown-html conversions. Walks 5 cited-canon questions (purpose, line-count threshold, design-system onboarding, output path, doctype confidence) one at a time with a recommended answer. Run before /cs-markdown-html when you want clarity about what the HTML is for, not just a route to the closest sub-skill.
 argument-hint: "<path to markdown file>"
 ---
 
-# /cs:grill-markdown-html — Pre-conversion grill
+# /cs-grill-markdown-html — Pre-conversion grill
 
 Walk the user through 5 forcing questions before routing to the converter. **One question per turn**, with a recommended answer and a canon citation. The user must answer Q1 before Q2 is asked. Never bundle.
 
@@ -85,4 +85,4 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifi
 - **Refuse, don't override.** If Q2 or Q3 fails, the conversion does not proceed. The grill protects against silent-failure.
 - **Walk depth-first.** Finish all 5 questions for THIS conversion before starting a different one.
 
-After Q5, hand off to `/cs:markdown-html <path>` to actually run the conversion with the confirmed answers in hand.
+After Q5, hand off to `/cs-markdown-html <path>` to actually run the conversion with the confirmed answers in hand.

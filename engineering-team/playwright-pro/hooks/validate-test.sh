@@ -52,7 +52,12 @@ if grep -n 'page\.\$(' "$FILE_PATH" >/dev/null 2>&1; then
     WARNINGS="${WARNINGS}\n⚠️  page.\$() is deprecated — use page.locator() or getByRole():\n${LINES}\n"
 fi
 
-# Output warnings if any found
+# Output warnings if any found. PostToolUse stdout only reaches Claude as
+# hookSpecificOutput.additionalContext JSON; plain text goes to the debug log.
 if [[ -n "$WARNINGS" ]]; then
-    echo -e "\n🎭 Playwright Pro — Test Validation${WARNINGS}"
+    REPORT=$(echo -e "Playwright Pro test validation for ${FILE_PATH}:${WARNINGS}") python3 -c '
+import json, os
+print(json.dumps({"hookSpecificOutput": {"hookEventName": "PostToolUse",
+                                         "additionalContext": os.environ["REPORT"]}}))
+'
 fi

@@ -762,7 +762,7 @@ asserted, not yet measured):
 - Disable: `AGENT_MEMORY_SESSIONEND=0`
 
 Adoption is a separate, explicit, human-invoked step:
-`/cs:memory adopt` — backs up both `CLAUDE.md` files first.
+`/cs-memory adopt` — backs up both `CLAUDE.md` files first.
 
 ### 5.4 Concurrency — two sessions, one `atoms.jsonl`
 
@@ -797,7 +797,7 @@ Reuse the pattern this repo already has rather than inventing one —
   dropped, reason. **Not stderr**: `SessionEnd` is `async`, so its stderr goes
   nowhere a human reads, which would make "logging the loss" a fiction. The log
   is capped at 200 lines (oldest dropped) so it cannot grow unbounded, and
-  `/cs:memory status` surfaces any entry from the last 7 days — a log nobody is
+  `/cs-memory status` surfaces any entry from the last 7 days — a log nobody is
   pointed at is the same as no log.
 
 **The two timeouts are not on the same axis** — `5 s < 60 s` looks contradictory

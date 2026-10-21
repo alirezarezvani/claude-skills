@@ -81,6 +81,6 @@ Hard outputs:
 
 ## Available commands
 
-`/cs:product <inquiry>` (router) · `/cs:grill-product <plan>` (grill first) ·
-`/cs:product-loop` (discovery loop) · plus the domain's `/rice`, `/okr`, `/persona`,
+`/cs-product <inquiry>` (router) · `/cs-grill-product <plan>` (grill first) ·
+`/cs-product-loop` (discovery loop) · plus the domain's `/rice`, `/okr`, `/persona`,
 `/user-story`, `/competitive-matrix`, `/prd`, `/sprint-plan`, `/code-to-prd`.

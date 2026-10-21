@@ -28,7 +28,7 @@ research/grants/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── agents/cs-grants.md             ← NIH-funding persona, RePORTER POST enforcer
-├── commands/cs-grants.md           ← /cs:grants <research-idea>
+├── commands/cs-grants.md           ← /cs-grants <research-idea>
 └── skills/grants/
     ├── SKILL.md                    ← Path-B converted from megaprompt 08
     ├── references/

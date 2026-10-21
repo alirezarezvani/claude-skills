@@ -3,7 +3,7 @@ description: Top-level project-management router. Classifies a PM inquiry across
 argument-hint: "<PM inquiry: sprint health, project status, JQL, permissions, retro, comms, etc.>"
 ---
 
-# /cs:pm — Project Management router
+# /cs-pm — Project Management router
 
 Route this inquiry through the `pm-skills` orchestrator:
 
@@ -37,9 +37,9 @@ python3 project-management/skills/pm-skills/scripts/pm_goal_router.py --text "$A
 - Forecasts are Monte Carlo percentile ranges, never single dates.
 - Live Jira/Confluence ops use only the tools in
   `project-management/references/atlassian-mcp-tools.md` — never invent tool names.
-- Goals (not questions) go to `/cs:pm-loop` instead.
+- Goals (not questions) go to `/cs-pm-loop` instead.
 
 ## Distinct from
 
 - `product-team` — what to build. This domain is how to deliver it.
-- `/cs:harness` — the generic loop engine; `/cs:pm-loop` is its PM-domain adapter.
+- `/cs-harness` — the generic loop engine; `/cs-pm-loop` is its PM-domain adapter.

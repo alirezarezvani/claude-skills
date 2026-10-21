@@ -1,6 +1,6 @@
 # Example — A Product/Market Fit Check
 
-A worked example of `/cs:pmf-check`: scoring the felt-signals plus the Sean Ellis 40% gate, then
+A worked example of `/cs-pmf-check`: scoring the felt-signals plus the Sean Ellis 40% gate, then
 issuing a before/after verdict with one next move. No inflation — "approaching" is the honest verdict
 for warm-but-ambiguous signals.
 

@@ -160,7 +160,7 @@ python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py fda_q
 ## References
 
 - Skill: [../../ra-qm-team/skills/fda-consultant-specialist/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/fda-consultant-specialist/SKILL.md)
-- Sibling command: [`/cs:fda-qsr-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/fda-qsr-audit-prep/SKILL.md)
+- Sibling command: [`/compliance-os:fda-qsr-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/fda-qsr-audit-prep/SKILL.md)
 
 ---
 

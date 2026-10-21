@@ -1,6 +1,6 @@
 ---
 title: "/cs-litreview — Slash Command for AI Coding Agents"
-description: "/cs:litreview <research-question> — Academic literature orientation. Grill-me intake (question + framework + depth), free-lane recon (PubMed. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-litreview <research-question> — Academic literature orientation. Grill-me intake (question + framework + depth), free-lane recon (PubMed. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-litreview
@@ -11,7 +11,7 @@ description: "/cs:litreview <research-question> — Academic literature orientat
 </div>
 
 
-**Command:** `/cs:litreview <research question>`
+**Command:** `/cs-litreview <research question>`
 
 The `cs-litreview` persona produces a strategically planned mini literature review as an 8-section `.docx` research guide.
 
@@ -142,8 +142,8 @@ python ../skills/litreview/scripts/citation_tracker.py --action close --session 
 - Agent: [`cs-litreview`](https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview/agents/cs-litreview.md)
 - Skill: [`litreview`](https://github.com/alirezarezvani/claude-skills/tree/main/research/litreview/skills/litreview/SKILL.md)
 - Source spec: `megaprompts/09-litreview-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling: `/cs:pulse` (research pack)
-- Future siblings: `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:syllabus`
+- Sibling: `/cs-pulse` (research pack)
+- Future siblings: `/cs-grants`, `/cs-patent`, `/cs-dossier`, `/cs-syllabus`
 
 ---
 

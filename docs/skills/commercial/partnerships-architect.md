@@ -162,7 +162,7 @@ cd commercial/skills/partnerships-architect && python3 scripts/partner_tier_clas
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-commercial` or the orchestrator. Recommended answer +
+Walked one at a time by `/cs-grill-commercial` or the orchestrator. Recommended answer +
 canon citation per question. Never bundled. Lock 1-3 before opening 4-6.
 
 1. **"Name 5 end customers this partner has already sold to in the last 12 months — at companies you would target yourself."**

@@ -1,11 +1,11 @@
 ---
 name: "cs-grill-me"
-description: "/cs:grill-me <path-to-plan> — Start a relentless interrogation of a plan or design. Walks decision tree one branch at a time. One question per turn with recommended answer. Explores codebase before asking."
+description: "/cs-grill-me <path-to-plan> — Start a relentless interrogation of a plan or design. Walks decision tree one branch at a time. One question per turn with recommended answer. Explores codebase before asking."
 ---
 
-# /cs:grill-me — Relentless Plan Interrogation
+# /cs-grill-me — Relentless Plan Interrogation
 
-**Command:** `/cs:grill-me <path-to-plan>`
+**Command:** `/cs-grill-me <path-to-plan>`
 
 The grill-master persona interrogates a plan one decision branch at a time.
 
@@ -76,7 +76,7 @@ Recommended: [position] because [1-sentence rationale]
 
 - Agent: [`cs-grill-master`](../agents/cs-grill-master.md)
 - Skill: [`grill-me`](../skills/grill-me/SKILL.md)
-- Adjacent: `/cs:caveman`, `/cs:handoff`, `/cs:write-a-skill`
+- Adjacent: `/cs-caveman`, `/cs-handoff`, `/cs-write-a-skill`
 
 ---
 

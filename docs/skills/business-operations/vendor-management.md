@@ -153,7 +153,7 @@ cd business-operations/skills/vendor-management && python3 scripts/vendor_scorer
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"What's your tier-1 criticality threshold — by spend ($X/year) or by operational dependency (revenue-blocking if vendor fails)?"**
    Recommended: operational dependency.

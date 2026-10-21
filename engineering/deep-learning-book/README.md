@@ -89,8 +89,8 @@ python3 $S/capacity_planner.py --params 12000000 --train-examples 50000 --train-
 python3 $S/model_arithmetic.py --spec skills/deep-learning-book/assets/example_layer_spec.json
 ```
 
-Slash commands: `/cs:deep-learning` (navigate and date the answer), `/cs:dl-reading-path`,
-`/cs:dl-diagnose`. Agent: `cs-deep-learning-tutor`.
+Slash commands: `/cs-deep-learning` (navigate and date the answer), `/cs-dl-reading-path`,
+`/cs-dl-diagnose`. Agent: `cs-deep-learning-tutor`.
 
 ## Distinct from
 

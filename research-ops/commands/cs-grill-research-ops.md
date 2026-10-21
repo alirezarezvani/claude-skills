@@ -1,9 +1,9 @@
 ---
-description: Matt Pocock-style docs-anchored grilling for a Research Operations plan — clinical study, R&D budget, market size, or product study. Walks the plan against the research canon (ICH E9, IAS 38, Cochran, Kotler, Nielsen) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs:research-ops on a fuzzy plan.
+description: Matt Pocock-style docs-anchored grilling for a Research Operations plan — clinical study, R&D budget, market size, or product study. Walks the plan against the research canon (ICH E9, IAS 38, Cochran, Kotler, Nielsen) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs-research-ops on a fuzzy plan.
 argument-hint: "<plan, study, budget, market question, or fuzzy research problem>"
 ---
 
-# /cs:grill-research-ops — Research grill against the research-ops canon
+# /cs-grill-research-ops — Research grill against the research-ops canon
 
 Apply Matt Pocock's `grill-with-docs` discipline to this plan / problem:
 
@@ -53,7 +53,7 @@ Recommended: a named clinician/biostatistician (clinical), a named finance contr
 
 ### Branch 5 — Now invoke the sub-skill
 
-Only after branches 1-4 are locked, invoke `/cs:research-ops` with the synthesized inquiry.
+Only after branches 1-4 are locked, invoke `/cs-research-ops` with the synthesized inquiry.
 
 ## Output format per turn
 
@@ -66,7 +66,7 @@ Recommended: [answer + canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:research-ops <synthesized>`
+- All branches resolved → invoke `/cs-research-ops <synthesized>`
 - User says "stop grilling, just run it" → invoke with whatever's resolved, flag unresolved branches in digest
 - User abandons → no sub-skill, save partial grill to `research-ops-grill-{timestamp}.md`
 
@@ -74,4 +74,4 @@ Recommended: [answer + canon-cited rationale]
 
 - `engineering/grill-me` (Matt Pocock) — generic.
 - `engineering/grill-with-docs` (Matt Pocock) — codebase + ADR-anchored for engineering. This is **Research-Ops-domain grilling** against the research canon.
-- `/cs:research-ops` — **executes** routing. This **interrogates** first.
+- `/cs-research-ops` — **executes** routing. This **interrogates** first.

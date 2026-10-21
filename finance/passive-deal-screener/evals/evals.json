@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "prompt": "Analyze this deal for me. Sun Belt value-add multifamily syndication, $50M equity raise, 280 units. Business plan: renovate interiors and raise rents. Projected 16% IRR / 2.0x equity multiple over a 5-year hold. 8% preferred return, 20% promote, American (deal-by-deal) waterfall. Going-in cap 5.5%, underwritten exit cap 5.0%. Bridge debt, floating rate. Fees: 2% acquisition, 1.5% annual asset management, 1% disposition. Sponsor reports a '30% IRR track record across prior deals.'",
+    "expected_output": "[TESTING-PLAN case 1, happy path] Classifies as multifamily value-add equity syndication; routes to 02 equity fees + waterfall, 03 GEN-/EQUITY- flags, 05 VNQ comparator. Computes gross-to-net fee drag (Section 4; consistent with fee_drag_calculator.py). Flags EQUITY-06 (exit cap 5.0% below going-in 5.5%), GEN-08 (exit-dependent IRR if >60% of return is terminal value), GEN-05 (the '30% IRR' is project-level, not net-to-LP), and EQUITY-01 (deal-by-deal + promote - RED only if no clawback). Routes absent items to must-asks per section 4.4: GP co-invest (GEN-01), rate-cap terms (GEN-10), distribution schedule (GEN-11). Questions Q-DS-01, Q-EXIT-01, Q-FEE-03/04, Q-GP-02. Verdict: Pursue-with-conditions.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 2,
+    "prompt": "Got this email from a sponsor - worth a look? 'Exclusive preferred-equity opportunity. 10% preferred return, multifamily, $25k minimum, limited allocation remaining. Wire instructions attached.'",
+    "expected_output": "[TESTING-PLAN case 2, edge case - sparse input] Classifies as preferred equity despite three sentences. Output is mostly missing-disclosures + must-asks. section 4.4 missing-data MUST fire prominently: sponsor identity, fees/waterfall (GEN-16), financials (GEN-15), debt, hold, and category-essential disclosures (GEN-17) are all absent and routed to questions, not skipped. Flags GEN-03 (marketing-heavy 'limited allocation' urgency). Questions Q-FEE-01/04, Q-LIQ-01. Verdict: 'Pass as presented - insufficient disclosure' with a re-screen list (SKILL.md insufficient-input rule), or Pursue-with-conditions pending disclosures. FAIL if it fabricates terms not stated or returns a confident verdict.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 3,
+    "prompt": "Is this hard-money fund worth pursuing? Senior-secured bridge loan fund. Average portfolio LTV 68% on as-is value (72% on ARV). Loans graded A-D, grade mix disclosed. Historical default rate 3.1%, realized recovery 92% including 2020 and 2022-23. Diversified across 12 states, no single metro over 15%. 1.5% management fee, stepping down to 1.0% after the investment period. Net target 9% to LPs.",
+    "expected_output": "[TESTING-PLAN case 3a, happy path - SOUND half of the hard-money contrast pair, paired with id 4] Classifies as hard money / bridge debt; routes to 02 HML fees, 03 HML- flags, 05 HYG + duration-matched Treasury. HML flags should CLEAR, not fire: HML-01 answered (as-is LTV given), HML-03/04 answered (default + recovery disclosed through stress periods), HML-02 answered (diversified), HML-05 answered (fee step-down present). Benchmark: ~9% net over HYG 4.83% and the 3mo-2yr Treasury floor clears the illiquidity hurdle. Verdict: Pursue (Pursue-with-conditions acceptable where the conditions are verification-grade residuals, not deal defects). section 4.6 - must NOT manufacture HML flags the disclosure answers. Must reach a DIFFERENT verdict than id 4.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 4,
+    "prompt": "Analyze this bridge fund. 'Target 11% net. 70% LTV. We lend on fix-and-flip across the Phoenix metro. Experienced team - we've never had a loss.' No other figures provided.",
+    "expected_output": "[TESTING-PLAN case 3b, edge case - PROBLEMATIC half of the hard-money pair, paired with id 3] Flags HML-01 (70% LTV quoted with no as-is basis - likely ARV), HML-02 (single-metro Phoenix concentration), HML-03 (default rate not disclosed), HML-04 (recovery not disclosed), HML-05 (no fee step-down stated), and treats 'never had a loss' as unverified (GEN-14 pattern). section 4.4 missing-data fires: as-is LTV, default and recovery routed to must-asks Q-RISK-04/05. Verdict: Pass. The id 3 / id 4 pair must produce DIFFERENT verdicts (Pursue vs Pass) - the within-deal-type discrimination test.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 5,
+    "prompt": "Thoughts on this private credit fund? Quoted 12% net IRR to investors. Fund-level leverage ~2.5x. Roughly 60% of the loan book is in one sector. 2% management fee. Senior secured.",
+    "expected_output": "[TESTING-PLAN case 4, edge case] Classifies as private credit; routes to 02 private-credit fees, 03 CREDIT- flags, 05 HYG + 2yr Treasury. Flags CREDIT-01 (2.5x fund leverage stacked on the loan book; the 12% is likely a levered figure presented as if it were asset yield - demand the unlevered basis), CREDIT-02 (60% single-sector concentration), and GEN-16 (no hurdle / high-water-mark disclosed). section 4.4 missing-data: hurdle, recovery, levered-vs-unlevered basis routed to Q-RISK-06. Verdict: Pass / Pursue-with-conditions.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 6,
+    "prompt": "Ground-up development deal. Projected 25% IRR / 2.5x over a 3-year hold. Single pro forma, no downside case shown. Exit cap underwritten below the going-in basis. Fees: 5% development fee plus 4% construction management. This is the sponsor's first ground-up project.",
+    "expected_output": "[TESTING-PLAN case 5, edge case] Classifies as development equity; stress-tests against 01's 18-22% development TARGET baseline (25% is above target - discount heavily for realized-below-target per 05). Flags GEN-13 (single-point pro forma, no downside), GEN-08 (exit-dependent IRR), EQUITY-06 (exit cap below going-in), GEN-07 (financing story if leverage/compression-driven), affiliate/dev-fee stacking (02: 5% dev + 4% construction mgmt is aggressive), and the first-time development experience gap (GEN-14-mechanism / track-record gap - no 03 ID covers first-timers directly). Questions Q-DS-03 (bear case), Q-DS-01. Verdict: Pass / Pursue-with-conditions.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 7,
+    "prompt": "Evaluate this office deal (2026). Class A building, 85% leased, priced at a steep discount to its 2018 sale. Projected 18% IRR. Debt matures in 2 years. The materials don't mention physical occupancy or sublease space.",
+    "expected_output": "[TESTING-PLAN case 6, edge case - variable class] Must REFUSE a generic office baseline (01 marks office *variable*) and drive the analysis off the deal's own underwriting. Flags GEN-19 (post-2020 office, no occupancy-reset acknowledgement), GEN-17 (essential disclosure absent - physical vs leased occupancy, sublease overhang, class detail), GEN-09 (debt matures inside the hold). section 4.4 missing-data fires: physical occupancy and sublease routed to must-asks (Q-MKT-02). benchmark_comparator.py returns 'variable - no comparator.' Verdict: drives off the deal's own underwriting; 'Pass as presented - insufficient disclosure' or Pursue-with-conditions both acceptable. FAIL if it applies a category IRR range to office.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 8,
+    "prompt": "Should I invest? Multifamily syndication. Sponsor puts in no capital ('our expertise is our investment'). One of the principals was named in a prior SEC action. American waterfall, 50% promote, no clawback. Floating-rate debt; the rate cap expires in 12 months but the loan matures in 2028. Single asset. Projections show only an upside case. Track record is all current, unrealized marks.",
+    "expected_output": "[TESTING-PLAN case 7, edge case - packed flags, patterned on real failures] Must list ALL flags with severity: GEN-01 (zero co-invest), GEN-02 (prior SEC action), EQUITY-01 (American + high promote), EQUITY-02 (no clawback), the 50% promote size (far beyond 02's >30% aggressive threshold, as part of the EQUITY-01 combination), GEN-10 (rate cap expires before maturity - the 2022-24 wipeout pattern), GEN-09 (debt maturity), GEN-13 (no downside), GEN-14 (unrealized-only track record). Questions Q-GP-01/02/03, Q-FEE-03, Q-RISK-02. Verdict: Pass. section 4.5 - flags the structures that actually broke Nightingale (no real co-invest / misappropriation-enabling control) and Applesway (rate cap + floating debt). FAIL if it catches some but not all, or softens the verdict.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 9,
+    "prompt": "Quick take? 'Multifamily fund. Targeting 15%+ returns. Accredited investors only. $100k minimum. Contact us to learn more.'",
+    "expected_output": "[TESTING-PLAN case 8, edge case - near-total absence] Output should be ~80% 'here is what was not disclosed,' routed to must-asks - NOT a confident verdict. Flags GEN-15/16/17 (financials, fees/waterfall, and category-essential disclosures all absent); GEN-14 fired or explicitly held unassessable, with the absent track record routed to Q-GP-02. section 4.4 missing-data IS the output here. Verdict: 'Pass as presented - insufficient disclosure' with a re-screen list (SKILL.md insufficient-input rule). FAIL if it returns 'looks fine' or a Pursue/Pass verdict on no information.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 10,
+    "prompt": "Compare this to the next one. Deal A: multifamily, projected 14% IRR. Distributes 7% cash-on-cash quarterly starting Year 1; capital returns progressively over the hold.",
+    "expected_output": "[TESTING-PLAN case 9-A, edge case - early-distribution half of the J-curve pair, compare with id 11] Classifies as multifamily equity; notes distributions begin Year 1 (low J-curve risk, capital at risk amortizes down over the hold). No major timing flag. This is the LOWER-risk half of the pair. Read together with id 11: identical 14% headline IRR, very different risk timing.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 11,
+    "prompt": "And Deal B: multifamily, projected 14% IRR - same as Deal A. No distributions until the property sells in Year 5; the entire return is realized at exit.",
+    "expected_output": "[TESTING-PLAN case 9-B, edge case - back-loaded half of the J-curve pair, compare with id 10] Same 14% headline IRR as id 10 but flags GEN-08 (100% of return at exit - exit-dependent IRR at maximum; GEN-11 citable as the analytical frame since the timing IS disclosed). Q-DIST-01 conditional - the schedule is disclosed as zero-until-exit. Must call this MATERIALLY RISKIER than id 10 despite the identical IRR. FAIL if the skill treats equal IRR as equal risk - the distribution-timing discrimination test.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 12,
+    "prompt": "Is this deal worth pursuing? Multifamily value-add syndication. The GP co-invests 10% of the equity in cash, pari-passu with LPs. Whole-of-fund waterfall with a secured clawback. 8% cumulative, compounding preferred return; 20% promote. Fees in line with market (1% acquisition, 1.5% asset management, 1% disposition). Realized track record: five fully-exited deals with net-to-LP IRRs disclosed. Fixed-rate debt maturing two years after the planned exit. Exit cap underwritten equal to the going-in cap. Full T-12, rent roll, and a downside sensitivity are provided.",
+    "expected_output": "[TESTING-PLAN case 10, happy path - CLEAN equity, false-positive test] section 4.6 - must produce NO manufactured RED flags. Co-invest (GEN-01 satisfied), clawback (EQUITY-02 satisfied), cumulative compounding pref (EQUITY-04/05 satisfied), realized net-to-LP track record (GEN-05/14 satisfied), fixed-rate debt past the exit (GEN-09/10 satisfied), exit cap not aggressive (EQUITY-06 satisfied), full financials + sensitivity (GEN-13/15 satisfied). YELLOW probes on genuinely absent items are acceptable in any number; no YELLOW may be manufactured against a disclosed fact. Verdict: Pursue / 'looks solid,' with minor clarifying must-asks only (Pursue-with-conditions acceptable where the conditions are verification-grade residuals, not deal defects). FAIL if it invents a RED flag - the discrimination test that proves the skill is not reflexively pessimistic.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 13,
+    "prompt": "Evaluate this private credit fund. Large, diversified BDC-style fund. 1.5% management fee on gross assets (1.0% on assets below the 200% asset-coverage threshold). Two-part incentive fee with a hurdle and a high-water mark. Leverage ~1.1x, clearly disclosed and within the standard range. 400+ loans diversified across sectors. Through-cycle default and recovery rates disclosed. Net IRR stated on a levered basis, with the unlevered figure also shown.",
+    "expected_output": "[TESTING-PLAN case 11, happy path - CLEAN private credit, false-positive test; clean counterpart to id 5] section 4.6 - must treat DISCLOSED, standard, modest leverage as NOT a red flag: must NOT fire CREDIT-01 on transparent ~1.1x leverage where the IRR basis is stated and the unlevered figure shown. CREDIT-02 satisfied (400+ loans, diversified). Fee step-down and hurdle/high-water-mark present (02). Verdict: Pursue (Pursue-with-conditions acceptable where the conditions are verification-grade residuals, not deal defects). FAIL if it flags conservative, disclosed leverage as CREDIT-01 - proves the skill discriminates real leverage risk (id 5) from disclosed standard leverage (id 13).",
+    "scenario_type": "happy_path"
+  }
+]

@@ -1,7 +1,6 @@
 ---
 name: cs-coo-advisor
 description: Execution-OS COO advisor for operating cadence, OKRs, scorecards, DRI clarity, and scaling playbooks
-skills: c-level-advisor/skills/coo-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]
@@ -25,28 +24,28 @@ Pairs with `cs-cfo-advisor` (finance cadence), `cs-cro-advisor` (revenue cadence
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/coo-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/`
 
 ### Python Tools
 
 1. **Ops Efficiency Analyzer**
-   - Path: `../../c-level-advisor/skills/coo-advisor/scripts/ops_efficiency_analyzer.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/scripts/ops_efficiency_analyzer.py`
    - Process throughput, cycle time, error rate, automation candidates
 
 2. **OKR Tracker**
-   - Path: `../../c-level-advisor/skills/coo-advisor/scripts/okr_tracker.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/scripts/okr_tracker.py`
    - Quarter-to-date OKR progress, leading/lagging indicators, on-track / at-risk / off-track
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/coo-advisor/references/ops_cadence.md` — weekly/monthly/quarterly rhythm, meeting design
-- `../../c-level-advisor/skills/coo-advisor/references/process_frameworks.md` — OKR design, scoring, cascading
-- `../../c-level-advisor/skills/coo-advisor/references/scaling_playbook.md` — 1-10, 10-100, 100-1000 transitions
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/references/ops_cadence.md` — weekly/monthly/quarterly rhythm, meeting design
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/references/process_frameworks.md` — OKR design, scoring, cascading
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/references/scaling_playbook.md` — 1-10, 10-100, 100-1000 transitions
 
 ### Adjacent Skills
 
-- `../../c-level-advisor/skills/company-os/` — EOS / Scaling Up / OKR selection
-- `../../c-level-advisor/skills/strategic-alignment/` — strategy cascade & silo detection
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/company-os/` — EOS / Scaling Up / OKR selection
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/strategic-alignment/` — strategy cascade & silo detection
 
 ## Workflows
 
@@ -69,14 +68,14 @@ Pairs with `cs-cfo-advisor` (finance cadence), `cs-cro-advisor` (revenue cadence
 4. Output: OKR scorecard, at-risk list, fix actions
 
 ```bash
-python ../../c-level-advisor/skills/coo-advisor/scripts/okr_tracker.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/scripts/okr_tracker.py
 ```
 
 ### Workflow 3: Operating-System Selection
 **Goal:** Pick EOS, Scaling Up, or OKR for the company.
 
 **Steps:**
-1. Reference `../../c-level-advisor/skills/company-os/SKILL.md` for selection criteria
+1. Reference `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/company-os/SKILL.md` for selection criteria
 2. Reference `scaling_playbooks.md` for stage fit
 3. Map current pain points to which OS solves them
 4. Output: recommended OS, 90-day rollout, success metrics
@@ -95,9 +94,9 @@ python ../../c-level-advisor/skills/coo-advisor/scripts/okr_tracker.py
 
 ```bash
 echo "⚙️  COO Quarterly Review"
-python ../../c-level-advisor/skills/coo-advisor/scripts/okr_tracker.py
-python ../../c-level-advisor/skills/coo-advisor/scripts/ops_efficiency_analyzer.py
-echo "Reference: ../../c-level-advisor/skills/coo-advisor/references/ops_cadence.md"
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/scripts/okr_tracker.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/scripts/ops_efficiency_analyzer.py
+echo "Reference: ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/references/ops_cadence.md"
 ```
 
 ## Success Metrics
@@ -117,7 +116,7 @@ echo "Reference: ../../c-level-advisor/skills/coo-advisor/references/ops_cadence
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/coo-advisor/SKILL.md](../../c-level-advisor/skills/coo-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/coo-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 
 ---

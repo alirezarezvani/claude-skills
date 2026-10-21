@@ -1,11 +1,11 @@
 ---
 name: "cs-caveman"
-description: "/cs:caveman — Activate persistent caveman-mode. Ultra-compressed responses with technical substance preserved. Auto-clarity exception for warnings + destructive ops. Stays active until 'stop caveman' / 'normal mode'."
+description: "/cs-caveman — Activate persistent caveman-mode. Ultra-compressed responses with technical substance preserved. Auto-clarity exception for warnings + destructive ops. Stays active until 'stop caveman' / 'normal mode'."
 ---
 
-# /cs:caveman — Caveman Mode
+# /cs-caveman — Caveman Mode
 
-**Command:** `/cs:caveman`
+**Command:** `/cs-caveman`
 
 Activate caveman mode. Stays active until explicit deactivation.
 
@@ -60,7 +60,7 @@ python ../skills/caveman/scripts/caveman_lint.py "response"
 
 - Agent: [`cs-caveman-mode`](../agents/cs-caveman-mode.md)
 - Skill: [`caveman`](../skills/caveman/SKILL.md)
-- Adjacent: `/cs:grill-me`, `/cs:handoff` (other Pocock-derived skills)
+- Adjacent: `/cs-grill-me`, `/cs-handoff` (other Pocock-derived skills)
 
 ---
 

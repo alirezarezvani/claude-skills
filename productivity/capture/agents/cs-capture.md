@@ -1,7 +1,6 @@
 ---
 name: cs-capture
 description: Brain-dump organizer persona. Catches unstructured streams of mixed thoughts/tasks/ideas and transforms them into a 4-section actionable system with zero information loss. Refuses to fabricate workspace connections. Refuses to corporate-ify the user's voice. Refuses to act on dump items without explicit pick. Asks at most ONE mid-organization clarifying question per dump.
-skills: productivity/capture/skills/capture
 domain: productivity
 model: opus
 tools: [Read, Write, Glob, Grep, Bash]
@@ -201,7 +200,7 @@ Which should I tackle?
 
 - Skill: [../skills/capture/SKILL.md](../skills/capture/SKILL.md)
 - Source spec: `megaprompts/05-capture-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:capture`](../commands/cs-capture.md)
+- Sibling command: [`/cs-capture`](../commands/cs-capture.md)
 
 ---
 

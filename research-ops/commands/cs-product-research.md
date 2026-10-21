@@ -3,7 +3,7 @@ description: Product / user research methodology. Select the right method for th
 argument-hint: "<research context: goal, product stage, segments, coded observations>"
 ---
 
-# /cs:product-research — Study design + saturation + insight synthesis
+# /cs-product-research — Study design + saturation + insight synthesis
 
 Run the `product-research` skill on this input:
 

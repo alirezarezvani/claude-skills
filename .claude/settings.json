@@ -1,14 +1,3 @@
 {
-    "$schema": "https://json.schemastore.org/claude-code-settings.json",
-    "extraKnownMarketplaces": {
-        "ecc": {
-            "source": {
-                "source": "github",
-                "repo": "affaan-m/ECC"
-            }
-        }
-    },
-    "enabledPlugins": {
-        "ecc@ecc": true
-    }
+    "$schema": "https://json.schemastore.org/claude-code-settings.json"
 }

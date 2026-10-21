@@ -3,7 +3,7 @@ description: Close out a launched Claude Managed Agent — recap every primitive
 argument-hint: "[optional: path to build-sheet.json]"
 ---
 
-# /cs:wrap-up — close it out
+# /cs-wrap-up — close it out
 
 Run the `wrap-up` skill.
 

@@ -1,6 +1,6 @@
 ---
 title: "/cs-caveman — Slash Command for AI Coding Agents"
-description: "/cs:caveman — Activate persistent caveman-mode. Ultra-compressed responses with technical substance preserved. Auto-clarity exception for warnings +. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-caveman — Activate persistent caveman-mode. Ultra-compressed responses with technical substance preserved. Auto-clarity exception for warnings +. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-caveman
@@ -11,7 +11,7 @@ description: "/cs:caveman — Activate persistent caveman-mode. Ultra-compressed
 </div>
 
 
-**Command:** `/cs:caveman`
+**Command:** `/cs-caveman`
 
 Activate caveman mode. Stays active until explicit deactivation.
 
@@ -66,7 +66,7 @@ python ../skills/caveman/scripts/caveman_lint.py "response"
 
 - Agent: [`cs-caveman-mode`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman/agents/cs-caveman-mode.md)
 - Skill: [`caveman`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/caveman/skills/caveman/SKILL.md)
-- Adjacent: `/cs:grill-me`, `/cs:handoff` (other Pocock-derived skills)
+- Adjacent: `/cs-grill-me`, `/cs-handoff` (other Pocock-derived skills)
 
 ---
 

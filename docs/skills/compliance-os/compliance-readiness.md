@@ -1,9 +1,9 @@
 ---
-title: "/cs:compliance-readiness — Compliance Officer Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:compliance-readiness — Compliance Officer Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:compliance-readiness — Compliance Officer Forcing Questions
+# /compliance-os:compliance-readiness — Compliance Officer Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:compliance-readiness <program> — Multi-framework compliance 
 </div>
 
 
-**Command:** `/cs:compliance-readiness <program>`
+**Command:** `/compliance-os:compliance-readiness <program>`
 
 The multi-framework compliance officer pressure-tests any compliance program. Six questions before any new-framework commitment, audit cycle planning, or certification readiness sign-off.
 
@@ -128,13 +128,13 @@ python ../../skills/compliance-os/scripts/audit_simulator.py scope.json
 
 ## Routing
 
-- `/cs:aims-audit` — for ISO 42001-specific forcing questions
-- `/cs:ai-act-readiness` — for EU AI Act-specific forcing questions
-- `/cs:ciso-review` — for cybersecurity strategy
-- `/cs:caio-review` — for executive AI strategy
-- `/cs:gc-review` — for novel-case legal review
-- `/cs:decide` — to log the verdict
-- `/cs:freeze 30` — on certification commitments (multi-year financial impact)
+- `/compliance-os:aims-audit` — for ISO 42001-specific forcing questions
+- `/compliance-os:ai-act-readiness` — for EU AI Act-specific forcing questions
+- `/c-level-agents:ciso-review` — for cybersecurity strategy
+- `/c-level-agents:caio-review` — for executive AI strategy
+- `/c-level-agents:gc-review` — for novel-case legal review
+- `/c-level-agents:decide` — to log the verdict
+- `/c-level-agents:freeze 30` — on certification commitments (multi-year financial impact)
 
 ## Related
 

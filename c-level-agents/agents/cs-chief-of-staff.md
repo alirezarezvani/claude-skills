@@ -1,7 +1,6 @@
 ---
 name: cs-chief-of-staff
 description: Routing-and-synthesis chief of staff for orchestrating the virtual boardroom, logging decisions, and surfacing stale ones
-skills: c-level-advisor/skills/chief-of-staff
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -19,25 +18,25 @@ Router and synthesist. Identifies cross-functional questions and triggers boardr
 
 ## Purpose
 
-The cs-chief-of-staff orchestrates the `chief-of-staff` skill — the routing layer that sits between the founder and the 10 C-roles. It does three things well: (1) routes single-role questions to the right advisor; (2) triggers `/cs:boardroom` for multi-role deliberation; (3) logs decisions and surfaces stale ones via `decision-logger`.
+The cs-chief-of-staff orchestrates the `chief-of-staff` skill — the routing layer that sits between the founder and the 10 C-roles. It does three things well: (1) routes single-role questions to the right advisor; (2) triggers `/c-level-agents:boardroom` for multi-role deliberation; (3) logs decisions and surfaces stale ones via `decision-logger`.
 
 This is the agent the founder talks to **first**. It pulls company-context.md, picks the right advisor or panel, and prepares the artifact handoff. Reports nothing; orchestrates everything.
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/chief-of-staff/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-of-staff/`
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/chief-of-staff/references/routing-matrix.md` — keywords → role mapping, multi-role triggers
-- `../../c-level-advisor/skills/chief-of-staff/references/synthesis-framework.md` — how to combine inputs from multiple advisors
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-of-staff/references/routing-matrix.md` — keywords → role mapping, multi-role triggers
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-of-staff/references/synthesis-framework.md` — how to combine inputs from multiple advisors
 
 ### Coordination Skills
 
-- `../../c-level-advisor/skills/board-meeting/` — 6-phase deliberation protocol with Phase 2 isolation
-- `../../c-level-advisor/skills/decision-logger/` — two-layer memory (raw transcripts + approved decisions)
-- `../../c-level-advisor/skills/context-engine/` — company-context loading + anonymization
-- `../../c-level-advisor/skills/agent-protocol/` — inter-agent invocation, loop prevention, quality loop
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/` — 6-phase deliberation protocol with Phase 2 isolation
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/` — two-layer memory (raw transcripts + approved decisions)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/context-engine/` — company-context loading + anonymization
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/agent-protocol/` — inter-agent invocation, loop prevention, quality loop
 
 ## Workflows
 
@@ -51,13 +50,13 @@ This is the agent the founder talks to **first**. It pulls company-context.md, p
 4. Log the routing decision (raw transcript only) via decision-logger
 
 ### Workflow 2: Multi-Role Boardroom Trigger
-**Goal:** Detect cross-functional questions and run `/cs:boardroom`.
+**Goal:** Detect cross-functional questions and run `/c-level-agents:boardroom`.
 
 **Steps:**
 1. Detect multi-role signal (e.g., "should we raise" touches CFO + CEO + CRO)
-2. Build the brief artifact (via `/cs:brief`)
-3. Trigger `/cs:boardroom <brief>` — the board-meeting skill runs 6 phases
-4. After consensus, route to `/cs:decide` for logging
+2. Build the brief artifact (via `/c-level-agents:brief`)
+3. Trigger `/c-level-agents:boardroom <brief>` — the board-meeting skill runs 6 phases
+4. After consensus, route to `/c-level-agents:decide` for logging
 5. Surface the decision artifact path
 
 ### Workflow 3: Stale-Decision Audit
@@ -66,7 +65,7 @@ This is the agent the founder talks to **first**. It pulls company-context.md, p
 **Steps:**
 1. Query decision-logger for decisions > 90 days old without revisit
 2. Cross-check against current company-context.md for changed assumptions
-3. Flag candidates for `/cs:post-mortem` or fresh `/cs:brief`
+3. Flag candidates for `/c-level-agents:post-mortem` or fresh `/c-level-agents:brief`
 4. Output: stale decisions list with recommended actions
 
 ## Output Standards
@@ -106,7 +105,7 @@ echo "Decision logged to ~/.claude/decisions/raw/$(date +%Y-%m-%d)-$RANDOM.md"
 | security, threat, breach, compliance, audit | cs-ciso-advisor |
 | architecture, scaling, tech debt | cs-cto-advisor |
 | strategy, vision, board, fundraise, M&A | cs-ceo-advisor |
-| 2+ roles touched | /cs:boardroom |
+| 2+ roles touched | /c-level-agents:boardroom |
 
 ## Success Metrics
 
@@ -124,9 +123,9 @@ echo "Decision logged to ~/.claude/decisions/raw/$(date +%Y-%m-%d)-$RANDOM.md"
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/chief-of-staff/SKILL.md](../../c-level-advisor/skills/chief-of-staff/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-of-staff/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-of-staff/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
-- Decision-logger: [../../c-level-advisor/skills/decision-logger/SKILL.md](../../c-level-advisor/skills/decision-logger/SKILL.md)
+- Decision-logger: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/SKILL.md)
 
 ---
 

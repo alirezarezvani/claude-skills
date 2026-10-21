@@ -160,8 +160,9 @@ def main() -> int:
             "deferrals": [{"version": "v1", "item": "x"}],
         }
         v, c = validate(bad)
-        _emit(v, c, False)
-        print("\n(sample intentionally trips several FAIL/WARN checks)")
+        _emit(v, c, args.json)
+        if not args.json:
+            print("\n(sample intentionally trips several FAIL/WARN checks)")
         return 0
 
     if not args.sheet:

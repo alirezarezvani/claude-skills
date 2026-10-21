@@ -25,7 +25,7 @@ Pair with `scripts/model_buildvsbuy_calculator.py` for use-case-specific TCO.
 - Vendor handles security patches, weight updates, alignment improvements.
 
 **Failure modes:**
-- **Vendor lock-in.** Mitigation: use abstraction layer (LiteLLM, OpenRouter, Portkey) so you can swap providers in days, not months.
+- **Vendor lock-in.** Mitigation: use abstraction layer (LiteLLM, OpenRouter, Portkey, Bifrost) so you can swap providers in days, not months.
 - **Capability drift between versions.** Mitigation: pin model IDs; run regression evals before upgrading.
 - **Rate limits at QPS spikes.** Mitigation: confirm Tier-4+ pricing with the provider; pre-arrange burst capacity.
 - **Cost growth.** Below $50K/mo it's noise; above $200K/mo, revisit fine-tune. Above $1M/mo, revisit self-hosted.

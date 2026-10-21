@@ -1,11 +1,12 @@
 ---
 name: product-research
 description: Use when planning and synthesizing product/user research as a method-and-repository discipline — selecting the right method for the goal (generative interviews vs usability test vs concept test vs validation), computing method-based saturation/sample size with an explicit confidence level, or synthesizing coded observations into insights while flagging single-source anecdotes. Never fabricates user insight; an insight requires recurrence across independent participants. Distinct from product-team/ux-researcher-designer (persona/journey artifacts), product-discovery (discovery-sprint planning), and experiment-designer (live A/B) — this is the research-ops method + insight-repository layer.
-version: 2.9.0
-author: claude-code-skills
 license: MIT
-tags: [research-ops, product-research, ux-research, jtbd, usability, saturation, insight-synthesis, research-repository]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.9.0
+  author: claude-code-skills
+  tags: [research-ops, product-research, ux-research, jtbd, usability, saturation, insight-synthesis, research-repository]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # product-research
@@ -107,6 +108,7 @@ Isolated: no hard dependency — autoresearch runs only on demand, and the loop 
 | `product-team/product-discovery` | Opportunity validation, discovery-sprint planning | That plans **discovery sprints**; this designs and synthesizes the **research** |
 | `product-team/experiment-designer` | Live product A/B hypothesis + sample size | That runs **live experiments**; this runs **qualitative/evaluative research** |
 | `market-research` (sibling) | Market sizing, surveys, segmentation | That studies **the market**; this studies **users** |
+| [`interview-mapper`](../interview-mapper/SKILL.md) (sibling) | Transcript-level coding: verbatim quote verification, per-lens coding, cross-run consensus | That codes the **transcript itself**; this synthesizes **already-coded observations** into insights — never touches the raw transcript |
 
 ## Quick examples
 
@@ -120,7 +122,7 @@ The synthesizer sample correctly promotes "import-confusion" (3 independent part
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is this study generative (discover problems) or evaluative (test a solution)?"**
    Recommended: name it first — the method follows from the goal.

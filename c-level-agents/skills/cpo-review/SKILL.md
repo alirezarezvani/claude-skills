@@ -1,11 +1,11 @@
 ---
 name: "cpo-review"
-description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap, deciding whether to kill a feature, or claiming PMF without a retention curve."
+description: "/c-level-agents:cpo-review [plan] — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap, deciding whether to kill a feature, or claiming PMF without a retention curve."
 ---
 
-# /cs:cpo-review — CPO Forcing Questions
+# /c-level-agents:cpo-review — CPO Forcing Questions
 
-**Command:** `/cs:cpo-review <plan>`
+**Command:** `/c-level-agents:cpo-review <plan>`
 
 The JTBD-driven builder cuts the roadmap in half. Six questions to surface what to ship and what to kill.
 
@@ -53,8 +53,8 @@ python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
 
 1. **Run the analyses:**
    ```bash
-   python ../../../c-level-advisor/skills/cpo-advisor/scripts/pmf_scorer.py
-   python ../../../c-level-advisor/skills/cpo-advisor/scripts/portfolio_analyzer.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/pmf_scorer.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/portfolio_analyzer.py
    ```
 2. **Answer the six questions.**
 3. **Apply the verdict.**
@@ -95,14 +95,14 @@ python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
 
 ## Routing
 
-- `/cs:cmo-review` — does the positioning support this feature?
-- `/cs:execute` — build the 90-day plan
-- `/cs:post-mortem` — if kill criteria triggered
+- `/c-level-agents:cmo-review` — does the positioning support this feature?
+- `/c-level-agents:execute` — build the 90-day plan
+- `/c-level-agents:post-mortem` — if kill criteria triggered
 
 ## Related
 
 - Agent: [`cs-cpo-advisor`](../../agents/cs-cpo-advisor.md)
-- Skill: [`cpo-advisor`](../../../c-level-advisor/skills/cpo-advisor/SKILL.md)
+- Skill: [`cpo-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/SKILL.md)
 - Execution: `product-team/skills/product-manager-toolkit/`
 
 ---

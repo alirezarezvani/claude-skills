@@ -1,7 +1,6 @@
 ---
 name: cs-spinning-up-deep-rl
 description: Answers from the knowledge base compiled from Spinning Up in Deep RL by Joshua Achiam (OpenAI). Loads the master frameworks first and reads a single chapter file on demand rather than the whole source. Refuses to answer beyond what the source covers.
-skills: engineering/spinning-up-deep-rl/skills/spinning-up-deep-rl
 domain: engineering
 model: opus
 tools: [Read, Grep, Glob]

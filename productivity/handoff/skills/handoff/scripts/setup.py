@@ -155,7 +155,7 @@ def run_setup(scope: str = "global", reconfigure: bool = False) -> int:
     print("=" * 60)
     print()
     print("This walks you through 5 questions (~30 seconds). You can")
-    print("rerun at any time with: /cs:handoff-setup")
+    print("rerun at any time with: /cs-handoff-setup")
     print()
 
     current = config_loader.load_config() if reconfigure else dict(config_loader.DEFAULTS)
@@ -245,7 +245,7 @@ def run_setup(scope: str = "global", reconfigure: bool = False) -> int:
     print()
     print("=" * 60)
     print(f"Config saved to {path}")
-    print("Rerun with: /cs:handoff-setup")
+    print("Rerun with: /cs-handoff-setup")
     print("=" * 60)
     return 0
 
@@ -254,7 +254,7 @@ def decline_setup() -> int:
     config_loader.mark_setup_declined()
     print(
         "Setup skipped. Using defaults (OS temp dir, 7-day retention, strict redaction).\n"
-        "Rerun at any time with: /cs:handoff-setup"
+        "Rerun at any time with: /cs-handoff-setup"
     )
     return 0
 

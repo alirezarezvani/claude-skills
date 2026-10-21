@@ -1,6 +1,6 @@
 # Board Meeting Agenda Template
 
-Use this to structure a board meeting before invoking `/cs:boardroom`.
+Use this to structure a board meeting before invoking `/c-level-agents:boardroom`.
 Paste it into the conversation or save it as `~/.claude/decisions/agenda-YYYY-MM-DD.md`.
 
 ---

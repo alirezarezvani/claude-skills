@@ -30,7 +30,7 @@ Lives at `../agents/cs-skill-author.md`. Voice: forcing-question interrogator. S
 5. Concrete examples — at least 1 code block, ideally good/bad contrast?
 6. References one level deep, no circular refs?
 
-## `/cs:write-a-skill` Slash Command
+## `/cs-write-a-skill` Slash Command
 
 Lives at `../commands/cs-write-a-skill.md`. Three-step flow:
 

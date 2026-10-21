@@ -16,9 +16,9 @@ Knowledge-base plugin compiled from **Spinning Up in Deep RL by Joshua Achiam (O
 ## Use
 
 ```
-/cs:spinning-up-deep-rl                    # core frameworks + chapter index
-/cs:spinning-up-deep-rl <topic>            # resolve via topic index, read one chapter
-/cs:spinning-up-deep-rl ch05               # read one chapter summary
+/cs-spinning-up-deep-rl                    # core frameworks + chapter index
+/cs-spinning-up-deep-rl <topic>            # resolve via topic index, read one chapter
+/cs-spinning-up-deep-rl ch05               # read one chapter summary
 ```
 
 Or invoke the `cs-spinning-up-deep-rl` agent for a working session anchored to this source.

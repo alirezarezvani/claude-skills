@@ -1,11 +1,11 @@
 ---
 name: "gdpr-audit-prep"
-description: "/cs:gdpr-audit-prep <scope> — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review, post-breach internal audit, DPA investigation readiness, or acquisition due diligence."
+description: "/compliance-os:gdpr-audit-prep [scope] — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review, post-breach internal audit, DPA investigation readiness, or acquisition due diligence."
 ---
 
-# /cs:gdpr-audit-prep — GDPR DPO Forcing Questions
+# /compliance-os:gdpr-audit-prep — GDPR DPO Forcing Questions
 
-**Command:** `/cs:gdpr-audit-prep <scope>`
+**Command:** `/compliance-os:gdpr-audit-prep <scope>`
 
 The GDPR DPO auditor pressure-tests any privacy compliance work. Six Article-cited questions before any internal audit, breach response, DPA investigation, or acquisition due diligence.
 
@@ -72,13 +72,13 @@ The GDPR DPO auditor pressure-tests any privacy compliance work. Six Article-cit
 
 ```bash
 # 1. Compliance posture
-python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json
 
 # 2. DPIA for high-risk activities
-python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json
 
 # 3. DSAR workflow validation
-python ra-qm-team/skills/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py dsar_log.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py dsar_log.json
 
 # 4. Cross-framework reuse with ISO 27001 + SOC 2 + ISO 42001
 python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
@@ -147,17 +147,17 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:iso27001-audit-prep` — for Article 32 organizational measures
-- `/cs:ai-act-readiness` — for EU AI Act Article 27 FRIA integration
-- `/cs:soc2-audit-prep` — for SOC 2 Privacy TSC overlap
-- `/cs:gc-review` — for novel-case legal review
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:iso27001-audit-prep` — for Article 32 organizational measures
+- `/compliance-os:ai-act-readiness` — for EU AI Act Article 27 FRIA integration
+- `/compliance-os:soc2-audit-prep` — for SOC 2 Privacy TSC overlap
+- `/c-level-agents:gc-review` — for novel-case legal review
 
 ## Related
 
 - Agent: [`cs-dpo-gdpr`](../../agents/cs-dpo-gdpr.md)
-- Skill: [`gdpr-dsgvo-expert`](../../../ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md)
-- Playbook: [gdpr_audit_playbook.md](../../../ra-qm-team/skills/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
+- Skill: [`gdpr-dsgvo-expert`](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/SKILL.md)
+- Playbook: [gdpr_audit_playbook.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/references/gdpr_audit_playbook.md)
 - Adjacent: `../iso27001-audit-prep/`, `../ai-act-readiness/`, `../soc2-audit-prep/`, `../compliance-readiness/`
 
 ---

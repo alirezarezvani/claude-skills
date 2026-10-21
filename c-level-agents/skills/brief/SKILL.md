@@ -1,18 +1,18 @@
 ---
 name: "brief"
-description: "/cs:brief <topic> — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation — e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
+description: "/c-level-agents:brief [topic] — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation — e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
 ---
 
-# /cs:brief — One-Page Strategy Brief
+# /c-level-agents:brief — One-Page Strategy Brief
 
-**Command:** `/cs:brief <topic>` or `/cs:brief <office-hours-output>`
+**Command:** `/c-level-agents:brief <topic>` or `/c-level-agents:brief <office-hours-output>`
 
 Turns intake (raw question or office-hours output) into a one-page strategy brief that the boardroom can deliberate on. This is **Step 1** of the strategic sprint pipeline.
 
 ## Pipeline Position
 
 ```
-/cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
+/c-level-agents:office-hours  →  /c-level-agents:brief  →  /c-level-agents:boardroom  →  /c-level-agents:decide  →  /c-level-agents:execute  →  /c-level-agents:post-mortem
                        ↑ you are here
 ```
 
@@ -57,7 +57,7 @@ A single Markdown file under `~/.claude/briefs/YYYY-MM-DD-<slug>.md` with this s
 - Reversibility: <one-way door | two-way door>
 
 ## Affected Roles
-[Which cs-* advisors should weigh in. Used to route to /cs:boardroom panel composition.]
+[Which cs-* advisors should weigh in. Used to route to /c-level-agents:boardroom panel composition.]
 
 - [ ] cs-ceo-advisor
 - [ ] cs-cfo-advisor
@@ -92,7 +92,7 @@ A single Markdown file under `~/.claude/briefs/YYYY-MM-DD-<slug>.md` with this s
 3. If input is a raw topic, prompt the founder for the missing pieces
 4. Draft 2-3 options (never just one — every brief needs a counterfactual)
 5. Make assumptions and constraints explicit
-6. Identify affected roles → drives panel composition for `/cs:boardroom`
+6. Identify affected roles → drives panel composition for `/c-level-agents:boardroom`
 7. Write success + kill criteria BEFORE the decision (this is the rigor moment)
 8. Save to `~/.claude/briefs/`
 
@@ -104,14 +104,14 @@ This is also the **artifact handoff** — the next command consumes this file, n
 
 ## Routing
 
-- `/cs:boardroom <brief>` — multi-role deliberation
-- `/cs:cross-eval <brief>` — multi-model sanity check before boardroom (for high-stakes)
-- `/cs:freeze <brief>` — cooldown lock for irreversible decisions
+- `/c-level-agents:boardroom <brief>` — multi-role deliberation
+- `/c-level-agents:cross-eval <brief>` — multi-model sanity check before boardroom (for high-stakes)
+- `/c-level-agents:freeze <brief>` — cooldown lock for irreversible decisions
 
 ## Related
 
 - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-- Skills: [`context-engine`](../../../c-level-advisor/skills/context-engine/SKILL.md), [`board-meeting`](../../../c-level-advisor/skills/board-meeting/SKILL.md)
+- Skills: [`context-engine`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/context-engine/SKILL.md), [`board-meeting`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/SKILL.md)
 
 ---
 

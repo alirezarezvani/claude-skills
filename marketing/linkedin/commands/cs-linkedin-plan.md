@@ -1,12 +1,12 @@
 ---
 name: "cs-linkedin-plan"
-description: "/cs:linkedin-plan — Build the positioning brief (objective, audience, 2-4 proof-backed pillars, exclusion list), size a weekly cadence against the hours that actually exist, and gate a newsletter against eligibility and a six-month commitment."
+description: "/cs-linkedin-plan — Build the positioning brief (objective, audience, 2-4 proof-backed pillars, exclusion list), size a weekly cadence against the hours that actually exist, and gate a newsletter against eligibility and a six-month commitment."
 argument-hint: "[what you want LinkedIn to do for you in 90 days]"
 ---
 
-# /cs:linkedin-plan — Brief, cadence, newsletter
+# /cs-linkedin-plan — Brief, cadence, newsletter
 
-**Command:** `/cs:linkedin-plan [your 90-day goal]`
+**Command:** `/cs-linkedin-plan [your 90-day goal]`
 
 Three decisions in order. Out of order is why most LinkedIn efforts produce a feed of
 unrelated observations and stop in week five.
@@ -60,4 +60,4 @@ python3 ../skills/linkedin-strategy/scripts/newsletter_planner.py \
 ## Related
 
 - Skill: [`linkedin-strategy`](../skills/linkedin-strategy/SKILL.md)
-- Next: [`/cs:linkedin-post`](cs-linkedin-post.md) once the brief exists
+- Next: [`/cs-linkedin-post`](cs-linkedin-post.md) once the brief exists

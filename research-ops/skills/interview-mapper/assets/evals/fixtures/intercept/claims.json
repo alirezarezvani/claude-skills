@@ -1,0 +1,104 @@
+[
+  {
+    "cell": "I1",
+    "claim": "Intercept right at the booth, right after the demo, respondent is rushing to a meeting in 7 minutes",
+    "quote": "I'm really in a rush, I've got a meeting in another hall in seven minutes",
+    "line": 2
+  },
+  {
+    "cell": "I2",
+    "claim": "Micro-episode: just tried the demo CRM on the tablet at the booth",
+    "quote": "You just tried the demo version of our CRM on the tablet at the booth",
+    "line": 5
+  },
+  {
+    "cell": "I3",
+    "claim": "Immediate reaction — positive surprise at the loading speed",
+    "quote": "I was pleasantly surprised it didn't lag",
+    "line": 6
+  },
+  {
+    "cell": "I3",
+    "claim": "Immediate reaction reinforced by a second in-the-moment mention",
+    "quote": "Right in the moment I thought \"oh, snappy\"",
+    "line": 8
+  },
+  {
+    "cell": "I4",
+    "claim": "Low readiness for conversation — respondent is visibly rushed from the very first lines",
+    "quote": "just really fast",
+    "line": 4
+  },
+  {
+    "cell": "I4",
+    "claim": "Rush is reconfirmed mid-interview",
+    "quote": "Go ahead, but I really am running now",
+    "line": 30
+  },
+  {
+    "cell": "I4",
+    "claim": "Rush is reconfirmed again near the end",
+    "quote": "I really am running",
+    "line": 34
+  },
+  {
+    "cell": "I5",
+    "claim": "Brand was not known beforehand, heard the name only just now at the booth",
+    "quote": "Nothing at all, zero, I heard the name itself for the first time literally a minute ago",
+    "line": 12
+  },
+  {
+    "cell": "I6",
+    "claim": "Immediate follow-up intent — will deliberately not come back, but doesn't rule out an incidental drop-by",
+    "quote": "Probably not, our schedule's packed, but if there's time at lunch — I'll swing by",
+    "line": 20
+  },
+  {
+    "cell": "A1",
+    "claim": "POSITIVE valence based on the first immediate reaction (I3), not on the later rationalization",
+    "quote": "I was pleasantly surprised it didn't lag",
+    "line": 6
+  },
+  {
+    "cell": "A1_contrast",
+    "claim": "Flip marker: respondent later discounts that same reaction himself — gap between in-the-moment reaction vs. rationalization",
+    "quote": "speed is nice of course, but it doesn't decide anything by itself",
+    "line": 26
+  },
+  {
+    "cell": "A1_contrast",
+    "claim": "Respondent himself explains the gap: in the first second he was glad simply because it didn't freeze",
+    "quote": "I guess in that first second I was just happy because it didn't freeze, but once I thought about it — there's plenty of systems like that on the market",
+    "line": 28
+  },
+  {
+    "cell": "A2",
+    "claim": "LOW reliability of the answer — respondent explicitly asks not to go deeper because he's rushing",
+    "quote": "that's not important right now, let's move on, I really am running",
+    "line": 34
+  },
+  {
+    "cell": "A3",
+    "claim": "DISCOVERED BY ACCIDENT — ended up at the booth not on his own initiative, a colleague brought him",
+    "quote": "My colleague dragged me over to the booth, I wouldn't have come on my own",
+    "line": 10
+  },
+  {
+    "cell": "A4",
+    "claim": "The effect trigger was specifically the loading speed against the backdrop of expected long loads at other booths",
+    "quote": "I usually wait like ten seconds for stuff to load at trade shows",
+    "line": 6
+  },
+  {
+    "cell": "A4_support",
+    "claim": "Respondent directly admits he didn't have time to assess the interface itself — the effect isn't about the content",
+    "quote": "Well I didn't really get a proper look",
+    "line": 16
+  },
+  {
+    "cell": "A5",
+    "claim": "Main insight: a positive but provisional reaction given insufficient time to evaluate",
+    "quote": "Positive, but that doesn't mean we'll buy it, I'll be honest, I saw way too little",
+    "line": 24
+  }
+]

@@ -161,7 +161,7 @@ Then list the five panel scores in one line: `Critic X/10 · Champion X/10 · An
 ## Distinct From (don't reach for the wrong tool)
 
 - **`productivity/andreessen`** — a single market-first operator. `roast` is five independent lenses → a judge. Use andreessen when you specifically want the market-dominates thesis; use roast when you want 360° coverage.
-- **`c-level-advisor` boardroom / `/cs:boardroom`** — an enterprise C-suite pipeline that needs `company-context.md` onboarding and outputs a board memo. `roast` is a zero-setup, solo-founder, 90-second gut check.
+- **`c-level-advisor` boardroom / `/c-level-agents:boardroom`** — an enterprise C-suite pipeline that needs `company-context.md` onboarding and outputs a board memo. `roast` is a zero-setup, solo-founder, 90-second gut check.
 - **`engineering/grill-me`** — interrogates a plan one question at a time to reach shared understanding. It does not issue a GO/KILL verdict. Roast judges; grill-me clarifies.
 
 ---

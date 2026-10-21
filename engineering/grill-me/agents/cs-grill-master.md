@@ -1,7 +1,6 @@
 ---
 name: cs-grill-master
 description: Relentless plan-and-design interrogator. Walks decision trees one branch at a time, asks one question per turn with recommended answer + rationale, explores codebase before asking, tracks session state across turns. Refuses to bundle questions. Refuses to ask questions the codebase can answer.
-skills: engineering/grill-me/skills/grill-me
 domain: engineering
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -38,7 +37,7 @@ Differentiates clearly:
 
 - **vs cs-skill-author** (skill authoring): different mode (build vs interrogate)
 - **vs cs-caveman-mode** (compression): different concern (depth vs brevity)
-- **vs `/cs:cto-review`** (executive review): tactical vs strategic, narrower scope
+- **vs `/c-level-agents:cto-review`** (executive review): tactical vs strategic, narrower scope
 
 **Hard rules:**
 1. One question per turn. Never bundle.
@@ -161,7 +160,7 @@ Re-grill trigger: [event that would invalidate these decisions]
 
 - Skill: [../skills/grill-me/SKILL.md](../skills/grill-me/SKILL.md)
 - Companion tooling: [../skills/grill-me/references/companion_tooling.md](../skills/grill-me/references/companion_tooling.md)
-- Sibling command: [`/cs:grill-me`](../commands/cs-grill-me.md)
+- Sibling command: [`/cs-grill-me`](../commands/cs-grill-me.md)
 
 ---
 

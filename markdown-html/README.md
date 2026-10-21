@@ -39,12 +39,12 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_reso
 
 ## Slash commands
 
-- `/cs:markdown-html <path>.md` — top-level router (classify + route + recommend)
-- `/cs:grill-markdown-html <path>.md` — Matt-style 5-question grill before conversion
-- `/cs:design-system` — surface the onboarding wizard
-- `/cs:md-document <path>.md` — long-form converter
-- `/cs:md-review <path>.md` — code-review converter
-- `/cs:md-slides <path>.md` — slide-deck converter
+- `/cs-markdown-html <path>.md` — top-level router (classify + route + recommend)
+- `/cs-grill-markdown-html <path>.md` — Matt-style 5-question grill before conversion
+- `/cs-design-system` — surface the onboarding wizard
+- `/cs-md-document <path>.md` — long-form converter
+- `/cs-md-review <path>.md` — code-review converter
+- `/cs-md-slides <path>.md` — slide-deck converter
 
 ## Hard rules
 

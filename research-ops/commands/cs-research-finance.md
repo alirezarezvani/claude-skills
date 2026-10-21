@@ -3,7 +3,7 @@ description: R&D program finance. Build a multi-period program budget with the F
 argument-hint: "<program context: work packages, F&A rate, cash on hand, milestones, cost items>"
 ---
 
-# /cs:research-finance — Program budget + burn/runway + capex-vs-opex routing
+# /cs-research-finance — Program budget + burn/runway + capex-vs-opex routing
 
 Run the `research-finance` skill on this input:
 

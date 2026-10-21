@@ -1,11 +1,12 @@
 ---
 name: internal-comms
 description: Use when a Head of People Ops, BizOps lead, or Internal Communications owner needs to draft and sequence an internal-only change-management communication — a re-org announcement, a tool rollout, a policy change, a leadership transition, a layoff, an acquisition close, or an internal product launch — and the audience is employees (not customers). Pairs Prosci ADKAR and Kotter's 8-step change model with deterministic stdlib-only Python tools to produce a sequenced touchpoint calendar, a Kotter-compliant primary announcement, an audience-segmented FAQ, and manager cascade talking points; industry-tuned via --profile {tech-startup, scaleup, enterprise, public-company, non-profit}. Triggers on "all-hands announcement", "change comms", "rollout comms", "re-org announcement", "manager talking points", "layoff comms".
-version: 2.8.0
-author: claude-code-skills
 license: MIT
-tags: [bizops, internal-comms, change-management, adkar, kotter, all-hands, town-hall, prosci]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.8.0
+  author: claude-code-skills
+  tags: [bizops, internal-comms, change-management, adkar, kotter, all-hands, town-hall, prosci]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # internal-comms — Tactical Internal Change-Management Authoring
@@ -101,7 +102,7 @@ cd business-operations/skills/internal-comms && python3 scripts/comms_template_f
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Before invoking the tools, the orchestrator (or `/cs:grill-bizops`) walks the user through these questions **one at a time, with a recommended answer + canon citation**. Never bundled.
+Before invoking the tools, the orchestrator (or `/cs-grill-bizops`) walks the user through these questions **one at a time, with a recommended answer + canon citation**. Never bundled.
 
 1. **"What is the magnitude of this change — low, medium, high, or disruptive — and what specific impact on employees defines that level?"**
    Recommended: assume one level higher than instinct. Layoffs are always `disruptive`, never `high`.

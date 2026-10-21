@@ -1,6 +1,6 @@
 ---
 title: "/cs-handoff — Slash Command for AI Coding Agents"
-description: "/cs:handoff <next-session-focus> — Compact the current conversation into a handoff document for a fresh agent. Tailored to next-session focus. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-handoff <next-session-focus> — Compact the current conversation into a handoff document for a fresh agent. Tailored to next-session focus. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-handoff
@@ -11,7 +11,7 @@ description: "/cs:handoff <next-session-focus> — Compact the current conversat
 </div>
 
 
-**Command:** `/cs:handoff <next-session-focus>`
+**Command:** `/cs-handoff <next-session-focus>`
 
 Hand off the current conversation to a fresh agent. Tailored to the focus argument.
 
@@ -77,7 +77,7 @@ python ../skills/handoff/scripts/skill_recommender.py path/to/draft.md
 
 - Agent: [`cs-handoff-author`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/handoff/agents/cs-handoff-author.md)
 - Skill: [`handoff`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/handoff/skills/handoff/SKILL.md)
-- Adjacent: `/cs:caveman`, `/cs:grill-me`, `/cs:write-a-skill`
+- Adjacent: `/cs-caveman`, `/cs-grill-me`, `/cs-write-a-skill`
 
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: "/cs:ciso-review — CISO Forcing Questions — Agent Skill for Executives"
-description: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:ciso-review — CISO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:ciso-review <plan> — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:ciso-review — CISO Forcing Questions
+# /c-level-agents:ciso-review — CISO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan
 </div>
 
 
-**Command:** `/cs:ciso-review <plan>`
+**Command:** `/c-level-agents:ciso-review <plan>`
 
 The risk-paranoid threat-modeler. Six questions before any production change that touches customer data or compliance scope.
 
@@ -108,10 +108,10 @@ python ../../../skills/ciso-advisor/scripts/compliance_tracker.py
 
 ## Routing
 
-- `/cs:cto-review` — architecture alignment
-- `/cs:gc-review` — DPA, regulatory implications
-- `/cs:decide` — log risk acceptance
-- `/cs:boardroom` — for CRITICAL risks
+- `/c-level-agents:cto-review` — architecture alignment
+- `/c-level-agents:gc-review` — DPA, regulatory implications
+- `/c-level-agents:decide` — log risk acceptance
+- `/c-level-agents:boardroom` — for CRITICAL risks
 
 ## Related
 

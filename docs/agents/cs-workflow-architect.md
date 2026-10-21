@@ -90,7 +90,7 @@ python ../skills/workflow-builder/scripts/validate_workflow.py .claude/workflows
 ## Related
 
 - Skill: [`workflow-builder`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/workflow-builder/skills/workflow-builder/SKILL.md)
-- Command: [`/cs:workflow-build`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/workflow-builder/commands/cs-workflow-build.md)
+- Command: [`/cs-workflow-build`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/workflow-builder/commands/cs-workflow-build.md)
 - Adjacent: [`engineering/write-a-skill`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/write-a-skill) (authoring skills, not workflows), [`engineering/grill-me`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/grill-me) (forcing-question discipline)
 
 ---

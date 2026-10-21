@@ -72,7 +72,7 @@ Profiles live at `engineering-team/skills/senior-fullstack/profiles/`. To custom
 
 ## Related commands
 
-- `/cs:frontend-review` — frontend-only deep dive
-- `/cs:backend-review` — backend-only deep dive
-- `/cs:engineer-grill` — cross-role 21-question forcing-question runner
+- `/cs-frontend-review` — frontend-only deep dive
+- `/cs-backend-review` — backend-only deep dive
+- `/cs-engineer-grill` — cross-role 21-question forcing-question runner
 - `/karpathy-check` — Karpathy 4-principle review before commit

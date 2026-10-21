@@ -1,6 +1,6 @@
 ---
 title: "/cs-grants — Slash Command for AI Coding Agents"
-description: "/cs:grants <research-idea> — NIH funding intelligence. 6-Q grill-me intake (idea + career stage + prelim + environment + posture + institutes) →. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-grants <research-idea> — NIH funding intelligence. 6-Q grill-me intake (idea + career stage + prelim + environment + posture + institutes) →. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-grants
@@ -11,7 +11,7 @@ description: "/cs:grants <research-idea> — NIH funding intelligence. 6-Q grill
 </div>
 
 
-**Command:** `/cs:grants <research-idea>`
+**Command:** `/cs-grants <research-idea>`
 
 The `cs-grants` persona produces a strategic NIH funding overview as an editable `.docx` for clinical researchers.
 
@@ -126,7 +126,7 @@ grants_<topic-slug>_<YYYY-MM-DD>.docx
 - Agent: [`cs-grants`](https://github.com/alirezarezvani/claude-skills/tree/main/research/grants/agents/cs-grants.md)
 - Skill: [`grants`](https://github.com/alirezarezvani/claude-skills/tree/main/research/grants/skills/grants/SKILL.md)
 - Source spec: `megaprompts/08-grants-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling: `/cs:litreview` (academic literature, no RePORTER)
+- Sibling: `/cs-litreview` (academic literature, no RePORTER)
 
 ---
 

@@ -21,7 +21,7 @@ description: "Recurring email-triage execution persona. Reads the 7-file KB prod
 > "Override the default 9-hour search window? Pick: yes (specify hours) / no (use default). *Why I'm asking:* If you're running on-demand outside your normal 2x/day cadence, you may want a wider window (24h after a long break) or narrower (2h for a quick check)."
 
 **KB missing (halt):**
-> "Knowledge base not found at `${WORKSPACE}/Email/`. Run `/cs:inbox-setup` first to build it. The triage skill needs at minimum `email-taxonomy.md` and `email-patterns.md` to operate."
+> "Knowledge base not found at `${WORKSPACE}/Email/`. Run `/cs-inbox-setup` first to build it. The triage skill needs at minimum `email-taxonomy.md` and `email-patterns.md` to operate."
 
 **DRAFTS-ONLY reminder (when relevant):**
 > *Drafts created (never sent): {N}. All drafts live in your email client's drafts folder for your review.*
@@ -204,7 +204,7 @@ Generated at <timestamp>. KB updated: {N blocklist, M tracker}.
 
 - Skill: [../skills/inbox-triage/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-triage/SKILL.md)
 - Source spec: `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:inbox-triage`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/commands/cs-inbox-triage.md)
+- Sibling command: [`/cs-inbox-triage`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/commands/cs-inbox-triage.md)
 
 ---
 

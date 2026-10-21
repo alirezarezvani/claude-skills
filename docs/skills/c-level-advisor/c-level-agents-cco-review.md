@@ -1,9 +1,9 @@
 ---
-title: "/cs:cco-review — CCO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cco-review — CCO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cco-review <plan> — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cco-review — CCO Forcing Questions
+# /c-level-agents:cco-review — CCO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Office
 </div>
 
 
-**Command:** `/cs:cco-review <plan>`
+**Command:** `/c-level-agents:cco-review <plan>`
 
 The retention-obsessed CCO pressure-tests any plan that touches customer experience. Six questions before any retention claim, segmentation change, CS team expansion, or major CS hire.
 
@@ -123,12 +123,12 @@ python ../../../skills/chief-customer-officer-advisor/scripts/cs_coverage_calcul
 
 ## Routing
 
-- `/cs:cpo-review` — if churn root cause is product_fit or no_value_realized
-- `/cs:cro-review` — if expansion math or comp alignment is in question
-- `/cs:cfo-review` — for CS cost commitments and retention-impact-on-revenue
+- `/c-level-agents:cpo-review` — if churn root cause is product_fit or no_value_realized
+- `/c-level-agents:cro-review` — if expansion math or comp alignment is in question
+- `/c-level-agents:cfo-review` — for CS cost commitments and retention-impact-on-revenue
 - `cs-chro-advisor` agent — for CS hires, comp, ladder
-- `/cs:decide` — log the verdict
-- `/cs:freeze 30` — on multi-year CS comp plan changes
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 30` — on multi-year CS comp plan changes
 
 ## Related
 

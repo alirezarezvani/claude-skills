@@ -1,11 +1,11 @@
 ---
 name: "cross-eval"
-description: "/cs:cross-eval <memo> — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom — e.g. a bet-the-company pivot or fundraise terms."
+description: "/c-level-agents:cross-eval [memo] — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom — e.g. a bet-the-company pivot or fundraise terms."
 ---
 
-# /cs:cross-eval — Multi-Model Consensus
+# /c-level-agents:cross-eval — Multi-Model Consensus
 
-**Command:** `/cs:cross-eval <memo-or-brief>`
+**Command:** `/c-level-agents:cross-eval <memo-or-brief>`
 
 Runs the same memo through multiple model providers and reconciles divergences. Use for **high-stakes, irreversible decisions** where single-model bias is too costly: M&A, major fundraises, layoffs, strategic pivots, regulatory commitments.
 
@@ -101,13 +101,13 @@ This is weaker than true multi-model. Treat the result as suggestive, not conclu
 
 ## Routing
 
-- `/cs:decide` — if consensus is GO
-- `/cs:freeze` — if consensus is PAUSE
-- `/cs:boardroom` (re-run) — if consensus is STOP
+- `/c-level-agents:decide` — if consensus is GO
+- `/c-level-agents:freeze` — if consensus is PAUSE
+- `/c-level-agents:boardroom` (re-run) — if consensus is STOP
 
 ## Related
 
-- Skills: [`board-meeting`](../../../c-level-advisor/skills/board-meeting/SKILL.md), [`executive-mentor`](../../../c-level-advisor/executive-mentor/)
+- Skills: [`board-meeting`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/SKILL.md), [`executive-mentor`](../../../c-level-advisor/executive-mentor/)
 - Inspiration: gstack's `/codex` cross-review pattern (adapted to business memos)
 
 ---

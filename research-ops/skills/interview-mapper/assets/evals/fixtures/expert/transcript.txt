@@ -1,0 +1,72 @@
+1	Interviewer: Thanks for agreeing to this. To start — could you briefly explain exactly what you specialize in, so I understand the boundaries of your expertise?
+2	Expert: I'm a clinical pharmacologist, twenty-two years in the profession, and for the last twelve years I've specifically focused on antibiotic resistance in hospitals — that's my core topic, I did my dissertation on it, and I run resistance surveillance across three hospitals in the region.
+3	Interviewer: So that's inpatient care — what about outpatient care?
+4	Expert: I know outpatient care less well, honestly, the prescribing dynamics there are different, I approach it more as someone who reads the literature rather than a practitioner with my own data, whereas in hospital resistance I'm elbow-deep in it.
+5	Interviewer: Okay, let's get into it. What's the main problem with antibiotics in our hospitals right now?
+6	Expert: The main problem is excessive empirical prescribing of broad-spectrum antibiotics before culture results come back, this creates selective pressure, and resistant strains gain an advantage, it's textbook, there's really nothing to argue about here, it's confirmed by the entire world literature.
+7	Interviewer: Do you have numbers for our region?
+8	Expert: Yes, I have three years of surveillance data across the three hospitals I oversee — the share of carbapenem-resistant Klebsiella strains grew from seven to nineteen percent, I calculated these figures myself from the microbiology lab logs, this isn't an estimate, it's a direct count.
+9	Interviewer: Nineteen percent — is that a lot?
+10	Expert: It's a huge amount, for comparison — five years ago this was almost unheard of, now it's a routine finding in the ICU, and clinically that means standard empirical carbapenem therapy in the ICU simply won't work for one in five patients.
+11	Interviewer: Is the picture the same across the country overall?
+12	Expert: I can't quote national figures off the top of my head, I'm not prepared to state specific percentages for Russia as a whole right now, I'd need to pull the consolidated Rospotrebnadzor reports for that, I don't have that data on hand myself.
+13	Interviewer: Okay, so what do you recommend doing first?
+14	Expert: The first and cheapest thing — make it mandatory to collect a culture sample BEFORE the first antibiotic dose, right now that's done in about forty percent of cases, the rest is blind therapy, and this gets fixed not with money but with protocol and ward discipline.
+15	Interviewer: And what's second in priority?
+16	Expert: Second — an antibiotic stewardship service, meaning a dedicated pharmacologist or infectious disease specialist who signs off on reserve antibiotic prescriptions lasting longer than three days, this isn't something I invented, it's standard global practice, but in our region there's no such service in a single hospital.
+17	Interviewer: Why doesn't it exist yet?
+18	Expert: Funding for the position. Plain and simple, it's a separate staff position, and hospitals' payroll funds aren't elastic, and chief physicians don't want to add a position that, from their point of view, only slows down the treating doctors and creates bureaucracy.
+19	Interviewer: And third?
+20	Expert: Third — training for mid-level staff, because often the escalation to reserve antibiotics is done by the resident on night duty alone, without a senior doctor, and he covers himself as much as possible, prescribes the strongest thing available just to be safe, that's also part of the problem, not just greed for results.
+21	Interviewer: What are these three recommendations based on — data or your own experience?
+22	Expert: The first and second are based on data, it's spelled out explicitly in the international WHO and CDC guidelines, there are controlled studies there, the third recommendation is more my personal experience from rounds and case reviews, it's not something I read in a meta-analysis somewhere, it's my own observation over twelve years.
+23	Interviewer: Where do you think you could be wrong?
+24	Expert: I could be wrong about how expensive it actually is, in money, to implement a stewardship service, I'm estimating from memory and a couple of conversations with chief physicians, I haven't done an exact calculation of staff positions and budget, that's not my area, healthcare economics should be calculated by a financial analyst, not me.
+25	Interviewer: Which colleagues might disagree with you?
+26	Expert: Surgeons usually disagree with restricting prophylactic antibiotics for operations, they think it's better to be safe and give the drug more broadly and for longer than to later treat a wound infection, and that, by the way, is a genuinely contested point, where I can't say my position is clearly better supported by evidence, there really are reasonable arguments on both sides.
+27	Interviewer: What about infectious disease specialists specifically, not surgeons — are there disagreements within your own specialty?
+28	Expert: There are, a colleague from the regional hospital, Irina Volkova, believes resistance is growing primarily because of outpatient care and self-medication by the population, not because of hospitals, and that the hospital angle is a drop in the ocean compared to what's happening in clinics and pharmacies without prescriptions.
+29	Interviewer: Do you agree with her?
+30	Expert: I partly agree, the contribution of outpatient care is genuinely large, possibly even larger in absolute numbers, but I maintain that hospital resistance specifically is clinically more dangerous, because patients there are already critically ill, and there's less room to maneuver, so the priority of effort should be here, although I admit my position here is partly professional bias — it's my topic, and of course it seems more important to me.
+31	Interviewer: A good, honest answer. Tell me, are you personally connected in any way to pharmaceutical companies?
+32	Expert: I give lectures for several pharmaceutical companies, including one that manufactures a new reserve antibiotic, this is public information, I always disclose it at conferences on the conflict-of-interest slide.
+33	Interviewer: And in the list of recommended drugs for the protocol you're currently preparing, is this drug included?
+34	Expert: Yes, it is, it's listed there as the third line, as a reserve option, I consider that clinically justified, it has a good profile against carbapenem-resistant strains, but yes, I understand this might look questionable from the outside, given that I receive lecture fees from them.
+35	Interviewer: Do you personally see a potential conflict of interest here?
+36	Expert: Well... I try to rely on research data rather than sympathy for the company, but it would be dishonest to say it has absolutely no influence at all, it probably does, at least on which drugs I keep in focus and read the literature about more actively.
+37	Interviewer: What do you think will happen with resistance in the region in two to three years if nothing changes?
+38	Expert: I think the share of resistant Klebsiella will reach twenty-five to thirty percent, this, of course, is already a forecast, not a fact, I'm linearly extrapolating the trend of the last three years, but reality could go nonlinear if a specific strain outbreak occurs or, conversely, a new drug sharply changes the picture.
+39	Interviewer: And if the protocol is implemented right now?
+40	Expert: Then, I think, the growth will slow within a year to a year and a half, I'm not promising a full reversal, resistance doesn't roll back that fast, it's a slow process, here again I'm forecasting, not stating a fact.
+41	Interviewer: Is there any international data you're relying on regarding the timeline for turning the situation around?
+42	Expert: Yes, there are observations from Scandinavia, there after introducing a strict stewardship program resistance declined gradually over three to five years, but their starting conditions were also different, a more developed lab infrastructure, so directly transferring those timelines to us is risky, I just keep it in mind as a reference point, not a guarantee.
+43	Interviewer: What risks do you see specifically in implementing the protocol, rather than in inaction?
+44	Expert: The main risk — if the stewardship pharmacologist ends up signing off on prescriptions formally, just as a rubber stamp, without engaging with the specific patient, then it will just add paperwork and annoy doctors, and the real effect on resistance will be zero, I've seen this happen at a hospital in a neighboring region.
+45	Interviewer: So you've already seen a similar implementation failure?
+46	Expert: I have, yes, colleagues told me about it, they created the position, but they put someone in it without real authority to refuse a prescription, only in an advisory capacity, and doctors simply ignored his recommendations in half the cases, a year later the position was quietly cut during staff optimization.
+47	Interviewer: Any other risks?
+48	Expert: The second risk is resistance at the level of department heads, especially surgery, I already mentioned prophylactic antibiotics, if the protocol comes down on them too hard without discussion, there will be sabotage, not open, but quiet, where everything is formally by the protocol, but in practice they find workarounds through the on-duty doctors.
+49	Interviewer: Is there a risk to patients personally if the protocol is too strict?
+50	Expert: There is, and it's serious — if collecting a culture sample delays the start of therapy for a truly severe septic patient by several hours, that could cost a life, so the protocol must explicitly allow empirical therapy without waiting for culture results when there are signs of sepsis, you can't be a dogmatist here, and this is actually the most contested point in the entire protocol, I myself am not fully certain where to draw the line on waiting time.
+51	Interviewer: All right, now a slightly different question. How do you feel about the idea of a complete ban on over-the-counter antibiotic sales in pharmacies?
+52	Expert: Oh, here's something many colleagues would disagree with — I'm against an immediate full ban, even though on paper it seems like an obvious and correct measure from the standpoint of resistance control.
+53	Interviewer: Why?
+54	Expert: Because in remote areas people simply don't have physical access to a doctor in time, the nearest general practitioner is sometimes over a hundred kilometers away, and a strict ban without simultaneously solving the problem of access to medical care will lead to people either not getting treated at all for a real infection, or obtaining drugs illegally with no oversight whatsoever, which is even worse.
+55	Interviewer: So you're for a gradual transition?
+56	Expert: Yes, I'm for a phased rollout in sync with expanding telemedicine and access to local district doctors, an abrupt ban looks great in a ministry order, but on the ground it will just create a black market, this is my observation, based on a similar story with the prescription-only status introduced for codeine-containing drugs a few years ago, that's exactly what happened then.
+57	Interviewer: Okay. Now a question a bit outside your direct area — do you think the region should increase funding for infectious disease hospitals by cutting the cardiology service budget?
+58	Expert: Well, look... this isn't really my area anymore, it's more a question for healthcare administrators and for those who calculate the budget across all areas at once, but if you're asking my personal opinion — I'd probably still say that infectious disease care is currently underfunded more severely, I'd add money there.
+59	Interviewer: Are you confident in that answer?
+60	Expert: Honestly, not very, I'm judging mainly from my own field, where I see the shortage, but for cardiology I don't have any command of the workload and mortality figures at all, so that was probably not a fully appropriate answer on my part, this isn't my area of expertise, here I'm speaking more as a citizen than as an expert.
+61	Interviewer: Thank you for the honesty. Coming back to the topic — what data do you personally need to speak more confidently about all this?
+62	Expert: I need fresh consolidated resistance data not just for my three hospitals, but for the entire region, over at least five years, right now I have a gap specifically in the region-wide picture, I'm essentially working with a sample, not the full population.
+63	Interviewer: What else is unknown to you but important for the council's final decision?
+64	Expert: It's unknown how chief physicians will react to introducing a mandatory stewardship pharmacologist position — whether they'll quietly sabotage it or actually implement it, that's an open question, I only have a couple of hallway conversations, that's not a systematic survey, I wouldn't want to present that as the represented position of all chief physicians in the region.
+65	Interviewer: And last — if you had to give the council one main recommendation, what would you say?
+66	Expert: Implement mandatory culture collection before antibiotics and launch a pilot stewardship service in at least one hospital with a follow-up evaluation after a year, that's a cheap and proven measure, everything else — gradually, as data comes in, and it's essential to disclose conflicts of interest for all experts preparing the protocol, including myself.
+67	Interviewer: One more clarifying point — am I right that the final protocol will go to a council vote in a month?
+68	Expert: Yes, in a month, I actually have time to gather the region-wide data I mentioned, I'm planning to request it from Rospotrebnadzor this week.
+69	Interviewer: And if you don't manage to get the data in time for the vote?
+70	Expert: Then I'll tell the council directly that the recommendation on the first two points, culture collection and stewardship, is based on solid data and global practice, but the prioritization between hospital and outpatient care will have to remain an open question until the full picture is available, I won't present a guess as a fact just because the deadline is tight.
+71	Interviewer: Thank you so much for such an honest conversation.
+72	Expert: Thank you, it was nice to be able to speak directly instead of just polished phrasing for a report.

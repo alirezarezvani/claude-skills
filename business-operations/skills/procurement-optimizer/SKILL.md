@@ -1,11 +1,12 @@
 ---
 name: procurement-optimizer
 description: Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base — when the user needs a spend audit, spend categorization (UNSPSC-aligned with Pareto breakdown and industry profiles), purchasing-cycle analysis (bottleneck categories per Goldratt's Theory of Constraints), or risk-balanced supplier consolidation that refuses single-source recommendations for tier-1 categories without a documented break-glass plan. Triggers on "spend audit", "SaaS audit", "spend categorization", "supplier rationalization", "supplier consolidation", "category strategy", "duplicate SaaS", "renewal cluster".
-version: 2.8.0
-author: claude-code-skills
 license: MIT
-tags: [bizops, procurement, spend-categorization, supplier-consolidation, unspsc, saas-audit, purchasing-cycle]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.8.0
+  author: claude-code-skills
+  tags: [bizops, procurement, spend-categorization, supplier-consolidation, unspsc, saas-audit, purchasing-cycle]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # Procurement Optimizer — Spend Categorization + Supplier Rationalization
@@ -141,7 +142,7 @@ cd business-operations/skills/procurement-optimizer && python3 scripts/spend_cat
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Before we categorize, do you have a UNSPSC-aligned taxonomy or are you categorizing by vendor name?"**
    Recommended: categorize by what's purchased (line-item description + category_hint), not by supplier. A single supplier can span multiple categories.

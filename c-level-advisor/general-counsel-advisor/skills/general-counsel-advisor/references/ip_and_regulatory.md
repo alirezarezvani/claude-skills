@@ -128,7 +128,7 @@ The startups that survive their first regulatory encounter engage specialist cou
 | Securities (tokens, equity crowdfunding, advisory boards) | SEC rules (Reg D, Reg A+, Reg CF, Howey test) | Securities attorney | Token sale legal opinion, Form D filing |
 | Defense / aerospace customers | ITAR, EAR, DFARS, CMMC | Export-control attorney | Export classification, registered with State Dept |
 | AI in EU | EU AI Act (risk-tiered: prohibited / high-risk / limited / minimal) | EU privacy + product attorney | Risk assessment, conformity assessment for high-risk |
-| AI for hiring | NYC Local Law 144, CO SB 21-169, IL HB 53 | Employment attorney | Bias audit, candidate notice |
+| AI for hiring | NYC Local Law 144, CO SB 26-189 (from 1 Jan 2027), IL HB 53 | Employment attorney | Bias audit, candidate notice |
 | Telehealth / online prescribing | State medical board rules, DEA registration for controlled substances | Telehealth specialist | State-by-state physician licensing strategy |
 | Insurance (sale, underwriting, brokerage) | State insurance commissioners | Insurance attorney | State licensing, agency agreement |
 

@@ -59,7 +59,7 @@ Recommended: a named clinician/biostatistician (clinical), a named finance contr
 
 ### Branch 5 — Now invoke the sub-skill
 
-Only after branches 1-4 are locked, invoke `/cs:research-ops` with the synthesized inquiry.
+Only after branches 1-4 are locked, invoke `/cs-research-ops` with the synthesized inquiry.
 
 ## Output format per turn
 
@@ -72,7 +72,7 @@ Recommended: [answer + canon-cited rationale]
 
 ## Stop conditions
 
-- All branches resolved → invoke `/cs:research-ops <synthesized>`
+- All branches resolved → invoke `/cs-research-ops <synthesized>`
 - User says "stop grilling, just run it" → invoke with whatever's resolved, flag unresolved branches in digest
 - User abandons → no sub-skill, save partial grill to `research-ops-grill-{timestamp}.md`
 
@@ -80,4 +80,4 @@ Recommended: [answer + canon-cited rationale]
 
 - `engineering/grill-me` (Matt Pocock) — generic.
 - `engineering/grill-with-docs` (Matt Pocock) — codebase + ADR-anchored for engineering. This is **Research-Ops-domain grilling** against the research canon.
-- `/cs:research-ops` — **executes** routing. This **interrogates** first.
+- `/cs-research-ops` — **executes** routing. This **interrogates** first.

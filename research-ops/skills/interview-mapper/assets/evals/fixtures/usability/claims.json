@@ -1,0 +1,152 @@
+[
+  {
+    "cell": "U1",
+    "claim": "The moderator gives the participant a double task: dispute a $48.00 charge and lower the online purchase limit to $50 a month",
+    "quote": "Today's task: you got a notification about a charge of $48.00 at an electronics store that you didn't make. You need to dispute this transaction and also temporarily lower the limit on online purchases for the card to $50 per month",
+    "line": 1
+  },
+  {
+    "cell": "U2",
+    "claim": "The participant's first action is tapping the balance on the main screen, expecting a list of transactions",
+    "quote": "Tapping on the balance.",
+    "line": 6
+  },
+  {
+    "cell": "U2",
+    "claim": "Before acting, the participant verbalizes the expectation that tapping the balance will show the transaction list",
+    "quote": "Well, I think there'll be a list of recent transactions, that's usually how banks do it.",
+    "line": 5
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 1: tapping the balance produces no visible result",
+    "quote": "Hm. Nothing happened? Or maybe that was just an animation.",
+    "line": 7
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 2: the transaction card has no dispute button, only \"Repeat Payment\"",
+    "quote": "At the bottom of the card there's only one button — \"Repeat Payment.\" Why would I repeat a payment I never made?",
+    "line": 18
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 3: the three-dot menu on the card does not contain a report/dispute function",
+    "quote": "A menu popped up: \"Add to Favorites,\" \"Export Receipt,\" \"Share.\" Not it again.",
+    "line": 23
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 4: the \"Dispute\" function is only reachable via a swipe on the list row, not on the card",
+    "quote": "Oh! There it is, it appeared — \"Dispute,\" in red. This is what I need, I didn't think you had to swipe the row specifically, not the card itself.",
+    "line": 38
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 5: the card screen has no \"Limits\" option, the participant can't find it among the details and history",
+    "quote": "Besides the details and history, I don't see anything here that looks like limits. Maybe it's in the card's own settings, not in the general section.",
+    "line": 47
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 6: the limit slider has too coarse a step, the exact value of $50 can't be set",
+    "quote": "For some reason it jumps straight to zero or to $100, I can't get it exactly to $50, the step is too big.",
+    "line": 55
+  },
+  {
+    "cell": "U3",
+    "claim": "Snag 7: the SMS code input field is visually indistinguishable from static text, mistaken for a freeze",
+    "quote": "Entering the code... so, where do I type it, there's just an empty line here with no placeholder, at first I thought this was a bug and the screen had frozen.",
+    "line": 64
+  },
+  {
+    "cell": "U4",
+    "claim": "The participant expects that opening the card will immediately show the list of recent charges on it",
+    "quote": "Weird, I thought that if you open the card, it would immediately show the list of recent charges on it.",
+    "line": 11
+  },
+  {
+    "cell": "U4",
+    "claim": "The participant expects a separate field for typing the exact limit number next to the slider",
+    "quote": "I thought you could type in the exact number by hand, not just drag with your finger. Like in most apps — either a slider, or a text field next to it.",
+    "line": 58
+  },
+  {
+    "cell": "U5",
+    "claim": "The participant doesn't immediately notice the \"History\" item on the card screen, finds it after scrolling down",
+    "quote": "Scrolling down... ah, here at the bottom it says \"History\" in small print. Why isn't this at the top?",
+    "line": 12
+  },
+  {
+    "cell": "U5",
+    "claim": "The participant switches to the support chat, but the 24-hour SLA doesn't fit the urgent task, then goes back and finds the function via a swipe",
+    "quote": "The bot writes: \"Please describe in detail, an agent will respond within 24 hours.\" Twenty-four hours is a long time, if money was just fraudulently taken from me right now.",
+    "line": 31
+  },
+  {
+    "cell": "U6",
+    "claim": "The dispute request is submitted and confirmed with a request number",
+    "quote": "A message came in — \"Request #558212 accepted, status can be tracked in the Requests section.\" Great, got that sorted, although it took longer than I expected.",
+    "line": 43
+  },
+  {
+    "cell": "U6",
+    "claim": "The limit is changed and confirmed by the system, but the participant is not sure of the exact final amount",
+    "quote": "It says — \"Limit Changed.\" Good, I guess, but I'm not entirely sure it's exactly $50 and not $52 or something like that, the scale is too coarse to check by eye.",
+    "line": 67
+  },
+  {
+    "cell": "U7",
+    "claim": "Annoyance over the single irrelevant \"Repeat Payment\" button on the transaction card",
+    "quote": "Overall, honestly, it was a bit annoying that the \"Repeat Payment\" button on the card is the only one — that's really confusing, it seems like nothing at all is provided here for disputed transactions.",
+    "line": 72
+  },
+  {
+    "cell": "U7",
+    "claim": "Relief/satisfaction at the moment of finding the dispute function via the swipe",
+    "quote": "Oh! There it is, it appeared — \"Dispute,\" in red. This is what I need",
+    "line": 38
+  },
+  {
+    "cell": "A1",
+    "claim": "CONCLUSION: the dominant problem type in the session is FINDABILITY (5 out of 7 snags)",
+    "quote": "I didn't think you had to swipe the row specifically, not the card itself",
+    "line": 38
+  },
+  {
+    "cell": "A2",
+    "claim": "The barrier on the path to the \"Dispute\" function is SLOWING: the task was completed, but only after several wrong attempts",
+    "quote": "Great, got that sorted, although it took longer than I expected.",
+    "line": 43
+  },
+  {
+    "cell": "A2",
+    "claim": "The barrier from the limit slider's step is unstable between SLOWING and COSMETIC, since the accuracy of the final amount is not confirmed by the participant",
+    "quote": "I'm not entirely sure it's exactly $50 and not $52 or something like that, the scale is too coarse to check by eye",
+    "line": 67
+  },
+  {
+    "cell": "A3",
+    "claim": "Gap: the participant expected a field for exact number entry next to the limit slider, but the interface only has a coarse slider with no input field",
+    "quote": "I thought you could type in the exact number by hand, not just drag with your finger. Like in most apps — either a slider, or a text field next to it.",
+    "line": 58
+  },
+  {
+    "cell": "A4",
+    "claim": "Cannot reliably separate an architectural interface problem from the participant's individual habit — she attributes part of the snag to her own unfamiliarity with the swipe gesture, not an interface defect",
+    "quote": "I'm just not used to swiping list rows at all, I usually tap directly on the entry itself",
+    "line": 70
+  },
+  {
+    "cell": "A5",
+    "claim": "Highest fix priority is the path to the \"Dispute\" function, since it's tied to urgency and nearly led to using an unacceptably slow channel (24-hour SLA)",
+    "quote": "Twenty-four hours is a long time, if money was just fraudulently taken from me right now.",
+    "line": 31
+  },
+  {
+    "cell": "A6",
+    "claim": "Main insight: at the step of searching for the dispute function, the participant hit a path-blocking (but not outcome-blocking) findability barrier, severity SLOWING",
+    "quote": "I didn't think you had to swipe the row specifically, not the card itself",
+    "line": 38
+  }
+]

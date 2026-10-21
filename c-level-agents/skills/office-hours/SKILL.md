@@ -1,11 +1,11 @@
 ---
 name: "office-hours"
-description: "/cs:office-hours <topic> — YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route — e.g. 'should we grow faster?' — or before drafting a strategy brief."
+description: "/c-level-agents:office-hours [topic] — YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route — e.g. 'should we grow faster?' — or before drafting a strategy brief."
 ---
 
-# /cs:office-hours — Six-Question Founder Interrogation
+# /c-level-agents:office-hours — Six-Question Founder Interrogation
 
-**Command:** `/cs:office-hours <topic>`
+**Command:** `/c-level-agents:office-hours <topic>`
 
 Before any advice, the founder must answer six questions. Modeled on YC office hours: no analysis until the founder has done the thinking. This is the cognitive forcing function that prevents drift into solutionism.
 
@@ -81,7 +81,7 @@ After the founder answers all six, this command produces a one-page brief:
 ---
 
 **Assessment** (one of):
-- 🟢 GREEN — ship the brief to /cs:boardroom
+- 🟢 GREEN — ship the brief to /c-level-agents:boardroom
 - 🟡 YELLOW — sharpen Q[N] before proceeding
 - 🔴 RED — kill or redefine; do not proceed
 ```
@@ -89,8 +89,8 @@ After the founder answers all six, this command produces a one-page brief:
 ## Routing
 
 After the brief is GREEN, route to:
-- Single-role question → corresponding `/cs:{role}-review`
-- Multi-role question → `/cs:brief` then `/cs:boardroom`
+- Single-role question → corresponding `/cs-{role}-review`
+- Multi-role question → `/c-level-agents:brief` then `/c-level-agents:boardroom`
 
 ## Why This Works
 
@@ -100,14 +100,14 @@ This is the YC `office hours` pattern adapted for Claude Code: the interrogation
 
 ## Related Commands
 
-- `/cs:brief` — turn the answers into a one-page strategy brief
-- `/cs:boardroom` — multi-role deliberation
-- `/cs:founder-mode` — let the system pick the next step
+- `/c-level-agents:brief` — turn the answers into a one-page strategy brief
+- `/c-level-agents:boardroom` — multi-role deliberation
+- `/c-level-agents:founder-mode` — let the system pick the next step
 
 ## Related Agents
 
 - All cs-* advisors consume the brief output
-- `cs-chief-of-staff` triggers `/cs:office-hours` when intake is unclear
+- `cs-chief-of-staff` triggers `/c-level-agents:office-hours` when intake is unclear
 
 ---
 

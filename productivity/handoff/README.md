@@ -26,21 +26,21 @@ A productivity-shaped handoff skill. Configurable save location (no project clut
 
 ## Install
 
-This plugin lives at `productivity/handoff/`. Enable through your plugin manager. On first invocation of `/cs:handoff`, the skill will prompt:
+This plugin lives at `productivity/handoff/`. Enable through your plugin manager. On first invocation of `/cs-handoff`, the skill will prompt:
 
 > Run setup now? (Y/n)
 
 - **Y** — walks 5 questions and writes `~/.config/handoff/config.json`.
 - **N** — uses defaults this run and never re-prompts (sentinel at `~/.config/handoff/.setup-declined`).
 
-Re-configure any time with `/cs:handoff-setup`.
+Re-configure any time with `/cs-handoff-setup`.
 
 ## Slash commands
 
 | Command | Use |
 |---|---|
-| `/cs:handoff [goal]` | Generate the handoff doc. |
-| `/cs:handoff-setup [--project]` | Configure (or reconfigure) save location, retention, redaction. |
+| `/cs-handoff [goal]` | Generate the handoff doc. |
+| `/cs-handoff-setup [--project]` | Configure (or reconfigure) save location, retention, redaction. |
 
 ## Tooling
 

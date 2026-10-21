@@ -1,9 +1,9 @@
 ---
-title: "/cs:gdpr-audit-prep — GDPR DPO Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:gdpr-audit-prep <scope> — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review, post-breach internal. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:gdpr-audit-prep — GDPR DPO Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:gdpr-audit-prep <scope> — GDPR audit 6-question Article-cited forcing interrogation. Use before annual internal GDPR review, post-breach internal. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:gdpr-audit-prep — GDPR DPO Forcing Questions
+# /compliance-os:gdpr-audit-prep — GDPR DPO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:gdpr-audit-prep <scope> — GDPR audit 6-question Article-cite
 </div>
 
 
-**Command:** `/cs:gdpr-audit-prep <scope>`
+**Command:** `/compliance-os:gdpr-audit-prep <scope>`
 
 The GDPR DPO auditor pressure-tests any privacy compliance work. Six Article-cited questions before any internal audit, breach response, DPA investigation, or acquisition due diligence.
 
@@ -158,11 +158,11 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:iso27001-audit-prep` — for Article 32 organizational measures
-- `/cs:ai-act-readiness` — for EU AI Act Article 27 FRIA integration
-- `/cs:soc2-audit-prep` — for SOC 2 Privacy TSC overlap
-- `/cs:gc-review` — for novel-case legal review
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:iso27001-audit-prep` — for Article 32 organizational measures
+- `/compliance-os:ai-act-readiness` — for EU AI Act Article 27 FRIA integration
+- `/compliance-os:soc2-audit-prep` — for SOC 2 Privacy TSC overlap
+- `/c-level-agents:gc-review` — for novel-case legal review
 
 ## Related
 

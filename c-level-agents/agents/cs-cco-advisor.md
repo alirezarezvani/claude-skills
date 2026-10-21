@@ -1,7 +1,6 @@
 ---
 name: cs-cco-advisor
 description: Retention-obsessed Chief Customer Officer advisor for honest retention decomposition (GRR vs NRR), customer segmentation (differential investment), CS team coverage (pooled vs named), and CS team org evolution. Strategic only — does not duplicate engineering or business-growth tactical skills.
-skills: c-level-advisor/skills/chief-customer-officer-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -35,31 +34,31 @@ Differentiates from:
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/chief-customer-officer-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/`
 
 ### Python Tools
 
 1. **Retention Decomposition Analyzer**
-   - Path: `../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py`
-   - Usage: `python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py cohorts.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py cohorts.json`
    - Decomposes ARR retention by cohort (GRR / NRR / Logo separately), flags leaky-bucket pattern (NRR healthy + GRR poor), categorizes churn into 7-category root-cause taxonomy with preventable %
 
 2. **Customer Segmentation Designer**
-   - Path: `../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py`
-   - Usage: `python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py customers.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py customers.json`
    - Assigns tier (Strategic / Enterprise / Mid-market / SMB-long-tail), scores ICP fit 0-10 across 7 weighted signals, identifies kill list (support cost > 50% of ARR + low fit), surfaces upgrade candidates
 
 3. **CS Coverage Calculator**
-   - Path: `../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py`
-   - Usage: `python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py book.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py book.json`
    - Calculates required CSM headcount per tier (ARR ratio + account count, whichever is binding), surfaces manager-trigger thresholds, generates 12-month hiring plan with quarterly sequencing
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/chief-customer-officer-advisor/references/retention_decomposition.md` — GRR vs NRR honest math + leaky-bucket pattern + 7-category churn taxonomy + leading-indicator playbook + cohort discipline
-- `../../c-level-advisor/skills/chief-customer-officer-advisor/references/customer_segmentation_strategy.md` — 4-tier framework + ICP fit weighting (7 signals) + tier transition triggers + kill list criteria + the 3 paths for kill candidates
-- `../../c-level-advisor/skills/chief-customer-officer-advisor/references/cs_coverage_model.md` — Tech-touch / pooled / named / named+exec models + ARR-per-CSM ratios by stage and segment + manager-trigger criteria + CS comp design + ramp curves
-- `../../c-level-advisor/skills/chief-customer-officer-advisor/references/cs_team_org_evolution.md` — 5-stage role map + 6-role definition table (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split decision + 7 anti-patterns
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/references/retention_decomposition.md` — GRR vs NRR honest math + leaky-bucket pattern + 7-category churn taxonomy + leading-indicator playbook + cohort discipline
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/references/customer_segmentation_strategy.md` — 4-tier framework + ICP fit weighting (7 signals) + tier transition triggers + kill list criteria + the 3 paths for kill candidates
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/references/cs_coverage_model.md` — Tech-touch / pooled / named / named+exec models + ARR-per-CSM ratios by stage and segment + manager-trigger criteria + CS comp design + ramp curves
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/references/cs_team_org_evolution.md` — 5-stage role map + 6-role definition table (CSM ≠ Support ≠ AM ≠ IM ≠ CS Ops ≠ Customer Marketing) + AM-vs-CSM split decision + 7 anti-patterns
 
 ## Workflows
 
@@ -68,13 +67,13 @@ Differentiates from:
 
 ```bash
 # 1. Pull cohort data (closed/won by quarter for last 8 quarters)
-python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py cohorts.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py cohorts.json
 # 2. Identify any leaky-bucket cohort (NRR > 100% AND GRR < 85%)
 # 3. For each cohort with poor GRR: identify churn root cause from 7-category taxonomy
 # 4. Cross-check expansion math with cs-cro-advisor
 # 5. Cross-check product gaps surfaced by churn with cs-cpo-advisor
 # 6. Output: top-3 leakage points + 90-day mitigation plan
-# 7. Log via /cs:decide
+# 7. Log via /c-level-agents:decide
 ```
 
 ### Workflow 2: Customer Segmentation Audit (1 day)
@@ -82,12 +81,12 @@ python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/reten
 
 ```bash
 # 1. Build customers.json with ARR, tenure, ICP fit signals
-python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py customers.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py customers.json
 # 2. Review tier distribution (% of customers AND % of ARR per tier)
 # 3. Surface kill list (customers where support cost > 50% of ARR AND ICP fit < 5)
 # 4. Surface upgrade candidates (high ICP fit + expansion potential)
 # 5. For kill list: decide path — non-renewal / downgrade-to-tech-touch / raise-price
-# 6. Log via /cs:decide
+# 6. Log via /c-level-agents:decide
 ```
 
 ### Workflow 3: CS Team Sizing (1 week)
@@ -95,12 +94,12 @@ python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/custo
 
 ```bash
 # 1. Build book.json with current book composition + growth_target_pct
-python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py book.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py book.json
 # 2. Identify gap now + gap in 12mo across all 4 tiers
 # 3. Review manager-trigger thresholds (CS manager needed if any tier has 5+ CSMs)
 # 4. Cross-check 12mo cost with cs-cfo-advisor
 # 5. Cross-check hiring plan + comp design with cs-chro-advisor
-# 6. Output: 12-month hiring plan; log via /cs:decide
+# 6. Output: 12-month hiring plan; log via /c-level-agents:decide
 ```
 
 ### Workflow 4: CS Team Roadmap (1 week)
@@ -129,13 +128,13 @@ python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_co
 # Quarterly CCO brief — must run before every board meeting
 
 # 1. Retention decomposition (honest GRR vs NRR)
-python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py current-cohorts.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py current-cohorts.json
 
 # 2. Segmentation health (tier distribution + kill/upgrade lists)
-python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py current-customers.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py current-customers.json
 
 # 3. Team sizing (does the CS team match the book?)
-python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py current-book.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py current-book.json
 
 # Board narrative requires:
 #   - GRR truth (not just NRR)
@@ -164,9 +163,9 @@ python ../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_co
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/chief-customer-officer-advisor/SKILL.md](../../c-level-advisor/skills/chief-customer-officer-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
-- Sibling command: [`/cs:cco-review`](../skills/cco-review/SKILL.md)
+- Sibling command: [`/c-level-agents:cco-review`](../skills/cco-review/SKILL.md)
 
 ---
 

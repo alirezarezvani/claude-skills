@@ -1,6 +1,6 @@
 ---
 title: "/cs-harness — Slash Command for AI Coding Agents"
-description: "Compile a goal into a verified agent-harness loop for a domain and drive it to close — /cs:harness <domain> <goal>. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "Compile a goal into a verified agent-harness loop for a domain and drive it to close — /cs-harness <domain> <goal>. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-harness

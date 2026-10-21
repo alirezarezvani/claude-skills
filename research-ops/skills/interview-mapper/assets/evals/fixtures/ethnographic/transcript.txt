@@ -1,0 +1,80 @@
+1	Observer: Thanks for agreeing to this. Remind me what you do here at the warehouse.
+2	Respondent: I'm a senior picker, I pull orders off the manifests, this is my eighth year here.
+3	Observer: Great. Just act like it's a normal shift, I'll walk around with a notepad, that's all.
+4	Respondent: Okay, but I should say upfront, today's not a typical day, the warehouse is half-empty after the inventory count.
+5	[Observation: the respondent is standing at the order-picking terminal, next to it a monitor with the WarehousePro WMS system, on the desk a battered grid-paper notebook and sticky notes on the monitor.]
+6	Respondent: So look, here's my terminal, I scan the bin barcode, then the item barcode, the system tells me how many units to put in the box.
+7	Observer: What are you doing right now?
+8	Respondent: I'm opening the picking task, here, order number 48213, three line items.
+9	[Observation: the respondent scans bin A-12-3, the terminal screen shows a green checkmark.]
+10	Respondent: Normally I do everything strictly by the system, it tells me the route through the warehouse, I walk it and pick, no improvising.
+11	[Observation: without waiting for the terminal to display the route, the respondent immediately turns toward rack B-7, even though the system is still loading the next step.]
+12	Observer: You just walked toward B-7 before the terminal showed you a route — why there specifically?
+13	Respondent: Ah, right, well I just remember that the 6205 bearings always sit at B-7, the system sometimes for some reason routes you the long way around the whole warehouse.
+14	Respondent: Here, I've got this notebook, I write down where things actually are, because in the system the bin addresses periodically don't match what's really on the shelf.
+15	[Observation: the respondent flips through the notebook, finds the right page with a hand-drawn rack diagram.]
+16	Respondent: Look, here's my own map of the warehouse, I drew it myself two years ago and touch it up in pencil whenever stock gets moved around.
+17	Observer: So the system shows one address, but you check against your own notebook?
+18	Respondent: Well, not always exactly, it's just that sometimes the system lets you down, and the notebook's more reliable, I trust it more.
+19	[Observation: on the terminal screen a yellow sticky note is visible reading "don't scan the box twice!! froze on 3/14".]
+20	Observer: What's that sticky note on the screen?
+21	Respondent: Oh, I wrote that one myself, because if you scan the same box twice in a row, the terminal freezes and you have to call IT to reboot it, so I remind myself.
+22	Respondent: Officially, per the instructions, you're supposed to scan exactly as written in the procedure, but in practice if you follow the procedure strictly, that's exactly when the freeze happens.
+23	[Observation: the respondent picks the first line item, puts three bearings in the box, scans the tag.]
+24	Respondent: Okay, done, now the second item, brake pads, that's on the other end of the warehouse.
+25	[Observation: on the way to the other rack, the respondent straightens some boxes on a lower shelf in passing, unrelated to the current order.]
+26	Observer: You just straightened some boxes off to the side, is that part of the task too?
+27	Respondent: No, that's just a habit of mine, if I see a box sitting crooked I'll straighten it, otherwise it'll fall and then you'll spend all day hunting for it up and down the aisle.
+28	Respondent: Normally I try to stick strictly to the order route and not get distracted, we're strict about that.
+29	[Observation: over ten minutes of observation, the respondent was twice sidetracked into unrelated actions outside the order route.]
+30	Observer: What do you do if something goes wrong, say the part you need isn't where it should be?
+31	Respondent: Oh, that's a whole separate story, let me show you.
+32	[Observation: the respondent walks up to rack V-4, the bin is empty, even though the system shows a remaining count of three units.]
+33	Respondent: See, the system says there are three brake pads here, but the bin's actually empty.
+34	Observer: And what do you do in that situation?
+35	Respondent: Officially you're supposed to file a discrepancy report through the inventory clerk and wait for them to check everything and enter the correction into the system.
+36	[Observation: without filing a report, the respondent takes out a phone and writes a message in the shift's group chat in a messaging app.]
+37	Respondent: But in reality I just drop a photo of the empty bin into our shift group chat, someone on shift usually knows where the item actually is, and they tip me off quickly.
+38	Respondent: Through the report that's about a two-hour wait, through the chat it's usually five minutes, there's just no other way to hit the picking quota.
+39	[Observation: a coworker replies in the chat with a voice message, the respondent listens through an earbud, nods.]
+40	Respondent: There, my coworker says the pads already got moved to a pallet in aisle two, let me go check there.
+41	[Observation: the respondent finds the needed pads on the pallet in the aisle, sure enough, the item is there.]
+42	Respondent: See, told you, the chat really is a lifesaver, without it I'd be standing around waiting for the clerk.
+43	Observer: Will someone later correct the count for V-4 in the system?
+44	Respondent: Well, properly the clerk is supposed to, but they're so swamped that sometimes it sits uncorrected for weeks, we find about ten of these discrepancies per shift.
+45	[Observation: the respondent returns to the terminal, scans the found pads, the system accepts the scan without any issue.]
+46	Observer: Is the shift like usual today, or is something different?
+47	Respondent: Well like I said, it's quieter today because of the inventory count, usually the warehouse phone rings every five minutes too, managers asking about order status.
+48	[Observation: during the conversation a coworker approached the respondent twice with a question about a neighboring rack, the respondent answered briefly and kept picking.]
+49	Respondent: See, Sasha just came by to ask where to find parts for a Daewoo, it's like that here all the time, we cover for each other.
+50	Observer: What's the third line item in the order?
+51	Respondent: An oil filter, that should be easy, they're always in the fast-pick zone next to packing.
+52	[Observation: the respondent walks up to the fast-pick zone, takes a filter off an open shelf without scanning the bin barcode.]
+53	Observer: I noticed you didn't scan the bin before grabbing the filter, is that on purpose?
+54	Respondent: Ah, right, yeah, the fast-pick zone doesn't require scanning the bin, it's just open shelves there, I grab it and scan the item right away instead of the bin, it's faster that way.
+55	Respondent: Actually, per the procedure you're supposed to scan the bin first, then the item, everywhere, no exceptions.
+56	Respondent: Although look, here in the fast-pick zone we all do it this way, otherwise there's no speed at all, you can't hit the quota.
+57	[Observation: the respondent scans only the filter's barcode, skipping the bin scan, the terminal accepts the operation without an error.]
+58	Observer: If I asked your supervisor, does he know this is how it's done?
+59	Respondent: Well probably he knows, he walks around here too, but I'm not sure he'd officially approve of it, we just don't talk about it out loud.
+60	[Observation: the respondent glances quickly toward the supervisor's office, lowers her voice.]
+61	Respondent: Honestly, with the supervisor around I'd probably scan the bin just to keep things proper, but without him not always.
+62	Observer: Okay, let's keep going. Done with the order?
+63	Respondent: Yes, three items picked, I'm closing the box, sticking on a label with the order number, taking it to packing.
+64	[Observation: the respondent sticks her own small handwritten sticker with the order number on top of the box's factory label.]
+65	Observer: What's that one for, doesn't the box already have a barcode from the system?
+66	Respondent: There is a barcode, but the printer prints it so small and crooked that the packers sometimes mix up orders, especially when two orders are sitting next to each other, so I write it big by hand so it's visible from a distance.
+67	Respondent: Actually all of us senior pickers do this, I didn't come up with it alone, it just sort of caught on about three years ago.
+68	Observer: Sounds like a lot of the written process here really runs on these personal workarounds.
+69	Respondent: Yeah, pretty much, if you took my notebook away and stripped off the stickers, I'd probably work way slower for the first week, until I relearned where everything is.
+70	[Observation: over the course of the observation the respondent consulted the notebook seven times and the monitor stickers twice, never once opened the official picking instructions.]
+71	Observer: Where is the official instruction manual, by the way?
+72	Respondent: It's somewhere in the system, in the documents section, but honestly I last opened it during my onboarding, six months ago, since then it's just been from memory and the notebook.
+73	Observer: Thanks, I think I've seen the main cycle. Anything else important I might have missed?
+74	Respondent: Probably that I'm working more carefully than usual today, because you're standing right here, normally I'd probably cut a few corners that I felt too embarrassed to show just now.
+75	[Observation: the respondent smiles slightly, glances at the observer's notepad.]
+76	Observer: What do you mean, cut corners?
+77	Respondent: Well, for example, sometimes I pick two orders at once in parallel, grab boxes for both at the same time so I don't have to make two trips, even though the instructions say strictly one order at a time.
+78	[Observation: during this conversation the respondent is standing with one box in hand, no second box visible nearby.]
+79	Respondent: But today I decided to show everything by the book, since you're taking notes.
+80	Observer: Understood, thanks for being honest. I think we'll wrap up the observation here.

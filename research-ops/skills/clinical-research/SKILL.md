@@ -1,11 +1,12 @@
 ---
 name: clinical-research
 description: Use when designing a prospective clinical study before submission — selecting and classifying endpoints (primary / key-secondary / exploratory, with surrogate-endpoint flagging), estimating sample size and power for two-arm designs (means / proportions / survival), or scoring a study plan for feasibility and a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIMATE plus a named human owner (clinician / biostatistician / regulatory owner) — never clinical fact, never a finished protocol. Distinct from ra-qm-team, which handles the regulatory/QM submission (ISO 13485, EU MDR, FDA 510(k)/PMA/QSR), not the study design.
-version: 2.9.0
-author: claude-code-skills
 license: MIT
-tags: [research-ops, clinical-research, study-design, endpoint, sample-size, power, phase-gate, biostatistics]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.9.0
+  author: claude-code-skills
+  tags: [research-ops, clinical-research, study-design, endpoint, sample-size, power, phase-gate, biostatistics]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # clinical-research
@@ -121,7 +122,7 @@ The sample correctly flags an unvalidated serum-cytokine surrogate (cannot be pr
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-research-ops` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is your primary endpoint a clinical outcome or a surrogate — and if surrogate, is it on FDA's validated table?"**
    Recommended: clinical outcome unless the surrogate is validated for this indication.

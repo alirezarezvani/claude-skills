@@ -84,11 +84,11 @@ Hard outputs:
 
 ## Available commands
 
-- `/cs:research-ops <inquiry>` — your top-level router
-- `/cs:grill-research-ops <plan>` — Matt-style grilling first
-- `/cs:clinical-research` — direct invocation of clinical-research
-- `/cs:research-finance` — direct invocation of research-finance
-- `/cs:market-research` — direct invocation of market-research
-- `/cs:product-research` — direct invocation of product-research
+- `/cs-research-ops <inquiry>` — your top-level router
+- `/cs-grill-research-ops <plan>` — Matt-style grilling first
+- `/cs-clinical-research` — direct invocation of clinical-research
+- `/cs-research-finance` — direct invocation of research-finance
+- `/cs-market-research` — direct invocation of market-research
+- `/cs-product-research` — direct invocation of product-research
 
 Per-skill onboarding: `python3 skills/<skill>/scripts/onboard.py`. Per-skill autoresearch evaluator: `python3 skills/<skill>/scripts/ar_evaluator.py` (used by `/ar:setup` only on explicit opt-in).

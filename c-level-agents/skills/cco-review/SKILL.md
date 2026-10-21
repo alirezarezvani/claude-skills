@@ -1,11 +1,11 @@
 ---
 name: "cco-review"
-description: "/cs:cco-review <plan> — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire."
+description: "/c-level-agents:cco-review [plan] — Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire."
 ---
 
-# /cs:cco-review — CCO Forcing Questions
+# /c-level-agents:cco-review — CCO Forcing Questions
 
-**Command:** `/cs:cco-review <plan>`
+**Command:** `/c-level-agents:cco-review <plan>`
 
 The retention-obsessed CCO pressure-tests any plan that touches customer experience. Six questions before any retention claim, segmentation change, CS team expansion, or major CS hire.
 
@@ -64,13 +64,13 @@ The retention-obsessed CCO pressure-tests any plan that touches customer experie
 
 ```bash
 # 1. Retention decomposition (always start here)
-python ../../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py cohorts.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/retention_decomposition_analyzer.py cohorts.json
 
 # 2. Segmentation audit
-python ../../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py customers.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/customer_segmentation_designer.py customers.json
 
 # 3. Coverage sizing (if making CS team changes)
-python ../../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py book.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/scripts/cs_coverage_calculator.py book.json
 ```
 
 ## Output Format
@@ -112,17 +112,17 @@ python ../../../c-level-advisor/skills/chief-customer-officer-advisor/scripts/cs
 
 ## Routing
 
-- `/cs:cpo-review` — if churn root cause is product_fit or no_value_realized
-- `/cs:cro-review` — if expansion math or comp alignment is in question
-- `/cs:cfo-review` — for CS cost commitments and retention-impact-on-revenue
+- `/c-level-agents:cpo-review` — if churn root cause is product_fit or no_value_realized
+- `/c-level-agents:cro-review` — if expansion math or comp alignment is in question
+- `/c-level-agents:cfo-review` — for CS cost commitments and retention-impact-on-revenue
 - `cs-chro-advisor` agent — for CS hires, comp, ladder
-- `/cs:decide` — log the verdict
-- `/cs:freeze 30` — on multi-year CS comp plan changes
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 30` — on multi-year CS comp plan changes
 
 ## Related
 
 - Agent: [`cs-cco-advisor`](../../agents/cs-cco-advisor.md)
-- Skill: [`chief-customer-officer-advisor`](../../../c-level-advisor/skills/chief-customer-officer-advisor/SKILL.md)
+- Skill: [`chief-customer-officer-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-customer-officer-advisor/SKILL.md)
 - Adjacent: `../../../business-growth/` (tactical CS execution)
 
 ---

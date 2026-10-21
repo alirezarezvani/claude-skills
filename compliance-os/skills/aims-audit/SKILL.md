@@ -1,11 +1,11 @@
 ---
 name: "aims-audit"
-description: "/cs:aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation. Use before certification stage 1, before annual internal audit cycles, or when onboarding a new AI system into an existing AIMS."
+description: "/compliance-os:aims-audit [scope] — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation. Use before certification stage 1, before annual internal audit cycles, or when onboarding a new AI system into an existing AIMS."
 ---
 
-# /cs:aims-audit — AIMS ISO 42001 Forcing Questions
+# /compliance-os:aims-audit — AIMS ISO 42001 Forcing Questions
 
-**Command:** `/cs:aims-audit <scope>`
+**Command:** `/compliance-os:aims-audit <scope>`
 
 The ISO 42001 AIMS specialist pressure-tests any AI Management System work. Six questions before any certification commitment, internal audit cycle, or new-system onboarding.
 
@@ -62,13 +62,13 @@ The ISO 42001 AIMS specialist pressure-tests any AI Management System work. Six 
 
 ```bash
 # 1. AIMS gap analysis
-python ra-qm-team/skills/iso42001-specialist/scripts/aims_gap_analyzer.py evidence.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_gap_analyzer.py evidence.json
 
 # 2. AI risk register
-python ra-qm-team/skills/iso42001-specialist/scripts/ai_risk_register_builder.py risks.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/ai_risk_register_builder.py risks.json
 
 # 3. Internal audit plan
-python ra-qm-team/skills/iso42001-specialist/scripts/aims_audit_scheduler.py audit_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_audit_scheduler.py audit_scope.json
 
 # 4. Cross-framework reuse map (via compliance-os)
 python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
@@ -114,17 +114,17 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:ai-act-readiness` — if EU AI Act also applies
-- `/cs:caio-review` — for executive AI strategy decisions
-- `/cs:ciso-review` — for ISO 27001 cross-framework alignment
-- `/cs:decide` — to log the verdict
-- `/cs:freeze 30` — on certification commitments
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:ai-act-readiness` — if EU AI Act also applies
+- `/c-level-agents:caio-review` — for executive AI strategy decisions
+- `/c-level-agents:ciso-review` — for ISO 27001 cross-framework alignment
+- `/c-level-agents:decide` — to log the verdict
+- `/c-level-agents:freeze 30` — on certification commitments
 
 ## Related
 
 - Agent: [`cs-aims-iso42001`](../../agents/cs-aims-iso42001.md)
-- Skill: [`iso42001-specialist`](../../../ra-qm-team/skills/iso42001-specialist/SKILL.md)
+- Skill: [`iso42001-specialist`](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/SKILL.md)
 - Adjacent: `../../skills/compliance-os/`, `../ai-act-readiness/`, `../compliance-readiness/`
 
 ---

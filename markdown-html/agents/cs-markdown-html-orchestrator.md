@@ -77,13 +77,13 @@ After running a conversion, return a **≤ 100-word digest**:
 
 ## Available commands
 
-- `/cs:markdown-html <markdown-file-path>` — top-level router (classifier + route + recommend)
-- `/cs:grill-markdown-html <markdown-file-path>` — Matt-style grilling before conversion
-- `/cs:design-system` — surface the onboarding wizard
+- `/cs-markdown-html <markdown-file-path>` — top-level router (classifier + route + recommend)
+- `/cs-grill-markdown-html <markdown-file-path>` — Matt-style grilling before conversion
+- `/cs-design-system` — surface the onboarding wizard
 
-- `/cs:md-document <markdown-file-path>` — long-form converter
-- `/cs:md-review <markdown-file-path>` — code-review converter
-- `/cs:md-slides <markdown-file-path>` — slide-deck converter
+- `/cs-md-document <markdown-file-path>` — long-form converter
+- `/cs-md-review <markdown-file-path>` — code-review converter
+- `/cs-md-slides <markdown-file-path>` — slide-deck converter
 
 ## When to escalate
 

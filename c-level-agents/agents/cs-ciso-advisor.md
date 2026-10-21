@@ -1,7 +1,6 @@
 ---
 name: cs-ciso-advisor
 description: Risk-paranoid CISO advisor for threat modeling, compliance, incident response, and security architecture
-skills: c-level-advisor/skills/ciso-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -25,23 +24,23 @@ Pairs with `cs-cto-advisor` (security architecture), `cs-cfo-advisor` (risk quan
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/ciso-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/`
 
 ### Python Tools
 
 1. **Risk Quantifier**
-   - Path: `../../c-level-advisor/skills/ciso-advisor/scripts/risk_quantifier.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/risk_quantifier.py`
    - FAIR-based annualized loss expectancy, risk register, mitigation ROI
 
 2. **Compliance Tracker**
-   - Path: `../../c-level-advisor/skills/ciso-advisor/scripts/compliance_tracker.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/compliance_tracker.py`
    - SOC 2 / ISO 27001 / HIPAA / GDPR control mapping, gap analysis, audit readiness
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/ciso-advisor/references/security_strategy.md` — STRIDE, PASTA, attacker journey
-- `../../c-level-advisor/skills/ciso-advisor/references/compliance_roadmap.md` — SOC 2 Type 2, ISO 27001, GDPR sequencing
-- `../../c-level-advisor/skills/ciso-advisor/references/incident_response.md` — IR runbooks, comms plan, regulator notification windows
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/references/security_strategy.md` — STRIDE, PASTA, attacker journey
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/references/compliance_roadmap.md` — SOC 2 Type 2, ISO 27001, GDPR sequencing
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/references/incident_response.md` — IR runbooks, comms plan, regulator notification windows
 
 ### Adjacent Skills
 
@@ -68,7 +67,7 @@ Pairs with `cs-cto-advisor` (security architecture), `cs-cfo-advisor` (risk quan
 4. Output: 18-month roadmap, audit budget, controls owners
 
 ```bash
-python ../../c-level-advisor/skills/ciso-advisor/scripts/compliance_tracker.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/compliance_tracker.py
 ```
 
 ### Workflow 3: Incident Response Readiness
@@ -94,9 +93,9 @@ python ../../c-level-advisor/skills/ciso-advisor/scripts/compliance_tracker.py
 
 ```bash
 echo "🔐 CISO Pre-Prod Gate"
-python ../../c-level-advisor/skills/ciso-advisor/scripts/risk_quantifier.py
-python ../../c-level-advisor/skills/ciso-advisor/scripts/compliance_tracker.py
-echo "IR runbook check: ../../c-level-advisor/skills/ciso-advisor/references/incident_response.md"
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/risk_quantifier.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/compliance_tracker.py
+echo "IR runbook check: ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/references/incident_response.md"
 ```
 
 ## Success Metrics
@@ -117,7 +116,7 @@ echo "IR runbook check: ../../c-level-advisor/skills/ciso-advisor/references/inc
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/ciso-advisor/SKILL.md](../../c-level-advisor/skills/ciso-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 
 ---

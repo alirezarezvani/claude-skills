@@ -29,7 +29,7 @@ The Commercial domain ships skills that help **deal-desk operators, pricing team
 6. **Channel ROI requires retention differential.** CAC alone is meaningless without channel-level retention.
 7. **Stdlib-only Python.** Deterministic logic, no LLM calls in scripts.
 8. **Industry tuning** via `--profile {saas,api,enterprise-software,marketplace,services,hardware}` on every scoring tool.
-9. **Matt Pocock grill discipline** — `/cs:grill-commercial` interrogates plan against SaaS pricing canon before any sub-skill runs.
+9. **Matt Pocock grill discipline** — `/cs-grill-commercial` interrogates plan against SaaS pricing canon before any sub-skill runs.
 
 ## Build pattern
 
@@ -38,9 +38,9 @@ Path-B 11-file contract per skill. SKILL.md includes a "Forcing-question library
 ## Agent + command pattern
 
 - `cs-commercial-orchestrator` — margin-protective Commercial lead. Voice: "What's the margin at full discount, AND what does next quarter's pipeline look like at the same terms?"
-- `/cs:commercial <inquiry>` — top-level router
-- `/cs:grill-commercial <plan>` — Matt-style grilling first
-- `/cs:pricing-strategy`, `/cs:deal-review`, `/cs:partner-tier`, `/cs:channel-econ`, `/cs:commercial-policy`, `/cs:rfp-respond`, `/cs:commercial-forecast` — direct per-skill invocation
+- `/cs-commercial <inquiry>` — top-level router
+- `/cs-grill-commercial <plan>` — Matt-style grilling first
+- `/cs-pricing-strategy`, `/cs-deal-review`, `/cs-partner-tier`, `/cs-channel-econ`, `/cs-commercial-policy`, `/cs-rfp-respond`, `/cs-commercial-forecast` — direct per-skill invocation
 
 ## Anti-patterns (domain-level)
 

@@ -1,11 +1,11 @@
 ---
 name: "ciso-review"
-description: "/cs:ciso-review <plan> — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features that handle customer data, before a SOC 2 / ISO audit, or after any incident or near-miss."
+description: "/c-level-agents:ciso-review [plan] — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features that handle customer data, before a SOC 2 / ISO audit, or after any incident or near-miss."
 ---
 
-# /cs:ciso-review — CISO Forcing Questions
+# /c-level-agents:ciso-review — CISO Forcing Questions
 
-**Command:** `/cs:ciso-review <plan>`
+**Command:** `/c-level-agents:ciso-review <plan>`
 
 The risk-paranoid threat-modeler. Six questions before any production change that touches customer data or compliance scope.
 
@@ -53,8 +53,8 @@ The risk-paranoid threat-modeler. Six questions before any production change tha
 ## Workflow
 
 ```bash
-python ../../../c-level-advisor/skills/ciso-advisor/scripts/risk_quantifier.py
-python ../../../c-level-advisor/skills/ciso-advisor/scripts/compliance_tracker.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/risk_quantifier.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/scripts/compliance_tracker.py
 ```
 
 ## Output Format
@@ -97,15 +97,15 @@ python ../../../c-level-advisor/skills/ciso-advisor/scripts/compliance_tracker.p
 
 ## Routing
 
-- `/cs:cto-review` — architecture alignment
-- `/cs:gc-review` — DPA, regulatory implications
-- `/cs:decide` — log risk acceptance
-- `/cs:boardroom` — for CRITICAL risks
+- `/c-level-agents:cto-review` — architecture alignment
+- `/c-level-agents:gc-review` — DPA, regulatory implications
+- `/c-level-agents:decide` — log risk acceptance
+- `/c-level-agents:boardroom` — for CRITICAL risks
 
 ## Related
 
 - Agent: [`cs-ciso-advisor`](../../agents/cs-ciso-advisor.md)
-- Skill: [`ciso-advisor`](../../../c-level-advisor/skills/ciso-advisor/SKILL.md)
+- Skill: [`ciso-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ciso-advisor/SKILL.md)
 - Compliance: `../../../ra-qm-team/`
 
 ---

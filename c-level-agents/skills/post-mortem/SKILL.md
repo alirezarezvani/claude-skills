@@ -1,32 +1,32 @@
 ---
 name: "post-mortem"
-description: "/cs:post-mortem <decision> — Honest retrospective on an executed decision, scored against original assumptions and dissent. Closes the strategic sprint loop. Use when a decision hits its 90-day review checkpoint or its kill criteria trigger — e.g. scoring last quarter's pricing change against its pre-committed success metrics."
+description: "/c-level-agents:post-mortem [decision] — Honest retrospective on an executed decision, scored against original assumptions and dissent. Closes the strategic sprint loop. Use when a decision hits its 90-day review checkpoint or its kill criteria trigger — e.g. scoring last quarter's pricing change against its pre-committed success metrics."
 ---
 
-# /cs:post-mortem — Honest Retrospective
+# /c-level-agents:post-mortem — Honest Retrospective
 
-**Command:** `/cs:post-mortem <decision-path>`
+**Command:** `/c-level-agents:post-mortem <decision-path>`
 
 Closes the strategic sprint loop. Scores a decision against the success and kill criteria written **before** the decision (not retro-fitted) and revisits the preserved dissent. This is the rigor that compounds over time.
 
 ## Pipeline Position
 
 ```
-/cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
+/c-level-agents:office-hours  →  /c-level-agents:brief  →  /c-level-agents:boardroom  →  /c-level-agents:decide  →  /c-level-agents:execute  →  /c-level-agents:post-mortem
                                                                                        ↑ you are here
 ```
 
 ## When to Run
 
-- At the 90-day checkpoint (auto-scheduled by `/cs:decide`)
+- At the 90-day checkpoint (auto-scheduled by `/c-level-agents:decide`)
 - When a kill criterion triggers
 - After a major decision is reversed
 - Quarterly on all decisions of the past quarter
 
 ## Inputs
 
-- The decision record (output of `/cs:decide`)
-- The execution plan (output of `/cs:execute`)
+- The decision record (output of `/c-level-agents:decide`)
+- The execution plan (output of `/c-level-agents:execute`)
 - Actual outcomes (metrics, events, customer signals)
 
 ## Output: Post-Mortem Record
@@ -87,26 +87,26 @@ Saved to `~/.claude/postmortems/YYYY-MM-DD-<slug>.md`:
 
 ## Status
 - WIN → archive, log lesson
-- LOSS → schedule follow-up boardroom: `/cs:brief` for the next call
+- LOSS → schedule follow-up boardroom: `/c-level-agents:brief` for the next call
 ```
 
 ## Why Pre-Committed Criteria Matter
 
-The biggest temptation in post-mortems is retroactive justification: "we always knew X, that's why we did Y." Pre-committed criteria, signed at `/cs:decide` time, eliminate that move. The numbers either matched or they didn't.
+The biggest temptation in post-mortems is retroactive justification: "we always knew X, that's why we did Y." Pre-committed criteria, signed at `/c-level-agents:decide` time, eliminate that move. The numbers either matched or they didn't.
 
 ## Why Revisit Dissent
 
-The dissent column from `/cs:boardroom` is the single most useful piece of organizational memory. Most of the time, the dissenter was directionally right. Revisiting and scoring it builds calibration over years.
+The dissent column from `/c-level-agents:boardroom` is the single most useful piece of organizational memory. Most of the time, the dissenter was directionally right. Revisiting and scoring it builds calibration over years.
 
 ## Routing
 
-- `/cs:brief` — if the post-mortem surfaces a new decision
-- `/cs:freeze` — if the post-mortem reveals a process gap that needs cooldown enforcement
+- `/c-level-agents:brief` — if the post-mortem surfaces a new decision
+- `/c-level-agents:freeze` — if the post-mortem reveals a process gap that needs cooldown enforcement
 - Updates to company-context.md via `cs-onboard`
 
 ## Related
 
-- Skill: [`decision-logger`](../../../c-level-advisor/skills/decision-logger/SKILL.md)
+- Skill: [`decision-logger`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/SKILL.md)
 - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
 - Sibling: [`/em:postmortem`](../../../c-level-advisor/executive-mentor/skills/postmortem/SKILL.md) — adversarial single-decision post-mortem
 

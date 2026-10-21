@@ -3,7 +3,7 @@ description: Run only the blocking forgetting gate on a memory design or store â
 argument-hint: "[policy JSON, or a memory directory to audit]"
 ---
 
-# /cs:forgetting-audit
+# /cs-forgetting-audit
 
 The short pass. Skip the cost and architecture work; answer one question about
 `$ARGUMENTS`:

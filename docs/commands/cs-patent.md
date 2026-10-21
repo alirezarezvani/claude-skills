@@ -1,6 +1,6 @@
 ---
 title: "/cs-patent — Slash Command for AI Coding Agents"
-description: "/cs:patent <invention> — Patent prior-art + landscape intelligence with mandatory sub-use-case commitment. 6-Q grill-me intake (Q2 picks one of. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-patent <invention> — Patent prior-art + landscape intelligence with mandatory sub-use-case commitment. 6-Q grill-me intake (Q2 picks one of. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-patent
@@ -11,7 +11,7 @@ description: "/cs:patent <invention> — Patent prior-art + landscape intelligen
 </div>
 
 
-**Command:** `/cs:patent <invention description>`
+**Command:** `/cs-patent <invention description>`
 
 The `cs-patent` persona produces a sub-use-case-tailored patent dossier. **Refuses generic "patent help"** — must commit to one of 5 sub-use-cases at Q2.
 
@@ -98,8 +98,8 @@ patent_<invention-slug>_<sub-use-case>_<YYYY-MM-DD>.docx
 - Agent: [`cs-patent`](https://github.com/alirezarezvani/claude-skills/tree/main/research/patent/agents/cs-patent.md)
 - Skill: [`patent`](https://github.com/alirezarezvani/claude-skills/tree/main/research/patent/skills/patent/SKILL.md)
 - Source spec: `megaprompts/11-patent-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Siblings: `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:pulse`
-- Future: `/cs:syllabus`
+- Siblings: `/cs-litreview`, `/cs-grants`, `/cs-dossier`, `/cs-pulse`
+- Future: `/cs-syllabus`
 
 ---
 

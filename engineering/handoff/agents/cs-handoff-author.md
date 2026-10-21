@@ -1,7 +1,6 @@
 ---
 name: cs-handoff-author
 description: Conversation-handoff author. Compacts the current session into a markdown handoff for a fresh agent. Tailors content to next-session focus. Refuses to duplicate content from PRDs/plans/ADRs/issues/commits — references them by path or URL instead. Recommends specific skills for the next session.
-skills: engineering/handoff/skills/handoff
 domain: engineering
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -35,7 +34,7 @@ Differentiates clearly:
 
 - **vs cs-grill-master** (plan interrogation): different mode (continuity vs interrogation)
 - **vs cs-skill-author** (skill authoring): different domain (handoff content vs skill files)
-- **vs `/cs:decide`** (decision logging): different artifact (handoff is forward-looking; decide is backward-looking)
+- **vs `/c-level-agents:decide`** (decision logging): different artifact (handoff is forward-looking; decide is backward-looking)
 
 **Hard rule:** never duplicate content already in another artifact. References only.
 
@@ -168,7 +167,7 @@ Length target: 50-100 lines. Anything longer suggests duplication.
 
 - Skill: [../skills/handoff/SKILL.md](../skills/handoff/SKILL.md)
 - Companion tooling: [../skills/handoff/references/companion_tooling.md](../skills/handoff/references/companion_tooling.md)
-- Sibling command: [`/cs:handoff`](../commands/cs-handoff.md)
+- Sibling command: [`/cs-handoff`](../commands/cs-handoff.md)
 
 ---
 

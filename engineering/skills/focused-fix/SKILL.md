@@ -159,7 +159,7 @@ For each CRITICAL issue found, confirm root cause before adding it to the fix li
 - State clearly: "I think X is the root cause because Y"
 - Trace the data/control flow backward to verify — don't trust surface-level symptoms
 - If the issue spans multiple components, add diagnostic logging at each boundary to identify which layer fails
-- **REQUIRED SUB-SKILL:** For complex bugs found during diagnosis, apply `superpowers:systematic-debugging` Phase 1 (Root Cause Investigation) to confirm before proceeding
+- For complex bugs, run a root-cause investigation before proceeding: reproduce the failure reliably, read the full error and stack trace, check what changed recently (`git log`, `git diff`), and form one hypothesis at a time that you test with the smallest possible change. Do not add a bug to the fix list until a hypothesis survives its test.
 
 **RISK LABELING:**
 Assign each issue a risk label:
@@ -303,9 +303,9 @@ If you catch yourself thinking any of these, you are skipping phases:
 
 ## Related Skills
 
-- **`superpowers:systematic-debugging`** — Use within Phase 3 for root-cause tracing of individual complex bugs
-- **`superpowers:verification-before-completion`** — Use within Phase 5 before claiming the feature is fixed
-- **`scope`** — If you need to understand blast radius before starting, run scope first then focused-fix
+- **`self-eval`** (this repo, `engineering/skills/self-eval`) — Use after Phase 5 to score the fix honestly before reporting it done
+- **`incident-commander`** (this repo, `engineering-team/skills/incident-commander`, separate plugin) — Use instead when the broken feature is a live production incident, not a local repair
+- **Optional, if installed:** the third-party `superpowers` plugin's `systematic-debugging` and `verification-before-completion` skills cover the same ground as the root-cause step in Phase 3 and the checks in Phase 5. This skill does not require them; the steps above are self-contained.
 
 ## Quick Reference
 

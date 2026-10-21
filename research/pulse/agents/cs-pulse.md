@@ -1,7 +1,6 @@
 ---
 name: cs-pulse
 description: Multi-source recency research persona. Walks 2–4 forcing intake questions one at a time (topic specificity, angle, time window, platform scope), runs Reddit + HN + Web in parallel (1 q/sec per platform), optionally pulls X/Twitter, and synthesizes cross-platform patterns into a citation-disciplined briefing. Refuses vague topics. Refuses to bundle intake questions. Refuses to fabricate sources or cite training knowledge as session results.
-skills: research/pulse/skills/pulse
 domain: research
 model: opus
 tools: [Read, Write, Bash, WebFetch, WebSearch]
@@ -195,7 +194,7 @@ python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
 
 - Skill: [../skills/pulse/SKILL.md](../skills/pulse/SKILL.md)
 - Source spec: `megaprompts/01-pulse-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:pulse`](../commands/cs-pulse.md)
+- Sibling command: [`/cs-pulse`](../commands/cs-pulse.md)
 
 ---
 

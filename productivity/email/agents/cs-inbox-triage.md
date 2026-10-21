@@ -1,7 +1,6 @@
 ---
 name: cs-inbox-triage
 description: Recurring email-triage execution persona. Reads the 7-file KB produced by inbox-setup, classifies recent emails via the user's taxonomy, researches new senders, generates recommendations, drafts replies, delivers a report, and updates the KB with learnings. NEVER SENDS — drafts only, non-negotiable. Halts with clear message if KB files are missing (directs user to run inbox-setup first). Light-intake — max 2 optional override questions.
-skills: productivity/email/skills/inbox-triage
 domain: productivity
 model: opus
 tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch]
@@ -18,7 +17,7 @@ tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch]
 > "Override the default 9-hour search window? Pick: yes (specify hours) / no (use default). *Why I'm asking:* If you're running on-demand outside your normal 2x/day cadence, you may want a wider window (24h after a long break) or narrower (2h for a quick check)."
 
 **KB missing (halt):**
-> "Knowledge base not found at `${WORKSPACE}/Email/`. Run `/cs:inbox-setup` first to build it. The triage skill needs at minimum `email-taxonomy.md` and `email-patterns.md` to operate."
+> "Knowledge base not found at `${WORKSPACE}/Email/`. Run `/cs-inbox-setup` first to build it. The triage skill needs at minimum `email-taxonomy.md` and `email-patterns.md` to operate."
 
 **DRAFTS-ONLY reminder (when relevant):**
 > *Drafts created (never sent): {N}. All drafts live in your email client's drafts folder for your review.*
@@ -201,7 +200,7 @@ Generated at <timestamp>. KB updated: {N blocklist, M tracker}.
 
 - Skill: [../skills/inbox-triage/SKILL.md](../skills/inbox-triage/SKILL.md)
 - Source spec: `megaprompts/07-inbox-triage-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Sibling command: [`/cs:inbox-triage`](../commands/cs-inbox-triage.md)
+- Sibling command: [`/cs-inbox-triage`](../commands/cs-inbox-triage.md)
 
 ---
 

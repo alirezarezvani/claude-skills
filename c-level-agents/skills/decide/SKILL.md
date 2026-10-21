@@ -1,18 +1,18 @@
 ---
 name: "decide"
-description: "/cs:decide <memo> — Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Use when the founder has approved a boardroom memo and the decision must become durable company memory — e.g. right after /cs:boardroom concludes."
+description: "/c-level-agents:decide [memo] — Log a decision to two-layer memory via decision-logger. Approved memo becomes durable; raw transcripts kept for reference. Use when the founder has approved a boardroom memo and the decision must become durable company memory — e.g. right after /c-level-agents:boardroom concludes."
 ---
 
-# /cs:decide — Log the Decision
+# /c-level-agents:decide — Log the Decision
 
-**Command:** `/cs:decide <memo-path>`
+**Command:** `/c-level-agents:decide <memo-path>`
 
 Logs the founder's decision via the `decision-logger` skill. This is the gate where in-session deliberation becomes durable company memory.
 
 ## Pipeline Position
 
 ```
-/cs:office-hours  →  /cs:brief  →  /cs:boardroom  →  /cs:decide  →  /cs:execute  →  /cs:post-mortem
+/c-level-agents:office-hours  →  /c-level-agents:brief  →  /c-level-agents:boardroom  →  /c-level-agents:decide  →  /c-level-agents:execute  →  /c-level-agents:post-mortem
                                                        ↑ you are here
 ```
 
@@ -21,13 +21,13 @@ Logs the founder's decision via the `decision-logger` skill. This is the gate wh
 The `decision-logger` skill maintains two layers:
 
 1. **Raw transcripts** — every boardroom session, every advisor's Phase 2 position, every dissent. Stored under `~/.claude/decisions/raw/`. Reference only, never feeds back automatically.
-2. **Approved decisions** — only the founder-signed memos. Stored under `~/.claude/decisions/approved/`. Feeds into future `/cs:office-hours` and `/cs:founder-mode` calls.
+2. **Approved decisions** — only the founder-signed memos. Stored under `~/.claude/decisions/approved/`. Feeds into future `/c-level-agents:office-hours` and `/c-level-agents:founder-mode` calls.
 
 This split prevents the system from "remembering" unresolved debates as if they were decisions.
 
 ## Input
 
-A board memo file (output of `/cs:boardroom`).
+A board memo file (output of `/c-level-agents:boardroom`).
 
 ## Workflow
 
@@ -70,7 +70,7 @@ A board memo file (output of `/cs:boardroom`).
 - (preserved verbatim; dissent never erased)
 
 ## Next Action
-- `/cs:execute` → 90-day plan due <date>
+- `/c-level-agents:execute` → 90-day plan due <date>
 
 ## Status History
 - YYYY-MM-DD: APPROVED
@@ -82,20 +82,20 @@ The biggest risk in approved decisions is forgetting why someone disagreed. When
 
 ## Routing
 
-- `/cs:execute <decision>` — build the 90-day plan
-- `/cs:freeze <decision> <days>` — lock if irreversible
-- (Auto-scheduled) `/cs:post-mortem <decision>` — at 90-day checkpoint
+- `/c-level-agents:execute <decision>` — build the 90-day plan
+- `/c-level-agents:freeze <decision> <days>` — lock if irreversible
+- (Auto-scheduled) `/c-level-agents:post-mortem <decision>` — at 90-day checkpoint
 
 ## Stale-Decision Audit
 
 `cs-chief-of-staff` runs a weekly stale audit:
-- Decisions > 90 days without revisit → flag for `/cs:post-mortem`
+- Decisions > 90 days without revisit → flag for `/c-level-agents:post-mortem`
 - Decisions with kill criteria triggered → flag immediately
 - Decisions whose company-context.md basis has changed → flag for re-examination
 
 ## Related
 
-- Skill: [`decision-logger`](../../../c-level-advisor/skills/decision-logger/SKILL.md)
+- Skill: [`decision-logger`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/SKILL.md)
 - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
 - Bridge: [`../../references/llm-wiki-bridge.md`](../../references/llm-wiki-bridge.md)
 

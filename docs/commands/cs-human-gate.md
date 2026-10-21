@@ -1,6 +1,6 @@
 ---
 title: "/cs-human-gate — Slash Command for AI Coding Agents"
-description: "/cs:human-gate — Get real human review on an artifact and prove it happened. Builds a single-file review page, collects batched feedback as. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-human-gate — Get real human review on an artifact and prove it happened. Builds a single-file review page, collects batched feedback as. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-human-gate
@@ -11,7 +11,7 @@ description: "/cs:human-gate — Get real human review on an artifact and prove 
 </div>
 
 
-**Command:** `/cs:human-gate <artifact> [step]`
+**Command:** `/cs-human-gate <artifact> [step]`
 
 Machine checks answer *"do the tests pass?"*. This answers the other one:
 **has a person actually looked at this, and are their objections resolved?**

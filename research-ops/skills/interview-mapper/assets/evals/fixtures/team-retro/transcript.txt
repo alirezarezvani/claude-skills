@@ -1,0 +1,100 @@
+1	Facilitator (Marina, agile coach): Okay, hi everyone, thanks for coming, I know it's Friday evening, everyone's head is already in the weekend.
+2	Facilitator (Marina): This is the retro for the "Express-30" launch sprint — 30-minute delivery, three weeks of work, already eight days in prod.
+3	Facilitator (Marina): Usual format: first what worked, then what didn't work, then what we'll try next time.
+4	Facilitator (Marina): Reminder — we talk about process, we don't make it personal.
+5	Dev team lead (Dima): Well let's get started, I've got something to say for keep.
+6	Facilitator (Marina): Hold on, Dima, let's go around and introduce ourselves first, Nastya's with us at retro for the first time.
+7	Product manager (Igor): Igor, product manager, I drove the "Express-30" feature from idea to release.
+8	Dev team lead (Dima): Dima, backend team lead, three people on the team plus me.
+9	Designer (Lena): Lena, designer, I did the whole delivery slot selection flow.
+10	Backend developer (Nastya): Nastya, backend, mostly wrote the courier logistics integration.
+11	Support lead (Oleg): Oleg, I run the support line, I've got three operators on shift.
+12	Facilitator (Marina): Great, let's start with keep — what actually worked and we want to repeat on the next project.
+13	Dev team lead (Dima): Keep for me is that we did dailies strictly at 15 minutes, no dragging on.
+14	Dev team lead (Dima): Igor put that in place from the very start of the sprint.
+15	Product manager (Igor): Yeah, I insisted on the timebox, because last sprint the dailies were running to forty minutes.
+16	Designer (Lena): Plus one for the dailies, but for me keep is something else.
+17	Designer (Lena): We locked the slot flow mockup in Figma with comments from Nastya on the API right away, that rarely goes so smoothly.
+18	Backend developer (Nastya): Yeah, that's the one that really worked, usually I find out about API constraints once the design is already done, but here Lena came to ask herself at the draft stage.
+19	Facilitator (Marina): Noting: synchronous 15-minute dailies — proposed by Igor, and early design-API alignment — Lena's initiative. Any other keeps?
+20	Support lead (Oleg): From me — that cheat sheet for operators you sent two days before release.
+21	Support lead (Oleg): Last time we got nothing at all until the actual launch day.
+22	Product manager (Igor): Nastya wrote that, I just asked for it.
+23	Backend developer (Nastya): Well it was just three paragraphs about typical courier API timeout errors.
+24	Facilitator (Marina): Good, let's move to stop — what didn't work. Please give specific episodes here, not "overall something went wrong."
+25	Dev team lead (Dima): Stop — deadlines. We only got the final feature scope in the second week of the sprint, even though the sprint was three weeks.
+26	Product manager (Igor): The scope kept changing because the business wanted to make it in time for the May promotion, I couldn't lock it earlier.
+27	Dev team lead (Dima): I get that, but that's the planning phase — and it basically ate up a third of the sprint.
+28	Facilitator (Marina): Dima, can you name a specific moment when it became clear the deadlines were slipping?
+29	Dev team lead (Dima): Yeah, Tuesday of the second week, when Igor sent over the new scope adding courier notifications about address changes — that wasn't in the original spec.
+30	Product manager (Igor): That was a change from legal, I couldn't ignore it.
+31	Backend developer (Nastya): I remember that Tuesday, I had a feeling we weren't going to make it, but I didn't say it out loud at the time.
+32	Facilitator (Marina): And why didn't you say it then, out of curiosity?
+33	Backend developer (Nastya): Well because Igor was already on edge, didn't want to add more pressure.
+34	Backend developer (Nastya): Plus I wasn't sure, what if I was the only one seeing it that way.
+35	Designer (Lena): I saw the deadlines were cracking too, but somehow it felt awkward to bring it up at the daily in front of everyone.
+36	Designer (Lena): We talked about it separately with Nastya during a coffee break.
+37	Facilitator (Marina): So there was a gap between what was said in front of Igor and what was said among yourselves?
+38	Backend developer (Nastya): Yeah, I guess that's how it was, now that you've put it that way — it doesn't sound great.
+39	Product manager (Igor): Wait, hold on, why didn't anyone tell me directly?
+40	Product manager (Igor): I would have figured something out, escalated it, shifted priorities.
+41	Dev team lead (Dima): Igor, honestly, it felt like you weren't very open to discussing deadlines, your answer was always "we need to make it, we'll find a way."
+42	Product manager (Igor): Well the deadlines really were tight from above, I didn't make that up.
+43	Facilitator (Marina): Okay, let's note this as a separate item and come back to it, let's keep going through stop.
+44	Designer (Lena): Another stop — handoff. We handed the feature to support for testing literally one day before release, Oleg didn't have time to run through the scenarios.
+45	Support lead (Oleg): Yeah, that's painful, I got access to the test environment Thursday evening, and the release was Friday afternoon.
+46	Product manager (Igor): That's my miss, I forgot to include Oleg in the plan early on, thought we'd have more time.
+47	Facilitator (Marina): Noting — handoff phase, early support access wasn't planned for, Igor acknowledges that.
+48	Support lead (Oleg): And because of that, on day one alone we had twelve tickets about the slot showing "taken" even though the courier was free.
+49	Backend developer (Nastya): That's a sync bug with the logistics cache, we rolled it back with a patch on day three after release.
+50	Dev team lead (Dima): We would have caught it in testing if Oleg had had at least two days instead of half a day.
+51	Facilitator (Marina): Any more stops before we move to try?
+52	Backend developer (Nastya): From me — the nightly slot recalculation job would sometimes fail silently, no alert, I'd only find out from Oleg's tickets in the morning.
+53	Support lead (Oleg): Right, that happened twice in the week after release.
+54	Facilitator (Marina): Good, let's move to try — what we'll try next time.
+55	Product manager (Igor): Try from me — lock the feature scope no later than day one of the sprint.
+56	Product manager (Igor): Even if the business asks to add something, file it as a separate ticket next time.
+57	Dev team lead (Dima): I support that, but I'll add: try number two — set up a pre-launch checklist that always includes support access at least three days ahead.
+58	Designer (Lena): Also, let's add an item to that checklist about alerts on nightly jobs — the thing Nastya brought up.
+59	Backend developer (Nastya): Yeah, it'd be great if Slack alerts got set up automatically when a new job gets deployed, instead of by hand afterward.
+60	Facilitator (Marina): Who's going to take this on — the pre-launch checklist?
+61	Dev team lead (Dima): I'll take it, I already have a draft from the last project, I'll just add three items.
+62	Facilitator (Marina): Great, noting: pre-launch checklist — owner Dima, deadline before the start of the next sprint.
+63	Facilitator (Marina): And who's on alerts for the nightly jobs?
+64	Backend developer (Nastya): Well, I could look into it, but I won't have time in the next two weeks, I've got vacation plus another project.
+65	Dev team lead (Dima): I can't take it on, I've already got the checklist plus the current sprint.
+66	Product manager (Igor): Maybe someone from DevOps? We do have a separate infrastructure team, don't we?
+67	Support lead (Oleg): I'm not sure who's responsible for that, I just don't want to get called at night.
+68	Facilitator (Marina): Okay, I hear that everyone agrees it's important, but nobody's picking it up.
+69	Facilitator (Marina): Let's not turn a blind eye, I'm noting it as an open item with no owner, we'll come back to it at the next retro.
+70	Designer (Lena): Another try — I want to propose doing design review with Nastya at the draft stage by default, not just when I happen to remember to come and ask.
+71	Backend developer (Nastya): Yeah, let's formalize that, because this time it happened by chance, we got lucky that I wasn't loaded up at that moment.
+72	Facilitator (Marina): Good, I'm noting that as a try — but flagging that Nastya herself says it was more luck with workload than a systemic practice, that's worth discussing separately.
+73	Product manager (Igor): Listen, I want to go back to that conversation about the deadlines.
+74	Product manager (Igor): I don't like that you two discussed it during a coffee break instead of telling me.
+75	Designer (Lena): Igor, I didn't want to put you in a bad spot, it was just a bad moment, the sprint was on fire, you were on calls with the business all day.
+76	Dev team lead (Dima): I don't think it's about you personally, it's more that we generally tend to hold back uncomfortable news until the last moment.
+77	Dev team lead (Dima): That happened on the personal account project too.
+78	Product manager (Igor): Are you saying it's my fault as the product manager that you're afraid to speak up?
+79	Dev team lead (Dima): I'm not talking about fault, I'm talking about a pattern on the team that's worth discussing separately, not at this retro.
+80	Facilitator (Marina): Okay, I can see this topic resonates with everyone, let me note it separately as an unresolved question about openness in discussing deadlines.
+81	Facilitator (Marina): And let's not try to fully resolve it right now with fifteen minutes left.
+82	Support lead (Oleg): Agreed, otherwise we'll get stuck and won't manage to close out the rest.
+83	Product manager (Igor): Fine, but let's really come back to it, not forget about it like usual.
+84	Facilitator (Marina): I promise, I'll carry it forward as a separate item. Back to external blockers — what got in the way from outside, beyond our control.
+85	Backend developer (Nastya): External blocker — the partner's courier API was down for four hours on Wednesday of the second week, we couldn't test the integration all day.
+86	Dev team lead (Dima): Yeah, that's someone else's infrastructure, nothing depended on us there, except maybe escalating earlier through the partner team.
+87	Product manager (Igor): Another blocker — legal sent changes to the courier geolocation consent literally three days before release, we didn't make that one up either.
+88	Designer (Lena): Because of that I had to redraw one consent screen on the fly, that ate up almost a whole day for me.
+89	Facilitator (Marina): Noting both external blockers.
+90	Facilitator (Marina): Okay, we've got a bit of time left, let me suggest a forcing question: what would you do differently if you started this sprint over today?
+91	Product manager (Igor): I'd lock the scope before the sprint started and push back harder against legal on deadlines, even if it gets contentious.
+92	Dev team lead (Dima): I'd say the deadline risk out loud earlier, not wait until the second week.
+93	Designer (Lena): I'd propose a formal design review right away instead of relying on a lucky coincidence with Nastya.
+94	Backend developer (Nastya): I'd have said something about my concerns at the Tuesday daily, instead of staying quiet.
+95	Support lead (Oleg): I'd have asked for stand access a week ahead instead of waiting for it to be given to me.
+96	Facilitator (Marina): A good, honest round.
+97	Facilitator (Marina): Let's wrap up here, thanks everyone, I'll put together a summary from the record.
+98	Facilitator (Marina): I'll carry two items forward separately — openness in discussing deadlines and ownership of nightly job alerts, I'll write them up as open questions so we don't lose them.
+99	Product manager (Igor): Thanks, that was useful, even if uncomfortable in places.
+100	Dev team lead (Dima): Yeah, but it's more honest this way than everything looking smooth on paper.

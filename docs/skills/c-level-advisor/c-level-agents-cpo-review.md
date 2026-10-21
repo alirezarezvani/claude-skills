@@ -1,9 +1,9 @@
 ---
-title: "/cs:cpo-review — CPO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cpo-review — CPO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cpo-review <plan> — JTBD-driven interrogation of product roadmap, PMF signal, and portfolio focus. Use when committing a quarter's roadmap. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cpo-review — CPO Forcing Questions
+# /c-level-agents:cpo-review — CPO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cpo-review <plan> — JTBD-driven interrogation of product roa
 </div>
 
 
-**Command:** `/cs:cpo-review <plan>`
+**Command:** `/c-level-agents:cpo-review <plan>`
 
 The JTBD-driven builder cuts the roadmap in half. Six questions to surface what to ship and what to kill.
 
@@ -106,9 +106,9 @@ python product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py
 
 ## Routing
 
-- `/cs:cmo-review` — does the positioning support this feature?
-- `/cs:execute` — build the 90-day plan
-- `/cs:post-mortem` — if kill criteria triggered
+- `/c-level-agents:cmo-review` — does the positioning support this feature?
+- `/c-level-agents:execute` — build the 90-day plan
+- `/c-level-agents:post-mortem` — if kill criteria triggered
 
 ## Related
 

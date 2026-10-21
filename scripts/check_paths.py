@@ -41,6 +41,9 @@ RE_SKILLMD = re.compile(r"[A-Za-z0-9_\-./]+/SKILL\.md\b")
 RE_PY_INVOKE = re.compile(r"\bpython3?\s+([A-Za-z0-9_\-./]+\.py)\b")
 # Relative parent-dir paths.
 RE_RELATIVE = re.compile(r"\.\./[A-Za-z0-9_\-./]+")
+# ${CLAUDE_PLUGIN_ROOT}/... paths, which Claude Code substitutes with the installed
+# plugin root. They must resolve inside the owning plugin, or the installed plugin breaks.
+RE_PLUGIN_ROOT = re.compile(r"\$\{CLAUDE_PLUGIN_ROOT\}/([A-Za-z0-9_\-./]+)")
 
 DYNAMIC_CHARS = set("{<$~*")
 PLACEHOLDER_HINTS = ("path/to", "your-", "your_", "example.com", "...", "skill-name", "agent-name")
@@ -152,8 +155,28 @@ def scan_file(path: str, repo_root: str, allowlist=()):
     file_dir = os.path.dirname(os.path.abspath(path))
     bases = (skill_root(path, repo_root), file_dir, os.path.abspath(repo_root))
     rel_file = os.path.relpath(os.path.abspath(path), repo_root)
-    return [c for c in extract_candidates(text)
-            if not resolves(c, bases) and not allowlisted(rel_file, c, allowlist)]
+    bad = [c for c in extract_candidates(text)
+           if not resolves(c, bases) and not allowlisted(rel_file, c, allowlist)]
+    root = plugin_root(path, repo_root)
+    for m in RE_PLUGIN_ROOT.finditer(text):
+        rel = clean(m.group(1))
+        tok = "${CLAUDE_PLUGIN_ROOT}/" + rel
+        if root is None or not os.path.exists(os.path.join(root, rel)):
+            if tok not in bad and not allowlisted(rel_file, tok, allowlist):
+                bad.append(tok)
+    return bad
+
+
+def plugin_root(file_path: str, repo_root: str):
+    """Nearest ancestor holding .claude-plugin/plugin.json, or None."""
+    d = os.path.dirname(os.path.abspath(file_path))
+    while True:
+        if os.path.isfile(os.path.join(d, ".claude-plugin", "plugin.json")):
+            return d
+        parent = os.path.dirname(d)
+        if parent == d or os.path.abspath(d) == os.path.abspath(repo_root):
+            return None
+        d = parent
 
 
 def collect_canonical(repo_root: str):

@@ -1,7 +1,6 @@
 ---
 name: cs-cro-advisor
 description: Pipeline-paranoid CRO advisor for revenue forecasting, sales motion, NRR, ramp time, and pipeline coverage
-skills: c-level-advisor/skills/cro-advisor
 domain: c-level
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]
@@ -25,23 +24,23 @@ Pairs with `cs-cfo-advisor` (revenue → cash conversion), `cs-cmo-advisor` (pip
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/cro-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/`
 
 ### Python Tools
 
 1. **Revenue Forecast Model**
-   - Path: `../../c-level-advisor/skills/cro-advisor/scripts/revenue_forecast_model.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/revenue_forecast_model.py`
    - Bottom-up + top-down forecast, pipeline coverage by stage, ramp-adjusted
 
 2. **Churn Analyzer**
-   - Path: `../../c-level-advisor/skills/cro-advisor/scripts/churn_analyzer.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/churn_analyzer.py`
    - Logo churn, gross retention, NRR, cohort decay, expansion vs contraction
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/cro-advisor/references/sales_playbook.md` — pipeline cadence, win/loss process, forecasting hygiene
-- `../../c-level-advisor/skills/cro-advisor/references/pricing_strategy.md` — PLG vs sales-led, hiring profiles, ramp curves
-- `../../c-level-advisor/skills/cro-advisor/references/nrr_playbook.md` — NRR levers, customer success cadence, expansion plays
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/references/sales_playbook.md` — pipeline cadence, win/loss process, forecasting hygiene
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/references/pricing_strategy.md` — PLG vs sales-led, hiring profiles, ramp curves
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/references/nrr_playbook.md` — NRR levers, customer success cadence, expansion plays
 
 ## Workflows
 
@@ -55,7 +54,7 @@ Pairs with `cs-cfo-advisor` (revenue → cash conversion), `cs-cmo-advisor` (pip
 4. Output: gap-to-plan, top-3 stage fixes, weekly check-in template
 
 ```bash
-python ../../c-level-advisor/skills/cro-advisor/scripts/revenue_forecast_model.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/revenue_forecast_model.py
 ```
 
 ### Workflow 2: NRR Decomposition
@@ -91,8 +90,8 @@ python ../../c-level-advisor/skills/cro-advisor/scripts/revenue_forecast_model.p
 ```bash
 #!/bin/bash
 echo "📈 CRO Weekly Review"
-python ../../c-level-advisor/skills/cro-advisor/scripts/revenue_forecast_model.py
-python ../../c-level-advisor/skills/cro-advisor/scripts/churn_analyzer.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/revenue_forecast_model.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/churn_analyzer.py
 echo "Pipeline coverage and retention dashboard ready."
 ```
 
@@ -113,7 +112,7 @@ echo "Pipeline coverage and retention dashboard ready."
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/cro-advisor/SKILL.md](../../c-level-advisor/skills/cro-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 
 ---

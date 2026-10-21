@@ -36,7 +36,7 @@ def _read(path):
 
 
 def _parse_target(text):
-    m = re.search(r"target[:\s\"]+(\d+(?:\.\d+)?)\s*%?", text, re.IGNORECASE)
+    m = re.search(r"\btarget(?:[_-]percent)?[:\s\"]+(\d+(?:\.\d+)?)\s*%?", text, re.IGNORECASE)
     if m:
         return float(m.group(1))
     return None

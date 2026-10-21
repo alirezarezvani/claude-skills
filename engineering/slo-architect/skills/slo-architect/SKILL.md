@@ -2,11 +2,12 @@
 name: slo-architect
 description: Use when defining, reviewing, or operating SLOs/SLIs/error budgets. Triggers on "define an SLO", "what should our SLO be", "error budget", "burn rate", "SLI", "service level objective", "Google SRE workbook", "multi-window burn-rate alert", or any reliability-target question. Ships SLO designer, error-budget calculator with multi-window burn-rate thresholds, and SLO reviewer that catches the common bugs (target too aggressive, window too short, conflicting SLOs, no SLI definition). 4 references on SLO principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. NOT a generic observability skill — specifically the SLO discipline.
 context: fork
-version: 2.9.0
-author: claude-code-skills
 license: MIT
-tags: [slo, sli, sla, error-budget, burn-rate, sre, reliability, google-sre-workbook, observability]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.9.0
+  author: claude-code-skills
+  tags: [slo, sli, sla, error-budget, burn-rate, sre, reliability, google-sre-workbook, observability]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # SLO Architect
@@ -99,7 +100,7 @@ Given target availability + window, computes:
 - Allowed downtime in the window
 - Multi-window burn-rate thresholds per Google SRE Workbook (Chapter 5):
   - **Fast burn** — page if 2% of monthly budget consumed in 1 hour
-  - **Slow burn** — page if 10% consumed in 6 hours, ticket if 10% in 3 days
+  - **Slow burn** — page if 5% consumed in 6 hours, ticket if 10% in 3 days
 - Recommended alerting rules (PromQL-shaped output)
 
 ```bash
@@ -140,8 +141,13 @@ See `references/sli_design.md` for examples and anti-patterns.
 
 For 99.9% SLO over 30 days:
 - Allowed unavailability: `0.1% × 30 × 24 × 60 = 43.2 minutes`
-- 1-hour fast-burn threshold (2% of monthly budget burned): `2% × 43.2 / 60 ≈ 1.44 ratio multiplier`
-- 6-hour slow-burn threshold (10% in 6h): `10% × 43.2 / 360 ≈ 0.6 ratio multiplier`
+- Burn rate is the observed bad-event fraction divided by the allowed bad-event fraction: `observed_bad_fraction / (1 - target_percent / 100)`.
+- Threshold for consuming a chosen budget fraction over an alert window: `budget_fraction × SLO_window_hours / alert_window_hours`.
+- 1-hour fast-burn threshold (2% of 30-day budget): `0.02 × 720 / 1 = 14.4`.
+- 6-hour slow-burn threshold (5% in 6h): `0.05 × 720 / 6 = 6`.
+- 3-day ticket threshold (10% in 72h): `0.10 × 720 / 72 = 1`.
+
+These are dimensionless burn-rate multipliers, not error-rate percentages. For a 99.9% target, a burn rate of 14.4 corresponds to a bad-event fraction of `14.4 × 0.001 = 0.0144` (1.44%). Thresholds scale with the SLO reporting window: the corresponding 28-day multipliers are 13.44, 5.6, and approximately 0.933.
 
 `error_budget_calculator.py` does this math for you and emits ready-to-paste alert rules.
 

@@ -47,7 +47,7 @@ research/research/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── agents/cs-research.md            ← router persona, routing-transparency enforcer
-├── commands/cs-research.md          ← /cs:research <question>
+├── commands/cs-research.md          ← /cs-research <question>
 └── skills/research/
     ├── SKILL.md
     ├── references/

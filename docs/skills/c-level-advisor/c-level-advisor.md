@@ -21,17 +21,17 @@ A complete virtual board of directors for founders and executives.
 ## Quick Start
 
 ```
-1. Run /cs:setup → creates company-context.md (all agents read this)
+1. Run /cs-onboard setup → creates company-context.md (all agents read this)
    ✓ Verify company-context.md was created and contains your company name,
      stage, and core metrics before proceeding.
 2. Ask any strategic question → Chief of Staff routes to the right role
-3. For big decisions → /cs:board triggers a multi-role board meeting
+3. For big decisions → /board-meeting triggers a multi-role board meeting
    ✓ Confirm at least 3 roles have weighed in before accepting a conclusion.
 ```
 
 ### Commands
 
-#### `/cs:setup` — Onboarding Questionnaire
+#### `/cs-onboard setup` — Onboarding Questionnaire
 
 Walks through the following prompts and writes `company-context.md` to the project root. Run once per company or when context changes significantly.
 
@@ -58,7 +58,7 @@ After collecting answers, the agent writes structured output:
 - Key risks: <answer>
 ```
 
-#### `/cs:board` — Full Board Meeting
+#### `/board-meeting` — Full Board Meeting
 
 Convenes all relevant executive roles in three phases:
 
@@ -112,7 +112,7 @@ The Chief of Staff still logs the exchange; only routing is skipped.
 - **How to Act:** Cut 2 low-ROI channels, hit $2M ARR, then run a 6-week fundraise sprint.
 - **Your Decision:** Proceed with extension / Raise now anyway (choose one).
 
-### Example: company-context.md (after /cs:setup)
+### Example: company-context.md (after /cs-onboard setup)
 
 ```markdown
 # Company Context

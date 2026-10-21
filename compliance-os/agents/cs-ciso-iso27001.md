@@ -1,7 +1,6 @@
 ---
 name: cs-ciso-iso27001
 description: ISO/IEC 27001:2022 ISMS audit + implementation persona. Sample-driven; samples real records, not curated demos. Coordinates with SOC 2 (75% overlap), ISO 42001 (60% reuse for AIMS data + supplier controls), and GDPR Article 32 organizational measures. NOT executive cybersecurity strategy (see cs-ciso-advisor for that).
-skills: ra-qm-team/skills/isms-audit-expert
 domain: compliance-os
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -36,26 +35,26 @@ Differentiates clearly:
 
 ## Skill Integration
 
-**Skill Location:** `../../ra-qm-team/skills/isms-audit-expert/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/`
 
 ### Python Tools
 
 1. **ISMS Audit Scheduler**
-   - Path: `../../ra-qm-team/skills/isms-audit-expert/scripts/isms_audit_scheduler.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/scripts/isms_audit_scheduler.py`
    - Usage: `python isms_audit_scheduler.py audit_scope.json`
    - Returns: 12-month audit plan with quarterly slots covering Clauses 4-10 + applicable Annex A controls; auditor independence checks; rolling 3-year coverage status
 
 ### Knowledge Bases
 
-- `../../ra-qm-team/skills/isms-audit-expert/references/iso27001-audit-methodology.md` — ISO 27001 audit methodology
-- `../../ra-qm-team/skills/isms-audit-expert/references/security-control-testing.md` — Control-testing approaches
-- `../../ra-qm-team/skills/isms-audit-expert/references/cloud-security-audit.md` — Cloud-specific audit patterns
-- `../../ra-qm-team/skills/isms-audit-expert/references/iso27001_audit_playbook.md` — Full audit playbook (NEW in Phase 2)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/iso27001-audit-methodology.md` — ISO 27001 audit methodology
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/security-control-testing.md` — Control-testing approaches
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/cloud-security-audit.md` — Cloud-specific audit patterns
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/iso27001_audit_playbook.md` — Full audit playbook (NEW in Phase 2)
 
 ### Adjacent Skills
 
-- `../../ra-qm-team/skills/information-security-manager-iso27001/` — ISMS implementation depth (different audience: implementers vs auditors)
-- `../../ra-qm-team/skills/soc2-compliance/` — SOC 2 work that reuses 75% of ISO 27001 controls
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/information-security-manager-iso27001/` — ISMS implementation depth (different audience: implementers vs auditors)
+- `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/` — SOC 2 work that reuses 75% of ISO 27001 controls
 - `../skills/compliance-os/` — Meta-orchestrator for multi-framework programs
 
 ## Workflows
@@ -125,9 +124,9 @@ python isms_audit_scheduler.py surveillance_scope.json
 
 ## References
 
-- Skill: [../../ra-qm-team/skills/isms-audit-expert/SKILL.md](../../ra-qm-team/skills/isms-audit-expert/SKILL.md)
-- Playbook: [../../ra-qm-team/skills/isms-audit-expert/references/iso27001_audit_playbook.md](../../ra-qm-team/skills/isms-audit-expert/references/iso27001_audit_playbook.md)
-- Sibling command: [`/cs:iso27001-audit-prep`](../skills/iso27001-audit-prep/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/SKILL.md)
+- Playbook: [${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/iso27001_audit_playbook.md](${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/references/iso27001_audit_playbook.md)
+- Sibling command: [`/compliance-os:iso27001-audit-prep`](../skills/iso27001-audit-prep/SKILL.md)
 
 ---
 

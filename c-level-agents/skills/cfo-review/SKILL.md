@@ -1,11 +1,11 @@
 ---
 name: "cfo-review"
-description: "/cs:cfo-review <plan> — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when a plan commits meaningful spend — e.g. a hiring wave, a fundraise decision, or a new channel budget."
+description: "/c-level-agents:cfo-review [plan] — Numerate-skeptic interrogation of any plan that touches money. Unit economics, runway, dilution, capital allocation. Use when a plan commits meaningful spend — e.g. a hiring wave, a fundraise decision, or a new channel budget."
 ---
 
-# /cs:cfo-review — CFO Forcing Questions
+# /c-level-agents:cfo-review — CFO Forcing Questions
 
-**Command:** `/cs:cfo-review <plan>`
+**Command:** `/c-level-agents:cfo-review <plan>`
 
 The numerate skeptic stress-tests anything that touches money. Six questions before any spend or fundraise.
 
@@ -53,9 +53,9 @@ The numerate skeptic stress-tests anything that touches money. Six questions bef
 
 1. **Run the numbers:**
    ```bash
-   python ../../../c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py
-   python ../../../c-level-advisor/skills/cfo-advisor/scripts/unit_economics_analyzer.py
-   python ../../../c-level-advisor/skills/cfo-advisor/scripts/fundraising_model.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/burn_rate_calculator.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/unit_economics_analyzer.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/fundraising_model.py
    ```
 2. **Answer all six questions** with numbers, not adjectives.
 3. **Apply the verdict:**
@@ -91,14 +91,14 @@ The numerate skeptic stress-tests anything that touches money. Six questions bef
 
 ## Routing
 
-- `/cs:decide` — log the verdict
-- `/cs:execute` — build 90-day plan if GREEN
-- `/cs:boardroom` — escalate if multi-role implications
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:execute` — build 90-day plan if GREEN
+- `/c-level-agents:boardroom` — escalate if multi-role implications
 
 ## Related
 
 - Agent: [`cs-cfo-advisor`](../../agents/cs-cfo-advisor.md)
-- Skill: [`cfo-advisor`](../../../c-level-advisor/skills/cfo-advisor/SKILL.md)
+- Skill: [`cfo-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/SKILL.md)
 
 ---
 

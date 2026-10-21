@@ -1,0 +1,78 @@
+Interviewer: Thanks for making time. How do you generally feel about the network switching to a single medical information system — in general, in short?
+Respondent: Yeah, I'm for it, it's the right move, it's been overdue, we've been talking about it for three years now, time to actually do something instead of just talking.
+Interviewer: So you're "for" it?
+Respondent: Definitely for it, I even said it out loud at the general meeting back in June, that I'm ready to be in the pilot group if needed.
+Interviewer: Why does this matter to you, what's your reasoning?
+Respondent: Well look, right now our schedule lives in three places — in Excel with the administrators, in a paper log at reception, and also in the head of Svetlana Petrovna, sorry, of the senior nurse of the department. Sooner or later that's going to blow up, someone will get lost, there'll be a complaint, maybe worse.
+Interviewer: So the argument is reducing the risk of errors?
+Respondent: Yes, reducing the risk, and honestly, transparency for the patient too, right now someone calls and they can't be told right away when their appointment is, because the three sources don't match up.
+Interviewer: Has your network tried implementing something like this before?
+Respondent: We tried, yeah, back in twenty-two we tried to set up an electronic queue, it was a disaster honestly, three months of everything crashing, doctors manually duplicating it on paper in parallel, then the system was quietly shut down, and nobody apologized, it was just like it never happened.
+Interviewer: How did that affect people's attitude toward new rollouts?
+Respondent: Well, how — people now default to not believing things will get finished, we even got a saying, "we'll survive this one too," not maliciously, but there's a residue, and for me too, no point hiding it.
+Interviewer: And this time, in your view, are the odds better?
+Respondent: Better, because this time the budget is set for two years ahead, not just a quarter, I checked that separately with the CFO, specifically asked, so as not to walk into a second failure.
+Interviewer: Who in the organization, in your view, is for this change right now, and who's against it?
+Respondent: Of those clearly for it — the chief physician, of course, it's his initiative, also Marina from reception, she's long been tired of paper. Nobody's openly against it yet, but I know the head of surgery, Artyom Viktorovich, grumbles in private that it's just extra control from above.
+Interviewer: What about the other department heads?
+Respondent: Most are staying quiet, waiting to see which way it goes, honestly I suspect maybe three out of five aren't happy deep down, but nobody's said it out loud, I'm judging by faces at meetings, not by words.
+Interviewer: Who did you personally discuss this with before our conversation?
+Respondent: I talked with Artyom Viktorovich in the hallway last week, he's the one who said that thing about control from above, and also with two of my own doctors in the department, to get a read on the mood before the pilot.
+Interviewer: And what did the doctors say?
+Respondent: One took it fine, and the other, Olga, asked straight out — will pay now be calculated by the system instead of by actual attendance? I said I didn't know for sure, but probably yes, since everything will be logged automatically.
+Interviewer: Did that concern her?
+Respondent: A little, yeah, she said "well, we'll see," you know, the kind of "we'll see" that actually means "I don't like this," but she didn't object outright.
+Interviewer: All right, let's talk about you personally. What will personally change for you if the system gets implemented?
+Respondent: Well look, honestly — right now the department schedule is basically run by me, well, me and Svetlana Petrovna together, we're the ones who decide who goes where, who gets how many shifts, in a sense that's my lever for keeping the department in order.
+Interviewer: And after the rollout, will that lever go somewhere?
+Respondent: I don't fully know, probably the schedule will become more transparent for everyone, anyone will be able to see who's seeing how many patients, whose workload is what, whereas right now, well, few people know that, mostly just me.
+Interviewer: How do you feel about that?
+Respondent: Calm about it, I'm for transparency in general, but... well yeah, if I'm completely honest, it'll be a bit less convenient for me to distribute shifts the way I think best without extra questions, right now if I need to shift someone quietly, I just do it, and there it'll all be visible and, I guess, I'll have to explain it every time.
+Interviewer: So it'll be harder to make informal rearrangements?
+Respondent: Yeah, probably so, though I wouldn't say it's exactly a problem, it's more just unfamiliar.
+Interviewer: Is there anything you personally gain from this change?
+Respondent: I definitely gain less running around, fewer calls of "where's my appointment," that's genuinely gotten old, plus, they say, management promised a bonus to whichever department head rolls it out first without hiccups, that's nice too, no point hiding it.
+Interviewer: So there's a material incentive as well?
+Respondent: There is, yeah, but I wouldn't say that's the main thing, order is still the main thing.
+Interviewer: All right, you mentioned that workload stats will be visible to everyone. Do you have doctors in your department whose workload is a lot lower than the rest?
+Respondent: There's one, yeah, but that's a separate story, let's not get into it now, he's got legitimate reasons, it's just if it becomes visible in the numbers without context, there could be questions I'll have to deal with.
+Interviewer: Does that worry you?
+Respondent: A bit, yeah, but it's manageable, I think.
+Interviewer: You mentioned the failed electronic queue rollout in twenty-two. Do you remember who initiated it back then?
+Respondent: I remember, yeah, it was the previous deputy chief physician, she actually got fired after that whole story, I don't know exactly what for, but a lot of people link it directly to that system.
+Interviewer: Does that affect trust in the current chief physician, who's pushing the new system now?
+Respondent: Well, partly, yeah, people remember, and when he talked about the new system at the meeting, I saw some colleagues exchange glances, like "sure, we'll see," though nobody said anything out loud.
+Interviewer: And how does the chief physician himself react to that kind of skepticism, does he notice it?
+Respondent: I think he notices, this time he specifically brought in outside consultants to present the budget numbers, to ease doubts, he hadn't done that before.
+Interviewer: Did it help, do you think?
+Respondent: It helped somewhat, it convinced me personally, but I don't think it convinced absolutely everyone, skepticism like that doesn't go away fast.
+Interviewer: Changing topics — you mentioned Marina from reception is "for" it. Did you discuss this with her personally?
+Respondent: I did, yeah, briefly, in the cafeteria last week, she said she's ready to start as early as tomorrow, that the paper is already up to here for her, she gestured at her throat, that's literally what she did.
+Interviewer: And did you talk directly with the chief physician about the pilot group?
+Respondent: I did, yeah, in July, I went to see him myself, said I'm ready to take my department in as the first pilot, if a volunteer is needed, to set an example for the rest.
+Interviewer: Why did you decide to volunteer?
+Respondent: Partly because I believe in the idea, and partly, no point hiding it, because whoever goes first usually gets the bonus, and also, if anything, I'll already know the system better than others once it's rolled out to everyone.
+Interviewer: What conditions would need to be met for you to support this one hundred percent, no ifs or buts?
+Respondent: Well, first, that the data from the old system gets transferred without loss, or it'll be like in twenty-two. Second, that there's proper training, not a two-hour webinar just for show. And third... well third, that access rights get set up sensibly, so not everyone sees absolutely everything, some reasonable hierarchy needs to stay in place.
+Interviewer: What does "reasonable hierarchy" mean specifically to you?
+Respondent: Well, say, that a department head sees the details for their own doctors, not that literally everyone sees everyone else's schedule through and through, there should be some defined working zone, I don't know how to put it right, but I feel total transparency is overkill.
+Interviewer: If that condition weren't met — if transparency were complete for everyone — would you still support the rollout?
+Respondent: Probably yes, I'd still support it, I'm for the system overall, it would just be less comfortable, well, I don't know, I'll have to see how it goes.
+Interviewer: How do you usually push your position in the organization, if you want to change something or influence something?
+Respondent: Most often at the chief physician's planning meetings, they happen every two weeks, all the department heads gather there, I usually drop a thought carefully, not head-on, more like a suggestion to think about. Also sometimes through Svetlana Petrovna, she's in close contact with the administration, she can put in a word.
+Interviewer: So you have a regular channel of influence through these meetings?
+Respondent: Yes, there is, and also the chief physician trusts me, we've worked together ten years, so if something's important, I can go straight to him too, off the record.
+Interviewer: Going back to Artyom Viktorovich — why do you think he's against it?
+Respondent: I think surgery has its own specifics, the operating room schedule is harder to calculate there, and he, I think, also doesn't want it to be visible how he distributes operating room hours among his own people, he's got his favorites there too, honestly, well, that's me speculating now, he never said that directly.
+Interviewer: Do you think you might have a similar motivation to his in that sense?
+Respondent: Well... probably partly yes, though I wouldn't want to put us in the same category, my situation is still softer, I'm not against transparency as such, I'm more for reasonable boundaries.
+Interviewer: All right, let's go back to coalitions — you said you suspect three out of five department heads are secretly against it, can you name them?
+Respondent: Well, I really can't name them for sure, that's genuinely my guesswork from faces and pauses at meetings, the only one I actually heard say something out loud was Artyom Viktorovich, the rest is more of a feeling, not a fact, I don't want to badmouth colleagues without grounds.
+Interviewer: Understood, we'll log that as an assumption. Tell me, what about Olga herself, the doctor from your department — is she for or against, in one word?
+Respondent: She's... I don't know, honestly, probably waiting it out, "we'll see" isn't "against," but it's not "for" either, somewhere in between.
+Interviewer: All right. If tomorrow it became known that the system is being pushed back another year — how would you take that?
+Respondent: I'd be upset, I genuinely want this rolled out, three sources for the schedule is a circus, but, if I'm completely honest, somewhere inside I'd probably breathe out for a couple months of quiet life, and then get upset again that it's being delayed. That probably sounds contradictory.
+Interviewer: That's fine, we'll log that too. Last question — in one sentence, how do you see the situation yourself?
+Respondent: I'm for rolling out a single medical information system, because three sources for the schedule is a risk and a mess, but I probably do genuinely worry a bit about my own autonomy in scheduling shifts, and I want the new system to keep reasonable access boundaries, not make everything visible to absolutely everyone.
+Interviewer: Thank you so much, this was very helpful.
+Respondent: You're welcome, reach out if there's anything else to clarify.

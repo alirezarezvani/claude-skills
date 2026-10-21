@@ -1,0 +1,1 @@
+../../../finance/skills/passive-deal-screener/SKILL.md

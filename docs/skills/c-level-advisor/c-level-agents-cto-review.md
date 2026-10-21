@@ -1,9 +1,9 @@
 ---
-title: "/cs:cto-review — CTO Forcing Questions — Agent Skill for Executives"
-description: "/cs:cto-review <plan> — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/c-level-agents:cto-review — CTO Forcing Questions — Agent Skill for Executives"
+description: "/c-level-agents:cto-review <plan> — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:cto-review — CTO Forcing Questions
+# /c-level-agents:cto-review — CTO Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/cs:cto-review <plan> — Architecture and scaling interrogation. 
 </div>
 
 
-**Command:** `/cs:cto-review <plan>`
+**Command:** `/c-level-agents:cto-review <plan>`
 
 Pressure-tests architecture and engineering scaling decisions. Six questions to surface the next scaling cliff before you hit it.
 
@@ -112,10 +112,10 @@ python ../../../skills/cto-advisor/scripts/team_scaling_calculator.py
 
 ## Routing
 
-- `/cs:ciso-review` — mandatory if data surface changes
-- `/cs:cfo-review` — for build-vs-buy > $100K
-- `/cs:execute` — quarterly plan
-- `/cs:boardroom` — for architecture pivots
+- `/c-level-agents:ciso-review` — mandatory if data surface changes
+- `/c-level-agents:cfo-review` — for build-vs-buy > $100K
+- `/c-level-agents:execute` — quarterly plan
+- `/c-level-agents:boardroom` — for architecture pivots
 
 ## Related
 

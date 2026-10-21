@@ -1,6 +1,6 @@
 ---
 title: "/cs-fable-goal — Slash Command for AI Coding Agents"
-description: "/cs:fable-goal — Turn a ramble about something you want made into one polished, autonomous /goal prompt (copy-paste ready). Extracts. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-fable-goal — Turn a ramble about something you want made into one polished, autonomous /goal prompt (copy-paste ready). Extracts. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-fable-goal
@@ -11,7 +11,7 @@ description: "/cs:fable-goal — Turn a ramble about something you want made int
 </div>
 
 
-**Command:** `/cs:fable-goal <ramble>`
+**Command:** `/cs-fable-goal <ramble>`
 
 Converts a rambling description of a desired outcome into a single polished /goal prompt for a fresh autonomous session. The output is the prompt, never the build.
 

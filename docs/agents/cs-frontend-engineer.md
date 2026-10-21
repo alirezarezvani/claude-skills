@@ -131,7 +131,7 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 ## Invocation Contract
 
-1. `/cs:frontend-review <prompt>`
+1. `/cs-frontend-review <prompt>`
 2. `Agent({subagent_type:"cs-frontend-engineer", prompt:"..."})`
 3. Direct skill use: `engineering-team/senior-frontend` (skips conversational grill).
 

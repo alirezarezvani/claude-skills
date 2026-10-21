@@ -1,6 +1,6 @@
 # Interview Craft Guide
 
-Deep operational guide for conducting the `/cs:setup` founder interview. Not a script — a thinking tool. Read before every interview. Internalize it, then put it away.
+Deep operational guide for conducting the `/cs-onboard setup` founder interview. Not a script — a thinking tool. Read before every interview. Internalize it, then put it away.
 
 ---
 

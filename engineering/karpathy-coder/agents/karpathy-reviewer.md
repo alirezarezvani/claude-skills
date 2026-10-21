@@ -6,9 +6,6 @@ model: sonnet
 maxTurns: 30
 tools: [Read, Grep, Glob, Bash(git diff *), Bash(git log *), Bash(git status *), Bash(python *)]
 disallowedTools: [Bash(rm *), Bash(rmdir *), Bash(curl *), Bash(wget *), Bash(git push *), Bash(git reset --hard *)]
-skills:
-  - karpathy-coder:karpathy-coder
-context: fork
 ---
 
 # karpathy-reviewer

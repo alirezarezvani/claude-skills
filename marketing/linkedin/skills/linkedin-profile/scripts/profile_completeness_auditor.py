@@ -31,6 +31,7 @@ Stdlib only. No network. Deterministic.
 
 import argparse
 import json
+import re
 import sys
 
 # (key, weight, effort_hours, label)
@@ -97,8 +98,33 @@ SAMPLE = {
     "days_since_last_post": 210,
 }
 
+# Matched on word boundaries, never as substrings. As plain `w in low` tests, "led"
+# credited "scheduled", "installed", "handled" and "recalled", and "cut" credited
+# "executed" - so "Scheduled onboarding for new hires", a pure duty bullet, scored
+# as outcome-carrying. That is the same substring defect that removing bare "to" /
+# "from" / "x" from this tuple was meant to end; these two just survived it.
 OUTCOME_WORDS = ("cut", "grew", "reduced", "increased", "shipped", "launched", "saved",
-                 "doubled", "migrated", "led", "%", "x", "from", "to")
+                 "doubled", "migrated", "led")
+OUTCOME_WORD_RE = re.compile(r"\b(" + "|".join(OUTCOME_WORDS) + r")\b", re.I)
+
+# Bare "x", "to" and "from" used to sit in OUTCOME_WORDS as loose substrings, which
+# credited pure duty bullets: "Reported to the VP of Engineering" scored as
+# outcome-carrying on the word "to". A multiplier and a from/to delta are genuine
+# outcome signals, so they are kept - as shapes that require a number, not as
+# substrings that match any prose.
+OUTCOME_SHAPES = (
+    re.compile(r"\b\d+(\.\d+)?\s*x\b"),                    # 3x, 2.5x
+    re.compile(r"\bfrom\b[^.]{0,40}\bto\b[^.]{0,25}\d"),    # from 4h to 20m
+    re.compile(r"\d+\s*%"),                                 # 40%
+)
+
+
+def carries_outcome(bullet: str) -> bool:
+    """True when a bullet claims a result rather than a responsibility."""
+    low = bullet.lower()
+    if OUTCOME_WORD_RE.search(low):
+        return True
+    return any(r.search(low) for r in OUTCOME_SHAPES)
 
 
 def evaluate_check(key: str, p: dict) -> tuple:
@@ -130,8 +156,7 @@ def evaluate_check(key: str, p: dict) -> tuple:
             return 0.0, "no current role listed"
         if not bullets:
             return 0.3, "role listed with no description"
-        with_outcome = [b for b in bullets
-                        if any(w in b.lower() for w in OUTCOME_WORDS)]
+        with_outcome = [b for b in bullets if carries_outcome(b)]
         frac = 0.4 + 0.6 * (len(with_outcome) / max(1, len(bullets)))
         return min(1.0, frac), f"{len(with_outcome)}/{len(bullets)} bullets carry an outcome"
     if key == "featured":
@@ -232,6 +257,25 @@ def render_human(r: dict) -> str:
     return "\n".join(lines)
 
 
+def _read_input(path: str) -> str:
+    """Read --input, turning an unreadable path into a usage error, not a traceback.
+
+    Every script in this plugin caught a JSON decode error but let OSError escape, so
+    a mistyped path exited 1 with a FileNotFoundError stack instead of a typed code.
+    """
+    if path == "-":
+        return sys.stdin.read()
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return handle.read()
+    except (OSError, UnicodeDecodeError) as err:
+        # UnicodeDecodeError is a ValueError subclass, not an OSError, so a file that
+        # exists but is not valid UTF-8 escaped the OSError catch as a traceback -
+        # the same failure mode this helper exists to prevent for a bad path.
+        print(f"cannot read --input {path}: {err}", file=sys.stderr)
+        raise SystemExit(2)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Audit a LinkedIn profile 0-100 and rank fixes by points per hour "
@@ -251,7 +295,7 @@ def main() -> int:
     if args.sample:
         profile = SAMPLE
     elif args.input:
-        raw = sys.stdin.read() if args.input == "-" else open(args.input, encoding="utf-8").read()
+        raw = _read_input(args.input)
         try:
             profile = json.loads(raw)
         except json.JSONDecodeError as exc:

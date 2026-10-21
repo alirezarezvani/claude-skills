@@ -66,7 +66,7 @@ Each operation is a stdlib Python tool with deterministic logic — no LLM calls
 
 ## What Compliance OS Is NOT
 
-- **NOT a per-framework deep-dive skill.** Per-framework skills (`ra-qm-team/skills/iso42001-specialist/`, etc.) do the operational work. Compliance OS orchestrates them.
+- **NOT a per-framework deep-dive skill.** Per-framework skills (`${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/`, etc.) do the operational work. Compliance OS orchestrates them.
 - **NOT a GRC platform replacement.** GRC platforms (Drata, Vanta, OneTrust, Hyperproof, etc.) are tools that operationalize what compliance OS describes — they're complementary. Compliance OS gives the conceptual map; GRC tools store the evidence.
 - **NOT a binding legal opinion.** Cross-framework mappings reflect published guidance from ISO, AICPA, NIST, IIA, EDPB. Novel cross-walks need outside counsel.
 - **NOT a certification body.** Certification audits are performed by accredited bodies. Compliance OS prepares for them.

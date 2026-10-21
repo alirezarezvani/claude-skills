@@ -1,11 +1,11 @@
 ---
 name: "cs-syllabus"
-description: "/cs:syllabus <syllabus-file-or-paste> — Generate curated supplementary reading list from any course syllabus. 3-Q grill-me (input format + audience + year range) + grouping checkpoint → Consensus searches per section with applied-domain weaving → .docx via bundled JS script with audience-calibrated summaries + Bloom higher-order discussion questions."
+description: "/cs-syllabus <syllabus-file-or-paste> — Generate curated supplementary reading list from any course syllabus. 3-Q grill-me (input format + audience + year range) + grouping checkpoint → Consensus searches per section with applied-domain weaving → .docx via bundled JS script with audience-calibrated summaries + Bloom higher-order discussion questions."
 ---
 
-# /cs:syllabus — Course Supplementary Reading List
+# /cs-syllabus — Course Supplementary Reading List
 
-**Command:** `/cs:syllabus <syllabus-file-or-paste>`
+**Command:** `/cs-syllabus <syllabus-file-or-paste>`
 
 The `cs-syllabus` persona produces a `.docx` reading list of recent peer-reviewed research per course section.
 
@@ -135,7 +135,7 @@ python ../skills/syllabus/scripts/citation_tracker.py --action close --session N
 - Agent: [`cs-syllabus`](../agents/cs-syllabus.md)
 - Skill: [`syllabus`](../skills/syllabus/SKILL.md)
 - Source spec: `megaprompts/10-syllabus-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Siblings: `/cs:litreview`, `/cs:grants`, `/cs:patent`, `/cs:dossier`, `/cs:pulse`
+- Siblings: `/cs-litreview`, `/cs-grants`, `/cs-patent`, `/cs-dossier`, `/cs-pulse`
 
 ---
 

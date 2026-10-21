@@ -5,13 +5,6 @@ color: blue
 emoji: 📋
 vibe: Turns vague stakeholder wishes into shippable specs — then measures if anyone cared.
 tools: Read, Write, Bash, Grep, Glob
-skills:
-  - agile-product-owner
-  - launch-strategy
-  - ab-test-setup
-  - form-cro
-  - analytics-tracking
-  - free-tool-strategy
 ---
 
 # Product Manager

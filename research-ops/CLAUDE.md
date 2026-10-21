@@ -26,7 +26,7 @@ It is **not regulatory submission** (`ra-qm-team`), **not corporate financial cl
 4. **product-research: never fabricates user insight.** Sample-size/saturation guidance is method-based and surfaces confidence; single-source claims are flagged as anecdotes, not insights.
 5. **Stdlib-only Python.** Deterministic logic, no LLM calls in scripts.
 6. **Industry tuning** via `--profile` on every scoring tool.
-7. **Matt Pocock grill discipline** — `/cs:grill-research-ops` interrogates the plan against the research canon (ICH E9, IAS 38, Cochran, Nielsen, Kotler) before any sub-skill runs.
+7. **Matt Pocock grill discipline** — `/cs-grill-research-ops` interrogates the plan against the research canon (ICH E9, IAS 38, Cochran, Nielsen, Kotler) before any sub-skill runs.
 8. **Onboarding-first + customization-in-use.** Each sub-skill ships `scripts/onboard.py` (its own question set) + `scripts/config_loader.py`. Answers persist to `~/.config/research-ops/<skill>.json` (global) or `./.research-ops/<skill>.json` (project) and are consumed by every tool (CLI flags override; `RESEARCH_OPS_NO_CONFIG=1` bypasses). Customization must change behavior, not sit as decoration.
 9. **Autoresearch is opt-in + isolated.** Each sub-skill ships `scripts/ar_evaluator.py` — a per-skill, locked ground-truth bridge to `engineering/autoresearch-agent`. A loop is invoked ONLY on explicit user request and only edits the skill's input file, never the evaluator. No cross-skill coupling.
 
@@ -37,9 +37,9 @@ Path-B contract per skill: SKILL.md + 3 stdlib scoring scripts + 3 references (e
 ## Agent + command pattern
 
 - `cs-research-ops-orchestrator` — evidence-first R&D operations lead. Voice: "What decision does this research drive, and what's your confidence — show me the method and the assumptions before the number."
-- `/cs:research-ops <inquiry>` — top-level router
-- `/cs:grill-research-ops <plan>` — Matt-style grilling first
-- `/cs:clinical-research`, `/cs:research-finance`, `/cs:market-research`, `/cs:product-research` — direct per-skill invocation
+- `/cs-research-ops <inquiry>` — top-level router
+- `/cs-grill-research-ops <plan>` — Matt-style grilling first
+- `/cs-clinical-research`, `/cs-research-finance`, `/cs-market-research`, `/cs-product-research` — direct per-skill invocation
 
 ## Anti-patterns (domain-level)
 

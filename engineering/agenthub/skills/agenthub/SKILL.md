@@ -23,7 +23,7 @@ Spawn N parallel AI agents that compete on the same task. Each agent works in an
 | `/hub:eval` | Rank agent results by metric or LLM judge |
 | `/hub:merge` | Merge winning branch, archive losers |
 | `/hub:board` | Read/write the agent message board |
-| `/hub:run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
+| `/hub:hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
 
 ## Agent Templates
 

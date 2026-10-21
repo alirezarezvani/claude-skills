@@ -1,11 +1,12 @@
 ---
 name: md-document
-description: Converts long-form markdown (specs, RFCs, reports, plans, explainers) into a single-file, lightly-interactive HTML document with sticky TOC, scrollspy, search filter, code-copy buttons, and design-system-driven brand tokens. Triggers when the markdown-html-orchestrator classifies an input as DOCUMENT, or when invoked directly via /cs:md-document. Reads the design-system config via config_loader.py and inlines the user's 12 derived CSS custom properties; refuses to render if onboarding hasn't run. Single-file output — Google Fonts + Prism.js CDN are the only externals; no framework runtime, no build step. Use after orchestrator routing or after design-system onboarding is confirmed.
-version: 2.10.1
-author: Alireza Rezvani
+description: Converts long-form markdown (specs, RFCs, reports, plans, explainers) into a single-file, lightly-interactive HTML document with sticky TOC, scrollspy, search filter, code-copy buttons, and design-system-driven brand tokens. Triggers when the markdown-html-orchestrator classifies an input as DOCUMENT, or when invoked directly via /cs-md-document. Reads the design-system config via config_loader.py and inlines the user's 12 derived CSS custom properties; refuses to render if onboarding hasn't run. Single-file output — Google Fonts + Prism.js CDN are the only externals; no framework runtime, no build step. Use after orchestrator routing or after design-system onboarding is confirmed.
 license: MIT
-tags: [markdown, html, documentation, single-file, toc, scrollspy, search, code-copy, design-system]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.10.1
+  author: Alireza Rezvani
+  tags: [markdown, html, documentation, single-file, toc, scrollspy, search, code-copy, design-system]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # md-document — Long-form Markdown to HTML
@@ -24,12 +25,12 @@ Output is one `.html` file with sticky TOC, search filter, scrollspy, code-copy 
 | Symptom | Action |
 |---|---|
 | `markdown-html-orchestrator` routes input as DOCUMENT | Invoke this skill |
-| User runs `/cs:md-document <path>.md` directly | Invoke this skill |
+| User runs `/cs-md-document <path>.md` directly | Invoke this skill |
 | User says "convert this spec/report/RFC/plan to HTML" | Invoke this skill |
 | Input is a code review (has ` ```diff ` blocks) | Route to `md-review` instead |
 | Input is a slide deck (clear `---` boundaries) | Route to `md-slides` instead |
 | Input is < 100 lines | Refuse (Shihipar threshold — markdown still wins) |
-| Design-system not onboarded | Refuse, surface `/cs:design-system` |
+| Design-system not onboarded | Refuse, surface `/cs-design-system` |
 
 ## Pipeline
 
@@ -71,7 +72,7 @@ Out of scope: nested lists, HTML inlines, footnotes, definition lists, task list
 ## Hard rules
 
 1. **Refuses input < 100 lines.** Markdown wins below the threshold (Shihipar).
-2. **Refuses without onboarding.** `config_loader.setup_completed()` must return `True`. Otherwise surface `/cs:design-system`.
+2. **Refuses without onboarding.** `config_loader.setup_completed()` must return `True`. Otherwise surface `/cs-design-system`.
 3. **Single-file output.** All CSS + JS inline. Only externals are `fonts.googleapis.com` and `cdn.jsdelivr.net` (Prism). Anything else is a regression.
 4. **Customization must change behavior.** `design_style=editorial` produces 720px-wide layout with 1.75 line-height; `playful` rounds the callouts and adds shadow; `technical` is dense with 0.875rem code. Smoke-tested.
 5. **WCAG-compliant tokens.** Inherits the design-system's WCAG AA palette — body text ≥ 4.5:1 contrast, links iteratively walked to 4.5:1.

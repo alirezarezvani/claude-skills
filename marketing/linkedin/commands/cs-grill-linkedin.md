@@ -1,12 +1,12 @@
 ---
 name: "cs-grill-linkedin"
-description: "/cs:grill-linkedin — Interrogate a LinkedIn plan one forcing question at a time, each with a recommended answer anchored in the plugin's canon. Refuses to start the work until the objective, the audience, the hours, the proof, and the exclusion list survive the questions."
+description: "/cs-grill-linkedin — Interrogate a LinkedIn plan one forcing question at a time, each with a recommended answer anchored in the plugin's canon. Refuses to start the work until the objective, the audience, the hours, the proof, and the exclusion list survive the questions."
 argument-hint: "[the LinkedIn plan or ambition you want pressure-tested]"
 ---
 
-# /cs:grill-linkedin — One question at a time, with a recommendation
+# /cs-grill-linkedin — One question at a time, with a recommendation
 
-**Command:** `/cs:grill-linkedin [your plan]`
+**Command:** `/cs-grill-linkedin [your plan]`
 
 Most LinkedIn plans fail on inputs, not execution. This walks the five questions that decide
 whether any of the tools can run honestly. One question per turn, each with a recommended
@@ -62,12 +62,12 @@ advance.
 ## Stop conditions
 
 - All five answered well enough that `positioning_brief.py` would exit 0 → hand off to
-  [`/cs:linkedin-plan`](cs-linkedin-plan.md).
+  [`/cs-linkedin-plan`](cs-linkedin-plan.md).
 - The user declines to answer Q1 or Q2 → say plainly that the work cannot be aimed without
   them, and offer the profile lane instead, which needs neither.
 
 ## Related
 
 - Agent: [`cs-linkedin-orchestrator`](../agents/cs-linkedin-orchestrator.md)
-- Command: [`/cs:linkedin`](cs-linkedin.md)
+- Command: [`/cs-linkedin`](cs-linkedin.md)
 - Agreement: [`linkedin_operating_agreement.md`](../skills/linkedin-skills/assets/linkedin_operating_agreement.md)

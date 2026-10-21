@@ -1,11 +1,11 @@
 ---
 name: "compliance-readiness"
-description: "/cs:compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before starting a new framework, planning the annual audit calendar, or preparing for certification stage 1."
+description: "/compliance-os:compliance-readiness [program] — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before starting a new framework, planning the annual audit calendar, or preparing for certification stage 1."
 ---
 
-# /cs:compliance-readiness — Compliance Officer Forcing Questions
+# /compliance-os:compliance-readiness — Compliance Officer Forcing Questions
 
-**Command:** `/cs:compliance-readiness <program>`
+**Command:** `/compliance-os:compliance-readiness <program>`
 
 The multi-framework compliance officer pressure-tests any compliance program. Six questions before any new-framework commitment, audit cycle planning, or certification readiness sign-off.
 
@@ -117,19 +117,19 @@ python ../../skills/compliance-os/scripts/audit_simulator.py scope.json
 
 ## Routing
 
-- `/cs:aims-audit` — for ISO 42001-specific forcing questions
-- `/cs:ai-act-readiness` — for EU AI Act-specific forcing questions
-- `/cs:ciso-review` — for cybersecurity strategy
-- `/cs:caio-review` — for executive AI strategy
-- `/cs:gc-review` — for novel-case legal review
-- `/cs:decide` — to log the verdict
-- `/cs:freeze 30` — on certification commitments (multi-year financial impact)
+- `/compliance-os:aims-audit` — for ISO 42001-specific forcing questions
+- `/compliance-os:ai-act-readiness` — for EU AI Act-specific forcing questions
+- `/c-level-agents:ciso-review` — for cybersecurity strategy
+- `/c-level-agents:caio-review` — for executive AI strategy
+- `/c-level-agents:gc-review` — for novel-case legal review
+- `/c-level-agents:decide` — to log the verdict
+- `/c-level-agents:freeze 30` — on certification commitments (multi-year financial impact)
 
 ## Related
 
 - Agent: [`cs-compliance-officer`](../../agents/cs-compliance-officer.md)
 - Skill: [`compliance-os`](../compliance-os/SKILL.md)
-- Adjacent: `ra-qm-team/skills/iso42001-specialist/`, `ra-qm-team/skills/eu-ai-act-specialist/`, `ra-qm-team/skills/information-security-manager-iso27001/`, `ra-qm-team/skills/soc2-compliance/`, `ra-qm-team/skills/gdpr-dsgvo-expert/`
+- Adjacent: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/eu-ai-act-specialist/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/information-security-manager-iso27001/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/`, `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/`
 
 ---
 

@@ -1,0 +1,95 @@
+Moderator: Good evening everyone, thanks for coming. For the record, introduce yourselves briefly — who you are and how often you use ready-meal delivery services.
+Dmitri: Dmitri, 41, I've been using services like this for about three years, right now I'm on two at once, you could say I'm an advanced user of the category.
+Olga: Olga, 29, I order roughly once every two weeks, I watch what I eat, so calories and composition matter a lot to me.
+Igor: Igor, 35, honestly, I tried it a couple times and quit, not exactly an active user.
+Svetlana: Svetlana, 38, I was a subscriber to one of these services for almost a year, but I recently cancelled.
+Artyom: Artyom, 24, I've actually never used services like this at all, I cook myself or order from a cafe.
+Moderator: Great, we've got a nice mix — from a newcomer to experienced users, that's exactly what we need. Today we're discussing a new subscription format from the ready-meal delivery service "MealNearby" — the "Flex" plan, where you can change the weekly meal set with no cancellation penalty. On the screen in front of you is a mockup of the subscription screen. Let's start with general impressions — what caught your eye, what was confusing.
+Dmitri: Well look, I've been using services like this for a while, and the main pain point is the rigid weekly cart that you can't change after Tuesday. Here I see they're promising flexibility, but honestly I don't believe it until I see the price.
+Moderator: Okay, noted — distrust about the price. Olga, what's your first impression?
+Olga: I actually liked it visually, the light interface, and the fact that they show calories right on the dish card — that's convenient, since I watch what I eat.
+Dmitri: Calories are nice, sure, but I'm talking about money, they'll definitely tack something on top for the flexibility.
+Olga: Yeah, you're probably right, they probably will tack something on, I hadn't really thought about that.
+Moderator: Igor, you've been quiet — what do you think about the first impression?
+Igor: I... honestly, I didn't fully get how you switch between weeks going forward.
+Moderator: Can you be more specific — what exactly is unclear on the screen?
+Igor: That little arrow up top, I thought it went back, but it actually pages forward.
+Dmitri: But it's labeled "next week" right there, how much clearer can it get.
+Igor: Maybe I just didn't notice the label, I was in a hurry.
+Moderator: Svetlana, you're an experienced user of similar services — what's your take?
+Svetlana: My experience has been more negative with my current plan, actually, I switched to cooking at home last month specifically because of the cancellation penalties.
+Dmitri: Exactly, that's what I'm talking about — penalties are the main irritant, all three services I've tried rip you off equally on cancellations.
+Svetlana: Well, not equally, "Kitchen24" had a smaller penalty, but it was still unpleasant.
+Moderator: Artyom, you're new to the category — what do you think of this format overall, coming in fresh?
+Artyom: I think it sounds convenient, I'm ready to try it, especially if it's really penalty-free.
+Dmitri: Artyom, you just haven't run into how these flex plans actually work in practice, trust my experience, there's always a catch in the fine print.
+Artyom: Hmm, well yeah, you're probably right, I guess I need to read the terms more carefully then.
+Moderator: Let's move to a specific scenario. Imagine you set up your weekly set, and on Wednesday you realize you'll be on a business trip Tuesday and Thursday. What do you do in this interface?
+Olga: I'd just tap the travel days and remove the delivery, that's what these checkboxes are for, right?
+Dmitri: Right, but look, here it says in small text "by 8pm the day before" — meaning if you remember at the last moment, you still get the penalty.
+Igor: I actually never noticed that 8pm restriction, I still don't see it.
+Moderator: Look carefully at the bottom part of the card, it's in gray text.
+Igor: Ah, I see it, it really is there. Well then it's not that flexible after all, kind of feels like a bit of a con.
+Dmitri: That's exactly what I've been saying from the start.
+Svetlana: Wait though, "by 8pm the day before" is actually pretty generous, "Kitchen24" required two full days notice, and this is almost a full day.
+Moderator: So has your opinion changed compared to the start?
+Svetlana: Yes, at first I was skeptical, but now, comparing it to my past experience, I realize this condition is softer than the competitors'.
+Dmitri: Well, I don't know, a full day is still not much, if your kid gets sick in the middle of the night you're not going to be thinking about lunch at that moment.
+Moderator: Artyom, how do you see this scenario now, after what Svetlana said?
+Artyom: I think Svetlana's right, a full day is better than I first thought, I'm willing to agree this is a decent condition.
+Moderator: Okay, moving on — let's talk about the actual process of swapping a dish. Olga, please show us how you'd swap one dish in the set.
+Olga: I go into the day's card, tap "swap," see three alternatives, pick one — that's it, this part is really simple and fast.
+Dmitri: It worked fine for me too, the only thing that bugged me was that there are only three alternatives, the regular plan has a choice of seven dishes.
+Igor: Why are there so few options specifically on the flex plan, did anyone figure that out?
+Moderator: Good question, let's flag it separately as an open item. Svetlana, do you have a guess?
+Svetlana: I think it's on purpose, so they don't overcomplicate the cooking logistics, they probably have fewer swap options prepared in advance.
+Dmitri: Maybe, but then they should have explained that in the interface instead of just leaving it as is.
+Moderator: Igor, is three options personally enough for you or too few?
+Igor: Honestly three is plenty for me, I'm not picky, as long as there are no nuts.
+Dmitri: Well it's not enough for me, I like variety, three dishes is nothing, I'm used to choosing from a big list.
+Moderator: Artyom, as a new user, does having many swap options matter to you?
+Artyom: Honestly, I also think three is a bit too few, now that you mention it I'm starting to doubt it too, there probably really should be more.
+Moderator: Now let's talk about notifications. Here in the mockup there's a push notification about freezing your subscription while on vacation. Who noticed this feature right away?
+Svetlana: I noticed it immediately and I really liked it, I've never seen anything like this with competitors, this is a real killer feature for me, I travel a lot.
+Olga: Agreed, freezing is very convenient, especially if you're away for a month in the summer.
+Dmitri: Well, freezing exists at half the services on the market actually, nothing new here, I've seen it at "Kitchen24" and at "SimpleEats" too.
+Svetlana: Maybe someone has it, but the ones I used definitely didn't, for me it's new.
+Moderator: Igor, do you agree that freezing is a valuable feature?
+Igor: Yeah, I guess I agree, it's useful too, though I personally never go on long vacations.
+Moderator: Artyom, is this feature important to you?
+Artyom: It's hard for me to say right now, I don't travel that often, but it sounds reasonable as an option.
+Moderator: Okay, now about the price — here's the final screen with the weekly cost breakdown. Dmitri, you've been waiting for this moment all evening.
+Dmitri: There it is, finally. Look — it says "from 3200 rubles," and that "from" really annoys me, because you don't know the final amount until the very last step.
+Olga: Agreed, "from" throws me off too, usually that means the real price will be higher.
+Igor: It didn't bother me, I didn't really notice the word "from," I just read "3200" and that was it.
+Moderator: Svetlana, your opinion on the price?
+Svetlana: 3200 a week is more than I'm paying now for the rigid plan without flexibility, a difference of about 400 rubles, and I'm not sure I'm ready to pay extra for a cancellation option I might not even use.
+Dmitri: Exactly, paying extra for flexibility that's actually cut down by this 8pm rule and three swap options — that's a shaky deal.
+Artyom: For me, as a newcomer, 3200 sounds fine, that's about what I was planning to spend anyway, I'm ready to accept that price.
+Moderator: Seems like there's a clear split here — newer users like Artyom find the price fine, while experienced ones like Dmitri and Svetlana think it's overpriced.
+Dmitri: Well naturally, we have something to compare it to, and he doesn't.
+Svetlana: I agree with Dmitri there, a newcomer has no baseline for comparison.
+Artyom: Maybe you're right, I guess I never really compared it to other plans, I was just looking at the raw number.
+Moderator: One more thing — the packaging. In the new plan, meals come in cardboard boxes instead of plastic containers like before. What do you think?
+Olga: That's really great, I've actually been trying to keep less plastic in the house, for me this is a plus, even bigger than the flexibility of the plan itself.
+Igor: Yeah, cardboard is better, agreed, it's easier to throw away at home, doesn't take up space in the trash like plastic does.
+Svetlana: Totally agree, in my previous service the containers were huge, nowhere to put them, cardboard is clearly better.
+Dmitri: Yeah, I won't argue with that either, cardboard is a plus, the only thing is I don't know how it'll hold up with soups, if they ever add those.
+Artyom: Well, I have no objections either, sounds logical, cardboard really does mean less hassle with disposal.
+Moderator: Seems like everyone agreed right away here without much debate. One more point — delivery time. On the flex plan the delivery window has been narrowed to one hour instead of three, like before. Does anyone here think differently from the rest? Is there anyone who flat-out disagrees with everyone else on this point?
+Dmitri: An hour is actually more convenient, I'd rather know the exact time than wait at home for three hours not knowing when, so I'm for narrowing the window.
+Svetlana: Agreed, three hours was inconvenient, your whole evening was tied to being at home, an hour is much better.
+Olga: I think the same way, a narrow window is a plus, I don't see a problem with it at all.
+Moderator: Igor, what about you? [To the silent participant] what do you think?
+Igor: Honestly, for me it's actually the opposite — I work shifts, and a tight one-hour window is inconvenient for me, I'd rather wait longer but be sure I'll actually catch the window.
+Moderator: So you're the only one with a different opinion on this point?
+Igor: Looks like it, everyone else is fine with an hour, but with my schedule it's harder for me to fit into exactly one hour, I'd want a wider window left for me.
+Dmitri: Well that's a special case, for most people with a normal schedule an hour is a plus, not a minus.
+Moderator: Okay, moving on — last block, imagine you're making a recommendation to a friend. Would you recommend this plan or not? Let's start with Olga.
+Olga: I'd recommend it, with the caveat about the markup we talked about, but overall I like the interface and the calories.
+Igor: I'd probably recommend it too, I honestly don't care much whether it's three swap options or seven.
+Dmitri: I wouldn't recommend it in its current form, there's too much fine print with conditions, and the "from" price is manipulative.
+Svetlana: I'd tell a friend to wait, watch the reviews from the first few weeks, I'm not ready to sign up myself right now.
+Moderator: Artyom, what about you?
+Artyom: I'd try it myself first, honestly, I liked most of what was shown.
+Moderator: Thank you all so much, that wraps up today's session.

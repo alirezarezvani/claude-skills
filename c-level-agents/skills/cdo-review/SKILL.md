@@ -1,11 +1,11 @@
 ---
 name: "cdo-review"
-description: "/cs:cdo-review <plan> — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring. Use when validating training-data rights before model work, choosing warehouse vs lakehouse vs mesh, or valuing data assets for productization or M&A."
+description: "/c-level-agents:cdo-review [plan] — Decision-driven Chief Data Officer interrogation of any plan that touches training data, data architecture, data productization, or data team hiring. Use when validating training-data rights before model work, choosing warehouse vs lakehouse vs mesh, or valuing data assets for productization or M&A."
 ---
 
-# /cs:cdo-review — CDO Forcing Questions
+# /c-level-agents:cdo-review — CDO Forcing Questions
 
-**Command:** `/cs:cdo-review <plan>`
+**Command:** `/c-level-agents:cdo-review <plan>`
 
 The decision-driven CDO pressure-tests any plan that touches data strategy. Six questions before any commitment to a data architecture, AI training run, data productization, or data team hire.
 
@@ -60,13 +60,13 @@ The decision-driven CDO pressure-tests any plan that touches data strategy. Six 
 
 ```bash
 # 1. AI training audit (if any ML / AI use case)
-python ../../../c-level-advisor/skills/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json
 
 # 2. Architecture decision (if changing the stack)
-python ../../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json
 
 # 3. Data asset valuation (if productizing or pre-M&A)
-python ../../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
 ```
 
 ## Output Format
@@ -108,18 +108,18 @@ python ../../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_a
 
 ## Routing
 
-- `/cs:gc-review` — for any productization or licensing path
-- `/cs:ciso-review` — for any architecture change touching customer data
-- `/cs:cfo-review` — for build-vs-buy TCO and M&A valuation math
+- `/c-level-agents:gc-review` — for any productization or licensing path
+- `/c-level-agents:ciso-review` — for any architecture change touching customer data
+- `/c-level-agents:cfo-review` — for build-vs-buy TCO and M&A valuation math
 - `cs-chro-advisor` agent — for data team hires (comp, ladder, leveling)
-- `/cs:decide` — log the verdict
-- `/cs:freeze 90` — on multi-year infrastructure contracts
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 90` — on multi-year infrastructure contracts
 
 ## Related
 
 - Agent: [`cs-cdo-advisor`](../../agents/cs-cdo-advisor.md)
-- Skill: [`chief-data-officer-advisor`](../../../c-level-advisor/skills/chief-data-officer-advisor/SKILL.md)
-- Adjacent: `../../../c-level-advisor/skills/general-counsel-advisor/` (contractual constraints), `../../../c-level-advisor/skills/cto-advisor/` (architecture capacity)
+- Skill: [`chief-data-officer-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/SKILL.md)
+- Adjacent: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/` (contractual constraints), `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cto-advisor/` (architecture capacity)
 
 ---
 

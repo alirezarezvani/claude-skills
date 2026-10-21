@@ -1,7 +1,6 @@
 ---
 name: cs-cdo-advisor
 description: Decision-driven Chief Data Officer advisor for AI training data rights, data product strategy (warehouse/lakehouse/mesh + build-vs-buy), B2B customer-data-as-asset valuation, and data team org evolution. Strategic only — does not duplicate engineering data skills.
-skills: c-level-advisor/skills/chief-data-officer-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -32,31 +31,31 @@ Differentiates from `cs-cto-advisor` (architecture), `cs-ciso-advisor` (security
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/chief-data-officer-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/`
 
 ### Python Tools
 
 1. **AI Training Data Audit**
-   - Path: `../../c-level-advisor/skills/chief-data-officer-advisor/scripts/ai_training_data_audit.py`
-   - Usage: `python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/ai_training_data_audit.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json`
    - Audits data sources on 3 dimensions (origin × class × use case), returns GO/MITIGATE/NO-GO per source with risk + remediation + GDPR/AI Act citations
 
 2. **Data Product Strategy Picker**
-   - Path: `../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_product_strategy_picker.py`
-   - Usage: `python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_product_strategy_picker.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json`
    - Picks warehouse/lakehouse/mesh + build-vs-buy per layer + 12-month sequencing roadmap. Deterministic, derived from profile.
 
 3. **Data Asset Valuator**
-   - Path: `../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_asset_valuator.py`
-   - Usage: `python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_asset_valuator.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json`
    - Computes strategic value (0-10), moat strength, M&A multiplier (with carve-out penalties), and ranks 3 productization paths
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/chief-data-officer-advisor/references/ai_training_data_rights.md` — Training rights matrix + GDPR Art. 6 + EU AI Act + US state patchwork
-- `../../c-level-advisor/skills/chief-data-officer-advisor/references/data_product_strategy.md` — Architecture kill criteria + build-vs-buy decision tree + sequencing pattern
-- `../../c-level-advisor/skills/chief-data-officer-advisor/references/customer_data_as_asset.md` — Valuation framework + 3 productization paths + M&A diligence prep checklist + contractual constraint audit
-- `../../c-level-advisor/skills/chief-data-officer-advisor/references/data_team_org_evolution.md` — Stage-to-role map + centralize-vs-embed trigger + anti-patterns
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/references/ai_training_data_rights.md` — Training rights matrix + GDPR Art. 6 + EU AI Act + US state patchwork
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/references/data_product_strategy.md` — Architecture kill criteria + build-vs-buy decision tree + sequencing pattern
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/references/customer_data_as_asset.md` — Valuation framework + 3 productization paths + M&A diligence prep checklist + contractual constraint audit
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/references/data_team_org_evolution.md` — Stage-to-role map + centralize-vs-embed trigger + anti-patterns
 
 ## Workflows
 
@@ -66,11 +65,11 @@ Differentiates from `cs-cto-advisor` (architecture), `cs-ciso-advisor` (security
 ```bash
 # 1. Build sources.json (one entry per source, tagged with origin × class × use case)
 # 2. Run the audit
-python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/ai_training_data_audit.py sources.json
 # 3. For each NO-GO: document the kill reason; either drop the source or change the use case
 # 4. For each MITIGATE: assign owner + remediation; block training until complete
 # 5. Cross-check top-3 mitigations with cs-general-counsel-advisor
-# 6. Log via /cs:decide
+# 6. Log via /c-level-agents:decide
 ```
 
 ### Workflow 2: Data Architecture Decision (1 day)
@@ -79,11 +78,11 @@ python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/ai_traini
 ```bash
 # 1. Build profile.json (stage, consumers, volume, ML models, culture, priorities)
 # 2. Run the picker
-python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_product_strategy_picker.py profile.json
 # 3. Cross-check architecture choice with cs-cto-advisor (engineering capacity)
 # 4. Cross-check 3-year TCO with cs-cfo-advisor
 # 5. Identify kill criteria explicitly; commit to revisiting in Q4
-# 6. Log via /cs:decide; consider /cs:freeze 90 on multi-year SaaS contracts
+# 6. Log via /c-level-agents:decide; consider /c-level-agents:freeze 90 on multi-year SaaS contracts
 ```
 
 ### Workflow 3: Data Asset Valuation for M&A Prep (3 days)
@@ -92,19 +91,19 @@ python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_prod
 ```bash
 # 1. Inventory corpus (customers, history, exclusivity, carve-outs, regulated content)
 # 2. Run the valuator
-python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
 # 3. Run the M&A diligence checklist in customer_data_as_asset.md
 # 4. Surface contractual carve-outs to cs-general-counsel-advisor
 # 5. Decide productization path (benchmark → embedding → license, in viability order)
 # 6. Customer trust impact assessment (CEO + Head of CS sign-off)
-# 7. Log via /cs:decide
+# 7. Log via /c-level-agents:decide
 ```
 
 ### Workflow 4: Data Team Roadmap (1 week)
 **Goal:** Sequence the next 18 months of data hires aligned to business decisions.
 
 1. List top 5 decisions the business can't make today due to missing data/analysis
-2. Map each decision to the role that unblocks it (see ../../c-level-advisor/skills/chief-data-officer-advisor/references/data_team_org_evolution.md)
+2. Map each decision to the role that unblocks it (see ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/references/data_team_org_evolution.md)
 3. Sequence hires (one at a time, ramp before next)
 4. Cross-check with cs-chro-advisor on comp bands + leveling
 5. Identify centralize-vs-embed trigger date
@@ -125,11 +124,11 @@ python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_asse
 #!/bin/bash
 echo "📊 CDO Quarterly Review"
 echo "1. Training data audit"
-python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/ai_training_data_audit.py current-sources.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/ai_training_data_audit.py current-sources.json
 echo "2. Architecture review"
-python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_product_strategy_picker.py current-profile.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_product_strategy_picker.py current-profile.json
 echo "3. Data asset valuation"
-python ../../c-level-advisor/skills/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/scripts/data_asset_valuator.py corpus.json
 echo "Kill criteria + checkpoint dates in each output."
 ```
 
@@ -153,9 +152,9 @@ echo "Kill criteria + checkpoint dates in each output."
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/chief-data-officer-advisor/SKILL.md](../../c-level-advisor/skills/chief-data-officer-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
-- Sibling command: [`/cs:cdo-review`](../skills/cdo-review/SKILL.md)
+- Sibling command: [`/c-level-agents:cdo-review`](../skills/cdo-review/SKILL.md)
 
 ---
 

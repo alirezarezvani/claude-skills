@@ -1,6 +1,6 @@
 ---
 title: "/cs-notebooklm — Slash Command for AI Coding Agents"
-description: "/cs:notebooklm — NotebookLM browser automation. Action-routing intake (Q1: read / add source / Studio output / create new) + per-action Q2-Q4. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-notebooklm — NotebookLM browser automation. Action-routing intake (Q1: read / add source / Studio output / create new) + per-action Q2-Q4. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-notebooklm
@@ -11,7 +11,7 @@ description: "/cs:notebooklm — NotebookLM browser automation. Action-routing i
 </div>
 
 
-**Command:** `/cs:notebooklm`
+**Command:** `/cs-notebooklm`
 
 The `cs-notebooklm` persona controls Google NotebookLM via browser automation across 4 core actions.
 
@@ -150,7 +150,7 @@ python ../skills/notebooklm/scripts/async_action_classifier.py --action audio_ov
 - Agent: [`cs-notebooklm`](https://github.com/alirezarezvani/claude-skills/tree/main/research/notebooklm/agents/cs-notebooklm.md)
 - Skill: [`notebooklm`](https://github.com/alirezarezvani/claude-skills/tree/main/research/notebooklm/skills/notebooklm/SKILL.md)
 - Source spec: `megaprompts/03-notebooklm-megaprompt.md` (maintainer-local draft spec — gitignored, not in the public repo)
-- Research-domain siblings (different shape): `/cs:pulse`, `/cs:litreview`, `/cs:grants`, `/cs:dossier`, `/cs:patent`, `/cs:syllabus`
+- Research-domain siblings (different shape): `/cs-pulse`, `/cs-litreview`, `/cs-grants`, `/cs-dossier`, `/cs-patent`, `/cs-syllabus`
 
 ---
 

@@ -147,7 +147,7 @@ python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py soc2_
 
 - Skill: [../../ra-qm-team/skills/soc2-compliance/SKILL.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance/SKILL.md)
 - Playbook: [../../ra-qm-team/skills/soc2-compliance/references/soc2_audit_playbook.md](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/soc2-compliance/references/soc2_audit_playbook.md)
-- Sibling command: [`/cs:soc2-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/soc2-audit-prep/SKILL.md)
+- Sibling command: [`/compliance-os:soc2-audit-prep`](https://github.com/alirezarezvani/claude-skills/tree/main/compliance-os/skills/soc2-audit-prep/SKILL.md)
 
 ---
 

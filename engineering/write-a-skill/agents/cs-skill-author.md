@@ -1,7 +1,6 @@
 ---
 name: cs-skill-author
 description: Skill-author persona. Forcing-question interrogator before any new-skill commit. Runs Matt Pocock's 6-item review checklist as a 6-question gate. Refuses to accept skills with stale time-bound claims, vague descriptions, missing "Use when" triggers, or SKILL.md > 100 lines without progressive disclosure.
-skills: engineering/write-a-skill/skills/write-a-skill
 domain: engineering
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -98,7 +97,7 @@ python ../../karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py p
 # 1. Verify license + permissibility
 # 2. Copy upstream SKILL.md content verbatim where appropriate
 # 3. Add attribution: README.md credits + .claude-plugin/authoring-notes.json attribution block + SKILL.md derivation metadata (never in plugin.json — CI hard-fails extension keys there)
-# 4. Add wrapper layer per this repo's pattern (validators + references + cs-* + /cs:*)
+# 4. Add wrapper layer per this repo's pattern (validators + references + cs-* + /cs-*)
 # 5. Validate per Workflow 1
 ```
 
@@ -140,7 +139,7 @@ done
 
 - Skill: [../skills/write-a-skill/SKILL.md](../skills/write-a-skill/SKILL.md)
 - Companion tooling: [../skills/write-a-skill/references/companion_tooling.md](../skills/write-a-skill/references/companion_tooling.md)
-- Sibling command: [`/cs:write-a-skill`](../commands/cs-write-a-skill.md)
+- Sibling command: [`/cs-write-a-skill`](../commands/cs-write-a-skill.md)
 
 ---
 

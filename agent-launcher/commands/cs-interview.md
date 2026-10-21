@@ -3,7 +3,7 @@ description: Phase 1 — interview the founder into a validated CMA build sheet 
 argument-hint: "[optional: a one-line description of the agent's job]"
 ---
 
-# /cs:interview — Phase 1: Interview → Plan
+# /cs-interview — Phase 1: Interview → Plan
 
 Run the `interview` skill.
 

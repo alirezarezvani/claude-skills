@@ -1,9 +1,9 @@
 ---
-title: "/cs:soc2-audit-prep — SOC 2 Type II Forcing Questions — Claude Code Plugin & Agent Skill"
-description: "/cs:soc2-audit-prep <scope> — SOC 2 Type II readiness 6-question forcing interrogation. Observation-period focused. Use before Type II observation. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/compliance-os:soc2-audit-prep — SOC 2 Type II Forcing Questions — Claude Code Plugin & Agent Skill"
+description: "/compliance-os:soc2-audit-prep <scope> — SOC 2 Type II readiness 6-question forcing interrogation. Observation-period focused. Use before Type II observation. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /cs:soc2-audit-prep — SOC 2 Type II Forcing Questions
+# /compliance-os:soc2-audit-prep — SOC 2 Type II Forcing Questions
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-shield-lock-outline: Compliance OS</span>
@@ -16,7 +16,7 @@ description: "/cs:soc2-audit-prep <scope> — SOC 2 Type II readiness 6-question
 </div>
 
 
-**Command:** `/cs:soc2-audit-prep <scope>`
+**Command:** `/compliance-os:soc2-audit-prep <scope>`
 
 The SOC 2 Type II auditor pressure-tests any SOC 2 work. Six observation-period-disciplined questions before any Type II cycle.
 
@@ -146,10 +146,10 @@ python ../../skills/compliance-os/scripts/audit_simulator.py soc2_scope.json
 
 ## Routing
 
-- `/cs:compliance-readiness` — for multi-framework view
-- `/cs:iso27001-audit-prep` — for ISO 27001 cross-walk pair (75% overlap)
-- `/cs:gdpr-audit-prep` — for Privacy TSC overlap
-- `/cs:ciso-review` — for executive cybersecurity strategy
+- `/compliance-os:compliance-readiness` — for multi-framework view
+- `/compliance-os:iso27001-audit-prep` — for ISO 27001 cross-walk pair (75% overlap)
+- `/compliance-os:gdpr-audit-prep` — for Privacy TSC overlap
+- `/c-level-agents:ciso-review` — for executive cybersecurity strategy
 
 ## Related
 

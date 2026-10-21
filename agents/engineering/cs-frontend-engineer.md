@@ -1,10 +1,8 @@
 ---
 name: cs-frontend-engineer
-description: Frontend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (device, LCP target, rendering, bundle budget, SEO vs auth, design system, WCAG), picks the framework/rendering profile, forks into specialists (a11y-audit, apple-hig-expert, epic-design, performance-profiler, playwright-pro — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context. Invoke via /cs:frontend-review or Agent({subagent_type:"cs-frontend-engineer",...}).
-skills: engineering-team/senior-frontend
+description: Frontend-engineering orchestrator. Walks the 7 Matt Pocock forcing questions (device, LCP target, rendering, bundle budget, SEO vs auth, design system, WCAG), picks the framework/rendering profile, forks into specialists (a11y-audit, apple-hig-expert, epic-design, performance-profiler, playwright-pro — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context. Invoke via /cs-frontend-review or Agent({subagent_type:"cs-frontend-engineer",...}).
 domain: engineering
 tools: [Read, Write, Bash, Grep, Glob]
-context: fork
 ---
 
 # cs-frontend-engineer — Frontend Orchestrator
@@ -128,7 +126,7 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 ## Invocation Contract
 
-1. `/cs:frontend-review <prompt>`
+1. `/cs-frontend-review <prompt>`
 2. `Agent({subagent_type:"cs-frontend-engineer", prompt:"..."})`
 3. Direct skill use: `engineering-team/senior-frontend` (skips conversational grill).
 

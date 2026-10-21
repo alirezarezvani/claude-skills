@@ -1,0 +1,110 @@
+1	Interviewer: Thanks for agreeing to talk. Tell me about when you visited the Luminary Museum of Optics and Light — and who with?
+2	Visitor: Oh, no problem, it was actually nice to remember, honestly. It was about three weeks ago, on a Saturday, I went with my niece, she's ten.
+3	Interviewer: Had you been there before?
+4	Visitor: No, first time, I actually found out about it by accident.
+5	Interviewer: How did you find out?
+6	Visitor: My friend sent me a clip in her stories, something about a room with endless mirrors, you know, that tunnel effect. It looked really beautiful, I was glued to it for like a couple of minutes.
+7	Interviewer: And what did you do after that?
+8	Visitor: I went to the museum's website, to check the schedule and prices.
+9	Interviewer: What was your impression of the website?
+10	Visitor: Well, the website looked pretty old, honestly, I even started doubting the museum was still open, the last news post on there was dated last year.
+11	Interviewer: But you decided to go anyway.
+12	Visitor: Yeah, because the photos in the stories were really eye-catching, I figured my niece would love it, she's obsessed with anything that glows and flashes.
+13	Interviewer: What were your expectations before the visit?
+14	Visitor: I thought it would be something like an interactive science center, you know, like for kids, with a bunch of stuff you can touch with your hands.
+15	Interviewer: Tell me about getting there and the entrance.
+16	Visitor: We drove there, the museum turned out to be kind of out of the way, behind a market, the GPS glitched twice because the entrance is from the courtyard, not from the main street.
+17	Interviewer: Was that inconvenient?
+18	Visitor: Yeah, we wasted like fifteen extra minutes, circled the block, and there's no proper parking either, I ended up right by the curb.
+19	Interviewer: What was it like at the entrance?
+20	Visitor: There was a small line at the entrance, like five people, one ticket counter, and the same cashier both sells tickets and answers questions on the phone.
+21	Interviewer: How did the ticket counter feel?
+22	Visitor: Slow, honestly, we stood there for like ten minutes, even though there weren't many people.
+23	Interviewer: Did you buy the ticket online or on site?
+24	Visitor: On site, cash, I actually never figured out if you could buy in advance, I didn't find a button like that on the website.
+25	Interviewer: What happened after the ticket counter?
+26	Visitor: They gave us a paper map of the halls, pretty worn out, you could tell it was a copy of a copy, the letters were faded in places.
+27	Interviewer: Where did you go first?
+28	Visitor: The first hall was about the history of lenses, there were display cases with old glasses and telescopes, my niece got bored right away, honestly.
+29	Interviewer: Why?
+30	Visitor: There were just plaques with text, not much to read for anyone, a ten-year-old just doesn't get into that at all.
+31	Interviewer: Did you read the plaques?
+32	Visitor: I tried, but the font was tiny, and the display glass was glaring from the lamps too, I never managed to finish reading a couple of them.
+33	Interviewer: And what came next along the route?
+34	Visitor: The second hall — that was already the mirror room, with the infinite reflection and the colored lighting.
+35	Interviewer: What was your impression?
+36	Visitor: That was just wow, honestly, even better than in the video, there's also quiet music playing there, and the lighting slowly changes color, we hung around there for like fifteen minutes, taking photos.
+37	Interviewer: So that was the peak of the visit?
+38	Visitor: Yes, definitely, that alone was worth the trip, my niece was just screaming with delight, jumping around.
+39	Interviewer: Did the attendant say anything about this hall?
+40	Visitor: No, there was just a woman sitting in the corner watching to make sure nobody touched the mirrors with their hands, there was no commentary at all.
+41	Interviewer: What happened after the mirror room?
+42	Visitor: Next was the hall with the laser mazes, for an extra fee, that kind of threw me off a bit.
+43	Interviewer: What do you mean, extra fee?
+44	Visitor: Well, nobody warned us at the entrance that some halls were separately paid, I found out about it already standing in front of the door, from the attendant.
+45	Interviewer: How did you react?
+46	Visitor: I got a little angry, honestly, because the ticket on the website didn't say anything about an extra charge, you feel a bit cheated.
+47	Interviewer: Did you pay?
+48	Visitor: Yeah, my niece begged so much, and well, fine, the amount wasn't huge, but there was a bad aftertaste left.
+49	Interviewer: How did you like the laser maze?
+50	Visitor: Also great, actually, fun, we ran around, jumped over the beams, my niece went through it twice in a row.
+51	Interviewer: Where did you go after the maze?
+52	Visitor: To the hall with optical illusions, there's all sorts of stuff like the Ames room, where you look tiny one moment and huge the next.
+53	Interviewer: Did you like it?
+54	Visitor: It was fine, average, nothing outstanding, I've seen similar stuff at other illusion museums.
+55	Interviewer: Which ones, for example?
+56	Visitor: Last summer we were at an illusion museum in another city, honestly it was more varied there, more different rooms, and the staff actually showed how the trick worked.
+57	Interviewer: And here they didn't show you?
+58	Visitor: No, here it was just plaques again, without any real explanation of how it works physically.
+59	Interviewer: Did you make it to the end of the route?
+60	Visitor: Yes, at the end there was a small hall with star sky projections, like a mini-planetarium.
+61	Interviewer: What was your impression of that hall?
+62	Visitor: That's where it really fell apart, honestly, the projector was flickering, the picture was jittering, the sound was crackling, it felt like the equipment was really old and nobody had fixed it in a long time.
+63	Interviewer: How long were you there?
+64	Visitor: Three minutes tops, my niece said "ugh, this is like a broken TV," and we left earlier than planned.
+65	Interviewer: Where did you go after the exhibition?
+66	Visitor: We looked for the restroom, actually, it took a while, there are no signs at all, we had to ask the attendant, she waved her hand somewhere toward the end of the hallway.
+67	Interviewer: Did you find it?
+68	Visitor: Yes, but it wasn't very clean, honestly, and there was no paper.
+69	Interviewer: What about a cafe or a snack bar?
+70	Visitor: That's a whole separate topic, I thought there would at least be coffee from a machine, but there was nothing at all, no vending machine, no snack bar.
+71	Interviewer: Was that a problem?
+72	Visitor: Yes, we got hungry, we had to go find a cafe in the city afterward, and it would've been nice to grab a bite right there and keep going, maybe go into the mirror room again.
+73	Interviewer: Was there a gift shop?
+74	Visitor: There was a small stand with magnets and postcards near the exit, but it didn't take cards, cash only, and I didn't have small bills.
+75	Interviewer: So you didn't buy anything?
+76	Visitor: No, it's a shame, my niece wanted a magnet with the mirror room on it, but I only had one five-hundred-ruble bill, and they didn't have change either.
+77	Interviewer: How did the overall atmosphere in the museum feel — crowds, noise?
+78	Visitor: There weren't many people, no crowding, that's a plus, you didn't have to push through narrow hallways.
+79	Interviewer: Who else did you talk to during the visit, besides the attendants?
+80	Visitor: Not really anyone in particular, except a family with kids in the mirror room, we took photos together, exchanged a couple of jokes, it was fun.
+81	Interviewer: Did you take a lot of photos?
+82	Visitor: A whole lot in the mirror room, then a bit more in the maze, we barely photographed the rest, there wasn't much reason to.
+83	Interviewer: Did you post the photos anywhere?
+84	Visitor: Yes, I posted them in my stories, actually, exactly like that friend who started all this, it turned out kind of funny.
+85	Interviewer: What would you have wanted to find in the museum but didn't?
+86	Visitor: I would've liked an audio guide or a tour guide at least on some schedule, because just plaques don't give you any understanding of what's actually going on physics-wise.
+87	Interviewer: Anything else missing?
+88	Visitor: Online ticket purchases were definitely missing, and a proper cafe, and signs to the restroom.
+89	Interviewer: If you had to describe the whole visit in one phrase, how would you put it?
+90	Visitor: It's like a good song with terrible sound at the end, you know, the mirror room is just gorgeous, but toward the finale everything fell apart into disappointment with that planetarium and no food.
+91	Interviewer: And overall, are you glad you went?
+92	Visitor: Overall, yes, because of the mirror room, it was worth it for that alone, my niece still talks about it.
+93	Interviewer: What will you tell people if they ask about this museum?
+94	Visitor: I'll say the mirror room is a must-see, it's just gorgeous, but you can skip the rest, especially I wouldn't recommend the planetarium, and I'll warn them that some halls cost extra.
+95	Interviewer: Have you already told someone?
+96	Visitor: Yes, I told a coworker on Monday, showed her photos from the mirror room, she got excited to go too, with her son.
+97	Interviewer: Would you go back there yourself?
+98	Visitor: Probably yes, but not soon, maybe in six months to a year, and mostly for the mirror room, I don't see the point in seeing the rest again.
+99	Interviewer: What would need to change for you to come back sooner?
+100	Visitor: If they fixed the planetarium and had a cafe, I'd come back a lot more willingly, you could spend the whole day there.
+101	Interviewer: Did the attendant in the mirror room stand out to you for anything besides just keeping order?
+102	Visitor: Actually, yes, it was funny — at some point she quietly sang along to the song playing from the speakers, I'm not even sure if she noticed that I heard it, but for some reason it made me feel so warm, really human, even though technically it's not part of the exhibition at all.
+103	Interviewer: Do you think the museum is even aware that moments like that create an impression?
+104	Visitor: I doubt it, honestly, it's not part of the program, just a coincidence, I doubt they track or value that in any way.
+105	Interviewer: Going back to the extra charge for the maze — do you think that was a mistake by the cashier or is it intentional at the museum?
+106	Visitor: I honestly don't even know, maybe they just forgot to update the information on the website, or maybe they deliberately don't write it so a person already there doesn't turn around and leave, it's hard to say for sure.
+107	Interviewer: Anything else important you want to add about this visit?
+108	Visitor: Just that if it weren't for my friend with that video in her stories, I would never have found out about this place at all, it's really not well-known in the city.
+109	Interviewer: Thank you so much for the detailed account.
+110	Visitor: Oh, no problem, it was nice to reminisce.

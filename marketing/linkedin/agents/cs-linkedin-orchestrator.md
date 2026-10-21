@@ -1,7 +1,6 @@
 ---
 name: cs-linkedin-orchestrator
 description: Routes any LinkedIn organic-growth request to the right lane and gates it against LinkedIn's User Agreement before a word is drafted. Runs the policy gate (ALLOW / CONSTRAIN / REFUSE against §8.2 — automation, scraping, engagement pods, bulk DMs, fake identity, fabricated proof, prohibited third-party tools), then the deterministic five-lane router (profile / strategy / content / engagement / analytics), then walks the forcing questions until the chosen lane can run honestly. Holds no LinkedIn credentials and sends nothing. Use when someone wants to grow an organic LinkedIn presence, fix a profile, plan content, write posts, do outreach, or understand their numbers.
-skills: marketing/linkedin/skills/linkedin-skills
 domain: marketing
 model: opus
 tools: [Read, Bash, Write, Edit]

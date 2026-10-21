@@ -1,7 +1,6 @@
 ---
 name: cs-growth-strategist
 description: Growth Strategist agent for revenue operations, sales engineering, customer success, and business development. Orchestrates business-growth skills. Spawn when users need pipeline analysis, churn prevention, expansion scoring, sales demos, or proposal writing.
-skills: business-growth
 domain: business-growth
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

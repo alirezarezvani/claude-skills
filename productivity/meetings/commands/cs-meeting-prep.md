@@ -1,12 +1,12 @@
 ---
 name: "cs-meeting-prep"
-description: "/cs:meeting-prep — Gate a meeting before it exists: price it in real dollars (attendees x minutes x rate + optional 23-minute refocus overhead), demand a decision + agenda + owner, then either recommend async or build a timeboxed, decision-first agenda where every topic has a desired outcome."
+description: "/cs-meeting-prep — Gate a meeting before it exists: price it in real dollars (attendees x minutes x rate + optional 23-minute refocus overhead), demand a decision + agenda + owner, then either recommend async or build a timeboxed, decision-first agenda where every topic has a desired outcome."
 argument-hint: "[the meeting: who, how long, what decision]"
 ---
 
-# /cs:meeting-prep — Cost Gate → Timeboxed Agenda (or Async)
+# /cs-meeting-prep — Cost Gate → Timeboxed Agenda (or Async)
 
-**Command:** `/cs:meeting-prep [the meeting]`
+**Command:** `/cs-meeting-prep [the meeting]`
 
 Most meetings should be an email. This command makes that a testable claim: it prices the meeting,
 runs the decision/agenda/owner gate, and only if the meeting survives does it build the timeboxed
@@ -21,7 +21,7 @@ agenda. An ASYNC verdict is a win — draft the memo instead.
 
 ## When NOT to Run
 
-- After the meeting, with notes in hand → use `/cs:meeting-actions`
+- After the meeting, with notes in hand → use `/cs-meeting-actions`
 - Sprint ceremonies, standups, and Jira delivery cadence → `project-management/` owns those
 - Designing an org-wide comms program → `business-operations/internal-comms`
 
@@ -79,7 +79,7 @@ python ../skills/meetings/scripts/agenda_builder.py --length 45 \
 
 - Agent: [`cs-meeting-discipline`](../agents/cs-meeting-discipline.md)
 - Skill: [`meetings`](../skills/meetings/SKILL.md)
-- Sibling command: [`/cs:meeting-actions`](cs-meeting-actions.md) (post-meeting extraction)
+- Sibling command: [`/cs-meeting-actions`](cs-meeting-actions.md) (post-meeting extraction)
 
 ---
 

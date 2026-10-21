@@ -2,9 +2,9 @@
 
 > Most meetings should be an email. This plugin makes that a testable claim instead of a complaint.
 
-`/cs:meeting-prep` prices a meeting in real dollars and refuses to let it exist without a decision,
+`/cs-meeting-prep` prices a meeting in real dollars and refuses to let it exist without a decision,
 an agenda, and an owner. If it survives the gate, it gets a timeboxed, decision-first agenda where
-every topic has a desired outcome. `/cs:meeting-actions` then turns the raw notes into an
+every topic has a desired outcome. `/cs-meeting-actions` then turns the raw notes into an
 owner + due-date checklist — and flags every orphan, because an action item without an owner and a
 date is theater.
 
@@ -34,14 +34,14 @@ python skills/meetings/scripts/action_item_extractor.py --sample
 ```
 
 Or just say **"should this be a meeting?"** / **"pull the action items out of these notes"**, or run
-`/cs:meeting-prep` and `/cs:meeting-actions`.
+`/cs-meeting-prep` and `/cs-meeting-actions`.
 
 ## What's in the box
 
 - **Skill:** [`skills/meetings/SKILL.md`](skills/meetings/SKILL.md)
 - **Agent:** [`agents/cs-meeting-discipline.md`](agents/cs-meeting-discipline.md)
-- **Commands:** [`commands/cs-meeting-prep.md`](commands/cs-meeting-prep.md) — `/cs:meeting-prep` ·
-  [`commands/cs-meeting-actions.md`](commands/cs-meeting-actions.md) — `/cs:meeting-actions`
+- **Commands:** [`commands/cs-meeting-prep.md`](commands/cs-meeting-prep.md) — `/cs-meeting-prep` ·
+  [`commands/cs-meeting-actions.md`](commands/cs-meeting-actions.md) — `/cs-meeting-actions`
 - **3 stdlib scripts:** `meeting_cost_calculator.py`, `agenda_builder.py`, `action_item_extractor.py`
 - **3 references** (Rogelberg / HBR / Grove / Amazon canon, 5-7 sources each), **2 assets**
   (worked timeboxed agenda + fillable should-this-be-a-meeting worksheet)

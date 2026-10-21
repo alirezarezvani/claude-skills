@@ -1,6 +1,6 @@
 ---
 title: "/cs-weekly-review — Slash Command for AI Coding Agents"
-description: "/cs:weekly-review — Run a GTD weekly review: GET CLEAR (collect, inboxes to zero, empty your head), GET CURRENT (next actions, both calendars. Slash command for Claude Code, Codex CLI, Gemini CLI."
+description: "/cs-weekly-review — Run a GTD weekly review: GET CLEAR (collect, inboxes to zero, empty your head), GET CURRENT (next actions, both calendars. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
 # /cs-weekly-review
@@ -11,7 +11,7 @@ description: "/cs:weekly-review — Run a GTD weekly review: GET CLEAR (collect,
 </div>
 
 
-**Command:** `/cs:weekly-review [directory or notes]`
+**Command:** `/cs-weekly-review [directory or notes]`
 
 The weekly review is the maintenance loop that makes the rest of a personal system trustworthy.
 This command walks David Allen's three phases in order, scans for open loops so nothing depends on
@@ -28,7 +28,7 @@ unaccounted for.
 
 ## When NOT to Run
 
-- You just want to dump what's in your head into actions → use `/cs:capture` (intake, not review).
+- You just want to dump what's in your head into actions → use `/cs-capture` (intake, not review).
 - You want to reflect on one conversation or piece of work → use `productivity/reflect`.
 - A team iteration retro with velocity and ceremonies → that's `project-management`, not this.
 - Mid-week micro-check ("what's next right now?") — the review is a weekly cadence, not a task picker.
@@ -88,7 +88,7 @@ python ../skills/weekly-review/scripts/commitment_auditor.py --input commitments
 
 - Agent: [`cs-weekly-review`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/weekly-review/agents/cs-weekly-review.md)
 - Skill: [`weekly-review`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/weekly-review/skills/weekly-review/SKILL.md)
-- Siblings: `/cs:capture` (intake side of the same system), `productivity/reflect` (one-off reflection)
+- Siblings: `/cs-capture` (intake side of the same system), `productivity/reflect` (one-off reflection)
 
 ---
 

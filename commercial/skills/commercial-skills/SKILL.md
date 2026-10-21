@@ -2,11 +2,12 @@
 name: commercial-skills
 description: Use when reviewing, approving, or designing commercial motion — pricing models, deal review, discount approval, partnership economics, channel mix, commercial policy, RFP/RFI response, bookings forecast. Triggers on "review this deal", "should we discount", "pricing model", "partner economics", "RFP response", "bookings forecast", "channel mix". Forks context to route to one of seven Commercial sub-skills (pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster) and returns a digest. Distinct from business-growth (sales execution) and c-level-advisor/cro-advisor (strategic CRO judgment).
 context: fork
-version: 2.8.0
-author: claude-code-skills
 license: MIT
-tags: [commercial, pricing, deal-desk, partnerships, channel, rfp, forecast, cro, orchestrator]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.8.0
+  author: claude-code-skills
+  tags: [commercial, pricing, deal-desk, partnerships, channel, rfp, forecast, cro, orchestrator]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # Commercial — Domain Orchestrator

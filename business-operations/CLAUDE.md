@@ -41,9 +41,9 @@ skill/
 ## Agent + command pattern
 
 - `cs-bizops-orchestrator` — the persona agent. Voice: "Where does the work spend most of its time waiting?" (Theory of Constraints anchor).
-- `/cs:bizops <inquiry>` — top-level router.
-- `/cs:grill-bizops <plan>` — Matt-style docs-anchored grilling **before** routing.
-- `/cs:process-map`, `/cs:vendor-review`, `/cs:capacity-plan`, `/cs:internal-comms`, `/cs:knowledge-ops`, `/cs:procurement` — direct per-skill invocation.
+- `/cs-bizops <inquiry>` — top-level router.
+- `/cs-grill-bizops <plan>` — Matt-style docs-anchored grilling **before** routing.
+- `/cs-process-map`, `/cs-vendor-review`, `/cs-capacity-plan`, `/cs-internal-comms`, `/cs-knowledge-ops`, `/cs-procurement` — direct per-skill invocation.
 
 ## Anti-patterns (domain-level)
 

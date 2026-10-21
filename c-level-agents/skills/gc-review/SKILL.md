@@ -1,11 +1,11 @@
 ---
 name: "gc-review"
-description: "/cs:gc-review <plan> — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
+description: "/c-level-agents:gc-review [plan] — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
 ---
 
-# /cs:gc-review — General Counsel Forcing Questions
+# /c-level-agents:gc-review — General Counsel Forcing Questions
 
-**Command:** `/cs:gc-review <plan>`
+**Command:** `/c-level-agents:gc-review <plan>`
 
 The General Counsel lens. Six questions before any contract, term sheet, IP move, or regulatory commitment. This is a lane gstack has zero of — and one where a single missed clause costs more than a year of engineering.
 
@@ -102,30 +102,30 @@ The General Counsel lens. Six questions before any contract, term sheet, IP move
 
 ## Routing
 
-- `/cs:ciso-review` — for any data-touching contract
-- `/cs:cfo-review` — for any commitment > 1 year or > 1% of revenue
-- `/cs:decide` — log the verdict after outside counsel review
+- `/c-level-agents:ciso-review` — for any data-touching contract
+- `/c-level-agents:cfo-review` — for any commitment > 1 year or > 1% of revenue
+- `/c-level-agents:decide` — log the verdict after outside counsel review
 
 ## Workflow Integration with `general-counsel-advisor` skill
 
-Since v2.5.1, this command is backed by a full skill at `../../../c-level-advisor/skills/general-counsel-advisor/` with two Python tools:
+Since v2.5.1, this command is backed by a full skill at `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/` with two Python tools:
 
 ```bash
 # Automated contract scan (12 founder-killer patterns)
-python ../../../c-level-advisor/skills/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/contract_risk_scanner.py path/to/contract.txt
 
 # Term sheet scoring (0-100 founder-friendliness)
-python ../../../c-level-advisor/skills/general-counsel-advisor/scripts/term_sheet_analyzer.py path/to/term_sheet.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/scripts/term_sheet_analyzer.py path/to/term_sheet.json
 ```
 
 The `cs-general-counsel-advisor` agent orchestrates both tools plus 3 references (contracts playbook, IP + regulatory, term sheet decoder).
 
 ## Related
 
-- Skill: [`general-counsel-advisor`](../../../c-level-advisor/skills/general-counsel-advisor/SKILL.md) — full skill with Python tools + references
+- Skill: [`general-counsel-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/general-counsel-advisor/SKILL.md) — full skill with Python tools + references
 - Agent: [`cs-general-counsel-advisor`](../../agents/cs-general-counsel-advisor.md)
 - Compliance execution: `../../../ra-qm-team/`
-- Adjacent: `../../../c-level-advisor/skills/ma-playbook/`
+- Adjacent: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/ma-playbook/`
 
 ---
 

@@ -3,7 +3,7 @@ description: Run the one-time markdown-html design-system onboarding wizard. Cap
 argument-hint: "[--defaults | --show | --reset | --set key=value | --scope global|project]"
 ---
 
-# /cs:design-system — Markdown-HTML design-system onboarding
+# /cs-design-system — Markdown-HTML design-system onboarding
 
 Run the design-system wizard:
 
@@ -50,7 +50,7 @@ python3 markdown-html/skills/design-system/scripts/config_loader.py --show
 python3 markdown-html/skills/design-system/scripts/config_loader.py --status
 ```
 
-Then convert markdown via `/cs:markdown-html <path>.md`.
+Then convert markdown via `/cs-markdown-html <path>.md`.
 
 ## Bypass
 

@@ -56,7 +56,7 @@ python3 markdown-html/skills/design-system/scripts/config_loader.py --show
 python3 markdown-html/skills/design-system/scripts/config_loader.py --status
 ```
 
-Then convert markdown via `/cs:markdown-html <path>.md`.
+Then convert markdown via `/cs-markdown-html <path>.md`.
 
 ## Bypass
 

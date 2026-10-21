@@ -34,7 +34,7 @@
 
 - **Skill:** [`skills/deep-research/SKILL.md`](skills/deep-research/SKILL.md)
 - **Agent:** [`agents/cs-deep-research.md`](agents/cs-deep-research.md)
-- **Command:** [`commands/cs-deep-research.md`](commands/cs-deep-research.md) — `/cs:deep-research`
+- **Command:** [`commands/cs-deep-research.md`](commands/cs-deep-research.md) — `/cs-deep-research`
 - **Reference:** [`skills/deep-research/references/full-catalog.md`](skills/deep-research/references/full-catalog.md) — pointer to the upstream source catalog
 
 ## Attribution

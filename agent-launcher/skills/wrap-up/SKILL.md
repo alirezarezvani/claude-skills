@@ -1,11 +1,12 @@
 ---
 name: wrap-up
 description: Close out a launched Claude Managed Agent — recap every primitive the founder now owns, regenerate the single-file overview page, and suggest the next 1-2 upgrades. Use when the user says "wrap up", "close this out", "what do I own now", "give me the summary", "recap the agent", or when the orchestrator routes phase=wrap-up. primitives_inventory.py tables everything owned (agent, environment, session, memory, outcome, deployment); overview_page.py regenerates a self-contained ./my-agent/agent-overview.html; upgrade_suggester.py ranks the next moves from recorded deferrals plus standing hardening steps. Companion to run-without-you; the last stop before phase=done.
-version: 2.11.2
-author: Alireza Rezvani
 license: MIT
-tags: [cma, wrap-up, closeout, inventory, overview, upgrades, next-directions]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.11.2
+  author: Alireza Rezvani
+  tags: [cma, wrap-up, closeout, inventory, overview, upgrades, next-directions]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # Wrap-up — close it out

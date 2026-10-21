@@ -14,14 +14,14 @@ Effective config = defaults ← global override ← project override.
 
 ## First-run prompt behaviour
 
-On first invocation of `/cs:handoff`, the skill detects whether a config exists. If none does, it asks:
+On first invocation of `/cs-handoff`, the skill detects whether a config exists. If none does, it asks:
 
 > Run setup now? (Y/n)
 
 - **Y** — walks the 5 core questions (and 2 optional) and writes the global config. Then continues with the original handoff request.
 - **N** — uses built-in defaults for this run (OS temp dir, 7-day retention, strict redaction, git context on, scan all skills). Writes a sentinel at `~/.config/handoff/.setup-declined` so the prompt never re-appears.
 
-Rerun setup any time with `/cs:handoff-setup` (re-prompts and writes config; removes the decline sentinel automatically).
+Rerun setup any time with `/cs-handoff-setup` (re-prompts and writes config; removes the decline sentinel automatically).
 
 ## Field reference
 
@@ -50,7 +50,7 @@ Set automatically by setup once `mode` is chosen. For `custom`, the user supplie
 | `0` | Forever. Cleanup never deletes. |
 | `-1` | Manual. Cleanup is a no-op. |
 
-Cleanup runs at the start of each `/cs:handoff` invocation. It is **mtime-guarded**: files with `mtime > ctime + 2s` (i.e., edited by the user after creation) are never deleted.
+Cleanup runs at the start of each `/cs-handoff` invocation. It is **mtime-guarded**: files with `mtime > ctime + 2s` (i.e., edited by the user after creation) are never deleted.
 
 ### `redaction` — linter strictness
 

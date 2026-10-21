@@ -3,7 +3,7 @@ description: Structured RFP/RFI/RFQ response with win-theme injection and proof-
 argument-hint: "<RFP document path or RFP requirements list>"
 ---
 
-# /cs:rfp-respond — RFP structured response + win-theme + winrate prediction
+# /cs-rfp-respond — RFP structured response + win-theme + winrate prediction
 
 Run the `rfp-responder` skill on this input:
 

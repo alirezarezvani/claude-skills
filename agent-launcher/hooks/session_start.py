@@ -58,7 +58,7 @@ def main() -> int:
         notes = state.get("notes", "")
 
         body = (
-            f"You have an in-progress Claude Managed Agent launch. Resume it with /cs:launch.\n"
+            f"You have an in-progress Claude Managed Agent launch. Resume it with /cs-launch.\n"
             f"  goal:        {goal}\n"
             f"  agent_name:  {agent_name}\n"
             f"  phase:       {phase}\n"

@@ -2,11 +2,12 @@
 name: vendor-management
 description: Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships — running a vendor scorecard with industry tuning, tracking SLA compliance with credit-claim flags, classifying third-party risk across 4 risk vectors, preparing a tier-1 vendor review, or auditing the SaaS portfolio. Forks context so large vendor catalogs (50-500 line items) and SLA logs don't pollute the parent thread. Triggers on "vendor SLA", "vendor scorecard", "third-party risk", "TPRM", "vendor review", "supplier performance", "vendor health check", "renewal review".
 context: fork
-version: 2.8.0
-author: claude-code-skills
 license: MIT
-tags: [bizops, vendor, sla, third-party-risk, vendor-management, saas-management, tprm]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.8.0
+  author: claude-code-skills
+  tags: [bizops, vendor, sla, third-party-risk, vendor-management, saas-management, tprm]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # Vendor Management — Operational Third-Party Performance
@@ -148,7 +149,7 @@ cd business-operations/skills/vendor-management && python3 scripts/vendor_scorer
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-bizops` or the BizOps orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"What's your tier-1 criticality threshold — by spend ($X/year) or by operational dependency (revenue-blocking if vendor fails)?"**
    Recommended: operational dependency.

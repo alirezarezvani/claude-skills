@@ -13,7 +13,7 @@ Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, a
 | **3 stdlib Python tools** | `skills/caveman/scripts/` | Compressor (apply Matt's rules deterministically), token-savings estimator (measure %), lint (verify response follows rules) |
 | **3 in-depth references** (5+ sources each) | `skills/caveman/references/` | Compression principles · Technical communication patterns · When caveman backfires (the auto-clarity exceptions, deepened) |
 | **cs-caveman-mode persona agent** | `agents/cs-caveman-mode.md` | Persistent caveman-mode operator with hard rules for technical-content exceptions |
-| **`/cs:caveman` slash command** | `commands/cs-caveman.md` | One-line trigger + persistence enforcer |
+| **`/cs-caveman` slash command** | `commands/cs-caveman.md` | One-line trigger + persistence enforcer |
 
 ## Quick start
 

@@ -1,11 +1,11 @@
 ---
 name: "vpe-review"
-description: "/cs:vpe-review <plan> — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline. Use when cycle time balloons, DORA metrics slide, or before committing to an eng hiring wave or a reorg."
+description: "/c-level-agents:vpe-review [plan] — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline. Use when cycle time balloons, DORA metrics slide, or before committing to an eng hiring wave or a reorg."
 ---
 
-# /cs:vpe-review — VPE Forcing Questions
+# /c-level-agents:vpe-review — VPE Forcing Questions
 
-**Command:** `/cs:vpe-review <plan>`
+**Command:** `/c-level-agents:vpe-review <plan>`
 
 The throughput-first VPE pressure-tests any plan touching eng operations. Six questions before any delivery commitment, eng hiring expansion, team restructure, or production-discipline change.
 
@@ -61,13 +61,13 @@ The throughput-first VPE pressure-tests any plan touching eng operations. Six qu
 
 ```bash
 # 1. Delivery throughput
-python ../../../c-level-advisor/skills/vpe-advisor/scripts/delivery_throughput_analyzer.py sprint_metrics.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/vpe-advisor/scripts/delivery_throughput_analyzer.py sprint_metrics.json
 
 # 2. Hiring funnel
-python ../../../c-level-advisor/skills/vpe-advisor/scripts/eng_hiring_funnel_calculator.py funnel.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/vpe-advisor/scripts/eng_hiring_funnel_calculator.py funnel.json
 
 # 3. Team structure
-python ../../../c-level-advisor/skills/vpe-advisor/scripts/eng_team_structure_designer.py team.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/vpe-advisor/scripts/eng_team_structure_designer.py team.json
 ```
 
 ## Output Format
@@ -111,17 +111,17 @@ python ../../../c-level-advisor/skills/vpe-advisor/scripts/eng_team_structure_de
 
 ## Routing
 
-- `/cs:cto-review` — for architectural causes of throughput problems
+- `/c-level-agents:cto-review` — for architectural causes of throughput problems
 - `cs-chro-advisor` agent — for hiring funnel comp/leveling issues
-- `/cs:cfo-review` — for cost-per-hire envelope and eng budget
-- `/cs:ciso-review` — for production discipline + compliance overlap
-- `/cs:decide` — log the verdict
-- `/cs:freeze 30` — on multi-year hiring commitments
+- `/c-level-agents:cfo-review` — for cost-per-hire envelope and eng budget
+- `/c-level-agents:ciso-review` — for production discipline + compliance overlap
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 30` — on multi-year hiring commitments
 
 ## Related
 
 - Agent: [`cs-vpe-advisor`](../../agents/cs-vpe-advisor.md)
-- Skill: [`vpe-advisor`](../../../c-level-advisor/skills/vpe-advisor/SKILL.md)
+- Skill: [`vpe-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/vpe-advisor/SKILL.md)
 - Adjacent: `../../../engineering/slo-architect/`, `../../../engineering/feature-flags-architect/`, `../../../engineering/chaos-engineering/`
 
 ---

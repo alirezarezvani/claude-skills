@@ -16,7 +16,7 @@ Convert the markdown at **$ARGUMENTS** into a single-file interactive HTML docum
 ## Pre-flight gates (refuse, never override)
 
 1. **Input < 100 lines** → refuse (markdown wins below the threshold per Shihipar). `wc -l <path>` to confirm.
-2. **Design-system not onboarded** → refuse, surface `/cs:design-system`.
+2. **Design-system not onboarded** → refuse, surface `/cs-design-system`.
 3. **Output directory unwritable** → refuse, ask user for an alternate via `--out`.
 
 ## Pipeline

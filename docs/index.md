@@ -76,7 +76,7 @@ No API keys, no external services, no dependencies between skills. Copy a folder
 
 <ul class="steps">
   <li><strong>Install</strong> Add the marketplace to Claude Code, or run one sync script for Codex, Gemini CLI, Cursor, and 9 more tools.</li>
-  <li><strong>Invoke</strong> Call a slash command like <code>/cs:deal-review</code>, or just mention the skill in a prompt — the agent loads the playbook.</li>
+  <li><strong>Invoke</strong> Call a slash command like <code>/cs-deal-review</code>, or just mention the skill in a prompt — the agent loads the playbook.</li>
   <li><strong>Ship</strong> The agent works through the skill's checklists and tools, producing consistent, reviewable output every time.</li>
 </ul>
 

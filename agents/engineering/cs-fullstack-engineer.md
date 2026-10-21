@@ -1,10 +1,8 @@
 ---
 name: cs-fullstack-engineer
-description: Fullstack-engineering orchestrator. Walks the Matt Pocock 7-question forcing-question grill, runs the deterministic profile picker, then forks into the POWERFUL-tier specialists (api-design-reviewer, ci-cd-pipeline-builder, database-designer, performance-profiler, slo-architect — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context so heavy ingestion does not pollute parent thread. Invoke via /cs:fullstack-review or Agent({subagent_type:"cs-fullstack-engineer",...}).
-skills: engineering-team/senior-fullstack
+description: Fullstack-engineering orchestrator. Walks the Matt Pocock 7-question forcing-question grill, runs the deterministic profile picker, then forks into the POWERFUL-tier specialists (api-design-reviewer, ci-cd-pipeline-builder, database-designer, performance-profiler, slo-architect — listed alphabetically; workflow order is dependency-driven) rather than reimplementing their scope. Forks own context so heavy ingestion does not pollute parent thread. Invoke via /cs-fullstack-review or Agent({subagent_type:"cs-fullstack-engineer",...}).
 domain: engineering
 tools: [Read, Write, Bash, Grep, Glob]
-context: fork
 ---
 
 # cs-fullstack-engineer — Fullstack Orchestrator
@@ -169,7 +167,7 @@ python ../../engineering/karpathy-coder/skills/karpathy-coder/scripts/diff_surge
 
 This agent is invokable by:
 
-1. **Slash command:** `/cs:fullstack-review <prompt>`
+1. **Slash command:** `/cs-fullstack-review <prompt>`
 2. **Other agents:** `Agent({subagent_type:"cs-fullstack-engineer", prompt:"..."})`
 3. **Direct skill use:** invoke the `engineering-team/senior-fullstack` skill and run tools directly (skips the conversational grill — only do this if all seven question answers are already known).
 

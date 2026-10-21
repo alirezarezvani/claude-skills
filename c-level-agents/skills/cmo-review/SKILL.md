@@ -1,11 +1,11 @@
 ---
 name: "cmo-review"
-description: "/cs:cmo-review <plan> — Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or repositioning, or when CAC is rising and the one-sentence positioning test fails."
+description: "/c-level-agents:cmo-review [plan] — Narrative-first interrogation of positioning, ICP, message house, and channel mix. Use when launching a campaign or repositioning, or when CAC is rising and the one-sentence positioning test fails."
 ---
 
-# /cs:cmo-review — CMO Forcing Questions
+# /c-level-agents:cmo-review — CMO Forcing Questions
 
-**Command:** `/cs:cmo-review <plan>`
+**Command:** `/c-level-agents:cmo-review <plan>`
 
 The narrative-first strategist pressure-tests positioning before debating tactics.
 
@@ -51,8 +51,8 @@ The narrative-first strategist pressure-tests positioning before debating tactic
 
 1. **Run the models:**
    ```bash
-   python ../../../c-level-advisor/skills/cmo-advisor/scripts/marketing_budget_modeler.py
-   python ../../../c-level-advisor/skills/cmo-advisor/scripts/growth_model_simulator.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/marketing_budget_modeler.py
+   python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/scripts/growth_model_simulator.py
    ```
 2. **Answer the six questions** in writing.
 3. **Apply the verdict:**
@@ -86,14 +86,14 @@ One-sentence statement: <here>
 
 ## Routing
 
-- `/cs:cro-review` — pipeline contribution check
-- `/cs:cpo-review` — product ↔ positioning alignment
-- `/cs:decide` — log the verdict
+- `/c-level-agents:cro-review` — pipeline contribution check
+- `/c-level-agents:cpo-review` — product ↔ positioning alignment
+- `/c-level-agents:decide` — log the verdict
 
 ## Related
 
 - Agent: [`cs-cmo-advisor`](../../agents/cs-cmo-advisor.md)
-- Skill: [`cmo-advisor`](../../../c-level-advisor/skills/cmo-advisor/SKILL.md)
+- Skill: [`cmo-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cmo-advisor/SKILL.md)
 - Execution domain: `../../../marketing-skill/`
 
 ---

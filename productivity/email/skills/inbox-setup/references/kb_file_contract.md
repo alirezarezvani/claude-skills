@@ -202,4 +202,4 @@ Run `scripts/kb_validator.py --workspace ${WORKSPACE}` after Section 8 confirmat
 
 `inbox-triage` halts with a clear error if any required core file is missing. The contract is the integration boundary — both skills can be developed and tested independently, but they must agree on the file shape.
 
-When updating either skill: update both sides of the contract simultaneously, or use `/cs:grill-with-docs` to detect drift between the two megaprompts before drift reaches code.
+When updating either skill: update both sides of the contract simultaneously, or use `/cs-grill-with-docs` to detect drift between the two megaprompts before drift reaches code.

@@ -3,7 +3,7 @@ description: Discount matrix designer + T&C library + exception policy. New grou
 argument-hint: "<inputs: deal-band data, current discount distribution, target NRR>"
 ---
 
-# /cs:commercial-policy — Discount matrix + exception flow
+# /cs-commercial-policy — Discount matrix + exception flow
 
 Run the `commercial-policy` skill on this input:
 

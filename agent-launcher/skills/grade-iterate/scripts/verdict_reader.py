@@ -94,7 +94,7 @@ def main() -> int:
             ],
             "explanation": "Close, but one reason wasn't grounded in the email text.",
         }
-        _emit(read(sample), False)
+        _emit(read(sample), args.json)
         return 0
 
     if not args.result:

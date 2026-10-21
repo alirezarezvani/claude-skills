@@ -1,11 +1,11 @@
 ---
 name: "cto-review"
-description: "/cs:cto-review <plan> — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor."
+description: "/c-level-agents:cto-review [plan] — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor."
 ---
 
-# /cs:cto-review — CTO Forcing Questions
+# /c-level-agents:cto-review — CTO Forcing Questions
 
-**Command:** `/cs:cto-review <plan>`
+**Command:** `/c-level-agents:cto-review <plan>`
 
 Pressure-tests architecture and engineering scaling decisions. Six questions to surface the next scaling cliff before you hit it.
 
@@ -27,13 +27,13 @@ Pressure-tests architecture and engineering scaling decisions. Six questions to 
 ### 2. Tech Debt Inventory
 **What's the top tech debt item, what's it costing per week, and when does it become blocking?**
 ```bash
-python ../../../c-level-advisor/skills/cto-advisor/scripts/tech_debt_analyzer.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cto-advisor/scripts/tech_debt_analyzer.py
 ```
 
 ### 3. Team Scaling
 **For each open req, what's the ramp time and contribution model?**
 ```bash
-python ../../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculator.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cto-advisor/scripts/team_scaling_calculator.py
 ```
 
 ### 4. Build vs Buy
@@ -101,15 +101,15 @@ python ../../../c-level-advisor/skills/cto-advisor/scripts/team_scaling_calculat
 
 ## Routing
 
-- `/cs:ciso-review` — mandatory if data surface changes
-- `/cs:cfo-review` — for build-vs-buy > $100K
-- `/cs:execute` — quarterly plan
-- `/cs:boardroom` — for architecture pivots
+- `/c-level-agents:ciso-review` — mandatory if data surface changes
+- `/c-level-agents:cfo-review` — for build-vs-buy > $100K
+- `/c-level-agents:execute` — quarterly plan
+- `/c-level-agents:boardroom` — for architecture pivots
 
 ## Related
 
 - Agent: [`cs-cto-advisor`](../../../agents/c-level/cs-cto-advisor.md)
-- Skill: [`cto-advisor`](../../../c-level-advisor/skills/cto-advisor/SKILL.md)
+- Skill: [`cto-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cto-advisor/SKILL.md)
 - SLO: `../../../engineering/slo-architect/`
 
 ---

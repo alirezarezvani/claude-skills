@@ -1,11 +1,12 @@
 ---
 name: pricing-strategist
 description: "Use when designing or revisiting product pricing — selecting a pricing model (subscription seat-based, usage-based, value-based, freemium, or hybrid), running Van Westendorp Price Sensitivity Meter analysis on WTP survey data, or designing Good/Better/Best packaging tiers. Recommends a model and a price range with trade-offs, never a single number. For Commercial leads, Product Marketing, and CMOs at the pricing-design moment — not deal-by-deal discounting, not brand positioning."
-version: 2.8.0
-author: claude-code-skills
 license: MIT
-tags: [commercial, pricing, packaging, wtp, van-westendorp, value-based-pricing, saas-pricing]
-compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
+metadata:
+  version: 2.8.0
+  author: claude-code-skills
+  tags: [commercial, pricing, packaging, wtp, van-westendorp, value-based-pricing, saas-pricing]
+  compatible_tools: [claude-code, codex-cli, cursor, antigravity, opencode, gemini-cli]
 ---
 
 # pricing-strategist
@@ -108,7 +109,7 @@ cd commercial/skills/pricing-strategist && python3 scripts/pricing_model_picker.
 
 ## Forcing-question library (Matt Pocock grill discipline)
 
-Walked one at a time by `/cs:grill-commercial` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
+Walked one at a time by `/cs-grill-commercial` or the orchestrator. Recommended answer + canon citation per question. Never bundled.
 
 1. **"Is your customer paying for outcomes, seats, or usage?"**
    Recommended: outcomes (value-based) if you can measure them; usage if marginal cost is variable; seats only if usage is roughly flat per user.

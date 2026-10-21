@@ -78,7 +78,7 @@ Rules for whitelisting:
 | `warn` | 0 | Saved. Findings printed for review. |
 | `off` | 0 (no scan) | Saved. No scan. Not recommended. |
 
-Mode is set in config (`/cs:handoff-setup`).
+Mode is set in config (`/cs-handoff-setup`).
 
 ## When the linter has done its job
 

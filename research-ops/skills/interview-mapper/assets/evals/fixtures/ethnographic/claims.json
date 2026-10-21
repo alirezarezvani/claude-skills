@@ -1,0 +1,194 @@
+[
+  {
+    "cell": "N1",
+    "claim": "Picking terminal + WarehousePro WMS as the main tool",
+    "quote": "here's my terminal, I scan the bin barcode, then the item barcode",
+    "line": 6
+  },
+  {
+    "cell": "N1",
+    "claim": "Environment artifacts: notebook and stickers on the monitor",
+    "quote": "on the desk a battered grid-paper notebook and sticky notes on the monitor",
+    "line": 5
+  },
+  {
+    "cell": "N2",
+    "claim": "Opening the picking task for order 48213",
+    "quote": "I'm opening the picking task, here, order number 48213, three line items",
+    "line": 8
+  },
+  {
+    "cell": "N2",
+    "claim": "Scanning bin A-12-3",
+    "quote": "the respondent scans bin A-12-3, the terminal screen shows a green checkmark",
+    "line": 9
+  },
+  {
+    "cell": "N2",
+    "claim": "Closing the box and sticker after picking three items",
+    "quote": "Yes, three items picked, I'm closing the box, sticking on a label with the order number, taking it to packing",
+    "line": 63
+  },
+  {
+    "cell": "N3",
+    "claim": "Workaround 1: hand-drawn warehouse map over system bin addresses",
+    "quote": "here's my own map of the warehouse, I drew it myself two years ago and touch it up in pencil whenever stock gets moved around",
+    "line": 16
+  },
+  {
+    "cell": "N3",
+    "claim": "Workaround 2: sticky-note reminder about the terminal freezing",
+    "quote": "don't scan the box twice!! froze on 3/14",
+    "line": 19
+  },
+  {
+    "cell": "N3",
+    "claim": "Workaround 3: own handwritten sticker over the box barcode",
+    "quote": "the printer prints it so small and crooked that the packers sometimes mix up orders",
+    "line": 66
+  },
+  {
+    "cell": "N4",
+    "claim": "Think-aloud commentary triggered by the forcing question 'what are you doing right now'",
+    "quote": "I'm opening the picking task, here, order number 48213, three line items",
+    "line": 8
+  },
+  {
+    "cell": "N4",
+    "claim": "Think-aloud commentary on skipping the bin scan in the fast-pick zone",
+    "quote": "the fast-pick zone doesn't require scanning the bin, it's just open shelves there, I grab it and scan the item right away instead of the bin, it's faster that way",
+    "line": 54
+  },
+  {
+    "cell": "N5",
+    "claim": "Says: strictly by the system, no improvising",
+    "quote": "Normally I do everything strictly by the system, it tells me the route through the warehouse, I walk it and pick, no improvising",
+    "line": 10
+  },
+  {
+    "cell": "N5",
+    "claim": "Does: walks toward B-7 before the terminal shows a route",
+    "quote": "without waiting for the terminal to display the route, the respondent immediately turns toward rack B-7",
+    "line": 11
+  },
+  {
+    "cell": "N5",
+    "claim": "Says: strictly follows the order route without getting distracted",
+    "quote": "Normally I try to stick strictly to the order route and not get distracted, we're strict about that",
+    "line": 28
+  },
+  {
+    "cell": "N5",
+    "claim": "Does: was sidetracked twice into unrelated actions outside the route",
+    "quote": "the respondent was twice sidetracked into unrelated actions outside the order route",
+    "line": 29
+  },
+  {
+    "cell": "N6",
+    "claim": "Interruption: coworker's voice message in the shift chat",
+    "quote": "a coworker replies in the chat with a voice message, the respondent listens through an earbud, nods",
+    "line": 39
+  },
+  {
+    "cell": "N6",
+    "claim": "Interruption: coworker approaches twice with a question about a neighboring rack",
+    "quote": "a coworker approached the respondent twice with a question about a neighboring rack, the respondent answered briefly and kept picking",
+    "line": 48
+  },
+  {
+    "cell": "N7",
+    "claim": "Shift group chat as a collective resource for locating items",
+    "quote": "someone on shift usually knows where the item actually is, and they tip me off quickly",
+    "line": 37
+  },
+  {
+    "cell": "N7",
+    "claim": "Coworker Sasha personally comes over for help locating parts",
+    "quote": "Sasha just came by to ask where to find parts for a Daewoo, it's like that here all the time, we cover for each other",
+    "line": 49
+  },
+  {
+    "cell": "N7",
+    "claim": "Supervisor as a figure of social control not discussed openly",
+    "quote": "I'm not sure he'd officially approve of it, we just don't talk about it out loud",
+    "line": 59
+  },
+  {
+    "cell": "A1",
+    "claim": "PROCESS-FAILURE WORKAROUND: notebook compensates for mismatched bin addresses",
+    "quote": "in the system the bin addresses periodically don't match what's really on the shelf",
+    "line": 14
+  },
+  {
+    "cell": "A1",
+    "claim": "SYSTEM-FAILURE WORKAROUND: sticky note compensates for a known terminal freeze bug",
+    "quote": "if you scan the same box twice in a row, the terminal freezes",
+    "line": 21
+  },
+  {
+    "cell": "A1",
+    "claim": "Ambiguous: box sticker is an entrenched shift habit, not just a personal fix",
+    "quote": "all of us senior pickers do this, I didn't come up with it alone, it just sort of caught on about three years ago",
+    "line": 67
+  },
+  {
+    "cell": "A2",
+    "claim": "The route-related gap was stated confidently right before observation caught the opposite — looks unconscious",
+    "quote": "no improvising",
+    "line": 10
+  },
+  {
+    "cell": "A2",
+    "claim": "The bin-scanning gap is a conscious adjustment for the supervisor/authority",
+    "quote": "with the supervisor around I'd probably scan the bin just to keep things proper, but without him not always",
+    "line": 61
+  },
+  {
+    "cell": "A3",
+    "claim": "Respondent herself assesses fragility: without the notebook and stickers, speed would drop",
+    "quote": "if you took my notebook away and stripped off the stickers, I'd probably work way slower for the first week, until I relearned where everything is",
+    "line": 69
+  },
+  {
+    "cell": "A3",
+    "claim": "Observation confirms reliance on the notebook rather than the instructions",
+    "quote": "the respondent consulted the notebook seven times and the monitor stickers twice, never once opened the official picking instructions",
+    "line": 70
+  },
+  {
+    "cell": "A4",
+    "claim": "Official discrepancy report is too slow relative to the pace of work",
+    "quote": "Through the report that's about a two-hour wait, through the chat it's usually five minutes",
+    "line": 38
+  },
+  {
+    "cell": "A4",
+    "claim": "The no-exceptions scanning procedure doesn't account for the fast-pick zone",
+    "quote": "here in the fast-pick zone we all do it this way, otherwise there's no speed at all, you can't hit the quota",
+    "line": 56
+  },
+  {
+    "cell": "A5",
+    "claim": "Core insight: WMS records chronically lag reality, stability rests on personal artifacts",
+    "quote": "we find about ten of these discrepancies per shift",
+    "line": 44
+  },
+  {
+    "cell": "Limitation",
+    "claim": "Respondent directly names the observer effect (Hawthorne)",
+    "quote": "I'm working more carefully than usual today, because you're standing right here",
+    "line": 74
+  },
+  {
+    "cell": "Limitation",
+    "claim": "Example of normally hidden behavior given retrospectively, not shown live",
+    "quote": "sometimes I pick two orders at once in parallel, grab boxes for both at the same time so I don't have to make two trips, even though the instructions say strictly one order at a time",
+    "line": 77
+  },
+  {
+    "cell": "Limitation",
+    "claim": "Observation notes the absence of a second box at the time of the account",
+    "quote": "the respondent is standing with one box in hand, no second box visible nearby",
+    "line": 78
+  }
+]

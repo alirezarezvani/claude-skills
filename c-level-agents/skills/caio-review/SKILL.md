@@ -1,11 +1,11 @@
 ---
 name: "caio-review"
-description: "/cs:caio-review <plan> — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring. Use when shipping an AI feature without an eval set, choosing between API, fine-tune, and self-hosted, or classifying a use case under the EU AI Act."
+description: "/c-level-agents:caio-review [plan] — Eval-demanding Chief AI Officer interrogation of any plan that involves AI: model selection, risk classification, cost economics, or AI hiring. Use when shipping an AI feature without an eval set, choosing between API, fine-tune, and self-hosted, or classifying a use case under the EU AI Act."
 ---
 
-# /cs:caio-review — CAIO Forcing Questions
+# /c-level-agents:caio-review — CAIO Forcing Questions
 
-**Command:** `/cs:caio-review <plan>`
+**Command:** `/c-level-agents:caio-review <plan>`
 
 The eval-demanding CAIO pressure-tests any plan that involves AI. Six questions before any AI feature ships, any multi-year vendor commitment, or any AI team expansion.
 
@@ -68,13 +68,13 @@ The eval-demanding CAIO pressure-tests any plan that involves AI. Six questions 
 
 ```bash
 # 1. Model selection check
-python ../../../c-level-advisor/skills/chief-ai-officer-advisor/scripts/model_buildvsbuy_calculator.py use_case.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-ai-officer-advisor/scripts/model_buildvsbuy_calculator.py use_case.json
 
 # 2. Regulatory classification
-python ../../../c-level-advisor/skills/chief-ai-officer-advisor/scripts/ai_risk_classifier.py use_case.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-ai-officer-advisor/scripts/ai_risk_classifier.py use_case.json
 
 # 3. Cost projection
-python ../../../c-level-advisor/skills/chief-ai-officer-advisor/scripts/ai_cost_economics.py workload.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-ai-officer-advisor/scripts/ai_cost_economics.py workload.json
 ```
 
 ## Output Format
@@ -121,19 +121,19 @@ python ../../../c-level-advisor/skills/chief-ai-officer-advisor/scripts/ai_cost_
 
 ## Routing
 
-- `/cs:cdo-review` — for any training-data implications
-- `/cs:gc-review` — for AI vendor contracts, output liability, training-data licensing
-- `/cs:ciso-review` — for prompt injection / jailbreak / training-data poisoning threat model
-- `/cs:cfo-review` — for multi-year vendor or GPU commitment TCO
+- `/c-level-agents:cdo-review` — for any training-data implications
+- `/c-level-agents:gc-review` — for AI vendor contracts, output liability, training-data licensing
+- `/c-level-agents:ciso-review` — for prompt injection / jailbreak / training-data poisoning threat model
+- `/c-level-agents:cfo-review` — for multi-year vendor or GPU commitment TCO
 - `cs-chro-advisor` agent — for AI team hires (comp, ladder, leveling)
-- `/cs:decide` — log the verdict
-- `/cs:freeze 60` — on multi-year AI commitments
+- `/c-level-agents:decide` — log the verdict
+- `/c-level-agents:freeze 60` — on multi-year AI commitments
 
 ## Related
 
 - Agent: [`cs-caio-advisor`](../../agents/cs-caio-advisor.md)
-- Skill: [`chief-ai-officer-advisor`](../../../c-level-advisor/skills/chief-ai-officer-advisor/SKILL.md)
-- Adjacent: `../../../c-level-advisor/skills/chief-data-officer-advisor/` (training data rights, data strategy)
+- Skill: [`chief-ai-officer-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-ai-officer-advisor/SKILL.md)
+- Adjacent: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/chief-data-officer-advisor/` (training data rights, data strategy)
 
 ---
 

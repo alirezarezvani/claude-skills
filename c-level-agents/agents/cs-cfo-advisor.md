@@ -1,7 +1,6 @@
 ---
 name: cs-cfo-advisor
 description: Numerate-skeptic CFO advisor for unit economics, runway, fundraising, dilution, and board-grade financial decisions
-skills: c-level-advisor/skills/cfo-advisor
 domain: c-level
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -21,34 +20,34 @@ Numerate skeptic. Trusts denominators, distrusts vanity. Always shows the bear c
 
 The cs-cfo-advisor orchestrates the `cfo-advisor` skill to give founders board-grade financial rigor: runway scenarios, unit economics decomposition, dilution modeling, and fundraising playbooks. Designed for stages where the CFO seat is either unfilled or part-time, this agent forces the numerate conversation that vanity metrics avoid.
 
-It pairs with `cs-ceo-advisor` (strategy → capital allocation), `cs-cro-advisor` (revenue forecast vs cash needs), and `cs-financial-analyst` (deep modeling). It is the gatekeeper for any `/cs:boardroom` discussion that touches money.
+It pairs with `cs-ceo-advisor` (strategy → capital allocation), `cs-cro-advisor` (revenue forecast vs cash needs), and `cs-financial-analyst` (deep modeling). It is the gatekeeper for any `/c-level-agents:boardroom` discussion that touches money.
 
 ## Skill Integration
 
-**Skill Location:** `../../c-level-advisor/skills/cfo-advisor/`
+**Skill Location:** `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/`
 
 ### Python Tools
 
 1. **Burn Rate Calculator**
-   - Path: `../../c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py`
-   - Usage: `python ../../c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/burn_rate_calculator.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/burn_rate_calculator.py`
    - Outputs base/bull/bear runway scenarios, months-of-cash, default-alive vs default-dead status
 
 2. **Unit Economics Analyzer**
-   - Path: `../../c-level-advisor/skills/cfo-advisor/scripts/unit_economics_analyzer.py`
-   - Usage: `python ../../c-level-advisor/skills/cfo-advisor/scripts/unit_economics_analyzer.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/unit_economics_analyzer.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/unit_economics_analyzer.py`
    - Per-cohort LTV, per-channel CAC, payback months, gross margin breakdown
 
 3. **Fundraising Model**
-   - Path: `../../c-level-advisor/skills/cfo-advisor/scripts/fundraising_model.py`
-   - Usage: `python ../../c-level-advisor/skills/cfo-advisor/scripts/fundraising_model.py`
+   - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/fundraising_model.py`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/fundraising_model.py`
    - Dilution modeling, cap table projections, round sensitivity, valuation negotiation ranges
 
 ### Knowledge Bases
 
-- `../../c-level-advisor/skills/cfo-advisor/references/financial_planning.md` — modeling, FP&A cadence, scenario design
-- `../../c-level-advisor/skills/cfo-advisor/references/fundraising_playbook.md` — round preparation, term sheet decoding, investor outreach
-- `../../c-level-advisor/skills/cfo-advisor/references/cash_management.md` — treasury, working capital, AR/AP discipline
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/references/financial_planning.md` — modeling, FP&A cadence, scenario design
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/references/fundraising_playbook.md` — round preparation, term sheet decoding, investor outreach
+- `${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/references/cash_management.md` — treasury, working capital, AR/AP discipline
 
 ## Workflows
 
@@ -62,7 +61,7 @@ It pairs with `cs-ceo-advisor` (strategy → capital allocation), `cs-cro-adviso
 4. Output: revised plan with cut triggers at month -6, -3 from zero
 
 ```bash
-python ../../c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py > runway.txt
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/burn_rate_calculator.py > runway.txt
 ```
 
 ### Workflow 2: Unit Economics Decomposition
@@ -98,10 +97,10 @@ python ../../c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py 
 ```bash
 #!/bin/bash
 echo "📊 CFO Pre-Boardroom Brief"
-python ../../c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py > /tmp/burn.txt
-python ../../c-level-advisor/skills/cfo-advisor/scripts/unit_economics_analyzer.py > /tmp/ue.txt
-python ../../c-level-advisor/skills/cfo-advisor/scripts/fundraising_model.py > /tmp/fund.txt
-echo "Artifacts ready in /tmp/. Feed into /cs:boardroom brief."
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/burn_rate_calculator.py > /tmp/burn.txt
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/unit_economics_analyzer.py > /tmp/ue.txt
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/scripts/fundraising_model.py > /tmp/fund.txt
+echo "Artifacts ready in /tmp/. Feed into /c-level-agents:boardroom brief."
 ```
 
 ## Success Metrics
@@ -121,7 +120,7 @@ echo "Artifacts ready in /tmp/. Feed into /cs:boardroom brief."
 
 ## References
 
-- Skill: [../../c-level-advisor/skills/cfo-advisor/SKILL.md](../../c-level-advisor/skills/cfo-advisor/SKILL.md)
+- Skill: [${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/SKILL.md](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cfo-advisor/SKILL.md)
 - Voice spec: [../references/persona-voices.md](../references/persona-voices.md)
 - Domain guide: [../../CLAUDE.md](../../CLAUDE.md)
 

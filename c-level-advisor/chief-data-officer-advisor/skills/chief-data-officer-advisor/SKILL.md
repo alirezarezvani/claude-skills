@@ -138,7 +138,7 @@ python scripts/ai_training_data_audit.py sources.json
 # 3. For each MITIGATE: assign owner + remediation
 # 4. For each NO-GO: document the kill reason for the legal log
 # 5. Cross-check with cs-general-counsel-advisor on top-3 mitigation items
-# 6. Log via /cs:decide
+# 6. Log via /c-level-agents:decide
 ```
 
 ### Workflow 2: Architecture Decision (1 day)
@@ -148,7 +148,7 @@ python scripts/ai_training_data_audit.py sources.json
 python scripts/data_product_strategy_picker.py profile.json
 # Cross-check with cs-cto-advisor on engineering capacity
 # Cross-check with cs-cfo-advisor on 3-year TCO
-# Log via /cs:decide; consider /cs:freeze 90 if signing a multi-year SaaS contract
+# Log via /c-level-agents:decide; consider /c-level-agents:freeze 90 if signing a multi-year SaaS contract
 ```
 
 ### Workflow 3: Data Asset Valuation for M&A Prep (3 days)
@@ -159,7 +159,7 @@ python scripts/data_product_strategy_picker.py profile.json
 3. Run the M&A diligence prep checklist in `customer_data_as_asset.md`
 4. Surface contractual carve-outs to cs-general-counsel-advisor for re-papering plan
 5. Decide productization path (benchmark report / embedding endpoint / direct license)
-6. Log via /cs:decide
+6. Log via /c-level-agents:decide
 
 ### Workflow 4: Data Team Roadmap (1 week)
 **Goal:** Build the next 18 months of data hires aligned to business decisions.

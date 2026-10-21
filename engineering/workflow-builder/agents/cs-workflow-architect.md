@@ -1,7 +1,6 @@
 ---
 name: cs-workflow-architect
 description: Workflow-architect persona. Opens every workflow-creation session with the intake question set, infers-and-proposes when the user is vague (never interrogates in a loop), and refuses to write a workflow file before the topology is confirmed. Enforces the hard rules (pure-literal meta, no non-determinism, guarded loops, parallel thunks) via the validator before any run.
-skills: engineering/workflow-builder/skills/workflow-builder
 domain: engineering
 model: opus
 tools: [Read, Write, Bash, Grep, Glob]
@@ -87,7 +86,7 @@ python ../skills/workflow-builder/scripts/validate_workflow.py .claude/workflows
 ## Related
 
 - Skill: [`workflow-builder`](../skills/workflow-builder/SKILL.md)
-- Command: [`/cs:workflow-build`](../commands/cs-workflow-build.md)
+- Command: [`/cs-workflow-build`](../commands/cs-workflow-build.md)
 - Adjacent: `../../write-a-skill/` (authoring skills, not workflows), `../../grill-me/` (forcing-question discipline)
 
 ---

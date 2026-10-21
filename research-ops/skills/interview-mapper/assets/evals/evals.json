@@ -1,0 +1,189 @@
+{
+  "skill_name": "interview-mapper",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Here is a transcript of an interview with a museum employee (file transcript.txt). Analyze it — what the role is, the processes, the risks, how they feel about the work. Support every conclusion with a quote.",
+      "expected_output": "Mapping via the org-mapping lens: 6 blocks, each cell (of 40 codes) with a verified quote and line number; disputed cells flagged; proofreading log.",
+      "files": [
+        "fixtures/org-mapping-vmdi/transcript.txt"
+      ],
+      "lens": "org-mapping-vmdi",
+      "gold": "fixtures/org-mapping-vmdi/gold.md",
+      "gold_claims": "fixtures/org-mapping-vmdi/claims.json"
+    },
+    {
+      "id": 2,
+      "prompt": "Analyze this custdev interview with a customer — what their problem is, what they've already tried, whether the pain is real. Don't make things up.",
+      "expected_output": "Mapping via the CustDev lens: facts vs opinions separated, strength of pain, readiness signals, hypothesis confirmed/refuted; quotes verified; rejected quotes shown.",
+      "files": [
+        "fixtures/custdev/transcript.txt"
+      ],
+      "lens": "custdev",
+      "gold": "fixtures/custdev/gold.md",
+      "gold_claims": "fixtures/custdev/claims.json"
+    },
+    {
+      "id": 3,
+      "prompt": "I already have extracted and clustered observations (nuggets) from 6 interviews — file mappings/nuggets.json. Build cross-interview insights — what's common, where they diverge, what's critical.",
+      "expected_output": "Nuggets → clusters → insight cards; each with prevalence (X of N), verified evidence from different interviews, tensions, counter-evidence; a pattern only with triangulation ≥k; watchlist separately. Input mappings/nuggets.json is already structured observations (nuggets in S5/S6 format, cell/quote/line/verified/severity/valence/cluster already assigned), NOT raw interview transcripts; synthesis starts directly at S6.5 (`score_insights.py`), without S1–S4.",
+      "files": [
+        "fixtures/mappings/nuggets.json"
+      ]
+    },
+    {
+      "id": 4,
+      "lens": "exit",
+      "prompt": "I have a transcript of an exit interview with a lab employee who is resigning — her resignation letter says \"relocating to be with family\", but the conversation turned out to be candid. Analyze what actually happened: where the real point of no return was, what the final straw was, whether she raised the issue with management before, and whether she could have been retained.",
+      "expected_output": "Mapping across all Layer 1 cells (X1–X7): the official reason (\"relocation\") diverges from the real one (devaluation of her expertise); the point of no return is the meeting about the reorganization of her position; the trigger is the cut to the reagents budget; prior signals to management went unanswered. Layer 2 concludes PREVENTABLE, flagging the instability of the reason category (A1) and the pattern's systemic nature (A4), plus a recorded self-contradiction from the respondent about when the problems began.",
+      "files": [
+        "fixtures/exit/transcript.txt"
+      ],
+      "gold": "fixtures/exit/gold.md",
+      "gold_claims": "fixtures/exit/claims.json"
+    },
+    {
+      "id": 5,
+      "lens": "usability",
+      "prompt": "I have a transcript of a think-aloud session — a user performing a task in a mobile banking app out loud (file transcript.txt). They need to dispute an unfamiliar charge and lower the limit on online purchases. Analyze where they stumbled, what they expected to see versus what they actually got, and whether they completed the task unaided. Support every conclusion with a quote.",
+      "expected_output": "Mapping across the layers of a think-aloud usability session: Layer 1 (U1–U7 — task, first action, sticking points, verbalized mental model, errors/recovery, completion, spontaneous reactions) with verified quotes and line numbers; Layer 2 (A1–A6 — problem type findability/comprehensibility/trust, barrier severity, expectation-reality gap, isolated vs systemic case, fix priority, key insight), unstable analytical cells flagged.",
+      "files": [
+        "fixtures/usability/transcript.txt"
+      ],
+      "gold": "fixtures/usability/gold.md",
+      "gold_claims": "fixtures/usability/claims.json"
+    },
+    {
+      "id": 6,
+      "lens": "winloss",
+      "prompt": "Here is a transcript of an interview with the procurement director of a wholesale company — we recently lost a deal to them on a warehouse inventory system; they chose a competitor. Analyze what actually influenced the choice: who they compared us against, what the decisive moment was, who made the decision, and how truthful the reason the client gave for rejecting us really is.",
+      "expected_output": "Mapping via the win/loss interview template: Layer 1 (W1–W7 — outcome, alternatives, criteria, decisive moment, decision-making roles, sales process, price) and Layer 2 (A1–A6 — key differentiator, reason category, sales weak point, reversibility of outcome, credibility of the stated explanation, key insight), each cell with a verified quote and line number; unstable cells flagged as disputed due to the gap between the official and real reason for the loss.",
+      "files": [
+        "fixtures/winloss/transcript.txt"
+      ],
+      "gold": "fixtures/winloss/gold.md",
+      "gold_claims": "fixtures/winloss/claims.json"
+    },
+    {
+      "id": 7,
+      "lens": "candidate",
+      "prompt": "Here is a transcript of an interview for a Senior Backend Developer position on the payments team (file transcript.txt). Assess the candidate — does their experience match the role profile, how verifiable are their cases, how do they explain a past failure. Support every conclusion with a verbatim quote and line number.",
+      "expected_output": "Mapping via the candidate interview lens: Layer 1 (K1–K7) — claimed experience, STAR episodes (one strongly verifiable, one weakly verifiable), motivation, expectations of the role, reaction to failure, candidate's questions, conditions — each cell with a verified quote and line number; Layer 2 (A1–A6) — verifiability of episodes, attribution of outcomes, locus of responsibility for failure, and fit with the position, with unstable cells flagged.",
+      "files": [
+        "fixtures/candidate/transcript.txt"
+      ],
+      "gold": "fixtures/candidate/gold.md",
+      "gold_claims": "fixtures/candidate/claims.json"
+    },
+    {
+      "id": 8,
+      "lens": "focus-group",
+      "prompt": "Here is a transcript of a focus group on a new subscription tier for a ready-meal delivery service (file transcript.txt, 5 participants + moderator). Analyze who reacted how, where there was genuine consensus versus where people simply agreed after hearing someone else's opinion, who set the tone of the discussion, and whether there was any real divergence of positions.",
+      "expected_output": "Mapping via the focus-group lens (coding unit — utterance+speaker): Layer 1 (G1–G7 — composition, topic, individual positions before group influence, agreement/disagreement map, instances of opinion shift, dominance, spontaneous consensus) and Layer 2 (A1–A6 — consensus vs conformity, minority voice, opinion-leader influence, fault line, method limitations, key insight), each cell with a verified quote and line; latent cells flagged as disputed.",
+      "files": [
+        "fixtures/focus-group/transcript.txt"
+      ],
+      "gold": "fixtures/focus-group/gold.md",
+      "gold_claims": "fixtures/focus-group/claims.json"
+    },
+    {
+      "id": 9,
+      "lens": "team-retro",
+      "prompt": "I have a transcript of a team retro after a sprint on the \"Express-30\" feature (30-minute delivery) — a facilitator and five team members discussing what worked, what didn't, and what to try next. Analyze it: what the team decided to keep, which episodes failed and why, where opinions genuinely diverged, and which agreements were left without an owner.",
+      "expected_output": "Mapping via the team-retro template (group format, utterance+speaker): Layer 1 (T1–T7 — context, keep, stop with episodes, try with owners, forks, cross-role friction, external blockers) with quote, speaker, and line; Layer 2 (A1–A6 — attribution of causes, team agreement, reproducibility of success, unresolved conflict, priority, key insight) with unstable cells flagged; action items listed separately with owner, and any left unowned.",
+      "files": [
+        "fixtures/team-retro/transcript.txt"
+      ],
+      "gold": "fixtures/team-retro/gold.md",
+      "gold_claims": "fixtures/team-retro/claims.json"
+    },
+    {
+      "id": 10,
+      "lens": "intercept",
+      "prompt": "I have a short transcript of a conversation at a trade-show booth — right after a visitor tried our demo, we intercepted them for literally a minute; they were rushing to a meeting. Analyze what they actually felt in the moment, and back it up with quotes.",
+      "expected_output": "Mapping via the intercept lens: Layer 1 (I1–I6) with facts and verified quotes by line (intercept context, micro-episode, immediate reaction, willingness to respond, prior knowledge, intent) and Layer 2 (A1–A5), where valence and key insight are flagged as disputed due to the gap between the in-the-moment reaction and subsequent rationalization, requiring human adjudication.",
+      "files": [
+        "fixtures/intercept/transcript.txt"
+      ],
+      "gold": "fixtures/intercept/gold.md",
+      "gold_claims": "fixtures/intercept/claims.json"
+    },
+    {
+      "id": 11,
+      "lens": "conflict-mediation",
+      "prompt": "I have an interview with one of the co-founders of a small web-development studio ahead of mediation — he's in conflict with his partner over equity, the hiring of the partner's wife into a project role, and an incident with a nearly-lost key client. Analyze the transcript and build the picture: what he's demanding, what's really behind the demand, who he blames, what his red lines are, and what he'll do if they can't reach an agreement.",
+      "expected_output": "Mapping of one side of the conflict: operational cells (position, interest, account of events, blame attribution, settlement attempts, BATNA, red lines, attitude toward the other side) with verbatim quotes and line numbers; an analytical layer with the position↔interest gap, a hypothesis about interest compatibility (flagged as requiring verification by a human mediator after interviewing the other side), and a settlement-readiness assessment flagged as unstable.",
+      "files": [
+        "fixtures/conflict-mediation/transcript.txt"
+      ],
+      "gold": "fixtures/conflict-mediation/gold.md",
+      "gold_claims": "fixtures/conflict-mediation/claims.json"
+    },
+    {
+      "id": 12,
+      "lens": "ethnographic",
+      "prompt": "An observer went to the warehouse of an auto-parts online store and recorded a contextual-observation session with a senior order picker during actual order assembly — here is the transcript (transcript.txt) interleaved with the observer's bracketed notes. Analyze what's actually happening at the workstation: what homegrown workarounds the employee uses, where her account of the process diverges from what's visible on the recording, and how much the observer's presence affected her. Support every conclusion with a verbatim quote or observation and line number.",
+      "expected_output": "Mapping across cells N1–N7 (environment and artifacts, observed sequence, workarounds, running commentary, say-vs-do gaps, interruptions, social context) with verified quotes and lines; Layer 2 (A1–A5) with conclusions in ALL CAPS, unstable cells flagged, and an explicit caveat about the Hawthorne effect and the single-observation limitation.",
+      "files": [
+        "fixtures/ethnographic/transcript.txt"
+      ],
+      "gold": "fixtures/ethnographic/gold.md",
+      "gold_claims": "fixtures/ethnographic/claims.json"
+    },
+    {
+      "id": 13,
+      "lens": "change-readiness",
+      "prompt": "Here is a transcript of an interview with a hospital department head ahead of rolling out a unified EHR system to replace fragmented scheduling (file transcript.txt). Analyze his real position, who else is for and against, and what he personally stands to lose or gain from this change. Support every conclusion with a quote.",
+      "expected_output": "Mapping via the change-readiness lens: Layer 1 (R1–R7) with verified quotes and line numbers, Layer 2 (A1–A6) with conclusions in ALL CAPS; the gap between the public position (\"fully in favor\") and a likely hidden interest (preserving informal control over scheduling) recorded as a hypothesis; coalition map and unstable cells flagged separately.",
+      "files": [
+        "fixtures/change-readiness/transcript.txt"
+      ],
+      "gold": "fixtures/change-readiness/gold.md",
+      "gold_claims": "fixtures/change-readiness/claims.json"
+    },
+    {
+      "id": 14,
+      "lens": "jtbd",
+      "prompt": "I have a transcript of an interview with the owner of a coffee-shop chain about how they moved from manual shift tracking in Excel and WhatsApp to a payroll service — I need to reconstruct the decision timeline: what the trigger was, what alternatives were compared, what tipped the scale, and what kept them from deciding sooner.",
+      "expected_output": "Mapping across operational cells (job statement, trigger, job map, prior solution, desired outcomes, adjacent jobs) with verbatim quotes and lines, plus analysis of the forces of progress (push/pull/anxiety/habit), the key barrier, and the choice criterion; the forces-of-progress cell and the question of the counterfactual outcome flagged as unstable, with date uncertainty noted.",
+      "files": [
+        "fixtures/jtbd/transcript.txt"
+      ],
+      "gold": "fixtures/jtbd/gold.md",
+      "gold_claims": "fixtures/jtbd/claims.json"
+    },
+    {
+      "id": 15,
+      "lens": "expert",
+      "prompt": "I have a transcript of an interview with a clinical pharmacologist — an expert on antibiotic resistance in hospitals — whom a regional health board asked to comment on a draft protocol (mandatory culture before antibiotics, an antimicrobial stewardship service). I need to map his claims, evidence, recommendations, and risks, separately rate confidence for each claim, and explicitly flag where he goes beyond his expertise or has a conflict of interest.",
+      "expected_output": "Mapping across 6 Layer 1 cells (expertise profile, key claims typed as fact/opinion/prediction, recommendations, evidence and precedents, limitations and risks, open questions) and 6 Layer 2 cells (confidence per claim, points of consensus and disagreement, disputed/unverifiable statements, decision value, key insight), each cell with a verbatim quote and line number; the expert's conflict of interest (paid lectures for the manufacturer of a drug featured in his own protocol) and his overreach beyond his expertise (opinion on the cardiology department's budget) explicitly flagged.",
+      "files": [
+        "fixtures/expert/transcript.txt"
+      ],
+      "gold": "fixtures/expert/gold.md",
+      "gold_claims": "fixtures/expert/claims.json"
+    },
+    {
+      "id": 16,
+      "lens": "brand-positioning",
+      "prompt": "I have a transcript of an interview with a regular customer of the \"Bodrost\" coffee chain, in which he compares the brand to competitors \"Coffee Cult\" and \"BlackCat\" and muses about a possible rebrand — analyze how the brand is perceived and whether renaming it would be a good idea.",
+      "expected_output": "Mapping across 7 operational cells (associations, what the name conveys/hides, name alternatives, references, visual identity, recognition/audience, renaming process) and 5 analytical conclusions (core meaning, positioning gap, renaming risk, fault line in opinions, key insight), with quotes and line numbers; the brand core flagged as unstable due to the respondent's self-contradiction.",
+      "files": [
+        "fixtures/brand-positioning/transcript.txt"
+      ],
+      "gold": "fixtures/brand-positioning/gold.md",
+      "gold_claims": "fixtures/brand-positioning/claims.json"
+    },
+    {
+      "id": 17,
+      "lens": "visitor-experience",
+      "prompt": "I have a transcript of an interview with a visitor to the \"Luminous\" optics-and-light museum — she went with her niece (file transcript.txt). Analyze the entire visit journey: how she found out about the museum, what she expected, what she liked, what disappointed her, and whether she'll come back. Support every conclusion with a quote.",
+      "expected_output": "Mapping via the visitor-experience lens: Layer 1 (V1–V8 — visit context, path to visit, delight points, friction points, content comprehension, social layer, unmet demand, value and intent) with verified quotes and line numbers; Layer 2 (A1–A6 — eNPS, emotional arc, moment of truth, key barrier, visit metaphor, key insight), unstable analytical cells flagged, including the expectation-vs-reality gap.",
+      "files": [
+        "fixtures/visitor-experience/transcript.txt"
+      ],
+      "gold": "fixtures/visitor-experience/gold.md",
+      "gold_claims": "fixtures/visitor-experience/claims.json"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 ---
 name: "cro-review"
-description: "/cs:cro-review <plan> — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team."
+description: "/c-level-agents:cro-review [plan] — Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team."
 ---
 
-# /cs:cro-review — CRO Forcing Questions
+# /c-level-agents:cro-review — CRO Forcing Questions
 
-**Command:** `/cs:cro-review <plan>`
+**Command:** `/c-level-agents:cro-review <plan>`
 
 The pipeline-paranoid operator pressure-tests revenue assumptions. Six questions that surface next-quarter pain this quarter.
 
@@ -52,8 +52,8 @@ The pipeline-paranoid operator pressure-tests revenue assumptions. Six questions
 ## Workflow
 
 ```bash
-python ../../../c-level-advisor/skills/cro-advisor/scripts/revenue_forecast_model.py
-python ../../../c-level-advisor/skills/cro-advisor/scripts/churn_analyzer.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/revenue_forecast_model.py
+python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/scripts/churn_analyzer.py
 ```
 
 ## Output Format
@@ -94,15 +94,15 @@ python ../../../c-level-advisor/skills/cro-advisor/scripts/churn_analyzer.py
 
 ## Routing
 
-- `/cs:cfo-review` — does this hit the cash plan?
-- `/cs:cmo-review` — is pipeline source-mix healthy?
-- `/cs:execute` — quarterly plan if GREEN
-- `/cs:boardroom` — if RED
+- `/c-level-agents:cfo-review` — does this hit the cash plan?
+- `/c-level-agents:cmo-review` — is pipeline source-mix healthy?
+- `/c-level-agents:execute` — quarterly plan if GREEN
+- `/c-level-agents:boardroom` — if RED
 
 ## Related
 
 - Agent: [`cs-cro-advisor`](../../agents/cs-cro-advisor.md)
-- Skill: [`cro-advisor`](../../../c-level-advisor/skills/cro-advisor/SKILL.md)
+- Skill: [`cro-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cro-advisor/SKILL.md)
 - Execution: `../../../business-growth/`
 
 ---

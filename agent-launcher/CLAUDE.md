@@ -33,7 +33,7 @@ independent re-implementation, not a fork.
 - `skills/{interview,stage-launch,grade-iterate,run-without-you,wrap-up}/` — one
   phase each, 3 tools each.
 - `agents/` — `cs-agent-launcher-orchestrator` + 3 phase specialists.
-- `commands/` — 8 `/cs:*` commands.
+- `commands/` — 8 `/cs-*` commands.
 - `hooks/` — opt-in `session_start.py` / `session_end.py` + `hooks.json`.
 - `references/` — 5 shared docs. `assets/` — schema + templates + example.
 
@@ -49,7 +49,7 @@ independent re-implementation, not a fork.
 
 Every SKILL.md ships a "Forcing-question library" (Matt Pocock grill-with-docs):
 walk one question at a time, recommend an answer, cite the reference. The
-`/cs:grill-agent-launcher` command surfaces them.
+`/cs-grill-agent-launcher` command surfaces them.
 
 ## When editing
 

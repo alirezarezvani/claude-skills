@@ -47,7 +47,7 @@ When you detect an implicit trigger, propose the handoff before running it: *"Wa
 
 ## First-Run Setup
 
-On first invocation, the skill asks where to save handoffs so the project folder never gets cluttered. Setup is offered once via *"Run setup now? (Y/n)"* — answering N uses OS-temp defaults for this run and never re-prompts. The user can rerun setup any time via `/cs:handoff-setup`.
+On first invocation, the skill asks where to save handoffs so the project folder never gets cluttered. Setup is offered once via *"Run setup now? (Y/n)"* — answering N uses OS-temp defaults for this run and never re-prompts. The user can rerun setup any time via `/cs-handoff-setup`.
 
 See [references/configuration.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/references/configuration.md) for the full config field reference.
 
@@ -145,8 +145,8 @@ Prints the path of the most recent handoff. The agent edits it directly. Keeps t
 
 ## Slash Commands
 
-- `/cs:handoff [optional next-session description]` — generate the handoff.
-- `/cs:handoff-setup` — reconfigure save location, retention, redaction.
+- `/cs-handoff [optional next-session description]` — generate the handoff.
+- `/cs-handoff-setup` — reconfigure save location, retention, redaction.
 
 ## Agent
 
@@ -157,7 +157,7 @@ Prints the path of the most recent handoff. The agent edits it directly. Keeps t
 ### Example 1 — explicit invocation with a goal
 
 ```
-User: /cs:handoff "finish wiring the redaction linter and open a draft PR"
+User: /cs-handoff "finish wiring the redaction linter and open a draft PR"
 ```
 
 The skill walks the mandatory checklist, generates a 5-section scaffold, fills it from the conversation, runs the redaction linter, and saves to the configured location. See `assets/example_handoff.md` for a complete worked example.
@@ -173,7 +173,7 @@ Detect the implicit signal. Propose before running: *"Want me to write a handoff
 ### Example 3 — first-run setup
 
 ```
-User: /cs:handoff "ship the migration"
+User: /cs-handoff "ship the migration"
 Skill: Run setup now? (Y/n)
 User: Y
 [setup walks 5 questions: save location, retention, redaction strictness, git context, recommender scope]
@@ -190,10 +190,10 @@ On the next session, the SessionStart hook scans the configured save location, f
 
 | Step | Command |
 |---|---|
-| First-run setup | `/cs:handoff-setup` (or answer Y on first `/cs:handoff`) |
-| Generate a handoff | `/cs:handoff [goal]` |
-| Reconfigure later | `/cs:handoff-setup --reconfigure` |
-| Project-specific config | `/cs:handoff-setup --project` |
+| First-run setup | `/cs-handoff-setup` (or answer Y on first `/cs-handoff`) |
+| Generate a handoff | `/cs-handoff [goal]` |
+| Reconfigure later | `/cs-handoff-setup --reconfigure` |
+| Project-specific config | `/cs-handoff-setup --project` |
 | Disable SessionStart hook | `HANDOFF_SESSIONSTART=0` (per session) |
 
 ---

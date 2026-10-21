@@ -3,7 +3,7 @@ description: Top-level Research Operations router. Classifies an enterprise rese
 argument-hint: "<research inquiry: study design, R&D budget, market size, user research, etc.>"
 ---
 
-# /cs:research-ops — Research Operations router
+# /cs-research-ops — Research Operations router
 
 Route this inquiry through the `research-ops-skills` orchestrator:
 

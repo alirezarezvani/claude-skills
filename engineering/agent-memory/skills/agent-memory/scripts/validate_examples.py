@@ -105,8 +105,12 @@ def norm_prose(text):
 
 
 def load():
-    schema = json.load(open(SCHEMA))
-    design = open(DESIGN).read()
+    # Explicit UTF-8: DESIGN.md contains non-ASCII, and the platform default
+    # (cp1252 on Windows) crashes with UnicodeDecodeError before any check runs.
+    with open(SCHEMA, encoding="utf-8") as f:
+        schema = json.load(f)
+    with open(DESIGN, encoding="utf-8") as f:
+        design = f.read()
     return schema, design
 
 

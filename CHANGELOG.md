@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.0] - 2026-10-21 — Audit skills, open-source YouTube and plugin-name fixes
+
+Three new plugins from the October audit's new-skill proposals, an open-source-first YouTube
+plugin, and plugin-name fixes that make `claude plugin validate .` pass on the whole marketplace.
+Totals: 398 skills, 766 Python tools, 877 references, 123 agents, 157 commands and 104
+marketplace plugins (derived by `scripts/derive_counters.py`).
+
+> **Action needed for `claude-coach` users (one time).** The plugin is now `power-user-coach`.
+> An existing install shows as "not found in marketplace" until you reinstall:
+> `/plugin uninstall claude-coach@claude-code-skills` then
+> `/plugin install power-user-coach@claude-code-skills`. The skill, commands and agent keep
+> their names.
+
 ### Added — three skills from the October audit's new-skill proposals
 
 Each ships as its own marketplace plugin and is mirrored into its domain bundle, with a cs-*

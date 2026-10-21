@@ -7,7 +7,7 @@ This plugin runs autonomous experiment loops that optimize any file by a measura
 Use the `/ar:` namespace for all commands:
 
 - `/ar:setup` — Set up a new experiment interactively
-- `/ar:run` — Run a single experiment iteration
+- `/ar:ar-run` — Run a single experiment iteration
 - `/ar:loop` — Start an autonomous loop with user-selected interval
 - `/ar:ar-status` — Show dashboard and results
 - `/ar:ar-resume` — Resume a paused experiment
@@ -33,7 +33,7 @@ Creates the experiment directory, config, program.md, results.tsv, and git branc
 
 ### Running one iteration at a time
 ```
-/ar:run engineering/api-speed
+/ar:ar-run engineering/api-speed
 ```
 Read history, make one change, evaluate, report result.
 

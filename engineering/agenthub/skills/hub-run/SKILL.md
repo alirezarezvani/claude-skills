@@ -1,27 +1,28 @@
 ---
-name: "run"
-description: "One-shot lifecycle command that chains init → baseline → spawn → eval → merge in a single invocation. Use when the user runs /hub:run or asks to execute a full AgentHub competition end-to-end."
-command: /hub:run
+name: "hub-run"
+description: "One-shot lifecycle command that chains init → baseline → spawn → eval → merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end."
+metadata:
+  command: /hub:hub-run
 ---
 
-# /hub:run — One-Shot Lifecycle
+# /hub:hub-run — One-Shot Lifecycle
 
 Run the full AgentHub lifecycle in one command: initialize, capture baseline, spawn agents, evaluate results, and merge the winner.
 
 ## Usage
 
 ```
-/hub:run --task "Reduce p50 latency" --agents 3 \
+/hub:hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 
-/hub:run --task "Refactor auth module" --agents 2 --template refactorer
+/hub:hub-run --task "Refactor auth module" --agents 2 --template refactorer
 
-/hub:run --task "Cover untested utils" --agents 3 \
+/hub:hub-run --task "Cover untested utils" --agents 3 \
   --eval "pytest --cov=utils --cov-report=json" --metric coverage_pct --direction higher \
   --template test-writer
 
-/hub:run --task "Write 3 email subject lines for spring sale campaign" --agents 3 --judge
+/hub:hub-run --task "Write 3 email subject lines for spring sale campaign" --agents 3 --judge
 ```
 
 ## Parameters

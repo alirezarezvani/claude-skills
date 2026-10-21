@@ -1,7 +1,8 @@
 ---
 name: "merge"
 description: "Merge the winning agent's branch into base, archive losers, and clean up worktrees. Use when the user runs /hub:merge or asks to land the winning AgentHub result and tidy the session."
-command: /hub:merge
+metadata:
+  command: /hub:merge
 ---
 
 # /hub:merge — Merge Winner

@@ -1,18 +1,19 @@
 ---
-name: "run"
-description: "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual autoresearch iteration."
-command: /ar:run
+name: "ar-run"
+description: "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:ar-run or asks for one manual autoresearch iteration."
+metadata:
+  command: /ar:ar-run
 ---
 
-# /ar:run — Single Experiment Iteration
+# /ar:ar-run — Single Experiment Iteration
 
 Run exactly ONE experiment iteration: review history, decide a change, edit, commit, evaluate.
 
 ## Usage
 
 ```
-/ar:run engineering/api-speed              # Run one iteration
-/ar:run                                     # List experiments, let user pick
+/ar:ar-run engineering/api-speed              # Run one iteration
+/ar:ar-run                                     # List experiments, let user pick
 ```
 
 ## What It Does

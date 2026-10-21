@@ -70,7 +70,6 @@ Every agent file must start with valid YAML frontmatter:
 ---
 name: cs-agent-name
 description: One-line description of what this agent does
-skills: skill-folder-name
 domain: domain-name
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]
@@ -80,7 +79,7 @@ tools: [Read, Write, Bash, Grep, Glob]
 **Field Definitions:**
 - **name**: Agent identifier with `cs-` prefix (e.g., `cs-content-creator`)
 - **description**: Single sentence describing agent's purpose
-- **skills**: Skill folder this agent references (e.g., `marketing-skill/content-creator`)
+- **No `skills:` field.** Claude Code preloads every skill listed there into the subagent's context on each spawn (resolved by `plugin:skill` name, not by path). This repo's agents are lightweight routers, so name the skill folder in the agent body instead and let the agent load it on demand (decision recorded on PR #939).
 - **domain**: Domain category (marketing, product, engineering, c-level, pm, ra-qm)
 - **model**: Claude model to use (sonnet, opus, haiku)
 - **tools**: Array of Claude Code tools agent can use
@@ -207,7 +206,6 @@ Use this template when creating new agents:
 ---
 name: cs-agent-name
 description: One-line description
-skills: skill-folder-name
 domain: domain-name
 model: sonnet
 tools: [Read, Write, Bash, Grep, Glob]

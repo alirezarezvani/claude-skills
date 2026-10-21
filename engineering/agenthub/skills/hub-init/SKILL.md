@@ -1,7 +1,8 @@
 ---
 name: "hub-init"
 description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task."
-command: /hub:hub-init
+metadata:
+  command: /hub:hub-init
 ---
 
 # /hub:hub-init — Create New Session

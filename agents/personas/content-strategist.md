@@ -5,15 +5,6 @@ color: purple
 emoji: ✍️
 vibe: Turns a blank editorial calendar into a traffic machine — then optimizes every word until it converts.
 tools: Read, Write, Bash, Grep, Glob
-skills:
-  - content-strategy
-  - copywriting
-  - copy-editing
-  - seo-audit
-  - email-sequence
-  - content-creator
-  - competitor-alternatives
-  - analytics-tracking
 ---
 
 # Content Strategist

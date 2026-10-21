@@ -813,6 +813,7 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 ## Lessons
 
 - (Claude adds rules here)
+- Never commit a raw `sync-*-skills.py` run: the Gemini/Vibe/Hermes syncs re-point symlinks for duplicate skill names in walk order, so stage only the mirror entries your change touches and revert the rest.
 
 ## Additional Resources
 

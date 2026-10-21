@@ -91,6 +91,10 @@ SKILL_DOMAINS = {
     "agent-launcher": {
         "category": "agent-development",
         "description": "Claude Managed Agent launcher (unreleased, post-v2.11.2): session-goal orchestrator (context: fork) + interview + stage-launch (BYOK curl) + grade-iterate (bounded outcome loop) + run-without-you (cron deployment loop) + wrap-up. Re-implements anthropics/launch-your-agent (Apache-2.0)."
+    },
+    "loop-library": {
+        "category": "engineering-advanced",
+        "description": "Loop library: catalog of bounded agent loops with named stop states (vendored verbatim)"
     }
 }
 
@@ -109,12 +113,24 @@ def find_skills(repo_root: Path) -> List[Dict]:
         if not domain_path.exists():
             continue
 
-        # Three discovery patterns supported:
+        # Discovery patterns (pattern 0, a domain-root SKILL.md, is handled above):
         #   1. <domain>/skills/<name>/SKILL.md  — flat-domain pattern (most domains)
         #   2. <domain>/<name>/SKILL.md         — legacy pattern
         #   3. <domain>/<plugin>/skills/<name>/SKILL.md — nested plugin pattern
         #      (used by engineering/caveman/, engineering/write-a-skill/, etc.)
         seen_paths: set = set()
+
+        # Pattern 0: the domain folder is itself one skill (loop-library/SKILL.md).
+        root_skill_md = domain_path / "SKILL.md"
+        if root_skill_md.exists():
+            seen_paths.add(str(root_skill_md))
+            skills.append({
+                "name": domain_dir,
+                "source": f"../../{domain_dir}",
+                "source_absolute": domain_dir,
+                "category": domain_info["category"],
+                "description": extract_skill_description(root_skill_md) or f"Skill from {domain_dir}"
+            })
 
         scan_roots = []
         skills_subdir = domain_path / "skills"

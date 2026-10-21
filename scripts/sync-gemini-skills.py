@@ -114,7 +114,8 @@ def find_skills(repo_root: Path) -> List[Dict]:
     agents_path = repo_root / "agents"
     if agents_path.exists():
         for agent_file in agents_path.rglob("*.md"):
-            if agent_file.name == "CLAUDE.md" or ".gemini" in agent_file.parts:
+            # README/TEMPLATE are docs, not agents; mirroring them shipped frontmatter-less "skills" (#1001).
+            if agent_file.name in {"CLAUDE.md", "README.md", "TEMPLATE.md"} or ".gemini" in agent_file.parts:
                 continue
             
             agent_name = agent_file.stem

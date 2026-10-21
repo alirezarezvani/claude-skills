@@ -1,18 +1,8 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 436,
+  "total_skills": 434,
   "skills": [
-    {
-      "name": "README",
-      "category": "agent",
-      "description": "Agent from personas"
-    },
-    {
-      "name": "TEMPLATE",
-      "category": "agent",
-      "description": "One paragraph describing what this agent does, who it's for, and when to activate it."
-    },
     {
       "name": "content-strategist",
       "category": "agent",
@@ -2186,7 +2176,7 @@
   ],
   "categories": {
     "agent": {
-      "count": 34,
+      "count": 32,
       "description": "Agent resources"
     },
     "agent-launcher": {

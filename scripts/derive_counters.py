@@ -25,7 +25,10 @@ Modes:
               disagree with derived values. Also validates the README
               "Skills Overview" per-domain table: every domain row's count
               must equal the SKILL.md count in its linked folder, and every
-              on-disk domain must have a row. CI gate G3.
+              on-disk domain must have a row. Also scans CHANGELOG.md and all
+              of CLAUDE.md for delta-style claims ("skills 358 -> 359") and
+              fails if any claimed new value exceeds the derived total (see
+              check_delta_claims). CI gate G3.
 
 Stdlib only. No writes ever.
 """
@@ -167,6 +170,80 @@ def extract_claims(text: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# --check: delta-style counter claims ("<counter> A -> B" / "A -> B <counter>"),
+# the form release notes and CHANGELOG.md entries actually use — never gated
+# before (issue #995). CHANGELOG.md and CLAUDE.md's release-note prose carry
+# years of these, most describing a past, already-superseded state (a
+# feature's own delta once it landed, not the repo's current total), so
+# asserting every occurrence equals today's derived value would fail on
+# entirely correct history. What *is* always true, since every one of these
+# counters only grows over the repo's life, is that no delta claim's
+# right-hand (new) value can legitimately exceed today's derived total — a
+# claim that does is either fabricated or references a total the tree never
+# reached. That one-directional invariant is what gets enforced; it needs no
+# knowledge of which entry is "current" and doesn't require touching any of
+# the existing correct history.
+# ---------------------------------------------------------------------------
+
+DELTA_LABEL_TO_KEY = {
+    "skills": "skills",
+    "commands": "commands",
+    "agents": "agents",
+    "plugins": "plugins_registered",
+    "tools": "python_tools",
+    "references": "references",
+    "refs": "references",
+    "domains": "domains",
+}
+_DELTA_LABELS = "|".join(DELTA_LABEL_TO_KEY)
+_ARROW = r"(?:→|->)"
+_NUM = r"(?:\d{1,3}(?:,\d{3})+|\d+)"
+
+# "<counter> A -> B" — gap after the label is markdown decoration/whitespace
+# only (":", "*", spaces), never letters/commas/semicolons, so a label that
+# belongs to a *different* clause in the same sentence (e.g. "commands; 359
+# -> 373 Python tools") can't be mistaken for this one's own pair.
+DELTA_PATTERN_LABEL_FIRST = re.compile(
+    rf"\b({_DELTA_LABELS})\b[:\*\s]{{0,6}}({_NUM})\s*{_ARROW}\s*({_NUM})",
+    re.IGNORECASE,
+)
+# "A -> B <counter>" — up to 3 descriptor words between the pair and the
+# label (e.g. "402 -> 441 stdlib Python tools"), joined by plain spaces only
+# so a comma/semicolon boundary still stops the match from crossing clauses.
+DELTA_PATTERN_NUM_FIRST = re.compile(
+    rf"({_NUM})\s*{_ARROW}\s*({_NUM})(?:[ \t]+[A-Za-z][\w\-]*){{0,3}}[ \t]+({_DELTA_LABELS})\b",
+    re.IGNORECASE,
+)
+
+
+def extract_delta_claims(text: str) -> dict:
+    """Return {counter_name: [every claimed new/right-hand value]} for every
+    delta claim found in text, in either label-first or number-first order."""
+    claims = {}
+    for m in DELTA_PATTERN_LABEL_FIRST.finditer(text):
+        key = DELTA_LABEL_TO_KEY[m.group(1).lower()]
+        claims.setdefault(key, []).append(int(m.group(3).replace(",", "")))
+    for m in DELTA_PATTERN_NUM_FIRST.finditer(text):
+        key = DELTA_LABEL_TO_KEY[m.group(3).lower()]
+        claims.setdefault(key, []).append(int(m.group(2).replace(",", "")))
+    return claims
+
+
+def check_delta_claims(label: str, text: str, derived: dict) -> list:
+    """Return mismatch strings where a delta claim's new value exceeds derived."""
+    problems = []
+    for key, values in extract_delta_claims(text).items():
+        actual = derived[key]
+        for claimed in values:
+            if claimed > actual:
+                problems.append(
+                    f"{label}: delta claims new {key}={claimed}, "
+                    f"derived {key}={actual} (claim exceeds actual)"
+                )
+    return problems
+
+
+# ---------------------------------------------------------------------------
 # Per-domain table validation: the README "Skills Overview" table has one row
 # per domain, each ending in a `[<folder>/](<folder>/)` link. Every row's count
 # must equal the SKILL.md count in its folder, and every on-disk domain must
@@ -272,6 +349,10 @@ def check_readme_badges(root: Path, derived: dict) -> list:
 
 def run_check(root: Path, derived: dict) -> int:
     sources = []
+    # Full-text sources for delta-claim checking only (see check_delta_claims):
+    # unlike `sources` above, these are allowed to carry version-history prose,
+    # because the delta check is one-directional and history never exceeds today.
+    delta_sources = []
 
     readme = root / "README.md"
     if readme.is_file():
@@ -289,6 +370,17 @@ def run_check(root: Path, derived: dict) -> int:
         scope_lines = [ln for ln in text.splitlines()
                        if ln.startswith("**Current Scope:**") or ln.startswith("**Status:**")]
         sources.append(("CLAUDE.md (Current Scope / Status lines)", "\n".join(scope_lines)))
+        # Delta claims ("skills 358 -> 359") live throughout CLAUDE.md's
+        # release-note history, not just the two lines above — scan the whole
+        # file for those (issue #995).
+        delta_sources.append(("CLAUDE.md", text))
+
+    changelog = root / "CHANGELOG.md"
+    if changelog.is_file():
+        # CHANGELOG.md was never read by this gate at all (issue #995) — every
+        # entry is release-note prose, so it only gets the delta check, never
+        # the absolute CLAIM_PATTERNS scan (which assumes a live headline).
+        delta_sources.append(("CHANGELOG.md", changelog.read_text(encoding="utf-8")))
 
     marketplace = root / ".claude-plugin" / "marketplace.json"
     if marketplace.is_file():
@@ -340,6 +432,9 @@ def run_check(root: Path, derived: dict) -> int:
                         f"{label}: claims {key}={claimed}, derived {key}={actual}"
                     )
 
+    for label, text in delta_sources:
+        mismatches.extend(check_delta_claims(label, text, derived))
+
     mismatches.extend(check_domain_table(root))
     mismatches.extend(check_readme_badges(root, derived))
 
@@ -350,7 +445,7 @@ def run_check(root: Path, derived: dict) -> int:
         print("\nRun `python3 scripts/derive_counters.py` for the ground-truth table.")
         return 1
 
-    print("Counter check passed: README.md, CLAUDE.md, marketplace.json, mkdocs.yml, .codex-plugin match derived values.")
+    print("Counter check passed: README.md, CLAUDE.md, CHANGELOG.md, marketplace.json, mkdocs.yml, .codex-plugin match derived values.")
     return 0
 
 

@@ -1,6 +1,6 @@
 ---
 name: "ai-act-readiness"
-description: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
+description: "/cs:ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-12-02 / 2028-08-02, as amended by the 2026 AI Omnibus)."
 ---
 
 # /cs:ai-act-readiness — EU AI Act Forcing Questions
@@ -105,7 +105,7 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 
 ## Obligation Matrix
 - Total obligations: N
-- By deadline phase: 2025-02-02=A, 2025-08-02=B, 2026-08-02=C, 2027-08-02=D
+- By deadline phase: 2025-02-02=A, 2025-08-02=B, 2026-08-02=C (Art. 50), 2027-12-02=D (Annex III high-risk), 2028-08-02=E (Annex I high-risk); dates per Regulation (EU) 2026/1744
 - Highest-priority unmet obligation: <Article + description>
 
 ## Transparency (Article 50)

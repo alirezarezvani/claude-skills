@@ -14,8 +14,9 @@ The EU AI Act is the world's first comprehensive horizontal regulation of AI sys
 |---|---|
 | **2 Feb 2025** | Article 5 (prohibited AI practices) + Article 4 (AI literacy) in force |
 | **2 Aug 2025** | GPAI obligations (Articles 51–55) + governance + penalties in force |
-| **2 Aug 2026** | High-risk AI obligations (Title III) in force (general) |
-| **2 Aug 2027** | High-risk obligations for products already covered by sectoral law (Annex I) |
+| **2 Aug 2026** | Article 50 transparency obligations (AI interaction disclosure, deepfake and synthetic-content labelling) |
+| **2 Dec 2027** | High-risk obligations for stand-alone Annex III systems (deferred from 2 Aug 2026 by Regulation (EU) 2026/1744, the AI Omnibus) |
+| **2 Aug 2028** | High-risk obligations for products already covered by sectoral law, such as medical devices under MDR/IVDR (Annex I; deferred from 2 Aug 2027) |
 
 The Act is binding and directly applicable across all 27 EU Member States. Penalties reach EUR 35M or 7% of worldwide annual turnover (whichever is higher) for Article 5 violations.
 

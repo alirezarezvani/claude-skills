@@ -6,8 +6,12 @@ importer, distributor, authorized representative) and AI system tier(s), produce
 a deadline-sorted obligation matrix tied to the Act's phased application:
   - 2 Feb 2025: Article 5 prohibitions + Article 4 AI literacy
   - 2 Aug 2025: GPAI Articles 51-55 + governance + penalties
-  - 2 Aug 2026: Title III high-risk obligations
-  - 2 Aug 2027: Annex I sectoral high-risk obligations
+  - 2 Aug 2026: Article 50 transparency obligations
+  - 2 Dec 2027: Annex III stand-alone high-risk obligations
+  - 2 Aug 2028: Annex I sectoral (product-embedded) high-risk obligations
+
+High-risk dates follow Regulation (EU) 2026/1744 (the AI Omnibus, OJ 24 Jul
+2026, in force 27 Jul 2026), which deferred them from 2 Aug 2026 / 2027.
 
 Deterministic logic referencing Articles 16, 22, 23, 24, 25, 26, 27, 50,
 51-55, 72, 73 + phasing per Article 113.
@@ -50,14 +54,15 @@ SAMPLE: Dict[str, Any] = {
 }
 
 
-# Phasing reference (per Article 113)
+# Phasing reference (Article 113 as amended by Regulation (EU) 2026/1744)
 PHASE_DATES = {
     "article_5_prohibitions": "2025-02-02",
     "article_4_ai_literacy": "2025-02-02",
     "gpai_articles_51_55": "2025-08-02",
     "governance_penalties": "2025-08-02",
-    "title_iii_high_risk_general": "2026-08-02",
-    "title_iii_annex_i_sectoral": "2027-08-02",
+    "article_50_transparency": "2026-08-02",
+    "title_iii_high_risk_general": "2027-12-02",
+    "title_iii_annex_i_sectoral": "2028-08-02",
 }
 
 
@@ -97,8 +102,8 @@ DEPLOYER_PUBLIC_SECTOR = [
 ]
 
 DEPLOYER_LIMITED_RISK = [
-    ("Article 50(1) — Inform natural persons they are interacting with an AI system", "governance_penalties"),
-    ("Article 50(4) — Disclose deepfakes (image, audio, video) as AI-generated; mark machine-readable", "governance_penalties"),
+    ("Article 50(1) — Inform natural persons they are interacting with an AI system", "article_50_transparency"),
+    ("Article 50(4) — Disclose deepfakes (image, audio, video) as AI-generated; mark machine-readable", "article_50_transparency"),
 ]
 
 IMPORTER = [
@@ -228,11 +233,12 @@ def render_text(r: Dict[str, Any], source: str) -> str:
         lines.append(f"     [{o['role']:25s}] {o['obligation']}")
     lines.append("")
     lines.append("-" * 72)
-    lines.append("PHASING (Article 113):")
+    lines.append("PHASING (Article 113, as amended by Regulation (EU) 2026/1744):")
     lines.append("  2025-02-02: Article 5 prohibitions + Article 4 AI literacy")
     lines.append("  2025-08-02: GPAI (Art. 51-55) + governance + penalties")
-    lines.append("  2026-08-02: Title III high-risk (general)")
-    lines.append("  2027-08-02: Annex I sectoral high-risk")
+    lines.append("  2026-08-02: Article 50 transparency")
+    lines.append("  2027-12-02: Annex III stand-alone high-risk")
+    lines.append("  2028-08-02: Annex I sectoral (product-embedded) high-risk")
     return "\n".join(lines)
 
 

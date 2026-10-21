@@ -81,7 +81,7 @@ need," route to `cs-research-ops-orchestrator` → `product-research`, not to yo
 
 ## Available commands
 
-- `/cs:interview-mapper <transcript / task>` — direct invocation
+- `/cs-interview-mapper <transcript / task>` — direct invocation
 
 ## References
 

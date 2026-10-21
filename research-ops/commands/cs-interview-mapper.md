@@ -3,7 +3,7 @@ description: Transcript-level interview mapping. Route intake to one of 16 lense
 argument-hint: "<transcript path or task: goal, respondent type, number of interviews>"
 ---
 
-# /cs:interview-mapper — Transcript coding + reliability council + insight synthesis
+# /cs-interview-mapper — Transcript coding + reliability council + insight synthesis
 
 Run the `interview-mapper` skill on this input:
 
@@ -48,7 +48,7 @@ signal to probe, not an insight.
 
 ## Distinct from
 
-- `research-ops/skills/product-research` (sibling, via `/cs:product-research`) — that selects the
+- `research-ops/skills/product-research` (sibling, via `/cs-product-research`) — that selects the
   research *method*, sizes the sample, and synthesizes *already-coded* observations into a
   repository. It never opens a transcript. This command produces the coded, verified evidence that
   feeds it, or runs standalone on one transcript.

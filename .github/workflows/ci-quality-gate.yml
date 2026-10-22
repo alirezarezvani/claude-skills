@@ -94,6 +94,17 @@ jobs:
         run: |
           python scripts/check_plugin_json.py --all
 
+      # Claude Code caches a plugin by version, so a change shipped without a
+      # bump never reaches existing installs ("already at the latest version").
+      # v2.14.0 shipped 70 of 104 plugins in that state.
+      - name: Plugin version-bump guard (gate G11 — blocking)
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            python3 scripts/check_plugin_versions.py --base "${{ github.event.pull_request.base.sha }}"
+          else
+            python3 scripts/check_plugin_versions.py
+          fi
+
       - name: Built-in-shadowing skill names (blocking — guards #885)
         run: |
           python3 scripts/check_skill_names.py --all

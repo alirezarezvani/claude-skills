@@ -1,7 +1,7 @@
 {
   "name": "month-end-close",
   "description": "Run a faster, provable month-end close. Three deterministic stdlib scripts: a close calendar planner that orders tasks by dependency, finds the critical path and slack, maps WD+n deadlines to dates and blocks on missing owners, missing or self-review of key controls and a critical path past the target workday; a reconciliation matcher that matches GL to bank or sub-ledger by reference then amount and date, builds the proof, ages reconciling items and blocks on any unexplained difference or preparer-as-reviewer; and a flux analyzer that applies your materiality rule and refuses material fluctuations explained with boilerplate or without a quantified driver. Ships cs-close-controller agent, /cs-month-end-close and /cs-flux-review commands, 3 references citing COSO 2013 and PCAOB AS 2201 / AS 2305 / SAPA 11, and a reconciliation sign-off template.",
-  "version": "2.13.0",
+  "version": "2.14.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -34,11 +34,13 @@ python scripts/flux_analyzer.py --input tb_compare.csv --pct 10 --abs 10000 --re
 the plan against people: one person booked for 1.5 days on WD1 is a plan that
 will slip. Speed up the critical path, nothing else.
 
-**Step 2** matches by reference, then by amount within a date window. What is
-left is a reconciling item: in the GL only (timing) or in the source only (book
-a journal entry). The proof must close to zero. An unexplained difference that
-was already in the opening balances points back to last month's reconciliation;
-one that divides by 9 is flagged as a likely transposition.
+**Step 2** matches by reference, then by amount within a date window, then pairs
+digit transpositions (7,980 vs 7,890) into one correcting entry. What is left is
+a reconciling item: in the GL only (timing) or in the source only (book a journal
+entry). Opening-balance rows are balances, not transactions: when the two sides
+open at different amounts, that difference came from last month and blocks
+sign-off until it is traced there; it is never booked this period. The proof
+must close to zero.
 
 **Step 3** marks an account material when it passes your threshold rule, flips
 sign, or appears or disappears. Its explanation fails if it is missing, stock

@@ -100,7 +100,7 @@ Every plugin in this collection works across multiple AI coding agents:
 | Tool | Format | Install Method |
 |------|--------|---------------|
 | Claude Code | `.claude-plugin` | `/plugin install` |
-| OpenAI Codex | `.codex/skills/` | `./scripts/codex-install.sh` |
+| OpenAI Codex | `.codex/skills/` | `./scripts/codex-install.sh --category <name>` |
 | Gemini CLI | `.gemini/skills/` | `./scripts/gemini-install.sh` |
 | Cursor | `.cursor/skills/` | `./scripts/convert.sh --tool cursor` |
 | OpenClaw | `clawhub install` | Via ClawHub marketplace |

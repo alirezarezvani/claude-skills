@@ -90,7 +90,7 @@ cd claude-skills
 
 ```bash
 npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
-# Or: git clone + ./scripts/codex-install.sh
+# Or: git clone + ./scripts/codex-install.sh --category <name>  (no arguments lists categories)
 ```
 
 ### OpenClaw

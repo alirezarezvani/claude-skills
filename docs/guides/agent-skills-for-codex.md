@@ -16,8 +16,9 @@ Use 345 production-ready agent skills with OpenAI Codex CLI. Every skill in this
 git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
 
-# Option 1: Install all skills for Codex
-./scripts/codex-install.sh
+# Option 1: Install the categories you use (no arguments lists them).
+# Avoid --all: with the full library Codex drops every skill description.
+./scripts/codex-install.sh --category engineering,product
 
 # Option 2: Convert specific skills
 ./scripts/convert.sh --skill frontend-design --tool codex

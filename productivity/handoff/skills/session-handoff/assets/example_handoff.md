@@ -52,8 +52,8 @@ _Git context (auto-included from config)._
 
 - Branch: `claude/handoff-skill-review-LnSxe`
 - Draft PR: https://github.com/alirezarezvani/claude-skills/pull/724
-- SKILL.md: `productivity/handoff/skills/handoff/SKILL.md`
-- Linter: `productivity/handoff/skills/handoff/scripts/redaction_linter.py`
+- SKILL.md: `productivity/handoff/skills/session-handoff/SKILL.md`
+- Linter: `productivity/handoff/skills/session-handoff/scripts/redaction_linter.py`
 - Inspired by: https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff
 
 ---

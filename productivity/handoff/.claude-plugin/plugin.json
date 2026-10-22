@@ -10,6 +10,6 @@
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
   "skills": [
-    "./skills/handoff"
+    "./skills/session-handoff"
   ]
 }

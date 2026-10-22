@@ -21,7 +21,7 @@ import tempfile
 from pathlib import Path
 
 SKILL_SCRIPTS = (
-    Path(__file__).resolve().parent.parent / "skills" / "handoff" / "scripts"
+    Path(__file__).resolve().parent.parent / "skills" / "session-handoff" / "scripts"
 )
 sys.path.insert(0, str(SKILL_SCRIPTS))
 

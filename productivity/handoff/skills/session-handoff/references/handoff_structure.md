@@ -111,8 +111,8 @@ Finish wiring the redaction linter into `/cs-handoff` and ship a draft PR before
 
 - Branch: claude/handoff-skill-review-LnSxe
 - Draft PR (not yet opened): will target same branch
-- SKILL.md: productivity/handoff/skills/handoff/SKILL.md
-- Linter: productivity/handoff/skills/handoff/scripts/redaction_linter.py
+- SKILL.md: productivity/handoff/skills/session-handoff/SKILL.md
+- Linter: productivity/handoff/skills/session-handoff/scripts/redaction_linter.py
 - Inspired by: https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff
 ```
 

@@ -82,6 +82,10 @@ Stdlib-only Python. No external deps.
 
 Both exist deliberately. The engineering version stays optimized for code/PR contexts. This one is for the broader daily routine.
 
+### Renamed in 2.14.1: `handoff` → `session-handoff`
+
+Both plugins used to ship a skill named `handoff`. Claude Code namespaces them, but Codex, Gemini CLI, Mistral Vibe and Hermes key skills by name alone and silently kept only one. This skill is now `session-handoff` (`productivity/handoff/skills/session-handoff/`), so it is invoked as `handoff-productivity:session-handoff`. The `/cs-handoff` and `/cs-handoff-setup` commands, the hooks, and your saved configuration in `~/.config/handoff/` are unchanged. If you installed the skill folder by hand on another harness, reinstall it under the new name and delete the old `handoff-productivity` or `productivity-handoff` copy.
+
 ## Inspired by
 
 [Matt Pocock's handoff skill](https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff) (MIT). The seven-sentence body of `SKILL.md` is Matt's, preserved verbatim. The wrapper is this repo's.

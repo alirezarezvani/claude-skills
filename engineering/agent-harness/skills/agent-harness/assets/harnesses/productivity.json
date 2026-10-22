@@ -390,123 +390,123 @@
     },
     {
       "name": "handoff",
-      "path": "productivity/handoff/skills/handoff",
+      "path": "productivity/handoff/skills/session-handoff",
       "description": "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a \u2026",
       "tools": [
         {
-          "script": "productivity/handoff/skills/handoff/scripts/cleanup.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/cleanup.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/cleanup.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/cleanup.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/cleanup.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/cleanup.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "productivity/handoff/skills/handoff/scripts/config_loader.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/config_loader.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/config_loader.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/config_loader.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/config_loader.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/config_loader.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "productivity/handoff/skills/handoff/scripts/handoff_self_check.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/handoff_self_check.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/handoff_self_check.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/handoff_self_check.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/handoff_self_check.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/handoff_self_check.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "productivity/handoff/skills/handoff/scripts/handoff_template_generator.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/handoff_template_generator.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/handoff_template_generator.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/handoff_template_generator.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/handoff_template_generator.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/handoff_template_generator.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "productivity/handoff/skills/handoff/scripts/redaction_linter.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/redaction_linter.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/redaction_linter.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/redaction_linter.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/redaction_linter.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/redaction_linter.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "productivity/handoff/skills/handoff/scripts/setup.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/setup.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/setup.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/setup.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/setup.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/setup.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "productivity/handoff/skills/handoff/scripts/skill_recommender.py",
+          "script": "productivity/handoff/skills/session-handoff/scripts/skill_recommender.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/skill_recommender.py --help",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/skill_recommender.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 productivity/handoff/skills/handoff/scripts/skill_recommender.py --sample",
+              "cmd": "python3 productivity/handoff/skills/session-handoff/scripts/skill_recommender.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }

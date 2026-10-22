@@ -102,7 +102,7 @@ Set automatically by setup. Read by `config_loader.setup_completed()` to decide 
 To set project-specific overrides:
 
 ```bash
-python3 productivity/handoff/skills/handoff/scripts/setup.py --reconfigure --project
+python3 productivity/handoff/skills/session-handoff/scripts/setup.py --reconfigure --project
 ```
 
 Writes `<repo>/.handoff/config.json`. Missing keys fall back to the global config.

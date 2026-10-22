@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/ra-qm-skills/SKILL.md

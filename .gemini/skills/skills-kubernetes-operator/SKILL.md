@@ -1,1 +1,0 @@
-../../../engineering/kubernetes-operator/skills/kubernetes-operator/SKILL.md

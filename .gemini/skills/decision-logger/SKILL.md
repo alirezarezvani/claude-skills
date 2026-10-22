@@ -1,1 +1,0 @@
-../../../c-level-advisor/skills/decision-logger/SKILL.md

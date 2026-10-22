@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/social-content/SKILL.md

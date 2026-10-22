@@ -1,1 +1,0 @@
-../../../marketing-skill/video-content-strategist/skills/video-content-strategist/SKILL.md

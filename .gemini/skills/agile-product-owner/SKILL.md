@@ -1,1 +1,0 @@
-../../../product-team/agile-product-owner/skills/agile-product-owner/SKILL.md

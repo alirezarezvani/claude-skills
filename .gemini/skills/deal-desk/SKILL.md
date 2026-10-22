@@ -1,1 +1,0 @@
-../../../commercial/skills/deal-desk/SKILL.md

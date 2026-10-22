@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/form-cro/SKILL.md

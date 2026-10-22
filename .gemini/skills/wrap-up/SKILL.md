@@ -1,1 +1,0 @@
-../../../agent-launcher/skills/wrap-up/SKILL.md

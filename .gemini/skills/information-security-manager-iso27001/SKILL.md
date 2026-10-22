@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/information-security-manager-iso27001/SKILL.md

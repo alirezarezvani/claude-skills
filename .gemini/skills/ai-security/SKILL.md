@@ -1,1 +1,0 @@
-../../../engineering-team/skills/ai-security/SKILL.md

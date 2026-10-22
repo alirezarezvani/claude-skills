@@ -1,1 +1,0 @@
-../../../compliance-os/skills/gdpr-audit-prep/SKILL.md

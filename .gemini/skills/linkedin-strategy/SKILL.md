@@ -1,1 +1,0 @@
-../../../marketing/linkedin/skills/linkedin-strategy/SKILL.md

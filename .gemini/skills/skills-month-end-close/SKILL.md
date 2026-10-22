@@ -1,1 +1,0 @@
-../../../finance/skills/month-end-close/SKILL.md

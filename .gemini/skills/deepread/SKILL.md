@@ -1,1 +1,0 @@
-../../../research/deepread/SKILL.md

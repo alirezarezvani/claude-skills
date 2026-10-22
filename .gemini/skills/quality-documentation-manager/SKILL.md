@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/quality-documentation-manager/SKILL.md

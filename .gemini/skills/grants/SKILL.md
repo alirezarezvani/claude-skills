@@ -1,1 +1,0 @@
-../../../research/grants/skills/grants/SKILL.md

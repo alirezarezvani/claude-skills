@@ -1,1 +1,0 @@
-../../../productivity/roast/skills/roast/SKILL.md

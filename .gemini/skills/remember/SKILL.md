@@ -1,1 +1,0 @@
-../../../engineering-team/self-improving-agent/skills/remember/SKILL.md

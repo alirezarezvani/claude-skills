@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/cdo-review/SKILL.md

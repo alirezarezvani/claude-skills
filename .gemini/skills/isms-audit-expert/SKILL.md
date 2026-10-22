@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/isms-audit-expert/SKILL.md

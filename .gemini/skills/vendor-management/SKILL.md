@@ -1,1 +1,0 @@
-../../../business-operations/skills/vendor-management/SKILL.md

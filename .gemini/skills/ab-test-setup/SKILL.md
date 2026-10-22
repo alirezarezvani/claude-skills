@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/ab-test-setup/SKILL.md

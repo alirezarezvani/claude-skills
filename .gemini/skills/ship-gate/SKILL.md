@@ -1,1 +1,0 @@
-../../../engineering/skills/ship-gate/SKILL.md

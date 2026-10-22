@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/launch-strategy/SKILL.md

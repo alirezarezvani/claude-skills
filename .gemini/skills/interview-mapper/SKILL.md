@@ -1,1 +1,0 @@
-../../../research-ops/skills/interview-mapper/SKILL.md

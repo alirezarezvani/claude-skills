@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/caio-review/SKILL.md

@@ -1,1 +1,0 @@
-../../../c-level-advisor/arquiteto-de-empresa/skills/arquiteto-de-empresa/SKILL.md

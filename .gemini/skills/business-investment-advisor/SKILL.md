@@ -1,1 +1,0 @@
-../../../finance/business-investment-advisor/skills/business-investment-advisor/SKILL.md

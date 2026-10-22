@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/ciso-review/SKILL.md

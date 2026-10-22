@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/gc-review/SKILL.md

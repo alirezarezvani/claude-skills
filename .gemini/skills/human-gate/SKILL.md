@@ -1,1 +1,0 @@
-../../../engineering/human-gate/skills/human-gate/SKILL.md

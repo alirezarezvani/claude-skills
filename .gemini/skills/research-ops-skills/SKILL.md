@@ -1,1 +1,0 @@
-../../../research-ops/skills/research-ops-skills/SKILL.md

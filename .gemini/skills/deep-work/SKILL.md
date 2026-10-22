@@ -1,1 +1,0 @@
-../../../productivity/deep-work/skills/deep-work/SKILL.md

@@ -1,1 +1,0 @@
-../../../engineering/skills/runbook-generator/SKILL.md

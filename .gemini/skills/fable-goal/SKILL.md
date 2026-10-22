@@ -1,1 +1,0 @@
-../../../productivity/fable-goal/skills/fable-goal/SKILL.md

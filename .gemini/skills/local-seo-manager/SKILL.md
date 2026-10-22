@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/local-seo-manager/SKILL.md

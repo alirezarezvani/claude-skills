@@ -1,1 +1,0 @@
-../../../engineering/skills/agent-workflow-designer/SKILL.md

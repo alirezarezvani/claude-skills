@@ -1,1 +1,0 @@
-../../../research-ops/skills/research-finance/SKILL.md

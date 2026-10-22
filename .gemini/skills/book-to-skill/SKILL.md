@@ -1,1 +1,0 @@
-../../../engineering/book-to-skill/skills/book-to-skill/SKILL.md

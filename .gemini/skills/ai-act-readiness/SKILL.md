@@ -1,1 +1,0 @@
-../../../compliance-os/skills/ai-act-readiness/SKILL.md

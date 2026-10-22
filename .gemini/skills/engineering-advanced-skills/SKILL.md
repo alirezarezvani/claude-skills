@@ -1,1 +1,0 @@
-../../../engineering/skills/engineering-advanced-skills/SKILL.md

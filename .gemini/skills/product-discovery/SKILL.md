@@ -1,1 +1,0 @@
-../../../product-team/skills/product-discovery/SKILL.md

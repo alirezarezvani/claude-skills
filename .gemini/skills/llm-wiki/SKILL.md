@@ -1,1 +1,0 @@
-../../../engineering/llm-wiki/skills/llm-wiki/SKILL.md

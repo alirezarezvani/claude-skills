@@ -1,1 +1,0 @@
-../../../engineering-team/skills/tech-stack-evaluator/SKILL.md

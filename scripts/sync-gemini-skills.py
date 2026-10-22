@@ -37,48 +37,63 @@ DOMAIN_MAP = {
     "research-ops": "research-ops",
     "compliance-os": "compliance-os",
     "markdown-html": "markdown-html",
-    "agent-launcher": "agent-launcher"
+    "agent-launcher": "agent-launcher",
+    "c-level-agents": "c-level-agents",
+    "loop-library": "loop-library"
 }
+
+
+# Path components that never hold a real skill: fixtures, eval outputs, and
+# vendored copies (c-level-agents/vendor/ re-exports skills listed elsewhere).
+SKIP_PARTS = {".gemini", "assets", "eval-workspace", "evals", "vendor", "node_modules"}
 
 
 def find_skills(repo_root: Path) -> List[Dict]:
     """
     Scan repository for all skills (SKILL.md files).
+
+    Each skill directory is linked whole, so its scripts/ and references/ sit
+    beside its SKILL.md. Gemini identifies a skill by its frontmatter name, so a
+    dual-published skill (bundled + standalone copies with identical SKILL.md)
+    is listed once, and commands or agents that share a skill's name are
+    dropped rather than reported by Gemini as conflicts.
     """
     skills = []
     seen_names = set()
+    fm_seen: Dict[str, bytes] = {}
 
-    # 1. Find all SKILL.md files recursively
-    for skill_md in repo_root.rglob("SKILL.md"):
-        # Skip internal .gemini directory
-        if ".gemini" in skill_md.parts:
+    # 1. Find all SKILL.md files. Sorted, shortest path first, so the bundled
+    # copy (<domain>/skills/<name>) wins over the standalone plugin copy and
+    # repeated runs produce the same mirror.
+    found = sorted(repo_root.rglob("SKILL.md"),
+                   key=lambda p: (len(p.relative_to(repo_root).parts), str(p)))
+    for skill_md in found:
+        rel_parts = skill_md.relative_to(repo_root).parts
+        if SKIP_PARTS.intersection(rel_parts):
             continue
-        
-        # Skip evaluation workspaces, assets, and gitignored directories
-        if "eval-workspace" in skill_md.parts or "assets" in skill_md.parts or "evals" in skill_md.parts:
-            if "sample-skill" not in skill_md.parts: # Keep sample if it's for testing
-                continue
 
         # Skip directories not in DOMAIN_MAP (e.g. gitignored local folders)
-        top_level = skill_md.relative_to(repo_root).parts[0]
-        if top_level not in DOMAIN_MAP and top_level not in ("agents", "commands"):
+        top_level = rel_parts[0]
+        if top_level not in DOMAIN_MAP:
             continue
 
         skill_dir = skill_md.parent
-        
-        # Determine skill name
-        if skill_dir == repo_root:
-            continue # Root SKILL.md (unlikely)
-            
+        fm_name = extract_frontmatter_field(skill_md, "name") or skill_dir.name
+        body = skill_md.read_bytes()
+        if fm_name in fm_seen:
+            if fm_seen[fm_name] == body:
+                continue  # dual-published copy of a skill already listed
+            print(f"warning: two different skills are named '{fm_name}'; Gemini will load only one "
+                  f"({skill_md.relative_to(repo_root)})", file=sys.stderr)
+        fm_seen[fm_name] = body
+
         # For domain-level SKILL.md, name it after the domain
-        if skill_dir.name in DOMAIN_MAP:
+        if skill_dir.name in DOMAIN_MAP and skill_dir.parent == repo_root:
             skill_name = f"{skill_dir.name}-bundle"
         else:
             skill_name = skill_dir.name
 
-        # Handle duplicates by appending parent name; if that still collides
-        # (e.g. three sources whose parent dir is "skills"), suffix with -2, -3, ...
-        # so each entry has a unique name in the index.
+        # Directory names must be unique even when frontmatter names differ.
         if skill_name in seen_names:
             candidate = f"{skill_dir.parent.name}-{skill_name}"
             n = 2
@@ -89,25 +104,20 @@ def find_skills(repo_root: Path) -> List[Dict]:
             skill_name = candidate
 
         seen_names.add(skill_name)
-        
+
         # Determine category based on top-level folder
-        category = "general"
-        for folder, cat in DOMAIN_MAP.items():
-            if folder in skill_md.parts:
-                category = cat
-                break
+        category = DOMAIN_MAP.get(top_level, "general")
 
         description = extract_skill_description(skill_md)
-        
-        # Calculate relative path (3 levels up from .gemini/skills/{name}/SKILL.md)
-        rel_path = skill_md.relative_to(repo_root)
-        source_path = "../../../" + str(rel_path)
 
+        # .gemini/skills/<name> -> ../../<skill dir>
+        rel_dir = skill_dir.relative_to(repo_root)
         skills.append({
             "name": skill_name,
-            "source": source_path,
+            "source": "../../" + str(rel_dir),
+            "link": "dir",
             "category": category,
-            "description": description or f"Skill from {rel_path.parent}"
+            "description": description or f"Skill from {rel_dir}"
         })
 
     # 2. Agents as Skills
@@ -119,6 +129,10 @@ def find_skills(repo_root: Path) -> List[Dict]:
                 continue
             
             agent_name = agent_file.stem
+            agent_fm = extract_frontmatter_field(agent_file, "name") or agent_name
+            if agent_fm in fm_seen:
+                continue
+            fm_seen[agent_fm] = b""
             if agent_name in seen_names:
                 agent_name = f"agent-{agent_name}"
             seen_names.add(agent_name)
@@ -130,6 +144,7 @@ def find_skills(repo_root: Path) -> List[Dict]:
             skills.append({
                 "name": agent_name,
                 "source": source_path,
+                "link": "file",
                 "category": "agent",
                 "description": description or f"Agent from {agent_file.parent.name}"
             })
@@ -142,6 +157,8 @@ def find_skills(repo_root: Path) -> List[Dict]:
                 continue
             
             cmd_name = cmd_file.stem
+            if (extract_frontmatter_field(cmd_file, "name") or cmd_name) in fm_seen:
+                continue  # a skill already answers to this name
             if cmd_name in seen_names:
                 cmd_name = f"cmd-{cmd_name}"
             seen_names.add(cmd_name)
@@ -153,12 +170,33 @@ def find_skills(repo_root: Path) -> List[Dict]:
             skills.append({
                 "name": cmd_name,
                 "source": source_path,
+                "link": "file",
                 "category": "command",
                 "description": description or "Custom slash command"
             })
 
     skills.sort(key=lambda s: (s["category"], s["name"]))
     return skills
+
+
+def extract_frontmatter_field(path: Path, field: str) -> Optional[str]:
+    """Return a single-line frontmatter value, unquoted, or None."""
+    try:
+        content = path.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError):
+        return None
+    if not content.startswith("---"):
+        return None
+    end_idx = content.find("\n---", 3)
+    if end_idx == -1:
+        return None
+    for line in content[3:end_idx].split("\n"):
+        if line.startswith(f"{field}:"):
+            val = line[len(field) + 1:].strip()
+            if len(val) >= 2 and val[0] == val[-1] and val[0] in "\"'":
+                val = val[1:-1]
+            return val or None
+    return None
 
 
 def extract_skill_description(skill_md_path: Path) -> Optional[str]:
@@ -185,52 +223,84 @@ def extract_skill_description(skill_md_path: Path) -> Optional[str]:
         return None
 
 
+def _is_generated(entry: Path) -> bool:
+    """True for mirror entries this script made: a symlink, or a directory
+    holding nothing but symlinks (the old one-file-per-skill layout)."""
+    if entry.is_symlink():
+        return True
+    return entry.is_dir() and all(c.is_symlink() for c in entry.iterdir())
+
+
+def _remove(entry: Path) -> None:
+    if entry.is_symlink() or entry.is_file():
+        entry.unlink()
+    else:
+        for c in entry.iterdir():
+            c.unlink()
+        entry.rmdir()
+
+
 def create_symlinks(repo_root: Path, skills: List[Dict], dry_run: bool = False, verbose: bool = False) -> Dict:
     """
-    Create symlinks in .gemini/skills/ directory.
+    Create .gemini/skills/<name> entries: a directory symlink for skills (so
+    scripts/ and references/ resolve) and a SKILL.md file symlink for agents
+    and commands. Generated entries that no longer map to a skill are removed.
     """
     gemini_skills_dir = repo_root / ".gemini" / "skills"
-    
-    # Optional: Clean existing skills to remove stale ones
-    # if not dry_run and gemini_skills_dir.exists():
-    #     import shutil
-    #     shutil.rmtree(gemini_skills_dir)
-
-    created, updated, unchanged, errors = [], [], [], []
+    created, updated, unchanged, removed, errors = [], [], [], [], []
 
     if not dry_run:
         gemini_skills_dir.mkdir(parents=True, exist_ok=True)
 
+    wanted = {s["name"] for s in skills}
+    if gemini_skills_dir.exists():
+        for entry in sorted(gemini_skills_dir.iterdir()):
+            if entry.name not in wanted and _is_generated(entry):
+                if not dry_run:
+                    _remove(entry)
+                removed.append(entry.name)
+
     for skill in skills:
         skill_name = skill["name"]
-        skill_dest_dir = gemini_skills_dir / skill_name
-        
-        if not dry_run:
-            skill_dest_dir.mkdir(exist_ok=True)
-            
-        symlink_path = skill_dest_dir / "SKILL.md"
+        dest = gemini_skills_dir / skill_name
         target = skill["source"]
-
         try:
-            if symlink_path.is_symlink():
-                current_target = os.readlink(symlink_path)
-                if current_target == target:
+            if skill["link"] == "dir":
+                if dest.is_symlink() and os.readlink(dest) == target:
                     unchanged.append(skill_name)
-                else:
+                    continue
+                if dest.exists() or dest.is_symlink():
+                    if not _is_generated(dest):
+                        errors.append(f"{skill_name}: {dest} exists and was not generated by this script")
+                        continue
                     if not dry_run:
-                        symlink_path.unlink()
-                        symlink_path.symlink_to(target)
+                        _remove(dest)
                     updated.append(skill_name)
-            elif symlink_path.exists():
-                errors.append(f"{skill_name}: path exists but is not a symlink")
-            else:
+                else:
+                    created.append(skill_name)
                 if not dry_run:
-                    symlink_path.symlink_to(target)
-                created.append(skill_name)
-        except Exception as e:
-            errors.append(f"{skill_name}: {str(e)}")
+                    dest.symlink_to(target, target_is_directory=True)
+            else:
+                link = dest / "SKILL.md"
+                if link.is_symlink() and os.readlink(link) == target and not dest.is_symlink():
+                    unchanged.append(skill_name)
+                    continue
+                if dest.is_symlink():
+                    if not dry_run:
+                        dest.unlink()
+                if not dry_run:
+                    dest.mkdir(exist_ok=True)
+                    if link.is_symlink():
+                        link.unlink()
+                    link.symlink_to(target)
+                (updated if link.exists() else created).append(skill_name)
+        except OSError as e:
+            errors.append(f"{skill_name}: {e}")
 
-    return {"created": created, "updated": updated, "unchanged": unchanged, "errors": errors}
+    for e in errors:
+        print(f"error: {e}", file=sys.stderr)
+    return {"created": created, "updated": updated, "unchanged": unchanged,
+            "removed": removed, "errors": errors}
 
 
 def generate_skills_index(repo_root: Path, skills: List[Dict], dry_run: bool = False) -> Dict:
@@ -280,9 +350,11 @@ def main():
     print(f"Created: {len(symlink_results['created'])}")
     print(f"Updated: {len(symlink_results['updated'])}")
     print(f"Unchanged: {len(symlink_results['unchanged'])}")
+    print(f"Removed: {len(symlink_results['removed'])}")
 
     if symlink_results['errors']:
         print(f"Errors: {len(symlink_results['errors'])}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

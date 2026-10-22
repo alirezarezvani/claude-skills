@@ -1,1 +1,0 @@
-../../../commercial/skills/commercial-policy/SKILL.md

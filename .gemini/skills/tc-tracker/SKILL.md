@@ -1,1 +1,0 @@
-../../../engineering/skills/tc-tracker/SKILL.md

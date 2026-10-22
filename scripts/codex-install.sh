@@ -204,6 +204,11 @@ install_skill() {
   # Copy skill (following symlinks with -L)
   cp -rL "$skill_src" "$skill_dest"
 
+  # Codex scans installed skill folders recursively, so a fixture such as
+  # skill-tester/assets/sample-skill/SKILL.md would load as a real skill.
+  find "$skill_dest" -mindepth 2 -path '*/assets/*' -name SKILL.md \
+    -exec sh -c 'mv "$1" "$1.fixture"' _ {} \;
+
   print_success "Installed: $skill_name"
   return 0
 }

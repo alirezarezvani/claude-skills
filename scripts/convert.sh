@@ -431,7 +431,10 @@ fi
 SKILLS_TMP="$(mktemp)"
 (
   cd "$REPO_ROOT"
-  find . -mindepth 4 -maxdepth 6 -type f -name 'SKILL.md' \
+  # mindepth 2 keeps plugins whose SKILL.md sits at the plugin root
+  # (loop-library/, engineering/hivemind/, productivity/swedish-mentor/ ...).
+  find . -mindepth 2 -maxdepth 6 -type f -name 'SKILL.md' \
+    -not -path '*/assets/*' \
     -not -path './.git/*' \
     -not -path './.claude/*' \
     -not -path './.codex/*' \

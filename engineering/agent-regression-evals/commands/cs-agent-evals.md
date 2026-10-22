@@ -16,15 +16,15 @@ Confirm, or ask for, these three things. If any is missing, say so and stop:
 2. At least 3 trials per case on both sides, each from a clean environment.
 3. The same case IDs on both sides.
 
-No results yet? Show the format with `python skills/agent-regression-evals/scripts/regression_gate.py --sample`
+No results yet? Show the format with `python ${CLAUDE_PLUGIN_ROOT}/skills/agent-regression-evals/scripts/regression_gate.py --sample`
 and help the user write the runner that produces it.
 
 ## Run
 
 ```bash
-python skills/agent-regression-evals/scripts/trajectory_checker.py --spec <cases.json> --results <candidate.jsonl>   # only if a spec exists
-python skills/agent-regression-evals/scripts/flake_detector.py --results <candidate.jsonl> --k 3
-python skills/agent-regression-evals/scripts/regression_gate.py --baseline <baseline.jsonl> --candidate <candidate.jsonl>
+python ${CLAUDE_PLUGIN_ROOT}/skills/agent-regression-evals/scripts/trajectory_checker.py --spec <cases.json> --results <candidate.jsonl>   # only if a spec exists
+python ${CLAUDE_PLUGIN_ROOT}/skills/agent-regression-evals/scripts/flake_detector.py --results <candidate.jsonl> --k 3
+python ${CLAUDE_PLUGIN_ROOT}/skills/agent-regression-evals/scripts/regression_gate.py --baseline <baseline.jsonl> --candidate <candidate.jsonl>
 ```
 
 ## Report

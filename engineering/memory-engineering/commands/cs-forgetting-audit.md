@@ -15,14 +15,14 @@ The short pass. Skip the cost and architecture work; answer one question about
 If given a policy JSON:
 
 ```bash
-python skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <policy.json>
+python ${CLAUDE_PLUGIN_ROOT}/skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <policy.json>
 ```
 
 If given a directory, first show what is actually accumulating, then gate:
 
 ```bash
-python skills/memory-engineering/scripts/memory_density_auditor.py --dir <path>
-python skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <policy.json>
+python ${CLAUDE_PLUGIN_ROOT}/skills/memory-engineering/scripts/memory_density_auditor.py --dir <path>
+python ${CLAUDE_PLUGIN_ROOT}/skills/memory-engineering/scripts/forgetting_policy_linter.py --policy <policy.json>
 ```
 
 If no policy file exists, that is the answer — nothing leaves the store. Show

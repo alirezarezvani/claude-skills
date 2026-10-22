@@ -19,19 +19,19 @@ Convert the review markdown at **$ARGUMENTS** into a single-file 2-column HTML r
 
 ```bash
 # 1. Resolve output path (uses doctype=review → review- prefix)
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input "<path>.md" --doctype review
 
 # 2. Parse diff hunks
-python3 markdown-html/skills/md-review/scripts/diff_parser.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-review/scripts/diff_parser.py \
     --input "<path>.md" --output /tmp/hunks.json
 
 # 3. Extract severity-tagged annotations, attached to nearest hunk
-python3 markdown-html/skills/md-review/scripts/annotation_extractor.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-review/scripts/annotation_extractor.py \
     --input "<path>.md" --diff-blocks /tmp/hunks.json --output /tmp/annotations.json
 
 # 4. Render — --reviewer is mandatory
-python3 markdown-html/skills/md-review/scripts/review_html_renderer.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-review/scripts/review_html_renderer.py \
     --diff-blocks /tmp/hunks.json --annotations /tmp/annotations.json \
     --reviewer "<reviewer-name>" --title "<PR title>" \
     --output <resolved-out>.html

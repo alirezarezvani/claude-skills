@@ -12,7 +12,7 @@ Route this conversion through the `markdown-html-orchestrator` skill:
 ## Pre-flight gates (refuse and surface, never override)
 
 1. **Input < 100 lines.** Markdown still wins below the threshold (Shihipar). Refuse with the line count + recommendation to keep as markdown.
-2. **Design-system not onboarded.** Surface `python3 markdown-html/skills/design-system/scripts/onboard.py` and re-prompt after.
+2. **Design-system not onboarded.** Surface `python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/onboard.py` and re-prompt after.
 3. **Output directory unwritable.** Refuse; let the user fix the path or re-onboard.
 
 ## Routing (deterministic, two-signal threshold)
@@ -26,11 +26,11 @@ Route this conversion through the `markdown-html-orchestrator` skill:
 Pipeline:
 
 ```bash
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
     --input "$ARGUMENTS" --output json \
-  | python3 markdown-html/skills/markdown-html-orchestrator/scripts/route_explainer.py
+  | python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/route_explainer.py
 
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input "$ARGUMENTS" --doctype <verdict>
 ```
 

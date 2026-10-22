@@ -158,6 +158,21 @@ def scan_file(path: str, repo_root: str, allowlist=()):
     bad = [c for c in extract_candidates(text)
            if not resolves(c, bases) and not allowlisted(rel_file, c, allowlist)]
     root = plugin_root(path, repo_root)
+    # A plugin's commands and agents run from the user's project, not from the
+    # plugin, so a script they invoke must be addressed via ${CLAUDE_PLUGIN_ROOT}.
+    # A repo-relative path happens to work in a clone of this repo and nowhere else.
+    if root and os.path.dirname(os.path.dirname(os.path.abspath(path))) == root \
+            and os.path.basename(os.path.dirname(path)) in ("commands", "agents"):
+        for m in RE_PY_INVOKE.finditer(text):
+            start = m.start(1)
+            if start > 0 and text[start - 1] in PLACEHOLDER_PREFIX_CHARS:
+                continue
+            tok = clean(m.group(1))
+            if not tok or is_dynamic(tok) or tok.split("/")[0] in MAINTAINER_LOCAL:
+                continue
+            msg = f"{tok} (plugin command/agent: use ${{CLAUDE_PLUGIN_ROOT}}/...)"
+            if msg not in bad and not allowlisted(rel_file, tok, allowlist):
+                bad.append(msg)
     for m in RE_PLUGIN_ROOT.finditer(text):
         rel = clean(m.group(1))
         tok = "${CLAUDE_PLUGIN_ROOT}/" + rel

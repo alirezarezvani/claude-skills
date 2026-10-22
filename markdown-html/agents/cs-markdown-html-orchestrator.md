@@ -36,16 +36,16 @@ All three converter sub-skills are live. After the classifier + design-system ga
 ## Pre-flight gates (refuse and surface, never override)
 
 1. **Input < 100 lines.** Per Shihipar's threshold, markdown wins below that. Refuse with the line count and tell the user to keep it as markdown.
-2. **Design-system not onboarded.** No `~/.config/markdown-html/design-system.json` (or `setup_completed_at` is null). Refuse with: `python3 markdown-html/skills/design-system/scripts/onboard.py` (or `--defaults` for zero-touch). Re-prompt after they've run it.
+2. **Design-system not onboarded.** No `~/.config/markdown-html/design-system.json` (or `setup_completed_at` is null). Refuse with: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/onboard.py` (or `--defaults` for zero-touch). Re-prompt after they've run it.
 3. **Output directory unwritable.** `output_path_resolver.py` refuses. Don't override — let the user fix the path or re-onboard.
 
 ## Routing logic
 
 1. **Classify the input.**
    ```bash
-   python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
        --input <path>.md --output json \
-     | python3 markdown-html/skills/markdown-html-orchestrator/scripts/route_explainer.py
+     | python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/route_explainer.py
    ```
 2. **Read the verdict.** One of: `ROUTE_SILENTLY`, `ASK_USER one question`, `REFUSE — fix the issues above`.
 3. **Act on it.** Never override `REFUSE`. Never invent a verdict the classifier didn't produce.

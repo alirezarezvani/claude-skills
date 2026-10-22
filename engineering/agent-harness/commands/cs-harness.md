@@ -12,7 +12,7 @@ If the domain token doesn't match a manifest file, list the available manifests 
 ## Sequence (gates are blocking — never skip forward)
 
 1. **Compile** —
-   `python3 engineering/agent-harness/skills/agent-harness/scripts/goal_compiler.py --goal "<goal>" --manifest engineering/agent-harness/skills/agent-harness/assets/harnesses/<domain>.json --out .agent-harness/plan.json`
+   `python3 ${CLAUDE_PLUGIN_ROOT}/skills/agent-harness/scripts/goal_compiler.py --goal "<goal>" --manifest engineering/agent-harness/skills/agent-harness/assets/harnesses/<domain>.json --out .agent-harness/plan.json`
    - Exit 3: relay the forcing questions to the user one at a time (recommended answer
      first), then recompile with the enriched goal. Do not proceed on a vague goal.
    - Exit 4: show `nearest_candidates`, ask whether to switch domain or refine the goal.

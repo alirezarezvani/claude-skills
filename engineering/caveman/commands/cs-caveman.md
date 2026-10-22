@@ -47,13 +47,13 @@ User types: "stop caveman" / "normal mode" → resume normal prose.
 
 ```bash
 # Compress text
-python ../skills/caveman/scripts/caveman_compressor.py "text"
+python ${CLAUDE_PLUGIN_ROOT}/skills/caveman/scripts/caveman_compressor.py "text"
 
 # Estimate token savings at price
-python ../skills/caveman/scripts/token_savings_estimator.py "text" --price-per-mtok 3.00
+python ${CLAUDE_PLUGIN_ROOT}/skills/caveman/scripts/token_savings_estimator.py "text" --price-per-mtok 3.00
 
 # Verify response follows caveman rules
-python ../skills/caveman/scripts/caveman_lint.py "response"
+python ${CLAUDE_PLUGIN_ROOT}/skills/caveman/scripts/caveman_lint.py "response"
 ```
 
 ## Related

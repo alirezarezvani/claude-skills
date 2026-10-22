@@ -35,14 +35,14 @@ If under 100 lines, refuse the conversion. Do NOT proceed.
 
 > **Has the design-system been onboarded?**
 >
-> Recommended: yes, globally. Run `python3 markdown-html/skills/design-system/scripts/onboard.py` (or `--defaults` for zero-touch) if not.
+> Recommended: yes, globally. Run `python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/onboard.py` (or `--defaults` for zero-touch) if not.
 >
 > Canon: research-ops onboarding pattern (`research-ops/CLAUDE.md` §8); WCAG 2.2 §1.4.3.
 
 Check via:
 
 ```bash
-python3 markdown-html/skills/design-system/scripts/config_loader.py --status
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/config_loader.py --status
 ```
 
 If `setup_completed: false`, surface onboarding. Do NOT proceed without it.
@@ -58,7 +58,7 @@ If `setup_completed: false`, surface onboarding. Do NOT proceed without it.
 Resolve via:
 
 ```bash
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input "$ARGUMENTS" --doctype <verdict>
 ```
 
@@ -73,7 +73,7 @@ python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_reso
 Classify via:
 
 ```bash
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
     --input "$ARGUMENTS" --output human
 ```
 

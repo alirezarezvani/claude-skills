@@ -45,3 +45,7 @@ engineering-team/skills/security-pen-testing/SKILL.md :: ../../../etc/passwd
 c-level-advisor/arquiteto-de-empresa/skills/arquiteto-de-empresa/SKILL.md :: ../00-fundacao/identidade.md
 c-level-advisor/skills/arquiteto-de-empresa/SKILL.md :: ../00-fundacao/identidade.md
 c-level-advisor/arquiteto-de-empresa/commands/cs-arquiteto.md :: references/phase_playbook.md
+
+# cs-book-to-plugin step for maintainers adding the emitted plugin to *this* repo
+# (it runs from a clone of claude-skills by design).
+engineering/book-to-skill/commands/cs-book-to-plugin.md :: scripts/derive_counters.py

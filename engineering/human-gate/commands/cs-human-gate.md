@@ -122,7 +122,7 @@ Next: <the one action, or "none — done">
 ## Try it
 
 ```sh
-python3 engineering/human-gate/skills/human-gate/scripts/human_gate.py --sample
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/human-gate/scripts/human_gate.py --sample
 ```
 
 Runs the whole loop in a temp dir — including the refusals — in about a second.

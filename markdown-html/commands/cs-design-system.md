@@ -8,7 +8,7 @@ argument-hint: "[--defaults | --show | --reset | --set key=value | --scope globa
 Run the design-system wizard:
 
 ```bash
-python3 markdown-html/skills/design-system/scripts/onboard.py $ARGUMENTS
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/onboard.py $ARGUMENTS
 ```
 
 ## Modes
@@ -46,8 +46,8 @@ python3 markdown-html/skills/design-system/scripts/onboard.py $ARGUMENTS
 Inspect the effective config:
 
 ```bash
-python3 markdown-html/skills/design-system/scripts/config_loader.py --show
-python3 markdown-html/skills/design-system/scripts/config_loader.py --status
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/config_loader.py --show
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-system/scripts/config_loader.py --status
 ```
 
 Then convert markdown via `/cs-markdown-html <path>.md`.

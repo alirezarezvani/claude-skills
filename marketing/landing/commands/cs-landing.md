@@ -75,17 +75,17 @@ All CSS inline. All JS inline. Externals: Google Fonts (Inter) + GSAP via CDN on
 # 1. Intake (Q1-Q4 one at a time)
 
 # 2. If brand override provided, validate:
-python ../skills/landing/scripts/brand_palette_validator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/landing/scripts/brand_palette_validator.py \
   --primary "#FF6B35" --accent "#2EC4B6" --bg "#011627"
 
 # 3. Generate output filename
-python ../skills/landing/scripts/kebab_slug_generator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/landing/scripts/kebab_slug_generator.py \
   --product "<product name from Q1>" --output-dir ./landing-pages
 
 # 4. Write the .html file in one pass (Hero + Features + Closing CTA + GSAP + mouse parallax + ScrollTrigger + CSS floats)
 
 # 5. Validate structure
-python ../skills/landing/scripts/html_validator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/landing/scripts/html_validator.py \
   --file ./landing-pages/<slug>.html
 
 # 6. Deliver:

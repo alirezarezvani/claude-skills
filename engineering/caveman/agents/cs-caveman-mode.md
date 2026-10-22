@@ -37,17 +37,17 @@ Differentiates clearly:
 
 1. **Compressor**
    - Path: `../skills/caveman/scripts/caveman_compressor.py`
-   - Usage: `python caveman_compressor.py "text to compress"`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/caveman/scripts/caveman_compressor.py "text to compress"`
    - Applies Matt's rules deterministically (drop articles/filler/pleasantries/hedging, abbreviate technical terms, causality arrows)
 
 2. **Token Savings Estimator**
    - Path: `../skills/caveman/scripts/token_savings_estimator.py`
-   - Usage: `python token_savings_estimator.py "text" --price-per-mtok 3.00`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/caveman/scripts/token_savings_estimator.py "text" --price-per-mtok 3.00`
    - Estimates token reduction + cost savings at given $/Mtok price
 
 3. **Lint**
    - Path: `../skills/caveman/scripts/caveman_lint.py`
-   - Usage: `python caveman_lint.py "response to check"`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/caveman/scripts/caveman_lint.py "response to check"`
    - Detects banned vocab; whitelists exception zones (security warnings, destructive ops)
 
 ### Knowledge Bases

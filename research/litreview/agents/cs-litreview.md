@@ -62,22 +62,22 @@ Differentiates from siblings:
 
 0. **Free Search (default lane)**
    - Path: `../skills/litreview/scripts/free_search.py`
-   - Usage: `python free_search.py --query "<query>" --source {pubmed,openalex,both} --max N [--json] [--mailto you@example.com]`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/free_search.py --query "<query>" --source {pubmed,openalex,both} --max N [--json] [--mailto you@example.com]`
    - Keyless PubMed E-utilities + OpenAlex search via stdlib urllib (15s timeout, polite headers). Exits 2 with a clear message when offline.
 
 1. **Citation Tracker**
    - Path: `../skills/litreview/scripts/citation_tracker.py`
-   - Usage: `python citation_tracker.py --action {start,record_search,record_papers_received,record_cited,status,close} --session NAME`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/citation_tracker.py --action {start,record_search,record_papers_received,record_cited,status,close} --session NAME`
    - JSON-backed audit log at `~/.litreview_sessions/<session>.json`. Same shape as pulse's citation_tracker (research-pack convention).
 
 2. **Framework Recommender**
    - Path: `../skills/litreview/scripts/framework_recommender.py`
-   - Usage: `python framework_recommender.py --question "<research question>"`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/framework_recommender.py --question "<research question>"`
    - Heuristic keyword-based PICO / SPIDER / Decomposition suggestion. Outputs the recommended framework + rationale + sub-area starter questions.
 
 3. **Cross-Search Aggregator**
    - Path: `../skills/litreview/scripts/cross_search_aggregator.py`
-   - Usage: `python cross_search_aggregator.py --session NAME`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/cross_search_aggregator.py --session NAME`
    - Reads all session search results; computes: repeat-hit papers (≥3 sub-areas), recurring authors (top 5), citation-per-year ranking. Feeds the "Key Research Groups" + "Start Here" DOCX sections.
 
 ### Knowledge Bases
@@ -92,11 +92,11 @@ Differentiates from siblings:
 
 ```bash
 # Phase 0 intake (Q1-Q3 one at a time)
-python ../skills/litreview/scripts/citation_tracker.py --action start --session "litreview-$(date +%Y%m%d)"
-python ../skills/litreview/scripts/framework_recommender.py --question "<from Q1>"
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/citation_tracker.py --action start --session "litreview-$(date +%Y%m%d)"
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/framework_recommender.py --question "<from Q1>"
 
 # Phase 1 recon (1 free-lane search → record sent + received; add Consensus if connected)
-python ../skills/litreview/scripts/free_search.py --query "<broad Q1>" --source both --max 20
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/free_search.py --query "<broad Q1>" --source both --max 20
 # Phase 2 framework selection + sub-area generation
 
 # Checkpoint: present table; wait for confirmation
@@ -105,11 +105,11 @@ python ../skills/litreview/scripts/free_search.py --query "<broad Q1>" --source 
 #   5 sub-area + 2 review + 2 era-gated + 1 follow-up
 
 # Phase 4: cross-search aggregation + DOCX
-python ../skills/litreview/scripts/cross_search_aggregator.py --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/cross_search_aggregator.py --session NAME
 # Generate DOCX via Node.js + docx library
 python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx  # zip-integrity check (no output = intact); then confirm required sections present
 
-python ../skills/litreview/scripts/citation_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/citation_tracker.py --action close --session NAME
 ```
 
 ### Workflow 2: Quick scan (5 searches)

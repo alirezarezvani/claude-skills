@@ -63,17 +63,17 @@ Differentiates clearly:
 
 1. **KB Reader**
    - Path: `../skills/inbox-triage/scripts/kb_reader.py`
-   - Usage: `python kb_reader.py --workspace ${WORKSPACE}`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}`
    - Reads + validates the 7 KB files. Returns parsed structure (categories, voice patterns, blocklist, tracker entries). Halts with explicit error if required files missing.
 
 2. **Search Window Calculator**
    - Path: `../skills/inbox-triage/scripts/search_window_calculator.py`
-   - Usage: `python search_window_calculator.py --cadence 2x-daily --now 2026-05-15T14:00`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/search_window_calculator.py --cadence 2x-daily --now 2026-05-15T14:00`
    - Computes window_start from cadence + current time. Default 9h for 2x/day (slight overlap prevents missed emails). Returns run_label (Morning/Afternoon/Evening) based on hour-of-day.
 
 3. **Draft Safety Validator**
    - Path: `../skills/inbox-triage/scripts/draft_safety_validator.py`
-   - Usage: `python draft_safety_validator.py --action-log /path/to/triage-log.md`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/draft_safety_validator.py --action-log /path/to/triage-log.md`
    - Scans the triage log for any send-shaped action (`send_email`, `gmail.send`, `outlook.send`, etc.). FAILs if any are detected. The non-negotiable NEVER-SEND check in tool form.
 
 ### Knowledge Bases
@@ -88,11 +88,11 @@ Differentiates clearly:
 
 ```bash
 # 1. Pre-flight — read + validate KB
-python ../skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}
 # If FAIL → halt + direct to setup
 
 # 2. Determine window
-python ../skills/inbox-triage/scripts/search_window_calculator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/search_window_calculator.py \
   --cadence 2x-daily --now $(date -u +%Y-%m-%dT%H:%M)
 
 # 3. Execute 10-step workflow (described in SKILL.md):
@@ -108,7 +108,7 @@ python ../skills/inbox-triage/scripts/search_window_calculator.py \
 #    Step 10: empty-inbox handling
 
 # 4. Post-flight — validate no send action occurred
-python ../skills/inbox-triage/scripts/draft_safety_validator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/draft_safety_validator.py \
   --action-log ${WORKSPACE}/Email/triage-log/$(date +%Y-%m-%d)-*.md
 # If FAIL → halt + alert user immediately
 ```

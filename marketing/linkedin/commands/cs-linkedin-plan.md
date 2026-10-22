@@ -30,15 +30,15 @@ unrelated observations and stop in week five.
 ## Workflow
 
 ```bash
-python3 ../skills/linkedin-strategy/scripts/positioning_brief.py --input brief.json --output human
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-strategy/scripts/positioning_brief.py --input brief.json --output human
 #   exit 3 = objective or audience too vague to proceed. Fix that before anything else.
 
-python3 ../skills/linkedin-strategy/scripts/cadence_planner.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-strategy/scripts/cadence_planner.py \
   --minutes 240 --stage starting --target-posts 3 --output human
 #   exit 2 = below the 90-minute floor -> comment-only week returned
 #   exit 3 = over budget, with the overage named
 
-python3 ../skills/linkedin-strategy/scripts/newsletter_planner.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-strategy/scripts/newsletter_planner.py \
   --followers 1800 --cadence biweekly --minutes-per-month 420 --output human
 ```
 

@@ -22,8 +22,10 @@ Checks (severity in brackets):
   S8  [INFO]    top-level key not in the known settings list (typo, or newer than this linter)
   S9  [WARN]    no managed policy disabling bypass mode (any developer can skip every prompt)
   S10 [WARN]    allow rule that Claude Code ignores ("*" / "mcp__*" globs, mcp__ rule with parentheses)
-  S11 [BLOCKER] literal secret in an env block or apiKeyHelper of a shared file
+  S11 [BLOCKER] literal secret in an env block or apiKeyHelper of a shared file,
+                including a password embedded in a connection URL
   S12 [WARN]    hook in a shared file that makes network calls, with no allowManagedHooksOnly policy
+  S13 [WARN]    shared file pre-approves a production MCP server (enabledMcpjsonServers)
 
 Deterministic, stdlib only. It runs `git ls-files` for S6 and nothing else.
 
@@ -99,6 +101,8 @@ SECRET_HINTS = (".env", "secret", "credential", ".pem", "id_rsa", ".key", ".aws"
 SECRET_VALUE = re.compile(r"(sk-ant-[A-Za-z0-9_-]{10,}|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}"
                           r"|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,}|-----BEGIN [A-Z ]*PRIVATE KEY)")
 SECRET_NAME = re.compile(r"(KEY|TOKEN|SECRET|PASSWORD|PASSWD|CREDENTIAL)", re.I)
+URL_PASSWORD = re.compile(r"://[^/\s:@]+:(?!\$\{)[^@\s/]+@")
+PROD_NAME = re.compile(r"(^|[-_.])(prod|production|live|prd)([-_.]|$)", re.I)
 NETWORK_HOOK = re.compile(r"\b(curl|wget|nc|ncat|scp|rsync|Invoke-WebRequest)\b|https?://")
 
 SAMPLE = {
@@ -176,6 +180,12 @@ def lint_file(scope, s):
         else:
             out.append(finding("S4", "WARN", scope, f"defaultMode '{mode}' in user settings skips prompts in every repo"))
 
+    if shared:
+        for server in s.get("enabledMcpjsonServers") or []:
+            if PROD_NAME.search(str(server)):
+                out.append(finding("S13", "WARN", scope, f"enabledMcpjsonServers pre-approves '{server}' for everyone who opens the repo; "
+                                                         "give agents a read-only or staging server, and approve production per person"))
+
     if shared and s.get("enableAllProjectMcpServers") is True:
         out.append(finding("S7", "WARN", scope, "enableAllProjectMcpServers auto-approves any server added to .mcp.json; list enabledMcpjsonServers instead"))
 
@@ -186,8 +196,11 @@ def lint_file(scope, s):
     if shared or scope == "local_project":
         for name, value in (s.get("env") or {}).items():
             sval = str(value)
-            if SECRET_VALUE.search(sval) or (SECRET_NAME.search(name) and sval and not sval.startswith("${")):
-                sev = "BLOCKER" if shared else "WARN"
+            sev = "BLOCKER" if shared else "WARN"
+            if URL_PASSWORD.search(sval):
+                out.append(finding("S11", sev, scope, f"env '{name}' embeds a password in a connection URL; "
+                                                      "remove it, rotate the password, and load it from a secret manager"))
+            elif SECRET_VALUE.search(sval) or (SECRET_NAME.search(name) and sval and not sval.startswith("${")):
                 out.append(finding("S11", sev, scope, f"env '{name}' holds a literal credential; use apiKeyHelper or a secret manager"))
         helper = str(s.get("apiKeyHelper") or "")
         if SECRET_VALUE.search(helper):

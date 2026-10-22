@@ -1,1 +1,0 @@
-../../../product-team/code-to-prd/skills/code-to-prd/SKILL.md

@@ -1,1 +1,0 @@
-../../../engineering-team/self-improving-agent/skills/extract/SKILL.md

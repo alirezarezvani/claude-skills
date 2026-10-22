@@ -1,1 +1,0 @@
-../../../business-operations/skills/capacity-planner/SKILL.md

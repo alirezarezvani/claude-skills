@@ -1,1 +1,0 @@
-../../../engineering/skill-doctor/skills/skill-doctor/SKILL.md

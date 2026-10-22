@@ -19,7 +19,7 @@ before touching a network, which is where most readers stop.
    - Realistic study hours per week?
 2. **Run the planner:**
    ```bash
-   python3 engineering/deep-learning-book/skills/deep-learning-book/scripts/reading_path_planner.py \
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/deep-learning-book/scripts/reading_path_planner.py \
        --goal "<goal>" --background <bg> --hours-per-week <n>
    ```
 3. **Handle the refusals rather than working around them.**

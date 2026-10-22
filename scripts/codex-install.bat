@@ -9,7 +9,8 @@ REM Usage:
 REM   scripts\codex-install.bat [--all | --skill <name>]
 REM
 REM Options:
-REM   --all             Install all skills (default)
+REM   --all             Install every skill (not recommended: with the full
+REM                     library Codex drops skill descriptions; pick skills)
 REM   --skill <name>    Install a single skill by name
 REM   --list            List available skills
 REM   --help            Show this help message
@@ -36,7 +37,7 @@ if not exist "%CODEX_SKILLS_SRC%" (
 )
 
 REM Parse arguments
-set "MODE=all"
+set "MODE="
 set "TARGET="
 
 :parse_args
@@ -72,7 +73,9 @@ echo.
 if "%MODE%"=="list" goto :list_skills
 if "%MODE%"=="skill" goto :install_skill
 if "%MODE%"=="all" goto :install_all
-goto :end
+echo [ERROR] Choose what to install: --skill ^<name^> or --all.
+echo [INFO] --all installs every skill, which leaves Codex with skill names but no descriptions.
+goto :show_help
 
 :list_skills
 echo Available skills:
@@ -119,6 +122,8 @@ goto :end
 
 :install_all
 echo [INFO] Installing all skills to: %CODEX_SKILLS_DIR%
+echo [WARNING] With every skill installed, Codex drops skill descriptions from its prompt.
+echo [WARNING] Prefer installing the skills you use with --skill ^<name^>.
 echo.
 
 set "INSTALLED=0"
@@ -160,13 +165,12 @@ echo Usage:
 echo   scripts\codex-install.bat [--all ^| --skill ^<name^>]
 echo.
 echo Options:
-echo   --all             Install all skills (default)
+echo   --all             Install every skill (Codex then drops descriptions)
 echo   --skill ^<name^>    Install a single skill by name
 echo   --list            List available skills
 echo   --help            Show this help message
 echo.
 echo Examples:
-echo   scripts\codex-install.bat
 echo   scripts\codex-install.bat --skill content-creator
 echo   scripts\codex-install.bat --list
 goto :end

@@ -1,1 +1,0 @@
-../../../business-operations/skills/internal-comms/SKILL.md

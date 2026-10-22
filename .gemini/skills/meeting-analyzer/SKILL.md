@@ -1,1 +1,0 @@
-../../../project-management/skills/meeting-analyzer/SKILL.md

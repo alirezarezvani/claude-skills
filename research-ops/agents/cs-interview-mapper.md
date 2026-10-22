@@ -38,7 +38,7 @@ one-participant observation dressed up as a "pattern" across a team.
 
 ## Workflow
 
-1. **Route the intake.** `python3 skills/interview-mapper/scripts/route.py --goal <goal> --respondent <who>` — picks one
+1. **Route the intake.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/interview-mapper/scripts/route.py --goal <goal> --respondent <who>` — picks one
    of 16 lenses and the applicable pipeline steps. Don't guess the lens by eye.
 2. **Number lines, code the lens, verify.** `number_lines.py` → code Layer 1 (facts) + Layer 2
    (analysis) from the lens template → `extract_claims.py` → `verify_quotes.py` →

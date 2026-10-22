@@ -1,1 +1,0 @@
-../../../productivity/email/skills/inbox-setup/SKILL.md

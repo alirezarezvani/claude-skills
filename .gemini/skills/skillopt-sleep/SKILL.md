@@ -1,1 +1,0 @@
-../../../engineering/skillopt-sleep/skills/skillopt-sleep/SKILL.md

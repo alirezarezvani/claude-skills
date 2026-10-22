@@ -10,21 +10,32 @@ when the proof does not close or the review is missing.
 Matching, in order:
   1. same reference and same amount
   2. same amount, dates within --date-window days (closest date wins)
+  3. same date window, same sign, amounts that are a digit transposition of
+     each other (7,980 vs 7,890): one correcting entry for the difference
 Whatever is left is a reconciling item:
   in GL, not in source   timing items (deposits in transit, outstanding payments)
   in source, not in GL   items the books are missing (fees, interest, returned
                          payments): each needs a journal entry
 
+Opening-balance rows ("Opening balance", "Balance forward", "Brought forward",
+"Beginning balance") are balances, not transactions, so they are never matched
+or booked. When the two sides open at different amounts, that difference was
+carried in from the prior period: it is reported as such and blocks sign-off
+until it is traced in last period's reconciliation. It is never an entry to
+book in this period.
+
 Proof (amounts signed from the company's side: receipts +, payments -):
   adjusted source = source balance + GL-only items
-  adjusted GL     = GL balance + source-only items
-  unexplained     = adjusted source - adjusted GL   (must be 0 within --tolerance)
+  adjusted GL     = GL balance + source-only items + transposition corrections
+  unexplained     = adjusted source - adjusted GL - opening difference
+                    (must be 0 within --tolerance)
 
 Aging buckets: 0-30, 31-60, 61-90, >90 days before --as-of. The escalation and
 stale thresholds are POLICY choices with defaults of 60 and 90 days; set them
 to your own reconciliation policy. No standard prescribes them.
 
-CSV columns (header row required): date (YYYY-MM-DD), amount, ref, description.
+CSV columns (header row required): date (YYYY-MM-DD), amount, ref, description
+(or memo).
 Amounts may use thousands separators or (parentheses) for negatives.
 
 Deterministic, stdlib only, no network.
@@ -33,7 +44,8 @@ Exit codes:
     0  RECONCILED with no open items needing action
     2  RECONCILED_WITH_ITEMS (entries to book, items to escalate, or review pending)
     3  invalid input
-    4  UNRECONCILED (unexplained difference), stale items, or preparer = reviewer
+    4  UNRECONCILED (unexplained difference), or BLOCKED (stale items, an opening
+       difference carried in from the prior period, or preparer = reviewer)
 """
 
 import argparse
@@ -41,7 +53,10 @@ import csv
 import datetime as dt
 import io
 import json
+import re
 import sys
+
+OPENING = re.compile(r"\b(opening|beginning|starting)\s+balance\b|\bbalance\s+(forward|b/?f)\b|\bbrought\s+forward\b", re.I)
 
 SAMPLE_GL = """date,amount,ref,description
 2026-10-03,12500.00,INV-1001,Customer receipt Acme
@@ -90,9 +105,21 @@ def read_rows(text, label):
             d = dt.date.fromisoformat(r["date"])
         except ValueError:
             _fail(f"{label} line {n}: date must be YYYY-MM-DD (got {r['date']!r})")
+        desc = r.get("description") or r.get("memo", "")
         rows.append({"date": d, "amount": parse_amount(r["amount"]), "ref": r.get("ref", ""),
-                     "description": r.get("description", ""), "line": n})
+                     "description": desc, "line": n, "opening": bool(OPENING.search(desc))})
     return rows
+
+
+def split_opening(rows):
+    """Separate opening-balance rows (balances, not transactions) from transactions."""
+    return [r for r in rows if r["opening"]], [r for r in rows if not r["opening"]]
+
+
+def is_transposition(a, b):
+    """True when two amounts are the same digits in a different order (7,980 vs 7,890)."""
+    da, db = f"{abs(a):.2f}".replace(".", ""), f"{abs(b):.2f}".replace(".", "")
+    return a != b and (a > 0) == (b > 0) and sorted(da) == sorted(db) and round(abs(a - b) * 100) % 9 == 0
 
 
 def norm_ref(ref):
@@ -116,7 +143,16 @@ def match(gl, src, window):
             pairs.append((g, hit, "amount+date"))
             gl_open.remove(g)
             src_open.remove(hit)
-    return pairs, gl_open, src_open
+    transposed = []
+    for g in sorted(list(gl_open), key=lambda r: r["date"]):
+        cands = [s for s in src_open if is_transposition(g["amount"], s["amount"])
+                 and abs((s["date"] - g["date"]).days) <= window]
+        if cands:
+            hit = min(cands, key=lambda s: abs((s["date"] - g["date"]).days))
+            transposed.append((g, hit))
+            gl_open.remove(g)
+            src_open.remove(hit)
+    return pairs, gl_open, src_open, transposed
 
 
 def bucket(days):
@@ -124,7 +160,9 @@ def bucket(days):
 
 
 def reconcile(gl, src, gl_balance, src_balance, as_of, window, tolerance, escalate, stale, preparer, reviewer, label):
-    pairs, gl_only, src_only = match(gl, src, window)
+    gl_opening, gl = split_opening(gl)
+    src_opening, src = split_opening(src)
+    pairs, gl_only, src_only, transposed = match(gl, src, window)
     items = []
     for side, rows in (("in GL, not in " + label, gl_only), ("in " + label + ", not in GL", src_only)):
         for r in rows:
@@ -132,20 +170,45 @@ def reconcile(gl, src, gl_balance, src_balance, as_of, window, tolerance, escala
             action = "timing - confirm it clears next period" if side.startswith("in GL") else "book a journal entry"
             items.append({"side": side, "date": r["date"].isoformat(), "amount": r["amount"], "ref": r["ref"],
                           "description": r["description"], "age_days": age, "bucket": bucket(age), "action": action})
+    for g, sr in transposed:
+        age = (as_of - g["date"]).days
+        diff = round(sr["amount"] - g["amount"], 2)
+        items.append({"side": "transposition", "date": g["date"].isoformat(), "amount": diff,
+                      "ref": g["ref"] or sr["ref"], "description": g["description"] or sr["description"],
+                      "age_days": age, "bucket": bucket(age),
+                      "action": f"correct the GL posting: {label} shows {sr['amount']:,.2f}, GL has {g['amount']:,.2f}"})
     findings = []
     proof = None
+
+    # Opening balances: explicit rows win; a side without one is implied from
+    # its ending balance only when the other side states its opening explicitly.
+    opening_diff = 0.0
+    if gl_opening or src_opening:
+        gl_open_bal = (sum(r["amount"] for r in gl_opening) if gl_opening
+                       else (gl_balance - sum(r["amount"] for r in gl) if gl_balance is not None else None))
+        src_open_bal = (sum(r["amount"] for r in src_opening) if src_opening
+                        else (src_balance - sum(r["amount"] for r in src) if src_balance is not None else None))
+        if gl_open_bal is not None and src_open_bal is not None:
+            opening_diff = round(src_open_bal - gl_open_bal, 2)
+            if abs(opening_diff) > tolerance:
+                findings.append(("R5", "BLOCKER",
+                                 f"opening balances differ by {opening_diff:,.2f} ({label} {src_open_bal:,.2f}, GL {gl_open_bal:,.2f}): "
+                                 "carried in from the prior period, not an error in this one; trace it in last period's "
+                                 "reconciliation before sign-off and do not book it as a current-period entry"))
+
     if gl_balance is not None and src_balance is not None:
         adj_src = round(src_balance + sum(r["amount"] for r in gl_only), 2)
-        adj_gl = round(gl_balance + sum(r["amount"] for r in src_only), 2)
-        unexplained = round(adj_src - adj_gl, 2)
+        adj_gl = round(gl_balance + sum(r["amount"] for r in src_only)
+                       + sum(it["amount"] for it in items if it["side"] == "transposition"), 2)
+        unexplained = round(adj_src - adj_gl - opening_diff, 2)
         proof = {"source_balance": src_balance, "gl_balance": gl_balance, "adjusted_source": adj_src,
-                 "adjusted_gl": adj_gl, "unexplained_difference": unexplained}
+                 "adjusted_gl": adj_gl, "opening_difference": opening_diff, "unexplained_difference": unexplained}
         if abs(unexplained) > tolerance:
             hint = ""
             cents = round(abs(unexplained) * 100)
             gl_open = gl_balance - sum(r["amount"] for r in gl)
             src_open = src_balance - sum(r["amount"] for r in src)
-            if abs(round(src_open - gl_open, 2) - unexplained) <= tolerance:
+            if not (gl_opening or src_opening) and abs(round(src_open - gl_open, 2) - unexplained) <= tolerance:
                 hint = (f" (opening balances already differ: {label} implies {src_open:,.2f}, GL {gl_open:,.2f};"
                         " start from last period's reconciliation)")
             elif cents % 9 == 0:
@@ -163,6 +226,10 @@ def reconcile(gl, src, gl_balance, src_balance, as_of, window, tolerance, escala
     entries = [it for it in items if it["action"] == "book a journal entry"]
     if entries:
         findings.append(("R3", "WARN", f"{len(entries)} {label} item(s) missing from the GL need journal entries ({sum(e['amount'] for e in entries):,.2f})"))
+    for it in items:
+        if it["side"] == "transposition":
+            findings.append(("R3", "WARN", f"probable transposition on {it['date']} ({it['description'] or it['ref'] or 'item'}): "
+                                           f"{it['action']}; correcting entry {it['amount']:,.2f}"))
     if not preparer:
         findings.append(("R4", "WARN", "no preparer recorded"))
     if not reviewer:
@@ -190,7 +257,8 @@ def render(r):
            f"  matched {r['matched']} ({r['match_methods']['ref+amount']} by reference, {r['match_methods']['amount+date']} by amount and date)"]
     if r["proof"]:
         p = r["proof"]
-        out.append(f"  adjusted source {p['adjusted_source']:,.2f} vs adjusted GL {p['adjusted_gl']:,.2f}; unexplained {p['unexplained_difference']:,.2f}")
+        opening = f"; opening difference {p['opening_difference']:,.2f}" if p.get("opening_difference") else ""
+        out.append(f"  adjusted source {p['adjusted_source']:,.2f} vs adjusted GL {p['adjusted_gl']:,.2f}{opening}; unexplained {p['unexplained_difference']:,.2f}")
     out.append("  aging: " + ", ".join(f"{b} {v:,.2f}" for b, v in r["aging"].items()))
     for it in r["reconciling_items"]:
         out.append(f"    {it['date']} {it['amount']:>12,.2f}  {it['ref'] or '-':<9} {it['description'][:28]:<28} {it['side']}; {it['action']} ({it['age_days']}d)")

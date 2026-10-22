@@ -1,1 +1,0 @@
-../../../engineering/agenthub/skills/spawn/SKILL.md

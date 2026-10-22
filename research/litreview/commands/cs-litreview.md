@@ -87,11 +87,11 @@ This is the **last cheap moment** to correct course before search budget is cons
 
 ```bash
 # Phase 0 intake (Q1-Q3 one at a time)
-python ../skills/litreview/scripts/citation_tracker.py --action start --session NAME
-python ../skills/litreview/scripts/framework_recommender.py --question "<Q1>"
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/citation_tracker.py --action start --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/framework_recommender.py --question "<Q1>"
 
 # Phase 1 recon (1 free-lane search; record sent + received; add Consensus if connected)
-python ../skills/litreview/scripts/free_search.py --query "<broad Q1>" --source both --max 20
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/free_search.py --query "<broad Q1>" --source both --max 20
 # Phase 2 framework + sub-area generation
 # CHECKPOINT — wait for user
 
@@ -99,11 +99,11 @@ python ../skills/litreview/scripts/free_search.py --query "<broad Q1>" --source 
 #   5/10/20 searches across sub-areas + review + era-gated + follow-up
 
 # Phase 4 cross-search aggregation + DOCX
-python ../skills/litreview/scripts/cross_search_aggregator.py --results-file results.json  # Phase 3 search results; format in the script docstring
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/cross_search_aggregator.py --results-file results.json  # Phase 3 search results; format in the script docstring
 # Generate DOCX via Node.js docx library
 python3 -c "import zipfile,sys; zipfile.ZipFile(sys.argv[1]).testzip()" output.docx  # zip-integrity check; then confirm required sections present
 
-python ../skills/litreview/scripts/citation_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/litreview/scripts/citation_tracker.py --action close --session NAME
 ```
 
 ## Trigger Phrases (auto-invoke without /cs:)

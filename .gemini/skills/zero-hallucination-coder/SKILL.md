@@ -1,1 +1,0 @@
-../../../engineering/zero-hallucination-coder/skills/zero-hallucination-coder/SKILL.md

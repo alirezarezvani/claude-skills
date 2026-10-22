@@ -1,7 +1,7 @@
 {
   "name": "skillopt-sleep",
   "description": "Nightly offline self-evolution for this repo's Claude agent: harvests past Claude Code sessions (read-only), mines recurring tasks, replays them offline on your own API budget, and consolidates what it learns into validated CLAUDE.md memory and SKILL.md skills behind a held-out validation gate, staged for review (nothing live changes without /skillopt-sleep adopt). Default backend is mock (no API spend); vendored from microsoft/SkillOpt with safety-hardening patches -- see attribution.derivation_note. Use when the user wants their agent to learn from how this repo's skills are actually used, asks about a nightly/offline sleep or dream cycle, memory/skill consolidation, or invokes /skillopt-sleep.",
-  "version": "1.0.0",
+  "version": "2.14.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

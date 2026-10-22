@@ -1,1 +1,0 @@
-../../../c-level-advisor/executive-mentor/skills/hard-call/SKILL.md

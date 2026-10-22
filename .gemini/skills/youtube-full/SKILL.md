@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/youtube-full/SKILL.md

@@ -22,11 +22,11 @@ exactly. Summary of the contract:
 ## Pipeline
 
 ```bash
-python engineering/skill-doctor/skills/skill-doctor/scripts/collect_sessions.py --out "$RUN" $ARGUMENTS
-python engineering/skill-doctor/skills/skill-doctor/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --emit-template > "$RUN/session_scores.json"
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/collect_sessions.py --out "$RUN" $ARGUMENTS
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --emit-template > "$RUN/session_scores.json"
 # ... judge each transcript against scorers/, fill the template, draft suggestions ...
-python engineering/skill-doctor/skills/skill-doctor/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --scores "$RUN/session_scores.json" --suggestions "$RUN/suggestions.json"
-python engineering/skill-doctor/skills/skill-doctor/scripts/render_report.py --report "$RUN/report.json"
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --scores "$RUN/session_scores.json" --suggestions "$RUN/suggestions.json"
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/render_report.py --report "$RUN/report.json"
 ```
 
 If `sessions_sampled` is 0, stop and tell the user (suggest `--days 90`). If the

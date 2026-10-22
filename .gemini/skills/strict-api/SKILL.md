@@ -1,1 +1,0 @@
-../../../engineering/strict-api/SKILL.md

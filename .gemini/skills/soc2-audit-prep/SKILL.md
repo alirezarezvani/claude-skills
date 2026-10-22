@@ -1,1 +1,0 @@
-../../../compliance-os/skills/soc2-audit-prep/SKILL.md

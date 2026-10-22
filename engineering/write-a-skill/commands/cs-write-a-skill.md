@@ -61,17 +61,17 @@ The skill-author persona pressure-tests any new-skill commit. Six forcing questi
 
 ```bash
 # 1. Description gate
-python ../skills/write-a-skill/scripts/skill_description_validator.py path/to/SKILL.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_description_validator.py path/to/SKILL.md
 
 # 2. Structure gate
-python ../skills/write-a-skill/scripts/skill_structure_validator.py path/to/skill-folder/
+python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_structure_validator.py path/to/skill-folder/
 
 # 3. Combined review (Matt's 6-item checklist)
-python ../skills/write-a-skill/scripts/skill_review_checklist_runner.py path/to/skill-folder/
+python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_review_checklist_runner.py path/to/skill-folder/
 
 # 4. Karpathy code-quality gate (if scripts/ exist)
-python ../../karpathy-coder/skills/karpathy-coder/scripts/complexity_checker.py path/to/skill-folder/scripts/
-python ../../karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py path/to/skill-folder/scripts/
+python ${CLAUDE_PLUGIN_ROOT}/vendor/karpathy-coder/scripts/complexity_checker.py path/to/skill-folder/scripts/
+python ${CLAUDE_PLUGIN_ROOT}/vendor/karpathy-coder/scripts/assumption_linter.py path/to/skill-folder/scripts/
 
 # 5. Attribution check (if derived)
 grep -r "derived_from\|original_author" path/to/skill-folder/

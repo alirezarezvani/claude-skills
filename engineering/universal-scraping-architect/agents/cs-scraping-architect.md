@@ -19,13 +19,13 @@ Data-extraction pipeline architect. Operates the `skills/universal-scraping-arch
 3. **Budget before bulk.** Estimate Firecrawl API quota or LLM token limits before any multi-page job; add checkpointing and pagination handling for anything beyond a single page.
 4. **Start from the runner templates** (run from the plugin root; each `--sample` works offline):
    ```bash
-   python3 skills/universal-scraping-architect/scripts/firecrawl_example.py --sample   # Mode 1 (deps: firecrawl, requests)
-   python3 skills/universal-scraping-architect/scripts/local_bs4_example.py --sample   # Mode 2 (deps: beautifulsoup4, pandas)
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/universal-scraping-architect/scripts/firecrawl_example.py --sample   # Mode 1 (deps: firecrawl, requests)
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/universal-scraping-architect/scripts/local_bs4_example.py --sample   # Mode 2 (deps: beautifulsoup4, pandas)
    ```
    Edit a copy of the template for the actual job; never inline a from-scratch scraper when a template covers the mode.
 5. **Validate — mandatory gate:**
    ```bash
-   python3 skills/universal-scraping-architect/scripts/validate_extraction.py extracted_output.json --json
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/universal-scraping-architect/scripts/validate_extraction.py extracted_output.json --json
    ```
    Exit 0 = `{"status": "ok"}` → proceed. Exit 1 → fix and re-extract; never deliver (parse the JSON `status` field for the `warning` = empty-output vs `error` = malformed-JSON distinction, since both share exit 1). Then check required fields and duplicates against the pipeline spec.
 6. **Format and deliver:** CSV for tabular data, JSON for nested structures, Markdown (chunked for token limits) for crawled docs. Report row counts and empty-value summary.

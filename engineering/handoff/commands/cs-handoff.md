@@ -35,19 +35,19 @@ The `artifact_deduplicator.py` enforces this — FAIL verdict blocks the handoff
 
 ```bash
 # 1. Generate template tailored to focus
-python ../skills/handoff/scripts/handoff_template_generator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/handoff_template_generator.py \
   --next-focus "<focus from command argument>" \
   --mktemp
 
 # 2. Fill in the 5 sections from current conversation state
 
 # 3. Pre-flight: dedup check
-python ../skills/handoff/scripts/artifact_deduplicator.py path/to/draft.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/artifact_deduplicator.py path/to/draft.md
 #   CLEAN or WARN (with justified findings) → proceed
 #   FAIL → refactor; replace duplicated content with refs
 
 # 4. Populate skills section
-python ../skills/handoff/scripts/skill_recommender.py path/to/draft.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/skill_recommender.py path/to/draft.md
 #   Use top recommendations for "Skills to use"
 
 # 5. Share the file path. Next agent reads + acts.

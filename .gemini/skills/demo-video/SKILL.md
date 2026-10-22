@@ -1,1 +1,0 @@
-../../../engineering/demo-video/skills/demo-video/SKILL.md

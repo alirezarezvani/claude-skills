@@ -1,1 +1,0 @@
-../../../agent-launcher/skills/stage-launch/SKILL.md

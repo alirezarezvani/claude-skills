@@ -64,7 +64,7 @@ contradictory instructions, and resident CLAUDE.md size.
 
 | Script | Role | Exit codes |
 |---|---|---|
-| `scripts/settings_linter.py` | S1-S12 across shared, local, user and managed scopes | 0 · 2 warn · 3 bad input · 4 blocker |
+| `scripts/settings_linter.py` | S1-S13 across shared, local, user and managed scopes | 0 · 2 warn · 3 bad input · 4 blocker |
 | `scripts/mcp_plugin_inventory.py` | One table of servers, plugins, marketplaces; M1-M6 | 0 · 2 · 3 · 4 |
 | `scripts/claude_md_layering_audit.py` | Resident vs on-demand layers, imports (4 hops), L1-L11 | 0 · 2 · 3 · 4 |
 | `scripts/adoption_tracker.py` | Member counts; team stage PILOT / SPREADING / EMBEDDED / STALLED | 0 · 2 stalled · 3 |

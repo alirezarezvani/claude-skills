@@ -87,15 +87,15 @@ This is the last cheap moment to correct course before search budget is consumed
 
 ```bash
 # Phase 0 intake (Q1-Q3)
-python ../skills/syllabus/scripts/citation_tracker.py --action start --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/syllabus/scripts/citation_tracker.py --action start --session NAME
 
 # Phase 1 parse (PDF/DOCX/text/image-appropriate reader)
 # Phase 2 group + CHECKPOINT (wait for user)
-python ../skills/syllabus/scripts/topic_grouper.py --topics-file /tmp/topics.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/syllabus/scripts/topic_grouper.py --topics-file /tmp/topics.json
 
 # Phase 3 search (sequential Consensus 1 q/sec, applied-domain weaving)
 # Phase 4 write summaries + discussion questions
-python ../skills/syllabus/scripts/discussion_question_validator.py --questions-file /tmp/qs.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/syllabus/scripts/discussion_question_validator.py --questions-file /tmp/qs.json
 
 # Phase 5 generate .docx via bundled script
 node ../skills/syllabus/scripts/generate_reading_list.js \
@@ -103,7 +103,7 @@ node ../skills/syllabus/scripts/generate_reading_list.js \
   --output /path/to/reading_list_<course>_<date>.docx
 
 # Phase 6 deliver
-python ../skills/syllabus/scripts/citation_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/syllabus/scripts/citation_tracker.py --action close --session NAME
 ```
 
 ## Trigger Phrases

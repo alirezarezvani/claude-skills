@@ -1,1 +1,0 @@
-../../../engineering/deep-learning-book/skills/deep-learning-book/SKILL.md

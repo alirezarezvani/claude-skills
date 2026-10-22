@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/c-level-agents/SKILL.md

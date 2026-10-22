@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/gdpr-dsgvo-expert/SKILL.md

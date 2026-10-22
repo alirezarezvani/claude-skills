@@ -1,1 +1,0 @@
-../../../productivity/email/skills/inbox-triage/SKILL.md

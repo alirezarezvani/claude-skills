@@ -29,7 +29,7 @@ Ask the opening question set. Lead with #1.
 ## Step 2 — If the user is vague, infer and propose (don't loop on questions)
 
 ```bash
-python ../skills/workflow-builder/scripts/workflow_intake.py --task "<their request>" \
+python ${CLAUDE_PLUGIN_ROOT}/skills/workflow-builder/scripts/workflow_intake.py --task "<their request>" \
   --units unknown --stages unknown --needs-all unknown --structured unknown
 ```
 
@@ -38,7 +38,7 @@ Present the result as "here's what I'd build and why": recommended topology (+ r
 ## Step 3 — Confirm the shape, then scaffold
 
 ```bash
-python ../skills/workflow-builder/scripts/scaffold_workflow.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/workflow-builder/scripts/scaffold_workflow.py \
   --topology <fan-out|pipeline|barrier|loop|judge-panel> --name <name> --description "..." \
   > .claude/workflows/<name>.js
 ```
@@ -46,7 +46,7 @@ python ../skills/workflow-builder/scripts/scaffold_workflow.py \
 ## Step 4 — Validate before running
 
 ```bash
-python ../skills/workflow-builder/scripts/validate_workflow.py .claude/workflows/<name>.js
+python ${CLAUDE_PLUGIN_ROOT}/skills/workflow-builder/scripts/validate_workflow.py .claude/workflows/<name>.js
 ```
 
 Fix every FAIL. WARNs need a one-line justification.

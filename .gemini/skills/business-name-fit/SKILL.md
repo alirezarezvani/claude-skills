@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/business-name-fit/SKILL.md

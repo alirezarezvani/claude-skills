@@ -1,1 +1,0 @@
-../../../productivity/reflect/skills/reflect/SKILL.md

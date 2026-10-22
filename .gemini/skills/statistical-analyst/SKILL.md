@@ -1,1 +1,0 @@
-../../../engineering/statistical-analyst/skills/statistical-analyst/SKILL.md

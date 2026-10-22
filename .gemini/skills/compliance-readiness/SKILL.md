@@ -1,1 +1,0 @@
-../../../compliance-os/skills/compliance-readiness/SKILL.md

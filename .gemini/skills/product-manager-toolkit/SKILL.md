@@ -1,1 +1,0 @@
-../../../product-team/skills/product-manager-toolkit/SKILL.md

@@ -53,17 +53,17 @@ Differentiates clearly:
 
 1. **Decision Tree Extractor**
    - Path: `../skills/grill-me/scripts/decision_tree_extractor.py`
-   - Usage: `python decision_tree_extractor.py path/to/plan.md`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/decision_tree_extractor.py path/to/plan.md`
    - Extracts branches by kind (intent / choice / open / tradeoff / dependency / question)
 
 2. **Question Generator**
    - Path: `../skills/grill-me/scripts/question_generator.py`
-   - Usage: `python question_generator.py path/to/plan.md`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/question_generator.py path/to/plan.md`
    - Outputs forcing questions + recommendations + dependency-aware ordering
 
 3. **Session Tracker**
    - Path: `../skills/grill-me/scripts/grill_session_tracker.py`
-   - Usage: `python grill_session_tracker.py --action {start,record,status,list,close} --session NAME`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action {start,record,status,list,close} --session NAME`
    - JSON-backed persistence in `~/.grill_sessions/`
 
 ### Knowledge Bases
@@ -78,30 +78,30 @@ Differentiates clearly:
 
 ```bash
 # 1. Extract branches
-python ../skills/grill-me/scripts/decision_tree_extractor.py plan.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/decision_tree_extractor.py plan.md
 
 # 2. Generate questions
-python ../skills/grill-me/scripts/question_generator.py plan.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/question_generator.py plan.md
 
 # 3. Start session
-python ../skills/grill-me/scripts/grill_session_tracker.py --action start --session my-plan --plan plan.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action start --session my-plan --plan plan.md
 
 # 4. Walk questions one at a time:
 #    Ask Q1 with recommended answer.
 #    User answers.
-#    Record: python grill_session_tracker.py --action record --session my-plan --question-id 1 --answer "..."
+#    Record: python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action record --session my-plan --question-id 1 --answer "..."
 #    Ask Q2.
 #    ...
 
 # 5. When all branches resolved or returns diminish:
-python ../skills/grill-me/scripts/grill_session_tracker.py --action close --session my-plan
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action close --session my-plan
 ```
 
 ### Workflow 2: Resume a grill across days
 
 ```bash
-python ../skills/grill-me/scripts/grill_session_tracker.py --action list
-python ../skills/grill-me/scripts/grill_session_tracker.py --action status --session my-plan
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action list
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action status --session my-plan
 # Resume from the "next question" shown.
 ```
 

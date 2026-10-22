@@ -20,19 +20,19 @@ Convert the markdown deck at **$ARGUMENTS** into a single-file interactive HTML 
 
 ```bash
 # 1. Resolve output path (doctype=slides → deck- prefix)
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input "<path>.md" --doctype slides
 
 # 2. Split slides on --- HR or H1 (auto-detect)
-python3 markdown-html/skills/md-slides/scripts/slide_splitter.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-slides/scripts/slide_splitter.py \
     --input "<path>.md" --boundary auto --output /tmp/slides.json
 
 # 3. Extract <!-- notes: ... --> blocks per slide
-python3 markdown-html/skills/md-slides/scripts/presenter_notes_parser.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-slides/scripts/presenter_notes_parser.py \
     --slides /tmp/slides.json --output /tmp/deck.json
 
 # 4. Render single-file HTML deck
-python3 markdown-html/skills/md-slides/scripts/deck_html_renderer.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-slides/scripts/deck_html_renderer.py \
     --slides /tmp/deck.json --title "<deck title>" \
     --output <resolved-out>.html
 ```

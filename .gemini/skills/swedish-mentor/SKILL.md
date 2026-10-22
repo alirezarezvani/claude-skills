@@ -1,1 +1,0 @@
-../../../productivity/swedish-mentor/SKILL.md

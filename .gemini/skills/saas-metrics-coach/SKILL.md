@@ -1,1 +1,0 @@
-../../../finance/skills/saas-metrics-coach/SKILL.md

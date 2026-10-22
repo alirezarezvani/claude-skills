@@ -1,1 +1,0 @@
-../../../agent-launcher/skills/interview/SKILL.md

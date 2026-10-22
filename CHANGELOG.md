@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Fixes from the v2.14.0 real-state audit (clean installs on six harnesses, mirror diffs, trigger
+and behaviour evals). Every plugin moves to version 2.14.1.
+
+> **Action needed: none for Claude Code.** Run `claude plugin update <plugin>@claude-code-skills`
+> (or `/plugin update`) and each plugin moves to 2.14.1. Before this release, updates reported
+> "already at the latest version" and kept old files. **productivity handoff users on Codex,
+> Gemini, Vibe or Hermes:** the skill is now `session-handoff`; reinstall it under the new name.
+
+### Fixed
+
+- **Plugin updates never reached existing installs.** Claude Code caches plugins by version, and
+  70 of 104 plugins changed between v2.12.0 and v2.14.0 without a bump. All 104 plugins are now
+  2.14.1. New blocking gate G11, `scripts/check_plugin_versions.py`, fails a PR that changes a
+  plugin's payload (symlinked vendor files included) without a higher version, or whose
+  marketplace.json and plugin.json versions disagree. `scripts/bump_plugin_versions.py` sets both.
+- **A full Codex install hid every skill description.** With all ~380 skills installed, Codex
+  drops descriptions to fit its prompt budget and cannot choose skills. `codex-install.sh` now
+  asks for `--category a,b`, `--skill` or an explicit `--all`, lists categories when run bare,
+  warns above ~100 installed skills, and stops skill-tester's sample fixture loading as a skill.
+- **Plugin commands and agents called scripts by repo-relative paths.** 343 invocations in 90
+  files across 36 plugins now use `${CLAUDE_PLUGIN_ROOT}/`; two cross-plugin calls go through
+  `vendor/` symlinks. `check_paths.py` (G1) now fails a plugin command or agent that runs a
+  script without `${CLAUDE_PLUGIN_ROOT}`.
+- **month-end-close `reconciliation_matcher.py`** treated "Opening balance" rows as transactions
+  (and advised booking them) and split a 7,980/7,890 transposition into two unrelated items.
+  Opening rows are now balances; a carried-in difference blocks sign-off (R5) and is never
+  booked; same-date digit transpositions pair into one correcting entry.
+- **coding-agent-rollout `settings_linter.py`** missed a password embedded in an `env` connection
+  URL and a shared file pre-approving a production MCP server. S11 now catches URL passwords;
+  new S13 warns on production servers in `enabledMcpjsonServers`.
+- **handoff name collision.** `productivity/handoff`'s skill is now `session-handoff`; Codex,
+  Gemini, Vibe and Hermes previously kept only one of the two `handoff` skills.
+- **Gemini mirror.** Each entry now links the whole skill folder (scripts and references
+  included), dual-published copies and same-named commands are listed once, and the mirror is
+  regenerated: `gemini skills list` conflicts 20 → 0. GEMINI.md documents folder trust.
+- **`convert.sh`** skipped the 7 plugins whose SKILL.md sits at the plugin root
+  (opencode 375 → 382 skills, and the same for Cursor, Windsurf, Kilo, Augment, Aider and
+  Antigravity).
+
 ## [2.14.0] - 2026-10-21 — Audit skills, open-source YouTube and plugin-name fixes
 
 Three new plugins from the October audit's new-skill proposals, an open-source-first YouTube

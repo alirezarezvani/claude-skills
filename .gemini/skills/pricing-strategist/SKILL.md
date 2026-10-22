@@ -1,1 +1,0 @@
-../../../commercial/skills/pricing-strategist/SKILL.md

@@ -1,1 +1,0 @@
-../../../engineering/slo-architect/skills/slo-architect/SKILL.md

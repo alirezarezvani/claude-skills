@@ -1,1 +1,0 @@
-../../../research/deep-research/skills/deep-research/SKILL.md

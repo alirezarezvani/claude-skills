@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/seo-audit/SKILL.md

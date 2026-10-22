@@ -1,1 +1,0 @@
-../../../product-team/skills/experiment-designer/SKILL.md

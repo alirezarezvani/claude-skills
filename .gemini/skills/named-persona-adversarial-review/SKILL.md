@@ -1,1 +1,0 @@
-../../../engineering-team/skills/named-persona-adversarial-review/SKILL.md

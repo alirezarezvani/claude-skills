@@ -6,19 +6,23 @@
 # Follows symlinks to copy actual skill contents.
 #
 # Usage:
-#   ./scripts/codex-install.sh [--all | --category <name> | --skill <name>]
+#   ./scripts/codex-install.sh (--category <name>[,<name>] | --skill <name> | --all)
 #
 # Options:
-#   --all             Install all skills (default)
-#   --category <name> Install skills from a specific category
+#   --category <name> Install one or more categories (comma-separated)
 #   --skill <name>    Install a single skill by name
+#   --all             Install every skill (not recommended, see below)
 #   --list            List available skills and categories
 #   --dry-run         Show what would be installed without making changes
 #   --help            Show this help message
 #
+# Codex fits all skill descriptions into a fixed prompt budget. Around 100
+# skills it starts cutting descriptions short; with the full library (~380)
+# it drops them entirely and Codex can no longer tell which skill fits a task.
+# Install the categories you use. Run without arguments to see them.
+#
 # Examples:
-#   ./scripts/codex-install.sh                    # Install all skills
-#   ./scripts/codex-install.sh --category marketing
+#   ./scripts/codex-install.sh --category engineering,product
 #   ./scripts/codex-install.sh --skill content-creator
 #   ./scripts/codex-install.sh --list
 #
@@ -58,8 +62,43 @@ print_error() {
 
 # Show help
 show_help() {
-  head -35 "$0" | tail -30
-  exit 0
+  sed -n '2,32p' "$0" | sed 's/^# \{0,1\}//'
+  exit "${1:-0}"
+}
+
+# Codex's skill list budget: beyond this many installed skills, descriptions
+# are truncated, and with the full library they disappear.
+CODEX_SKILL_WARN_AT=100
+
+warn_if_crowded() {
+  [[ -d $CODEX_SKILLS_DIR ]] || return 0
+  local total
+  total=$(find "$CODEX_SKILLS_DIR" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l | tr -d ' ')
+  if ((total > CODEX_SKILL_WARN_AT)); then
+    echo ""
+    print_warning "$total skills are now installed in $CODEX_SKILLS_DIR."
+    print_warning "Above about $CODEX_SKILL_WARN_AT, Codex shortens skill descriptions; with the full library it shows names only."
+    print_warning "Remove categories you don't use from $CODEX_SKILLS_DIR to keep skill selection working."
+  fi
+}
+
+# Shown when no mode is given: installing everything is no longer the default.
+choose_hint() {
+  print_error "Choose what to install: --category <name>[,<name>], --skill <name>, or --all."
+  echo ""
+  if [[ -f $CODEX_INDEX ]] && command -v python3 &> /dev/null; then
+    CODEX_INDEX="$CODEX_INDEX" python3 << 'EOF'
+import json, os
+cats = json.load(open(os.environ["CODEX_INDEX"], encoding="utf-8")).get("categories", {})
+print("Categories:")
+for name, info in sorted(cats.items()):
+    print(f"  {name:22} {info['count']:>3} skills")
+EOF
+  fi
+  echo ""
+  print_info "Example: $0 --category engineering,product"
+  print_info "--all installs every skill, which leaves Codex with skill names but no descriptions."
+  exit 2
 }
 
 # Check prerequisites
@@ -165,6 +204,11 @@ install_skill() {
   # Copy skill (following symlinks with -L)
   cp -rL "$skill_src" "$skill_dest"
 
+  # Codex scans installed skill folders recursively, so a fixture such as
+  # skill-tester/assets/sample-skill/SKILL.md would load as a real skill.
+  find "$skill_dest" -mindepth 2 -path '*/assets/*' -name SKILL.md \
+    -exec sh -c 'mv "$1" "$1.fixture"' _ {} \;
+
   print_success "Installed: $skill_name"
   return 0
 }
@@ -187,7 +231,7 @@ install_category() {
   fi
 
   print_info "Installing skills from category: $category"
-
+  
   # Get skills for this category from index
   local skills
   skills=$(
@@ -201,7 +245,7 @@ with open(os.environ["CODEX_INDEX"], "r", encoding="utf-8") as f:
 seen = set()
 for skill in index.get('skills', []):
     name = skill.get('name')
-    if skill.get('category') == os.environ["CATEGORY"] and name and name not in seen:
+    if skill.get('category') in os.environ["CATEGORY"].split(",") and name and name not in seen:
         seen.add(name)
         print(name)
 EOF
@@ -222,6 +266,7 @@ EOF
 
   echo ""
   print_info "Category '$category' complete: $installed installed, $failed failed"
+  [[ $dry_run == "true" ]] || warn_if_crowded
 }
 
 # Install all skills
@@ -232,6 +277,8 @@ install_all() {
   local skills=""
 
   print_info "Installing all skills to: $CODEX_SKILLS_DIR"
+  print_warning "With every skill installed, Codex drops skill descriptions from its prompt."
+  print_warning "Prefer --category <name>[,<name>] for the domains you use."
   echo ""
 
   if [[ -f $CODEX_INDEX ]] && command -v python3 &> /dev/null; then
@@ -285,12 +332,13 @@ EOF
     echo ""
     print_success "Skills installed to: $CODEX_SKILLS_DIR"
     print_info "Verify with: ls $CODEX_SKILLS_DIR"
+    warn_if_crowded
   fi
 }
 
 # Main
 main() {
-  local mode="all"
+  local mode=""
   local target=""
   local dry_run="false"
 
@@ -366,6 +414,9 @@ main() {
       ;;
     all)
       install_all "$dry_run"
+      ;;
+    "")
+      choose_hint
       ;;
   esac
 }

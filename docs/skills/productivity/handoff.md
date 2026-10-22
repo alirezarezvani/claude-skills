@@ -8,7 +8,7 @@ description: "Compact the current conversation into a handoff document for anoth
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightning-bolt-outline: Productivity</span>
 <span class="meta-badge">:material-identifier: `handoff`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/SKILL.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/SKILL.md">Source</a></span>
 </div>
 
 <div class="install-banner" markdown>
@@ -49,7 +49,7 @@ When you detect an implicit trigger, propose the handoff before running it: *"Wa
 
 On first invocation, the skill asks where to save handoffs so the project folder never gets cluttered. Setup is offered once via *"Run setup now? (Y/n)"* — answering N uses OS-temp defaults for this run and never re-prompts. The user can rerun setup any time via `/cs-handoff-setup`.
 
-See [references/configuration.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/references/configuration.md) for the full config field reference.
+See [references/configuration.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/references/configuration.md) for the full config field reference.
 
 ## Output Path
 
@@ -71,11 +71,11 @@ The handoff doc has five sections. Use these exact headers:
 - **Skills to use** — concrete list of 3-5 skills the next session should invoke, each with a one-line *why*.
 - **Artifacts** — paths/URLs to PRDs, plans, ADRs, issues, branches, PRs. Do not duplicate their contents.
 
-See [references/handoff_structure.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/references/handoff_structure.md) for a worked example.
+See [references/handoff_structure.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/references/handoff_structure.md) for a worked example.
 
 ## The Agent's Job
 
-Filling in the five sections is the agent's job, not the script's. Follow [references/handoff_prompt.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/references/handoff_prompt.md) as a mandatory checklist:
+Filling in the five sections is the agent's job, not the script's. Follow [references/handoff_prompt.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/references/handoff_prompt.md) as a mandatory checklist:
 
 > For each topic discussed in the conversation, decide explicitly: *include in State of play / log as an Open decision / drop with reason.*
 
@@ -91,7 +91,7 @@ Matt's no-duplication discipline made concrete:
 - **Do not list 20 skills.** Pick the 3-5 the next session actually needs.
 - **Do not narrate every message in the conversation.** Compress to State + Decisions.
 
-See [references/deduplication_discipline.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/references/deduplication_discipline.md) for the full list.
+See [references/deduplication_discipline.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/references/deduplication_discipline.md) for the full list.
 
 ## Redaction
 
@@ -105,7 +105,7 @@ Redact:
 - Email addresses, phone numbers, names of unrelated third parties
 - Internal URLs containing tokens or session IDs
 
-See [references/redaction_checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/handoff/references/redaction_checklist.md) for the full pattern list and manual-review steps for what regex cannot catch.
+See [references/redaction_checklist.md](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/references/redaction_checklist.md) for the full pattern list and manual-review steps for what regex cannot catch.
 
 ## SessionStart Auto-Load
 

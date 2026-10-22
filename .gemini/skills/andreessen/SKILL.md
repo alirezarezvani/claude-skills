@@ -1,1 +1,0 @@
-../../../productivity/andreessen/skills/andreessen/SKILL.md

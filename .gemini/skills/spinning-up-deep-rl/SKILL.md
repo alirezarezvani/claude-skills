@@ -1,1 +1,0 @@
-../../../engineering/spinning-up-deep-rl/skills/spinning-up-deep-rl/SKILL.md

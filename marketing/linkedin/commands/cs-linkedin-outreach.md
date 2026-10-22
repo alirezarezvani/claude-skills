@@ -31,17 +31,17 @@ commenting, liking, and sharing are prohibited by LinkedIn's User Agreement §8.
 
 ```bash
 # 1. Roster (tiers: huge | larger | peer | smaller)
-python3 ../skills/linkedin-engagement/scripts/comment_target_planner.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-engagement/scripts/comment_target_planner.py \
   --account "Priya Raman:5:4:larger" --account "Tomas Lind:5:3:peer" \
   --minutes-per-day 18 --output human
 
 # 2. Volume check BEFORE writing anything
-python3 ../skills/linkedin-engagement/scripts/outreach_volume_guard.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-engagement/scripts/outreach_volume_guard.py \
   --invites 20 --pending 5 --minutes 120 --acceptance 0.42 --output human
 #   exit 4 = refused as an automation plan. Do not build a smaller version of it silently.
 
 # 3. One message, for one person
-python3 ../skills/linkedin-engagement/scripts/outreach_message_builder.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-engagement/scripts/outreach_message_builder.py \
   --type connection --recipient "Priya" --specific-line "..." --reason "..." --output human
 ```
 

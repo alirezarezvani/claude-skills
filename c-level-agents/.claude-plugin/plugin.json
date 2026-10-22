@@ -1,7 +1,7 @@
 {
   "name": "c-level-agents",
   "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) plus 21 /c-level-agents:* slash commands for forcing-question office hours (incl. /c-level-agents:vpe-review), multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Wraps the 33 c-level skills (including vpe-advisor with delivery throughput DORA analyzer + eng hiring funnel calculator + eng team structure designer) with cognitive gearing and artifact handoffs.",
-  "version": "2.9.0",
+  "version": "2.14.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

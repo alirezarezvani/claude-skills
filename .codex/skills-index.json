@@ -2076,12 +2076,6 @@
       "description": "Convert a rambling description of a desired outcome into one polished, autonomous /goal prompt ready to paste into a fresh session. Use when the user says \"/fable-goal\", \"turn this into a goal prompt\", \"write me a fable prompt\", \"write the prompt that builds X\", or rambles about something they want made and asks for the prompt that makes it happen. The output is a single copy-paste prompt, never the build itself. Do NOT use when the user wants the thing built right now in this session \u2014 only when they want the PROMPT that will make it happen in a fresh session."
     },
     {
-      "name": "handoff",
-      "source": "../../productivity/handoff/skills/handoff",
-      "category": "productivity",
-      "description": "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a fresh agent. Also trigger on implicit signals: the user announcing they're switching machines, ending the day mid-task, or context is growing long without a natural stopping point."
-    },
-    {
       "name": "inbox-setup",
       "source": "../../productivity/email/skills/inbox-setup",
       "category": "productivity",
@@ -2110,6 +2104,12 @@
       "source": "../../productivity/roast/skills/roast",
       "category": "productivity",
       "description": "Use when someone asks to roast an idea, pressure-test or stress-test an idea, validate a business idea, \"convene the panel\", get a brutal second opinion before building something, or says \"/roast\". Spins up a 5-angle panel (Critic, Champion, Analyst, Investigator, Customer) that attacks the idea from every angle, then a Judge returns one GO / RESHAPE / KILL verdict with the cheapest test to de-risk it."
+    },
+    {
+      "name": "session-handoff",
+      "source": "../../productivity/handoff/skills/session-handoff",
+      "category": "productivity",
+      "description": "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a fresh agent. Also trigger on implicit signals: the user announcing they're switching machines, ending the day mid-task, or context is growing long without a natural stopping point."
     },
     {
       "name": "swedish-mentor",

@@ -56,17 +56,17 @@ Differentiates clearly:
 
 1. **CONTEXT.md Linter**
    - Path: `../skills/grill-with-docs/scripts/context_md_linter.py`
-   - Usage: `python context_md_linter.py CONTEXT.md`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md`
    - Validates structure (H1, Language section with bold terms + `_Avoid_:` aliases, Relationships, example dialogue) and flags rule violations as PASS/WARN/FAIL.
 
 2. **ADR Scanner**
    - Path: `../skills/grill-with-docs/scripts/adr_scanner.py`
-   - Usage: `python adr_scanner.py docs/adr/`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/adr_scanner.py docs/adr/`
    - Walks the ADR directory, checks `NNNN-slug.md` filename pattern, surfaces numbering gaps/duplicates, validates each ADR has an H1 + non-empty body, sanity-checks optional status frontmatter values.
 
 3. **Glossary↔Code Consistency**
    - Path: `../skills/grill-with-docs/scripts/glossary_code_consistency.py`
-   - Usage: `python glossary_code_consistency.py --context CONTEXT.md --code src/`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/glossary_code_consistency.py --context CONTEXT.md --code src/`
    - Extracts bold terms from CONTEXT.md, greps the codebase, flags defined-but-unused terms (dead glossary) and high-frequency code-only proper nouns that may need definitions. Outputs grilling-question seeds.
 
 ### Knowledge Bases
@@ -81,9 +81,9 @@ Differentiates clearly:
 
 ```bash
 # A. Snapshot the docs state
-python ../skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
-python ../skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
-python ../skills/grill-with-docs/scripts/glossary_code_consistency.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/glossary_code_consistency.py \
   --context CONTEXT.md --code src/
 
 # B. From the findings, seed the first 1-3 questions:
@@ -99,11 +99,11 @@ python ../skills/grill-with-docs/scripts/glossary_code_consistency.py \
 # When a term gets resolved during grilling:
 # 1. Edit CONTEXT.md right there (don't batch)
 # 2. If structural change: re-lint
-python ../skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
 
 # 3. If a new term appears in code that the glossary doesn't define:
 #    update CONTEXT.md, then:
-python ../skills/grill-with-docs/scripts/glossary_code_consistency.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/glossary_code_consistency.py \
   --context CONTEXT.md --code src/
 ```
 
@@ -119,7 +119,7 @@ If all 3 → write under docs/adr/NNNN-slug.md (next number).
 If any fails → skip. State why aloud.
 
 After writing:
-  python ../skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
+  python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
 ```
 
 ## Output Standards

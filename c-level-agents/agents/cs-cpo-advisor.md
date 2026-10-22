@@ -95,7 +95,7 @@ python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/pmf_scor
 echo "✂️  CPO Portfolio Audit"
 python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/portfolio_analyzer.py
 python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cpo-advisor/scripts/pmf_scorer.py
-echo "Pair with RICE: python ../../product-team/skills/product-manager-toolkit/scripts/rice_prioritizer.py"
+echo "Pair with RICE: python3 ${CLAUDE_PLUGIN_ROOT}/vendor/product-team/product-manager-toolkit/scripts/rice_prioritizer.py"
 ```
 
 ## Success Metrics

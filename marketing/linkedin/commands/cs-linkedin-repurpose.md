@@ -28,15 +28,15 @@ argument-hint: "[path to the source: article, transcript, README, notes]"
 
 ```bash
 # Split and see what is available
-python3 ../skills/linkedin-content/scripts/repurpose_splitter.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-content/scripts/repurpose_splitter.py \
   --input talk.md --ledger .linkedin-ledger.json --output human
 
 # After publishing unit 2, record it
-python3 ../skills/linkedin-content/scripts/repurpose_splitter.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-content/scripts/repurpose_splitter.py \
   --input talk.md --ledger .linkedin-ledger.json --record 2 --posted-on 2026-08-25
 
 # Then lint the drafted post
-python3 ../skills/linkedin-content/scripts/post_linter.py --input draft.md --output human
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-content/scripts/post_linter.py --input draft.md --output human
 ```
 
 Commit the ledger alongside the source. It is project state, not a cache.

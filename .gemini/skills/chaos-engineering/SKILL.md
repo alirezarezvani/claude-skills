@@ -1,1 +1,0 @@
-../../../engineering/skills/chaos-engineering/SKILL.md

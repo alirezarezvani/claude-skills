@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.0 (audit skills release: agent-regression-evals, coding-agent-rollout and month-end-close plugins, open-source-first youtube-full, claude-coach plugin renamed to power-user-coach with a one-time reinstall. See CHANGELOG.md [2.14.0].)
+**Version:** v2.14.1 (audit fix release: all 104 plugins bumped so `claude plugin update` reaches existing installs, new version-bump gate G11, category-scoped Codex installer, `${CLAUDE_PLUGIN_ROOT}` script paths, productivity handoff renamed session-handoff. See CHANGELOG.md [2.14.1].)
+
+**Previously: v2.14.0** (audit skills release: agent-regression-evals, coding-agent-rollout and month-end-close plugins, open-source-first youtube-full, claude-coach plugin renamed to power-user-coach with a one-time reinstall. See CHANGELOG.md [2.14.0].)
 
 **Previously: v2.13.0** (October triage and quality-audit release: runnable command names, self-contained c-level-agents/compliance-os, hivemind as an opt-in plugin, six new skills from the community backlog. See CHANGELOG.md [2.13.0].)
 
@@ -861,6 +863,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** October 21, 2026
-**Version:** v2.14.0 (audit skills release — see CHANGELOG.md)
+**Last Updated:** October 23, 2026
+**Version:** v2.14.1 (audit fix release — see CHANGELOG.md)
 **Status:** 398 production-ready skills across 20 domains, 104 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

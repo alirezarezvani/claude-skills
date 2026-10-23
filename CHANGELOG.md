@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.1] - 2026-10-23 — Plugin updates reach existing installs, audit fixes
+
 Fixes from the v2.14.0 real-state audit (clean installs on six harnesses, mirror diffs, trigger
 and behaviour evals). Every plugin moves to version 2.14.1.
 

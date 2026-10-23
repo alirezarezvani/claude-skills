@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/cfo-review/SKILL.md

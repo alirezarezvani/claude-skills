@@ -1,1 +1,0 @@
-../../../engineering-team/skills/embedded-iot-mentor/SKILL.md

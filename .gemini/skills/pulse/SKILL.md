@@ -1,1 +1,0 @@
-../../../research/pulse/skills/pulse/SKILL.md

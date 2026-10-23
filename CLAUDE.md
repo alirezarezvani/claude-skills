@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.0 (audit skills release: agent-regression-evals, coding-agent-rollout and month-end-close plugins, open-source-first youtube-full, claude-coach plugin renamed to power-user-coach with a one-time reinstall. See CHANGELOG.md [2.14.0].)
+**Version:** v2.14.1 (audit fix release: all 104 plugins bumped so `claude plugin update` reaches existing installs, new version-bump gate G11, category-scoped Codex installer, `${CLAUDE_PLUGIN_ROOT}` script paths, productivity handoff renamed session-handoff. See CHANGELOG.md [2.14.1].)
+
+**Previously: v2.14.0** (audit skills release: agent-regression-evals, coding-agent-rollout and month-end-close plugins, open-source-first youtube-full, claude-coach plugin renamed to power-user-coach with a one-time reinstall. See CHANGELOG.md [2.14.0].)
 
 **Previously: v2.13.0** (October triage and quality-audit release: runnable command names, self-contained c-level-agents/compliance-os, hivemind as an opt-in plugin, six new skills from the community backlog. See CHANGELOG.md [2.13.0].)
 
@@ -846,6 +848,9 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 - Never commit a raw `sync-*-skills.py` run: the Gemini/Vibe/Hermes syncs re-point symlinks for duplicate skill names in walk order, so stage only the mirror entries your change touches and revert the rest.
 - Never write `/cs-<name>`: Claude Code runs plugin commands as `/<plugin>:<name>` or bare `/<name>` (verified on 2.1.306), so a command file `cs-foo.md` is `/cs-foo`, and a generic skill name like `decide` is written `/c-level-agents:decide`. `scripts/check_command_refs.py` blocks regressions.
 - Run the local gates with the exact flags `ci-quality-gate.yml` uses (`check_paths.py --all`, `check_skill_names.py --all`, `check_frontmatter.py --all`): without `--all`, check_paths skips agent and command files and reports clean.
+- Bump the version of every plugin whose files change (`scripts/bump_plugin_versions.py --changed-since origin/dev`): Claude Code caches by version, so an unbumped change never reaches existing installs; G11 (`check_plugin_versions.py`) blocks it.
+- Test plugin updates against a GitHub-ref marketplace, never a local directory: a local marketplace reads files live and hides an unbumped version.
+- A plugin command or agent runs from the user's project, so every script it invokes must start with `${CLAUDE_PLUGIN_ROOT}/`; a repo-relative path only works inside a clone of this repo (G1 enforces it).
 - A marketplace install copies only the plugin's own directory, so `../../other-plugin/...` paths break once installed. To reuse another plugin's scripts or references, add a relative symlink under the plugin's `vendor/` (Claude Code dereferences in-marketplace symlinks into the cache) and reference it as `${CLAUDE_PLUGIN_ROOT}/vendor/...`, which `check_paths.py` now verifies.
 
 ## Additional Resources
@@ -858,6 +863,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** October 21, 2026
-**Version:** v2.14.0 (audit skills release — see CHANGELOG.md)
+**Last Updated:** October 23, 2026
+**Version:** v2.14.1 (audit fix release — see CHANGELOG.md)
 **Status:** 398 production-ready skills across 20 domains, 104 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

@@ -1,1 +1,0 @@
-../../../markdown-html/skills/design-system/SKILL.md

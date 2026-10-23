@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/risk-management-specialist/SKILL.md

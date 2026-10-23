@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/post-mortem/SKILL.md

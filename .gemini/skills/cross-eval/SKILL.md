@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/cross-eval/SKILL.md

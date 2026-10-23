@@ -39,7 +39,8 @@ Choose your platform and follow the steps:
 
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
-    ./scripts/codex-install.sh
+    cd claude-skills
+    ./scripts/codex-install.sh --category engineering   # no arguments lists the categories
     ```
 
 === "Gemini CLI"

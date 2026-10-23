@@ -1,1 +1,0 @@
-../../../engineering/universal-scraping-architect/skills/universal-scraping-architect/SKILL.md

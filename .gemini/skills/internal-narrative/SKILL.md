@@ -1,1 +1,0 @@
-../../../c-level-advisor/skills/internal-narrative/SKILL.md

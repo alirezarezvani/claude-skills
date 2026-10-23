@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/capa-officer/SKILL.md

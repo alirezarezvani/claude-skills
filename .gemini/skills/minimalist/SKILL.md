@@ -1,1 +1,0 @@
-../../../engineering/minimalist/SKILL.md

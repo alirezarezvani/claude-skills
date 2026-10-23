@@ -1,1 +1,0 @@
-../../../engineering/skills/coding-agent-rollout/SKILL.md

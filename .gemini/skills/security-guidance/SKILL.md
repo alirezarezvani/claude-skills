@@ -1,1 +1,0 @@
-../../../engineering/security-guidance/skills/security-guidance/SKILL.md

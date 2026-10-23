@@ -81,9 +81,9 @@ Saved to `${RESEARCH_DIR}/pulse/<topic-slug>-<YYYY-MM-DD>.md` AND pasted in chat
 
 ```bash
 # A. Pre-flight (post-intake)
-python ../skills/pulse/scripts/time_window_calculator.py --window 30d
-python ../skills/pulse/scripts/topic_slug_generator.py --topic "<topic>" --date $(date +%Y-%m-%d)
-python ../skills/pulse/scripts/citation_tracker.py --action start --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/time_window_calculator.py --window 30d
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/topic_slug_generator.py --topic "<topic>" --date $(date +%Y-%m-%d)
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action start --session NAME
 
 # B. Phases 1–3 (parallel, 1 q/sec per platform)
 #    Reddit: search.json sort=top&t=month + sort=new&t=month + top thread comments
@@ -91,14 +91,14 @@ python ../skills/pulse/scripts/citation_tracker.py --action start --session NAME
 #    Web: 2–3 targeted queries
 
 # C. Phase 4 (optional, sequential): normalize a supplied export first
-python ../skills/pulse/scripts/citation_tracker.py --action import_sources \
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action import_sources \
   --session NAME --input /path/to/x-search.json --platform x
 #    If no export exists, try Grok / X API / browser automation.
 
 # D. Synthesis: cross-platform pattern detection
 
 # E. Output: file + chat + audit summary
-python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action close --session NAME
 ```
 
 ## Stop Conditions

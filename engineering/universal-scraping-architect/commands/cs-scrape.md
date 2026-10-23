@@ -22,12 +22,12 @@ Run a gated extraction pipeline for `$ARGUMENTS` using `skills/universal-scrapin
 2. **Budget** — estimate API quota / token limits before multi-page jobs; add checkpointing + pagination.
 3. **Extract** — start from the matching runner template (run from the plugin root; `--sample` previews the summary shape offline):
    ```bash
-   python3 skills/universal-scraping-architect/scripts/firecrawl_example.py --sample
-   python3 skills/universal-scraping-architect/scripts/local_bs4_example.py --sample
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/universal-scraping-architect/scripts/firecrawl_example.py --sample
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/universal-scraping-architect/scripts/local_bs4_example.py --sample
    ```
 4. **Validate (mandatory, exit-code gated):**
    ```bash
-   python3 skills/universal-scraping-architect/scripts/validate_extraction.py extracted_output.json --json
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/universal-scraping-architect/scripts/validate_extraction.py extracted_output.json --json
    ```
    - exit 0 (`status: ok`) → continue
    - exit 1 (`warning` = empty output, `error` = malformed JSON) → fix and re-extract; **never deliver unvalidated data**

@@ -1,1 +1,0 @@
-../../../engineering/memory-engineering/skills/memory-engineering/SKILL.md

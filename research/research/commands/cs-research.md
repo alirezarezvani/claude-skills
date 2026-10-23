@@ -109,16 +109,16 @@ DOCX version uses same structure with research-pack styling.
 # Phase 1 intake (Q1 + Q2 minimum)
 
 # Phase 2 classification
-python ../skills/research/scripts/classifier.py --question "<Q1>"
+python ${CLAUDE_PLUGIN_ROOT}/skills/research/scripts/classifier.py --question "<Q1>"
 # Returns: {route_to: "litreview", confidence: "high (2 signals)", matched: [...]}
 
 # Phase 3a delegation (if specialist matched at ≥2 signals)
-python ../skills/research/scripts/routing_transparency_logger.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/research/scripts/routing_transparency_logger.py \
   --action record_delegation --session NAME --target litreview --signals "..."
 # Pass question to /cs-litreview verbatim; let it run its own intake
 
 # Phase 3b fallback (if no specialist matched)
-python ../skills/research/scripts/fallback_decomposer.py --question "<Q1>"
+python ${CLAUDE_PLUGIN_ROOT}/skills/research/scripts/fallback_decomposer.py --question "<Q1>"
 # Returns 3-5 sub-questions
 # Run 8-step fallback workflow: source-select → search → read+extract → synthesize → cross-cut → output → audit
 ```

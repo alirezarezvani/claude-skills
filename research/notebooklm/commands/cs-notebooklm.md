@@ -106,15 +106,15 @@ Examples per output type:
 # Step 0: environment check (silent if available; halt if not)
 
 # Phase 0 intake (Q1 + Q2 minimum; Q3-Q4 branch per action)
-python ../skills/notebooklm/scripts/action_router.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/notebooklm/scripts/action_router.py \
   --action read_extract --notebook "Q3 prep" --question "what are the latest trends?"
 
 # Studio output flow includes custom prompt generation:
-python ../skills/notebooklm/scripts/custom_prompt_template_generator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/notebooklm/scripts/custom_prompt_template_generator.py \
   --output-type infographic --audience executive --length compact
 
 # Async classification (for "should I wait or fire-and-notify?")
-python ../skills/notebooklm/scripts/async_action_classifier.py --action audio_overview
+python ${CLAUDE_PLUGIN_ROOT}/skills/notebooklm/scripts/async_action_classifier.py --action audio_overview
 # Returns: FIRE_AND_NOTIFY (5-10 min generation)
 
 # Execute action via browser automation (screenshot → find → click → verify)

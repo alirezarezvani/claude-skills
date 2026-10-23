@@ -1,7 +1,7 @@
 {
   "name": "grill-me",
   "description": "Relentless plan-and-design interrogator. Walks the decision tree of a plan one branch at a time, asking forcing questions sequentially with recommended answers. Explores codebase to resolve answers where possible. Enhanced from Matt Pocock's MIT-licensed grill-me skill (https://github.com/mattpocock/skills) with: (1) stdlib Python tools (decision-tree extractor, question generator, session-state tracker), (2) 3 reference docs citing 5+ authoritative sources each (forcing-question patterns, decision-tree completeness, when to stop grilling), (3) cs-grill-master persona agent + /cs-grill-me slash command. Matt's relentless one-at-a-time interview discipline preserved verbatim per MIT. Use when user wants to stress-test a plan, get grilled on their design, or says \"grill me\".",
-  "version": "2.9.0",
+  "version": "2.14.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

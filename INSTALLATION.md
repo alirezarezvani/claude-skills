@@ -44,7 +44,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 # Option 2: Direct installation script
 git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
-./scripts/codex-install.sh
+./scripts/codex-install.sh --category engineering   # no arguments lists the categories
 ```
 
 ### For Gemini CLI Users
@@ -971,12 +971,9 @@ cd claude-skills
 # Generate symlinks (if not already present)
 python3 scripts/sync-codex-skills.py
 
-# Install all skills to ~/.codex/skills/
-./scripts/codex-install.sh
-
-# Or install specific category
-./scripts/codex-install.sh --category marketing
-./scripts/codex-install.sh --category engineering
+# Install the categories you use to ~/.codex/skills/ (no arguments lists them).
+# Avoid --all: with the full library Codex drops every skill description.
+./scripts/codex-install.sh --category engineering,product
 
 # Or install single skill
 ./scripts/codex-install.sh --skill content-creator
@@ -994,10 +991,8 @@ cd claude-skills
 REM Generate structure (if not already present)
 python scripts\sync-codex-skills.py
 
-REM Install all skills to %USERPROFILE%\.codex\skills\
-scripts\codex-install.bat
-
-REM Or install single skill
+REM Install the skills you use to %USERPROFILE%\.codex\skills\
+REM (--all installs everything, which leaves Codex without skill descriptions)
 scripts\codex-install.bat --skill content-creator
 
 REM List available skills

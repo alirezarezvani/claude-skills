@@ -33,13 +33,13 @@ argument-hint: "[the post idea, or paste a draft to be reviewed]"
 
 ```bash
 # 1. Format from the material, not from fashion
-python3 ../skills/linkedin-content/scripts/format_picker.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-content/scripts/format_picker.py \
   --goal authority --material data --material tutorial --minutes 120 --output human
 
 # 2. Draft (the interview comes first: the number, the mistake, the sentence someone said)
 
 # 3. Lint to a clean exit
-python3 ../skills/linkedin-content/scripts/post_linter.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-content/scripts/post_linter.py \
   --input draft.md --has-image --output human
 #   exit 0 SHIP · exit 2 REVISE (or any blocking finding) · exit 3 REWRITE
 ```

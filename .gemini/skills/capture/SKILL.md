@@ -1,1 +1,0 @@
-../../../productivity/capture/skills/capture/SKILL.md

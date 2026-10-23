@@ -1,1 +1,0 @@
-../../../engineering/agent-harness/skills/agent-harness/SKILL.md

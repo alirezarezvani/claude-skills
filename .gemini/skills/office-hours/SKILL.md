@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/office-hours/SKILL.md

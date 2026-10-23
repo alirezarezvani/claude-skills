@@ -1,1 +1,0 @@
-../../../business-growth/skills/revenue-operations/SKILL.md

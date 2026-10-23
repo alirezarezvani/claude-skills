@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/cold-email/SKILL.md

@@ -1,1 +1,0 @@
-../../../engineering/skills/full-page-screenshot/SKILL.md

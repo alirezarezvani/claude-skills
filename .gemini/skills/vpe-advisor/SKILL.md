@@ -1,1 +1,0 @@
-../../../c-level-advisor/skills/vpe-advisor/SKILL.md

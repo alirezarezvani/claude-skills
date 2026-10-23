@@ -1,1 +1,0 @@
-../../../project-management/skills/pm-skills/SKILL.md

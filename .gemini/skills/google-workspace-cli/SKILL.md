@@ -1,1 +1,0 @@
-../../../engineering-team/google-workspace-cli/skills/google-workspace-cli/SKILL.md

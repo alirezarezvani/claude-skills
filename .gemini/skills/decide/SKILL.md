@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/decide/SKILL.md

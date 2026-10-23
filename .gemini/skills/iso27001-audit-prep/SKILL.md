@@ -1,1 +1,0 @@
-../../../compliance-os/skills/iso27001-audit-prep/SKILL.md

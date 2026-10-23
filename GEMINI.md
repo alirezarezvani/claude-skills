@@ -61,7 +61,7 @@ Each skill includes deterministic Python CLI tools in its `scripts/` folder. The
 
 Example usage:
 ```bash
-python3 marketing-skill/content-production/scripts/seo_checker.py article.txt
+python3 marketing-skill/skills/seo-audit/scripts/seo_checker.py article.txt
 ```
 
 ## Setup for Gemini CLI Users
@@ -72,4 +72,6 @@ Run the setup script to initialize the Gemini-specific skill index and symlinks:
 ./scripts/gemini-install.sh
 ```
 
-This will create a `.gemini/skills/` directory for easier discovery.
+This creates `.gemini/skills/`, where each entry links to a whole skill folder, so a skill's `scripts/` and `references/` sit beside its `SKILL.md`. Dual-published skills appear once.
+
+Gemini CLI only loads workspace skills from a trusted folder. If `gemini skills list` shows none of them, trust the repository folder when Gemini prompts you, or add it to `~/.gemini/trustedFolders.json`.

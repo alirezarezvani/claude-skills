@@ -1,1 +1,0 @@
-../../../engineering/write-a-skill/skills/write-a-skill/SKILL.md

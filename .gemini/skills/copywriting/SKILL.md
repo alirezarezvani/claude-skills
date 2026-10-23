@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/copywriting/SKILL.md

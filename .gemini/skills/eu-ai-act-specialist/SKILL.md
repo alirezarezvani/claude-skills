@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/eu-ai-act-specialist/SKILL.md

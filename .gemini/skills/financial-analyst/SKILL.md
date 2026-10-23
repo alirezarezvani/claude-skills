@@ -1,1 +1,0 @@
-../../../finance/skills/financial-analyst/SKILL.md

@@ -1,1 +1,0 @@
-../../../commercial/skills/channel-economics/SKILL.md

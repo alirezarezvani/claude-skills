@@ -1,1 +1,0 @@
-../../../research/litreview/skills/litreview/SKILL.md

@@ -1,1 +1,0 @@
-../../../c-level-advisor/executive-mentor/skills/challenge/SKILL.md

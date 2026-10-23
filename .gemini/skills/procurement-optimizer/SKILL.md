@@ -1,1 +1,0 @@
-../../../business-operations/skills/procurement-optimizer/SKILL.md

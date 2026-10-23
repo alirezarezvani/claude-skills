@@ -1,1 +1,0 @@
-../../../product-team/skills/spec-to-repo/SKILL.md

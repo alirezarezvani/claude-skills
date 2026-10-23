@@ -1,1 +1,0 @@
-../../../engineering/behuman/skills/behuman/SKILL.md

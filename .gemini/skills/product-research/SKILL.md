@@ -1,1 +1,0 @@
-../../../research-ops/skills/product-research/SKILL.md

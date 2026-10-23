@@ -31,16 +31,16 @@ prohibited by User Agreement §8.2 and none of this needs it.
 ## Workflow
 
 ```bash
-python3 ../skills/linkedin-analytics/scripts/post_performance_analyzer.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-analytics/scripts/post_performance_analyzer.py \
   --input export.csv --csv --output human
 #   exit 2 = under 10 posts. Descriptive only. Say so and stop.
 
-python3 ../skills/linkedin-analytics/scripts/pattern_miner.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-analytics/scripts/pattern_miner.py \
   --input export.csv --csv --output human
 #   exit 2 = nothing survived. This is a real finding, not a failure.
 
 # CV for the planner = 1.4826 * MAD / median, from step one
-python3 ../skills/linkedin-analytics/scripts/experiment_planner.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-analytics/scripts/experiment_planner.py \
   --hypothesis "..." --variable "..." --cv 0.45 --effect 0.30 \
   --posts-per-week 2 --max-weeks 12 --output human
 ```

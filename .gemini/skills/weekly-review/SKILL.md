@@ -1,1 +1,0 @@
-../../../productivity/weekly-review/skills/weekly-review/SKILL.md

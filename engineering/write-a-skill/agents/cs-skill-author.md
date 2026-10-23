@@ -40,17 +40,17 @@ Differentiates clearly:
 
 1. **Skill Description Validator**
    - Path: `../skills/write-a-skill/scripts/skill_description_validator.py`
-   - Usage: `python skill_description_validator.py path/to/SKILL.md`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_description_validator.py path/to/SKILL.md`
    - Returns: 5-check verdict (description present, ≤1024 chars, third person, "Use when" trigger, action verb in first sentence)
 
 2. **Skill Structure Validator**
    - Path: `../skills/write-a-skill/scripts/skill_structure_validator.py`
-   - Usage: `python skill_structure_validator.py path/to/skill-folder/`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_structure_validator.py path/to/skill-folder/`
    - Returns: 6-check verdict (SKILL.md present, ≤100 lines, references when split needed, one-level-deep, no circular refs, scripts/ folder note)
 
 3. **Skill Review Checklist Runner**
    - Path: `../skills/write-a-skill/scripts/skill_review_checklist_runner.py`
-   - Usage: `python skill_review_checklist_runner.py path/to/skill-folder/`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_review_checklist_runner.py path/to/skill-folder/`
    - Returns: Matt's 6-item checklist verdict (description trigger, SKILL.md ≤100 lines, no time-sensitive info, consistent terminology, concrete examples, references one level deep)
 
 ### Knowledge Bases
@@ -80,13 +80,13 @@ Differentiates clearly:
 #    - Add references/<topic>.md for content that would push SKILL.md past 100 lines
 
 # 3. Validate before commit
-python ../skills/write-a-skill/scripts/skill_description_validator.py path/to/SKILL.md
-python ../skills/write-a-skill/scripts/skill_structure_validator.py path/to/skill-folder/
-python ../skills/write-a-skill/scripts/skill_review_checklist_runner.py path/to/skill-folder/
+python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_description_validator.py path/to/SKILL.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_structure_validator.py path/to/skill-folder/
+python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_review_checklist_runner.py path/to/skill-folder/
 
 # 4. Karpathy gate (if scripts/ exists)
-python ../../karpathy-coder/skills/karpathy-coder/scripts/complexity_checker.py path/to/skill-folder/scripts/
-python ../../karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py path/to/skill-folder/scripts/
+python ${CLAUDE_PLUGIN_ROOT}/vendor/karpathy-coder/scripts/complexity_checker.py path/to/skill-folder/scripts/
+python ${CLAUDE_PLUGIN_ROOT}/vendor/karpathy-coder/scripts/assumption_linter.py path/to/skill-folder/scripts/
 
 # 5. Open PR. Validators must show PASS or documented WARN justification.
 ```
@@ -106,7 +106,7 @@ python ../../karpathy-coder/skills/karpathy-coder/scripts/assumption_linter.py p
 ```bash
 # Run on every skill in the repo
 for skill in $(find . -name "SKILL.md" -type f); do
-  python ../skills/write-a-skill/scripts/skill_review_checklist_runner.py "$(dirname $skill)"
+  python ${CLAUDE_PLUGIN_ROOT}/skills/write-a-skill/scripts/skill_review_checklist_runner.py "$(dirname $skill)"
 done
 # Triage failures: critical fixes first, WARN docs second
 ```

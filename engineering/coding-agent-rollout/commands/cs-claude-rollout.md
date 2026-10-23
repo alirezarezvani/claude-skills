@@ -10,15 +10,15 @@ Audit the Claude Code setup for `$ARGUMENTS` (default: the current repository) a
 ## Run
 
 ```bash
-python skills/coding-agent-rollout/scripts/settings_linter.py --repo <repo> [--managed <managed-settings.json>]
-python skills/coding-agent-rollout/scripts/mcp_plugin_inventory.py --repo <repo> [--allowlist <approved.json>]
-python skills/coding-agent-rollout/scripts/claude_md_layering_audit.py --repo <repo>
+python ${CLAUDE_PLUGIN_ROOT}/skills/coding-agent-rollout/scripts/settings_linter.py --repo <repo> [--managed <managed-settings.json>]
+python ${CLAUDE_PLUGIN_ROOT}/skills/coding-agent-rollout/scripts/mcp_plugin_inventory.py --repo <repo> [--allowlist <approved.json>]
+python ${CLAUDE_PLUGIN_ROOT}/skills/coding-agent-rollout/scripts/claude_md_layering_audit.py --repo <repo>
 ```
 
 If the user has adoption summaries, add:
 
 ```bash
-python skills/coding-agent-rollout/scripts/adoption_tracker.py --merge <summaries...> --seats <N> [--weeks-since-launch <W>]
+python ${CLAUDE_PLUGIN_ROOT}/skills/coding-agent-rollout/scripts/adoption_tracker.py --merge <summaries...> --seats <N> [--weeks-since-launch <W>]
 ```
 
 No managed settings yet? Start from `skills/coding-agent-rollout/assets/managed-settings.example.json`

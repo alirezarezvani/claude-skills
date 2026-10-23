@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/ai-decision-authority/SKILL.md

@@ -1,1 +1,0 @@
-../../../c-level-advisor/skills/change-management/SKILL.md

@@ -17,20 +17,20 @@ Convert the markdown at **$ARGUMENTS** into a single-file interactive HTML docum
 
 ```bash
 # 1. Classify (if not already routed by orchestrator)
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/doctype_classifier.py \
     --input "<path>.md" --output json \
-  | python3 markdown-html/skills/markdown-html-orchestrator/scripts/route_explainer.py
+  | python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/route_explainer.py
 
 # 2. Resolve the output path
-python3 markdown-html/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/markdown-html-orchestrator/scripts/output_path_resolver.py \
     --input "<path>.md" --doctype document
 
 # 3. Parse → render → inject
-python3 markdown-html/skills/md-document/scripts/markdown_parser.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-document/scripts/markdown_parser.py \
     --input "<path>.md" --output /tmp/sections.json
-python3 markdown-html/skills/md-document/scripts/html_renderer.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-document/scripts/html_renderer.py \
     --sections /tmp/sections.json --output <resolved-out>.html
-python3 markdown-html/skills/md-document/scripts/interactivity_injector.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/md-document/scripts/interactivity_injector.py \
     --file <resolved-out>.html \
     --features search,copycode,smoothscroll,scrollspy
 ```

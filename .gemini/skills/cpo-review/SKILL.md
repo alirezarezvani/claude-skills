@@ -1,1 +1,0 @@
-../../../c-level-agents/skills/cpo-review/SKILL.md

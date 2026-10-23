@@ -23,7 +23,7 @@ training error means the model or the optimizer is the bottleneck, and more data
      a bug from a hard problem)
 2. **Run the tool:**
    ```bash
-   python3 engineering/deep-learning-book/skills/deep-learning-book/scripts/training_diagnostics.py \
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/deep-learning-book/scripts/training_diagnostics.py \
        --train-loss <x> --val-loss <y> --target-loss <z> --grad-norm <g> \
        --tiny-subset-fits yes|no|unknown
    ```

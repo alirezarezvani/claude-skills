@@ -1,1 +1,0 @@
-../../../c-level-advisor/skills/general-counsel-advisor/SKILL.md

@@ -1,1 +1,0 @@
-../../../engineering-team/skills/incident-response/SKILL.md

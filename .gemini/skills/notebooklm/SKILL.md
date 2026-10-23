@@ -1,1 +1,0 @@
-../../../research/notebooklm/skills/notebooklm/SKILL.md

@@ -1,1 +1,0 @@
-../../../engineering/grill-with-docs/skills/grill-with-docs/SKILL.md

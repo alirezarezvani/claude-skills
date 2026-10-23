@@ -44,9 +44,9 @@ The `cs-grill-with-docs` persona pre-flights the project's documented language a
 
 ```bash
 # 1. Pre-flight — snapshot the docs state
-python ../skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
-python ../skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
-python ../skills/grill-with-docs/scripts/glossary_code_consistency.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/glossary_code_consistency.py \
   --context CONTEXT.md --code src/
 
 # 2. Read the plan
@@ -58,13 +58,13 @@ python ../skills/grill-with-docs/scripts/glossary_code_consistency.py \
 #    Apply edits inline if the answer changes the glossary or warrants an ADR.
 
 # 4. Re-lint after any structural CONTEXT.md edit:
-python ../skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/context_md_linter.py CONTEXT.md
 
 # 5. Re-scan after any new ADR:
-python ../skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/adr_scanner.py docs/adr/
 
 # 6. At close — final consistency sweep:
-python ../skills/grill-with-docs/scripts/glossary_code_consistency.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-with-docs/scripts/glossary_code_consistency.py \
   --context CONTEXT.md --code src/
 ```
 

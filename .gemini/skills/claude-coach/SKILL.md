@@ -1,1 +1,0 @@
-../../../engineering/claude-coach/skills/claude-coach/SKILL.md

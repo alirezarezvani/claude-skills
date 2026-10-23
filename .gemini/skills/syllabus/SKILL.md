@@ -1,1 +1,0 @@
-../../../research/syllabus/skills/syllabus/SKILL.md

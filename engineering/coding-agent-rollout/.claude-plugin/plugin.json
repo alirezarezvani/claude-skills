@@ -1,7 +1,7 @@
 {
   "name": "coding-agent-rollout",
   "description": "Roll Claude Code out to a team with guardrails you can check. Four deterministic stdlib scripts: a settings linter that reads shared, local, user and managed settings together (array merge, deny-ask-allow order) and blocks blanket shell allows, pre-approved destructive commands and committed credentials; an MCP and plugin inventory that blocks anything missing from your approved list or holding a literal secret, and flags unpinned or plain-http servers; a CLAUDE.md layering audit that resolves every layer and @import and flags broken imports, contradictions, secrets and resident size; and a privacy-safe adoption tracker that turns local session files into counts only and classifies the rollout as PILOT, SPREADING, EMBEDDED or STALLED. Ships cs-claude-code-rollout agent, /cs-claude-rollout and /cs-claude-settings-lint commands, 3 references, a baseline managed-settings policy and a four-phase rollout plan.",
-  "version": "2.13.0",
+  "version": "2.14.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

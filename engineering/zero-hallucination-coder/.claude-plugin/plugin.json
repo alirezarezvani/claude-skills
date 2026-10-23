@@ -1,7 +1,7 @@
 {
   "name": "zero-hallucination-coder",
   "description": "A disciplined coding pipeline that grounds code in verified structure before a line is written: Discuss -> Map -> Decompose -> Execute -> Verify, with a lazy-senior-dev YAGNI ladder that deletes unnecessary code first. No invented APIs, no assumed imports, no placeholder code. Opt-in for high-stakes, complex, or multi-file work; not for trivial edits. Synthesizes four MIT/open-source projects (Ralph, GSD Core, Graphify, Ponytail).",
-  "version": "2.10.3",
+  "version": "2.14.1",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

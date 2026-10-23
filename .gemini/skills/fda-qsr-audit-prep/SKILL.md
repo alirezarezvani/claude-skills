@@ -1,1 +1,0 @@
-../../../compliance-os/skills/fda-qsr-audit-prep/SKILL.md

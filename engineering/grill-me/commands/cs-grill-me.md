@@ -36,22 +36,22 @@ The grill-master persona interrogates a plan one decision branch at a time.
 
 ```bash
 # 1. Extract decision branches from the plan
-python ../skills/grill-me/scripts/decision_tree_extractor.py path/to/plan.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/decision_tree_extractor.py path/to/plan.md
 
 # 2. Generate forcing questions with recommendations
-python ../skills/grill-me/scripts/question_generator.py path/to/plan.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/question_generator.py path/to/plan.md
 
 # 3. Start session
-python ../skills/grill-me/scripts/grill_session_tracker.py --action start --session NAME --plan path/to/plan.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action start --session NAME --plan path/to/plan.md
 
 # 4. Walk one question at a time:
 #    Persona asks Q1 with recommendation.
 #    User answers.
 #    Record:
-python ../skills/grill-me/scripts/grill_session_tracker.py --action record --session NAME --question-id 1 --answer "..."
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action record --session NAME --question-id 1 --answer "..."
 
 # 5. When complete:
-python ../skills/grill-me/scripts/grill_session_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/grill-me/scripts/grill_session_tracker.py --action close --session NAME
 ```
 
 ## When to Stop

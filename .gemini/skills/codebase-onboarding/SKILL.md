@@ -1,1 +1,0 @@
-../../../engineering/skills/codebase-onboarding/SKILL.md

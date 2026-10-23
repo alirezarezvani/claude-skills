@@ -1,1 +1,0 @@
-../../../engineering/workflow-builder/skills/workflow-builder/SKILL.md

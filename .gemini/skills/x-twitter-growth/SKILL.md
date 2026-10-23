@@ -1,1 +1,0 @@
-../../../marketing-skill/skills/x-twitter-growth/SKILL.md

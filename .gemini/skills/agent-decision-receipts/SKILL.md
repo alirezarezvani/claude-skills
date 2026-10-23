@@ -1,1 +1,0 @@
-../../../ra-qm-team/skills/agent-decision-receipts/SKILL.md

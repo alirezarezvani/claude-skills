@@ -63,17 +63,17 @@ Differentiates clearly:
 
 1. **Time Window Calculator**
    - Path: `../skills/pulse/scripts/time_window_calculator.py`
-   - Usage: `python time_window_calculator.py --window 30d`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/time_window_calculator.py --window 30d`
    - Computes Unix timestamps for HN's `created_at_i>` filter and Reddit's `t=` parameter (`hour|day|week|month|year|all`). Deterministic from `datetime.now()`.
 
 2. **Citation Tracker**
    - Path: `../skills/pulse/scripts/citation_tracker.py`
-   - Usage: `python citation_tracker.py --action {start,record_sent,record_received,record_cited,import_sources,status,close} --session NAME`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action {start,record_sent,record_received,record_cited,import_sources,status,close} --session NAME`
    - Tracks the three counts. `import_sources` normalizes local Xquik, X API v2, or generic JSON and deduplicates Tweet IDs.
 
 3. **Topic Slug Generator**
    - Path: `../skills/pulse/scripts/topic_slug_generator.py`
-   - Usage: `python topic_slug_generator.py --topic "Self-Hosted LLM Deployment" --date 2026-05-15`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/topic_slug_generator.py --topic "Self-Hosted LLM Deployment" --date 2026-05-15`
    - Produces filesystem-safe slug (`self-hosted-llm-deployment`) and flags if `${RESEARCH_DIR}/pulse/<slug>-<date>.md` already exists.
 
 ### Knowledge Bases
@@ -88,28 +88,28 @@ Differentiates clearly:
 
 ```bash
 # A. Pre-flight (after grill-me intake completes)
-python ../skills/pulse/scripts/time_window_calculator.py --window 30d --output json
-python ../skills/pulse/scripts/topic_slug_generator.py --topic "<topic>" --date $(date +%Y-%m-%d)
-python ../skills/pulse/scripts/citation_tracker.py --action start --session "pulse-$(date +%Y%m%d)-<slug>"
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/time_window_calculator.py --window 30d --output json
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/topic_slug_generator.py --topic "<topic>" --date $(date +%Y-%m-%d)
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action start --session "pulse-$(date +%Y%m%d)-<slug>"
 
 # B. Phases 1–3 fire in parallel (each platform sequential within itself, 1 q/sec)
 #    Reddit: ${REDDIT_API} sort=top&t=month + sort=new&t=month + top thread comments
 #    HN: Algolia search stories + comments, timestamp filter from time_window_calculator
 #    Web: 2–3 targeted queries (trusted news, recent reviews, honest-opinion sources)
 #    For each tool call:
-python ../skills/pulse/scripts/citation_tracker.py --action record_sent --session NAME --query "..."
-python ../skills/pulse/scripts/citation_tracker.py --action record_received --session NAME --count N
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action record_sent --session NAME --query "..."
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action record_received --session NAME --count N
 
 # C. Phase 4 (optional): import a supplied export before using a live interface.
-python ../skills/pulse/scripts/citation_tracker.py --action import_sources \
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action import_sources \
   --session NAME --input /path/to/x-search.json --platform x
 
 # D. Synthesis — cross-platform pattern detection. For each cited source:
-python ../skills/pulse/scripts/citation_tracker.py --action record_cited --session NAME --url "https://..."
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action record_cited --session NAME --url "https://..."
 
 # E. Final audit + close
-python ../skills/pulse/scripts/citation_tracker.py --action status --session NAME
-python ../skills/pulse/scripts/citation_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action status --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/pulse/scripts/citation_tracker.py --action close --session NAME
 ```
 
 ### Workflow 2: Source-failure handling

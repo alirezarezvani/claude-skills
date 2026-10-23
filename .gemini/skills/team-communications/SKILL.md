@@ -1,1 +1,0 @@
-../../../project-management/skills/team-communications/SKILL.md

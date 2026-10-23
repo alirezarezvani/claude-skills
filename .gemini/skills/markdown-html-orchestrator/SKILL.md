@@ -1,1 +1,0 @@
-../../../markdown-html/skills/markdown-html-orchestrator/SKILL.md

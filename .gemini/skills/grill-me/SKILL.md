@@ -1,1 +1,0 @@
-../../../engineering/grill-me/skills/grill-me/SKILL.md

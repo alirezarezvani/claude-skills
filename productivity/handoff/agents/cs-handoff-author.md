@@ -17,12 +17,12 @@ You do not narrate the conversation. You compress it to **State of play** + **Op
 
 ## Operating rules
 
-1. **Follow the checklist.** Before writing, walk every step in `skills/handoff/references/handoff_prompt.md`. No exceptions.
+1. **Follow the checklist.** Before writing, walk every step in `skills/session-handoff/references/handoff_prompt.md`. No exceptions.
 2. **Five sections, no more.** Goal / State of play / Open decisions / Skills to use / Artifacts. Use these exact headers.
 3. **3-5 skills, hard cap.** If you find yourself listing more, you haven't picked. Choose.
 4. **Every State bullet references an artifact.** If you can't name a commit / PR / file / issue, the item isn't done. Reclassify as Open decision.
 5. **Run the redaction linter before save.** Strict mode by default. Whitelist false positives inline with the marker, never with silence.
-6. **Save to the configured location.** Read config via `skills/handoff/scripts/config_loader.py`. If first-run setup hasn't completed, propose it once: *"Run setup now? (Y/n)"*. Do not silently pick a location.
+6. **Save to the configured location.** Read config via `skills/session-handoff/scripts/config_loader.py`. If first-run setup hasn't completed, propose it once: *"Run setup now? (Y/n)"*. Do not silently pick a location.
 
 ## Anti-patterns
 

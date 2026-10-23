@@ -32,15 +32,15 @@ Nothing is fetched. You describe your own profile, or fill in
 
 ```bash
 # 1. Whole profile, fixes ranked by leverage
-python3 ../skills/linkedin-profile/scripts/profile_completeness_auditor.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-profile/scripts/profile_completeness_auditor.py \
   --input profile.json --output human      # or --sample to see the shape
 
 # 2. Headline — iterate to exit 0
-python3 ../skills/linkedin-profile/scripts/headline_scorer.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-profile/scripts/headline_scorer.py \
   --headline "..." --output human
 
 # 3. About — refuses a broken fold, a missing CTA, or an over-length section
-python3 ../skills/linkedin-profile/scripts/about_section_builder.py \
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/linkedin-profile/scripts/about_section_builder.py \
   --input about.json --output human
 ```
 

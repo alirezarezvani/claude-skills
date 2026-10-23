@@ -67,7 +67,7 @@ description: "78 installable agent plugins for Claude Code, Codex CLI, Gemini CL
     ```bash
     git clone https://github.com/alirezarezvani/claude-skills.git
     cd claude-skills
-    ./scripts/codex-install.sh
+    ./scripts/codex-install.sh --category engineering   # no arguments lists the categories
     ```
 
 === "Gemini CLI"

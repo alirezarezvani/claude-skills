@@ -1,1 +1,0 @@
-../../../business-growth/skills/business-growth-skills/SKILL.md

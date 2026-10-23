@@ -1,1 +1,0 @@
-../../../engineering/caveman/skills/caveman/SKILL.md

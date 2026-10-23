@@ -1,1 +1,0 @@
-../../../marketing/landing/skills/landing/SKILL.md

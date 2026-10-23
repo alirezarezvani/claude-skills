@@ -1,1 +1,0 @@
-../../../engineering/handoff/skills/handoff/SKILL.md

@@ -19,17 +19,17 @@ The argument (if provided) becomes the **Goal of next session** verbatim. Withou
 
 ## Flow
 
-1. **Check first-run state.** Run `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/config_loader.py --status`.
+1. **Check first-run state.** Run `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/config_loader.py --status`.
    - If `should_prompt_setup: true`, ask the user: *"Run setup now? (Y/n)"*.
      - **Y** → invoke `/cs-handoff-setup`, then return here.
-     - **N** → mark declined: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/setup.py --decline`. Continue with defaults.
-2. **Run cleanup of stale scaffolds.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/cleanup.py`. mtime-guarded — never deletes edited files.
-3. **Walk the checklist.** Open `skills/handoff/references/handoff_prompt.md` and apply every step against the conversation.
-4. **Generate scaffold.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/handoff_template_generator.py --goal "<goal>"`. Capture the printed path.
+     - **N** → mark declined: `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/setup.py --decline`. Continue with defaults.
+2. **Run cleanup of stale scaffolds.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/cleanup.py`. mtime-guarded — never deletes edited files.
+3. **Walk the checklist.** Open `skills/session-handoff/references/handoff_prompt.md` and apply every step against the conversation.
+4. **Generate scaffold.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/handoff_template_generator.py --goal "<goal>"`. Capture the printed path.
 5. **Fill the five sections.** Goal / State of play / Open decisions / Skills to use / Artifacts. Reference artifacts; do not duplicate them.
-6. **Recommend skills.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/skill_recommender.py --goal "<goal>"`. Pick 3-5 max. Edit the auto-list.
-7. **Run the self-check.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/handoff_self_check.py <path>`. Fixes fidelity gaps (empty Goal, State bullets without artifacts, missing Decisions when git is dirty, too few/many Skills, inline content in Artifacts). Strict mode by default — resolve findings before save.
-8. **Run the redaction linter.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/redaction_linter.py <path>`. Strict mode by default — resolve findings before save. Use `<!-- handoff:allow secret -->` for true false positives.
+6. **Recommend skills.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/skill_recommender.py --goal "<goal>"`. Pick 3-5 max. Edit the auto-list.
+7. **Run the self-check.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/handoff_self_check.py <path>`. Fixes fidelity gaps (empty Goal, State bullets without artifacts, missing Decisions when git is dirty, too few/many Skills, inline content in Artifacts). Strict mode by default — resolve findings before save.
+8. **Run the redaction linter.** `python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/redaction_linter.py <path>`. Strict mode by default — resolve findings before save. Use `<!-- handoff:allow secret -->` for true false positives.
 9. **Save and report path.** Print the final path so the user can open it.
 
 ## Refreshing an existing handoff
@@ -37,7 +37,7 @@ The argument (if provided) becomes the **Goal of next session** verbatim. Withou
 When work continues past the original handoff, pass `--refresh` to the generator instead of creating a new file:
 
 ```bash
-python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/handoff_template_generator.py --refresh --goal "<updated goal>"
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/handoff_template_generator.py --refresh --goal "<updated goal>"
 ```
 
 The script returns the path of the most recent handoff; edit it in place. Re-run the self-check and redaction linter after editing.

@@ -1,1 +1,0 @@
-../../../business-operations/skills/process-mapper/SKILL.md

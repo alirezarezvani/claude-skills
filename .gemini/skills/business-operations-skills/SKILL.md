@@ -1,1 +1,0 @@
-../../../business-operations/skills/business-operations-skills/SKILL.md

@@ -6,6 +6,13 @@ Standalone plugin for the **Company Architect** — builds a business from scrat
 
 See `./skills/arquiteto-de-empresa/SKILL.md` for the full documentation.
 
+## Install
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install arquiteto-de-empresa@claude-code-skills
+```
+
 ## What it does
 
 Guides the founder through a **12-phase interview** (foundation → strategy → market → financial → sales → marketing → product → operations → tech → people → legal → governance), one phase at a time, and materializes each answer as OKF-conformant markdown concepts.

@@ -39,6 +39,11 @@ This skill is a Path-B direct conversion of `megaprompts/05-capture-megaprompt.m
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install capture-skill@claude-code-skills
+```
+
+```bash
 # Run the workspace-inventory helper against this repo
 python skills/capture/scripts/workspace_inventory.py --root . --keywords "skill,megaprompt,capture"
 

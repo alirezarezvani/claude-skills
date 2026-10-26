@@ -26,7 +26,7 @@ import argparse
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -59,7 +59,7 @@ def generate_jsonld(title: str, headings: list, industry: str, url: str | None =
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": title,
-        "datePublished": datetime.utcnow().strftime("%Y-%m-%d"),
+        "datePublished": datetime.now(timezone.utc).replace(tzinfo=None).strftime("%Y-%m-%d"),
         "author": {"@type": "Person", "name": "{{AUTHOR_NAME}}"},
         "publisher": {"@type": "Organization", "name": "{{PUBLISHER}}"},
     }
@@ -209,7 +209,7 @@ def optimize(text: str, mode: str, industry: str, url: str | None = None) -> dic
         "mode": mode,
         "industry": industry,
         "title": title,
-        "optimized_at": datetime.utcnow().isoformat() + "Z",
+        "optimized_at": datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z",
         "original_word_count": len(text.split()),
         "optimized_word_count": len(result_text.split()),
         "changelog": changelog,

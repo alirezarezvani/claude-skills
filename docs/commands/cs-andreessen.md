@@ -67,18 +67,18 @@ the Anti-Todo accomplishment log.
 
 ```bash
 # Venture evaluation
-python ../skills/andreessen/scripts/market_first_evaluator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/andreessen/scripts/market_first_evaluator.py \
   --size 8 --growth 7 --timing 9 --pull 8 --team 6 --product 5
 
 # Product/market fit check
-python ../skills/andreessen/scripts/pmf_signal_scorer.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/andreessen/scripts/pmf_signal_scorer.py \
   --ellis-pct 45 --retention 8 --organic 7 --demand 8 --frequency 7
 
 # Daily 3x5 card + Anti-Todo
-python ../skills/andreessen/scripts/anti_todo_card.py --new \
+python ${CLAUDE_PLUGIN_ROOT}/skills/andreessen/scripts/anti_todo_card.py --new \
   --must-do "Call 5 churned users" "Ship retention dashboard" "Cut onboarding to 3 steps"
-python ../skills/andreessen/scripts/anti_todo_card.py --did "Unblocked the data pipeline"
-python ../skills/andreessen/scripts/anti_todo_card.py --summary
+python ${CLAUDE_PLUGIN_ROOT}/skills/andreessen/scripts/anti_todo_card.py --did "Unblocked the data pipeline"
+python ${CLAUDE_PLUGIN_ROOT}/skills/andreessen/scripts/anti_todo_card.py --summary
 ```
 
 ## Stop Conditions

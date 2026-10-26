@@ -23,6 +23,11 @@ the day closed with a shutdown ritual. A local ledger tracks weekly deep hours a
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install deep-work@claude-code-skills
+```
+
+```bash
 # 1. Audit the task list — deep vs shallow, share vs budget
 python skills/deep-work/scripts/shallow_work_auditor.py --sample
 

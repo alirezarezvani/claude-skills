@@ -5,6 +5,11 @@ Reverse-engineer any codebase into a complete Product Requirements Document (PRD
 ## Quick Start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install code-to-prd@claude-code-skills
+```
+
+```bash
 # One command
 /code-to-prd /path/to/project
 

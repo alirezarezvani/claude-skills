@@ -5,3 +5,10 @@ Standalone plugin for General Counsel advisory. **Dual-published**: also bundled
 See `./skills/general-counsel-advisor/SKILL.md` for the full skill documentation.
 
 **Not legal advice.** Triage layer for catching obvious contract / IP / regulatory traps before $500/hour counsel time. Always engage qualified counsel for binding decisions.
+## Install
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install general-counsel-advisor@claude-code-skills
+```
+

@@ -5,6 +5,11 @@ AgentHub spawns N parallel agents in isolated git worktrees to compete on the sa
 ## Quick Start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install agenthub@claude-code-skills
+```
+
+```bash
 # One command — full lifecycle
 /hub:hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \

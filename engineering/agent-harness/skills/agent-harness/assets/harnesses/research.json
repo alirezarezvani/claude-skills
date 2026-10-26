@@ -1,7 +1,7 @@
 {
   "schema": "agent-harness/manifest.v1",
   "domain": "research",
-  "skill_count": 9,
+  "skill_count": 10,
   "loop_defaults": {
     "max_attempts_per_task": 3,
     "max_loop_iterations": 12,
@@ -27,6 +27,23 @@
       },
       "references": [
         "full-catalog.md"
+      ]
+    },
+    {
+      "name": "deepread",
+      "path": "research/deepread",
+      "description": "Use when the user asks to deeply read a book, article, PDF, or document set; extract claims and evidence; build a knowledge map; or learn through Feynman explanation and recall. Covers quick, deep, map, Feynman, and whole-book reading modes.",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": false,
+        "verification": true,
+        "loop_discipline": false,
+        "close_out": false
+      },
+      "references": [
+        "feynman.md",
+        "knowledge-map.md"
       ]
     },
     {
@@ -157,7 +174,7 @@
     {
       "name": "litreview",
       "path": "research/litreview/skills/litreview",
-      "description": "Academic literature orientation skill that searches papers via free keyless APIs (PubMed E-utilities + OpenAlex) by default \u2014 with the Consensus MCP as an optional enhancement lane when connected \u2014 builds a strategic search plan using PICO (default) or SPIDER / Decomposition / hybrid as fallbacks, and synthesizes findings into a formatted Word (.docx) research guide. Grill-me intake (research question specificity + framework hint + tentative depth) before the recon search; a second forcing checkpoint after Phase 2 confirms framework + sub-areas + depth before searches consume budget. \u2026",
+      "description": "Searches academic literature through free, keyless PubMed and OpenAlex APIs, optionally augments results with Consensus MCP when connected, builds a PICO, SPIDER, decomposition, or hybrid search plan, and produces a formatted Word research-orientation guide. Uses brief intake and post-reconnaissance checkpoints to confirm the framework, sub-areas, and depth (5, 10, or 20 queries) before spending the search budget. The output is a launching pad, not a finished review. Use when the user requests a literature review, starts a paper or literature-oriented research project, or needs structured \u2026",
       "tools": [
         {
           "script": "research/litreview/skills/litreview/scripts/citation_tracker.py",
@@ -374,12 +391,17 @@
         {
           "script": "research/pulse/skills/pulse/scripts/citation_tracker.py",
           "wired": true,
-          "supports_sample": false,
+          "supports_sample": true,
           "verification": [
             {
               "cmd": "python3 research/pulse/skills/pulse/scripts/citation_tracker.py --help",
               "expect_exit": 0,
               "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research/pulse/skills/pulse/scripts/citation_tracker.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
             }
           ]
         },
@@ -424,7 +446,7 @@
     {
       "name": "research",
       "path": "research/research/skills/research",
-      "description": "Default entry point for any research request \u2014 a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Use when the user makes any research request that doesn't obviously match a \u2026",
+      "description": "Default entry point for any research request \u2014 a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research, deepread for evidence-first reading of supplied documents) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Use when the user \u2026",
       "tools": [
         {
           "script": "research/research/skills/research/scripts/classifier.py",

@@ -12,7 +12,7 @@ description: "Lint Claude Code settings across shared, local, user and managed s
 
 
 ```bash
-python skills/coding-agent-rollout/scripts/settings_linter.py --repo <repo> [--managed <file>] [--user <file>]
+python ${CLAUDE_PLUGIN_ROOT}/skills/coding-agent-rollout/scripts/settings_linter.py --repo <repo> [--managed <file>] [--user <file>]
 ```
 
 Remember while reading the result: `permissions.allow` arrays **merge** across scopes, and evaluation is

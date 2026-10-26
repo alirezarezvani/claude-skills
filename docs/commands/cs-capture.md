@@ -72,13 +72,13 @@ Which should I tackle?
 
 ```bash
 # 1. (Optional) Pre-classify the dump as a heuristic seed
-python ../skills/capture/scripts/dump_classifier.py path/to/dump.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/dump_classifier.py path/to/dump.txt
 
 # 2. (Optional) Recommend output format
-python ../skills/capture/scripts/complexity_estimator.py path/to/dump.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/complexity_estimator.py path/to/dump.txt
 
 # 3. Inventory the workspace for Section 3 candidates
-python ../skills/capture/scripts/workspace_inventory.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/workspace_inventory.py \
   --root . --keywords "<extracted-keywords-from-dump>"
 
 # 4. Persona organizes + delivers four (or compressed) sections.

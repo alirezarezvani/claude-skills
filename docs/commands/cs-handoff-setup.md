@@ -48,11 +48,11 @@ rm ~/.config/handoff/.setup-declined 2>/dev/null
 ## Run
 
 ```bash
-python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/setup.py
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/setup.py
 ```
 
 For project-scoped overrides:
 
 ```bash
-python3 ${CLAUDE_PLUGIN_ROOT}/skills/handoff/scripts/setup.py --reconfigure --project
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/session-handoff/scripts/setup.py --reconfigure --project
 ```

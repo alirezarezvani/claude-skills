@@ -57,13 +57,13 @@ checklist where every item has a name and a date, or is loudly flagged until it 
 
 ```bash
 # From a notes file
-python ../skills/meetings/scripts/action_item_extractor.py --input notes.md
+python ${CLAUDE_PLUGIN_ROOT}/skills/meetings/scripts/action_item_extractor.py --input notes.md
 
 # From pasted notes on stdin
-cat notes.md | python ../skills/meetings/scripts/action_item_extractor.py
+cat notes.md | python ${CLAUDE_PLUGIN_ROOT}/skills/meetings/scripts/action_item_extractor.py
 
 # Machine-readable, for piping into other checklists
-python ../skills/meetings/scripts/action_item_extractor.py --input notes.md --json
+python ${CLAUDE_PLUGIN_ROOT}/skills/meetings/scripts/action_item_extractor.py --input notes.md --json
 ```
 
 Then walk the flags: assign every ORPHAN, date every NO-DUE, and post the checklist.

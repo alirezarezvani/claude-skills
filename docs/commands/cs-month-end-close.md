@@ -14,10 +14,10 @@ description: "Full close pass - plan the calendar on its critical path, prove ea
 Run the close gates over `$ARGUMENTS`. Skip any step whose input was not given and say so.
 
 ```bash
-python skills/month-end-close/scripts/close_calendar_planner.py --plan <close_plan.json>
-python skills/month-end-close/scripts/reconciliation_matcher.py --gl <gl.csv> --source <source.csv> \
+python ${CLAUDE_PLUGIN_ROOT}/skills/month-end-close/scripts/close_calendar_planner.py --plan <close_plan.json>
+python ${CLAUDE_PLUGIN_ROOT}/skills/month-end-close/scripts/reconciliation_matcher.py --gl <gl.csv> --source <source.csv> \
   --gl-balance <n> --source-balance <n> --as-of <period end> --preparer <name> --reviewer <name>
-python skills/month-end-close/scripts/flux_analyzer.py --input <tb_compare.csv> --pct <policy> --abs <policy> --reviewer <name>
+python ${CLAUDE_PLUGIN_ROOT}/skills/month-end-close/scripts/flux_analyzer.py --input <tb_compare.csv> --pct <policy> --abs <policy> --reviewer <name>
 ```
 
 Ask for any balance, period end, preparer, reviewer or threshold that is missing. Do not assume a materiality threshold.

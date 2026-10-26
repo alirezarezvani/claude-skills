@@ -45,17 +45,17 @@ Differentiates clearly:
 
 1. **Control Matrix Builder**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/control_matrix_builder.py`
-   - Usage: `python control_matrix_builder.py program.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/control_matrix_builder.py program.json`
    - Returns: per-TSC control matrix with ISO 27001 cross-reference for 75% reuse mapping
 
 2. **Evidence Tracker**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/evidence_tracker.py`
-   - Usage: `python evidence_tracker.py evidence_log.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/evidence_tracker.py evidence_log.json`
    - Returns: continuous-operation evidence status with exception flags during observation period
 
 3. **Gap Analyzer**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/gap_analyzer.py`
-   - Usage: `python gap_analyzer.py current_state.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/gap_analyzer.py current_state.json`
    - Returns: gap analysis vs target TSC scope; remediation priority before observation period starts
 
 ### Knowledge Bases
@@ -77,9 +77,9 @@ Differentiates clearly:
 ### Workflow 1: Type II Readiness Pre-Observation (months 1-2)
 
 ```bash
-python gap_analyzer.py current_state.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/gap_analyzer.py current_state.json
 # Close gaps BEFORE observation period starts (avoid mid-period control changes)
-python control_matrix_builder.py program.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/control_matrix_builder.py program.json
 # Build TSC <-> ISO 27001 cross-walk for evidence reuse
 # Define scope: which TSC (always Security; elective A1/PI1/C1/P-series)
 # Engage audit firm; agree on observation period dates
@@ -89,7 +89,7 @@ python control_matrix_builder.py program.json
 
 ```bash
 # Monthly:
-python evidence_tracker.py evidence_log.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/soc2-compliance/scripts/evidence_tracker.py evidence_log.json
 # Verify each control operating cycle without gap
 # Log every exception in real-time
 # Don't change controls mid-period without documented change-management
@@ -100,7 +100,7 @@ python evidence_tracker.py evidence_log.json
 
 ```bash
 # Mock audit:
-python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py soc2_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/compliance-os/scripts/audit_simulator.py soc2_scope.json
 # Pull samples for each control across observation period
 # Verify sample size matches AICPA expectation
 # Walkthrough rehearsal with control owners

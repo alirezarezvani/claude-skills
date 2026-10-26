@@ -40,7 +40,7 @@ rots.
 
 ## Routing logic
 
-1. Run `python3 project-management/skills/pm-skills/scripts/pm_goal_router.py --text "<goal>"`.
+1. Run `python3 ${CLAUDE_PLUGIN_ROOT}/skills/pm-skills/scripts/pm_goal_router.py --text "<goal>"`.
 2. Exit 0 → load the routed skill's SKILL.md, follow its workflow in the forked context.
 3. Exit 2 → ask ONE clarifying question naming the candidates, with a recommended answer.
 4. Exit 3 → ask the user to restate the goal with the deliverable named. Never guess.

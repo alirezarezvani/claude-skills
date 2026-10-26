@@ -1,7 +1,7 @@
 {
   "schema": "agent-harness/manifest.v1",
   "domain": "engineering-team",
-  "skill_count": 52,
+  "skill_count": 54,
   "loop_defaults": {
     "max_attempts_per_task": 3,
     "max_loop_iterations": 12,
@@ -155,7 +155,7 @@
         "goal_intake": false,
         "refusal_gate": false,
         "verification": true,
-        "loop_discipline": false,
+        "loop_discipline": true,
         "close_out": false
       },
       "references": []
@@ -203,20 +203,6 @@
       "references": []
     },
     {
-      "name": "init",
-      "path": "engineering-team/playwright-pro/skills/pw-init",
-      "description": ">- Set up Playwright in a project. Use when user says \"set up playwright\", \"add e2e tests\", \"configure playwright\", \"testing setup\", \"init playwright\", or \"add test infrastructure\".",
-      "tools": [],
-      "agentic_signals": {
-        "goal_intake": false,
-        "refusal_gate": false,
-        "verification": true,
-        "loop_discipline": true,
-        "close_out": false
-      },
-      "references": []
-    },
-    {
       "name": "migrate",
       "path": "engineering-team/playwright-pro/skills/migrate",
       "description": ">- Migrate from Cypress or Selenium to Playwright. Use when user mentions \"cypress\", \"selenium\", \"migrate tests\", \"convert tests\", \"switch to playwright\", \"move from cypress\", or \"replace selenium\".",
@@ -245,6 +231,34 @@
       "references": []
     },
     {
+      "name": "pw-init",
+      "path": "engineering-team/playwright-pro/skills/pw-init",
+      "description": ">- Set up Playwright in a project. Use when user says \"set up playwright\", \"add e2e tests\", \"configure playwright\", \"testing setup\", \"init playwright\", or \"add test infrastructure\".",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": false,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": []
+    },
+    {
+      "name": "pw-review",
+      "path": "engineering-team/playwright-pro/skills/pw-review",
+      "description": ">- Review Playwright tests for quality. Use when user says \"review tests\", \"check test quality\", \"audit tests\", \"improve tests\", \"test code review\", or \"playwright best practices check\".",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": false,
+        "verification": false,
+        "loop_discipline": false,
+        "close_out": false
+      },
+      "references": []
+    },
+    {
       "name": "report",
       "path": "engineering-team/playwright-pro/skills/report",
       "description": ">- Generate test report. Use when user says \"test report\", \"results summary\", \"test status\", \"show results\", \"test dashboard\", or \"how did tests go\".",
@@ -259,20 +273,6 @@
       "references": []
     },
     {
-      "name": "review",
-      "path": "engineering-team/playwright-pro/skills/pw-review",
-      "description": ">- Review Playwright tests for quality. Use when user says \"review tests\", \"check test quality\", \"audit tests\", \"improve tests\", \"test code review\", or \"playwright best practices check\".",
-      "tools": [],
-      "agentic_signals": {
-        "goal_intake": false,
-        "refusal_gate": false,
-        "verification": false,
-        "loop_discipline": false,
-        "close_out": false
-      },
-      "references": []
-    },
-    {
       "name": "testrail",
       "path": "engineering-team/playwright-pro/skills/testrail",
       "description": ">- Sync tests with TestRail. Use when user mentions \"testrail\", \"test management\", \"test cases\", \"test run\", \"sync test cases\", \"push results to testrail\", or \"import from testrail\".",
@@ -281,7 +281,7 @@
         "goal_intake": false,
         "refusal_gate": false,
         "verification": false,
-        "loop_discipline": false,
+        "loop_discipline": true,
         "close_out": false
       },
       "references": []
@@ -345,7 +345,7 @@
     {
       "name": "remember",
       "path": "engineering-team/self-improving-agent/skills/remember",
-      "description": "Explicitly save important knowledge to auto-memory with timestamp and context. Use when a discovery is too important to rely on auto-capture.",
+      "description": "Explicitly save important knowledge to auto-memory with timestamp and context. Use when the user says 'remember this', asks you to capture a lesson so you stop repeating a mistake across sessions, or when a discovery is too important to rely on auto-capture.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -359,7 +359,7 @@
     {
       "name": "self-improving-agent",
       "path": "engineering-team/self-improving-agent/skills/self-improving-agent",
-      "description": "Curate Claude Code's auto-memory into durable project knowledge. Analyze MEMORY.md for patterns, promote proven learnings to CLAUDE.md and .claude/rules/, extract recurring solutions into reusable skills. Use when: (1) reviewing what Claude has learned about your project, (2) graduating a pattern from notes to enforced rules, (3) turning a debugging solution into a skill, (4) checking memory health and capacity.",
+      "description": "Curate the agent's own memory into durable project knowledge. Reviews Claude Code auto-memory (MEMORY.md and its topic files) for learnings worth keeping, promotes proven ones into CLAUDE.md or .claude/rules/, records a correction as a lesson that persists across sessions, prunes stale or duplicate entries, and turns a recurring fix into a reusable skill. Use whenever the user asks what you have learned or saved about the project, which memories should become permanent rules, to remember a lesson or stop repeating a mistake, or to clean up, audit or check the health of memory.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -555,7 +555,7 @@
     {
       "name": "code-reviewer",
       "path": "engineering-team/skills/code-reviewer",
-      "description": "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP, and Dart/Flutter. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists.",
+      "description": "Use for any code review: a pull request, a diff, a commit, or a pasted function, handler or file in TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#/.NET, Java, C, C++, Rust, Ruby, PHP or Dart/Flutter. Applies per-language rule packs (security such as SQL injection and missing auth, async and resource handling, error handling, performance) and scripts that score a PR's risk and complexity, then gives a merge verdict with blocking and non-blocking findings. Use whenever the user asks to review, check or look over code, says 'code review', 'review this PR', 'review this diff' or 'is this \u2026",
       "tools": [
         {
           "script": "engineering-team/skills/code-reviewer/scripts/code_quality_checker.py",
@@ -597,7 +597,7 @@
       "agentic_signals": {
         "goal_intake": false,
         "refusal_gate": false,
-        "verification": true,
+        "verification": false,
         "loop_discipline": false,
         "close_out": false
       },
@@ -616,6 +616,22 @@
         "close_out": false
       },
       "references": []
+    },
+    {
+      "name": "embedded-iot-mentor",
+      "path": "engineering-team/skills/embedded-iot-mentor",
+      "description": "Mentor for embedded and IoT hardware projects. Helps select MCUs, dev boards, and toolchains, decides where sensor readings end up (phone, PC, dashboard, or alert), and gives time/cost estimates and a phased build plan from breadboard MVP to production PCB. Use when the user mentions embedded, IoT, microcontroller, ESP32, STM32, Arduino, Raspberry Pi Pico, firmware, PCB, KiCad, EasyEDA, PlatformIO, MQTT, Home Assistant, ESPHome, Grafana, an IoT dashboard, seeing sensor data on a phone, or asks for hardware tool recommendations, project planning, or cost/time estimates for an electronics \u2026",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": true,
+        "refusal_gate": false,
+        "verification": false,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "hardware-selection.md"
+      ]
     },
     {
       "name": "engineering-skills",
@@ -885,6 +901,33 @@
       "references": [
         "persona_principles.md"
       ]
+    },
+    {
+      "name": "red-green-proof",
+      "path": "engineering-team/skills/red-green-proof",
+      "description": "Turns a suspected bug into a proven one. Verify the cause against reality before claiming it, write a test that FAILS on the current code, apply the fix, watch it pass \u2014 then revert the fix and confirm the test goes red again, because a test that passes both ways proves nothing. Invoked bare after a debugging conversation, it takes the target from context rather than asking. Use when fixing a bug, investigating an incident, hardening a flaky area, or when asked to \"add tests that reveal the bug\". Triggers on \"/red-green-proof\", \"prove the bug\", \"red-green\", \"make the test fail first\", \"is \u2026",
+      "tools": [
+        {
+          "script": "engineering-team/skills/red-green-proof/scripts/red_green_evidence.py",
+          "wired": false,
+          "supports_sample": false,
+          "verification": [
+            {
+              "cmd": "python3 engineering-team/skills/red-green-proof/scripts/red_green_evidence.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": false,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": true
+      },
+      "references": []
     },
     {
       "name": "red-team",

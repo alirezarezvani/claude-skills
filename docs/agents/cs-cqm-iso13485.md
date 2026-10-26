@@ -45,7 +45,7 @@ Differentiates clearly:
 
 1. **Audit Schedule Optimizer**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/scripts/audit_schedule_optimizer.py`
-   - Usage: `python audit_schedule_optimizer.py audit_scope.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/scripts/audit_schedule_optimizer.py audit_scope.json`
    - Returns: optimized audit plan with prioritization on design controls + CAPA + post-market; auditor independence checks
 
 ### Knowledge Bases
@@ -69,7 +69,7 @@ Differentiates clearly:
 ### Workflow 1: Annual QMS Internal Audit (5-15 days fieldwork)
 
 ```bash
-python audit_schedule_optimizer.py audit_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/qms-audit-expert/scripts/audit_schedule_optimizer.py audit_scope.json
 # Phase 4 fieldwork:
 #   - Design controls: sample 3 DHFs across product classes
 #   - CAPA: sample 5 CAPAs, verify effectiveness verification

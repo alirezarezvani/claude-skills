@@ -56,14 +56,14 @@ not failing.
 
 ```bash
 # Build the day (markdown table; add --json for machine-readable output)
-python ../skills/deep-work/scripts/time_block_planner.py --start 08:30 --end 17:00 --lunch 12:30 \
+python ${CLAUDE_PLUGIN_ROOT}/skills/deep-work/scripts/time_block_planner.py --start 08:30 --end 17:00 --lunch 12:30 \
   --task "Write product spec:120:deep" \
   --task "Design onboarding flow:90:deep" \
   --task "Email sweep:30:shallow" \
   --task "Expense report:15:shallow"
 
 # Mid-day re-plan: surviving tasks, current time as --start, same hard stop
-python ../skills/deep-work/scripts/time_block_planner.py --start 13:00 --end 17:00 \
+python ${CLAUDE_PLUGIN_ROOT}/skills/deep-work/scripts/time_block_planner.py --start 13:00 --end 17:00 \
   --task "Finish product spec:90:deep" --task "Email sweep:30:shallow"
 ```
 

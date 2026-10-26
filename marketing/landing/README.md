@@ -58,6 +58,11 @@ marketing/landing/
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install landing@claude-code-skills
+```
+
+```bash
 # Validate a brand override before generation
 python skills/landing/scripts/brand_palette_validator.py \
   --primary "#FF6B35" --accent "#2EC4B6" --bg "#011627"

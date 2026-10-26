@@ -1,7 +1,7 @@
 {
   "name": "andreessen",
   "description": "Marc Andreessen-mode decision and productivity skill. A blunt, market-first operator that pressure-tests ventures, ideas, features, and career bets through Andreessen's documented frameworks (market > team > product; product/market fit is the only milestone that matters; bias to build) and runs his 3x5-card + Anti-Todo daily routine. Runs on a fixed anti-sycophancy operating prompt: leads with the strongest counterargument, never validates premises, no disclaimers, explicit confidence levels, never apologizes for disagreeing. Issues hard verdicts (BUILD-POUR-FUEL / MARKET-FIRST-DERISK / KILL-OR-REPICK-MARKET) backed by deterministic stdlib tools.",
-  "version": "2.14.1",
+  "version": "2.14.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

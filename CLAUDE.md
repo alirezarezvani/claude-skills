@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.1 (audit fix release: all 104 plugins bumped so `claude plugin update` reaches existing installs, new version-bump gate G11, category-scoped Codex installer, `${CLAUDE_PLUGIN_ROOT}` script paths, productivity handoff renamed session-handoff. See CHANGELOG.md [2.14.1].)
+**Version:** v2.14.2 (audit P2 release: code-reviewer, self-improving-agent and session-handoff descriptions rewritten so they trigger, OWASP Top 10:2025 in the security skills, datetime.utcnow removed, gate G9 blocking as a ratchet, install-doc drift fixed; 43 plugins at 2.14.2. See CHANGELOG.md [2.14.2].)
+
+**Previously: v2.14.1** (audit fix release: all 104 plugins bumped so `claude plugin update` reaches existing installs, new version-bump gate G11, category-scoped Codex installer, `${CLAUDE_PLUGIN_ROOT}` script paths, productivity handoff renamed session-handoff. See CHANGELOG.md [2.14.1].)
 
 **Previously: v2.14.0** (audit skills release: agent-regression-evals, coding-agent-rollout and month-end-close plugins, open-source-first youtube-full, claude-coach plugin renamed to power-user-coach with a one-time reinstall. See CHANGELOG.md [2.14.0].)
 
@@ -863,6 +865,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** October 23, 2026
-**Version:** v2.14.1 (audit fix release — see CHANGELOG.md)
+**Last Updated:** October 26, 2026
+**Version:** v2.14.2 (audit P2 release — see CHANGELOG.md)
 **Status:** 398 production-ready skills across 20 domains, 104 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

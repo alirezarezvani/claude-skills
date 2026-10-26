@@ -119,6 +119,11 @@ engineering/email/
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install email-pair@claude-code-skills
+```
+
+```bash
 # 1. Run inbox-setup ONCE (interactive interview):
 #    Use /cs-inbox-setup or trigger phrases like "set up my inbox"
 

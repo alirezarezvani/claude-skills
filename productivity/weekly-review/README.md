@@ -22,6 +22,11 @@ gate is the whole point: a weekly review that skims the core is a guilt ritual, 
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install weekly-review@claude-code-skills
+```
+
+```bash
 # 1. Inventory the open loops in a workspace (checkboxes, TODO/FIXME, stale files)
 python skills/weekly-review/scripts/open_loop_scanner.py --dir ~/notes --stale-days 14
 

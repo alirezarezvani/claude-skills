@@ -1,7 +1,7 @@
 {
   "name": "aeo",
   "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO (which optimizes for search rankings), AEO optimizes for citation in LLM-generated responses. Ships 3 stdlib Python tools (aeo_audit.py for E-E-A-T + structure scoring, aeo_optimizer.py for content rewriting in conservative/balanced/aggressive modes, citation_tracker.py for local-first citation ledger), 3 references citing 7+ authoritative sources each (E-E-A-T methodology, per-LLM citation patterns, AEO-vs-SEO strategy), and industry-aware thresholds for 8 industries (saas/healthcare/finance/legal/ecommerce/b2b/media/education) with stricter YMYL calibration. Triggers — 'AEO audit', 'optimize for ChatGPT', 'get cited by Perplexity', 'E-E-A-T audit', 'LLM citation strategy', 'answer engine optimization'.",
-  "version": "2.14.1",
+  "version": "2.14.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

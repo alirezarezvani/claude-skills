@@ -27,7 +27,7 @@ import re
 import sys
 import urllib.request
 import urllib.error
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -207,7 +207,7 @@ def audit(text: str, url: str | None, industry: str) -> dict:
     return {
         "url": url,
         "industry": industry,
-        "audited_at": datetime.utcnow().isoformat() + "Z",
+        "audited_at": datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z",
         "composite_score": composite,
         "verdict": verdict,
         "threshold": threshold,

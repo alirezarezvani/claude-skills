@@ -19,7 +19,7 @@ import argparse
 import sys
 import math
 from typing import Dict, List, Any, Tuple
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 class SLODesigner:
@@ -437,7 +437,7 @@ class SLODesigner:
         framework = {
             'metadata': {
                 'service': service_def,
-                'generated_at': datetime.utcnow().isoformat() + 'Z',
+                'generated_at': datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + 'Z',
                 'framework_version': '1.0'
             },
             'slis': slis,

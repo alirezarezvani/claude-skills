@@ -26,6 +26,11 @@ A productivity-shaped handoff skill. Configurable save location (no project clut
 
 ## Install
 
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install handoff-productivity@claude-code-skills
+```
+
 This plugin lives at `productivity/handoff/`. Enable through your plugin manager. On first invocation of `/cs-handoff`, the skill will prompt:
 
 > Run setup now? (Y/n)

@@ -13,6 +13,11 @@ Most teams treat flags as throwaway `if`-statements. This skill treats them as a
 
 ## Install
 
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install feature-flags-architect@claude-code-skills
+```
+
 ### Claude Code
 
 ```bash

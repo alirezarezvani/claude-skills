@@ -205,7 +205,7 @@
       },
       {
         "name": "agent-harness",
-        "description": "Turn any domain folder of skills into a bounded agentic loop: compile a goal into a verifiable task plan, execute tasks with the domain's own tools, verify every task with machine-run checks, retry with caps, escalate to a human when budgets exhaust, and refuse to close until everything is verified or explicitly waived. Use when you want an agent or subagent to pick up a goal and drive it to a verified close across one of this repo's 18 domains ('run this goal through the engineering harness', 'set up an agentic loop for marketing work', 'make the finance domain self-verifying'). NOT for authoring Claude Code Workflow-tool .js scripts (workflow-builder), N-agent tournaments on one task (agenthub), single-file metric optimization (autoresearch-agent), or discovering published loop recipes (loop-library).",
+        "description": "Turn any domain folder of skills into a bounded agentic loop: compile a goal into a verifiable task plan, execute tasks with the domain's own tools, verify every task with machine-run checks, retry with caps, escalate to a human when budgets exhaust, and refuse to close until everything is verified or explicitly waived. Use when you want an agent or subagent to pick up a goal and drive it to a verified close across one of this repo's 20 domains ('run this goal through the engineering harness', 'set up an agentic loop for marketing work', 'make the finance domain self-verifying'). NOT for authoring Claude Code Workflow-tool .js scripts (workflow-builder), N-agent tournaments on one task (agenthub), single-file metric optimization (autoresearch-agent), or discovering published loop recipes (loop-library).",
         "path": "engineering/agent-harness"
       },
       {
@@ -350,7 +350,7 @@
       },
       {
         "name": "handoff",
-        "description": "Compact the current conversation into a handoff document for another agent to pick up. References existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL instead of duplicating them. Use when user wants to hand off the conversation to a fresh agent or starts a new session that picks up prior work.",
+        "description": "Compact the current conversation into a handoff document for another agent to pick up, referencing existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL instead of duplicating them. Use whenever the user wants to hand off to a fresh agent, is ending a session mid-task, asks for a handoff doc or a summary of state, decisions and next steps for the next session, or starts a new session that picks up prior work.",
         "path": "engineering/handoff"
       },
       {
@@ -482,7 +482,7 @@
       },
       {
         "name": "code-reviewer",
-        "description": "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP, and Dart/Flutter. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists.",
+        "description": "Use for any code review: a pull request, a diff, a commit, or a pasted function, handler or file in TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#/.NET, Java, C, C++, Rust, Ruby, PHP or Dart/Flutter. Applies per-language rule packs (security such as SQL injection and missing auth, async and resource handling, error handling, performance) and scripts that score a PR's risk and complexity, then gives a merge verdict with blocking and non-blocking findings. Use whenever the user asks to review, check or look over code, says 'code review', 'review this PR', 'review this diff' or 'is this safe to merge', or asks what is wrong with a snippet, even a single function.",
         "path": "engineering-team/code-reviewer"
       },
       {
@@ -712,12 +712,12 @@
       },
       {
         "name": "remember",
-        "description": "Explicitly save important knowledge to auto-memory with timestamp and context. Use when a discovery is too important to rely on auto-capture.",
+        "description": "Explicitly save important knowledge to auto-memory with timestamp and context. Use when the user says 'remember this', asks you to capture a lesson so you stop repeating a mistake across sessions, or when a discovery is too important to rely on auto-capture.",
         "path": "engineering-team/remember"
       },
       {
         "name": "self-improving-agent",
-        "description": "Curate Claude Code's auto-memory into durable project knowledge. Analyze MEMORY.md for patterns, promote proven learnings to CLAUDE.md and .claude/rules/, extract recurring solutions into reusable skills. Use when: (1) reviewing what Claude has learned about your project, (2) graduating a pattern from notes to enforced rules, (3) turning a debugging solution into a skill, (4) checking memory health and capacity.",
+        "description": "Curate the agent's own memory into durable project knowledge. Reviews Claude Code auto-memory (MEMORY.md and its topic files) for learnings worth keeping, promotes proven ones into CLAUDE.md or .claude/rules/, records a correction as a lesson that persists across sessions, prunes stale or duplicate entries, and turns a recurring fix into a reusable skill. Use whenever the user asks what you have learned or saved about the project, which memories should become permanent rules, to remember a lesson or stop repeating a mistake, or to clean up, audit or check the health of memory.",
         "path": "engineering-team/self-improving-agent"
       },
       {
@@ -1498,7 +1498,7 @@
       },
       {
         "name": "session-handoff",
-        "description": "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a fresh agent. Also trigger on implicit signals: the user announcing they're switching machines, ending the day mid-task, or context is growing long without a natural stopping point.",
+        "description": "Write a handoff document so a fresh session or another agent can pick up exactly where this one left off: goal, current state, decisions, next steps and the skills to load, referencing existing files instead of copying them, with secrets redacted before saving. Use whenever the user is ending a session, switching machines, running low on context, or asks for a handoff, a handoff doc, a 'pick up where we left off' summary, or to compact the conversation for next time. Saves to a location the user picks on first run (OS temp, home folder or per-project .handoff/) and can auto-load the latest handoff at the next session start.",
         "path": "productivity/session-handoff"
       },
       {

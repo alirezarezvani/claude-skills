@@ -22,7 +22,7 @@ import subprocess
 import sys
 import tempfile
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple, Union
 import threading
@@ -39,7 +39,7 @@ class ScriptTestResult:
     def __init__(self, script_path: str):
         self.script_path = script_path
         self.script_name = Path(script_path).name
-        self.timestamp = datetime.utcnow().isoformat() + "Z"
+        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z"
         self.tests = {}
         self.overall_status = "PENDING"
         self.execution_time = 0.0
@@ -83,7 +83,7 @@ class TestSuite:
     
     def __init__(self, skill_path: str):
         self.skill_path = skill_path
-        self.timestamp = datetime.utcnow().isoformat() + "Z"
+        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z"
         self.script_results = {}
         self.summary = {}
         self.global_errors = []

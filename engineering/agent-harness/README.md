@@ -10,6 +10,13 @@ GOAL → goal_compiler → PLAN → loop_controller: [execute → verify]* → C
                                      └ ESCALATE — never fake success
 ```
 
+## Install
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install agent-harness@claude-code-skills
+```
+
 ## What ships
 
 | Piece | Purpose |
@@ -17,7 +24,7 @@ GOAL → goal_compiler → PLAN → loop_controller: [execute → verify]* → C
 | `scripts/harness_manifest_builder.py` | Scan a domain folder → `manifest.v1` JSON (skills, tools, checks, agentic signals) |
 | `scripts/goal_compiler.py` | Goal + manifest → `plan.v1` task plan; refuses vague goals (exit 3, forcing questions) |
 | `scripts/loop_controller.py` | `init/next/record/verify/close/status` state machine; controller runs checks itself |
-| `assets/harnesses/*.json` | 18 committed per-domain manifests (regenerable, diff-stable) |
+| `assets/harnesses/*.json` | 20 committed per-domain manifests (regenerable, diff-stable) |
 | `assets/harness_manifest.schema.json` | Manifest schema |
 | `references/` | Agentic-loop canon, verification discipline, domain-harness design (cited) |
 | `agents/harness-runner.md` | Stateless one-task-per-invocation executor |

@@ -1,7 +1,7 @@
 {
   "name": "hivemind",
   "description": "Opt-in plugin: orchestrate opencode workers from Claude Code to cut token costs. Claude Code plans, reviews and merges; opencode runs single workers or parallel swarms (scout/coder/tester) on free or open-source models with worktree isolation. Requires the third-party opencode CLI and account, and by default worker prompts and code are sent to opencode's hosted service; point --model at a local model to keep code on your machine. Not part of any domain bundle; install it only if you want that data flow.",
-  "version": "2.14.1",
+  "version": "2.14.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

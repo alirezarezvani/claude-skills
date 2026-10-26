@@ -234,7 +234,7 @@ def run_setup(scope: str = "global", reconfigure: bool = False) -> int:
         "include_git_context": include_git,
         "skill_recommendation_scope": rec_scope,
         "filename_style": filename_style,
-        "setup_completed_at": dt.datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
+        "setup_completed_at": dt.datetime.now(dt.timezone.utc).replace(tzinfo=None).replace(microsecond=0).isoformat() + "Z",
     }
 
     if scope == "project":

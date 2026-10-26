@@ -23,6 +23,11 @@ Every workflow-creation session opens with an intake question set (what task, wh
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install workflow-builder@claude-code-skills
+```
+
+```bash
 cd skills/workflow-builder
 
 # 1. Turn a vague request into a concrete proposal

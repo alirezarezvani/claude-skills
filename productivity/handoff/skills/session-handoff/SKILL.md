@@ -1,6 +1,6 @@
 ---
 name: session-handoff
-description: "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a fresh agent. Also trigger on implicit signals: the user announcing they're switching machines, ending the day mid-task, or context is growing long without a natural stopping point."
+description: "Write a handoff document so a fresh session or another agent can pick up exactly where this one left off: goal, current state, decisions, next steps and the skills to load, referencing existing files instead of copying them, with secrets redacted before saving. Use whenever the user is ending a session, switching machines, running low on context, or asks for a handoff, a handoff doc, a 'pick up where we left off' summary, or to compact the conversation for next time. Saves to a location the user picks on first run (OS temp, home folder or per-project .handoff/) and can auto-load the latest handoff at the next session start."
 license: MIT
 argument-hint: "What will the next session be used for?"
 metadata:

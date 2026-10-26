@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.2] - 2026-10-26 — Skills that trigger, OWASP 2025, blocking JSON gate
+
 Remaining P2 items from the v2.14.0 real-state audit. The 43 plugins whose files changed move to 2.14.2.
 
 ### Fixed

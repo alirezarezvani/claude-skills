@@ -7,3 +7,10 @@ See `./skills/chief-customer-officer-advisor/SKILL.md` for the full skill docume
 Retention-obsessed CCO: four decisions (retention decomposition, customer segmentation, CS coverage model, CS team org evolution). Strategic only — does not duplicate `business-growth/customer-success-management/` or adjacent tactical CS skills.
 
 Retention benchmarks vary by ACV, segment, and industry. This skill provides B2B SaaS-baseline guidance; consumer SaaS, marketplaces, and hardware have materially different retention math.
+## Install
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install chief-customer-officer-advisor@claude-code-skills
+```
+

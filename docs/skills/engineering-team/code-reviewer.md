@@ -1,6 +1,6 @@
 ---
 title: "Code Reviewer — Agent Skill & Codex Plugin"
-description: "Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP, and Dart/Flutter. Analyzes PRs. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Use for any code review: a pull request, a diff, a commit, or a pasted function, handler or file in TypeScript, JavaScript, Python, Go, Swift. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Code Reviewer

@@ -1,7 +1,7 @@
 {
   "schema": "agent-harness/manifest.v1",
   "domain": "research-ops",
-  "skill_count": 5,
+  "skill_count": 6,
   "loop_defaults": {
     "max_attempts_per_task": 3,
     "max_loop_iterations": 12,
@@ -127,6 +127,284 @@
         "endpoint_and_power.md",
         "study_design_canon.md",
         "trial_operations.md"
+      ]
+    },
+    {
+      "name": "interview-mapper",
+      "path": "research-ops/skills/interview-mapper",
+      "description": "Maps a single interview transcript into a verbatim-grounded, lens-coded structure and checks whether analytic conclusions hold across independent re-runs. Use when the user wants to code, map, interpret, or make sense of an interview transcript, depth interview, custdev/JTBD/expert/usability/exit/win-loss/focus-group session, or wants cross-interview synthesis (insight cards, patterns) built up from coded transcripts \u2014 even if they don't name a method. Every conclusion must carry a verbatim quote verified against the source text; unstable conclusions are flagged for a human, never resolved \u2026",
+      "tools": [
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/batch_prepare.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/batch_prepare.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/batch_prepare.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/build_provenance.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/build_provenance.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/build_provenance.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/calibrate_threshold.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/calibrate_threshold.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/calibrate_threshold.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/check_support.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/check_support.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/check_support.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/compare_to_gold.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/compare_to_gold.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/compare_to_gold.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/consensus.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/consensus.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/consensus.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/coverage_gaps.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/coverage_gaps.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/coverage_gaps.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/extract_claims.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/extract_claims.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/extract_claims.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/extract_nuggets.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/extract_nuggets.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/extract_nuggets.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/make_adjudication.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/make_adjudication.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/make_adjudication.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/number_lines.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/number_lines.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/number_lines.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/render_board.py",
+          "wired": false,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/render_board.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/render_board.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/route.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/route.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/route.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/score_insights.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/score_insights.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/score_insights.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "research-ops/skills/interview-mapper/scripts/verify_quotes.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/verify_quotes.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 research-ops/skills/interview-mapper/scripts/verify_quotes.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": true,
+        "refusal_gate": false,
+        "verification": true,
+        "loop_discipline": false,
+        "close_out": false
+      },
+      "references": [
+        "ethics.md",
+        "intake.md",
+        "pipeline.md",
+        "reliability.md",
+        "rubric.md",
+        "synthesis.md",
+        "validation.md"
       ]
     },
     {

@@ -11,7 +11,7 @@ import argparse
 import json
 import math
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 DEFAULT_RING_STOPS = [1, 5, 25, 50, 100]
 DEFAULT_COHORTS = ["internal", "beta", "free", "paid", "all"]
@@ -109,7 +109,7 @@ def main():
         print("ERROR: --population must be >= 1", file=sys.stderr)
         return 2
 
-    start = datetime.fromisoformat(args.start_date) if args.start_date else datetime.utcnow()
+    start = datetime.fromisoformat(args.start_date) if args.start_date else datetime.now(timezone.utc).replace(tzinfo=None)
     rows = build_schedule(args.strategy, args.target_percent, args.duration_days, args.population, start)
 
     if args.format == "json":

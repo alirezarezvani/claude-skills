@@ -11,14 +11,14 @@ description: "Compile a goal into a verified agent-harness loop for a domain and
 </div>
 
 
-Parse `$ARGUMENTS`: the first token is the domain (one of the 18 manifest names under
+Parse `$ARGUMENTS`: the first token is the domain (one of the 20 manifest names under
 `engineering/agent-harness/skills/agent-harness/assets/harnesses/`); the rest is the goal.
 If the domain token doesn't match a manifest file, list the available manifests and ask.
 
 ## Sequence (gates are blocking — never skip forward)
 
 1. **Compile** —
-   `python3 engineering/agent-harness/skills/agent-harness/scripts/goal_compiler.py --goal "<goal>" --manifest engineering/agent-harness/skills/agent-harness/assets/harnesses/<domain>.json --out .agent-harness/plan.json`
+   `python3 ${CLAUDE_PLUGIN_ROOT}/skills/agent-harness/scripts/goal_compiler.py --goal "<goal>" --manifest engineering/agent-harness/skills/agent-harness/assets/harnesses/<domain>.json --out .agent-harness/plan.json`
    - Exit 3: relay the forcing questions to the user one at a time (recommended answer
      first), then recompile with the enriched goal. Do not proceed on a vague goal.
    - Exit 4: show `nearest_candidates`, ask whether to switch domain or refine the goal.

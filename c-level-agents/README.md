@@ -14,6 +14,11 @@ Built to outclass YC Garry Tan's `gstack` by extending the same patterns (slash-
 
 ## Quick Start
 
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install c-level-agents@claude-code-skills
+```
+
 ```
 /cs-onboard                          # 6-question founder interview → company-context.md
 /c-level-agents:office-hours <topic>             # YC-style 6-question interrogation

@@ -23,6 +23,11 @@ landed fatal flaw / broken logic caps a GO), names the real tension, and resolve
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install roast@claude-code-skills
+```
+
+```bash
 # 1. Assemble the shared brief
 python skills/roast/scripts/brief_builder.py --sample
 

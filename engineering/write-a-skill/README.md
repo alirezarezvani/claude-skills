@@ -27,6 +27,11 @@ Skill-author skill: create new agent skills with proper structure, progressive d
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install write-a-skill@claude-code-skills
+```
+
+```bash
 # Run Matt's review checklist on an existing skill
 python skills/write-a-skill/scripts/skill_review_checklist_runner.py path/to/SKILL.md
 

@@ -60,20 +60,20 @@ python scripts/vulnerability_scanner.py --target web --scope full
 python scripts/vulnerability_scanner.py --target api --scope quick --json
 ```
 
-### Quick Reference
+### Quick Reference (OWASP Top 10:2025)
 
 | # | Category | Key Tests |
 |---|----------|-----------|
-| A01 | Broken Access Control | IDOR, vertical escalation, CORS, JWT claim manipulation, forced browsing |
-| A02 | Cryptographic Failures | TLS version, password hashing, hardcoded keys, weak PRNG |
-| A03 | Injection | SQLi, NoSQLi, command injection, template injection, XSS |
-| A04 | Insecure Design | Rate limiting, business logic abuse, multi-step flow bypass |
-| A05 | Security Misconfiguration | Default credentials, debug mode, security headers, directory listing |
-| A06 | Vulnerable Components | Dependency audit (npm/pip/go), EOL checks, known CVEs |
-| A07 | Auth Failures | Brute force, session cookie flags, session invalidation, MFA bypass |
-| A08 | Integrity Failures | Unsafe deserialization, SRI checks, CI/CD pipeline integrity |
-| A09 | Logging Failures | Auth event logging, sensitive data in logs, alerting thresholds |
-| A10 | SSRF | Internal IP access, cloud metadata endpoints, DNS rebinding |
+| A01 | Broken Access Control | IDOR, vertical escalation, CORS, forced browsing, SSRF (internal IPs, cloud metadata, DNS rebinding) |
+| A02 | Security Misconfiguration | Default credentials, debug mode, security headers, directory listing |
+| A03 | Software Supply Chain Failures | Dependency audit (npm/pip/go), EOL checks, known CVEs, build and CI/CD provenance |
+| A04 | Cryptographic Failures | TLS version, password hashing, hardcoded keys, weak PRNG |
+| A05 | Injection | SQLi, NoSQLi, command injection, template injection, XSS |
+| A06 | Insecure Design | Rate limiting, business logic abuse, multi-step flow bypass |
+| A07 | Authentication Failures | Brute force, session cookie flags, session invalidation, MFA bypass |
+| A08 | Software or Data Integrity Failures | Unsafe deserialization, SRI checks, unsigned updates |
+| A09 | Security Logging and Alerting Failures | Auth event logging, sensitive data in logs, alerting thresholds |
+| A10 | Mishandling of Exceptional Conditions | Fail-open on errors, unhandled exceptions, stack-trace leakage, partial transactions |
 
 ```bash
 # Audit dependencies
@@ -195,7 +195,7 @@ python scripts/pentest_report_generator.py --findings findings.json --format jso
     "severity": "critical",
     "cvss_score": 9.8,
     "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-    "category": "A03:2021 - Injection",
+    "category": "A05:2025 - Injection",
     "description": "The /api/login endpoint is vulnerable to SQL injection via the email parameter.",
     "evidence": "Request: POST /api/login {\"email\": \"' OR 1=1--\", \"password\": \"x\"}\nResponse: 200 OK with admin session token",
     "impact": "Full database access, authentication bypass, potential remote code execution",

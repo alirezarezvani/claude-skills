@@ -5,6 +5,11 @@ Audit and fix WCAG 2.2 accessibility issues in any frontend project. Covers Reac
 ## Quick Start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install a11y-audit@claude-code-skills
+```
+
+```bash
 # Scan a project
 /a11y-audit ./src
 

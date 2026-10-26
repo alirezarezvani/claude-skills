@@ -90,21 +90,21 @@ ls ${WORKSPACE}/Email/
 
 # 2. If exists → re-run mode (per-file replace/merge/skip).
 #    If fresh → start session:
-python ../skills/inbox-setup/scripts/section_progress_tracker.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py \
   --action start --session "inbox-setup-$(date +%Y%m%d)" --user "<who>"
 
 # 3. Walk S1 → S2 → ... → S8 (one Q per turn).
 
 # 4. At S3.SAMPLES, analyze pasted emails:
-python ../skills/inbox-setup/scripts/voice_sample_analyzer.py --samples-file /tmp/samples.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/voice_sample_analyzer.py --samples-file /tmp/samples.txt
 
 # 5. At end of each section, write its file(s) + record:
-python ../skills/inbox-setup/scripts/section_progress_tracker.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py \
   --action record_section_done --session NAME --section N --files "..."
 
 # 6. At S8, validate final state + close session:
-python ../skills/inbox-setup/scripts/kb_validator.py --workspace ${WORKSPACE}
-python ../skills/inbox-setup/scripts/section_progress_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/kb_validator.py --workspace ${WORKSPACE}
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py --action close --session NAME
 ```
 
 ## Stop Conditions

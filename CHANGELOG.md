@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Remaining P2 items from the v2.14.0 real-state audit. The 43 plugins whose files changed move to 2.14.2.
+
+### Fixed
+
+- **Three popular skills never triggered.** `code-reviewer`, `self-improving-agent` and the
+  productivity `session-handoff` fired on 1 of 24 realistic prompts across two catalogue sizes
+  (2 runs each). Their descriptions now lead with what the user asks for rather than what the
+  skill contains. Same prompts after the change: 15 of 28, with handoff at 8 of 8 and no false
+  fires on near-miss prompts. The engineering `handoff` and `si:remember` descriptions got the
+  same treatment.
+- **OWASP Top 10 references moved from 2021 to 2025.** `security-pen-testing`'s scanner,
+  checklist generator, report example and checklist reference now use the
+  [OWASP Top 10:2025](https://owasp.org/Top10/2025/) codes. SSRF folds into A01, A03 becomes
+  Software Supply Chain Failures, and the new A10 Mishandling of Exceptional Conditions has its
+  own checks. `senior-secops`, `senior-backend` and `senior-security` references follow, and the
+  pen-testing checklist carries a 2021-to-2025 mapping table for existing reports.
+- **`datetime.utcnow()` removed** from 15 scripts and hooks (deprecated since Python 3.12). Output
+  is byte-for-byte the same; a blocking CI step keeps it out.
+- **Gate G9 is now blocking.** It was advisory with 240 JSON-advertising tools lacking
+  `--sample`. Those are frozen in `scripts/smoke_json_baseline.txt`; a new tool without `--sample`
+  fails, and so does a baseline line whose tool gained one, so the backlog only shrinks.
+- **Documentation drift.** INSTALLATION.md described a Vibe layout the installer no longer
+  writes, put the third-party `npx agent-skills-cli` first for Codex and said "205+ skills". 35
+  plugin READMEs had no install line (`claude plugin validate` advice). The agent-harness domain
+  manifests covered 18 of 20 domains and were stale; all 20 are regenerated. The docs site is
+  regenerated, including the renamed `session-handoff` page.
+
 ## [2.14.1] - 2026-10-23 — Plugin updates reach existing installs, audit fixes
 
 Fixes from the v2.14.0 real-state audit (clean installs on six harnesses, mirror diffs, trigger

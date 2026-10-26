@@ -1,6 +1,6 @@
 ---
 title: "Self-Improving Agent — Agent Skill & Codex Plugin"
-description: "Curate Claude Code's auto-memory into durable project knowledge. Analyze MEMORY.md for patterns, promote proven learnings to CLAUDE.md and."
+description: "Curate the agent's own memory into durable project knowledge. Reviews Claude Code auto-memory (MEMORY.md and its topic files) for learnings worth."
 ---
 
 # Self-Improving Agent

@@ -45,17 +45,17 @@ Differentiates clearly:
 
 1. **QSR Compliance Checker**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/qsr_compliance_checker.py`
-   - Usage: `python qsr_compliance_checker.py compliance_state.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/qsr_compliance_checker.py compliance_state.json`
    - Returns: compliance posture across 21 CFR 820 sections; post-Feb 2026 substantially harmonized with ISO 13485
 
 2. **FDA Submission Tracker**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/fda_submission_tracker.py`
-   - Usage: `python fda_submission_tracker.py submissions.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/fda_submission_tracker.py submissions.json`
    - Returns: 510(k) / PMA / IDE submission status with FDA review timelines
 
 3. **HIPAA Risk Assessment**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/hipaa_risk_assessment.py`
-   - Usage: `python hipaa_risk_assessment.py phi_inventory.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/hipaa_risk_assessment.py phi_inventory.json`
    - Returns: HIPAA Security Rule + Privacy Rule risk assessment (overlap with FDA cybersecurity expectations for devices)
 
 ### Knowledge Bases
@@ -79,7 +79,7 @@ Differentiates clearly:
 ### Workflow 1: Annual QSR Internal Audit (5-10 days)
 
 ```bash
-python qsr_compliance_checker.py compliance_state.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/fda-consultant-specialist/scripts/qsr_compliance_checker.py compliance_state.json
 # Phase 4 fieldwork:
 #   - 820.30 Design controls: sample DHRs
 #   - 820.50 Purchasing: sample supplier qualifications + audits
@@ -102,7 +102,7 @@ python qsr_compliance_checker.py compliance_state.json
 #   - DHRs for products distributed in last 2 years
 #   - Process validation status
 # Mock inspection with audit_simulator.py
-python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py fda_qsr_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/compliance-os/scripts/audit_simulator.py fda_qsr_scope.json
 # Close findings before FDA inspector arrives
 ```
 

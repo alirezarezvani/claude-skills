@@ -2,7 +2,7 @@
 #
 # Mistral Vibe Installation Script for Claude Skills Library
 #
-# Syncs all skills into ~/.vibe/skills/claude-skills/ for discovery by
+# Syncs all skills flat into ~/.vibe/skills/<skill-name>/ for discovery by
 # Mistral Vibe (https://github.com/mistralai/mistral-vibe). Uses the
 # agentskills.io SKILL.md standard — no format conversion needed.
 #
@@ -51,7 +51,7 @@ echo ""
 echo "3. Or describe a task — Vibe will auto-load matching skills via the"
 echo "   description field in each SKILL.md frontmatter."
 echo ""
-echo "Skills install to ~/.vibe/skills/claude-skills/ as symlinks back to"
+echo "Skills install flat to ~/.vibe/skills/<skill-name>/ as symlinks back to"
 echo "this repo (or copies, if you passed --copy)."
 echo ""
 print_info "Docs: https://docs.mistral.ai/mistral-vibe/agents-skills"

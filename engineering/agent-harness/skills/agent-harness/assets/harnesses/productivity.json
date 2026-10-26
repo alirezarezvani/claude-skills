@@ -1,7 +1,7 @@
 {
   "schema": "agent-harness/manifest.v1",
   "domain": "productivity",
-  "skill_count": 11,
+  "skill_count": 12,
   "loop_defaults": {
     "max_attempts_per_task": 3,
     "max_loop_iterations": 12,
@@ -389,9 +389,9 @@
       ]
     },
     {
-      "name": "handoff",
+      "name": "session-handoff",
       "path": "productivity/handoff/skills/session-handoff",
-      "description": "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a \u2026",
+      "description": "Write a handoff document so a fresh session or another agent can pick up exactly where this one left off: goal, current state, decisions, next steps and the skills to load, referencing existing files instead of copying them, with secrets redacted before saving. Use whenever the user is ending a session, switching machines, running low on context, or asks for a handoff, a handoff doc, a 'pick up where we left off' summary, or to compact the conversation for next time. Saves to a location the user picks on first run (OS temp, home folder or per-project .handoff/) and can auto-load the latest \u2026",
       "tools": [
         {
           "script": "productivity/handoff/skills/session-handoff/scripts/cleanup.py",
@@ -736,6 +736,22 @@
         "adversarial_panel_canon.md",
         "cheapest_test_canon.md",
         "verdict_synthesis_method.md"
+      ]
+    },
+    {
+      "name": "swedish-mentor",
+      "path": "productivity/swedish-mentor",
+      "description": "Mentor Swedish language learners by selecting YouTube video clips and podcast episodes by CEFR level and skill (listening, reading, writing, speaking), and building a simple learning path. Use when the user asks about a Swedish learning path, YouTube clips or podcasts for Swedish, SFI videos, level assessment for svenska, or requests for Peter SFI / L\u00e4tt Svenska med Oskar / Radio Sweden p\u00e5 l\u00e4tt svenska / Klartext-style recommendations.",
+      "tools": [],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": false,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "swedish-resources.md"
       ]
     },
     {

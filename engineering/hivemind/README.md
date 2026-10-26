@@ -18,5 +18,10 @@ delegate secrets.
 
 ## Install and use
 
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install hivemind@claude-code-skills
+```
+
 See [SKILL.md](SKILL.md) for prerequisites, setup, the invocation contract and the
 swarm flow. License: MIT (see [LICENSE.txt](LICENSE.txt)).

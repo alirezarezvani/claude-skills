@@ -67,17 +67,17 @@ Differentiates clearly:
 
 1. **Workspace Inventory**
    - Path: [`scripts/workspace_inventory.py`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/skills/capture/scripts/workspace_inventory.py)
-   - Usage: `python workspace_inventory.py --root . --keywords "k1,k2,k3"`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/workspace_inventory.py --root . --keywords "k1,k2,k3"`
    - Returns structured inventory: file matches by keyword + top-level folder structure. Use the matches as Section 3 candidates.
 
 2. **Dump Classifier**
    - Path: [`scripts/dump_classifier.py`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/skills/capture/scripts/dump_classifier.py)
-   - Usage: `python dump_classifier.py path/to/dump.txt`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/dump_classifier.py path/to/dump.txt`
    - Heuristic regex classifier — labels each line as `task` / `decision` / `question` / `idea` / `project-component`. Use as a seed; override based on context.
 
 3. **Complexity Estimator**
    - Path: [`scripts/complexity_estimator.py`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/capture/skills/capture/scripts/complexity_estimator.py)
-   - Usage: `python complexity_estimator.py path/to/dump.txt`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/complexity_estimator.py path/to/dump.txt`
    - Counts items, detects clustering signal, recommends full-4-section or compressed output.
 
 ### Knowledge Bases
@@ -92,13 +92,13 @@ Differentiates clearly:
 
 ```bash
 # 1. Inventory the workspace for connections
-python ../skills/capture/scripts/workspace_inventory.py --root . --keywords "<extracted-keywords>"
+python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/workspace_inventory.py --root . --keywords "<extracted-keywords>"
 
 # 2. Classify the dump items as a heuristic seed
-python ../skills/capture/scripts/dump_classifier.py /tmp/dump.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/dump_classifier.py /tmp/dump.txt
 
 # 3. Estimate output format
-python ../skills/capture/scripts/complexity_estimator.py /tmp/dump.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/capture/scripts/complexity_estimator.py /tmp/dump.txt
 # (Returns: format=full|compressed)
 
 # 4. Organize and deliver four sections (or compressed if recommended).

@@ -2,6 +2,13 @@
 
 Turn a ramble about something you want made into **one polished, autonomous /goal prompt** — copy-paste ready for a fresh session. The skill writes the prompt, never the build.
 
+## Install
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install fable-goal@claude-code-skills
+```
+
 ## What this skill does
 
 You describe an outcome in fragments ("I want like 5 landing pages for my prompt pack, crazy good, put them up somewhere"). The skill:

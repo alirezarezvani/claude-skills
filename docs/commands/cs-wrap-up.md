@@ -17,9 +17,9 @@ Run the `wrap-up` skill.
 
 ## Steps
 
-1. `python3 agent-launcher/skills/wrap-up/scripts/primitives_inventory.py --sheet ./my-agent/build-sheet.json --goal ./my-agent/goal.json`
-2. `python3 agent-launcher/skills/wrap-up/scripts/overview_page.py --sheet ./my-agent/build-sheet.json --out-dir ./my-agent --status live`
-3. `python3 agent-launcher/skills/wrap-up/scripts/upgrade_suggester.py --sheet ./my-agent/build-sheet.json --top 2`
+1. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/wrap-up/scripts/primitives_inventory.py --sheet ./my-agent/build-sheet.json --goal ./my-agent/goal.json`
+2. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/wrap-up/scripts/overview_page.py --sheet ./my-agent/build-sheet.json --out-dir ./my-agent --status live`
+3. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/wrap-up/scripts/upgrade_suggester.py --sheet ./my-agent/build-sheet.json --top 2`
 4. Ensure `NEXT-DIRECTIONS.md` is current, then `goal_state.py advance` → phase=done.
 
 Recap what's actually live (read from the sheet + goal state). The overview page is

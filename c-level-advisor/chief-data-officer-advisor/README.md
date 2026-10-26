@@ -5,3 +5,10 @@ Standalone plugin for Chief Data Officer advisory. **Dual-published**: also bund
 See `./skills/chief-data-officer-advisor/SKILL.md` for the full skill documentation.
 
 Decision-driven CDO: four decisions, no surveys. Strategic only — does not duplicate `engineering/database-designer`, `engineering/rag-architect`, `engineering/observability-designer`, `engineering/data-quality-auditor`.
+## Install
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install chief-data-officer-advisor@claude-code-skills
+```
+

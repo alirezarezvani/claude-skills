@@ -12,6 +12,11 @@ Define SLOs that mean something. Most "SLOs" in the wild are arbitrary numbers n
 ## Install
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install slo-architect@claude-code-skills
+```
+
+```bash
 # Via Claude Code marketplace
 /plugin install slo-architect
 

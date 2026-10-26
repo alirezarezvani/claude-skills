@@ -14,7 +14,7 @@ description: "Just the flux gate - mark material fluctuations by your threshold 
 Answer one question about `$ARGUMENTS`: **is every material fluctuation explained well enough to sign?**
 
 ```bash
-python skills/month-end-close/scripts/flux_analyzer.py --input <tb_compare.csv> --pct <policy> --abs <policy> [--rule and|or] --reviewer <name>
+python ${CLAUDE_PLUGIN_ROOT}/skills/month-end-close/scripts/flux_analyzer.py --input <tb_compare.csv> --pct <policy> --abs <policy> [--rule and|or] --reviewer <name>
 ```
 
 If no thresholds were given, ask for the entity's policy. Do not present the defaults as a standard.

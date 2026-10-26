@@ -24,6 +24,11 @@ Most LLM+docs workflows are RAG: retrieve fragments at query time, synthesize fr
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install llm-wiki@claude-code-skills
+```
+
+```bash
 # 1. Initialize a vault
 python scripts/init_vault.py --path ~/vaults/research --topic "LLM interpretability" --tool all
 

@@ -1,6 +1,6 @@
 ---
 title: "Handoff — Agent Skill for Codex & OpenClaw"
-description: "Compact the current conversation into a handoff document for another agent to pick up. References existing artifacts (PRDs, plans, ADRs, issues. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Compact the current conversation into a handoff document for another agent to pick up, referencing existing artifacts (PRDs, plans, ADRs, issues. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Handoff

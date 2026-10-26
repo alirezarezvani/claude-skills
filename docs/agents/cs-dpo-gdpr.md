@@ -46,17 +46,17 @@ Differentiates clearly:
 
 1. **GDPR Compliance Checker**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py`
-   - Usage: `python gdpr_compliance_checker.py compliance_state.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json`
    - Returns: compliance posture across Articles 5, 6, 9, 30, 32, 33-34, 35 with gap analysis
 
 2. **DPIA Generator**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/dpia_generator.py`
-   - Usage: `python dpia_generator.py processing_activity.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json`
    - Returns: DPIA per Article 35(7) required elements; identifies residual high risk requiring Article 36 prior consultation
 
 3. **Data Subject Rights Tracker**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py`
-   - Usage: `python data_subject_rights_tracker.py dsar_log.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py dsar_log.json`
    - Returns: DSAR workflow completeness + response timing vs Article 12(3) 1-month SLA
 
 ### Knowledge Bases
@@ -78,7 +78,7 @@ Differentiates clearly:
 ### Workflow 1: Annual GDPR Internal Audit (5-10 days)
 
 ```bash
-python gdpr_compliance_checker.py compliance_state.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/gdpr_compliance_checker.py compliance_state.json
 # Phase 4 fieldwork (per gdpr_audit_playbook.md):
 #   - Article 30 RoPA freshness
 #   - Article 5 + 6 lawful basis discipline
@@ -95,7 +95,7 @@ python gdpr_compliance_checker.py compliance_state.json
 ### Workflow 2: New Processing Activity DPIA Review
 
 ```bash
-python dpia_generator.py processing_activity.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/gdpr-dsgvo-expert/scripts/dpia_generator.py processing_activity.json
 # Verify Article 35(7) required elements complete
 # Verify DPO consulted per Article 35(2)
 # Flag residual high risk requiring Article 36 prior consultation

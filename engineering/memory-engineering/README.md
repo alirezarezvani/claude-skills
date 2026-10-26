@@ -28,6 +28,11 @@ If you did not build forgetting, you do not have it.
 
 ```bash
 /plugin marketplace add alirezarezvani/claude-skills
+/plugin install memory-engineering@claude-code-skills
+```
+
+```bash
+/plugin marketplace add alirezarezvani/claude-skills
 /plugin install memory-engineering
 ```
 

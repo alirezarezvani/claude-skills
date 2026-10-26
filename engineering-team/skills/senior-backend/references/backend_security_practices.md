@@ -18,6 +18,8 @@ Security patterns and OWASP Top 10 mitigations for Node.js/Express applications.
 
 ## 1. OWASP Top 10 Mitigations
 
+Numbered by the [OWASP Top 10:2025](https://owasp.org/Top10/2025/). SSRF, a separate category in 2021, is now part of A01.
+
 ### A01: Broken Access Control
 
 ```typescript
@@ -41,250 +43,7 @@ app.get('/users/:id/profile', authenticate, async (req, res) => {
 });
 ```
 
-### A02: Cryptographic Failures
-
-```typescript
-// BAD: Weak hashing
-const hash = crypto.createHash('md5').update(password).digest('hex');
-
-// GOOD: bcrypt with appropriate cost factor
-import bcrypt from 'bcrypt';
-
-const SALT_ROUNDS = 12; // Adjust based on hardware
-
-async function hashPassword(password: string): Promise<string> {
-  return bcrypt.hash(password, SALT_ROUNDS);
-}
-
-async function verifyPassword(password: string, hash: string): Promise<boolean> {
-  return bcrypt.compare(password, hash);
-}
-```
-
-### A03: Injection
-
-```typescript
-// BAD: String concatenation in SQL
-const query = `SELECT * FROM users WHERE email = '${email}'`;
-
-// GOOD: Parameterized queries
-const result = await db.query(
-  'SELECT * FROM users WHERE email = $1',
-  [email]
-);
-```
-
-### A04: Insecure Design
-
-```typescript
-// BAD: No rate limiting on sensitive operations
-app.post('/forgot-password', async (req, res) => {
-  await sendResetEmail(req.body.email);
-  res.json({ message: 'If email exists, reset link sent' });
-});
-
-// GOOD: Rate limit + consistent response time
-import rateLimit from 'express-rate-limit';
-
-const passwordResetLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 3, // 3 attempts per 15 minutes
-  skipSuccessfulRequests: false,
-});
-
-app.post('/forgot-password', passwordResetLimiter, async (req, res) => {
-  const startTime = Date.now();
-
-  try {
-    const user = await db.users.findByEmail(req.body.email);
-    if (user) {
-      await sendResetEmail(user.email);
-    }
-  } catch (err) {
-    logger.error(err);
-  }
-
-  // Consistent response time prevents timing attacks
-  const elapsed = Date.now() - startTime;
-  const minDelay = 500;
-  if (elapsed < minDelay) {
-    await sleep(minDelay - elapsed);
-  }
-
-  // Same response regardless of email existence
-  res.json({ message: 'If email exists, reset link sent' });
-});
-```
-
-### A05: Security Misconfiguration
-
-```typescript
-// BAD: Detailed errors in production
-app.use((err, req, res, next) => {
-  res.status(500).json({
-    error: err.message,
-    stack: err.stack, // Exposes internals!
-  });
-});
-
-// GOOD: Environment-aware error handling
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  const requestId = req.id;
-
-  // Always log full error internally
-  logger.error({ err, requestId }, 'Unhandled error');
-
-  // Return safe response
-  res.status(500).json({
-    error: {
-      code: 'INTERNAL_ERROR',
-      message: process.env.NODE_ENV === 'development'
-        ? err.message
-        : 'An unexpected error occurred',
-      requestId,
-    },
-  });
-});
-```
-
-### A06: Vulnerable Components
-
-```bash
-# Check for vulnerabilities
-npm audit
-
-# Fix automatically where possible
-npm audit fix
-
-# Check specific package
-npm audit --package-lock-only
-
-# Use Snyk for deeper analysis
-npx snyk test
-```
-
-```typescript
-// Automated dependency updates (package.json)
-{
-  "scripts": {
-    "security:audit": "npm audit --audit-level=high",
-    "security:check": "snyk test",
-    "preinstall": "npm audit"
-  }
-}
-```
-
-### A07: Authentication Failures
-
-```typescript
-// BAD: Weak session management
-app.post('/login', async (req, res) => {
-  const user = await authenticate(req.body);
-  req.session.userId = user.id; // Session fixation risk
-  res.json({ success: true });
-});
-
-// GOOD: Regenerate session on authentication
-app.post('/login', async (req, res) => {
-  const user = await authenticate(req.body);
-
-  // Regenerate session to prevent fixation
-  req.session.regenerate((err) => {
-    if (err) return next(err);
-
-    req.session.userId = user.id;
-    req.session.createdAt = Date.now();
-
-    req.session.save((err) => {
-      if (err) return next(err);
-      res.json({ success: true });
-    });
-  });
-});
-```
-
-### A08: Software and Data Integrity Failures
-
-```typescript
-// Verify webhook signatures (e.g., Stripe)
-import Stripe from 'stripe';
-
-app.post('/webhooks/stripe',
-  express.raw({ type: 'application/json' }),
-  async (req, res) => {
-    const sig = req.headers['stripe-signature'] as string;
-    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
-
-    let event: Stripe.Event;
-
-    try {
-      event = stripe.webhooks.constructEvent(
-        req.body,
-        sig,
-        endpointSecret
-      );
-    } catch (err) {
-      logger.warn({ err }, 'Webhook signature verification failed');
-      return res.status(400).json({ error: 'Invalid signature' });
-    }
-
-    // Process verified event
-    await handleStripeEvent(event);
-    res.json({ received: true });
-  }
-);
-```
-
-### A09: Security Logging Failures
-
-```typescript
-// Comprehensive security logging
-import pino from 'pino';
-
-const logger = pino({
-  level: process.env.LOG_LEVEL || 'info',
-  redact: ['req.headers.authorization', 'req.body.password'], // Redact sensitive
-});
-
-// Log security events
-function logSecurityEvent(event: {
-  type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE' | 'ACCESS_DENIED' | 'SUSPICIOUS_ACTIVITY';
-  userId?: string;
-  ip: string;
-  userAgent: string;
-  details?: Record<string, unknown>;
-}) {
-  logger.info({
-    security: true,
-    ...event,
-    timestamp: new Date().toISOString(),
-  }, `Security event: ${event.type}`);
-}
-
-// Usage
-app.post('/login', async (req, res) => {
-  try {
-    const user = await authenticate(req.body);
-    logSecurityEvent({
-      type: 'LOGIN_SUCCESS',
-      userId: user.id,
-      ip: req.ip,
-      userAgent: req.headers['user-agent'] || '',
-    });
-    // ...
-  } catch (err) {
-    logSecurityEvent({
-      type: 'LOGIN_FAILURE',
-      ip: req.ip,
-      userAgent: req.headers['user-agent'] || '',
-      details: { email: req.body.email },
-    });
-    // ...
-  }
-});
-```
-
-### A10: Server-Side Request Forgery (SSRF)
+### A01: Broken Access Control — Server-Side Request Forgery (SSRF, formerly A10:2021)
 
 ```typescript
 // BAD: Unvalidated URL fetch
@@ -345,6 +104,272 @@ app.post('/fetch-url', async (req, res) => {
   });
 
   res.json({ data: await response.text() });
+});
+```
+
+### A02: Security Misconfiguration
+
+```typescript
+// BAD: Detailed errors in production
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    error: err.message,
+    stack: err.stack, // Exposes internals!
+  });
+});
+
+// GOOD: Environment-aware error handling
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  const requestId = req.id;
+
+  // Always log full error internally
+  logger.error({ err, requestId }, 'Unhandled error');
+
+  // Return safe response
+  res.status(500).json({
+    error: {
+      code: 'INTERNAL_ERROR',
+      message: process.env.NODE_ENV === 'development'
+        ? err.message
+        : 'An unexpected error occurred',
+      requestId,
+    },
+  });
+});
+```
+
+### A03: Software Supply Chain Failures
+
+```bash
+# Check for vulnerabilities
+npm audit
+
+# Fix automatically where possible
+npm audit fix
+
+# Check specific package
+npm audit --package-lock-only
+
+# Use Snyk for deeper analysis
+npx snyk test
+```
+
+```typescript
+// Automated dependency updates (package.json)
+{
+  "scripts": {
+    "security:audit": "npm audit --audit-level=high",
+    "security:check": "snyk test",
+    "preinstall": "npm audit"
+  }
+}
+```
+
+### A04: Cryptographic Failures
+
+```typescript
+// BAD: Weak hashing
+const hash = crypto.createHash('md5').update(password).digest('hex');
+
+// GOOD: bcrypt with appropriate cost factor
+import bcrypt from 'bcrypt';
+
+const SALT_ROUNDS = 12; // Adjust based on hardware
+
+async function hashPassword(password: string): Promise<string> {
+  return bcrypt.hash(password, SALT_ROUNDS);
+}
+
+async function verifyPassword(password: string, hash: string): Promise<boolean> {
+  return bcrypt.compare(password, hash);
+}
+```
+
+### A05: Injection
+
+```typescript
+// BAD: String concatenation in SQL
+const query = `SELECT * FROM users WHERE email = '${email}'`;
+
+// GOOD: Parameterized queries
+const result = await db.query(
+  'SELECT * FROM users WHERE email = $1',
+  [email]
+);
+```
+
+### A06: Insecure Design
+
+```typescript
+// BAD: No rate limiting on sensitive operations
+app.post('/forgot-password', async (req, res) => {
+  await sendResetEmail(req.body.email);
+  res.json({ message: 'If email exists, reset link sent' });
+});
+
+// GOOD: Rate limit + consistent response time
+import rateLimit from 'express-rate-limit';
+
+const passwordResetLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 3, // 3 attempts per 15 minutes
+  skipSuccessfulRequests: false,
+});
+
+app.post('/forgot-password', passwordResetLimiter, async (req, res) => {
+  const startTime = Date.now();
+
+  try {
+    const user = await db.users.findByEmail(req.body.email);
+    if (user) {
+      await sendResetEmail(user.email);
+    }
+  } catch (err) {
+    logger.error(err);
+  }
+
+  // Consistent response time prevents timing attacks
+  const elapsed = Date.now() - startTime;
+  const minDelay = 500;
+  if (elapsed < minDelay) {
+    await sleep(minDelay - elapsed);
+  }
+
+  // Same response regardless of email existence
+  res.json({ message: 'If email exists, reset link sent' });
+});
+```
+
+### A07: Authentication Failures
+
+```typescript
+// BAD: Weak session management
+app.post('/login', async (req, res) => {
+  const user = await authenticate(req.body);
+  req.session.userId = user.id; // Session fixation risk
+  res.json({ success: true });
+});
+
+// GOOD: Regenerate session on authentication
+app.post('/login', async (req, res) => {
+  const user = await authenticate(req.body);
+
+  // Regenerate session to prevent fixation
+  req.session.regenerate((err) => {
+    if (err) return next(err);
+
+    req.session.userId = user.id;
+    req.session.createdAt = Date.now();
+
+    req.session.save((err) => {
+      if (err) return next(err);
+      res.json({ success: true });
+    });
+  });
+});
+```
+
+### A08: Software or Data Integrity Failures
+
+```typescript
+// Verify webhook signatures (e.g., Stripe)
+import Stripe from 'stripe';
+
+app.post('/webhooks/stripe',
+  express.raw({ type: 'application/json' }),
+  async (req, res) => {
+    const sig = req.headers['stripe-signature'] as string;
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+
+    let event: Stripe.Event;
+
+    try {
+      event = stripe.webhooks.constructEvent(
+        req.body,
+        sig,
+        endpointSecret
+      );
+    } catch (err) {
+      logger.warn({ err }, 'Webhook signature verification failed');
+      return res.status(400).json({ error: 'Invalid signature' });
+    }
+
+    // Process verified event
+    await handleStripeEvent(event);
+    res.json({ received: true });
+  }
+);
+```
+
+### A09: Security Logging and Alerting Failures
+
+```typescript
+// Comprehensive security logging
+import pino from 'pino';
+
+const logger = pino({
+  level: process.env.LOG_LEVEL || 'info',
+  redact: ['req.headers.authorization', 'req.body.password'], // Redact sensitive
+});
+
+// Log security events
+function logSecurityEvent(event: {
+  type: 'LOGIN_SUCCESS' | 'LOGIN_FAILURE' | 'ACCESS_DENIED' | 'SUSPICIOUS_ACTIVITY';
+  userId?: string;
+  ip: string;
+  userAgent: string;
+  details?: Record<string, unknown>;
+}) {
+  logger.info({
+    security: true,
+    ...event,
+    timestamp: new Date().toISOString(),
+  }, `Security event: ${event.type}`);
+}
+
+// Usage
+app.post('/login', async (req, res) => {
+  try {
+    const user = await authenticate(req.body);
+    logSecurityEvent({
+      type: 'LOGIN_SUCCESS',
+      userId: user.id,
+      ip: req.ip,
+      userAgent: req.headers['user-agent'] || '',
+    });
+    // ...
+  } catch (err) {
+    logSecurityEvent({
+      type: 'LOGIN_FAILURE',
+      ip: req.ip,
+      userAgent: req.headers['user-agent'] || '',
+      details: { email: req.body.email },
+    });
+    // ...
+  }
+});
+```
+
+### A10: Mishandling of Exceptional Conditions
+- Fail closed: an error in an auth or policy check denies the request
+- Return a generic error body; log the stack trace server-side only
+- Use database transactions for multi-step writes so a failure rolls back
+- Set timeouts on every outbound call and cap retries
+
+```typescript
+// BAD: fails open when the permission service is down
+const allowed = await perms.check(user, doc).catch(() => true);
+
+// GOOD: fail closed, log, generic error
+const allowed = await perms.check(user, doc).catch((err) => {
+  logger.error({ err }, 'permission check failed');
+  return false;
+});
+
+// Central error handler: never leak internals
+app.use((err, req, res, next) => {
+  logger.error({ err, path: req.path });
+  res.status(500).json({ error: 'Internal error' });
 });
 ```
 

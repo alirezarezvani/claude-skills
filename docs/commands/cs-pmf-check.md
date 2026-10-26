@@ -47,7 +47,7 @@ A focused interrogation, then a deterministic verdict:
 ## Workflow
 
 ```bash
-python ../skills/andreessen/scripts/pmf_signal_scorer.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/andreessen/scripts/pmf_signal_scorer.py \
   --ellis-pct 45 --retention 8 --organic 7 --demand 8 --frequency 7
 ```
 

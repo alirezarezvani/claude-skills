@@ -101,7 +101,7 @@ def main() -> int:
         latest = _latest_mtime(config)
     except Exception:
         return 0
-    now = dt.datetime.utcnow()
+    now = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None)
     stale_cutoff = now - dt.timedelta(minutes=STALE_AFTER_MINUTES)
     if latest is None or latest < stale_cutoff:
         try:

@@ -18,7 +18,7 @@ Route this inquiry through the `pm-skills` orchestrator:
 ## Routing (deterministic — run the script, don't eyeball)
 
 ```bash
-python3 project-management/skills/pm-skills/scripts/pm_goal_router.py --text "$ARGUMENTS" --output json
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/pm-skills/scripts/pm_goal_router.py --text "$ARGUMENTS" --output json
 ```
 
 - Exit 0 → load `skill_path`/SKILL.md and follow that skill's own workflow in a fork.

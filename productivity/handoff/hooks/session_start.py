@@ -68,7 +68,7 @@ def _find_latest(config: dict) -> Path | None:
     # retention 0 = forever; -1 = manual; both mean "no cutoff for surfacing"
     cutoff = None
     if retention > 0:
-        cutoff = dt.datetime.utcnow() - dt.timedelta(days=retention)
+        cutoff = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) - dt.timedelta(days=retention)
     latest: tuple[float, Path] | None = None
     for d in _candidate_dirs(config):
         try:

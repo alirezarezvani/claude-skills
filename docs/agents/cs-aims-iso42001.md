@@ -45,17 +45,17 @@ Differentiates clearly:
 
 1. **AIMS Gap Analyzer**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_gap_analyzer.py`
-   - Usage: `python aims_gap_analyzer.py evidence.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_gap_analyzer.py evidence.json`
    - Returns: weighted coverage % across Clauses 4-10, certification-readiness verdict (ready / stage_2_candidate / not_ready), critical-gap count, prioritized remediation list
 
 2. **AI Risk Register Builder**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/ai_risk_register_builder.py`
-   - Usage: `python ai_risk_register_builder.py risks.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/ai_risk_register_builder.py risks.json`
    - Returns: structured register with severity (5x5 matrix), Annex A control mapping, ISO 23894 treatment option (modify/share/retain/avoid), residual-risk verdict
 
 3. **AIMS Audit Scheduler**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_audit_scheduler.py`
-   - Usage: `python aims_audit_scheduler.py audit_scope.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_audit_scheduler.py audit_scope.json`
    - Returns: 12-month plan with quarterly slots, auditor assignments with independence checks, 3-year rolling coverage status, prior-year follow-up
 
 ### Knowledge Bases
@@ -69,7 +69,7 @@ Differentiates clearly:
 
 ### Workflow 1: Certification Readiness Assessment (4-8 weeks)
 ```bash
-python aims_gap_analyzer.py evidence.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_gap_analyzer.py evidence.json
 # Review readiness verdict + critical-gap count
 # Cross-check ISO 27001 / 13485 reusable artefacts
 # Output: prioritized remediation plan with owners
@@ -78,14 +78,14 @@ python aims_gap_analyzer.py evidence.json
 ### Workflow 2: AI Risk Register Build (1-2 weeks)
 ```bash
 # Run ISO 23894 risk identification first
-python ai_risk_register_builder.py risks.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/ai_risk_register_builder.py risks.json
 # Confirm ≥ 1 Annex A control treats each high/critical risk
 # Document residual-risk acceptance with management signoff
 ```
 
 ### Workflow 3: Annual Internal Audit Plan (1 day)
 ```bash
-python aims_audit_scheduler.py audit_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/iso42001-specialist/scripts/aims_audit_scheduler.py audit_scope.json
 # Verify auditor independence
 # Submit plan for management review (Clause 9.3 input)
 ```

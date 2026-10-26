@@ -19,9 +19,9 @@ Run the `interview` skill.
 
 1. Walk the six intake slots (job, trigger, inputs, actions, definition-of-done,
    recurrence) with AskUserQuestion — one at a time, recommend + cite.
-2. `python3 agent-launcher/skills/interview/scripts/interview_planner.py --job "..." ... --out ./my-agent/plan.json`
-3. `python3 agent-launcher/skills/interview/scripts/build_sheet_builder.py --plan ./my-agent/plan.json --out-dir ./my-agent`
-4. `python3 agent-launcher/skills/interview/scripts/primitives_validator.py --sheet ./my-agent/build-sheet.json`
+2. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/interview/scripts/interview_planner.py --job "..." ... --out ./my-agent/plan.json`
+3. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/interview/scripts/build_sheet_builder.py --plan ./my-agent/plan.json --out-dir ./my-agent`
+4. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/interview/scripts/primitives_validator.py --sheet ./my-agent/build-sheet.json`
    — fix FAIL, surface WARN.
 5. `goal_state.py set --phase stage-launch --artifact build_sheet=./my-agent/build-sheet.json`.
 

@@ -70,17 +70,17 @@ Differentiates clearly:
 
 1. **KB Validator**
    - Path: [`scripts/kb_validator.py`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-setup/scripts/kb_validator.py)
-   - Usage: `python kb_validator.py --workspace ${WORKSPACE}`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/kb_validator.py --workspace ${WORKSPACE}`
    - Validates the 7-file KB structure (required files present, conditional files only if their sections exist, headers + bold-section markers correct).
 
 2. **Section Progress Tracker**
    - Path: [`scripts/section_progress_tracker.py`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-setup/scripts/section_progress_tracker.py)
-   - Usage: `python section_progress_tracker.py --action {start,record_q,record_section_done,status,close}`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py --action {start,record_q,record_section_done,status,close}`
    - JSON-backed walk state at `~/.inbox_setup_sessions/<session>.json`. Tracks which section is active, which questions answered, which files committed.
 
 3. **Voice Sample Analyzer**
    - Path: [`scripts/voice_sample_analyzer.py`](https://github.com/alirezarezvani/claude-skills/tree/main/productivity/email/skills/inbox-setup/scripts/voice_sample_analyzer.py)
-   - Usage: `python voice_sample_analyzer.py --samples-file /tmp/samples.txt`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/voice_sample_analyzer.py --samples-file /tmp/samples.txt`
    - Extracts voice patterns from pasted sent-email samples: opening phrases, sign-offs, sentence length, sentence-types, casual/formal markers.
 
 ### Knowledge Bases
@@ -98,26 +98,26 @@ Differentiates clearly:
 ls ${WORKSPACE}/Email/ 2>/dev/null  # confirm fresh state
 
 # 2. Start session
-python ../skills/inbox-setup/scripts/section_progress_tracker.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py \
   --action start --session "inbox-setup-$(date +%Y%m%d)" --user "<who>"
 
 # 3. Walk S1 → S2 → ... → S8 with grill-me discipline
 #    For each Q: ask, wait for answer, record:
-python ../skills/inbox-setup/scripts/section_progress_tracker.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py \
   --action record_q --session NAME --section 1 --question 1 --answer "..."
 
 # 4. End of S2: write email-taxonomy.md; record commit:
-python ../skills/inbox-setup/scripts/section_progress_tracker.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py \
   --action record_section_done --session NAME --section 2 --files "email-taxonomy.md"
 
 # 5. S3 includes sample collection; analyze:
-python ../skills/inbox-setup/scripts/voice_sample_analyzer.py --samples-file /tmp/samples.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/voice_sample_analyzer.py --samples-file /tmp/samples.txt
 
 # 6. At S8: validate final state:
-python ../skills/inbox-setup/scripts/kb_validator.py --workspace ${WORKSPACE}
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/kb_validator.py --workspace ${WORKSPACE}
 
 # 7. Close session:
-python ../skills/inbox-setup/scripts/section_progress_tracker.py --action close --session NAME
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-setup/scripts/section_progress_tracker.py --action close --session NAME
 ```
 
 ### Workflow 2: Re-run on existing setup

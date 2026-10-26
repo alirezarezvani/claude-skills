@@ -59,18 +59,18 @@ one honest verdict. Run it before you sink time and money into building the wron
 
 ```bash
 # 1. Assemble the shared brief
-python ../skills/roast/scripts/brief_builder.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/roast/scripts/brief_builder.py \
   --idea "..." --who "..." --money "..." --edge "..." --constraints "..."
 
 # 2. Fire all five reviewers in parallel (one Task each, subagent_type: general-purpose),
 #    pasting the same brief into each. Collect five 1-10 scores.
 
 # 3. Synthesize the call (weighting + veto gates + tension, NOT an average)
-python ../skills/roast/scripts/verdict_synthesizer.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/roast/scripts/verdict_synthesizer.py \
   --critic 4 --champion 8 --analyst 7 --investigator 5 --customer 6
 
 # 4. Design the cheapest test from the riskiest assumption
-python ../skills/roast/scripts/cheapest_test_designer.py --risk price --price 99
+python ${CLAUDE_PLUGIN_ROOT}/skills/roast/scripts/cheapest_test_designer.py --risk price --price 99
 ```
 
 ## Stop Conditions

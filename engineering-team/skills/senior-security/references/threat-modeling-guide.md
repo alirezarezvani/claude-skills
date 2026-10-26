@@ -464,18 +464,20 @@ LEVEL 1: EXPANDED VIEW
 
 ### OWASP Top 10 Mapping
 
+Codes follow the [OWASP Top 10:2025](https://owasp.org/Top10/2025/).
+
 | Rank | Vulnerability | STRIDE | Common Attack |
 |------|---------------|--------|---------------|
-| A01 | Broken Access Control | E | IDOR, privilege escalation |
-| A02 | Cryptographic Failures | I | Weak encryption, exposed keys |
-| A03 | Injection | T, E | SQLi, XSS, command injection |
-| A04 | Insecure Design | All | Logic flaws, missing controls |
-| A05 | Security Misconfiguration | I, E | Default creds, verbose errors |
-| A06 | Vulnerable Components | All | Outdated libraries, CVEs |
+| A01 | Broken Access Control (incl. SSRF) | E, I | IDOR, privilege escalation, internal service access |
+| A02 | Security Misconfiguration | I, E | Default creds, verbose errors |
+| A03 | Software Supply Chain Failures | All | Outdated libraries, CVEs, compromised builds |
+| A04 | Cryptographic Failures | I | Weak encryption, exposed keys |
+| A05 | Injection | T, E | SQLi, XSS, command injection |
+| A06 | Insecure Design | All | Logic flaws, missing controls |
 | A07 | Authentication Failures | S, E | Credential stuffing, weak passwords |
-| A08 | Software/Data Integrity | T | Unsigned updates, CI/CD attacks |
-| A09 | Logging Failures | R | Missing logs, log injection |
-| A10 | SSRF | I, T | Internal service access |
+| A08 | Software or Data Integrity Failures | T | Unsigned updates, CI/CD attacks |
+| A09 | Security Logging and Alerting Failures | R | Missing logs, log injection |
+| A10 | Mishandling of Exceptional Conditions | D, E | Fail-open checks, error leakage |
 
 ### Attack Pattern Catalog
 

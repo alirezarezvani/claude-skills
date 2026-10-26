@@ -18,7 +18,7 @@ Route this inquiry through the `product-skills` orchestrator:
 ## Routing (deterministic — run the script, don't eyeball)
 
 ```bash
-python3 product-team/skills/product-skills/scripts/product_goal_router.py --text "$ARGUMENTS" --output json
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/product-skills/scripts/product_goal_router.py --text "$ARGUMENTS" --output json
 ```
 
 - Exit 0 → load `skill_path`/SKILL.md (covers the 4 standalone plugins too) and follow

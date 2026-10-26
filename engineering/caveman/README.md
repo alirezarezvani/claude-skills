@@ -18,6 +18,11 @@ Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, a
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install caveman@claude-code-skills
+```
+
+```bash
 # Compress text per Matt's rules
 python skills/caveman/scripts/caveman_compressor.py "Sure! I'd be happy to help you with that. The issue is..."
 

@@ -22,6 +22,11 @@ Conversation-handoff document generator. Saves the current state of a conversati
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install handoff-engineering@claude-code-skills
+```
+
+```bash
 # Generate a handoff template scaffold tailored to next-session focus
 python skills/handoff/scripts/handoff_template_generator.py --next-focus "ship PR 2"
 

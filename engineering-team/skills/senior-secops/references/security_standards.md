@@ -17,7 +17,9 @@ Comprehensive security standards and secure coding practices for application sec
 
 ## OWASP Top 10
 
-### A01:2021 - Broken Access Control
+Codes follow the [OWASP Top 10:2025](https://owasp.org/Top10/2025/). This section covers the categories with the most code-level guidance; for all ten with test procedures, see the security-pen-testing skill's `owasp_top_10_checklist.md`.
+
+### A01:2025 - Broken Access Control
 
 **Description:** Access control enforces policy such that users cannot act outside of their intended permissions.
 
@@ -46,7 +48,42 @@ def get_user(user_id):
 - [ ] Disable directory listing
 - [ ] Log access control failures and alert on repeated failures
 
-### A02:2021 - Cryptographic Failures
+### A02:2025 - Security Misconfiguration
+
+**Description:** Missing or incorrect security hardening.
+
+**Prevention:**
+
+```yaml
+# Kubernetes pod security
+apiVersion: v1
+kind: Pod
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    fsGroup: 1000
+  containers:
+  - name: app
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - ALL
+```
+
+```python
+# Flask security configuration
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PERMANENT_SESSION_LIFETIME=timedelta(hours=1),
+)
+```
+
+### A04:2025 - Cryptographic Failures
 
 **Description:** Failures related to cryptography which often lead to exposure of sensitive data.
 
@@ -80,7 +117,7 @@ except argon2.exceptions.VerifyMismatchError:
 - [ ] Never use MD5, SHA1 for security purposes
 - [ ] Rotate encryption keys regularly
 
-### A03:2021 - Injection
+### A05:2025 - Injection
 
 **Description:** Untrusted data sent to an interpreter as part of a command or query.
 
@@ -134,7 +171,7 @@ return f"<div>Welcome, {escape(username)}</div>"
 # {{ username }} is auto-escaped by default
 ```
 
-### A04:2021 - Insecure Design
+### A06:2025 - Insecure Design
 
 **Description:** Risks related to design and architectural flaws.
 
@@ -173,39 +210,28 @@ class SecurePaymentFlow:
         return self.execute_payment(payment_data)
 ```
 
-### A05:2021 - Security Misconfiguration
-
-**Description:** Missing or incorrect security hardening.
+### A10:2025 - Mishandling of Exceptional Conditions
+**Description:** Errors, timeouts and unexpected input are handled in a way that weakens security: a check that fails open, an exception that leaks internals, or an operation that fails halfway and leaves state inconsistent. New in the 2025 list.
 
 **Prevention:**
-
-```yaml
-# Kubernetes pod security
-apiVersion: v1
-kind: Pod
-spec:
-  securityContext:
-    runAsNonRoot: true
-    runAsUser: 1000
-    fsGroup: 1000
-  containers:
-  - name: app
-    securityContext:
-      allowPrivilegeEscalation: false
-      readOnlyRootFilesystem: true
-      capabilities:
-        drop:
-          - ALL
-```
+- Fail closed: any error inside a security decision results in denial
+- Catch exceptions at a boundary, log details server-side, return a generic message
+- Wrap multi-step state changes in transactions with rollback
+- Put timeouts and retry limits on every external call
 
 ```python
-# Flask security configuration
-app.config.update(
-    SESSION_COOKIE_SECURE=True,
-    SESSION_COOKIE_HTTPONLY=True,
-    SESSION_COOKIE_SAMESITE='Lax',
-    PERMANENT_SESSION_LIFETIME=timedelta(hours=1),
-)
+# BAD - authorization fails open when the policy service errors
+try:
+    allowed = policy.check(user, resource)
+except Exception:
+    allowed = True
+
+# GOOD - fail closed and log
+try:
+    allowed = policy.check(user, resource)
+except PolicyError:
+    logger.exception("policy check failed")
+    allowed = False
 ```
 
 ---

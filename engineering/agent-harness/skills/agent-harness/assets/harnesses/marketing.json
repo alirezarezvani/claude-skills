@@ -1,7 +1,7 @@
 {
   "schema": "agent-harness/manifest.v1",
   "domain": "marketing",
-  "skill_count": 1,
+  "skill_count": 7,
   "loop_defaults": {
     "max_attempts_per_task": 3,
     "max_loop_iterations": 12,
@@ -81,6 +81,406 @@
         "brand_system_design.md",
         "gsap_animation_patterns.md",
         "single_file_html_discipline.md"
+      ]
+    },
+    {
+      "name": "linkedin-analytics",
+      "path": "marketing/linkedin/skills/linkedin-analytics",
+      "description": "Use when someone wants to understand their own LinkedIn numbers \u2014 which posts worked, why reach dropped, whether a pattern is real, or how to test a hypothesis. Triggers on \"why did my reach drop\", \"what's working on my LinkedIn\", \"analyze my posts\", \"do carousels do better for me\", \"should I test this\", \"LinkedIn analytics\". Reads your own exported post data, reports medians and outlier bands, tests candidate patterns against a permutation null, and sizes a real experiment \u2014 refusing to conclude anything below 10 posts.",
+      "tools": [
+        {
+          "script": "marketing/linkedin/skills/linkedin-analytics/scripts/experiment_planner.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-analytics/scripts/experiment_planner.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-analytics/scripts/experiment_planner.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-analytics/scripts/pattern_miner.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-analytics/scripts/pattern_miner.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-analytics/scripts/pattern_miner.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-analytics/scripts/post_performance_analyzer.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-analytics/scripts/post_performance_analyzer.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-analytics/scripts/post_performance_analyzer.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": false,
+        "close_out": false
+      },
+      "references": [
+        "evidence_thresholds.md",
+        "linkedin_metrics_canon.md"
+      ]
+    },
+    {
+      "name": "linkedin-content",
+      "path": "marketing/linkedin/skills/linkedin-content",
+      "description": "Use when someone wants to write, edit, or lint a LinkedIn post \u2014 a story, how-to, opinion piece, carousel script, video script, or poll \u2014 or wants an article, talk, or transcript repurposed into posts. Triggers on \"write a LinkedIn post\", \"is this hook any good\", \"review my post\", \"turn this into LinkedIn posts\", \"carousel\", \"what format should this be\". Lints posts 0-100 on mechanics, hook, integrity, and accessibility; picks the format the material actually supports; and splits long sources into standalone units with a reuse ledger.",
+      "tools": [
+        {
+          "script": "marketing/linkedin/skills/linkedin-content/scripts/format_picker.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-content/scripts/format_picker.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-content/scripts/format_picker.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-content/scripts/post_linter.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-content/scripts/post_linter.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-content/scripts/post_linter.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-content/scripts/repurpose_splitter.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-content/scripts/repurpose_splitter.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-content/scripts/repurpose_splitter.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "accessibility_and_inclusion.md",
+        "hook_and_fold_mechanics.md",
+        "post_formats_canon.md",
+        "repurposing_discipline.md"
+      ]
+    },
+    {
+      "name": "linkedin-engagement",
+      "path": "marketing/linkedin/skills/linkedin-engagement",
+      "description": "Use when someone wants to grow reach through comments, replies, groups, or outreach on LinkedIn \u2014 a commenting roster, a connection request note, a DM or InMail, a networking plan, or a check on whether their outreach volume is safe. Triggers on \"who should I engage with\", \"write a connection request\", \"cold DM\", \"LinkedIn outreach\", \"networking strategy\", \"how many invites can I send\". Builds a weekly comment roster inside a real time budget, assembles one message at a time and refuses templates, and caps volume against LinkedIn's limits. Nothing is ever sent.",
+      "tools": [
+        {
+          "script": "marketing/linkedin/skills/linkedin-engagement/scripts/comment_target_planner.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-engagement/scripts/comment_target_planner.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-engagement/scripts/comment_target_planner.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-engagement/scripts/outreach_message_builder.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-engagement/scripts/outreach_message_builder.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-engagement/scripts/outreach_message_builder.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-engagement/scripts/outreach_volume_guard.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-engagement/scripts/outreach_volume_guard.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-engagement/scripts/outreach_volume_guard.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "comment_strategy.md",
+        "outreach_ethics_and_benchmarks.md"
+      ]
+    },
+    {
+      "name": "linkedin-profile",
+      "path": "marketing/linkedin/skills/linkedin-profile",
+      "description": "Use when someone wants their LinkedIn profile audited or rewritten \u2014 headline, About section, experience bullets, Featured, banner, recommendations \u2014 or says \"fix my headline\", \"my profile gets views but nothing happens\", \"optimize my LinkedIn profile\", \"what should my About section say\". Scores the headline on five dimensions, audits the whole profile 0-100 and ranks fixes by points per hour, and assembles an About section that survives the \"\u2026see more\" fold.",
+      "tools": [
+        {
+          "script": "marketing/linkedin/skills/linkedin-profile/scripts/about_section_builder.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-profile/scripts/about_section_builder.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-profile/scripts/about_section_builder.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-profile/scripts/headline_scorer.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-profile/scripts/headline_scorer.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-profile/scripts/headline_scorer.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-profile/scripts/profile_completeness_auditor.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-profile/scripts/profile_completeness_auditor.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-profile/scripts/profile_completeness_auditor.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "headline_and_positioning.md",
+        "profile_architecture.md"
+      ]
+    },
+    {
+      "name": "linkedin-skills",
+      "path": "marketing/linkedin/skills/linkedin-skills",
+      "description": "Use when someone wants to grow an organic LinkedIn presence \u2014 a content strategy for a career change or consulting or thought leadership, a rewritten profile or headline, post drafts and hooks, a posting cadence or newsletter plan, connection notes and outreach, a commenting strategy, repurposing an article or talk into posts, or a read on why their reach dropped. Triggers on \"grow my LinkedIn\", \"fix my headline\", \"write a LinkedIn post\", \"what should I post about\", \"LinkedIn strategy\", \"connection request\", \"my reach dropped\". Forks context to route to one of five sub-skills, and refuses \u2026",
+      "tools": [
+        {
+          "script": "marketing/linkedin/skills/linkedin-skills/scripts/linkedin_goal_router.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-skills/scripts/linkedin_goal_router.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-skills/scripts/linkedin_goal_router.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-skills/scripts/linkedin_policy_gate.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-skills/scripts/linkedin_policy_gate.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-skills/scripts/linkedin_policy_gate.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": true,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": false,
+        "close_out": false
+      },
+      "references": [
+        "linkedin_platform_canon.md",
+        "policy_and_account_safety.md"
+      ]
+    },
+    {
+      "name": "linkedin-strategy",
+      "path": "marketing/linkedin/skills/linkedin-strategy",
+      "description": "Use when someone needs a LinkedIn plan rather than a post \u2014 content pillars, positioning for a career change or consulting or thought leadership, a sustainable posting cadence, or a newsletter decision. Triggers on \"what should I post about\", \"how often should I post\", \"LinkedIn content strategy\", \"should I start a LinkedIn newsletter\", \"grow my following\", \"90-day plan\". Validates the positioning brief, sizes the week against real hours and refuses a plan that will not survive week five, and gates a newsletter against eligibility and a six-month cadence commitment.",
+      "tools": [
+        {
+          "script": "marketing/linkedin/skills/linkedin-strategy/scripts/cadence_planner.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-strategy/scripts/cadence_planner.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-strategy/scripts/cadence_planner.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-strategy/scripts/newsletter_planner.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-strategy/scripts/newsletter_planner.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-strategy/scripts/newsletter_planner.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        },
+        {
+          "script": "marketing/linkedin/skills/linkedin-strategy/scripts/positioning_brief.py",
+          "wired": true,
+          "supports_sample": true,
+          "verification": [
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-strategy/scripts/positioning_brief.py --help",
+              "expect_exit": 0,
+              "kind": "smoke"
+            },
+            {
+              "cmd": "python3 marketing/linkedin/skills/linkedin-strategy/scripts/positioning_brief.py --sample",
+              "expect_exit": 0,
+              "kind": "sample"
+            }
+          ]
+        }
+      ],
+      "agentic_signals": {
+        "goal_intake": false,
+        "refusal_gate": true,
+        "verification": true,
+        "loop_discipline": true,
+        "close_out": false
+      },
+      "references": [
+        "cadence_and_consistency.md",
+        "newsletter_playbook.md",
+        "objective_to_pillars.md"
       ]
     }
   ]

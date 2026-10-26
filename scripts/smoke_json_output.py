@@ -12,21 +12,26 @@ This harness verifies JSON output the way the tools are actually meant to run:
      `--sample` fixture (the chosen convention — issue #654 Option A).
   2. Run `<tool> --sample <json-flag>` and assert stdout parses as JSON.
 
-Tools that advertise JSON output but do NOT yet expose `--sample` are reported
-as "uncovered" — a to-do list for backporting the convention, not a failure
-(so the gate can be adopted incrementally without going red on day one).
-Pass --strict to treat uncovered JSON tools as failures once coverage is high.
+Tools that advertise JSON output but do NOT yet expose `--sample` are
+"uncovered". The gate is a ratchet: every uncovered tool must be listed in
+scripts/smoke_json_baseline.txt (the legacy backlog as of Oct 2026). A NEW tool
+that advertises JSON without `--sample` fails, and so does a baseline entry
+whose tool now has `--sample` (or no longer exists) — delete that line, so the
+backlog only ever shrinks. Pass --strict to fail on every uncovered tool,
+baseline or not, once the backlog is cleared.
 
 Exit codes:
-  0  every --sample JSON tool produced valid JSON (and, with --strict, every
-     JSON-advertising tool exposes --sample)
-  1  one or more --sample JSON runs produced invalid JSON / errored
+  0  every --sample JSON tool produced valid JSON, no uncovered tool is missing
+     from the baseline, and the baseline holds no stale entries
+  1  invalid JSON / error from a --sample run, a new uncovered tool, a stale
+     baseline entry, or (with --strict) any uncovered tool
   2  harness error
 
 Usage:
   python3 scripts/smoke_json_output.py            # human-readable report
   python3 scripts/smoke_json_output.py --json     # machine-readable report
   python3 scripts/smoke_json_output.py --strict   # uncovered JSON tools fail
+  python3 scripts/smoke_json_output.py --update-baseline   # rewrite the backlog
 """
 from __future__ import annotations
 
@@ -48,6 +53,7 @@ EXCLUDE_DIRS = {
     "__pycache__", ".venv", "venv",
 }
 EXCEPTIONS_FILE = os.path.join(REPO_ROOT, "scripts", "smoke_exceptions.txt")
+BASELINE_FILE = os.path.join(REPO_ROOT, "scripts", "smoke_json_baseline.txt")
 
 # The smoke harnesses describe `--sample`/`--json` in their own help text but
 # are gate runners, not analysis tools — never classify them as JSON tools.
@@ -99,7 +105,8 @@ def _help_text(abs_path):
 
 def classify(rel_path):
     """Return (advertises_json, json_flag, has_sample) for one tool."""
-    if rel_path in SELF_SKIP:
+    # Top-level scripts/ holds repo tooling (gates, syncs), not skill tools.
+    if rel_path in SELF_SKIP or rel_path.startswith("scripts/"):
         return False, None, False
     abs_path = os.path.join(REPO_ROOT, rel_path)
     help_text = _help_text(abs_path)
@@ -152,6 +159,10 @@ def main(argv=None):
                         help="emit a JSON report instead of human-readable output")
     parser.add_argument("--strict", action="store_true",
                         help="treat JSON-advertising tools without --sample as failures")
+    parser.add_argument("--baseline", default=BASELINE_FILE,
+                        help="legacy uncovered-tool backlog (default: scripts/smoke_json_baseline.txt)")
+    parser.add_argument("--update-baseline", action="store_true",
+                        help="rewrite the baseline to the current uncovered list and exit")
     parser.add_argument("--jobs", type=int, default=os.cpu_count() or 4,
                         help="parallel workers (default: CPU count)")
     parser.add_argument("--root", default=REPO_ROOT, help="repo root")
@@ -179,6 +190,23 @@ def main(argv=None):
                 uncovered.append(rel_path)
     uncovered.sort()
 
+    if args.update_baseline:
+        with open(args.baseline, "w", encoding="utf-8") as f:
+            f.write("# Gate G9 ratchet: tools that advertise JSON output but have no --sample yet.\n"
+                    "# Only ever delete lines (after adding --sample). New tools may not be added here.\n"
+                    "# Regenerate with: python3 scripts/smoke_json_output.py --update-baseline\n")
+            f.writelines(p + "\n" for p in uncovered)
+        print(f"Wrote {len(uncovered)} entries to {os.path.relpath(args.baseline, args.root)}")
+        return 0
+
+    try:
+        baseline = set(load_exceptions(args.baseline))
+    except OSError as exc:
+        print(f"ERROR: cannot read baseline file: {exc}", file=sys.stderr)
+        return 2
+    new_uncovered = [p for p in uncovered if p not in baseline]
+    stale_baseline = sorted(baseline - set(uncovered))
+
     # Phase 2: verify covered tools in parallel.
     failures = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as pool:
@@ -200,6 +228,8 @@ def main(argv=None):
             "verified_ok": covered - len(failures),
             "failed": failures,
             "uncovered": uncovered,
+            "new_uncovered": new_uncovered,
+            "stale_baseline": stale_baseline,
         }, indent=2))
     else:
         print(f"JSON-advertising tools:   {total_json}")
@@ -207,16 +237,21 @@ def main(argv=None):
         print(f"Verified valid JSON:      {covered - len(failures)}")
         print(f"Failed:                   {len(failures)}")
         print(f"Uncovered (no --sample):  {len(uncovered)}")
+        print(f"In legacy baseline:       {len(uncovered) - len(new_uncovered)}")
         if failures:
             print("\nFAILURES:")
             for f in failures:
                 print(f"  {f['file']}\n      {f['detail']}")
-        if uncovered:
-            print("\nUNCOVERED (advertise JSON but lack --sample — backport target):")
-            for f in uncovered:
+        if new_uncovered:
+            print("\nNEW TOOLS WITHOUT --sample (add an embedded --sample fixture; do not baseline them):")
+            for f in new_uncovered:
+                print(f"  {f}")
+        if stale_baseline:
+            print("\nSTALE BASELINE ENTRIES (now covered or removed; delete these lines from the baseline):")
+            for f in stale_baseline:
                 print(f"  {f}")
 
-    if failures:
+    if failures or new_uncovered or stale_baseline:
         return 1
     if args.strict and uncovered:
         return 1

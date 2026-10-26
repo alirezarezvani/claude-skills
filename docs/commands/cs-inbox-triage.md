@@ -70,17 +70,17 @@ After reading the KB:
 
 ```bash
 # 1. Pre-flight — read + validate KB (fail-fast if missing)
-python ../skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/kb_reader.py --workspace ${WORKSPACE}
 
 # 2. Compute search window
-python ../skills/inbox-triage/scripts/search_window_calculator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/search_window_calculator.py \
   --cadence 2x-daily --now $(date -u +%Y-%m-%dT%H:%M)
 
 # 3. Execute Steps 2-10 (described in SKILL.md). For each step, log to:
 #    ${WORKSPACE}/Email/triage-log/<date>-<label>.md
 
 # 4. Post-flight — verify NEVER-SEND held
-python ../skills/inbox-triage/scripts/draft_safety_validator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/inbox-triage/scripts/draft_safety_validator.py \
   --action-log ${WORKSPACE}/Email/triage-log/$(date +%Y-%m-%d)-*.md
 # Failure here is critical — halt + alert user immediately
 ```

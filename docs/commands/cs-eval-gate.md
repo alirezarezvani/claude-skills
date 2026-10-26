@@ -14,7 +14,7 @@ description: "Just the merge gate - paired statistical comparison of a candidate
 Answer one question about `$ARGUMENTS`: **is the candidate measurably worse than the baseline?**
 
 ```bash
-python skills/agent-regression-evals/scripts/regression_gate.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/agent-regression-evals/scripts/regression_gate.py \
   --baseline <baseline.jsonl> --candidate <candidate.jsonl> [--quarantine <quarantine.json>]
 ```
 

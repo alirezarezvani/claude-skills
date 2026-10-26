@@ -59,7 +59,7 @@ agenda. An ASYNC verdict is a win — draft the memo instead.
 
 ```bash
 # 1. Price + gate the meeting
-python ../skills/meetings/scripts/meeting_cost_calculator.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/meetings/scripts/meeting_cost_calculator.py \
   --attendees 6 --minutes 60 --avg-rate 90 --include-refocus \
   --has-decision --has-agenda --has-owner
 
@@ -67,7 +67,7 @@ python ../skills/meetings/scripts/meeting_cost_calculator.py \
 # 2b. NOT-READY (exit 3) → get the missing agenda/owner, re-run the gate.
 
 # 3. MEET (exit 0) → build the timeboxed, decision-first agenda
-python ../skills/meetings/scripts/agenda_builder.py --length 45 \
+python ${CLAUDE_PLUGIN_ROOT}/skills/meetings/scripts/agenda_builder.py --length 45 \
   --topic "Q3 pricing:Decide usage-based vs seat-based:15:maria" \
   --topic "Launch risks:Discuss open launch blockers:15:sam" \
   --topic "Metrics:Inform team of activation trend:5:alex"

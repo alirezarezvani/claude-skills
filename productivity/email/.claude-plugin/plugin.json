@@ -1,7 +1,7 @@
 {
   "name": "email-pair",
   "description": "Email triage system — paired skills (inbox-setup + inbox-triage) for personalized recurring email triage. inbox-setup runs once via interactive interview to build a knowledge base of 7 files (taxonomy, patterns, evaluation-framework, rate-card, blocklist, tracker, triage-log/) in ${WORKSPACE}/Email/. inbox-triage runs on recurring cadence (1-3x daily) or on demand: classifies recent emails, researches new senders, generates recommendations, drafts replies (NEVER sends), delivers a report, and updates the KB with learnings. The two skills share a strict file contract — PR #657's cross-skill consistency audit verified the 7 KB filenames align verbatim between the two megaprompts. Source specs: megaprompts/06-inbox-setup-megaprompt.md + megaprompts/07-inbox-triage-megaprompt.md.",
-  "version": "2.14.1",
+  "version": "2.14.2",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

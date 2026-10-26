@@ -85,11 +85,11 @@ Closing with **one of three recommendations**:
 # 4. Delivers flowing-prose reassessment
 
 # Optional pre-flight: scan for bias patterns + depth signals
-python ../skills/reflect/scripts/conversation_depth_analyzer.py --conversation /tmp/transcript.txt
-python ../skills/reflect/scripts/bias_pattern_detector.py --conversation /tmp/transcript.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/reflect/scripts/conversation_depth_analyzer.py --conversation /tmp/transcript.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/reflect/scripts/bias_pattern_detector.py --conversation /tmp/transcript.txt
 
 # Post-flight: validate output meets discipline
-python ../skills/reflect/scripts/directional_recommendation_validator.py --output /tmp/output.txt
+python ${CLAUDE_PLUGIN_ROOT}/skills/reflect/scripts/directional_recommendation_validator.py --output /tmp/output.txt
 ```
 
 ## Stop Conditions

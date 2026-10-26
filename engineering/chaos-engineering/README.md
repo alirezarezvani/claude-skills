@@ -12,6 +12,11 @@ End-to-end discipline for chaos experiments — design, run, learn — without b
 ## Install
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install chaos-engineering@claude-code-skills
+```
+
+```bash
 # Via Claude Code marketplace
 /plugin install chaos-engineering
 

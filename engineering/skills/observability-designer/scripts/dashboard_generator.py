@@ -21,7 +21,7 @@ import argparse
 import sys
 import math
 from typing import Dict, List, Any, Tuple
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 class DashboardGenerator:
@@ -156,7 +156,7 @@ class DashboardGenerator:
                 'title': f"{service_name} - {target_role.upper()} Dashboard",
                 'service': service_def,
                 'target_role': target_role,
-                'generated_at': datetime.utcnow().isoformat() + 'Z',
+                'generated_at': datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + 'Z',
                 'version': '1.0'
             },
             'configuration': {

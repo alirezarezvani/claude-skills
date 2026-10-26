@@ -174,7 +174,7 @@ def route_exception(payload: dict[str, Any]) -> dict[str, Any]:
         "justification": req.get("justification"),
         "strategic_value": req.get("strategic_value"),
         "customer_threats": req.get("customer_threats", []),
-        "submitted_at": req.get("submitted_at") or datetime.datetime.utcnow().isoformat() + "Z",
+        "submitted_at": req.get("submitted_at") or datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None).isoformat() + "Z",
         "compensating_commitments_required": compensating,
         "approver_chain": chain,
         "verdict": "IN_POLICY" if in_policy else "EXCEPTION",

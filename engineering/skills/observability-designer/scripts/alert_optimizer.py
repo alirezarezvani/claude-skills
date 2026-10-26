@@ -21,7 +21,7 @@ import sys
 import re
 import math
 from typing import Dict, List, Any, Tuple, Set
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from collections import defaultdict, Counter
 
 
@@ -698,7 +698,7 @@ class AlertOptimizer:
         optimized_config = {
             'alerts': optimized_alerts,
             'optimization_metadata': {
-                'optimized_at': datetime.utcnow().isoformat() + 'Z',
+                'optimized_at': datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + 'Z',
                 'original_count': len(alerts),
                 'optimized_count': len(optimized_alerts),
                 'changes_applied': analysis_results.get('optimizations_applied', [])
@@ -828,7 +828,7 @@ class AlertOptimizer:
         analysis_results = {
             'summary': {
                 'total_alerts': len(alerts),
-                'analysis_timestamp': datetime.utcnow().isoformat() + 'Z'
+                'analysis_timestamp': datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + 'Z'
             },
             'noisy_alerts': self.analyze_alert_noise(alerts),
             'coverage_gaps': self.identify_coverage_gaps(alerts, services),

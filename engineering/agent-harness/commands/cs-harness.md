@@ -5,7 +5,7 @@ argument-hint: <domain> <goal text>
 
 # /cs-harness — run a goal through a domain's agent harness
 
-Parse `$ARGUMENTS`: the first token is the domain (one of the 18 manifest names under
+Parse `$ARGUMENTS`: the first token is the domain (one of the 20 manifest names under
 `engineering/agent-harness/skills/agent-harness/assets/harnesses/`); the rest is the goal.
 If the domain token doesn't match a manifest file, list the available manifests and ask.
 

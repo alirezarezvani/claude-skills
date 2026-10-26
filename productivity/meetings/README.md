@@ -23,6 +23,11 @@ The gate returns one of three verdicts: **ASYNC** (no decision needed — send a
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install meetings@claude-code-skills
+```
+
+```bash
 # 1. Gate the meeting — should it exist?
 python skills/meetings/scripts/meeting_cost_calculator.py --sample
 

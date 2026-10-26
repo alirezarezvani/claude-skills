@@ -35,7 +35,7 @@ per-run **state file** (the single source of truth; a fresh session resumes from
 ## Quick start
 
 ```bash
-# 0. Pick the domain manifest (18 committed under assets/harnesses/, e.g. engineering-team.json)
+# 0. Pick the domain manifest (20 committed under assets/harnesses/, e.g. engineering-team.json)
 ls assets/harnesses/
 
 # 1. Compile the goal (refuses vague goals with exit 3 + forcing questions)

@@ -73,6 +73,11 @@ than a quarter allows is reported as infeasible rather than quietly re-sized.
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install linkedin@claude-code-skills
+```
+
+```bash
 # See every tool run with zero configuration
 python3 skills/linkedin-skills/scripts/linkedin_policy_gate.py --sample --output human
 python3 skills/linkedin-profile/scripts/headline_scorer.py --sample-weak --output human

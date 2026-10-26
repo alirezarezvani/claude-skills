@@ -251,7 +251,7 @@ description: "143 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
 
     ---
 
-    Parse $ARGUMENTS: the first token is the domain (one of the 18 manifest names under
+    Parse $ARGUMENTS: the first token is the domain (one of the 20 manifest names under
 
 -   :material-console:{ .lg .middle } **[`/cs-memory`](cs-memory.md)**
 

@@ -1,13 +1,13 @@
 ---
 title: "Handoff — Agent Skill for Personal Productivity"
-description: "Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Write a handoff document so a fresh session or another agent can pick up exactly where this one left off: goal, current state, decisions, next steps. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # Handoff
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-lightning-bolt-outline: Productivity</span>
-<span class="meta-badge">:material-identifier: `handoff`</span>
+<span class="meta-badge">:material-identifier: `session-handoff`</span>
 <span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/productivity/handoff/skills/session-handoff/SKILL.md">Source</a></span>
 </div>
 

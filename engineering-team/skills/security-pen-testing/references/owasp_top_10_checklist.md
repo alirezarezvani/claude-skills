@@ -1,10 +1,25 @@
-# OWASP Top 10 (2021) — Detailed Security Checklist
+# OWASP Top 10:2025 — Detailed Security Checklist
 
-Comprehensive reference for each OWASP Top 10 category with descriptions, test procedures, code patterns to detect, remediation steps, and CVSS scoring guidance.
+Comprehensive reference for each [OWASP Top 10:2025](https://owasp.org/Top10/2025/) category with descriptions, test procedures, code patterns to detect, remediation steps, and CVSS scoring guidance.
+
+**Moving from the 2021 list.** Findings and reports written against 2021 codes map as follows. Two categories changed scope: SSRF (A10:2021) is now part of A01, and Vulnerable and Outdated Components (A06:2021) widened into A03 Software Supply Chain Failures, which also covers build pipelines and distribution. A10:2025 is new.
+
+| 2025 | Category | 2021 equivalent |
+|------|----------|-----------------|
+| A01 | Broken Access Control | A01 + A10 (SSRF) |
+| A02 | Security Misconfiguration | A05 |
+| A03 | Software Supply Chain Failures | A06 Vulnerable and Outdated Components (widened) |
+| A04 | Cryptographic Failures | A02 |
+| A05 | Injection | A03 |
+| A06 | Insecure Design | A04 |
+| A07 | Authentication Failures | A07 Identification and Authentication Failures |
+| A08 | Software or Data Integrity Failures | A08 |
+| A09 | Security Logging and Alerting Failures | A09 Security Logging and Monitoring Failures |
+| A10 | Mishandling of Exceptional Conditions | new |
 
 ---
 
-## A01:2021 — Broken Access Control
+## A01:2025 — Broken Access Control
 
 **CWEs Covered:** CWE-200, CWE-201, CWE-352, CWE-639, CWE-862, CWE-863
 
@@ -68,9 +83,136 @@ app.use('/admin/*', requireRole('admin'));
 - **Vertical escalation to admin:** CVSS 8.8 — AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
 - **Unauthenticated admin access:** CVSS 9.8 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
 
+### Server-Side Request Forgery (SSRF, formerly A10:2021)
+
+**CWEs Covered:** CWE-918
+
+#### Description
+
+SSRF occurs when a web application fetches a remote resource without validating the user-supplied URL, allowing attackers to reach internal services, cloud metadata endpoints, or other protected resources.
+
+#### Test Procedures
+
+| # | Test | Method | Expected Result |
+|---|------|--------|-----------------|
+| 1 | Internal IP access | Submit `http://127.0.0.1` in URL fields | Request blocked |
+| 2 | Cloud metadata | Submit `http://169.254.169.254/latest/meta-data/` | Request blocked |
+| 3 | IPv6 localhost | Submit `http://[::1]` | Request blocked |
+| 4 | DNS rebinding | Use DNS rebinding service | Request blocked after resolution |
+| 5 | URL encoding bypass | Submit `http://0x7f000001` (hex localhost) | Request blocked |
+| 6 | Open redirect chain | Find open redirect, chain to internal URL | Request blocked |
+
+#### Code Patterns to Detect
+
+```python
+# BAD: User-controlled URL without validation
+url = request.args.get("url")
+response = requests.get(url)  # SSRF!
+
+# GOOD: URL allowlist validation
+ALLOWED_HOSTS = {"api.example.com", "cdn.example.com"}
+parsed = urlparse(url)
+if parsed.hostname not in ALLOWED_HOSTS:
+    abort(403, "URL not in allowlist")
+response = requests.get(url)
+```
+
+#### Remediation
+
+1. Validate and allowlist outbound URLs (domain, scheme, port)
+2. Block requests to private IP ranges (10.x, 172.16-31.x, 192.168.x, 127.x, 169.254.x)
+3. Block requests to cloud metadata endpoints
+4. Use a dedicated egress proxy for outbound requests
+5. Disable unnecessary URL-fetching features
+6. Resolve DNS and validate the IP address before making the request
+
+#### CVSS Scoring Guidance
+
+- **SSRF to cloud metadata (credential theft):** CVSS 9.1 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
+- **SSRF to internal service (read):** CVSS 7.5 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
+- **Blind SSRF (no response data):** CVSS 5.3 — AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+
 ---
 
-## A02:2021 — Cryptographic Failures
+## A02:2025 — Security Misconfiguration
+
+**CWEs Covered:** CWE-2, CWE-11, CWE-13, CWE-15, CWE-16, CWE-388
+
+### Description
+
+The application is improperly configured, with default settings, unnecessary features enabled, verbose error messages, or missing security hardening.
+
+### Test Procedures
+
+| # | Test | Method | Expected Result |
+|---|------|--------|-----------------|
+| 1 | Default credentials | Try admin:admin, root:root | Rejected |
+| 2 | Debug mode | Trigger application errors | No stack traces in response |
+| 3 | Security headers | Check response headers | CSP, X-Frame-Options, XCTO, HSTS present |
+| 4 | HTTP methods | Send OPTIONS request | Only required methods allowed |
+| 5 | Directory listing | Request directory without index | Listing disabled (403 or redirect) |
+| 6 | Server version disclosure | Check Server and X-Powered-By headers | Version info removed |
+| 7 | Error messages | Submit invalid data | Generic error messages, no internal details |
+
+### Remediation
+
+1. Disable debug mode in production
+2. Remove default credentials and accounts
+3. Add all security headers (CSP, HSTS, X-Frame-Options, XCTO, Referrer-Policy)
+4. Remove Server and X-Powered-By headers
+5. Disable directory listing
+6. Implement generic error pages
+
+### CVSS Scoring Guidance
+
+- **Debug mode in production:** CVSS 5.3 — AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+- **Default admin credentials:** CVSS 9.8 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+- **Missing security headers:** CVSS 4.3 — AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
+
+---
+
+## A03:2025 — Software Supply Chain Failures
+
+**CWEs Covered:** CWE-1035, CWE-1104
+
+### Description
+
+Components (libraries, frameworks, software modules) with known vulnerabilities that can undermine application defenses.
+
+### Test Procedures
+
+| # | Test | Method | Expected Result |
+|---|------|--------|-----------------|
+| 1 | npm audit | `npm audit --json` | No critical or high vulnerabilities |
+| 2 | pip audit | `pip audit --desc` | No known CVEs |
+| 3 | Go vulncheck | `govulncheck ./...` | No reachable vulnerabilities |
+| 4 | EOL check | Compare framework versions to vendor EOL dates | No EOL components |
+| 5 | License audit | Check dependency licenses | No copyleft licenses in proprietary code |
+
+### Supply-chain additions (2025 scope)
+
+| # | Test | Method | Expected Result |
+|---|------|--------|-----------------|
+| 1 | Lockfile integrity | Check lockfiles are committed and CI installs with `npm ci` / `pip install --require-hashes` | Builds are reproducible from pinned hashes |
+| 2 | Build provenance | Check release artifacts carry signed provenance (for example SLSA attestations) | Provenance present and verified before deploy |
+| 3 | CI/CD trust | Review which workflows can publish, and whether third-party actions are pinned to a commit SHA | Publishing limited; actions pinned |
+| 4 | Dependency confusion | Check private package names are reserved or scoped on public registries | No public package can shadow an internal one |
+
+### Remediation
+
+1. Run dependency audits in CI/CD (block merges on critical/high)
+2. Set up automated dependency update PRs (Dependabot, Renovate)
+3. Pin dependency versions in lock files
+4. Remove unused dependencies
+5. Subscribe to security advisories for key dependencies
+
+### CVSS Scoring Guidance
+
+Inherit the CVSS score from the upstream CVE. Add environmental metrics based on reachability.
+
+---
+
+## A04:2025 — Cryptographic Failures
 
 **CWEs Covered:** CWE-259, CWE-327, CWE-328, CWE-330, CWE-331
 
@@ -128,7 +270,7 @@ token = secrets.token_urlsafe(32)
 
 ---
 
-## A03:2021 — Injection
+## A05:2025 — Injection
 
 **CWEs Covered:** CWE-20, CWE-74, CWE-75, CWE-77, CWE-78, CWE-79, CWE-89
 
@@ -187,7 +329,7 @@ db.query('SELECT * FROM users WHERE id = $1', [userId]);
 
 ---
 
-## A04:2021 — Insecure Design
+## A06:2025 — Insecure Design
 
 **CWEs Covered:** CWE-209, CWE-256, CWE-501, CWE-522
 
@@ -220,76 +362,7 @@ Insecure design represents weaknesses in the design and architecture of the appl
 
 ---
 
-## A05:2021 — Security Misconfiguration
-
-**CWEs Covered:** CWE-2, CWE-11, CWE-13, CWE-15, CWE-16, CWE-388
-
-### Description
-
-The application is improperly configured, with default settings, unnecessary features enabled, verbose error messages, or missing security hardening.
-
-### Test Procedures
-
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | Default credentials | Try admin:admin, root:root | Rejected |
-| 2 | Debug mode | Trigger application errors | No stack traces in response |
-| 3 | Security headers | Check response headers | CSP, X-Frame-Options, XCTO, HSTS present |
-| 4 | HTTP methods | Send OPTIONS request | Only required methods allowed |
-| 5 | Directory listing | Request directory without index | Listing disabled (403 or redirect) |
-| 6 | Server version disclosure | Check Server and X-Powered-By headers | Version info removed |
-| 7 | Error messages | Submit invalid data | Generic error messages, no internal details |
-
-### Remediation
-
-1. Disable debug mode in production
-2. Remove default credentials and accounts
-3. Add all security headers (CSP, HSTS, X-Frame-Options, XCTO, Referrer-Policy)
-4. Remove Server and X-Powered-By headers
-5. Disable directory listing
-6. Implement generic error pages
-
-### CVSS Scoring Guidance
-
-- **Debug mode in production:** CVSS 5.3 — AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
-- **Default admin credentials:** CVSS 9.8 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-- **Missing security headers:** CVSS 4.3 — AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N
-
----
-
-## A06:2021 — Vulnerable and Outdated Components
-
-**CWEs Covered:** CWE-1035, CWE-1104
-
-### Description
-
-Components (libraries, frameworks, software modules) with known vulnerabilities that can undermine application defenses.
-
-### Test Procedures
-
-| # | Test | Method | Expected Result |
-|---|------|--------|-----------------|
-| 1 | npm audit | `npm audit --json` | No critical or high vulnerabilities |
-| 2 | pip audit | `pip audit --desc` | No known CVEs |
-| 3 | Go vulncheck | `govulncheck ./...` | No reachable vulnerabilities |
-| 4 | EOL check | Compare framework versions to vendor EOL dates | No EOL components |
-| 5 | License audit | Check dependency licenses | No copyleft licenses in proprietary code |
-
-### Remediation
-
-1. Run dependency audits in CI/CD (block merges on critical/high)
-2. Set up automated dependency update PRs (Dependabot, Renovate)
-3. Pin dependency versions in lock files
-4. Remove unused dependencies
-5. Subscribe to security advisories for key dependencies
-
-### CVSS Scoring Guidance
-
-Inherit the CVSS score from the upstream CVE. Add environmental metrics based on reachability.
-
----
-
-## A07:2021 — Identification and Authentication Failures
+## A07:2025 — Authentication Failures
 
 **CWEs Covered:** CWE-255, CWE-259, CWE-287, CWE-288, CWE-384, CWE-798
 
@@ -326,7 +399,7 @@ Weaknesses in authentication mechanisms that allow attackers to compromise passw
 
 ---
 
-## A08:2021 — Software and Data Integrity Failures
+## A08:2025 — Software or Data Integrity Failures
 
 **CWEs Covered:** CWE-345, CWE-353, CWE-426, CWE-494, CWE-502, CWE-565, CWE-829
 
@@ -358,7 +431,7 @@ Code and infrastructure that does not protect against integrity violations, incl
 
 ---
 
-## A09:2021 — Security Logging and Monitoring Failures
+## A09:2025 — Security Logging and Alerting Failures
 
 **CWEs Covered:** CWE-117, CWE-223, CWE-532, CWE-778
 
@@ -390,51 +463,51 @@ Logging failures are typically scored as contributing factors rather than standa
 
 ---
 
-## A10:2021 — Server-Side Request Forgery (SSRF)
+## A10:2025 — Mishandling of Exceptional Conditions
 
-**CWEs Covered:** CWE-918
+**CWEs Covered (examples):** CWE-209, CWE-234, CWE-274, CWE-476, CWE-636 (Not Failing Securely)
 
 ### Description
 
-SSRF occurs when a web application fetches a remote resource without validating the user-supplied URL, allowing attackers to reach internal services, cloud metadata endpoints, or other protected resources.
+The application handles errors, timeouts and unexpected input in a way that weakens security: a check that fails open, an exception that leaks internals, a crash that becomes a denial of service, or an operation that fails halfway and leaves state inconsistent.
 
 ### Test Procedures
 
 | # | Test | Method | Expected Result |
 |---|------|--------|-----------------|
-| 1 | Internal IP access | Submit `http://127.0.0.1` in URL fields | Request blocked |
-| 2 | Cloud metadata | Submit `http://169.254.169.254/latest/meta-data/` | Request blocked |
-| 3 | IPv6 localhost | Submit `http://[::1]` | Request blocked |
-| 4 | DNS rebinding | Use DNS rebinding service | Request blocked after resolution |
-| 5 | URL encoding bypass | Submit `http://0x7f000001` (hex localhost) | Request blocked |
-| 6 | Open redirect chain | Find open redirect, chain to internal URL | Request blocked |
+| 1 | Fail-open | Make the authorization, policy or payment dependency time out or return 500 | Request denied, not allowed |
+| 2 | Error leakage | Send malformed JSON, wrong types, oversized bodies, missing fields | Generic 4xx; no stack trace, SQL or internal path |
+| 3 | Crash on input | Fuzz parsers and upload handlers with truncated and unexpected input | Service keeps serving; error logged |
+| 4 | Partial transactions | Interrupt multi-step operations (transfer, checkout, provisioning) mid-way | State rolls back completely |
+| 5 | Resource exhaustion | Trigger repeated errors in a loop | Rate limits apply; no unbounded retries or leaked handles |
 
 ### Code Patterns to Detect
 
 ```python
-# BAD: User-controlled URL without validation
-url = request.args.get("url")
-response = requests.get(url)  # SSRF!
+# BAD: authorization fails open when the policy service errors
+try:
+    allowed = policy.check(user, resource)
+except Exception:
+    allowed = True
 
-# GOOD: URL allowlist validation
-ALLOWED_HOSTS = {"api.example.com", "cdn.example.com"}
-parsed = urlparse(url)
-if parsed.hostname not in ALLOWED_HOSTS:
-    abort(403, "URL not in allowlist")
-response = requests.get(url)
+# GOOD: fail closed, log, and return a generic error
+try:
+    allowed = policy.check(user, resource)
+except PolicyError:
+    log.exception("policy check failed")
+    allowed = False
 ```
 
 ### Remediation
 
-1. Validate and allowlist outbound URLs (domain, scheme, port)
-2. Block requests to private IP ranges (10.x, 172.16-31.x, 192.168.x, 127.x, 169.254.x)
-3. Block requests to cloud metadata endpoints
-4. Use a dedicated egress proxy for outbound requests
-5. Disable unnecessary URL-fetching features
-6. Resolve DNS and validate the IP address before making the request
+1. Fail closed: any error in a security decision results in denial
+2. Catch exceptions at a boundary, log the detail server-side, return a generic message
+3. Wrap multi-step state changes in transactions with rollback
+4. Set timeouts, retry limits and resource limits on every external call
+5. Test error paths explicitly, not only the happy path
 
 ### CVSS Scoring Guidance
 
-- **SSRF to cloud metadata (credential theft):** CVSS 9.1 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
-- **SSRF to internal service (read):** CVSS 7.5 — AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
-- **Blind SSRF (no response data):** CVSS 5.3 — AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+- **Authorization fails open on dependency error:** CVSS 8.1 — AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N
+- **Stack trace or query disclosure:** CVSS 5.3 — AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+- **Crash on malformed input (DoS):** CVSS 7.5 — AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H

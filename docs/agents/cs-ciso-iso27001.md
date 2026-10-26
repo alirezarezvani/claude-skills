@@ -45,7 +45,7 @@ Differentiates clearly:
 
 1. **ISMS Audit Scheduler**
    - Path: `${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/scripts/isms_audit_scheduler.py`
-   - Usage: `python isms_audit_scheduler.py audit_scope.json`
+   - Usage: `python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/scripts/isms_audit_scheduler.py audit_scope.json`
    - Returns: 12-month audit plan with quarterly slots covering Clauses 4-10 + applicable Annex A controls; auditor independence checks; rolling 3-year coverage status
 
 ### Knowledge Bases
@@ -66,7 +66,7 @@ Differentiates clearly:
 ### Workflow 1: Annual Internal Audit Programme (1 day to plan; 5-10 days fieldwork)
 
 ```bash
-python isms_audit_scheduler.py audit_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/scripts/isms_audit_scheduler.py audit_scope.json
 # Verify rolling 3-year coverage hits every clause + every applicable Annex A control
 # Verify auditor independence per assignment
 # Execute fieldwork per Phase 4 of audit_playbook.md
@@ -78,7 +78,7 @@ python isms_audit_scheduler.py audit_scope.json
 ```bash
 # 1. Run gap analysis (cross-reference compliance_checker.py from information-security-manager-iso27001)
 # 2. Run audit simulator with stage-1 scope (Clauses 4-10 + critical Annex A)
-python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py stage1_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/compliance-os/scripts/audit_simulator.py stage1_scope.json
 # 3. Close critical + major findings before external auditor arrives
 # 4. Stage 1 documentation audit
 ```
@@ -86,7 +86,7 @@ python ../../compliance-os/skills/compliance-os/scripts/audit_simulator.py stage
 ### Workflow 3: Surveillance Audit Prep (year 2 / year 3 of cert cycle)
 
 ```bash
-python isms_audit_scheduler.py surveillance_scope.json
+python ${CLAUDE_PLUGIN_ROOT}/vendor/ra-qm-team/isms-audit-expert/scripts/isms_audit_scheduler.py surveillance_scope.json
 # Focus: prior-year findings closure + management review + sampling of high-leverage controls
 # Cross-check with cs-compliance-officer for multi-framework calendar
 ```

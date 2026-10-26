@@ -22,6 +22,11 @@ Relentless plan-and-design interrogator. Walks the decision tree one branch at a
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install grill-me@claude-code-skills
+```
+
+```bash
 # Extract decision branches from a plan
 python skills/grill-me/scripts/decision_tree_extractor.py path/to/plan.md
 

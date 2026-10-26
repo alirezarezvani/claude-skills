@@ -437,7 +437,7 @@ nav:
       - "Inbox Setup (KB Builder)": skills/productivity/email-inbox-setup.md
       - "Inbox Triage (Drafts-Only)": skills/productivity/email-inbox-triage.md
       - "Reflect (Light-Prompt Journal)": skills/productivity/reflect.md
-      - "Handoff (Matt Pocock-inspired)": skills/productivity/handoff.md
+      - "Session Handoff (Matt Pocock-inspired)": skills/productivity/handoff-session-handoff.md
       - "Andreessen (Market-First Decisions)": skills/productivity/andreessen.md
     - Marketing (Landing Pages):
       - Overview: skills/marketing/index.md

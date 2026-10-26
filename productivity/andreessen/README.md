@@ -66,6 +66,11 @@ andreessen/
 ## Quick start
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install andreessen@claude-code-skills
+```
+
+```bash
 # Should I build this? (market weighted 0.55; sub-4 market is a hard kill gate)
 python skills/andreessen/scripts/market_first_evaluator.py \
   --size 8 --growth 7 --timing 9 --pull 8 --team 6 --product 5

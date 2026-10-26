@@ -67,7 +67,7 @@ def find_candidates(config: dict) -> list[Path]:
 
 def plan_cleanup(config: dict, now: dt.datetime | None = None) -> dict:
     retention = int(config.get("retention_days", 7))
-    now = now or dt.datetime.utcnow()
+    now = now or dt.datetime.now(dt.timezone.utc).replace(tzinfo=None)
     plan = {
         "retention_days": retention,
         "candidates": [],

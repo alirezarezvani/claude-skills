@@ -65,17 +65,17 @@ unaccounted for.
 
 ```bash
 # 1. Inventory open loops in the workspace (checkboxes, TODO/FIXME, stale files)
-python ../skills/weekly-review/scripts/open_loop_scanner.py --dir . --stale-days 14
+python ${CLAUDE_PLUGIN_ROOT}/skills/weekly-review/scripts/open_loop_scanner.py --dir . --stale-days 14
 
 # 2. Show the numbered ten-step checklist, then walk it with the user phase by phase
-python ../skills/weekly-review/scripts/weekly_review_gate.py --list
+python ${CLAUDE_PLUGIN_ROOT}/skills/weekly-review/scripts/weekly_review_gate.py --list
 
 # 3. Gate what was actually done — names every missing step; exit 2 if incomplete
-python ../skills/weekly-review/scripts/weekly_review_gate.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/weekly-review/scripts/weekly_review_gate.py \
   --done "1,2,3,4,5,6,7,8,10" --skip "9:no someday list yet"
 
 # 4. Audit the commitment portfolio (JSON list of {name, days_since_touched, has_next_action})
-python ../skills/weekly-review/scripts/commitment_auditor.py --input commitments.json
+python ${CLAUDE_PLUGIN_ROOT}/skills/weekly-review/scripts/commitment_auditor.py --input commitments.json
 ```
 
 ## Stop Conditions

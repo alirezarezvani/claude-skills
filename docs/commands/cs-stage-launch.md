@@ -17,9 +17,9 @@ Run the `stage-launch` skill.
 
 ## Steps
 
-1. `python3 agent-launcher/skills/stage-launch/scripts/payload_generator.py --sheet ./my-agent/build-sheet.json --out-dir ./my-agent`
-2. `python3 agent-launcher/skills/stage-launch/scripts/launch_script_writer.py --out-dir ./my-agent`
-3. `python3 agent-launcher/skills/stage-launch/scripts/payload_validator.py --dir ./my-agent`
+1. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/stage-launch/scripts/payload_generator.py --sheet ./my-agent/build-sheet.json --out-dir ./my-agent`
+2. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/stage-launch/scripts/launch_script_writer.py --out-dir ./my-agent`
+3. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/stage-launch/scripts/payload_validator.py --dir ./my-agent`
    — FAIL blocks (especially a key_leak finding).
 4. Minimal key step (in the founder's shell, never chat):
    `[ -n "$ANTHROPIC_API_KEY" ] && echo present || echo "export ANTHROPIC_API_KEY=... first"`.

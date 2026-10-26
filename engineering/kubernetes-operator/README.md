@@ -12,6 +12,11 @@ End-to-end discipline for building Kubernetes Operators correctly. Catches the r
 ## Install
 
 ```bash
+/plugin marketplace add alirezarezvani/claude-skills
+/plugin install kubernetes-operator@claude-code-skills
+```
+
+```bash
 # Via Claude Code marketplace
 /plugin install kubernetes-operator
 

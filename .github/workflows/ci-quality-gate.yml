@@ -149,10 +149,18 @@ jobs:
         run: |
           python3 scripts/smoke_scripts.py
 
-      - name: JSON-output sample gate (gate G9 — advisory)
-        continue-on-error: true
+      # Ratchet: tools in scripts/smoke_json_baseline.txt may still lack --sample,
+      # but no new JSON tool may, and the baseline may only shrink.
+      - name: JSON-output sample gate (gate G9 — blocking, ratchet)
         run: |
           python3 scripts/smoke_json_output.py
+
+      - name: No deprecated datetime.utcnow (blocking)
+        run: |
+          if grep -rnE --include='*.py' '(^|[^_[:alnum:]])datetime\.utcnow\(' --exclude-dir=.git --exclude-dir=docs . ; then
+            echo "datetime.utcnow() is deprecated since Python 3.12; use datetime.now(timezone.utc)." >&2
+            exit 1
+          fi
 
       - name: Counter derivation check (gate G3 — blocking)
         run: |

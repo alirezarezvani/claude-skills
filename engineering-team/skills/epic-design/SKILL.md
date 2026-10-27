@@ -242,9 +242,9 @@ These are MANDATORY in every output:
 </section>
 ```
 
-→ Full boilerplate: `assets/hero-section.html`
-→ Full CSS system: `assets/hero-section.css`
-→ Full JS engine: `assets/hero-section.js`
+→ Full-page implementations built on this structure: `references/examples.md`
+→ Layer CSS and depth values: `references/depth-system.md`
+→ Scroll and motion engine: `references/motion-system.md`
 
 ---
 

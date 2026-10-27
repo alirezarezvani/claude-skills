@@ -1,0 +1,8 @@
+system,account_id,email,employee_id,account_type,enabled,privileged,last_login,created,owner_email,last_reviewed
+okta,u-100,ana.ruiz@example.com,E100,human,true,false,2026-10-29,2024-02-01,,2026-07-15
+okta,u-101,ben.okafor@example.com,E101,human,true,false,2026-09-29,2023-05-10,,2026-07-15
+aws,arn-102,cara.lind@example.com,E102,human,true,true,2026-10-30,2025-01-12,,2026-08-01
+aws,arn-103,dev.shah@example.com,E103,human,false,true,2026-10-24,2024-11-03,,2026-08-01
+github,gh-ghost,old.contractor@example.com,,human,true,false,2026-05-02,2025-03-01,,2026-07-15
+aws,svc-backup,,,service,true,true,2026-10-31,2023-01-01,ben.okafor@example.com,2026-01-10
+okta,u-104,lee.chan@example.com,E104,human,true,true,2026-10-31,2022-06-01,,2026-09-01

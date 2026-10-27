@@ -1,0 +1,15 @@
+{
+  "name": "access-lifecycle",
+  "description": "Prove your user access reviews before the auditor tests them. Three deterministic stdlib scripts: a roster diff that joins the HR roster to account exports and blocks on leavers still enabled or used after exit, privileged orphans and ownerless privileged service accounts; a campaign checker that blocks on population gaps, undecided lines, self-review and revokes not removed inside your window, and flags rubber-stamping; and a control mapper that turns findings into per-control status for SOC 2, ISO 27001, NIST 800-53, PCI DSS, HIPAA and SOX IPE. Ships cs-access-reviewer agent, /cs-access-review and /cs-access-diff commands, 3 cited references and an access review sign-off template.",
+  "version": "2.14.3",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/access-lifecycle",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/access-lifecycle"
+  ]
+}

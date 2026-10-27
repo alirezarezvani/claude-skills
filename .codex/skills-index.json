@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 397,
+  "total_skills": 399,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -2178,6 +2178,18 @@
       "description": "Write internal company communications \u2014 3P updates (Progress/Plans/Problems), company-wide newsletters, FAQ roundups, incident reports, leadership updates, status reports, project updates, and general internal comms. Use this skill any time the user asks to draft, edit, or format something meant for internal audiences. Trigger on keywords like \"3P\", \"weekly update\", \"newsletter\", \"FAQ\", \"internal comms\", \"status report\", \"company update\", \"team update\", \"incident report\", or any request to summarize work for leadership, teammates, or the broader company. Even casual requests like \"write my update\" or \"summarize what my team did this week\" should trigger this skill."
     },
     {
+      "name": "access-lifecycle",
+      "source": "../../ra-qm-team/skills/access-lifecycle",
+      "category": "ra-qm",
+      "description": "Use when preparing or running a user access review, checking that leavers lost their access, finding orphaned or ownerless service accounts, answering an auditor's access-control request for SOC 2, ISO 27001, PCI DSS, HIPAA or NIST 800-53, or checking whether a finished review campaign will hold up. Diffs the HR roster against account exports, tests the campaign for coverage, self-review, unremoved revokes and rubber-stamping, and maps every exception to the controls it breaks."
+    },
+    {
+      "name": "access-lifecycle",
+      "source": "../../ra-qm-team/access-lifecycle/skills/access-lifecycle",
+      "category": "ra-qm",
+      "description": "Use when preparing or running a user access review, checking that leavers lost their access, finding orphaned or ownerless service accounts, answering an auditor's access-control request for SOC 2, ISO 27001, PCI DSS, HIPAA or NIST 800-53, or checking whether a finished review campaign will hold up. Diffs the HR roster against account exports, tests the campaign for coverage, self-review, unremoved revokes and rubber-stamping, and maps every exception to the controls it breaks."
+    },
+    {
       "name": "agent-decision-receipts",
       "source": "../../ra-qm-team/skills/agent-decision-receipts",
       "category": "ra-qm",
@@ -2460,7 +2472,7 @@
       "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
-      "count": 19,
+      "count": 21,
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     },

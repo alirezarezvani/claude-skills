@@ -1,0 +1,9 @@
+{
+  "tokens": {
+    "access_token": "redacted-access",
+    "expires_at": 1793116893,
+    "refresh_token": "redacted-refresh",
+    "scope": "read",
+    "token_type": "Bearer"
+  }
+}

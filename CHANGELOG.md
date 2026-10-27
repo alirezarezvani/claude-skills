@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **epic-design pointed at asset files that never existed** (#1051). `SKILL.md` sent agents to
+  `assets/hero-section.html/.css/.js`; the pointers now name the references that hold that material
+  (`examples.md`, `depth-system.md`, `motion-system.md`).
+- **playwright-pro's router skill name did not match its folder** (#1051). `skills/pw/SKILL.md` now
+  declares `name: "pw"`, as the Agent Skills spec requires and as every mirror index already used.
+
 ## [2.14.2] - 2026-10-26 — Skills that trigger, OWASP 2025, blocking JSON gate
 
 Remaining P2 items from the v2.14.0 real-state audit. The 43 plugins whose files changed move to 2.14.2.

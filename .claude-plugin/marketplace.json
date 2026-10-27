@@ -269,7 +269,7 @@
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock — each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs-fullstack-review, /cs-frontend-review, /cs-backend-review, /cs-engineer-grill slash commands.",
-      "version": "2.14.2",
+      "version": "2.14.3",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -402,7 +402,7 @@
       "name": "pw",
       "source": "./engineering-team/playwright-pro",
       "description": "Production-grade Playwright testing toolkit. 9 skills, 3 agents, 55 templates, plus optional (manually enabled) TestRail/BrowserStack integrations. Generate tests, fix flaky failures, migrate from Cypress/Selenium.",
-      "version": "2.14.1",
+      "version": "2.14.3",
       "author": {
         "name": "Alireza Rezvani"
       },

@@ -1,0 +1,7 @@
+system,account_id,user_email,reviewer_email,decision,decided_at,removed_at,privileged
+okta,u-100,ana.ruiz@example.com,lee.chan@example.com,keep,2026-10-10T09:00:00,,false
+okta,u-101,ben.okafor@example.com,lee.chan@example.com,revoke,2026-10-10T09:01:00,,false
+aws,arn-102,cara.lind@example.com,cara.lind@example.com,keep,2026-10-11T14:20:00,,true
+github,gh-ghost,old.contractor@example.com,lee.chan@example.com,,,,false
+okta,u-104,lee.chan@example.com,mia.berg@example.com,keep,2026-10-12T10:00:00,,true
+aws,arn-103,dev.shah@example.com,lee.chan@example.com,modify,2026-10-28T16:00:00,,true

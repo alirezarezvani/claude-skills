@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "143 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "145 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">143 commands for quick access to common operations</p>
+<p class="domain-count">145 commands for quick access to common operations</p>
 
 </div>
 
@@ -438,6 +438,18 @@ description: "143 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
     ---
 
     Command: /cs-arquiteto
+
+-   :material-console:{ .lg .middle } **[`/cs-access-diff`](cs-access-diff.md)**
+
+    ---
+
+    Answer one question about $ARGUMENTS: who has access the HR roster says they should not?
+
+-   :material-console:{ .lg .middle } **[`/cs-access-review`](cs-access-review.md)**
+
+    ---
+
+    Answer one question about $ARGUMENTS: would this access review survive the auditor's walkthrough?
 
 -   :material-console:{ .lg .middle } **[`/cs-flux-review`](cs-flux-review.md)**
 

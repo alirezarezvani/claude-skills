@@ -24,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   contributed by @Ben-Home). Diagnoses an OAuth-backed MCP connector that authenticated before and now
   returns 401s. `oauth_triage.py` classifies the fault from a token record and a connector log as envelope
   mismatch, expiry semantics, rotation clobber, binding fault or poisoned negative cache, then names one next
-  probe; `run_fixtures.py` replays six shipped fixtures. Standard library only, no network calls.
+  probe; `run_fixtures.py` replays six shipped fixtures. Both take `--sample` for gate G9. Standard library only,
+  no network calls.
 
 ### Fixed
 

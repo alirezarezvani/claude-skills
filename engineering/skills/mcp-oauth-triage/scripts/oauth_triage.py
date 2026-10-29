@@ -383,6 +383,21 @@ def build_verdict(findings):
     return primary, confidence, real
 
 
+# Embedded rotation-clobber case for --sample: three concurrent exchanges, one
+# store, and a stored refresh token that matches none of the issued ones.
+SAMPLE_RECORD = {
+    "access_token": "redacted-access",
+    "expires_at": 4102444800,
+    "refresh_token": "stale-refresh-token",
+}
+SAMPLE_EVENTS = [
+    {"event": "exchange", "result": {"refresh_token": "new-token-one"}, "ts": 1793113193},
+    {"event": "exchange", "result": {"refresh_token": "new-token-two"}, "ts": 1793113203},
+    {"event": "exchange", "result": {"refresh_token": "newest-token-value"}, "ts": 1793113213},
+    {"event": "store", "ts": 1793113223},
+]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Classify why an MCP connector lost OAuth authentication.",
@@ -391,7 +406,8 @@ def main(argv=None):
             "Examples:\n"
             "  oauth_triage.py --token-file token.json --log connector.jsonl\n"
             "  oauth_triage.py --token-file token.json --expect-flat --expect-absolute-expiry\n"
-            "  oauth_triage.py --token-file token.json --redact"
+            "  oauth_triage.py --token-file token.json --redact\n"
+            "  oauth_triage.py --sample --json"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -407,7 +423,12 @@ def main(argv=None):
     parser.add_argument("--expect-iss", help="Issuer the failing surface advertises")
     parser.add_argument("--json", action="store_true", help="Emit a JSON verdict")
     parser.add_argument("--verbose", action="store_true", help="Print each finding as it is produced")
+    parser.add_argument("--sample", action="store_true",
+                        help="Classify an embedded rotation-clobber record and log; no files needed")
     args = parser.parse_args(argv)
+
+    if args.sample:
+        args.token_file, args.log = "<sample>", "<sample>"
 
     if not args.token_file and not args.log:
         parser.print_help()
@@ -416,7 +437,9 @@ def main(argv=None):
     record = {}
     events = []
 
-    if args.token_file:
+    if args.sample:
+        record, events = dict(SAMPLE_RECORD), list(SAMPLE_EVENTS)
+    elif args.token_file:
         try:
             record = load_json(args.token_file)
         except (OSError, ValueError) as exc:
@@ -427,7 +450,7 @@ def main(argv=None):
         print(json.dumps(redact(record), indent=2, sort_keys=True))
         return 0
 
-    if args.log:
+    if args.log and not args.sample:
         try:
             events = load_jsonl(args.log)
         except OSError as exc:

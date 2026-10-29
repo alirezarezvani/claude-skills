@@ -52,7 +52,8 @@ def main(argv=None):
             "Examples:\n"
             "  run_fixtures.py --verbose\n"
             "  run_fixtures.py --case rotation --json\n"
-            "  run_fixtures.py --list"
+            "  run_fixtures.py --list\n"
+            "  run_fixtures.py --sample --json"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -62,7 +63,12 @@ def main(argv=None):
     parser.add_argument("--list", action="store_true", help="List case names and exit")
     parser.add_argument("--json", action="store_true", help="Emit a JSON report")
     parser.add_argument("--verbose", action="store_true", help="Print every case, including passes")
+    parser.add_argument("--sample", action="store_true",
+                        help="Run the fixture matrix shipped with the skill (ignores --fixtures)")
     args = parser.parse_args(argv)
+
+    if args.sample:
+        args.fixtures = EXPECTED
 
     try:
         expected = load_expected(args.fixtures)

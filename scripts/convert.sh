@@ -278,7 +278,7 @@ copy_supporting_dirs() {
   local src_dir="$1"
   local dst_dir="$2"
   local d
-  for d in scripts references templates; do
+  for d in scripts references templates assets; do
     if [[ -d "${src_dir}/${d}" ]]; then
       cp -R "${src_dir}/${d}" "${dst_dir}/${d}"
     fi

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.3] - 2026-10-29 — Access-review evidence, MCP OAuth triage, community fixes
+
+Two new skills and five fixes, three of them from community contributors. The six plugins whose
+files changed move to 2.14.3: `access-lifecycle` (new), `ra-qm-skills`, `engineering-advanced-skills`,
+`engineering-skills`, `pw` and `markdown-html-skills`.
+
 ### Added
 
 - **access-lifecycle** (`ra-qm-team/access-lifecycle/`, also bundled in `ra-qm-skills`). Produces the

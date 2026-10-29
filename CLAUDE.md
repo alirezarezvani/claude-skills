@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.2 (audit P2 release: code-reviewer, self-improving-agent and session-handoff descriptions rewritten so they trigger, OWASP Top 10:2025 in the security skills, datetime.utcnow removed, gate G9 blocking as a ratchet, install-doc drift fixed; 43 plugins at 2.14.2. See CHANGELOG.md [2.14.2].)
+**Version:** v2.14.3 (access-review evidence + community release: new access-lifecycle and mcp-oauth-triage skills, install docs list only real plugins, convert.sh copies assets/, md-slides loads in Antigravity, epic-design and playwright-pro spec fixes from #1051; 6 plugins at 2.14.3. See CHANGELOG.md [2.14.3].)
+
+**Previously: v2.14.2** (audit P2 release: code-reviewer, self-improving-agent and session-handoff descriptions rewritten so they trigger, OWASP Top 10:2025 in the security skills, datetime.utcnow removed, gate G9 blocking as a ratchet, install-doc drift fixed; 43 plugins at 2.14.2. See CHANGELOG.md [2.14.2].)
 
 **Previously: v2.14.1** (audit fix release: all 104 plugins bumped so `claude plugin update` reaches existing installs, new version-bump gate G11, category-scoped Codex installer, `${CLAUDE_PLUGIN_ROOT}` script paths, productivity handoff renamed session-handoff. See CHANGELOG.md [2.14.1].)
 
@@ -865,6 +867,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** October 26, 2026
-**Version:** v2.14.2 (audit P2 release — see CHANGELOG.md)
+**Last Updated:** October 29, 2026
+**Version:** v2.14.3 (access-review evidence + community release — see CHANGELOG.md)
 **Status:** 401 production-ready skills across 20 domains, 105 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

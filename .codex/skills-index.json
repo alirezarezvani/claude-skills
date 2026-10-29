@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 399,
+  "total_skills": 400,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -651,7 +651,7 @@
       "name": "md-slides",
       "source": "../../markdown-html/skills/md-slides",
       "category": "documentation",
-      "description": "\"Converts a markdown deck (slides separated by `"
+      "description": "Converts a markdown deck (slides separated by horizontal-rule boundaries or by `# ` H1 headings, with optional HTML-comment `notes:` presenter-notes blocks) into a single-file HTML presentation with arrow-key / space / PgDn / PgUp / Home / End / P / Esc keyboard navigation, presenter mode (split view with current slide + speaker notes + clock + next-slide preview), URL-hash deep linking, and `@media print` page-per-slide for PDF export. Triggers when the markdown-html-orchestrator classifies an input as SLIDES, or when invoked directly via /cs-md-slides. Reuses md-document's markdown parser for slide-body rendering and reads design-system tokens via config_loader.py. Refuses if input has no clear slide boundaries, produces a 1-slide deck, or `--strict-notes` is on with under 50% notes coverage. Use after orchestrator routing."
     },
     {
       "name": "a11y-audit",
@@ -1342,6 +1342,12 @@
       "source": "../../loop-library",
       "category": "engineering-advanced",
       "description": "Discover, find, compare, audit, repair, adapt, and design repeatable AI-agent loops with explicit triggers, actions, verification, stopping conditions, guardrails, and handoffs. Use when a user asks to analyze a codebase for potential loops, mine coding-thread history for work done more than once, turn repeated engineering work into a loop, find or recommend a published loop, create a recurring agent workflow or automation cadence, turn an outcome into a bounded copy-ready loop, or review an existing loop for weak checks, unsafe authority, unbounded repetition, stale state, or unclear stopping behavior."
+    },
+    {
+      "name": "mcp-oauth-triage",
+      "source": "../../engineering/skills/mcp-oauth-triage",
+      "category": "engineering-advanced",
+      "description": "Diagnose why an MCP connector that used to authenticate now fails: classify the fault as envelope, expiry, rotation clobber, binding, or poisoned cache before changing any code. Use when a token exchange succeeds but tool calls 401, when a connector silently degrades after a refresh, when multi-account setups return another account's data, or when re-authenticating fixes the problem only until the next refresh."
     },
     {
       "name": "mcp-server-builder",
@@ -2442,7 +2448,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 97,
+      "count": 98,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

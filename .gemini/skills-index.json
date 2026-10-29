@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 450,
+  "total_skills": 451,
   "skills": [
     {
       "name": "content-strategist",
@@ -1369,6 +1369,11 @@
       "description": "Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, monthly). Uses CronCreate for scheduling. Use when the user runs /ar:loop or asks to run an autoresearch experiment continuously on a schedule."
     },
     {
+      "name": "mcp-oauth-triage",
+      "category": "engineering-advanced",
+      "description": "Diagnose why an MCP connector that used to authenticate now fails: classify the fault as envelope, expiry, rotation clobber, binding, or poisoned cache before changing any code. Use when a token exchange succeeds but tool calls 401, when a connector silently degrades after a refresh, when multi-account setups return another account's data, or when re-authenticating fixes the problem only until the next refresh."
+    },
+    {
       "name": "mcp-server-builder",
       "category": "engineering-advanced",
       "description": "Design and ship production-ready MCP (Model Context Protocol) servers from OpenAPI contracts instead of hand-written tool wrappers. Python and TypeScript support, schema validation, safe evolution. Use when exposing an existing API as an MCP server, building tool integrations for Claude or Codex or Cursor, or scaffolding an MCP project from scratch."
@@ -1606,7 +1611,7 @@
     {
       "name": "md-slides",
       "category": "markdown-html",
-      "description": "\"Converts a markdown deck (slides separated by `"
+      "description": "Converts a markdown deck (slides separated by horizontal-rule boundaries or by `# ` H1 headings, with optional HTML-comment `notes:` presenter-notes blocks) into a single-file HTML presentation with arrow-key / space / PgDn / PgUp / Home / End / P / Esc keyboard navigation, presenter mode (split view with current slide + speaker notes + clock + next-slide preview), URL-hash deep linking, and `@media print` page-per-slide for PDF export. Triggers when the markdown-html-orchestrator classifies an input as SLIDES, or when invoked directly via /cs-md-slides. Reuses md-document's markdown parser for slide-body rendering and reads design-system tokens via config_loader.py. Refuses if input has no clear slide boundaries, produces a 1-slide deck, or `--strict-notes` is on with under 50% notes coverage. Use after orchestrator routing."
     },
     {
       "name": "ab-test-setup",
@@ -2296,7 +2301,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 90,
+      "count": 91,
       "description": "Engineering-advanced resources"
     },
     "finance": {

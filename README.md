@@ -79,12 +79,14 @@ cd claude-skills
 /plugin install business-growth-skills@claude-code-skills       # 4 business & growth
 /plugin install finance-skills@claude-code-skills               # 2 finance (analyst + SaaS metrics)
 
-# Or install individual skills
-/plugin install skill-security-auditor@claude-code-skills       # Security scanner
-/plugin install playwright-pro@claude-code-skills                  # Playwright testing toolkit
+# Or install a standalone plugin
+/plugin install pw@claude-code-skills                           # Playwright testing toolkit
 /plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
-/plugin install content-creator@claude-code-skills              # Single skill
+/plugin install karpathy-coder@claude-code-skills               # Coding-discipline reviewer
+/plugin install grill-me@claude-code-skills                     # Plan interrogator
 ```
+
+Only names listed in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) can be installed. Most skills (for example `skill-security-auditor` or `content-creator`) ship inside a domain bundle, so install the bundle that contains them. Run `/plugin` and open the marketplace to browse every installable name.
 
 ### OpenAI Codex
 

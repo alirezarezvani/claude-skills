@@ -130,22 +130,24 @@ This adds the skills library to your available marketplaces.
 /plugin install finance-skills@claude-code-skills       # 2 finance skills
 ```
 
-### Install Individual Skills
+### Install Standalone Plugins
+
+Only names listed in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) can be installed. Skills such as `content-creator`, `senior-fullstack` or `scrum-master` ship inside a domain bundle above; install that bundle to get them. Run `/plugin` and open the marketplace to browse every installable name.
 
 ```bash
-# Marketing
-/plugin install content-creator@claude-code-skills
-/plugin install demand-gen@claude-code-skills
-
 # Engineering
-/plugin install fullstack-engineer@claude-code-skills
-/plugin install aws-architect@claude-code-skills
+/plugin install pw@claude-code-skills                 # Playwright testing toolkit
+/plugin install karpathy-coder@claude-code-skills
+
+# Marketing
+/plugin install aeo@claude-code-skills
+/plugin install linkedin@claude-code-skills
 
 # Product
-/plugin install product-manager@claude-code-skills
+/plugin install agile-product-owner@claude-code-skills
 
-# Project Management
-/plugin install scrum-master@claude-code-skills
+# Productivity
+/plugin install weekly-review@claude-code-skills
 ```
 
 ### Update Skills

@@ -63,6 +63,7 @@ and annual affirmation dates.
 ## Hard rules
 
 - **Unassessed is not MET.** The score script refuses a file that does not list all 110 requirements.
+- **MET means every objective.** The assessor tests the 320 NIST SP 800-171A objectives; one unmet objective makes the requirement NOT MET. Mark MET only with evidence per objective.
 - **Score against Rev 2.** 32 CFR 170 and DFARS class deviation 2024-O0013 keep Level 2 on NIST SP 800-171 Rev 2; plan Rev 3 in the SSP roadmap, not the POA&M.
 - **NA needs a reason the assessor will accept.** An NA without one is reported.
 - **A POA&M is not implementation.** Deferral buys 180 days, not a waiver.
@@ -80,7 +81,7 @@ All support `--help`, `--sample` and `--output json`.
 
 ## References and assets
 
-- [`references/level2_scoring_and_status.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/references/level2_scoring_and_status.md) — phases, weights, POA&M rules, status, affirmations (8 sources)
+- [`references/level2_scoring_and_status.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/references/level2_scoring_and_status.md) — phases, weights, POA&M rules, status, affirmations (9 sources)
 - [`references/scoping_and_providers.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/references/scoping_and_providers.md) — asset categories, enclaves, ESPs and FedRAMP equivalency (6 sources)
 - [`references/rev2_rev3_and_levels.md`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/references/rev2_rev3_and_levels.md) — why you score Rev 2, preparing for Rev 3, Levels 1 and 3 (7 sources)
 - [`assets/assessment.example.csv`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/assets/assessment.example.csv), [`assets/poam.example.csv`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/assets/poam.example.csv), [`assets/inventory.example.csv`](https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/skills/cmmc-readiness/assets/inventory.example.csv) — input formats

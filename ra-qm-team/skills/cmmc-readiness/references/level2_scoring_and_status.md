@@ -23,6 +23,7 @@ Confidence key: 🟢 read in the primary source · 🟡 secondary source or reca
 - **1 point:** the rest, with limited or indirect effect (51). 🟢 [170.24]
 - **Partial credit, two requirements only:** IA.L2-3.5.3 costs 3 when MFA covers remote and privileged users only, 5 when it is not implemented; SC.L2-3.13.11 costs 3 when CUI is encrypted without FIPS-validated cryptography, 5 when it is not encrypted. 🟢 [170.24]
 - **CA.L2-3.12.4 (the SSP) has no point value.** Without a current SSP the assessment cannot be completed. 🟢 [170.24] So the lowest possible score is 110 − 313 = **−203**, which matches the SPRS range. 🟡 [DoDAM]
+- A requirement is MET only when all of its assessment objectives in NIST SP 800-171A are satisfied; Level 2 has 320 of them. A self-assessment that marks requirements MET without checking each objective overstates the score. 🟡 [171A]
 - NOT APPLICABLE counts as MET. An enduring exception or a temporary deficiency on an operational plan of action, written into the SSP with its mitigations, is also assessed as MET. 🟢 [170.24] The assessor still has to accept the reason, so `sprs_score.py` flags an NA with no justification. 🔴
 - The Basic self-assessment score that DFARS 252.204-7019/-7020 asks contractors to post in SPRS uses the same DoD Assessment Methodology weights. 🟡 [DoDAM]
 
@@ -53,4 +54,5 @@ the assessment. 🔴
 - [DFARS-FR] DoD, *DFARS: Assessing Contractor Implementation of Cybersecurity Requirements*, final rule, Federal Register doc. 2025-17359 (10 Sep 2025). Summary used: https://www.grfcpa.com/resource/dfars-publishes-final-rule-on-cmmc-effective-november-10/
 - [CIO] DoD CIO, *About CMMC*. https://dodcio.defense.gov/cmmc/about
 - [DoDAM] DoD, *NIST SP 800-171 DoD Assessment Methodology*, Version 1.2.1 (24 June 2020).
+- [171A] NIST SP 800-171A, *Assessing Security Requirements for CUI* (June 2018). https://csrc.nist.gov/pubs/sp/800/171/a/final
 - [DOJ-CCI] U.S. Department of Justice, Civil Cyber-Fraud Initiative (announced 6 October 2021). https://www.justice.gov/opa/pr/deputy-attorney-general-lisa-o-monaco-announces-new-civil-cyber-fraud-initiative

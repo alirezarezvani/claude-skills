@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Community request in discussion #358 (CMMC 2.0 Level 2 grounded in NIST SP 800-171 Rev 2, with a path to Rev 3); no existing skill scored SPRS or scoped CMMC assets (ciso-advisor and general-counsel-advisor only mention CMMC)",
+    "build_pattern": "Three deterministic stdlib scripts (SPRS score + Conditional gate, POA&M closeout tracker, scope classifier) with blocking exit codes; weights, POA&M exclusions, 0.8 threshold, 180-day closeout, affirmations, asset categories and ESP rules from 32 CFR 170.19, 170.21, 170.22, 170.24; FedRAMP rule from DFARS 252.204-7012(b)(2)(ii)(D)",
+    "distinct_from": "compliance-os (multi-framework orchestration without CMMC); soc2-compliance and information-security-manager-iso27001 (other frameworks); access-lifecycle (access-review evidence)"
+  }
+}

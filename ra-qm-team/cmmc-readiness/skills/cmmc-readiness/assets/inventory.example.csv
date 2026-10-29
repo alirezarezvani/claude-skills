@@ -1,0 +1,12 @@
+asset,type,cui,security_function,separated,in_inventory,in_ssp,in_diagram,policy_ref,justification,provider,provider_is_csp,provider_data,fedramp,crm,vdi_kvm_only
+eng-ws-01,endpoint,yes,no,no,yes,yes,yes,,,,,,,,
+eng-ws-02,endpoint,yes,no,no,yes,no,yes,,,,,,,,
+fileserver-cui,server,yes,no,no,yes,yes,yes,,,,,,,,
+m365-gcc-high,saas,yes,no,no,yes,yes,yes,,,Microsoft,yes,cui,high,yes,
+cad-vault,saas,yes,no,no,yes,yes,no,,,VaultCo,yes,cui,none,no,
+siem,saas,no,yes,no,yes,yes,yes,,,LogCo,yes,spd,equivalent,yes,
+edr-console,server,no,yes,no,yes,yes,yes,,,,,,,,
+hr-laptop-07,endpoint,restricted,no,no,yes,yes,yes,,,,,,,,
+cmm-machine,test_equipment,yes,no,no,yes,yes,yes,POL-OT-02,,,,,,,
+lobby-kiosk,endpoint,no,no,no,yes,no,no,,,,,,,,
+vdi-thin-client,vdi_client,no,no,no,yes,no,no,,,,,,,,yes

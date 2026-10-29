@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 451,
+  "total_skills": 452,
   "skills": [
     {
       "name": "content-strategist",
@@ -2104,6 +2104,11 @@
       "description": "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
     },
     {
+      "name": "cmmc-readiness",
+      "category": "ra-qm",
+      "description": "Use when a defense contractor or subcontractor is preparing for a CMMC 2.0 Level 2 self-assessment or C3PAO assessment, calculating or checking an SPRS score against NIST SP 800-171 Rev 2, deciding what can go on a POA&M, tracking POA&M closeout before Conditional status expires, or scoping assets, enclaves and cloud providers that handle CUI. Scores all 110 requirements with the 32 CFR 170.24 weights, blocks gaps that can never be deferred, and classifies the asset inventory into CMMC asset categories."
+    },
+    {
       "name": "eu-ai-act-specialist",
       "category": "ra-qm",
       "description": "EU AI Act (Regulation (EU) 2024/1689) operational compliance for compliance teams. Three Article-level decisions: (1) What's the risk tier of this AI system \u2014 prohibited (Art. 5), high-risk (Art. 6 + Annex III), limited-risk (Art. 50), or minimal-risk? (2) For high-risk systems, what's the Article 43 conformity assessment route (Module A internal control vs Module H full QMS + notified body) and what goes in the Annex IV technical documentation? (3) Per organizational role (provider / deployer / importer / distributor / authorized representative), what are the active obligations and deadlines? Use during AI system intake review, when planning conformity assessment, or when scoping deployer obligations. Cites Articles + Annexes for every output. NOT executive AI strategy (see chief-ai-officer-advisor). NOT a legal substitute."
@@ -2337,7 +2342,7 @@
       "description": "Project-management resources"
     },
     "ra-qm": {
-      "count": 18,
+      "count": 19,
       "description": "Ra-qm resources"
     },
     "research": {

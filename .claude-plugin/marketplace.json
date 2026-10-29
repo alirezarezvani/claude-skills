@@ -8,7 +8,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "401 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 774 Python tools, 885 reference guides, 124 agents (cs-* + personas), 159 slash commands across 105 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs-pm and /cs-product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "description": "403 production-ready skills across 20 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 780 Python tools, 891 reference guides, 125 agents (cs-* + personas), 161 slash commands across 106 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs-pm and /cs-product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
     "version": "2.14.3"
   },
   "plugins": [
@@ -296,7 +296,7 @@
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
       "description": "14 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
-      "version": "2.14.3",
+      "version": "2.14.4",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -2004,6 +2004,30 @@
         "nist-800-53",
         "hipaa",
         "itgc",
+        "compliance"
+      ],
+      "category": "compliance"
+    },
+    {
+      "name": "cmmc-readiness",
+      "source": "./ra-qm-team/cmmc-readiness",
+      "description": "Get a defense supplier ready for a CMMC 2.0 Level 2 assessment. Three deterministic stdlib scripts: an SPRS scorer that weights all 110 NIST SP 800-171 Rev 2 requirements per 32 CFR 170.24 and blocks gaps that can never go on a POA&M; a POA&M closeout tracker that checks every deferred gap against the 180-day Conditional status deadline and the annual affirmation calendar; and a scope classifier that sorts the asset inventory into the 170.19 categories and blocks on assets missing from the SSP or cloud providers holding CUI without FedRAMP. Ships cs-cmmc-assessor agent, /cs-cmmc-readiness and /cs-sprs-score commands, 3 cited references and a readiness sign-off.",
+      "version": "2.14.4",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "cmmc",
+        "cmmc-2.0",
+        "cmmc-level-2",
+        "nist-800-171",
+        "sprs",
+        "poam",
+        "dfars",
+        "cui",
+        "defense-industrial-base",
+        "c3pao",
+        "fedramp",
         "compliance"
       ],
       "category": "compliance"

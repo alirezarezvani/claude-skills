@@ -1,13 +1,13 @@
 ---
 title: "Regulatory & Quality Skills — Agent Skills & Codex Plugins"
-description: "20 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "21 regulatory & quality skills — regulatory and quality management agent skill for ISO 13485, MDR, FDA, and GDPR compliance. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-shield-check-outline: Regulatory & Quality
 
-<p class="domain-count">20 skills in this domain</p>
+<p class="domain-count">21 skills in this domain</p>
 
 </div>
 
@@ -34,6 +34,12 @@ description: "20 regulatory & quality skills — regulatory and quality manageme
     ---
 
     Corrective and Preventive Action (CAPA) management within Quality Management Systems, focusing on systematic root cau...
+
+-   **[CMMC Readiness](cmmc-readiness.md)**
+
+    ---
+
+    > Portability: 3 stdlib scripts, no network, no SPRS connection. Fill CSVs, run, keep the output with the SSP.
 
 -   **[EU AI Act Compliance Specialist](eu-ai-act-specialist.md)**
 

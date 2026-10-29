@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 449,
+  "total_skills": 450,
   "skills": [
     {
       "name": "content-strategist",
@@ -2084,6 +2084,11 @@
       "description": "Write internal company communications \u2014 3P updates (Progress/Plans/Problems), company-wide newsletters, FAQ roundups, incident reports, leadership updates, status reports, project updates, and general internal comms. Use this skill any time the user asks to draft, edit, or format something meant for internal audiences. Trigger on keywords like \"3P\", \"weekly update\", \"newsletter\", \"FAQ\", \"internal comms\", \"status report\", \"company update\", \"team update\", \"incident report\", or any request to summarize work for leadership, teammates, or the broader company. Even casual requests like \"write my update\" or \"summarize what my team did this week\" should trigger this skill."
     },
     {
+      "name": "access-lifecycle",
+      "category": "ra-qm",
+      "description": "Use when preparing or running a user access review, checking that leavers lost their access, finding orphaned or ownerless service accounts, answering an auditor's access-control request for SOC 2, ISO 27001, PCI DSS, HIPAA or NIST 800-53, or checking whether a finished review campaign will hold up. Diffs the HR roster against account exports, tests the campaign for coverage, self-review, unremoved revokes and rubber-stamping, and maps every exception to the controls it breaks."
+    },
+    {
       "name": "agent-decision-receipts",
       "category": "ra-qm",
       "description": "Mint a tamper-evident, post-quantum-signed receipt for a consequential agent action (deploy, delete, pay, grant-access, model decision) so it can be verified later from the certificate alone. Use when an autonomous agent takes a side-effecting action that may need to be proven later, or when satisfying EU AI Act Article 12 record-keeping. Three decisions: whether an action needs a receipt, minting it, verifying it. Signing is delegated to the open-source OpenAgentOntology package. Not after-the-fact log analysis; not a hosted notary; not a legal opinion."
@@ -2327,7 +2332,7 @@
       "description": "Project-management resources"
     },
     "ra-qm": {
-      "count": 17,
+      "count": 18,
       "description": "Ra-qm resources"
     },
     "research": {

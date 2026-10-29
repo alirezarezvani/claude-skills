@@ -1,6 +1,6 @@
 # Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**398 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
+**400 production-ready Claude Code skills, plugins, and agent skills for 13 AI coding tools.**
 
 The most comprehensive open-source library of Claude Code skills and agent plugins — also works with OpenAI Codex, Gemini CLI, Cursor, and 9 more coding agents. Reusable expertise packages covering engineering, DevOps, marketing (incl. AEO — Answer Engine Optimization for LLM citation), security (PreToolUse hooks), compliance, C-level advisory (incl. founder-mode CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE personas + 21 /c-level-agents:* slash commands), productivity (capture/email/reflect/weekly-review/deep-work/meetings), an academic research stack (litreview/grants/dossier/patent/syllabus/pulse/notebooklm/deep-research + hybrid router), and enterprise Research Operations (clinical-research/research-finance/market-research/product-research, v2.9.0).
 
@@ -10,10 +10,10 @@ The most comprehensive open-source library of Claude Code skills and agent plugi
 [^vibe]: Mistral Vibe is also **BYO-sync tier**: the repo ships a pre-generated `.vibe/skills/claude-skills/` tree, run `./scripts/vibe-install.sh` once locally to install into `~/.vibe/skills/`. Same agentskills.io SKILL.md standard — no format conversion. Docs: <https://docs.mistral.ai/mistral-vibe/agents-skills>.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-398-brightgreen?style=for-the-badge)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-123-blue?style=for-the-badge)](#agents)
+[![Skills](https://img.shields.io/badge/Skills-400-brightgreen?style=for-the-badge)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-124-blue?style=for-the-badge)](#agents)
 [![Personas](https://img.shields.io/badge/Personas-7-purple?style=for-the-badge)](#personas)
-[![Commands](https://img.shields.io/badge/Commands-157-orange?style=for-the-badge)](#commands)
+[![Commands](https://img.shields.io/badge/Commands-159-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
@@ -29,7 +29,7 @@ Claude Code skills (also called agent skills or coding agent plugins) are modula
 - **Python tools** — 706 CLI scripts (all stdlib-only, zero pip installs)
 - **Reference docs** — 823 templates, checklists, and domain-specific knowledge files
 
-**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 766 Python tools run anywhere Python runs.
+**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 772 Python tools run anywhere Python runs.
 
 ### Skills vs Agents vs Personas
 
@@ -79,12 +79,14 @@ cd claude-skills
 /plugin install business-growth-skills@claude-code-skills       # 4 business & growth
 /plugin install finance-skills@claude-code-skills               # 2 finance (analyst + SaaS metrics)
 
-# Or install individual skills
-/plugin install skill-security-auditor@claude-code-skills       # Security scanner
-/plugin install playwright-pro@claude-code-skills                  # Playwright testing toolkit
+# Or install a standalone plugin
+/plugin install pw@claude-code-skills                           # Playwright testing toolkit
 /plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
-/plugin install content-creator@claude-code-skills              # Single skill
+/plugin install karpathy-coder@claude-code-skills               # Coding-discipline reviewer
+/plugin install grill-me@claude-code-skills                     # Plan interrogator
 ```
+
+Only names listed in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) can be installed. Most skills (for example `skill-security-auditor` or `content-creator`) ship inside a domain bundle, so install the bundle that contains them. Run `/plugin` and open the marketplace to browse every installable name.
 
 ### OpenAI Codex
 
@@ -152,7 +154,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**398 production-ready skills across 20 domains:**
+**400 production-ready skills across 20 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -165,7 +167,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **🔬 Research (academic)** | 10 | `research` orchestrator (hybrid router + fallback) + 8 specialists: `pulse`, `litreview`, `grants` (NIH), `dossier`, `patent`, `syllabus`, `notebooklm`, `deep-research` (rigor-first meta-research), `deepread` (evidence-first reading of supplied documents) | [research/](research/) |
 | **🧪 Research Operations** ✨v2.9.0 | 6 | Enterprise/cross-functional research: orchestrator + `clinical-research` (study design), `research-finance` (R&D program finance), `market-research` (sizing/survey/segmentation), `product-research` (user research), `interview-mapper` (transcript coding with quote verification) — each with onboarding + customization + opt-in autoresearch bridge | [research-ops/](research-ops/) |
 | **📋 Project Management** | 9 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates + bundled Atlassian Remote MCP | [project-management/](project-management/) |
-| **🏥 Regulatory & QM** | 19 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management, agent-decision-receipts (PQ-signed action receipts) | [ra-qm-team/](ra-qm-team/) |
+| **🏥 Regulatory & QM** | 21 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management, access reviews (access-lifecycle), agent-decision-receipts (PQ-signed action receipts) | [ra-qm-team/](ra-qm-team/) |
 | **🛡️ Compliance OS** | 9 | Compliance operating system — controls, evidence, audit-readiness workflows | [compliance-os/](compliance-os/) |
 | **💼 C-Level Advisory** | 46 | Full C-suite (CEO/CTO/CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE) + executive mentor + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
 | **🎩 C-Level Agents (founder mode)** | 22 | 13 cs-* persona agents + 21 /c-level-agents:* commands — office hours, boardroom, strategic sprint pipeline, cross-eval, freeze | [c-level-agents/](c-level-agents/) |
@@ -359,7 +361,7 @@ Yes. Skills work natively with 13 tools: Claude Code, OpenAI Codex, Gemini CLI, 
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 766 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
+Yes. All 772 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

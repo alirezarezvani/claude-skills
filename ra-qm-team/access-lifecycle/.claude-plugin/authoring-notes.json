@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "claude-skills October 2026 gap review: no skill ran joiner/mover/leaver or access-review evidence (soc2-compliance, isms-audit-expert and iso27001 skills only describe it)",
+    "build_pattern": "Three deterministic stdlib scripts (roster-vs-export diff, review-campaign checker, control evidence mapper) with blocking exit codes; policy periods required as flags; controls cited to AICPA TSC CC6.1-6.3, NIST SP 800-53 Rev 5, PCI DSS v4.0.1, HIPAA 164.308, PCAOB AS 1105 and SAPA 11, ISO/IEC 27001:2022 Annex A titles",
+    "distinct_from": "soc2-compliance (SOC 2 readiness); information-security-manager-iso27001 (ISMS design); isms-audit-expert (audit programme); this plugin produces the access-lifecycle evidence itself"
+  }
+}

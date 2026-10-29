@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **access-lifecycle** (`ra-qm-team/access-lifecycle/`, also bundled in `ra-qm-skills`). Produces the
+  user-access-review evidence that `soc2-compliance` and the ISO 27001 skills only describe. Three stdlib
+  scripts with blocking exit codes: `access_diff.py` joins the HR roster to account exports and blocks on
+  leavers still enabled or used after their exit date, privileged orphans and ownerless privileged service
+  accounts; `access_review_campaign.py` blocks on accounts the campaign never covered, undecided lines,
+  self-review and revokes not removed inside the policy window, and flags rubber-stamping as a signal;
+  `control_evidence_mapper.py` maps findings to SOC 2, ISO 27001, NIST 800-53, PCI DSS, HIPAA and SOX IPE
+  controls with no PASS status. Inactivity and remediation periods are required flags, not defaults.
+  Ships `cs-access-reviewer`, `/cs-access-review`, `/cs-access-diff`, three references with confidence
+  markers and a sign-off template.
+
+### Fixed
+
+- **epic-design pointed at asset files that never existed** (#1051). `SKILL.md` sent agents to
+  `assets/hero-section.html/.css/.js`; the pointers now name the references that hold that material
+  (`examples.md`, `depth-system.md`, `motion-system.md`).
+- **playwright-pro's router skill name did not match its folder** (#1051). `skills/pw/SKILL.md` now
+  declares `name: "pw"`, as the Agent Skills spec requires and as every mirror index already used.
+
 ## [2.14.2] - 2026-10-26 — Skills that trigger, OWASP 2025, blocking JSON gate
 
 Remaining P2 items from the v2.14.0 real-state audit. The 43 plugins whose files changed move to 2.14.2.

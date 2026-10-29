@@ -1,0 +1,6 @@
+employee_id,email,name,status,termination_date,role_changed_date,manager_email
+E100,ana.ruiz@example.com,Ana Ruiz,active,,,lee.chan@example.com
+E101,ben.okafor@example.com,Ben Okafor,terminated,2026-09-30,,lee.chan@example.com
+E102,cara.lind@example.com,Cara Lind,active,,2026-10-01,lee.chan@example.com
+E103,dev.shah@example.com,Dev Shah,terminated,2026-10-20,,lee.chan@example.com
+E104,lee.chan@example.com,Lee Chan,active,,,

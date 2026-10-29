@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **cmmc-readiness** (`ra-qm-team/cmmc-readiness/`, also bundled in `ra-qm-skills`, both at 2.14.4). Built for
+  the CMMC 2.0 Level 2 request in discussion #358, ahead of Phase 2 (Level 2 C3PAO as a condition of award,
+  from 10 November 2026). Three stdlib scripts with blocking exit codes: `sprs_score.py` scores all 110
+  NIST SP 800-171 Rev 2 requirements with the 32 CFR 170.24 weights (partial credit for MFA and non-FIPS
+  encryption, SSP unscored but mandatory), refuses a file that skips any requirement, and blocks on gaps that
+  can never go on a POA&M under 170.21; `poam_closeout.py` checks the POA&M against the score, owners and
+  the 180-day Conditional deadline and prints the expiry and annual affirmation dates; `scope_classifier.py`
+  sorts the asset inventory into the 170.19 categories and blocks on in-scope assets missing from the SSP or
+  inventory and on cloud providers holding CUI without FedRAMP Moderate or an equivalent body of evidence.
+  Ships `cs-cmmc-assessor`, `/cs-cmmc-readiness`, `/cs-sprs-score`, three references with confidence markers
+  and a readiness sign-off. Docs pages for `mcp-oauth-triage` (missed in 2.14.3) regenerated alongside.
+
 ## [2.14.3] - 2026-10-29 — Access-review evidence, MCP OAuth triage, community fixes
 
 Two new skills and five fixes, three of them from community contributors. The six plugins whose

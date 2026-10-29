@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 400,
+  "total_skills": 402,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -2208,6 +2208,18 @@
       "description": "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization."
     },
     {
+      "name": "cmmc-readiness",
+      "source": "../../ra-qm-team/skills/cmmc-readiness",
+      "category": "ra-qm",
+      "description": "Use when a defense contractor or subcontractor is preparing for a CMMC 2.0 Level 2 self-assessment or C3PAO assessment, calculating or checking an SPRS score against NIST SP 800-171 Rev 2, deciding what can go on a POA&M, tracking POA&M closeout before Conditional status expires, or scoping assets, enclaves and cloud providers that handle CUI. Scores all 110 requirements with the 32 CFR 170.24 weights, blocks gaps that can never be deferred, and classifies the asset inventory into CMMC asset categories."
+    },
+    {
+      "name": "cmmc-readiness",
+      "source": "../../ra-qm-team/cmmc-readiness/skills/cmmc-readiness",
+      "category": "ra-qm",
+      "description": "Use when a defense contractor or subcontractor is preparing for a CMMC 2.0 Level 2 self-assessment or C3PAO assessment, calculating or checking an SPRS score against NIST SP 800-171 Rev 2, deciding what can go on a POA&M, tracking POA&M closeout before Conditional status expires, or scoping assets, enclaves and cloud providers that handle CUI. Scores all 110 requirements with the 32 CFR 170.24 weights, blocks gaps that can never be deferred, and classifies the asset inventory into CMMC asset categories."
+    },
+    {
       "name": "eu-ai-act-specialist",
       "source": "../../ra-qm-team/skills/eu-ai-act-specialist",
       "category": "ra-qm",
@@ -2478,7 +2490,7 @@
       "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
-      "count": 21,
+      "count": 23,
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     },

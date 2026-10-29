@@ -1,0 +1,104 @@
+---
+name: Skill Evals (nightly)
+
+# Runs the trigger and with/without-skill behaviour evals in scripts/evals/ against the real
+# Claude Code CLI. Every run calls the model, so it costs money:
+#   - The nightly schedule is OFF until the repo variable SKILL_EVALS_ENABLED is "true".
+#   - It needs the repo secret ANTHROPIC_API_KEY; without it the job stops before spending.
+#   - Each night is capped by SKILL_EVALS_BUDGET_USD (default 10). See scripts/evals/README.md.
+
+'on':
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      skills:
+        description: 'Comma-separated skill paths (empty = tonight''s rotation)'
+        required: false
+        default: ''
+      count:
+        description: 'Skills in the rotation slice'
+        required: false
+        default: '15'
+      scenario:
+        description: 'targeted (only the skill''s plugin) or full (every plugin)'
+        required: false
+        default: 'targeted'
+        type: choice
+        options: [targeted, full]
+      budget:
+        description: 'Spend cap in USD'
+        required: false
+        default: '10'
+
+concurrency:
+  group: skill-evals
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  evals:
+    if: github.event_name == 'workflow_dispatch' || vars.SKILL_EVALS_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write   # push the scoreboard to the eval-results branch
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Check for the API key
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Repo secret ANTHROPIC_API_KEY is not set; nothing was run or spent."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Claude Code
+        run: npm install -g "@anthropic-ai/claude-code@${{ vars.CLAUDE_CODE_VERSION || '2.1.308' }}"
+
+      - name: Run evals
+        env:
+          SKILLS: ${{ github.event.inputs.skills }}
+          COUNT: ${{ github.event.inputs.count || '15' }}
+          SCENARIO: ${{ github.event.inputs.scenario || 'targeted' }}
+          BUDGET: ${{ github.event.inputs.budget || vars.SKILL_EVALS_BUDGET_USD || '10' }}
+          MODEL: ${{ vars.SKILL_EVALS_MODEL || 'sonnet' }}
+        run: |
+          args=(--count "$COUNT" --scenario "$SCENARIO" --budget "$BUDGET" --model "$MODEL" --out eval-out)
+          if [ -n "$SKILLS" ]; then args+=(--skills "$SKILLS"); fi
+          python3 scripts/evals/run_evals.py "${args[@]}"
+
+      - name: Update scoreboard
+        run: |
+          git fetch origin eval-results:eval-results 2>/dev/null \
+            && git worktree add board eval-results \
+            || { git worktree add --detach board && git -C board checkout --orphan eval-results && git -C board rm -rqf .; }
+          python3 scripts/evals/report.py eval-out/results.json --scoreboard board > eval-out/summary.md
+          cat eval-out/summary.md >> "$GITHUB_STEP_SUMMARY"
+          mkdir -p "board/runs/$(date -u +%F)"
+          cp eval-out/results.json eval-out/summary.md "board/runs/$(date -u +%F)/"
+          cd board
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "evals: $(date -u +%F) run" || exit 0
+          git push origin eval-results
+
+      - name: Upload transcripts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-evals-${{ github.run_id }}
+          path: eval-out/
+          retention-days: 30

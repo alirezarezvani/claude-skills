@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Nightly skill evals** (`scripts/evals/`, `.github/workflows/skill-evals.yml`). Runs the real Claude Code
+  CLI to check that each skill fires on realistic prompts and stays quiet on a near miss (trigger cases for
+  all 384 unique skills), and that answers with a skill pass more of a checklist than without it (6 behaviour
+  cases with a blind, schema-graded judge). A rotation of 15 skills a night, capped at $10, covers the library
+  every 26 nights; results accumulate on the `eval-results` branch. Off until the `ANTHROPIC_API_KEY` secret
+  and the `SKILL_EVALS_ENABLED` variable are set.
+
 ## [2.14.3] - 2026-10-29 — Access-review evidence, MCP OAuth triage, community fixes
 
 Two new skills and five fixes, three of them from community contributors. The six plugins whose

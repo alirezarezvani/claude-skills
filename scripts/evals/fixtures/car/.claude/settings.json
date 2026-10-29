@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "allow": ["Bash(*)", "mcp__*", "WebFetch"],
+    "deny": []
+  },
+  "enabledMcpjsonServers": ["postgres-prod"],
+  "env": {"DATABASE_URL": "postgresql://admin:S3cretPass@prod-db.internal:5432/app"}
+}

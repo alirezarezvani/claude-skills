@@ -20,8 +20,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Ships `cs-access-reviewer`, `/cs-access-review`, `/cs-access-diff`, three references with confidence
   markers and a sign-off template.
 
+- **mcp-oauth-triage** (`engineering/skills/mcp-oauth-triage/`, in `engineering-advanced-skills`; #1057,
+  contributed by @Ben-Home). Diagnoses an OAuth-backed MCP connector that authenticated before and now
+  returns 401s. `oauth_triage.py` classifies the fault from a token record and a connector log as envelope
+  mismatch, expiry semantics, rotation clobber, binding fault or poisoned negative cache, then names one next
+  probe; `run_fixtures.py` replays six shipped fixtures. Both take `--sample` for gate G9. Standard library only,
+  no network calls.
+
 ### Fixed
 
+- **Install docs named plugins that do not exist** (#1058, #1061). README and INSTALLATION.md listed
+  `/plugin install` commands for eight names missing from `marketplace.json`; they now use real standalone
+  plugin names and explain that bundled skills come with their bundle.
+- **`convert.sh` dropped `assets/`** (#1059, contributed by @giriadityatheplankton). Converted integrations
+  now copy `assets/` like `scripts/`, `references/` and `templates/`, removing 47 dead links across 19 skills.
+- **md-slides failed to load in Antigravity** (#1060, contributed by @giriadityatheplankton). Its description
+  contained a literal `---`, which Antigravity's loader treats as the end of the frontmatter.
 - **epic-design pointed at asset files that never existed** (#1051). `SKILL.md` sent agents to
   `assets/hero-section.html/.css/.js`; the pointers now name the references that hold that material
   (`examples.md`, `depth-system.md`, `motion-system.md`).

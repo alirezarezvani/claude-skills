@@ -1,0 +1,10 @@
+{
+  "access_token": "redacted-access",
+  "account_id": "acct-1",
+  "aud": "https://api.example.com/mcp",
+  "expires_at": 1793116893,
+  "refresh_token": "redacted-refresh",
+  "scope": "read",
+  "sub": "acct-1",
+  "token_type": "Bearer"
+}

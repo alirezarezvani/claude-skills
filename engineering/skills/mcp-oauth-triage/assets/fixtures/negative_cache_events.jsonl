@@ -1,0 +1,3 @@
+{"event": "needs_auth", "ts": 1793112793}
+{"event": "authenticated", "ts": 1793112893}
+{"event": "error", "status": 401, "ts": 1793112993}

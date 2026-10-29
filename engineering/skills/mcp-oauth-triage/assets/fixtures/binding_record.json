@@ -1,0 +1,8 @@
+{
+  "access_token": "redacted-access",
+  "account_email": "shared@example.com",
+  "aud": "https://api.other.example.com",
+  "expires_at": 1793116893,
+  "iss": "https://issuer.one",
+  "refresh_token": "redacted-refresh"
+}

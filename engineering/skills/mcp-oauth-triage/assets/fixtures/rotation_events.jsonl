@@ -1,0 +1,4 @@
+{"event": "exchange", "result": {"refresh_token": "new-token-one"}, "ts": 1793113193}
+{"event": "exchange", "result": {"refresh_token": "new-token-two"}, "ts": 1793113203}
+{"event": "exchange", "result": {"refresh_token": "newest-token-value"}, "ts": 1793113213}
+{"event": "store", "ts": 1793113223}

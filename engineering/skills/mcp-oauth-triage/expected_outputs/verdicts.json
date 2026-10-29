@@ -1,0 +1,61 @@
+{
+  "cases": [
+    {
+      "name": "clean",
+      "record": "clean_record.json",
+      "log": "clean_events.jsonl",
+      "args": [],
+      "primary_class": "none",
+      "exit_code": 0
+    },
+    {
+      "name": "envelope",
+      "record": "envelope_record.json",
+      "log": null,
+      "args": [
+        "--expect-flat"
+      ],
+      "primary_class": "envelope_mismatch",
+      "exit_code": 2
+    },
+    {
+      "name": "expiry",
+      "record": "expiry_record.json",
+      "log": null,
+      "args": [
+        "--expect-absolute-expiry"
+      ],
+      "primary_class": "expiry_semantics",
+      "exit_code": 2
+    },
+    {
+      "name": "rotation",
+      "record": "rotation_record.json",
+      "log": "rotation_events.jsonl",
+      "args": [],
+      "primary_class": "rotation_clobber",
+      "exit_code": 2
+    },
+    {
+      "name": "binding",
+      "record": "binding_record.json",
+      "log": null,
+      "args": [
+        "--expect-aud",
+        "https://api.example.com/mcp",
+        "--expect-iss",
+        "https://issuer.two"
+      ],
+      "primary_class": "binding_fault",
+      "exit_code": 2
+    },
+    {
+      "name": "negative_cache",
+      "record": "negative_cache_record.json",
+      "log": "negative_cache_events.jsonl",
+      "args": [],
+      "primary_class": "negative_cache",
+      "exit_code": 2
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"event": "exchange", "result": {"refresh_token": "redacted-refresh"}, "ts": 1793112993}
+{"event": "store", "ts": 1793112994}
+{"event": "call", "ok": true, "ts": 1793113233}

@@ -56,12 +56,19 @@ results under `runs/<date>/`), and transcripts are kept as a workflow artifact f
 
 ## Enabling the nightly job
 
-1. Add the repo secret `ANTHROPIC_API_KEY` (a key with a spend limit set in the Console).
+1. Credentials, either one:
+   - `CLAUDE_CODE_OAUTH_TOKEN` (recommended for maintainers on a Pro/Max plan): run
+     `claude setup-token` locally and store the token as a repo secret. `claude.yml` and
+     `claude-code-review.yml` already use this secret. Runs then draw on the subscription's usage
+     limits instead of a bill, and the dollar figures in this file become a usage meter.
+   - `ANTHROPIC_API_KEY`: pay per token at the prices above; set a spend limit in the Console.
 2. Set the repo variable `SKILL_EVALS_ENABLED` to `true`.
 3. Optional variables: `SKILL_EVALS_BUDGET_USD` (default 10), `SKILL_EVALS_MODEL` (default
    `sonnet`), `CLAUDE_CODE_VERSION` (default `2.1.308`, the npm `stable` tag when this was written).
 
-Until step 2, only a manual "Run workflow" starts it.
+Until step 2, only a manual "Run workflow" starts it. On a subscription, the nightly runs share
+the same usage limits as your interactive sessions; the run starts at 03:17 UTC so it lands
+outside working hours, and lowering `--count` or the budget trades coverage for headroom.
 
 ## Adding cases
 

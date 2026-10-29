@@ -2,10 +2,13 @@
 name: Skill Evals (nightly)
 
 # Runs the trigger and with/without-skill behaviour evals in scripts/evals/ against the real
-# Claude Code CLI. Every run calls the model, so it costs money:
+# Claude Code CLI. Every run calls the model:
 #   - The nightly schedule is OFF until the repo variable SKILL_EVALS_ENABLED is "true".
-#   - It needs the repo secret ANTHROPIC_API_KEY; without it the job stops before spending.
-#   - Each night is capped by SKILL_EVALS_BUDGET_USD (default 10). See scripts/evals/README.md.
+#   - Auth: CLAUDE_CODE_OAUTH_TOKEN (a Claude subscription token from `claude setup-token`, the
+#     same secret claude.yml uses; draws on the subscription's usage limits, no extra bill) or
+#     ANTHROPIC_API_KEY (pay per token). Without either the job stops before running anything.
+#   - Each night is capped by SKILL_EVALS_BUDGET_USD (default 10, in API-price dollars; on a
+#     subscription it caps usage). See scripts/evals/README.md.
 
 'on':
   schedule:
@@ -46,12 +49,13 @@ jobs:
     permissions:
       contents: write   # push the scoreboard to the eval-results branch
     env:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
-      - name: Check for the API key
+      - name: Check for credentials
         run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "::error::Repo secret ANTHROPIC_API_KEY is not set; nothing was run or spent."
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ] && [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Neither CLAUDE_CODE_OAUTH_TOKEN nor ANTHROPIC_API_KEY is set; nothing was run."
             exit 1
           fi
 

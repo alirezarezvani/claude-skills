@@ -1,6 +1,6 @@
 ---
 title: "md-slides — Markdown deck → single-file HTML presentation — Agent Skill for HTML Output"
-description: "Converts a markdown deck (slides separated by `---` HR boundaries or by `# ` H1 headings, with optional HTML-comment `notes:` presenter-notes blocks). Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+description: "Converts a markdown deck (slides separated by horizontal-rule boundaries or by `# ` H1 headings, with optional HTML-comment `notes:` presenter-notes. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
 # md-slides — Markdown deck → single-file HTML presentation

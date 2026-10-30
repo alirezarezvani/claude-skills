@@ -1,0 +1,22 @@
+surface,kind,state,status,evidence,note
+Invoices list,data_view,loading,DONE,shots/invoices-loading.png,
+Invoices list,data_view,empty,MISSING,,
+Invoices list,data_view,error,PARTIAL,,toast only; table stays blank
+Invoices list,data_view,populated,DONE,shots/invoices.png,
+New invoice,form,default,DONE,story:InvoiceForm/Default,
+New invoice,form,focus_visible,DONE,,
+New invoice,form,validation_error,DONE,story:InvoiceForm/Invalid,
+New invoice,form,submitting,DONE,story:InvoiceForm/Submitting,
+New invoice,form,success,DONE,story:InvoiceForm/Saved,
+Send invoice,action,default,DONE,story:SendButton/Default,
+Send invoice,action,hover,DONE,story:SendButton/Hover,
+Send invoice,action,focus_visible,DONE,story:SendButton/Focus,
+Send invoice,action,disabled,NA,,
+Send invoice,action,busy,DONE,story:SendButton/Sending,
+Send invoice,action,failure,MISSING,,
+Customer avatar,media,loading,NA,,initials render synchronously
+Customer avatar,media,error,DONE,story:Avatar/BrokenImage,
+Customer avatar,media,populated,DONE,story:Avatar/Photo,
+Invoices page,page,narrow_320,DONE,shots/invoices-320.png,
+Invoices page,page,wide_1440,DONE,shots/invoices-1440.png,
+Invoices page,page,long_content,DONE,shots/invoices-500-rows.png,

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **design-qa** (`product-team/design-qa/`, also bundled in `product-skills`, both at 2.14.5). Built for the
+  request in issue #962: a gate that checks the rendered build before a screen is called done, independent of
+  any third-party product. Three stdlib scripts with blocking exit codes: `finish_lint.py` blocks on click
+  handlers that do nothing, dead links, placeholder copy and focus outlines removed without a replacement,
+  and warns on template defaults (the trait list from Anthropic's `frontend-design` skill) without ever
+  blocking on taste; `state_matrix_checker.py` derives the required loading, empty, error, busy, failure,
+  focus-visible and 320 px states from each surface's kind and treats an unlisted state as missing;
+  `rendered_audit.py` reads a browser snapshot and blocks on WCAG 2.2 AA failures in text contrast, focus
+  visibility, focus obscured, reflow, accessible names and target size (with the 2.5.8 spacing exception).
+  Snapshots come from a read-only collector (`assets/collect_snapshot.js`, DevTools console) or an optional
+  Playwright pass with real Tab keys (`assets/capture_snapshot.mjs`). Ships `cs-design-qa`,
+  `/cs-design-qa`, `/cs-ui-finish-lint`, three cited references and a finish sign-off. Source accessibility
+  stays with `a11y-audit`.
+
 ## [2.14.4] - 2026-10-30 — CMMC Level 2 readiness, nightly skill evals
 
 One new skill and a nightly eval harness. The two plugins whose files changed move to 2.14.4:

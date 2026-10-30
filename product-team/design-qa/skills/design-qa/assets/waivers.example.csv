@@ -1,0 +1,3 @@
+id,code,reason
+table.invoices,REFLOW_SCROLL,"WCAG 1.4.10 exception: data table needs two-dimensional layout; table scrolls inside its own container"
+button.more,TARGET_TOO_SMALL,"WCAG 2.5.8 Equivalent: the same actions are in the row context menu (div.row-menu)"

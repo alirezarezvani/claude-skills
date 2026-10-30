@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 402,
+  "total_skills": 404,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1980,6 +1980,18 @@
       "description": "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session, responding to a competitor's new feature or pricing change, or performing a quarterly competitive review."
     },
     {
+      "name": "design-qa",
+      "source": "../../product-team/skills/design-qa",
+      "category": "product",
+      "description": "Use when a UI screen, page or component is about to be called done, handed off or shipped, or when generated UI looks generic or half-finished. Gates the rendered result, not the design file - finds controls that do nothing, placeholder copy, removed focus rings, missing loading/empty/error states, low contrast, small targets, hidden focus and broken reflow measured in the real browser, and flags template defaults without blocking on taste."
+    },
+    {
+      "name": "design-qa",
+      "source": "../../product-team/design-qa/skills/design-qa",
+      "category": "product",
+      "description": "Use when a UI screen, page or component is about to be called done, handed off or shipped, or when generated UI looks generic or half-finished. Gates the rendered result, not the design file - finds controls that do nothing, placeholder copy, removed focus rings, missing loading/empty/error states, low contrast, small targets, hidden focus and broken reflow measured in the real browser, and flags template defaults without blocking on taste."
+    },
+    {
       "name": "experiment-designer",
       "source": "../../product-team/skills/experiment-designer",
       "category": "product",
@@ -2475,7 +2487,7 @@
       "description": "Marketing, content, and demand generation skills"
     },
     "product": {
-      "count": 17,
+      "count": 19,
       "source": "../../product-team",
       "description": "Product management and design skills"
     },

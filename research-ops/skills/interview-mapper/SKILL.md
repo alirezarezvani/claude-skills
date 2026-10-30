@@ -1,6 +1,6 @@
 ---
 name: interview-mapper
-description: "Maps a single interview transcript into a verbatim-grounded, lens-coded structure and checks whether analytic conclusions hold across independent re-runs. Use when the user wants to code, map, interpret, or make sense of an interview transcript, depth interview, custdev/JTBD/expert/usability/exit/win-loss/focus-group session, or wants cross-interview synthesis (insight cards, patterns) built up from coded transcripts — even if they don't name a method. Every conclusion must carry a verbatim quote verified against the source text; unstable conclusions are flagged for a human, never resolved by a single silent pass. Not for generating new interviews, not for plain audio transcription, and not for research-method or sample-size planning above the transcript (see product-research)."
+description: "Use when coding or making sense of one interview transcript (customer, JTBD, expert, usability, exit). Extracts verbatim-grounded nuggets with extract_nuggets.py, verifies quotes with verify_quotes.py and checks conclusions hold across reruns with consensus.py."
 ---
 
 # Interview Mapper

@@ -1,6 +1,6 @@
 ---
 name: "skill-tester"
-description: "Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensive meta-skill: structure validation, Python script testing (syntax + imports + runtime + output format), multi-dimensional quality scoring with letter grades and tier classification (BASIC/STANDARD/POWERFUL). Use when authoring a new skill, auditing existing skills for tier promotion, setting up pre-commit hooks for skill quality, or integrating skill QA into CI."
+description: "Use when authoring or auditing a skill in this ecosystem, before release. Validates structure with skill_validator.py, runs its scripts with script_tester.py and grades quality and security with quality_scorer.py and security_scorer.py."
 ---
 
 # Skill Tester

@@ -1,6 +1,6 @@
 ---
 name: md-slides
-description: "Converts a markdown deck (slides separated by horizontal-rule boundaries or by `# ` H1 headings, with optional HTML-comment `notes:` presenter-notes blocks) into a single-file HTML presentation with arrow-key / space / PgDn / PgUp / Home / End / P / Esc keyboard navigation, presenter mode (split view with current slide + speaker notes + clock + next-slide preview), URL-hash deep linking, and `@media print` page-per-slide for PDF export. Triggers when the markdown-html-orchestrator classifies an input as SLIDES, or when invoked directly via /cs-md-slides. Reuses md-document's markdown parser for slide-body rendering and reads design-system tokens via config_loader.py. Refuses if input has no clear slide boundaries, produces a 1-slide deck, or `--strict-notes` is on with under 50% notes coverage. Use after orchestrator routing."
+description: "Use when converting a markdown deck into a single-file HTML presentation with keyboard navigation, presenter notes and print-to-PDF. Splits slides with slide_splitter.py and renders with deck_html_renderer.py."
 license: MIT
 metadata:
   version: 2.10.3

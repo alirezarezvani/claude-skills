@@ -1,6 +1,6 @@
 ---
 name: "jira-expert"
-description: Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use when setting up or configuring Jira projects, writing JQL and advanced searches, creating dashboards, designing workflows, or performing technical Jira operations.
+description: "Use for Jira configuration and queries: JQL, workflows, custom fields, automation, dashboards. Builds JQL with jql_query_builder.py and checks workflows with workflow_validator.py."
 ---
 
 # Atlassian Jira Expert

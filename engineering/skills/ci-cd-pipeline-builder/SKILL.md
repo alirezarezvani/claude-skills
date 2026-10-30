@@ -1,6 +1,6 @@
 ---
 name: "ci-cd-pipeline-builder"
-description: "Generate pragmatic CI/CD pipelines from detected project stack signals — fast baseline generation, repeatable checks, environment-aware deployment stages. Use when setting up CI for a new project, refactoring existing pipelines, or standardizing deployment workflows across multiple repos."
+description: "Use when setting up or refactoring CI/CD for a repo, before writing workflow YAML. Detects the stack with stack_detector.py and generates the pipeline with pipeline_generator.py."
 ---
 
 # CI/CD Pipeline Builder

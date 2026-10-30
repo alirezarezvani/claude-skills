@@ -1,6 +1,6 @@
 ---
 name: knowledge-ops
-description: Use when a Head of Ops, Knowledge Manager, or TPM-Internal needs to author, validate, or clean up company SOPs and internal runbooks (procurement intake, vendor offboarding, incident-comms cascade, employee onboarding) — including 5W2H completeness checks (Who-What-When-Where-Why-How-HowMuch), cross-link and orphan-page validation across a sprawling Notion/Confluence/Obsidian wiki, KB ingestion + hygiene reporting, and runbook step verification (named owner, expected duration, observable success signal, rollback path, escalation contact). Pairs Ishikawa's 5W2H method, Gawande's *The Checklist Manifesto*, ISO 9001, ITIL v4, and Google SRE Workbook runbook discipline with deterministic stdlib-only Python tools that score completeness, detect anti-patterns, and emit prioritized cleanup lists (e.g., "validate this runbook before it goes into rotation", "audit our Confluence wiki for stale and orphaned SOPs").
+description: "Use when writing, checking or cleaning up SOPs and runbooks. Generates them with sop_generator.py, checks 5W2H completeness and links with runbook_validator.py and ingests an existing knowledge base with kb_ingester.py."
 context: fork
 license: MIT
 metadata:

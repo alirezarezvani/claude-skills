@@ -1,6 +1,6 @@
 ---
 name: "named-persona-adversarial-review"
-description: "Code review through the lens of real engineers' documented philosophies (Torvalds, Thompson, Carmack, Kent Beck, Jobs, Cagan). Complements abstract-role adversarial review with named, sourced perspectives. Use when automated review findings feel generic, when a PR has architectural or UX impact, or when the author wants pre-submit hardening beyond standard checks."
+description: "Use when a PR has architectural or UX impact, or automated review feels generic, and you want it reviewed through named engineers' documented views (Torvalds, Thompson, Carmack, Beck, Jobs, Cagan). Cites the source for each persona's critique."
 ---
 
 # Named-Persona Adversarial Review

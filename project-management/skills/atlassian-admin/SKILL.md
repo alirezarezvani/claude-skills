@@ -1,6 +1,6 @@
 ---
 name: "atlassian-admin"
-description: Atlassian Administrator for managing and organizing Atlassian products (Jira, Confluence, Bitbucket, Trello), users, permissions, security, integrations, system configuration, and org-wide governance. Use when asked to add users to Jira, change Confluence permissions, configure access control, update admin settings, manage Atlassian groups, set up SSO, install marketplace apps, review security policies, or handle any org-wide Atlassian administration task.
+description: "Use for Atlassian org administration: Jira or Confluence users and groups, permissions, SSO, marketplace apps or security policy. Audits permissions with permission_audit_tool.py."
 ---
 
 # Atlassian Administrator Expert

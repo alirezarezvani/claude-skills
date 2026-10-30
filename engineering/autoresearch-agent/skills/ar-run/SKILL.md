@@ -1,6 +1,6 @@
 ---
 name: "ar-run"
-description: "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:ar-run or asks for one manual autoresearch iteration."
+description: "Use for /ar:ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard."
 metadata:
   command: /ar:ar-run
 ---

@@ -1,6 +1,6 @@
 ---
 name: "collab-proof"
-description: "Use when you want to understand what Claude contributed vs what you drove in a session. Triggers on: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
+description: "Use for /collab-proof or a session retrospective on what Claude contributed versus what the user drove. Builds an evidence-backed split of the session's decisions and work."
 license: MIT
 ---
 

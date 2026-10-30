@@ -1,6 +1,6 @@
 ---
 name: stock-analysis
-description: Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed company — Indian (NSE/BSE) or US/global. Use when the user asks to analyse, research, evaluate, or value a stock, ticker, or listed company; asks whether a business is fundamentally strong, cheap, or expensive; compares companies or benchmarks one against its sector; or mentions OPM, ROCE, ROE, ROIC, P/E, EV/EBITDA, free cash flow, NIM, GNPA, CASA, promoter holding or pledging. Use it for accounting-quality and forensic questions — "is the profit real", "why is profit rising but cash isn't", auditor qualifications, related-party concerns — which route to the forensic-only mode, and for IPOs and not-yet-listed companies — "should I apply to this IPO", DRHP/RHP or S-1 questions, price band, grey market premium — which route to the IPO mode. Use it even when the request sounds casual ("is Infosys any good?"). Do not use it for personalised investment advice, portfolio allocation, or trading signals.
+description: "Use when asked to analyze, research or value a listed stock or company (US, global, NSE or BSE). Verifies data with verify_data.py, computes ratios, scores and valuation, and checks the report with lint_report.py."
 ---
 
 # Stock Analysis

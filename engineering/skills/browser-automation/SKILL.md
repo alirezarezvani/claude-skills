@@ -1,6 +1,6 @@
 ---
 name: "browser-automation"
-description: "Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screenshots, extract structured data from web pages, or build web automation workflows. NOT for testing — use playwright-pro for that."
+description: "Use for browser automation, scraping, form filling or structured extraction from web pages. Builds scrapers with scraping_toolkit.py and form flows with form_automation_builder.py. Browser testing: playwright-pro."
 ---
 
 # Browser Automation - POWERFUL

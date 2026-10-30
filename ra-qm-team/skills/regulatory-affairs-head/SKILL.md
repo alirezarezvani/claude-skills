@@ -1,6 +1,6 @@
 ---
 name: "regulatory-affairs-head"
-description: Senior Regulatory Affairs Manager for HealthTech and MedTech companies. Prepares FDA 510(k), De Novo, and PMA submission packages; analyzes regulatory pathways for new medical devices; drafts responses to FDA deficiency letters and Notified Body queries; develops CE marking technical documentation under EU MDR 2017/745; coordinates multi-market approval strategies across FDA, EU, Health Canada, PMDA, and NMPA; and maintains regulatory intelligence on evolving standards. Use when users need to plan or execute FDA submissions, navigate 510(k) or PMA approval processes, achieve CE marking, prepare pre-submission meeting materials, write regulatory strategy documents, respond to agency queries, or manage compliance documentation for medical device market access.
+description: "Use for medical device market access strategy: FDA 510(k), De Novo or PMA packages, CE marking under MDR, pre-sub meetings, agency deficiency responses or multi-market plans. Analyzes pathways with regulatory_pathway_analyzer.py and tracks submissions with regulatory_tracker.py."
 metadata:
   triggers:
     - regulatory strategy

@@ -1,6 +1,6 @@
 ---
 name: "c-level-agents"
-description: "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /c-level-agents:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /c-level-agents:* commands, or when orchestrating multi-role decisions."
+description: "Use when the founder wants a virtual executive team or a /c-level-agents command. Lists the 13 C-suite agents and 21 commands and routes multi-role decisions."
 license: MIT
 metadata:
   version: 1.0.0

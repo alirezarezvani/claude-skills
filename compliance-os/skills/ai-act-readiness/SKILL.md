@@ -1,6 +1,6 @@
 ---
 name: "ai-act-readiness"
-description: "/compliance-os:ai-act-readiness [system] — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02)."
+description: "Use for /compliance-os:ai-act-readiness, or EU AI Act readiness questions during AI-system intake or before EU deployment."
 ---
 
 # /compliance-os:ai-act-readiness — EU AI Act Forcing Questions

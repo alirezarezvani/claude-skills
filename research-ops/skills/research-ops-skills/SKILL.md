@@ -1,6 +1,6 @@
 ---
 name: research-ops-skills
-description: Use when planning, funding, scoping, or synthesizing enterprise research across workstreams — clinical study design, R&D program finance, market sizing/surveys, or product/user research. Triggers on "design this clinical study", "what sample size", "R&D budget", "burn rate", "capitalize or expense", "TAM SAM SOM", "market sizing", "survey design", "segment the market", "plan user interviews", "usability test", "synthesize research insights". Forks context to route to one of four Research-Operations sub-skills (clinical-research, research-finance, market-research, product-research) and returns a digest. Distinct from ra-qm-team (regulatory submission), finance (corporate close/valuation), research/grants (funding discovery), product-team (persona/journey/live experiments), and marketing-skill (campaign analytics).
+description: "Use when an enterprise research request needs routing (clinical study design, R&D finance, market sizing, user research): 'what sample size', 'R&D budget'. Lists the research-ops skills and routes to one."
 context: fork
 license: MIT
 metadata:

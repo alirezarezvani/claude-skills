@@ -1,6 +1,6 @@
 ---
 name: "tc-tracker"
-description: "Use when the user asks to track technical changes, create change records, manage TC lifecycles, or hand off work between AI sessions. Covers init/create/update/status/resume/close/export workflows for structured code change documentation."
+description: "Use when tracking technical changes as records, or handing work between AI sessions with a change record. Creates, updates and validates change records with tc_create.py, tc_update.py and tc_validator.py."
 ---
 
 # TC Tracker

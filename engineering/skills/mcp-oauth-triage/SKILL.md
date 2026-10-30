@@ -1,6 +1,6 @@
 ---
 name: "mcp-oauth-triage"
-description: "Diagnose why an MCP connector that used to authenticate now fails: classify the fault as envelope, expiry, rotation clobber, binding, or poisoned cache before changing any code. Use when a token exchange succeeds but tool calls 401, when a connector silently degrades after a refresh, when multi-account setups return another account's data, or when re-authenticating fixes the problem only until the next refresh."
+description: "Use when an MCP connector that used to authenticate now fails (tool calls 401 after a good token exchange, breaks after refresh, returns another account's data), before changing code. Classifies the fault with oauth_triage.py."
 ---
 
 # MCP OAuth Triage

@@ -1,6 +1,6 @@
 ---
 name: "swedish-mentor"
-description: Mentor Swedish language learners by selecting YouTube video clips and podcast episodes by CEFR level and skill (listening, reading, writing, speaking), and building a simple learning path. Use when the user asks about a Swedish learning path, YouTube clips or podcasts for Swedish, SFI videos, level assessment for svenska, or requests for Peter SFI / Lätt Svenska med Oskar / Radio Sweden på lätt svenska / Klartext-style recommendations.
+description: "Use when someone learning Swedish wants a learning path or YouTube clips and podcasts matched to their CEFR level and skill (SFI, Lätt Svenska, Radio Sweden på lätt svenska)."
 ---
 
 # Swedish YouTube & Podcast Mentor

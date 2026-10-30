@@ -1,6 +1,6 @@
 ---
 name: research-finance
-description: Use when managing the money for an internal R&D program or portfolio — building a multi-period program budget with the F&A (indirect) split, tracking burn rate and runway against value-inflection milestones, or routing R&D cost items to a capitalize-vs-expense determination. Every budget output surfaces its assumptions block; capitalize-vs-expense is decision-support only and routes to a named finance owner — it never books an entry or decides accounting treatment. Distinct from finance/financial-analysis (corporate DCF, close, valuation) and research/grants (funding discovery — this manages money already won).
+description: "Use for R&D program money: multi-period budgets with indirect cost split, burn and runway against milestones, or capitalize vs expense routing. Runs program_budget_planner.py, burn_runway_tracker.py and capex_vs_opex_router.py."
 license: MIT
 metadata:
   version: 2.9.0

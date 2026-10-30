@@ -1,6 +1,6 @@
 ---
 name: "brief"
-description: "/c-level-agents:brief [topic] — Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation — e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision."
+description: "Use for /c-level-agents:brief, or to frame a strategic question (options, assumptions, success criteria) as a one-page brief before deliberation."
 ---
 
 # /c-level-agents:brief — One-Page Strategy Brief

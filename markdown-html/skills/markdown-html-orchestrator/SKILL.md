@@ -1,6 +1,6 @@
 ---
 name: markdown-html-orchestrator
-description: Use when a user wants to convert any markdown file in their Claude project into a single-file, lightly-interactive HTML — long-form documents (specs, plans, RFCs, reports, explainers), code reviews with diffs and severity-tagged annotations, or slide decks. Triggers on "convert this markdown to HTML", "make this an HTML file", "turn this into an interactive document", "render this report as HTML", "PR writeup as HTML", "slides from this markdown". Forks context to route to one of three converter sub-skills (md-document, md-review, md-slides) based on a deterministic doctype classifier, after the user has run the design-system onboarding once. Refuses if input is under 100 lines (per Shihipar — markdown still wins below the threshold) or design-system isn't onboarded. Distinct from Anthropic's official Playground plugin (which is interactive prompt-tuning controls with sliders/knobs/prompt-copy-back) and from marketing/landing/ (which is a landing-page generator).
+description: "Use when the user wants a markdown file turned into a single-file interactive HTML page (document, code review or slide deck). Classifies it with doctype_classifier.py and routes to md-document, md-review or md-slides."
 context: fork
 license: MIT
 metadata:

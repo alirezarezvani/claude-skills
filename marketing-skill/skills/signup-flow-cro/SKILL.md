@@ -1,6 +1,6 @@
 ---
 name: "signup-flow-cro"
-description: When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions "signup conversions," "registration friction," "signup form optimization," "free trial signup," "reduce signup dropoff," or "account creation flow." For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro.
+description: "Use when signup, registration or trial-start conversion is low or a signup flow is being designed. Finds the drop-off step with funnel_drop_analyzer.py and removes friction field by field."
 license: MIT
 metadata:
   version: 1.0.0

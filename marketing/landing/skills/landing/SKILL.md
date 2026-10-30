@@ -1,6 +1,6 @@
 ---
 name: landing
-description: "Generates a premium single-page HTML landing page with 3D CSS animations, GSAP scroll effects, and mouse-parallax depth. Forcing intake (product + elevator pitch, audience register, brand overrides, tone) locks down positioning before any copy or markup is written, so the page reflects the actual product rather than generic boilerplate. Use whenever the user says 'landing for X', 'create a landing page', 'build a landing page', 'make a landing page for X', 'I need a web page for Y', or provides product/service details and wants a polished website. Also triggers on 'promotional page', 'product page', 'one-pager', 'web presence', 'sales page'. Outputs a single self-contained HTML file (Claude Code) or HTML artifact (Claude.ai). Supports configurable brand colors via CSS custom property overrides."
+description: "Use when asked for a premium single-file HTML landing page with 3D CSS, GSAP scroll effects and parallax. Locks positioning in a short intake, validates the palette with brand_palette_validator.py and the output with html_validator.py."
 license: MIT
 metadata:
   source_spec: "megaprompts/04-landing-megaprompt.md"

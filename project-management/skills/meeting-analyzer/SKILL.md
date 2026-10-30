@@ -1,6 +1,6 @@
 ---
 name: meeting-analyzer
-description: Analyzes meeting transcripts and recordings to surface behavioral patterns, communication anti-patterns, and actionable coaching feedback. Use this skill whenever the user uploads or points to meeting transcripts (.txt, .md, .vtt, .srt, .docx), asks about their communication habits, wants feedback on how they run meetings, requests speaking ratio analysis, mentions filler words or conflict avoidance, or wants to compare their communication across time periods. Also trigger when users mention tools like Granola, Otter, Fireflies, or Zoom transcripts. Even if the user just says "look at my meetings" or "how do I come across in meetings" — use this skill.
+description: "Use when the user shares meeting transcripts (.vtt, .srt, .txt, Otter, Granola, Zoom) or asks how they come across in meetings. Measures speaking ratio, filler words and avoidance patterns and gives coaching."
 ---
 
 # Meeting Insights Analyzer

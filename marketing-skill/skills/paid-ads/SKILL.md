@@ -1,6 +1,6 @@
 ---
 name: "paid-ads"
-description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization."
+description: "Use for paid campaign strategy on Google, Meta, LinkedIn or X: structure, targeting, bids, retargeting and budgets. Scores account health with ad_health_scorer.py and models ROAS with roas_calculator.py. Ad copy only: ad-creative."
 license: MIT
 metadata:
   version: 1.0.0

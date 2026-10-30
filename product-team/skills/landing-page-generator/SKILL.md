@@ -1,6 +1,6 @@
 ---
 name: "landing-page-generator"
-description: "Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP under 1s, CLS under 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page — or when they want to A/B test landing page variants or replace a static page with one designed to convert."
+description: "Use when asked for a landing, marketing or campaign page as a Next.js TSX component with Tailwind. Scaffolds it with landing_page_scaffolder.py using PAS, AIDA or BAB copy, SEO meta and Core Web Vitals targets."
 ---
 
 # Landing Page Generator

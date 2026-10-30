@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: Use when doing upstream market-research methodology — sizing a market as TAM/SAM/SOM computed BOTH top-down and bottoms-up (never a single unsourced number), planning a survey sample size with finite-population correction and per-segment minimums, or scoring candidate market segments against Kotler's measurable/substantial/accessible/differentiable/actionable criteria. Outputs always show the method and the assumptions. For market-research analysts and product-marketing at the sizing/survey/segmentation moment. Distinct from marketing-skill (campaign analytics, attribution, demand-gen) — this is the evidence-building methodology, not live-campaign optimization.
+description: "Use for market sizing (TAM, SAM, SOM both top-down and bottom-up), survey sample sizes or segment scoring. Runs market_sizer.py, sample_size_planner.py and segmentation_scorer.py and never returns one unsourced number."
 license: MIT
 metadata:
   version: 2.9.0

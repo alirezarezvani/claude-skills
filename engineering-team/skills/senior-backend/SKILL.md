@@ -1,6 +1,6 @@
 ---
 name: "senior-backend"
-description: Designs and implements backend systems including REST APIs, microservices, database architectures, authentication flows, and security hardening. Use when the user asks to "design REST APIs", "optimize database queries", "implement authentication", "build microservices", "review backend code", "set up GraphQL", "handle database migrations", or "load test APIs". Covers Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.
+description: "Use for backend work: REST or GraphQL APIs, auth, microservices, PostgreSQL queries, migrations or load tests. Decides with backend_decision_engine.py, scaffolds with api_scaffolder.py, migrates with database_migration_tool.py and load-tests with api_load_tester.py."
 ---
 
 # Senior Backend Engineer

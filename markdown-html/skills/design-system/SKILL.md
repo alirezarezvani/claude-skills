@@ -1,6 +1,6 @@
 ---
 name: design-system
-description: Captures the user's brand identity once via a 10-question onboarding wizard (primary/accent HEX + heading + body Google Fonts + design style editorial/technical/minimal/playful + default output directory + syntax theme + TOC behavior + optional logo/company), validates body-text and link contrast against WCAG 2.2 AA, derives 12 CSS custom properties in HSL space, and stores the result for every markdown-html converter to consume. Use before any markdown-html conversion. Triggers on first-run onboarding ("set up the brand", "configure markdown-html", "run onboarding"), on explicit reset ("reset the design system", "re-onboard"), and is checked by every converter via config_loader.py before rendering. Refuses to save if body-text contrast fails AA 4.5:1 or the output dir isn't writable. Precedence is project (./.markdown-html/), then global (~/.config/markdown-html/), then built-in defaults; MARKDOWN_HTML_NO_CONFIG=1 bypasses.
+description: "Use when setting up brand settings before the first markdown-to-HTML conversion, or changing them. Runs a 10-question onboarding with onboard.py (colors, fonts, style, TOC) and refuses palettes that fail WCAG AA via brand_palette_validator.py."
 license: MIT
 metadata:
   version: 2.10.0

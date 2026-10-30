@@ -1,6 +1,6 @@
 ---
 name: "site-architecture"
-description: "When the user wants to audit, redesign, or plan their website's structure, URL hierarchy, navigation design, or internal linking strategy. Use when the user mentions 'site architecture,' 'URL structure,' 'internal links,' 'site navigation,' 'breadcrumbs,' 'topic clusters,' 'hub pages,' 'orphan pages,' 'silo structure,' 'information architecture,' or 'website reorganization.' Also use when someone has SEO problems and the root cause is structural (not content or schema). NOT for content strategy decisions about what to write (use content-strategy) or for schema markup (use schema-markup)."
+description: "Use for URL structure, navigation, internal linking, hub pages or orphan pages, or when SEO problems are structural. Analyzes the sitemap and link graph with sitemap_analyzer.py before proposing a structure."
 license: MIT
 metadata:
   version: 1.0.0

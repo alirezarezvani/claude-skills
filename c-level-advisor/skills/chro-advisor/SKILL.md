@@ -1,6 +1,6 @@
 ---
 name: "chro-advisor"
-description: "People leadership for scaling companies. Hiring strategy, compensation design, org structure, culture, and retention. Use when building hiring plans, designing comp frameworks, restructuring teams, managing performance, building culture, or when user mentions CHRO, HR, people strategy, talent, headcount, compensation, org design, retention, or performance management."
+description: "Use for people strategy: hiring plans, comp bands, org structure, performance or retention. Models hiring with hiring_plan_modeler.py and benchmarks pay with comp_benchmarker.py."
 license: MIT
 metadata:
   version: 1.0.0

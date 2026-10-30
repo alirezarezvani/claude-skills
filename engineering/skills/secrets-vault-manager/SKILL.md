@@ -1,6 +1,6 @@
 ---
 name: "secrets-vault-manager"
-description: "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
+description: "Use when setting up HashiCorp Vault, AWS Secrets Manager, Azure Key Vault or GCP Secret Manager, rotating secrets or auditing secret access. Generates config with vault_config_generator.py, plans rotation with rotation_planner.py and analyzes audit logs."
 ---
 
 # Secrets Vault Manager

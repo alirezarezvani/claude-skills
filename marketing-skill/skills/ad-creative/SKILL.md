@@ -1,6 +1,6 @@
 ---
 name: "ad-creative"
-description: "When the user needs to generate, iterate, or scale ad creative for paid advertising. Use when they say 'write ad copy,' 'generate headlines,' 'create ad variations,' 'bulk creative,' 'iterate on ads,' 'ad copy validation,' 'RSA headlines,' 'Meta ad copy,' 'LinkedIn ad,' or 'creative testing.' This is pure creative production — distinct from paid-ads (campaign strategy). Use ad-creative when you need the copy, not the campaign plan."
+description: "Use for any ad copy request (RSA headlines, Meta, LinkedIn or TikTok ads, bulk variations), before writing. Checks every line against platform character limits and policy with ad_copy_validator.py. Campaign strategy and budgets: paid-ads."
 license: MIT
 metadata:
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: "env-secrets-manager"
-description: "Manage environment-variable hygiene and secrets safety across local development and production. Practical auditing, drift awareness, rotation readiness. Use when auditing .env files for committed secrets, planning a credential rotation, debugging missing-env-var production incidents, or hardening a new project against secrets leakage."
+description: "Use when auditing .env files, planning credential rotation, chasing a missing env var in production or hardening a repo against leaked secrets. Scans for committed secrets and drift with env_auditor.py."
 ---
 
 # Env & Secrets Manager

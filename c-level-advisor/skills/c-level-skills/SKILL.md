@@ -1,6 +1,6 @@
 ---
 name: "c-level-skills"
-description: "Index and router for the C-level advisory bundle: 33 skills covering 14 C-suite roles, orchestration, cross-cutting capabilities, and culture. Use when exploring what the c-level-advisor bundle contains, deciding which advisor skill fits a question, or finding the entry points (cs-onboard interview, chief-of-staff routing, board-meeting protocol)."
+description: "Use when looking for which C-level advisor skill fits a question (14 C-suite roles, board meetings, culture, M&A). Lists them and routes to one."
 license: MIT
 metadata:
   version: 2.1.0

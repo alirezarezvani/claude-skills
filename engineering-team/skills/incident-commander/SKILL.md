@@ -1,6 +1,6 @@
 ---
 name: "incident-commander"
-description: "Comprehensive incident response framework from detection through resolution and post-incident review. Battle-tested SRE/DevOps practices: severity classification, timeline reconstruction, structured post-incident analysis. Use when declaring an incident, coordinating multi-team response during an outage, leading a post-mortem, or setting up on-call practices for a new service."
+description: "Use when declaring or running a production incident or outage, or writing its post-incident review. Classifies severity with incident_classifier.py, rebuilds the timeline with timeline_reconstructor.py and drafts the PIR with pir_generator.py. Security incidents: incident-response."
 ---
 
 # Incident Commander Skill

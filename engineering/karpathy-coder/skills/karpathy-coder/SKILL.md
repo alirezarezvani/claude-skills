@@ -1,6 +1,6 @@
 ---
 name: karpathy-coder
-description: Use when writing, reviewing, or committing code to enforce Karpathy's 4 coding principles — surface assumptions before coding, keep it simple, make surgical changes, define verifiable goals. Triggers on "review my diff", "check complexity", "am I overcomplicating this", "karpathy check", "before I commit", or any code quality concern where the LLM might be overcoding.
+description: "Use before committing or while reviewing a diff, or when code may be overbuilt. Checks it against Karpathy's four principles with complexity_checker.py, diff_surgeon.py and assumption_linter.py: surface assumptions, keep it simple, change surgically, verify goals."
 context: fork
 license: MIT
 metadata:

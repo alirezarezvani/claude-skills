@@ -1,6 +1,6 @@
 ---
 name: "performance-profiler"
-description: "Systematic performance profiling for Node.js, Python, and Go applications. Identifies CPU, memory, and I/O bottlenecks, generates flamegraphs, analyzes bundle sizes, optimizes database queries, runs load tests with k6 and Artillery. Always measures before and after. Use when investigating a slow endpoint, planning a performance budget, or hunting a memory leak in production."
+description: "Use for a slow endpoint, memory leak, CPU spike, large bundle or performance budget in Node.js, Python or Go, before optimizing. Measures before and after with performance_profiler.py, flamegraphs and k6 load tests."
 ---
 
 # Performance Profiler

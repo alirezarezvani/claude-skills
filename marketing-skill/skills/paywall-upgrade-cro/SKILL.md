@@ -1,6 +1,6 @@
 ---
 name: "paywall-upgrade-cro"
-description: When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration screen," "limit reached screen," "plan upgrade prompt," or "in-app pricing." Distinct from public pricing pages (see page-cro) — this skill focuses on in-product upgrade moments where the user has already experienced value.
+description: "Use when designing or fixing an in-app paywall, upgrade modal, feature gate or trial-expiry screen. Applies upgrade-moment patterns for users who have already seen value. Public pricing page: page-cro."
 license: MIT
 metadata:
   version: 1.0.0

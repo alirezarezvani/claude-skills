@@ -1,6 +1,6 @@
 ---
 name: "ciso-advisor"
-description: "Security leadership for growth-stage companies. Risk quantification in dollars, compliance roadmap (SOC 2/ISO 27001/HIPAA/GDPR), security architecture strategy, incident response leadership, and board-level security reporting. Use when building security programs, justifying security budget, selecting compliance frameworks, managing incidents, assessing vendor risk, or when user mentions CISO, security strategy, compliance roadmap, zero trust, or board security reporting."
+description: "Use for security leadership decisions: a security program, budget justification in dollars, SOC 2 vs ISO 27001 vs HIPAA roadmap, or board security reporting. Quantifies risk with risk_quantifier.py and tracks compliance with compliance_tracker.py."
 license: MIT
 metadata:
   version: 1.0.0

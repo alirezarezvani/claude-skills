@@ -1,6 +1,6 @@
 ---
 name: "competitive-teardown"
-description: "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session, responding to a competitor's new feature or pricing change, or performing a quarterly competitive review."
+description: "Use for a deep competitor teardown (pricing, reviews, hiring, SEO, UX) or a response to a competitor's move. Scores products across 12 dimensions with competitive_matrix_builder.py and produces SWOT and positioning maps."
 ---
 
 # Competitive Teardown

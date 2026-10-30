@@ -1,6 +1,6 @@
 ---
 name: "financial-analyst"
-description: Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projections, or spreadsheet analysis.
+description: "Use for financial statement analysis, DCF valuation, budget variance or rolling forecasts. Runs ratio_calculator.py, dcf_valuation.py, budget_variance_analyzer.py and forecast_builder.py."
 ---
 
 # Financial Analyst Skill

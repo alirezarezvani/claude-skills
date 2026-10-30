@@ -1,6 +1,6 @@
 ---
 name: "brand-guidelines"
-description: "When the user wants to apply, document, or enforce brand guidelines for any product or company. Also use when the user mentions 'brand guidelines,' 'brand colors,' 'typography,' 'logo usage,' 'brand voice,' 'visual identity,' 'tone of voice,' 'brand standards,' 'style guide,' 'brand consistency,' or 'company design standards.' Covers color systems, typography, logo rules, imagery guidelines, and tone matrix for any brand — including Anthropic's official identity."
+description: "Use when writing or enforcing brand guidelines (colors, typography, logo rules, imagery, tone of voice), or checking an asset against them. Builds the color system, type scale and tone matrix, including Anthropic's identity."
 license: MIT
 metadata:
   version: 1.0.0

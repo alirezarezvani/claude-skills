@@ -1,6 +1,6 @@
 ---
 name: "copywriting"
-description: "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says \"write copy for,\" \"improve this copy,\" \"rewrite this page,\" \"marketing copy,\" \"headline help,\" or \"CTA copy.\" For email copy, see email-sequence. For popup copy, see popup-cro."
+description: "Use for any headline, tagline, CTA, landing, pricing or about-page copy request, before drafting. Scores candidate headlines with headline_scorer.py and applies a page-section framework, so the first draft is tested rather than guessed."
 license: MIT
 metadata:
   version: 1.0.0

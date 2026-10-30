@@ -1,6 +1,6 @@
 ---
 name: "research-summarizer"
-description: "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative analyses, and produces properly formatted citations. Use when: user wants to summarize a research paper, compare multiple sources, extract citations from documents, or create structured research briefs. Plugin for Claude Code, Codex, Gemini CLI, and OpenClaw."
+description: "Use when summarizing a research paper, article or report, comparing several sources or extracting citations into a brief. Formats with format_summary.py and pulls citations with extract_citations.py."
 license: MIT
 metadata:
   version: 1.0.0

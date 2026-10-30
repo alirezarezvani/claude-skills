@@ -1,6 +1,6 @@
 ---
 name: security-guidance
-description: PreToolUse security-anti-pattern hook for Claude Code. Catches 12 common security risks (command injection, XSS, SQL injection, unsafe deserialization, GitHub Actions workflow injection, eval/new Function code injection) BEFORE the Edit/Write/MultiEdit operation completes. Session-state caching prevents duplicate warnings on the same file+rule combo. Stdlib only — no dependencies. Use when you want a safety net during Claude Code sessions that touch security-sensitive code (auth, payments, user input handling, IaC). Disable with ENABLE_SECURITY_REMINDER=0 if you need to perform a verified-safe operation that would otherwise trip a pattern. Triggers — "add security hook", "block unsafe code", "detect command injection before write", "prevent SQL injection patterns", "security warning hook".
+description: "Use when installing or tuning the PreToolUse security hook that warns before Claude writes command injection, XSS, SQL injection, unsafe deserialization, eval or GitHub Actions injection. Warns once per file and rule; ENABLE_SECURITY_REMINDER=0 turns it off."
 ---
 
 # Security Guidance Hook

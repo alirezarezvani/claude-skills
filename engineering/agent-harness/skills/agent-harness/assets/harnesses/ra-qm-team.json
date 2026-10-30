@@ -16,7 +16,7 @@
     {
       "name": "eu-ai-act-specialist",
       "path": "ra-qm-team/compliance-team-eu-ai-act/skills/eu-ai-act-specialist",
-      "description": "EU AI Act (Regulation (EU) 2024/1689) operational compliance for compliance teams. Three Article-level decisions: (1) What's the risk tier of this AI system \u2014 prohibited (Art. 5), high-risk (Art. 6 + Annex III), limited-risk (Art. 50), or minimal-risk? (2) For high-risk systems, what's the Article 43 conformity assessment route (Module A internal control vs Module H full QMS + notified body) and what goes in the Annex IV technical documentation? (3) Per organizational role (provider / deployer / importer / distributor / authorized representative), what are the active obligations and \u2026",
+      "description": "Use for EU AI Act (Regulation 2024/1689) compliance work: classifying an AI system's risk tier, planning the Art. 43 conformity route and Annex IV file, or listing obligations by role. Runs ai_system_risk_classifier.py, conformity_assessment_planner.py and ai_act_obligation_tracker.py, citing Articles.",
       "tools": [
         {
           "script": "ra-qm-team/compliance-team-eu-ai-act/skills/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py",
@@ -72,7 +72,7 @@
     {
       "name": "iso42001-specialist",
       "path": "ra-qm-team/compliance-team-iso42001/skills/iso42001-specialist",
-      "description": "ISO/IEC 42001:2023 AI Management System (AIMS) specialist for compliance teams running internal audits. Three decisions: (1) Where are the gaps against Clauses 4-10 and what do we close first? (2) What goes in the AI risk register and which Annex A controls treat each risk? (3) What's the 12-month internal audit plan that satisfies Clause 9.2? Use when preparing for certification, scoping internal audit cycles, or onboarding AI systems into an existing ISMS (27001) / QMS (13485) program. NOT an executive AI strategy skill (see chief-ai-officer-advisor). NOT EU AI Act compliance (see \u2026",
+      "description": "Use for ISO/IEC 42001 AI management system work: gap analysis against Clauses 4-10, the AI risk register and Annex A controls, or the internal audit plan. Runs aims_gap_analyzer.py, ai_risk_register_builder.py and aims_audit_scheduler.py.",
       "tools": [
         {
           "script": "ra-qm-team/compliance-team-iso42001/skills/iso42001-specialist/scripts/ai_risk_register_builder.py",
@@ -128,7 +128,7 @@
     {
       "name": "agent-decision-receipts",
       "path": "ra-qm-team/skills/agent-decision-receipts",
-      "description": "Mint a tamper-evident, post-quantum-signed receipt for a consequential agent action (deploy, delete, pay, grant-access, model decision) so it can be verified later from the certificate alone. Use when an autonomous agent takes a side-effecting action that may need to be proven later, or when satisfying EU AI Act Article 12 record-keeping. Three decisions: whether an action needs a receipt, minting it, verifying it. Signing is delegated to the open-source OpenAgentOntology package. Not after-the-fact log analysis; not a hosted notary; not a legal opinion.",
+      "description": "Use when an autonomous agent takes a side-effecting action (deploy, delete, pay, grant access) that may need proving later, or for EU AI Act Art. 12 record-keeping. Builds a tamper-evident signed receipt with build_action_manifest.py and verifies it.",
       "tools": [
         {
           "script": "ra-qm-team/skills/agent-decision-receipts/scripts/build_action_manifest.py",
@@ -157,7 +157,7 @@
     {
       "name": "capa-officer",
       "path": "ra-qm-team/skills/capa-officer",
-      "description": "CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization.",
+      "description": "Use for CAPA work in a medical device QMS: root cause analysis (5-Why, fishbone), corrective action plans, effectiveness checks or CAPA metrics. Tracks CAPAs with capa_tracker.py and analyzes causes with root_cause_analyzer.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/capa-officer/scripts/capa_tracker.py",
@@ -204,7 +204,7 @@
     {
       "name": "eu-ai-act-specialist",
       "path": "ra-qm-team/skills/eu-ai-act-specialist",
-      "description": "EU AI Act (Regulation (EU) 2024/1689) operational compliance for compliance teams. Three Article-level decisions: (1) What's the risk tier of this AI system \u2014 prohibited (Art. 5), high-risk (Art. 6 + Annex III), limited-risk (Art. 50), or minimal-risk? (2) For high-risk systems, what's the Article 43 conformity assessment route (Module A internal control vs Module H full QMS + notified body) and what goes in the Annex IV technical documentation? (3) Per organizational role (provider / deployer / importer / distributor / authorized representative), what are the active obligations and \u2026",
+      "description": "Use for EU AI Act (Regulation 2024/1689) compliance work: classifying an AI system's risk tier, planning the Art. 43 conformity route and Annex IV file, or listing obligations by role. Runs ai_system_risk_classifier.py, conformity_assessment_planner.py and ai_act_obligation_tracker.py, citing Articles.",
       "tools": [
         {
           "script": "ra-qm-team/skills/eu-ai-act-specialist/scripts/ai_act_obligation_tracker.py",
@@ -260,7 +260,7 @@
     {
       "name": "fda-consultant-specialist",
       "path": "ra-qm-team/skills/fda-consultant-specialist",
-      "description": "FDA regulatory consultant for medical device companies. Provides 510(k)/PMA/De Novo pathway guidance, QMSR (21 CFR 820, which incorporates ISO 13485:2016 by reference since 2026-02-02; formerly QSR) compliance, HIPAA assessments, and device cybersecurity. Use when user mentions FDA submission, 510(k), PMA, De Novo, QMSR, QSR, ISO 13485 for FDA, premarket, predicate device, substantial equivalence, HIPAA medical device, or FDA cybersecurity.",
+      "description": "Use for FDA medical device questions: 510(k) vs De Novo vs PMA, predicates and substantial equivalence, QMSR (21 CFR 820), HIPAA or device cybersecurity. Runs fda_submission_tracker.py, qsr_compliance_checker.py and hipaa_risk_assessment.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/fda-consultant-specialist/scripts/fda_submission_tracker.py",
@@ -317,7 +317,7 @@
     {
       "name": "gdpr-dsgvo-expert",
       "path": "ra-qm-team/skills/gdpr-dsgvo-expert",
-      "description": "GDPR and German DSGVO compliance automation. Scans codebases for privacy risks, generates DPIA documentation, tracks data subject rights requests with Art. 12(3) one-month deadlines. Use when running GDPR compliance assessments, privacy audits, data protection planning, DPIA generation, or data subject rights (DSAR) management (e.g., 'check this service for GDPR risks', 'track an access request deadline'). Final compliance determinations route to the DPO or legal counsel.",
+      "description": "Use for GDPR or DSGVO work: scanning a codebase for privacy risks, writing a DPIA or tracking data subject requests against the Art. 12(3) deadline. Runs gdpr_compliance_checker.py, dpia_generator.py and data_subject_rights_tracker.py; final calls go to the DPO.",
       "tools": [
         {
           "script": "ra-qm-team/skills/gdpr-dsgvo-expert/scripts/data_subject_rights_tracker.py",
@@ -373,7 +373,7 @@
     {
       "name": "information-security-manager-iso27001",
       "path": "ra-qm-team/skills/information-security-manager-iso27001",
-      "description": "ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use when designing an ISMS, running security risk assessments, implementing controls, pursuing ISO 27001 certification, preparing security audits, responding to security incidents, or verifying compliance. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity.",
+      "description": "Use when designing or running an ISO 27001 ISMS in HealthTech or MedTech: risk assessment, control implementation, certification or security incidents. Assesses risk with risk_assessment.py and checks controls with compliance_checker.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/information-security-manager-iso27001/scripts/compliance_checker.py",
@@ -416,7 +416,7 @@
     {
       "name": "isms-audit-expert",
       "path": "ra-qm-team/skills/isms-audit-expert",
-      "description": "Information Security Management System (ISMS) audit expert for ISO 27001 compliance verification, security control assessment, and certification support. Use when the user mentions ISO 27001, ISMS audit, Annex A controls, Statement of Applicability (SOA), gap analysis, nonconformity management, internal audit, surveillance audit, or security certification preparation. Helps review control implementation evidence, document audit findings, classify nonconformities, generate risk-based audit plans, map controls to Annex A requirements, prepare Stage 1 and Stage 2 audit documentation, and \u2026",
+      "description": "Use for ISO 27001 audit work: internal or surveillance audits, Annex A control evidence, Statement of Applicability, nonconformities, Stage 1 and 2 prep. Plans risk-based audits with isms_audit_scheduler.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/isms-audit-expert/scripts/isms_audit_scheduler.py",
@@ -448,7 +448,7 @@
     {
       "name": "iso42001-specialist",
       "path": "ra-qm-team/skills/iso42001-specialist",
-      "description": "ISO/IEC 42001:2023 AI Management System (AIMS) specialist for compliance teams running internal audits. Three decisions: (1) Where are the gaps against Clauses 4-10 and what do we close first? (2) What goes in the AI risk register and which Annex A controls treat each risk? (3) What's the 12-month internal audit plan that satisfies Clause 9.2? Use when preparing for certification, scoping internal audit cycles, or onboarding AI systems into an existing ISMS (27001) / QMS (13485) program. NOT an executive AI strategy skill (see chief-ai-officer-advisor). NOT EU AI Act compliance (see \u2026",
+      "description": "Use for ISO/IEC 42001 AI management system work: gap analysis against Clauses 4-10, the AI risk register and Annex A controls, or the internal audit plan. Runs aims_gap_analyzer.py, ai_risk_register_builder.py and aims_audit_scheduler.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/iso42001-specialist/scripts/ai_risk_register_builder.py",
@@ -504,7 +504,7 @@
     {
       "name": "mdr-745-specialist",
       "path": "ra-qm-team/skills/mdr-745-specialist",
-      "description": "EU MDR 2017/745 compliance specialist for medical device classification, technical documentation, clinical evidence, and post-market surveillance. Covers Annex VIII classification rules, Annex II/III technical files, Annex XIV clinical evaluation, Art. 86 PSUR schedules, and EUDAMED integration. Use when classifying a medical device under MDR, building or gap-checking a technical file, planning clinical evaluation or PMS/PSUR cadence, or preparing for notified body review (e.g., 'what class is my device under MDR', 'review my PSUR schedule').",
+      "description": "Use for EU MDR 2017/745 work: device classification under Annex VIII, technical file gaps (Annex II/III), clinical evaluation, PMS and PSUR cadence, notified body prep. Checks the file with mdr_gap_analyzer.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/mdr-745-specialist/scripts/mdr_gap_analyzer.py",
@@ -535,7 +535,7 @@
     {
       "name": "qms-audit-expert",
       "path": "ra-qm-team/skills/qms-audit-expert",
-      "description": "ISO 13485 internal audit expertise for medical device QMS. Covers audit planning, execution, nonconformity classification, and CAPA verification. Use when planning internal audits, executing audits, classifying findings, preparing for external audits, or managing an audit program.",
+      "description": "Use for ISO 13485 internal audits: planning the program, running an audit, classifying findings or preparing for an external audit. Optimizes the schedule with audit_schedule_optimizer.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/qms-audit-expert/scripts/audit_schedule_optimizer.py",
@@ -566,7 +566,7 @@
     {
       "name": "quality-documentation-manager",
       "path": "ra-qm-team/skills/quality-documentation-manager",
-      "description": "Document control system management for medical device QMS. Covers document numbering, version control, change management, and 21 CFR Part 11 compliance. Use when working on document control procedures, change control workflows, document numbering, version management, electronic signature compliance, or regulatory documentation review.",
+      "description": "Use for QMS document control: numbering, versioning, change control or 21 CFR Part 11 e-signatures. Validates documents with document_validator.py and tracks versions with document_version_control.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/quality-documentation-manager/scripts/document_validator.py",
@@ -613,7 +613,7 @@
     {
       "name": "quality-manager-qmr",
       "path": "ra-qm-team/skills/quality-manager-qmr",
-      "description": "Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides quality system governance, management review leadership, regulatory compliance oversight, and quality performance monitoring per ISO 13485 Clause 5.5.2. Use when leading management reviews, setting quality policy and objectives, monitoring quality KPIs and cost of quality, or exercising QMR governance and regulatory oversight responsibilities.",
+      "description": "Use for QMR duties under ISO 13485 5.5.2: management review, quality policy and objectives, quality KPIs and cost of quality. Tracks reviews with management_review_tracker.py and monitors effectiveness with quality_effectiveness_monitor.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/quality-manager-qmr/scripts/management_review_tracker.py",
@@ -660,7 +660,7 @@
     {
       "name": "quality-manager-qms-iso13485",
       "path": "ra-qm-team/skills/quality-manager-qms-iso13485",
-      "description": "ISO 13485 Quality Management System implementation and maintenance for medical device organizations. Provides QMS design, documentation control, internal auditing, CAPA management, and certification support. Use when working with medical device quality systems, preparing for ISO 13485 audits, managing regulatory compliance documentation, setting up corrective actions, or building audit preparation programs. Useful for quality management, audit preparation, regulatory compliance, medical device documentation, and corrective action workflows.",
+      "description": "Use when building or maintaining an ISO 13485 QMS for medical devices, or preparing for its certification audit. Covers QMS design, documentation and CAPA and runs qms_audit_checklist.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/quality-manager-qms-iso13485/scripts/qms_audit_checklist.py",
@@ -690,7 +690,7 @@
     {
       "name": "ra-qm-skills",
       "path": "ra-qm-team/skills/ra-qm-skills",
-      "description": "Router/index for the 15 regulatory & quality-management skills bundled in this plugin (ISO 13485 QMS, EU MDR 2017/745, FDA submissions under QMSR, ISO 14971 risk, CAPA, document control, ISO 27001/ISMS, ISO 42001 AIMS, EU AI Act, GDPR/DSGVO, SOC 2, auditing). Use when a compliance request doesn't obviously match one skill and you need to pick the right one (e.g., 'prepare us for an ISO 13485 audit', 'is my AI system high-risk under the AI Act').",
+      "description": "Use when a regulatory or quality request doesn't clearly match one skill (ISO 13485, MDR, FDA, ISO 14971, CAPA, ISO 27001, ISO 42001, EU AI Act, GDPR, SOC 2). Lists them and routes to one.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,
@@ -704,7 +704,7 @@
     {
       "name": "regulatory-affairs-head",
       "path": "ra-qm-team/skills/regulatory-affairs-head",
-      "description": "Senior Regulatory Affairs Manager for HealthTech and MedTech companies. Prepares FDA 510(k), De Novo, and PMA submission packages; analyzes regulatory pathways for new medical devices; drafts responses to FDA deficiency letters and Notified Body queries; develops CE marking technical documentation under EU MDR 2017/745; coordinates multi-market approval strategies across FDA, EU, Health Canada, PMDA, and NMPA; and maintains regulatory intelligence on evolving standards. Use when users need to plan or execute FDA submissions, navigate 510(k) or PMA approval processes, achieve CE marking \u2026",
+      "description": "Use for medical device market access strategy: FDA 510(k), De Novo or PMA packages, CE marking under MDR, pre-sub meetings, agency deficiency responses or multi-market plans. Analyzes pathways with regulatory_pathway_analyzer.py and tracks submissions with regulatory_tracker.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/regulatory-affairs-head/scripts/regulatory_pathway_analyzer.py",
@@ -748,7 +748,7 @@
     {
       "name": "risk-management-specialist",
       "path": "ra-qm-team/skills/risk-management-specialist",
-      "description": "Medical device risk management specialist implementing ISO 14971 throughout product lifecycle. Provides risk analysis, risk evaluation, risk control, and post-production information analysis. Use when user mentions risk management, ISO 14971, risk analysis, FMEA, fault tree analysis, hazard identification, risk control, risk matrix, benefit-risk analysis, residual risk, risk acceptability, or post-market risk.",
+      "description": "Use for ISO 14971 medical device risk management: hazard analysis, FMEA, fault trees, risk controls, benefit-risk or residual risk. Runs fmea_analyzer.py and risk_matrix_calculator.py.",
       "tools": [
         {
           "script": "ra-qm-team/skills/risk-management-specialist/scripts/fmea_analyzer.py",

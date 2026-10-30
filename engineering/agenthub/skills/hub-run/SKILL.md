@@ -1,6 +1,6 @@
 ---
 name: "hub-run"
-description: "One-shot lifecycle command that chains init → baseline → spawn → eval → merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end."
+description: "Use for /hub:hub-run, or to run a whole AgentHub competition end to end: init, baseline, spawn, eval and merge."
 metadata:
   command: /hub:hub-run
 ---

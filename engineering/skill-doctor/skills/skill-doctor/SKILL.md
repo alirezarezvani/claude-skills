@@ -1,6 +1,6 @@
 ---
 name: skill-doctor
-description: Use when the user wants their agent setup graded from real conversation history, asks which installed skills are actually working, or wants evidence-backed skill edits — scores recent local Claude Code / Codex sessions against efficiency and code-quality rubrics, then drafts skill changes gated by a deterministic aggregator and renders one local shareable report.
+description: "Use when the user wants their skills graded from real session history, asks which installed skills actually work, or wants evidence-backed skill edits. Collects local sessions with collect_sessions.py, scores them against two rubrics and gates edits with score_aggregator.py."
 argument-hint: "[optional: --repo PATH, --days N, or a question about the setup]"
 license: MIT
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: "cto-review"
-description: "/c-level-agents:cto-review [plan] — Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor."
+description: "Use for /c-level-agents:cto-review, or to challenge an architecture commitment, a 10x scaling plan or rebuild vs buy."
 ---
 
 # /c-level-agents:cto-review — CTO Forcing Questions

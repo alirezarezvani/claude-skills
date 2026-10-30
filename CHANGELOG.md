@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.4] - 2026-10-30 — CMMC Level 2 readiness, nightly skill evals
+
+One new skill and a nightly eval harness. The two plugins whose files changed move to 2.14.4:
+`cmmc-readiness` (new) and `ra-qm-skills`. The eval harness lives in `scripts/` and `.github/`, so no
+other plugin changes.
+
 ### Added
 
 - **Nightly skill evals** (`scripts/evals/`, `.github/workflows/skill-evals.yml`). Runs the real Claude Code

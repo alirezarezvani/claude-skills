@@ -151,6 +151,11 @@ in `.claude-plugin/authoring-notes.json` summarizes it; if the two ever disagree
 22. **Bounded session reads.** Session files are read through a
     `MAX_FILE_BYTES` cap instead of upstream's slurp-then-truncate, so a
     pathological multi-hundred-MB JSONL never lands in memory whole.
+23. **Headless transcripts via `--sessions-dir`.** The collector also reads
+    `claude -p --output-format stream-json` transcripts (which carry
+    `session_id`, not `sessionId`) from directories you name, such as eval
+    runs. Those files skip the repo match, since you chose them, and are
+    identified by file name because an eval harness can reuse one session id.
 
 **Docs & governance**
 

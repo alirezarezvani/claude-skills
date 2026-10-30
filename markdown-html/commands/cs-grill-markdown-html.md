@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Matt-Pocock-style forcing-question grill for markdown-html conversions. Walks 5 cited-canon questions (purpose, line-count threshold, design-system onboarding, output path, doctype confidence) one at a time with a recommended answer. Run before /cs-markdown-html when you want clarity about what the HTML is for, not just a route to the closest sub-skill.
 argument-hint: "<path to markdown file>"
 ---

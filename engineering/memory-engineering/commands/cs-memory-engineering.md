@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Price, choose, audit and gate an agent memory system — the full four-lens memory-engineering pass.
 argument-hint: "[memory dir, design spec JSON, or a question about a memory system]"
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-notebooklm"
 description: "/cs-notebooklm — NotebookLM browser automation. Action-routing intake (Q1: read / add source / Studio output / create new) + per-action Q2-Q4 branching. Fire-and-notify for slow Studio ops. Mandatory custom prompts (defaults are mediocre). Requires browser automation environment — fails clean on web."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Just the roster diff - find leavers with enabled accounts, logins after exit, orphaned and ownerless service accounts, unreviewed movers and inactive accounts.
 argument-hint: "hr_roster.csv accounts.csv --inactive-days N [--privileged-review-days N --leaver-grace-days N --as-of YYYY-MM-DD]"
 ---

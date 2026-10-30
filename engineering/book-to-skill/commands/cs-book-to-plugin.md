@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-book-to-plugin"
 description: "/cs-book-to-plugin <compiled-skill-dir> [--domain <domain>] — wrap a compiled book skill in a claude-skills plugin package (manifest + cs-* agent + /cs-* command + README) so the rest of the library can route to it. Use after /cs-book-to-skill, or when an existing knowledge-base skill folder needs to become an installable plugin."
 ---

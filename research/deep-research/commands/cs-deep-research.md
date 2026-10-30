@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-deep-research"
 description: "/cs-deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans out parallel search sub-agents, triangulates every thesis against >=3 independent sources, saves each source to its own file with verbatim quotes, runs an adversarial pass, and emits an auditable, reusable research folder with a refresh protocol. The heavyweight alternative to the fast research router."
 argument-hint: "[the question or decision to research]"

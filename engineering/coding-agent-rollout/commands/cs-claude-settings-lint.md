@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Lint Claude Code settings across shared, local, user and managed scopes, and say what the merged permission policy actually allows.
 argument-hint: "[repo path] [managed-settings.json] [user settings.json]"
 ---

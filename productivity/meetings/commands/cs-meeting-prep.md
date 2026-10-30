@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-meeting-prep"
 description: "/cs-meeting-prep — Gate a meeting before it exists: price it in real dollars (attendees x minutes x rate + optional 23-minute refocus overhead), demand a decision + agenda + owner, then either recommend async or build a timeboxed, decision-first agenda where every topic has a desired outcome."
 argument-hint: "[the meeting: who, how long, what decision]"

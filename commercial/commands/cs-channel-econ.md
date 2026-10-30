@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Direct vs partner-led channel economics — fully-loaded cost-to-serve, channel ROI, optimal channel mix. NOT partnership structure (sibling partnerships-architect). Direct invocation of the channel-economics skill.
 argument-hint: "<channels with deal count + ARR + costs, or path to channel JSON>"
 ---

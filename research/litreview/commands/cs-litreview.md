@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-litreview"
 description: "/cs-litreview <research-question> — Academic literature orientation. Grill-me intake (question + framework + depth), free-lane recon (PubMed E-utilities + OpenAlex, keyless; Consensus MCP added only when connected), framework checkpoint, sequential budget-allocated searches (5/10/20), 8-section .docx research guide output. Sibling of /cs-pulse (research pack)."
 ---

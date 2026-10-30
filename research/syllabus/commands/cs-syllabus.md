@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-syllabus"
 description: "/cs-syllabus <syllabus-file-or-paste> — Generate curated supplementary reading list from any course syllabus. 3-Q grill-me (input format + audience + year range) + grouping checkpoint → Consensus searches per section with applied-domain weaving → .docx via bundled JS script with audience-calibrated summaries + Bloom higher-order discussion questions."
 ---

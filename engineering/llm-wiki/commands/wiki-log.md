@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: wiki-log
 description: Show recent entries from the LLM Wiki log (wiki/log.md). Uses the standardized ## [YYYY-MM-DD] header format so grep + tail works. Usage /wiki-log [--last N] [--op ingest|query|lint|...]
 ---

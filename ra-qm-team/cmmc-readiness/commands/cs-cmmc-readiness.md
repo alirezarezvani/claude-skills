@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Full CMMC Level 2 readiness pass - classify the asset inventory, score all 110 requirements, and check the POA&M against the 180-day closeout deadline.
 argument-hint: "inventory.csv assessment.csv [poam.csv --conditional-date YYYY-MM-DD]"
 ---

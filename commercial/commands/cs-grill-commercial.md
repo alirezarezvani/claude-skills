@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Matt Pocock-style docs-anchored grilling for a Commercial plan, deal, pricing decision, or forecast. Walks the user's plan against the SaaS pricing canon (Skok, Tunguz, Bessemer, Ramanujam, ProfitWell, Winning by Design) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs-commercial on a fuzzy plan.
 argument-hint: "<plan, deal, pricing question, or fuzzy commercial problem>"
 ---

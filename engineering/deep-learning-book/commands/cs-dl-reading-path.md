@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-dl-reading-path"
 description: "/cs-dl-reading-path — Build a prerequisite-closed reading path through the Deep Learning book from a goal, a background and the hours you actually have. Refuses to route a goal the 2016 book does not cover, and names what covers it instead."
 argument-hint: "[your goal — what you want to be able to do after reading]"

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Close out a launched Claude Managed Agent — recap every primitive owned, regenerate the single-file overview page, and suggest the next 1–2 upgrades, via the wrap-up skill. The last stop before phase=done.
 argument-hint: "[optional: path to build-sheet.json]"
 ---

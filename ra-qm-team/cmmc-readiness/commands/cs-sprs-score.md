@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Score a NIST SP 800-171 Rev 2 self-assessment for SPRS and CMMC Level 2, and list what must be fixed before Conditional status is possible.
 argument-hint: "assessment.csv (all 110 requirements: MET | NOT_MET | NA | PARTIAL)"
 ---

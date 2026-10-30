@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Discount matrix designer + T&C library + exception policy. New ground — designs the policy that deal-desk applies per deal. Direct invocation of the commercial-policy skill.
 argument-hint: "<inputs: deal-band data, current discount distribution, target NRR>"
 ---

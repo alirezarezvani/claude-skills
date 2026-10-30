@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Matt Pocock-style docs-anchored grilling for a Research Operations plan — clinical study, R&D budget, market size, or product study. Walks the plan against the research canon (ICH E9, IAS 38, Cochran, Kotler, Nielsen) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs-research-ops on a fuzzy plan.
 argument-hint: "<plan, study, budget, market question, or fuzzy research problem>"
 ---

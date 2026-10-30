@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Lint UI source for unfinished work - controls that do nothing, dead links, placeholder copy, removed focus rings - and flag template defaults.
 argument-hint: "<file or directory with UI source>"
 ---

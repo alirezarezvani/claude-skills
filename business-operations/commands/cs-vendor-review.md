@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Score vendors on a multi-dimensional scorecard (reliability / support / security / commercial / strategic-fit), track SLA compliance, classify third-party risk. Direct invocation of the vendor-management skill.
 argument-hint: "<vendor catalog JSON path or vendor list>"
 ---

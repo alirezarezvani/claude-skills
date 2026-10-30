@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Just the merge gate - paired statistical comparison of a candidate eval run against baseline, with a PASS / WARN / BLOCK exit code.
 argument-hint: "baseline.jsonl candidate.jsonl [quarantine.json]"
 ---

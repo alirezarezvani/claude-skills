@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-fable-goal"
 argument-hint: "[ramble about the thing you want made]"
 description: "/cs-fable-goal — Turn a ramble about something you want made into one polished, autonomous /goal prompt (copy-paste ready). Extracts deliverable/quantity/stakes/tools/destination, asks at most one question batch, verifies every named resource exists, writes a 150–350 word prose prompt with the seven-part anatomy, and self-checks before delivering."

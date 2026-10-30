@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Full Claude Code team-rollout audit - settings across scopes, MCP/plugin inventory, CLAUDE.md layering, and adoption stage.
 argument-hint: "[repo path] [managed-settings.json] [approved-components.json]"
 ---

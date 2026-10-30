@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-reflect"
 description: "/cs-reflect — Mid-conversation reflection: halts current thread, re-reads full conversation from original goal forward, runs 5-dimension analysis (Macro / Gap / Reflective / Bias / Contextual), ends with Continue / Pivot / Pause recommendation. Flowing prose, no headers. Honest output — no manufactured problems."
 ---

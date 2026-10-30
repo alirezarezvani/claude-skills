@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-weekly-review"
 description: "/cs-weekly-review — Run a GTD weekly review: GET CLEAR (collect, inboxes to zero, empty your head), GET CURRENT (next actions, both calendars, waiting-for, projects — all mandatory), GET CREATIVE (someday/maybe, new ideas). Deterministic gate names every missing step; commitment auditor scores portfolio health 0-100."
 argument-hint: "[optional: directory or notes to review]"

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Company SOP + runbook authoring with 5W2H completeness checks. NOT personal PKM (that's llm-wiki). NOT engineering-specific runbooks. Direct invocation of the knowledge-ops skill.
 argument-hint: "<process / system / incident to document>"
 ---

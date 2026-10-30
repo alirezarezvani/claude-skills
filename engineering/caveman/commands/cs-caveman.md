@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-caveman"
 description: "/cs-caveman — Activate persistent caveman-mode. Ultra-compressed responses with technical substance preserved. Auto-clarity exception for warnings + destructive ops. Stays active until 'stop caveman' / 'normal mode'."
 ---

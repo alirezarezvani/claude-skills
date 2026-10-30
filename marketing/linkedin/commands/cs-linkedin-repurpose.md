@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin-repurpose"
 description: "/cs-linkedin-repurpose — Split an article, talk transcript, README, or write-up into standalone LinkedIn units, score each on whether it survives without its context, and skip anything already in the reuse ledger so the same idea never goes out twice."
 argument-hint: "[path to the source: article, transcript, README, notes]"

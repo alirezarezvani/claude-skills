@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-time-block"
 description: "/cs-time-block — Build today's time-block plan from a task list, fast: deep blocks of at least 90 minutes in the earliest hours under a hard 4-hour ceiling, shallow work batched into at most two windows, 10-minute buffers, fixed lunch, immovable hard stop. The quick variant of /cs-deep-work — schedule only, no audit, no ledger."
 argument-hint: "[task list with minutes, plus start/end times]"

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: R&D program finance. Build a multi-period program budget with the F&A (indirect) split, track burn rate and runway against value-inflection milestones, and route R&D cost items to a capitalize-vs-expense determination. Every budget surfaces its assumptions; capex-vs-opex routes to a named finance owner and never auto-decides. Direct invocation of the research-finance skill.
 argument-hint: "<program context: work packages, F&A rate, cash on hand, milestones, cost items>"
 ---

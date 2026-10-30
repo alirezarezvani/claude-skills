@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Top-level markdown-to-HTML router. Classifies the input markdown (document / review / slides), checks the design-system onboarding gate + 100-line threshold, then forks context to the right converter sub-skill via the markdown-html-orchestrator skill. Returns a ≤100-word digest with input lines, output path, design style, top features used, and one forcing question.
 argument-hint: "<path to markdown file>"
 ---

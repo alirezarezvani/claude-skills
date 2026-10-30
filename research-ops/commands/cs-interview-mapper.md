@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Transcript-level interview mapping. Route intake to one of 16 lenses, code the transcript with verbatim quote verification, run a reliability council on unstable analytic cells, and (for >=2 interviews) synthesize triangulated cross-interview insights. Every conclusion carries a verified quote + line number; disagreement is flagged for a human, never auto-resolved. Direct invocation of the interview-mapper skill.
 argument-hint: "<transcript path or task: goal, respondent type, number of interviews>"
 ---

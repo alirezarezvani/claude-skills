@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Main entry / resume for building a Claude Managed Agent. Runs the agent-launcher-orchestrator skill from the current session goal — reads ./my-agent/goal.json, routes to the right phase (interview → stage-launch → grade-iterate → run-without-you → wrap-up), compiles the loop/workflow, and forks to the phase skill. Emits BYOK curl; never makes API calls or prints the key.
 argument-hint: "[optional: a one-sentence goal to set first]"
 ---

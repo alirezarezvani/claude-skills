@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-workflow-build"
 description: "/cs-workflow-build <task-description> — Design and write a deterministic Claude Code workflow (.js). Opens with intake questions, infers-and-proposes a topology when the request is vague, then scaffolds + validates the file. Use when building or running a custom Claude Code workflow."
 ---

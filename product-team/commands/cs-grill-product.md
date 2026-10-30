@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Matt Pocock-style interrogation of a product plan against the product canon (Torres, Cagan Transformed, Reinertsen/WSJF, Amplitude North Star, evals-as-PRD). One forcing question per turn with a recommended answer; refuses to invoke any sub-skill or start a loop until the outcome-defining decisions are locked. Use before running /cs-product or /cs-product-loop on a fuzzy plan.
 argument-hint: "<product plan, roadmap, feature idea, or strategy to interrogate>"
 ---

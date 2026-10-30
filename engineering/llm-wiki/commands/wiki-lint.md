@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: wiki-lint
 description: Run a health check on the LLM Wiki vault — mechanical checks (orphans, broken links, stale pages, missing frontmatter, log gap, duplicates) plus semantic checks (contradictions, cross-reference gaps, concepts missing their own page). Outputs a markdown report with suggested actions. Usage /wiki-lint [--stale-days N] [--log-gap-days N]
 ---

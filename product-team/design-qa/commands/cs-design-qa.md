@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Run the full UI finish gate on a screen - source lint, interaction states and a rendered audit at 320 px and desktop - and say whether it is done.
 argument-hint: "<source path> [running URL] [state matrix CSV]"
 ---

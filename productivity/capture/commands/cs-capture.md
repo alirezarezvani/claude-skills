@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-capture"
 description: "/cs-capture <dump-text-or-path> — Explicit invocation of the brain-dump organizer. Captures an unstructured stream of thoughts/tasks/ideas and returns a 4-section actionable system (Projects/Ideas, Tasks, Connections, How I Can Help). Compressed format for small dumps. Max 1 clarifying question. No fabricated connections. No corporate-ifying."
 ---

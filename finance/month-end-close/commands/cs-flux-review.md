@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Just the flux gate - mark material fluctuations by your threshold rule and return every explanation that is missing, boilerplate, unquantified or unevidenced.
 argument-hint: "tb_compare.csv [--pct N --abs N --rule and|or --compare prior|budget --reviewer NAME]"
 ---

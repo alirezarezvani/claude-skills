@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-grill-me"
 description: "/cs-grill-me <path-to-plan> — Start a relentless interrogation of a plan or design. Walks decision tree one branch at a time. One question per turn with recommended answer. Explores codebase before asking."
 ---

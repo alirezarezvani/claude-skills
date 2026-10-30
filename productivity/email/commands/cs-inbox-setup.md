@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-inbox-setup"
 description: "/cs-inbox-setup — Interactive 8-section interview that builds a personalized 7-file email-triage knowledge base. ~25-31 grill-me questions, one at a time. Run ONCE; re-run when business/pricing/priorities change. Companion to /cs-inbox-triage."
 ---

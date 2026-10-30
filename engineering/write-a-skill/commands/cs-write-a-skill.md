@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-write-a-skill"
 description: "/cs-write-a-skill <name-or-description> — Author a new agent skill with Matt Pocock's 3-phase workflow (Gather → Draft → Review). Runs 6 review-checklist items + 3 validator tools as a gate. Use when starting a new skill in this repo."
 ---

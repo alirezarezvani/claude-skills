@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Grade the agent setup from real local session history — rubric-scored, evidence-gated, rendered as one local shareable report.
 argument-hint: "[optional: --repo PATH | --days N | --harness claude|codex | a question about the setup]"
 ---

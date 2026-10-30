@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-dossier"
 description: "/cs-dossier <entity> — Decision-grade entity research with mandatory hypothesis-testing. 6-Q grill-me intake (Q4 hypothesis MANDATORY) → ≥30% disconfirming search budget → 9-section .docx with verdict (SUPPORTED/PARTIALLY/DISPROVEN/INCONCLUSIVE) + 3-5 finding-tied conversation hooks."
 ---

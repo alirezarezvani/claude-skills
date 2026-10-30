@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Full access-lifecycle pass - diff the HR roster against account exports, check the review campaign, and map every exception to the controls it breaks.
 argument-hint: "hr_roster.csv accounts.csv [campaign.csv] [--framework soc2,iso27001,pci,nist80053,hipaa,sox]"
 ---

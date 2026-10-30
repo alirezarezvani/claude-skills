@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin-profile"
 description: "/cs-linkedin-profile — Audit a LinkedIn profile 0-100, rank every fix by points per hour, score the headline on five dimensions against the 220-character cap, and assemble an About section that survives the '…see more' fold."
 argument-hint: "[your headline, or a description of your profile section by section]"

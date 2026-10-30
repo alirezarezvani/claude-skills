@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Convert a markdown PR writeup or code review (with ```diff blocks and > [!BLOCKER]/[!MAJOR]/[!MINOR]/[!NIT] severity callouts) into a single-file 2-column HTML review. Top jump-nav lists every finding by severity. Diff on the left, severity-tagged annotation cards on the right, mandatory named reviewer footer. Refuses without --reviewer (a code review must name a human) or if no diff hunks present.
 argument-hint: "<path to markdown> --reviewer \"<name>\" [--title \"<PR title>\"] [--severity-convention \"<a,b,c,d>\"]"
 ---

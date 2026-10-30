@@ -3509,6 +3509,16 @@
   "neg": "Write an IAM policy in Terraform that gives our data-science group read-only access to a single S3 bucket, with MFA required.",
   "origin": "generated"
  },
+ "ra-qm-team/cmmc-readiness/skills/cmmc-readiness": {
+  "name": "cmmc-readiness",
+  "plugin": "cmmc-readiness",
+  "pos": [
+   "we're a DoD subcontractor and the prime says we need CMMC Level 2 by next year, where do we even stand?",
+   "Our SSP covers 96 of the 110 NIST 800-171 controls; MFA is only on admin accounts and our laptops use BitLocker without FIPS mode. Calculate our SPRS score, tell me which gaps can go on a POA&M and which block a Conditional status, and whether our M365 Commercial tenant holding CUI is in scope."
+  ],
+  "neg": "Write an incident response plan for a ransomware attack on our file server, with roles, escalation steps and a communication template for customers.",
+  "origin": "reviewed"
+ },
  "ra-qm-team/compliance-team-eu-ai-act/skills/eu-ai-act-specialist": {
   "name": "eu-ai-act-specialist",
   "plugin": "compliance-team-eu-ai-act",

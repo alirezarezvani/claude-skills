@@ -4,7 +4,7 @@
 Stdlib-only. Combines the description-validator + structure-validator into a single
 report that mirrors Matt Pocock's review checklist from write-a-skill:
 
-  1. [ ] Description includes triggers ("Use when...")
+  1. [ ] Description leads with its trigger ("Use when/for/before ...")
   2. [ ] SKILL.md under 100 lines
   3. [ ] No time-sensitive info (heuristic: no year mentions / "as of" claims / version-specific dates)
   4. [ ] Consistent terminology (heuristic: no obvious synonym pairs in same doc — light check)
@@ -49,14 +49,19 @@ TIME_SENSITIVE_PATTERNS = [
 
 
 def check_description_has_trigger(text: str) -> Dict[str, Any]:
+    # The trigger has to come first. The 2026-10-30 trigger evals found descriptions that open
+    # with a capability summary and put "Use when" at the end fired far less often than ones
+    # that open with the moment to load the skill.
     desc = extract_description(text)
     has_trigger_phrase = has_trigger(desc)
-    return {
-        "rule": "1. Description includes triggers",
-        "pass": has_trigger_phrase,
-        "detail": ("Found explicit trigger phrase" if has_trigger_phrase
-                   else "Missing explicit trigger phrase (Use when/before/after/for ...)"),
-    }
+    leads = has_trigger_phrase and bool(re.match(r"[\s\"']*(use|invoke|apply|run)\b", desc, re.IGNORECASE))
+    if leads:
+        detail = "Description opens with its trigger phrase"
+    elif has_trigger_phrase:
+        detail = "Trigger phrase found, but not first: open with 'Use when/for/before ...'"
+    else:
+        detail = "Missing explicit trigger phrase (Use when/before/after/for ...)"
+    return {"rule": "1. Description leads with its trigger", "pass": leads, "detail": detail}
 
 
 def check_skill_md_length(filepath: str, max_lines: int = MAX_SKILL_MD_LINES) -> Dict[str, Any]:
@@ -88,9 +93,10 @@ def check_consistent_terminology(text: str) -> Dict[str, Any]:
     """Light check for common synonym mismatches in the same doc."""
     synonyms = [
         ("agent", "bot"),
-        ("skill", "tool"),
-        ("user", "developer"),
     ]
+    # skill/tool and user/developer were dropped: in this repo they name different things
+    # (a skill ships tools; the user is often not a developer), so they flagged 138 skills
+    # without finding a real inconsistency.
     findings = []
     text_lower = text.lower()
     for a, b in synonyms:

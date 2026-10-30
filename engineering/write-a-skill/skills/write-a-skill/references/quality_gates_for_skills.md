@@ -8,7 +8,7 @@ Pair with `scripts/skill_review_checklist_runner.py` for the automated gate.
 
 | # | Check | Why it matters |
 |---|---|---|
-| 1 | Description includes triggers ("Use when ...") | Without trigger, agent guesses when to activate — high false-positive rate |
+| 1 | Description includes triggers ("Use when ...") and leads with them | Without trigger, agent guesses when to activate. The runner also requires the trigger to come first: in the 2026-10-30 trigger evals, descriptions that opened with a capability summary fired far less often |
 | 2 | SKILL.md under 100 lines | Over-conditioning; agent reads tangential detail and misroutes |
 | 3 | No time-sensitive info | Dates/versions/year refs rot; agent receives stale guidance |
 | 4 | Consistent terminology | Synonym drift confuses the agent + downstream users |

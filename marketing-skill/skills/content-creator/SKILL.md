@@ -53,3 +53,12 @@ This is a redirect skill. Route the user to the correct specialist — don't att
 - **content-strategy**: Content planning and topic selection (successor).
 - **content-humanizer**: Post-processing AI content to sound authentic.
 - **marketing-context**: Foundation context that both successors read.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/analytics_guide.md](references/analytics_guide.md) — Content Analytics & Performance Metrics
+- [references/brand_guidelines.md](references/brand_guidelines.md) — Brand Voice & Style Guidelines
+- [references/content_frameworks.md](references/content_frameworks.md) — Content Creation Frameworks & Templates
+- [references/social_media_optimization.md](references/social_media_optimization.md) — Social Media Optimization Guide

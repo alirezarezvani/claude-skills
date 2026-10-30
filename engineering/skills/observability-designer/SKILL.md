@@ -270,3 +270,11 @@ Creates comprehensive dashboard specifications:
 - **Alert Tuning:** Ongoing alert threshold and routing optimization
 - **Dashboard Evolution:** User feedback-driven dashboard improvements
 - **Tool Evaluation:** Regular assessment of observability tool effectiveness
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/alert_design_patterns.md](references/alert_design_patterns.md) — Alert Design Patterns: A Guide to Effective Alerting
+- [references/dashboard_best_practices.md](references/dashboard_best_practices.md) — Dashboard Best Practices: Design for Insight and Action
+- [references/slo_cookbook.md](references/slo_cookbook.md) — SLO Cookbook: A Practical Guide to Service Level Objectives

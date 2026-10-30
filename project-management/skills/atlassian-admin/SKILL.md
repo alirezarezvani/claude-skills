@@ -228,3 +228,10 @@ description: "Use for Atlassian org administration: Jira or Confluence users and
 - Support Jira/Confluence Experts by performing UI/REST admin changes they cannot do via MCP
 - Ensure Senior PM has visibility into org health (exports from admin.atlassian.com)
 - Enable Scrum Master with team provisioning (admin console)
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/security-hardening-guide.md](references/security-hardening-guide.md) — Atlassian Cloud Security Hardening Guide
+- [references/user-provisioning-checklist.md](references/user-provisioning-checklist.md) — User Provisioning & Lifecycle Management Checklist

@@ -158,3 +158,9 @@ The cache prevents nag-spam but is per-session. Don't rely on "I dismissed this 
 **Version:** 2.7.3
 **Source:** Ported from [`alirezarezvani/aeo-box`](https://github.com/alirezarezvani/aeo-box) `.claude/plugins/security-guidance/` (originally by David Dworken at Anthropic, MIT)
 **License:** MIT
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/pretooluse_hook_canon.md](references/pretooluse_hook_canon.md) — PreToolUse Hook Discipline — When To Block, When To Warn

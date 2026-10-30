@@ -312,3 +312,10 @@ Fixes:
 - **senior-backend** — application-layer patterns (connection pooling, ORM best practices)
 - **senior-devops** — infrastructure provisioning for database clusters and replicas
 
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/database_selection_decision_tree.md](references/database_selection_decision_tree.md) — Database Selection Decision Tree
+- [references/index_strategy_patterns.md](references/index_strategy_patterns.md) — Index Strategy Patterns
+- [references/normalization_guide.md](references/normalization_guide.md) — Database Normalization Guide

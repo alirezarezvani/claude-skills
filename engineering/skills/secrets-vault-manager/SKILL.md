@@ -401,3 +401,10 @@ Eliminate long-lived secrets in CI by using OIDC federation:
 - **ci-cd-pipeline-builder** — Pipeline design where secrets are consumed
 - **docker-development** — Container secret injection patterns
 - **helm-chart-builder** — Kubernetes secret management in Helm charts
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/cloud_secret_stores.md](references/cloud_secret_stores.md) — Cloud Secret Store Reference
+- [references/vault_patterns.md](references/vault_patterns.md) — HashiCorp Vault Architecture & Patterns Reference

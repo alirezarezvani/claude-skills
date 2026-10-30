@@ -374,3 +374,11 @@ python3 scripts/auth_setup_guide.py --scopes gmail,drive,calendar,sheets
 | Calendar | `calendar`, `calendar.events` |
 | Admin | `admin.directory.user.readonly`, `admin.directory.group` |
 | Tasks | `tasks` |
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/gws-command-reference.md](references/gws-command-reference.md) — Google Workspace CLI Command Reference
+- [references/recipes-cookbook.md](references/recipes-cookbook.md) — Google Workspace CLI Recipes Cookbook
+- [references/troubleshooting.md](references/troubleshooting.md) — Google Workspace CLI Troubleshooting

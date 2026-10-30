@@ -108,7 +108,7 @@ The dissent column from `/c-level-agents:boardroom` is the single most useful pi
 
 - Skill: [`decision-logger`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/SKILL.md)
 - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-- Sibling: [`/em:postmortem`](../../../c-level-advisor/executive-mentor/skills/postmortem/SKILL.md) — adversarial single-decision post-mortem
+- Sibling: [`/em:postmortem`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/executive-mentor/postmortem/SKILL.md) — adversarial single-decision post-mortem
 
 ---
 

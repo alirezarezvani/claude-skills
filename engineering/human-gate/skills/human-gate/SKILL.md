@@ -98,3 +98,11 @@ Reasoning lives in `references/` — human-in-the-loop canon, feedback batching,
 Conceptual derivation of the batched-review pattern from
 [`petergyang/human-review`](https://github.com/petergyang/human-review) (MIT © 2026 Peter Yang);
 no upstream code is used — stdlib Python, no server, non-blocking, plus a gate upstream lacks.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/feedback_batching.md](references/feedback_batching.md) — Batched, anchored feedback: why the artifact beats the message
+- [references/human_in_the_loop_canon.md](references/human_in_the_loop_canon.md) — Human-in-the-loop review: the canon
+- [references/review_loop_discipline.md](references/review_loop_discipline.md) — Review-loop discipline: waiting, capping, escalating

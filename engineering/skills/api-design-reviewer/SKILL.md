@@ -431,3 +431,10 @@ fi
 
 
 Regular use of the linting, breaking change detection, and scoring tools ensures continuous improvement and helps maintain API quality throughout the development lifecycle.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/api_antipatterns.md](references/api_antipatterns.md) — Common API Anti-Patterns and How to Avoid Them
+- [references/rest_design_rules.md](references/rest_design_rules.md) — REST API Design Rules Reference

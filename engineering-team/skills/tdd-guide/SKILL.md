@@ -401,3 +401,11 @@ Mutation testing modifies your production code (creates "mutants") and checks wh
 - E2E testing: Playwright, Cypress, Selenium
 - Performance testing: k6, JMeter, Locust
 - Security testing: OWASP ZAP, Burp Suite
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/ci-integration.md](references/ci-integration.md) — CI/CD Integration Guide
+- [references/framework-guide.md](references/framework-guide.md) — Testing Framework Guide
+- [references/tdd-best-practices.md](references/tdd-best-practices.md) — TDD Best Practices

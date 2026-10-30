@@ -56,3 +56,10 @@ See [references/companion_tooling.md](references/companion_tooling.md). Tools: e
 
 **Version:** 1.0.0
 **Derived:** Matt Pocock (MIT) + this repo's wrapper
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/forcing_question_patterns.md](references/forcing_question_patterns.md) — Forcing-Question Patterns for Plan Interrogation
+- [references/when_to_stop_grilling.md](references/when_to_stop_grilling.md) — When to Stop Grilling

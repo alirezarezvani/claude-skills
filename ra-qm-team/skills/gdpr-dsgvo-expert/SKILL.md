@@ -264,3 +264,9 @@ All rights must be fulfilled within **one month of receipt** (Art. 12(3)). The d
 | Employment | § 26 | Detailed employee data rules |
 | Video | § 4 | Signage and proportionality |
 | Scoring | § 31 | Explainable algorithms |
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/gdpr_audit_playbook.md](references/gdpr_audit_playbook.md) — GDPR / DSGVO Compliance Audit Playbook

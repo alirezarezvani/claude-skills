@@ -67,3 +67,14 @@ See [references/companion_tooling.md](references/companion_tooling.md). Tools: c
 
 **Version:** 1.0.0
 **Derived:** Matt Pocock (MIT) + this repo's wrapper
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/compression_principles.md](references/compression_principles.md) — Compression Principles for LLM Output
+- [references/when_caveman_backfires.md](references/when_caveman_backfires.md) — When Caveman Backfires
+
+- `python3 scripts/caveman_compressor.py --help` — Apply Matt Pocock's caveman compression rules to text
+- `python3 scripts/caveman_lint.py --help` — Lint a response for caveman-mode compliance
+- `python3 scripts/token_savings_estimator.py --help` — Estimate token-cost savings from caveman compression

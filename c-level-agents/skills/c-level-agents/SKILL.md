@@ -109,8 +109,7 @@ User question
 
 - [persona-voices.md](../../references/persona-voices.md)
 - [llm-wiki-bridge.md](../../references/llm-wiki-bridge.md)
-- [Parent c-level CLAUDE.md](../../../CLAUDE.md)
-- [Existing executive-mentor sibling](../../../c-level-advisor/executive-mentor/)
+- [Existing executive-mentor sibling](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/executive-mentor/executive-mentor/SKILL.md)
 
 ---
 

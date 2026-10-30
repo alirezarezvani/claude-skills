@@ -338,3 +338,12 @@ mcp__atlassian__createIssueLink (cloudId, link type from mcp__atlassian__getIssu
 
 - **Confluence Expert** (`project-management/confluence-expert/`) — Documentation complements Jira workflows
 - **Atlassian Admin** (`project-management/atlassian-admin/`) — Permission and user management for Jira projects
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/AUTOMATION.md](references/AUTOMATION.md) — Jira Automation Reference
+- [references/WORKFLOWS.md](references/WORKFLOWS.md) — Jira Workflows Reference
+- [references/automation-examples.md](references/automation-examples.md) — Jira Automation Examples
+- [references/jql-examples.md](references/jql-examples.md) — JQL Query Examples

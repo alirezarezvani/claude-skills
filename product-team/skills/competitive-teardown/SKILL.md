@@ -169,3 +169,10 @@ Navigation: global search, keyboard shortcuts, in-app help.
 
 - **Product Strategist** (`product-team/product-strategist/`) — Competitive insights feed OKR and strategy planning
 - **Landing Page Generator** (`product-team/landing-page-generator/`) — Competitive positioning informs landing page messaging
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/competitive-analysis-frameworks.md](references/competitive-analysis-frameworks.md) — Competitive Analysis Frameworks
+- [references/scoring-rubric.md](references/scoring-rubric.md) — Competitive Scoring Rubric

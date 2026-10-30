@@ -322,3 +322,9 @@ Track audit program effectiveness:
 | Repeat findings | <10% | Same finding in consecutive audits |
 | CAPA effectiveness | >90% | Verified effective at follow-up |
 | Auditor utilization | 4 days/month | Audit days per qualified auditor |
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/iso13485_audit_playbook.md](references/iso13485_audit_playbook.md) — ISO 13485:2016 Internal Audit Playbook

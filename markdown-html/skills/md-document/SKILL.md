@@ -104,3 +104,11 @@ Out of scope: nested lists, HTML inlines, footnotes, definition lists, task list
 - WCAG 2.2 — §1.4.3 contrast, §2.4.5 multiple ways
 - Wattenberger — *Why React isn't great for actually building websites*
 - See `references/` for full citations
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/information_density_patterns.md](references/information_density_patterns.md) — Information Density Patterns for Long-form Documents
+- [references/single_file_html_discipline.md](references/single_file_html_discipline.md) — Single-File HTML Discipline (md-document edition)
+- [references/toc_and_nav_ux.md](references/toc_and_nav_ux.md) — Table-of-Contents and Navigation UX

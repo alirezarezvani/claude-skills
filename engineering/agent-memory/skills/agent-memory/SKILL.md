@@ -98,3 +98,14 @@ Walk these one at a time before trusting the store.
 4. What would make you delete `.memory/` entirely?
 
 Rationale, open decisions, field schema: [`../../DESIGN.md`](../../DESIGN.md).
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/hook_capture_discipline.md](references/hook_capture_discipline.md) — Hook discipline — running on someone else's critical path
+- [references/promotion_gate_design.md](references/promotion_gate_design.md) — Designing the gates — why these thresholds, and what they cost
+- [references/tiered_memory_canon.md](references/tiered_memory_canon.md) — Tiered agent memory — the canon, and what this skill takes from it
+
+- `python3 scripts/memory_extract.py --help` — L0 -> L1. Rule-based, no LLM
+- `python3 scripts/validate_examples.py` — drift gate for DESIGN.md, memory_schema.json and the worked examples

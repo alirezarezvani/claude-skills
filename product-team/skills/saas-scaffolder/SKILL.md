@@ -291,3 +291,12 @@ For additional guidance, generate the following companion reference files alongs
 - **`CUSTOMIZATION.md`** — Auth providers, database options, ORM alternatives, payment providers, UI themes, and billing models (per-seat, flat-rate, usage-based).
 - **`PITFALLS.md`** — Common failure modes: missing `NEXTAUTH_SECRET`, webhook secret mismatches, Edge runtime conflicts with Drizzle, unextended session types, and migration strategy differences between dev and prod.
 - **`BEST_PRACTICES.md`** — Stripe singleton pattern, server actions for form mutations, idempotent webhook handlers, `Suspense` boundaries for async dashboard data, server-side feature gating via `stripeCurrentPeriodEnd`, and rate limiting on auth routes with Upstash Redis + `@upstash/ratelimit`.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/architecture-patterns.md](references/architecture-patterns.md) — SaaS Architecture Patterns
+- [references/auth-billing-guide.md](references/auth-billing-guide.md) — Authentication & Billing Implementation Guide
+- [references/saas-architecture-patterns.md](references/saas-architecture-patterns.md) — SaaS Architecture Patterns
+- [references/tech-stack-comparison.md](references/tech-stack-comparison.md) — Technology Stack Comparison

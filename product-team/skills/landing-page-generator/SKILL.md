@@ -196,3 +196,12 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 - **Brand Voice Analyzer** (`marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py`) — Run before generation to establish voice profile and ensure copy consistency
 - **UI Design System** (`product-team/ui-design-system/`) — Generate design tokens from brand color before building the page
 - **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive positioning informs landing page messaging and differentiation
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/conversion-patterns.md](references/conversion-patterns.md) — High-Converting Landing Page Patterns
+- [references/copy-frameworks.md](references/copy-frameworks.md) — Landing Page Copywriting Frameworks
+- [references/landing-page-patterns.md](references/landing-page-patterns.md) — Landing Page Patterns
+- [references/seo-checklist.md](references/seo-checklist.md) — Landing Page SEO Checklist

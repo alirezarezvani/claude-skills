@@ -255,3 +255,12 @@ clawhub install agenthub
 - **autoresearch-agent** — Single-agent optimization loop (use AgentHub when you want N agents competing)
 - **self-improving-agent** — Self-modifying agent (use AgentHub when you want external competition)
 - **git-worktree-manager** — Git worktree utilities (AgentHub uses worktrees internally)
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/coordination-strategies.md](references/coordination-strategies.md) — Multi-Agent Coordination Strategies
+- [references/dag-patterns.md](references/dag-patterns.md) — Git DAG Patterns for Multi-Agent Collaboration
+
+- `python3 scripts/dry_run.py --help` — Dry-run validation for the AgentHub plugin

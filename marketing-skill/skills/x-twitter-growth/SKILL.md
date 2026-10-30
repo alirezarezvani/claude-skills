@@ -224,3 +224,9 @@ Generates a 2-week posting plan with:
 - `social-media-analyzer` — Cross-platform analytics
 - `content-production` — Long-form content that feeds X threads
 - `copywriting` — Headline and hook writing techniques
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/algorithm-signals.md](references/algorithm-signals.md) — X/Twitter Algorithm Signals (2025-2026)

@@ -149,3 +149,11 @@ Never run a sub-skill before the lane is locked.
 - Customization pattern: `research-ops/skills/clinical-research/scripts/` (`onboard.py`, `config_loader.py`)
 - Brand palette math: `marketing/landing/skills/landing/scripts/brand_palette_validator.py` (WCAG + HSL derive)
 - Information-density canon: Tufte; Shihipar's `thariqs.github.io/html-effectiveness/` gallery; Wattenberger interactive essays; Maggie Appleton digital gardens
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/information_density_canon.md](references/information_density_canon.md) — Information Density Canon
+- [references/orchestrator_routing_patterns.md](references/orchestrator_routing_patterns.md) — Orchestrator Routing Patterns
+- [references/single_file_html_discipline.md](references/single_file_html_discipline.md) — Single-File HTML Discipline

@@ -108,9 +108,8 @@ python ${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cto-advisor/scripts/team_sca
 
 ## Related
 
-- Agent: [`cs-cto-advisor`](../../../agents/c-level/cs-cto-advisor.md)
 - Skill: [`cto-advisor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/cto-advisor/SKILL.md)
-- SLO: `../../../engineering/slo-architect/`
+- SLO: the `slo-architect` plugin
 
 ---
 

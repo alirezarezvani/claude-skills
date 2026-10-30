@@ -272,3 +272,9 @@ Ask the user after MVP: "Core is working. Want me to add auth/polish/deploy next
 - Related: `engineering/spec-driven-workflow` — spec-first development methodology
 - Related: `engineering/database-designer` — database schema design patterns
 - Related: `engineering-team/senior-fullstack` — full-stack implementation patterns
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/spec-parsing-guide.md](references/spec-parsing-guide.md) — Spec Parsing Guide

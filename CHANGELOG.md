@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Nightly skill evals** (`scripts/evals/`, `.github/workflows/skill-evals.yml`). Runs the real Claude Code
+  CLI to check that each skill fires on realistic prompts and stays quiet on a near miss (trigger cases for
+  all 384 unique skills), and that answers with a skill pass more of a checklist than without it (6 behaviour
+  cases with a blind, schema-graded judge). A rotation of 15 skills a night, capped at $10, covers the library
+  every 26 nights; results accumulate on the `eval-results` branch. Authenticates with the subscription token
+  (`CLAUDE_CODE_OAUTH_TOKEN`) or an API key, and is off until the `SKILL_EVALS_ENABLED` variable is set.
+
 - **cmmc-readiness** (`ra-qm-team/cmmc-readiness/`, also bundled in `ra-qm-skills`, both at 2.14.4). Built for
   the CMMC 2.0 Level 2 request in discussion #358, ahead of Phase 2 (Level 2 C3PAO as a condition of award,
   from 10 November 2026). Three stdlib scripts with blocking exit codes: `sprs_score.py` scores all 110

@@ -1,0 +1,99 @@
+{
+ "month-end-close": {
+  "skill": "finance/month-end-close/skills/month-end-close",
+  "name": "month-end-close",
+  "plugin": "month-end-close",
+  "fixture": "mec",
+  "prompt": "I'm doing the October cash reconciliation. bank.csv is the bank statement and gl_cash.csv is our GL cash account export. They don't tie. Reconcile them, explain every difference, and tell me what adjusting entries I need before I can sign off.",
+  "assertions": [
+   "States the unreconciled difference as 1,405.00 (bank 23,504.55 vs GL 22,099.55)",
+   "Identifies the 150.00 opening-balance difference as carried in from a prior period, not an October error",
+   "Identifies Globex 7,980 vs 7,890 as a 90.00 transposition error needing a GL correction",
+   "Identifies check 1042 (1,200.00) as an outstanding check / reconciling item, not a GL error",
+   "Identifies the 35.00 bank fee as unrecorded in the GL and needing an entry",
+   "Treats Initech 10/28 vs 10/29 as timing only, not a difference",
+   "Does not tell the user to simply sign off: names a reviewer/preparer separation or that the opening difference needs investigation"
+  ],
+  "origin": "v2.14-audit"
+ },
+ "agent-regression-evals": {
+  "skill": "engineering/agent-regression-evals/skills/agent-regression-evals",
+  "name": "agent-regression-evals",
+  "plugin": "agent-regression-evals",
+  "fixture": "are",
+  "prompt": "results.csv has pass/fail results from our agent eval: 10 cases, 5 trials each, for the current prompt (baseline) and a new prompt (candidate). My PM wants to ship the candidate. Is it actually a regression or an improvement? Give me a ship / don't ship call.",
+  "assertions": [
+   "Computes per-config pass rates from the file rather than guessing",
+   "Compares per case, not just the aggregate",
+   "Addresses statistical uncertainty (5 trials is few; significance, CI or noise) rather than declaring a winner on raw rates",
+   "Flags at least one case whose pass rate dropped (case05 or others) as a possible regression to inspect",
+   "Identifies flaky cases (mixed pass/fail across trials)",
+   "Gives a clear call with the condition that would change it"
+  ],
+  "origin": "v2.14-audit"
+ },
+ "coding-agent-rollout": {
+  "skill": "engineering/coding-agent-rollout/skills/coding-agent-rollout",
+  "name": "coding-agent-rollout",
+  "plugin": "coding-agent-rollout",
+  "fixture": "car",
+  "prompt": "We're rolling out Claude Code to 60 engineers. Our platform lead committed .claude/settings.json to the main repo as the team-wide policy. Review it and tell me what to change before rollout.",
+  "assertions": [
+   "Flags the plaintext database password in env as a secret leak that must be removed and rotated",
+   "Flags bypassPermissions as dangerous for a team default",
+   "States that a project settings file cannot enforce org-wide policy and recommends managed settings for must-hold rules",
+   "Flags Bash(*) as effectively unrestricted",
+   "Flags mcp__* / production DB MCP access as too broad and recommends listing servers explicitly",
+   "Does not claim the repo file alone guarantees the policy for all 60 engineers"
+  ],
+  "origin": "v2.14-audit"
+ },
+ "code-reviewer": {
+  "skill": "engineering-team/skills/code-reviewer",
+  "name": "code-reviewer",
+  "plugin": "engineering-skills",
+  "fixture": "cr",
+  "prompt": "Review users.js before I merge it. Be concrete.",
+  "assertions": [
+   "Identifies SQL injection in the GET route and recommends a parameterized query",
+   "Identifies path traversal in the avatar upload (req.query.name)",
+   "Notes missing input validation / authz on the avatar route",
+   "Notes missing error handling for the async handlers",
+   "Notes SELECT * leaking all user columns",
+   "Gives a merge verdict"
+  ],
+  "origin": "v2.14-audit"
+ },
+ "scrum-master": {
+  "skill": "project-management/skills/scrum-master",
+  "name": "scrum-master",
+  "plugin": "pm-skills",
+  "fixture": "sm",
+  "prompt": "Read sprints.md. How many points should Team Falcon commit to next sprint? Show your reasoning.",
+  "assertions": [
+   "Uses an average or rolling average of recent velocity (about 26 for all six, or 28.3 for the last three) rather than the max",
+   "Adjusts for capacity loss (1 of 6 engineers out, plus a holiday)",
+   "Accounts for the 8 carry-over points",
+   "Notes velocity volatility (18 to 34)",
+   "Gives a specific range or number"
+  ],
+  "origin": "v2.14-audit"
+ },
+ "seo-audit": {
+  "skill": "marketing-skill/skills/seo-audit",
+  "name": "seo-audit",
+  "plugin": "marketing-skills",
+  "fixture": "seo",
+  "prompt": "This is our pricing page (pricing.html). Audit it for SEO and tell me what to fix first.",
+  "assertions": [
+   "Flags the generic title 'Home'",
+   "Flags the missing meta description",
+   "Flags two h1 tags",
+   "Flags the img without alt text",
+   "Flags the non-descriptive 'click here' anchor text",
+   "Flags thin content / no actual prices",
+   "Prioritises fixes"
+  ],
+  "origin": "v2.14-audit"
+ }
+}

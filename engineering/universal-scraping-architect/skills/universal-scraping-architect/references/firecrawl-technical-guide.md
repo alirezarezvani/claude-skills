@@ -6,12 +6,16 @@ Technical integration patterns for the Firecrawl API within the Universal Scrapi
 Firecrawl uses a Bring-Your-Own-Key model. The key is **always** read from the
 `FIRECRAWL_API_KEY` environment variable — never hardcoded, never committed.
 The free tier is sufficient for evaluation and small jobs, which keeps this skill
-compliant with the repo's "no paid commercial dependency" rule.
+compliant with the repo's "no paid commercial dependency" rule. Without a key,
+scrape and search still run keyless at lower rate limits (some networks are
+refused); crawl, map and the other operations need a key.
 
 ```python
 import os
-from firecrawl import FirecrawlApp
-app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
+from firecrawl import Firecrawl
+app = Firecrawl(api_key=os.getenv("FIRECRAWL_API_KEY"))
+doc = app.scrape("https://example.com", formats=["markdown"])
+print(doc.markdown)
 ```
 
 ## Choosing the right operation
@@ -36,8 +40,8 @@ Request only the formats you need (`["markdown"]` is smallest). Markdown for pro
 structured-JSON extraction for tabular/typed data, HTML only when you need the DOM.
 
 ### Authoritative Sources
-1. [Firecrawl API Documentation](https://docs.firecrawl.dev/api-reference/introduction)
-2. [Firecrawl SDK for Python](https://github.com/mendableai/firecrawl-py)
+1. [Firecrawl API Documentation](https://docs.firecrawl.dev/api-reference/introduction?utm_source=claude-skills&utm_medium=integration)
+2. [Firecrawl SDK for Python](https://github.com/firecrawl/firecrawl/tree/main/apps/python-sdk)
 3. [REST API Design Best Practices (Microsoft)](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)
 4. [Handling API Rate Limits (Cloudflare)](https://developers.cloudflare.com/fundamentals/api/reference/rate-limits/)
 5. [JSON Schema Standard](https://json-schema.org/specification.html)

@@ -19,7 +19,11 @@ Usage:
   export FIRECRAWL_API_KEY="fc-YOUR_KEY_HERE"     # Linux/macOS
   $env:FIRECRAWL_API_KEY = "fc-YOUR_KEY_HERE"     # Windows PowerShell
   python scripts/firecrawl_example.py
+
+Without FIRECRAWL_API_KEY the script runs keyless, at lower rate limits.
 """
+
+from __future__ import annotations
 
 import argparse
 import os
@@ -55,16 +59,16 @@ def log(message: str, level: str = "INFO"):
         f.write(line + "\n")
 
 
-def check_environment() -> str:
-    """Loads the Firecrawl API key from the environment. Fails fast if missing."""
+def check_environment() -> str | None:
+    """Loads the Firecrawl API key from the environment. Returns None if unset (keyless mode)."""
     api_key = os.getenv(FIRECRAWL_API_KEY_ENV)
     if not api_key:
         log(
-            f"Missing environment variable: {FIRECRAWL_API_KEY_ENV}. "
-            "Set it before running this script.",
-            level="ERROR"
+            f"{FIRECRAWL_API_KEY_ENV} is not set. Running keyless at lower rate limits; "
+            "set the key for production volumes.",
+            level="WARNING"
         )
-        sys.exit(1)
+        return None
     log("API key loaded successfully from environment.")
     return api_key
 
@@ -152,26 +156,21 @@ def main():
         sys.exit(1)
 
     # Step 3: Initialise Firecrawl client (imported lazily so --help works without the SDK)
-    from firecrawl import FirecrawlApp
-    app = FirecrawlApp(api_key=api_key)
+    from firecrawl import Firecrawl
+    app = Firecrawl(api_key=api_key, origin="claude-skills")
     log(f"Firecrawl client initialised. Target: {TARGET_URL}")
 
     # Step 4: Scrape
-    #   Firecrawl Python SDK v1+ passes options directly: scrape_url(url, formats=[...]).
-    #   Older SDKs used the params={"formats": [...]} dict wrapper.
     try:
         log("Starting scrape...")
-        result = app.scrape_url(TARGET_URL, formats=["markdown"])
-        # Result may be a dict (older SDK) or an object with a .markdown attribute (v1+).
-        markdown_content = (
-            result.get("markdown", "") if isinstance(result, dict)
-            else getattr(result, "markdown", "")
-        )
+        doc = app.scrape(TARGET_URL, formats=["markdown"])
+        markdown_content = doc.markdown or ""
     except Exception as e:
         log(f"Firecrawl scrape failed: {e}", level="ERROR")
         log(
             "Tip: if this is a quota or auth error, check your FIRECRAWL_API_KEY "
-            "and run `firecrawl --status` to inspect account state.",
+            "and run `firecrawl --status` to inspect account state. Keyless runs have "
+            "lower rate limits and can be refused on some networks; set FIRECRAWL_API_KEY then.",
             level="WARNING"
         )
         sys.exit(1)
@@ -200,7 +199,7 @@ def main():
 
 def _print_sample():
     """Prints a non-network sample of what this template does (for smoke tests)."""
-    print("Firecrawl example (template). Edit the CONFIG block, set FIRECRAWL_API_KEY, then run.")
+    print("Firecrawl example (template). Edit the CONFIG block, set FIRECRAWL_API_KEY (optional), then run.")
     print(f"  TARGET_URL          = {TARGET_URL}")
     print(f"  OUTPUT_FILE         = {OUTPUT_FILE}")
     print(f"  TOKEN_CONTEXT_LIMIT = {TOKEN_CONTEXT_LIMIT}")

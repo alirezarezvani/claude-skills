@@ -857,6 +857,7 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 - Bump the version of every plugin whose files change (`scripts/bump_plugin_versions.py --changed-since origin/dev`): Claude Code caches by version, so an unbumped change never reaches existing installs; G11 (`check_plugin_versions.py`) blocks it.
 - Test plugin updates against a GitHub-ref marketplace, never a local directory: a local marketplace reads files live and hides an unbumped version.
 - A plugin command or agent runs from the user's project, so every script it invokes must start with `${CLAUDE_PLUGIN_ROOT}/`; a repo-relative path only works inside a clone of this repo (G1 enforces it).
+- Write a skill description as a when-to-load trigger ("Use for/when/before X. Does Y with tool.py"), not a capability summary: the 2026-10-30 evals showed summaries rarely fire, and every character counts against Claude Code's ~30,000-char skill listing. A command that only wraps a skill gets `disable-model-invocation: true`. G12 (`check_listing_budget.py`) blocks a plugin from growing its listing; run `--update-baseline` after shrinking one.
 - A marketplace install copies only the plugin's own directory, so `../../other-plugin/...` paths break once installed. To reuse another plugin's scripts or references, add a relative symlink under the plugin's `vendor/` (Claude Code dereferences in-marketplace symlinks into the cache) and reference it as `${CLAUDE_PLUGIN_ROOT}/vendor/...`, which `check_paths.py` now verifies.
 
 ## Additional Resources

@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Community request in issue #962 (a quality gate for generic AI-generated UI, missing interaction states and inert controls), approved in scope and then closed because it linked a commercial product; built independently with no third-party code or service",
+    "build_pattern": "Three deterministic stdlib scripts (source finish lint, interaction-state matrix, rendered snapshot audit) with blocking exit codes; WCAG 2.2 AA thresholds (1.4.3, 1.4.10, 2.1.1, 2.4.7, 2.4.11, 2.5.8, 4.1.2) measured from a read-only browser snapshot; template traits from Anthropic's frontend-design skill reported as warnings only",
+    "distinct_from": "a11y-audit (source-level WCAG scan); ui-design-system (token and component generation); ux-researcher-designer (research); epic-design and senior-frontend (building UI)"
+  }
+}

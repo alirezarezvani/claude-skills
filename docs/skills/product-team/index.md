@@ -1,13 +1,13 @@
 ---
 title: "Product Skills — Agent Skills & Codex Plugins"
-description: "17 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "18 product skills — product management agent skill and Claude Code plugin for PRDs, discovery, analytics, and roadmaps. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-lightbulb-outline: Product
 
-<p class="domain-count">17 skills in this domain</p>
+<p class="domain-count">18 skills in this domain</p>
 
 </div>
 
@@ -22,6 +22,12 @@ description: "17 product skills — product management agent skill and Claude Co
     ---
 
     Tier: POWERFUL
+
+-   **[Design QA](design-qa.md)**
+
+    ---
+
+    > Portability: 3 stdlib Python scripts, no network. The browser collector is
 
 -   **[Experiment Designer](experiment-designer.md)**
 

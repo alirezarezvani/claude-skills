@@ -22,6 +22,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Playwright pass with real Tab keys (`assets/capture_snapshot.mjs`). Ships `cs-design-qa`,
   `/cs-design-qa`, `/cs-ui-finish-lint`, three cited references and a finish sign-off. Source accessibility
   stays with `a11y-audit`.
+- **Gate G12** (`scripts/check_listing_budget.py`, blocking ratchet): no plugin may grow the characters it
+  adds to Claude Code's skill listing past its line in `scripts/listing_budget_baseline.txt`; a new plugin is
+  capped at 6,000.
+- `skill-doctor`: `--sessions-dir` grades headless `claude -p` stream-json transcripts, such as eval runs.
+
+### Changed
+
+- **Skill descriptions rewritten so skills load when they should** (from the 2026-10-30 skill-doctor audit).
+  Claude Code lists every installed skill in about 30,000 characters and shortens descriptions past that;
+  the whole marketplace added 227,301 characters. 356 descriptions now open with the moment to load the
+  skill ("Use for/when/before ...") and name the scripts it runs, and 117 commands that only wrap a skill
+  are hidden from the model with `disable-model-invocation: true` (still typeable). The marketplace now adds
+  96,968 characters. On a 9-skill marketing sample, exact triggers went from 3/36 to 11/36 with no false
+  fires. Vendored descriptions (skillopt-sleep, loop-library) and Matt Pocock's verbatim ones are unchanged.
+- write-a-skill's checklist runner requires the trigger to lead the description and no longer treats
+  skill/tool or user/developer as synonyms. Repo audit: 64 PASS / 270 WARN / 70 FAIL.
+- 47 skills now list reference files and scripts their SKILL.md never named; terraform-patterns moves its
+  pattern catalog to `references/patterns-catalog.md` (SKILL.md 748 to 287 lines).
+- INSTALLATION.md explains the listing budget, `skillListingBudgetFraction` and installing only the bundles
+  you use. 105 plugins move to 2.14.5 (`product-skills` and `design-qa` to 2.14.6, since they were already at
+  2.14.5 on dev).
+
+### Fixed
+
+- Seven links pointed outside their plugin and broke once installed: c-level-agents reaches executive-mentor
+  through a `vendor/` symlink, the others name the sibling plugin.
 
 ## [2.14.4] - 2026-10-30 — CMMC Level 2 readiness, nightly skill evals
 

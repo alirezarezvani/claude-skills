@@ -1,7 +1,7 @@
 {
   "name": "general-counsel-advisor",
   "description": "General Counsel advisory for startups: contract risk scanner (12 founder-killer patterns: auto-renew traps, uncapped indemnity, vague IP, MFN pricing, missing DPA, one-sided venue, broad non-solicit, perpetual license-back, etc.) and term sheet analyzer (0-100 founder-friendliness score across 12 dimensions: liquidation preference, anti-dilution, option pool, board, vesting, drag-along, protective provisions, info rights, dividends, valuation). 3 in-depth references: contracts playbook (7 startup contract types), IP + regulatory landscape (HIPAA, GDPR, FDA, fintech, EU AI Act + SOC 2 to ISO sequencing), term sheet decoder. Stdlib-only. Standalone-installable; also bundled in c-level-skills. NOT a substitute for licensed counsel.",
-  "version": "2.14.2",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

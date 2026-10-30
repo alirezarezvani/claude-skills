@@ -1,7 +1,7 @@
 {
   "name": "engineering-advanced-skills",
   "description": "42 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator (with semantic version bumper and hotfix/rollback procedures), API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker (task context tracker with lifecycle and handoff format), feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit with deploy-intent intercept), slo-architect (SLO designer, error-budget calculator with multi-window burn-rate alerts, SLO reviewer per Google SRE Workbook), tech-debt-tracker, boost-asio-pro (async C++ networking with Boost.Asio), minimalist (YAGNI-first efficiency ladder), strict-api (verify every API before calling it), agent-regression-evals (repeated-trial eval gate with paired statistics and flake detection), and coding-agent-rollout (team settings, MCP and CLAUDE.md governance with adoption tracking). Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.14.3",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -82,7 +82,7 @@ power-user-coach 240
 product-skills 3321
 prompt-governance 224
 pulse 220
-pw 1909
+pw 1515
 ra-qm-skills 5249
 reflect-skill 230
 research-ops-skills 1572

@@ -1,7 +1,7 @@
 {
   "name": "agile-product-owner",
   "description": "Agile product ownership for backlog management and sprint execution. User story generation (INVEST-compliant), acceptance criteria patterns (Given/When/Then, rule-based, checklist), epic breakdown with 5 split techniques, sprint planning with velocity-based capacity math, and weighted backlog prioritization. Includes user_story_generator Python tool.",
-  "version": "2.14.1",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

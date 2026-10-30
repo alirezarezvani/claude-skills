@@ -1,7 +1,7 @@
 {
   "name": "roast",
   "description": "Pressure-test a business idea before you build it. Convenes a 5-angle adversarial panel — The Critic (what kills this?), The Champion (the 10x upside?), The Analyst (does the logic hold?), The Investigator (what does the market say?), and The Customer (would I actually pay?) — fired in parallel as independent reviewers, then a Judge synthesizes one GO / RESHAPE / KILL verdict with explicit confidence and the cheapest 48-hour test to de-risk it. Never averages the scores: a weighted synthesizer with demand/fatal-flaw/logic veto gates produces the call, backed by deterministic stdlib tools. The opposite of Claude's default agreeableness.",
-  "version": "2.14.2",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

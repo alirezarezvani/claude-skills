@@ -177,6 +177,17 @@ Only names listed in [`.claude-plugin/marketplace.json`](.claude-plugin/marketpl
 - ✅ Skills installed to `~/.claude/skills/`
 - ✅ Managed through Claude Code UI
 
+### Install what you use, not everything
+
+Claude Code tells the model about your skills through one listing of names and descriptions, capped at about 1% of the context window (roughly 30,000 characters on a 200k-token model). When the listing is over the cap, Claude Code shortens descriptions, starting with the skills you use least, and a skill whose description is cut rarely loads on its own.
+
+All 107 plugins in this marketplace together add about 97,000 characters, more than three times the cap. So:
+
+- Install the domain bundles you work in (for example `engineering-skills` and `marketing-skills`), not every plugin.
+- Check where you stand with `claude --debug`: Claude Code logs `Skill listing over budget` when it has to shorten descriptions.
+- If you want more skills listed in full and accept the extra context per turn, raise `skillListingBudgetFraction` in `settings.json` (default `0.01`, maximum `1`).
+- Claude Code's built-in `/skill-doctor` shows which loaded skills go unused and what they cost in context.
+
 ---
 
 ## Universal Installer

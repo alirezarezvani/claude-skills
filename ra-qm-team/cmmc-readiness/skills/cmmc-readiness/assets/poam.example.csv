@@ -1,0 +1,4 @@
+requirement_id,status,owner,milestone_date,closed_date,evidence
+AU.L2-3.3.4,CLOSED,j.ortiz@example.com,2026-08-15,2026-08-10,SIEM rule LOG-PIPE-01 alert screenshot + test ticket SEC-311
+CM.L2-3.4.9,OPEN,j.ortiz@example.com,2026-11-30,,
+SC.L2-3.13.11,OPEN,a.ng@example.com,2026-11-30,,

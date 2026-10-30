@@ -1,0 +1,15 @@
+{
+  "name": "cmmc-readiness",
+  "description": "Get a defense supplier ready for a CMMC 2.0 Level 2 assessment. Three deterministic stdlib scripts: an SPRS scorer that weights all 110 NIST SP 800-171 Rev 2 requirements per 32 CFR 170.24 and blocks gaps that can never go on a POA&M; a POA&M closeout tracker that checks every deferred gap against the 180-day Conditional status deadline and the annual affirmation calendar; and a scope classifier that sorts the asset inventory into the 170.19 categories and blocks on assets missing from the SSP or cloud providers holding CUI without FedRAMP. Ships cs-cmmc-assessor agent, /cs-cmmc-readiness and /cs-sprs-score commands, 3 cited references and a readiness sign-off.",
+  "version": "2.14.4",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/cmmc-readiness",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/cmmc-readiness"
+  ]
+}

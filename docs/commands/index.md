@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "145 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "147 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">145 commands for quick access to common operations</p>
+<p class="domain-count">147 commands for quick access to common operations</p>
 
 </div>
 
@@ -450,6 +450,18 @@ description: "145 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
     ---
 
     Answer one question about $ARGUMENTS: would this access review survive the auditor's walkthrough?
+
+-   :material-console:{ .lg .middle } **[`/cs-cmmc-readiness`](cs-cmmc-readiness.md)**
+
+    ---
+
+    Answer one question about $ARGUMENTS: would this organization pass a CMMC Level 2 assessment, and if not, what must b...
+
+-   :material-console:{ .lg .middle } **[`/cs-sprs-score`](cs-sprs-score.md)**
+
+    ---
+
+    Score $ARGUMENTS with the 32 CFR 170.24 weights.
 
 -   :material-console:{ .lg .middle } **[`/cs-flux-review`](cs-flux-review.md)**
 

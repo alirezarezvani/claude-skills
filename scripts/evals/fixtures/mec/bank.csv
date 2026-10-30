@@ -1,0 +1,9 @@
+date,description,amount
+2026-10-01,Opening balance,25000.00
+2026-10-03,Customer payment ACME,12450.00
+2026-10-07,Payroll,-18200.00
+2026-10-12,Customer payment Globex,7980.00
+2026-10-15,AWS,-2310.45
+2026-10-21,Office rent,-4500.00
+2026-10-28,Customer payment Initech,3120.00
+2026-10-31,Bank fee,-35.00

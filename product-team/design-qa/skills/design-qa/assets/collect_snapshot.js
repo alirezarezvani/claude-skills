@@ -27,27 +27,26 @@
     const p = m[1].split(/[,\s/]+/).filter(Boolean).map(Number);
     return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 };
   }
-  function blend(top, bottom) {
-    const a = top.a + bottom.a * (1 - top.a);
-    if (a === 0) return { r: 255, g: 255, b: 255, a: 1 };
-    const ch = k => (top[k] * top.a + bottom[k] * bottom.a * (1 - top.a)) / a;
-    return { r: ch('r'), g: ch('g'), b: ch('b'), a: a };
-  }
   function rgb(c) { return `rgb(${Math.round(c.r)}, ${Math.round(c.g)}, ${Math.round(c.b)})`; }
 
-  // Effective background behind an element: blend translucent layers up to an
-  // opaque one. Any background image or gradient on the way makes it unknown.
-  function effectiveBg(el) {
-    const layers = [];
+  // Composite what the eye sees at an element: its text (optional) over its own
+  // background, then each ancestor's background, with every element's `opacity`
+  // applied to its whole subtree, over a white canvas. Premultiplied alpha.
+  // Any background image or gradient on the way makes the result unknown.
+  const pm = c => ({ r: c.r * c.a, g: c.g * c.a, b: c.b * c.a, a: c.a });
+  const over = (s, d) => ({ r: s.r + d.r * (1 - s.a), g: s.g + d.g * (1 - s.a), b: s.b + d.b * (1 - s.a), a: s.a + d.a * (1 - s.a) });
+  const scale = (c, o) => ({ r: c.r * o, g: c.g * o, b: c.b * o, a: c.a * o });
+  function compositeAt(el, fg) {
+    let acc = fg ? pm(fg) : { r: 0, g: 0, b: 0, a: 0 };
     for (let n = el; n && n.nodeType === 1; n = n.parentElement) {
       const s = getComputedStyle(n);
       if (s.backgroundImage && s.backgroundImage !== 'none') return { value: null, reason: 'background image or gradient' };
       const c = parseColor(s.backgroundColor);
-      if (c && c.a > 0) { layers.push(c); if (c.a >= 1) break; }
+      if (c && c.a > 0) acc = over(acc, pm(c));
+      acc = scale(acc, parseFloat(s.opacity));
     }
-    let base = { r: 255, g: 255, b: 255, a: 1 };
-    for (let i = layers.length - 1; i >= 0; i--) base = blend(layers[i], base);
-    return { value: base, reason: null };
+    const out = over(acc, { r: 255, g: 255, b: 255, a: 1 });
+    return { value: { r: out.r, g: out.g, b: out.b, a: 1 }, reason: null };
   }
 
   function accessibleName(el) {
@@ -129,8 +128,8 @@
     all.forEach(el => {
       const s = getComputedStyle(el); const r = el.getBoundingClientRect();
       if (!visible(el, s, r)) return;
-      const bg = effectiveBg(el); const fg = parseColor(s.color);
-      const fgOver = fg && bg.value ? blend(fg, bg.value) : null;
+      const bg = compositeAt(el, null); const fg = parseColor(s.color);
+      const fgOver = fg && bg.value ? compositeAt(el, fg).value : null;
       const ownText = Array.from(el.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent).join(' ').trim();
       const clipX = el.scrollWidth > el.clientWidth + 1 && /hidden|clip/.test(s.overflowX);
       const clipY = el.scrollHeight > el.clientHeight + 1 && /hidden|clip/.test(s.overflowY);

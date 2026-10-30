@@ -184,13 +184,29 @@ def analyse(snap, waivers=None):
                 "Check sticky headers, cookie banners and chat widgets; add scroll-padding-top equal to the sticky header height.")
 
     unused = [f"{k[0]}:{k[1]}" for k in waivers if k not in used]
+    groups = {}
+    for f in findings:
+        g = groups.setdefault((f["code"], pattern_of(f["id"])), {
+            "code": f["code"], "severity": f["severity"], "pattern": pattern_of(f["id"]),
+            "count": 0, "examples": [], "message": f["message"], "fix": f["fix"]})
+        g["count"] += 1
+        if len(g["examples"]) < 3:
+            g["examples"].append(f["id"])
     findings.sort(key=lambda x: (SEV_ORDER[x["severity"]], x["code"], x["id"]))
     counts = {k: sum(1 for x in findings if x["severity"] == k) for k in SEV_ORDER}
     verdict = "BLOCKED" if counts["BLOCKER"] else ("FINDINGS" if findings else "CLEAN")
     return {"verdict": verdict, "url": snap.get("url"), "viewport": snap.get("viewport"),
             "elements": len(els), "interactive": len(targets),
             "keyboard_pass": "keyboard" if pass_info else "script-or-none",
-            "counts": counts, "waived": len(used), "unused_waivers": unused, "findings": findings}
+            "counts": counts, "waived": len(used), "unused_waivers": unused,
+            "groups": sorted(groups.values(), key=lambda g: (SEV_ORDER[g["severity"]], -g["count"], g["code"])),
+            "findings": findings}
+
+
+def pattern_of(el_id):
+    """Repeated components (table rows, list items) differ only in :nth-of-type
+    indices; dropping them groups 90 identical row buttons into one finding."""
+    return re.sub(r":nth-of-type\(\d+\)", "", el_id)
 
 
 def load_waivers(path):
@@ -211,10 +227,14 @@ def render(out):
     lines = [f"design-qa rendered audit: {out['verdict']}  ({out.get('url')}, {vp.get('width')}x{vp.get('height')}; "
              f"{out['elements']} elements, {out['interactive']} interactive; focus data: {out['keyboard_pass']}; "
              f"{out['counts']['BLOCKER']} blocker, {out['counts']['HIGH']} high, {out['counts']['WARN']} warn; {out['waived']} waived)", ""]
-    for f in out["findings"]:
-        lines.append(f"[{f['severity']}] {f['code']}  {f['id']}")
-        lines.append(f"    {f['message']}")
-        lines.append(f"    fix: {f['fix']}")
+    for g in out["groups"]:
+        if g["count"] == 1:
+            lines.append(f"[{g['severity']}] {g['code']}  {g['examples'][0]}")
+            lines.append(f"    {g['message']}")
+        else:
+            lines.append(f"[{g['severity']}] {g['code']}  x{g['count']}  {g['pattern']}")
+            lines.append(f"    e.g. {g['examples'][0]}: {g['message']}")
+        lines.append(f"    fix: {g['fix']}")
     for w in out["unused_waivers"]:
         lines.append(f"[note] waiver {w} matched nothing; remove it")
     return "\n".join(lines)

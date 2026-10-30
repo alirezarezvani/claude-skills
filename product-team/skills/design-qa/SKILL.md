@@ -43,6 +43,8 @@ missing, and DONE without evidence is reported. Start from `assets/states.exampl
 **Step 3** reads a snapshot of the rendered page and blocks on WCAG 2.2 AA
 failures: text contrast, no focus indicator, focus obscured, reflow at 320 px,
 empty accessible names and targets under 24×24 px without the spacing exception.
+Contrast is composited through translucent layers and `opacity`, so a token that
+passes on white but fails inside a tinted card is caught. Repeated rows are grouped.
 No Playwright? Paste `assets/collect_snapshot.js` into the DevTools console and
 run `copy(JSON.stringify(designQaSnapshot()))`. Focus results are then
 unverified rather than passed.

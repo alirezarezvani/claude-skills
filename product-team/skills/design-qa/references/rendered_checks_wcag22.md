@@ -30,6 +30,12 @@ guidance or a browser spec · 🔴 practitioner convention, not a requirement.
 - Disabled controls and pure decoration are exempt (the "incidental" exception). The
   script skips disabled controls. It cannot tell decoration from content, so
   waive decorative text with a reason. 🟢
+- **Why measure instead of reading the CSS.** A token that passes on white can fail
+  where it is used. `#6b7280` is 4.83:1 on white, but 3.9:1 inside a card tinted
+  `rgba(17,24,39,.06)` over `#f3f4f6`. `#4b5563` is 7.56:1, but 3.4:1 under
+  `opacity: .7`. The collector composites every translucent background and every
+  ancestor's `opacity` (premultiplied alpha over a white canvas), so the ratio is
+  the one on screen. 🟢 (arithmetic from the WCAG definitions)
 - **Where measurement and conformance disagree.** Text on an image or gradient has
   no single background. The collector reports it as unknown, and the script
   warns (`CONTRAST_UNVERIFIED`) and does not guess. Check the lightest point

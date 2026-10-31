@@ -40,7 +40,7 @@ Codex reads agent skills from `.codex/skills/<skill-name>/SKILL.md` in your proj
 
 | Skill | Codex Command | What It Does |
 |-------|--------------|-------------|
-| **autoresearch-agent** | `/ar:run` | Autonomous experiment loop — edit, evaluate, keep or revert. Karpathy-inspired. |
+| **autoresearch-agent** | `/ar-run` | Autonomous experiment loop — edit, evaluate, keep or revert. Karpathy-inspired. |
 | **pr-review-expert** | `/review:full` | Multi-pass code review catching logic bugs, security issues, missing tests. |
 | **frontend-design** | `/design:component` | Production-grade React/Tailwind UI with high design quality. |
 | **tdd-guide** | `/tdd:start` | Red-green-refactor TDD workflow with coverage tracking. |

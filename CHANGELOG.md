@@ -40,6 +40,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `/autoresearch-agent:ar-loop`) instead of `/loop` or `/autoresearch-agent:loop`; behaviour is unchanged.
   **Migration:** run `/plugin update autoresearch-agent@claude-code-skills`; no reinstall is needed because
   the plugin name is unchanged.
+- **autoresearch-agent docs name commands that run.** They said `/ar:run`, `/ar:loop` and so on, but Claude
+  Code namespaces a plugin's commands by its name, so `/ar:` never existed. Docs now use the bare names
+  (`/ar-run`, `/ar-loop`, `/ar-status`, `/ar-resume`) and `/autoresearch-agent:setup`, and
+  `check_command_refs.py` fails on any `/ar:` reference.
 - **Skill descriptions rewritten so skills load when they should** (from the 2026-10-30 skill-doctor audit).
   Claude Code lists every installed skill in about 30,000 characters and shortens descriptions past that;
   the whole marketplace added 227,301 characters. 356 descriptions now open with the moment to load the

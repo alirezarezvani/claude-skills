@@ -1035,25 +1035,25 @@
       "name": "ar-loop",
       "source": "../../engineering/autoresearch-agent/skills/ar-loop",
       "category": "engineering-advanced",
-      "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
+      "description": "Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
     },
     {
       "name": "ar-resume",
       "source": "../../engineering/autoresearch-agent/skills/ar-resume",
       "category": "engineering-advanced",
-      "description": "Use for /ar:ar-resume, or to continue a paused autoresearch experiment from its branch and results history."
+      "description": "Use for /ar-resume, or to continue a paused autoresearch experiment from its branch and results history."
     },
     {
       "name": "ar-run",
       "source": "../../engineering/autoresearch-agent/skills/ar-run",
       "category": "engineering-advanced",
-      "description": "Use for /ar:ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard."
+      "description": "Use for /ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard."
     },
     {
       "name": "ar-status",
       "source": "../../engineering/autoresearch-agent/skills/ar-status",
       "category": "engineering-advanced",
-      "description": "Use for /ar:ar-status, or to see an autoresearch experiment's results, active loops and progress."
+      "description": "Use for /ar-status, or to see an autoresearch experiment's results, active loops and progress."
     },
     {
       "name": "autoresearch-agent",
@@ -1443,7 +1443,7 @@
       "name": "setup",
       "source": "../../engineering/autoresearch-agent/skills/setup",
       "category": "engineering-advanced",
-      "description": "Use for /ar:setup, or to start a new autoresearch experiment: target file, eval command, metric, direction and evaluator."
+      "description": "Use for /autoresearch-agent:setup, or to start a new autoresearch experiment: target, eval command, metric, direction, evaluator."
     },
     {
       "name": "ship-gate",

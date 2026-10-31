@@ -1,24 +1,24 @@
 ---
 name: "ar-loop"
-description: "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
+description: "Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
 metadata:
-  command: /ar:loop
+  command: /ar-loop
 ---
 
-# /ar:loop — Autonomous Experiment Loop
+# /ar-loop — Autonomous Experiment Loop
 
 Start a recurring experiment loop that runs at a user-selected interval.
 
 ## Usage
 
 ```
-/ar:loop engineering/api-speed             # Start loop (prompts for interval)
-/ar:loop engineering/api-speed 10m         # Every 10 minutes
-/ar:loop engineering/api-speed 1h          # Every hour
-/ar:loop engineering/api-speed daily       # Daily at ~9am
-/ar:loop engineering/api-speed weekly      # Weekly on Monday ~9am
-/ar:loop engineering/api-speed monthly     # Monthly on 1st ~9am
-/ar:loop stop engineering/api-speed        # Stop an active loop
+/ar-loop engineering/api-speed             # Start loop (prompts for interval)
+/ar-loop engineering/api-speed 10m         # Every 10 minutes
+/ar-loop engineering/api-speed 1h          # Every hour
+/ar-loop engineering/api-speed daily       # Daily at ~9am
+/ar-loop engineering/api-speed weekly      # Weekly on Monday ~9am
+/ar-loop engineering/api-speed monthly     # Monthly on 1st ~9am
+/ar-loop stop engineering/api-speed        # Stop an active loop
 ```
 
 ## What It Does
@@ -100,16 +100,16 @@ Loop started for {domain}/{name}
   Cron ID: {id}
   Auto-expires: 3 days (CronCreate limit)
 
-  To check progress: /ar:ar-status
-  To stop the loop:  /ar:loop stop {domain}/{name}
+  To check progress: /ar-status
+  To stop the loop:  /ar-loop stop {domain}/{name}
 
   Note: Recurring jobs auto-expire after 3 days.
-  Run /ar:loop again to restart after expiry.
+  Run /ar-loop again to restart after expiry.
 ```
 
 ## Stopping a Loop
 
-When user runs `/ar:loop stop {experiment}`:
+When user runs `/ar-loop stop {experiment}`:
 
 1. Read `.autoresearch/{domain}/{name}/loop.json` to get the cron ID
 2. Call `CronDelete` with that ID
@@ -118,6 +118,6 @@ When user runs `/ar:loop stop {experiment}`:
 
 ## Important Limitations
 
-- **3-day auto-expiry**: CronCreate jobs expire after 3 days. For longer experiments, the user must re-run `/ar:loop` to restart. Results persist — the new loop picks up where the old one left off.
+- **3-day auto-expiry**: CronCreate jobs expire after 3 days. For longer experiments, the user must re-run `/ar-loop` to restart. Results persist — the new loop picks up where the old one left off.
 - **One loop per experiment**: Don't start multiple loops for the same experiment.
 - **Concurrent experiments**: Multiple experiments can loop simultaneously ONLY if they're on different git branches (which they are by default — each experiment gets `autoresearch/{domain}/{name}`).

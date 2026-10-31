@@ -256,17 +256,17 @@
       },
       {
         "name": "ar-resume",
-        "description": "Use for /ar:ar-resume, or to continue a paused autoresearch experiment from its branch and results history.",
+        "description": "Use for /ar-resume, or to continue a paused autoresearch experiment from its branch and results history.",
         "path": "engineering/ar-resume"
       },
       {
         "name": "ar-run",
-        "description": "Use for /ar:ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard.",
+        "description": "Use for /ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard.",
         "path": "engineering/ar-run"
       },
       {
         "name": "ar-status",
-        "description": "Use for /ar:ar-status, or to see an autoresearch experiment's results, active loops and progress.",
+        "description": "Use for /ar-status, or to see an autoresearch experiment's results, active loops and progress.",
         "path": "engineering/ar-status"
       },
       {
@@ -276,12 +276,12 @@
       },
       {
         "name": "ar-loop",
-        "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
+        "description": "Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
         "path": "engineering/ar-loop"
       },
       {
         "name": "setup",
-        "description": "Use for /ar:setup, or to start a new autoresearch experiment: target file, eval command, metric, direction and evaluator.",
+        "description": "Use for /autoresearch-agent:setup, or to start a new autoresearch experiment: target, eval command, metric, direction, evaluator.",
         "path": "engineering/setup"
       },
       {

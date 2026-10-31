@@ -70,11 +70,11 @@ Answers are saved to `~/.config/research-ops/product-research.json` (global) or 
 This skill ships an **isolated, opt-in** bridge to `engineering/autoresearch-agent`. Only when you ask to "optimize the synthesis" / "run a loop" does an autoresearch experiment iteratively refine the coding/clustering of a fixed evidence set so more cross-participant patterns surface. `scripts/ar_evaluator.py` is the ground-truth evaluator; it prints `validated_insights: <int>` (higher is better). It optimizes the **coding**, never fabricates evidence.
 
 ```bash
-/ar:setup --domain custom --name insight-synthesis \
+/autoresearch-agent:setup --domain custom --name insight-synthesis \
   --target observations.json \
   --eval "python3 ar_evaluator.py --target observations.json" \
   --metric validated_insights --direction higher
-/ar:loop custom/insight-synthesis
+/ar-loop custom/insight-synthesis
 ```
 
 Isolated: no hard dependency — autoresearch runs only on demand, and the loop edits `observations.json`, never the evaluator.

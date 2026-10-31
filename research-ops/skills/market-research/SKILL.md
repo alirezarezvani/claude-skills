@@ -70,11 +70,11 @@ Answers are saved to `~/.config/research-ops/market-research.json` (global) or `
 This skill ships an **isolated, opt-in** bridge to `engineering/autoresearch-agent`. Only when you ask to "optimize" / "reconcile the sizing" / "run a loop" does an autoresearch experiment iteratively reconcile your market model so top-down and bottoms-up triangulate. `scripts/ar_evaluator.py` is the ground-truth evaluator; it prints `tam_divergence: <fraction>` (**lower** is better).
 
 ```bash
-/ar:setup --domain custom --name tam-triangulation \
+/autoresearch-agent:setup --domain custom --name tam-triangulation \
   --target market.json \
   --eval "python3 ar_evaluator.py --target market.json" \
   --metric tam_divergence --direction lower
-/ar:loop custom/tam-triangulation
+/ar-loop custom/tam-triangulation
 ```
 
 Isolated: no hard dependency — autoresearch runs only on demand, and the loop edits `market.json`, never the evaluator.

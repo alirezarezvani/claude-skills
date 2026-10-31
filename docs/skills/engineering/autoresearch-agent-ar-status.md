@@ -1,9 +1,9 @@
 ---
-title: "/ar:ar-status — Experiment Dashboard — Agent Skill for Codex & OpenClaw"
-description: "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:ar-status or asks how an autoresearch experiment is. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/ar-status — Experiment Dashboard — Agent Skill for Codex & OpenClaw"
+description: "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar-status or asks how an autoresearch experiment is. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /ar:ar-status — Experiment Dashboard
+# /ar-status — Experiment Dashboard
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
@@ -21,11 +21,11 @@ Show experiment results, active loops, and progress across all experiments.
 ## Usage
 
 ```
-/ar:ar-status                                  # Full dashboard
-/ar:ar-status engineering/api-speed            # Single experiment detail
-/ar:ar-status --domain engineering             # All experiments in a domain
-/ar:ar-status --format markdown                # Export as markdown
-/ar:ar-status --format csv --output results.csv  # Export as CSV
+/ar-status                                  # Full dashboard
+/ar-status engineering/api-speed            # Single experiment detail
+/ar-status --domain engineering             # All experiments in a domain
+/ar-status --format markdown                # Export as markdown
+/ar-status --format csv --output results.csv  # Export as CSV
 ```
 
 ## What It Does

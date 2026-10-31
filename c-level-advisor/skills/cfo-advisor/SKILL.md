@@ -1,6 +1,6 @@
 ---
 name: "cfo-advisor"
-description: "Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board financial packages. Use when building financial models, analyzing unit economics, planning fundraising, managing cash runway, preparing board materials, or when user mentions CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheets, or financial strategy."
+description: "Use for startup finance decisions: unit economics (LTV, CAC), burn and runway, fundraising and dilution, or board financials. Runs unit_economics_analyzer.py, burn_rate_calculator.py and fundraising_model.py."
 license: MIT
 metadata:
   version: 1.0.0

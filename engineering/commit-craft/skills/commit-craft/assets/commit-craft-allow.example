@@ -1,0 +1,8 @@
+# .commit-craft-allow — waivers for secret_gate.py, at the repo root.
+# Every line needs a reason of at least 10 characters; a line without one is ignored.
+#
+# <fingerprint printed by secret_gate.py>  <reason>
+# path:<glob>                              <reason>
+
+3f9a0c1e5b7d2a44  documented example key copied from the vendor's public test docs
+path:tests/fixtures/certs/*  throwaway certificates generated for the TLS tests, never deployed

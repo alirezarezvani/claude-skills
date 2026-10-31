@@ -1,6 +1,6 @@
 ---
 name: aeo
-description: "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO — AEO optimizes for citation in LLM-generated responses, not search rankings. Use when planning content for AI-first search audiences, auditing existing content for E-E-A-T signals, tracking which pages get cited by which LLMs, or building a citation-friendly content strategy. Triggers — 'AEO audit', 'optimize for ChatGPT', 'get cited by Perplexity', 'LLM citation strategy', 'answer engine optimization', 'content for AI search', 'E-E-A-T audit'. Output is a markdown audit report (default) or JSON for pipeline integration. Stdlib-only Python tools."
+description: "Use when content should be cited by ChatGPT, Perplexity, Claude or Gemini (answer engine optimization), before rewriting it. Scores E-E-A-T and structure with aeo_audit.py, rewrites with aeo_optimizer.py and logs citations with citation_tracker.py."
 ---
 
 # Answer Engine Optimization (AEO)

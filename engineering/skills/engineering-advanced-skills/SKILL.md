@@ -1,6 +1,6 @@
 ---
 name: "engineering-advanced-skills"
-description: "Index of 37 advanced engineering agent skills for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Use when browsing or choosing among the POWERFUL-tier engineering skills: agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, changelog/release automation, reliability (SLO/chaos/flags/operators), platform ops."
+description: "Use when looking for which advanced engineering skill fits a task (agents, RAG, MCP, CI/CD, databases, observability, release, reliability). Lists them and routes to one."
 license: MIT
 metadata:
   version: 2.9.0

@@ -1,6 +1,6 @@
 ---
 name: "quality-manager-qms-iso13485"
-description: ISO 13485 Quality Management System implementation and maintenance for medical device organizations. Provides QMS design, documentation control, internal auditing, CAPA management, and certification support. Use when working with medical device quality systems, preparing for ISO 13485 audits, managing regulatory compliance documentation, setting up corrective actions, or building audit preparation programs. Useful for quality management, audit preparation, regulatory compliance, medical device documentation, and corrective action workflows.
+description: "Use when building or maintaining an ISO 13485 QMS for medical devices, or preparing for its certification audit. Covers QMS design, documentation and CAPA and runs qms_audit_checklist.py."
 metadata:
   triggers:
     - ISO 13485

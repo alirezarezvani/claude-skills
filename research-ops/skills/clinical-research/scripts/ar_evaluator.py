@@ -9,7 +9,7 @@ optimizes), scores it with phase_gate_scorer, and prints ONE metric line to stdo
     feasibility_composite: <0-100>   (higher is better)
 
 Usage inside autoresearch (the user opts in explicitly):
-    /ar:setup --domain custom --name trial-feasibility \\
+    /autoresearch-agent:setup --domain custom --name trial-feasibility \\
       --target study.json --eval "python3 ar_evaluator.py --target study.json" \\
       --metric feasibility_composite --direction higher
 

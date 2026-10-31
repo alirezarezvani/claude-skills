@@ -1,6 +1,6 @@
 ---
 name: research-finance
-description: Use when managing the money for an internal R&D program or portfolio — building a multi-period program budget with the F&A (indirect) split, tracking burn rate and runway against value-inflection milestones, or routing R&D cost items to a capitalize-vs-expense determination. Every budget output surfaces its assumptions block; capitalize-vs-expense is decision-support only and routes to a named finance owner — it never books an entry or decides accounting treatment. Distinct from finance/financial-analysis (corporate DCF, close, valuation) and research/grants (funding discovery — this manages money already won).
+description: "Use for R&D program money: multi-period budgets with indirect cost split, burn and runway against milestones, or capitalize vs expense routing. Runs program_budget_planner.py, burn_runway_tracker.py and capex_vs_opex_router.py."
 license: MIT
 metadata:
   version: 2.9.0
@@ -70,11 +70,11 @@ Answers are saved to `~/.config/research-ops/research-finance.json` (global) or 
 This skill ships an **isolated, opt-in** bridge to `engineering/autoresearch-agent`. Only when you ask to "optimize" / "extend runway" / "run a loop" does an autoresearch experiment iteratively improve a program plan against this skill's runway metric. `scripts/ar_evaluator.py` is the ground-truth evaluator; it prints `runway_months: <float>` (higher is better).
 
 ```bash
-/ar:setup --domain custom --name extend-runway \
+/autoresearch-agent:setup --domain custom --name extend-runway \
   --target ledger.json \
   --eval "python3 ar_evaluator.py --target ledger.json" \
   --metric runway_months --direction higher
-/ar:loop custom/extend-runway
+/ar-loop custom/extend-runway
 ```
 
 Isolated: no hard dependency — autoresearch runs only on demand, and the loop edits `ledger.json`, never the evaluator.

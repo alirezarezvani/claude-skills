@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin-outreach"
 description: "/cs-linkedin-outreach — Build a weekly commenting roster inside a real time budget, and write one outreach message at a time that refuses to be a template. Caps volume against LinkedIn's observed invitation limits and refuses automation-shaped plans. Nothing is ever sent."
 argument-hint: "[who you want to reach, and how much time you have]"

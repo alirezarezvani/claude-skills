@@ -1,6 +1,6 @@
 ---
 name: business-operations-skills
-description: Use when running, diagnosing, or designing internal business operations — process documentation, vendor SLAs, capacity planning, internal comms, SOP/runbook authoring, procurement spend. Triggers on "BizOps review", "where's the bottleneck", "vendor health", "internal SOP", "all-hands deck", "spend categorization", "capacity for Q3", "process mapping". Forks context to route to one of six BizOps sub-skills (process-mapper, vendor-management, capacity-planner, internal-comms, knowledge-ops, procurement-optimizer) and returns a digest. Distinct from business-growth (external sales motion) and c-level-advisor (strategic, not operational).
+description: "Use when an internal operations request needs routing (process, vendors, capacity, internal comms, SOPs, procurement): 'where's the bottleneck', 'vendor health'. Lists the BizOps skills and routes to one."
 context: fork
 license: MIT
 metadata:

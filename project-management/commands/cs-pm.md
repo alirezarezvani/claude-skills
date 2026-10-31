@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Top-level project-management router. Classifies a PM inquiry across 8 lanes (sprint/flow, portfolio health, Jira, Confluence, admin, templates, meetings, comms) with a deterministic script and forks context to the right sub-skill via the pm-skills orchestrator, returning a ≤200-word digest with a named owner and one grill challenge.
 argument-hint: "<PM inquiry: sprint health, project status, JQL, permissions, retro, comms, etc.>"
 ---

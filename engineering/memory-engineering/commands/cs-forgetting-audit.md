@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Run only the blocking forgetting gate on a memory design or store — what leaves, and on what rule.
 argument-hint: "[policy JSON, or a memory directory to audit]"
 ---

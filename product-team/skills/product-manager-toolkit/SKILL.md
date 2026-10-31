@@ -1,6 +1,6 @@
 ---
 name: "product-manager-toolkit"
-description: Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use when prioritizing features, synthesizing user research, writing requirement documentation, or developing product strategy.
+description: "Use for PM tasks: RICE prioritization, customer interview synthesis, PRDs or go-to-market. Scores features with rice_prioritizer.py and analyzes interviews with customer_interview_analyzer.py."
 ---
 
 # Product Manager Toolkit

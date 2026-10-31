@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-spinning-up-deep-rl"
 description: "/cs-spinning-up-deep-rl [topic | framework | chNN] — query the knowledge base compiled from Spinning Up in Deep RL by Joshua Achiam (OpenAI). Use when applying its frameworks while working, looking up a term, or reading one chapter's summary."
 ---

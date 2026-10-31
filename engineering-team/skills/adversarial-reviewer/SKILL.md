@@ -1,6 +1,6 @@
 ---
 name: "adversarial-reviewer"
-description: "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer."
+description: "Use before merging a PR or when a self-review feels too agreeable and the change needs a genuinely critical read. Reviews the diff through hostile reviewer personas that catch blind spots the author and a friendly reviewer share."
 license: "MIT"
 metadata:
   tier: "STANDARD"

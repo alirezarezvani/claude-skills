@@ -1,6 +1,6 @@
 ---
 name: "prompt-engineer-toolkit"
-description: "Turns marketing prompts into tested, versioned production assets: A/B prompt evaluation against structured test cases, immutable prompt version history with diffs, ready-to-use marketing prompt templates (ad copy, email campaigns, social posts, landing pages, SEO meta), and an LLM-governance playbook for marketing teams (claim discipline, disclosure rules, human-review gates). Use when a marketing team relies on AI-generated content and needs prompt quality to be measurable and safe — or when the user mentions 'prompt engineering,' 'improve my prompts,' 'prompt templates,' 'prompt versioning,' 'AI content workflow,' or 'AI governance for marketing.'"
+description: "Use when a marketing team's AI prompts need testing, versioning or governance, before shipping a prompt. A/B tests prompts against cases with prompt_tester.py and keeps diffed versions with prompt_versioner.py."
 license: MIT
 metadata:
   version: 1.0.0

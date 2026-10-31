@@ -1,6 +1,6 @@
 ---
 name: "copy-editing"
-description: "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes."
+description: "Use for any request to edit, proofread or tighten existing marketing copy, before changing words. Runs focused passes (clarity, voice, proof, specificity) and scores readability and AI tells with readability_scorer.py and ai_content_detector.py."
 license: MIT
 metadata:
   version: 1.0.0
@@ -500,3 +500,9 @@ Deliver findings sweep-by-sweep. Don't dump all issues at once. Prioritize by co
 - **marketing-ideas**: USE when the client needs a new marketing angle entirely. NOT for editorial improvement.
 - **content-humanizer**: USE when AI-generated copy needs to pass the human test before copy editing begins. NOT for structural review.
 - **ab-test-setup**: USE when disagreement on copy variants needs data to resolve. NOT for the editing process itself.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/ai-detection-patterns.md](references/ai-detection-patterns.md) — AI Content Detection Patterns

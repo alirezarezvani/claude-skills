@@ -1,9 +1,6 @@
 ---
 name: "pw-init"
-description: >-
-  Set up Playwright in a project. Use when user says "set up playwright",
-  "add e2e tests", "configure playwright", "testing setup", "init playwright",
-  or "add test infrastructure".
+description: "Use when setting up Playwright in a project ('set up playwright', 'add e2e tests', 'configure playwright', 'init playwright')."
 ---
 
 # Initialize Playwright Project

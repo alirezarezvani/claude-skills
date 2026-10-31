@@ -1,6 +1,6 @@
 ---
 name: "ab-test-setup"
-description: When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "conversion experiment," "statistical significance," or "test this." For tracking implementation, see analytics-tracking.
+description: "Use before planning or launching any A/B, split or multivariate test, or when asked if a result is significant. Sizes the test with sample_size_calculator.py and writes the hypothesis, metric and stop rule first, so it is not called early on noise."
 license: MIT
 metadata:
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: "helm-chart-builder"
-description: "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw — chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
+description: "Use for any Helm chart to create, review or harden (values.yaml, templates, subcharts, RBAC, pod security), before editing it. Analyzes the chart with chart_analyzer.py and validates values with values_validator.py."
 license: MIT
 metadata:
   version: 1.0.0
@@ -23,9 +23,9 @@ Not a Helm tutorial — a set of concrete decisions about how to build charts th
 
 | Command | What it does |
 |---------|-------------|
-| `/helm:create` | Scaffold a production-ready Helm chart with best-practice structure |
-| `/helm:review` | Analyze an existing chart for issues — missing labels, hardcoded values, template anti-patterns |
-| `/helm:security` | Audit chart for security issues — RBAC, network policies, pod security, secrets handling |
+| `/helm-chart-builder create` | Scaffold a production-ready Helm chart with best-practice structure |
+| `/helm-chart-builder review` | Analyze an existing chart for issues — missing labels, hardcoded values, template anti-patterns |
+| `/helm-chart-builder security` | Audit chart for security issues — RBAC, network policies, pod security, secrets handling |
 
 ---
 
@@ -48,7 +48,7 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
 
 ## Workflow
 
-### `/helm:create` — Chart Scaffolding
+### `/helm-chart-builder create` — Chart Scaffolding
 
 1. **Identify workload type**
    - Web service (Deployment + Service + Ingress)
@@ -113,7 +113,7 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
    helm template mychart/ --debug
    ```
 
-### `/helm:review` — Chart Analysis
+### `/helm-chart-builder review` — Chart Analysis
 
 1. **Check chart structure**
 
@@ -155,7 +155,7 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
    [Detailed findings with fix recommendations]
    ```
 
-### `/helm:security` — Security Audit
+### `/helm-chart-builder security` — Security Audit
 
 1. **Pod security audit**
 
@@ -447,3 +447,10 @@ clawhub install cs-helm-chart-builder
 - **docker-development** — Container building. Complementary — docker-development builds the images, helm-chart-builder deploys them to Kubernetes.
 - **ci-cd-pipeline-builder** — Pipeline construction. Complementary — helm-chart-builder defines the deployment artifact, ci-cd-pipeline-builder automates its delivery.
 - **senior-security** — Application security. Complementary — helm-chart-builder covers Kubernetes-level security (RBAC, pod security), senior-security covers application-level threats.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/chart-patterns.md](references/chart-patterns.md) — Helm Chart Patterns Reference
+- [references/values-design.md](references/values-design.md) — Values.yaml Design Reference

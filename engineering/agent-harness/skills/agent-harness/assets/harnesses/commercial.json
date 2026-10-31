@@ -16,7 +16,7 @@
     {
       "name": "channel-economics",
       "path": "commercial/skills/channel-economics",
-      "description": "Use when reviewing or rebalancing direct vs. partner-led channel economics \u2014 computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts \u2026",
+      "description": "Use for a direct vs partner channel review: fully loaded cost to serve, channel ROI and the best channel mix under constraints. Runs cost_to_serve_calculator.py, channel_roi_analyzer.py and channel_mix_optimizer.py.",
       "tools": [
         {
           "script": "commercial/skills/channel-economics/scripts/channel_mix_optimizer.py",
@@ -86,7 +86,7 @@
     {
       "name": "commercial-forecaster",
       "path": "commercial/skills/commercial-forecaster",
-      "description": "Use when building a quarterly bookings forecast, ARR projection, pipeline forecast, NRR projection, or commit/best-case/pipe-only board number \u2014 especially when the CRO needs to walk the board through funnel math + cohort ARR + per-stage conversion assumptions without the theatre of a single undefended number. Decomposes pipeline into commit, best-case, and pipe-only tiers; projects cohort-level NRR/GRR to surface leaky cohorts before they show up in the consolidated number; scores per-stage funnel confidence so soft-floor stages get treated differently from high-confidence ones. Every \u2026",
+      "description": "Use when building a bookings, ARR, pipeline or NRR forecast, or a commit, best-case and pipeline board number. Forecasts with bookings_forecaster.py, projects cohorts with cohort_arr_projector.py and scores stage confidence with funnel_confidence_scorer.py, showing every conversion assumption.",
       "tools": [
         {
           "script": "commercial/skills/commercial-forecaster/scripts/bookings_forecaster.py",
@@ -156,7 +156,7 @@
     {
       "name": "commercial-policy",
       "path": "commercial/skills/commercial-policy",
-      "description": "Use when designing or revising a company's commercial policy \u2014 the rules of engagement governing discounts off list price, approver thresholds, exception flows, and the deal framework that Deal Desk and AEs operate under. Covers discount matrix design (ARR band x term length x payment terms x strategic value), commercial policy design, exception policy, discount governance, approval thresholds, deal framework structure, and policy linting (contradictions, gaps, cliff edges, gaming surfaces). For Head of Commercial, Head of Deal Desk, VP Sales, or RevOps at the policy-design moment \u2014 NOT \u2026",
+      "description": "Use when writing or revising discount rules: discount matrix, approver thresholds, exception flows and the deal framework sales works under. Builds the matrix with discount_matrix_builder.py, routes exceptions with exception_router.py and checks the policy with policy_linter.py.",
       "tools": [
         {
           "script": "commercial/skills/commercial-policy/scripts/discount_matrix_builder.py",
@@ -226,7 +226,7 @@
     {
       "name": "commercial-skills",
       "path": "commercial/skills/commercial-skills",
-      "description": "Use when reviewing, approving, or designing commercial motion \u2014 pricing models, deal review, discount approval, partnership economics, channel mix, commercial policy, RFP/RFI response, bookings forecast. Triggers on \"review this deal\", \"should we discount\", \"pricing model\", \"partner economics\", \"RFP response\", \"bookings forecast\", \"channel mix\". Forks context to route to one of seven Commercial sub-skills (pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster) and returns a digest. Distinct from business-growth \u2026",
+      "description": "Use when a commercial request needs routing (pricing, deal review, discounts, partners, channels, policy, RFPs, forecasts): 'review this deal', 'should we discount'. Lists the commercial skills and routes to one.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,
@@ -240,7 +240,7 @@
     {
       "name": "deal-desk",
       "path": "commercial/skills/deal-desk",
-      "description": "Use when reviewing a specific inbound deal before close \u2014 when sales has asked for a discount that exceeds AE authority, when the customer has redlined the MSA, when per-deal economics (margin after discount, multi-year payment shape, indemnity exposure) need to be quantified, or when discount approval needs to be routed to a named human approver (Sales Director, VP Sales, CFO, CRO, General Counsel). Covers deal review, discount approval routing, per-deal margin scoring, deal exception handling, MSA redline triage, contract landmine detection (uncapped indemnity, MFN, perpetual \u2026",
+      "description": "Use before closing a deal that needs a discount beyond AE authority, has a redlined MSA or unclear per-deal economics. Scores it with deal_scorer.py, names approvers with discount_approval_router.py and flags risky terms with terms_redliner.py. Never auto-approves.",
       "tools": [
         {
           "script": "commercial/skills/deal-desk/scripts/deal_scorer.py",
@@ -310,7 +310,7 @@
     {
       "name": "partnerships-architect",
       "path": "commercial/skills/partnerships-architect",
-      "description": "Use when a startup is approached by a prospective partner and someone has to decide should we sign this partner, at what partner tier (referral / reseller / OEM / SI-consulting / strategic alliance), with what joint GTM commitment, and at what revshare. Classifies partner tier from independent-demand evidence vs. preferential-terms hunting, designs a 90-day joint GTM plan, models revshare against direct-sale margin, and surfaces kill criteria for unwinding under-performing partnerships. For Head of Partnerships, Head of BD, and Founder-CEOs doing reseller agreement, OEM deal, or strategic \u2026",
+      "description": "Use when deciding whether to sign a partner, at which tier (referral, reseller, OEM, SI, alliance), with what joint GTM and revshare. Runs partner_tier_classifier.py, revshare_modeler.py and joint_gtm_planner.py.",
       "tools": [
         {
           "script": "commercial/skills/partnerships-architect/scripts/joint_gtm_planner.py",
@@ -380,7 +380,7 @@
     {
       "name": "pricing-strategist",
       "path": "commercial/skills/pricing-strategist",
-      "description": "Use when designing or revisiting product pricing \u2014 selecting a pricing model (subscription seat-based, usage-based, value-based, freemium, or hybrid), running Van Westendorp Price Sensitivity Meter analysis on WTP survey data, or designing Good/Better/Best packaging tiers. Recommends a model and a price range with trade-offs, never a single number. For Commercial leads, Product Marketing, and CMOs at the pricing-design moment \u2014 not deal-by-deal discounting, not brand positioning.",
+      "description": "Use when choosing or revisiting pricing: seat, usage, value-based, freemium or hybrid, Van Westendorp willingness-to-pay analysis, or Good/Better/Best tiers. Runs pricing_model_picker.py, wtp_analyzer.py and packaging_designer.py and returns a range, not one number.",
       "tools": [
         {
           "script": "commercial/skills/pricing-strategist/scripts/packaging_designer.py",
@@ -450,7 +450,7 @@
     {
       "name": "rfp-responder",
       "path": "commercial/skills/rfp-responder",
-      "description": "Use when an RFP, RFI, RFQ, security questionnaire, vendor questionnaire, or proposal request arrives and the team needs a structured response \u2014 parsing multi-section buyer-dictated requirements (MANDATORY vs WEIGHTED vs NICE-TO-HAVE), building a Shipley-method proof-point matrix mapping each requirement to a verifiable proof point, articulating 3-5 win-themes that ladder up across requirements, and producing a Shipley-derived winrate estimate that informs a bid / no-bid / partner-bid recommendation. For Bid Managers, Proposal Leads, Directors of Sales, and Sales Engineers at the \u2026",
+      "description": "Use when an RFP, RFI, RFQ or security or vendor questionnaire arrives. Parses mandatory vs weighted requirements with rfp_parser.py, drafts proof-point answers with response_drafter.py and estimates win chance with winrate_predictor.py.",
       "tools": [
         {
           "script": "commercial/skills/rfp-responder/scripts/response_drafter.py",

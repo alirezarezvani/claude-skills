@@ -1,6 +1,6 @@
 ---
 name: "information-security-manager-iso27001"
-description: ISO 27001 ISMS implementation and cybersecurity governance for HealthTech and MedTech companies. Use when designing an ISMS, running security risk assessments, implementing controls, pursuing ISO 27001 certification, preparing security audits, responding to security incidents, or verifying compliance. Covers ISO 27001, ISO 27002, healthcare security, and medical device cybersecurity.
+description: "Use when designing or running an ISO 27001 ISMS in HealthTech or MedTech: risk assessment, control implementation, certification or security incidents. Assesses risk with risk_assessment.py and checks controls with compliance_checker.py."
 ---
 
 # Information Security Manager - ISO 27001

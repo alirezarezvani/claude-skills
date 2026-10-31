@@ -1,6 +1,6 @@
 ---
 name: "incident-commander"
-description: "Comprehensive incident response framework from detection through resolution and post-incident review. Battle-tested SRE/DevOps practices: severity classification, timeline reconstruction, structured post-incident analysis. Use when declaring an incident, coordinating multi-team response during an outage, leading a post-mortem, or setting up on-call practices for a new service."
+description: "Use when declaring or running a production incident or outage, or writing its post-incident review. Classifies severity with incident_classifier.py, rebuilds the timeline with timeline_reconstructor.py and drafts the PIR with pir_generator.py. Security incidents: incident-response."
 ---
 
 # Incident Commander Skill
@@ -469,3 +469,12 @@ python scripts/pir_generator.py --incident assets/sample_incident_pir_data.json 
 - Deployment tracking systems
 - Feature flag platforms for quick rollbacks
 
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/communication_templates.md](references/communication_templates.md) — Incident Communication Templates
+- [references/incident-response-framework.md](references/incident-response-framework.md) — Incident Response Framework Reference
+- [references/incident_severity_matrix.md](references/incident_severity_matrix.md) — Incident Severity Classification Matrix
+- [references/rca_frameworks_guide.md](references/rca_frameworks_guide.md) — Root Cause Analysis (RCA) Frameworks Guide
+- [references/sla-management-guide.md](references/sla-management-guide.md) — SLA Management Guide

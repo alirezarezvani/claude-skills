@@ -1,6 +1,6 @@
 ---
 name: "interview-system-designer"
-description: This skill should be used when the user asks to "design interview processes", "create hiring pipelines", "calibrate interview loops", "generate interview questions", "design competency matrices", "analyze interviewer bias", "create scoring rubrics", "build question banks", or "optimize hiring systems". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems.
+description: "Use when designing a hiring loop, competency matrix, scoring rubric or question bank, or checking interviewer calibration. Plans the loop per role with interview_planner.py."
 ---
 
 # Interview System Designer

@@ -1659,8 +1659,8 @@
   "neg": "Why is my bundle.js so large? Walk me through how to read the webpack-bundle-analyzer output and what the usual culprits are.",
   "origin": "generated"
  },
- "engineering/autoresearch-agent/skills/loop": {
-  "name": "loop",
+ "engineering/autoresearch-agent/skills/ar-loop": {
+  "name": "ar-loop",
   "plugin": "autoresearch-agent",
   "pos": [
    "run the experiment on repeat while I'm away, maybe every hour",
@@ -1768,6 +1768,16 @@
   ],
   "neg": "Summarize the git log for the payments module from this week into release notes grouped by feature and bugfix.",
   "origin": "generated"
+ },
+ "engineering/commit-craft/skills/commit-craft": {
+  "name": "commit-craft",
+  "plugin": "commit-craft",
+  "pos": [
+   "I've got like 40 changed files from today's session, a dependency bump, a refactor and the actual bug fix all mixed together. Can you turn this into clean commits before I push?",
+   "commit my changes, but split them properly and make sure I'm not committing the .env or any keys"
+  ],
+  "neg": "Generate release notes for v3.2.0 from the merged PRs since the last tag, grouped into features, fixes and breaking changes.",
+  "origin": "reviewed"
  },
  "engineering/data-quality-auditor/skills/data-quality-auditor": {
   "name": "data-quality-auditor",
@@ -1959,9 +1969,9 @@
   "neg": "Do a full security audit of my Express app: review the dependencies for CVEs, check the auth flow, and write up a penetration test report with findings ranked by severity.",
   "origin": "generated"
  },
- "engineering/skill-doctor/skills/skill-doctor": {
-  "name": "skill-doctor",
-  "plugin": "skill-doctor",
+ "engineering/skill-retro/skills/skill-retro": {
+  "name": "skill-retro",
+  "plugin": "skill-retro",
   "pos": [
    "which of my skills are actually doing anything? look at my recent sessions and tell me",
    "Go through my last couple weeks of Claude Code and Codex sessions on this machine, score them for efficiency and code quality, and propose edits to the skills that keep underperforming. I want a report I can open locally with the evidence behind each change."

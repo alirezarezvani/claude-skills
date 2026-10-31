@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: cs-handoff
 description: "Generate a handoff document compacting the current conversation for a fresh agent to pick up. Walks the mandatory checklist, runs the redaction linter, saves to the configured location. On first run, asks 'Run setup now? (Y/n)' to choose where handoffs save (OS temp, home folder, project-local). Use when ending a session, switching machines, or passing work to another agent."
 argument-hint: "[goal of next session]"

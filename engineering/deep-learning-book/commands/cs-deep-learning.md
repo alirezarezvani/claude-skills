@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-deep-learning"
 description: "/cs-deep-learning — Study companion for the Deep Learning textbook (Goodfellow, Bengio & Courville, 2016). Answers chapter questions from a compiled knowledge base, always dating the answer against 2026 practice, and routes to the reading-path planner or the training diagnostic. Points at the free official chapters; never reproduces them."
 argument-hint: "[a topic, a chapter number, a question about the book, or 'where do I start']"

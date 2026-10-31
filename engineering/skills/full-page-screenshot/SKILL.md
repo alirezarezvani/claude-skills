@@ -1,6 +1,6 @@
 ---
 name: "full-page-screenshot"
-description: "Use when the user asks to capture a full-page screenshot, long screenshot, or complete page capture of a web page. Handles SPA scroll containers, lazy-loaded images, and very tall pages via Chrome DevTools Protocol with zero external dependencies."
+description: "Use when asked for a full-page or long screenshot of a web page. Captures SPA scroll containers, lazy images and very tall pages through Chrome DevTools Protocol with no extra dependencies."
 ---
 
 # Full Page Screenshot

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-landing"
 description: "/cs-landing <product-or-brief> — Generate a premium single-file HTML landing page with GSAP 3D animations, scroll-triggered reveals, and mouse-parallax depth. Grill-me intake (4 questions) locks down product / audience / brand / tone before any markup. Output: ${OUTPUT_DIR}/<product-kebab>.html or HTML artifact."
 ---

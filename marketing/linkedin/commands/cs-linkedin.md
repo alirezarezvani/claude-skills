@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin"
 description: "/cs-linkedin — Route any organic LinkedIn goal to the right lane (profile / strategy / content / engagement / analytics) after gating it against LinkedIn's User Agreement. Refuses automation, scraping, engagement pods, bulk DMs, fake identity, and fabricated proof before a word is drafted. Nothing is ever sent."
 argument-hint: "[what you want from LinkedIn — a goal, a profile problem, a post, an outreach plan, or a question about your numbers]"

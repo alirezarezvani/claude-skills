@@ -1,6 +1,6 @@
 ---
 name: deal-desk
-description: Use when reviewing a specific inbound deal before close — when sales has asked for a discount that exceeds AE authority, when the customer has redlined the MSA, when per-deal economics (margin after discount, multi-year payment shape, indemnity exposure) need to be quantified, or when discount approval needs to be routed to a named human approver (Sales Director, VP Sales, CFO, CRO, General Counsel). Covers deal review, discount approval routing, per-deal margin scoring, deal exception handling, MSA redline triage, contract landmine detection (uncapped indemnity, MFN, perpetual license-back, missing DPA), and named-approver chain assembly. NEVER auto-approves — every output is a numeric scorecard plus a routing recommendation to a named human.
+description: "Use before closing a deal that needs a discount beyond AE authority, has a redlined MSA or unclear per-deal economics. Scores it with deal_scorer.py, names approvers with discount_approval_router.py and flags risky terms with terms_redliner.py. Never auto-approves."
 license: MIT
 metadata:
   version: 2.8.0

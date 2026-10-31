@@ -1,6 +1,6 @@
 ---
 name: "embedded-iot-mentor"
-description: Mentor for embedded and IoT hardware projects. Helps select MCUs, dev boards, and toolchains, decides where sensor readings end up (phone, PC, dashboard, or alert), and gives time/cost estimates and a phased build plan from breadboard MVP to production PCB. Use when the user mentions embedded, IoT, microcontroller, ESP32, STM32, Arduino, Raspberry Pi Pico, firmware, PCB, KiCad, EasyEDA, PlatformIO, MQTT, Home Assistant, ESPHome, Grafana, an IoT dashboard, seeing sensor data on a phone, or asks for hardware tool recommendations, project planning, or cost/time estimates for an electronics project.
+description: "Use for any embedded or IoT hardware project (ESP32, STM32, Arduino, Pico, firmware, PCB, MQTT, Home Assistant, sensor dashboards), before buying parts. Picks the MCU, board and toolchain, decides where readings go and gives a phased build plan with time and cost."
 ---
 
 # Embedded / IoT Mentor

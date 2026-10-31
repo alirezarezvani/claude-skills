@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Phase 2 — turn a build sheet into exact API payloads and a resumable BYOK curl launch script, then launch (environment → agent → session → kickoff) with the founder's own key via the stage-launch skill. No tool makes API calls; the key never enters chat.
 argument-hint: "[optional: path to build-sheet.json, default ./my-agent/build-sheet.json]"
 ---

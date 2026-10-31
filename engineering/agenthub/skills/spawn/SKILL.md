@@ -1,21 +1,21 @@
 ---
 name: "spawn"
-description: "Launch N parallel subagents in isolated git worktrees to compete on the session task. Use when the user runs /hub:spawn or asks to start the competing agents for an initialized AgentHub session."
+description: "Use to launch the competing agents for an initialized AgentHub session in isolated worktrees."
 metadata:
-  command: /hub:spawn
+  command: /agenthub:spawn
 ---
 
-# /hub:spawn — Launch Parallel Agents
+# /agenthub:spawn — Launch Parallel Agents
 
 Spawn N subagents that work on the same task in parallel, each in an isolated git worktree.
 
 ## Usage
 
 ```
-/hub:spawn                                    # Spawn agents for the latest session
-/hub:spawn 20260317-143022                    # Spawn agents for a specific session
-/hub:spawn --template optimizer               # Use optimizer template for dispatch prompts
-/hub:spawn --template refactorer              # Use refactorer template
+/agenthub:spawn                                    # Spawn agents for the latest session
+/agenthub:spawn 20260317-143022                    # Spawn agents for a specific session
+/agenthub:spawn --template optimizer               # Use optimizer template for dispatch prompts
+/agenthub:spawn --template refactorer              # Use refactorer template
 ```
 
 ## Templates
@@ -80,5 +80,5 @@ python {skill_path}/scripts/session_manager.py --update {session-id} --state run
 Tell the user:
 - {N} agents launched in parallel
 - Each working in an isolated worktree
-- Monitor with `/hub:hub-status`
-- Evaluate when done with `/hub:eval`
+- Monitor with `/hub-status`
+- Evaluate when done with `/agenthub:eval`

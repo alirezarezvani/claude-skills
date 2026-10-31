@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Internal-only change-management comms using ADKAR (Prosci) + Kotter's 8-step. NOT marketing (external) and NOT executive narrative strategy. Direct invocation of the internal-comms skill.
 argument-hint: "<change description: type, audience, magnitude, effective date>"
 ---

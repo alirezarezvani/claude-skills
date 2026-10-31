@@ -1,6 +1,6 @@
 ---
 name: "post-mortem"
-description: "/c-level-agents:post-mortem [decision] — Honest retrospective on an executed decision, scored against original assumptions and dissent. Closes the strategic sprint loop. Use when a decision hits its 90-day review checkpoint or its kill criteria trigger — e.g. scoring last quarter's pricing change against its pre-committed success metrics."
+description: "Use for /c-level-agents:post-mortem, or when a decision hits its 90-day review or kill criteria. Scores it against the original assumptions and dissent."
 ---
 
 # /c-level-agents:post-mortem — Honest Retrospective
@@ -108,7 +108,7 @@ The dissent column from `/c-level-agents:boardroom` is the single most useful pi
 
 - Skill: [`decision-logger`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/decision-logger/SKILL.md)
 - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-- Sibling: [`/em:postmortem`](../../../c-level-advisor/executive-mentor/skills/postmortem/SKILL.md) — adversarial single-decision post-mortem
+- Sibling: [`/executive-mentor:postmortem`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/executive-mentor/postmortem/SKILL.md) — adversarial single-decision post-mortem
 
 ---
 

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Run the continuous-discovery loop — score the weekly cadence (Torres), act on the named gap, lint the Opportunity Solution Tree as the machine gate, and keep the streak alive with explicit stop states. The product-domain recurring loop; graduates validated assumptions to experiments or PRDs.
 argument-hint: "[path to discovery_log.json] [path to ost.json]"
 ---

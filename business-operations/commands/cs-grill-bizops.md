@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Matt Pocock-style docs-anchored grilling for a BizOps plan or design. Walks the user's plan against the BizOps canon (Lean, Theory of Constraints, Gartner TPRM, DORA) one question at a time, recommends an answer per question, and refuses to invoke any sub-skill until the lane-defining decisions are locked. Use before running /cs-bizops on a fuzzy plan.
 argument-hint: "<plan, design, or fuzzy problem statement>"
 ---

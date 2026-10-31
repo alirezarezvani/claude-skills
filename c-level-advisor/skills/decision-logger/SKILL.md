@@ -1,6 +1,6 @@
 ---
 name: "decision-logger"
-description: "Two-layer memory architecture for board meeting decisions. Manages raw transcripts (Layer 1) and approved decisions (Layer 2). Use when logging decisions after a board meeting, reviewing past decisions with /decision-logger decisions, or checking overdue action items with /decision-logger review. Invoked automatically by the board-meeting skill after Phase 5 founder approval."
+description: "Use when logging a decision after a board meeting, reviewing past decisions or checking overdue actions. Keeps raw transcripts and approved decisions separately with decision_tracker.py."
 license: MIT
 metadata:
   version: 1.0.0

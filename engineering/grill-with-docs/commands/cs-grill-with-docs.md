@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-grill-with-docs"
 description: "/cs-grill-with-docs <path-to-plan> — Start a docs-anchored grilling session. Pre-flights CONTEXT.md + docs/adr/ linters, then interrogates the plan one decision at a time, updating glossary + writing ADRs inline as they crystallise."
 ---

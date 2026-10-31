@@ -1,6 +1,6 @@
 ---
 name: inbox-setup
-description: "One-time setup skill that builds a personalized inbox triage knowledge base via interactive interview. Interviews the user about their email patterns, business context, reply style, and priorities using grill-me discipline (one question at a time, forcing format where possible, dependency-ordered, each question explains why I'm asking), then generates the knowledge base files that power the companion 'inbox-triage' skill. Run this once before using inbox-triage for the first time. Re-run when business, pricing, or priorities change significantly. Triggers: 'set up my inbox', 'configure inbox triage', 'set up my email system', 'configure email triage', 'build my email knowledge base', 'initialize email management', 'set up inbox triage', 'onboard email triage', or any variation where someone wants to get the email triage system running for the first time."
+description: "Use when setting up email triage for the first time, before inbox-triage, or when priorities change. Interviews the user one question at a time and writes the knowledge base inbox-triage reads, validated with kb_validator.py."
 license: MIT
 metadata:
   source_spec: "megaprompts/06-inbox-setup-megaprompt.md"

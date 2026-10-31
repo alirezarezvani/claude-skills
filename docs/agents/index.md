@@ -1,13 +1,13 @@
 ---
 title: "AI Coding Agents — Agent-Native Orchestrators & Codex Skills"
-description: "108 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
+description: "110 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">108 agents that orchestrate skills across domains</p>
+<p class="domain-count">110 agents that orchestrate skills across domains</p>
 
 </div>
 
@@ -301,6 +301,12 @@ description: "108 agent-native orchestrators for Claude Code, Codex CLI, and Gem
 
     Engineering - POWERFUL
 
+-   :material-rocket-launch:{ .lg .middle } **[Commit Craft](cs-commit-craft.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
 -   :material-rocket-launch:{ .lg .middle } **[Deep Learning Tutor](cs-deep-learning-tutor.md)**
 
     ---
@@ -361,7 +367,7 @@ description: "108 agent-native orchestrators for Claude Code, Codex CLI, and Gem
 
     Engineering - POWERFUL
 
--   :material-rocket-launch:{ .lg .middle } **[Skill Doctor](cs-skill-doctor.md)**
+-   :material-rocket-launch:{ .lg .middle } **[Skill Retro](cs-skill-retro.md)**
 
     ---
 
@@ -392,6 +398,12 @@ description: "108 agent-native orchestrators for Claude Code, Codex CLI, and Gem
     Engineering - POWERFUL
 
 -   :material-lightbulb-outline:{ .lg .middle } **[Product Orchestrator](cs-product-orchestrator.md)**
+
+    ---
+
+    Product
+
+-   :material-lightbulb-outline:{ .lg .middle } **[Design Qa](cs-design-qa.md)**
 
     ---
 

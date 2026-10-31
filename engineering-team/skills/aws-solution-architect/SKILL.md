@@ -1,6 +1,6 @@
 ---
 name: "aws-solution-architect"
-description: Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization.
+description: "Use when designing or costing an AWS architecture (serverless, Lambda, API Gateway, DynamoDB, ECS, Aurora, CloudFormation, migration to AWS). Designs it with architecture_designer.py, generates stacks with serverless_stack.py and finds savings with cost_optimizer.py."
 ---
 
 # AWS Solution Architect

@@ -181,7 +181,7 @@ def run_demo():
     print()
     print("Winner: agent-2 (142ms, -21% from baseline)")
     print()
-    print("Next step: Run /hub:merge to merge agent-2's branch")
+    print("Next step: Run /agenthub:merge to merge agent-2's branch")
 
 
 def main():

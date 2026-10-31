@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "147 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "151 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">147 commands for quick access to common operations</p>
+<p class="domain-count">151 commands for quick access to common operations</p>
 
 </div>
 
@@ -307,6 +307,18 @@ description: "147 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
 
     bash
 
+-   :material-console:{ .lg .middle } **[`/cs-commit-check`](cs-commit-check.md)**
+
+    ---
+
+    With no argument, check what is staged. With a range, check the series before push.
+
+-   :material-console:{ .lg .middle } **[`/cs-commit-craft`](cs-commit-craft.md)**
+
+    ---
+
+    Turn the uncommitted work in $ARGUMENTS (default: the current repo) into a reviewable series.
+
 -   :material-console:{ .lg .middle } **[`/cs-deep-learning`](cs-deep-learning.md)**
 
     ---
@@ -361,11 +373,11 @@ description: "147 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
 
     Run the memory-engineering pass on $ARGUMENTS.
 
--   :material-console:{ .lg .middle } **[`/cs-skill-doctor`](cs-skill-doctor.md)**
+-   :material-console:{ .lg .middle } **[`/cs-skill-retro`](cs-skill-retro.md)**
 
     ---
 
-    Run the skill-doctor pass with $ARGUMENTS (pass any --repo, --days,
+    Run the skill-retro pass with $ARGUMENTS (pass any --repo, --days,
 
 -   :material-console:{ .lg .middle } **[`/skillopt-sleep`](skillopt-sleep.md)**
 
@@ -414,6 +426,18 @@ description: "147 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
     ---
 
     Route this inquiry through the product-skills orchestrator:
+
+-   :material-console:{ .lg .middle } **[`/cs-design-qa`](cs-design-qa.md)**
+
+    ---
+
+    Gate $ARGUMENTS before it is called done.
+
+-   :material-console:{ .lg .middle } **[`/cs-ui-finish-lint`](cs-ui-finish-lint.md)**
+
+    ---
+
+    Lint $ARGUMENTS for unfinished work.
 
 -   :material-console:{ .lg .middle } **[`/cs-grill-pm`](cs-grill-pm.md)**
 

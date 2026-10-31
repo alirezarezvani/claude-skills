@@ -1,6 +1,6 @@
 ---
 name: "cross-eval"
-description: "/c-level-agents:cross-eval [memo] — Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom — e.g. a bet-the-company pivot or fundraise terms."
+description: "Use for /c-level-agents:cross-eval, or when a high-stakes memo needs independent review by several models before the boardroom."
 ---
 
 # /c-level-agents:cross-eval — Multi-Model Consensus
@@ -107,7 +107,7 @@ This is weaker than true multi-model. Treat the result as suggestive, not conclu
 
 ## Related
 
-- Skills: [`board-meeting`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/SKILL.md), [`executive-mentor`](../../../c-level-advisor/executive-mentor/)
+- Skills: [`board-meeting`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/SKILL.md), [`executive-mentor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/executive-mentor/executive-mentor/SKILL.md)
 - Inspiration: gstack's `/codex` cross-review pattern (adapted to business memos)
 
 ---

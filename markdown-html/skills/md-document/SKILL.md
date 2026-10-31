@@ -1,6 +1,6 @@
 ---
 name: md-document
-description: Converts long-form markdown (specs, RFCs, reports, plans, explainers) into a single-file, lightly-interactive HTML document with sticky TOC, scrollspy, search filter, code-copy buttons, and design-system-driven brand tokens. Triggers when the markdown-html-orchestrator classifies an input as DOCUMENT, or when invoked directly via /cs-md-document. Reads the design-system config via config_loader.py and inlines the user's 12 derived CSS custom properties; refuses to render if onboarding hasn't run. Single-file output — Google Fonts + Prism.js CDN are the only externals; no framework runtime, no build step. Use after orchestrator routing or after design-system onboarding is confirmed.
+description: "Use when converting long-form markdown (spec, RFC, report, plan) into a single-file HTML page with sticky TOC, search and code-copy. Parses with markdown_parser.py and renders with html_renderer.py using the design-system brand."
 license: MIT
 metadata:
   version: 2.10.1
@@ -104,3 +104,11 @@ Out of scope: nested lists, HTML inlines, footnotes, definition lists, task list
 - WCAG 2.2 — §1.4.3 contrast, §2.4.5 multiple ways
 - Wattenberger — *Why React isn't great for actually building websites*
 - See `references/` for full citations
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/information_density_patterns.md](references/information_density_patterns.md) — Information Density Patterns for Long-form Documents
+- [references/single_file_html_discipline.md](references/single_file_html_discipline.md) — Single-File HTML Discipline (md-document edition)
+- [references/toc_and_nav_ux.md](references/toc_and_nav_ux.md) — Table-of-Contents and Navigation UX

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-handoff"
 description: "/cs-handoff <next-session-focus> — Compact the current conversation into a handoff document for a fresh agent. Tailored to next-session focus (deploy/review/debug/design/test). Replaces PRD/ADR/issue/commit content with references. Recommends specific skills for the next session."
 argument-hint: "What will the next session be used for?"

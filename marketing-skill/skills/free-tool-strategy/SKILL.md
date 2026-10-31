@@ -1,6 +1,6 @@
 ---
 name: "free-tool-strategy"
-description: "When the user wants to build a free tool for marketing — lead generation, SEO value, or brand awareness. Use when they mention 'engineering as marketing,' 'free tool,' 'calculator,' 'generator,' 'checker,' 'grader,' 'marketing tool,' 'lead gen tool,' 'build something for traffic,' 'interactive tool,' or 'free resource.' Covers idea evaluation, tool design, and launch strategy. For pure SEO content strategy (no tool), use seo-audit or content-strategy instead."
+description: "Use when considering a free calculator, grader, checker or generator as a marketing asset, before building it. Estimates traffic, leads and ROI with tool_roi_estimator.py and scores the idea for search demand and fit."
 license: MIT
 metadata:
   version: 1.0.0
@@ -270,3 +270,9 @@ All output follows the structured communication standard:
 - **launch-strategy**: Use when planning the full product or feature launch. NOT for tool-specific distribution (use free-tool-strategy for that).
 - **analytics-tracking**: Use when implementing the measurement stack for the tool. NOT for deciding what to measure (use free-tool-strategy for that).
 - **form-cro**: Use when optimizing the lead capture form in the tool. NOT for the tool design or launch strategy.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/launch-playbook.md](references/launch-playbook.md) — Launch Playbook — How to Launch a Free Tool for Maximum Impact

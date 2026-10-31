@@ -1,6 +1,6 @@
 ---
 name: "docker-development"
-description: "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance, layer caching, secret management, and production-ready container patterns."
+description: "Use for any Dockerfile or docker-compose file to write, optimize or review, before editing it. Checks layers, caching, size and security with dockerfile_analyzer.py and validates compose files with compose_validator.py."
 license: MIT
 metadata:
   version: 1.0.0
@@ -23,9 +23,9 @@ Not a Docker tutorial — a set of concrete decisions about how to build contain
 
 | Command | What it does |
 |---------|-------------|
-| `/docker:optimize` | Analyze and optimize a Dockerfile for size, speed, and layer caching |
-| `/docker:compose` | Generate or improve docker-compose.yml with best practices |
-| `/docker:security` | Audit a Dockerfile or running container for security issues |
+| `/docker-development optimize` | Analyze and optimize a Dockerfile for size, speed, and layer caching |
+| `/docker-development compose` | Generate or improve docker-compose.yml with best practices |
+| `/docker-development security` | Audit a Dockerfile or running container for security issues |
 
 ---
 
@@ -48,7 +48,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
 
 ## Workflow
 
-### `/docker:optimize` — Dockerfile Optimization
+### `/docker-development optimize` — Dockerfile Optimization
 
 1. **Analyze current state**
    - Read the Dockerfile
@@ -95,7 +95,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
    python3 scripts/dockerfile_analyzer.py Dockerfile
    ```
 
-### `/docker:compose` — Docker Compose Configuration
+### `/docker-development compose` — Docker Compose Configuration
 
 1. **Identify services**
    - Application (web, API, worker)
@@ -138,7 +138,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
    - Generate .env.example with all required variables documented
    - Add dev/prod profile annotations
 
-### `/docker:security` — Container Security Audit
+### `/docker-development security` — Container Security Audit
 
 1. **Dockerfile audit**
 
@@ -364,3 +364,10 @@ clawhub install cs-docker-development
 - **senior-security** — Application security. Complementary — docker-development covers container security, senior-security covers application-level threats.
 - **autoresearch-agent** — Can optimize Docker build times or image sizes as measurable experiments.
 - **ci-cd-pipeline-builder** — Pipeline construction. Complementary — docker-development builds the containers, ci-cd-pipeline-builder deploys them.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/compose-patterns.md](references/compose-patterns.md) — Docker Compose Patterns Reference
+- [references/dockerfile-best-practices.md](references/dockerfile-best-practices.md) — Dockerfile Best Practices Reference

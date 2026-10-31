@@ -48,7 +48,7 @@ Opening move:
 ## Scope boundaries
 
 - Coaching one person to use Claude better → `claude-coach`.
-- Improving installed skills from session evidence → `skill-doctor`.
+- Improving installed skills from session evidence → `skill-retro`.
 - Warning on risky code patterns as they are written → `security-guidance`.
 
 ## Skill

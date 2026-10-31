@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Structured RFP/RFI/RFQ response with win-theme injection and proof-point matrix. NOT free-form proposal authoring (that's business-growth/contract-and-proposal-writer). Direct invocation of the rfp-responder skill.
 argument-hint: "<RFP document path or RFP requirements list>"
 ---

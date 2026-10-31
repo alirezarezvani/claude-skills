@@ -54,9 +54,6 @@ Cursor's multi-model subagent system works well with skills:
 ```
 # In Cursor's Composer, reference a skill:
 @skill frontend-design Build a dashboard with charts and data tables
-
-# Or use slash commands from the skill:
-/design:component Create a pricing card with toggle for monthly/annual
 ```
 
 ### Project Rules

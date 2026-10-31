@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Per-deal review. Score margin + risk, route discount approval to the right human, redline T&Cs against commercial policy. Never auto-approves. Direct invocation of the deal-desk skill.
 argument-hint: "<deal context: ARR, term, discount, customer tier, strategic value>"
 ---

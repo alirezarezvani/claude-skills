@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Partner tier classification (Referral / Reseller / OEM / SI / Strategic) + joint GTM plan + revshare model. NOT technical sale and NOT channel economics math. Direct invocation of the partnerships-architect skill.
 argument-hint: "<partner intake: type, evidence of independent demand, commitments>"
 ---

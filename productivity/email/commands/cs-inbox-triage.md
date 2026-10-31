@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-inbox-triage"
 description: "/cs-inbox-triage — Recurring email triage execution. Reads 7-file KB built by /cs-inbox-setup. Classifies recent emails, drafts replies (NEVER SENDS), delivers report, updates KB. Run 1-3x/day or on demand. Halts with clear message if KB missing."
 ---

@@ -1,6 +1,6 @@
 ---
 name: chaos-engineering
-description: Use when planning, running, or learning from chaos engineering experiments. Triggers on "chaos experiment", "fault injection", "gameday", "resilience test", "blast radius", "steady state", "abort criteria", "Chaos Toolkit", "Chaos Mesh", "Litmus", "Gremlin", "AWS FIS", or any deliberate failure-injection question. Ships experiment designer, blast-radius calculator, and postmortem generator (all stdlib Python), 4 references on chaos principles + experiment design + attack taxonomy + tooling landscape, and a /chaos-experiment slash command. Composes with feature-flags-architect (kill switches as abort triggers) and kubernetes-operator (common chaos targets).
+description: "Use before running a chaos experiment, gameday or fault injection, or after one to write it up. Designs it with steady state and abort criteria in experiment_designer.py, sizes the blast radius with blast_radius_calculator.py and drafts the postmortem."
 context: fork
 license: MIT
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: "autoresearch-agent"
-description: "Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy's autoresearch. The agent edits a target file, runs a fixed evaluation, keeps improvements (git commit), discards failures (git reset), and loops indefinitely. Use when: user wants to optimize code speed, reduce bundle/image size, improve test pass rate, optimize prompts, improve content quality (headlines, copy, CTR), or run any measurable improvement loop. Requires: a target file, an evaluation command that outputs a metric, and a git repo."
+description: "Use when a file should be improved against a measurable metric (speed, bundle size, pass rate, prompt or headline score), before hand-tuning it. Loops edit, run_experiment.py, keep or git reset on a fixed evaluator; needs an eval command and a git repo."
 license: MIT
 metadata:
   version: 2.0.0
@@ -23,11 +23,11 @@ Not one guess — fifty measured attempts, compounding.
 
 | Command | What it does |
 |---------|-------------|
-| `/ar:setup` | Set up a new experiment interactively |
-| `/ar:ar-run` | Run a single experiment iteration |
-| `/ar:loop` | Start autonomous loop with configurable interval (10m, 1h, daily, weekly, monthly) |
-| `/ar:ar-status` | Show dashboard and results |
-| `/ar:ar-resume` | Resume a paused experiment |
+| `/autoresearch-agent:setup` | Set up a new experiment interactively |
+| `/ar-run` | Run a single experiment iteration |
+| `/ar-loop` | Start autonomous loop with configurable interval (10m, 1h, daily, weekly, monthly) |
+| `/ar-status` | Show dashboard and results |
+| `/ar-resume` | Resume a paused experiment |
 
 ---
 
@@ -306,3 +306,10 @@ clawhub install cs-autoresearch-agent
 - **senior-ml-engineer** — ML architecture decisions. Complementary — use for initial design, then autoresearch for optimization.
 - **tdd-guide** — test-driven development. Complementary — tests can be the evaluation function.
 - **skill-security-auditor** — audit skills before publishing. NOT for optimization loops.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/experiment-domains.md](references/experiment-domains.md) — Experiment Domains Guide
+- [references/program-template.md](references/program-template.md) — program.md Templates

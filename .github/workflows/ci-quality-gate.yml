@@ -155,6 +155,13 @@ jobs:
         run: |
           python3 scripts/smoke_json_output.py
 
+      # Ratchet: Claude Code lists every model-invocable skill and command in about
+      # 30,000 characters and drops descriptions past that. A plugin may not grow past
+      # its line in scripts/listing_budget_baseline.txt; a new plugin is capped at 6,000.
+      - name: Skill-listing budget gate (gate G12 — blocking, ratchet)
+        run: |
+          python3 scripts/check_listing_budget.py
+
       - name: No deprecated datetime.utcnow (blocking)
         run: |
           if grep -rnE --include='*.py' '(^|[^_[:alnum:]])datetime\.utcnow\(' --exclude-dir=.git --exclude-dir=docs . ; then

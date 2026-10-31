@@ -1,11 +1,11 @@
 ---
 name: "postmortem"
-description: "/em:postmortem — Honest analysis of what went wrong. Use after a failed launch, missed quarter, or bad hire to run a blameless 5-Whys retrospective with a change register — e.g. dissecting why the Q3 release slipped six weeks."
+description: "Use after a failed launch, missed quarter or bad hire. Runs a blameless 5-Whys with a change register."
 ---
 
-# /em:postmortem — Honest Analysis of What Went Wrong
+# /executive-mentor:postmortem — Honest Analysis of What Went Wrong
 
-**Command:** `/em:postmortem <event>`
+**Command:** `/executive-mentor:postmortem <event>`
 
 Not blame. Understanding. The failed deal, the missed quarter, the feature that flopped, the hire that didn't work out. What actually happened, why, and what changes as a result.
 

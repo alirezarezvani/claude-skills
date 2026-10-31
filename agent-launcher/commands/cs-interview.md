@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Phase 1 — interview the founder into a validated CMA build sheet (primitives table + v1/v2 deferrals + eval plan) via the interview skill. No API key needed. Walks the six intake slots, maps to primitives, validates against CMA limits.
 argument-hint: "[optional: a one-line description of the agent's job]"
 ---

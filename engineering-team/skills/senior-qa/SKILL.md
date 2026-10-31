@@ -1,6 +1,6 @@
 ---
 name: "senior-qa"
-description: Generates unit tests, integration tests, and E2E tests for React/Next.js applications. Scans components to create Jest + React Testing Library test stubs, analyzes Istanbul/LCOV coverage reports to surface gaps, scaffolds Playwright test files from Next.js routes, mocks API calls with MSW, creates test fixtures, and configures test runners. Use when the user asks to "generate tests", "write unit tests", "analyze test coverage", "scaffold E2E tests", "set up Playwright", "configure Jest", "implement testing patterns", or "improve test quality".
+description: "Use for generating or improving tests in React or Next.js apps (Jest, React Testing Library, MSW, Playwright, coverage gaps). Generates suites with test_suite_generator.py, scaffolds E2E with e2e_test_scaffolder.py and reads coverage with coverage_analyzer.py."
 ---
 
 # Senior QA Engineer

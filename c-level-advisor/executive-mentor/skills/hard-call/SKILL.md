@@ -1,11 +1,11 @@
 ---
 name: "hard-call"
-description: "/em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass is needed — e.g. choosing between a layoff and a down round, or killing a beloved product line."
+description: "Use for a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization."
 ---
 
-# /em:hard-call — Framework for Decisions With No Good Options
+# /executive-mentor:hard-call — Framework for Decisions With No Good Options
 
-**Command:** `/em:hard-call <decision>`
+**Command:** `/executive-mentor:hard-call <decision>`
 
 For the decisions that keep you up at 3am. Firing a co-founder. Laying off 20% of the team. Killing a product that customers love. Pivoting. Shutting down.
 

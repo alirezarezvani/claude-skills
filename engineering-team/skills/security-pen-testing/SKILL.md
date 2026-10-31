@@ -1,6 +1,6 @@
 ---
 name: "security-pen-testing"
-description: "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation."
+description: "Use for an authorized penetration test, vulnerability scan or OWASP Top 10 check of an app or API. Scans with vulnerability_scanner.py, audits dependencies with dependency_auditor.py and writes the report with pentest_report_generator.py."
 ---
 
 # Security Penetration Testing
@@ -302,5 +302,5 @@ Automated security checks on every PR: secret scanning (TruffleHog), dependency 
 |-------|-------------|
 | [senior-secops](../senior-secops/SKILL.md) | Defensive security operations — monitoring, incident response, SIEM configuration |
 | [senior-security](../senior-security/SKILL.md) | Security policy and governance — frameworks, risk registers, compliance |
-| [dependency-auditor](engineering/skills/dependency-auditor/SKILL.md) | Deep supply chain security — SBOMs, license compliance, transitive risk |
+| `dependency-auditor` (engineering-advanced-skills plugin) | Deep supply chain security — SBOMs, license compliance, transitive risk |
 | [code-reviewer](../code-reviewer/SKILL.md) | Code review practices — includes security review checklist |

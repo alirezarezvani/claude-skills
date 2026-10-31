@@ -1,20 +1,20 @@
 ---
 name: "hub-init"
-description: "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task."
+description: "Use for /hub-init, or to start an AgentHub competition: task, agent count and evaluation criteria."
 metadata:
-  command: /hub:hub-init
+  command: /hub-init
 ---
 
-# /hub:hub-init — Create New Session
+# /hub-init — Create New Session
 
 Initialize an AgentHub collaboration session. Creates the `.agenthub/` directory structure, generates a session ID, and configures evaluation criteria.
 
 ## Usage
 
 ```
-/hub:hub-init                                                    # Interactive mode
-/hub:hub-init --task "Optimize API" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower
-/hub:hub-init --task "Refactor auth" --agents 2                  # No eval (LLM judge mode)
+/hub-init                                                    # Interactive mode
+/hub-init --task "Optimize API" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower
+/hub-init --task "Refactor auth" --agents 2                  # No eval (LLM judge mode)
 ```
 
 ## What It Does
@@ -53,7 +53,7 @@ AgentHub session initialized
   Base branch: dev
   State: init
 
-Next step: Run /hub:spawn to launch 3 agents
+Next step: Run /agenthub:spawn to launch 3 agents
 ```
 
 For content or research tasks (no eval command → LLM judge mode):
@@ -67,7 +67,7 @@ AgentHub session initialized
   Base branch: dev
   State: init
 
-Next step: Run /hub:spawn to launch 3 agents
+Next step: Run /agenthub:spawn to launch 3 agents
 ```
 
 ## Baseline Capture
@@ -86,5 +86,5 @@ This baseline is used by `result_ranker.py --baseline` during evaluation to show
 Tell the user:
 - Session created with ID `{session-id}`
 - Baseline metric (if captured)
-- Next step: `/hub:spawn` to launch agents
-- Or `/hub:spawn {session-id}` if multiple sessions exist
+- Next step: `/agenthub:spawn` to launch agents
+- Or `/agenthub:spawn {session-id}` if multiple sessions exist

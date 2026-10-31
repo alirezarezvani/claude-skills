@@ -16,7 +16,7 @@
     {
       "name": "business-investment-advisor",
       "path": "finance/business-investment-advisor/skills/business-investment-advisor",
-      "description": "Business investment analysis and capital allocation advisor. Use when evaluating whether to invest in equipment, real estate, a new business, hiring, technology, or any capital expenditure. Also use for ROI calculations, IRR, NPV, payback period, build vs buy decisions, lease vs buy analysis, vendor evaluation, or deciding where to allocate limited budget for maximum return.",
+      "description": "Use when deciding whether a capital expense is worth it (equipment, property, an acquisition, hiring, technology), or for ROI, IRR, NPV, payback, build vs buy or lease vs buy.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,
@@ -100,7 +100,7 @@
     {
       "name": "finance-skills",
       "path": "finance/skills/finance-skills",
-      "description": "Router/index for the finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts), saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio) and month-end-close (close calendar, reconciliations, flux review). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics').",
+      "description": "Use when a finance request needs routing between financial-analyst (ratios, DCF, variance, forecasts), saas-metrics-coach (ARR, churn, CAC, LTV, NRR) and month-end-close.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -114,7 +114,7 @@
     {
       "name": "financial-analyst",
       "path": "finance/skills/financial-analyst",
-      "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements, building valuation models, assessing budget variances, or constructing financial projections and forecasts. Also applicable when users mention financial modeling, cash flow analysis, company valuation, financial projections, or spreadsheet analysis.",
+      "description": "Use for financial statement analysis, DCF valuation, budget variance or rolling forecasts. Runs ratio_calculator.py, dcf_valuation.py, budget_variance_analyzer.py and forecast_builder.py.",
       "tools": [
         {
           "script": "finance/skills/financial-analyst/scripts/budget_variance_analyzer.py",
@@ -252,7 +252,7 @@
     {
       "name": "passive-deal-screener",
       "path": "finance/skills/passive-deal-screener",
-      "description": "Screens private investment opportunities from the passive LP (limited-partner) perspective \u2014 equity syndications, preferred equity, hard money / bridge funds, and private credit \u2014 pasted from any source (an investment platform listing, a direct GP email, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review \u2026",
+      "description": "Use when a passive investor shares a private deal (syndication, preferred equity, bridge fund, private credit) to screen as an LP. Stress-tests it, computes fee drag with fee_drag_calculator.py and compares terms with benchmark_comparator.py.",
       "tools": [
         {
           "script": "finance/skills/passive-deal-screener/scripts/benchmark_comparator.py",
@@ -298,7 +298,7 @@
     {
       "name": "saas-metrics-coach",
       "path": "finance/skills/saas-metrics-coach",
-      "description": "SaaS financial health advisor. Use when a user shares revenue or customer numbers, or mentions ARR, MRR, churn, LTV, CAC, NRR, or asks how their SaaS business is doing.",
+      "description": "Use when someone shares SaaS revenue or customer numbers, or asks about ARR, MRR, churn, LTV, CAC, NRR or how their SaaS is doing. Computes metrics with metrics_calculator.py, quick ratio and unit economics.",
       "tools": [
         {
           "script": "finance/skills/saas-metrics-coach/scripts/metrics_calculator.py",
@@ -352,7 +352,7 @@
     {
       "name": "stock-analysis",
       "path": "finance/skills/stock-analysis",
-      "description": "Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed company \u2014 Indian (NSE/BSE) or US/global. Use when the user asks to analyse, research, evaluate, or value a stock, ticker, or listed company; asks whether a business is fundamentally strong, cheap, or expensive; compares companies or benchmarks one against its sector; or mentions OPM, ROCE, ROE, ROIC, P/E, EV/EBITDA, free cash flow, NIM, GNPA, CASA, promoter holding or pledging. Use it for accounting-quality and forensic questions \u2014 \"is the profit real\", \"why is profit rising but cash isn't\", auditor \u2026",
+      "description": "Use when asked to analyze, research or value a listed stock or company (US, global, NSE or BSE). Verifies data with verify_data.py, computes ratios, scores and valuation, and checks the report with lint_report.py.",
       "tools": [
         {
           "script": "finance/skills/stock-analysis/scripts/lint_report.py",

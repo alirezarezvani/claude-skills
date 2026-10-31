@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-pmf-check"
 description: "/cs-pmf-check — Are you before or after product/market fit? A focused Andreessen-mode interrogation that scores the felt signals + the Sean Ellis 40% gate and issues BEFORE-PMF / APPROACHING-PMF / AFTER-PMF with explicit confidence and a single next move."
 ---

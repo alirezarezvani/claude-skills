@@ -1,6 +1,6 @@
 ---
 name: patent
-description: "Patent prior-art and landscape intelligence skill — not generic patent help. Commits to one of five sub-use-cases via forcing intake (novelty search / freedom-to-operate / competitive landscape / acquisition diligence / litigation prior-art) before any search runs. Searches Google Patents, Espacenet, USPTO, and optionally Lens.org for citation-graph signals. Output is an editable Word document (.docx) with verdict, ranked closest art (claim-text extracted), CPC-class-aware landscape, family-resolved hits, geographic coverage, FTO flags where applicable, strategy recommendations, and full audit log. Use when the user asks for patent searching or analysis (e.g., 'prior art search for [invention]', 'freedom to operate analysis for [product]'). Produces search signal, not legal advice — always recommends consulting a patent attorney before filing or licensing decisions. Trademark, copyright, and trade-secret questions are out of scope."
+description: "Use for prior-art search, freedom-to-operate, patent landscape, acquisition diligence or litigation prior art. Picks the use case with sub_use_case_router.py, searches Google Patents, Espacenet and USPTO and writes a .docx; not legal advice."
 license: MIT
 metadata:
   source_spec: "megaprompts/11-patent-megaprompt.md"

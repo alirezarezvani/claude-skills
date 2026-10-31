@@ -1,9 +1,9 @@
 ---
-title: "/ar:run — Single Experiment Iteration — Agent Skill for Codex & OpenClaw"
-description: "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:run or asks for one manual. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/ar-run — Single Experiment Iteration — Agent Skill for Codex & OpenClaw"
+description: "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar-run or asks for one manual. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /ar:run — Single Experiment Iteration
+# /ar-run — Single Experiment Iteration
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
@@ -21,8 +21,8 @@ Run exactly ONE experiment iteration: review history, decide a change, edit, com
 ## Usage
 
 ```
-/ar:run engineering/api-speed              # Run one iteration
-/ar:run                                     # List experiments, let user pick
+/ar-run engineering/api-speed              # Run one iteration
+/ar-run                                     # List experiments, let user pick
 ```
 
 ## What It Does

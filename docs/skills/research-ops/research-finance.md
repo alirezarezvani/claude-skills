@@ -75,11 +75,11 @@ Answers are saved to `~/.config/research-ops/research-finance.json` (global) or 
 This skill ships an **isolated, opt-in** bridge to `engineering/autoresearch-agent`. Only when you ask to "optimize" / "extend runway" / "run a loop" does an autoresearch experiment iteratively improve a program plan against this skill's runway metric. `scripts/ar_evaluator.py` is the ground-truth evaluator; it prints `runway_months: <float>` (higher is better).
 
 ```bash
-/ar:setup --domain custom --name extend-runway \
+/autoresearch-agent:setup --domain custom --name extend-runway \
   --target ledger.json \
   --eval "python3 ar_evaluator.py --target ledger.json" \
   --metric runway_months --direction higher
-/ar:loop custom/extend-runway
+/ar-loop custom/extend-runway
 ```
 
 Isolated: no hard dependency — autoresearch runs only on demand, and the loop edits `ledger.json`, never the evaluator.

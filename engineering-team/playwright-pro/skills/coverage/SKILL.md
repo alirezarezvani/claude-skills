@@ -1,9 +1,6 @@
 ---
 name: "coverage"
-description: >-
-  Analyze test coverage gaps. Use when user says "test coverage",
-  "what's not tested", "coverage gaps", "missing tests", "coverage report",
-  or "what needs testing".
+description: "Use when asked what's not tested or for test coverage gaps ('test coverage', 'coverage gaps', 'missing tests', 'what needs testing'). Maps untested pages and flows."
 ---
 
 # Analyze Test Coverage Gaps

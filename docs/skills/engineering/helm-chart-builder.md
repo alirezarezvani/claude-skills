@@ -28,9 +28,9 @@ Not a Helm tutorial — a set of concrete decisions about how to build charts th
 
 | Command | What it does |
 |---------|-------------|
-| `/helm:create` | Scaffold a production-ready Helm chart with best-practice structure |
-| `/helm:review` | Analyze an existing chart for issues — missing labels, hardcoded values, template anti-patterns |
-| `/helm:security` | Audit chart for security issues — RBAC, network policies, pod security, secrets handling |
+| `/helm-chart-builder create` | Scaffold a production-ready Helm chart with best-practice structure |
+| `/helm-chart-builder review` | Analyze an existing chart for issues — missing labels, hardcoded values, template anti-patterns |
+| `/helm-chart-builder security` | Audit chart for security issues — RBAC, network policies, pod security, secrets handling |
 
 ---
 
@@ -53,7 +53,7 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
 
 ## Workflow
 
-### `/helm:create` — Chart Scaffolding
+### `/helm-chart-builder create` — Chart Scaffolding
 
 1. **Identify workload type**
    - Web service (Deployment + Service + Ingress)
@@ -118,7 +118,7 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
    helm template mychart/ --debug
    ```
 
-### `/helm:review` — Chart Analysis
+### `/helm-chart-builder review` — Chart Analysis
 
 1. **Check chart structure**
 
@@ -160,7 +160,7 @@ If the user has a Helm chart or wants to package Kubernetes resources → this s
    [Detailed findings with fix recommendations]
    ```
 
-### `/helm:security` — Security Audit
+### `/helm-chart-builder security` — Security Audit
 
 1. **Pod security audit**
 

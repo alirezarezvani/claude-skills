@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-book-to-skill"
 description: "/cs-book-to-skill <path|folder|glob>... [skill-name] — convert a book, documentation folder, or source collection into a structured agent skill (core frameworks + on-demand chapters + glossary + patterns + cheatsheet). Use when the user wants to study a document with an agent, apply an author's frameworks while working, or turn internal docs into a reusable knowledge base."
 ---

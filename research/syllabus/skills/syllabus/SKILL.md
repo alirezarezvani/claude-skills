@@ -1,6 +1,6 @@
 ---
 name: syllabus
-description: "Generates a curated supplementary reading list from any course syllabus using Consensus academic search. Grill-me intake (syllabus input format + course audience + year range) plus a grouping forcing-options checkpoint before any search runs — so the reading list matches the course's level and recency need. Parses the syllabus to extract topics and learning outcomes, searches Consensus for recent peer-reviewed papers per topic, and produces a professionally formatted .docx with clickable Consensus links, plain-language summaries calibrated to audience level, and Bloom-higher-order discussion questions tied to course learning goals. Use when the user uploads a syllabus, course outline, or curriculum document and wants supplementary readings (e.g., 'create a reading list from this syllabus', 'find recent papers for my course') — even casual mentions with a syllabus attached should trigger this skill."
+description: "Use when the user shares a course syllabus or outline and wants supplementary readings. Groups topics with topic_grouper.py, finds recent peer-reviewed papers and writes a .docx with summaries and discussion questions."
 license: MIT
 metadata:
   source_spec: "megaprompts/10-syllabus-megaprompt.md"

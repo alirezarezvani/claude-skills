@@ -114,11 +114,11 @@ The only skill with a `plugin.json` (namespace: `em`) because it has slash comma
 
 | Command | Purpose |
 |---------|---------|
-| `/em:challenge` | Pre-mortem analysis of any plan |
-| `/em:board-prep` | Board meeting preparation |
-| `/em:hard-call` | Framework for hard decisions |
-| `/em:stress-test` | Stress-test any assumption |
-| `/em:postmortem` | Honest retrospective |
+| `/executive-mentor:challenge` | Pre-mortem analysis of any plan |
+| `/executive-mentor:board-prep` | Board meeting preparation |
+| `/executive-mentor:hard-call` | Framework for hard decisions |
+| `/executive-mentor:stress-test` | Stress-test any assumption |
+| `/executive-mentor:postmortem` | Honest retrospective |
 
 ## Key Design Decisions
 

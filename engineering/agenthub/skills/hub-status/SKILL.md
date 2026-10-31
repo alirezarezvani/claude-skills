@@ -1,19 +1,19 @@
 ---
 name: "hub-status"
-description: "Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user runs /hub:hub-status or asks how the AgentHub agents are doing."
+description: "Use for /hub-status, or to check AgentHub agent progress, branches and DAG state."
 metadata:
-  command: /hub:hub-status
+  command: /hub-status
 ---
 
-# /hub:hub-status — Session Status
+# /hub-status — Session Status
 
 Display the current state of an AgentHub session: agent branches, commit counts, frontier status, and board updates.
 
 ## Usage
 
 ```
-/hub:hub-status                        # Status for latest session
-/hub:hub-status 20260317-143022        # Status for specific session
+/hub-status                        # Status for latest session
+/hub-status 20260317-143022        # Status for specific session
 ```
 
 ## What It Does
@@ -72,7 +72,7 @@ Recent Board Activity:
 ## After Status
 
 If all agents have posted results:
-- Suggest `/hub:eval` to rank results
+- Suggest `/agenthub:eval` to rank results
 
 If some agents are still running:
 - Show which are done vs in-progress

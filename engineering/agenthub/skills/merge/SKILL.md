@@ -1,27 +1,27 @@
 ---
 name: "merge"
-description: "Merge the winning agent's branch into base, archive losers, and clean up worktrees. Use when the user runs /hub:merge or asks to land the winning AgentHub result and tidy the session."
+description: "Use to land the winning AgentHub branch, archive the others and clean up worktrees."
 metadata:
-  command: /hub:merge
+  command: /agenthub:merge
 ---
 
-# /hub:merge — Merge Winner
+# /agenthub:merge — Merge Winner
 
 Merge the best agent's branch into the base branch, archive losing branches via git tags, and clean up worktrees.
 
 ## Usage
 
 ```
-/hub:merge                                       # Merge winner of latest session
-/hub:merge 20260317-143022                       # Merge winner of specific session
-/hub:merge 20260317-143022 --agent agent-2       # Explicitly choose winner
+/agenthub:merge                                       # Merge winner of latest session
+/agenthub:merge 20260317-143022                       # Merge winner of specific session
+/agenthub:merge 20260317-143022 --agent agent-2       # Explicitly choose winner
 ```
 
 ## What It Does
 
 ### 1. Identify Winner
 
-If `--agent` specified, use that. Otherwise, use the #1 ranked agent from the most recent `/hub:eval`.
+If `--agent` specified, use that. Otherwise, use the #1 ranked agent from the most recent `/agenthub:eval`.
 
 ### 2. Merge Winner
 

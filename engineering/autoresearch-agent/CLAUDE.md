@@ -4,13 +4,13 @@ This plugin runs autonomous experiment loops that optimize any file by a measura
 
 ## Commands
 
-Use the `/ar:` namespace for all commands:
+Claude Code namespaces these commands by the plugin name, `/autoresearch-agent:<name>`. The `ar-*` names are unique, so the bare forms below also work; `setup` is generic, so use its namespaced form:
 
-- `/ar:setup` — Set up a new experiment interactively
-- `/ar:ar-run` — Run a single experiment iteration
-- `/ar:loop` — Start an autonomous loop with user-selected interval
-- `/ar:ar-status` — Show dashboard and results
-- `/ar:ar-resume` — Resume a paused experiment
+- `/autoresearch-agent:setup` — Set up a new experiment interactively
+- `/ar-run` — Run a single experiment iteration
+- `/ar-loop` — Start an autonomous loop with user-selected interval
+- `/ar-status` — Show dashboard and results
+- `/ar-resume` — Resume a paused experiment
 
 ## How it works
 
@@ -27,31 +27,31 @@ Results persist in `results.tsv` and git log. Sessions can be resumed.
 
 ### Starting fresh
 ```
-/ar:setup
+/autoresearch-agent:setup
 ```
 Creates the experiment directory, config, program.md, results.tsv, and git branch.
 
 ### Running one iteration at a time
 ```
-/ar:ar-run engineering/api-speed
+/ar-run engineering/api-speed
 ```
 Read history, make one change, evaluate, report result.
 
 ### Autonomous background loop
 ```
-/ar:loop engineering/api-speed
+/ar-loop engineering/api-speed
 ```
 Prompts for interval (10min, 1h, daily, weekly, monthly), then creates a recurring job.
 
 ### Checking progress
 ```
-/ar:ar-status
+/ar-status
 ```
 Shows the dashboard across all experiments with metrics and trends.
 
 ### Resuming after context limit or break
 ```
-/ar:ar-resume engineering/api-speed
+/ar-resume engineering/api-speed
 ```
 Reads results history, checks out the branch, and continues where you left off.
 

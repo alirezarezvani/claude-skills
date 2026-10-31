@@ -1,6 +1,6 @@
 ---
 name: market-research
-description: Use when doing upstream market-research methodology — sizing a market as TAM/SAM/SOM computed BOTH top-down and bottoms-up (never a single unsourced number), planning a survey sample size with finite-population correction and per-segment minimums, or scoring candidate market segments against Kotler's measurable/substantial/accessible/differentiable/actionable criteria. Outputs always show the method and the assumptions. For market-research analysts and product-marketing at the sizing/survey/segmentation moment. Distinct from marketing-skill (campaign analytics, attribution, demand-gen) — this is the evidence-building methodology, not live-campaign optimization.
+description: "Use for market sizing (TAM, SAM, SOM both top-down and bottom-up), survey sample sizes or segment scoring. Runs market_sizer.py, sample_size_planner.py and segmentation_scorer.py and never returns one unsourced number."
 license: MIT
 metadata:
   version: 2.9.0
@@ -70,11 +70,11 @@ Answers are saved to `~/.config/research-ops/market-research.json` (global) or `
 This skill ships an **isolated, opt-in** bridge to `engineering/autoresearch-agent`. Only when you ask to "optimize" / "reconcile the sizing" / "run a loop" does an autoresearch experiment iteratively reconcile your market model so top-down and bottoms-up triangulate. `scripts/ar_evaluator.py` is the ground-truth evaluator; it prints `tam_divergence: <fraction>` (**lower** is better).
 
 ```bash
-/ar:setup --domain custom --name tam-triangulation \
+/autoresearch-agent:setup --domain custom --name tam-triangulation \
   --target market.json \
   --eval "python3 ar_evaluator.py --target market.json" \
   --metric tam_divergence --direction lower
-/ar:loop custom/tam-triangulation
+/ar-loop custom/tam-triangulation
 ```
 
 Isolated: no hard dependency — autoresearch runs only on demand, and the loop edits `market.json`, never the evaluator.

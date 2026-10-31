@@ -1,6 +1,6 @@
 ---
 name: research
-description: Default entry point for any research request — a hybrid router that classifies the question deterministically and either delegates to a specialist research skill (pulse for trends/sentiment, grants for NIH funding, litreview for academic literature, syllabus for course reading, patent for prior-art + IP landscape, dossier for entity research, deepread for evidence-first reading of supplied documents) or runs its own plan-decompose-multi-source-search-synthesize-cite fallback workflow when no specialist matches. Always surfaces the routing decision so users can override. Use when the user makes any research request that doesn't obviously match a more-specific specialist skill (e.g., "research [topic]", "look into [topic]", "what do we know about [topic]", "investigate [topic]", "find me information on [topic]", "do some research on [topic]", "I need to understand [topic]"). Output is a markdown briefing (default) or .docx document (on request) with full citations and an audit log.
+description: "Use for any research request that doesn't clearly match a research specialist ('research X', 'look into Y'). Routes with classifier.py to pulse, grants, litreview, syllabus, patent, dossier or deepread, or runs its own cited search."
 ---
 
 # Research — Hybrid Router + Fallback

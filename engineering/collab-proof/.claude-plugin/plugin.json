@@ -1,7 +1,7 @@
 {
   "name": "collab-proof",
   "description": "Assisted retrospective: after a session, calibrates what Claude contributed vs what the developer drove. LLM-assessed 4-frame analysis, zero dependencies.",
-  "version": "2.14.1",
+  "version": "2.14.5",
   "author": {
     "name": "dong7812",
     "url": "https://github.com/dong7812"

@@ -1,9 +1,9 @@
 ---
-title: "/hub:eval — Evaluate Agent Results — Agent Skill for Codex & OpenClaw"
-description: "Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /hub:eval or asks to score, compare, or pick a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/agenthub:eval — Evaluate Agent Results — Agent Skill for Codex & OpenClaw"
+description: "Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /agenthub:eval or asks to score, compare, or pick a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /hub:eval — Evaluate Agent Results
+# /agenthub:eval — Evaluate Agent Results
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
@@ -21,9 +21,9 @@ Rank all agent results for a session. Supports metric-based evaluation (run a co
 ## Usage
 
 ```
-/hub:eval                           # Eval latest session using configured criteria
-/hub:eval 20260317-143022           # Eval specific session
-/hub:eval --judge                   # Force LLM judge mode (ignore metric config)
+/agenthub:eval                           # Eval latest session using configured criteria
+/agenthub:eval 20260317-143022           # Eval specific session
+/agenthub:eval --judge                   # Force LLM judge mode (ignore metric config)
 ```
 
 ## What It Does
@@ -86,5 +86,5 @@ python {skill_path}/scripts/session_manager.py --update {session-id} --state eva
 
 2. Tell the user:
    - Ranked results with winner highlighted
-   - Next step: `/hub:merge` to merge the winner
-   - Or `/hub:merge {session-id} --agent {winner}` to be explicit
+   - Next step: `/agenthub:merge` to merge the winner
+   - Or `/agenthub:merge {session-id} --agent {winner}` to be explicit

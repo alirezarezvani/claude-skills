@@ -10,7 +10,7 @@ and prints ONE metric line:
 
 Optimize a market model so the two sizing methods triangulate (reconcile assumptions),
 while the agent edits the target. The user opts in explicitly:
-    /ar:setup --domain custom --name tam-triangulation \\
+    /autoresearch-agent:setup --domain custom --name tam-triangulation \\
       --target market.json --eval "python3 ar_evaluator.py --target market.json" \\
       --metric tam_divergence --direction lower
 

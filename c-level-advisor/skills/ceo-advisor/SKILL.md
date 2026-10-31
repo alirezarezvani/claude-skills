@@ -1,6 +1,6 @@
 ---
 name: "ceo-advisor"
-description: "Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy, preparing board presentations, managing investors, developing organizational culture, making executive decisions, fundraising, or when user mentions CEO, strategic planning, board meetings, investor updates, organizational leadership, or executive strategy."
+description: "Use for CEO-level questions: company strategy, board and investor management, fundraising, org design or culture. Models scenarios with financial_scenario_analyzer.py and strategy with strategy_analyzer.py."
 license: MIT
 metadata:
   version: 2.0.0

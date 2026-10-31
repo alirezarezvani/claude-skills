@@ -162,3 +162,9 @@ Red first, green second, **red again on purpose**, then green — and say which 
 
 Originally created and maintained by **RooAGI** as the `rooagi-red-green-proof`
 skill. Copyright © 2026 RooAGI. Contributed under the MIT License.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- `python3 scripts/red_green_evidence.py --help` — Check that a red-green-red evidence record is complete

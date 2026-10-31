@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-roast"
 description: "/cs-roast — Convene a 5-angle adversarial panel (Critic, Champion, Analyst, Investigator, Customer) on an idea, then a Judge delivers one GO / RESHAPE / KILL verdict with the cheapest 48-hour test to de-risk it. Pressure-test before you build."
 argument-hint: "[the idea to roast]"

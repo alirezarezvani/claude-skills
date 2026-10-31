@@ -97,7 +97,7 @@ User question
 - **chief-of-staff** — routing layer the agent orchestrates
 - **board-meeting** — protocol the `/c-level-agents:boardroom` command runs
 - **llm-wiki** — optional persistent memory bridge (see [`references/llm-wiki-bridge.md`](https://github.com/alirezarezvani/claude-skills/tree/main/c-level-agents/references/llm-wiki-bridge.md))
-- **executive-mentor** — adversarial `/em:*` commands stack cleanly on top
+- **executive-mentor** — adversarial `/executive-mentor:*` commands stack cleanly on top
 
 ## Design Principles
 

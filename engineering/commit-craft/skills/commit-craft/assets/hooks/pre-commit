@@ -1,0 +1,13 @@
+#!/bin/sh
+# commit-craft pre-commit hook: refuse to commit staged secrets.
+# Install: cp pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+# Set COMMIT_CRAFT_SCRIPTS to the skill's scripts/ folder (or edit the default below).
+SCRIPTS="${COMMIT_CRAFT_SCRIPTS:-$HOME/.claude/skills/commit-craft/scripts}"
+if [ ! -f "$SCRIPTS/secret_gate.py" ]; then
+  echo "commit-craft: secret_gate.py not found in $SCRIPTS; set COMMIT_CRAFT_SCRIPTS" >&2
+  exit 1
+fi
+python3 "$SCRIPTS/secret_gate.py"
+status=$?
+# 2 = warnings only: let the commit through
+[ "$status" -eq 0 ] || [ "$status" -eq 2 ] || exit 1

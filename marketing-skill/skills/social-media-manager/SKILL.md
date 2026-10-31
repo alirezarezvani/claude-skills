@@ -1,6 +1,6 @@
 ---
 name: "social-media-manager"
-description: "When the user wants to develop social media strategy, plan content calendars, manage community engagement, or grow their social presence across platforms. Also use when the user mentions 'social media strategy,' 'social calendar,' 'community management,' 'social media plan,' 'grow followers,' 'engagement rate,' 'social media audit,' or 'which platforms should I use.' For writing individual social posts, see social-content. For analyzing social performance data, see social-media-analyzer."
+description: "Use for social media strategy, a content calendar, community management or follower growth across platforms. Generates the calendar with social_calendar_generator.py. Single posts: social-content."
 license: MIT
 metadata:
   version: 1.0.0

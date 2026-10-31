@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Matt Pocock docs-anchored grill for an agent-launcher goal — walks the phase's forcing questions ONE at a time, each with a recommended answer and a citation to a reference doc, refusing to advance on a fuzzy input. Use to pressure-test a CMA plan before launching.
 argument-hint: "[optional: phase name to grill — interview | grade-iterate | run-without-you]"
 ---

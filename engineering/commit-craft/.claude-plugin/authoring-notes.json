@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Community proposal in issue #1004 (commit-series hygiene: split, secret gate, why-messages); the gap was confirmed, the issue closed because no code was contributed. Built independently from public primary sources; no code or text from the proposer's pack was used",
+    "build_pattern": "Three deterministic stdlib scripts over read-only git (series planner, staged-secret gate, message and series linter) with blocking exit codes and pre-commit / commit-msg / pre-push hooks; rules cited to Git SubmittingPatches, the Linux kernel patch guide, Google eng-practices Small CLs, Conventional Commits 1.0.0, OWASP Secrets Management Cheat Sheet and GitHub's sensitive-data removal guide",
+    "distinct_from": "changelog-generator (release notes from merged commits); pr-review-expert, code-reviewer, adversarial-reviewer (review after push); git-worktree-manager (parallel branches); security-guidance (edit-time risky-pattern reminders); env-secrets-manager and secrets-vault-manager (where secrets live, not stopping them at commit)"
+  }
+}

@@ -10,7 +10,7 @@ and prints ONE metric line:
 
 Optimize a program plan to maximize runway (e.g., resequencing spend) while the agent
 edits the target. The user opts in explicitly:
-    /ar:setup --domain custom --name extend-runway \\
+    /autoresearch-agent:setup --domain custom --name extend-runway \\
       --target ledger.json --eval "python3 ar_evaluator.py --target ledger.json" \\
       --metric runway_months --direction higher
 

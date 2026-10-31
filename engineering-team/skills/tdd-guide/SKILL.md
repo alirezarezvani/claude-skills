@@ -1,6 +1,6 @@
 ---
 name: "tdd-guide"
-description: "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit."
+description: "Use when writing tests first, generating tests, fixtures or mocks, or closing coverage gaps in Jest, Pytest, JUnit, Vitest or Mocha. Drives red-green-refactor with tdd_workflow.py, generates tests with test_generator.py and reads coverage with coverage_analyzer.py."
 ---
 
 # TDD Guide
@@ -401,3 +401,11 @@ Mutation testing modifies your production code (creates "mutants") and checks wh
 - E2E testing: Playwright, Cypress, Selenium
 - Performance testing: k6, JMeter, Locust
 - Security testing: OWASP ZAP, Burp Suite
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/ci-integration.md](references/ci-integration.md) — CI/CD Integration Guide
+- [references/framework-guide.md](references/framework-guide.md) — Testing Framework Guide
+- [references/tdd-best-practices.md](references/tdd-best-practices.md) — TDD Best Practices

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Clinical study design. Select and classify endpoints, estimate sample size / power (means / proportions / survival), and score a study plan for a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIMATE plus a named clinical owner — never clinical fact. Direct invocation of the clinical-research skill.
 argument-hint: "<study context: indication, design, endpoints, effect size, target enrollment>"
 ---

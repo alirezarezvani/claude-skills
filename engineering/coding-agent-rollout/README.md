@@ -43,7 +43,7 @@ Or run the scripts directly. Each has `--help`, `--sample` and `--output json`:
 ## Distinct from
 
 - `claude-coach` — coaches one person.
-- `skill-doctor` — improves installed skills from session evidence.
+- `skill-retro` — improves installed skills from session evidence.
 - `security-guidance` — a hook that warns on risky code as it is written.
 
 ## License

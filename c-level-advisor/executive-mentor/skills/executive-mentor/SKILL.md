@@ -1,6 +1,6 @@
 ---
 name: "executive-mentor"
-description: "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for brutal board meetings, dissects decisions with no good options, and forces honest post-mortems. Use when you need someone to find the holes before the board does, make a decision you've been avoiding, or understand what actually went wrong."
+description: "Use when a founder or executive needs a plan stress-tested, a dreaded decision made, a hard board meeting prepared or an honest post-mortem. Adversarial thinking partner; scores options with decision_matrix_scorer.py and maps stakeholders with stakeholder_mapper.py."
 license: MIT
 metadata:
   version: 1.0.0
@@ -30,11 +30,11 @@ executive mentor, pre-mortem, board prep, hard decisions, stress test, postmorte
 
 | Command | What It Does |
 |---------|-------------|
-| `/em:challenge <plan>` | Find weaknesses before they find you. Pre-mortem + severity ratings. |
-| `/em:board-prep <agenda>` | Prepare for hard questions. Build the narrative. Know your numbers cold. |
-| `/em:hard-call <decision>` | Framework for decisions with no good options. Layoffs, pivots, firings. |
-| `/em:stress-test <assumption>` | Challenge any assumption. Revenue projections, moats, market size. |
-| `/em:postmortem <event>` | Honest analysis. 5 Whys done properly. Who owns what change. |
+| `/executive-mentor:challenge <plan>` | Find weaknesses before they find you. Pre-mortem + severity ratings. |
+| `/executive-mentor:board-prep <agenda>` | Prepare for hard questions. Build the narrative. Know your numbers cold. |
+| `/executive-mentor:hard-call <decision>` | Framework for decisions with no good options. Layoffs, pivots, firings. |
+| `/executive-mentor:stress-test <assumption>` | Challenge any assumption. Revenue projections, moats, market size. |
+| `/executive-mentor:postmortem <event>` | Honest analysis. 5 Whys done properly. Who owns what change. |
 
 ## Quick Start
 
@@ -70,19 +70,19 @@ This isn't therapy. It's preparation.
 
 ## Commands in Detail
 
-### `/em:challenge <plan>`
+### `/executive-mentor:challenge <plan>`
 Takes any plan — roadmap, GTM, hiring, fundraising — and finds what breaks first. Identifies assumptions, rates confidence, maps dependencies. Output: numbered vulnerabilities with severity (Critical / High / Medium). See `../challenge/SKILL.md`
 
-### `/em:board-prep <agenda>`
+### `/executive-mentor:board-prep <agenda>`
 48 hours before investors. What are the 10 hardest questions? What data do you need cold? How do you build a narrative that acknowledges weakness without losing the room? Prepares you for the adversarial board, not the friendly one. See `../board-prep/SKILL.md`
 
-### `/em:hard-call <decision>`
+### `/executive-mentor:hard-call <decision>`
 Reversibility test. 10/10/10 framework. Stakeholder impact mapping. Communication planning. For decisions with no good answer — only less bad ones. See `../hard-call/SKILL.md`
 
-### `/em:stress-test <assumption>`
+### `/executive-mentor:stress-test <assumption>`
 "$5B market." "$2M ARR by December." "3-year moat." Every plan is built on assumptions. Surfaces counter-evidence, models the downside, proposes the hedge. See `../stress-test/SKILL.md`
 
-### `/em:postmortem <event>`
+### `/executive-mentor:postmortem <event>`
 Lost deal. Failed feature. Missed quarter. No blame sessions, no whitewash. 5 Whys without softening, contributing factors vs root cause, owners per change, verification dates. See `../postmortem/SKILL.md`
 
 ## Agents & References
@@ -106,7 +106,7 @@ That's what this is for.
 ## Proactive Triggers
 
 Surface these without being asked:
-- Board meeting in < 2 weeks with no prep → initiate `/em:board-prep`
+- Board meeting in < 2 weeks with no prep → initiate `/executive-mentor:board-prep`
 - Major decision made without stress-testing → retroactively challenge it
 - Team in unanimous agreement on a big bet → that's suspicious, challenge it
 - Founder avoiding a hard conversation for 2+ weeks → surface it directly

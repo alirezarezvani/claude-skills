@@ -1,0 +1,15 @@
+{
+  "name": "design-qa",
+  "description": "Gate a UI before it is called done: check the build, not the design file. Three deterministic stdlib scripts: a finish linter that blocks on controls that do nothing, dead links, placeholder copy and removed focus rings, and warns on template defaults; an interaction-state checker that derives loading, empty, error, busy and focus states from each surface's kind and blocks when they are missing or unevidenced; and a rendered audit that reads a browser snapshot and blocks on WCAG 2.2 AA failures in contrast, focus visibility, focus obscured, reflow at 320 px, accessible names and target size. Ships a read-only snapshot collector, an optional Playwright keyboard pass, cs-design-qa agent, /cs-design-qa and /cs-ui-finish-lint commands, 3 cited references and a finish sign-off.",
+  "version": "2.14.6",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/product-team/design-qa",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/design-qa"
+  ]
+}

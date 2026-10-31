@@ -1,6 +1,6 @@
 ---
 name: agent-regression-evals
-description: Use when an agent, prompt, model or tool change needs proof it did not make the agent worse — setting up a regression eval suite, deciding whether a pass-rate drop is real or noise, grading tool-call trajectories, finding flaky eval cases, or wiring an eval gate into CI that blocks the merge. Runs repeated trials, reports pass@k and pass^k, compares candidate to baseline with paired statistics, and refuses to pass a dropped case, a critical-case regression, or a forbidden tool call.
+description: "Use before shipping any agent, prompt, model or tool change, or when a pass-rate drop needs a verdict. Runs repeated trials, gates candidate vs baseline with paired statistics in regression_gate.py, checks tool-call trajectories and finds flaky cases."
 argument-hint: "[baseline.jsonl candidate.jsonl | results.jsonl | a question about agent evals]"
 license: MIT
 metadata:

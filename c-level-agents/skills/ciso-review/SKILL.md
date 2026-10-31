@@ -1,6 +1,6 @@
 ---
 name: "ciso-review"
-description: "/c-level-agents:ciso-review [plan] — Risk-paranoid interrogation of any plan that touches data, compliance, or production access. Use when launching features that handle customer data, before a SOC 2 / ISO audit, or after any incident or near-miss."
+description: "Use for /c-level-agents:ciso-review, or to challenge a plan touching customer data, compliance or production access."
 ---
 
 # /c-level-agents:ciso-review — CISO Forcing Questions

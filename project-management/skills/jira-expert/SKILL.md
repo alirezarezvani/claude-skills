@@ -1,6 +1,6 @@
 ---
 name: "jira-expert"
-description: Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use when setting up or configuring Jira projects, writing JQL and advanced searches, creating dashboards, designing workflows, or performing technical Jira operations.
+description: "Use for Jira configuration and queries: JQL, workflows, custom fields, automation, dashboards. Builds JQL with jql_query_builder.py and checks workflows with workflow_validator.py."
 ---
 
 # Atlassian Jira Expert
@@ -338,3 +338,12 @@ mcp__atlassian__createIssueLink (cloudId, link type from mcp__atlassian__getIssu
 
 - **Confluence Expert** (`project-management/confluence-expert/`) — Documentation complements Jira workflows
 - **Atlassian Admin** (`project-management/atlassian-admin/`) — Permission and user management for Jira projects
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/AUTOMATION.md](references/AUTOMATION.md) — Jira Automation Reference
+- [references/WORKFLOWS.md](references/WORKFLOWS.md) — Jira Workflows Reference
+- [references/automation-examples.md](references/automation-examples.md) — Jira Automation Examples
+- [references/jql-examples.md](references/jql-examples.md) — JQL Query Examples

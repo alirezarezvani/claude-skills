@@ -1,6 +1,6 @@
 ---
 name: "senior-fullstack"
-description: Fullstack development toolkit with project scaffolding for Next.js, FastAPI, MERN, and Django stacks, code quality analysis with security and complexity scoring, and stack selection guidance. Use when the user asks to "scaffold a new project", "create a Next.js app", "set up FastAPI with React", "analyze code quality", "audit my codebase", "what stack should I use", "generate project boilerplate", or mentions fullstack development, project setup, or tech stack comparison.
+description: "Use when starting a fullstack project, choosing a stack (Next.js, FastAPI, MERN, Django) or auditing a codebase's quality. Picks the stack with fullstack_decision_engine.py, scaffolds with project_scaffolder.py and scores code with code_quality_analyzer.py."
 ---
 
 # Senior Fullstack

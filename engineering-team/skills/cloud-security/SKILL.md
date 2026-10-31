@@ -1,6 +1,6 @@
 ---
 name: "cloud-security"
-description: "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping."
+description: "Use when checking AWS, Azure or GCP for security misconfigurations: IAM privilege escalation, public buckets, open security groups, IaC gaps. Runs cloud_posture_check.py and maps findings to MITRE ATT&CK."
 ---
 
 # Cloud Security

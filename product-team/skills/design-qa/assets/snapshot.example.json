@@ -1,0 +1,187 @@
+{
+ "tool": "design-qa/collect_snapshot.js",
+ "version": 1,
+ "url": "http://localhost:3000/invoices",
+ "viewport": {
+  "width": 320,
+  "height": 640
+ },
+ "page": {
+  "scrollWidth": 412,
+  "clientWidth": 320
+ },
+ "keyboard_pass": {
+  "reached": 3,
+  "wrapped": true
+ },
+ "elements": [
+  {
+   "id": "h1",
+   "tag": "h1",
+   "interactive": false,
+   "text": "Invoices",
+   "rect": {
+    "x": 16,
+    "y": 20,
+    "w": 288,
+    "h": 32
+   },
+   "color": "rgb(17, 24, 39)",
+   "bg": "rgb(255, 255, 255)",
+   "fontSize": 28,
+   "fontWeight": 700
+  },
+  {
+   "id": "p.hint",
+   "tag": "p",
+   "interactive": false,
+   "text": "Showing invoices from the last 30 days",
+   "rect": {
+    "x": 16,
+    "y": 60,
+    "w": 288,
+    "h": 18
+   },
+   "color": "rgb(156, 163, 175)",
+   "bg": "rgb(255, 255, 255)",
+   "fontSize": 14,
+   "fontWeight": 400
+  },
+  {
+   "id": "table.invoices",
+   "tag": "table",
+   "interactive": false,
+   "text": "INV-2026-0042",
+   "rect": {
+    "x": 16,
+    "y": 100,
+    "w": 396,
+    "h": 300
+   },
+   "color": "rgb(17, 24, 39)",
+   "bg": "rgb(255, 255, 255)",
+   "fontSize": 14,
+   "fontWeight": 400
+  },
+  {
+   "id": "td.customer",
+   "tag": "td",
+   "interactive": false,
+   "text": "Northwind Traders Internatio",
+   "clipped": true,
+   "ellipsis": false,
+   "rect": {
+    "x": 120,
+    "y": 140,
+    "w": 90,
+    "h": 20
+   },
+   "color": "rgb(17, 24, 39)",
+   "bg": "rgb(255, 255, 255)",
+   "fontSize": 14,
+   "fontWeight": 400
+  },
+  {
+   "id": "button.send",
+   "tag": "button",
+   "interactive": true,
+   "name": "Send",
+   "text": "Send",
+   "rect": {
+    "x": 16,
+    "y": 420,
+    "w": 80,
+    "h": 36
+   },
+   "color": "rgb(255, 255, 255)",
+   "bg": "rgb(37, 99, 235)",
+   "fontSize": 14,
+   "fontWeight": 600,
+   "focus": {
+    "indicator": false,
+    "obscured": false,
+    "how": "keyboard"
+   }
+  },
+  {
+   "id": "button.more",
+   "tag": "button",
+   "interactive": true,
+   "name": "",
+   "text": "",
+   "rect": {
+    "x": 97,
+    "y": 426,
+    "w": 20,
+    "h": 20
+   },
+   "color": "rgb(75, 85, 99)",
+   "bg": "rgb(255, 255, 255)",
+   "fontSize": 14,
+   "fontWeight": 400,
+   "focus": {
+    "indicator": true,
+    "obscured": false,
+    "how": "keyboard"
+   }
+  },
+  {
+   "id": "a.export",
+   "tag": "a",
+   "interactive": true,
+   "name": "Export",
+   "text": "Export",
+   "rect": {
+    "x": 124,
+    "y": 426,
+    "w": 44,
+    "h": 20
+   },
+   "color": "rgb(37, 99, 235)",
+   "bg": "rgb(255, 255, 255)",
+   "fontSize": 14,
+   "fontWeight": 400,
+   "focus": {
+    "indicator": true,
+    "obscured": true,
+    "how": "keyboard"
+   }
+  },
+  {
+   "id": "div.row-menu",
+   "tag": "div",
+   "role": "button",
+   "interactive": true,
+   "name": "Row actions",
+   "text": "",
+   "rect": {
+    "x": 280,
+    "y": 140,
+    "w": 24,
+    "h": 24
+   },
+   "focus": {
+    "indicator": null,
+    "obscured": null,
+    "how": "not reached by Tab"
+   }
+  },
+  {
+   "id": "section.hero > p",
+   "tag": "p",
+   "interactive": false,
+   "text": "Paid on time, every time",
+   "bg_unknown": "background image or gradient",
+   "rect": {
+    "x": 16,
+    "y": 480,
+    "w": 288,
+    "h": 20
+   },
+   "color": "rgb(255, 255, 255)",
+   "bg": null,
+   "fontSize": 16,
+   "fontWeight": 400
+  }
+ ]
+}

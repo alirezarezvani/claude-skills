@@ -1,6 +1,6 @@
 ---
 name: spinning-up-deep-rl
-description: "Knowledge base from \"Spinning Up in Deep RL\" by Joshua Achiam (OpenAI, MIT-licensed). Use when applying Achiam's frameworks for RL fundamentals and MDPs, the model-free algorithm taxonomy, policy gradient derivations, the six reference algorithms (VPG, TRPO, PPO, DDPG, TD3, SAC), debugging silently-failing RL code, or running rigorous multi-seed RL experiments."
+description: "Use when learning or applying deep RL from OpenAI's Spinning Up: MDPs, policy gradients, VPG, TRPO, PPO, DDPG, TD3, SAC, debugging RL code that fails silently, or multi-seed experiments. Indexes the 20 chapters for on-demand reading."
 ---
 
 # Spinning Up in Deep RL

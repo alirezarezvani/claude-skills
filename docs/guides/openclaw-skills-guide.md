@@ -75,7 +75,7 @@ OpenClaw has native skill support — it scans `<available_skills>` in your work
 
 **Automatic selection:** When you ask your OpenClaw agent to "optimize this Dockerfile," it reads the `docker-development` skill's SKILL.md and follows its workflow. No manual activation needed.
 
-**Slash commands:** Each skill defines slash commands (e.g., `/docker:optimize`, `/research:summarize`) that trigger specific workflows.
+**Named workflows:** Many skills define named workflows (for example, docker-development's `optimize`, `compose` and `security`). Ask for one by name to run it.
 
 **Python tools:** Skills include executable scripts in `scripts/` that your agent can run for analysis, validation, and generation tasks.
 
@@ -155,7 +155,7 @@ You can create your own skills following the same format:
 
 Use the `skill-creator` meta-skill for guided skill creation:
 ```
-/skill:create my-custom-skill
+Use skill-creator to create my-custom-skill
 ```
 
 ## Resources

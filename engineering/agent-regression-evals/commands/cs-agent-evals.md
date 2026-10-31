@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Full regression-eval pass on an agent change - trajectories, flaky cases, and the paired baseline-vs-candidate gate.
 argument-hint: "[baseline.jsonl candidate.jsonl] [cases.json]"
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Drive a project-delivery goal through a bounded agentic loop — Jira MCP snapshot → flow/sprint analytics bridge → routed sub-skill execution → machine-verified gates → close refused until everything is verified or human-waived. The PM-domain adapter over engineering/agent-harness.
 argument-hint: "<delivery goal, e.g. 'get sprint 14 to a verified close with health >= 70'>"
 ---

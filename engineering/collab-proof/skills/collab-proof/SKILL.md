@@ -1,6 +1,6 @@
 ---
 name: "collab-proof"
-description: "Use when you want to understand what Claude contributed vs what you drove in a session. Triggers on: /collab-proof, session retrospective, ai contribution analysis, collaboration evidence, what did claude do."
+description: "Use for /collab-proof or a session retrospective on what Claude contributed versus what the user drove. Builds an evidence-backed split of the session's decisions and work."
 license: MIT
 ---
 
@@ -381,3 +381,12 @@ When `/collab-proof` runs at session end:
 - Merge frame scores (take max per frame across all snapshots)
 - Combine `key_moments` arrays — these preserve tradeoff discussions that were compacted away
 - Delete `.tmp-*.json` files after merging
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/ai-collaboration-evidence.md](references/ai-collaboration-evidence.md) — AI Collaboration Evidence: Why Documentation Matters
+- [references/developer-portfolio-proof.md](references/developer-portfolio-proof.md) — Developer Portfolio Proof: The AI Collaboration Evidence Problem
+- [references/session-documentation-patterns.md](references/session-documentation-patterns.md) — Session Documentation Patterns
+- [references/tamper-evident-proof.md](references/tamper-evident-proof.md) — Tamper-Evident Proof via Git Notes

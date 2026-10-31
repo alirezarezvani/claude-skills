@@ -28,9 +28,9 @@ Not a Docker tutorial — a set of concrete decisions about how to build contain
 
 | Command | What it does |
 |---------|-------------|
-| `/docker:optimize` | Analyze and optimize a Dockerfile for size, speed, and layer caching |
-| `/docker:compose` | Generate or improve docker-compose.yml with best practices |
-| `/docker:security` | Audit a Dockerfile or running container for security issues |
+| `/docker-development optimize` | Analyze and optimize a Dockerfile for size, speed, and layer caching |
+| `/docker-development compose` | Generate or improve docker-compose.yml with best practices |
+| `/docker-development security` | Audit a Dockerfile or running container for security issues |
 
 ---
 
@@ -53,7 +53,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
 
 ## Workflow
 
-### `/docker:optimize` — Dockerfile Optimization
+### `/docker-development optimize` — Dockerfile Optimization
 
 1. **Analyze current state**
    - Read the Dockerfile
@@ -100,7 +100,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
    python3 scripts/dockerfile_analyzer.py Dockerfile
    ```
 
-### `/docker:compose` — Docker Compose Configuration
+### `/docker-development compose` — Docker Compose Configuration
 
 1. **Identify services**
    - Application (web, API, worker)
@@ -143,7 +143,7 @@ If the user has a Dockerfile or wants to containerize something → this skill a
    - Generate .env.example with all required variables documented
    - Add dev/prod profile annotations
 
-### `/docker:security` — Container Security Audit
+### `/docker-development security` — Container Security Audit
 
 1. **Dockerfile audit**
 

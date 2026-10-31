@@ -1,6 +1,6 @@
 ---
 name: clinical-research
-description: Use when designing a prospective clinical study before submission — selecting and classifying endpoints (primary / key-secondary / exploratory, with surrogate-endpoint flagging), estimating sample size and power for two-arm designs (means / proportions / survival), or scoring a study plan for feasibility and a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIMATE plus a named human owner (clinician / biostatistician / regulatory owner) — never clinical fact, never a finished protocol. Distinct from ra-qm-team, which handles the regulatory/QM submission (ISO 13485, EU MDR, FDA 510(k)/PMA/QSR), not the study design.
+description: "Use when designing a prospective clinical study: choosing primary and secondary endpoints, estimating sample size and power, or scoring feasibility before submission. Runs endpoint_selector.py, sample_size_estimator.py and phase_gate_scorer.py; outputs are estimates for a biostatistician to confirm."
 license: MIT
 metadata:
   version: 2.9.0
@@ -70,11 +70,11 @@ Answers are saved to `~/.config/research-ops/clinical-research.json` (global) or
 This skill ships an **isolated, opt-in** bridge to `engineering/autoresearch-agent`. Only when you ask to "optimize" / "run a loop" does an autoresearch experiment iteratively improve a study plan against this skill's own feasibility score. `scripts/ar_evaluator.py` is the ground-truth evaluator; it prints `feasibility_composite: <0-100>` (higher is better).
 
 ```bash
-/ar:setup --domain custom --name trial-feasibility \
+/autoresearch-agent:setup --domain custom --name trial-feasibility \
   --target study.json \
   --eval "python3 ar_evaluator.py --target study.json" \
   --metric feasibility_composite --direction higher
-/ar:loop custom/trial-feasibility
+/ar-loop custom/trial-feasibility
 ```
 
 Isolated: no hard dependency — autoresearch runs only on demand, and the loop edits `study.json`, never the evaluator (locked ground truth).

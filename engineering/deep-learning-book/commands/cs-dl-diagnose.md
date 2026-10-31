@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-dl-diagnose"
 description: "/cs-dl-diagnose — Diagnose a training run against Chapter 11's decision tree: read training error before deciding anything, and never diagnose a NaN as overfitting. Returns a ranked cause, the specific next action, and the chapter that justifies it."
 argument-hint: "[what the run is doing — losses, gradient norm, or a description]"

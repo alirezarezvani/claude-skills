@@ -1,6 +1,6 @@
 ---
 name: "ai-decision-authority"
-description: "Routes marketing and GTM decisions into three AI governance zones (AI-Primary, Collaborative, Human-Primary) by stakes and reversibility. Use when deciding which AI outputs need human review, whether an agent may act autonomously on a task, why AI adoption is collapsing under review requirements, or when auditing a list of workflows for safe autonomy. Triggers on 'should a human review this', 'can the agent just do this', 'AI governance policy', 'human in the loop'."
+description: "Use before letting AI or an agent act on a marketing or GTM task without human review, or when writing an AI review policy. Places each workflow in AI-primary, collaborative or human-primary by stakes and reversibility."
 ---
 
 # AI Decision Authority

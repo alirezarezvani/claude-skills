@@ -1,6 +1,6 @@
 ---
 name: "cto-advisor"
-description: "Technical leadership guidance for engineering teams, architecture decisions, and technology strategy. Use when assessing technical debt, scaling engineering teams, evaluating technologies, making architecture decisions, establishing engineering metrics, or when user mentions CTO, tech debt, technical debt, team scaling, architecture decisions, technology evaluation, engineering metrics, DORA metrics, or technology strategy."
+description: "Use for CTO-level decisions: tech debt, architecture direction, engineering team scaling, technology evaluation or DORA metrics. Analyzes debt with tech_debt_analyzer.py and team growth with team_scaling_calculator.py."
 license: MIT
 metadata:
   version: 2.0.0

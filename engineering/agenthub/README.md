@@ -11,7 +11,7 @@ AgentHub spawns N parallel agents in isolated git worktrees to compete on the sa
 
 ```bash
 # One command — full lifecycle
-/hub:hub-run --task "Reduce p50 latency" --agents 3 \
+/hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 ```
@@ -20,33 +20,33 @@ Or step by step:
 
 ```bash
 # 1. Initialize a session — define the task, agent count, and evaluation criteria
-/hub:hub-init --task "Reduce API p50 latency" --agents 3 \
+/hub-init --task "Reduce API p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower
 
 # 2. Spawn agents — launches 3 parallel agents in isolated worktrees
-/hub:spawn --template optimizer
+/agenthub:spawn --template optimizer
 
 # 3. Check progress
-/hub:hub-status
+/hub-status
 
 # 4. Evaluate — rank agents by metric
-/hub:eval
+/agenthub:eval
 
 # 5. Merge the winner into your branch
-/hub:merge
+/agenthub:merge
 ```
 
 ## Commands Reference
 
 | Command | Purpose | Example |
 |---------|---------|---------|
-| `/hub:hub-init` | Create session with task, agents, eval criteria | `/hub:hub-init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
-| `/hub:spawn` | Launch all agents in parallel worktrees | `/hub:spawn` (uses latest session) |
-| `/hub:hub-status` | Show DAG state, branches, progress posts | `/hub:hub-status` |
-| `/hub:eval` | Rank results by metric or LLM judge | `/hub:eval --judge` (LLM judge mode) |
-| `/hub:merge` | Merge winner, archive losers, cleanup | `/hub:merge --agent agent-2` (force pick) |
-| `/hub:board` | Read/write the message board | `/hub:board --read progress` |
-| `/hub:hub-run` | One-shot full lifecycle | `/hub:hub-run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
+| `/hub-init` | Create session with task, agents, eval criteria | `/hub-init --task "Optimize DB queries" --agents 4 --eval "python bench.py" --metric query_ms --direction lower` |
+| `/agenthub:spawn` | Launch all agents in parallel worktrees | `/agenthub:spawn` (uses latest session) |
+| `/hub-status` | Show DAG state, branches, progress posts | `/hub-status` |
+| `/agenthub:eval` | Rank results by metric or LLM judge | `/agenthub:eval --judge` (LLM judge mode) |
+| `/agenthub:merge` | Merge winner, archive losers, cleanup | `/agenthub:merge --agent agent-2` (force pick) |
+| `/agenthub:board` | Read/write the message board | `/agenthub:board --read progress` |
+| `/hub-run` | One-shot full lifecycle | `/hub-run --task "Reduce latency" --agents 3 --eval "pytest bench.py" --metric p50_ms --direction lower --template optimizer` |
 
 ## The Optimizer Pattern
 
@@ -55,7 +55,7 @@ AgentHub's most powerful pattern: N agents compete using different strategies, e
 ### How It Works
 
 ```
-/hub:hub-run --task "Reduce p50 latency" --agents 3 \
+/hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 ```
@@ -81,7 +81,7 @@ The `optimizer` template embeds the iteration loop directly in each agent's disp
 
 ### Agent Templates
 
-Templates define the dispatch prompt pattern. Use `--template` with `/hub:spawn` or `/hub:hub-run`:
+Templates define the dispatch prompt pattern. Use `--template` with `/agenthub:spawn` or `/hub-run`:
 
 | Template | Pattern | Use Case |
 |----------|---------|----------|
@@ -95,7 +95,7 @@ Templates live in `references/agent-templates.md`.
 ### Example: 3 Strategies Competing on API Latency
 
 ```bash
-/hub:hub-run --task "Reduce API p50 latency below 150ms" --agents 3 \
+/hub-run --task "Reduce API p50 latency below 150ms" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 ```
@@ -119,7 +119,7 @@ AgentHub automatically:
 ### Example: 3 Agents Drafting Competing Blog Posts
 
 ```bash
-/hub:hub-run --task "Write a 1500-word blog post on zero-downtime deployments" \
+/hub-run --task "Write a 1500-word blog post on zero-downtime deployments" \
   --agents 3 --judge
 ```
 
@@ -217,7 +217,7 @@ openclaw install agenthub
 
 ### Session Model
 
-Each `/hub:hub-init` creates a session with a timestamp-based ID (`YYYYMMDD-HHMMSS`). Sessions progress through states:
+Each `/hub-init` creates a session with a timestamp-based ID (`YYYYMMDD-HHMMSS`). Sessions progress through states:
 
 ```
 init → running → evaluating → merged

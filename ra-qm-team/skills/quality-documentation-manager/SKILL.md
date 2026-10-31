@@ -1,6 +1,6 @@
 ---
 name: "quality-documentation-manager"
-description: Document control system management for medical device QMS. Covers document numbering, version control, change management, and 21 CFR Part 11 compliance. Use when working on document control procedures, change control workflows, document numbering, version management, electronic signature compliance, or regulatory documentation review.
+description: "Use for QMS document control: numbering, versioning, change control or 21 CFR Part 11 e-signatures. Validates documents with document_validator.py and tracks versions with document_version_control.py."
 metadata:
   triggers:
     - document control

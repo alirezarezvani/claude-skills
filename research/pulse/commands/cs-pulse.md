@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-pulse"
 description: "/cs-pulse <topic> — Multi-source recency research. Grill-me intake (topic / angle / window / scope), then parallel Reddit + HN + Web (1 q/sec per platform), optional X/Twitter, cross-platform synthesis. Output: ${RESEARCH_DIR}/pulse/<slug>-<date>.md + full briefing in chat."
 ---

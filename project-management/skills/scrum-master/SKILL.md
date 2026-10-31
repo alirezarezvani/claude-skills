@@ -1,6 +1,6 @@
 ---
 name: "scrum-master"
-description: "Advanced Scrum Master skill for data-driven agile team analysis and coaching. Use when the user asks about sprint planning, velocity tracking, retrospectives, standup facilitation, backlog grooming, story points, burndown charts, blocker resolution, or agile team health. Runs Python scripts to analyse sprint JSON exports from Jira or similar tools: velocity_analyzer.py for Monte Carlo sprint forecasting, sprint_health_scorer.py for multi-dimension health scoring, and retrospective_analyzer.py for action-item and theme tracking. Produces confidence-interval forecasts, health grade reports, and improvement-velocity trends for high-performing Scrum teams."
+description: "Use for sprint and team analytics: velocity forecasts, sprint health, retrospectives, burndown or blockers. Forecasts with velocity_analyzer.py (Monte Carlo), scores with sprint_health_scorer.py and tracks retro actions with retrospective_analyzer.py."
 license: MIT
 metadata:
   version: 2.0.0
@@ -220,3 +220,9 @@ Apply stage-specific facilitation (details in `references/team-dynamics-framewor
 ---
 
 *For deep framework references see `references/velocity-forecasting-guide.md` and `references/team-dynamics-framework.md`. For template assets see `assets/sprint_report_template.md` and `assets/team_health_check_template.md`.*
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/retro-formats.md](references/retro-formats.md) — Sprint Retrospective Formats

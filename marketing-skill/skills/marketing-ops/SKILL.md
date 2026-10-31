@@ -1,6 +1,6 @@
 ---
 name: "marketing-ops"
-description: "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, and analytics. Also use when the user mentions 'marketing help,' 'campaign plan,' 'what should I do next,' 'marketing priorities,' or 'coordinate marketing.'"
+description: "Use when a marketing request spans several skills (a campaign across content, SEO, CRO and channels) or it is unclear which skill fits. Routes and sequences the work and tracks it with campaign_tracker.py."
 license: MIT
 metadata:
   version: 1.0.0

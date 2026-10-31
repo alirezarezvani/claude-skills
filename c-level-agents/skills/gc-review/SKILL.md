@@ -1,6 +1,6 @@
 ---
 name: "gc-review"
-description: "/c-level-agents:gc-review [plan] — General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product."
+description: "Use for /c-level-agents:gc-review, or to challenge a term sheet, customer MSA, IP assignment or regulatory exposure before signing."
 ---
 
 # /c-level-agents:gc-review — General Counsel Forcing Questions

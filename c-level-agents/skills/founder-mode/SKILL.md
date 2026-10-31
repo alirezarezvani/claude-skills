@@ -1,6 +1,6 @@
 ---
 name: "founder-mode"
-description: "/c-level-agents:founder-mode [question] — Auto-routes any founder question to the right C-role advisor or to /c-level-agents:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits — e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO."
+description: "Use for /c-level-agents:founder-mode, or any founder strategy question that hasn't been routed yet. Sends it to the right C-suite advisor or the boardroom."
 ---
 
 # /c-level-agents:founder-mode — The Auto-Router

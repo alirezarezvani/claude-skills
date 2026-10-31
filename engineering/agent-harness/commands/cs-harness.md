@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Compile a goal into a verified agent-harness loop for a domain and drive it to close — /cs-harness <domain> <goal>
 argument-hint: <domain> <goal text>
 ---

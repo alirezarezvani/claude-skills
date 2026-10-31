@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin-plan"
 description: "/cs-linkedin-plan — Build the positioning brief (objective, audience, 2-4 proof-backed pillars, exclusion list), size a weekly cadence against the hours that actually exist, and gate a newsletter against eligibility and a six-month commitment."
 argument-hint: "[what you want LinkedIn to do for you in 90 days]"

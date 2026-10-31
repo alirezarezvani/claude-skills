@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 382,
+  "total_skills": 387,
   "domains": {
     "engineering": [
       {
@@ -49,14 +49,19 @@
         "path": "engineering/ci-cd-pipeline-builder"
       },
       {
+        "name": "codebase-onboarding",
+        "description": "Use when someone is new to a repo or a tech lead needs an architecture brief, before writing docs by hand. Maps the codebase with codebase_analyzer.py and produces onboarding docs.",
+        "path": "engineering/codebase-onboarding"
+      },
+      {
         "name": "coding-agent-rollout",
         "description": "Use when rolling Claude Code out to a team or reviewing a rollout: shared or managed settings, MCP and plugin approval, layered CLAUDE.md, adoption. Lints settings with settings_linter.py, inventories MCP servers and plugins, and audits CLAUDE.md layering.",
         "path": "engineering/coding-agent-rollout"
       },
       {
-        "name": "codebase-onboarding",
-        "description": "Use when someone is new to a repo or a tech lead needs an architecture brief, before writing docs by hand. Maps the codebase with codebase_analyzer.py and produces onboarding docs.",
-        "path": "engineering/codebase-onboarding"
+        "name": "commit-craft",
+        "description": "Use when committing a mix of changes, before a push, or when asked to split work into commits or write commit messages. Plans a reviewable series, blocks staged secrets and .env files, and lints messages with commit_planner.py, secret_gate.py and message_linter.py.",
+        "path": "engineering/commit-craft"
       },
       {
         "name": "database-designer",
@@ -114,6 +119,11 @@
         "path": "engineering/kubernetes-operator"
       },
       {
+        "name": "mcp-oauth-triage",
+        "description": "Use when an MCP connector that used to authenticate now fails (tool calls 401 after a good token exchange, breaks after refresh, returns another account's data), before changing code. Classifies the fault with oauth_triage.py.",
+        "path": "engineering/mcp-oauth-triage"
+      },
+      {
         "name": "mcp-server-builder",
         "description": "Use when exposing an API as an MCP server or scaffolding a new MCP server in Python or TypeScript, before hand-writing tool wrappers. Generates tools from OpenAPI with openapi_to_mcp.py and validates them with mcp_validator.py.",
         "path": "engineering/mcp-server-builder"
@@ -165,12 +175,12 @@
       },
       {
         "name": "ship-gate",
-        "description": ">",
+        "description": "Use before deploying or going live ('am I ready to ship', 'can I deploy', 'preflight check'). Scans the codebase with ship_gate_scanner.py across security, database, deploy, AI, dependencies and observability, and blocks on critical items.",
         "path": "engineering/ship-gate"
       },
       {
         "name": "skill-security-auditor",
-        "description": ">",
+        "description": "Use before installing any skill or plugin from an untrusted source, or when asked if a skill is safe. Scans scripts, SKILL.md and dependencies for exfiltration, dangerous calls and prompt injection with skill_security_auditor.py.",
         "path": "engineering/skill-security-auditor"
       },
       {
@@ -254,6 +264,11 @@
         "path": "engineering/spawn"
       },
       {
+        "name": "ar-loop",
+        "description": "Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
+        "path": "engineering/ar-loop"
+      },
+      {
         "name": "ar-resume",
         "description": "Use for /ar-resume, or to continue a paused autoresearch experiment from its branch and results history.",
         "path": "engineering/ar-resume"
@@ -272,11 +287,6 @@
         "name": "autoresearch-agent",
         "description": "Use when a file should be improved against a measurable metric (speed, bundle size, pass rate, prompt or headline score), before hand-tuning it. Loops edit, run_experiment.py, keep or git reset on a fixed evaluator; needs an eval command and a git repo.",
         "path": "engineering/autoresearch-agent"
-      },
-      {
-        "name": "ar-loop",
-        "description": "Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
-        "path": "engineering/ar-loop"
       },
       {
         "name": "setup",
@@ -502,7 +512,7 @@
       },
       {
         "name": "epic-design",
-        "description": ">",
+        "description": "Use for any landing page, hero section or scroll-driven web design that should feel cinematic (parallax, scrollytelling, overlapping sections, text reveals, Apple-style animation), before coding. Inspects assets with inspect-assets.py, then builds with 45+ 2.5D techniques, no WebGL.",
         "path": "engineering-team/epic-design"
       },
       {
@@ -642,27 +652,27 @@
       },
       {
         "name": "browserstack",
-        "description": ">-",
+        "description": "Use when running Playwright tests on BrowserStack or across a browser matrix ('browserstack', 'cross-browser', 'test on safari or firefox', 'browser compatibility').",
         "path": "engineering-team/browserstack"
       },
       {
         "name": "coverage",
-        "description": ">-",
+        "description": "Use when asked what's not tested or for test coverage gaps ('test coverage', 'coverage gaps', 'missing tests', 'what needs testing'). Maps untested pages and flows.",
         "path": "engineering-team/coverage"
       },
       {
         "name": "fix",
-        "description": ">-",
+        "description": "Use when a Playwright test fails or is flaky ('fix test', 'flaky test', 'test passes sometimes', 'intermittent failure'). Diagnoses the cause and fixes it.",
         "path": "engineering-team/fix"
       },
       {
         "name": "generate",
-        "description": ">-",
+        "description": "Use when asked to write Playwright or e2e tests for a page, component or feature ('write tests', 'add tests for', 'e2e test').",
         "path": "engineering-team/generate"
       },
       {
         "name": "migrate",
-        "description": ">-",
+        "description": "Use when moving tests from Cypress or Selenium to Playwright ('migrate tests', 'convert tests', 'replace selenium').",
         "path": "engineering-team/migrate"
       },
       {
@@ -672,22 +682,22 @@
       },
       {
         "name": "pw-init",
-        "description": ">-",
+        "description": "Use when setting up Playwright in a project ('set up playwright', 'add e2e tests', 'configure playwright', 'init playwright').",
         "path": "engineering-team/pw-init"
       },
       {
         "name": "pw-review",
-        "description": ">-",
+        "description": "Use when reviewing Playwright tests for quality ('review tests', 'audit tests', 'playwright best practices check').",
         "path": "engineering-team/pw-review"
       },
       {
         "name": "report",
-        "description": ">-",
+        "description": "Use when asked for a test report or results summary ('test report', 'test status', 'how did tests go').",
         "path": "engineering-team/report"
       },
       {
         "name": "testrail",
-        "description": ">-",
+        "description": "Use when syncing Playwright tests with TestRail ('testrail', 'sync test cases', 'push results to testrail', 'import from testrail').",
         "path": "engineering-team/testrail"
       },
       {
@@ -731,6 +741,11 @@
         "name": "competitive-teardown",
         "description": "Use for a deep competitor teardown (pricing, reviews, hiring, SEO, UX) or a response to a competitor's move. Scores products across 12 dimensions with competitive_matrix_builder.py and produces SWOT and positioning maps.",
         "path": "product-team/competitive-teardown"
+      },
+      {
+        "name": "design-qa",
+        "description": "Use when a UI screen, page or component is about to be called done, handed off or shipped, or when generated UI looks generic or half-finished. Gates the rendered result, not the design file - finds controls that do nothing, placeholder copy, removed focus rings, missing loading/empty/error states, low contrast, small targets, hidden focus and broken reflow measured in the real browser, and flags template defaults without blocking on taste.",
+        "path": "product-team/design-qa"
       },
       {
         "name": "experiment-designer",
@@ -1316,6 +1331,11 @@
     ],
     "ra-qm-team": [
       {
+        "name": "access-lifecycle",
+        "description": "Use when preparing or running a user access review, checking that leavers lost their access, finding orphaned or ownerless service accounts, answering an auditor's access-control request for SOC 2, ISO 27001, PCI DSS, HIPAA or NIST 800-53, or checking whether a finished review campaign will hold up. Diffs the HR roster against account exports, tests the campaign for coverage, self-review, unremoved revokes and rubber-stamping, and maps every exception to the controls it breaks.",
+        "path": "ra-qm-team/access-lifecycle"
+      },
+      {
         "name": "agent-decision-receipts",
         "description": "Use when an autonomous agent takes a side-effecting action (deploy, delete, pay, grant access) that may need proving later, or for EU AI Act Art. 12 record-keeping. Builds a tamper-evident signed receipt with build_action_manifest.py and verifies it.",
         "path": "ra-qm-team/agent-decision-receipts"
@@ -1324,6 +1344,11 @@
         "name": "capa-officer",
         "description": "Use for CAPA work in a medical device QMS: root cause analysis (5-Why, fishbone), corrective action plans, effectiveness checks or CAPA metrics. Tracks CAPAs with capa_tracker.py and analyzes causes with root_cause_analyzer.py.",
         "path": "ra-qm-team/capa-officer"
+      },
+      {
+        "name": "cmmc-readiness",
+        "description": "Use when a defense contractor or subcontractor is preparing for a CMMC 2.0 Level 2 self-assessment or C3PAO assessment, calculating or checking an SPRS score against NIST SP 800-171 Rev 2, deciding what can go on a POA&M, tracking POA&M closeout before Conditional status expires, or scoping assets, enclaves and cloud providers that handle CUI. Scores all 110 requirements with the 32 CFR 170.24 weights, blocks gaps that can never be deferred, and classifies the asset inventory into CMMC asset categories.",
+        "path": "ra-qm-team/cmmc-readiness"
       },
       {
         "name": "eu-ai-act-specialist",
@@ -1797,7 +1822,7 @@
       },
       {
         "name": "md-slides",
-        "description": "Converts a markdown deck (slides separated by `",
+        "description": "Use when converting a markdown deck into a single-file HTML presentation with keyboard navigation, presenter notes and print-to-PDF. Splits slides with slide_splitter.py and renders with deck_html_renderer.py.",
         "path": "markdown-html/md-slides"
       }
     ],

@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.5] - 2026-10-31 — design-qa, commit-craft, skills that fit the listing budget
+
+Two new skills, an audit that cuts the marketplace's share of Claude Code's skill listing from 227k to 97k
+characters, two renames that stop our skills hiding Claude Code built-ins, and command references that
+actually run. Every plugin whose files changed is bumped; most land on 2.14.5, and those changed again after
+their first bump on dev sit above it (gate G11 requires each to exceed its dev version), up to
+`engineering-advanced-skills` at 2.14.10.
+
+### Migration
+
+- **skill-doctor → skill-retro (reinstall required).** The plugin name changed, so an existing install shows
+  as not found in the marketplace: `/plugin uninstall skill-doctor@claude-code-skills`, then
+  `/plugin install skill-retro@claude-code-skills`. Typing `/skill-doctor` now reaches Claude Code's built-in.
+- **autoresearch-agent `loop` → `ar-loop` (update only).** Run `/plugin update autoresearch-agent@claude-code-skills`
+  and type `/ar-loop` instead of `/loop`; the bare `/loop` is Claude Code's scheduler again.
+- **Command names in docs.** `/ar:*`, `/hub:*`, `/em:*` and `/docker:*`-style names never resolved; use the
+  names listed under Changed below.
+
 ### Added
 
 - **design-qa** (`product-team/design-qa/`, also bundled in `product-skills`, both at 2.14.5). Built for the
@@ -36,7 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Gate G12** (`scripts/check_listing_budget.py`, blocking ratchet): no plugin may grow the characters it
   adds to Claude Code's skill listing past its line in `scripts/listing_budget_baseline.txt`; a new plugin is
   capped at 6,000.
-- `skill-retro` (formerly `skill-doctor`): `--sessions-dir` grades headless `claude -p` stream-json transcripts, such as eval runs.
+- **skill-retro** (formerly `skill-doctor`): `--sessions-dir` grades headless `claude -p` stream-json transcripts, such as eval runs.
 
 ### Changed
 
@@ -72,8 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 47 skills now list reference files and scripts their SKILL.md never named; terraform-patterns moves its
   pattern catalog to `references/patterns-catalog.md` (SKILL.md 748 to 287 lines).
 - INSTALLATION.md explains the listing budget, `skillListingBudgetFraction` and installing only the bundles
-  you use. 105 plugins move to 2.14.5 (`product-skills` and `design-qa` to 2.14.6, since they were already at
-  2.14.5 on dev).
+  you use.
 
 ### Fixed
 

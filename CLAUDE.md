@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.4 (CMMC L2 + evals release: new cmmc-readiness skill for CMMC 2.0 Level 2 assessments (SPRS scoring, POA&M close-out, scope classification), nightly trigger and behaviour evals for every skill, off until SKILL_EVALS_ENABLED is set; 2 plugins at 2.14.4. See CHANGELOG.md [2.14.4].)
+**Version:** v2.14.5 (design-qa + commit-craft + listing-budget release: new design-qa finish gate for rendered UI and commit-craft commit-series planner, 356 skill descriptions rewritten so the marketplace adds 97k instead of 227k characters to the skill listing, gate G12 ratchet, skill-doctor renamed skill-retro (reinstall) and autoresearch loop renamed ar-loop so neither hides a Claude Code built-in, command references fixed. See CHANGELOG.md [2.14.5].)
+
+**Previously: v2.14.4** (CMMC L2 + evals release: new cmmc-readiness skill for CMMC 2.0 Level 2 assessments (SPRS scoring, POA&M close-out, scope classification), nightly trigger and behaviour evals for every skill, off until SKILL_EVALS_ENABLED is set; 2 plugins at 2.14.4. See CHANGELOG.md [2.14.4].)
 
 **Previously: v2.14.3** (access-review evidence + community release: new access-lifecycle and mcp-oauth-triage skills, install docs list only real plugins, convert.sh copies assets/, md-slides loads in Antigravity, epic-design and playwright-pro spec fixes from #1051; 6 plugins at 2.14.3. See CHANGELOG.md [2.14.3].)
 
@@ -873,6 +875,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** October 30, 2026
-**Version:** v2.14.4 (CMMC L2 readiness + nightly skill evals — see CHANGELOG.md)
+**Last Updated:** October 31, 2026
+**Version:** v2.14.5 (design-qa, commit-craft, listing-budget audit, skill-retro rename — see CHANGELOG.md)
 **Status:** 407 production-ready skills across 20 domains, 108 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

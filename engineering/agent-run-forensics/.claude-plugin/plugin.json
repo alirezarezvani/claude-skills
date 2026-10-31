@@ -1,0 +1,15 @@
+{
+  "name": "agent-run-forensics",
+  "description": "Answer questions about past agent runs from the recording, not from memory. Three read-only stdlib scripts over the session transcripts Claude Code and Codex already write: a finder that locates the run by repo, time window, touched file or command text; a timeline that numbers every step with its exit code, lists every file changed (flagging changes the agent never mentioned) and walks back from any step with each causal edge labelled recorded or inferred by a named rule; and a claim checker that tests a summary's claims (ran, passed, edited, not-edited, read) against the run and catches tests that passed before a later edit and exit codes that belong to the last command of a pipe. Secrets are always redacted. A UserPromptSubmit hook gives the agent this session's transcript path when a prompt asks about past work. Ships cs-run-forensics agent, /cs-run-forensics and /cs-check-claims commands and 3 cited references.",
+  "version": "2.14.6",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/agent-run-forensics",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/agent-run-forensics"
+  ]
+}

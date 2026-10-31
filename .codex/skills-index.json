@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 406,
+  "total_skills": 408,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1006,6 +1006,18 @@
       "source": "../../engineering/agent-regression-evals/skills/agent-regression-evals",
       "category": "engineering-advanced",
       "description": "Use before shipping any agent, prompt, model or tool change, or when a pass-rate drop needs a verdict. Runs repeated trials, gates candidate vs baseline with paired statistics in regression_gate.py, checks tool-call trajectories and finds flaky cases."
+    },
+    {
+      "name": "agent-run-forensics",
+      "source": "../../engineering/skills/agent-run-forensics",
+      "category": "engineering-advanced",
+      "description": "Use when asked why an agent did something, what a past session or run changed, whether tests really passed, or to verify a session summary. Answers from the recorded transcript, not memory, with trace_finder.py, trace_timeline.py and claim_checker.py."
+    },
+    {
+      "name": "agent-run-forensics",
+      "source": "../../engineering/agent-run-forensics/skills/agent-run-forensics",
+      "category": "engineering-advanced",
+      "description": "Use when asked why an agent did something, what a past session or run changed, whether tests really passed, or to verify a session summary. Answers from the recorded transcript, not memory, with trace_finder.py, trace_timeline.py and claim_checker.py."
     },
     {
       "name": "agent-workflow-designer",
@@ -2484,7 +2496,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 100,
+      "count": 102,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

@@ -1,0 +1,7 @@
+# One typed claim per line, checked by:
+#   claim_checker.py --trace <session.jsonl> --claims-file claims_example.txt
+passed:pytest
+edited:src/client.py
+not-edited:config.yaml
+read:config.yaml
+not-run:git push

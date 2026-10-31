@@ -1539,6 +1539,16 @@
   "neg": "Write unit tests with pytest for this Python function that parses ISO dates: def parse(s): return datetime.fromisoformat(s)",
   "origin": "v2.14-audit"
  },
+ "engineering/agent-run-forensics/skills/agent-run-forensics": {
+  "name": "agent-run-forensics",
+  "plugin": "agent-run-forensics",
+  "pos": [
+   "Yesterday's overnight agent session changed something in config.yaml and now prod times out. Can you find out what it did and why?",
+   "You said the tests pass and that you didn't touch the migrations. Check that against what actually happened in the session before I merge."
+  ],
+  "neg": "Write a postmortem template for our incident review meetings with sections for timeline, impact and action items.",
+  "origin": "reviewed"
+ },
  "engineering/agenthub/skills/agenthub": {
   "name": "agenthub",
   "plugin": "agenthub",

@@ -1,6 +1,6 @@
 ---
 name: "spec-driven-workflow"
-description: "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices."
+description: "Use when a feature should be specified before coding (acceptance criteria, spec-first, tests from specs). Writes the spec with spec_generator.py, checks it with spec_validator.py and extracts tests with test_extractor.py."
 ---
 
 # Spec-Driven Workflow — POWERFUL

@@ -1,16 +1,6 @@
 ---
 name: epic-design
-description: >
-  Build immersive, cinematic 2.5D interactive websites using scroll storytelling,
-  parallax depth, text animations, and premium scroll effects — no WebGL required.
-  Use this skill for any web design task: landing pages, product sites, hero sections,
-  scroll animations, parallax, sticky sections, section overlaps, floating products
-  between sections, clip-path reveals, text that flies in from sides, words that light
-  up on scroll, curtain drops, iris opens, card stacks, bleed typography, and any
-  site that should feel cinematic or premium. Trigger on phrases like "make it feel
-  alive", "Apple-style animation", "sections that overlap", "product rises between
-  sections", "immersive", "scrollytelling", or any scroll-driven visual effect.
-  Covers 45+ techniques across 8 categories. Always inspects, judges, and plans assets before coding. Use aggressively for ANY web design task.
+description: "Use for any landing page, hero section or scroll-driven web design that should feel cinematic (parallax, scrollytelling, overlapping sections, text reveals, Apple-style animation), before coding. Inspects assets with inspect-assets.py, then builds with 45+ 2.5D techniques, no WebGL."
 license: MIT
 metadata:
   version: 1.0.0

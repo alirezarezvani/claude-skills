@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-grill-linkedin"
 description: "/cs-grill-linkedin — Interrogate a LinkedIn plan one forcing question at a time, each with a recommended answer anchored in the plugin's canon. Refuses to start the work until the objective, the audience, the hours, the proof, and the exclusion list survive the questions."
 argument-hint: "[the LinkedIn plan or ambition you want pressure-tested]"

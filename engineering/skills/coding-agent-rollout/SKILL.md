@@ -1,6 +1,6 @@
 ---
 name: coding-agent-rollout
-description: Use when rolling Claude Code out to a team or organization, or auditing a rollout already under way — writing or reviewing shared and managed settings.json permissions, deciding which MCP servers, plugins and marketplaces to approve, cleaning up layered CLAUDE.md files, or measuring whether the team actually uses it. Lints settings across scopes, inventories every MCP server and plugin against an approved list, resolves CLAUDE.md layers and imports, and turns local session data into privacy-safe adoption counts.
+description: "Use when rolling Claude Code out to a team or reviewing a rollout: shared or managed settings, MCP and plugin approval, layered CLAUDE.md, adoption. Lints settings with settings_linter.py, inventories MCP servers and plugins, and audits CLAUDE.md layering."
 argument-hint: "[repo path | managed-settings.json | 'measure adoption']"
 license: MIT
 metadata:

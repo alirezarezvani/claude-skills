@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-meeting-actions"
 description: "/cs-meeting-actions — Turn raw meeting notes into an owned action-item checklist: extracts checkboxes, ACTION:/TODO: lines, '@name will …' and 'Name will … by date' patterns, groups by owner, and flags every ORPHAN (no owner) and NO-DUE item. An action without an owner and a date is not an action."
 argument-hint: "[path to notes file, or paste the notes]"

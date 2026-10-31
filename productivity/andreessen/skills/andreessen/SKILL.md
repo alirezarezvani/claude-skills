@@ -1,6 +1,6 @@
 ---
 name: andreessen
-description: "Marc Andreessen-mode decision and productivity skill. A blunt, market-first operator that pressure-tests ideas, ventures, features, and career bets through Andreessen's actual frameworks — market dominates team and product; the only milestone that matters is product/market fit; bias to build over deliberate. Use when the user says 'andreessen', 'pmarca mode', 'should I build this', 'is there a market', 'are we at product/market fit', 'pmf check', 'pressure-test this idea', 'be brutal about this venture', 'market-first take', or wants a no-disclaimers, no-hedging, confidence-leveled verdict on whether something is worth pursuing. Also provides the 3x5-card + Anti-Todo personal productivity routine. Runs on a fixed anti-sycophancy operating prompt: leads with the strongest counterargument, never validates premises, uses explicit confidence levels, never apologizes for disagreeing. Not for polite brainstorming — this skill exists to tell you the market is dead when it is."
+description: "Use when the user wants a blunt market-first verdict on an idea, venture or career bet ('is there a market', 'are we at PMF', 'pmarca mode'), or a 3x5-card daily plan. Scores with market_first_evaluator.py and pmf_signal_scorer.py; leads with the strongest counterargument."
 license: MIT
 metadata:
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: stage-launch
-description: Phase 2 of building a Claude Managed Agent — turn a validated build sheet into exact API payloads and a resumable BYOK curl launch script, then launch (environment → agent → session → kickoff) using the founder's OWN Anthropic key. Use when the user says "launch it", "deploy the agent", "create the agent now", or when the orchestrator routes phase=stage-launch. payload_generator.py emits the four ordered payloads; launch_script_writer.py writes launch.sh that reads $ANTHROPIC_API_KEY at runtime and never embeds it; payload_validator.py runs a pre-launch check including an API-key-leak scan. No tool in this skill makes network calls — the user runs launch.sh themselves. Distinct from interview (planning) and grade-iterate (the outcome loop).
+description: "Use when a managed-agent build sheet is ready to launch ('launch it', 'deploy the agent'). Generates and validates API payloads with payload_generator.py and payload_validator.py and writes a resumable curl script with launch_script_writer.py that uses the user's own key."
 license: MIT
 metadata:
   version: 2.11.2

@@ -1,7 +1,7 @@
 {
   "name": "write-a-skill",
   "description": "Skill-author skill: create new agent skills with proper structure, progressive disclosure, and bundled resources. Enhanced from Matt Pocock's MIT-licensed write-a-skill (https://github.com/mattpocock/skills) with: (1) stdlib Python validation tools (description validator, structure validator, review-checklist runner), (2) 3 reference docs citing 5+ authoritative sources each (progressive disclosure principles, description design patterns, quality gates), (3) cs-skill-author persona agent + /cs-write-a-skill slash command. Matt's voice and 3-phase workflow (Gather → Draft → Review) preserved verbatim per his MIT license. Use when user wants to create, write, build, or author a new agent skill.",
-  "version": "2.14.2",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

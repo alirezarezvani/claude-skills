@@ -1,6 +1,6 @@
 ---
 name: "office-hours"
-description: "/c-level-agents:office-hours [topic] — YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route — e.g. 'should we grow faster?' — or before drafting a strategy brief."
+description: "Use for /c-level-agents:office-hours, or when a founder question is too vague to route. Asks six YC-style questions before any advice."
 ---
 
 # /c-level-agents:office-hours — Six-Question Founder Interrogation

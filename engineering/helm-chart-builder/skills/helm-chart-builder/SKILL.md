@@ -1,6 +1,6 @@
 ---
 name: "helm-chart-builder"
-description: "Helm chart development agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw — chart scaffolding, values design, template patterns, dependency management, security hardening, and chart testing. Use when: user wants to create or improve Helm charts, design values.yaml files, implement template helpers, audit chart security (RBAC, network policies, pod security), manage subcharts, or run helm lint/test."
+description: "Use for any Helm chart to create, review or harden (values.yaml, templates, subcharts, RBAC, pod security), before editing it. Analyzes the chart with chart_analyzer.py and validates values with values_validator.py."
 license: MIT
 metadata:
   version: 1.0.0
@@ -447,3 +447,10 @@ clawhub install cs-helm-chart-builder
 - **docker-development** — Container building. Complementary — docker-development builds the images, helm-chart-builder deploys them to Kubernetes.
 - **ci-cd-pipeline-builder** — Pipeline construction. Complementary — helm-chart-builder defines the deployment artifact, ci-cd-pipeline-builder automates its delivery.
 - **senior-security** — Application security. Complementary — helm-chart-builder covers Kubernetes-level security (RBAC, pod security), senior-security covers application-level threats.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/chart-patterns.md](references/chart-patterns.md) — Helm Chart Patterns Reference
+- [references/values-design.md](references/values-design.md) — Values.yaml Design Reference

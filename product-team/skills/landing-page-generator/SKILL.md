@@ -1,6 +1,6 @@
 ---
 name: "landing-page-generator"
-description: "Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP under 1s, CLS under 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page — or when they want to A/B test landing page variants or replace a static page with one designed to convert."
+description: "Use when asked for a landing, marketing or campaign page as a Next.js TSX component with Tailwind. Scaffolds it with landing_page_scaffolder.py using PAS, AIDA or BAB copy, SEO meta and Core Web Vitals targets."
 ---
 
 # Landing Page Generator
@@ -196,3 +196,12 @@ Inject `FAQPage` JSON-LD via `<script type="application/ld+json" dangerouslySetI
 - **Brand Voice Analyzer** (`marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py`) — Run before generation to establish voice profile and ensure copy consistency
 - **UI Design System** (`product-team/ui-design-system/`) — Generate design tokens from brand color before building the page
 - **Competitive Teardown** (`product-team/competitive-teardown/`) — Competitive positioning informs landing page messaging and differentiation
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/conversion-patterns.md](references/conversion-patterns.md) — High-Converting Landing Page Patterns
+- [references/copy-frameworks.md](references/copy-frameworks.md) — Landing Page Copywriting Frameworks
+- [references/landing-page-patterns.md](references/landing-page-patterns.md) — Landing Page Patterns
+- [references/seo-checklist.md](references/seo-checklist.md) — Landing Page SEO Checklist

@@ -1,6 +1,6 @@
 ---
 name: "qms-audit-expert"
-description: ISO 13485 internal audit expertise for medical device QMS. Covers audit planning, execution, nonconformity classification, and CAPA verification. Use when planning internal audits, executing audits, classifying findings, preparing for external audits, or managing an audit program.
+description: "Use for ISO 13485 internal audits: planning the program, running an audit, classifying findings or preparing for an external audit. Optimizes the schedule with audit_schedule_optimizer.py."
 metadata:
   triggers:
     - ISO 13485 audit
@@ -322,3 +322,9 @@ Track audit program effectiveness:
 | Repeat findings | <10% | Same finding in consecutive audits |
 | CAPA effectiveness | >90% | Verified effective at follow-up |
 | Auditor utilization | 4 days/month | Audit days per qualified auditor |
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/iso13485_audit_playbook.md](references/iso13485_audit_playbook.md) — ISO 13485:2016 Internal Audit Playbook

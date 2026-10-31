@@ -1,6 +1,6 @@
 ---
 name: "focused-fix"
-description: "Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z module is broken', 'focus on [area]'. Not for quick single-bug fixes — this is for systematic deep-dive repair across all files and dependencies."
+description: "Use when a whole feature or module is broken and needs fixing end to end ('make X work', 'the Y module is broken'). Maps every file and dependency of the area before changing anything. Single quick bug fixes do not need it."
 ---
 
 # Focused Fix — Deep-Dive Feature Repair

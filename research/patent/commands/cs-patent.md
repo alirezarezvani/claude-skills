@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-patent"
 description: "/cs-patent <invention> — Patent prior-art + landscape intelligence with mandatory sub-use-case commitment. 6-Q grill-me intake (Q2 picks one of: novelty / FTO / landscape / diligence / litigation). Multi-source search (Google Patents + Espacenet + USPTO + optional Lens.org BYOK). 8-section .docx with verdict + claim text + family-resolved hits + mandatory legal disclaimer (novelty + FTO)."
 ---

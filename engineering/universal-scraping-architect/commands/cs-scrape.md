@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: cs-scrape
 description: Route, extract, and validate a scraping job (URL or local file) via the universal-scraping-architect skill — refuses to deliver unvalidated data.
 argument-hint: "<url-or-file-path> [desired output: csv|json|markdown]"

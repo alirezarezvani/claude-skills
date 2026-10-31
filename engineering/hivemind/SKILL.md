@@ -1,6 +1,6 @@
 ---
 name: hivemind
-description: Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grunt work to a single worker or a parallel swarm (scout/coder/tester) with worktree isolation, benchmarking against opencode, or when the user says "spawn a worker", "swarm", "delegate to opencode", or "/oc".
+description: "Use when delegating grunt work to free opencode workers instead of spending Claude tokens: one worker or a scout, coder and tester swarm in worktrees. Triggers on 'spawn a worker', 'swarm', 'delegate to opencode' or /oc."
 ---
 
 # Hivemind: Claude Code as Orchestrator, opencode as Free Worker Swarm

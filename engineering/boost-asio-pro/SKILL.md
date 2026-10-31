@@ -1,6 +1,6 @@
 ---
 name: "boost-asio-pro"
-description: "Use when writing or reviewing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP servers and clients, SSL/TLS, timers, strands, io_context, co_spawn, awaitable, async_read/async_write, asio::spawn, yield_context, or pre-C++20 completion-handler callbacks."
+description: "Use for any C++ networking code with Boost.Asio or standalone Asio (TCP/UDP, SSL, timers, strands, io_context, co_spawn, awaitable, completion handlers), before writing or reviewing it. Applies lifetime, strand and cancellation rules that avoid the classic async bugs."
 ---
 
 # Boost.Asio / standalone Asio

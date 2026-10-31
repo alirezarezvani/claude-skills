@@ -1,6 +1,6 @@
 ---
 name: agent-memory
-description: Use when a project's CLAUDE.md has grown past what anyone reads and you want the agent to learn durable facts from its own sessions instead — or when asking why the agent keeps re-learning the same correction, why a remembered rule is wrong, or where a memory line came from. Implements a four-tier store (L0 transcripts / L1 candidates / L2 project context / L3 stable persona) where promotion is earned by recurrence across sessions and days, never by one confident statement, and nothing reaches a committed file without a human adopting it.
+description: "Use when an agent keeps relearning the same correction, CLAUDE.md has grown unreadable, or you need to trace where a remembered rule came from. Promotes facts through four tiers only on recurrence across sessions and days, with memory_promote.py and a human adopt step."
 argument-hint: "[optional: status | why \"<claim>\" | a tier name]"
 license: MIT
 metadata:
@@ -98,3 +98,14 @@ Walk these one at a time before trusting the store.
 4. What would make you delete `.memory/` entirely?
 
 Rationale, open decisions, field schema: [`../../DESIGN.md`](../../DESIGN.md).
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/hook_capture_discipline.md](references/hook_capture_discipline.md) — Hook discipline — running on someone else's critical path
+- [references/promotion_gate_design.md](references/promotion_gate_design.md) — Designing the gates — why these thresholds, and what they cost
+- [references/tiered_memory_canon.md](references/tiered_memory_canon.md) — Tiered agent memory — the canon, and what this skill takes from it
+
+- `python3 scripts/memory_extract.py --help` — L0 -> L1. Rule-based, no LLM
+- `python3 scripts/validate_examples.py` — drift gate for DESIGN.md, memory_schema.json and the worked examples

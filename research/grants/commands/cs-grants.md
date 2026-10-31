@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-grants"
 description: "/cs-grants <research-idea> — NIH funding intelligence. 6-Q grill-me intake (idea + career stage + prelim + environment + posture + institutes) → 5-facet Consensus positioning + RePORTER POST institute mapping + NOSI fetches → 9-section .docx with mandatory program officer recommendation."
 ---

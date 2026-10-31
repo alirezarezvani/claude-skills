@@ -16,7 +16,7 @@
     {
       "name": "andreessen",
       "path": "productivity/andreessen/skills/andreessen",
-      "description": "Marc Andreessen-mode decision and productivity skill. A blunt, market-first operator that pressure-tests ideas, ventures, features, and career bets through Andreessen's actual frameworks \u2014 market dominates team and product; the only milestone that matters is product/market fit; bias to build over deliberate. Use when the user says 'andreessen', 'pmarca mode', 'should I build this', 'is there a market', 'are we at product/market fit', 'pmf check', 'pressure-test this idea', 'be brutal about this venture', 'market-first take', or wants a no-disclaimers, no-hedging, confidence-leveled verdict \u2026",
+      "description": "Use when the user wants a blunt market-first verdict on an idea, venture or career bet ('is there a market', 'are we at PMF', 'pmarca mode'), or a 3x5-card daily plan. Scores with market_first_evaluator.py and pmf_signal_scorer.py; leads with the strongest counterargument.",
       "tools": [
         {
           "script": "productivity/andreessen/skills/andreessen/scripts/anti_todo_card.py",
@@ -87,7 +87,7 @@
     {
       "name": "capture",
       "path": "productivity/capture/skills/capture",
-      "description": "Captures and organizes chaotic brain dumps into a structured, actionable system with zero information loss. Use this skill whenever the user says 'capture this', 'brain dump', 'let me dump some ideas', 'I've got a bunch of thoughts', 'here's everything on my mind', 'idea dump', 'let me get this out of my head', 'I need to organize my thoughts', 'here's what I'm thinking', or any variation where someone is unloading a messy stream of ideas, tasks, thoughts, and plans wanting them turned into something coherent. Also trigger when the user pastes or dictates a long, unstructured block of mixed \u2026",
+      "description": "Use whenever the user unloads a messy brain dump of ideas, tasks and plans ('capture this', 'brain dump', a long unstructured paste) and wants it organized. Sorts it with dump_classifier.py into projects, tasks and connections with nothing lost.",
       "tools": [
         {
           "script": "productivity/capture/skills/capture/scripts/complexity_estimator.py",
@@ -227,7 +227,7 @@
     {
       "name": "inbox-setup",
       "path": "productivity/email/skills/inbox-setup",
-      "description": "One-time setup skill that builds a personalized inbox triage knowledge base via interactive interview. Interviews the user about their email patterns, business context, reply style, and priorities using grill-me discipline (one question at a time, forcing format where possible, dependency-ordered, each question explains why I'm asking), then generates the knowledge base files that power the companion 'inbox-triage' skill. Run this once before using inbox-triage for the first time. Re-run when business, pricing, or priorities change significantly. Triggers: 'set up my inbox', 'configure \u2026",
+      "description": "Use when setting up email triage for the first time, before inbox-triage, or when priorities change. Interviews the user one question at a time and writes the knowledge base inbox-triage reads, validated with kb_validator.py.",
       "tools": [
         {
           "script": "productivity/email/skills/inbox-setup/scripts/kb_validator.py",
@@ -292,7 +292,7 @@
     {
       "name": "inbox-triage",
       "path": "productivity/email/skills/inbox-triage",
-      "description": "Runs a full inbox triage using the knowledge base created by the 'inbox-setup' skill. Light-intake by design (most invocations skip questions and run with KB-default preferences); asks at most 2 grill-me override questions when invocation is outside normal cadence or includes category-skip intent. Searches recent emails, classifies them via the user's taxonomy, researches new senders, generates recommendations, drafts replies (NEVER sends), delivers a report in the user's preferred format, and updates the knowledge base with learnings. Designed to run on a recurring schedule (1-3x daily) or \u2026",
+      "description": "Use when the user wants their inbox processed ('triage my inbox', 'check my email'). Classifies recent mail with the inbox-setup knowledge base, drafts replies it never sends (checked by draft_safety_validator.py) and reports.",
       "tools": [
         {
           "script": "productivity/email/skills/inbox-triage/scripts/draft_safety_validator.py",
@@ -357,7 +357,7 @@
     {
       "name": "fable-goal",
       "path": "productivity/fable-goal/skills/fable-goal",
-      "description": "Convert a rambling description of a desired outcome into one polished, autonomous /goal prompt ready to paste into a fresh session. Use when the user says \"/fable-goal\", \"turn this into a goal prompt\", \"write me a fable prompt\", \"write the prompt that builds X\", or rambles about something they want made and asks for the prompt that makes it happen. The output is a single copy-paste prompt, never the build itself. Do NOT use when the user wants the thing built right now in this session \u2014 only when they want the PROMPT that will make it happen in a fresh session.",
+      "description": "Use when the user wants a /goal prompt rather than the build itself ('/fable-goal', 'turn this into a goal prompt', 'write the prompt that builds X'). Turns their ramble into one copy-paste prompt checked by goal_prompt_self_check.py.",
       "tools": [
         {
           "script": "productivity/fable-goal/skills/fable-goal/scripts/goal_prompt_self_check.py",
@@ -601,7 +601,7 @@
     {
       "name": "reflect",
       "path": "productivity/reflect/skills/reflect",
-      "description": "Mid-conversation reflection skill that pauses execution and zooms out from detail-mode to honestly reassess direction, assumptions, and bias. Use when the user says 'reflect', 'take a step back', 'step back', 'zoom out', 'are we missing something', 'bigger picture', 'sanity check this', 'are we on track', 'are we overthinking this', 'forest for the trees', or any variation signaling intent to break out of detail-mode and reassess. Also trigger when the conversation has gone deep on implementation details without strategic check-in, or when the user shows signs of being stuck \u2014 that's often \u2026",
+      "description": "Use when the user says 'step back', 'zoom out', 'are we on track' or 'sanity check this', or work has gone deep into details without a check on direction. Reassesses direction, assumptions and bias across five dimensions.",
       "tools": [
         {
           "script": "productivity/reflect/skills/reflect/scripts/bias_pattern_detector.py",
@@ -741,7 +741,7 @@
     {
       "name": "swedish-mentor",
       "path": "productivity/swedish-mentor",
-      "description": "Mentor Swedish language learners by selecting YouTube video clips and podcast episodes by CEFR level and skill (listening, reading, writing, speaking), and building a simple learning path. Use when the user asks about a Swedish learning path, YouTube clips or podcasts for Swedish, SFI videos, level assessment for svenska, or requests for Peter SFI / L\u00e4tt Svenska med Oskar / Radio Sweden p\u00e5 l\u00e4tt svenska / Klartext-style recommendations.",
+      "description": "Use when someone learning Swedish wants a learning path or YouTube clips and podcasts matched to their CEFR level and skill (SFI, L\u00e4tt Svenska, Radio Sweden p\u00e5 l\u00e4tt svenska).",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin-analyze"
 description: "/cs-linkedin-analyze — Read your own exported LinkedIn post data, report medians and outlier bands rather than misleading means, test candidate patterns against a seeded permutation null with multiple-comparisons accounting, and size a real experiment. Refuses to conclude anything below 10 posts."
 argument-hint: "[path to your LinkedIn post export, or the pattern you think you see]"

@@ -16,7 +16,7 @@
     {
       "name": "agile-product-owner",
       "path": "product-team/agile-product-owner/skills/agile-product-owner",
-      "description": "Agile product ownership for backlog management and sprint execution. Covers user story writing, acceptance criteria, sprint planning, and velocity tracking. Use when writing user stories, creating acceptance criteria, planning sprints, estimating story points, breaking down epics, or prioritizing the backlog.",
+      "description": "Use for backlog work: writing user stories and acceptance criteria, splitting epics, estimating or prioritizing for a sprint. Generates stories with user_story_generator.py.",
       "tools": [
         {
           "script": "product-team/agile-product-owner/skills/agile-product-owner/scripts/user_story_generator.py",
@@ -51,7 +51,7 @@
     {
       "name": "apple-hig-expert",
       "path": "product-team/apple-hig-expert/skills/apple-hig-expert",
-      "description": "Audits and designs iOS/macOS/watchOS/visionOS interfaces against the Apple Human Interface Guidelines, including the Liquid Glass design language (announced WWDC25, shipped with iOS 26/macOS Tahoe, Sept 2025). Use when reviewing an Apple-platform mockup or app for HIG compliance, checking contrast or tap-target sizes, or designing native-feeling Apple UI (e.g., 'audit my iOS app against the HIG', 'is this text readable on Liquid Glass?').",
+      "description": "Use when designing or reviewing iOS, macOS, watchOS or visionOS UI against Apple's Human Interface Guidelines, including Liquid Glass, contrast and tap targets. Checks it with hig_checker.py.",
       "tools": [
         {
           "script": "product-team/apple-hig-expert/skills/apple-hig-expert/scripts/hig_checker.py",
@@ -82,7 +82,7 @@
     {
       "name": "code-to-prd",
       "path": "product-team/code-to-prd/skills/code-to-prd",
-      "description": "Reverse-engineer any codebase into a complete Product Requirements Document (PRD). Analyzes routes, components, state management, API integrations, and user interactions to produce business-readable documentation detailed enough for engineers or AI agents to fully reconstruct every page and endpoint. Works with frontend frameworks (React, Vue, Angular, Svelte, Next.js, Nuxt), backend frameworks (NestJS, Django, Express, FastAPI), and fullstack applications. Use when users mention: generate PRD, reverse-engineer requirements, code to documentation, extract product specs from code, document \u2026",
+      "description": "Use when asked to write a PRD or product spec from an existing codebase (reverse-engineer requirements, document pages, fields, routes and endpoints). Maps the code with codebase_analyzer.py and scaffolds the PRD with prd_scaffolder.py.",
       "tools": [
         {
           "script": "product-team/code-to-prd/skills/code-to-prd/scripts/codebase_analyzer.py",
@@ -124,7 +124,7 @@
     {
       "name": "research-summarizer",
       "path": "product-team/research-summarizer/skills/research-summarizer",
-      "description": "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative analyses, and produces properly formatted citations. Use when: user wants to summarize a research paper, compare multiple sources, extract citations from documents, or create structured research briefs. Plugin for Claude Code, Codex, Gemini CLI, and OpenClaw.",
+      "description": "Use when summarizing a research paper, article or report, comparing several sources or extracting citations into a brief. Formats with format_summary.py and pulls citations with extract_citations.py.",
       "tools": [
         {
           "script": "product-team/research-summarizer/skills/research-summarizer/scripts/extract_citations.py",
@@ -166,7 +166,7 @@
     {
       "name": "competitive-teardown",
       "path": "product-team/skills/competitive-teardown",
-      "description": "Analyzes competitor products and companies by synthesizing data from pricing pages, app store reviews, job postings, SEO signals, and social media into structured competitive intelligence. Produces feature comparison matrices scored across 12 dimensions, SWOT analyses, positioning maps, UX audits, pricing model breakdowns, action item roadmaps, and stakeholder presentation templates. Use when conducting competitor analysis, comparing products against competitors, researching the competitive landscape, building battle cards for sales, preparing for a product strategy or roadmap session \u2026",
+      "description": "Use for a deep competitor teardown (pricing, reviews, hiring, SEO, UX) or a response to a competitor's move. Scores products across 12 dimensions with competitive_matrix_builder.py and produces SWOT and positioning maps.",
       "tools": [
         {
           "script": "product-team/skills/competitive-teardown/scripts/competitive_matrix_builder.py",
@@ -228,7 +228,7 @@
     {
       "name": "landing-page-generator",
       "path": "product-team/skills/landing-page-generator",
-      "description": "Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwind CSS. Creates hero sections, feature grids, pricing tables, FAQ accordions, testimonial blocks, and CTA sections using proven copy frameworks (PAS, AIDA, BAB). Outputs SEO meta tags, structured data, and performance-optimised code targeting Core Web Vitals (LCP under 1s, CLS under 0.1). Use when the user asks to create a landing page, marketing page, homepage, single-page site, lead capture page, campaign page, promo page, or conversion-optimised web page \u2014 or when they want to A/B test landing \u2026",
+      "description": "Use when asked for a landing, marketing or campaign page as a Next.js TSX component with Tailwind. Scaffolds it with landing_page_scaffolder.py using PAS, AIDA or BAB copy, SEO meta and Core Web Vitals targets.",
       "tools": [
         {
           "script": "product-team/skills/landing-page-generator/scripts/landing_page_scaffolder.py",
@@ -319,7 +319,7 @@
     {
       "name": "product-manager-toolkit",
       "path": "product-team/skills/product-manager-toolkit",
-      "description": "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use when prioritizing features, synthesizing user research, writing requirement documentation, or developing product strategy.",
+      "description": "Use for PM tasks: RICE prioritization, customer interview synthesis, PRDs or go-to-market. Scores features with rice_prioritizer.py and analyzes interviews with customer_interview_analyzer.py.",
       "tools": [
         {
           "script": "product-team/skills/product-manager-toolkit/scripts/customer_interview_analyzer.py",
@@ -362,7 +362,7 @@
     {
       "name": "product-skills",
       "path": "product-team/skills/product-skills",
-      "description": "Use when coordinating product work across the 12 bundled product sub-skills (RICE, OKRs, UX research, design tokens, competitive teardown, analytics, experiments, discovery, roadmaps, spec-to-repo, landing pages, SaaS scaffolding) or the 4 standalone product-team plugins (user stories, Apple HIG, code-to-PRD, research summarizer). Triggers on 'help me prioritize', 'plan a product experiment', 'we ship features nobody uses', 'run the discovery loop', 'is our OST sound'. Forks context to route to one sub-skill via a deterministic signal router and returns a digest; can also drive a \u2026",
+      "description": "Use when a product request needs routing across the product-team skills (prioritization, OKRs, UX research, experiments, discovery, roadmaps), or to run the continuous discovery loop. Routes with product_goal_router.py and gates with discovery_cadence_tracker.py and ost_linter.py.",
       "tools": [
         {
           "script": "product-team/skills/product-skills/scripts/discovery_cadence_tracker.py",
@@ -432,7 +432,7 @@
     {
       "name": "product-strategist",
       "path": "product-team/skills/product-strategist",
-      "description": "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product vision documents, and team scaling proposals. Use when creating quarterly OKR documents, defining product goals or KPIs, building product roadmaps, running competitive analysis, drafting team structure or hiring plans, aligning product strategy across engineering and design, or generating cascaded goal hierarchies from company to team level.",
+      "description": "Use for Head of Product work: quarterly OKRs, product vision, roadmap, team structure or aligning product strategy across teams. Cascades OKRs from company to team with okr_cascade_generator.py.",
       "tools": [
         {
           "script": "product-team/skills/product-strategist/scripts/okr_cascade_generator.py",
@@ -493,7 +493,7 @@
     {
       "name": "saas-scaffolder",
       "path": "product-team/skills/saas-scaffolder",
-      "description": "Generates complete, production-ready SaaS project boilerplate including authentication, database schemas, billing integration, API routes, and a working dashboard using Next.js 14+ App Router, TypeScript, Tailwind CSS, shadcn/ui, Drizzle ORM, and Stripe. Use when the user wants to create a new SaaS app, start a subscription-based web project, scaffold a Next.js application, or mentions terms like starter template, boilerplate, new project, or wiring up auth and payments.",
+      "description": "Use when starting a new SaaS app with auth, database, Stripe billing and a dashboard (Next.js App Router, TypeScript, Tailwind, shadcn/ui, Drizzle). Bootstraps it with project_bootstrapper.py.",
       "tools": [
         {
           "script": "product-team/skills/saas-scaffolder/scripts/project_bootstrapper.py",
@@ -555,7 +555,7 @@
     {
       "name": "ui-design-system",
       "path": "product-team/skills/ui-design-system",
-      "description": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use when creating design systems, generating design tokens, maintaining visual consistency, or facilitating design-dev collaboration and developer handoff.",
+      "description": "Use when building a design system: tokens, component docs, responsive scales or developer handoff. Generates tokens with design_token_generator.py.",
       "tools": [
         {
           "script": "product-team/skills/ui-design-system/scripts/design_token_generator.py",
@@ -587,7 +587,7 @@
     {
       "name": "ux-researcher-designer",
       "path": "product-team/skills/ux-researcher-designer",
-      "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Use when conducting user research, creating personas, mapping user journeys, planning usability tests, or validating designs.",
+      "description": "Use for UX research: personas from data, journey maps, usability test plans or research synthesis. Generates personas with persona_generator.py.",
       "tools": [
         {
           "script": "product-team/skills/ux-researcher-designer/scripts/persona_generator.py",

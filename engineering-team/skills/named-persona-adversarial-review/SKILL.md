@@ -1,6 +1,6 @@
 ---
 name: "named-persona-adversarial-review"
-description: "Code review through the lens of real engineers' documented philosophies (Torvalds, Thompson, Carmack, Kent Beck, Jobs, Cagan). Complements abstract-role adversarial review with named, sourced perspectives. Use when automated review findings feel generic, when a PR has architectural or UX impact, or when the author wants pre-submit hardening beyond standard checks."
+description: "Use when a PR has architectural or UX impact, or automated review feels generic, and you want it reviewed through named engineers' documented views (Torvalds, Thompson, Carmack, Beck, Jobs, Cagan). Cites the source for each persona's critique."
 ---
 
 # Named-Persona Adversarial Review
@@ -153,7 +153,7 @@ Inherits all from `adversarial-reviewer`. Plus:
 
 - **Extends:** [`engineering-team/adversarial-reviewer`](../adversarial-reviewer/SKILL.md) — abstract-role adversarial review (simpler, faster, no grounding needed)
 - **Related:** [`engineering-team/code-reviewer`](../code-reviewer/SKILL.md), [`engineering-team/senior-security`](../senior-security/SKILL.md)
-- **Sibling discipline:** [`productivity/andreessen`](../../../productivity/andreessen/skills/andreessen/SKILL.md) — the confidence-level / never-fabricate-a-citation pattern this skill adopts
+- **Sibling discipline:** the `andreessen` plugin — the confidence-level / never-fabricate-a-citation pattern this skill adopts
 - **Sources & confidence per persona:** [`references/persona_principles.md`](references/persona_principles.md)
 - **Theory:** Edward de Bono, *Six Thinking Hats* (1985); Daniel Kahneman, *Thinking, Fast and Slow* (2011) — System-2 forcing via role switching
 

@@ -1,6 +1,6 @@
 ---
 name: linkedin-engagement
-description: Use when someone wants to grow reach through comments, replies, groups, or outreach on LinkedIn — a commenting roster, a connection request note, a DM or InMail, a networking plan, or a check on whether their outreach volume is safe. Triggers on "who should I engage with", "write a connection request", "cold DM", "LinkedIn outreach", "networking strategy", "how many invites can I send". Builds a weekly comment roster inside a real time budget, assembles one message at a time and refuses templates, and caps volume against LinkedIn's limits. Nothing is ever sent.
+description: "Use for LinkedIn comments, connection notes, DMs or outreach plans, or checking outreach volume is safe. Plans targets with comment_target_planner.py, drafts notes with outreach_message_builder.py and checks limits with outreach_volume_guard.py."
 license: MIT
 metadata:
   version: 1.0.0

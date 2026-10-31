@@ -1,6 +1,6 @@
 ---
 name: "app-store-optimization"
-description: App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, generating metadata suggestions, and improving app visibility on Apple App Store and Google Play Store. Use when the user asks about ASO, app store rankings, app metadata, app titles and descriptions, app store listings, app visibility, or mobile app marketing on iOS or Android. Supports keyword research and scoring, competitor keyword analysis, metadata optimization, A/B test planning, launch checklists, and tracking ranking changes.
+description: "Use for any App Store or Google Play listing, keyword, ranking or review question, before writing metadata. Scores the listing with aso_scorer.py and checks keywords, competitors, title and subtitle limits and reviews with its 8 ASO scripts."
 metadata:
   triggers:
     - ASO

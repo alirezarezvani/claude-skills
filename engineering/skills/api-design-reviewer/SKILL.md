@@ -1,6 +1,6 @@
 ---
 name: "api-design-reviewer"
-description: "Comprehensive REST API design review with automated linting, breaking-change detection, and design scorecards. Catches inconsistent conventions, missing versioning, and design smells before APIs ship. Use when reviewing a PR that adds or changes API endpoints, auditing an existing API for v2 migration, or establishing API standards for a team."
+description: "Use for any PR or spec that adds or changes REST endpoints, before approving it. Lints conventions with api_linter.py, detects breaking changes with breaking_change_detector.py and scores the design with api_scorecard.py."
 ---
 
 # API Design Reviewer
@@ -431,3 +431,10 @@ fi
 
 
 Regular use of the linting, breaking change detection, and scoring tools ensures continuous improvement and helps maintain API quality throughout the development lifecycle.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/api_antipatterns.md](references/api_antipatterns.md) — Common API Anti-Patterns and How to Avoid Them
+- [references/rest_design_rules.md](references/rest_design_rules.md) — REST API Design Rules Reference

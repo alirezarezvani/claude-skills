@@ -1,6 +1,6 @@
 ---
 name: "senior-secops"
-description: Senior SecOps engineer skill for application security, vulnerability management, compliance verification, and secure development practices. Runs SAST/DAST scans, generates CVE remediation plans, checks dependency vulnerabilities, creates security policies, enforces secure coding patterns, and automates compliance checks against SOC2, PCI-DSS, HIPAA, and GDPR. Use when conducting a security review or audit, responding to a CVE or security incident, hardening infrastructure, implementing authentication or secrets management, running penetration test prep, checking OWASP Top 10 exposure, or enforcing security controls in CI/CD pipelines.
+description: "Use for application security operations: security reviews, CVE remediation, hardening, secrets and auth, or SOC 2, PCI-DSS, HIPAA and GDPR checks. Scans with security_scanner.py, assesses CVEs with vulnerability_assessor.py and checks controls with compliance_checker.py."
 ---
 
 # Senior SecOps Engineer

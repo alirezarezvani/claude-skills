@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-deep-work"
 description: "/cs-deep-work — Plan a deep work day the Cal Newport way: audit the task list deep vs shallow against a budget, build an energy-first time-blocked schedule with a hard 4-hour deep ceiling and an immovable hard stop, then log focus sessions and close with the shutdown ritual."
 argument-hint: "[today's task list, with rough minutes per task]"

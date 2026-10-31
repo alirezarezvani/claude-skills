@@ -1,6 +1,6 @@
 ---
 name: passive-deal-screener
-description: "Screens private investment opportunities from the passive LP (limited-partner) perspective — equity syndications, preferred equity, hard money / bridge funds, and private credit — pasted from any source (an investment platform listing, a direct GP email, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review a real-estate or private-market deal, syndication, offering, or investment opportunity — e.g. 'is this deal worth pursuing', 'what should I ask the GP', 'analyze this offering memo'. LP lens only; not operator-side underwriting (acquisition/development/asset-management). For corporate-finance DCF/ratio work use financial-analyst."
+description: "Use when a passive investor shares a private deal (syndication, preferred equity, bridge fund, private credit) to screen as an LP. Stress-tests it, computes fee drag with fee_drag_calculator.py and compares terms with benchmark_comparator.py."
 ---
 
 # Passive Deal Screener

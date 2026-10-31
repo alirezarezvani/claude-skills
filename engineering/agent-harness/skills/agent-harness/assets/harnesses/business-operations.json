@@ -16,7 +16,7 @@
     {
       "name": "business-operations-skills",
       "path": "business-operations/skills/business-operations-skills",
-      "description": "Use when running, diagnosing, or designing internal business operations \u2014 process documentation, vendor SLAs, capacity planning, internal comms, SOP/runbook authoring, procurement spend. Triggers on \"BizOps review\", \"where's the bottleneck\", \"vendor health\", \"internal SOP\", \"all-hands deck\", \"spend categorization\", \"capacity for Q3\", \"process mapping\". Forks context to route to one of six BizOps sub-skills (process-mapper, vendor-management, capacity-planner, internal-comms, knowledge-ops, procurement-optimizer) and returns a digest. Distinct from business-growth (external sales motion) and \u2026",
+      "description": "Use when an internal operations request needs routing (process, vendors, capacity, internal comms, SOPs, procurement): 'where's the bottleneck', 'vendor health'. Lists the BizOps skills and routes to one.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,
@@ -30,7 +30,7 @@
     {
       "name": "capacity-planner",
       "path": "business-operations/skills/capacity-planner",
-      "description": "Use when an ops leader (Director of CX, Head of Support, VP Ops, Head of BizOps, Head of IT ops, Head of Finance ops) is sizing ops capacity, building a headcount plan, modeling utilization risk, planning Q3 capacity or annual support capacity, or designing CS coverage \u2014 and needs Erlang-C queueing math, P90 demand sizing, shrinkage-adjusted FTE, manager-trigger thresholds, and a quarterly hiring sequence with ramp + attrition. Apply when sustained team utilization is above 80% or when the team is growing more than 50% in 12 months. Run before committing the headcount budget. This is NOT \u2026",
+      "description": "Use when sizing an ops or support team, building a headcount plan or checking utilization risk. Models queues with Erlang C in capacity_modeler.py, analyzes utilization with utilization_analyzer.py and orders hires with hiring_sequencer.py.",
       "tools": [
         {
           "script": "business-operations/skills/capacity-planner/scripts/capacity_modeler.py",
@@ -100,7 +100,7 @@
     {
       "name": "internal-comms",
       "path": "business-operations/skills/internal-comms",
-      "description": "Use when a Head of People Ops, BizOps lead, or Internal Communications owner needs to draft and sequence an internal-only change-management communication \u2014 a re-org announcement, a tool rollout, a policy change, a leadership transition, a layoff, an acquisition close, or an internal product launch \u2014 and the audience is employees (not customers). Pairs Prosci ADKAR and Kotter's 8-step change model with deterministic stdlib-only Python tools to produce a sequenced touchpoint calendar, a Kotter-compliant primary announcement, an audience-segmented FAQ, and manager cascade talking points \u2026",
+      "description": "Use when announcing a reorg, tool rollout, policy change, leadership change, layoff or acquisition internally. Builds the announcement with change_announcement_builder.py and sequences it with comms_calendar_builder.py.",
       "tools": [
         {
           "script": "business-operations/skills/internal-comms/scripts/change_announcement_builder.py",
@@ -170,7 +170,7 @@
     {
       "name": "knowledge-ops",
       "path": "business-operations/skills/knowledge-ops",
-      "description": "Use when a Head of Ops, Knowledge Manager, or TPM-Internal needs to author, validate, or clean up company SOPs and internal runbooks (procurement intake, vendor offboarding, incident-comms cascade, employee onboarding) \u2014 including 5W2H completeness checks (Who-What-When-Where-Why-How-HowMuch), cross-link and orphan-page validation across a sprawling Notion/Confluence/Obsidian wiki, KB ingestion + hygiene reporting, and runbook step verification (named owner, expected duration, observable success signal, rollback path, escalation contact). Pairs Ishikawa's 5W2H method, Gawande's *The \u2026",
+      "description": "Use when writing, checking or cleaning up SOPs and runbooks. Generates them with sop_generator.py, checks 5W2H completeness and links with runbook_validator.py and ingests an existing knowledge base with kb_ingester.py.",
       "tools": [
         {
           "script": "business-operations/skills/knowledge-ops/scripts/kb_ingester.py",
@@ -240,7 +240,7 @@
     {
       "name": "process-mapper",
       "path": "business-operations/skills/process-mapper",
-      "description": "Use when a BizOps lead, COO, or process-improvement owner needs to document an end-to-end business process (procurement, employee onboarding, incident handoff, customer-onboarding, claims adjudication) in BPMN-style notation, measure cycle times by stage, surface where work spends most of its time waiting vs. being worked, and quantify the gap between processing time and total elapsed time. Pairs Lean / Six Sigma / Theory-of-Constraints canon with deterministic stdlib-only Python tools to produce a process map, a ranked bottleneck list (with severity + root-cause hypothesis), and a \u2026",
+      "description": "Use when documenting an end-to-end business process (procurement, onboarding, handoffs) and finding where work waits. Maps it with process_documenter.py, measures stages with cycle_time_analyzer.py and finds bottlenecks with bottleneck_detector.py.",
       "tools": [
         {
           "script": "business-operations/skills/process-mapper/scripts/bottleneck_detector.py",
@@ -310,7 +310,7 @@
     {
       "name": "procurement-optimizer",
       "path": "business-operations/skills/procurement-optimizer",
-      "description": "Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base \u2014 when the user needs a spend audit, spend categorization (UNSPSC-aligned with Pareto breakdown and industry profiles), purchasing-cycle analysis (bottleneck categories per Goldratt's Theory of Constraints), or risk-balanced supplier consolidation that refuses single-source recommendations for tier-1 categories without a documented break-glass plan. Triggers on \"spend audit\", \"SaaS audit\", \"spend categorization\", \"supplier rationalization\", \"supplier consolidation\", \"category \u2026",
+      "description": "Use for a SaaS audit, category spend review or supplier consolidation. Categorizes spend with spend_categorizer.py, finds slow purchasing with purchasing_cycle_analyzer.py and sizes consolidation with supplier_consolidation.py.",
       "tools": [
         {
           "script": "business-operations/skills/procurement-optimizer/scripts/purchasing_cycle_analyzer.py",
@@ -380,7 +380,7 @@
     {
       "name": "vendor-management",
       "path": "business-operations/skills/vendor-management",
-      "description": "Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships \u2014 running a vendor scorecard with industry tuning, tracking SLA compliance with credit-claim flags, classifying third-party risk across 4 risk vectors, preparing a tier-1 vendor review, or auditing the SaaS portfolio. Forks context so large vendor catalogs (50-500 line items) and SLA logs don't pollute the parent thread. Triggers on \"vendor SLA\", \"vendor scorecard\", \"third-party risk\", \"TPRM\", \"vendor review\", \"supplier performance\", \"vendor health check\", \"renewal review\".",
+      "description": "Use when scoring or auditing vendors: scorecards, SLA compliance and service credits, third-party risk tier or a tier-1 vendor review. Runs vendor_scorer.py, sla_compliance_tracker.py and vendor_risk_classifier.py.",
       "tools": [
         {
           "script": "business-operations/skills/vendor-management/scripts/sla_compliance_tracker.py",

@@ -1,6 +1,6 @@
 ---
 name: "gcp-cloud-architect"
-description: "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization."
+description: "Use when designing or costing a Google Cloud architecture (Cloud Run, GKE, Functions, Cloud SQL, BigQuery, migration to GCP). Designs it with architecture_designer.py, deploys with deployment_manager.py and finds savings with cost_optimizer.py."
 ---
 
 # GCP Cloud Architect

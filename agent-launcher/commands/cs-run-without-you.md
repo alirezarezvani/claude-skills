@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Phase 4 — make the agent run without you. Turn a graded agent into a recurring POSIX-cron scheduled deployment (optionally self-grading each firing), an event-driven curl trigger, or on-demand use, then finalize NEXT-DIRECTIONS, via the run-without-you skill. Tests with a manual run before trusting the schedule.
 argument-hint: "[optional: cron expression, e.g. \"0 9 * * *\"]"
 ---

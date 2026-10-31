@@ -1,6 +1,6 @@
 ---
 name: "board"
-description: "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect coordination messages between competing AgentHub agents."
+description: "Use for /hub:board, or to post or read messages on the AgentHub coordination board between competing agents."
 metadata:
   command: /hub:board
 ---

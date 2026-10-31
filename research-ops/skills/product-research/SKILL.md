@@ -1,6 +1,6 @@
 ---
 name: product-research
-description: Use when planning and synthesizing product/user research as a method-and-repository discipline — selecting the right method for the goal (generative interviews vs usability test vs concept test vs validation), computing method-based saturation/sample size with an explicit confidence level, or synthesizing coded observations into insights while flagging single-source anecdotes. Never fabricates user insight; an insight requires recurrence across independent participants. Distinct from product-team/ux-researcher-designer (persona/journey artifacts), product-discovery (discovery-sprint planning), and experiment-designer (live A/B) — this is the research-ops method + insight-repository layer.
+description: "Use when planning or synthesizing user research: choosing the method, deciding how many participants, or turning coded notes into insights. Runs study_designer.py, saturation_planner.py and insight_synthesizer.py, which refuses single-source insights."
 license: MIT
 metadata:
   version: 2.9.0

@@ -1,7 +1,7 @@
 {
   "name": "grill-with-docs",
   "description": "Docs-anchored grilling session — interrogates a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), updating those files inline as terminology and decisions crystallise. Derived from Matt Pocock's MIT-licensed grill-with-docs skill (https://github.com/mattpocock/skills) with: (1) 3 stdlib Python tools (CONTEXT.md linter, ADR scanner, glossary-to-code consistency check), (2) 3 reference docs each citing 7+ authoritative sources on ubiquitous language, ADR practice, and CONTEXT.md as a living artifact, (3) cs-grill-with-docs persona agent + /cs-grill-with-docs slash command. Matt's interview discipline + domain-awareness rules + ADR-when-3-criteria-are-met gate preserved verbatim per MIT.",
-  "version": "2.14.1",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

@@ -16,7 +16,7 @@
     {
       "name": "atlassian-admin",
       "path": "project-management/skills/atlassian-admin",
-      "description": "Atlassian Administrator for managing and organizing Atlassian products (Jira, Confluence, Bitbucket, Trello), users, permissions, security, integrations, system configuration, and org-wide governance. Use when asked to add users to Jira, change Confluence permissions, configure access control, update admin settings, manage Atlassian groups, set up SSO, install marketplace apps, review security policies, or handle any org-wide Atlassian administration task.",
+      "description": "Use for Atlassian org administration: Jira or Confluence users and groups, permissions, SSO, marketplace apps or security policy. Audits permissions with permission_audit_tool.py.",
       "tools": [
         {
           "script": "project-management/skills/atlassian-admin/scripts/permission_audit_tool.py",
@@ -46,7 +46,7 @@
     {
       "name": "atlassian-templates",
       "path": "project-management/skills/atlassian-templates",
-      "description": "Atlassian Template and Files Creator/Modifier expert for creating, modifying, and managing Jira and Confluence templates, blueprints, custom layouts, reusable components, and standardized content structures. Use when building org-wide templates, custom blueprints, page layouts, and automated content generation.",
+      "description": "Use when creating or changing Jira or Confluence templates, blueprints or page layouts for reuse across the org. Scaffolds them with template_scaffolder.py.",
       "tools": [
         {
           "script": "project-management/skills/atlassian-templates/scripts/template_scaffolder.py",
@@ -76,7 +76,7 @@
     {
       "name": "confluence-expert",
       "path": "project-management/skills/confluence-expert",
-      "description": "Atlassian Confluence expert for creating and managing spaces, knowledge bases, and documentation. Configures space permissions and hierarchies, creates page templates with macros, sets up documentation taxonomies, designs page layouts, and manages content governance. Use when users need to build or restructure a Confluence space, design page hierarchies with permission structures, author or standardise documentation templates, embed Jira reports in pages, run knowledge base audits, or establish documentation standards and collaborative workflows.",
+      "description": "Use when building or restructuring a Confluence space: page hierarchy, permissions, templates, Jira macros or a content audit. Generates structure with space_structure_generator.py and audits with content_audit_analyzer.py.",
       "tools": [
         {
           "script": "project-management/skills/confluence-expert/scripts/content_audit_analyzer.py",
@@ -119,7 +119,7 @@
     {
       "name": "jira-expert",
       "path": "project-management/skills/jira-expert",
-      "description": "Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use when setting up or configuring Jira projects, writing JQL and advanced searches, creating dashboards, designing workflows, or performing technical Jira operations.",
+      "description": "Use for Jira configuration and queries: JQL, workflows, custom fields, automation, dashboards. Builds JQL with jql_query_builder.py and checks workflows with workflow_validator.py.",
       "tools": [
         {
           "script": "project-management/skills/jira-expert/scripts/jql_query_builder.py",
@@ -163,7 +163,7 @@
     {
       "name": "meeting-analyzer",
       "path": "project-management/skills/meeting-analyzer",
-      "description": "Analyzes meeting transcripts and recordings to surface behavioral patterns, communication anti-patterns, and actionable coaching feedback. Use this skill whenever the user uploads or points to meeting transcripts (.txt, .md, .vtt, .srt, .docx), asks about their communication habits, wants feedback on how they run meetings, requests speaking ratio analysis, mentions filler words or conflict avoidance, or wants to compare their communication across time periods. Also trigger when users mention tools like Granola, Otter, Fireflies, or Zoom transcripts. Even if the user just says \"look at my \u2026",
+      "description": "Use when the user shares meeting transcripts (.vtt, .srt, .txt, Otter, Granola, Zoom) or asks how they come across in meetings. Measures speaking ratio, filler words and avoidance patterns and gives coaching.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -177,7 +177,7 @@
     {
       "name": "pm-skills",
       "path": "project-management/skills/pm-skills",
-      "description": "Use when coordinating project-delivery work across the 8 project-management sub-skills \u2014 sprint/velocity analytics, portfolio health, Jira/JQL, Confluence, Atlassian admin, templates, meeting analysis, team comms. Triggers on 'our sprints feel off', 'project health report', 'audit our Jira permissions', 'when will it be done', 'run the delivery loop'. Forks context to route to one sub-skill via a deterministic signal router and returns a digest; can also drive a full goal\u2192plan\u2192execute\u2192verify\u2192close delivery loop through the repo-wide agent-harness with Jira MCP data bridged into the domain's \u2026",
+      "description": "Use when a delivery request needs routing across the project-management skills (sprints, portfolio health, Jira, Confluence, comms), or to run a delivery loop. Routes with pm_goal_router.py, bridges Jira data with jira_snapshot_bridge.py and gates with delivery_loop_gate.py.",
       "tools": [
         {
           "script": "project-management/skills/pm-skills/scripts/delivery_loop_gate.py",
@@ -247,7 +247,7 @@
     {
       "name": "scrum-master",
       "path": "project-management/skills/scrum-master",
-      "description": "Advanced Scrum Master skill for data-driven agile team analysis and coaching. Use when the user asks about sprint planning, velocity tracking, retrospectives, standup facilitation, backlog grooming, story points, burndown charts, blocker resolution, or agile team health. Runs Python scripts to analyse sprint JSON exports from Jira or similar tools: velocity_analyzer.py for Monte Carlo sprint forecasting, sprint_health_scorer.py for multi-dimension health scoring, and retrospective_analyzer.py for action-item and theme tracking. Produces confidence-interval forecasts, health grade reports \u2026",
+      "description": "Use for sprint and team analytics: velocity forecasts, sprint health, retrospectives, burndown or blockers. Forecasts with velocity_analyzer.py (Monte Carlo), scores with sprint_health_scorer.py and tracks retro actions with retrospective_analyzer.py.",
       "tools": [
         {
           "script": "project-management/skills/scrum-master/scripts/retrospective_analyzer.py",
@@ -302,7 +302,7 @@
     {
       "name": "senior-pm",
       "path": "project-management/skills/senior-pm",
-      "description": "Senior Project Manager for enterprise software, SaaS, and digital transformation projects. Specializes in portfolio management, quantitative risk analysis, resource optimization, stakeholder alignment, and executive reporting. Uses advanced methodologies including EMV analysis, Monte Carlo simulation, WSJF prioritization, and multi-dimensional health scoring. Use when a user needs help with project plans, project status reports, risk assessments, resource allocation, project roadmaps, milestone tracking, team capacity planning, portfolio health reviews, program management, or \u2026",
+      "description": "Use for project or portfolio management: plans, status reports, risk registers, capacity or executive reporting on multi-workstream programs. Runs project_health_dashboard.py, risk_matrix_analyzer.py and resource_capacity_planner.py.",
       "tools": [
         {
           "script": "project-management/skills/senior-pm/scripts/project_health_dashboard.py",
@@ -357,7 +357,7 @@
     {
       "name": "team-communications",
       "path": "project-management/skills/team-communications",
-      "description": "Write internal company communications \u2014 3P updates (Progress/Plans/Problems), company-wide newsletters, FAQ roundups, incident reports, leadership updates, status reports, project updates, and general internal comms. Use this skill any time the user asks to draft, edit, or format something meant for internal audiences. Trigger on keywords like \"3P\", \"weekly update\", \"newsletter\", \"FAQ\", \"internal comms\", \"status report\", \"company update\", \"team update\", \"incident report\", or any request to summarize work for leadership, teammates, or the broader company. Even casual requests like \"write my \u2026",
+      "description": "Use for any internal communication: 3P updates, weekly or status reports, newsletters, FAQs, incident reports, leadership updates ('write my update'). Drafts it in the right format for the audience.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-research"
 description: "/cs-research <question> — Default research entry point. Hybrid router: classifies question deterministically and either delegates to specialist (pulse / grants / litreview / dossier / patent / syllabus) OR runs own plan-decompose-search-synthesize fallback. Always surfaces routing decision; accepts override. NEVER silent delegation."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-linkedin-post"
 description: "/cs-linkedin-post — Pick the format the material actually supports, draft to the ~140-character mobile fold, and lint 0-100 across mechanics, hook, integrity, and accessibility. Blocking findings for the 3,000-character cap, engagement bait, and Unicode pseudo-bold."
 argument-hint: "[the post idea, or paste a draft to be reviewed]"

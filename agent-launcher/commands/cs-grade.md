@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Phase 3 — the bounded grade→iterate loop. Define a CMA outcome (required rubric, max_iterations 1..20), read each grader verdict, decide the next move, and run held-back eval cases once a version passes, via the grade-iterate skill. Never unbounded.
 argument-hint: "[optional: path to build-sheet.json]"
 ---

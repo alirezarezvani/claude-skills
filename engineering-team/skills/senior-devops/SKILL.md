@@ -1,6 +1,6 @@
 ---
 name: "senior-devops"
-description: Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes.
+description: "Use for CI/CD pipelines, infrastructure as code, containers and deployments on AWS, GCP or Azure. Generates pipelines with pipeline_generator.py, scaffolds Terraform with terraform_scaffolder.py and manages releases with deployment_manager.py."
 ---
 
 # Senior Devops

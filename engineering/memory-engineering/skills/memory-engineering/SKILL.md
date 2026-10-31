@@ -1,6 +1,6 @@
 ---
 name: memory-engineering
-description: Use when designing, reviewing, or paying for an agent memory system — adding memory to an agent, choosing between long-context / RAG / graph / agentic memory, auditing what a CLAUDE.md or memory directory actually holds, deciding what to keep and what to expire, or when a memory store keeps growing and nobody has said what leaves it. Prices the write path, picks which cost to pay, classifies records as facts / skills / logs, and refuses a design that has no forgetting policy.
+description: "Use before adding memory to an agent or when a memory store keeps growing (long context vs RAG vs graph vs agentic memory, what to expire). Prices the design with memory_cost_profiler.py and refuses one without a forgetting policy via forgetting_policy_linter.py."
 argument-hint: "[optional: path to a memory dir, design spec JSON, or a question]"
 license: MIT
 metadata:

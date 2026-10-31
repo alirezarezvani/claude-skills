@@ -1,6 +1,6 @@
 ---
 name: procurement-optimizer
-description: Use when running an annual SaaS audit, doing category-level spend review, or rationalizing the supplier base — when the user needs a spend audit, spend categorization (UNSPSC-aligned with Pareto breakdown and industry profiles), purchasing-cycle analysis (bottleneck categories per Goldratt's Theory of Constraints), or risk-balanced supplier consolidation that refuses single-source recommendations for tier-1 categories without a documented break-glass plan. Triggers on "spend audit", "SaaS audit", "spend categorization", "supplier rationalization", "supplier consolidation", "category strategy", "duplicate SaaS", "renewal cluster".
+description: "Use for a SaaS audit, category spend review or supplier consolidation. Categorizes spend with spend_categorizer.py, finds slow purchasing with purchasing_cycle_analyzer.py and sizes consolidation with supplier_consolidation.py."
 license: MIT
 metadata:
   version: 2.8.0

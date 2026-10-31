@@ -1,6 +1,6 @@
 ---
 name: "strict-api"
-description: "Use when the user says 'no hallucinations', 'verify APIs', 'reality check', or 'don't invent functions'. Prevents the agent from calling methods, imports, or variables that do not provably exist in the user's installed version."
+description: "Use when the user says 'no hallucinations', 'verify APIs' or 'don't invent functions', or code depends on a library version you have not checked. Requires proof that every method, import and variable exists in the installed version before using it."
 ---
 
 # Strict API Verification

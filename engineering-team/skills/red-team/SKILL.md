@@ -1,6 +1,6 @@
 ---
 name: "red-team"
-description: "Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting."
+description: "Use when planning or running an authorized red team engagement or attack path analysis. Plans the kill chain with engagement_planner.py: MITRE ATT&CK techniques, choke points, OPSEC risk and crown jewels."
 ---
 
 # Red Team

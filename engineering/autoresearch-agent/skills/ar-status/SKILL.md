@@ -1,6 +1,6 @@
 ---
 name: "ar-status"
-description: "Show experiment dashboard with results, active loops, and progress. Use when the user runs /ar:ar-status or asks how an autoresearch experiment is going."
+description: "Use for /ar:ar-status, or to see an autoresearch experiment's results, active loops and progress."
 metadata:
   command: /ar:ar-status
 ---

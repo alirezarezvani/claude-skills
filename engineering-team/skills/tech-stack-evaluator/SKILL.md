@@ -1,6 +1,6 @@
 ---
 name: "tech-stack-evaluator"
-description: Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability.
+description: "Use when comparing frameworks or technology stacks, or deciding on a migration, before committing. Compares with stack_comparator.py, computes TCO with tco_calculator.py, scores ecosystem health with ecosystem_analyzer.py and assesses migration with migration_analyzer.py."
 ---
 
 # Technology Stack Evaluator

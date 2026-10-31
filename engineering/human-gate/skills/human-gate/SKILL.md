@@ -1,6 +1,6 @@
 ---
 name: human-gate
-description: "Runs the human-verification lane of an agent loop, and proves review happened before work is called done. Builds a single-file HTML review page, collects batched feedback as a structured artifact instead of chat prose, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed at all. Use when a plan, spec, RFC, report, landing page, migration, or any irreversible action needs human sign-off before shipping, or on requests such as 'get sign-off', 'have someone check this', 'hold until reviewed', 'needs approval first'. NOT for making AI text sound human (use content-humanizer or behuman). NOT for reviewing code diffs (use md-review or code-reviewer)."
+description: "Use before shipping anything that needs human sign-off (a plan, spec, report, page, migration or irreversible action). Builds a review page with review_page_builder.py and runs human_gate.py, which refuses to close with an open blocker or no named reviewer."
 license: MIT
 metadata:
   version: 1.0.0
@@ -98,3 +98,11 @@ Reasoning lives in `references/` — human-in-the-loop canon, feedback batching,
 Conceptual derivation of the batched-review pattern from
 [`petergyang/human-review`](https://github.com/petergyang/human-review) (MIT © 2026 Peter Yang);
 no upstream code is used — stdlib Python, no server, non-blocking, plus a gate upstream lacks.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/feedback_batching.md](references/feedback_batching.md) — Batched, anchored feedback: why the artifact beats the message
+- [references/human_in_the_loop_canon.md](references/human_in_the_loop_canon.md) — Human-in-the-loop review: the canon
+- [references/review_loop_discipline.md](references/review_loop_discipline.md) — Review-loop discipline: waiting, capping, escalating

@@ -1,6 +1,6 @@
 ---
 name: "boardroom"
-description: "/c-level-agents:boardroom [brief] — 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo. Use when a decision spans multiple executive domains — e.g. a pricing change touching finance, positioning, and product, or a raise-vs-cut runway call."
+description: "Use for /c-level-agents:boardroom, or a decision spanning several executive domains (a pricing change, raise vs cut). Runs a 6-phase C-suite deliberation and writes a board memo."
 ---
 
 # /c-level-agents:boardroom — Multi-Role Boardroom Deliberation
@@ -127,7 +127,7 @@ If advisors see each other's positions before forming their own, they anchor. Ph
 ## Related
 
 - Agent: [`cs-chief-of-staff`](../../agents/cs-chief-of-staff.md)
-- Skills: [`board-meeting`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/SKILL.md), [`executive-mentor`](../../../c-level-advisor/executive-mentor/)
+- Skills: [`board-meeting`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/board-meeting/SKILL.md), [`executive-mentor`](${CLAUDE_PLUGIN_ROOT}/vendor/c-level-advisor/executive-mentor/executive-mentor/SKILL.md)
 
 ---
 

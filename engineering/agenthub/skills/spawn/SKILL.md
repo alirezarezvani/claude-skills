@@ -1,6 +1,6 @@
 ---
 name: "spawn"
-description: "Launch N parallel subagents in isolated git worktrees to compete on the session task. Use when the user runs /hub:spawn or asks to start the competing agents for an initialized AgentHub session."
+description: "Use for /hub:spawn, or to launch the competing agents for an initialized AgentHub session in isolated worktrees."
 metadata:
   command: /hub:spawn
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Activate the claude-coach skill — personal Claude power-user coaching for the rest of the conversation.
 argument-hint: "[use cases, e.g. 'writing, coding']"
 ---

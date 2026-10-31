@@ -16,7 +16,7 @@
     {
       "name": "a11y-audit",
       "path": "engineering-team/a11y-audit/skills/a11y-audit",
-      "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility, fixing a11y violations, checking color contrast, generating compliance reports, or integrating accessibility checks into CI/CD pipelines.",
+      "description": "Use for any accessibility audit or a11y fix (WCAG 2.2 A/AA, color contrast, compliance report, CI check) in React, Next.js, Vue, Angular, Svelte or HTML. Scans with a11y_scanner.py and checks contrast with contrast_checker.py, then fixes and re-verifies.",
       "tools": [
         {
           "script": "engineering-team/a11y-audit/skills/a11y-audit/scripts/a11y_scanner.py",
@@ -70,7 +70,7 @@
     {
       "name": "google-workspace-cli",
       "path": "engineering-team/google-workspace-cli/skills/google-workspace-cli",
-      "description": "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits and use local recipe templates and persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling.",
+      "description": "Use for Google Workspace admin or automation from the gws CLI (Gmail, Drive, Sheets, Calendar, Docs, Chat, Tasks). Sets up auth with auth_setup_guide.py, diagnoses with gws_doctor.py, runs recipes with gws_recipe_runner.py and audits security with workspace_audit.py.",
       "tools": [
         {
           "script": "engineering-team/google-workspace-cli/skills/google-workspace-cli/scripts/auth_setup_guide.py",
@@ -219,7 +219,7 @@
     {
       "name": "playwright-pro",
       "path": "engineering-team/playwright-pro/skills/pw",
-      "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting.",
+      "description": "Use for any Playwright or end-to-end browser testing work: writing tests, fixing flaky ones, migrating from Cypress or Selenium, CI setup, TestRail or BrowserStack. Routes to the matching /pw sub-skill and its 55 templates.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -373,7 +373,7 @@
     {
       "name": "adversarial-reviewer",
       "path": "engineering-team/skills/adversarial-reviewer",
-      "description": "Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer.",
+      "description": "Use before merging a PR or when a self-review feels too agreeable and the change needs a genuinely critical read. Reviews the diff through hostile reviewer personas that catch blind spots the author and a friendly reviewer share.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -387,7 +387,7 @@
     {
       "name": "ai-security",
       "path": "engineering-team/skills/ai-security",
-      "description": "Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring.",
+      "description": "Use when assessing an AI/ML system or LLM agent for prompt injection, jailbreaks, model inversion, data poisoning or tool abuse. Maps findings to MITRE ATLAS and scores robustness with ai_threat_scanner.py.",
       "tools": [
         {
           "script": "engineering-team/skills/ai-security/scripts/ai_threat_scanner.py",
@@ -416,7 +416,7 @@
     {
       "name": "aws-solution-architect",
       "path": "engineering-team/skills/aws-solution-architect",
-      "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization.",
+      "description": "Use when designing or costing an AWS architecture (serverless, Lambda, API Gateway, DynamoDB, ECS, Aurora, CloudFormation, migration to AWS). Designs it with architecture_designer.py, generates stacks with serverless_stack.py and finds savings with cost_optimizer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/aws-solution-architect/scripts/architecture_designer.py",
@@ -471,7 +471,7 @@
     {
       "name": "azure-cloud-architect",
       "path": "engineering-team/skills/azure-cloud-architect",
-      "description": "Design Azure architectures for startups and enterprises. Use when asked to design Azure infrastructure, create Bicep/ARM templates, optimize Azure costs, set up Azure DevOps pipelines, or migrate to Azure. Covers AKS, App Service, Azure Functions, Cosmos DB, and cost optimization.",
+      "description": "Use when designing or costing an Azure architecture (AKS, App Service, Functions, Cosmos DB, Bicep or ARM, Azure DevOps, migration to Azure). Designs it with architecture_designer.py, generates Bicep with bicep_generator.py and finds savings with cost_optimizer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/azure-cloud-architect/scripts/architecture_designer.py",
@@ -526,7 +526,7 @@
     {
       "name": "cloud-security",
       "path": "engineering-team/skills/cloud-security",
-      "description": "Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping.",
+      "description": "Use when checking AWS, Azure or GCP for security misconfigurations: IAM privilege escalation, public buckets, open security groups, IaC gaps. Runs cloud_posture_check.py and maps findings to MITRE ATT&CK.",
       "tools": [
         {
           "script": "engineering-team/skills/cloud-security/scripts/cloud_posture_check.py",
@@ -606,7 +606,7 @@
     {
       "name": "email-template-builder",
       "path": "engineering-team/skills/email-template-builder",
-      "description": "Build complete transactional email systems: React Email templates, provider integration (Resend, Postmark, SendGrid, AWS SES), preview server, i18n support, dark mode, spam optimization, analytics tracking. Use when adding transactional email to a new product, migrating between email providers, refactoring legacy email templates for accessibility, or adding internationalization to existing templates.",
+      "description": "Use when adding or reworking transactional email (React Email templates, Resend, Postmark, SendGrid or SES, preview, i18n, dark mode, deliverability). Builds the template system and provider integration end to end.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -620,7 +620,7 @@
     {
       "name": "embedded-iot-mentor",
       "path": "engineering-team/skills/embedded-iot-mentor",
-      "description": "Mentor for embedded and IoT hardware projects. Helps select MCUs, dev boards, and toolchains, decides where sensor readings end up (phone, PC, dashboard, or alert), and gives time/cost estimates and a phased build plan from breadboard MVP to production PCB. Use when the user mentions embedded, IoT, microcontroller, ESP32, STM32, Arduino, Raspberry Pi Pico, firmware, PCB, KiCad, EasyEDA, PlatformIO, MQTT, Home Assistant, ESPHome, Grafana, an IoT dashboard, seeing sensor data on a phone, or asks for hardware tool recommendations, project planning, or cost/time estimates for an electronics \u2026",
+      "description": "Use for any embedded or IoT hardware project (ESP32, STM32, Arduino, Pico, firmware, PCB, MQTT, Home Assistant, sensor dashboards), before buying parts. Picks the MCU, board and toolchain, decides where readings go and gives a phased build plan with time and cost.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,
@@ -636,7 +636,7 @@
     {
       "name": "engineering-skills",
       "path": "engineering-team/skills/engineering-skills",
-      "description": "Index of the engineering-team skills bundle for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365 (stdlib-only Python tools). Use when browsing or choosing among engineering-team role skills \u2014 load only the one specialist SKILL.md you need, never bulk-load the bundle.",
+      "description": "Use when looking for which engineering-team skill fits a task (architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud). Lists them and routes to one; load only that skill.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -687,7 +687,7 @@
     {
       "name": "gcp-cloud-architect",
       "path": "engineering-team/skills/gcp-cloud-architect",
-      "description": "Design GCP architectures for startups and enterprises. Use when asked to design Google Cloud infrastructure, deploy to GKE or Cloud Run, configure BigQuery pipelines, optimize GCP costs, or migrate to GCP. Covers Cloud Run, GKE, Cloud Functions, Cloud SQL, BigQuery, and cost optimization.",
+      "description": "Use when designing or costing a Google Cloud architecture (Cloud Run, GKE, Functions, Cloud SQL, BigQuery, migration to GCP). Designs it with architecture_designer.py, deploys with deployment_manager.py and finds savings with cost_optimizer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/gcp-cloud-architect/scripts/architecture_designer.py",
@@ -742,7 +742,7 @@
     {
       "name": "incident-commander",
       "path": "engineering-team/skills/incident-commander",
-      "description": "Comprehensive incident response framework from detection through resolution and post-incident review. Battle-tested SRE/DevOps practices: severity classification, timeline reconstruction, structured post-incident analysis. Use when declaring an incident, coordinating multi-team response during an outage, leading a post-mortem, or setting up on-call practices for a new service.",
+      "description": "Use when declaring or running a production incident or outage, or writing its post-incident review. Classifies severity with incident_classifier.py, rebuilds the timeline with timeline_reconstructor.py and drafts the PIR with pir_generator.py. Security incidents: incident-response.",
       "tools": [
         {
           "script": "engineering-team/skills/incident-commander/scripts/incident_classifier.py",
@@ -800,7 +800,7 @@
     {
       "name": "incident-response",
       "path": "engineering-team/skills/incident-response",
-      "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle.",
+      "description": "Use when a security incident is detected or suspected and needs triage, SEV1-SEV4 classification, escalation and forensic evidence collection. Runs incident_triage.py and follows the NIST SP 800-61 lifecycle. Outages: incident-commander.",
       "tools": [
         {
           "script": "engineering-team/skills/incident-response/scripts/incident_triage.py",
@@ -834,7 +834,7 @@
     {
       "name": "ms365-tenant-manager",
       "path": "engineering-team/skills/ms365-tenant-manager",
-      "description": "Microsoft 365 tenant administration for Global Administrators. Automate M365 tenant setup, Office 365 admin tasks, Azure AD user management, Exchange Online configuration, Teams administration, and security policies. Generate PowerShell scripts for bulk operations, Conditional Access policies, license management, and compliance reporting. Use for M365 tenant manager, Office 365 admin, Azure AD users, Global Administrator, tenant configuration, or Microsoft 365 automation.",
+      "description": "Use for Microsoft 365 tenant administration (Entra ID users, Exchange Online, Teams, licenses, Conditional Access, compliance reports). Plans setup with tenant_setup.py, bulk-manages users with user_management.py and generates PowerShell with powershell_generator.py.",
       "tools": [
         {
           "script": "engineering-team/skills/ms365-tenant-manager/scripts/powershell_generator.py",
@@ -889,7 +889,7 @@
     {
       "name": "named-persona-adversarial-review",
       "path": "engineering-team/skills/named-persona-adversarial-review",
-      "description": "Code review through the lens of real engineers' documented philosophies (Torvalds, Thompson, Carmack, Kent Beck, Jobs, Cagan). Complements abstract-role adversarial review with named, sourced perspectives. Use when automated review findings feel generic, when a PR has architectural or UX impact, or when the author wants pre-submit hardening beyond standard checks.",
+      "description": "Use when a PR has architectural or UX impact, or automated review feels generic, and you want it reviewed through named engineers' documented views (Torvalds, Thompson, Carmack, Beck, Jobs, Cagan). Cites the source for each persona's critique.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -932,7 +932,7 @@
     {
       "name": "red-team",
       "path": "engineering-team/skills/red-team",
-      "description": "Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting.",
+      "description": "Use when planning or running an authorized red team engagement or attack path analysis. Plans the kill chain with engagement_planner.py: MITRE ATT&CK techniques, choke points, OPSEC risk and crown jewels.",
       "tools": [
         {
           "script": "engineering-team/skills/red-team/scripts/engagement_planner.py",
@@ -961,7 +961,7 @@
     {
       "name": "security-pen-testing",
       "path": "engineering-team/skills/security-pen-testing",
-      "description": "Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation.",
+      "description": "Use for an authorized penetration test, vulnerability scan or OWASP Top 10 check of an app or API. Scans with vulnerability_scanner.py, audits dependencies with dependency_auditor.py and writes the report with pentest_report_generator.py.",
       "tools": [
         {
           "script": "engineering-team/skills/security-pen-testing/scripts/dependency_auditor.py",
@@ -1021,7 +1021,7 @@
     {
       "name": "senior-architect",
       "path": "engineering-team/skills/senior-architect",
-      "description": "This skill should be used when the user asks to \"design system architecture\", \"evaluate microservices vs monolith\", \"create architecture diagrams\", \"analyze dependencies\", \"choose a database\", \"plan for scalability\", \"make technical decisions\", or \"review system design\". Use for architecture decision records (ADRs), tech stack evaluation, system design reviews, dependency analysis, and generating architecture diagrams in Mermaid, PlantUML, or ASCII format.",
+      "description": "Use for system architecture decisions (monolith vs microservices, database choice, scalability, ADRs, design reviews) or architecture diagrams. Analyzes dependencies with dependency_analyzer.py, assesses the project with project_architect.py and draws Mermaid or PlantUML with architecture_diagram_generator.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-architect/scripts/architecture_diagram_generator.py",
@@ -1076,7 +1076,7 @@
     {
       "name": "senior-backend",
       "path": "engineering-team/skills/senior-backend",
-      "description": "Designs and implements backend systems including REST APIs, microservices, database architectures, authentication flows, and security hardening. Use when the user asks to \"design REST APIs\", \"optimize database queries\", \"implement authentication\", \"build microservices\", \"review backend code\", \"set up GraphQL\", \"handle database migrations\", or \"load test APIs\". Covers Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.",
+      "description": "Use for backend work: REST or GraphQL APIs, auth, microservices, PostgreSQL queries, migrations or load tests. Decides with backend_decision_engine.py, scaffolds with api_scaffolder.py, migrates with database_migration_tool.py and load-tests with api_load_tester.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-backend/scripts/api_load_tester.py",
@@ -1150,7 +1150,7 @@
     {
       "name": "senior-computer-vision",
       "path": "engineering-team/skills/senior-computer-vision",
-      "description": "Computer vision engineering skill for object detection, image segmentation, and visual AI systems. Covers CNN and Vision Transformer architectures, YOLO/Faster R-CNN/DETR detection, Mask R-CNN/SAM segmentation, and production deployment with ONNX/TensorRT. Includes PyTorch, torchvision, Ultralytics, Detectron2, and MMDetection frameworks. Use when building detection pipelines, training custom models, optimizing inference, or deploying vision systems.",
+      "description": "Use for computer vision work: object detection, segmentation, training a custom model, or optimizing and deploying inference (YOLO, DETR, SAM, ONNX, TensorRT). Builds datasets with dataset_pipeline_builder.py, trains with vision_model_trainer.py and tunes inference with inference_optimizer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-computer-vision/scripts/dataset_pipeline_builder.py",
@@ -1206,7 +1206,7 @@
     {
       "name": "senior-data-engineer",
       "path": "engineering-team/skills/senior-data-engineer",
-      "description": "Data engineering skill for building scalable data pipelines, ETL/ELT systems, and data infrastructure. Expertise in Python, SQL, Spark, Airflow, dbt, Kafka, and modern data stack. Includes data modeling, pipeline orchestration, data quality, and DataOps. Use when designing data architectures, building data pipelines, optimizing data workflows, implementing data governance, or troubleshooting data issues.",
+      "description": "Use for data pipelines and ETL or ELT (Spark, Airflow, dbt, Kafka, data modeling, data quality). Orchestrates with pipeline_orchestrator.py, validates with data_quality_validator.py and tunes jobs with etl_performance_optimizer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-data-engineer/scripts/data_quality_validator.py",
@@ -1263,7 +1263,7 @@
     {
       "name": "senior-data-scientist",
       "path": "engineering-team/skills/senior-data-scientist",
-      "description": "World-class senior data scientist skill specialising in statistical modeling, experiment design, causal inference, and predictive analytics. Covers A/B testing (sample sizing, two-proportion z-tests, Bonferroni correction), difference-in-differences, feature engineering pipelines (Scikit-learn, XGBoost), cross-validated model evaluation (AUC-ROC, AUC-PR, SHAP), and MLflow experiment tracking \u2014 using Python (NumPy, Pandas, Scikit-learn), R, and SQL. Use when designing or analysing controlled experiments, building and evaluating classification or regression models, performing causal analysis \u2026",
+      "description": "Use for experiment design, causal inference, feature engineering or predictive model evaluation on tabular data. Designs A/B tests with experiment_designer.py, builds features with feature_engineering_pipeline.py and evaluates models with model_evaluation_suite.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-data-scientist/scripts/experiment_designer.py",
@@ -1318,7 +1318,7 @@
     {
       "name": "senior-devops",
       "path": "engineering-team/skills/senior-devops",
-      "description": "Comprehensive DevOps skill for CI/CD, infrastructure automation, containerization, and cloud platforms (AWS, GCP, Azure). Includes pipeline setup, infrastructure as code, deployment automation, and monitoring. Use when setting up pipelines, deploying applications, managing infrastructure, implementing monitoring, or optimizing deployment processes.",
+      "description": "Use for CI/CD pipelines, infrastructure as code, containers and deployments on AWS, GCP or Azure. Generates pipelines with pipeline_generator.py, scaffolds Terraform with terraform_scaffolder.py and manages releases with deployment_manager.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-devops/scripts/deployment_manager.py",
@@ -1373,7 +1373,7 @@
     {
       "name": "senior-frontend",
       "path": "engineering-team/skills/senior-frontend",
-      "description": "Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Use when building React components, optimizing Next.js performance, analyzing bundle sizes, scaffolding frontend projects, implementing accessibility, or reviewing frontend code quality.",
+      "description": "Use for React, Next.js, TypeScript or Tailwind work: components, performance, bundle size, scaffolding or frontend review. Decides with frontend_decision_engine.py, scaffolds with frontend_scaffolder.py and component_generator.py, and analyzes bundles with bundle_analyzer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-frontend/scripts/bundle_analyzer.py",
@@ -1447,7 +1447,7 @@
     {
       "name": "senior-fullstack",
       "path": "engineering-team/skills/senior-fullstack",
-      "description": "Fullstack development toolkit with project scaffolding for Next.js, FastAPI, MERN, and Django stacks, code quality analysis with security and complexity scoring, and stack selection guidance. Use when the user asks to \"scaffold a new project\", \"create a Next.js app\", \"set up FastAPI with React\", \"analyze code quality\", \"audit my codebase\", \"what stack should I use\", \"generate project boilerplate\", or mentions fullstack development, project setup, or tech stack comparison.",
+      "description": "Use when starting a fullstack project, choosing a stack (Next.js, FastAPI, MERN, Django) or auditing a codebase's quality. Picks the stack with fullstack_decision_engine.py, scaffolds with project_scaffolder.py and scores code with code_quality_analyzer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-fullstack/scripts/code_quality_analyzer.py",
@@ -1509,7 +1509,7 @@
     {
       "name": "senior-ml-engineer",
       "path": "engineering-team/skills/senior-ml-engineer",
-      "description": "ML engineering skill for productionizing models, building MLOps pipelines, and integrating LLMs. Covers model deployment, feature stores, drift monitoring, RAG systems, and cost optimization. Use when the user asks about deploying ML models to production, setting up MLOps infrastructure (MLflow, Kubeflow, Kubernetes, Docker), monitoring model performance or drift, building RAG pipelines, or integrating LLM APIs with retry logic and cost controls. Focused on production and operational concerns rather than model research or initial training.",
+      "description": "Use for putting ML models or LLM features into production: deployment, MLOps, drift monitoring, RAG pipelines, LLM API cost and retries. Deploys with model_deployment_pipeline.py, monitors with ml_monitoring_suite.py and builds RAG with rag_system_builder.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-ml-engineer/scripts/ml_monitoring_suite.py",
@@ -1564,7 +1564,7 @@
     {
       "name": "senior-prompt-engineer",
       "path": "engineering-team/skills/senior-prompt-engineer",
-      "description": "Use when the user asks to optimize prompts, design prompt templates, evaluate LLM outputs with an eval set, measure RAG retrieval quality, validate agent/tool configurations, analyze token usage, or design structured-output contracts. Covers eval-driven prompt iteration, RAG metrics (relevance, faithfulness, coverage), agent workflow validation, and token/cost budgeting \u2014 all model-agnostic, with three stdlib Python tools.",
+      "description": "Use when optimizing a prompt, building an eval set, measuring RAG retrieval quality or validating an agent's tool config. Iterates with prompt_optimizer.py, scores RAG with rag_evaluator.py and checks agents with agent_orchestrator.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-prompt-engineer/scripts/agent_orchestrator.py",
@@ -1619,7 +1619,7 @@
     {
       "name": "senior-qa",
       "path": "engineering-team/skills/senior-qa",
-      "description": "Generates unit tests, integration tests, and E2E tests for React/Next.js applications. Scans components to create Jest + React Testing Library test stubs, analyzes Istanbul/LCOV coverage reports to surface gaps, scaffolds Playwright test files from Next.js routes, mocks API calls with MSW, creates test fixtures, and configures test runners. Use when the user asks to \"generate tests\", \"write unit tests\", \"analyze test coverage\", \"scaffold E2E tests\", \"set up Playwright\", \"configure Jest\", \"implement testing patterns\", or \"improve test quality\".",
+      "description": "Use for generating or improving tests in React or Next.js apps (Jest, React Testing Library, MSW, Playwright, coverage gaps). Generates suites with test_suite_generator.py, scaffolds E2E with e2e_test_scaffolder.py and reads coverage with coverage_analyzer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-qa/scripts/coverage_analyzer.py",
@@ -1674,7 +1674,7 @@
     {
       "name": "senior-secops",
       "path": "engineering-team/skills/senior-secops",
-      "description": "Senior SecOps engineer skill for application security, vulnerability management, compliance verification, and secure development practices. Runs SAST/DAST scans, generates CVE remediation plans, checks dependency vulnerabilities, creates security policies, enforces secure coding patterns, and automates compliance checks against SOC2, PCI-DSS, HIPAA, and GDPR. Use when conducting a security review or audit, responding to a CVE or security incident, hardening infrastructure, implementing authentication or secrets management, running penetration test prep, checking OWASP Top 10 exposure, or \u2026",
+      "description": "Use for application security operations: security reviews, CVE remediation, hardening, secrets and auth, or SOC 2, PCI-DSS, HIPAA and GDPR checks. Scans with security_scanner.py, assesses CVEs with vulnerability_assessor.py and checks controls with compliance_checker.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-secops/scripts/compliance_checker.py",
@@ -1729,7 +1729,7 @@
     {
       "name": "senior-security",
       "path": "engineering-team/skills/senior-security",
-      "description": "Use when the user asks for STRIDE threat modeling, DREAD risk scoring, data-flow-diagram threat analysis, or a quick secret scan \u2014 or when a security request needs routing to the right specialist skill (pen-testing, incident response, cloud posture, red team, AI security, threat hunting, secure code review). This skill owns threat modeling; everything else routes to a sibling.",
+      "description": "Use for STRIDE threat modeling, DREAD scoring or a quick secret scan, or to route a security request to the right specialist. Models threats with threat_modeler.py and scans with secret_scanner.py.",
       "tools": [
         {
           "script": "engineering-team/skills/senior-security/scripts/secret_scanner.py",
@@ -1772,7 +1772,7 @@
     {
       "name": "stripe-integration-expert",
       "path": "engineering-team/skills/stripe-integration-expert",
-      "description": "Production-grade Stripe integrations: subscriptions with trials and proration, one-time payments, usage-based billing, checkout sessions, idempotent webhook handlers, customer portal, and invoicing. Covers Next.js, Express, and Django patterns. Use when integrating Stripe for the first time, debugging webhook reliability issues, migrating from a different payment provider, or adding usage-based billing to an existing subscription product.",
+      "description": "Use for any Stripe integration: subscriptions, trials, proration, checkout, usage billing, webhooks, customer portal or invoicing in Next.js, Express or Django. Writes idempotent webhook handlers and debugs delivery failures.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -1786,7 +1786,7 @@
     {
       "name": "tdd-guide",
       "path": "engineering-team/skills/tdd-guide",
-      "description": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit.",
+      "description": "Use when writing tests first, generating tests, fixtures or mocks, or closing coverage gaps in Jest, Pytest, JUnit, Vitest or Mocha. Drives red-green-refactor with tdd_workflow.py, generates tests with test_generator.py and reads coverage with coverage_analyzer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/tdd-guide/scripts/coverage_analyzer.py",
@@ -1901,7 +1901,7 @@
     {
       "name": "tech-stack-evaluator",
       "path": "engineering-team/skills/tech-stack-evaluator",
-      "description": "Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability.",
+      "description": "Use when comparing frameworks or technology stacks, or deciding on a migration, before committing. Compares with stack_comparator.py, computes TCO with tco_calculator.py, scores ecosystem health with ecosystem_analyzer.py and assesses migration with migration_analyzer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/tech-stack-evaluator/scripts/ecosystem_analyzer.py",
@@ -2004,7 +2004,7 @@
     {
       "name": "threat-detection",
       "path": "engineering-team/skills/threat-detection",
-      "description": "Use when hunting for threats in an environment, analyzing IOCs, or detecting behavioral anomalies in telemetry. Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and MITRE ATT&CK-mapped signal prioritization.",
+      "description": "Use when hunting threats, sweeping IOCs or looking for anomalies in logs and telemetry. Ranks ATT&CK-mapped signals and z-score anomalies with threat_signal_analyzer.py.",
       "tools": [
         {
           "script": "engineering-team/skills/threat-detection/scripts/threat_signal_analyzer.py",
@@ -2033,7 +2033,7 @@
     {
       "name": "snowflake-development",
       "path": "engineering-team/snowflake-development/skills/snowflake-development",
-      "description": "Use when writing Snowflake SQL, building data pipelines with Dynamic Tables or Streams/Tasks, using Cortex AI functions, creating Cortex Agents, writing Snowpark Python, configuring dbt for Snowflake, or troubleshooting Snowflake errors.",
+      "description": "Use for Snowflake work: SQL, Dynamic Tables, Streams and Tasks, Cortex AI functions and agents, Snowpark Python, dbt on Snowflake, or Snowflake errors. Helps with queries via snowflake_query_helper.py.",
       "tools": [
         {
           "script": "engineering-team/snowflake-development/skills/snowflake-development/scripts/snowflake_query_helper.py",

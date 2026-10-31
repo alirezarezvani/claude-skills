@@ -1,6 +1,6 @@
 ---
 name: "secrets-vault-manager"
-description: "Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns."
+description: "Use when setting up HashiCorp Vault, AWS Secrets Manager, Azure Key Vault or GCP Secret Manager, rotating secrets or auditing secret access. Generates config with vault_config_generator.py, plans rotation with rotation_planner.py and analyzes audit logs."
 ---
 
 # Secrets Vault Manager
@@ -401,3 +401,10 @@ Eliminate long-lived secrets in CI by using OIDC federation:
 - **ci-cd-pipeline-builder** — Pipeline design where secrets are consumed
 - **docker-development** — Container secret injection patterns
 - **helm-chart-builder** — Kubernetes secret management in Helm charts
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/cloud_secret_stores.md](references/cloud_secret_stores.md) — Cloud Secret Store Reference
+- [references/vault_patterns.md](references/vault_patterns.md) — HashiCorp Vault Architecture & Patterns Reference

@@ -1,7 +1,7 @@
 {
   "name": "weekly-review",
   "description": "Run a GTD-style weekly review that actually closes loops. Walks David Allen's three-phase ritual — GET CLEAR (collect, process inboxes to zero, empty your head), GET CURRENT (next actions, previous + upcoming calendar, waiting-for, project lists), GET CREATIVE (someday/maybe, new ideas) — backed by three deterministic stdlib scripts: an open-loop scanner that inventories unchecked checkboxes, TODO/FIXME markers, and stale files; a checklist gate that computes completion, names every missing step, and refuses a COMPLETE verdict while any GET CURRENT step is unaccounted for; and a commitment auditor that flags STALLED, NO-NEXT-ACTION, and SOMEDAY-CANDIDATE projects with a 0-100 commitment-health score. The periodic-review counterpart to capture (intake) and reflect (per-conversation reflection).",
-  "version": "2.14.2",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

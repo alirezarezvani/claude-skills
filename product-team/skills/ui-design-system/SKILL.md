@@ -1,6 +1,6 @@
 ---
 name: "ui-design-system"
-description: UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer handoff tools. Use when creating design systems, generating design tokens, maintaining visual consistency, or facilitating design-dev collaboration and developer handoff.
+description: "Use when building a design system: tokens, component docs, responsive scales or developer handoff. Generates tokens with design_token_generator.py."
 ---
 
 # UI Design System

@@ -1,6 +1,6 @@
 ---
 name: "agenthub"
-description: "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel — code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo."
+description: "Use when a task should be attempted by several agents in parallel and the best result kept (code speed, copy variants, research angles). Spawns N agents in git worktrees, ranks results by metric or judge with result_ranker.py and merges the winner."
 license: MIT
 metadata:
   version: 2.1.2
@@ -255,3 +255,12 @@ clawhub install agenthub
 - **autoresearch-agent** — Single-agent optimization loop (use AgentHub when you want N agents competing)
 - **self-improving-agent** — Self-modifying agent (use AgentHub when you want external competition)
 - **git-worktree-manager** — Git worktree utilities (AgentHub uses worktrees internally)
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/coordination-strategies.md](references/coordination-strategies.md) — Multi-Agent Coordination Strategies
+- [references/dag-patterns.md](references/dag-patterns.md) — Git DAG Patterns for Multi-Agent Collaboration
+
+- `python3 scripts/dry_run.py --help` — Dry-run validation for the AgentHub plugin

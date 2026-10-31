@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Convert long-form markdown (specs, RFCs, reports, plans, explainers) into a single-file interactive HTML document. Runs the md-document pipeline (parser → renderer → injector) with the user's design-system tokens. Sticky TOC, search filter, code-copy buttons, scrollspy, WCAG-AA palette. Refuses input < 100 lines (Shihipar) or unfinished onboarding. Output is a single .html file (Google Fonts + Prism.js CDN as the only externals).
 argument-hint: "<path to markdown file> [--out <dir>] [--features search,copycode,smoothscroll,scrollspy]"
 ---

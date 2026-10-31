@@ -18,6 +18,7 @@ Technologies, Inc.) — see the plugin README for the numbered deviations.
 Usage:
     python collect_sessions.py --out ./skill-doctor-run
     python collect_sessions.py --harness claude --days 30 --max-sessions 8
+    python collect_sessions.py --sessions-dir ./eval-transcripts   # stream-json runs, e.g. from claude -p
     python collect_sessions.py --sample                # synthetic demo, touches no real history
     python collect_sessions.py --sample --output json
 
@@ -108,6 +109,9 @@ def parse_args(argv=None):
     p.add_argument("--per-skill", type=int, default=3, help="max sampled sessions per skill (default 3)")
     p.add_argument("--no-skill", type=int, default=4, help="max sampled sessions that used no skill (default 4)")
     p.add_argument("--skills-dir", action="append", default=[], help="extra skills directory to scan (repeatable)")
+    p.add_argument("--sessions-dir", action="append", default=[],
+                   help="extra directory of Claude Code JSONL or stream-json transcripts to score, e.g. "
+                        "eval runs (repeatable); these skip the repo match because you chose them")
     p.add_argument("--include-subagents", action="store_true", help="include subagent/sidechain sessions")
     p.add_argument("--strict-repo", action="store_true",
                    help="only include sessions whose cwd resolves inside the repo "
@@ -284,8 +288,9 @@ def parse_claude_session(path, skill_names, include_subagents):
             if not include_subagents:
                 return None
 
-        if not meta and obj.get("sessionId"):
-            session_id = obj.get("sessionId")
+        # Project history uses sessionId; `claude -p --output-format stream-json` uses session_id.
+        if not meta and (obj.get("sessionId") or obj.get("session_id")):
+            session_id = obj.get("sessionId") or obj.get("session_id")
             agent_id = obj.get("agentId")
             meta = {
                 "id": f"{session_id}-{agent_id}" if agent_id else session_id,
@@ -653,10 +658,21 @@ def main(argv=None):
 
         requested_claude = args.harness in ("auto", "all", "claude")
         claude_projects = claude_home / "projects"
-        if requested_claude and claude_projects.is_dir():
-            candidates = list(claude_projects.glob("*/*.jsonl"))
-            if args.include_subagents:
-                candidates.extend(claude_projects.glob("*/*/subagents/*.jsonl"))
+        if requested_claude and (claude_projects.is_dir() or args.sessions_dir):
+            candidates = []
+            if claude_projects.is_dir():
+                candidates.extend(claude_projects.glob("*/*.jsonl"))
+                if args.include_subagents:
+                    candidates.extend(claude_projects.glob("*/*/subagents/*.jsonl"))
+            chosen = set()
+            for extra in args.sessions_dir:
+                extra_dir = Path(extra).expanduser()
+                if not extra_dir.is_dir():
+                    print(f"error: --sessions-dir {extra_dir} is not a directory", file=sys.stderr)
+                    return 3
+                found = sorted(extra_dir.glob("*.jsonl"))
+                chosen.update(found)
+                candidates.extend(found)
             claude_files = []
             for path in candidates:
                 try:
@@ -673,8 +689,12 @@ def main(argv=None):
                 if parsed is None:
                     continue
                 meta, stats, entries, skills_used = parsed
-                match = repo_match_mode(meta.get("cwd"), repo)
-                if match is None or (args.strict_repo and match != "path"):
+                if path in chosen:
+                    # Headless runs can share one session id (an eval harness reuses its own),
+                    # so a chosen file is identified by its name.
+                    meta["id"] = path.stem
+                match = "chosen" if path in chosen else repo_match_mode(meta.get("cwd"), repo)
+                if match is None or (args.strict_repo and match not in ("path", "chosen")):
                     continue
                 in_repo_count += 1
                 if stats["assistant_turns"] < 1 or stats["tool_calls"] < 1:

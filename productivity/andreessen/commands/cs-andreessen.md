@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-andreessen"
 description: "/cs-andreessen — Marc Andreessen-mode verdict on a venture, idea, feature, or career bet. Market-first, no hedging, no disclaimers, explicit confidence levels, strongest counterargument first. Issues BUILD-POUR-FUEL / MARKET-FIRST-DERISK / KILL-OR-REPICK-MARKET backed by deterministic tools. Also runs the 3x5-card + Anti-Todo daily routine."
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: "cs-human-gate"
 description: "/cs-human-gate — Get real human review on an artifact and prove it happened. Builds a single-file review page, collects batched feedback as structured data, and runs a gate that refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has looked at all. Non-blocking: hands over the path and ends the turn."
 argument-hint: "[path to the .md or .html artifact] [optional: open|status|collect|close]"

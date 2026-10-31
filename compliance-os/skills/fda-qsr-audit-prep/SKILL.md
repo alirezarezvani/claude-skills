@@ -1,6 +1,6 @@
 ---
 name: "fda-qsr-audit-prep"
-description: "/compliance-os:fda-qsr-audit-prep [scope] — FDA 21 CFR 820 (QSR / QMSR) audit 6-question forcing interrogation. Post-Feb 2026 substantially harmonized with ISO 13485. Use before annual internal QSR audit, pre-FDA-inspection readiness, or Form 483 response."
+description: "Use for /compliance-os:fda-qsr-audit-prep, or before an FDA inspection, QMSR internal audit or Form 483 response."
 ---
 
 # /compliance-os:fda-qsr-audit-prep — FDA QSR Forcing Questions

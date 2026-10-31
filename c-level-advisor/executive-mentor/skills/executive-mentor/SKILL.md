@@ -1,6 +1,6 @@
 ---
 name: "executive-mentor"
-description: "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for brutal board meetings, dissects decisions with no good options, and forces honest post-mortems. Use when you need someone to find the holes before the board does, make a decision you've been avoiding, or understand what actually went wrong."
+description: "Use when a founder or executive needs a plan stress-tested, a dreaded decision made, a hard board meeting prepared or an honest post-mortem. Adversarial thinking partner; scores options with decision_matrix_scorer.py and maps stakeholders with stakeholder_mapper.py."
 license: MIT
 metadata:
   version: 1.0.0

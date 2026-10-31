@@ -1,6 +1,6 @@
 ---
 name: "observability-designer"
-description: "Design production-ready observability strategies combining metrics, logs, and traces. Includes SLI/SLO design, golden-signals monitoring, alert optimization. Use when adding observability to a new service, refactoring alerting that is too noisy, or designing an SLO program before scaling production load."
+description: "Use when adding metrics, logs and traces to a service, fixing noisy alerts or designing dashboards. Designs SLIs with slo_designer.py, tunes alerts with alert_optimizer.py and generates dashboards with dashboard_generator.py."
 ---
 
 # Observability Designer (POWERFUL)
@@ -270,3 +270,11 @@ Creates comprehensive dashboard specifications:
 - **Alert Tuning:** Ongoing alert threshold and routing optimization
 - **Dashboard Evolution:** User feedback-driven dashboard improvements
 - **Tool Evaluation:** Regular assessment of observability tool effectiveness
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/alert_design_patterns.md](references/alert_design_patterns.md) — Alert Design Patterns: A Guide to Effective Alerting
+- [references/dashboard_best_practices.md](references/dashboard_best_practices.md) — Dashboard Best Practices: Design for Insight and Action
+- [references/slo_cookbook.md](references/slo_cookbook.md) — SLO Cookbook: A Practical Guide to Service Level Objectives

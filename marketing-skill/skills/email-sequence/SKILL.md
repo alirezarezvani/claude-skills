@@ -1,6 +1,6 @@
 ---
 name: "email-sequence"
-description: When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails," "email automation," or "lifecycle emails." For in-app onboarding, see onboarding-cro.
+description: "Use for any drip, nurture, onboarding, welcome or re-engagement email sequence to opted-in users, before writing emails. Plans timing, triggers and exits and scores the sequence with sequence_analyzer.py."
 license: MIT
 metadata:
   version: 1.0.0

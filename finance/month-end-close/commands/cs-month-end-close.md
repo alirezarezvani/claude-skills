@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Full close pass - plan the calendar on its critical path, prove each reconciliation, and gate flux explanations, with a BLOCKED / AT RISK / READY verdict.
 argument-hint: "close_plan.json [gl.csv source.csv] [tb_compare.csv]"
 ---

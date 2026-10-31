@@ -1,6 +1,6 @@
 ---
 name: "senior-data-scientist"
-description: World-class senior data scientist skill specialising in statistical modeling, experiment design, causal inference, and predictive analytics. Covers A/B testing (sample sizing, two-proportion z-tests, Bonferroni correction), difference-in-differences, feature engineering pipelines (Scikit-learn, XGBoost), cross-validated model evaluation (AUC-ROC, AUC-PR, SHAP), and MLflow experiment tracking — using Python (NumPy, Pandas, Scikit-learn), R, and SQL. Use when designing or analysing controlled experiments, building and evaluating classification or regression models, performing causal analysis on observational data, engineering features for structured tabular datasets, or translating statistical findings into data-driven business decisions.
+description: "Use for experiment design, causal inference, feature engineering or predictive model evaluation on tabular data. Designs A/B tests with experiment_designer.py, builds features with feature_engineering_pipeline.py and evaluates models with model_evaluation_suite.py."
 ---
 
 # Senior Data Scientist

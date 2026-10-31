@@ -1,6 +1,6 @@
 ---
 name: "competitor-alternatives"
-description: "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'switch from competitor,' or 'comparison content.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables."
+description: "Use when creating an 'X vs Y', '[product] alternative' or comparison page, before drafting. Builds the comparison matrix with comparison_matrix_builder.py and picks one of four page formats with a fair, sourced structure."
 license: MIT
 metadata:
   version: 1.0.0

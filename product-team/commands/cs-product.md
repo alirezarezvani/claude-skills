@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Top-level product-team router. Classifies a product inquiry across 16 lanes (prioritization, OKRs, UX, design system, competitive, analytics, experiments, discovery, roadmaps, spec-to-repo, landing, SaaS scaffold, stories, HIG, code-to-PRD, summarizer) with a deterministic script and forks context to the right sub-skill via the product-skills orchestrator, returning a ≤200-word digest with one grill challenge.
 argument-hint: "<product inquiry: prioritize features, plan an experiment, discovery health, etc.>"
 ---

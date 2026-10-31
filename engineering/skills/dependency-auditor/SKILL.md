@@ -1,6 +1,6 @@
 ---
 name: "dependency-auditor"
-description: "Audit and manage dependencies across multi-language projects. Identifies vulnerabilities, license conflicts, transitive dependency risks, and safe-upgrade paths. Use when auditing third-party packages before release, investigating a CVE, planning a major version bump, or running a license-compliance review. Examples: 'audit our npm dependencies', 'do we have GPL contamination', 'plan the upgrade to React 19'."
+description: "Use before a release, during a CVE investigation, before a major version bump or for a license review. Scans dependencies with dep_scanner.py, checks licenses with license_checker.py and plans safe upgrades with upgrade_planner.py."
 ---
 
 # Dependency Auditor
@@ -83,3 +83,11 @@ python3 scripts/license_checker.py . --policy strict --format json
 4. **False positives**: whitelist with documentation; contact maintainers for license ambiguity.
 
 See [README.md](README.md) for detailed usage and `references/` for the vulnerability/license knowledge bases.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/dependency_management_best_practices.md](references/dependency_management_best_practices.md) — Dependency Management Best Practices
+- [references/license_compatibility_matrix.md](references/license_compatibility_matrix.md) — License Compatibility Matrix
+- [references/vulnerability_assessment_guide.md](references/vulnerability_assessment_guide.md) — Vulnerability Assessment Guide

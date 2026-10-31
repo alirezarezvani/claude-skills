@@ -16,7 +16,7 @@
     {
       "name": "clinical-research",
       "path": "research-ops/skills/clinical-research",
-      "description": "Use when designing a prospective clinical study before submission \u2014 selecting and classifying endpoints (primary / key-secondary / exploratory, with surrogate-endpoint flagging), estimating sample size and power for two-arm designs (means / proportions / survival), or scoring a study plan for feasibility and a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIMATE plus a named human owner (clinician / biostatistician / regulatory owner) \u2014 never clinical fact, never a finished protocol. Distinct from ra-qm-team, which handles the regulatory/QM submission \u2026",
+      "description": "Use when designing a prospective clinical study: choosing primary and secondary endpoints, estimating sample size and power, or scoring feasibility before submission. Runs endpoint_selector.py, sample_size_estimator.py and phase_gate_scorer.py; outputs are estimates for a biostatistician to confirm.",
       "tools": [
         {
           "script": "research-ops/skills/clinical-research/scripts/ar_evaluator.py",
@@ -132,7 +132,7 @@
     {
       "name": "interview-mapper",
       "path": "research-ops/skills/interview-mapper",
-      "description": "Maps a single interview transcript into a verbatim-grounded, lens-coded structure and checks whether analytic conclusions hold across independent re-runs. Use when the user wants to code, map, interpret, or make sense of an interview transcript, depth interview, custdev/JTBD/expert/usability/exit/win-loss/focus-group session, or wants cross-interview synthesis (insight cards, patterns) built up from coded transcripts \u2014 even if they don't name a method. Every conclusion must carry a verbatim quote verified against the source text; unstable conclusions are flagged for a human, never resolved \u2026",
+      "description": "Use when coding or making sense of one interview transcript (customer, JTBD, expert, usability, exit). Extracts verbatim-grounded nuggets with extract_nuggets.py, verifies quotes with verify_quotes.py and checks conclusions hold across reruns with consensus.py.",
       "tools": [
         {
           "script": "research-ops/skills/interview-mapper/scripts/batch_prepare.py",
@@ -410,7 +410,7 @@
     {
       "name": "market-research",
       "path": "research-ops/skills/market-research",
-      "description": "Use when doing upstream market-research methodology \u2014 sizing a market as TAM/SAM/SOM computed BOTH top-down and bottoms-up (never a single unsourced number), planning a survey sample size with finite-population correction and per-segment minimums, or scoring candidate market segments against Kotler's measurable/substantial/accessible/differentiable/actionable criteria. Outputs always show the method and the assumptions. For market-research analysts and product-marketing at the sizing/survey/segmentation moment. Distinct from marketing-skill (campaign analytics, attribution, demand-gen) \u2014 \u2026",
+      "description": "Use for market sizing (TAM, SAM, SOM both top-down and bottom-up), survey sample sizes or segment scoring. Runs market_sizer.py, sample_size_planner.py and segmentation_scorer.py and never returns one unsourced number.",
       "tools": [
         {
           "script": "research-ops/skills/market-research/scripts/ar_evaluator.py",
@@ -526,7 +526,7 @@
     {
       "name": "product-research",
       "path": "research-ops/skills/product-research",
-      "description": "Use when planning and synthesizing product/user research as a method-and-repository discipline \u2014 selecting the right method for the goal (generative interviews vs usability test vs concept test vs validation), computing method-based saturation/sample size with an explicit confidence level, or synthesizing coded observations into insights while flagging single-source anecdotes. Never fabricates user insight; an insight requires recurrence across independent participants. Distinct from product-team/ux-researcher-designer (persona/journey artifacts), product-discovery (discovery-sprint \u2026",
+      "description": "Use when planning or synthesizing user research: choosing the method, deciding how many participants, or turning coded notes into insights. Runs study_designer.py, saturation_planner.py and insight_synthesizer.py, which refuses single-source insights.",
       "tools": [
         {
           "script": "research-ops/skills/product-research/scripts/ar_evaluator.py",
@@ -642,7 +642,7 @@
     {
       "name": "research-finance",
       "path": "research-ops/skills/research-finance",
-      "description": "Use when managing the money for an internal R&D program or portfolio \u2014 building a multi-period program budget with the F&A (indirect) split, tracking burn rate and runway against value-inflection milestones, or routing R&D cost items to a capitalize-vs-expense determination. Every budget output surfaces its assumptions block; capitalize-vs-expense is decision-support only and routes to a named finance owner \u2014 it never books an entry or decides accounting treatment. Distinct from finance/financial-analysis (corporate DCF, close, valuation) and research/grants (funding discovery \u2014 this \u2026",
+      "description": "Use for R&D program money: multi-period budgets with indirect cost split, burn and runway against milestones, or capitalize vs expense routing. Runs program_budget_planner.py, burn_runway_tracker.py and capex_vs_opex_router.py.",
       "tools": [
         {
           "script": "research-ops/skills/research-finance/scripts/ar_evaluator.py",
@@ -758,7 +758,7 @@
     {
       "name": "research-ops-skills",
       "path": "research-ops/skills/research-ops-skills",
-      "description": "Use when planning, funding, scoping, or synthesizing enterprise research across workstreams \u2014 clinical study design, R&D program finance, market sizing/surveys, or product/user research. Triggers on \"design this clinical study\", \"what sample size\", \"R&D budget\", \"burn rate\", \"capitalize or expense\", \"TAM SAM SOM\", \"market sizing\", \"survey design\", \"segment the market\", \"plan user interviews\", \"usability test\", \"synthesize research insights\". Forks context to route to one of four Research-Operations sub-skills (clinical-research, research-finance, market-research, product-research) and \u2026",
+      "description": "Use when an enterprise research request needs routing (clinical study design, R&D finance, market sizing, user research): 'what sample size', 'R&D budget'. Lists the research-ops skills and routes to one.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": true,

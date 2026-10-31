@@ -1,6 +1,6 @@
 ---
 name: "atlassian-admin"
-description: Atlassian Administrator for managing and organizing Atlassian products (Jira, Confluence, Bitbucket, Trello), users, permissions, security, integrations, system configuration, and org-wide governance. Use when asked to add users to Jira, change Confluence permissions, configure access control, update admin settings, manage Atlassian groups, set up SSO, install marketplace apps, review security policies, or handle any org-wide Atlassian administration task.
+description: "Use for Atlassian org administration: Jira or Confluence users and groups, permissions, SSO, marketplace apps or security policy. Audits permissions with permission_audit_tool.py."
 ---
 
 # Atlassian Administrator Expert
@@ -228,3 +228,10 @@ description: Atlassian Administrator for managing and organizing Atlassian produ
 - Support Jira/Confluence Experts by performing UI/REST admin changes they cannot do via MCP
 - Ensure Senior PM has visibility into org health (exports from admin.atlassian.com)
 - Enable Scrum Master with team provisioning (admin console)
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/security-hardening-guide.md](references/security-hardening-guide.md) — Atlassian Cloud Security Hardening Guide
+- [references/user-provisioning-checklist.md](references/user-provisioning-checklist.md) — User Provisioning & Lifecycle Management Checklist

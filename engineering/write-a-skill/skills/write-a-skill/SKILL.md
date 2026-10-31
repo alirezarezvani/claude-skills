@@ -155,3 +155,14 @@ both, they are two skills, not one.
 
 **Version:** 1.0.0
 **Derived:** Matt Pocock (MIT) + this repo's wrapper
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/description_design_patterns.md](references/description_design_patterns.md) — Description Design Patterns for Skills
+- [references/progressive_disclosure_principles.md](references/progressive_disclosure_principles.md) — Progressive Disclosure for Skill Files
+- [references/quality_gates_for_skills.md](references/quality_gates_for_skills.md) — Quality Gates for Skill Libraries
+
+- `python3 scripts/skill_description_validator.py --help` — Validate a skill's description against Matt Pocock's rules
+- `python3 scripts/skill_structure_validator.py --help` — Validate a skill folder structure against Matt Pocock's pattern

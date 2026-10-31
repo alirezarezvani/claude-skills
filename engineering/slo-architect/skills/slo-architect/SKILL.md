@@ -1,6 +1,6 @@
 ---
 name: slo-architect
-description: Use when defining, reviewing, or operating SLOs/SLIs/error budgets. Triggers on "define an SLO", "what should our SLO be", "error budget", "burn rate", "SLI", "service level objective", "Google SRE workbook", "multi-window burn-rate alert", or any reliability-target question. Ships SLO designer, error-budget calculator with multi-window burn-rate thresholds, and SLO reviewer that catches the common bugs (target too aggressive, window too short, conflicting SLOs, no SLI definition). 4 references on SLO principles + SLI design + error budget math + composition with feature-flags-architect/chaos-engineering/kubernetes-operator. NOT a generic observability skill — specifically the SLO discipline.
+description: "Use when defining or reviewing SLOs, SLIs, error budgets or burn-rate alerts. Designs SLOs with slo_designer.py, computes budgets and multi-window burn-rate thresholds with error_budget_calculator.py and catches common SLO bugs with slo_review.py."
 context: fork
 license: MIT
 metadata:

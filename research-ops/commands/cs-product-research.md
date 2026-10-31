@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Product / user research methodology. Select the right method for the goal (generative vs evaluative vs validation), compute method-based saturation / sample size with an explicit confidence level, and synthesize coded observations into insights while flagging single-source anecdotes. Never fabricates insight. Direct invocation of the product-research skill.
 argument-hint: "<research context: goal, product stage, segments, coded observations>"
 ---

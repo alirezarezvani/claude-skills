@@ -1,6 +1,6 @@
 ---
 name: clinical-research
-description: Use when designing a prospective clinical study before submission — selecting and classifying endpoints (primary / key-secondary / exploratory, with surrogate-endpoint flagging), estimating sample size and power for two-arm designs (means / proportions / survival), or scoring a study plan for feasibility and a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIMATE plus a named human owner (clinician / biostatistician / regulatory owner) — never clinical fact, never a finished protocol. Distinct from ra-qm-team, which handles the regulatory/QM submission (ISO 13485, EU MDR, FDA 510(k)/PMA/QSR), not the study design.
+description: "Use when designing a prospective clinical study: choosing primary and secondary endpoints, estimating sample size and power, or scoring feasibility before submission. Runs endpoint_selector.py, sample_size_estimator.py and phase_gate_scorer.py; outputs are estimates for a biostatistician to confirm."
 license: MIT
 metadata:
   version: 2.9.0

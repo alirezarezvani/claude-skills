@@ -1,6 +1,6 @@
 ---
 name: "soc2-audit-prep"
-description: "/compliance-os:soc2-audit-prep [scope] — SOC 2 Type II readiness 6-question forcing interrogation. Observation-period focused. Use before Type II observation begins, mid-period checkpoint, or pre-field-test month-10 readiness."
+description: "Use for /compliance-os:soc2-audit-prep, or before or during a SOC 2 Type II observation period."
 ---
 
 # /compliance-os:soc2-audit-prep — SOC 2 Type II Forcing Questions

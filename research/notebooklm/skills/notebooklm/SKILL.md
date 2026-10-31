@@ -1,6 +1,6 @@
 ---
 name: notebooklm
-description: "Browser automation skill for controlling Google's NotebookLM. Use when the user wants anything done in NotebookLM (e.g., 'open NotebookLM', 'check my [name] notebook', 'ask my notebook about X', 'add [source] to NotebookLM', 'generate a Video Overview from my notebook', 'use NotebookLM Studio'). Handles reading and querying notebooks, adding sources (URLs, text, files, YouTube links, synthesized content), generating Studio outputs (Audio/Video Overviews, Mind Maps, Reports incl. Briefing Doc/Study Guide/FAQ, Flashcards, Quiz, slide decks, infographics — discover the exact set from the live Studio panel; the UI evolves fast), and creating new notebooks. Requires browser automation environment — fails gracefully when unavailable."
+description: "Use for anything in Google NotebookLM: querying notebooks, adding sources, generating Audio or Video Overviews, reports, flashcards or slides. Drives the browser; needs browser automation."
 license: MIT
 metadata:
   source_spec: "megaprompts/03-notebooklm-megaprompt.md"

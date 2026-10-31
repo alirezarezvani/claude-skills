@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Run or manage the SkillOpt-Sleep self-evolution cycle (review past sessions, replay tasks offline, consolidate validated memory + skills; can also schedule nightly runs)
 argument-hint: "[run | dry-run | status | adopt | harvest | schedule | unschedule] (default: status)"
 allowed-tools: Bash, Read

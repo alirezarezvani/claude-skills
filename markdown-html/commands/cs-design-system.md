@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 description: Run the one-time markdown-html design-system onboarding wizard. Captures brand primary/accent (HEX) + heading/body Google Fonts + design style (editorial/technical/minimal/playful) + default output directory + syntax theme + TOC behavior + optional logo/company. WCAG-AA validates body-text contrast; refuses if it fails. Stores at ~/.config/markdown-html/design-system.json (or project-scoped with --scope project). Every converter reads this config via config_loader.py before rendering.
 argument-hint: "[--defaults | --show | --reset | --set key=value | --scope global|project]"
 ---

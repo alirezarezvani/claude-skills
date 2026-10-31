@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: cs-handoff-setup
 description: "First-run setup for the handoff skill. Walks 5 questions (save location, retention, redaction strictness, git context, recommender scope) and writes the config. Run any time to reconfigure."
 argument-hint: "[--project to set project-specific overrides]"

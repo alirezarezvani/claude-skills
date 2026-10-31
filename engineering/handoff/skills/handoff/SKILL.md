@@ -39,3 +39,15 @@ See [references/companion_tooling.md](references/companion_tooling.md). Tools: t
 
 **Version:** 1.0.0
 **Derived:** Matt Pocock (MIT) + this repo's wrapper
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/deduplication_discipline.md](references/deduplication_discipline.md) — Deduplication Discipline for Handoffs
+- [references/handoff_structure.md](references/handoff_structure.md) — Handoff Document Structure
+- [references/next_session_skill_matching.md](references/next_session_skill_matching.md) — Skill Matching for the Next Session
+
+- `python3 scripts/artifact_deduplicator.py --help` — Detect content in a handoff draft that should be referenced not duplicated
+- `python3 scripts/handoff_template_generator.py --help` — Generate a handoff document scaffold tailored to next-session focus
+- `python3 scripts/skill_recommender.py --help` — Recommend which skills the next session should use

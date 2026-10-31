@@ -1769,6 +1769,16 @@
   "neg": "Summarize the git log for the payments module from this week into release notes grouped by feature and bugfix.",
   "origin": "generated"
  },
+ "engineering/commit-craft/skills/commit-craft": {
+  "name": "commit-craft",
+  "plugin": "commit-craft",
+  "pos": [
+   "I've got like 40 changed files from today's session, a dependency bump, a refactor and the actual bug fix all mixed together. Can you turn this into clean commits before I push?",
+   "commit my changes, but split them properly and make sure I'm not committing the .env or any keys"
+  ],
+  "neg": "Generate release notes for v3.2.0 from the merged PRs since the last tag, grouped into features, fixes and breaking changes.",
+  "origin": "reviewed"
+ },
  "engineering/data-quality-auditor/skills/data-quality-auditor": {
   "name": "data-quality-auditor",
   "plugin": "data-quality-auditor",

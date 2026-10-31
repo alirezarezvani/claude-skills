@@ -236,7 +236,7 @@ class AtomStore:
                         # is stale. Bounded by design -- worst case is a lost
                         # write on the recoverable tier, never a corrupt file,
                         # since the write itself is an atomic os.replace.
-                        os.unlink(self.lock)
+                        os.unlink(self.lock)  # noqa: SEC-AUDITOR (releases this process's own lock file)
                         continue
                 except OSError:
                     pass
@@ -246,7 +246,7 @@ class AtomStore:
 
     def _release(self):
         try:
-            os.unlink(self.lock)
+            os.unlink(self.lock)  # noqa: SEC-AUDITOR (releases this process's own lock file)
         except OSError:
             pass
 

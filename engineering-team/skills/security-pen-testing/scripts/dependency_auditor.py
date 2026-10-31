@@ -129,7 +129,7 @@ class DependencyAuditor:
         {"ecosystem": "pypi", "package": "pyyaml", "below": "6.0.1",
          "cve": "CVE-2020-14343", "severity": "critical", "cvss": 9.8,
          "title": "Arbitrary code execution in PyYAML",
-         "description": "PyYAML before 6.0.1 allows arbitrary code execution via yaml.load().",
+         "description": "PyYAML before 6.0.1 allows arbitrary code execution via yaml.load().",  # noqa: SEC-AUDITOR (advice text naming the risky call; nothing runs)
          "remediation": "Upgrade PyYAML to >=6.0.1 and use yaml.safe_load()"},
         {"ecosystem": "go", "package": "golang.org/x/crypto", "below": "0.17.0",
          "cve": "CVE-2023-48795", "severity": "medium", "cvss": 5.9,

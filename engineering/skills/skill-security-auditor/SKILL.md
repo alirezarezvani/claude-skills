@@ -147,6 +147,10 @@ for skill in skills/*/; do
 done
 ```
 
+## Marking a False Positive
+
+Mark a line the auditor misreads, and write the reason on it: `# noqa: SEC-AUDITOR (strips a sudo prefix, runs nothing)`, or `<!-- noqa: SEC-AUDITOR (reason) -->` in markdown. Text inside a template string or docstring cannot take a trailing comment without it ending up in the generated file. For that text, put `# auditor:ignore-start (reason)` on the line before the string and `# auditor:ignore-end` on the line after it. An unclosed block suppresses nothing. Keep each block tight around the template, and never mark a finding you have not traced.
+
 ## Threat Model Reference
 
 For the complete threat model, detection patterns, and known attack vectors against AI agent skills, see [references/threat-model.md](references/threat-model.md).

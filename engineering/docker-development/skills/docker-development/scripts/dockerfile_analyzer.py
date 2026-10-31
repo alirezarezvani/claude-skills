@@ -99,15 +99,15 @@ ANTI_PATTERNS = [
         "name": "pip_no_cache",
         "severity": "low",
         "pattern": r"^RUN\s+.*pip\s+install(?!\s+--no-cache-dir)",
-        "message": "pip install without --no-cache-dir — retains pip cache in layer",
-        "fix": "Use: pip install --no-cache-dir -r requirements.txt",
+        "message": "pip install without --no-cache-dir — retains pip cache in layer",  # noqa: SEC-AUDITOR (lint message or demo Dockerfile text; nothing installs)
+        "fix": "Use: pip install --no-cache-dir -r requirements.txt",  # noqa: SEC-AUDITOR (lint message or demo Dockerfile text; nothing installs)
     },
     {
         "id": "AP011",
         "name": "npm_install_dev",
         "severity": "medium",
         "pattern": r"^RUN\s+.*npm\s+install\s*$",
-        "message": "npm install includes devDependencies — use npm ci --omit=dev for production",
+        "message": "npm install includes devDependencies — use npm ci --omit=dev for production",  # noqa: SEC-AUDITOR (lint message or demo Dockerfile text; nothing installs)
         "fix": "Use: npm ci --omit=dev (or npm ci --production)",
     },
     {
@@ -171,6 +171,7 @@ BASE_IMAGE_SIZES = {
 
 # --- Demo Dockerfile ---
 
+# auditor:ignore-start (lint message or demo Dockerfile text; nothing installs)
 DEMO_DOCKERFILE = """FROM python:3.12
 WORKDIR /app
 COPY . .
@@ -179,6 +180,7 @@ ENV SECRET_KEY=mysecretkey123
 EXPOSE 8000 5432 6379
 CMD python manage.py runserver 0.0.0.0:8000
 """
+# auditor:ignore-end
 
 
 def parse_dockerfile(content):

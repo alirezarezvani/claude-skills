@@ -310,7 +310,7 @@ def main():
         with open(args.file, "r", encoding="utf-8", errors="replace") as f:
             html = f.read()
     elif args.url:
-        with urllib.request.urlopen(args.url, timeout=10) as resp:
+        with urllib.request.urlopen(args.url, timeout=10) as resp:  # noqa: SEC-AUDITOR (fetches only the URL the user passes, by design)
             html = resp.read().decode("utf-8", errors="replace")
     else:
         html = DEMO_HTML

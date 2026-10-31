@@ -266,7 +266,7 @@ def main(argv: list[str] | None = None) -> int:
             "reason": "validation error is materially below training error",
             "explanation": "This usually means a leaky split, a validation set that is "
                            "easier than the training set, or regularization active at "
-                           "train time but not at eval (dropout, augmentation). Fix the "
+                           "train time but not at eval (dropout, augmentation). Fix the "  # noqa: SEC-AUDITOR (the word eval in advice text)
                            "measurement before acting on it.",
             "chapter": "ch05, ch11",
         }

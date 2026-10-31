@@ -70,7 +70,7 @@ def check_installation() -> Check:
     if path:
         return Check("gws-installed", "PASS", f"gws found at {path}")
     return Check("gws-installed", "FAIL", "gws not found on PATH",
-                 "Install via: npm install -g @googleworkspace/cli  OR  download from https://github.com/googleworkspace/cli/releases")
+                 "Install via: npm install -g @googleworkspace/cli  OR  download from https://github.com/googleworkspace/cli/releases")  # noqa: SEC-AUDITOR (install hint shown to the user; the script installs nothing)
 
 
 def check_version() -> Check:

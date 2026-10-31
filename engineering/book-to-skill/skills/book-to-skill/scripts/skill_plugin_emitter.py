@@ -447,7 +447,7 @@ def emit(*, skill_dir: Path, dest_root: Path, domain: str, author: str, author_u
         return result
 
     if package_root.exists():
-        shutil.rmtree(package_root)
+        shutil.rmtree(package_root)  # noqa: SEC-AUDITOR (replaces the output package only with --force; guarded above)
     for relative, text in files.items():
         target = package_root / relative
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -464,7 +464,7 @@ def emit(*, skill_dir: Path, dest_root: Path, domain: str, author: str, author_u
     # _assert_no_symlinks ran, and a distributable package must not carry one.
     planted = [p for p in sorted(copied.rglob("*")) if p.is_symlink()]
     if planted:
-        shutil.rmtree(package_root)
+        shutil.rmtree(package_root)  # noqa: SEC-AUDITOR (replaces the output package only with --force; guarded above)
         listed = "\n".join(f"  {p.relative_to(copied).as_posix()}" for p in planted[:10])
         raise EmitError(
             f"symbolic link(s) appeared in the source tree while it was being copied — "

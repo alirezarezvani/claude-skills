@@ -96,6 +96,7 @@ def build_scraping_script(url, selectors, paginate=False, output_format="script"
 
     main_call = "scrape_all_pages(page, CONTAINER, FIELDS, NEXT_SELECTOR)" if paginate else "extract_items(page, CONTAINER, FIELDS)"
 
+    # auditor:ignore-start (requirements note in the generated script's docstring)
     script = textwrap.dedent(f'''\
 #!/usr/bin/env python3
 """
@@ -168,6 +169,7 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ''')
+    # auditor:ignore-end
 
     return script, None
 

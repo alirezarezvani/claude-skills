@@ -89,7 +89,7 @@ DANGEROUS = [
     (r"git\s+push\s+(.*\s)?(--force|-f)\b", "force push"),
     (r"git\s+push\s*\*|git\s+push\s*:\*", "any git push"),
     (r"git\s+reset\s+--hard", "hard reset"),
-    (r"chmod\s+(-R\s+)?777", "world-writable permissions"),
+    (r"chmod\s+(-R\s+)?777", "world-writable permissions"),  # noqa: SEC-AUDITOR (detection regex for chmod 777; flags it, never runs it)
     (r"\bmkfs\b|\bdd\s+if=", "disk-level write"),
     (r"terraform\s+(apply|destroy)", "infrastructure change"),
     (r"kubectl\s+(delete|apply)", "cluster change"),

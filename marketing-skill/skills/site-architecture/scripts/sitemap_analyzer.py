@@ -313,7 +313,7 @@ def load_content(source: str) -> str:
     """Load sitemap from file path, URL, or stdin."""
     if source.startswith("http://") or source.startswith("https://"):
         try:
-            with urllib.request.urlopen(source, timeout=10) as resp:
+            with urllib.request.urlopen(source, timeout=10) as resp:  # noqa: SEC-AUDITOR (fetches only the URL the user passes, by design)
                 return resp.read().decode("utf-8")
         except urllib.error.URLError as e:
             print(f"Error fetching URL: {e}", file=sys.stderr)

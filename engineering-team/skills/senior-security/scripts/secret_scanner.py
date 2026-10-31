@@ -14,6 +14,7 @@ Usage:
 
 import argparse
 import json
+from datetime import datetime
 import os
 import re
 import sys
@@ -381,7 +382,7 @@ def format_json_report(findings: List[SecretFinding], path: str) -> Dict:
     """Format findings as JSON."""
     return {
         "target": path,
-        "scan_date": __import__('datetime').datetime.now().isoformat(),
+        "scan_date": datetime.now().isoformat(),
         "summary": {
             "total": len(findings),
             "by_severity": {

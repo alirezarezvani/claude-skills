@@ -809,7 +809,7 @@ class FormatConverter:
         results = converter2._coco_to_yolo()
 
         # Clean up temp
-        shutil.rmtree(temp_coco, ignore_errors=True)
+        shutil.rmtree(temp_coco, ignore_errors=True)  # noqa: SEC-AUDITOR (removes the temp dir this run created under the output path)
 
         return results
 

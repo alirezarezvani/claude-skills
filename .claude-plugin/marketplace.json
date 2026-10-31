@@ -16,7 +16,7 @@
       "name": "marketing-skills",
       "source": "./marketing-skill",
       "description": "47 marketing skills across 8 pods: Content, SEO & AEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 62 Python tools, 89 reference docs.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -246,7 +246,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "44 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit), slo-architect (error-budget + multi-window burn-rate alerts per Google SRE Workbook), tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft and agent-run-forensics. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-      "version": "2.14.11",
+      "version": "2.14.12",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -269,7 +269,7 @@
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock — each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs-fullstack-review, /cs-frontend-review, /cs-backend-review, /cs-engineer-grill slash commands.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -296,7 +296,7 @@
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
       "description": "14 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -316,7 +316,7 @@
       "name": "product-skills",
       "source": "./product-team",
       "description": "14 bundled product skills with 19 Python tools: product-skills fork-orchestrator with continuous-discovery loop (deterministic 16-lane router, Torres cadence tracker, OST linter, /cs-product + /cs-grill-product + /cs-product-loop), product manager toolkit (RICE, PRDs), product strategist, UX researcher, UI design system, competitive teardown, landing page generator, SaaS scaffolder, product analytics, experiment designer, product discovery, roadmap communicator, spec-to-repo, design-qa (UI finish gate: inert controls, missing states, rendered WCAG 2.2 checks). Companion standalone plugins: agile-product-owner, code-to-prd, apple-hig-expert, research-summarizer, design-qa.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -361,7 +361,7 @@
       "name": "business-growth-skills",
       "source": "./business-growth",
       "description": "5 business & growth skills: customer success manager, sales engineer, revenue operations, contract & proposal writer.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -456,7 +456,7 @@
       "name": "google-workspace-cli",
       "source": "./engineering-team/google-workspace-cli",
       "description": "Google Workspace administration via the gws CLI. Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. 5 Python tools, 3 reference guides, 43 built-in recipes, 10 persona bundles.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -561,7 +561,7 @@
       "name": "docker-development",
       "source": "./engineering/docker-development",
       "description": "Docker and container development — Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -892,7 +892,7 @@
       "name": "book-to-skill",
       "source": "./engineering/book-to-skill",
       "description": "Converts books, documentation folders, and source collections (PDF, EPUB, DOCX, HTML, Markdown, RST, AsciiDoc, RTF, MOBI/AZW) into structured agent skills: a master SKILL.md with core frameworks and a topic index, on-demand chapter files, a glossary, a patterns file, and a decision cheatsheet. Ships 4 stdlib-only tools (multi-format extractor with invisible-Unicode sanitization, four-family generated-skill validator covering frontmatter/safety/budget/index, pre- and post-flight token budget estimator with a worth-converting verdict, and a plugin emitter that wraps a compiled skill as an installable claude-skills package behind a rights gate), 5 references citing 7-8 sources each, a cs-book-to-skill agent, and /cs-book-to-skill + /cs-book-to-plugin commands. Derived from virgiliojr94/book-to-skill (MIT).",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -988,7 +988,7 @@
       "name": "agent-harness",
       "source": "./engineering/agent-harness",
       "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs-harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
-      "version": "2.14.9",
+      "version": "2.14.10",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1260,7 +1260,7 @@
       "name": "deep-work",
       "source": "./productivity/deep-work",
       "description": "Deep Work day planner. Classifies tasks deep vs shallow with a shallow-work budget verdict (plus the recent-graduate forcing question), builds a time-blocked schedule (deep blocks of 90+ minutes first, shallow batched, buffers, refuses more than 4 hours of deep demand), and logs focus sessions against a weekly deep-hours target with streaks. Fills the time/attention-management gap from audit/productivity-2026-07.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1394,7 +1394,7 @@
       "name": "litreview",
       "source": "./research/litreview",
       "description": "Academic literature orientation skill. PICO/SPIDER frameworks, systematic review structure, 8-section DOCX guide. Research-pack convention. Path-B from megaprompt 09.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1475,7 +1475,7 @@
       "name": "syllabus",
       "source": "./research/syllabus",
       "description": "Course supplementary-reading skill. Topic-grouper + bundled Node.js DOCX generator for syllabus-anchored reading lists. Research-pack convention. Path-B from megaprompt 10.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1554,7 +1554,7 @@
       "name": "aeo",
       "source": "./marketing-skill/skills/aeo",
       "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO (which optimizes for search rankings), AEO optimizes for citation in LLM-generated responses. 3 stdlib Python tools (aeo_audit, aeo_optimizer, citation_tracker), 3 references citing 8 sources each, industry-aware thresholds for 8 industries (saas/healthcare/finance/legal/ecommerce/b2b/media/education). Ported from alirezarezvani/aeo-box.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1657,7 +1657,7 @@
       "name": "commercial-skills",
       "source": "./commercial",
       "description": "Per-deal-and-packaging Commercial domain. v2.8.0 ships 8 skills: orchestrator + pricing-strategist (model picker + Van Westendorp WTP + packaging) + deal-desk (deal scorer + discount approval routing + redline) + partnerships-architect (5-tier classifier + joint GTM + revshare modeler) + channel-economics (cost-to-serve + ROI + mix optimizer) + commercial-policy (data-backed discount matrix + exception flow + linter) + rfp-responder (Shipley structured RFP/RFI/RFQ + win-theme + winrate predictor, context: fork) + commercial-forecaster (4Q-weighted bookings + cohort NRR/GRR + funnel-confidence with mandatory assumption disclosure). Hard rules: pricing outputs model+range (never a single number), deal outputs route to named human approver (never auto-approve), forecast outputs surface conversion assumption, RFP never invents claims for GAP requirements. 21 stdlib Python tools, 28+ reference docs. Distinct from business-growth (sales execution), c-level-advisor/cro-advisor (strategic), finance (close+report).",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1698,7 +1698,7 @@
       "name": "universal-scraping-architect",
       "source": "./engineering/universal-scraping-architect",
       "description": "A universal scraping skill with intelligent routing, token budget tracking, and quota awareness. Supports Firecrawl (BYOK, free-tier compatible) and local Python extraction via requests/BeautifulSoup/pandas.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Mehansh Barthwal",
         "url": "https://github.com/mehanshbarthwal-lab"
@@ -2080,7 +2080,7 @@
       "name": "human-gate",
       "source": "./engineering/human-gate",
       "description": "Human-verification gate for an agent loop: builds a single-file review page (the page itself makes no network request; a reviewed HTML artifact's own https: assets still load), collects batched feedback as structured batch.v1 data instead of chat prose, and refuses to close while a BLOCKER is open, the reviewer is unnamed, or nobody has reviewed. Non-blocking, headless-guarded, round-capped. Stdlib-only.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani",
         "url": "https://alirezarezvani.com"
@@ -2125,7 +2125,7 @@
       "name": "agent-memory",
       "source": "./engineering/agent-memory",
       "description": "A four-tier memory ladder for Claude Code where promotion is earned by recurrence, not asserted by confidence. L0 raw transcripts are never injected; L1 candidate atoms are gitignored and recalled on lexical relevance per prompt; L2 project context loads each session start; L3 stable persona is always loaded. L1 to L2 needs three distinct sessions spanning two distinct calendar days (a stated claim needs two; a verified claim is the only single-observation path); L2 to L3 needs two projects and thirty days. Two gates refuse rather than guess: a claim altered by the redaction pass never promotes on evidence alone, and a contradicted claim freezes until a human resolves it. Three hooks run the loop unattended and every one fails open. Nothing reaches a committed CLAUDE.md without an explicit human adopt. Ships 5 stdlib scripts, 3 hooks, a cs-memory-curator agent, /cs-memory, a JSON schema, and a 69-check validator. Concept from TencentCloud/TencentDB-Agent-Memory (MIT); no upstream code included.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -2168,7 +2168,7 @@
       "name": "deep-learning-book",
       "source": "./engineering/deep-learning-book",
       "description": "Study companion for the Deep Learning textbook by Goodfellow, Bengio & Courville (MIT Press, 2016), free to read at deeplearningbook.org. Twenty chapter files, a glossary, patterns and a cheatsheet index the whole book, and a delta reference dates it against 2026 practice with per-claim confidence levels: double descent qualifying the U-curve, AdamW splitting weight decay from L2, transformers displacing Chapter 10's recurrence, diffusion growing out of Chapter 18's score matching. Four stdlib tools make it executable — a prerequisite-closed reading-path planner that refuses goals the book does not cover, a training diagnostic running Chapter 11's rules in priority order so a NaN is never reported as overfitting, a capacity planner that ranks 'shrink the model' last when overparameterized, and a parameter/FLOP/activation-memory calculator that refuses a stack whose shapes do not connect. A companion, not a compilation: the book is copyrighted, so nothing here reproduces its text.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -2227,7 +2227,7 @@
       "name": "agent-run-forensics",
       "source": "./engineering/agent-run-forensics",
       "description": "Answer questions about past agent runs from the recording, not from memory. Three read-only stdlib scripts over the session transcripts Claude Code and Codex already write: a finder that locates the run by repo, time window, touched file or command text; a timeline that numbers every step with its exit code, lists every file changed (flagging changes the agent never mentioned) and walks back from any step with each causal edge labelled recorded or inferred by a named rule; and a claim checker that tests a summary's claims (ran, passed, edited, not-edited, read) against the run and catches tests that passed before a later edit and exit codes that belong to the last command of a pipe. Secrets are always redacted. A UserPromptSubmit hook gives the agent this session's transcript path when a prompt asks about past work. Ships cs-run-forensics agent, /cs-run-forensics and /cs-check-claims commands and 3 cited references.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -2273,7 +2273,7 @@
       "name": "coding-agent-rollout",
       "source": "./engineering/coding-agent-rollout",
       "description": "Roll Claude Code out to a team with guardrails you can check. Four deterministic stdlib scripts: a settings linter that reads shared, local, user and managed settings together (array merge, deny-ask-allow order) and blocks blanket shell allows, pre-approved destructive commands and committed credentials; an MCP and plugin inventory that blocks anything missing from your approved list or holding a literal secret, and flags unpinned or plain-http servers; a CLAUDE.md layering audit that resolves every layer and @import and flags broken imports, contradictions, secrets and resident size; and a privacy-safe adoption tracker that turns local session files into counts only and classifies the rollout as PILOT, SPREADING, EMBEDDED or STALLED. Ships cs-claude-code-rollout agent, /cs-claude-rollout and /cs-claude-settings-lint commands, 3 references, a baseline managed-settings policy and a four-phase rollout plan.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Alireza Rezvani"
       },

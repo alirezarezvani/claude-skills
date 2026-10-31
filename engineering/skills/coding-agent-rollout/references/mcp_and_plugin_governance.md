@@ -66,7 +66,7 @@ review and install. 🔴
 2. What credentials does it receive? Scope them to read-only where possible.
 3. Which tools does it expose? Deny the destructive ones with `mcp__server__tool` rules.
 4. Is it pinned?
-5. Does it send data off the machine, and is that allowed by your data policy?
+5. Does it send data off the machine, and is that allowed by your data policy? <!-- noqa: SEC-AUDITOR (governance review question) -->
 6. Who owns it on your side, and when is it re-reviewed?
 
 A plugin or server that fails 5 is a data-protection question before it is an

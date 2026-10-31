@@ -197,7 +197,7 @@ nav:
       - "Autoresearch Agent": skills/engineering/autoresearch-agent.md
       - "Autoresearch /ar:setup": skills/engineering/autoresearch-agent-setup.md
       - "Autoresearch /ar:ar-run": skills/engineering/autoresearch-agent-run.md
-      - "Autoresearch /ar:loop": skills/engineering/autoresearch-agent-loop.md
+      - "Autoresearch /ar:loop": skills/engineering/autoresearch-agent-ar-loop.md
       - "Autoresearch /ar:ar-status": skills/engineering/autoresearch-agent-status.md
       - "Autoresearch /ar:ar-resume": skills/engineering/autoresearch-agent-resume.md
       - "Agent Designer": skills/engineering/agent-designer.md

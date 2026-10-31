@@ -13,7 +13,7 @@ agile-product-owner 194
 andreessen 285
 apple-hig-expert 209
 arquiteto-de-empresa 276
-autoresearch-agent 843
+autoresearch-agent 846
 behuman 267
 book-to-skill 302
 business-growth-skills 1014
@@ -91,7 +91,7 @@ research-summarizer 220
 roast 412
 security-guidance 277
 self-improving-agent 1748
-skill-retro 289
+skill-retro 288
 skillopt-sleep 557
 slo-architect 262
 snowflake-development 224

@@ -32,8 +32,8 @@ RESERVED = {
     "run",
     # Bundled skills in CC 2.1.314. `skill-doctor` was our engineering plugin's
     # skill name until v2.14.5 (renamed skill-retro) and hid the built-in report.
-    # `loop` also clashes (autoresearch-agent) and is a tracked follow-up.
-    "skill-doctor", "simplify", "code-review", "security-review",
+    # `loop` was autoresearch-agent's skill name until v2.14.5 (renamed ar-loop).
+    "skill-doctor", "simplify", "code-review", "security-review", "loop",
 }
 
 SKIP_DIRS = {".git", ".gemini", ".codex", ".vibe", ".hermes", "docs",

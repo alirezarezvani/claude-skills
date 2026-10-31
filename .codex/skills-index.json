@@ -1032,6 +1032,12 @@
       "description": "Use when asked to write API, integration or contract tests for REST endpoints. Builds the suite from the routes: happy paths, auth, validation errors and edge cases per endpoint."
     },
     {
+      "name": "ar-loop",
+      "source": "../../engineering/autoresearch-agent/skills/ar-loop",
+      "category": "engineering-advanced",
+      "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
+    },
+    {
       "name": "ar-resume",
       "source": "../../engineering/autoresearch-agent/skills/ar-resume",
       "category": "engineering-advanced",
@@ -1330,12 +1336,6 @@
       "source": "../../engineering/llm-wiki/skills/llm-wiki",
       "category": "engineering-advanced",
       "description": "Use when building or maintaining an Obsidian second brain that an LLM keeps up to date, or when ingesting a paper, article or book into it. Ingests with ingest_source.py, maintains index and links and checks the vault with lint_wiki.py."
-    },
-    {
-      "name": "loop",
-      "source": "../../engineering/autoresearch-agent/skills/loop",
-      "category": "engineering-advanced",
-      "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
     },
     {
       "name": "loop-library",

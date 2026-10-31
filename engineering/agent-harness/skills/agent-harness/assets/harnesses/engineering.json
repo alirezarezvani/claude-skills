@@ -533,8 +533,8 @@
       ]
     },
     {
-      "name": "loop",
-      "path": "engineering/autoresearch-agent/skills/loop",
+      "name": "ar-loop",
+      "path": "engineering/autoresearch-agent/skills/ar-loop",
       "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
       "tools": [],
       "agentic_signals": {

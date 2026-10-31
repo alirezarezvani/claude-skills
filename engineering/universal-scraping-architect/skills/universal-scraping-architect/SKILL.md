@@ -7,7 +7,7 @@ description: "Use for web scraping, crawling, document extraction or API parsing
 
 Design complete, robust data-extraction pipelines with intelligent routing, validation, and token-budget tracking — not brittle one-off scripts.
 
-**Dependency Notice:** BYOK (Bring Your Own Key) pattern for Firecrawl; API keys must only be loaded via environment variables. Per-script dependencies:
+**Dependency Notice:** BYOK (Bring Your Own Key) pattern for Firecrawl; API keys must only be loaded via environment variables. Without `FIRECRAWL_API_KEY`, `scripts/firecrawl_example.py` runs keyless at lower rate limits. Per-script dependencies:
 
 | Script | Dependencies | Exact CLI |
 |---|---|---|

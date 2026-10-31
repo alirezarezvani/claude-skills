@@ -1942,56 +1942,56 @@
       ]
     },
     {
-      "name": "skill-doctor",
-      "path": "engineering/skill-doctor/skills/skill-doctor",
+      "name": "skill-retro",
+      "path": "engineering/skill-retro/skills/skill-retro",
       "description": "Use when the user wants their skills graded from real session history, asks which installed skills actually work, or wants evidence-backed skill edits. Collects local sessions with collect_sessions.py, scores them against two rubrics and gates edits with score_aggregator.py.",
       "tools": [
         {
-          "script": "engineering/skill-doctor/skills/skill-doctor/scripts/collect_sessions.py",
+          "script": "engineering/skill-retro/skills/skill-retro/scripts/collect_sessions.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 engineering/skill-doctor/skills/skill-doctor/scripts/collect_sessions.py --help",
+              "cmd": "python3 engineering/skill-retro/skills/skill-retro/scripts/collect_sessions.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 engineering/skill-doctor/skills/skill-doctor/scripts/collect_sessions.py --sample",
+              "cmd": "python3 engineering/skill-retro/skills/skill-retro/scripts/collect_sessions.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "engineering/skill-doctor/skills/skill-doctor/scripts/render_report.py",
+          "script": "engineering/skill-retro/skills/skill-retro/scripts/render_report.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 engineering/skill-doctor/skills/skill-doctor/scripts/render_report.py --help",
+              "cmd": "python3 engineering/skill-retro/skills/skill-retro/scripts/render_report.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 engineering/skill-doctor/skills/skill-doctor/scripts/render_report.py --sample",
+              "cmd": "python3 engineering/skill-retro/skills/skill-retro/scripts/render_report.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }
           ]
         },
         {
-          "script": "engineering/skill-doctor/skills/skill-doctor/scripts/score_aggregator.py",
+          "script": "engineering/skill-retro/skills/skill-retro/scripts/score_aggregator.py",
           "wired": true,
           "supports_sample": true,
           "verification": [
             {
-              "cmd": "python3 engineering/skill-doctor/skills/skill-doctor/scripts/score_aggregator.py --help",
+              "cmd": "python3 engineering/skill-retro/skills/skill-retro/scripts/score_aggregator.py --help",
               "expect_exit": 0,
               "kind": "smoke"
             },
             {
-              "cmd": "python3 engineering/skill-doctor/skills/skill-doctor/scripts/score_aggregator.py --sample",
+              "cmd": "python3 engineering/skill-retro/skills/skill-retro/scripts/score_aggregator.py --sample",
               "expect_exit": 0,
               "kind": "sample"
             }

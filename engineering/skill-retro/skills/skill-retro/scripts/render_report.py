@@ -157,7 +157,7 @@ def render_page(report):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(report.get('title', 'Agent Skill Report'))} — {esc(report.get('handle', ''))}</title>
 <style>{PAGE_CSS}</style></head><body>
-<div class="muted"># skill-doctor</div>
+<div class="muted"># skill-retro</div>
 <h1>{esc(report.get('title', 'Agent Skill Report'))}</h1>
 <p class="muted">{esc(report.get('handle', ''))} &middot; harness: {esc(report.get('harness', ''))}
  &middot; generated {esc(report.get('generated_at', ''))} &middot; all analysis ran locally</p>
@@ -172,7 +172,7 @@ def render_page(report):
 <h2>Findings</h2><ul>{findings}</ul>
 <h2>Suggested skill changes</h2><ol>{suggestions}</ol>
 {('<h2>Aggregation warnings</h2>' + warnings_html) if warnings else ''}
-<footer>Generated locally by skill-doctor. Transcripts were condensed and redacted on this
+<footer>Generated locally by skill-retro. Transcripts were condensed and redacted on this
 machine and were not uploaded anywhere. Print this page for a shareable PDF.</footer>
 </body></html>"""
 
@@ -203,7 +203,7 @@ SAMPLE_REPORT = {
 
 def parse_args(argv=None):
     p = argparse.ArgumentParser(
-        description="Render a skill-doctor report.json into one self-contained HTML page.")
+        description="Render a skill-retro report.json into one self-contained HTML page.")
     p.add_argument("--report", help="path to report.json from score_aggregator.py")
     p.add_argument("--out", help="output HTML path (default: report.html next to report.json)")
     p.add_argument("--output", choices=("text", "json"), default="text", help="summary format on stdout")
@@ -215,7 +215,7 @@ def main(argv=None):
     args = parse_args(argv)
     if args.sample:
         report = SAMPLE_REPORT
-        out_path = Path(args.out).expanduser() if args.out else Path("skill-doctor-sample-report.html")
+        out_path = Path(args.out).expanduser() if args.out else Path("skill-retro-sample-report.html")
     else:
         if not args.report:
             print("error: --report is required (or use --sample)", file=sys.stderr)

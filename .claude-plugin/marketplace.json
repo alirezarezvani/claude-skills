@@ -246,7 +246,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "42 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit), slo-architect (error-budget + multi-window burn-rate alerts per Google SRE Workbook), tech-debt-tracker, agent-regression-evals and coding-agent-rollout. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -988,7 +988,7 @@
       "name": "agent-harness",
       "source": "./engineering/agent-harness",
       "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs-harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1027,15 +1027,15 @@
       "category": "development"
     },
     {
-      "name": "skill-doctor",
-      "source": "./engineering/skill-doctor",
-      "description": "Grade an agent setup from real conversation history — a rebuild of warpdotdev/common-skills' skill-doctor (MIT). Harvests recent local Claude Code and Codex sessions scoped to one repo, condenses and secret-redacts transcripts (12-pattern redactor, chmod-0600 artifacts, nothing uploaded), has the agent judge each transcript against two verbatim-preserved rubrics (efficiency, code quality — labels only), then runs a deterministic aggregation gate that derives every number from the label tables, refuses scores for unsampled sessions and suggestions that cite no scored session, and renders one self-contained zero-JS HTML report (dark-mode, print-to-PDF). Proposed skill edits stay staged as diffs until an explicit per-skill yes; zero suggestions is a valid, reportable success. Ships cs-skill-doctor agent, /cs-skill-doctor command, 3 stdlib tools, 3 references citing 7 sources each.",
-      "version": "2.14.5",
+      "name": "skill-retro",
+      "source": "./engineering/skill-retro",
+      "description": "Grade an agent setup from real conversation history — a rebuild of warpdotdev/common-skills' skill-doctor (MIT). Harvests recent local Claude Code and Codex sessions scoped to one repo, condenses and secret-redacts transcripts (12-pattern redactor, chmod-0600 artifacts, nothing uploaded), has the agent judge each transcript against two verbatim-preserved rubrics (efficiency, code quality — labels only), then runs a deterministic aggregation gate that derives every number from the label tables, refuses scores for unsampled sessions and suggestions that cite no scored session, and renders one self-contained zero-JS HTML report (dark-mode, print-to-PDF). Proposed skill edits stay staged as diffs until an explicit per-skill yes; zero suggestions is a valid, reportable success. Ships cs-skill-retro agent, /cs-skill-retro command, 3 stdlib tools, 3 references citing 7 sources each.",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
       "keywords": [
-        "skill-doctor",
+        "skill-retro",
         "skill-grading",
         "session-mining",
         "llm-as-judge",
@@ -2227,7 +2227,7 @@
       "name": "coding-agent-rollout",
       "source": "./engineering/coding-agent-rollout",
       "description": "Roll Claude Code out to a team with guardrails you can check. Four deterministic stdlib scripts: a settings linter that reads shared, local, user and managed settings together (array merge, deny-ask-allow order) and blocks blanket shell allows, pre-approved destructive commands and committed credentials; an MCP and plugin inventory that blocks anything missing from your approved list or holding a literal secret, and flags unpinned or plain-http servers; a CLAUDE.md layering audit that resolves every layer and @import and flags broken imports, contradictions, secrets and resident size; and a privacy-safe adoption tracker that turns local session files into counts only and classifies the rollout as PILOT, SPREADING, EMBEDDED or STALLED. Ships cs-claude-code-rollout agent, /cs-claude-rollout and /cs-claude-settings-lint commands, 3 references, a baseline managed-settings policy and a four-phase rollout plan.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },

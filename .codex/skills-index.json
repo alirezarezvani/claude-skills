@@ -1452,8 +1452,8 @@
       "description": "Use before deploying or going live ('am I ready to ship', 'can I deploy', 'preflight check'). Scans the codebase with ship_gate_scanner.py across security, database, deploy, AI, dependencies and observability, and blocks on critical items."
     },
     {
-      "name": "skill-doctor",
-      "source": "../../engineering/skill-doctor/skills/skill-doctor",
+      "name": "skill-retro",
+      "source": "../../engineering/skill-retro/skills/skill-retro",
       "category": "engineering-advanced",
       "description": "Use when the user wants their skills graded from real session history, asks which installed skills actually work, or wants evidence-backed skill edits. Collects local sessions with collect_sessions.py, scores them against two rubrics and gates edits with score_aggregator.py."
     },

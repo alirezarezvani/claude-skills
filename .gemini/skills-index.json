@@ -1459,7 +1459,7 @@
       "description": ">"
     },
     {
-      "name": "skill-doctor",
+      "name": "skill-retro",
       "category": "engineering-advanced",
       "description": "Use when the user wants their skills graded from real session history, asks which installed skills actually work, or wants evidence-backed skill edits. Collects local sessions with collect_sessions.py, scores them against two rubrics and gates edits with score_aggregator.py."
     },

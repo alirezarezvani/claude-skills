@@ -1,10 +1,10 @@
-# skill-doctor — grade the agent setup from real sessions
+# skill-retro — grade the agent setup from real sessions
 
 A rebuild of [warpdotdev/common-skills' `skill-doctor`](https://github.com/warpdotdev/common-skills/tree/f3b58c81d1cfd5d8eabf2e32edb32db2b0573923/.agents/skills/skill-doctor)
 (MIT, © Denver Technologies, Inc.) as a full plugin in this library's conventions.
 
 The idea is upstream's, and it is a good one: the only honest benchmark for an
-agent setup is **what actually happened in its recent sessions**. skill-doctor
+agent setup is **what actually happened in its recent sessions**. skill-retro
 harvests the last N days of local Claude Code / Codex conversations scoped to one
 repo, has the agent judge each condensed transcript against two fixed rubrics
 (efficiency and code quality), measures which installed skills actually fired,
@@ -12,6 +12,7 @@ and proposes only the skill edits the evidence justifies — rendered as one loc
 shareable HTML report.
 
 See **Deviations from upstream** below for the authoritative list of what changed.
+This plugin was named `skill-doctor` until v2.14.5 (deviation 24).
 
 ---
 
@@ -52,7 +53,7 @@ valid, reportable success.
   off switch, and per-label redaction counts land in the inventory and report.
 - The report page itself says what was and wasn't collected.
 
-Details and sources: `skills/skill-doctor/references/session_mining_privacy.md`.
+Details and sources: `skills/skill-retro/references/session_mining_privacy.md`.
 
 ## Deviations from upstream
 
@@ -63,8 +64,8 @@ in `.claude-plugin/authoring-notes.json` summarizes it; if the two ever disagree
 
 1. **Repo-native plugin layout.** Upstream is a bare skill folder
    (`SKILL.md`, `scripts/`, `scorers/`, `references/`, `assets/`). Here it is a full
-   plugin: `skills/skill-doctor/{SKILL.md,scripts,scorers,references,assets}` plus
-   `agents/cs-skill-doctor.md`, `commands/cs-skill-doctor.md`, a manifest plus an
+   plugin: `skills/skill-retro/{SKILL.md,scripts,scorers,references,assets}` plus
+   `agents/cs-skill-retro.md`, `commands/cs-skill-retro.md`, a manifest plus an
    `attribution` record in `.claude-plugin/authoring-notes.json`, and this README.
 2. **Preserved verbatim:** both scoring rubrics (`scorers/efficiency.md`,
    `scorers/code-quality.md`) and the skill-improvement method + filing bar (now
@@ -156,6 +157,11 @@ in `.claude-plugin/authoring-notes.json` summarizes it; if the two ever disagree
     `session_id`, not `sessionId`) from directories you name, such as eval
     runs. Those files skip the repo match, since you chose them, and are
     identified by file name because an eval harness can reuse one session id.
+24. **Renamed `skill-doctor` → `skill-retro` (v2.14.5).** Claude Code 2.1.314
+    ships a built-in `/skill-doctor` (which loaded skills go unused and what they
+    cost in context), and a plugin skill of the same name hid it. The skill,
+    plugin, agent (`cs-skill-retro`) and command (`/cs-skill-retro`) were
+    renamed; behaviour is unchanged. See **Migrating from skill-doctor** below.
 
 **Docs & governance**
 
@@ -170,8 +176,23 @@ in `.claude-plugin/authoring-notes.json` summarizes it; if the two ever disagree
 
 ## Install
 
-Registered in `.claude-plugin/marketplace.json` as `skill-doctor`. From this
-marketplace: `/plugin install skill-doctor@claude-code-skills`.
+Registered in `.claude-plugin/marketplace.json` as `skill-retro`. From this
+marketplace: `/plugin install skill-retro@claude-code-skills`.
+
+### Migrating from skill-doctor
+
+This plugin was called `skill-doctor` until v2.14.5. An existing install shows
+as not found in the marketplace after you update it. Reinstall under the new name:
+
+```bash
+/plugin uninstall skill-doctor@claude-code-skills
+/plugin install skill-retro@claude-code-skills
+```
+
+`/cs-skill-doctor` is now `/cs-skill-retro`, and `/skill-doctor` again opens
+Claude Code's built-in report, which measures skill usage and context cost.
+This plugin grades session quality and proposes skill edits, so the two
+complement each other.
 
 ## Attribution
 

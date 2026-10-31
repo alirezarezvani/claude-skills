@@ -1,15 +1,20 @@
 ---
-name: skill-doctor
-description: "Use when the user wants their skills graded from real session history, asks which installed skills actually work, or wants evidence-backed skill edits. Collects local sessions with collect_sessions.py, scores them against two rubrics and gates edits with score_aggregator.py."
-argument-hint: "[optional: --repo PATH, --days N, or a question about the setup]"
-license: MIT
-metadata:
-  version: 1.0.0
-  build_pattern: "Rebuild of warpdotdev/common-skills skill-doctor (MIT): harvest → LLM-judges-with-rubrics → deterministic aggregation gate → self-contained HTML report"
-  distinct_from: "skillopt-sleep (nightly automated replay loop with adopt gate; this is one interactive graded pass); write-a-skill (authors a skill from expertise; this improves skills from observed session evidence); self-eval (grades this session's own work; this grades a window of past sessions)"
+title: "skill-retro — grade the agent setup from real sessions — Agent Skill for Codex & OpenClaw"
+description: "Use when the user wants their agent setup graded from real conversation history, asks which installed skills are actually working, or wants."
 ---
 
-# skill-doctor — grade the agent setup from real sessions
+# skill-retro — grade the agent setup from real sessions
+
+<div class="page-meta" markdown>
+<span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
+<span class="meta-badge">:material-identifier: `skill-retro`</span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/SKILL.md">Source</a></span>
+</div>
+
+<div class="install-banner" markdown>
+<span class="install-label">Install:</span> <code>claude /plugin install engineering-advanced-skills</code>
+</div>
+
 
 > **Privacy is the contract.** Everything runs locally. Transcripts are condensed,
 > secret-redacted, chmod-0600, and never uploaded — the only shareable artifact is
@@ -19,7 +24,7 @@ Run from the repo being graded. Every artifact goes to one fresh scratch dir, ne
 into the repo:
 
 ```bash
-RUN="$(mktemp -d "${TMPDIR:-/tmp}/skill-doctor-XXXXXXXX")"
+RUN="$(mktemp -d "${TMPDIR:-/tmp}/skill-retro-XXXXXXXX")"
 python scripts/collect_sessions.py --out "$RUN"          # 1 — harvest + redact
 ```
 
@@ -29,8 +34,7 @@ layouts), detects skill usage (`Skill` invocations, slash commands, SKILL.md pat
 newest-first, and writes redacted transcripts. Read `$RUN/inventory.json`: if
 `sessions_sampled` is 0, tell the user there is nothing recent to score (suggest
 `--days 90` or `--repo`) and stop. `skills_found` 0 is fine — the report becomes a
-case for creating skills. To grade headless runs (for example skill evals saved as
-stream-json), add `--sessions-dir <dir>`.
+case for creating skills.
 
 **2 — Score.** `python scripts/score_aggregator.py --inventory "$RUN/inventory.json"
 --emit-template > "$RUN/session_scores.json"`. Read each transcript in
@@ -86,7 +90,7 @@ All support `--help`, `--output json`, and `--sample` (no real history needed).
 ## References and assets
 
 - [`scorers/efficiency.md`](scorers/efficiency.md) · [`scorers/code-quality.md`](scorers/code-quality.md) — the two rubrics, preserved verbatim from upstream
-- [`references/transcript_scoring_canon.md`](references/transcript_scoring_canon.md) — why rubric-anchored LLM judging works and where it fails (7 sources)
-- [`references/session_mining_privacy.md`](references/session_mining_privacy.md) — the local-only contract, redaction pattern canon (7 sources)
-- [`references/skill_edit_governance.md`](references/skill_edit_governance.md) — the filing bar for proposing skill edits (7 sources)
-- [`assets/session_scores.example.json`](assets/session_scores.example.json) · [`assets/suggestions.example.json`](assets/suggestions.example.json) · [`assets/report.example.json`](assets/report.example.json) — the three handoff shapes
+- [`references/transcript_scoring_canon.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/references/transcript_scoring_canon.md) — why rubric-anchored LLM judging works and where it fails (7 sources)
+- [`references/session_mining_privacy.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/references/session_mining_privacy.md) — the local-only contract, redaction pattern canon (7 sources)
+- [`references/skill_edit_governance.md`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/references/skill_edit_governance.md) — the filing bar for proposing skill edits (7 sources)
+- [`assets/session_scores.example.json`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/assets/session_scores.example.json) · [`assets/suggestions.example.json`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/assets/suggestions.example.json) · [`assets/report.example.json`](https://github.com/alirezarezvani/claude-skills/tree/main/engineering/skill-retro/skills/skill-retro/assets/report.example.json) — the three handoff shapes

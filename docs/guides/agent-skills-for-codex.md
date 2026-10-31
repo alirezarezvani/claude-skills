@@ -38,23 +38,23 @@ Codex reads agent skills from `.codex/skills/<skill-name>/SKILL.md` in your proj
 
 ### Engineering
 
-| Skill | Codex Command | What It Does |
+| Skill | Example request | What It Does |
 |-------|--------------|-------------|
-| **autoresearch-agent** | `/ar-run` | Autonomous experiment loop — edit, evaluate, keep or revert. Karpathy-inspired. |
-| **pr-review-expert** | `/review:full` | Multi-pass code review catching logic bugs, security issues, missing tests. |
-| **frontend-design** | `/design:component` | Production-grade React/Tailwind UI with high design quality. |
-| **tdd-guide** | `/tdd:start` | Red-green-refactor TDD workflow with coverage tracking. |
-| **senior-devops** | `/devops:deploy` | IaC, CI/CD, monitoring, and incident response playbooks. |
-| **docker-development** | `/docker:optimize` | Dockerfile optimization, multi-stage builds, container security. |
+| **autoresearch-agent** | "Make this benchmark faster" | Autonomous experiment loop — edit, evaluate, keep or revert. Karpathy-inspired. |
+| **pr-review-expert** | "Review this PR" | Multi-pass code review catching logic bugs, security issues, missing tests. |
+| **frontend-design** | "Build a pricing card" | Production-grade React/Tailwind UI with high design quality. |
+| **tdd-guide** | "Write this TDD-first" | Red-green-refactor TDD workflow with coverage tracking. |
+| **senior-devops** | "Set up CI/CD" | IaC, CI/CD, monitoring, and incident response playbooks. |
+| **docker-development** | "Shrink this Dockerfile" | Dockerfile optimization, multi-stage builds, container security. |
 
 ### Beyond Engineering
 
-| Skill | Codex Command | What It Does |
+| Skill | Example request | What It Does |
 |-------|--------------|-------------|
-| **content-creator** | `/content:write` | SEO-optimized content with brand voice analysis. |
-| **cto-advisor** | `/cto:assess` | Tech debt scoring, team scaling, architecture decisions. |
-| **agile-product-owner** | `/po:story` | User stories, acceptance criteria, sprint planning. |
-| **research-summarizer** | `/research:summarize` | Structured research → summary → citations workflow. |
+| **content-creator** | "Write a blog post on X" | SEO-optimized content with brand voice analysis. |
+| **cto-advisor** | "Score our tech debt" | Tech debt scoring, team scaling, architecture decisions. |
+| **agile-product-owner** | "Write user stories for X" | User stories, acceptance criteria, sprint planning. |
+| **research-summarizer** | "Summarize these papers" | Structured research → summary → citations workflow. |
 
 ---
 

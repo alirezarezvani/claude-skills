@@ -1,7 +1,7 @@
 {
   "name": "docker-development",
   "description": "Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Covers build performance, layer caching, and production-ready container patterns.",
-  "version": "2.14.5",
+  "version": "2.14.6",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

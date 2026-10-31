@@ -28,9 +28,9 @@ Not a Terraform tutorial — a set of concrete decisions about how to write infr
 
 | Command | What it does |
 |---------|-------------|
-| `/terraform:review` | Analyze Terraform code for anti-patterns, security issues, and structure problems |
-| `/terraform:module` | Design or refactor a Terraform module with proper inputs, outputs, and composition |
-| `/terraform:security` | Audit Terraform code for security vulnerabilities, secrets exposure, and IAM misconfigurations |
+| `/terraform-patterns review` | Analyze Terraform code for anti-patterns, security issues, and structure problems |
+| `/terraform-patterns module` | Design or refactor a Terraform module with proper inputs, outputs, and composition |
+| `/terraform-patterns security` | Audit Terraform code for security vulnerabilities, secrets exposure, and IAM misconfigurations |
 
 ---
 
@@ -54,7 +54,7 @@ If the user has `.tf` files or wants to provision infrastructure with Terraform 
 
 ## Workflow
 
-### `/terraform:review` — Terraform Code Review
+### `/terraform-patterns review` — Terraform Code Review
 
 1. **Analyze current state**
    - Read all `.tf` files in the target directory
@@ -103,7 +103,7 @@ If the user has `.tf` files or wants to provision infrastructure with Terraform 
    python3 scripts/tf_security_scanner.py ./terraform
    ```
 
-### `/terraform:module` — Module Design
+### `/terraform-patterns module` — Module Design
 
 1. **Identify module scope**
    - Single responsibility: one module = one logical grouping
@@ -148,7 +148,7 @@ If the user has `.tf` files or wants to provision infrastructure with Terraform 
    - Include variable validation blocks
    - Add lifecycle rules where appropriate
 
-### `/terraform:security` — Security Audit
+### `/terraform-patterns security` — Security Audit
 
 1. **Code-level audit**
 

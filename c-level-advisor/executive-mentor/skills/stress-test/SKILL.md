@@ -1,11 +1,11 @@
 ---
 name: "stress-test"
-description: "Use for /em:stress-test, or before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot)."
+description: "Use before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot)."
 ---
 
-# /em:stress-test — Business Assumption Stress Testing
+# /executive-mentor:stress-test — Business Assumption Stress Testing
 
-**Command:** `/em:stress-test <assumption>`
+**Command:** `/executive-mentor:stress-test <assumption>`
 
 Take any business assumption and break it before the market does. Revenue projections. Market size. Competitive moat. Hiring velocity. Customer retention.
 

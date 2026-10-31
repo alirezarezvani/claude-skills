@@ -1,9 +1,9 @@
 ---
-title: "/em:hard-call — Framework for Decisions With No Good Options — Agent Skill for Executives"
-description: "/em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/executive-mentor:hard-call — Framework for Decisions With No Good Options — Agent Skill for Executives"
+description: "/executive-mentor:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /em:hard-call — Framework for Decisions With No Good Options
+# /executive-mentor:hard-call — Framework for Decisions With No Good Options
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/em:hard-call — Framework for decisions with no good options. Us
 </div>
 
 
-**Command:** `/em:hard-call <decision>`
+**Command:** `/executive-mentor:hard-call <decision>`
 
 For the decisions that keep you up at 3am. Firing a co-founder. Laying off 20% of the team. Killing a product that customers love. Pivoting. Shutting down.
 

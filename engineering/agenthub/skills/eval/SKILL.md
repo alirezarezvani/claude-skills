@@ -1,20 +1,20 @@
 ---
 name: "eval"
-description: "Use for /hub:eval, or to score and pick a winner among finished AgentHub agents by metric or judge."
+description: "Use to score and pick a winner among finished AgentHub agents by metric or judge."
 metadata:
-  command: /hub:eval
+  command: /agenthub:eval
 ---
 
-# /hub:eval — Evaluate Agent Results
+# /agenthub:eval — Evaluate Agent Results
 
 Rank all agent results for a session. Supports metric-based evaluation (run a command), LLM judge (compare diffs), or hybrid.
 
 ## Usage
 
 ```
-/hub:eval                           # Eval latest session using configured criteria
-/hub:eval 20260317-143022           # Eval specific session
-/hub:eval --judge                   # Force LLM judge mode (ignore metric config)
+/agenthub:eval                           # Eval latest session using configured criteria
+/agenthub:eval 20260317-143022           # Eval specific session
+/agenthub:eval --judge                   # Force LLM judge mode (ignore metric config)
 ```
 
 ## What It Does
@@ -77,5 +77,5 @@ python {skill_path}/scripts/session_manager.py --update {session-id} --state eva
 
 2. Tell the user:
    - Ranked results with winner highlighted
-   - Next step: `/hub:merge` to merge the winner
-   - Or `/hub:merge {session-id} --agent {winner}` to be explicit
+   - Next step: `/agenthub:merge` to merge the winner
+   - Or `/agenthub:merge {session-id} --agent {winner}` to be explicit

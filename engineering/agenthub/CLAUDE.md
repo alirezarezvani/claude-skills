@@ -4,25 +4,25 @@ This plugin enables multi-agent collaboration. Spawn N parallel subagents that c
 
 ## Commands
 
-Use the `/hub:` namespace for all commands:
+Claude Code namespaces these commands by the plugin name, `/agenthub:<name>`. The `hub-*` names are unique, so their bare forms work; the generic ones (`spawn`, `eval`, `merge`, `board`) use the namespaced form:
 
-- `/hub:hub-init` — Create a new collaboration session (task, agent count, eval criteria)
-- `/hub:spawn` — Launch N parallel subagents in isolated worktrees (supports `--template`)
-- `/hub:hub-status` — Show DAG state, agent progress, and branch status
-- `/hub:eval` — Rank agent results by metric or LLM judge
-- `/hub:merge` — Merge the winning branch, archive losers
-- `/hub:board` — Read/write the agent message board
-- `/hub:hub-run` — One-shot lifecycle: init → baseline → spawn → eval → merge
+- `/hub-init` — Create a new collaboration session (task, agent count, eval criteria)
+- `/agenthub:spawn` — Launch N parallel subagents in isolated worktrees (supports `--template`)
+- `/hub-status` — Show DAG state, agent progress, and branch status
+- `/agenthub:eval` — Rank agent results by metric or LLM judge
+- `/agenthub:merge` — Merge the winning branch, archive losers
+- `/agenthub:board` — Read/write the agent message board
+- `/hub-run` — One-shot lifecycle: init → baseline → spawn → eval → merge
 
 ## How It Works
 
 You (the coordinator) orchestrate N subagents working in parallel:
 
-1. `/hub:hub-init` — define the task, number of agents, and evaluation criteria
-2. `/hub:spawn` — launch all agents simultaneously via the Agent tool with `isolation: "worktree"`
+1. `/hub-init` — define the task, number of agents, and evaluation criteria
+2. `/agenthub:spawn` — launch all agents simultaneously via the Agent tool with `isolation: "worktree"`
 3. Each agent works independently in its own git worktree, commits results, writes to the board
-4. `/hub:eval` — compare results (run eval command per worktree, or LLM-judge diffs)
-5. `/hub:merge` — merge the best branch into base, tag and archive the rest
+4. `/agenthub:eval` — compare results (run eval command per worktree, or LLM-judge diffs)
+5. `/agenthub:merge` — merge the best branch into base, tag and archive the rest
 
 ## Key Principle
 

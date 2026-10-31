@@ -1,11 +1,11 @@
 ---
 name: "hard-call"
-description: "Use for /em:hard-call, or a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization."
+description: "Use for a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization."
 ---
 
-# /em:hard-call — Framework for Decisions With No Good Options
+# /executive-mentor:hard-call — Framework for Decisions With No Good Options
 
-**Command:** `/em:hard-call <decision>`
+**Command:** `/executive-mentor:hard-call <decision>`
 
 For the decisions that keep you up at 3am. Firing a co-founder. Laying off 20% of the team. Killing a product that customers love. Pivoting. Shutting down.
 

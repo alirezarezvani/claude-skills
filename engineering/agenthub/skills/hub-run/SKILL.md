@@ -1,28 +1,28 @@
 ---
 name: "hub-run"
-description: "Use for /hub:hub-run, or to run a whole AgentHub competition end to end: init, baseline, spawn, eval and merge."
+description: "Use for /hub-run, or to run a whole AgentHub competition end to end: init, baseline, spawn, eval and merge."
 metadata:
-  command: /hub:hub-run
+  command: /hub-run
 ---
 
-# /hub:hub-run — One-Shot Lifecycle
+# /hub-run — One-Shot Lifecycle
 
 Run the full AgentHub lifecycle in one command: initialize, capture baseline, spawn agents, evaluate results, and merge the winner.
 
 ## Usage
 
 ```
-/hub:hub-run --task "Reduce p50 latency" --agents 3 \
+/hub-run --task "Reduce p50 latency" --agents 3 \
   --eval "pytest bench.py --json" --metric p50_ms --direction lower \
   --template optimizer
 
-/hub:hub-run --task "Refactor auth module" --agents 2 --template refactorer
+/hub-run --task "Refactor auth module" --agents 2 --template refactorer
 
-/hub:hub-run --task "Cover untested utils" --agents 3 \
+/hub-run --task "Cover untested utils" --agents 3 \
   --eval "pytest --cov=utils --cov-report=json" --metric coverage_pct --direction higher \
   --template test-writer
 
-/hub:hub-run --task "Write 3 email subject lines for spring sale campaign" --agents 3 --judge
+/hub-run --task "Write 3 email subject lines for spring sale campaign" --agents 3 --judge
 ```
 
 ## Parameters
@@ -42,7 +42,7 @@ Execute these steps sequentially:
 
 ### Step 1: Initialize
 
-Run `/hub:hub-init` with the provided arguments:
+Run `/hub-init` with the provided arguments:
 
 ```bash
 python {skill_path}/scripts/hub_init.py \
@@ -65,7 +65,7 @@ If no `--eval` was provided, skip this step.
 
 ### Step 3: Spawn Agents
 
-Run `/hub:spawn` with the session ID.
+Run `/agenthub:spawn` with the session ID.
 
 If `--template` was provided, use the template dispatch prompt from `../agenthub/references/agent-templates.md` instead of the default dispatch prompt. Pass the eval command, metric, and baseline to the template variables.
 
@@ -80,7 +80,7 @@ After spawning, inform the user that agents are running. When all agents complet
 
 ### Step 5: Evaluate
 
-Run `/hub:eval` with the session ID:
+Run `/agenthub:eval` with the session ID:
 
 - If `--eval` was provided: metric-based ranking with `result_ranker.py`
 - If no `--eval`: LLM judge mode (coordinator reads diffs and ranks)
@@ -98,9 +98,9 @@ Agent-2 is the winner (128ms, -52ms from baseline).
 Merge agent-2's branch? [Y/n]
 ```
 
-If confirmed, run `/hub:merge`. If declined, inform the user they can:
-- `/hub:merge --agent agent-{N}` to pick a different winner
-- `/hub:eval --judge` to re-evaluate with LLM judge
+If confirmed, run `/agenthub:merge`. If declined, inform the user they can:
+- `/agenthub:merge --agent agent-{N}` to pick a different winner
+- `/agenthub:eval --judge` to re-evaluate with LLM judge
 - Inspect branches manually
 
 ## Critical Rules
@@ -108,4 +108,4 @@ If confirmed, run `/hub:merge`. If declined, inform the user they can:
 - **Sequential execution** — each step depends on the previous
 - **Stop on failure** — if any step fails, report the error and stop
 - **User confirms merge** — never auto-merge without asking
-- **Template is optional** — without `--template`, agents use the default dispatch prompt from `/hub:spawn`
+- **Template is optional** — without `--template`, agents use the default dispatch prompt from `/agenthub:spawn`

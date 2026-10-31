@@ -40,10 +40,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `/autoresearch-agent:ar-loop`) instead of `/loop` or `/autoresearch-agent:loop`; behaviour is unchanged.
   **Migration:** run `/plugin update autoresearch-agent@claude-code-skills`; no reinstall is needed because
   the plugin name is unchanged.
-- **autoresearch-agent docs name commands that run.** They said `/ar:run`, `/ar:loop` and so on, but Claude
-  Code namespaces a plugin's commands by its name, so `/ar:` never existed. Docs now use the bare names
-  (`/ar-run`, `/ar-loop`, `/ar-status`, `/ar-resume`) and `/autoresearch-agent:setup`, and
-  `check_command_refs.py` fails on any `/ar:` reference.
+- **Docs name commands that run.** Claude Code namespaces a plugin's commands by its `plugin.json` name, so
+  shorthand prefixes in our docs never resolved. autoresearch-agent's `/ar:` is now the bare `/ar-run`,
+  `/ar-loop`, `/ar-status`, `/ar-resume` and `/autoresearch-agent:setup`. agenthub's `/hub:` is now the bare
+  `/hub-init`, `/hub-run`, `/hub-status` and `/agenthub:spawn|eval|merge|board`. executive-mentor's `/em:` is
+  now `/executive-mentor:<name>`. docker-development, terraform-patterns and helm-chart-builder named
+  sub-commands such as `/docker:optimize` that never existed; they are skill arguments, so the docs now say
+  `/docker-development optimize`. The persona agents' fake `/pm:`, `/devops:`, `/finance:` and `/content:`
+  commands are now named workflows, and the Codex, Cursor and OpenClaw guides no longer list invented
+  commands. `check_command_refs.py` now fails on any `/<prefix>:<name>` whose prefix is not a plugin name.
 - **Skill descriptions rewritten so skills load when they should** (from the 2026-10-30 skill-doctor audit).
   Claude Code lists every installed skill in about 30,000 characters and shortens descriptions past that;
   the whole marketplace added 227,301 characters. 356 descriptions now open with the moment to load the

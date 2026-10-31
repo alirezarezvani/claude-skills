@@ -34,6 +34,10 @@ RESERVED = {
     # skill name until v2.14.5 (renamed skill-retro) and hid the built-in report.
     # `loop` was autoresearch-agent's skill name until v2.14.5 (renamed ar-loop).
     "skill-doctor", "simplify", "code-review", "security-review", "loop",
+    # Built-in commands seen in a CC 2.1.314 init (2026-10-31). `deep-research`
+    # is also listed there but research/deep-research still uses it: follow-up.
+    "advisor", "batch", "debug", "effort", "fast", "focus", "goal", "insights",
+    "recap", "rename", "verify",
 }
 
 SKIP_DIRS = {".git", ".gemini", ".codex", ".vibe", ".hermes", "docs",

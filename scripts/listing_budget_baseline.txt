@@ -8,12 +8,12 @@ agent-harness 280
 agent-launcher-skills 1536
 agent-memory 283
 agent-regression-evals 275
-agenthub 1035
+agenthub 948
 agile-product-owner 194
 andreessen 285
 apple-hig-expert 209
 arquiteto-de-empresa 276
-autoresearch-agent 846
+autoresearch-agent 845
 behuman 267
 book-to-skill 302
 business-growth-skills 1014
@@ -48,7 +48,7 @@ dossier 266
 email-pair 478
 engineering-advanced-skills 10330
 engineering-skills 10132
-executive-mentor 1196
+executive-mentor 1131
 fable-goal 246
 feature-flags-architect 265
 finance-skills 1613

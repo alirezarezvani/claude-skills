@@ -257,13 +257,13 @@ nav:
       - "Workflow Builder": skills/engineering/workflow-builder.md
       - AgentHub:
         - "AgentHub": skills/engineering/agenthub.md
-        - "/hub:hub-init": skills/engineering/agenthub-init.md
-        - "/hub:spawn": skills/engineering/agenthub-spawn.md
-        - "/hub:hub-status": skills/engineering/agenthub-status.md
-        - "/hub:eval": skills/engineering/agenthub-eval.md
-        - "/hub:merge": skills/engineering/agenthub-merge.md
-        - "/hub:board": skills/engineering/agenthub-board.md
-        - "/hub:hub-run": skills/engineering/agenthub-run.md
+        - "/hub-init": skills/engineering/agenthub-init.md
+        - "/agenthub:spawn": skills/engineering/agenthub-spawn.md
+        - "/hub-status": skills/engineering/agenthub-status.md
+        - "/agenthub:eval": skills/engineering/agenthub-eval.md
+        - "/agenthub:merge": skills/engineering/agenthub-merge.md
+        - "/agenthub:board": skills/engineering/agenthub-board.md
+        - "/hub-run": skills/engineering/agenthub-run.md
     - Product:
       - Overview: skills/product-team/index.md
       - "Agile Product Owner": skills/product-team/agile-product-owner.md

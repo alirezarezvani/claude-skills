@@ -1,9 +1,9 @@
 ---
-title: "/em:challenge — Pre-Mortem Plan Analysis — Agent Skill for Executives"
+title: "/executive-mentor:challenge — Pre-Mortem Plan Analysis — Agent Skill for Executives"
 description: "Pre-mortem plan analysis. Imagine the plan failed 12 months from now and work backwards to find the weaknesses. Surfaces assumptions, dependencies. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /em:challenge — Pre-Mortem Plan Analysis
+# /executive-mentor:challenge — Pre-Mortem Plan Analysis
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "Pre-mortem plan analysis. Imagine the plan failed 12 months from n
 </div>
 
 
-**Command:** `/em:challenge <plan>`
+**Command:** `/executive-mentor:challenge <plan>`
 
 Systematically finds weaknesses in any plan before reality does. Not to kill the plan — to make it survive contact with reality.
 
@@ -187,6 +187,6 @@ These are the ones people skip:
 
 ## Deliverable
 
-The output of `/em:challenge` is not permission to stop. It's a vulnerability map. Now you can make conscious decisions: validate the risky assumptions, hedge the critical ones, or accept the bets you're making knowingly.
+The output of `/executive-mentor:challenge` is not permission to stop. It's a vulnerability map. Now you can make conscious decisions: validate the risky assumptions, hedge the critical ones, or accept the bets you're making knowingly.
 
 Unknown risks are dangerous. Known risks are manageable.

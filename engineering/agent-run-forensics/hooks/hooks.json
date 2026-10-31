@@ -1,0 +1,16 @@
+{
+  "description": "One UserPromptSubmit hook. When a prompt asks about work that already happened (why did you..., what did the agent do..., did the tests actually pass...), it adds one short note naming this session's transcript path and the command that reads it, so the answer comes from the recording rather than from memory. Any other prompt gets nothing. Fails open, never blocks. Disable with AGENT_RUN_FORENSICS_HOOK=0.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/forensics_hint.py\"",
+            "timeout": 2
+          }
+        ]
+      }
+    ]
+  }
+}

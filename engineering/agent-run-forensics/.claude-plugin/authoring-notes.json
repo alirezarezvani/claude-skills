@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Community proposal in PR #1016 (read the trace before answering about past runs; label causal edges recorded or inferred). That PR drove the proposer's own npm tool and was closed under the no-vendor rule; the idea was kept. Built independently over the transcripts Claude Code and Codex already write; no code or text from the PR or its tool was used",
+    "build_pattern": "Three read-only stdlib CLIs over local session JSONL (finder, timeline with recorded/inferred causal chain and SILENT file changes, typed claim checker with STALE and PARTIAL verdicts) plus a fail-open UserPromptSubmit hook that hands over the current transcript path; always-on secret redaction; rules cited to CoT-faithfulness research, postmortem practice, POSIX pipeline semantics and the Claude Code hooks reference",
+    "distinct_from": "zero-hallucination-coder (code not yet read); self-eval (quality of the current session); skill-retro (skill use across many sessions); collab-proof (who drove a session); session-handoff and handoff (write summaries, which this checks); agent-regression-evals (repeated trials of a task, not one recorded run)"
+  }
+}

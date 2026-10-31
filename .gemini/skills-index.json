@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 454,
+  "total_skills": 455,
   "skills": [
     {
       "name": "content-strategist",
@@ -1112,6 +1112,11 @@
       "name": "agent-regression-evals",
       "category": "engineering-advanced",
       "description": "Use before shipping any agent, prompt, model or tool change, or when a pass-rate drop needs a verdict. Runs repeated trials, gates candidate vs baseline with paired statistics in regression_gate.py, checks tool-call trajectories and finds flaky cases."
+    },
+    {
+      "name": "agent-run-forensics",
+      "category": "engineering-advanced",
+      "description": "Use when asked why an agent did something, what a past session or run changed, whether tests really passed, or to verify a session summary. Answers from the recorded transcript, not memory, with trace_finder.py, trace_timeline.py and claim_checker.py."
     },
     {
       "name": "agent-workflow-designer",
@@ -2316,7 +2321,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 91,
+      "count": 92,
       "description": "Engineering-advanced resources"
     },
     "finance": {

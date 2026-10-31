@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **agent-run-forensics** (`engineering/agent-run-forensics/` at 2.14.6, also bundled in `engineering-advanced-skills`
+  at 2.14.11). Answers questions about past agent runs from the transcript Claude Code or Codex already wrote,
+  not from memory; the idea came from PR #1016 and was rebuilt with no third-party tool. `trace_finder.py` finds
+  the run by repo, time window, touched file or command text. `trace_timeline.py` numbers every step with its
+  exit code, lists every file the run changed (SILENT when the agent never named it) and walks back from any
+  step with each causal edge labelled recorded or inferred by a named rule. `claim_checker.py` tests a summary's
+  claims against the run and returns STALE when tests passed before a later edit, PARTIAL when exit 0 belongs
+  to the last command of a pipe, and CONTRADICTED with the step. Secrets are always redacted. A fail-open
+  UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
+  `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
+
 ## [2.14.5] - 2026-10-31 — design-qa, commit-craft, skills that fit the listing budget
 
 Two new skills, an audit that cuts the marketplace's share of Claude Code's skill listing from 227k to 97k

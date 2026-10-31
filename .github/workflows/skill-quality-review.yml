@@ -122,8 +122,9 @@ jobs:
           # below the threshold again.
           TESSL_ENFORCE: ${{ vars.TESSL_ENFORCE }}
           CONFIGURED: ${{ steps.tessl_cfg.outputs.configured }}
+          # Changed paths come from the PR; read them from env, not inline.
+          SKILLS: ${{ needs.detect-skills.outputs.skills }}
         run: |
-          SKILLS='${{ needs.detect-skills.outputs.skills }}'
           REPORT_FILE=$(mktemp)
           OVERALL_EXIT=0
           TESSL_ERRORS=0
@@ -234,8 +235,9 @@ jobs:
 
       - name: Run internal validators
         id: internal
+        env:
+          SKILLS: ${{ needs.detect-skills.outputs.skills }}
         run: |
-          SKILLS='${{ needs.detect-skills.outputs.skills }}'
           INTERNAL_REPORT=$(mktemp)
           INTERNAL_EXIT=0
 

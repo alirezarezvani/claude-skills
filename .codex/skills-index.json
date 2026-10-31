@@ -489,7 +489,7 @@
       "name": "scenario-war-room",
       "source": "../../c-level-advisor/skills/scenario-war-room",
       "category": "c-level",
-      "description": "Cross-functional what-if modeling for cascading multi-variable scenarios. Unlike single-assumption stress testing, this models compound adversity across all business functions simultaneously. Use when facing complex risk scenarios, strategic decisions with major downside, or when the user asks 'what if X AND Y both happen?'"
+      "description": "Use for compound what-if questions ('what if X and Y both happen?') with major downside across functions. Models cascading scenarios with scenario_modeler.py."
     },
     {
       "name": "strategic-alignment",
@@ -687,7 +687,7 @@
       "name": "browserstack",
       "source": "../../engineering-team/playwright-pro/skills/browserstack",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when running Playwright tests on BrowserStack or across a browser matrix ('browserstack', 'cross-browser', 'test on safari or firefox', 'browser compatibility')."
     },
     {
       "name": "cloud-security",
@@ -705,7 +705,7 @@
       "name": "coverage",
       "source": "../../engineering-team/playwright-pro/skills/coverage",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when asked what's not tested or for test coverage gaps ('test coverage', 'coverage gaps', 'missing tests', 'what needs testing'). Maps untested pages and flows."
     },
     {
       "name": "email-template-builder",
@@ -729,7 +729,7 @@
       "name": "epic-design",
       "source": "../../engineering-team/skills/epic-design",
       "category": "engineering",
-      "description": ">"
+      "description": "Use for any landing page, hero section or scroll-driven web design that should feel cinematic (parallax, scrollytelling, overlapping sections, text reveals, Apple-style animation), before coding. Inspects assets with inspect-assets.py, then builds with 45+ 2.5D techniques, no WebGL."
     },
     {
       "name": "extract",
@@ -741,7 +741,7 @@
       "name": "fix",
       "source": "../../engineering-team/playwright-pro/skills/fix",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when a Playwright test fails or is flaky ('fix test', 'flaky test', 'test passes sometimes', 'intermittent failure'). Diagnoses the cause and fixes it."
     },
     {
       "name": "gcp-cloud-architect",
@@ -753,7 +753,7 @@
       "name": "generate",
       "source": "../../engineering-team/playwright-pro/skills/generate",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when asked to write Playwright or e2e tests for a page, component or feature ('write tests', 'add tests for', 'e2e test')."
     },
     {
       "name": "google-workspace-cli",
@@ -789,7 +789,7 @@
       "name": "migrate",
       "source": "../../engineering-team/playwright-pro/skills/migrate",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when moving tests from Cypress or Selenium to Playwright ('migrate tests', 'convert tests', 'replace selenium')."
     },
     {
       "name": "ms365-tenant-manager",
@@ -819,13 +819,13 @@
       "name": "pw-init",
       "source": "../../engineering-team/playwright-pro/skills/pw-init",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when setting up Playwright in a project ('set up playwright', 'add e2e tests', 'configure playwright', 'init playwright')."
     },
     {
       "name": "pw-review",
       "source": "../../engineering-team/playwright-pro/skills/pw-review",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when reviewing Playwright tests for quality ('review tests', 'audit tests', 'playwright best practices check')."
     },
     {
       "name": "red-green-proof",
@@ -849,7 +849,7 @@
       "name": "report",
       "source": "../../engineering-team/playwright-pro/skills/report",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when asked for a test report or results summary ('test report', 'test status', 'how did tests go')."
     },
     {
       "name": "security-pen-testing",
@@ -969,7 +969,7 @@
       "name": "testrail",
       "source": "../../engineering-team/playwright-pro/skills/testrail",
       "category": "engineering",
-      "description": ">-"
+      "description": "Use when syncing Playwright tests with TestRail ('testrail', 'sync test cases', 'push results to testrail', 'import from testrail')."
     },
     {
       "name": "threat-detection",
@@ -1449,7 +1449,7 @@
       "name": "ship-gate",
       "source": "../../engineering/skills/ship-gate",
       "category": "engineering-advanced",
-      "description": ">"
+      "description": "Use before deploying or going live ('am I ready to ship', 'can I deploy', 'preflight check'). Scans the codebase with ship_gate_scanner.py across security, database, deploy, AI, dependencies and observability, and blocks on critical items."
     },
     {
       "name": "skill-doctor",
@@ -1461,7 +1461,7 @@
       "name": "skill-security-auditor",
       "source": "../../engineering/skills/skill-security-auditor",
       "category": "engineering-advanced",
-      "description": ">"
+      "description": "Use before installing any skill or plugin from an untrusted source, or when asked if a skill is safe. Scans scripts, SKILL.md and dependencies for exfiltration, dangerous calls and prompt injection with skill_security_auditor.py."
     },
     {
       "name": "skill-tester",
@@ -1815,7 +1815,7 @@
       "name": "marketing-ops",
       "source": "../../marketing-skill/skills/marketing-ops",
       "category": "marketing",
-      "description": "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, and analytics. Also use when the user mentions 'marketing help,' 'campaign plan,' 'what should I do next,' 'marketing priorities,' or 'coordinate marketing.'"
+      "description": "Use when a marketing request spans several skills (a campaign across content, SEO, CRO and channels) or it is unclear which skill fits. Routes and sequences the work and tracks it with campaign_tracker.py."
     },
     {
       "name": "marketing-psychology",
@@ -1881,7 +1881,7 @@
       "name": "prompt-engineer-toolkit",
       "source": "../../marketing-skill/skills/prompt-engineer-toolkit",
       "category": "marketing",
-      "description": "Turns marketing prompts into tested, versioned production assets: A/B prompt evaluation against structured test cases, immutable prompt version history with diffs, ready-to-use marketing prompt templates (ad copy, email campaigns, social posts, landing pages, SEO meta), and an LLM-governance playbook for marketing teams (claim discipline, disclosure rules, human-review gates). Use when a marketing team relies on AI-generated content and needs prompt quality to be measurable and safe \u2014 or when the user mentions 'prompt engineering,' 'improve my prompts,' 'prompt templates,' 'prompt versioning,' 'AI content workflow,' or 'AI governance for marketing.'"
+      "description": "Use when a marketing team's AI prompts need testing, versioning or governance, before shipping a prompt. A/B tests prompts against cases with prompt_tester.py and keeps diffed versions with prompt_versioner.py."
     },
     {
       "name": "referral-program",
@@ -1923,7 +1923,7 @@
       "name": "social-media-analyzer",
       "source": "../../marketing-skill/skills/social-media-analyzer",
       "category": "marketing",
-      "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use when analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. Also use when the user mentions \"social media audit,\" \"engagement rate,\" or \"which platform performs best.\""
+      "description": "Use for any social performance question (engagement rate, campaign ROI, which platform works best), before answering. Calculates the metrics and benchmarks them with calculate_metrics.py and analyze_performance.py."
     },
     {
       "name": "social-media-manager",

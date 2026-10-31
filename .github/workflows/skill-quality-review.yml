@@ -134,7 +134,8 @@ jobs:
             {
               echo "## 📊 Skill Quality Review (Tessl)"
               echo ""
-              echo "> ⏭️ Tessl review skipped: the \`TESSL_TOKEN\` secret or the \`TESSL_WORKSPACE\` variable is not set (pull requests from forks never receive secrets)."
+              echo "> ⏭️ Tessl review skipped: the \`TESSL_TOKEN\` secret or the \`TESSL_WORKSPACE\` variable is not set."
+              echo "> Pull requests from forks never receive secrets."
             } > "$REPORT_FILE"
             echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
             echo "exit_code=0" >> "$GITHUB_OUTPUT"
@@ -224,7 +225,8 @@ jobs:
           if [ "$TESSL_ERRORS" -gt 0 ]; then
             echo "" >> "$REPORT_FILE"
             echo "> ⚙️ ${TESSL_ERRORS} skill(s) could not be scored — the Tessl CLI errored before producing a review." >> "$REPORT_FILE"
-            echo "> Reported as a warning, not a merge blocker. Check the job log; an expired \`TESSL_TOKEN\` (keys default to 30 days) is the usual cause." >> "$REPORT_FILE"
+            echo "> Reported as a warning, not a merge blocker. Check the job log." >> "$REPORT_FILE"
+            echo "> An expired \`TESSL_TOKEN\` (keys default to 30 days) is the usual cause." >> "$REPORT_FILE"
           fi
 
           echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"

@@ -1,9 +1,9 @@
 ---
-title: "/hub:board — Message Board — Agent Skill for Codex & OpenClaw"
-description: "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub:board or asks to post, read, or inspect. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/agenthub:board — Message Board — Agent Skill for Codex & OpenClaw"
+description: "Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /agenthub:board or asks to post, read, or inspect. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /hub:board — Message Board
+# /agenthub:board — Message Board
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
@@ -21,10 +21,10 @@ Interface for the AgentHub message board. Agents and the coordinator communicate
 ## Usage
 
 ```
-/hub:board --list                                     # List channels
-/hub:board --read dispatch                            # Read dispatch channel
-/hub:board --read results                             # Read results channel
-/hub:board --post --channel progress --author coordinator --message "Starting eval"
+/agenthub:board --list                                     # List channels
+/agenthub:board --read dispatch                            # Read dispatch channel
+/agenthub:board --read results                             # Read results channel
+/agenthub:board --post --channel progress --author coordinator --message "Starting eval"
 ```
 
 ## What It Does

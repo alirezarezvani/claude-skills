@@ -1,9 +1,9 @@
 ---
-title: "/em:postmortem — Honest Analysis of What Went Wrong — Agent Skill for Executives"
-description: "/em:postmortem — Honest analysis of what went wrong. Use after a failed launch, missed quarter, or bad hire to run a blameless 5-Whys retrospective. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/executive-mentor:postmortem — Honest Analysis of What Went Wrong — Agent Skill for Executives"
+description: "/executive-mentor:postmortem — Honest analysis of what went wrong. Use after a failed launch, missed quarter, or bad hire to run a blameless 5-Whys retrospective. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /em:postmortem — Honest Analysis of What Went Wrong
+# /executive-mentor:postmortem — Honest Analysis of What Went Wrong
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/em:postmortem — Honest analysis of what went wrong. Use after a
 </div>
 
 
-**Command:** `/em:postmortem <event>`
+**Command:** `/executive-mentor:postmortem <event>`
 
 Not blame. Understanding. The failed deal, the missed quarter, the feature that flopped, the hire that didn't work out. What actually happened, why, and what changes as a result.
 

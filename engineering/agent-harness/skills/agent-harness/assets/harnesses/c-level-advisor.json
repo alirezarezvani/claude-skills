@@ -335,7 +335,7 @@
     {
       "name": "hard-call",
       "path": "c-level-advisor/executive-mentor/skills/hard-call",
-      "description": "Use for /em:hard-call, or a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization.",
+      "description": "Use for a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -349,7 +349,7 @@
     {
       "name": "postmortem",
       "path": "c-level-advisor/executive-mentor/skills/postmortem",
-      "description": "Use for /em:postmortem, or after a failed launch, missed quarter or bad hire. Runs a blameless 5-Whys with a change register.",
+      "description": "Use after a failed launch, missed quarter or bad hire. Runs a blameless 5-Whys with a change register.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -363,7 +363,7 @@
     {
       "name": "stress-test",
       "path": "c-level-advisor/executive-mentor/skills/stress-test",
-      "description": "Use for /em:stress-test, or before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot).",
+      "description": "Use before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot).",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,

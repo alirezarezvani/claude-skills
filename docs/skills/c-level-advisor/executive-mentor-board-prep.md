@@ -1,9 +1,9 @@
 ---
-title: "/em:board-prep — Board Meeting Preparation — Agent Skill for Executives"
+title: "/executive-mentor:board-prep — Board Meeting Preparation — Agent Skill for Executives"
 description: "Board meeting preparation for the adversarial scenario, not the friendly one. Forces numbers-cold mastery, anticipates hard questions, builds a. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /em:board-prep — Board Meeting Preparation
+# /executive-mentor:board-prep — Board Meeting Preparation
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "Board meeting preparation for the adversarial scenario, not the fr
 </div>
 
 
-**Command:** `/em:board-prep <agenda>`
+**Command:** `/executive-mentor:board-prep <agenda>`
 
 Prepare for the adversarial version of your board, not the friendly one. Every hard question they'll ask. Every number you need cold. The narrative that acknowledges weakness without losing the room.
 

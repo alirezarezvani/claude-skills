@@ -435,7 +435,7 @@
       "name": "hard-call",
       "source": "../../c-level-advisor/executive-mentor/skills/hard-call",
       "category": "c-level",
-      "description": "Use for /em:hard-call, or a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization."
+      "description": "Use for a decision where every option hurts (layoff vs down round, killing a loved product). Runs 10/10/10 and regret minimization."
     },
     {
       "name": "internal-narrative",
@@ -483,7 +483,7 @@
       "name": "postmortem",
       "source": "../../c-level-advisor/executive-mentor/skills/postmortem",
       "category": "c-level",
-      "description": "Use for /em:postmortem, or after a failed launch, missed quarter or bad hire. Runs a blameless 5-Whys with a change register."
+      "description": "Use after a failed launch, missed quarter or bad hire. Runs a blameless 5-Whys with a change register."
     },
     {
       "name": "scenario-war-room",
@@ -501,7 +501,7 @@
       "name": "stress-test",
       "source": "../../c-level-advisor/executive-mentor/skills/stress-test",
       "category": "c-level",
-      "description": "Use for /em:stress-test, or before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot)."
+      "description": "Use before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot)."
     },
     {
       "name": "vpe-advisor",
@@ -1071,7 +1071,7 @@
       "name": "board",
       "source": "../../engineering/agenthub/skills/board",
       "category": "engineering-advanced",
-      "description": "Use for /hub:board, or to post or read messages on the AgentHub coordination board between competing agents."
+      "description": "Use to post or read messages on the AgentHub coordination board between competing agents."
     },
     {
       "name": "book-to-skill",
@@ -1227,7 +1227,7 @@
       "name": "eval",
       "source": "../../engineering/agenthub/skills/eval",
       "category": "engineering-advanced",
-      "description": "Use for /hub:eval, or to score and pick a winner among finished AgentHub agents by metric or judge."
+      "description": "Use to score and pick a winner among finished AgentHub agents by metric or judge."
     },
     {
       "name": "feature-flags-architect",
@@ -1293,19 +1293,19 @@
       "name": "hub-init",
       "source": "../../engineering/agenthub/skills/hub-init",
       "category": "engineering-advanced",
-      "description": "Use for /hub:hub-init, or to start an AgentHub competition: task, agent count and evaluation criteria."
+      "description": "Use for /hub-init, or to start an AgentHub competition: task, agent count and evaluation criteria."
     },
     {
       "name": "hub-run",
       "source": "../../engineering/agenthub/skills/hub-run",
       "category": "engineering-advanced",
-      "description": "Use for /hub:hub-run, or to run a whole AgentHub competition end to end: init, baseline, spawn, eval and merge."
+      "description": "Use for /hub-run, or to run a whole AgentHub competition end to end: init, baseline, spawn, eval and merge."
     },
     {
       "name": "hub-status",
       "source": "../../engineering/agenthub/skills/hub-status",
       "category": "engineering-advanced",
-      "description": "Use for /hub:hub-status, or to check AgentHub agent progress, branches and DAG state."
+      "description": "Use for /hub-status, or to check AgentHub agent progress, branches and DAG state."
     },
     {
       "name": "human-gate",
@@ -1377,7 +1377,7 @@
       "name": "merge",
       "source": "../../engineering/agenthub/skills/merge",
       "category": "engineering-advanced",
-      "description": "Use for /hub:merge, or to land the winning AgentHub branch, archive the others and clean up worktrees."
+      "description": "Use to land the winning AgentHub branch, archive the others and clean up worktrees."
     },
     {
       "name": "migration-architect",
@@ -1503,7 +1503,7 @@
       "name": "spawn",
       "source": "../../engineering/agenthub/skills/spawn",
       "category": "engineering-advanced",
-      "description": "Use for /hub:spawn, or to launch the competing agents for an initialized AgentHub session in isolated worktrees."
+      "description": "Use to launch the competing agents for an initialized AgentHub session in isolated worktrees."
     },
     {
       "name": "spec-driven-workflow",

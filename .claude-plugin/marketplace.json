@@ -40,7 +40,7 @@
       "name": "c-level-skills",
       "source": "./c-level-advisor",
       "description": "33 C-level advisory skills (install the separate companion c-level-agents plugin for the persona layer): virtual board of directors (CEO, CTO, COO, CPO, CMO, CFO, CRO, CISO, CHRO) plus General Counsel, CDO, CAIO, CCO, and VP of Engineering (DORA delivery throughput analyzer, engineering hiring funnel calculator with conversion + pipeline gap, eng team structure designer with squad/tribe + manager-trigger), executive mentor, founder coach, orchestration (Chief of Staff, board meetings, decision logger), strategic capabilities (board deck builder, scenario war room, competitive intel, M&A playbook), culture frameworks. The 13 cs-* persona agents + 21 /c-level-agents:* slash commands (founder-mode router, office-hours intake, multi-role boardroom, strategic sprint pipeline, cross-model consensus, cooldown freeze) ship in the companion c-level-agents plugin.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -62,7 +62,7 @@
       "name": "c-level-agents",
       "source": "./c-level-agents",
       "description": "Founder-mode executive team plugin: 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, Chief of Staff, General Counsel, Chief Data Officer, Chief AI Officer, Chief Customer Officer, VP of Engineering) with distinct cognitive voices, plus 21 /c-level-agents:* slash commands — forcing-question office hours (CFO/CMO/CPO/CRO/CTO/CISO/GC/CDO/CAIO/CCO/VPE reviews), strategic sprint pipeline (brief → boardroom → decide → execute → post-mortem), and meta routing (/c-level-agents:founder-mode auto-router, /cs-onboard, /c-level-agents:cross-eval multi-model consensus, /c-level-agents:freeze cooldown lock). Wraps the 33 c-level skills with cognitive gearing, persona voice, and artifact-driven handoffs. The business-domain answer to YC Garry Tan's gstack.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -246,7 +246,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "43 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit), slo-architect (error-budget + multi-window burn-rate alerts per Google SRE Workbook), tech-debt-tracker, agent-regression-evals, coding-agent-rollout and commit-craft. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-      "version": "2.14.9",
+      "version": "2.14.10",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -501,8 +501,8 @@
     {
       "name": "agenthub",
       "source": "./engineering/agenthub",
-      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub:hub-init, /hub:spawn, /hub:hub-status, /hub:eval, /hub:merge, /hub:board, /hub:hub-run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
-      "version": "2.14.5",
+      "description": "Multi-agent collaboration — spawn N parallel subagents that compete on code optimization, content drafts, research approaches, or any task that benefits from diverse solutions. 7 slash commands (/hub-init, /agenthub:spawn, /hub-status, /agenthub:eval, /agenthub:merge, /agenthub:board, /hub-run), agent templates, DAG-based orchestration, LLM judge mode, message board coordination.",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -543,7 +543,7 @@
       "name": "executive-mentor",
       "source": "./c-level-advisor/executive-mentor",
       "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for board meetings, navigates hard calls, runs postmortems. 5 sub-skills with slash commands.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -561,7 +561,7 @@
       "name": "docker-development",
       "source": "./engineering/docker-development",
       "description": "Docker and container development — Dockerfile optimization, docker-compose orchestration, multi-stage builds, security hardening, and CI/CD container pipelines.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -578,7 +578,7 @@
       "name": "helm-chart-builder",
       "source": "./engineering/helm-chart-builder",
       "description": "Helm chart development — chart scaffolding, values design, template patterns, dependency management, and Kubernetes deployment strategies.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -595,7 +595,7 @@
       "name": "terraform-patterns",
       "source": "./engineering/terraform-patterns",
       "description": "Terraform infrastructure-as-code — module design patterns, state management, provider configuration, CI/CD integration, and multi-environment strategies.",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -988,7 +988,7 @@
       "name": "agent-harness",
       "source": "./engineering/agent-harness",
       "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs-harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
-      "version": "2.14.8",
+      "version": "2.14.9",
       "author": {
         "name": "Alireza Rezvani"
       },

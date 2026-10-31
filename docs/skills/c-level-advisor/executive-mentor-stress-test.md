@@ -1,9 +1,9 @@
 ---
-title: "/em:stress-test — Business Assumption Stress Testing — Agent Skill for Executives"
-description: "/em:stress-test — Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated — e.g. stress-testing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+title: "/executive-mentor:stress-test — Business Assumption Stress Testing — Agent Skill for Executives"
+description: "/executive-mentor:stress-test — Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated — e.g. stress-testing. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /em:stress-test — Business Assumption Stress Testing
+# /executive-mentor:stress-test — Business Assumption Stress Testing
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-account-tie: C-Level Advisory</span>
@@ -16,7 +16,7 @@ description: "/em:stress-test — Business assumption stress testing. Use before
 </div>
 
 
-**Command:** `/em:stress-test <assumption>`
+**Command:** `/executive-mentor:stress-test <assumption>`
 
 Take any business assumption and break it before the market does. Revenue projections. Market size. Competitive moat. Hiring velocity. Customer retention.
 

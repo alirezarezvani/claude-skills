@@ -1,21 +1,21 @@
 ---
 name: "board"
-description: "Use for /hub:board, or to post or read messages on the AgentHub coordination board between competing agents."
+description: "Use to post or read messages on the AgentHub coordination board between competing agents."
 metadata:
-  command: /hub:board
+  command: /agenthub:board
 ---
 
-# /hub:board — Message Board
+# /agenthub:board — Message Board
 
 Interface for the AgentHub message board. Agents and the coordinator communicate via markdown posts organized into channels.
 
 ## Usage
 
 ```
-/hub:board --list                                     # List channels
-/hub:board --read dispatch                            # Read dispatch channel
-/hub:board --read results                             # Read results channel
-/hub:board --post --channel progress --author coordinator --message "Starting eval"
+/agenthub:board --list                                     # List channels
+/agenthub:board --read dispatch                            # Read dispatch channel
+/agenthub:board --read results                             # Read results channel
+/agenthub:board --post --channel progress --author coordinator --message "Starting eval"
 ```
 
 ## What It Does

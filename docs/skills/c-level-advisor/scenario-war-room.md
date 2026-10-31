@@ -35,7 +35,7 @@ Or describe the scenario in natural language:
 
 ## What This Is Not
 
-- **Not** a single-assumption stress test (that's `/em:stress-test`)
+- **Not** a single-assumption stress test (that's `/executive-mentor:stress-test`)
 - **Not** financial modeling only — every function gets modeled
 - **Not** worst-case-only — models 3 severity levels
 - **Not** paralysis by analysis — outputs concrete hedges and triggers

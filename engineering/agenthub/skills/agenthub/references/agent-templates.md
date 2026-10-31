@@ -1,6 +1,6 @@
 # Agent Templates
 
-Predefined dispatch prompt templates for `/hub:spawn --template <name>`. Each template defines the iteration pattern agents follow in their worktrees.
+Predefined dispatch prompt templates for `/agenthub:spawn --template <name>`. Each template defines the iteration pattern agents follow in their worktrees.
 
 ## optimizer
 
@@ -177,7 +177,7 @@ Constraints:
 
 ## Using Templates
 
-When `/hub:spawn` is called with `--template <name>`:
+When `/agenthub:spawn` is called with `--template <name>`:
 
 1. Load the template from this file
 2. Replace `{variables}` with session config values

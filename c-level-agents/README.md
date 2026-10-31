@@ -76,7 +76,7 @@ The agents and skills here run the analysis scripts and read the references that
 - [persona-voices.md](references/persona-voices.md) — voice spec for each role
 - [llm-wiki-bridge.md](references/llm-wiki-bridge.md) — point company-context at an llm-wiki vault
 - [c-level domain CLAUDE.md](../c-level-advisor/CLAUDE.md) — c-level domain guide
-- [executive-mentor sibling](../c-level-advisor/executive-mentor/) — `/em:*` adversarial commands
+- [executive-mentor sibling](../c-level-advisor/executive-mentor/) — `/executive-mentor:*` adversarial commands
 
 ## What's Different vs `gstack`
 

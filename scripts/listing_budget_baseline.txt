@@ -8,12 +8,12 @@ agent-harness 280
 agent-launcher-skills 1536
 agent-memory 283
 agent-regression-evals 275
-agenthub 1035
+agenthub 948
 agile-product-owner 194
 andreessen 285
 apple-hig-expert 209
 arquiteto-de-empresa 276
-autoresearch-agent 846
+autoresearch-agent 845
 behuman 267
 book-to-skill 302
 business-growth-skills 1014
@@ -33,6 +33,7 @@ code-tour 228
 coding-agent-rollout 278
 collab-proof 186
 commercial-skills 2129
+commit-craft 279
 compliance-os 1251
 compliance-team-eu-ai-act 325
 compliance-team-iso42001 259
@@ -48,7 +49,7 @@ dossier 266
 email-pair 478
 engineering-advanced-skills 10609
 engineering-skills 10132
-executive-mentor 1196
+executive-mentor 1131
 fable-goal 246
 feature-flags-architect 265
 finance-skills 1613

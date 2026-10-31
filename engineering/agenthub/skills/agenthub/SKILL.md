@@ -17,13 +17,13 @@ Spawn N parallel AI agents that compete on the same task. Each agent works in an
 
 | Command | Description |
 |---------|-------------|
-| `/hub:hub-init` | Create a new collaboration session — task, agent count, eval criteria |
-| `/hub:spawn` | Launch N parallel subagents in isolated worktrees |
-| `/hub:hub-status` | Show DAG state, agent progress, branch status |
-| `/hub:eval` | Rank agent results by metric or LLM judge |
-| `/hub:merge` | Merge winning branch, archive losers |
-| `/hub:board` | Read/write the agent message board |
-| `/hub:hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
+| `/hub-init` | Create a new collaboration session — task, agent count, eval criteria |
+| `/agenthub:spawn` | Launch N parallel subagents in isolated worktrees |
+| `/hub-status` | Show DAG state, agent progress, branch status |
+| `/agenthub:eval` | Rank agent results by metric or LLM judge |
+| `/agenthub:merge` | Merge winning branch, archive losers |
+| `/agenthub:board` | Read/write the agent message board |
+| `/hub-run` | One-shot lifecycle: init → baseline → spawn → eval → merge |
 
 ## Agent Templates
 
@@ -62,34 +62,34 @@ INIT → DISPATCH → MONITOR → EVALUATE → MERGE
 
 ### 1. Init
 
-Run `/hub:hub-init` to create a session. This generates:
+Run `/hub-init` to create a session. This generates:
 - `.agenthub/sessions/{session-id}/config.yaml` — task config
 - `.agenthub/sessions/{session-id}/state.json` — state machine
 - `.agenthub/board/` — message board channels
 
 ### 2. Dispatch
 
-Run `/hub:spawn` to launch agents. For each agent 1..N:
+Run `/agenthub:spawn` to launch agents. For each agent 1..N:
 - Post task assignment to `.agenthub/board/dispatch/`
 - Spawn via Agent tool with `isolation: "worktree"`
 - All agents launched in a single message (parallel)
 
 ### 3. Monitor
 
-Run `/hub:hub-status` to check progress:
+Run `/hub-status` to check progress:
 - `dag_analyzer.py --status --session {id}` shows branch state
 - Board `progress/` channel has agent updates
 
 ### 4. Evaluate
 
-Run `/hub:eval` to rank results:
+Run `/agenthub:eval` to rank results:
 - **Metric mode**: run eval command in each worktree, parse numeric result
 - **Judge mode**: read diffs, coordinator ranks by quality
 - **Hybrid**: metric first, LLM-judge for ties
 
 ### 5. Merge
 
-Run `/hub:merge` to finalize:
+Run `/agenthub:merge` to finalize:
 - `git merge --no-ff` winner into base branch
 - Tag losers: `git tag hub/archive/{session}/agent-{i}`
 - Clean up worktrees
@@ -214,9 +214,9 @@ State transitions managed by `session_manager.py`:
 
 | From | To | Trigger |
 |------|----|---------|
-| `init` | `running` | `/hub:spawn` completes |
+| `init` | `running` | `/agenthub:spawn` completes |
 | `running` | `evaluating` | All agents return |
-| `evaluating` | `merged` | `/hub:merge` completes |
+| `evaluating` | `merged` | `/agenthub:merge` completes |
 | `evaluating` | `archived` | No winner / all failed |
 
 ## Proactive Triggers

@@ -50,7 +50,7 @@ Runs the `board-meeting` skill protocol across the C-suite for a single strategy
   - etc.
 
 ### Phase 4 — Devil's Advocate Pass
-- `executive-mentor/devils-advocate` agent runs `/em:challenge` on the leading option.
+- `executive-mentor/devils-advocate` agent runs `/executive-mentor:challenge` on the leading option.
 - Surfaces three concerns with severity ratings.
 
 ### Phase 5 — Synthesis
@@ -125,7 +125,7 @@ If advisors see each other's positions before forming their own, they anchor. Ph
 3. Invoke each cs-* advisor independently (Phase 2)
 4. Collect positions
 5. Run cross-examination round (Phase 3)
-6. Run `/em:challenge` on leading option (Phase 4)
+6. Run `/executive-mentor:challenge` on leading option (Phase 4)
 7. Synthesize memo (Phase 5)
 8. Hand off to founder (Phase 6)
 

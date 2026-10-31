@@ -165,7 +165,7 @@ def run_demo():
     print("state.json:")
     print('  { "state": "init", "agents": {} }')
     print()
-    print("Next step: Run /hub:spawn to launch agents")
+    print("Next step: Run /agenthub:spawn to launch agents")
 
 
 def main():
@@ -246,7 +246,7 @@ def main():
         print(f"  Base branch: {base_branch}")
         print(f"  State: init")
         print()
-        print(f"Next step: Run /hub:spawn to launch {args.agents} agents")
+        print(f"Next step: Run /agenthub:spawn to launch {args.agents} agents")
 
 
 if __name__ == "__main__":

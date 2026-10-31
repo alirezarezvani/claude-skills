@@ -73,6 +73,8 @@ jobs:
     needs: detect-skills
     if: needs.detect-skills.outputs.has_skills == 'true'
     runs-on: ubuntu-latest
+    # Each review polls a server-side run; cap the job so a stuck run cannot hold a runner.
+    timeout-minutes: 30
     permissions:
       contents: read
       pull-requests: write
@@ -90,17 +92,54 @@ jobs:
         with:
           node-version: 20
 
+      # Tessl reviews run server-side and need an API key plus a workspace.
+      # Without both (forks never get secrets) the review is skipped and the
+      # comment says so, instead of reporting every skill as a tool error.
+      - name: Check Tessl configuration
+        id: tessl_cfg
+        env:
+          TESSL_TOKEN: ${{ secrets.TESSL_TOKEN }}
+          TESSL_WORKSPACE: ${{ vars.TESSL_WORKSPACE }}
+        run: |
+          if [ -n "$TESSL_TOKEN" ] && [ -n "$TESSL_WORKSPACE" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Tessl review skipped: set the TESSL_TOKEN secret and the TESSL_WORKSPACE variable to enable it."
+          fi
+
       - name: Install Tessl CLI
+        if: steps.tessl_cfg.outputs.configured == 'true'
         run: npm install -g tessl
 
       - name: Review changed skills
         id: review
+        env:
+          TESSL_TOKEN: ${{ secrets.TESSL_TOKEN }}
+          TESSL_WORKSPACE: ${{ vars.TESSL_WORKSPACE }}
+          # Advisory until the new `tessl review run` scores have a track
+          # record; set the repo variable TESSL_ENFORCE=true to block merges
+          # below the threshold again.
+          TESSL_ENFORCE: ${{ vars.TESSL_ENFORCE }}
+          CONFIGURED: ${{ steps.tessl_cfg.outputs.configured }}
         run: |
           SKILLS='${{ needs.detect-skills.outputs.skills }}'
           REPORT_FILE=$(mktemp)
           OVERALL_EXIT=0
           TESSL_ERRORS=0
+          BELOW=0
           THRESHOLD=70
+
+          if [ "$CONFIGURED" != "true" ]; then
+            {
+              echo "## 📊 Skill Quality Review (Tessl)"
+              echo ""
+              echo "> ⏭️ Tessl review skipped: the \`TESSL_TOKEN\` secret or the \`TESSL_WORKSPACE\` variable is not set (pull requests from forks never receive secrets)."
+            } > "$REPORT_FILE"
+            echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"
+            echo "exit_code=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
           echo "## 📊 Skill Quality Review (Tessl)" > "$REPORT_FILE"
           echo "" >> "$REPORT_FILE"
@@ -112,35 +151,14 @@ jobs:
           for skill_dir in $(echo "$SKILLS" | python3 -c "import sys,json; [print(s) for s in json.load(sys.stdin)]"); do
             echo "::group::Reviewing $skill_dir"
 
-            JSON_OUT=$(tessl skill review "$skill_dir" --json 2>&1) && EXIT_CODE=$? || EXIT_CODE=$?
-
-            # Parse results
-            PARSED=$(echo "$JSON_OUT" | python3 -c "
-          import sys, json
-          try:
-              d = json.load(sys.stdin)
-              score = d.get('review', {}).get('reviewScore', 0)
-              ds = round(d.get('descriptionJudge', {}).get('normalizedScore', 0) * 100)
-              cs = round(d.get('contentJudge', {}).get('normalizedScore', 0) * 100)
-              passed = d.get('validation', {}).get('overallPassed', False)
-              name = d.get('validation', {}).get('skillName', 'unknown')
-
-              # Collect suggestions
-              desc_suggestions = d.get('descriptionJudge', {}).get('evaluation', {}).get('suggestions', [])
-              content_suggestions = d.get('contentJudge', {}).get('evaluation', {}).get('suggestions', [])
-
-              suggestions = []
-              for s in desc_suggestions:
-                  suggestions.append(f'[description] {s}')
-              for s in content_suggestions:
-                  suggestions.append(f'[content] {s}')
-
-              print(f'{name}|{score}|{ds}|{cs}|{\"PASS\" if passed else \"FAIL\"}|{json.dumps(suggestions)}')
-          except Exception as e:
-              print(f'unknown|0|0|0|ERROR|[]')
-          " 2>/dev/null || echo "unknown|0|0|0|ERROR|[]")
-
-            IFS='|' read -r NAME SCORE DS CS VSTATUS SUGGESTIONS <<< "$PARSED"
+            # `tessl skill review` was removed; `tessl review run` scores the
+            # skill server-side and polls until it finishes. Its JSON schema is
+            # undocumented, so scripts/tessl_review_parse.py finds scores by key.
+            JSON_OUT=$(tessl review run "$skill_dir" --workspace "$TESSL_WORKSPACE" --json 2>&1) || true
+            PARSED=$(printf '%s' "$JSON_OUT" | python3 scripts/tessl_review_parse.py || echo "ERROR|-|-|-|[]")
+            IFS='|' read -r VSTATUS SCORE DS CS SUGGESTIONS <<< "$PARSED"
+            DS_TXT=$([ "$DS" = "-" ] && echo "—" || echo "${DS}%")
+            CS_TXT=$([ "$CS" = "-" ] && echo "—" || echo "${CS}%")
 
             # Determine verdict. VSTATUS=ERROR means the Tessl CLI or the JSON
             # parse failed before producing a review — that is a tool outage,
@@ -158,13 +176,14 @@ jobs:
             else
               ICON="⚠️"
               VERDICT="NEEDS WORK"
-              OVERALL_EXIT=1
+              BELOW=$((BELOW + 1))
+              if [ "$TESSL_ENFORCE" = "true" ]; then OVERALL_EXIT=1; fi
             fi
 
             if [ "$VSTATUS" = "ERROR" ]; then
               echo "| \`$skill_dir\` | ${ICON} not scored | — | — | ${VERDICT} |" >> "$REPORT_FILE"
             else
-              echo "| \`$skill_dir\` | **${SCORE}/100** ${ICON} | ${DS}% | ${CS}% | ${VERDICT} |" >> "$REPORT_FILE"
+              echo "| \`$skill_dir\` | **${SCORE}/100** ${ICON} | ${DS_TXT} | ${CS_TXT} | ${VERDICT} |" >> "$REPORT_FILE"
             fi
 
             # Add suggestions as details
@@ -196,12 +215,16 @@ jobs:
           fi
 
           echo "" >> "$REPORT_FILE"
-          echo "_Threshold: ${THRESHOLD}/100 — skills below this score need improvement before merge._" >> "$REPORT_FILE"
+          if [ "$TESSL_ENFORCE" = "true" ]; then
+            echo "_Threshold: ${THRESHOLD}/100 — skills below this score need improvement before merge._" >> "$REPORT_FILE"
+          else
+            echo "_Threshold: ${THRESHOLD}/100 — advisory: ${BELOW} skill(s) below it, merge is not blocked._" >> "$REPORT_FILE"
+          fi
 
           if [ "$TESSL_ERRORS" -gt 0 ]; then
             echo "" >> "$REPORT_FILE"
             echo "> ⚙️ ${TESSL_ERRORS} skill(s) could not be scored — the Tessl CLI errored before producing a review." >> "$REPORT_FILE"
-            echo "> Reported as a warning, not a merge blocker; if this persists, check the Tessl CLI install/auth in this workflow." >> "$REPORT_FILE"
+            echo "> Reported as a warning, not a merge blocker. Check the job log; an expired \`TESSL_TOKEN\` (keys default to 30 days) is the usual cause." >> "$REPORT_FILE"
           fi
 
           echo "report_file=$REPORT_FILE" >> "$GITHUB_OUTPUT"

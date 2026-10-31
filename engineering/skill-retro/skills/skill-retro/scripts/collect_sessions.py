@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""collect_sessions.py — harvest local Claude Code / Codex sessions for skill-doctor scoring.
+"""collect_sessions.py — harvest local Claude Code / Codex sessions for skill-retro scoring.
 
 Scans Claude Code project-history JSONL and Codex rollout JSONL, discovers the
 skills installed in the target repo, detects which sessions actually used which
@@ -16,7 +16,7 @@ Derived from warpdotdev/common-skills skill-doctor (MIT, (c) Denver
 Technologies, Inc.) — see the plugin README for the numbered deviations.
 
 Usage:
-    python collect_sessions.py --out ./skill-doctor-run
+    python collect_sessions.py --out ./skill-retro-run
     python collect_sessions.py --harness claude --days 30 --max-sessions 8
     python collect_sessions.py --sessions-dir ./eval-transcripts   # stream-json runs, e.g. from claude -p
     python collect_sessions.py --sample                # synthetic demo, touches no real history
@@ -91,7 +91,7 @@ def redact_secrets(text, counter=None):
 
 def parse_args(argv=None):
     p = argparse.ArgumentParser(
-        description="Harvest local Claude Code / Codex sessions for skill-doctor scoring.",
+        description="Harvest local Claude Code / Codex sessions for skill-retro scoring.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__.split("Usage:")[1] if "Usage:" in __doc__ else None,
     )
@@ -636,7 +636,7 @@ def main(argv=None):
     if args.out:
         out_dir = Path(args.out).expanduser()
     else:
-        out_dir = Path(tempfile.mkdtemp(prefix="skill-doctor-"))
+        out_dir = Path(tempfile.mkdtemp(prefix="skill-retro-"))
     transcripts_dir = out_dir / "transcripts"
     secure_mkdir(out_dir)
     secure_mkdir(transcripts_dir)

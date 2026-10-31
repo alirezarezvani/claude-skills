@@ -27,7 +27,7 @@ Exit codes: 0 aggregated clean, 2 aggregated with warnings, 3 bad input,
 4 validation failure (nothing written).
 
 Stdlib only. No ML/LLM calls. Derived from warpdotdev/common-skills
-skill-doctor (MIT); the aggregation math is upstream Step 3, made mechanical.
+skill-retro (MIT); the aggregation math is upstream Step 3, made mechanical.
 """
 
 import argparse
@@ -69,7 +69,7 @@ def grade_for(score):
 
 def parse_args(argv=None):
     p = argparse.ArgumentParser(
-        description="Validate skill-doctor rubric scores, compute the grade, gate the suggestions.")
+        description="Validate skill-retro rubric scores, compute the grade, gate the suggestions.")
     p.add_argument("--inventory", help="inventory.json from collect_sessions.py")
     p.add_argument("--scores", help="session_scores.json written by the scoring agent")
     p.add_argument("--suggestions", help="suggestions.json written by the drafting agent (optional)")

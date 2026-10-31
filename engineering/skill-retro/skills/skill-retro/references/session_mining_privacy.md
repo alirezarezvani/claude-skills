@@ -2,7 +2,7 @@
 
 Session transcripts are the most sensitive artifact an agent setup produces: they
 contain pasted secrets, internal paths, customer data fragments, and the user's
-own words. skill-doctor reads them, so it carries the strictest handling rules in
+own words. skill-retro reads them, so it carries the strictest handling rules in
 this plugin. This reference explains each rule and where its pattern set comes from.
 
 ## 1. The contract

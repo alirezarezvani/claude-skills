@@ -55,7 +55,7 @@ is a success.
   small, single-purpose changes reviewers can actually verify.
 - **Validated adoption beats live editing.** SkillOpt's sleep cycle only promotes
   consolidated edits that pass a held-out validation gate, and stages rather than
-  applies them (source 5). skill-doctor mirrors the staging half: proposed
+  applies them (source 5). skill-retro mirrors the staging half: proposed
   SKILL.md files live under `$RUN/proposed/`, are shown as diffs, and touch real
   files only on an explicit per-skill yes.
 - **A never-firing skill is usually a description problem.** Anthropic's skill

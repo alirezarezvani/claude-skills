@@ -25,10 +25,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Gate G12** (`scripts/check_listing_budget.py`, blocking ratchet): no plugin may grow the characters it
   adds to Claude Code's skill listing past its line in `scripts/listing_budget_baseline.txt`; a new plugin is
   capped at 6,000.
-- `skill-doctor`: `--sessions-dir` grades headless `claude -p` stream-json transcripts, such as eval runs.
+- `skill-retro` (formerly `skill-doctor`): `--sessions-dir` grades headless `claude -p` stream-json transcripts, such as eval runs.
 
 ### Changed
 
+- **`skill-doctor` is now `skill-retro`.** Claude Code 2.1.314 ships a built-in `/skill-doctor` (which loaded
+  skills go unused and what they cost in context), and our plugin skill of the same name hid it. The plugin,
+  skill, agent and command are renamed (`skill-retro`, `cs-skill-retro`, `/cs-skill-retro`), across the
+  marketplace and the Codex, Gemini, Vibe and Hermes mirrors; behaviour is unchanged.
+  **Migration:** an existing install shows as not found in the marketplace. Reinstall it:
+  `/plugin uninstall skill-doctor@claude-code-skills`, then `/plugin install skill-retro@claude-code-skills`.
 - **Skill descriptions rewritten so skills load when they should** (from the 2026-10-30 skill-doctor audit).
   Claude Code lists every installed skill in about 30,000 characters and shortens descriptions past that;
   the whole marketplace added 227,301 characters. 356 descriptions now open with the moment to load the

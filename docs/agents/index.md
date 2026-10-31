@@ -361,7 +361,7 @@ description: "109 agent-native orchestrators for Claude Code, Codex CLI, and Gem
 
     Engineering - POWERFUL
 
--   :material-rocket-launch:{ .lg .middle } **[Skill Doctor](cs-skill-doctor.md)**
+-   :material-rocket-launch:{ .lg .middle } **[Skill Retro](cs-skill-retro.md)**
 
     ---
 

@@ -1959,9 +1959,9 @@
   "neg": "Do a full security audit of my Express app: review the dependencies for CVEs, check the auth flow, and write up a penetration test report with findings ranked by severity.",
   "origin": "generated"
  },
- "engineering/skill-doctor/skills/skill-doctor": {
-  "name": "skill-doctor",
-  "plugin": "skill-doctor",
+ "engineering/skill-retro/skills/skill-retro": {
+  "name": "skill-retro",
+  "plugin": "skill-retro",
   "pos": [
    "which of my skills are actually doing anything? look at my recent sessions and tell me",
    "Go through my last couple weeks of Claude Code and Codex sessions on this machine, score them for efficiency and code quality, and propose edits to the skills that keep underperforming. I want a report I can open locally with the evidence behind each change."

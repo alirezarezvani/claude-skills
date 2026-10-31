@@ -4,12 +4,12 @@ description: Grade the agent setup from real local session history — rubric-sc
 argument-hint: "[optional: --repo PATH | --days N | --harness claude|codex | a question about the setup]"
 ---
 
-# /cs-skill-doctor
+# /cs-skill-retro
 
-Run the skill-doctor pass with `$ARGUMENTS` (pass any `--repo`, `--days`,
+Run the skill-retro pass with `$ARGUMENTS` (pass any `--repo`, `--days`,
 `--harness`, `--include-subagents` flags through to the collector).
 
-Load `engineering/skill-doctor/skills/skill-doctor/SKILL.md` and follow it
+Load `engineering/skill-retro/skills/skill-retro/SKILL.md` and follow it
 exactly. Summary of the contract:
 
 ## Pre-flight
@@ -18,16 +18,16 @@ exactly. Summary of the contract:
    the sessions that ran inside it. Run from that repo or pass `--repo`.
 2. **State the privacy contract up front**: everything runs locally, transcripts
    are redacted before they touch disk, nothing is uploaded.
-3. Create the scratch dir: `RUN="$(mktemp -d "${TMPDIR:-/tmp}/skill-doctor-XXXXXXXX")"`.
+3. Create the scratch dir: `RUN="$(mktemp -d "${TMPDIR:-/tmp}/skill-retro-XXXXXXXX")"`.
 
 ## Pipeline
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/collect_sessions.py --out "$RUN" $ARGUMENTS
-python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --emit-template > "$RUN/session_scores.json"
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-retro/scripts/collect_sessions.py --out "$RUN" $ARGUMENTS
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-retro/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --emit-template > "$RUN/session_scores.json"
 # ... judge each transcript against scorers/, fill the template, draft suggestions ...
-python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --scores "$RUN/session_scores.json" --suggestions "$RUN/suggestions.json"
-python ${CLAUDE_PLUGIN_ROOT}/skills/skill-doctor/scripts/render_report.py --report "$RUN/report.json"
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-retro/scripts/score_aggregator.py --inventory "$RUN/inventory.json" --scores "$RUN/session_scores.json" --suggestions "$RUN/suggestions.json"
+python ${CLAUDE_PLUGIN_ROOT}/skills/skill-retro/scripts/render_report.py --report "$RUN/report.json"
 ```
 
 If `sessions_sampled` is 0, stop and tell the user (suggest `--days 90`). If the

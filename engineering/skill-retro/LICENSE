@@ -7,7 +7,7 @@ This plugin is a rebuild of the `skill-doctor` skill from
 https://github.com/warpdotdev/common-skills
 (.agents/skills/skill-doctor/ at commit f3b58c81d1cfd5d8eabf2e32edb32db2b0573923),
 copyright Denver Technologies, Inc. The two scoring rubrics under
-skills/skill-doctor/scorers/ are preserved verbatim from upstream; the
+skills/skill-retro/scorers/ are preserved verbatim from upstream; the
 skill-improvement filing bar is preserved inside
 references/skill_edit_governance.md. The three rebuilt command-line tools, the
 aggregation gate, the references, the assets, the agent and the command are

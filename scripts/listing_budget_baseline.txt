@@ -91,7 +91,7 @@ research-summarizer 220
 roast 412
 security-guidance 277
 self-improving-agent 1748
-skill-doctor 289
+skill-retro 289
 skillopt-sleep 557
 slo-architect 262
 snowflake-development 224

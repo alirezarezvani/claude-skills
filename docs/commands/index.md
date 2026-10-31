@@ -361,11 +361,11 @@ description: "149 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
 
     Run the memory-engineering pass on $ARGUMENTS.
 
--   :material-console:{ .lg .middle } **[`/cs-skill-doctor`](cs-skill-doctor.md)**
+-   :material-console:{ .lg .middle } **[`/cs-skill-retro`](cs-skill-retro.md)**
 
     ---
 
-    Run the skill-doctor pass with $ARGUMENTS (pass any --repo, --days,
+    Run the skill-retro pass with $ARGUMENTS (pass any --repo, --days,
 
 -   :material-console:{ .lg .middle } **[`/skillopt-sleep`](skillopt-sleep.md)**
 

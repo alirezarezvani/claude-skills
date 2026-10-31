@@ -30,6 +30,10 @@ RESERVED = {
     # Bundled skill, not a built-in command, but two plugins both named a skill
     # `run`, which also made the .codex/skills/run symlink flip between them.
     "run",
+    # Bundled skills in CC 2.1.314. `skill-doctor` was our engineering plugin's
+    # skill name until v2.14.5 (renamed skill-retro) and hid the built-in report.
+    # `loop` also clashes (autoresearch-agent) and is a tracked follow-up.
+    "skill-doctor", "simplify", "code-review", "security-review",
 }
 
 SKIP_DIRS = {".git", ".gemini", ".codex", ".vibe", ".hermes", "docs",

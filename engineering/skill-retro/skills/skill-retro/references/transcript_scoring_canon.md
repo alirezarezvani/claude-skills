@@ -1,6 +1,6 @@
 # Transcript scoring canon — why rubric-anchored LLM judging works, and where it fails
 
-How skill-doctor's scoring step is designed, and the evidence behind each design
+How skill-retro's scoring step is designed, and the evidence behind each design
 choice. The scoring agent is an LLM judge; everything numeric downstream of it is
 deterministic code. This split is the whole architecture.
 
@@ -10,7 +10,7 @@ Zheng et al. showed GPT-4-class judges reach >80% agreement with human experts o
 conversation quality — the same level as human-human agreement — but only when the
 judgment is structured; free-form "rate this 1–10" drifts badly (source 1). G-Eval
 found the same: chain-of-thought judging against explicit criteria beats bare
-scoring on summarization benchmarks (source 2). skill-doctor therefore never asks
+scoring on summarization benchmarks (source 2). skill-retro therefore never asks
 for a number. The judge picks a **label from a closed table** (four efficiency
 labels, three code-quality labels) and must justify it with transcript specifics.
 

@@ -1,0 +1,15 @@
+{
+  "name": "commit-craft",
+  "description": "Turn a tangled working tree into a clean, reviewable commit series. Three deterministic stdlib scripts over git: a series planner that groups changes into commits in build-safe order (manifest with lockfile, pure moves, formatting, each module's change with its tests, docs, CI), holds back .env and key files, and flags mixed formatting and moves whose callers would break; a secret gate that scans staged or pushed lines for provider tokens, high-entropy secrets, sensitive files and conflict markers and blocks before the commit exists, with redacted output and reasoned waivers; and a message linter that blocks vague subjects, missing why on large changes and pending fixup commits, matching the repo's own convention. Ships pre-commit, commit-msg and pre-push hooks, cs-commit-craft agent, /cs-commit-craft and /cs-commit-check commands and 3 cited references.",
+  "version": "2.14.5",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/commit-craft",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/commit-craft"
+  ]
+}

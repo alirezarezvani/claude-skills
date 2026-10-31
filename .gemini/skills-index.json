@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 453,
+  "total_skills": 454,
   "skills": [
     {
       "name": "content-strategist",
@@ -1222,6 +1222,11 @@
       "name": "collab-proof",
       "category": "engineering-advanced",
       "description": "Use for /collab-proof or a session retrospective on what Claude contributed versus what the user drove. Builds an evidence-backed split of the session's decisions and work."
+    },
+    {
+      "name": "commit-craft",
+      "category": "engineering-advanced",
+      "description": "Use when committing a mix of changes, before a push, or when asked to split work into commits or write commit messages. Plans a reviewable series, blocks staged secrets and .env files, and lints messages with commit_planner.py, secret_gate.py and message_linter.py."
     },
     {
       "name": "data-quality-auditor",

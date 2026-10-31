@@ -1,0 +1,11 @@
+#!/bin/sh
+# commit-craft commit-msg hook: block vague subjects and large changes with no "why".
+# Install: cp commit-msg .git/hooks/commit-msg && chmod +x .git/hooks/commit-msg
+SCRIPTS="${COMMIT_CRAFT_SCRIPTS:-$HOME/.claude/skills/commit-craft/scripts}"
+if [ ! -f "$SCRIPTS/message_linter.py" ]; then
+  echo "commit-craft: message_linter.py not found in $SCRIPTS; set COMMIT_CRAFT_SCRIPTS" >&2
+  exit 1
+fi
+python3 "$SCRIPTS/message_linter.py" --message-file "$1" --staged
+status=$?
+[ "$status" -eq 0 ] || [ "$status" -eq 2 ] || exit 1

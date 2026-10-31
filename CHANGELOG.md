@@ -22,6 +22,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Playwright pass with real Tab keys (`assets/capture_snapshot.mjs`). Ships `cs-design-qa`,
   `/cs-design-qa`, `/cs-ui-finish-lint`, three cited references and a finish sign-off. Source accessibility
   stays with `a11y-audit`.
+- **commit-craft** (`engineering/commit-craft/`, also bundled in `engineering-advanced-skills`, both at 2.14.5).
+  Built for the gap named in issue #1004, independently and from public sources: turn a tangled working tree
+  into a reviewable commit series. `commit_planner.py` groups changes in build-safe order (manifest with
+  lockfile, pure moves, formatting, each module's change with its tests, docs, CI), holds back `.env`, keys and
+  tfstate, and flags files that mix formatting with real hunks and moves whose callers' import edits sit in
+  another commit. `secret_gate.py` scans the lines a commit adds (staged, or a range before push) and blocks on
+  provider tokens, high-entropy secrets, sensitive files and conflict markers, with redacted output and
+  waivers that need a reason. `message_linter.py` blocks vague subjects, missing why on large changes and
+  leftover fixup commits, and enforces Conventional Commits only where the repo already uses them. Ships
+  pre-commit, commit-msg and pre-push hooks, `cs-commit-craft`, `/cs-commit-craft`, `/cs-commit-check` and
+  three cited references.
 - **Gate G12** (`scripts/check_listing_budget.py`, blocking ratchet): no plugin may grow the characters it
   adds to Claude Code's skill listing past its line in `scripts/listing_budget_baseline.txt`; a new plugin is
   capped at 6,000.

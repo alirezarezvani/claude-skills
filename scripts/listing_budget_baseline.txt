@@ -33,6 +33,7 @@ code-tour 228
 coding-agent-rollout 278
 collab-proof 186
 commercial-skills 2129
+commit-craft 279
 compliance-os 1251
 compliance-team-eu-ai-act 325
 compliance-team-iso42001 259
@@ -46,7 +47,7 @@ design-qa 455
 docker-development 239
 dossier 266
 email-pair 478
-engineering-advanced-skills 10330
+engineering-advanced-skills 10609
 engineering-skills 10132
 executive-mentor 1131
 fable-goal 246

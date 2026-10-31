@@ -68,7 +68,8 @@ def outcome(s):
     if s.status == "no-result":
         return "NO RESULT (interrupted or still running)"
     if s.exit_code is not None:
-        return f"exit {s.exit_code} [{s.exit_basis}]"
+        warn = "  BUT OUTPUT REPORTS FAILURE (exit is the last command's)" if s.output_fail and s.exit_code == 0 else ""
+        return f"exit {s.exit_code} [{s.exit_basis}]{warn}"
     return "ERROR [recorded]" if s.status == "error" else "ok [recorded]"
 
 
@@ -145,16 +146,19 @@ def why(sess, n):
                               "detail": f"no earlier read of {p} in this run: it was changed without being looked at here"})
         # inferred: a failure just before, which this step may be reacting to
         for s in reversed(tools_before[-3:]):
-            recovered = any(t.n > s.n and t.tool == s.tool and t.target == s.target and t.status == "ok"
+            recovered = any(t.n > s.n and t.tool == s.tool and t.target == s.target and t.status == "ok" and not t.output_fail
                             for t in tools_before)
-            if s.status == "error" and not recovered:
+            if (s.status == "error" or s.output_fail) and not recovered:
                 edges.append({"basis": "inferred", "edge": "retry-after-failure", "step": s.n, "rule": "failure-within-3-steps",
                               "detail": f"step {s.n} failed just before ({s.tool} {s.target[:80]} -> {outcome(s)}): {first_line(s.text)}"})
                 break
         # inferred: an earlier tool output that named this step's target
         names = {os.path.basename(p) for p in tgt_paths if p and os.path.basename(p)}
         for s in reversed(tools_before):
-            hit = next((nm for nm in names if nm and nm in s.text), None)
+            if any(e.path in tgt_paths for e in s.effects):
+                continue          # a step that touched the file names it in its own result
+            hit = next((nm for nm in names if nm and core.re.search(
+                r"(?<![\w.-])" + core.re.escape(nm) + r"(?![\w-])", s.text)), None)
             if hit:
                 edges.append({"basis": "inferred", "edge": "target-seen-in-output", "step": s.n, "rule": "target-seen-in-output",
                               "detail": f"{hit} appeared in the output of step {s.n} ({s.tool} {s.target[:60]})"})
@@ -187,8 +191,10 @@ def print_step(s):
         print(line)
         if effs:
             print(f"         changes: {effs}")
-        if s.status == "error":
-            print(f"         output: {first_line(s.text)}")
+        if s.status == "error" or s.output_fail:
+            hit = core.FAIL_TEXT.search(s.text)
+            line = s.text[hit.start():].splitlines()[0] if hit else first_line(s.text)
+            print(f"         output: {line.strip()[:160]}")
     else:
         who = "USER " if s.role == "user" else "AGENT"
         text = " ".join(s.text.split())
@@ -251,7 +257,7 @@ def run(args):
     if args.tools:
         steps = [s for s in steps if s.role == "tool"]
     if args.errors:
-        steps = [s for s in steps if s.role == "tool" and s.status == "error"]
+        steps = [s for s in steps if s.role == "tool" and (s.status == "error" or s.output_fail)]
     if args.file:
         steps = [s for s in steps if touches(s, args.file, sess.cwd)]
     if args.grep:
@@ -264,7 +270,7 @@ def run(args):
     else:
         print(head)
         tools = sess.tool_steps
-        print(f"  {len(sess.steps)} steps, {len(tools)} tool calls, {sum(1 for s in tools if s.status == 'error')} failed"
+        print(f"  {len(sess.steps)} steps, {len(tools)} tool calls, {sum(1 for s in tools if s.status == 'error' or s.output_fail)} failed or reported failures"
               + (f", redacted: {red}" if red else ""))
         print()
         for s in steps:

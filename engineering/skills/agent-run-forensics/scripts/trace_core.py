@@ -99,6 +99,7 @@ class Step:
     effects: list = field(default_factory=list)
     turn: int = 0             # index of the assistant message that issued it
     stated: str = ""          # assistant text in the same message (its reason at the time)
+    output_fail: bool = False  # exited 0, but its output reports failures (e.g. `pytest | tail`)
 
     def as_dict(self) -> dict:
         d = {
@@ -107,6 +108,8 @@ class Step:
             "exit_code": self.exit_code, "exit_basis": self.exit_basis or None,
             "effects": [vars(e) for e in self.effects],
         }
+        if self.output_fail:
+            d["output_reports_failure"] = True
         if self.role != "tool":
             d["text"] = self.text
         else:
@@ -139,7 +142,7 @@ class Session:
         return {
             "session": self.id, "harness": self.harness, "path": self.path, "cwd": self.cwd,
             "started": self.started, "ended": self.ended, "subagent": self.subagent,
-            "tool_calls": len(tools), "errors": sum(1 for s in tools if s.status == "error"),
+            "tool_calls": len(tools), "errors": sum(1 for s in tools if s.status == "error" or s.output_fail),
             "files_written": written, "first_prompt": first_user[:160],
             "redactions": self.redactions,
         }
@@ -147,6 +150,7 @@ class Session:
 
 # --------------------------------------------------------------------------- helpers
 
+FAIL_TEXT = re.compile(r"(^FAILED\b|^FAIL: |^ERROR: |^Traceback \(most recent|\b[1-9]\d* failed\b|\(failures=\d+|\(errors=\d+)", re.M)
 EXIT_RE = re.compile(r"^\s*(?:Exit code|exit code:?|Process exited with code)\s*(-?\d+)", re.I | re.M)
 
 
@@ -426,6 +430,8 @@ def _finish_tool(step: Step, result_text: str, is_error, counter: dict):
             step.exit_code, step.exit_basis = 0, "recorded"
     else:
         step.status = "ok"
+    if step.status == "ok" and step.tool in SHELL_TOOLS and FAIL_TEXT.search(result_text[:RESULT_KEEP]):
+        step.output_fail = True
     if step.status == "error":
         # A failed Edit/Write did not write; keep the effect but mark it.
         for e in step.effects:
@@ -606,6 +612,7 @@ def _parse_codex(path: Path) -> Session | None:
             if isinstance(code, int):
                 st.exit_code, st.exit_basis = code, "recorded"
                 st.status = "ok" if code == 0 else "error"
+                st.output_fail = st.output_fail and code == 0
     return sess if got_any else None
 
 

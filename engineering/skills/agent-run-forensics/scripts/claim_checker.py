@@ -119,17 +119,26 @@ def check(sess, kind, arg):
         ok = last.exit_code == 0 if last.exit_code is not None else last.status == "ok"
         evidence = [ev(s) for s in runs[-3:]]
         if kind == "failed":
+            if ok and last.output_fail:
+                return "SUPPORTED_INFERRED", evidence + [{"note": "exit 0, but the output reports failures"}]
             return ("SUPPORTED" if not ok else "CONTRADICTED"), evidence
         if not ok:
             return "CONTRADICTED", evidence + [{"note": f"last run (step {last.n}) did not pass"}]
-        if is_compound_tail_mismatch(last.target, arg):
-            return "PARTIAL", evidence + [{"note": "exit 0 is the last command's in a compound line, not necessarily this one's"}]
+        if last.output_fail:
+            return "CONTRADICTED_INFERRED", evidence + [{"note": f"step {last.n} exited 0 but its output reports failures; "
+                                                                 "the exit code is the last command's in the line"}]
         later = [(s, e) for s in tools if s.n > last.n for e in s.effects
                  if e.kind in WRITE_KINDS and "not applied" not in e.rule]
+        stale_note = []
         if later:
             files = sorted({e.path for _, e in later})
-            return "STALE", evidence + [{"note": f"changed after the passing run: {', '.join(files[:5])}",
-                                         "steps": sorted({s.n for s, _ in later})}]
+            stale_note = [{"note": f"changed after that run, never re-tested: {', '.join(files[:5])}",
+                           "steps": sorted({s.n for s, _ in later})}]
+        if is_compound_tail_mismatch(last.target, arg):
+            note = "exit 0 is the last command's in a compound line, not necessarily this one's"
+            return "PARTIAL", evidence + [{"note": note}] + stale_note
+        if stale_note:
+            return "STALE", evidence + stale_note
         return "SUPPORTED", evidence
 
     effects = [(s, e) for s in tools for e in s.effects if core.path_matches(e.path, arg, sess.cwd)]

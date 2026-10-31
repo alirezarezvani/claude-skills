@@ -1364,7 +1364,7 @@
       "description": "Use when building or maintaining an Obsidian second brain that an LLM keeps up to date, or when ingesting a paper, article or book into it. Ingests with ingest_source.py, maintains index and links and checks the vault with lint_wiki.py."
     },
     {
-      "name": "loop",
+      "name": "ar-loop",
       "category": "engineering-advanced",
       "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
     },

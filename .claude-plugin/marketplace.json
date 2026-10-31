@@ -246,7 +246,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "42 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit), slo-architect (error-budget + multi-window burn-rate alerts per Google SRE Workbook), tech-debt-tracker, agent-regression-evals and coding-agent-rollout. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -437,7 +437,7 @@
       "name": "autoresearch-agent",
       "source": "./engineering/autoresearch-agent",
       "description": "Autonomous experiment loop — optimize any file by a measurable metric. 5 slash commands (/ar:setup, /ar:ar-run, /ar:loop, /ar:ar-status, /ar:ar-resume), 8 built-in evaluators, configurable loop intervals (10min to monthly).",
-      "version": "2.14.5",
+      "version": "2.14.6",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -988,7 +988,7 @@
       "name": "agent-harness",
       "source": "./engineering/agent-harness",
       "description": "Turn any domain folder of skills into a bounded agentic loop: a manifest builder inventories a domain's skills/tools/checks, a goal compiler turns a goal into a verifiable task plan (refusing vague goals with forcing questions), and a JSON-backed loop controller drives execute->verify->close with retry caps, controller-run verification (no verification theater), human escalation on exhausted budgets, and a close gate that refuses while any task is unverified or unwaived. Ships 3 stdlib Python tools, 18 committed per-domain harness manifests + JSON schema, 3 references citing the 2024-2026 agent-harness canon (Anthropic long-running harnesses, verifier's law, SWE-agent, Ralph loop, Cognition), harness-runner agent + /cs-harness command. Use when an agent or subagent should pick up a goal, define its tasks, complete and verify them, and close the loop.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Alireza Rezvani"
       },

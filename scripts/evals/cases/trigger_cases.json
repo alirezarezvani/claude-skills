@@ -1659,8 +1659,8 @@
   "neg": "Why is my bundle.js so large? Walk me through how to read the webpack-bundle-analyzer output and what the usual culprits are.",
   "origin": "generated"
  },
- "engineering/autoresearch-agent/skills/loop": {
-  "name": "loop",
+ "engineering/autoresearch-agent/skills/ar-loop": {
+  "name": "ar-loop",
   "plugin": "autoresearch-agent",
   "pos": [
    "run the experiment on repeat while I'm away, maybe every hour",

@@ -35,6 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   marketplace and the Codex, Gemini, Vibe and Hermes mirrors; behaviour is unchanged.
   **Migration:** an existing install shows as not found in the marketplace. Reinstall it:
   `/plugin uninstall skill-doctor@claude-code-skills`, then `/plugin install skill-retro@claude-code-skills`.
+- **autoresearch-agent's `loop` skill is now `ar-loop`**, matching `ar-run`, `ar-resume` and `ar-status`. The
+  bare name shadowed Claude Code's built-in `/loop` scheduler. Type `/ar-loop` (or
+  `/autoresearch-agent:ar-loop`) instead of `/loop` or `/autoresearch-agent:loop`; behaviour is unchanged.
+  **Migration:** run `/plugin update autoresearch-agent@claude-code-skills`; no reinstall is needed because
+  the plugin name is unchanged.
 - **Skill descriptions rewritten so skills load when they should** (from the 2026-10-30 skill-doctor audit).
   Claude Code lists every installed skill in about 30,000 characters and shortens descriptions past that;
   the whole marketplace added 227,301 characters. 356 descriptions now open with the moment to load the

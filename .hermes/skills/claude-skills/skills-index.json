@@ -274,9 +274,9 @@
         "path": "engineering/autoresearch-agent"
       },
       {
-        "name": "loop",
+        "name": "ar-loop",
         "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
-        "path": "engineering/loop"
+        "path": "engineering/ar-loop"
       },
       {
         "name": "setup",

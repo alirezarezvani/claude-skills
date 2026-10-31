@@ -1,5 +1,5 @@
 ---
-name: "loop"
+name: "ar-loop"
 description: "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate."
 metadata:
   command: /ar:loop

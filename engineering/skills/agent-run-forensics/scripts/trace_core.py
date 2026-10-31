@@ -266,7 +266,7 @@ def shell_effects(command: str, cwd: str | None) -> list:
         if words and words[0] in ("cd", "pushd") and len(words) > 1:
             cwd = norm_path(words[1], cwd) if not words[1].startswith("~") else words[1]
             continue
-        while words and (re.match(r"^[A-Za-z_][A-Za-z0-9_]*=", words[0]) or words[0] in ("sudo", "command", "time", "env")):
+        while words and (re.match(r"^[A-Za-z_][A-Za-z0-9_]*=", words[0]) or words[0] in ("sudo", "command", "time", "env")):  # noqa: SEC-AUDITOR (strips a sudo prefix while parsing recorded commands; runs nothing)
             words = words[1:]
         if not words:
             continue
@@ -772,7 +772,7 @@ def sample_records() -> list:
 
     user("Add retries with backoff to the HTTP client and make sure the tests pass.")
     asst("m1", "I'll read the client and its config first.", ("t1", "Read", {"file_path": "/work/shop-api/src/client.py"}))
-    result("t1", "import requests\n\ndef fetch(url):\n    return requests.get(url, timeout=TIMEOUT)\n")
+    result("t1", "import requests\n\ndef fetch(url):\n    return requests.get(url, timeout=TIMEOUT)\n")  # noqa: SEC-AUDITOR (fixture text in the fictional sample transcript)
     asst("m2", None, ("t2", "Read", {"file_path": "/work/shop-api/config.yaml"}))
     result("t2", "timeout: 30\nretries: 0\napi_token: sk-ant-api03-FAKEFAKEFAKEFAKEFAKE00\n")
     asst("m3", "Adding a retry loop around requests.get.", ("t3", "Edit", {

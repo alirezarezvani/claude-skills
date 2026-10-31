@@ -97,7 +97,7 @@ class PaymentProcessor:
             if payment_method["provider"] == "stripe":
                 try:
                     # Stripe API call - no retry logic
-                    response = requests.post(
+                    response = requests.post(  # noqa: SEC-AUDITOR (sample codebase the tracker analyses; never run)
                         "https://api.stripe.com/v1/charges",
                         headers={"Authorization": f"Bearer {self.stripe_key}"},
                         data={
@@ -139,7 +139,7 @@ class PaymentProcessor:
             elif payment_method["provider"] == "square":
                 # Square processing - duplicate code structure
                 try:
-                    response = requests.post(
+                    response = requests.post(  # noqa: SEC-AUDITOR (sample codebase the tracker analyses; never run)
                         "https://connect.squareup.com/v2/payments",
                         headers={"Authorization": f"Bearer {self.square_key}"},
                         json={
@@ -179,7 +179,7 @@ class PaymentProcessor:
         elif payment_method["type"] == "paypal":
             # PayPal processing - more duplicate code
             try:
-                response = requests.post(
+                response = requests.post(  # noqa: SEC-AUDITOR (sample codebase the tracker analyses; never run)
                     "https://api.paypal.com/v2/checkout/orders",
                     headers={"Authorization": f"Bearer {self.paypal_key}"},
                     json={

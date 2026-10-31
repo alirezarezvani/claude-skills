@@ -32,7 +32,7 @@ RUNTIME_COMMANDS: Dict[str, Dict[str, List[str]]] = {
         "test": ["npm run lint --if-present", "npm test"],
     },
     "python": {
-        "setup": ["pip install -r requirements.txt"],
+        "setup": ["pip install -r requirements.txt"],  # noqa: SEC-AUDITOR (step text in the generated CI file)
         "build": ["python -m compileall ."],
         "test": ["python -m ruff check .", "python -m pytest"],
     },

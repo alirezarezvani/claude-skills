@@ -206,7 +206,7 @@
 ## Post-Demo Actions
 
 - [ ] Send thank-you email with recording link (if recorded)
-- [ ] Share demo environment access credentials (if applicable)
+- [ ] Share demo environment access credentials (if applicable) <!-- noqa: SEC-AUDITOR (demo checklist item, not an instruction to send credentials) -->
 - [ ] Send follow-up document addressing unanswered questions
 - [ ] Schedule next meeting (POC kickoff, technical deep-dive, etc.)
 - [ ] Update CRM with demo notes and next steps

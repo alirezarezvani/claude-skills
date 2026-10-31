@@ -3,20 +3,10 @@ name: Skill Security Audit
 
 'on':
   pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - 'engineering/**'
-      - 'engineering-team/**'
-      - 'business-growth/**'
-      - 'c-level-advisor/**'
-      - 'documentation/**'
-      - 'finance/**'
-      - 'marketing-skill/**'
-      - 'product-team/**'
-      - 'project-management/**'
-      - 'ra-qm-team/**'
-      - 'agents/**'
-      - 'templates/**'
+    # ready_for_review: a PR opened as a draft gets audited again when it is
+    # marked ready. No paths filter: the domain list went stale as new top-level
+    # domains were added, and detect-changes exits quickly when no skill changed.
+    types: [opened, synchronize, reopened, ready_for_review]
 
 concurrency:
   group: security-audit-${{ github.event.pull_request.number }}
@@ -53,23 +43,21 @@ jobs:
           SKILLS=()
           SEEN=()
           while IFS= read -r file; do
-            # Get the top-level directory
-            dir=$(echo "$file" | cut -d'/' -f1-2)
             # Skip non-skill paths
-            case "$dir" in
-              .github/*|.claude/*|.codex/*|.gemini/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*) continue ;;
-              */.claude-plugin) continue ;;
+            case "$file" in
+              .github/*|.claude/*|.codex/*|.gemini/*|.hermes/*|.vibe/*|docs/*|scripts/*|commands/*|standards/*|eval-workspace/*) continue ;;
             esac
-            # Check if this directory has a SKILL.md (is a skill)
-            skill_root=$(echo "$file" | cut -d'/' -f1)
-            # Walk up to find the skill root that contains SKILL.md
-            for candidate in "$skill_root" "$dir"; do
-              if [ -f "$candidate/SKILL.md" ] && [[ ! " ${SEEN[*]} " =~ " $candidate " ]]; then
-                SKILLS+=("$candidate")
-                SEEN+=("$candidate")
-                break
-              fi
+            # Walk up from the file to the nearest directory holding a SKILL.md.
+            # Plugin layouts nest it (engineering/<p>/skills/<p>/SKILL.md), so a
+            # fixed depth silently skipped most skills.
+            candidate=$(dirname "$file")
+            while [ "$candidate" != "." ] && [ ! -f "$candidate/SKILL.md" ]; do
+              candidate=$(dirname "$candidate")
             done
+            if [ "$candidate" != "." ] && [[ ! " ${SEEN[*]} " =~ " $candidate " ]]; then
+              SKILLS+=("$candidate")
+              SEEN+=("$candidate")
+            fi
           done <<< "$CHANGED"
 
           if [ ${#SKILLS[@]} -eq 0 ]; then

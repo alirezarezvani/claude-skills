@@ -120,22 +120,22 @@ class TestPrecompiledPatterns(unittest.TestCase):
         
     def test_os_system_pattern_detects(self):
         """Test that os.system pattern is detected."""
-        code = 'os.system("ls -la")'
+        code = 'os.system("ls -la")'  # noqa: SEC-AUDITOR (test fixture for the security scorer; never run)
         self.assertTrue(PATTERN_OS_SYSTEM.search(code))
         
     def test_eval_pattern_detects(self):
         """Test that eval pattern is detected."""
-        code = 'result = eval(user_input)'
+        code = 'result = eval(user_input)'  # noqa: SEC-AUDITOR (test fixture for the security scorer; never run)
         self.assertTrue(PATTERN_EVAL.search(code))
         
     def test_exec_pattern_detects(self):
         """Test that exec pattern is detected."""
-        code = 'exec(user_code)'
+        code = 'exec(user_code)'  # noqa: SEC-AUDITOR (test fixture for the security scorer; never run)
         self.assertTrue(PATTERN_EXEC.search(code))
         
     def test_subprocess_shell_true_pattern_detects(self):
         """Test that subprocess shell=True pattern is detected."""
-        code = 'subprocess.run(cmd, shell=True)'
+        code = 'subprocess.run(cmd, shell=True)'  # noqa: SEC-AUDITOR (test fixture for the security scorer; never run)
         self.assertTrue(PATTERN_SUBPROCESS_SHELL_TRUE.search(code))
         
     def test_shlex_quote_pattern_detects(self):
@@ -289,6 +289,7 @@ if __name__ == "__main__":
         """Test that environment variable usage is not flagged as sensitive."""
         with tempfile.TemporaryDirectory() as tmpdir:
             script_path = Path(tmpdir) / "secure.py"
+            # auditor:ignore-start (test fixture for the security scorer; never run)
             script_path.write_text("""
 import os
 
@@ -303,6 +304,7 @@ def main():
 if __name__ == "__main__":
     main()
 """)
+            # auditor:ignore-end
             
             scorer = SecurityScorer([script_path])
             score, findings = scorer.score_sensitive_data_exposure()
@@ -434,6 +436,7 @@ class TestCommandInjectionPrevention(unittest.TestCase):
         """Test that os.system usage is detected."""
         with tempfile.TemporaryDirectory() as tmpdir:
             script_path = Path(tmpdir) / "risky.py"
+            # auditor:ignore-start (test fixture for the security scorer; never run)
             script_path.write_text("""
 import os
 
@@ -446,6 +449,7 @@ def main():
 if __name__ == "__main__":
     main()
 """)
+            # auditor:ignore-end
             
             scorer = SecurityScorer([script_path])
             score, findings = scorer.score_command_injection_prevention()
@@ -457,6 +461,7 @@ if __name__ == "__main__":
         """Test that subprocess with shell=True is detected."""
         with tempfile.TemporaryDirectory() as tmpdir:
             script_path = Path(tmpdir) / "risky.py"
+            # auditor:ignore-start (test fixture for the security scorer; never run)
             script_path.write_text("""
 import subprocess
 
@@ -469,6 +474,7 @@ def main():
 if __name__ == "__main__":
     main()
 """)
+            # auditor:ignore-end
             
             scorer = SecurityScorer([script_path])
             score, findings = scorer.score_command_injection_prevention()
@@ -481,6 +487,7 @@ if __name__ == "__main__":
         """Test that eval usage is detected."""
         with tempfile.TemporaryDirectory() as tmpdir:
             script_path = Path(tmpdir) / "risky.py"
+            # auditor:ignore-start (test fixture for the security scorer; never run)
             script_path.write_text("""
 def evaluate(user_input):
     return eval(user_input)
@@ -491,6 +498,7 @@ def main():
 if __name__ == "__main__":
     main()
 """)
+            # auditor:ignore-end
             
             scorer = SecurityScorer([script_path])
             score, findings = scorer.score_command_injection_prevention()
@@ -502,6 +510,7 @@ if __name__ == "__main__":
         """Test that exec usage is detected."""
         with tempfile.TemporaryDirectory() as tmpdir:
             script_path = Path(tmpdir) / "risky.py"
+            # auditor:ignore-start (test fixture for the security scorer; never run)
             script_path.write_text("""
 def execute(user_code):
     exec(user_code)
@@ -512,6 +521,7 @@ def main():
 if __name__ == "__main__":
     main()
 """)
+            # auditor:ignore-end
             
             scorer = SecurityScorer([script_path])
             score, findings = scorer.score_command_injection_prevention()

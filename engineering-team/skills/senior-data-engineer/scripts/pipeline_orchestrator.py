@@ -336,7 +336,7 @@ with DAG(
 
         # Try to parse the code
         try:
-            compile(code, '<string>', 'exec')
+            compile(code, '<string>', 'exec')  # noqa: SEC-AUDITOR (syntax check of generated DAG source; the compiled code is never run)
         except SyntaxError as e:
             issues.append(f"Syntax error: {e}")
 
@@ -449,7 +449,7 @@ if __name__ == "__main__":
             issues.append("No tasks defined with @task decorator")
 
         try:
-            compile(code, '<string>', 'exec')
+            compile(code, '<string>', 'exec')  # noqa: SEC-AUDITOR (syntax check of generated DAG source; the compiled code is never run)
         except SyntaxError as e:
             issues.append(f"Syntax error: {e}")
 
@@ -576,7 +576,7 @@ def {config.name.replace('-', '_')}_job():
             issues.append("No ops defined with @op decorator")
 
         try:
-            compile(code, '<string>', 'exec')
+            compile(code, '<string>', 'exec')  # noqa: SEC-AUDITOR (syntax check of generated DAG source; the compiled code is never run)
         except SyntaxError as e:
             issues.append(f"Syntax error: {e}")
 

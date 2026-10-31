@@ -20,6 +20,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
   `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
 
+### Security
+
+- **The skill security audit now audits every changed skill.** Its detect step only found a `SKILL.md` one or
+  two folders deep, so plugin-layout skills and the `engineering/skills/` mirrors were skipped and the check
+  reported "skipped" instead of running; its path filter also missed eleven newer domains. It now walks up to
+  the nearest `SKILL.md`, has no path filter, and re-runs when a draft is marked ready. Before turning it on, all
+  409 skills were brought to a clean `--strict` audit: 36 skills failed with 95 findings.
+- Two findings were real and are fixed. `full-page-screenshot` built shell commands and a generated Python
+  script by pasting the output path into them, so a path containing a quote or `$(...)` ran as code; it now
+  uses argument arrays and JSON-quoted paths. `senior-fullstack` scaffolds fell back to the hardcoded secrets
+  `"change-me"` (Django `SECRET_KEY`, Express `JWT_SECRET`) and `"change-me-in-production"` (FastAPI) when the
+  variable was unset, so a deployment that forgot it signed sessions and tokens with a public key; they now
+  refuse to start without it. The same scaffolder crashed on every template (`str / str`), also fixed.
+- The rest were false positives (advice text, detection rules, test fixtures, install hints, URL fetches the
+  user asks for, guarded deletes) and carry `# noqa: SEC-AUDITOR (reason)`. The auditor gained an
+  `auditor:ignore-start` / `auditor:ignore-end` block for text inside template strings, where a trailing
+  comment would end up in the generated file.
+
 ## [2.14.5] - 2026-10-31 — design-qa, commit-craft, skills that fit the listing budget
 
 Two new skills, an audit that cuts the marketplace's share of Claude Code's skill listing from 227k to 97k

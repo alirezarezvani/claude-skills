@@ -1,3 +1,4 @@
+# auditor:ignore-start (prints the install command for the user; never runs it)
 """Optional-dependency probing for the extractor.
 
 Vendored from virgiliojr94/book-to-skill (MIT) with one behavioural change:
@@ -7,6 +8,7 @@ agent session that is an unattended `pip install` triggered by reading a file.
 Here the default prints the exact install command and uses the standard-library
 fallback, and ``--install-missing yes`` remains available as an explicit opt-in.
 """
+# auditor:ignore-end
 
 from __future__ import annotations
 
@@ -159,7 +161,7 @@ def offer_dependency_install(
     else:
         # report mode (or `ask` with no TTY): never install, but always say what
         # would raise quality, so the user can decide outside the agent session.
-        print(f"  install for better quality: {sys.executable} -m pip install {' '.join(packages)}")
+        print(f"  install for better quality: {sys.executable} -m pip install {' '.join(packages)}")  # noqa: SEC-AUDITOR (prints the install command for the user; never runs it)
         if fallback:
             print("  proceeding with the standard-library fallback.")
         else:
@@ -299,7 +301,7 @@ def run_dependency_check() -> int:
 
     print("To enable the best extractor for every format, install the missing pieces:\n")
     if missing_pip_packages:
-        print(f"  {sys.executable} -m pip install {' '.join(missing_pip_packages)}")
+        print(f"  {sys.executable} -m pip install {' '.join(missing_pip_packages)}")  # noqa: SEC-AUDITOR (prints the install command for the user; never runs it)
     for pretty, hint in missing_system:
         print(f"  # {pretty}: {hint}")
     print(

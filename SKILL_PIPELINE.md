@@ -20,7 +20,7 @@ Intent → Research → Draft → Eval → Iterate → Compliance → Package �
 ### Dependencies
 | Tool | Version | Install | Fallback |
 |------|---------|---------|----------|
-| Tessl CLI | v0.70.0 | `tessl login` (auth: rezarezvani) | Manual 8-point compliance check |
+| Tessl CLI | latest (auto-updates) | `tessl login` locally; `TESSL_TOKEN` API key in CI | Manual 8-point compliance check |
 | ClawHub CLI | latest | `npm i -g @openclaw/clawhub` | Skip OpenClaw publish, do manually later |
 | Claude Code | 2.1+ | Already installed | Required, no fallback |
 | Python | 3.10+ | System | Required for scripts |
@@ -133,7 +133,7 @@ echo "Review this skill for Anthropic compliance:
 
 Additionally run Tessl quality check:
 ```bash
-tessl skill review <skill-path>
+tessl review run <skill-path> --workspace <workspace>   # `tessl skill review` was removed
 ```
 **Minimum score: 85%**
 

@@ -34,9 +34,12 @@ jobs:
           fi
       - name: Check for Review Bypass
         id: bypass
+        # Pass the title and labels through env, never inline: a title with
+        # backticks or $( ) was executed as shell (it broke on PR #1080).
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
         run: |
-          PR_TITLE="${{ github.event.pull_request.title }}"
-          PR_LABELS="${{ toJSON(github.event.pull_request.labels.*.name) }}"
 
           # Check for bypass markers in PR title
           if echo "$PR_TITLE" | grep -qE '\[EMERGENCY\]|\[SKIP REVIEW\]|\[HOTFIX\]'; then

@@ -1,9 +1,9 @@
 ---
-title: "/ar:setup — Create New Experiment — Agent Skill for Codex & OpenClaw"
+title: "/autoresearch-agent:setup — Create New Experiment — Agent Skill for Codex & OpenClaw"
 description: "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
 ---
 
-# /ar:setup — Create New Experiment
+# /autoresearch-agent:setup — Create New Experiment
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-rocket-launch: Engineering - POWERFUL</span>
@@ -21,10 +21,10 @@ Set up a new autoresearch experiment with all required configuration.
 ## Usage
 
 ```
-/ar:setup                                    # Interactive mode
-/ar:setup engineering api-speed src/api.py "pytest bench.py" p50_ms lower
-/ar:setup --list                             # Show existing experiments
-/ar:setup --list-evaluators                  # Show available evaluators
+/autoresearch-agent:setup                                    # Interactive mode
+/autoresearch-agent:setup engineering api-speed src/api.py "pytest bench.py" p50_ms lower
+/autoresearch-agent:setup --list                             # Show existing experiments
+/autoresearch-agent:setup --list-evaluators                  # Show available evaluators
 ```
 
 ## What It Does
@@ -84,4 +84,4 @@ python {skill_path}/scripts/setup_experiment.py --list-evaluators
 Report to the user:
 - Experiment path and branch name
 - Whether the eval command worked and the baseline metric
-- Suggest: "Run `/ar:ar-run {domain}/{name}` to start iterating, or `/ar:loop {domain}/{name}` for autonomous mode."
+- Suggest: "Run `/ar-run {domain}/{name}` to start iterating, or `/ar-loop {domain}/{name}` for autonomous mode."

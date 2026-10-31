@@ -7,7 +7,7 @@ so they run as `/cs-<name>`. The old `/cs-<name>` spelling looks like a namespac
 but matches nothing, so a user who copies it from our docs gets "unknown command".
 
 Scans the canonical tree (mirrors, CHANGELOG.md and the audit/ record excluded,
-since those preserve history) and fails on any `/cs-<name>` reference.
+since those preserve history) and fails on any `/cs-<name>` or `/ar:<name>` reference.
 
 Exit codes: 0 = clean, 1 = stale references found.
 
@@ -30,6 +30,9 @@ EXCLUDED_TOP_LEVEL = {
 EXCLUDED_FILES = {"CHANGELOG.md", "check_command_refs.py"}
 EXTENSIONS = (".md", ".json", ".py", ".sh", ".yml", ".yaml", ".txt")
 STALE = re.compile(r"/cs:[a-z0-9*<{][a-z0-9-}>]*")
+# autoresearch-agent's commands were documented as `/ar:<name>` until v2.14.5,
+# but the plugin is named autoresearch-agent, so that namespace never existed.
+STALE_AR = re.compile(r"/ar:[a-z0-9*<{][a-z0-9-}>]*")
 
 
 def scan(root):
@@ -46,8 +49,9 @@ def scan(root):
             try:
                 with open(path, encoding="utf-8") as fh:
                     for lineno, line in enumerate(fh, 1):
-                        for m in STALE.finditer(line):
-                            findings.append((os.path.relpath(path, root), lineno, m.group(0)))
+                        for rx in (STALE, STALE_AR):
+                            for m in rx.finditer(line):
+                                findings.append((os.path.relpath(path, root), lineno, m.group(0)))
             except (OSError, UnicodeDecodeError):
                 continue
     return findings
@@ -64,8 +68,11 @@ def main():
         print(json.dumps([{"file": f, "line": n, "ref": r} for f, n, r in findings], indent=2))
     else:
         for f, n, r in findings:
-            print(f"{f}:{n}: {r}  ->  use /cs-{r[4:]} (or /<plugin>:{r[4:]} for a skill)")
-        print(f"\n{len(findings)} stale /cs: reference(s).")
+            if r.startswith("/ar:"):
+                print(f"{f}:{n}: {r}  ->  use /autoresearch-agent:<name> (or bare /ar-<name>)")
+            else:
+                print(f"{f}:{n}: {r}  ->  use /cs-{r[4:]} (or /<plugin>:{r[4:]} for a skill)")
+        print(f"\n{len(findings)} stale /cs: or /ar: reference(s).")
     return 1 if findings else 0
 
 

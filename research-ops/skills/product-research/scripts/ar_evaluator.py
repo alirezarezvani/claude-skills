@@ -10,7 +10,7 @@ at the configured source threshold, and prints ONE metric line:
 
 This optimizes the CODING/synthesis of a fixed evidence set (merging/splitting tags so
 cross-participant patterns surface) — not the evidence itself. The user opts in explicitly:
-    /ar:setup --domain custom --name insight-synthesis \\
+    /autoresearch-agent:setup --domain custom --name insight-synthesis \\
       --target observations.json --eval "python3 ar_evaluator.py --target observations.json" \\
       --metric validated_insights --direction higher
 

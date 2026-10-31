@@ -439,7 +439,7 @@
     {
       "name": "ar-resume",
       "path": "engineering/autoresearch-agent/skills/ar-resume",
-      "description": "Use for /ar:ar-resume, or to continue a paused autoresearch experiment from its branch and results history.",
+      "description": "Use for /ar-resume, or to continue a paused autoresearch experiment from its branch and results history.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -453,7 +453,7 @@
     {
       "name": "ar-run",
       "path": "engineering/autoresearch-agent/skills/ar-run",
-      "description": "Use for /ar:ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard.",
+      "description": "Use for /ar-run, or to run one manual autoresearch iteration: edit, evaluate, keep or discard.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -467,7 +467,7 @@
     {
       "name": "ar-status",
       "path": "engineering/autoresearch-agent/skills/ar-status",
-      "description": "Use for /ar:ar-status, or to see an autoresearch experiment's results, active loops and progress.",
+      "description": "Use for /ar-status, or to see an autoresearch experiment's results, active loops and progress.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -535,7 +535,7 @@
     {
       "name": "ar-loop",
       "path": "engineering/autoresearch-agent/skills/ar-loop",
-      "description": "Use for /ar:loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
+      "description": "Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with CronCreate.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,
@@ -549,7 +549,7 @@
     {
       "name": "setup",
       "path": "engineering/autoresearch-agent/skills/setup",
-      "description": "Use for /ar:setup, or to start a new autoresearch experiment: target file, eval command, metric, direction and evaluator.",
+      "description": "Use for /autoresearch-agent:setup, or to start a new autoresearch experiment: target, eval command, metric, direction, evaluator.",
       "tools": [],
       "agentic_signals": {
         "goal_intake": false,

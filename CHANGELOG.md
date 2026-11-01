@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
   `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
 
+### Changed
+
+- **copy-editing** (`marketing-skill/skills/copy-editing/`, plugin 2.14.7): SKILL.md cut from 16.8 KB and 508 lines to 9.5 KB and 240 lines. The full seven-sweep process and the copy editing checklist moved to the new `references/sweeps-detail.md`. The SKILL keeps a one-line question per sweep. Workflow, scripts and anti-patterns are unchanged. Reference count 910 -> 911.
+
 ### Security
 
 - **The skill security audit now audits every changed skill.** Its detect step only found a `SKILL.md` one or

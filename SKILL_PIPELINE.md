@@ -160,7 +160,7 @@ skill-name/
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": ["./"]
 }
 ```
 **Only these fields. Nothing else.**
@@ -315,8 +315,8 @@ description: <what this command does>
 | File | What to update |
 |------|----------------|
 | `CHANGELOG.md` | Every change, every fix, every improvement |
-| Category `README.md` | Skill list, descriptions, install commands |
-| Category `CLAUDE.md` | Navigation, skill count, architecture notes |
+| Category `README.md` | Only when the catalog changes: skill list, descriptions, install commands |
+| Category `CLAUDE.md` | Only when the catalog changes: navigation, skill count, architecture notes |
 
 ### Per-Skill Updates
 | File | What to update |

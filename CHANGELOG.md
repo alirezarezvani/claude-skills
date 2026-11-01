@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
   `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
 
+### Changed
+
+- **senior-secops** (`engineering-team/skills/senior-secops/`, plugin 2.14.7): SKILL.md cut from 16.0 KB and 505 lines to 9.6 KB and 276 lines. Workflows 3 and 4, the secure coding checklist, compliance framework summaries, best practices, secret scanning tools and supply chain security moved to the existing references (`vulnerability_management_guide.md`, `security_standards.md`, `compliance_requirements.md`). Scripts and the OWASP quick-check are unchanged.
+
 ### Security
 
 - **The skill security audit now audits every changed skill.** Its detect step only found a `SKILL.md` one or

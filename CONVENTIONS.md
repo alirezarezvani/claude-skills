@@ -53,13 +53,13 @@ description: "One-line description of when to use this skill. Be specific about 
 ---
 ```
 
-**Do NOT include:** `license`, `metadata`, `triggers`, `version`, `author`, `category`, `updated`, or any other fields. PRs with extra frontmatter fields will be rejected.
+**Allowed fields:** `name`, `description`, `license`, `metadata`. Do NOT include `triggers`, `version`, `author`, `category`, `updated`, or any other fields; put that data under `metadata`. PRs with other frontmatter fields will be rejected.
 
 ### Content Requirements
 
 | Requirement | Rule |
 |-------------|------|
-| **Line limit** | Under 500 lines. Move detailed content to `references/` files. |
+| **Size limit** | Under 500 lines **and** 10 KB. Move detailed content to `references/` files. |
 | **Opinionated** | Recommend specific approaches. Don't just list options. |
 | **Actionable** | The agent must be able to execute, not just advise. |
 | **Anti-patterns** | Include a section on what NOT to do. |
@@ -75,6 +75,12 @@ At minimum, every SKILL.md should include:
 3. **Core content** — workflows, patterns, instructions
 4. **Anti-Patterns** — common mistakes to avoid
 5. **Cross-References** — related skills in this repo
+
+New skills also need:
+- **Proactive Triggers:** 4 to 6 items.
+- **Output Artifacts:** 4 to 6 lines.
+- **Related Skills:** for each one, say when to use it and when not to.
+- **`evals/evals.json`:** 2 to 3 cases that fail without the skill.
 
 Reference detailed material from `references/` files:
 ```markdown
@@ -179,9 +185,9 @@ The following will be **immediately closed**:
 
 | Type | Why |
 |------|-----|
-| Links to external repos/tools in README | We don't link 3rd party projects |
+| Links to external repos/tools in README | Only the five existing links in "Related Projects" are kept; new ones need maintainer review |
 | Skills that require paid API keys | Must work without external dependencies |
-| Skills that call LLMs in scripts | Scripts must be deterministic |
+| Skills that call LLMs in scripts | Scripts must be deterministic. One documented opt-in exception: `engineering/skillopt-sleep/skillopt_sleep/backend.py`. It is not a precedent. |
 | PRs that change the official skill count (409) | This number is curated |
 | PRs targeting `main` instead of `dev` | All PRs must target `dev` |
 | PRs with bloated diffs (merge history from forks) | Rebase on `dev` HEAD first |
@@ -270,7 +276,8 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 - Structure score ≥ 75/100
 - All scripts pass `--help`
 - Zero CRITICAL or HIGH security findings
-- SKILL.md under 500 lines
+- Tessl score ≥ 85% (required for new or changed skills; if Tessl is unavailable, the skill is not ready)
+- SKILL.md under 500 lines and 10 KB
 
 ---
 
@@ -278,12 +285,12 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 
 | What | Rule |
 |------|------|
-| Frontmatter fields | `name` + `description` only |
-| SKILL.md max lines | 500 |
+| Frontmatter fields | `name`, `description`, `license`, `metadata` |
+| SKILL.md max size | 500 lines and 10 KB |
 | Python dependencies | stdlib only |
 | PR target branch | `dev` |
 | plugin.json author | Object `{"name": "...", "url": "..."}`, never string |
-| External links in README | Not accepted |
+| External links in README | Only the five existing ones (see §6) |
 | Skill count | 409 (derived by scripts/derive_counters.py; do not edit by hand) |
 | Commit format | Conventional commits |
 | Script output | Must support `--json` |

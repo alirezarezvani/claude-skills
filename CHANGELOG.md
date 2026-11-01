@@ -20,6 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
   `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
 
+### Changed
+
+- **senior-frontend** (`engineering-team/skills/senior-frontend/`, plugin 2.14.7): SKILL.md cut from 15.7 KB and 572 lines to 9.9 KB and 284 lines, to meet the 500-line and 10 KB limit. Examples moved to existing references: React patterns to `react_patterns.md`, Next.js examples to `nextjs_optimization_guide.md`, accessibility, testing, quick reference and generated outputs to `frontend_best_practices.md`. Workflows, scripts and assumptions are unchanged.
+
+
 ### Security
 
 - **The skill security audit now audits every changed skill.** Its detect step only found a `SKILL.md` one or

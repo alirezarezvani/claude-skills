@@ -356,7 +356,7 @@ python scripts/generate-docs.py 2>/dev/null || echo "generate-docs.py not yet cr
 | **Enhancement + new skills** (new scripts, agents, commands, new skills) | **2.7.0** (minor) | 2.6.x → 2.7.0 |
 | **Breaking changes** (restructure, removed skills, API changes) | **3.0.0** (major) | 2.x → 3.0.0 |
 
-### Current Version Targets (update as releases ship)
+### Version history (current version: see CHANGELOG.md, 2.14.5)
 - **v2.1.1** — Existing skill improvements (Tessl #285-#287, compliance fixes)
 - **v2.7.0** — New skills + agents + commands + multi-platform packaging
 

@@ -8,7 +8,7 @@ For contribution workflow and how to submit PRs, see [CONTRIBUTING.md](CONTRIBUT
 
 ## 1. Skill Structure
 
-Every skill is a directory under one of the 9 domain folders:
+Every skill is a directory under one of the 20 domain folders:
 
 ```
 <domain>/<skill-name>/
@@ -91,7 +91,7 @@ If your skill includes a `.claude-plugin/plugin.json`, use this **exact schema**
 {
   "name": "skill-name",
   "description": "One-line description matching SKILL.md",
-  "version": "2.1.2",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -105,7 +105,7 @@ If your skill includes a `.claude-plugin/plugin.json`, use this **exact schema**
 
 **Rules:**
 - `author` **must be an object**, never a string. String format causes install errors.
-- `version` must match the current repo version (`2.1.2`).
+- `version` must match the current repo version (`2.14.5`).
 - No extra fields (`commands`, `hooks`, `triggers`, `tags`, `category`).
 - Not every skill needs a plugin.json — skills roll up into their domain's parent plugin automatically.
 
@@ -182,7 +182,7 @@ The following will be **immediately closed**:
 | Links to external repos/tools in README | We don't link 3rd party projects |
 | Skills that require paid API keys | Must work without external dependencies |
 | Skills that call LLMs in scripts | Scripts must be deterministic |
-| PRs that change the official skill count (205) | This number is curated |
+| PRs that change the official skill count (409) | This number is curated |
 | PRs targeting `main` instead of `dev` | All PRs must target `dev` |
 | PRs with bloated diffs (merge history from forks) | Rebase on `dev` HEAD first |
 | PRs that modify marketplace.json counts | We handle count updates |
@@ -284,6 +284,6 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 | PR target branch | `dev` |
 | plugin.json author | Object `{"name": "...", "url": "..."}`, never string |
 | External links in README | Not accepted |
-| Skill count | 205 (do not change) |
+| Skill count | 409 (derived by scripts/derive_counters.py; do not edit by hand) |
 | Commit format | Conventional commits |
 | Script output | Must support `--json` |

@@ -186,7 +186,7 @@ def _write_private(path: Path, text: str, dir_fd: int | None = None) -> None:
     try:
         fd = os.open(name, flags, ARTIFACT_MODE, **opener_kwargs)
     except FileExistsError:
-        os.unlink(name, **opener_kwargs)
+        os.unlink(name, **opener_kwargs)  # noqa: SEC-AUDITOR (removes its own temporary file)
         fd = os.open(name, flags, ARTIFACT_MODE, **opener_kwargs)
     with os.fdopen(fd, "w", encoding="utf-8") as handle:
         handle.write(text)

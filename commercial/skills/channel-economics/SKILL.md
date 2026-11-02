@@ -99,7 +99,7 @@ cd commercial/skills/channel-economics && python3 scripts/cost_to_serve_calculat
 - "Channel" means a coherent go-to-market motion (direct outbound, partner-led, marketplace, reseller, OEM). It does not mean a marketing source.
 - Cost-to-serve requires **honest overhead allocation**. The script validates that overhead % is consistent across channels — false partner-margin lift from inconsistent allocation is the #1 anti-pattern.
 - LTV inputs (retention, expansion) are per-channel, not pooled. Partner-sourced customers often retain differently than direct-sourced — this difference is usually the largest economic variable and the most ignored.
-- Industry profiles (`--profile`) tune defaults for benchmarks (e.g., SaaS direct CAC payback target ~12mo, enterprise ~18mo) — they don't override your numbers.
+- Industry profiles (`--profile`) tune defaults for benchmarks (e.g., SaaS direct CAC payback target ~12mo, enterprise ~18mo) — they don't override your numbers. <!-- noqa: SEC-AUDITOR (benchmark description text) -->
 - This is a decision-support skill. Output is verdicts and a recommended mix, never an automatic resource reallocation.
 
 ## Anti-patterns

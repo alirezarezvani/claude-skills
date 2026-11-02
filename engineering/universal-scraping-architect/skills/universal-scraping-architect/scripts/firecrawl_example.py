@@ -152,21 +152,17 @@ def main():
         sys.exit(1)
 
     # Step 3: Initialise Firecrawl client (imported lazily so --help works without the SDK)
-    from firecrawl import FirecrawlApp
-    app = FirecrawlApp(api_key=api_key)
+    from firecrawl import Firecrawl
+    app = Firecrawl(api_key=api_key)
     log(f"Firecrawl client initialised. Target: {TARGET_URL}")
 
     # Step 4: Scrape
-    #   Firecrawl Python SDK v1+ passes options directly: scrape_url(url, formats=[...]).
-    #   Older SDKs used the params={"formats": [...]} dict wrapper.
+    #   firecrawl-py v2+ API: Firecrawl(...).scrape(url, formats=[...]) returns a document
+    #   object. The v1 FirecrawlApp.scrape_url call is deprecated.
     try:
         log("Starting scrape...")
-        result = app.scrape_url(TARGET_URL, formats=["markdown"])
-        # Result may be a dict (older SDK) or an object with a .markdown attribute (v1+).
-        markdown_content = (
-            result.get("markdown", "") if isinstance(result, dict)
-            else getattr(result, "markdown", "")
-        )
+        doc = app.scrape(TARGET_URL, formats=["markdown"])
+        markdown_content = getattr(doc, "markdown", "") or ""
     except Exception as e:
         log(f"Firecrawl scrape failed: {e}", level="ERROR")
         log(

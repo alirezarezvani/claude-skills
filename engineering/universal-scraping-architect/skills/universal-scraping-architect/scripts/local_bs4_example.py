@@ -1,3 +1,4 @@
+# auditor:ignore-start (usage text in the docstring)
 """
 Universal Scraping Architect: Traditional / Local Scraping Example
 ==================================================================
@@ -16,6 +17,7 @@ Usage:
   pip install -r requirements.txt
   python scripts/local_bs4_example.py
 """
+# auditor:ignore-end
 
 from __future__ import annotations  # defer annotation eval so --help works without deps
 
@@ -104,7 +106,7 @@ def safe_get(url: str) -> str:
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             log(f"Attempt {attempt}/{MAX_RETRIES}: GET {url}")
-            response = requests.get(url, headers=headers, timeout=TIMEOUT_SECONDS)
+            response = requests.get(url, headers=headers, timeout=TIMEOUT_SECONDS)  # noqa: SEC-AUDITOR (example scraper fetches the URL the user passes, by design)
             response.raise_for_status()
             log(f"HTTP {response.status_code} — content length: {len(response.text):,} chars.")
             return response.text

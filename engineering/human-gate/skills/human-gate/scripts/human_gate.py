@@ -497,7 +497,7 @@ def cmd_reset(args):
         sys.stderr.write("Refusing to delete unexpected state file: %s\n" % path)
         return 1
     if os.path.exists(path):
-        os.remove(path)
+        os.remove(path)  # noqa: SEC-AUDITOR (deletes only its own state file or mkdtemp dir; guarded above)
         print("Gate state cleared for %s" % os.path.basename(args.artifact))
     else:
         print("No gate state to clear for %s" % os.path.basename(args.artifact))
@@ -632,7 +632,7 @@ def run_sample():
         # `work` came from mkdtemp() above; re-confirm it is still under the
         # system temp root before recursing, so this can never walk a real tree.
         if os.path.realpath(work).startswith(os.path.realpath(tempfile.gettempdir())):
-            shutil.rmtree(work, ignore_errors=True)
+            shutil.rmtree(work, ignore_errors=True)  # noqa: SEC-AUDITOR (deletes only its own state file or mkdtemp dir; guarded above)
 
 
 if __name__ == "__main__":

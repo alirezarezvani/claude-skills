@@ -26,16 +26,24 @@ jobs:
     steps:
       - name: Resolve ref
         id: ref
+        # Event text goes through env, never inline into the script, so a
+        # crafted branch name or dispatch payload cannot run as shell.
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_REF: ${{ github.event.inputs.ref }}
+          PAYLOAD_REF: ${{ github.event.client_payload.ref }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          FALLBACK_REF: ${{ github.head_ref || github.ref_name }}
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ github.event.inputs.ref }}" ]]; then
-            echo "target_ref=${{ github.event.inputs.ref }}" >> "$GITHUB_OUTPUT"
-          elif [[ "${{ github.event_name }}" == "repository_dispatch" && -n "${{ github.event.client_payload.ref }}" ]]; then
-            echo "target_ref=${{ github.event.client_payload.ref }}" >> "$GITHUB_OUTPUT"
-          elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          if [[ "$EVENT_NAME" == "workflow_dispatch" && -n "$INPUT_REF" ]]; then
+            echo "target_ref=$INPUT_REF" >> "$GITHUB_OUTPUT"
+          elif [[ "$EVENT_NAME" == "repository_dispatch" && -n "$PAYLOAD_REF" ]]; then
+            echo "target_ref=$PAYLOAD_REF" >> "$GITHUB_OUTPUT"
+          elif [[ "$EVENT_NAME" == "pull_request" ]]; then
             # Use commit SHA for PRs — branch names from forks don't exist in the base repo
-            echo "target_ref=${{ github.event.pull_request.head.sha }}" >> "$GITHUB_OUTPUT"
+            echo "target_ref=$PR_HEAD_SHA" >> "$GITHUB_OUTPUT"
           else
-            echo "target_ref=${{ github.head_ref || github.ref_name }}" >> "$GITHUB_OUTPUT"
+            echo "target_ref=$FALLBACK_REF" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Checkout

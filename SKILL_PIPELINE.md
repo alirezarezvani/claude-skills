@@ -20,7 +20,7 @@ Intent → Research → Draft → Eval → Iterate → Compliance → Package �
 ### Dependencies
 | Tool | Version | Install | Fallback |
 |------|---------|---------|----------|
-| Tessl CLI | v0.70.0 | `tessl login` (auth: rezarezvani) | Manual 8-point compliance check |
+| Tessl CLI | latest (auto-updates) | `tessl login` locally; `TESSL_TOKEN` API key in CI | Manual 8-point compliance check |
 | ClawHub CLI | latest | `npm i -g @openclaw/clawhub` | Skip OpenClaw publish, do manually later |
 | Claude Code | 2.1+ | Already installed | Required, no fallback |
 | Python | 3.10+ | System | Required for scripts |
@@ -133,7 +133,7 @@ echo "Review this skill for Anthropic compliance:
 
 Additionally run Tessl quality check:
 ```bash
-tessl skill review <skill-path>
+tessl review run <skill-path> --workspace <workspace>   # `tessl skill review` was removed
 ```
 **Minimum score: 85%**
 
@@ -160,7 +160,7 @@ skill-name/
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": ["./"]
 }
 ```
 **Only these fields. Nothing else.**
@@ -315,8 +315,8 @@ description: <what this command does>
 | File | What to update |
 |------|----------------|
 | `CHANGELOG.md` | Every change, every fix, every improvement |
-| Category `README.md` | Skill list, descriptions, install commands |
-| Category `CLAUDE.md` | Navigation, skill count, architecture notes |
+| Category `README.md` | Only when the catalog changes: skill list, descriptions, install commands |
+| Category `CLAUDE.md` | Only when the catalog changes: navigation, skill count, architecture notes |
 
 ### Per-Skill Updates
 | File | What to update |
@@ -356,7 +356,7 @@ python scripts/generate-docs.py 2>/dev/null || echo "generate-docs.py not yet cr
 | **Enhancement + new skills** (new scripts, agents, commands, new skills) | **2.7.0** (minor) | 2.6.x → 2.7.0 |
 | **Breaking changes** (restructure, removed skills, API changes) | **3.0.0** (major) | 2.x → 3.0.0 |
 
-### Current Version Targets (update as releases ship)
+### Version history (current version: see CHANGELOG.md, 2.14.5)
 - **v2.1.1** — Existing skill improvements (Tessl #285-#287, compliance fixes)
 - **v2.7.0** — New skills + agents + commands + multi-platform packaging
 

@@ -422,6 +422,7 @@ class SecurityScorer:
         return avg_score, all_findings
         
     def score_command_injection_prevention(self) -> Tuple[float, List[str]]:
+        # auditor:ignore-start (docstring listing what the scorer detects)
         """
         Score command injection prevention.
         
@@ -436,6 +437,7 @@ class SecurityScorer:
         Returns:
             Tuple of (average_score, findings_list)
         """
+        # auditor:ignore-end
         if not self.scripts:
             return float(MAX_COMPONENT_SCORE), []
             

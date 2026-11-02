@@ -170,6 +170,7 @@ async def fill_form(page):
         print("Form submitted.")
 """)
 
+    # auditor:ignore-start (requirements note in the generated script's docstring)
     script = textwrap.dedent(f'''\
 #!/usr/bin/env python3
 """
@@ -223,6 +224,7 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 ''')
+    # auditor:ignore-end
 
     return script, None
 

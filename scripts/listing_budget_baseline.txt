@@ -8,6 +8,7 @@ agent-harness 280
 agent-launcher-skills 1536
 agent-memory 283
 agent-regression-evals 275
+agent-run-forensics 272
 agenthub 948
 agile-product-owner 194
 andreessen 285
@@ -47,7 +48,7 @@ design-qa 455
 docker-development 239
 dossier 266
 email-pair 478
-engineering-advanced-skills 10609
+engineering-advanced-skills 10881
 engineering-skills 10132
 executive-mentor 1131
 fable-goal 246

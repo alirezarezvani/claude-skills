@@ -606,6 +606,29 @@ MD_EXTENSIONS = {".md", ".mdx", ".markdown"}
 ALL_SCAN_EXTENSIONS = CODE_EXTENSIONS | MD_EXTENSIONS
 
 
+def suppressed_lines(lines) -> set:
+    """Line numbers (1-based) the author has suppressed, with a reason.
+
+    Two forms, both kept next to the code so a reviewer sees them:
+      * ``noqa: SEC-AUDITOR`` (or ``auditor:ignore-line``) on the line itself;
+      * a block between ``auditor:ignore-start`` and ``auditor:ignore-end``,
+        for text inside a template string or docstring, where a trailing
+        comment would end up in the generated file.
+    An unclosed block suppresses nothing, so a stray start marker cannot
+    silence the rest of a file.
+    """
+    out, start = set(), None
+    for i, line in enumerate(lines, 1):
+        if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
+            out.add(i)
+        if "auditor:ignore-start" in line and start is None:
+            start = i
+        elif "auditor:ignore-end" in line and start is not None:
+            out.update(range(start, i + 1))
+            start = None
+    return out
+
+
 def scan_file_code(filepath: Path, report: AuditReport):
     """Scan a code file for dangerous patterns."""
     try:
@@ -615,6 +638,7 @@ def scan_file_code(filepath: Path, report: AuditReport):
 
     lines = content.split("\n")
     ext = filepath.suffix.lower()
+    skip = suppressed_lines(lines)
 
     # Select pattern sets based on file type
     patterns = list(CODE_PATTERNS)
@@ -630,10 +654,10 @@ def scan_file_code(filepath: Path, report: AuditReport):
             continue
         if stripped.startswith("//") and ext in {".js", ".ts", ".mjs", ".cjs"}:
             continue
-        # Honor explicit suppression directive (security tooling references its
-        # own dangerous-pattern strings inside regex/check definitions, which
-        # would otherwise trigger every pattern that matches itself)
-        if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
+        # Honor explicit suppression (security tooling references its own
+        # dangerous-pattern strings inside regex/check definitions, which would
+        # otherwise trigger every pattern that matches itself)
+        if i in skip:
             continue
 
         for pat in patterns:
@@ -659,10 +683,11 @@ def scan_file_prompt_injection(filepath: Path, report: AuditReport):
         return
 
     lines = content.split("\n")
+    skip = suppressed_lines(lines)
 
     for i, line in enumerate(lines, 1):
-        # Honor explicit suppression directive (markdown can use HTML comment)
-        if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
+        # Honor explicit suppression (markdown can use an HTML comment)
+        if i in skip:
             continue
         for pat in PROMPT_INJECTION_PATTERNS:
             if re.search(pat["regex"], line):
@@ -739,13 +764,15 @@ def scan_dependencies(skill_path: Path, report: AuditReport):
         except Exception:
             continue
 
-        for i, line in enumerate(content.split("\n"), 1):
+        code_lines = content.split("\n")
+        skip = suppressed_lines(code_lines)
+        for i, line in enumerate(code_lines, 1):
             stripped = line.strip()
             # Skip comments (this line is documentation about install commands,
             # not actual install command at runtime)
             if stripped.startswith("#") or stripped.startswith("//"):
                 continue
-            if "noqa: SEC-AUDITOR" in line or "auditor:ignore-line" in line:
+            if i in skip:
                 continue
             if re.search(r"\bpip\s+install\b", line):
                 report.findings.append(

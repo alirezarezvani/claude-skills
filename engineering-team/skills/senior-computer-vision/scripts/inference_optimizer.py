@@ -428,7 +428,7 @@ class InferenceOptimizer:
             'onnx': f'yolo export model={model_name}.pt format=onnx',
             'tensorrt_fp16': f'trtexec --onnx={model_name}.onnx --saveEngine={model_name}.engine --fp16',
             'tensorrt_int8': f'trtexec --onnx={model_name}.onnx --saveEngine={model_name}.engine --int8',
-            'onnxruntime': f'pip install onnxruntime-gpu',
+            'onnxruntime': f'pip install onnxruntime-gpu',  # noqa: SEC-AUDITOR (install hint shown to the user; the script installs nothing)
             'openvino': f'mo --input_model {model_name}.onnx --output_dir openvino/',
             'coreml': f'yolo export model={model_name}.pt format=coreml',
         }

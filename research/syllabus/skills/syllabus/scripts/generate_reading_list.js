@@ -44,7 +44,7 @@ function loadDocx() {
       // try next
     }
   }
-  console.error('error: cannot find `docx` npm package. Install with: npm install docx');
+  console.error('error: cannot find `docx` npm package. Install with: npm install docx');  // noqa: SEC-AUDITOR (install hint shown to the user; the script installs nothing)
   process.exit(2);
 }
 

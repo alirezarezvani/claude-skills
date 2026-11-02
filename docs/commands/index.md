@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "151 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "153 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">151 commands for quick access to common operations</p>
+<p class="domain-count">153 commands for quick access to common operations</p>
 
 </div>
 
@@ -270,6 +270,18 @@ description: "151 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
     ---
 
     Answer one question about $ARGUMENTS: is the candidate measurably worse than the baseline?
+
+-   :material-console:{ .lg .middle } **[`/cs-check-claims`](cs-check-claims.md)**
+
+    ---
+
+    Turn each factual sentence of the summary in $ARGUMENTS (default: your own last
+
+-   :material-console:{ .lg .middle } **[`/cs-run-forensics`](cs-run-forensics.md)**
+
+    ---
+
+    Answer $ARGUMENTS from the recording, not from memory.
 
 -   :material-console:{ .lg .middle } **[`/cs-book-to-plugin`](cs-book-to-plugin.md)**
 

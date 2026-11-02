@@ -14,6 +14,7 @@ Usage:
 
 import argparse
 import json
+from datetime import datetime
 import sys
 from typing import Dict, List, Optional
 from dataclasses import dataclass, asdict
@@ -465,7 +466,7 @@ def format_json_report(component: str, threats: List[Threat]) -> Dict:
     """Format threats as JSON structure."""
     return {
         "component": component,
-        "analysis_date": __import__('datetime').datetime.now().isoformat(),
+        "analysis_date": datetime.now().isoformat(),
         "summary": {
             "total_threats": len(threats),
             "by_risk_level": {

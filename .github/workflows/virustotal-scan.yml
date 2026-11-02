@@ -104,11 +104,13 @@ jobs:
 
       - name: Parse scan results
         if: env.SKIP_SCAN != 'true'
+        # The analysis string carries file names from the PR; read it from env.
+        env:
+          ANALYSIS: ${{ steps.vt-scan.outputs.analysis }}
         run: |
           echo "## VirusTotal Scan Results" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
 
-          ANALYSIS="${{ steps.vt-scan.outputs.analysis }}"
 
           if [ -z "$ANALYSIS" ]; then
             echo "No analysis results returned" >> "$GITHUB_STEP_SUMMARY"
@@ -133,9 +135,11 @@ jobs:
       - name: Comment on PR
         if: github.event_name == 'pull_request' && env.SKIP_SCAN != 'true'
         uses: actions/github-script@v7
+        env:
+          ANALYSIS: ${{ steps.vt-scan.outputs.analysis }}
         with:
           script: |
-            const analysis = '${{ steps.vt-scan.outputs.analysis }}';
+            const analysis = process.env.ANALYSIS || '';
             if (!analysis) return;
             const results = analysis.split(',').map(r => {
               const [file, ...urlParts] = r.split('=');

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# auditor:ignore-start (docstring naming the signing package)
 """build_action_manifest.py -- build + validate an agent action manifest for receipt minting.
 
 Standard library only (argparse, hashlib, json, sys). No crypto, no network, no pip deps.
@@ -11,6 +12,7 @@ Usage:
   python build_action_manifest.py --agent A --operation deploy --target prod/api \\
       --policy "EU AI Act Art 12" --inputs "service=api;version=1.4.2" --out action.json
 """
+# auditor:ignore-end
 from __future__ import annotations
 
 import argparse

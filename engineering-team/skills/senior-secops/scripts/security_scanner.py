@@ -115,9 +115,9 @@ class SecurityScanner:
         (r'subprocess\.(?:call|run|Popen)\s*\([^)]*shell\s*=\s*True',
          'Subprocess with shell=True'),
         (r'exec\s*\(\s*[^)]*(?:user|input|param|request)',
-         'exec() with potential user input'),
+         'exec() with potential user input'),  # noqa: SEC-AUDITOR (detection-rule label text; nothing runs)
         (r'eval\s*\(\s*[^)]*(?:user|input|param|request)',
-         'eval() with potential user input'),
+         'eval() with potential user input'),  # noqa: SEC-AUDITOR (detection-rule label text; nothing runs)
     ]
 
     # Path traversal patterns

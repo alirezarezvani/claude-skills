@@ -147,6 +147,9 @@ python3 engineering/skill-tester/scripts/skill_validator.py <your-skill-path>
 # Script testing
 python3 engineering/skill-tester/scripts/script_tester.py <your-skill-path> --verbose
 
+# Repo counters test (standard library only)
+python3 -m unittest scripts/test_derive_counters.py
+
 # Security audit
 python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <your-skill-path> --strict
 ```

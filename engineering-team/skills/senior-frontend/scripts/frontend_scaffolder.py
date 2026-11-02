@@ -887,7 +887,7 @@ def scaffold_project(
         "files": created_files,
         "next_steps": [
             f"cd {name}",
-            "npm install",
+            "npm install",  # noqa: SEC-AUDITOR (command text in the generated project; nothing installs here)
             "npm run dev",
         ],
     }

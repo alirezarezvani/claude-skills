@@ -74,7 +74,7 @@ def save_state(path: str, state: Dict[str, Any]) -> None:
         os.replace(tmp, path)
     except BaseException:
         if os.path.exists(tmp):
-            os.unlink(tmp)
+            os.unlink(tmp)  # noqa: SEC-AUDITOR (removes its own temp file after a failed atomic write)
         raise
 
 

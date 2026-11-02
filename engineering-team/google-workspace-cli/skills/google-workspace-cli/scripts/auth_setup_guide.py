@@ -356,7 +356,7 @@ Examples:
             status = check_auth_status()
         else:
             status = {"status": "gws_not_found",
-                      "note": "Install gws first: npm install -g @googleworkspace/cli  OR  https://github.com/googleworkspace/cli/releases"}
+                      "note": "Install gws first: npm install -g @googleworkspace/cli  OR  https://github.com/googleworkspace/cli/releases"}  # noqa: SEC-AUDITOR (install hint shown to the user; the script installs nothing)
         if args.json:
             print(json.dumps(status, indent=2))
         else:

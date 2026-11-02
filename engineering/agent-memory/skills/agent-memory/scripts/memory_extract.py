@@ -179,7 +179,7 @@ def main():
         with os.fdopen(fd, "w") as fh:
             fh.write(SAMPLE)
         atoms = extract(path, a.project, "01SESSIONSAMPLE0000000")
-        os.unlink(path)
+        os.unlink(path)  # noqa: SEC-AUDITOR (removes its own temp file after a failed atomic write)
     elif a.transcript:
         atoms = extract(a.transcript, a.project, a.session)
     else:

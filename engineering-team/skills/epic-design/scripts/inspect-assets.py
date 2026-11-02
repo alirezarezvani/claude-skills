@@ -25,7 +25,7 @@ def analyse_image(path):
     try:
         from PIL import Image
     except ImportError:
-        print("Error: Pillow not installed. Install with: pip install Pillow")
+        print("Error: Pillow not installed. Install with: pip install Pillow")  # noqa: SEC-AUDITOR (install hint shown to the user; the script installs nothing)
         sys.exit(2)
     result = {
         "path": path,

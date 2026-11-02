@@ -81,7 +81,7 @@ python3 scripts/env_auditor.py /path/to/repo --json
 
 ## Cloud Secret Store Integration
 
-Production applications should never read secrets from `.env` files or environment variables baked into container images. Use a dedicated secret store instead.
+Production applications should never read secrets from `.env` files or environment variables baked into container images. Use a dedicated secret store instead. <!-- noqa: SEC-AUDITOR (advice against reading secrets from .env) -->
 
 ### Provider Comparison
 

@@ -10,8 +10,10 @@ compliant with the repo's "no paid commercial dependency" rule.
 
 ```python
 import os
-from firecrawl import FirecrawlApp
-app = FirecrawlApp(api_key=os.getenv("FIRECRAWL_API_KEY"))
+from firecrawl import Firecrawl
+app = Firecrawl(api_key=os.getenv("FIRECRAWL_API_KEY"))
+doc = app.scrape("https://example.com", formats=["markdown"])
+print(doc.markdown)
 ```
 
 ## Choosing the right operation
@@ -37,7 +39,7 @@ structured-JSON extraction for tabular/typed data, HTML only when you need the D
 
 ### Authoritative Sources
 1. [Firecrawl API Documentation](https://docs.firecrawl.dev/api-reference/introduction)
-2. [Firecrawl SDK for Python](https://github.com/mendableai/firecrawl-py)
+2. [Firecrawl SDK for Python](https://github.com/firecrawl/firecrawl/tree/main/apps/python-sdk)
 3. [REST API Design Best Practices (Microsoft)](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)
 4. [Handling API Rate Limits (Cloudflare)](https://developers.cloudflare.com/fundamentals/api/reference/rate-limits/)
 5. [JSON Schema Standard](https://json-schema.org/specification.html)

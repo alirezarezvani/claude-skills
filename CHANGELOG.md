@@ -7,6 +7,65 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.6] - 2026-11-02 — agent-run-forensics and a security audit that covers every skill
+
+One new skill, a security audit that now runs on every changed skill (all 409 pass `--strict`, with a real
+shell-injection bug and hardcoded fallback secrets fixed along the way), hardened workflows, and community
+fixes. Every plugin whose files changed is bumped; plugins changed more than once on dev sit above 2.14.6
+(gate G11 requires each to exceed its dev version), up to `engineering-advanced-skills` at 2.14.13.
+
+### CI
+
+- Workflows read PR titles, labels and other event text from environment variables instead of inline shell,
+  closing a PR-title shell-injection path in `claude-code-review.yml`. The Tessl step uses `tessl review run`
+  and stays skipped and non-blocking until a `TESSL_TOKEN` is configured.
+
+### Added
+
+- **agent-run-forensics** (`engineering/agent-run-forensics/` at 2.14.6, also bundled in `engineering-advanced-skills`
+  at 2.14.11). Answers questions about past agent runs from the transcript Claude Code or Codex already wrote,
+  not from memory; the idea came from PR #1016 and was rebuilt with no third-party tool. `trace_finder.py` finds
+  the run by repo, time window, touched file or command text. `trace_timeline.py` numbers every step with its
+  exit code, lists every file the run changed (SILENT when the agent never named it) and walks back from any
+  step with each causal edge labelled recorded or inferred by a named rule. `claim_checker.py` tests a summary's
+  claims against the run and returns STALE when tests passed before a later edit, PARTIAL when exit 0 belongs
+  to the last command of a pipe, and CONTRADICTED with the step. Secrets are always redacted. A fail-open
+  UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
+  `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
+
+### Changed
+
+- `CONVENTIONS.md` and `SKILL_PIPELINE.md`: the `plugin.json` example uses the canonical `"skills": ["./"]` array form (Claude Code 2.1.144+). Authoring metadata goes in `.claude-plugin/authoring-notes.json`, not `plugin.json`.
+- `SKILL_PIPELINE.md`: the per-commit rule updates a category's `README.md` and `CLAUDE.md` only when the catalog changes.
+- `CONVENTIONS.md` and `CLAUDE.md`: skill, domain and version counts match `derive_counters.py`; the frontmatter rule allows `license` and `metadata`, as `check_frontmatter.py` already does (docs from #1087, #1089 and #1088 by @gabrielhavezane-ops).
+
+### Fixed
+
+- `CONTRIBUTING.md`: documents how to run the repo counters test (`python3 -m unittest scripts/test_derive_counters.py`).
+- **universal-scraping-architect** (2.14.7): `firecrawl_example.py` and the Firecrawl guide use the firecrawl-py v2 API (`Firecrawl(...).scrape(...)`); the deprecated v1 `FirecrawlApp.scrape_url` call printed a `DeprecationWarning` on every run. The script still stops when `FIRECRAWL_API_KEY` is missing. Reported in #1072 by @JuampiHernandez.
+
+### Verified
+
+- `scripts/derive_counters.py --check` passes. `scripts/test_derive_counters.py` passes 7 of 7 tests.
+
+### Security
+
+- **The skill security audit now audits every changed skill.** Its detect step only found a `SKILL.md` one or
+  two folders deep, so plugin-layout skills and the `engineering/skills/` mirrors were skipped and the check
+  reported "skipped" instead of running; its path filter also missed eleven newer domains. It now walks up to
+  the nearest `SKILL.md`, has no path filter, and re-runs when a draft is marked ready. Before turning it on, all
+  409 skills were brought to a clean `--strict` audit: 36 skills failed with 95 findings.
+- Two findings were real and are fixed. `full-page-screenshot` built shell commands and a generated Python
+  script by pasting the output path into them, so a path containing a quote or `$(...)` ran as code; it now
+  uses argument arrays and JSON-quoted paths. `senior-fullstack` scaffolds fell back to the hardcoded secrets
+  `"change-me"` (Django `SECRET_KEY`, Express `JWT_SECRET`) and `"change-me-in-production"` (FastAPI) when the
+  variable was unset, so a deployment that forgot it signed sessions and tokens with a public key; they now
+  refuse to start without it. The same scaffolder crashed on every template (`str / str`), also fixed.
+- The rest were false positives (advice text, detection rules, test fixtures, install hints, URL fetches the
+  user asks for, guarded deletes) and carry `# noqa: SEC-AUDITOR (reason)`. The auditor gained an
+  `auditor:ignore-start` / `auditor:ignore-end` block for text inside template strings, where a trailing
+  comment would end up in the generated file.
+
 ## [2.14.5] - 2026-10-31 — design-qa, commit-craft, skills that fit the listing budget
 
 Two new skills, an audit that cuts the marketplace's share of Claude Code's skill listing from 227k to 97k

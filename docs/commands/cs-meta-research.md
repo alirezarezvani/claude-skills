@@ -1,19 +1,19 @@
 ---
-title: "/cs-deep-research — Slash Command for AI Coding Agents"
-description: "/cs-deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans. Slash command for Claude Code, Codex CLI, Gemini CLI."
+title: "/cs-meta-research — Slash Command for AI Coding Agents"
+description: "/cs-meta-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans. Slash command for Claude Code, Codex CLI, Gemini CLI."
 ---
 
-# /cs-deep-research
+# /cs-meta-research
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-console: Slash Command</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/2-claude-skills/tree/main/research/deep-research/commands/cs-deep-research.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/2-claude-skills/tree/main/research/meta-research/commands/cs-meta-research.md">Source</a></span>
 </div>
 
 
-**Command:** `/cs-deep-research <question>`
+**Command:** `/cs-meta-research <question>`
 
-The `cs-deep-research` persona turns "research this" into an auditable, reusable investigation — the workflow to reach for when getting the answer *wrong* costs more than the tokens spent getting it right.
+The `cs-meta-research` persona turns "research this" into an auditable, reusable investigation — the workflow to reach for when getting the answer *wrong* costs more than the tokens spent getting it right.
 
 ## When to Run
 
@@ -58,8 +58,8 @@ The `cs-deep-research` persona turns "research this" into an auditable, reusable
 
 ## Related
 
-- Agent: [`cs-deep-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/agents/cs-deep-research.md)
-- Skill: [`deep-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/skills/deep-research/SKILL.md)
+- Agent: [`cs-meta-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/meta-research/agents/cs-meta-research.md)
+- Skill: [`meta-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/meta-research/skills/meta-research/SKILL.md)
 - Siblings: `/cs-pulse` (recency), the research router, `litreview` / `dossier` / `patent`
 
 ---

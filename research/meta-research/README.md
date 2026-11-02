@@ -1,8 +1,10 @@
-# deep-research — Disciplined Meta-Research
+# meta-research — Disciplined Meta-Research
+
+> **Renamed from `deep-research` in v2.14.7.** Claude Code 2.1.316 bundles its own `deep-research` skill, which ours hid. If you installed the old name, run `/plugin uninstall deep-research@claude-code-skills` and `/plugin install meta-research@claude-code-skills`.
 
 > The heavyweight end of the research domain: an auditable, reusable, triangulated investigation — for when a wrong answer costs more than the tokens spent getting it right.
 
-`deep-research` is the rigor-first alternative to the fast [`research` router](../research/). Where the router does keyword-classify → delegate → short brief for low-decision-risk questions, `deep-research` pays for rigor: falsifiable hypotheses, parallel sub-agent fan-out, source triangulation, a mandatory adversarial pass, and per-source files with verbatim quotes.
+`meta-research` is the rigor-first alternative to the fast [`research` router](../research/). Where the router does keyword-classify → delegate → short brief for low-decision-risk questions, `meta-research` pays for rigor: falsifiable hypotheses, parallel sub-agent fan-out, source triangulation, a mandatory adversarial pass, and per-source files with verbatim quotes.
 
 ## The 9-phase pipeline
 
@@ -32,10 +34,10 @@
 
 ## What's in the box
 
-- **Skill:** [`skills/deep-research/SKILL.md`](skills/deep-research/SKILL.md)
-- **Agent:** [`agents/cs-deep-research.md`](agents/cs-deep-research.md)
-- **Command:** [`commands/cs-deep-research.md`](commands/cs-deep-research.md) — `/cs-deep-research`
-- **Reference:** [`skills/deep-research/references/full-catalog.md`](skills/deep-research/references/full-catalog.md) — pointer to the upstream source catalog
+- **Skill:** [`skills/meta-research/SKILL.md`](skills/meta-research/SKILL.md)
+- **Agent:** [`agents/cs-meta-research.md`](agents/cs-meta-research.md)
+- **Command:** [`commands/cs-meta-research.md`](commands/cs-meta-research.md) — `/cs-meta-research`
+- **Reference:** [`skills/meta-research/references/full-catalog.md`](skills/meta-research/references/full-catalog.md) — pointer to the upstream source catalog
 
 ## Attribution
 

@@ -523,7 +523,7 @@ description: "111 agent-native orchestrators for Claude Code, Codex CLI, and Gem
 
     Marketing
 
--   :material-account:{ .lg .middle } **[Deep Research Agent](cs-deep-research.md)**
+-   :material-account:{ .lg .middle } **[Meta-Research Agent](cs-meta-research.md)**
 
     ---
 

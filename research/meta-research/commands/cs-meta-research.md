@@ -1,15 +1,15 @@
 ---
 disable-model-invocation: true
-name: "cs-deep-research"
-description: "/cs-deep-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans out parallel search sub-agents, triangulates every thesis against >=3 independent sources, saves each source to its own file with verbatim quotes, runs an adversarial pass, and emits an auditable, reusable research folder with a refresh protocol. The heavyweight alternative to the fast research router."
+name: "cs-meta-research"
+description: "/cs-meta-research <question> — Disciplined multi-source investigation for a high-stakes question. Reframes into falsifiable hypotheses, plans, fans out parallel search sub-agents, triangulates every thesis against >=3 independent sources, saves each source to its own file with verbatim quotes, runs an adversarial pass, and emits an auditable, reusable research folder with a refresh protocol. The heavyweight alternative to the fast research router."
 argument-hint: "[the question or decision to research]"
 ---
 
-# /cs-deep-research — Disciplined Meta-Research
+# /cs-meta-research — Disciplined Meta-Research
 
-**Command:** `/cs-deep-research <question>`
+**Command:** `/cs-meta-research <question>`
 
-The `cs-deep-research` persona turns "research this" into an auditable, reusable investigation — the workflow to reach for when getting the answer *wrong* costs more than the tokens spent getting it right.
+The `cs-meta-research` persona turns "research this" into an auditable, reusable investigation — the workflow to reach for when getting the answer *wrong* costs more than the tokens spent getting it right.
 
 ## When to Run
 
@@ -54,8 +54,8 @@ The `cs-deep-research` persona turns "research this" into an auditable, reusable
 
 ## Related
 
-- Agent: [`cs-deep-research`](../agents/cs-deep-research.md)
-- Skill: [`deep-research`](../skills/deep-research/SKILL.md)
+- Agent: [`cs-meta-research`](../agents/cs-meta-research.md)
+- Skill: [`meta-research`](../skills/meta-research/SKILL.md)
 - Siblings: `/cs-pulse` (recency), the research router, `litreview` / `dossier` / `patent`
 
 ---

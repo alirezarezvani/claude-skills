@@ -53,7 +53,7 @@ The skill **never silently runs its fallback** when a specialist would have done
 | `dossier` | "dossier on" / "due diligence" / "background check" / "prep me for" / "competitor research" / "investor diligence" / "interview prep" / "background on" | Decision-grade entity research |
 | `deepread` | "deep read" / "deeply read" / "read this book" / "read this pdf" / "read this document" / "extract the claims" / "knowledge map" / "feynman" | Evidence-first reading of supplied documents |
 
-**Escalation → `deep-research`:** when a wrong answer is expensive (strategy, comparing N options, hypothesis validation, mapping a field) and rigor matters more than speed, escalate to the `deep-research` skill instead of the fast fallback workflow — it runs a triangulated, multi-round, adversarial investigation and persists an auditable, reusable research folder. This router is the fast path; `deep-research` is the heavyweight one.
+**Escalation → `meta-research`:** when a wrong answer is expensive (strategy, comparing N options, hypothesis validation, mapping a field) and rigor matters more than speed, escalate to the `meta-research` skill instead of the fast fallback workflow — it runs a triangulated, multi-round, adversarial investigation and persists an auditable, reusable research folder. This router is the fast path; `meta-research` is the heavyweight one.
 
 ## Agent Integrity Rules
 

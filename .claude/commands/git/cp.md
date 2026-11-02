@@ -2,7 +2,7 @@
 description: Stage, commit, and push the current branch following git governance rules.
 ---
 
-1. Run `/review` to ensure lint/tests/security checks pass locally.
+1. Run `/quality-gate` to ensure lint/tests/security checks pass locally.
 2. Review and stage changes with `git add` (avoid staging generated or secret files).
 3. Craft a Conventional Commit message (types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert).
    - Use `.github/commit-template.txt` and include Context / Testing / Reviewers blocks.

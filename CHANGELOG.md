@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **copy-editing** (`marketing-skill/skills/copy-editing/`, plugin 2.14.7): SKILL.md cut from 16.8 KB and 508 lines to 9.5 KB and 240 lines. The full seven-sweep process and the copy editing checklist moved to the new `references/sweeps-detail.md`. The SKILL keeps one question per sweep. Workflow, scripts and anti-patterns are unchanged. Reference count 916 -> 917.
+
 - **`deep-research` renamed to `meta-research` (reinstall required).** Claude Code 2.1.316 bundles a
   `deep-research` skill (its fan-out web research workflow), and our plugin skill of the same name hid it.
   The plugin, skill, agent (`cs-meta-research`) and command (`/cs-meta-research`) are renamed; the method and

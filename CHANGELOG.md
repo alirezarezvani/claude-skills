@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **senior-secops** (`engineering-team/skills/senior-secops/`, plugin 2.14.8): SKILL.md cut from 16.0 KB and 505 lines to 9.6 KB and 276 lines. Workflows 3 and 4, the secure coding checklist, framework summaries, best practices, secret scanning tools and supply chain security moved to the existing references (`vulnerability_management_guide.md`, `security_standards.md`, `compliance_requirements.md`). Scripts and the OWASP quick-check are unchanged.
+
 - **`deep-research` renamed to `meta-research` (reinstall required).** Claude Code 2.1.316 bundles a
   `deep-research` skill (its fan-out web research workflow), and our plugin skill of the same name hid it.
   The plugin, skill, agent (`cs-meta-research`) and command (`/cs-meta-research`) are renamed; the method and

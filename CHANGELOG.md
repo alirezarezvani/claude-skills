@@ -20,6 +20,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   UserPromptSubmit hook names the session's transcript path when a prompt asks about past work. Ships
   `cs-run-forensics`, `/cs-run-forensics`, `/cs-check-claims` and three cited references.
 
+### Changed
+
+- `CONVENTIONS.md` and `SKILL_PIPELINE.md`: the `plugin.json` example uses the canonical `"skills": ["./"]` array form (Claude Code 2.1.144+). Authoring metadata goes in `.claude-plugin/authoring-notes.json`, not `plugin.json`.
+- `SKILL_PIPELINE.md`: the per-commit rule updates a category's `README.md` and `CLAUDE.md` only when the catalog changes.
+
+### Fixed
+
+- `CONTRIBUTING.md`: documents how to run the repo counters test (`python3 -m unittest scripts/test_derive_counters.py`).
+
+### Verified
+
+- `scripts/derive_counters.py --check` passes. `scripts/test_derive_counters.py` passes 7 of 7 tests.
+
 ### Security
 
 - **The skill security audit now audits every changed skill.** Its detect step only found a `SKILL.md` one or

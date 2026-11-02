@@ -246,7 +246,7 @@
       "name": "engineering-advanced-skills",
       "source": "./engineering",
       "description": "44 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate (pre-production 8-category audit), slo-architect (error-budget + multi-window burn-rate alerts per Google SRE Workbook), tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft and agent-run-forensics. Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-      "version": "2.14.12",
+      "version": "2.14.13",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1698,7 +1698,7 @@
       "name": "universal-scraping-architect",
       "source": "./engineering/universal-scraping-architect",
       "description": "A universal scraping skill with intelligent routing, token budget tracking, and quota awareness. Supports Firecrawl (BYOK, free-tier compatible) and local Python extraction via requests/BeautifulSoup/pandas.",
-      "version": "2.14.6",
+      "version": "2.14.7",
       "author": {
         "name": "Mehansh Barthwal",
         "url": "https://github.com/mehanshbarthwal-lab"

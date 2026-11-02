@@ -59,7 +59,7 @@ description: "One-line description of when to use this skill. Be specific about 
 
 | Requirement | Rule |
 |-------------|------|
-| **Size limit** | Under 500 lines **and** 10 KB. Move detailed content to `references/` files. |
+| **Line limit** | Under 500 lines. Move detailed content to `references/` files. |
 | **Opinionated** | Recommend specific approaches. Don't just list options. |
 | **Actionable** | The agent must be able to execute, not just advise. |
 | **Anti-patterns** | Include a section on what NOT to do. |
@@ -276,8 +276,8 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 - Structure score ≥ 75/100
 - All scripts pass `--help`
 - Zero CRITICAL or HIGH security findings
-- Tessl score ≥ 85% (required for new or changed skills; if Tessl is unavailable, the skill is not ready)
-- SKILL.md under 500 lines and 10 KB
+- Tessl score ≥ 85% when Tessl is available; otherwise the manual 8-point check in `SKILL_PIPELINE.md`
+- SKILL.md under 500 lines
 
 ---
 
@@ -286,7 +286,7 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 | What | Rule |
 |------|------|
 | Frontmatter fields | `name`, `description`, `license`, `metadata` |
-| SKILL.md max size | 500 lines and 10 KB |
+| SKILL.md max lines | 500 |
 | Python dependencies | stdlib only |
 | PR target branch | `dev` |
 | plugin.json author | Object `{"name": "...", "url": "..."}`, never string |

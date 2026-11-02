@@ -1,0 +1,7 @@
+# Copy to .i18n-allow at the repo root. One entry per line; # starts a comment.
+# Words listed here are never reported by hardcoded_strings.py when a text run
+# consists only of allowed words. Keep it to names that are never translated.
+GitHub
+YouTube
+Acme        # product name
+API

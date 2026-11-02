@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **i18n-localization** (engineering, standalone plugin 2.14.7, bundled in `engineering-advanced-skills` 2.14.15),
+  requested in #849. Three stdlib scripts with blocking exit codes: `locale_sync.py` checks translation files
+  (JSON/ARB, i18next or ICU, `.properties`, Apple `.strings`, Android XML, gettext `.po`) for missing or empty keys,
+  changed placeholders, ICU syntax, `zero` vs `=0`, and plural categories against the embedded CLDR 49 table;
+  `hardcoded_strings.py` finds UI text that bypasses `t()` in React/Vue/Svelte/HTML; `pseudo_localize.py` builds
+  `en-XA`/`ar-XB` pseudo-locales. Agent `cs-i18n-engineer`, commands `/cs-i18n-check` and `/cs-pseudo-locale`,
+  three references (7-8 sources each) and a CI job example. Eval (3 runs per arm, 8 planted defects): same
+  defects found with and without the skill (24/24), at 43% lower cost and 26% less time with it; the value is a
+  repeatable CI gate, not a quality lift.
+
 ### Changed
 
 - **`deep-research` renamed to `meta-research` (reinstall required).** Claude Code 2.1.316 bundles a

@@ -1,0 +1,15 @@
+# Example GitHub Actions job: block a PR that breaks translations.
+# Copy the three scripts into tools/i18n/ (or reference the installed plugin path).
+name: i18n gate
+on: [pull_request]
+jobs:
+  i18n:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      # Missing keys, placeholders, ICU syntax, CLDR plural categories (exit 4 blocks)
+      - run: python tools/i18n/locale_sync.py public/locales --source-locale en
+      # Hardcoded UI strings; start with --warn-only on a legacy codebase
+      - run: python tools/i18n/hardcoded_strings.py src --warn-only

@@ -1,0 +1,15 @@
+{
+  "name": "i18n-localization",
+  "description": "Ship a new language without the usual breakage. Three deterministic stdlib scripts: a translation-file checker for JSON/ARB (i18next, ICU), .properties, .strings, Android strings.xml and gettext .po that blocks on missing keys, renamed placeholders, ICU syntax errors, plural/select without other, zero branches that never match and plural categories the target locale needs, from the embedded Unicode CLDR 49 table (ru few/many, ar six forms); a hardcoded-string scanner for React, Vue, Svelte and HTML that flags text and user-facing attributes outside t(), concatenated translations, locale-less toLocaleString and '$' + amount; and a pseudo-locale generator (en-XA accented and expanded, ar-XB right-to-left) that keeps placeholders and ICU syntax intact. Ships cs-i18n-engineer agent, /cs-i18n-check and /cs-pseudo-locale commands and 3 cited references.",
+  "version": "2.14.7",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/i18n-localization",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/i18n-localization"
+  ]
+}

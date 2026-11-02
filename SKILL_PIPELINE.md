@@ -160,7 +160,7 @@ skill-name/
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": ["./"]
 }
 ```
 **Only these fields. Nothing else.**
@@ -315,8 +315,8 @@ description: <what this command does>
 | File | What to update |
 |------|----------------|
 | `CHANGELOG.md` | Every change, every fix, every improvement |
-| Category `README.md` | Skill list, descriptions, install commands |
-| Category `CLAUDE.md` | Navigation, skill count, architecture notes |
+| Category `README.md` | Only when the catalog changes: skill list, descriptions, install commands |
+| Category `CLAUDE.md` | Only when the catalog changes: navigation, skill count, architecture notes |
 
 ### Per-Skill Updates
 | File | What to update |
@@ -356,7 +356,7 @@ python scripts/generate-docs.py 2>/dev/null || echo "generate-docs.py not yet cr
 | **Enhancement + new skills** (new scripts, agents, commands, new skills) | **2.7.0** (minor) | 2.6.x → 2.7.0 |
 | **Breaking changes** (restructure, removed skills, API changes) | **3.0.0** (major) | 2.x → 3.0.0 |
 
-### Current Version Targets (update as releases ship)
+### Version history (current version: see CHANGELOG.md, 2.14.5)
 - **v2.1.1** — Existing skill improvements (Tessl #285-#287, compliance fixes)
 - **v2.7.0** — New skills + agents + commands + multi-platform packaging
 

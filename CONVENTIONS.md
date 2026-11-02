@@ -8,7 +8,7 @@ For contribution workflow and how to submit PRs, see [CONTRIBUTING.md](CONTRIBUT
 
 ## 1. Skill Structure
 
-Every skill is a directory under one of the 9 domain folders:
+Every skill is a directory under one of the 20 domain folders:
 
 ```
 <domain>/<skill-name>/
@@ -53,7 +53,7 @@ description: "One-line description of when to use this skill. Be specific about 
 ---
 ```
 
-**Do NOT include:** `license`, `metadata`, `triggers`, `version`, `author`, `category`, `updated`, or any other fields. PRs with extra frontmatter fields will be rejected.
+**Allowed fields:** `name`, `description`, `license`, `metadata`. Do NOT include `triggers`, `version`, `author`, `category`, `updated`, or any other fields; put that data under `metadata`. PRs with other frontmatter fields will be rejected.
 
 ### Content Requirements
 
@@ -76,6 +76,12 @@ At minimum, every SKILL.md should include:
 4. **Anti-Patterns** — common mistakes to avoid
 5. **Cross-References** — related skills in this repo
 
+New skills also need:
+- **Proactive Triggers:** 4 to 6 items.
+- **Output Artifacts:** 4 to 6 lines.
+- **Related Skills:** for each one, say when to use it and when not to.
+- **`evals/evals.json`:** 2 to 3 cases that fail without the skill.
+
 Reference detailed material from `references/` files:
 ```markdown
 > See [references/detailed-guide.md](references/detailed-guide.md) for full patterns.
@@ -91,7 +97,7 @@ If your skill includes a `.claude-plugin/plugin.json`, use this **exact schema**
 {
   "name": "skill-name",
   "description": "One-line description matching SKILL.md",
-  "version": "2.1.2",
+  "version": "2.14.5",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"
@@ -99,13 +105,13 @@ If your skill includes a `.claude-plugin/plugin.json`, use this **exact schema**
   "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/<domain>/<skill>",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "license": "MIT",
-  "skills": "./"
+  "skills": ["./"]
 }
 ```
 
 **Rules:**
 - `author` **must be an object**, never a string. String format causes install errors.
-- `version` must match the current repo version (`2.1.2`).
+- `version` must match the current repo version (`2.14.5`).
 - No extra fields (`commands`, `hooks`, `triggers`, `tags`, `category`).
 - Not every skill needs a plugin.json — skills roll up into their domain's parent plugin automatically.
 
@@ -179,10 +185,10 @@ The following will be **immediately closed**:
 
 | Type | Why |
 |------|-----|
-| Links to external repos/tools in README | We don't link 3rd party projects |
+| Links to external repos/tools in README | Only the five existing links in "Related Projects" are kept; new ones need maintainer review |
 | Skills that require paid API keys | Must work without external dependencies |
-| Skills that call LLMs in scripts | Scripts must be deterministic |
-| PRs that change the official skill count (205) | This number is curated |
+| Skills that call LLMs in scripts | Scripts must be deterministic. One documented opt-in exception: `engineering/skillopt-sleep/skillopt_sleep/backend.py`. It is not a precedent. |
+| PRs that change the official skill count (409) | This number is curated |
 | PRs targeting `main` instead of `dev` | All PRs must target `dev` |
 | PRs with bloated diffs (merge history from forks) | Rebase on `dev` HEAD first |
 | PRs that modify marketplace.json counts | We handle count updates |
@@ -270,6 +276,7 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 - Structure score ≥ 75/100
 - All scripts pass `--help`
 - Zero CRITICAL or HIGH security findings
+- Tessl score ≥ 85% when Tessl is available; otherwise the manual 8-point check in `SKILL_PIPELINE.md`
 - SKILL.md under 500 lines
 
 ---
@@ -278,12 +285,12 @@ python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py <yo
 
 | What | Rule |
 |------|------|
-| Frontmatter fields | `name` + `description` only |
+| Frontmatter fields | `name`, `description`, `license`, `metadata` |
 | SKILL.md max lines | 500 |
 | Python dependencies | stdlib only |
 | PR target branch | `dev` |
 | plugin.json author | Object `{"name": "...", "url": "..."}`, never string |
-| External links in README | Not accepted |
-| Skill count | 205 (do not change) |
+| External links in README | Only the five existing ones (see §6) |
+| Skill count | 409 (derived by scripts/derive_counters.py; do not edit by hand) |
 | Commit format | Conventional commits |
 | Script output | Must support `--json` |

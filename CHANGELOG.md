@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.6] - 2026-11-02 — agent-run-forensics and a security audit that covers every skill
+
+One new skill, a security audit that now runs on every changed skill (all 409 pass `--strict`, with a real
+shell-injection bug and hardcoded fallback secrets fixed along the way), hardened workflows, and community
+fixes. Every plugin whose files changed is bumped; plugins changed more than once on dev sit above 2.14.6
+(gate G11 requires each to exceed its dev version), up to `engineering-advanced-skills` at 2.14.13.
+
+### CI
+
+- Workflows read PR titles, labels and other event text from environment variables instead of inline shell,
+  closing a PR-title shell-injection path in `claude-code-review.yml`. The Tessl step uses `tessl review run`
+  and stays skipped and non-blocking until a `TESSL_TOKEN` is configured.
+
 ### Added
 
 - **agent-run-forensics** (`engineering/agent-run-forensics/` at 2.14.6, also bundled in `engineering-advanced-skills`

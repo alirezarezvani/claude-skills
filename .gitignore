@@ -82,3 +82,6 @@ tests/
 my-agent/
 my-agent-*/
 .claude/settings.local.json
+
+# Local skill workspace (not part of the repo)
+_skill/

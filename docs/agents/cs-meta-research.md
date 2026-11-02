@@ -1,14 +1,14 @@
 ---
-title: "Deep Research Agent — AI Coding Agent & Codex Skill"
+title: "Meta-Research Agent — AI Coding Agent & Codex Skill"
 description: "Rigor-first meta-research persona for high-stakes questions. Reframes the question into 2-4 falsifiable hypotheses, writes a plan, discovers. Agent-native orchestrator for Claude Code, Codex, Gemini CLI."
 ---
 
-# Deep Research Agent
+# Meta-Research Agent
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-robot: Agent</span>
 <span class="meta-badge">:material-account: Research</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/agents/cs-deep-research.md">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/research/meta-research/agents/cs-meta-research.md">Source</a></span>
 </div>
 
 
@@ -22,7 +22,7 @@ description: "Rigor-first meta-research persona for high-stakes questions. Refra
 
 ## Purpose
 
-The `cs-deep-research` agent orchestrates the `deep-research` skill to turn "research this" into an auditable, reusable investigation:
+The `cs-meta-research` agent orchestrates the `meta-research` skill to turn "research this" into an auditable, reusable investigation:
 
 1. **Reframe** — fix the underlying decision; state 2-4 falsifiable hypotheses.
 2. **Plan** — genre + blocks, sourcing strategy, opposition queries, risk register, stop-criteria (`plan.md`).
@@ -43,18 +43,18 @@ The `cs-deep-research` agent orchestrates the `deep-research` skill to turn "res
 
 ## Differentiates From Siblings
 
-- **vs the `research` router (research-orchestrator):** the router is fast keyword-classify → delegate → short brief for low decision-risk. `deep-research` is the rigor-first alternative when a wrong answer is expensive.
-- **vs `pulse`:** pulse is recency/sentiment across social + web in a recent window; deep-research is deep, triangulated, multi-round investigation.
-- **vs `litreview` / `dossier` / `patent`:** those are narrow domain specialists (academic / entity / patent). deep-research is general high-stakes investigation.
-- **vs `product-team/research-summarizer`:** that summarizes *existing* research into artifacts; deep-research *does* the research.
+- **vs the `research` router (research-orchestrator):** the router is fast keyword-classify → delegate → short brief for low decision-risk. `meta-research` is the rigor-first alternative when a wrong answer is expensive.
+- **vs `pulse`:** pulse is recency/sentiment across social + web in a recent window; meta-research is deep, triangulated, multi-round investigation.
+- **vs `litreview` / `dossier` / `patent`:** those are narrow domain specialists (academic / entity / patent). meta-research is general high-stakes investigation.
+- **vs `product-team/research-summarizer`:** that summarizes *existing* research into artifacts; meta-research *does* the research.
 
 ## Skill Integration
 
-**Skill Location:** [`skills/deep-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/skills/deep-research)
+**Skill Location:** [`skills/meta-research`](https://github.com/alirezarezvani/claude-skills/tree/main/research/meta-research/skills/meta-research)
 
 ### Knowledge Bases
 
-- `skills/deep-research/references/full-catalog.md` — pointer to the upstream source catalog (29 channels, 460+ statistical sources, 39 validated APIs, 103 report blocks). The methodology is self-contained; pull the catalog for the full sourcing surface.
+- `skills/meta-research/references/full-catalog.md` — pointer to the upstream source catalog (29 channels, 460+ statistical sources, 39 validated APIs, 103 report blocks). The methodology is self-contained; pull the catalog for the full sourcing surface.
 
 ## Related Agents
 

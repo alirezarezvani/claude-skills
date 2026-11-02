@@ -1,20 +1,9 @@
 ---
-title: "Deep Research — Disciplined Meta-Research — Agent Skill for Research Workflows"
-description: "Run a disciplined, multi-source research investigation for a high-stakes question or decision — fan-out web search across many channels, parallel. Agent skill for Claude Code, Codex CLI, Gemini CLI, OpenClaw."
+name: "meta-research"
+description: "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly."
 ---
 
-# Deep Research — Disciplined Meta-Research
-
-<div class="page-meta" markdown>
-<span class="meta-badge">:material-magnify: Research</span>
-<span class="meta-badge">:material-identifier: `deep-research`</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/research/deep-research/skills/deep-research/SKILL.md">Source</a></span>
-</div>
-
-<div class="install-banner" markdown>
-<span class="install-label">Install:</span> <code>claude /plugin install research-skills</code>
-</div>
-
+# Meta-Research — Disciplined Multi-Source Research
 
 Turn "research this topic" into an auditable, reusable investigation instead of a one-shot wall of text. The output is a folder you can return to in a month: every claim traces to a specific source file, the plan documents *why* each choice was made, and a refresh protocol lets you update it later without re-running everything.
 
@@ -22,9 +11,9 @@ Turn "research this topic" into an auditable, reusable investigation instead of 
 
 ## How it differs from a quick research router
 
-A router-style research skill (keyword-classify → delegate → short sequential search → markdown brief) is optimal when you need an answer fast and the decision risk is low. `deep-research` is the opposite trade: it pays for rigor. Use it when the answer feeds a strategy, an irreversible decision, a published artifact, or a hypothesis you need to actually test — situations where a shallow fallback would be a liability.
+A router-style research skill (keyword-classify → delegate → short sequential search → markdown brief) is optimal when you need an answer fast and the decision risk is low. `meta-research` is the opposite trade: it pays for rigor. Use it when the answer feeds a strategy, an irreversible decision, a published artifact, or a hypothesis you need to actually test — situations where a shallow fallback would be a liability.
 
-Concretely, `deep-research` adds what a fast overview does not: falsifiable hypotheses up front, parallel sub-agent fan-out across many channels, triangulation with explicit source-type diversity, a mandatory adversarial pass, per-source files with verbatim quotes, and a `refresh_targets.md` for delta-updates later.
+Concretely, `meta-research` adds what a fast overview does not: falsifiable hypotheses up front, parallel sub-agent fan-out across many channels, triangulation with explicit source-type diversity, a mandatory adversarial pass, per-source files with verbatim quotes, and a `refresh_targets.md` for delta-updates later.
 
 ## The pipeline (9 phases)
 
@@ -92,6 +81,12 @@ These are what separate a documented investigation from a confident guess:
 
 ## Cross-References
 
-- **research router** — for fast topic overviews where decision risk is low; `deep-research` is the heavyweight alternative when rigor matters more than speed.
+- **research router** — for fast topic overviews where decision risk is low; `meta-research` is the heavyweight alternative when rigor matters more than speed.
 - **competitive-teardown** — for comparing N competitors on a structured 12-dimension matrix.
 - **litreview / dossier / patent** — domain specialists when the investigation is narrowly academic, person/company-focused, or patent-focused.
+
+## More in this skill
+
+Load these only when the task needs them.
+
+- [references/full-catalog.md](references/full-catalog.md) — Full catalog & upstream

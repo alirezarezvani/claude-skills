@@ -40,7 +40,7 @@ compliance-team-eu-ai-act 325
 compliance-team-iso42001 259
 data-quality-auditor 258
 deep-learning-book 298
-deep-research 295
+meta-research 295
 deep-work 484
 deepread 251
 demo-video 188

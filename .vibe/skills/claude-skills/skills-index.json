@@ -1567,9 +1567,9 @@
     ],
     "research": [
       {
-        "name": "deep-research",
+        "name": "meta-research",
         "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly.",
-        "path": "research/deep-research"
+        "path": "research/meta-research"
       },
       {
         "name": "deepread",

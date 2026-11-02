@@ -1,5 +1,5 @@
 ---
-description: Run the local review gate before pushing.
+description: Run the local quality gate (yamllint, workflow schema, compileall, link check) before pushing.
 ---
 
 Perform a complete review pass:

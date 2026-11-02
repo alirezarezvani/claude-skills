@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **`deep-research` renamed to `meta-research` (reinstall required).** Claude Code 2.1.316 bundles a
+  `deep-research` skill (its fan-out web research workflow), and our plugin skill of the same name hid it.
+  The plugin, skill, agent (`cs-meta-research`) and command (`/cs-meta-research`) are renamed; the method and
+  the upstream catalog pointer are unchanged. Existing installs show "not found in marketplace": run
+  `/plugin uninstall deep-research@claude-code-skills`, then `/plugin install meta-research@claude-code-skills`.
+- **Maintainer command `/review` renamed to `/quality-gate`.** The project command in `.claude/commands/`
+  hid `/review`, which Claude Code uses as an alias of its built-in `/code-review`. The commands README
+  moved to `.claude/COMMANDS.md` (as a file in `.claude/commands/` it loaded as a `/README` command) and now
+  lists every command; `/git:*` commands are confirmed working on 2.1.316.
+- `check_skill_names.py` now reserves the bundled skills and workflows seen in Claude Code 2.1.316
+  (`deep-research`, `autopilot`, `bugfix`, `dashboard`, `docs`, `investigate`, `design`, `slides`, `dataviz`,
+  `team-onboarding`, `import`, `color`).
+
 ## [2.14.6] - 2026-11-02 — agent-run-forensics and a security audit that covers every skill
 
 One new skill, a security audit that now runs on every changed skill (all 409 pass `--strict`, with a real

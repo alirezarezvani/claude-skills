@@ -649,11 +649,11 @@ description: "153 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
 
     Command: /cs-linkedin your goal
 
--   :material-console:{ .lg .middle } **[`/cs-deep-research`](cs-deep-research.md)**
+-   :material-console:{ .lg .middle } **[`/cs-meta-research`](cs-meta-research.md)**
 
     ---
 
-    Command: /cs-deep-research <question>
+    Command: /cs-meta-research <question>
 
 -   :material-console:{ .lg .middle } **[`/cs-dossier`](cs-dossier.md)**
 

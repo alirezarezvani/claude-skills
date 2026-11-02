@@ -1,13 +1,13 @@
 ---
 title: "Slash Commands — AI Coding Agent Commands & Codex Shortcuts"
-description: "153 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
+description: "155 slash commands for Claude Code, Codex CLI, and Gemini CLI — sprint planning, tech debt analysis, PRDs, OKRs, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-console: Slash Commands
 
-<p class="domain-count">153 commands for quick access to common operations</p>
+<p class="domain-count">155 commands for quick access to common operations</p>
 
 </div>
 
@@ -372,6 +372,18 @@ description: "153 slash commands for Claude Code, Codex CLI, and Gemini CLI — 
     ---
 
     Command: /cs-human-gate <artifact> step
+
+-   :material-console:{ .lg .middle } **[`/cs-i18n-check`](cs-i18n-check.md)**
+
+    ---
+
+    Check translation files and UI code before a release: $ARGUMENTS (default: the project's locales folder and src/).
+
+-   :material-console:{ .lg .middle } **[`/cs-pseudo-locale`](cs-pseudo-locale.md)**
+
+    ---
+
+    Generate a pseudo-locale from the source locale file in $ARGUMENTS and register it for development builds.
 
 -   :material-console:{ .lg .middle } **[`/cs-forgetting-audit`](cs-forgetting-audit.md)**
 

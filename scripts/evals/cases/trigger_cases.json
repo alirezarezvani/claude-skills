@@ -1899,6 +1899,16 @@
   "neg": "Here's my diff for the auth middleware in PR 212. Can you go through it and point out bugs, naming problems, and anything risky before I merge?",
   "origin": "generated"
  },
+ "engineering/i18n-localization/skills/i18n-localization": {
+  "name": "i18n-localization",
+  "plugin": "i18n-localization",
+  "pos": [
+   "We're adding Polish and Arabic to the app next sprint. Can you check our translation JSON files are complete and nothing will break?",
+   "find all the strings in our React components that aren't going through t() yet"
+  ],
+  "neg": "Translate this paragraph of our landing page into Spanish for the marketing site.",
+  "origin": "reviewed"
+ },
  "engineering/karpathy-coder/skills/karpathy-coder": {
   "name": "karpathy-coder",
   "plugin": "karpathy-coder",

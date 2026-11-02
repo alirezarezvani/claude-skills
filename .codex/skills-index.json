@@ -2358,12 +2358,6 @@
       "description": "Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness."
     },
     {
-      "name": "meta-research",
-      "source": "../../research/meta-research/skills/meta-research",
-      "category": "research",
-      "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly."
-    },
-    {
       "name": "deepread",
       "source": "../../research/deepread",
       "category": "research",
@@ -2386,6 +2380,12 @@
       "source": "../../research/litreview/skills/litreview",
       "category": "research",
       "description": "Use when starting a literature review or a literature-based project. Plans the search (PICO, SPIDER) with framework_recommender.py, searches PubMed and OpenAlex with free_search.py and writes a .docx orientation guide. Single-paper lookups: query directly."
+    },
+    {
+      "name": "meta-research",
+      "source": "../../research/meta-research/skills/meta-research",
+      "category": "research",
+      "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly."
     },
     {
       "name": "notebooklm",

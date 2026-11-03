@@ -1,6 +1,6 @@
 ---
 name: "vpe-advisor"
-description: "Use whenever delivery is slowing down, eng hiring is broken, team structure is unclear or you need to decide when to add an eng manager. Runs delivery_throughput_analyzer.py (DORA), eng_hiring_funnel_calculator.py and eng_team_structure_designer.py."
+description: "Use when delivery is slowing, eng hiring is broken, team structure is unclear or you need to decide when to add an eng manager. Runs delivery_throughput_analyzer.py (DORA), eng_hiring_funnel_calculator.py and eng_team_structure_designer.py."
 license: MIT
 metadata:
   version: 1.0.0

@@ -214,6 +214,10 @@ def render(res):
     if errs:
         lines += ["", "**Runs that errored** (a run that errors measures nothing, so the gate fails):", ""]
         lines += [f"- {n}x `{e}`" for e, n in sorted(errs.items(), key=lambda kv: -kv[1])[:5]]
+        if any("401" in e or "authenticate" in e.lower() for e in errs):
+            lines += ["", "**Auth failed.** The CI token is missing, wrong or expired. A maintainer runs "
+                      "`claude setup-token` and stores the new token as the repo secret `CLAUDE_CODE_OAUTH_TOKEN`; "
+                      "subscription tokens expire, so this recurs."]
     for n in res["notes"]:
         lines.append(f"\n- {n}")
     failed = [s for s in res["skills"] if s["verdict"] in FAILING]

@@ -1,6 +1,6 @@
 ---
 name: "adversarial-reviewer"
-description: "Use before merging a PR or when a self-review feels too agreeable and the change needs a genuinely critical read. Reviews the diff through hostile reviewer personas that catch blind spots the author and a friendly reviewer share."
+description: "Tough, critical review of a diff or PR before merge, through hostile reviewer personas that catch shared blind spots. Use whenever the user wants a change torn apart, a harsh second opinion, or a self-review felt too agreeable."
 license: "MIT"
 metadata:
   tier: "STANDARD"

@@ -1,6 +1,6 @@
 ---
 name: "eval"
-description: "Use to score and pick a winner among finished AgentHub agents by metric or judge."
+description: "Rank finished AgentHub agents by metric or judge. Use when asked which agent won."
 metadata:
   command: /agenthub:eval
 ---

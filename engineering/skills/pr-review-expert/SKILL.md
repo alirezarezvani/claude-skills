@@ -1,6 +1,6 @@
 ---
 name: "pr-review-expert"
-description: "Use when asked to review a pull request or diff for correctness, security and quality. Reviews the change file by file with a severity-ranked checklist."
+description: "Review a pull request or diff for bugs, security and quality, file by file. Use whenever the user asks to review a PR or look over their changes."
 ---
 
 # PR Review Expert

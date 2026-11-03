@@ -1,6 +1,6 @@
 ---
 name: linkedin-strategy
-description: "Use when someone needs a LinkedIn plan rather than a post: content pillars, positioning, a sustainable cadence or a newsletter decision. Runs positioning_brief.py, cadence_planner.py and newsletter_planner.py."
+description: "Build a LinkedIn plan rather than a post: content pillars, positioning, a sustainable cadence, whether to start a newsletter. Use whenever the user asks what to post about, how often, or how to grow."
 license: MIT
 metadata:
   version: 1.0.0

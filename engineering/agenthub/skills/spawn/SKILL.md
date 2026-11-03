@@ -1,6 +1,6 @@
 ---
 name: "spawn"
-description: "Use to launch the competing agents for an initialized AgentHub session in isolated worktrees."
+description: "Launch the competing agents in isolated worktrees. Use when an AgentHub session is set up."
 metadata:
   command: /agenthub:spawn
 ---

@@ -1,6 +1,6 @@
 ---
 name: "cfo-advisor"
-description: "Use for startup finance decisions: unit economics (LTV, CAC), burn and runway, fundraising and dilution, or board financials. Runs unit_economics_analyzer.py, burn_rate_calculator.py and fundraising_model.py."
+description: "Startup finance: runway and burn, unit economics (LTV, CAC, payback), fundraising and dilution, board financials. Use whenever the user shares burn, cash, ARR or CAC numbers or asks if they can raise."
 license: MIT
 metadata:
   version: 1.0.0

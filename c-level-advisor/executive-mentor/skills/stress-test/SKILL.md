@@ -1,6 +1,6 @@
 ---
 name: "stress-test"
-description: "Use before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot)."
+description: "Stress-test a plan built on untested assumptions. Use whenever the user bets on a hockey-stick model or long pilot."
 ---
 
 # /executive-mentor:stress-test — Business Assumption Stress Testing

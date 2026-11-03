@@ -1,6 +1,6 @@
 ---
 name: "product-manager-toolkit"
-description: "Use for PM tasks: RICE prioritization, customer interview synthesis, PRDs or go-to-market. Scores features with rice_prioritizer.py and analyzes interviews with customer_interview_analyzer.py."
+description: "PM toolkit: RICE prioritization, customer interview synthesis, PRDs and go-to-market. Use whenever the user asks what to build next, to rank features, write a PRD or sum up interview notes."
 ---
 
 # Product Manager Toolkit

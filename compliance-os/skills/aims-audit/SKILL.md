@@ -1,6 +1,6 @@
 ---
 name: "aims-audit"
-description: "Use for /compliance-os:aims-audit, or ISO 42001 readiness before stage 1 or an internal audit cycle."
+description: "ISO 42001 AI readiness check. Use before a stage 1 or internal audit, or /compliance-os:aims-audit."
 ---
 
 # /compliance-os:aims-audit — AIMS ISO 42001 Forcing Questions

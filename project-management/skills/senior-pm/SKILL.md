@@ -1,6 +1,6 @@
 ---
 name: "senior-pm"
-description: "Use for project or portfolio management: plans, status reports, risk registers, capacity or executive reporting on multi-workstream programs. Runs project_health_dashboard.py, risk_matrix_analyzer.py and resource_capacity_planner.py."
+description: "Project and portfolio management for multi-workstream programs: plans, status reports, risk registers, capacity, executive reporting. Use whenever the user asks how a project is tracking, what the risks are or who has capacity."
 ---
 
 # Senior Project Management Expert

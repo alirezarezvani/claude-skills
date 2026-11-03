@@ -1,6 +1,6 @@
 ---
 name: md-slides
-description: "Use when converting a markdown deck into a single-file HTML presentation with keyboard navigation, presenter notes and print-to-PDF. Splits slides with slide_splitter.py and renders with deck_html_renderer.py."
+description: "Turn a markdown file into a single-file HTML slide deck with keyboard navigation, presenter notes and print-to-PDF. Use whenever the user wants slides or a presentation from markdown or notes."
 license: MIT
 metadata:
   version: 2.10.3

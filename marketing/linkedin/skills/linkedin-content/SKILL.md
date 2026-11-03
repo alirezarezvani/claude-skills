@@ -1,6 +1,6 @@
 ---
 name: linkedin-content
-description: "Use when writing, editing or reviewing a LinkedIn post (story, how-to, carousel, video script, poll) or repurposing content into posts. Picks the format with format_picker.py and lints with post_linter.py."
+description: "Write, edit or review a LinkedIn post: story, how-to, carousel, video script or poll. Use whenever the user wants a LinkedIn post, asks if their draft is good, or wants a blog or talk turned into posts."
 license: MIT
 metadata:
   version: 1.0.0

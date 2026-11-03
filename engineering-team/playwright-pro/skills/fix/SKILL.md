@@ -1,6 +1,6 @@
 ---
 name: "fix"
-description: "Use when a Playwright test fails or is flaky ('fix test', 'flaky test', 'test passes sometimes', 'intermittent failure'). Diagnoses the cause and fixes it."
+description: "Diagnose and fix a failing or flaky Playwright test. Use whenever a test fails, passes only sometimes, breaks intermittently or needs fixing."
 ---
 
 # Fix Failing or Flaky Tests

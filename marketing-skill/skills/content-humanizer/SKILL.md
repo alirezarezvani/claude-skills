@@ -1,6 +1,6 @@
 ---
 name: "content-humanizer"
-description: "Use when a draft sounds like AI, generic or robotic, or needs the brand's voice, before editing it. Scores AI tells with humanizer_scorer.py and rewrites for rhythm, specifics and personality, then rescores."
+description: "Make a draft sound less like AI: fix generic, robotic text with rhythm, specifics, personality and brand voice. Use whenever the user says copy sounds like ChatGPT, bland or stiff, or not like them."
 license: MIT
 metadata:
   version: 1.0.0

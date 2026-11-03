@@ -1,6 +1,6 @@
 ---
 name: "remember"
-description: "Explicitly save important knowledge to auto-memory with timestamp and context. Use when the user says 'remember this', asks you to capture a lesson so you stop repeating a mistake across sessions, or when a discovery is too important to rely on auto-capture."
+description: "Save something important to auto-memory with a timestamp and context. Use whenever the user says remember this, note it for next time or don't forget, wants you to stop repeating a mistake across sessions, or a discovery is too important for auto-capture."
 ---
 
 # /si:remember — Save Knowledge Explicitly

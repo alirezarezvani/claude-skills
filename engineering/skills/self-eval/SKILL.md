@@ -1,6 +1,6 @@
 ---
 name: "self-eval"
-description: "Use after finishing a task, review or session to grade the work honestly. Scores it on two axes, forces a devil's-advocate pass against score inflation and keeps scores across sessions."
+description: "Grade finished work honestly on two axes with a devil's-advocate pass against inflation. Use whenever the user asks how well a task went, to rate the work or for an honest self-review."
 license: "MIT"
 ---
 

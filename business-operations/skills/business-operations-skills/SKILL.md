@@ -1,6 +1,6 @@
 ---
 name: business-operations-skills
-description: "Use when an internal operations request needs routing (process, vendors, capacity, internal comms, SOPs, procurement): 'where's the bottleneck', 'vendor health'. Lists the BizOps skills and routes to one."
+description: "Route internal operations requests to the right BizOps skill: process, vendors, capacity, internal comms, SOPs, procurement. Use whenever the user asks where the bottleneck is or about vendor health."
 context: fork
 license: MIT
 metadata:

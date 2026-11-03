@@ -1,6 +1,6 @@
 ---
 name: "cmo-advisor"
-description: "Use for marketing leadership decisions: positioning, PLG vs sales-led vs community-led, budget allocation or marketing team design. Simulates growth with growth_model_simulator.py and budgets with marketing_budget_modeler.py."
+description: "Marketing leadership: positioning, product-led vs sales-led vs community-led growth, budget split across channels, marketing team design. Use whenever the user asks how to grow, which go-to-market fits or where to spend."
 license: MIT
 metadata:
   version: 1.0.0

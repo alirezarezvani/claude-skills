@@ -1,6 +1,6 @@
 ---
 name: "agent-designer"
-description: "Use when designing a multi-agent system (supervisor, swarm, pipeline), writing agent tool schemas, or reading agent run logs for cost, latency or failure bottlenecks. Not for Claude Code workflow files (workflow-builder)."
+description: "Design multi-agent systems (supervisor, swarm, pipeline) and tool schemas; find bottlenecks in run logs. Use whenever agents split work or a run is slow or costly. Not for Claude Code workflow files (workflow-builder)."
 ---
 
 # Agent Designer — Multi-Agent System Architecture

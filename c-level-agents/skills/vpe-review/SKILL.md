@@ -1,6 +1,6 @@
 ---
 name: "vpe-review"
-description: "Use for /c-level-agents:vpe-review, or to challenge a plan touching delivery speed, eng hiring, team structure or on-call."
+description: "Challenge a plan on delivery speed, eng hiring, team structure or on-call. Use when asked or /c-level-agents:vpe-review."
 ---
 
 # /c-level-agents:vpe-review — VPE Forcing Questions

@@ -861,7 +861,8 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 ## Lessons
 
 - (Claude adds rules here)
-- Never commit a raw `sync-*-skills.py` run: the Gemini/Vibe/Hermes syncs re-point symlinks for duplicate skill names in walk order, so stage only the mirror entries your change touches and revert the rest.
+- Never hand-run the `sync-*-skills.py` scripts into the repo: incremental runs keep stale links for dual-published skills. Regenerate every mirror with `python3 scripts/check_harness_mirrors.py --fix` and commit the result; gate G13 fails a PR whose `.codex/`, `.gemini/`, `.vibe/` or `.hermes/` tree differs from a fresh sync, and `harness-compat.yml` installs the real Codex, Gemini, Hermes and Vibe CLIs to prove each one loads every skill.
+- Codex skips any installed skill folder that contains `.claude-plugin/`, and Gemini skips a SKILL.md without a frontmatter `name:`; both failures are silent, which is why the harness checks list what the real CLI discovered instead of trusting the installer's output.
 - Never write `/cs-<name>`: Claude Code runs plugin commands as `/<plugin>:<name>` or bare `/<name>` (verified on 2.1.306), so a command file `cs-foo.md` is `/cs-foo`, and a generic skill name like `decide` is written `/c-level-agents:decide`. `scripts/check_command_refs.py` blocks regressions.
 - Run the local gates with the exact flags `ci-quality-gate.yml` uses (`check_paths.py --all`, `check_skill_names.py --all`, `check_frontmatter.py --all`): without `--all`, check_paths skips agent and command files and reports clean.
 - Bump the version of every plugin whose files change (`scripts/bump_plugin_versions.py --changed-since origin/dev`): Claude Code caches by version, so an unbumped change never reaches existing installs; G11 (`check_plugin_versions.py`) blocks it.

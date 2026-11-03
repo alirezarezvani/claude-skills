@@ -1,4 +1,5 @@
 ---
+name: operator-audit
 description: Run the full Kubernetes Operator audit (CRD + reconcile + capability) on the current repo
 ---
 

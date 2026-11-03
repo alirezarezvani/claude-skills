@@ -209,6 +209,11 @@ install_skill() {
   find "$skill_dest" -mindepth 2 -path '*/assets/*' -name SKILL.md \
     -exec sh -c 'mv "$1" "$1.fixture"' _ {} \;
 
+  # A single-skill plugin keeps its Claude Code manifest next to SKILL.md.
+  # Codex skips any skill folder holding a .claude-plugin/ directory (verified
+  # on codex 0.166), so drop it: the manifest means nothing to Codex.
+  rm -rf "$skill_dest/.claude-plugin"
+
   print_success "Installed: $skill_name"
   return 0
 }

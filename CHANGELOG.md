@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Codex, Gemini CLI, Hermes and Mistral Vibe are checked in CI.** Gate G13
+  (`scripts/check_harness_mirrors.py`) regenerates the `.codex/`, `.gemini/`, `.vibe/` and `.hermes/` mirrors
+  from scratch on every PR and fails on any difference; `--fix` rewrites them. The new `harness-compat.yml`
+  workflow installs each real, open-source CLI (pinned on PRs, latest every Monday), runs the documented install
+  path into an empty HOME and fails unless the harness itself lists every installed skill
+  (`scripts/check_harness_installs.py`). No model is called and no API key is used.
+
+### Fixed
+
+- **Six skills never loaded in Codex** (aeo, deepread, hivemind, loop-library, swedish-mentor, youtube-full).
+  Codex skips a skill folder that holds a `.claude-plugin/` directory, which single-skill plugins keep next to
+  `SKILL.md`. `codex-install.sh` and `codex-install.bat` now drop that folder from the installed copy.
+- **Eight Gemini CLI entries were invisible** (chaos-experiment, flag-cleanup, operator-audit, slo-design and the
+  four `cs-*-review`/`cs-engineer-grill` commands). Gemini skips a SKILL.md without a frontmatter `name:`; the
+  command files now carry one, matching their file names, so Claude Code is unaffected.
+- Vibe and Hermes mirror links for agent-regression-evals, coding-agent-rollout and month-end-close pointed at
+  the standalone copy instead of the bundle copy a fresh sync picks (same content).
+
 ## [2.14.8] - 2026-11-03 — skills that load when you ask for them
 
 No new skills. This release is about the ones you already have: 111 skills whose descriptions never made Claude

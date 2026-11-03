@@ -116,6 +116,8 @@ if exist "%SKILL_DEST%" rmdir /s /q "%SKILL_DEST%"
 
 REM Copy skill
 xcopy /e /i /q "%SKILL_SRC%" "%SKILL_DEST%"
+REM Codex skips a skill folder that holds a .claude-plugin directory
+if exist "%SKILL_DEST%\.claude-plugin" rmdir /s /q "%SKILL_DEST%\.claude-plugin"
 
 echo [SUCCESS] Installed: %TARGET%
 goto :end
@@ -147,6 +149,7 @@ for /d %%i in ("%CODEX_SKILLS_SRC%\*") do (
             set /a FAILED+=1
         ) else (
             set /a INSTALLED+=1
+            if exist "!SKILL_DEST!\.claude-plugin" rmdir /s /q "!SKILL_DEST!\.claude-plugin"
         )
     )
 )

@@ -1,6 +1,6 @@
 ---
 name: "senior-frontend"
-description: "Use for React, Next.js, TypeScript or Tailwind work: components, performance, bundle size, scaffolding or frontend review. Decides with frontend_decision_engine.py, scaffolds with frontend_scaffolder.py and component_generator.py, and analyzes bundles with bundle_analyzer.py."
+description: "Build and review React, Next.js, TypeScript or Tailwind frontends: components, scaffolding, performance and bundle size. Use whenever the user wants a new component or app, a page feels slow, the bundle is too big, or asks for a frontend code review."
 ---
 
 # Senior Frontend
@@ -56,25 +56,9 @@ Generate a new Next.js or React project with TypeScript, Tailwind CSS, and best 
 | `--features testing` | Add Vitest + Testing Library |
 | `--dry-run` | Preview files without creating them |
 
-### Generated Structure (Next.js)
+### Generated outputs
 
-```
-my-app/
-├── app/
-│   ├── layout.tsx        # Root layout with fonts
-│   ├── page.tsx          # Home page
-│   ├── globals.css       # Tailwind + CSS variables
-│   └── api/health/route.ts
-├── components/
-│   ├── ui/               # Button, Input, Card
-│   └── layout/           # Header, Footer, Sidebar
-├── hooks/                # useDebounce, useLocalStorage
-├── lib/                  # utils (cn), constants
-├── types/                # TypeScript interfaces
-├── tailwind.config.ts
-├── next.config.js
-└── package.json
-```
+The generated project structure and an example component are in `references/frontend_best_practices.md` (section Generated outputs).
 
 ---
 
@@ -115,28 +99,6 @@ Generate React components with TypeScript, tests, and Storybook stories.
 | `--with-story` | Include Storybook story |
 | `--flat` | Create in output dir without subdirectory |
 | `--dry-run` | Preview without creating files |
-
-### Generated Component Example
-
-```tsx
-'use client';
-
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
-
-interface ButtonProps {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-export function Button({ className, children }: ButtonProps) {
-  return (
-    <div className={cn('', className)}>
-      {children}
-    </div>
-  );
-}
-```
 
 ---
 
@@ -194,174 +156,23 @@ The analyzer identifies these common heavy packages:
 
 ---
 
+---
+
 ## React Patterns
 
-Reference: `references/react_patterns.md`
-
-### Compound Components
-
-Share state between related components:
-
-```tsx
-const Tabs = ({ children }) => {
-  const [active, setActive] = useState(0);
-  return (
-    <TabsContext.Provider value={{ active, setActive }}>
-      {children}
-    </TabsContext.Provider>
-  );
-};
-
-Tabs.List = TabList;
-Tabs.Panel = TabPanel;
-
-// Usage
-<Tabs>
-  <Tabs.List>
-    <Tabs.Tab>One</Tabs.Tab>
-    <Tabs.Tab>Two</Tabs.Tab>
-  </Tabs.List>
-  <Tabs.Panel>Content 1</Tabs.Panel>
-  <Tabs.Panel>Content 2</Tabs.Panel>
-</Tabs>
-```
-
-### Custom Hooks
-
-Extract reusable logic:
-
-```tsx
-function useDebounce<T>(value: T, delay = 500): T {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedValue(value), delay);
-    return () => clearTimeout(timer);
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-
-// Usage
-const debouncedSearch = useDebounce(searchTerm, 300);
-```
-
-### Render Props
-
-Share rendering logic:
-
-```tsx
-function DataFetcher({ url, render }) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(url).then(r => r.json()).then(setData).finally(() => setLoading(false));
-  }, [url]);
-
-  return render({ data, loading });
-}
-
-// Usage
-<DataFetcher
-  url="/api/users"
-  render={({ data, loading }) =>
-    loading ? <Spinner /> : <UserList users={data} />
-  }
-/>
-```
+Compound components, custom hooks and render props are in `references/react_patterns.md` (section Examples).
 
 ---
 
 ## Next.js Optimization
 
-Reference: `references/nextjs_optimization_guide.md`
-
-### Server vs Client Components
-
-Use Server Components by default. Add 'use client' only when you need:
-- Event handlers (onClick, onChange)
-- State (useState, useReducer)
-- Effects (useEffect)
-- Browser APIs
-
-```tsx
-// Server Component (default) - no 'use client'
-async function ProductPage({ params }) {
-  const product = await getProduct(params.id);  // Server-side fetch
-
-  return (
-    <div>
-      <h1>{product.name}</h1>
-      <AddToCartButton productId={product.id} />  {/* Client component */}
-    </div>
-  );
-}
-
-// Client Component
-'use client';
-function AddToCartButton({ productId }) {
-  const [adding, setAdding] = useState(false);
-  return <button onClick={() => addToCart(productId)}>Add</button>;
-}
-```
-
-### Image Optimization
-
-```tsx
-import Image from 'next/image';
-
-// Above the fold - load immediately
-<Image
-  src="/hero.jpg"
-  alt="Hero"
-  width={1200}
-  height={600}
-  priority
-/>
-
-// Responsive image with fill
-<div className="relative aspect-video">
-  <Image
-    src="/product.jpg"
-    alt="Product"
-    fill
-    sizes="(max-width: 768px) 100vw, 50vw"
-    className="object-cover"
-  />
-</div>
-```
-
-### Data Fetching Patterns
-
-```tsx
-// Parallel fetching
-async function Dashboard() {
-  const [user, stats] = await Promise.all([
-    getUser(),
-    getStats()
-  ]);
-  return <div>...</div>;
-}
-
-// Streaming with Suspense
-async function ProductPage({ params }) {
-  return (
-    <div>
-      <ProductDetails id={params.id} />
-      <Suspense fallback={<ReviewsSkeleton />}>
-        <Reviews productId={params.id} />
-      </Suspense>
-    </div>
-  );
-}
-```
+Server vs Client Components, image optimization and data fetching examples are in `references/nextjs_optimization_guide.md` (section Examples).
 
 ---
 
 ## Accessibility and Testing
 
-Reference: `references/frontend_best_practices.md`
+Code examples for accessibility and testing are in `references/frontend_best_practices.md`.
 
 ### Accessibility Checklist
 
@@ -371,98 +182,11 @@ Reference: `references/frontend_best_practices.md`
 4. **Color Contrast**: Minimum 4.5:1 for normal text
 5. **Focus Indicators**: Visible focus states
 
-```tsx
-// Accessible button
-<button
-  type="button"
-  aria-label="Close dialog"
-  onClick={onClose}
-  className="focus-visible:ring-2 focus-visible:ring-blue-500"
->
-  <XIcon aria-hidden="true" />
-</button>
-
-// Skip link for keyboard users
-<a href="#main-content" className="sr-only focus:not-sr-only">
-  Skip to main content
-</a>
-```
-
-### Testing Strategy
-
-```tsx
-// Component test with React Testing Library
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
-test('button triggers action on click', async () => {
-  const onClick = vi.fn();
-  render(<Button onClick={onClick}>Click me</Button>);
-
-  await userEvent.click(screen.getByRole('button'));
-  expect(onClick).toHaveBeenCalledTimes(1);
-});
-
-// Test accessibility
-test('dialog is accessible', async () => {
-  render(<Dialog open={true} title="Confirm" />);
-
-  expect(screen.getByRole('dialog')).toBeInTheDocument();
-  expect(screen.getByRole('dialog')).toHaveAttribute('aria-labelledby');
-});
-```
-
 ---
 
 ## Quick Reference
 
-### Common Next.js Config
-
-```js
-// next.config.js
-const nextConfig = {
-  images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'cdn.example.com' }],
-    formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    optimizePackageImports: ['lucide-react', '@heroicons/react'],
-  },
-};
-```
-
-### Tailwind CSS Utilities
-
-```tsx
-// Conditional classes with cn()
-import { cn } from '@/lib/utils';
-
-<button className={cn(
-  'px-4 py-2 rounded',
-  variant === 'primary' && 'bg-blue-500 text-white',
-  disabled && 'opacity-50 cursor-not-allowed'
-)} />
-```
-
-### TypeScript Patterns
-
-```tsx
-// Props with children
-interface CardProps {
-  className?: string;
-  children: React.ReactNode;
-}
-
-// Generic component
-interface ListProps<T> {
-  items: T[];
-  renderItem: (item: T) => React.ReactNode;
-}
-
-function List<T>({ items, renderItem }: ListProps<T>) {
-  return <ul>{items.map(renderItem)}</ul>;
-}
-```
+Config, Tailwind and TypeScript snippets are in `references/frontend_best_practices.md` (section Quick reference).
 
 ---
 
@@ -475,6 +199,7 @@ function List<T>({ items, renderItem }: ListProps<T>) {
 - Composition map (which specialist to fork into): `references/composition_map.md`
 
 ---
+
 
 ## Assumptions and Verifiable Success Criteria (Karpathy discipline)
 
@@ -496,6 +221,7 @@ If any of those three is not stated, the recommendation is incomplete — return
 The `scripts/frontend_decision_engine.py` tool encodes these checks: it refuses to recommend a profile without the four assumption inputs and prints the verifiable thresholds for the matched profile.
 
 ---
+
 
 ## Customization profiles
 
@@ -522,6 +248,7 @@ To add a custom profile (e.g., your org's internal-tool defaults): copy `profile
 
 ---
 
+
 ## Composition map
 
 This skill does NOT reimplement scope owned by the POWERFUL-tier specialists. It forks into them. See `references/composition_map.md` for the full routing table. Key forks:
@@ -539,17 +266,10 @@ The `cs-frontend-engineer` agent orchestrates these forks via `context: fork`. I
 
 ---
 
+
 ## Forcing-question library (Matt Pocock grill)
 
-Before locking any framework or rendering decision, walk the seven forcing questions in `references/forcing_questions.md`. Discipline:
-
-1. One question per turn. No bundling.
-2. Always recommend the answer with cited canon.
-3. Track answers in `/tmp/frontend-grill-<date>.md`.
-4. If a kill criterion trips, stop. Don't scaffold around an unresolved gap.
-5. After Q7, run `frontend_decision_engine.py` with the seven answers.
-
-Summary:
+Before locking a framework or rendering decision, walk the seven forcing questions in `references/forcing_questions.md`: one question per turn, cite the canon for each recommended answer, and stop when a kill criterion trips. After Q7, run `frontend_decision_engine.py` with the answers.
 
 1. Primary device + network?
 2. LCP target in ms (and INP, CLS)?
@@ -560,6 +280,7 @@ Summary:
 7. WCAG target + named a11y owner?
 
 ---
+
 
 ## Invocation from other agents and skills
 

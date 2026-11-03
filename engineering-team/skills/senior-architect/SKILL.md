@@ -1,6 +1,6 @@
 ---
 name: "senior-architect"
-description: "Use for system architecture decisions (monolith vs microservices, database choice, scalability, ADRs, design reviews) or architecture diagrams. Analyzes dependencies with dependency_analyzer.py, assesses the project with project_architect.py and draws Mermaid or PlantUML with architecture_diagram_generator.py."
+description: "Make system architecture decisions and draw architecture diagrams: monolith vs microservices, database choice, scalability, ADRs, design reviews, Mermaid or PlantUML. Use whenever the user asks how to structure a system, which database to pick, whether it will scale, or wants an ADR or diagram."
 ---
 
 # Senior Architect

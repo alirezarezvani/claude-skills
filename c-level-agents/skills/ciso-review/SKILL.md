@@ -1,6 +1,6 @@
 ---
 name: "ciso-review"
-description: "Use for /c-level-agents:ciso-review, or to challenge a plan touching customer data, compliance or production access."
+description: "Challenge a plan touching customer data, compliance or prod access. Use when asked or /c-level-agents:ciso-review."
 ---
 
 # /c-level-agents:ciso-review — CISO Forcing Questions

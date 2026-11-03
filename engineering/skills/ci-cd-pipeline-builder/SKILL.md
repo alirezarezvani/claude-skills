@@ -1,6 +1,6 @@
 ---
 name: "ci-cd-pipeline-builder"
-description: "Use when setting up or refactoring CI/CD for a repo, before writing workflow YAML. Detects the stack with stack_detector.py and generates the pipeline with pipeline_generator.py."
+description: "Set up or refactor CI/CD for a repo: detect the stack, generate pipeline YAML. Use whenever the user wants builds or tests to run on each push or needs a CI workflow file."
 ---
 
 # CI/CD Pipeline Builder

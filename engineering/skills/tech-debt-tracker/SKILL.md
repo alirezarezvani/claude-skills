@@ -1,6 +1,6 @@
 ---
 name: tech-debt-tracker
-description: "Use when asked about tech debt, refactoring priority, a cleanup sprint or legacy modernization. Scans the code with debt_scanner.py, ranks items with debt_prioritizer.py and tracks trends with debt_dashboard.py."
+description: "Find, rank and track tech debt in a codebase. Use whenever the user asks what to refactor first, plans a cleanup sprint, modernizes legacy code or wants to know how messy the code is."
 ---
 
 # Tech Debt Tracker

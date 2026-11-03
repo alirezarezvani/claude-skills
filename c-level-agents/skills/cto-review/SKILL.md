@@ -1,6 +1,6 @@
 ---
 name: "cto-review"
-description: "Use for /c-level-agents:cto-review, or to challenge an architecture commitment, a 10x scaling plan or rebuild vs buy."
+description: "Challenge an architecture bet, 10x scaling plan or rebuild vs buy. Use whenever asked or /c-level-agents:cto-review."
 ---
 
 # /c-level-agents:cto-review — CTO Forcing Questions

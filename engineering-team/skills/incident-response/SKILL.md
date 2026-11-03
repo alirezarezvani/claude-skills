@@ -1,6 +1,6 @@
 ---
 name: "incident-response"
-description: "Use when a security incident is detected or suspected and needs triage, SEV1-SEV4 classification, escalation and forensic evidence collection. Runs incident_triage.py and follows the NIST SP 800-61 lifecycle. Outages: incident-commander."
+description: "Handle a suspected security breach: triage, SEV1-SEV4 severity, escalation and forensic evidence, per NIST SP 800-61. Use whenever the user thinks they were hacked, sees suspicious activity or a leaked key. Outages: incident-commander."
 ---
 
 # Incident Response

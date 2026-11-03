@@ -1,6 +1,6 @@
 ---
 name: "extract"
-description: "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Use when the user runs /si:extract or asks to package a recurring solution from memory into a skill."
+description: "Turn a fix or pattern that keeps coming up into a reusable skill with SKILL.md, reference docs and examples. Use whenever the user runs /si:extract or wants to package a recurring solution or lesson as a skill."
 ---
 
 # /si:extract — Create Skills from Patterns

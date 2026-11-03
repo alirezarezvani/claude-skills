@@ -1,6 +1,6 @@
 ---
 name: "codebase-onboarding"
-description: "Use when someone is new to a repo or a tech lead needs an architecture brief, before writing docs by hand. Maps the codebase with codebase_analyzer.py and produces onboarding docs."
+description: "Explain an unfamiliar repo: architecture brief and onboarding docs. Use whenever someone is new to a codebase, asks how a project is structured or where to start reading."
 ---
 
 # Codebase Onboarding

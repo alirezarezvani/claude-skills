@@ -1,6 +1,6 @@
 ---
 name: "report"
-description: "Use when asked for a test report or results summary ('test report', 'test status', 'how did tests go')."
+description: "Summarize Playwright results. Use whenever the user asks how tests went, for a test report or status."
 ---
 
 # Smart Test Reporting

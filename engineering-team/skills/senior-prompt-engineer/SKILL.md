@@ -1,6 +1,6 @@
 ---
 name: "senior-prompt-engineer"
-description: "Use when optimizing a prompt, building an eval set, measuring RAG retrieval quality or validating an agent's tool config. Iterates with prompt_optimizer.py, scores RAG with rag_evaluator.py and checks agents with agent_orchestrator.py."
+description: "Improve prompts and measure LLM quality: fix inconsistent prompts, build eval sets, score RAG retrieval, check agent tool configs. Use whenever the user's prompt, chatbot or RAG answers are unreliable or they ask how to test them."
 ---
 
 # Senior Prompt Engineer

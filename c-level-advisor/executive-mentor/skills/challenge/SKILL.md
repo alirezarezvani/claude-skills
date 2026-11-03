@@ -1,6 +1,6 @@
 ---
 name: "challenge"
-description: "Use before committing serious resources to a plan, or when feedback has been suspiciously positive. Runs a pre-mortem: assume it failed in 12 months and work back to the assumptions, dependencies and execution risks."
+description: "Pre-mortem a plan: assume it failed in 12 months and work back to the assumptions, dependencies and execution risks. Use whenever the user will commit serious resources or feedback seems too positive."
 ---
 
 # /executive-mentor:challenge — Pre-Mortem Plan Analysis

@@ -1,6 +1,6 @@
 ---
 name: "senior-fullstack"
-description: "Use when starting a fullstack project, choosing a stack (Next.js, FastAPI, MERN, Django) or auditing a codebase's quality. Picks the stack with fullstack_decision_engine.py, scaffolds with project_scaffolder.py and scores code with code_quality_analyzer.py."
+description: "Start a fullstack project or audit a codebase: pick a stack (Next.js, FastAPI, MERN, Django), scaffold it and score code quality. Use whenever the user asks which stack to use, wants a new web app set up, or asks how good or messy their codebase is."
 ---
 
 # Senior Fullstack

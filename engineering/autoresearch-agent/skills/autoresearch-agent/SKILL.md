@@ -1,6 +1,6 @@
 ---
 name: "autoresearch-agent"
-description: "Use when a file should be improved against a measurable metric (speed, bundle size, pass rate, prompt or headline score), before hand-tuning it. Loops edit, run_experiment.py, keep or git reset on a fixed evaluator; needs an eval command and a git repo."
+description: "Make a file measurably better by trial: faster code, smaller bundle, higher pass rate or prompt score. Use whenever the user wants something optimized against a metric, before hand-tuning; loops edits, keeps wins, resets losses. Needs an eval command."
 license: MIT
 metadata:
   version: 2.0.0

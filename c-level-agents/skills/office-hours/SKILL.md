@@ -1,6 +1,6 @@
 ---
 name: "office-hours"
-description: "Use for /c-level-agents:office-hours, or when a founder question is too vague to route. Asks six YC-style questions before any advice."
+description: "Founder advice after six YC-style questions. Use whenever a founder is stuck or unsure what to ask, or /c-level-agents:office-hours."
 ---
 
 # /c-level-agents:office-hours — Six-Question Founder Interrogation

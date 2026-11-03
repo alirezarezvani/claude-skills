@@ -1,6 +1,6 @@
 ---
 name: "finance-skills"
-description: "Use when a finance request needs routing between financial-analyst (ratios, DCF, variance, forecasts), saas-metrics-coach (ARR, churn, CAC, LTV, NRR) and month-end-close."
+description: "Pick the right finance skill: ratios, DCF, forecasts (financial-analyst), ARR, churn, CAC, LTV (saas-metrics-coach), month-end-close. Use whenever a finance ask is vague."
 license: MIT
 metadata:
   version: 2.9.0

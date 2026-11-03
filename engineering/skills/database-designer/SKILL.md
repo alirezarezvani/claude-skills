@@ -1,6 +1,6 @@
 ---
 name: "database-designer"
-description: "Use when designing a database schema, choosing SQL vs NoSQL, modeling relationships or planning a data migration, before writing DDL. Applies normalization, index strategy and a database selection decision tree."
+description: "Design a database schema: tables, relationships, indexes, normalization, SQL vs NoSQL, migration plans. Use whenever the user asks how to structure their data, which database to pick, or before writing DDL."
 ---
 
 # Database Designer - POWERFUL Tier Skill

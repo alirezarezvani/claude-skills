@@ -1,6 +1,6 @@
 ---
 name: "sql-database-assistant"
-description: "Use for writing or optimizing SQL, exploring a schema, generating migrations or working with Prisma, Drizzle, TypeORM or SQLAlchemy. Analyzes queries with query_optimizer.py and schemas with schema_explorer.py."
+description: "Write and tune SQL, explore schemas, make migrations: Prisma, Drizzle, TypeORM, SQLAlchemy. Use whenever a query is slow or returns wrong rows, the user needs one written or asks what tables exist."
 ---
 
 # SQL Database Assistant - POWERFUL Tier Skill

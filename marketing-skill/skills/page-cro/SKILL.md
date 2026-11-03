@@ -1,6 +1,6 @@
 ---
 name: "page-cro"
-description: "Use when a homepage, landing, pricing or feature page is not converting, before rewriting it. Audits it section by section with conversion_audit.py and ranks fixes by expected impact."
+description: "Fix a page that is not converting: section by section audit with fixes ranked by impact. Use whenever a homepage, landing, pricing or feature page gets few signups, sales or clicks."
 license: MIT
 metadata:
   version: 1.0.0

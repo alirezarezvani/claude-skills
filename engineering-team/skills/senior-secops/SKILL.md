@@ -1,6 +1,6 @@
 ---
 name: "senior-secops"
-description: "Use for application security operations: security reviews, CVE remediation, hardening, secrets and auth, or SOC 2, PCI-DSS, HIPAA and GDPR checks. Scans with security_scanner.py, assesses CVEs with vulnerability_assessor.py and checks controls with compliance_checker.py."
+description: "Find and fix application security problems: security reviews, CVE remediation, hardening, secrets and auth, SOC 2, PCI-DSS, HIPAA and GDPR checks. Use whenever the user asks if their app is secure, needs to patch a vulnerable dependency or prepares for an audit."
 ---
 
 # Senior SecOps Engineer
@@ -166,72 +166,11 @@ Each step fails the pipeline on its respective exit code — no deployment proce
 
 ### Workflow 3: CVE Triage
 
-Respond to a new CVE affecting your application.
-
-```
-1. ASSESS (0-2 hours)
-   - Identify affected systems using vulnerability_assessor.py
-   - Check if CVE is being actively exploited
-   - Determine CVSS environmental score for your context
-   - STOP if CVSS 9.0+ on internet-facing system — escalate immediately
-
-2. PRIORITIZE
-   - Critical (CVSS 9.0+, internet-facing): 24 hours
-   - High (CVSS 7.0-8.9): 7 days
-   - Medium (CVSS 4.0-6.9): 30 days
-   - Low (CVSS < 4.0): 90 days
-
-3. REMEDIATE
-   - Update affected dependency to fixed version
-   - Run security_scanner.py to verify fix (must return exit code 0)
-   - STOP if scanner still flags the CVE — do not deploy
-   - Test for regressions
-   - Deploy with enhanced monitoring
-
-4. VERIFY
-   - Re-run vulnerability_assessor.py
-   - Confirm CVE no longer reported
-   - Document remediation actions
-```
+Steps and scoring rules are in `references/vulnerability_management_guide.md` (section Workflow 3: CVE Triage). Use `vulnerability_assessor.py` to score each CVE.
 
 ### Workflow 4: Incident Response
 
-Security incident handling procedure.
-
-```
-PHASE 1: DETECT & IDENTIFY (0-15 min)
-- Alert received and acknowledged
-- Initial severity assessment (SEV-1 to SEV-4)
-- Incident commander assigned
-- Communication channel established
-
-PHASE 2: CONTAIN (15-60 min)
-- Affected systems identified
-- Network isolation if needed
-- Credentials rotated if compromised
-- Preserve evidence (logs, memory dumps)
-
-PHASE 3: ERADICATE (1-4 hours)
-- Root cause identified
-- Malware/backdoors removed
-- Vulnerabilities patched (run security_scanner.py; must return exit code 0)
-- Systems hardened
-
-PHASE 4: RECOVER (4-24 hours)
-- Systems restored from clean backup
-- Services brought back online
-- Enhanced monitoring enabled
-- User access restored
-
-PHASE 5: POST-INCIDENT (24-72 hours)
-- Incident timeline documented
-- Root cause analysis complete
-- Lessons learned documented
-- Preventive measures implemented
-- Stakeholder report delivered
-```
-
----
+The incident response steps are in `references/vulnerability_management_guide.md` (section Workflow 4: Incident Response).
 
 ## Tool Reference
 
@@ -277,39 +216,7 @@ PHASE 5: POST-INCIDENT (24-72 hours)
 
 See `references/security_standards.md` for OWASP Top 10 full guidance, secure coding standards, authentication requirements, and API security controls.
 
-### Secure Coding Checklist
-
-```markdown
-## Input Validation
-- [ ] Validate all input on server side
-- [ ] Use allowlists over denylists
-- [ ] Sanitize for specific context (HTML, SQL, shell)
-
-## Output Encoding
-- [ ] HTML encode for browser output
-- [ ] URL encode for URLs
-- [ ] JavaScript encode for script contexts
-
-## Authentication
-- [ ] Use bcrypt/argon2 for passwords
-- [ ] Implement MFA for sensitive operations
-- [ ] Enforce strong password policy
-
-## Session Management
-- [ ] Generate secure random session IDs
-- [ ] Set HttpOnly, Secure, SameSite flags
-- [ ] Implement session timeout (15 min idle)
-
-## Error Handling
-- [ ] Log errors with context (no secrets)
-- [ ] Return generic messages to users
-- [ ] Never expose stack traces in production
-
-## Secrets Management
-- [ ] Use environment variables or secrets manager
-- [ ] Never commit secrets to version control
-- [ ] Rotate credentials regularly
-```
+The secure coding checklist (input validation, output encoding, authentication, session, error handling, secrets) is in `references/security_standards.md` (section Secure Coding Checklist).
 
 ---
 
@@ -317,99 +224,13 @@ See `references/security_standards.md` for OWASP Top 10 full guidance, secure co
 
 See `references/compliance_requirements.md` for full control mappings. Run `compliance_checker.py` to verify the controls below:
 
-### SOC 2 Type II
-- **CC6** Logical Access: authentication, authorization, MFA
-- **CC7** System Operations: monitoring, logging, incident response
-- **CC8** Change Management: CI/CD, code review, deployment controls
-
-### PCI-DSS v4.0
-- **Req 3/4**: Encryption at rest and in transit (TLS 1.2+)
-- **Req 6**: Secure development (input validation, secure coding)
-- **Req 8**: Strong authentication (MFA, password policy)
-- **Req 10/11**: Audit logging, SAST/DAST/penetration testing
-
-### HIPAA Security Rule
-- Unique user IDs and audit trails for PHI access (164.312(a)(1), 164.312(b))
-- MFA for person/entity authentication (164.312(d))
-- Transmission encryption via TLS (164.312(e)(1))
-
-### GDPR
-- **Art 25/32**: Privacy by design, encryption, pseudonymization
-- **Art 33**: Breach notification within 72 hours
-- **Art 17/20**: Right to erasure and data portability
+SOC 2, PCI-DSS, HIPAA and GDPR control mappings are in `references/compliance_requirements.md`.
 
 ---
 
 ## Best Practices
 
-### Secrets Management
-
-```python
-# BAD: Hardcoded secret
-API_KEY = "sk-1234567890abcdef"
-
-# GOOD: Environment variable
-import os
-API_KEY = os.environ.get("API_KEY")
-
-# BETTER: Secrets manager
-from your_vault_client import get_secret
-API_KEY = get_secret("api/key")
-```
-
-### SQL Injection Prevention
-
-```python
-# BAD: String concatenation
-query = f"SELECT * FROM users WHERE id = {user_id}"
-
-# GOOD: Parameterized query
-cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
-```
-
-### XSS Prevention
-
-```javascript
-// BAD: Direct innerHTML assignment is vulnerable
-// GOOD: Use textContent (auto-escaped)
-element.textContent = userInput;
-
-// GOOD: Use sanitization library for HTML
-import DOMPurify from 'dompurify';
-const safeHTML = DOMPurify.sanitize(userInput);
-```
-
-### Authentication
-
-```javascript
-// Password hashing
-const bcrypt = require('bcrypt');
-const SALT_ROUNDS = 12;
-
-// Hash password
-const hash = await bcrypt.hash(password, SALT_ROUNDS);
-
-// Verify password
-const match = await bcrypt.compare(password, hash);
-```
-
-### Security Headers
-
-```javascript
-// Express.js security headers
-const helmet = require('helmet');
-app.use(helmet());
-
-// Or manually set headers:
-app.use((req, res, next) => {
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-  res.setHeader('Content-Security-Policy', "default-src 'self'");
-  next();
-});
-```
+Secure coding examples (secrets, SQL injection, XSS, authentication, security headers) are in `references/security_standards.md` (section Best Practices).
 
 ---
 
@@ -436,63 +257,13 @@ Categories follow the [OWASP Top 10:2025](https://owasp.org/Top10/2025/). Rapid 
 
 ## Secret Scanning Tools
 
-Choose the right scanner for each stage of your workflow:
-
-| Tool | Best For | Language | Pre-commit | CI/CD | Custom Rules |
-|------|----------|----------|:----------:|:-----:|:------------:|
-| **gitleaks** | CI pipelines, full-repo scans | Go | Yes | Yes | TOML regexes |
-| **detect-secrets** | Pre-commit hooks, incremental | Python | Yes | Partial | Plugin-based |
-| **truffleHog** | Deep history scans, entropy | Go | No | Yes | Regex + entropy |
-
-**Recommended setup:** Use `detect-secrets` as a pre-commit hook (catches secrets before they enter history) and `gitleaks` in CI (catches anything that slips through).
-
-```bash
-# detect-secrets pre-commit hook (.pre-commit-config.yaml)
-- repo: https://github.com/Yelp/detect-secrets
-  rev: v1.4.0
-  hooks:
-    - id: detect-secrets
-      args: ['--baseline', '.secrets.baseline']
-
-# gitleaks in GitHub Actions
-- name: gitleaks
-  uses: gitleaks/gitleaks-action@v2
-  env:
-    GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-```
+Scanner choice for each stage (pre-commit, CI, repository history) is in `references/vulnerability_management_guide.md` (section Secret Scanning Tools).
 
 ---
 
 ## Supply Chain Security
 
-Protect against dependency and artifact tampering with SBOM generation, artifact signing, and SLSA compliance.
-
-**SBOM Generation:**
-- **syft** — generates SBOMs from container images or source dirs (SPDX, CycloneDX formats)
-- **cyclonedx-cli** — CycloneDX-native tooling; merge multiple SBOMs for mono-repos
-
-```bash
-# Generate SBOM from container image
-syft packages ghcr.io/org/app:latest -o cyclonedx-json > sbom.json
-```
-
-**Artifact Signing (Sigstore/cosign):**
-```bash
-# Sign a container image (keyless via OIDC)
-cosign sign ghcr.io/org/app:latest
-# Verify signature
-cosign verify ghcr.io/org/app:latest --certificate-identity=ci@org.com --certificate-oidc-issuer=https://token.actions.githubusercontent.com
-```
-
-**SLSA Levels Overview:**
-| Level | Requirement | What It Proves |
-|-------|-------------|----------------|
-| 1 | Build process documented | Provenance exists |
-| 2 | Hosted build service, signed provenance | Tamper-resistant provenance |
-| 3 | Hardened build platform, non-falsifiable provenance | Tamper-proof build |
-| 4 | Two-party review, hermetic builds | Maximum supply-chain assurance |
-
-> **Cross-references:** `security-pen-testing` (vulnerability exploitation testing), `dependency-auditor` (license and CVE audit for dependencies).
+Supply chain controls (lockfiles, pinned CI actions, signed artifacts) are in `references/vulnerability_management_guide.md` (section Supply Chain Security).
 
 ---
 

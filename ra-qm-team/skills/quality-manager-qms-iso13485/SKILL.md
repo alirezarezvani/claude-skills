@@ -1,6 +1,6 @@
 ---
 name: "quality-manager-qms-iso13485"
-description: "Use when building or maintaining an ISO 13485 QMS for medical devices, or preparing for its certification audit. Covers QMS design, documentation and CAPA and runs qms_audit_checklist.py."
+description: "Build or maintain an ISO 13485 medical device QMS: design, documentation, CAPA, audit prep. Use whenever the user faces a 13485 certification audit or needs quality procedures."
 metadata:
   triggers:
     - ISO 13485

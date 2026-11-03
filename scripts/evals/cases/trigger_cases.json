@@ -1629,6 +1629,16 @@
   "neg": "Can you explain how git worktrees differ from just cloning the repo again, and when I'd want to use one for a hotfix branch?",
   "origin": "generated"
  },
+ "engineering/autoresearch-agent/skills/ar-loop": {
+  "name": "ar-loop",
+  "plugin": "autoresearch-agent",
+  "pos": [
+   "run the experiment on repeat while I'm away, maybe every hour",
+   "Schedule my autoresearch experiment to keep iterating automatically, once a day at the interval I choose, so it's still improving when I check back on Monday."
+  ],
+  "neg": "Set up a cron job on my server to rotate the nginx logs every night at 2am.",
+  "origin": "generated"
+ },
  "engineering/autoresearch-agent/skills/ar-resume": {
   "name": "ar-resume",
   "plugin": "autoresearch-agent",
@@ -1667,16 +1677,6 @@
    "I want to shrink my bundle.js, currently 1.8MB. I have a build script that prints the size in bytes. Keep editing webpack.config.js, run the build, commit what lowers the size and reset what doesn't, and keep going on its own."
   ],
   "neg": "Why is my bundle.js so large? Walk me through how to read the webpack-bundle-analyzer output and what the usual culprits are.",
-  "origin": "generated"
- },
- "engineering/autoresearch-agent/skills/ar-loop": {
-  "name": "ar-loop",
-  "plugin": "autoresearch-agent",
-  "pos": [
-   "run the experiment on repeat while I'm away, maybe every hour",
-   "Schedule my autoresearch experiment to keep iterating automatically, once a day at the interval I choose, so it's still improving when I check back on Monday."
-  ],
-  "neg": "Set up a cron job on my server to rotate the nginx logs every night at 2am.",
   "origin": "generated"
  },
  "engineering/autoresearch-agent/skills/setup": {
@@ -3179,6 +3179,16 @@
   "neg": "Write a PRD for a new in-app referral feature we're planning to build next quarter, including goals, user personas and success metrics.",
   "origin": "generated"
  },
+ "product-team/design-qa/skills/design-qa": {
+  "name": "design-qa",
+  "plugin": "design-qa",
+  "pos": [
+   "the settings page I just built is basically done, can you check it over before I hand it to the client?",
+   "I'm about to ship the new checkout screen at localhost:3000/checkout. Before I open the PR, run it in a real browser at 375px and 1280px and tell me whether the Apply Coupon button actually does anything, whether there are loading, empty and error states for the order summary, and whether any text fails contrast or tap targets are under 44px."
+  ],
+  "neg": "Can you convert my Figma color tokens export (tokens.json) into CSS custom properties and a Tailwind theme config?",
+  "origin": "generated"
+ },
  "product-team/research-summarizer/skills/research-summarizer": {
   "name": "research-summarizer",
   "plugin": "research-summarizer",
@@ -3779,16 +3789,6 @@
   "neg": "Our NDA submission to the FDA is due next quarter and I need help structuring the eCTD module 2 clinical overview and checking the 21 CFR Part 11 compliance gaps.",
   "origin": "generated"
  },
- "research/meta-research/skills/meta-research": {
-  "name": "meta-research",
-  "plugin": "meta-research",
-  "pos": [
-   "I need a really thorough investigation into whether vertical farming can be profitable at scale. Wrong answer would cost us a lot, so dig in properly.",
-   "We're deciding between Temporal, Airflow, and Dagster for orchestrating about 4,000 daily workflows at a fintech. Do a rigorous multi-source investigation with every claim backed by several independent sources, have an adversarial pass on the conclusions, and keep each source saved with exact quotes so we can reuse them in the board memo."
-  ],
-  "neg": "Score these three competitors, Linear, Jira, and Asana, across all twelve dimensions in a structured teardown with ratings for pricing, integrations, and onboarding.",
-  "origin": "generated"
- },
  "research/deepread": {
   "name": "deepread",
   "plugin": "deepread",
@@ -3827,6 +3827,16 @@
    "Put together a literature review starting point on SGLT2 inhibitors and heart failure outcomes in elderly patients. I'd like a PICO-based search plan, about 10 queries across PubMed and OpenAlex, and a Word document I can work from."
   ],
   "neg": "Find me the PubMed link for the 2019 Lancet paper by Smith on statin adherence.",
+  "origin": "generated"
+ },
+ "research/meta-research/skills/meta-research": {
+  "name": "meta-research",
+  "plugin": "meta-research",
+  "pos": [
+   "I need a really thorough investigation into whether vertical farming can be profitable at scale. Wrong answer would cost us a lot, so dig in properly.",
+   "We're deciding between Temporal, Airflow, and Dagster for orchestrating about 4,000 daily workflows at a fintech. Do a rigorous multi-source investigation with every claim backed by several independent sources, have an adversarial pass on the conclusions, and keep each source saved with exact quotes so we can reuse them in the board memo."
+  ],
+  "neg": "Score these three competitors, Linear, Jira, and Asana, across all twelve dimensions in a structured teardown with ratings for pricing, integrations, and onboarding.",
   "origin": "generated"
  },
  "research/notebooklm/skills/notebooklm": {

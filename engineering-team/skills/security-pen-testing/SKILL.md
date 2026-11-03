@@ -1,6 +1,6 @@
 ---
 name: "security-pen-testing"
-description: "Use for an authorized penetration test, vulnerability scan or OWASP Top 10 check of an app or API. Scans with vulnerability_scanner.py, audits dependencies with dependency_auditor.py and writes the report with pentest_report_generator.py."
+description: "Authorized penetration testing of an app or API: vulnerability scans, OWASP Top 10 checks, dependency audits and a pentest report. Use whenever the user asks if their app is secure or hackable, wants a security scan or a pentest report."
 ---
 
 # Security Penetration Testing

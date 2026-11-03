@@ -1,6 +1,6 @@
 ---
 name: "product-strategist"
-description: "Use for Head of Product work: quarterly OKRs, product vision, roadmap, team structure or aligning product strategy across teams. Cascades OKRs from company to team with okr_cascade_generator.py."
+description: "Head of Product: quarterly OKRs cascaded from company to team, product vision, roadmap, team structure. Use whenever the user asks to set OKRs, a vision or roadmap, or align teams on strategy."
 ---
 
 # Product Strategist

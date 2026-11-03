@@ -1,6 +1,6 @@
 ---
 name: "ma-playbook"
-description: "Use when buying a company or preparing to be bought: due diligence, valuation, deal structure and integration."
+description: "Buy a company or sell yours: diligence, valuation, terms, integration. Use whenever M&A or an exit comes up."
 license: MIT
 metadata:
   version: 1.0.0

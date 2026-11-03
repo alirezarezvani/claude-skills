@@ -1,6 +1,6 @@
 ---
 name: capacity-planner
-description: "Use when sizing an ops or support team, building a headcount plan or checking utilization risk. Models queues with Erlang C in capacity_modeler.py, analyzes utilization with utilization_analyzer.py and orders hires with hiring_sequencer.py."
+description: "Size an ops or support team and plan headcount: Erlang C queue models, utilization risk, hiring order. Use whenever the user asks how many agents or staff they need, if the team is overloaded, or who to hire first."
 license: MIT
 metadata:
   version: 2.8.0

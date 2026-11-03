@@ -1,6 +1,6 @@
 ---
 name: "engineering-skills"
-description: "Use when looking for which engineering-team skill fits a task (architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud). Lists them and routes to one; load only that skill."
+description: "Find which engineering skill fits a task: architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud. Use whenever the user is unsure which skill to use; load only that one."
 license: MIT
 metadata:
   version: 2.9.0

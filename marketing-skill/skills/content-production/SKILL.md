@@ -1,6 +1,6 @@
 ---
 name: "content-production"
-description: "Use for any blog post, article or guide to write end to end, before drafting. Runs research, outline, draft and SEO passes, then gates the piece with content_scorer.py, seo_optimizer.py and content_quality_gates.py."
+description: "Write a blog post, article or guide end to end: research, outline, draft, SEO pass and quality gates. Use whenever the user asks to write a blog post, draft an article on a topic, or turn notes into a full piece."
 license: MIT
 metadata:
   version: 1.0.0

@@ -1,6 +1,6 @@
 ---
 name: commit-craft
-description: Use when committing a mix of changes, before a push, or when asked to split work into commits or write commit messages. Plans a reviewable series, blocks staged secrets and .env files, and lints messages with commit_planner.py, secret_gate.py and message_linter.py.
+description: "Turn a mix of changes into clean, reviewable commits with good messages, blocking staged secrets and .env files. Use whenever the user says commit this, wants to split work into commits, write a commit message, or is about to push."
 argument-hint: "[repo path | diff file | commit range]"
 license: MIT
 metadata:

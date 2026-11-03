@@ -1,6 +1,6 @@
 ---
 name: "agenthub"
-description: "Use when a task should be attempted by several agents in parallel and the best result kept (code speed, copy variants, research angles). Spawns N agents in git worktrees, ranks results by metric or judge with result_ranker.py and merges the winner."
+description: "Run several agents on one task in parallel and keep the best result: faster code, copy variants, research angles. Use whenever the user wants multiple attempts compared or best of N; spawns agents in git worktrees, ranks and merges the winner."
 license: MIT
 metadata:
   version: 2.1.2

@@ -1,6 +1,6 @@
 ---
 name: "ceo-advisor"
-description: "Use for CEO-level questions: company strategy, board and investor management, fundraising, org design or culture. Models scenarios with financial_scenario_analyzer.py and strategy with strategy_analyzer.py."
+description: "CEO and founder advice: company strategy, board and investor management, fundraising, org design, culture. Use whenever a CEO asks how to run the company, handle investors or board, or make a big bet."
 license: MIT
 metadata:
   version: 2.0.0

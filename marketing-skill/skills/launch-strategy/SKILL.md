@@ -1,6 +1,6 @@
 ---
 name: "launch-strategy"
-description: "Use when planning a product or feature launch, Product Hunt day, beta or waitlist, before writing the plan. Scores readiness with launch_readiness_scorer.py and phases the launch by channel."
+description: "Plan a product or feature launch: readiness score and a phased plan by channel. Use whenever the user is launching soon, planning a Product Hunt day, beta or waitlist, or asks how to launch."
 license: MIT
 metadata:
   version: 1.0.0

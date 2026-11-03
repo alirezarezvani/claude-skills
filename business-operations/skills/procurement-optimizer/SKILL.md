@@ -1,6 +1,6 @@
 ---
 name: procurement-optimizer
-description: "Use for a SaaS audit, category spend review or supplier consolidation. Categorizes spend with spend_categorizer.py, finds slow purchasing with purchasing_cycle_analyzer.py and sizes consolidation with supplier_consolidation.py."
+description: "Cut spend on software and suppliers: SaaS audit, category spend review, slow purchasing cycles, supplier consolidation. Use whenever the user asks which tools or vendors to cut, where money goes, or why buying takes so long."
 license: MIT
 metadata:
   version: 2.8.0

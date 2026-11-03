@@ -1,6 +1,6 @@
 ---
 name: "rag-architect"
-description: "Use when designing a RAG pipeline, choosing chunk size, embedding model or vector database, or measuring retrieval quality (precision@k, recall@k, NDCG). Gives sized recommendations and an evaluation plan against ground truth."
+description: "Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metrics. Use whenever the user builds search over their docs, picks a vector store or finds answers miss the right context."
 ---
 
 # RAG Architect

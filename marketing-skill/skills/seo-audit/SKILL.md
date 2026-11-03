@@ -1,6 +1,6 @@
 ---
 name: "seo-audit"
-description: "Use when a site is not ranking or needs an SEO audit (technical, on-page, meta tags), before giving advice. Scans pages with seo_checker.py and scores site health with seo_health_scorer.py."
+description: "Find why a site is not ranking: technical SEO, on-page issues, meta tags, site health. Use whenever the user asks why a page is not on Google, why traffic dropped or for an SEO audit."
 license: MIT
 metadata:
   version: 1.0.0

@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Three oversized SKILL.md files split into references** (community, @gabrielhavezane-ops, #1101, #1102, #1098).
+  Each body was over Anthropic's 500-line SKILL.md guidance and now loads about 40% fewer tokens; the moved
+  material lives in the skill's `references/` and is linked from the section it left. Workflows, scripts and
+  frontmatter are unchanged.
+  - **senior-frontend** (`engineering-skills` 2.14.7): 572 to about 290 lines. React patterns, Next.js
+    examples, accessibility, testing and quick reference moved to the three existing references.
+  - **senior-secops** (`engineering-skills` 2.14.7): 505 to 276 lines. Workflows 3 and 4, the secure coding
+    checklist, framework summaries, secret scanning and supply chain guidance moved to the existing references.
+  - **copy-editing** (`marketing-skills` 2.14.7): 508 to 240 lines. The full seven-sweep process and checklist
+    moved to the new `references/sweeps-detail.md` (references 916 to 917).
+
 ## [2.14.7] - 2026-11-03 — i18n-localization and two built-in name clashes fixed
 
 One new skill requested by the community (#849), and two renames so our names no longer hide Claude Code

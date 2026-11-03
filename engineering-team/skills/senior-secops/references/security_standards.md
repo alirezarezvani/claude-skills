@@ -742,3 +742,110 @@ app.after_request(add_security_headers)
 | Dependencies | Snyk | `snyk test` |
 | Container | Trivy | `trivy image myapp:latest` |
 | DAST | OWASP ZAP | Dynamic scanning |
+
+## Secure Coding Checklist and Best Practices (moved from SKILL.md)
+
+### Secure Coding Checklist
+
+```markdown
+## Input Validation
+- [ ] Validate all input on server side
+- [ ] Use allowlists over denylists
+- [ ] Sanitize for specific context (HTML, SQL, shell)
+
+## Output Encoding
+- [ ] HTML encode for browser output
+- [ ] URL encode for URLs
+- [ ] JavaScript encode for script contexts
+
+## Authentication
+- [ ] Use bcrypt/argon2 for passwords
+- [ ] Implement MFA for sensitive operations
+- [ ] Enforce strong password policy
+
+## Session Management
+- [ ] Generate secure random session IDs
+- [ ] Set HttpOnly, Secure, SameSite flags
+- [ ] Implement session timeout (15 min idle)
+
+## Error Handling
+- [ ] Log errors with context (no secrets)
+- [ ] Return generic messages to users
+- [ ] Never expose stack traces in production
+
+## Secrets Management
+- [ ] Use environment variables or secrets manager
+- [ ] Never commit secrets to version control
+- [ ] Rotate credentials regularly
+```
+
+### Secrets Management
+
+```python
+# BAD: Hardcoded secret
+API_KEY = "sk-1234567890abcdef"
+
+# GOOD: Environment variable
+import os
+API_KEY = os.environ.get("API_KEY")
+
+# BETTER: Secrets manager
+from your_vault_client import get_secret
+API_KEY = get_secret("api/key")
+```
+
+### SQL Injection Prevention
+
+```python
+# BAD: String concatenation
+query = f"SELECT * FROM users WHERE id = {user_id}"
+
+# GOOD: Parameterized query
+cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+```
+
+### XSS Prevention
+
+```javascript
+// BAD: Direct innerHTML assignment is vulnerable
+// GOOD: Use textContent (auto-escaped)
+element.textContent = userInput;
+
+// GOOD: Use sanitization library for HTML
+import DOMPurify from 'dompurify';
+const safeHTML = DOMPurify.sanitize(userInput);
+```
+
+### Authentication
+
+```javascript
+// Password hashing
+const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 12;
+
+// Hash password
+const hash = await bcrypt.hash(password, SALT_ROUNDS);
+
+// Verify password
+const match = await bcrypt.compare(password, hash);
+```
+
+### Security Headers
+
+```javascript
+// Express.js security headers
+const helmet = require('helmet');
+app.use(helmet());
+
+// Or manually set headers:
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  res.setHeader('Content-Security-Policy', "default-src 'self'");
+  next();
+});
+```
+
+---

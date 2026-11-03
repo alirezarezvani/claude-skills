@@ -804,3 +804,154 @@ export async function GET() {
   return Response.json(await response.json());
 }
 ```
+
+## Accessibility and testing examples
+
+### Accessibility Checklist
+
+1. **Semantic HTML**: Use proper elements (`<button>`, `<nav>`, `<main>`)
+2. **Keyboard Navigation**: All interactive elements focusable
+3. **ARIA Labels**: Provide labels for icons and complex widgets
+4. **Color Contrast**: Minimum 4.5:1 for normal text
+5. **Focus Indicators**: Visible focus states
+
+```tsx
+// Accessible button
+<button
+  type="button"
+  aria-label="Close dialog"
+  onClick={onClose}
+  className="focus-visible:ring-2 focus-visible:ring-blue-500"
+>
+  <XIcon aria-hidden="true" />
+</button>
+
+// Skip link for keyboard users
+<a href="#main-content" className="sr-only focus:not-sr-only">
+  Skip to main content
+</a>
+```
+
+### Testing Strategy
+
+```tsx
+// Component test with React Testing Library
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+test('button triggers action on click', async () => {
+  const onClick = vi.fn();
+  render(<Button onClick={onClick}>Click me</Button>);
+
+  await userEvent.click(screen.getByRole('button'));
+  expect(onClick).toHaveBeenCalledTimes(1);
+});
+
+// Test accessibility
+test('dialog is accessible', async () => {
+  render(<Dialog open={true} title="Confirm" />);
+
+  expect(screen.getByRole('dialog')).toBeInTheDocument();
+  expect(screen.getByRole('dialog')).toHaveAttribute('aria-labelledby');
+});
+```
+
+---
+
+
+## Quick reference
+
+### Common Next.js Config
+
+```js
+// next.config.js
+const nextConfig = {
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'cdn.example.com' }],
+    formats: ['image/avif', 'image/webp'],
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@heroicons/react'],
+  },
+};
+```
+
+### Tailwind CSS Utilities
+
+```tsx
+// Conditional classes with cn()
+import { cn } from '@/lib/utils';
+
+<button className={cn(
+  'px-4 py-2 rounded',
+  variant === 'primary' && 'bg-blue-500 text-white',
+  disabled && 'opacity-50 cursor-not-allowed'
+)} />
+```
+
+### TypeScript Patterns
+
+```tsx
+// Props with children
+interface CardProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+// Generic component
+interface ListProps<T> {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+}
+
+function List<T>({ items, renderItem }: ListProps<T>) {
+  return <ul>{items.map(renderItem)}</ul>;
+}
+```
+
+---
+
+
+## Generated outputs
+
+### Generated Structure (Next.js)
+
+```
+my-app/
+├── app/
+│   ├── layout.tsx        # Root layout with fonts
+│   ├── page.tsx          # Home page
+│   ├── globals.css       # Tailwind + CSS variables
+│   └── api/health/route.ts
+├── components/
+│   ├── ui/               # Button, Input, Card
+│   └── layout/           # Header, Footer, Sidebar
+├── hooks/                # useDebounce, useLocalStorage
+├── lib/                  # utils (cn), constants
+├── types/                # TypeScript interfaces
+├── tailwind.config.ts
+├── next.config.js
+└── package.json
+```
+
+### Generated Component Example
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
+
+interface ButtonProps {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export function Button({ className, children }: ButtonProps) {
+  return (
+    <div className={cn('', className)}>
+      {children}
+    </div>
+  );
+}
+```

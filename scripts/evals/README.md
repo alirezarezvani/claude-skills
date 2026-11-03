@@ -67,7 +67,7 @@ name or description changed, plus new ones; a body edit finishes in seconds with
 | `REGRESSED` | Fires less often than the base description did on the same prompts in the same run | yes |
 | `BELOW_FLOOR` | A new skill fired on fewer than half of its positive runs | yes |
 | `FALSE_FIRE` | Fired on its near-miss prompt at least once | yes |
-| `NOT_MEASURED` | Over `--max-skills` (default 12) or the budget (default $15) | no |
+| `NOT_MEASURED` | A run errored, or the skill fell past `--max-skills` (default 20) or the budget (default $30). An unmeasured skill has not passed | yes |
 
 - **The exam is held out.** Prompts come from the base branch's `cases/heldout_cases.json`, written
   from the description *before* the change, so a PR cannot tune its own exam (editing the file in the

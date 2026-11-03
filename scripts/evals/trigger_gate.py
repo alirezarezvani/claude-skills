@@ -18,10 +18,12 @@ Rules, per skill (2 positive prompts + 1 near miss, --runs repeats each):
   REGRESSED   changed skill's rate fell more than --max-drop below the base
               description's rate on the same prompts, measured in the same run  -> fail
 A skill that fails is measured once more and judged on the pooled runs, because single trigger
-runs are noisy (0/2 one run, 2/2 the next). Skills past --max-skills or past --budget are reported
-NOT_MEASURED and do not fail the gate.
+runs are noisy (0/2 one run, 2/2 the next). A skill the gate could not measure (a run errored, or it
+fell past --max-skills or --budget) is reported NOT_MEASURED and fails the gate with exit 3.
 
-Exit codes: 0 pass or nothing to measure, 1 at least one skill failed, 2 usage error.
+Exit codes: 0 pass or nothing to measure, 1 at least one skill failed, 2 usage error, 3 at least
+one skill was not measured (runs errored, budget or --max-skills ran out). 3 also fails the check:
+an unmeasured skill has not passed.
 
 Usage:
   python3 scripts/evals/trigger_gate.py --base origin/dev --plan     # what would run, no model calls
@@ -151,7 +153,7 @@ def run_job(j, args, budget):
     budget.add(t["cost"])
     exact, _ = fired(t["skills"], j["name"], j["plugin"])
     return dict(j, status="error" if t["error"] and not t["skills"] else "ok", exact=exact, fired=t["skills"],
-                cost=t["cost"], transcript=key + ".jsonl")
+                cost=t["cost"], transcript=key + ".jsonl", error=t["error"], error_detail=t.get("error_detail", ""))
 
 
 def tally(runs, arm):
@@ -167,8 +169,11 @@ def judge(r, runs, args):
     h = tally(runs, "head")
     b = tally(runs, "base") if not r["is_new"] else None
     r["head"], r["base"] = h, b
-    if h["skipped"] or (b and b["skipped"]) or not h["pos_total"] or (b and not b["pos_total"]):
-        return "NOT_MEASURED", "budget ran out or every run errored"
+    if h["skipped"] or (b and b["skipped"]):
+        return "NOT_MEASURED", "budget ran out before every run started"
+    if not h["pos_total"] or (b and not b["pos_total"]) or h["errors"] or (b and b["errors"]):
+        n = h["errors"] + (b["errors"] if b else 0)
+        return "NOT_MEASURED", f"{n} run(s) errored (see the errors below)"
     rate = h["pos"] / h["pos_total"]
     if h["neg_fires"]:
         return "FALSE_FIRE", f"fired on the near-miss prompt {h['neg_fires']}/{h['neg_total']}"
@@ -201,6 +206,18 @@ def render(res):
                          f"| {s['case_source']} |")
         for p in res["not_measured"]:
             lines.append(f"| `{p}` | | NOT_MEASURED | over --max-skills | |")
+    errs = {}
+    for r in res["runs_detail"]:
+        if r.get("status") == "error":
+            errs.setdefault(f"{r.get('error')}: {r.get('error_detail') or '(no detail)'}", 0)
+            errs[f"{r.get('error')}: {r.get('error_detail') or '(no detail)'}"] += 1
+    if errs:
+        lines += ["", "**Runs that errored** (a run that errors measures nothing, so the gate fails):", ""]
+        lines += [f"- {n}x `{e}`" for e, n in sorted(errs.items(), key=lambda kv: -kv[1])[:5]]
+        if any("401" in e or "authenticate" in e.lower() for e in errs):
+            lines += ["", "**Auth failed.** The CI token is missing, wrong or expired. A maintainer runs "
+                      "`claude setup-token` and stores the new token as the repo secret `CLAUDE_CODE_OAUTH_TOKEN`; "
+                      "subscription tokens expire, so this recurs."]
     for n in res["notes"]:
         lines.append(f"\n- {n}")
     failed = [s for s in res["skills"] if s["verdict"] in FAILING]
@@ -218,6 +235,9 @@ def render(res):
 
 
 FAILING = ("FALSE_FIRE", "BELOW_FLOOR", "REGRESSED")
+# A skill the gate could not measure has not passed it: failing open let PR #1111 through with 12 of
+# 12 skills unmeasured because every claude run errored on the runner.
+UNMEASURED = ("NOT_MEASURED",)
 
 
 def main():
@@ -228,8 +248,8 @@ def main():
     ap.add_argument("--min-rate", type=float, default=0.5, help="positive fire rate a new skill needs (default 0.5)")
     ap.add_argument("--max-drop", type=float, default=0.25,
                     help="largest allowed fall in fire rate vs the base description (default 0.25, one run in four)")
-    ap.add_argument("--max-skills", type=int, default=12, help="skills measured per run (default 12)")
-    ap.add_argument("--budget", type=float, default=15.0, help="stop starting runs past this many USD (default 15)")
+    ap.add_argument("--max-skills", type=int, default=20, help="skills measured per run (default 20)")
+    ap.add_argument("--budget", type=float, default=30.0, help="stop starting runs past this many USD (default 30)")
     ap.add_argument("--model", default="sonnet", help="model under test (default sonnet)")
     ap.add_argument("--jobs", type=int, default=6, help="parallel claude processes (default 6)")
     ap.add_argument("--out", default="gate-out", help="output folder (default gate-out/)")
@@ -289,7 +309,11 @@ def main():
     with open(os.path.join(args.out, "gate.md"), "w") as f:
         f.write(md)
     print(md)
-    return 1 if any(s["verdict"] in FAILING for s in res["skills"]) else 0
+    if any(s["verdict"] in FAILING for s in res["skills"]):
+        return 1
+    if over or any(s["verdict"] in UNMEASURED for s in res["skills"]):
+        return 3
+    return 0
 
 
 if __name__ == "__main__":

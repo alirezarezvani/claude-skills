@@ -5,7 +5,7 @@
     "engineering": [
       {
         "name": "agent-designer",
-        "description": "Use when designing a multi-agent system (supervisor, swarm, pipeline), writing agent tool schemas, or reading agent run logs for cost, latency or failure bottlenecks. Not for Claude Code workflow files (workflow-builder).",
+        "description": "Design multi-agent systems (supervisor, swarm, pipeline) and tool schemas; find bottlenecks in run logs. Use whenever agents split work or a run is slow or costly. Not for Claude Code workflow files (workflow-builder).",
         "path": "engineering/agent-designer"
       },
       {
@@ -35,12 +35,12 @@
       },
       {
         "name": "browser-automation",
-        "description": "Use for browser automation, scraping, form filling or structured extraction from web pages. Builds scrapers with scraping_toolkit.py and form flows with form_automation_builder.py. Browser testing: playwright-pro.",
+        "description": "Automate a browser: scrape websites, fill forms, pull structured data from web pages. Use whenever the user wants to grab data from a site, fill a web form or extract a table. Browser testing: playwright-pro.",
         "path": "engineering/browser-automation"
       },
       {
         "name": "changelog-generator",
-        "description": "Use when cutting a release, writing CHANGELOG.md or deciding the next version from commits, before writing notes by hand. Lints commits with commit_linter.py, picks the semver bump with version_bumper.py and renders notes with generate_changelog.py.",
+        "description": "Write release notes and CHANGELOG.md from commits and pick the next semver version. Use whenever the user is cutting a release, asks what changed since the last one or what version comes next, or wants commits linted first.",
         "path": "engineering/changelog-generator"
       },
       {
@@ -50,27 +50,27 @@
       },
       {
         "name": "ci-cd-pipeline-builder",
-        "description": "Use when setting up or refactoring CI/CD for a repo, before writing workflow YAML. Detects the stack with stack_detector.py and generates the pipeline with pipeline_generator.py.",
+        "description": "Set up or refactor CI/CD for a repo: detect the stack, generate pipeline YAML. Use whenever the user wants builds or tests to run on each push or needs a CI workflow file.",
         "path": "engineering/ci-cd-pipeline-builder"
       },
       {
         "name": "codebase-onboarding",
-        "description": "Use when someone is new to a repo or a tech lead needs an architecture brief, before writing docs by hand. Maps the codebase with codebase_analyzer.py and produces onboarding docs.",
+        "description": "Explain an unfamiliar repo: architecture brief and onboarding docs. Use whenever someone is new to a codebase, asks how a project is structured or where to start reading.",
         "path": "engineering/codebase-onboarding"
       },
       {
         "name": "coding-agent-rollout",
-        "description": "Use when rolling Claude Code out to a team or reviewing a rollout: shared or managed settings, MCP and plugin approval, layered CLAUDE.md, adoption. Lints settings with settings_linter.py, inventories MCP servers and plugins, and audits CLAUDE.md layering.",
+        "description": "Roll out Claude Code to a team: shared or managed settings, MCP and plugin approval, layered CLAUDE.md, adoption. Use whenever the user sets up Claude Code for their team or org, or asks if a rollout or settings file is right.",
         "path": "engineering/coding-agent-rollout"
       },
       {
         "name": "commit-craft",
-        "description": "Use when committing a mix of changes, before a push, or when asked to split work into commits or write commit messages. Plans a reviewable series, blocks staged secrets and .env files, and lints messages with commit_planner.py, secret_gate.py and message_linter.py.",
+        "description": "Turn a mix of changes into clean, reviewable commits with good messages, blocking staged secrets and .env files. Use whenever the user says commit this, wants to split work into commits, write a commit message, or is about to push.",
         "path": "engineering/commit-craft"
       },
       {
         "name": "database-designer",
-        "description": "Use when designing a database schema, choosing SQL vs NoSQL, modeling relationships or planning a data migration, before writing DDL. Applies normalization, index strategy and a database selection decision tree.",
+        "description": "Design a database schema: tables, relationships, indexes, normalization, SQL vs NoSQL, migration plans. Use whenever the user asks how to structure their data, which database to pick, or before writing DDL.",
         "path": "engineering/database-designer"
       },
       {
@@ -80,12 +80,12 @@
       },
       {
         "name": "dependency-auditor",
-        "description": "Use before a release, during a CVE investigation, before a major version bump or for a license review. Scans dependencies with dep_scanner.py, checks licenses with license_checker.py and plans safe upgrades with upgrade_planner.py.",
+        "description": "Audit project dependencies for CVEs and licenses and plan safe upgrades. Use whenever the user asks if their packages are safe, before a release or major version bump, while chasing a CVE, or for a license review.",
         "path": "engineering/dependency-auditor"
       },
       {
         "name": "engineering-advanced-skills",
-        "description": "Use when looking for which advanced engineering skill fits a task (agents, RAG, MCP, CI/CD, databases, observability, release, reliability). Lists them and routes to one.",
+        "description": "Pick the right advanced engineering skill: agents, RAG, MCP, CI/CD, databases, observability, release. Use whenever the user asks which skill fits a task.",
         "path": "engineering/engineering-advanced-skills"
       },
       {
@@ -140,7 +140,7 @@
       },
       {
         "name": "migration-architect",
-        "description": "Use before planning any database, schema, service or data migration, especially zero-downtime ones. Generates a phased plan, a compatibility check and rollback scripts with migration_planner.py, compatibility_checker.py and rollback_generator.py.",
+        "description": "Plan a safe database, schema, service or data migration: phased plan, compatibility check and rollback scripts. Use whenever the user must move data, change a live schema, switch databases or migrate without downtime.",
         "path": "engineering/migration-architect"
       },
       {
@@ -160,12 +160,12 @@
       },
       {
         "name": "pr-review-expert",
-        "description": "Use when asked to review a pull request or diff for correctness, security and quality. Reviews the change file by file with a severity-ranked checklist.",
+        "description": "Review a pull request or diff for bugs, security and quality, file by file. Use whenever the user asks to review a PR or look over their changes.",
         "path": "engineering/pr-review-expert"
       },
       {
         "name": "rag-architect",
-        "description": "Use when designing a RAG pipeline, choosing chunk size, embedding model or vector database, or measuring retrieval quality (precision@k, recall@k, NDCG). Gives sized recommendations and an evaluation plan against ground truth.",
+        "description": "Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metrics. Use whenever the user builds search over their docs, picks a vector store or finds answers miss the right context.",
         "path": "engineering/rag-architect"
       },
       {
@@ -180,7 +180,7 @@
       },
       {
         "name": "self-eval",
-        "description": "Use after finishing a task, review or session to grade the work honestly. Scores it on two axes, forces a devil's-advocate pass against score inflation and keeps scores across sessions.",
+        "description": "Grade finished work honestly on two axes with a devil's-advocate pass against inflation. Use whenever the user asks how well a task went, to rate the work or for an honest self-review.",
         "path": "engineering/self-eval"
       },
       {
@@ -210,7 +210,7 @@
       },
       {
         "name": "sql-database-assistant",
-        "description": "Use for writing or optimizing SQL, exploring a schema, generating migrations or working with Prisma, Drizzle, TypeORM or SQLAlchemy. Analyzes queries with query_optimizer.py and schemas with schema_explorer.py.",
+        "description": "Write and tune SQL, explore schemas, make migrations: Prisma, Drizzle, TypeORM, SQLAlchemy. Use whenever a query is slow or returns wrong rows, the user needs one written or asks what tables exist.",
         "path": "engineering/sql-database-assistant"
       },
       {
@@ -220,7 +220,7 @@
       },
       {
         "name": "tech-debt-tracker",
-        "description": "Use when asked about tech debt, refactoring priority, a cleanup sprint or legacy modernization. Scans the code with debt_scanner.py, ranks items with debt_prioritizer.py and tracks trends with debt_dashboard.py.",
+        "description": "Find, rank and track tech debt in a codebase. Use whenever the user asks what to refactor first, plans a cleanup sprint, modernizes legacy code or wants to know how messy the code is.",
         "path": "engineering/tech-debt-tracker"
       },
       {
@@ -235,7 +235,7 @@
       },
       {
         "name": "agenthub",
-        "description": "Use when a task should be attempted by several agents in parallel and the best result kept (code speed, copy variants, research angles). Spawns N agents in git worktrees, ranks results by metric or judge with result_ranker.py and merges the winner.",
+        "description": "Run several agents on one task in parallel and keep the best result: faster code, copy variants, research angles. Use whenever the user wants multiple attempts compared or best of N; spawns agents in git worktrees, ranks and merges the winner.",
         "path": "engineering/agenthub"
       },
       {
@@ -245,7 +245,7 @@
       },
       {
         "name": "eval",
-        "description": "Use to score and pick a winner among finished AgentHub agents by metric or judge.",
+        "description": "Rank finished AgentHub agents by metric or judge. Use when asked which agent won.",
         "path": "engineering/eval"
       },
       {
@@ -270,7 +270,7 @@
       },
       {
         "name": "spawn",
-        "description": "Use to launch the competing agents for an initialized AgentHub session in isolated worktrees.",
+        "description": "Launch the competing agents in isolated worktrees. Use when an AgentHub session is set up.",
         "path": "engineering/spawn"
       },
       {
@@ -290,12 +290,12 @@
       },
       {
         "name": "ar-status",
-        "description": "Use for /ar-status, or to see an autoresearch experiment's results, active loops and progress.",
+        "description": "Show autoresearch results and progress. Use when asked how an experiment runs, or /ar-status.",
         "path": "engineering/ar-status"
       },
       {
         "name": "autoresearch-agent",
-        "description": "Use when a file should be improved against a measurable metric (speed, bundle size, pass rate, prompt or headline score), before hand-tuning it. Loops edit, run_experiment.py, keep or git reset on a fixed evaluator; needs an eval command and a git repo.",
+        "description": "Make a file measurably better by trial: faster code, smaller bundle, higher pass rate or prompt score. Use whenever the user wants something optimized against a metric, before hand-tuning; loops edits, keeps wins, resets losses. Needs an eval command.",
         "path": "engineering/autoresearch-agent"
       },
       {
@@ -305,7 +305,7 @@
       },
       {
         "name": "behuman",
-        "description": "Use when the user asks for less robotic, more human replies ('be real', 'talk like a person', 'mirror mode'), or the conversation is emotionally heavy (grief, job loss, fear). Drops lists and hedging for a direct, warm voice. Not for code or factual lookups.",
+        "description": "Reply like a real person, direct and warm, without lists or hedging. Use whenever the user says you sound robotic, asks you to be real or talk like a person, wants mirror mode, or is going through grief, job loss or fear. Not for code or factual lookups.",
         "path": "engineering/behuman"
       },
       {
@@ -320,7 +320,7 @@
       },
       {
         "name": "caveman",
-        "description": "Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use when user says \"caveman mode\", \"talk like caveman\", \"use caveman\", \"less tokens\", \"be brief\", or invokes /caveman.",
+        "description": "Ultra-short replies that cut tokens about 75% by dropping filler, articles and pleasantries while staying technically accurate. Use whenever the user says caveman mode, talk like caveman, use caveman, less tokens, be brief, too wordy, or invokes /caveman.",
         "path": "engineering/caveman"
       },
       {
@@ -390,7 +390,7 @@
       },
       {
         "name": "karpathy-coder",
-        "description": "Use before committing or while reviewing a diff, or when code may be overbuilt. Checks it against Karpathy's four principles with complexity_checker.py, diff_surgeon.py and assumption_linter.py: surface assumptions, keep it simple, change surgically, verify goals.",
+        "description": "Check code against Karpathy's four principles: surface assumptions, keep it simple, change surgically, verify goals. Use whenever the user is about to commit, reviews a diff, or worries code is overbuilt or too complex; runs complexity_checker.py.",
         "path": "engineering/karpathy-coder"
       },
       {
@@ -410,7 +410,7 @@
       },
       {
         "name": "minimalist",
-        "description": "Use when asked to avoid over-engineering, cut dependencies or write the least code. Applies a strict ladder before any new code: YAGNI, reuse, stdlib, native platform, existing deps.",
+        "description": "Write the least code: no over-engineering, fewer dependencies. Use whenever the user wants it simpler; applies a ladder first: YAGNI, reuse, stdlib, native platform, existing deps.",
         "path": "engineering/minimalist"
       },
       {
@@ -435,12 +435,12 @@
       },
       {
         "name": "spinning-up-deep-rl",
-        "description": "Use when learning or applying deep RL from OpenAI's Spinning Up: MDPs, policy gradients, VPG, TRPO, PPO, DDPG, TD3, SAC, debugging RL code that fails silently, or multi-seed experiments. Indexes the 20 chapters for on-demand reading.",
+        "description": "Learn or apply deep reinforcement learning with OpenAI Spinning Up: policy gradients, VPG, PPO, SAC, TD3, DDPG, TRPO. Use whenever an RL agent will not learn, reward stays flat, or the user asks how PPO or SAC works.",
         "path": "engineering/spinning-up-deep-rl"
       },
       {
         "name": "statistical-analyst",
-        "description": "Use when checking whether a difference is real (A/B results, hypothesis tests) or sizing an experiment, before declaring a winner. Runs tests with hypothesis_tester.py, intervals with confidence_interval.py and sample sizes with sample_size_calculator.py.",
+        "description": "Tell whether a difference is real: A/B results, hypothesis tests, confidence intervals, how many users a test needs. Use whenever the user asks if a result is significant, which variant won, or how long to run a test before calling a winner.",
         "path": "engineering/statistical-analyst"
       },
       {
@@ -455,7 +455,7 @@
       },
       {
         "name": "universal-scraping-architect",
-        "description": "Use for web scraping, crawling, document extraction or API parsing pipelines that must validate what they extract. Builds the extractor with Firecrawl or local Python and checks output with validate_extraction.py.",
+        "description": "Scrape websites, crawl pages, extract documents or parse APIs, and validate what was extracted, via Firecrawl or local Python. Use whenever the user wants data pulled from a site, PDF or API, or a scraper breaks.",
         "path": "engineering/universal-scraping-architect"
       },
       {
@@ -477,7 +477,7 @@
     "engineering-team": [
       {
         "name": "adversarial-reviewer",
-        "description": "Use before merging a PR or when a self-review feels too agreeable and the change needs a genuinely critical read. Reviews the diff through hostile reviewer personas that catch blind spots the author and a friendly reviewer share.",
+        "description": "Tough, critical review of a diff or PR before merge, through hostile reviewer personas that catch shared blind spots. Use whenever the user wants a change torn apart, a harsh second opinion, or a self-review felt too agreeable.",
         "path": "engineering-team/adversarial-reviewer"
       },
       {
@@ -517,7 +517,7 @@
       },
       {
         "name": "engineering-skills",
-        "description": "Use when looking for which engineering-team skill fits a task (architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud). Lists them and routes to one; load only that skill.",
+        "description": "Find which engineering skill fits a task: architecture, frontend, backend, QA, DevOps, security, AI/ML, data, cloud. Use whenever the user is unsure which skill to use; load only that one.",
         "path": "engineering-team/engineering-skills"
       },
       {
@@ -527,7 +527,7 @@
       },
       {
         "name": "gcp-cloud-architect",
-        "description": "Use when designing or costing a Google Cloud architecture (Cloud Run, GKE, Functions, Cloud SQL, BigQuery, migration to GCP). Designs it with architecture_designer.py, deploys with deployment_manager.py and finds savings with cost_optimizer.py.",
+        "description": "Design, deploy and cut the cost of Google Cloud setups: Cloud Run, GKE, Functions, Cloud SQL, BigQuery, moving to GCP. Use whenever the user asks how to host or run something on GCP, why their GCP bill is high, or plans a GCP migration.",
         "path": "engineering-team/gcp-cloud-architect"
       },
       {
@@ -537,7 +537,7 @@
       },
       {
         "name": "incident-response",
-        "description": "Use when a security incident is detected or suspected and needs triage, SEV1-SEV4 classification, escalation and forensic evidence collection. Runs incident_triage.py and follows the NIST SP 800-61 lifecycle. Outages: incident-commander.",
+        "description": "Handle a suspected security breach: triage, SEV1-SEV4 severity, escalation and forensic evidence, per NIST SP 800-61. Use whenever the user thinks they were hacked, sees suspicious activity or a leaked key. Outages: incident-commander.",
         "path": "engineering-team/incident-response"
       },
       {
@@ -562,47 +562,47 @@
       },
       {
         "name": "security-pen-testing",
-        "description": "Use for an authorized penetration test, vulnerability scan or OWASP Top 10 check of an app or API. Scans with vulnerability_scanner.py, audits dependencies with dependency_auditor.py and writes the report with pentest_report_generator.py.",
+        "description": "Authorized penetration testing of an app or API: vulnerability scans, OWASP Top 10 checks, dependency audits and a pentest report. Use whenever the user asks if their app is secure or hackable, wants a security scan or a pentest report.",
         "path": "engineering-team/security-pen-testing"
       },
       {
         "name": "senior-architect",
-        "description": "Use for system architecture decisions (monolith vs microservices, database choice, scalability, ADRs, design reviews) or architecture diagrams. Analyzes dependencies with dependency_analyzer.py, assesses the project with project_architect.py and draws Mermaid or PlantUML with architecture_diagram_generator.py.",
+        "description": "Make system architecture decisions and draw architecture diagrams: monolith vs microservices, database choice, scalability, ADRs, design reviews, Mermaid or PlantUML. Use whenever the user asks how to structure a system, which database to pick, whether it will scale, or wants an ADR or diagram.",
         "path": "engineering-team/senior-architect"
       },
       {
         "name": "senior-backend",
-        "description": "Use for backend work: REST or GraphQL APIs, auth, microservices, PostgreSQL queries, migrations or load tests. Decides with backend_decision_engine.py, scaffolds with api_scaffolder.py, migrates with database_migration_tool.py and load-tests with api_load_tester.py.",
+        "description": "Build and fix backend services: REST or GraphQL APIs, auth, microservices, PostgreSQL queries, migrations and load tests. Use whenever the user's API is slow or broken, needs login or auth added, a schema change, or a new endpoint or service scaffolded.",
         "path": "engineering-team/senior-backend"
       },
       {
         "name": "senior-computer-vision",
-        "description": "Use for computer vision work: object detection, segmentation, training a custom model, or optimizing and deploying inference (YOLO, DETR, SAM, ONNX, TensorRT). Builds datasets with dataset_pipeline_builder.py, trains with vision_model_trainer.py and tunes inference with inference_optimizer.py.",
+        "description": "Computer vision models: object detection, segmentation, training a custom model, and optimizing or deploying inference (YOLO, DETR, SAM, ONNX, TensorRT). Use whenever the user wants to detect objects in images or video, train on their own labeled images, or speed up a slow vision model.",
         "path": "engineering-team/senior-computer-vision"
       },
       {
         "name": "senior-data-engineer",
-        "description": "Use for data pipelines and ETL or ELT (Spark, Airflow, dbt, Kafka, data modeling, data quality). Orchestrates with pipeline_orchestrator.py, validates with data_quality_validator.py and tunes jobs with etl_performance_optimizer.py.",
+        "description": "Build, fix and tune data pipelines: ETL/ELT, Airflow DAGs, Spark, dbt, Kafka, data modeling and data quality checks. Use whenever a pipeline, DAG or batch job fails, is slow or needs designing, or data arrives wrong.",
         "path": "engineering-team/senior-data-engineer"
       },
       {
         "name": "senior-data-scientist",
-        "description": "Use for experiment design, causal inference, feature engineering or predictive model evaluation on tabular data. Designs A/B tests with experiment_designer.py, builds features with feature_engineering_pipeline.py and evaluates models with model_evaluation_suite.py.",
+        "description": "Design experiments and analyze tabular data: A/B tests, causal inference, feature engineering, model evaluation. Use whenever the user asks how to set up or read an A/B test, whether a change caused a lift, which features to build, or how good a model is.",
         "path": "engineering-team/senior-data-scientist"
       },
       {
         "name": "senior-devops",
-        "description": "Use for CI/CD pipelines, infrastructure as code, containers and deployments on AWS, GCP or Azure. Generates pipelines with pipeline_generator.py, scaffolds Terraform with terraform_scaffolder.py and manages releases with deployment_manager.py.",
+        "description": "Set up CI/CD pipelines, infrastructure as code, containers and deployments on AWS, GCP or Azure. Use whenever the user needs a build or deploy pipeline, Terraform, a Dockerfile, or wants to manage a release to the cloud.",
         "path": "engineering-team/senior-devops"
       },
       {
         "name": "senior-frontend",
-        "description": "Use for React, Next.js, TypeScript or Tailwind work: components, performance, bundle size, scaffolding or frontend review. Decides with frontend_decision_engine.py, scaffolds with frontend_scaffolder.py and component_generator.py, and analyzes bundles with bundle_analyzer.py.",
+        "description": "Build and review React, Next.js, TypeScript or Tailwind frontends: components, scaffolding, performance and bundle size. Use whenever the user wants a new component or app, a page feels slow, the bundle is too big, or asks for a frontend code review.",
         "path": "engineering-team/senior-frontend"
       },
       {
         "name": "senior-fullstack",
-        "description": "Use when starting a fullstack project, choosing a stack (Next.js, FastAPI, MERN, Django) or auditing a codebase's quality. Picks the stack with fullstack_decision_engine.py, scaffolds with project_scaffolder.py and scores code with code_quality_analyzer.py.",
+        "description": "Start a fullstack project or audit a codebase: pick a stack (Next.js, FastAPI, MERN, Django), scaffold it and score code quality. Use whenever the user asks which stack to use, wants a new web app set up, or asks how good or messy their codebase is.",
         "path": "engineering-team/senior-fullstack"
       },
       {
@@ -612,22 +612,22 @@
       },
       {
         "name": "senior-prompt-engineer",
-        "description": "Use when optimizing a prompt, building an eval set, measuring RAG retrieval quality or validating an agent's tool config. Iterates with prompt_optimizer.py, scores RAG with rag_evaluator.py and checks agents with agent_orchestrator.py.",
+        "description": "Improve prompts and measure LLM quality: fix inconsistent prompts, build eval sets, score RAG retrieval, check agent tool configs. Use whenever the user's prompt, chatbot or RAG answers are unreliable or they ask how to test them.",
         "path": "engineering-team/senior-prompt-engineer"
       },
       {
         "name": "senior-qa",
-        "description": "Use for generating or improving tests in React or Next.js apps (Jest, React Testing Library, MSW, Playwright, coverage gaps). Generates suites with test_suite_generator.py, scaffolds E2E with e2e_test_scaffolder.py and reads coverage with coverage_analyzer.py.",
+        "description": "Write and improve tests for React or Next.js apps: Jest, React Testing Library, MSW mocks, Playwright E2E, coverage gaps. Use whenever the user asks to add tests to a component or page, mock an API, set up end-to-end tests or raise coverage.",
         "path": "engineering-team/senior-qa"
       },
       {
         "name": "senior-secops",
-        "description": "Use for application security operations: security reviews, CVE remediation, hardening, secrets and auth, or SOC 2, PCI-DSS, HIPAA and GDPR checks. Scans with security_scanner.py, assesses CVEs with vulnerability_assessor.py and checks controls with compliance_checker.py.",
+        "description": "Find and fix application security problems: security reviews, CVE remediation, hardening, secrets and auth, SOC 2, PCI-DSS, HIPAA and GDPR checks. Use whenever the user asks if their app is secure, needs to patch a vulnerable dependency or prepares for an audit.",
         "path": "engineering-team/senior-secops"
       },
       {
         "name": "senior-security",
-        "description": "Use for STRIDE threat modeling, DREAD scoring or a quick secret scan, or to route a security request to the right specialist. Models threats with threat_modeler.py and scans with secret_scanner.py.",
+        "description": "Check if a design or code is secure: STRIDE threat model, DREAD risk scores, leaked secret scan. Use whenever the user asks what could be attacked, how risky a feature is, or to find exposed keys.",
         "path": "engineering-team/senior-security"
       },
       {
@@ -637,12 +637,12 @@
       },
       {
         "name": "tdd-guide",
-        "description": "Use when writing tests first, generating tests, fixtures or mocks, or closing coverage gaps in Jest, Pytest, JUnit, Vitest or Mocha. Drives red-green-refactor with tdd_workflow.py, generates tests with test_generator.py and reads coverage with coverage_analyzer.py.",
+        "description": "Test-first development and test generation for Jest, Pytest, JUnit, Vitest or Mocha: red-green-refactor, fixtures and mocks, coverage gaps. Use whenever the user asks to write tests (before or after the code), mock a dependency or raise coverage.",
         "path": "engineering-team/tdd-guide"
       },
       {
         "name": "tech-stack-evaluator",
-        "description": "Use when comparing frameworks or technology stacks, or deciding on a migration, before committing. Compares with stack_comparator.py, computes TCO with tco_calculator.py, scores ecosystem health with ecosystem_analyzer.py and assesses migration with migration_analyzer.py.",
+        "description": "Compare frameworks or tech stacks before committing: side-by-side scoring, total cost of ownership, ecosystem health and migration risk. Use whenever the user asks which framework to pick, X vs Y, whether to switch stacks, or if a migration is worth it.",
         "path": "engineering-team/tech-stack-evaluator"
       },
       {
@@ -667,12 +667,12 @@
       },
       {
         "name": "coverage",
-        "description": "Use when asked what's not tested or for test coverage gaps ('test coverage', 'coverage gaps', 'missing tests', 'what needs testing'). Maps untested pages and flows.",
+        "description": "Find what is not tested: map untested pages and flows and coverage gaps. Use whenever the user asks what needs tests, about missing tests or test coverage.",
         "path": "engineering-team/coverage"
       },
       {
         "name": "fix",
-        "description": "Use when a Playwright test fails or is flaky ('fix test', 'flaky test', 'test passes sometimes', 'intermittent failure'). Diagnoses the cause and fixes it.",
+        "description": "Diagnose and fix a failing or flaky Playwright test. Use whenever a test fails, passes only sometimes, breaks intermittently or needs fixing.",
         "path": "engineering-team/fix"
       },
       {
@@ -702,7 +702,7 @@
       },
       {
         "name": "report",
-        "description": "Use when asked for a test report or results summary ('test report', 'test status', 'how did tests go').",
+        "description": "Summarize Playwright results. Use whenever the user asks how tests went, for a test report or status.",
         "path": "engineering-team/report"
       },
       {
@@ -712,17 +712,17 @@
       },
       {
         "name": "extract",
-        "description": "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Use when the user runs /si:extract or asks to package a recurring solution from memory into a skill.",
+        "description": "Turn a fix or pattern that keeps coming up into a reusable skill with SKILL.md, reference docs and examples. Use whenever the user runs /si:extract or wants to package a recurring solution or lesson as a skill.",
         "path": "engineering-team/extract"
       },
       {
         "name": "memory-review",
-        "description": "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics. Use when the user runs /si:memory-review or asks what has been learned and what should be promoted or pruned.",
+        "description": "Review what the agent has learned in auto-memory: what to promote to permanent rules, stale entries to prune, duplicates to merge. Use whenever the user runs /si:memory-review or asks what you learned or what to keep.",
         "path": "engineering-team/memory-review"
       },
       {
         "name": "memory-status",
-        "description": "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations. Use when the user runs /si:memory-status or asks how full or healthy the agent memory is.",
+        "description": "Health check of agent auto-memory: line counts, topic files, capacity, stale entries and what to prune. Use whenever the user asks how full or healthy memory is, or runs /si:memory-status.",
         "path": "engineering-team/memory-status"
       },
       {
@@ -732,12 +732,12 @@
       },
       {
         "name": "remember",
-        "description": "Explicitly save important knowledge to auto-memory with timestamp and context. Use when the user says 'remember this', asks you to capture a lesson so you stop repeating a mistake across sessions, or when a discovery is too important to rely on auto-capture.",
+        "description": "Save something important to auto-memory with a timestamp and context. Use whenever the user says remember this, note it for next time or don't forget, wants you to stop repeating a mistake across sessions, or a discovery is too important for auto-capture.",
         "path": "engineering-team/remember"
       },
       {
         "name": "self-improving-agent",
-        "description": "Curate the agent's own memory into durable project knowledge. Reviews Claude Code auto-memory (MEMORY.md and its topic files) for learnings worth keeping, promotes proven ones into CLAUDE.md or .claude/rules/, records a correction as a lesson that persists across sessions, prunes stale or duplicate entries, and turns a recurring fix into a reusable skill. Use whenever the user asks what you have learned or saved about the project, which memories should become permanent rules, to remember a lesson or stop repeating a mistake, or to clean up, audit or check the health of memory.",
+        "description": "Curate what the agent has learned into durable project knowledge. Reviews Claude Code auto-memory (MEMORY.md and its topic files) for learnings worth keeping, promotes proven ones into CLAUDE.md or .claude/rules/, records a correction as a lesson that persists across sessions, prunes stale or duplicate entries, and turns a recurring fix into a reusable skill. Use whenever the user asks what you have learned or saved about the project, which memories should become permanent rules, to remember a lesson or stop repeating a mistake, or to clean up, audit or check memory health.",
         "path": "engineering-team/self-improving-agent"
       },
       {
@@ -749,7 +749,7 @@
     "product-team": [
       {
         "name": "competitive-teardown",
-        "description": "Use for a deep competitor teardown (pricing, reviews, hiring, SEO, UX) or a response to a competitor's move. Scores products across 12 dimensions with competitive_matrix_builder.py and produces SWOT and positioning maps.",
+        "description": "Deep competitor teardown: pricing, reviews, hiring, SEO, UX, scored across 12 dimensions with SWOT and positioning maps. Use whenever the user asks how they compare to a rival or how to respond to a competitor's move.",
         "path": "product-team/competitive-teardown"
       },
       {
@@ -759,7 +759,7 @@
       },
       {
         "name": "experiment-designer",
-        "description": "Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor.",
+        "description": "Plan A/B tests and product experiments: hypotheses, sample size, priority, reading results. Use whenever the user asks if a test won, how long to run it or what to test.",
         "path": "product-team/experiment-designer"
       },
       {
@@ -774,12 +774,12 @@
       },
       {
         "name": "product-discovery",
-        "description": "Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources.",
+        "description": "Validate product ideas: map assumptions, plan discovery sprints, test problem-solution fit. Use whenever the user asks if an idea is worth building.",
         "path": "product-team/product-discovery"
       },
       {
         "name": "product-manager-toolkit",
-        "description": "Use for PM tasks: RICE prioritization, customer interview synthesis, PRDs or go-to-market. Scores features with rice_prioritizer.py and analyzes interviews with customer_interview_analyzer.py.",
+        "description": "PM toolkit: RICE prioritization, customer interview synthesis, PRDs and go-to-market. Use whenever the user asks what to build next, to rank features, write a PRD or sum up interview notes.",
         "path": "product-team/product-manager-toolkit"
       },
       {
@@ -789,12 +789,12 @@
       },
       {
         "name": "product-strategist",
-        "description": "Use for Head of Product work: quarterly OKRs, product vision, roadmap, team structure or aligning product strategy across teams. Cascades OKRs from company to team with okr_cascade_generator.py.",
+        "description": "Head of Product: quarterly OKRs cascaded from company to team, product vision, roadmap, team structure. Use whenever the user asks to set OKRs, a vision or roadmap, or align teams on strategy.",
         "path": "product-team/product-strategist"
       },
       {
         "name": "roadmap-communicator",
-        "description": "Use when preparing roadmap narratives, release notes, changelogs, or stakeholder updates tailored for executives, engineering teams, and customers.",
+        "description": "Write roadmap narratives, release notes, changelogs, stakeholder updates. Use whenever the user explains plans to execs, engineers or customers.",
         "path": "product-team/roadmap-communicator"
       },
       {
@@ -814,7 +814,7 @@
       },
       {
         "name": "ux-researcher-designer",
-        "description": "Use for UX research: personas from data, journey maps, usability test plans or research synthesis. Generates personas with persona_generator.py.",
+        "description": "UX research: personas, journey maps, usability test plans, synthesis. Use whenever the user asks who their users are or why they struggle.",
         "path": "product-team/ux-researcher-designer"
       },
       {
@@ -881,7 +881,7 @@
       },
       {
         "name": "campaign-analytics",
-        "description": "Use for any campaign performance, ROAS, CPA, attribution or funnel question, before answering from intuition. Runs multi-touch attribution, funnel and ROI math on the user's numbers with attribution_analyzer.py, funnel_analyzer.py and campaign_roi_calculator.py.",
+        "description": "Analyze campaign performance on the user's numbers: ROAS, CPA, ROI, multi-touch attribution and funnel drop-off. Use whenever the user asks which channel or ad is working, where spend is wasted, why conversions dropped, or shares campaign results to review.",
         "path": "marketing-skill/campaign-analytics"
       },
       {
@@ -906,12 +906,12 @@
       },
       {
         "name": "content-humanizer",
-        "description": "Use when a draft sounds like AI, generic or robotic, or needs the brand's voice, before editing it. Scores AI tells with humanizer_scorer.py and rewrites for rhythm, specifics and personality, then rescores.",
+        "description": "Make a draft sound less like AI: fix generic, robotic text with rhythm, specifics, personality and brand voice. Use whenever the user says copy sounds like ChatGPT, bland or stiff, or not like them.",
         "path": "marketing-skill/content-humanizer"
       },
       {
         "name": "content-production",
-        "description": "Use for any blog post, article or guide to write end to end, before drafting. Runs research, outline, draft and SEO passes, then gates the piece with content_scorer.py, seo_optimizer.py and content_quality_gates.py.",
+        "description": "Write a blog post, article or guide end to end: research, outline, draft, SEO pass and quality gates. Use whenever the user asks to write a blog post, draft an article on a topic, or turn notes into a full piece.",
         "path": "marketing-skill/content-production"
       },
       {
@@ -921,7 +921,7 @@
       },
       {
         "name": "copy-editing",
-        "description": "Use for any request to edit, proofread or tighten existing marketing copy, before changing words. Runs focused passes (clarity, voice, proof, specificity) and scores readability and AI tells with readability_scorer.py and ai_content_detector.py.",
+        "description": "Edit, proofread and tighten existing marketing copy in focused passes: clarity, voice, proofreading, specificity, readability and AI tells. Use whenever the user asks to polish, clean up, shorten or fix the wording of a page, email or ad.",
         "path": "marketing-skill/copy-editing"
       },
       {
@@ -946,7 +946,7 @@
       },
       {
         "name": "launch-strategy",
-        "description": "Use when planning a product or feature launch, Product Hunt day, beta or waitlist, before writing the plan. Scores readiness with launch_readiness_scorer.py and phases the launch by channel.",
+        "description": "Plan a product or feature launch: readiness score and a phased plan by channel. Use whenever the user is launching soon, planning a Product Hunt day, beta or waitlist, or asks how to launch.",
         "path": "marketing-skill/launch-strategy"
       },
       {
@@ -976,7 +976,7 @@
       },
       {
         "name": "marketing-psychology",
-        "description": "Use when applying persuasion, cognitive biases or behavioral science to a page, offer or campaign. Picks from 70+ named mental models with how to apply each ethically.",
+        "description": "Apply persuasion and behavioral science ethically to a page, offer or campaign, from 70+ mental models. Use whenever the user asks why people buy or how to nudge them.",
         "path": "marketing-skill/marketing-psychology"
       },
       {
@@ -996,7 +996,7 @@
       },
       {
         "name": "page-cro",
-        "description": "Use when a homepage, landing, pricing or feature page is not converting, before rewriting it. Audits it section by section with conversion_audit.py and ranks fixes by expected impact.",
+        "description": "Fix a page that is not converting: section by section audit with fixes ranked by impact. Use whenever a homepage, landing, pricing or feature page gets few signups, sales or clicks.",
         "path": "marketing-skill/page-cro"
       },
       {
@@ -1041,7 +1041,7 @@
       },
       {
         "name": "seo-audit",
-        "description": "Use when a site is not ranking or needs an SEO audit (technical, on-page, meta tags), before giving advice. Scans pages with seo_checker.py and scores site health with seo_health_scorer.py.",
+        "description": "Find why a site is not ranking: technical SEO, on-page issues, meta tags, site health. Use whenever the user asks why a page is not on Google, why traffic dropped or for an SEO audit.",
         "path": "marketing-skill/seo-audit"
       },
       {
@@ -1056,17 +1056,17 @@
       },
       {
         "name": "social-content",
-        "description": "Use for any LinkedIn post, X thread, Instagram, TikTok or Facebook post to write, before drafting. Applies each platform's hook, length and format rules and repurposes one idea across platforms.",
+        "description": "Write a LinkedIn post, X thread, Instagram, TikTok or Facebook post with each platform's hook, length and format. Use whenever the user wants a post or thread, or one idea for several platforms.",
         "path": "marketing-skill/social-content"
       },
       {
         "name": "social-media-analyzer",
-        "description": "Use for any social performance question (engagement rate, campaign ROI, which platform works best), before answering. Calculates the metrics and benchmarks them with calculate_metrics.py and analyze_performance.py.",
+        "description": "Measure how social posts and campaigns perform: engagement rate, campaign ROI, benchmarks, which platform works best. Use whenever the user asks if their posts are working, why engagement is low, or where to focus.",
         "path": "marketing-skill/social-media-analyzer"
       },
       {
         "name": "social-media-manager",
-        "description": "Use for social media strategy, a content calendar, community management or follower growth across platforms. Generates the calendar with social_calendar_generator.py. Single posts: social-content.",
+        "description": "Plan social media: strategy, content calendar, community management, follower growth. Use whenever the user asks what to post and when, or how to grow followers. Single posts: social-content.",
         "path": "marketing-skill/social-media-manager"
       },
       {
@@ -1113,17 +1113,17 @@
       },
       {
         "name": "c-level-skills",
-        "description": "Use when looking for which C-level advisor skill fits a question (14 C-suite roles, board meetings, culture, M&A). Lists them and routes to one.",
+        "description": "Find which C-level advisor fits a question: 14 C-suite roles, board meetings, culture, M&A. Use whenever the user asks which advisor to use.",
         "path": "c-level-advisor/c-level-skills"
       },
       {
         "name": "ceo-advisor",
-        "description": "Use for CEO-level questions: company strategy, board and investor management, fundraising, org design or culture. Models scenarios with financial_scenario_analyzer.py and strategy with strategy_analyzer.py.",
+        "description": "CEO and founder advice: company strategy, board and investor management, fundraising, org design, culture. Use whenever a CEO asks how to run the company, handle investors or board, or make a big bet.",
         "path": "c-level-advisor/ceo-advisor"
       },
       {
         "name": "cfo-advisor",
-        "description": "Use for startup finance decisions: unit economics (LTV, CAC), burn and runway, fundraising and dilution, or board financials. Runs unit_economics_analyzer.py, burn_rate_calculator.py and fundraising_model.py.",
+        "description": "Startup finance: runway and burn, unit economics (LTV, CAC, payback), fundraising and dilution, board financials. Use whenever the user shares burn, cash, ARR or CAC numbers or asks if they can raise.",
         "path": "c-level-advisor/cfo-advisor"
       },
       {
@@ -1153,7 +1153,7 @@
       },
       {
         "name": "chro-advisor",
-        "description": "Use for people strategy: hiring plans, comp bands, org structure, performance or retention. Models hiring with hiring_plan_modeler.py and benchmarks pay with comp_benchmarker.py.",
+        "description": "People strategy: hiring plans, comp bands, org structure, performance, retention. Use whenever the user asks who to hire, what to pay, how to structure teams or why staff leave.",
         "path": "c-level-advisor/chro-advisor"
       },
       {
@@ -1163,7 +1163,7 @@
       },
       {
         "name": "cmo-advisor",
-        "description": "Use for marketing leadership decisions: positioning, PLG vs sales-led vs community-led, budget allocation or marketing team design. Simulates growth with growth_model_simulator.py and budgets with marketing_budget_modeler.py.",
+        "description": "Marketing leadership: positioning, product-led vs sales-led vs community-led growth, budget split across channels, marketing team design. Use whenever the user asks how to grow, which go-to-market fits or where to spend.",
         "path": "c-level-advisor/cmo-advisor"
       },
       {
@@ -1188,7 +1188,7 @@
       },
       {
         "name": "cpo-advisor",
-        "description": "Use for product leadership: product vision, PMF measurement, portfolio prioritization, product org design or board product reporting. Scores PMF with pmf_scorer.py and the portfolio with portfolio_analyzer.py.",
+        "description": "Product leadership: PMF measurement, product vision, portfolio investment, product org design, board product reporting. Use whenever the user asks if they have PMF or how to split investment across products.",
         "path": "c-level-advisor/cpo-advisor"
       },
       {
@@ -1203,7 +1203,7 @@
       },
       {
         "name": "cto-advisor",
-        "description": "Use for CTO-level decisions: tech debt, architecture direction, engineering team scaling, technology evaluation or DORA metrics. Analyzes debt with tech_debt_analyzer.py and team growth with team_scaling_calculator.py.",
+        "description": "CTO decisions: tech debt, architecture direction, scaling the engineering team, technology evaluation, DORA metrics. Use whenever the user asks whether to rewrite, how to grow the eng team or which tech to bet on.",
         "path": "c-level-advisor/cto-advisor"
       },
       {
@@ -1223,7 +1223,7 @@
       },
       {
         "name": "general-counsel-advisor",
-        "description": "Use when reviewing a contract or term sheet (MSA, SaaS, NDA, DPA, employment), setting IP strategy or mapping regulatory exposure (HIPAA, GDPR, FDA, fintech). Scans with contract_risk_scanner.py and term_sheet_analyzer.py; not a substitute for licensed counsel.",
+        "description": "Legal review of contracts and term sheets (MSA, SaaS, NDA, DPA, employment), IP strategy and regulatory exposure (HIPAA, GDPR, FDA, fintech). Use whenever the user asks if a contract is risky or what to watch in a deal; not a substitute for licensed counsel.",
         "path": "c-level-advisor/general-counsel-advisor"
       },
       {
@@ -1238,7 +1238,7 @@
       },
       {
         "name": "ma-playbook",
-        "description": "Use when buying a company or preparing to be bought: due diligence, valuation, deal structure and integration.",
+        "description": "Buy a company or sell yours: diligence, valuation, terms, integration. Use whenever M&A or an exit comes up.",
         "path": "c-level-advisor/ma-playbook"
       },
       {
@@ -1268,7 +1268,7 @@
       },
       {
         "name": "challenge",
-        "description": "Use before committing serious resources to a plan, or when feedback has been suspiciously positive. Runs a pre-mortem: assume it failed in 12 months and work back to the assumptions, dependencies and execution risks.",
+        "description": "Pre-mortem a plan: assume it failed in 12 months and work back to the assumptions, dependencies and execution risks. Use whenever the user will commit serious resources or feedback seems too positive.",
         "path": "c-level-advisor/challenge"
       },
       {
@@ -1288,7 +1288,7 @@
       },
       {
         "name": "stress-test",
-        "description": "Use before betting on a plan whose core assumptions are unvalidated (a hockey-stick model, a long enterprise pilot).",
+        "description": "Stress-test a plan built on untested assumptions. Use whenever the user bets on a hockey-stick model or long pilot.",
         "path": "c-level-advisor/stress-test"
       }
     ],
@@ -1310,7 +1310,7 @@
       },
       {
         "name": "jira-expert",
-        "description": "Use for Jira configuration and queries: JQL, workflows, custom fields, automation, dashboards. Builds JQL with jql_query_builder.py and checks workflows with workflow_validator.py.",
+        "description": "Jira setup and queries: JQL, workflows, custom fields, automation, dashboards. Use whenever the user needs a Jira search, filter, dashboard or rule set up, or a workflow fixed.",
         "path": "project-management/jira-expert"
       },
       {
@@ -1320,7 +1320,7 @@
       },
       {
         "name": "pm-skills",
-        "description": "Use when a delivery request needs routing across the project-management skills (sprints, portfolio health, Jira, Confluence, comms), or to run a delivery loop. Routes with pm_goal_router.py, bridges Jira data with jira_snapshot_bridge.py and gates with delivery_loop_gate.py.",
+        "description": "Router for project-management skills: sprints, portfolio health, Jira, Confluence, stakeholder comms, plus a delivery loop. Use whenever a delivery request is unclear about which PM skill fits, or the user asks to run a delivery loop or pull Jira data into one.",
         "path": "project-management/pm-skills"
       },
       {
@@ -1330,7 +1330,7 @@
       },
       {
         "name": "senior-pm",
-        "description": "Use for project or portfolio management: plans, status reports, risk registers, capacity or executive reporting on multi-workstream programs. Runs project_health_dashboard.py, risk_matrix_analyzer.py and resource_capacity_planner.py.",
+        "description": "Project and portfolio management for multi-workstream programs: plans, status reports, risk registers, capacity, executive reporting. Use whenever the user asks how a project is tracking, what the risks are or who has capacity.",
         "path": "project-management/senior-pm"
       },
       {
@@ -1412,12 +1412,12 @@
       },
       {
         "name": "quality-manager-qms-iso13485",
-        "description": "Use when building or maintaining an ISO 13485 QMS for medical devices, or preparing for its certification audit. Covers QMS design, documentation and CAPA and runs qms_audit_checklist.py.",
+        "description": "Build or maintain an ISO 13485 medical device QMS: design, documentation, CAPA, audit prep. Use whenever the user faces a 13485 certification audit or needs quality procedures.",
         "path": "ra-qm-team/quality-manager-qms-iso13485"
       },
       {
         "name": "ra-qm-skills",
-        "description": "Use when a regulatory or quality request doesn't clearly match one skill (ISO 13485, MDR, FDA, ISO 14971, CAPA, ISO 27001, ISO 42001, EU AI Act, GDPR, SOC 2). Lists them and routes to one.",
+        "description": "Router for regulatory and quality skills: ISO 13485, MDR, FDA, ISO 14971, CAPA, ISO 27001, ISO 42001, EU AI Act, GDPR, SOC 2. Use whenever a compliance request fits no single one.",
         "path": "ra-qm-team/ra-qm-skills"
       },
       {
@@ -1454,7 +1454,7 @@
       },
       {
         "name": "revenue-operations",
-        "description": "Use for pipeline coverage, forecast accuracy or GTM efficiency (magic number, CAC payback). Runs pipeline_analyzer.py, forecast_accuracy_tracker.py and gtm_efficiency_calculator.py.",
+        "description": "Check sales pipeline and forecasts: pipeline coverage, forecast accuracy, magic number, CAC payback. Use whenever the user asks if pipeline is enough or how good forecasts are.",
         "path": "business-growth/revenue-operations"
       },
       {
@@ -1466,12 +1466,12 @@
     "finance": [
       {
         "name": "finance-skills",
-        "description": "Use when a finance request needs routing between financial-analyst (ratios, DCF, variance, forecasts), saas-metrics-coach (ARR, churn, CAC, LTV, NRR) and month-end-close.",
+        "description": "Pick the right finance skill: ratios, DCF, forecasts (financial-analyst), ARR, churn, CAC, LTV (saas-metrics-coach), month-end-close. Use whenever a finance ask is vague.",
         "path": "finance/finance-skills"
       },
       {
         "name": "financial-analyst",
-        "description": "Use for financial statement analysis, DCF valuation, budget variance or rolling forecasts. Runs ratio_calculator.py, dcf_valuation.py, budget_variance_analyzer.py and forecast_builder.py.",
+        "description": "Analyze financial statements, value a company with a DCF, explain budget variance, build rolling forecasts. Use whenever the user asks what a business is worth or why spend missed budget.",
         "path": "finance/financial-analyst"
       },
       {
@@ -1491,7 +1491,7 @@
       },
       {
         "name": "stock-analysis",
-        "description": "Use when asked to analyze, research or value a listed stock or company (US, global, NSE or BSE). Verifies data with verify_data.py, computes ratios, scores and valuation, and checks the report with lint_report.py.",
+        "description": "Analyze, research or value a listed stock or company (US, global, NSE or BSE) with verified data, ratios, scores and valuation. Use whenever asked if a stock is a buy, what it is worth, or how a company looks.",
         "path": "finance/stock-analysis"
       },
       {
@@ -1503,7 +1503,7 @@
     "productivity": [
       {
         "name": "andreessen",
-        "description": "Use when the user wants a blunt market-first verdict on an idea, venture or career bet ('is there a market', 'are we at PMF', 'pmarca mode'), or a 3x5-card daily plan. Scores with market_first_evaluator.py and pmf_signal_scorer.py; leads with the strongest counterargument.",
+        "description": "Blunt market-first verdict on an idea, venture or career bet, leading with the strongest counterargument, or a 3x5-card daily plan. Use whenever the user asks is there a market, are we at PMF, should I do this, or says pmarca mode.",
         "path": "productivity/andreessen"
       },
       {
@@ -1548,7 +1548,7 @@
       },
       {
         "name": "roast",
-        "description": "Use when someone asks to roast an idea, pressure-test or stress-test an idea, validate a business idea, \"convene the panel\", get a brutal second opinion before building something, or says \"/roast\". Spins up a 5-angle panel (Critic, Champion, Analyst, Investigator, Customer) that attacks the idea from every angle, then a Judge returns one GO / RESHAPE / KILL verdict with the cheapest test to de-risk it.",
+        "description": "Roast an idea: a 5-angle panel (Critic, Champion, Analyst, Investigator, Customer) attacks it, then a Judge returns one GO / RESHAPE / KILL verdict with the cheapest test to de-risk it. Use whenever the user wants to pressure-test or validate a business idea, asks for a brutal second opinion before building, asks is this a good idea, says convene the panel, or runs /roast.",
         "path": "productivity/roast"
       },
       {
@@ -1575,7 +1575,7 @@
       },
       {
         "name": "linkedin-content",
-        "description": "Use when writing, editing or reviewing a LinkedIn post (story, how-to, carousel, video script, poll) or repurposing content into posts. Picks the format with format_picker.py and lints with post_linter.py.",
+        "description": "Write, edit or review a LinkedIn post: story, how-to, carousel, video script or poll. Use whenever the user wants a LinkedIn post, asks if their draft is good, or wants a blog or talk turned into posts.",
         "path": "marketing/linkedin-content"
       },
       {
@@ -1595,7 +1595,7 @@
       },
       {
         "name": "linkedin-strategy",
-        "description": "Use when someone needs a LinkedIn plan rather than a post: content pillars, positioning, a sustainable cadence or a newsletter decision. Runs positioning_brief.py, cadence_planner.py and newsletter_planner.py.",
+        "description": "Build a LinkedIn plan rather than a post: content pillars, positioning, a sustainable cadence, whether to start a newsletter. Use whenever the user asks what to post about, how often, or how to grow.",
         "path": "marketing/linkedin-strategy"
       }
     ],
@@ -1654,12 +1654,12 @@
     "business-operations": [
       {
         "name": "business-operations-skills",
-        "description": "Use when an internal operations request needs routing (process, vendors, capacity, internal comms, SOPs, procurement): 'where's the bottleneck', 'vendor health'. Lists the BizOps skills and routes to one.",
+        "description": "Route internal operations requests to the right BizOps skill: process, vendors, capacity, internal comms, SOPs, procurement. Use whenever the user asks where the bottleneck is or about vendor health.",
         "path": "business-operations/business-operations-skills"
       },
       {
         "name": "capacity-planner",
-        "description": "Use when sizing an ops or support team, building a headcount plan or checking utilization risk. Models queues with Erlang C in capacity_modeler.py, analyzes utilization with utilization_analyzer.py and orders hires with hiring_sequencer.py.",
+        "description": "Size an ops or support team and plan headcount: Erlang C queue models, utilization risk, hiring order. Use whenever the user asks how many agents or staff they need, if the team is overloaded, or who to hire first.",
         "path": "business-operations/capacity-planner"
       },
       {
@@ -1679,7 +1679,7 @@
       },
       {
         "name": "procurement-optimizer",
-        "description": "Use for a SaaS audit, category spend review or supplier consolidation. Categorizes spend with spend_categorizer.py, finds slow purchasing with purchasing_cycle_analyzer.py and sizes consolidation with supplier_consolidation.py.",
+        "description": "Cut spend on software and suppliers: SaaS audit, category spend review, slow purchasing cycles, supplier consolidation. Use whenever the user asks which tools or vendors to cut, where money goes, or why buying takes so long.",
         "path": "business-operations/procurement-optimizer"
       },
       {
@@ -1765,12 +1765,12 @@
     "compliance-os": [
       {
         "name": "ai-act-readiness",
-        "description": "Use for /compliance-os:ai-act-readiness, or EU AI Act readiness questions during AI-system intake or before EU deployment.",
+        "description": "EU AI Act readiness for an AI system. Use when launching AI in the EU, at AI intake, or /compliance-os:ai-act-readiness.",
         "path": "compliance-os/ai-act-readiness"
       },
       {
         "name": "aims-audit",
-        "description": "Use for /compliance-os:aims-audit, or ISO 42001 readiness before stage 1 or an internal audit cycle.",
+        "description": "ISO 42001 AI readiness check. Use before a stage 1 or internal audit, or /compliance-os:aims-audit.",
         "path": "compliance-os/aims-audit"
       },
       {
@@ -1832,7 +1832,7 @@
       },
       {
         "name": "md-slides",
-        "description": "Use when converting a markdown deck into a single-file HTML presentation with keyboard navigation, presenter notes and print-to-PDF. Splits slides with slide_splitter.py and renders with deck_html_renderer.py.",
+        "description": "Turn a markdown file into a single-file HTML slide deck with keyboard navigation, presenter notes and print-to-PDF. Use whenever the user wants slides or a presentation from markdown or notes.",
         "path": "markdown-html/md-slides"
       }
     ],
@@ -1891,7 +1891,7 @@
       },
       {
         "name": "cco-review",
-        "description": "Use for /c-level-agents:cco-review, or to challenge a plan touching retention, segmentation or CS headcount.",
+        "description": "Challenge a churn, retention, segment or CS hiring plan. Use whenever asked or /c-level-agents:cco-review.",
         "path": "c-level-agents/cco-review"
       },
       {
@@ -1901,12 +1901,12 @@
       },
       {
         "name": "cfo-review",
-        "description": "Use for /c-level-agents:cfo-review, or to challenge a plan that commits real money (a hiring wave, a raise, a channel budget).",
+        "description": "Challenge a plan that spends real money: hiring wave, raise, channel budget. Use whenever asked or /c-level-agents:cfo-review.",
         "path": "c-level-agents/cfo-review"
       },
       {
         "name": "ciso-review",
-        "description": "Use for /c-level-agents:ciso-review, or to challenge a plan touching customer data, compliance or production access.",
+        "description": "Challenge a plan touching customer data, compliance or prod access. Use when asked or /c-level-agents:ciso-review.",
         "path": "c-level-agents/ciso-review"
       },
       {
@@ -1916,12 +1916,12 @@
       },
       {
         "name": "cpo-review",
-        "description": "Use for /c-level-agents:cpo-review, or to challenge a roadmap, a PMF claim or a feature-kill decision.",
+        "description": "Challenge a roadmap, PMF claim or feature kill. Use whenever asked or /c-level-agents:cpo-review.",
         "path": "c-level-agents/cpo-review"
       },
       {
         "name": "cro-review",
-        "description": "Use for /c-level-agents:cro-review, or to challenge a forecast, win-rate drop or sales-team scale-up.",
+        "description": "Challenge a forecast, win-rate drop or sales hires. Use whenever asked or /c-level-agents:cro-review.",
         "path": "c-level-agents/cro-review"
       },
       {
@@ -1931,7 +1931,7 @@
       },
       {
         "name": "cto-review",
-        "description": "Use for /c-level-agents:cto-review, or to challenge an architecture commitment, a 10x scaling plan or rebuild vs buy.",
+        "description": "Challenge an architecture bet, 10x scaling plan or rebuild vs buy. Use whenever asked or /c-level-agents:cto-review.",
         "path": "c-level-agents/cto-review"
       },
       {
@@ -1961,7 +1961,7 @@
       },
       {
         "name": "office-hours",
-        "description": "Use for /c-level-agents:office-hours, or when a founder question is too vague to route. Asks six YC-style questions before any advice.",
+        "description": "Founder advice after six YC-style questions. Use whenever a founder is stuck or unsure what to ask, or /c-level-agents:office-hours.",
         "path": "c-level-agents/office-hours"
       },
       {
@@ -1976,7 +1976,7 @@
       },
       {
         "name": "vpe-review",
-        "description": "Use for /c-level-agents:vpe-review, or to challenge a plan touching delivery speed, eng hiring, team structure or on-call.",
+        "description": "Challenge a plan on delivery speed, eng hiring, team structure or on-call. Use when asked or /c-level-agents:vpe-review.",
         "path": "c-level-agents/vpe-review"
       }
     ],

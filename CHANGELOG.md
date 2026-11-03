@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Second pass on the 48 skills that still never auto-triggered.** On a fresh blind prompt set (generated from
+  the old descriptions before any rewrite), 2 runs per prompt, rewriting 43 of them raised exact fires from 23/172
+  to 50/172 with zero near-miss fires. Only the 14 rewrites that improved were kept (ceo-advisor, cfo-advisor,
+  ai-act-readiness, senior-architect, senior-data-engineer, caveman, karpathy-coder, ci-cd-pipeline-builder,
+  migration-architect, pr-review-expert, sql-database-assistant, statistical-analyst, universal-scraping-architect,
+  social-media-analyzer); the rest keep their old text.
+- **Four router skills are now command-only** (`disable-model-invocation: true`): `c-level-skills`,
+  `engineering-advanced-skills`, `ra-qm-skills` and the `self-improving-agent` umbrella. They never fired, and
+  Claude Code already picks among their sibling skills itself; they stay available as slash commands, so nothing
+  breaks and no reinstall is needed.
+
+### Fixed
+
+- `generate_trigger_cases.py` now accepts a near-miss prompt the model wraps in a list, instead of writing a case
+  that crashes `run_evals.py`.
+
 ## [2.14.8] - 2026-11-03 — skills that load when you ask for them
 
 No new skills. This release is about the ones you already have: 111 skills whose descriptions never made Claude

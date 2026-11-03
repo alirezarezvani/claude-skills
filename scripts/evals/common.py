@@ -114,8 +114,8 @@ def run_claude(prompt, out_path, *, cwd, plugin_dirs=(), model="sonnet", max_tur
     env = dict(os.environ, CLAUDE_CONFIG_DIR=cfg, CLAUDE_CODE_SYNC_PLUGINS="0")
     env.pop("CLAUDECODE", None)
     try:
-        with open(out_path, "w") as f:
-            subprocess.run(cmd, stdout=f, stderr=subprocess.DEVNULL, env=env, cwd=cwd, timeout=timeout)
+        with open(out_path, "w") as f, open(out_path + ".stderr", "w") as err:
+            subprocess.run(cmd, stdout=f, stderr=err, env=env, cwd=cwd, timeout=timeout)
     except subprocess.TimeoutExpired:
         pass
     finally:
@@ -149,7 +149,17 @@ def read_transcript(path):
                 error = m.get("subtype") or "error"
     if not lines:
         error = "no output"
-    return dict(skills=skills, tools=tools, final=final, cost=cost, error=error)
+    elif not any('"type":"result"' in l.replace(" ", "") for l in lines):
+        error = error or "no result"
+    detail = ""
+    if error:
+        # Why it failed, for the report: the result text, else the CLI's stderr.
+        try:
+            detail = final or open(path + ".stderr").read()
+        except OSError:
+            detail = final
+        detail = " ".join(detail.split())[:300]
+    return dict(skills=skills, tools=tools, final=final, cost=cost, error=error, error_detail=detail)
 
 
 def fired(skills, name, plugin):

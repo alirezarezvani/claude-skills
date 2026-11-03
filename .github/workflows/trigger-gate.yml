@@ -109,7 +109,7 @@ jobs:
         if: steps.pre.outputs.run == 'true'
         env:
           BASE: ${{ steps.pre.outputs.base }}
-          MAX_SKILLS: ${{ vars.TRIGGER_GATE_MAX_SKILLS || '12' }}
+          MAX_SKILLS: ${{ vars.TRIGGER_GATE_MAX_SKILLS || '20' }}
         run: python3 scripts/evals/trigger_gate.py --base "origin/$BASE" --max-skills "$MAX_SKILLS" --plan
 
       - uses: actions/setup-node@v4
@@ -128,8 +128,8 @@ jobs:
         env:
           BASE: ${{ steps.pre.outputs.base }}
           ENFORCE: ${{ steps.pre.outputs.enforce }}
-          MAX_SKILLS: ${{ vars.TRIGGER_GATE_MAX_SKILLS || '12' }}
-          BUDGET: ${{ vars.TRIGGER_GATE_BUDGET_USD || '15' }}
+          MAX_SKILLS: ${{ vars.TRIGGER_GATE_MAX_SKILLS || '20' }}
+          BUDGET: ${{ vars.TRIGGER_GATE_BUDGET_USD || '30' }}
           MODEL: ${{ vars.SKILL_EVALS_MODEL || 'sonnet' }}
         run: |
           set +e
@@ -138,12 +138,15 @@ jobs:
           code=$?
           set -e
           [ -f gate-out/gate.md ] && cat gate-out/gate.md >> "$GITHUB_STEP_SUMMARY"
-          if [ "$code" = "1" ]; then
+          # 1 = a skill failed, 3 = a skill could not be measured. Both fail: an unmeasured skill
+          # has not passed (PR #1111 went green with every run erroring).
+          if [ "$code" = "1" ] || [ "$code" = "3" ]; then
+            what="failed"; [ "$code" = "3" ] && what="could not measure every changed skill"
             if [ "$ENFORCE" = "true" ]; then
-              echo "::error::Trigger gate failed; see the job summary. Label the PR trigger-gate-override to accept it."
+              echo "::error::Trigger gate $what; see the job summary. Label the PR trigger-gate-override to accept it."
               exit 1
             fi
-            echo "::warning::Trigger gate failed (advisory: override label or TRIGGER_GATE_ENFORCE=false)."
+            echo "::warning::Trigger gate $what (advisory: override label or TRIGGER_GATE_ENFORCE=false)."
           elif [ "$code" != "0" ]; then
             exit "$code"
           fi

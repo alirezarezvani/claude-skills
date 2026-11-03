@@ -1,6 +1,6 @@
 ---
 name: "senior-data-engineer"
-description: "Build, fix and tune data pipelines: ETL/ELT, Airflow DAGs, Spark, dbt, Kafka, data modeling and data quality checks. Use whenever a pipeline, DAG or batch job fails, is slow or needs designing, or data arrives wrong."
+description: "Data pipelines: Airflow DAGs, Spark, dbt, Kafka, ETL/ELT, data quality checks. Load whenever a DAG or batch job times out or fails, data arrives wrong, or the user designs an ingestion pipeline."
 ---
 
 # Senior Data Engineer

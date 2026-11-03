@@ -16,6 +16,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   path into an empty HOME and fails unless the harness itself lists every installed skill
   (`scripts/check_harness_installs.py`). No model is called and no API key is used.
 
+### Changed
+
+- **Second pass on the 48 skills that still never auto-triggered.** On a fresh blind prompt set (generated from
+  the old descriptions before any rewrite), 2 runs per prompt, rewriting 43 of them raised exact fires from 23/172
+  to 50/172 with zero near-miss fires. Only the 14 rewrites that improved were kept (ceo-advisor, cfo-advisor,
+  ai-act-readiness, senior-architect, senior-data-engineer, caveman, karpathy-coder, ci-cd-pipeline-builder,
+  migration-architect, pr-review-expert, sql-database-assistant, statistical-analyst, universal-scraping-architect,
+  social-media-analyzer); the rest keep their old text.
+- **Four router skills are now command-only** (`disable-model-invocation: true`): `c-level-skills`,
+  `engineering-advanced-skills`, `ra-qm-skills` and the `self-improving-agent` umbrella. They never fired, and
+  Claude Code already picks among their sibling skills itself; they stay available as slash commands, so nothing
+  breaks and no reinstall is needed.
+
 ### Fixed
 
 - **Six skills never loaded in Codex** (aeo, deepread, hivemind, loop-library, swedish-mentor, youtube-full).
@@ -26,6 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   command files now carry one, matching their file names, so Claude Code is unaffected.
 - Vibe and Hermes mirror links for agent-regression-evals, coding-agent-rollout and month-end-close pointed at
   the standalone copy instead of the bundle copy a fresh sync picks (same content).
+- `generate_trigger_cases.py` now accepts a near-miss prompt the model wraps in a list, instead of writing a case
+  that crashes `run_evals.py`.
 
 ## [2.14.8] - 2026-11-03 — skills that load when you ask for them
 

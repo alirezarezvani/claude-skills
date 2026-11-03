@@ -1,6 +1,6 @@
 ---
 name: "ceo-advisor"
-description: "CEO and founder advice: company strategy, board and investor management, fundraising, org design, culture. Use whenever a CEO asks how to run the company, handle investors or board, or make a big bet."
+description: "Advice for a CEO or founder on running the company: board and investor trouble, raise or cut, strategy bets, org and culture. Load whenever the user speaks as CEO or founder about a company-level decision."
 license: MIT
 metadata:
   version: 2.0.0

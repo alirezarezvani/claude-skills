@@ -1,6 +1,6 @@
 ---
 name: "cfo-advisor"
-description: "Startup finance: runway and burn, unit economics (LTV, CAC, payback), fundraising and dilution, board financials. Use whenever the user shares burn, cash, ARR or CAC numbers or asks if they can raise."
+description: "Startup finance: runway and burn, unit economics (LTV, CAC, payback), fundraising and dilution. Load whenever the user asks how long the cash lasts, if burn is too high, or shares cash, ARR or CAC numbers."
 license: MIT
 metadata:
   version: 1.0.0

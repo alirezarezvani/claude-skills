@@ -1,6 +1,6 @@
 ---
 name: "ai-act-readiness"
-description: "EU AI Act readiness for an AI system. Use when launching AI in the EU, at AI intake, or /compliance-os:ai-act-readiness."
+description: "EU AI Act readiness: risk tier, duties, deadlines. Load whenever AI ships in the EU or the user asks if the Act applies."
 ---
 
 # /compliance-os:ai-act-readiness — EU AI Act Forcing Questions

@@ -1,6 +1,7 @@
 ---
 name: "engineering-advanced-skills"
 description: "Pick the right advanced engineering skill: agents, RAG, MCP, CI/CD, databases, observability, release. Use whenever the user asks which skill fits a task."
+disable-model-invocation: true
 license: MIT
 metadata:
   version: 2.9.0

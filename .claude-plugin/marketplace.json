@@ -16,7 +16,7 @@
       "name": "marketing-skills",
       "source": "./marketing-skill",
       "description": "47 marketing skills across 8 pods: Content, SEO & AEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 62 Python tools, 89 reference docs.",
-      "version": "2.14.7",
+      "version": "2.14.8",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -269,7 +269,7 @@
       "name": "engineering-skills",
       "source": "./engineering-team",
       "description": "32 engineering skills: architecture, frontend, backend, fullstack, QA, DevOps, security, AI/ML, data engineering, Playwright (9 sub-skills), self-improving agent, Stripe integration, TDD guide, tech stack evaluator, Google Workspace CLI, a11y audit (WCAG 2.2), Azure cloud architect, GCP cloud architect, security pen testing, Snowflake development, adversarial-reviewer, ai-security, cloud-security, incident-response, red-team, threat-detection. v2.8.1 audits senior-fullstack / senior-frontend / senior-backend against karpathy-coder + Matt Pocock — each ships a 7-question forcing-question library, 4 customization profiles (JSON), deterministic decision engine, composition map into POWERFUL specialists, plus cs-fullstack-engineer / cs-frontend-engineer / cs-backend-engineer orchestrator agents (context: fork) + /cs-fullstack-review, /cs-frontend-review, /cs-backend-review, /cs-engineer-grill slash commands.",
-      "version": "2.14.7",
+      "version": "2.14.8",
       "author": {
         "name": "Alireza Rezvani"
       },

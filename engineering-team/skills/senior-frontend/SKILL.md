@@ -271,6 +271,14 @@ The `cs-frontend-engineer` agent orchestrates these forks via `context: fork`. I
 
 Before locking a framework or rendering decision, walk the seven forcing questions in `references/forcing_questions.md`: one question per turn, cite the canon for each recommended answer, and stop when a kill criterion trips. After Q7, run `frontend_decision_engine.py` with the answers.
 
+1. Primary device + network?
+2. LCP target in ms (and INP, CLS)?
+3. RSC / SPA / SSR / SSG — pick and defend?
+4. JS bundle budget per route?
+5. SEO-dependent or auth-walled?
+6. Design-system source of truth?
+7. WCAG target + named a11y owner?
+
 ---
 
 

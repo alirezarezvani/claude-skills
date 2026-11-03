@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Three oversized SKILL.md files split into references** (community, @gabrielhavezane-ops, #1101, #1102, #1098).
+  Each body was over Anthropic's 500-line SKILL.md guidance and now loads about 40% fewer tokens; the moved
+  material lives in the skill's `references/` and is linked from the section it left. Workflows, scripts and
+  frontmatter are unchanged.
+  - **senior-frontend** (`engineering-skills` 2.14.7): 572 to about 290 lines. React patterns, Next.js
+    examples, accessibility, testing and quick reference moved to the three existing references.
+  - **senior-secops** (`engineering-skills` 2.14.7): 505 to 276 lines. Workflows 3 and 4, the secure coding
+    checklist, framework summaries, secret scanning and supply chain guidance moved to the existing references.
+  - **copy-editing** (`marketing-skills` 2.14.7): 508 to 240 lines. The full seven-sweep process and checklist
+    moved to the new `references/sweeps-detail.md` (references 916 to 917).
+
 ## [2.14.7] - 2026-11-03 — i18n-localization and two built-in name clashes fixed
 
 One new skill requested by the community (#849), and two renames so our names no longer hide Claude Code
@@ -33,10 +46,6 @@ to exceed its dev version), up to `engineering-advanced-skills` at 2.14.15.
   repeatable CI gate, not a quality lift.
 
 ### Changed
-
-- **senior-frontend** (`engineering-team/skills/senior-frontend/`, plugin 2.14.7): SKILL.md cut from 15.7 KB and 572 lines to 9.9 KB and 285 lines, to meet the 500-line and 10 KB limit. Examples moved to existing references: React patterns to `react_patterns.md`, Next.js examples to `nextjs_optimization_guide.md`, accessibility, testing, quick reference and generated outputs to `frontend_best_practices.md`. Workflows, scripts and assumptions are unchanged.
-- **senior-secops** (`engineering-team/skills/senior-secops/`, plugin 2.14.8): SKILL.md cut from 16.0 KB and 505 lines to 9.6 KB and 276 lines. Workflows 3 and 4, the secure coding checklist, framework summaries, best practices, secret scanning tools and supply chain security moved to the existing references (`vulnerability_management_guide.md`, `security_standards.md`, `compliance_requirements.md`). Scripts and the OWASP quick-check are unchanged.
-- **copy-editing** (`marketing-skill/skills/copy-editing/`, plugin 2.14.7): SKILL.md cut from 16.8 KB and 508 lines to 9.5 KB and 240 lines. The full seven-sweep process and the copy editing checklist moved to the new `references/sweeps-detail.md`. The SKILL keeps one question per sweep. Workflow, scripts and anti-patterns are unchanged. Reference count 916 -> 917.
 
 - **`deep-research` renamed to `meta-research` (reinstall required).** Claude Code 2.1.316 bundles a
   `deep-research` skill (its fan-out web research workflow), and our plugin skill of the same name hid it.

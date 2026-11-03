@@ -1,0 +1,141 @@
+---
+# Clean-install checks for the non-Claude harnesses (Codex, Gemini CLI,
+# Hermes Agent, Mistral Vibe). Each job installs the real open-source CLI,
+# runs this repo's documented install path into an empty HOME and asks the
+# harness which skills it discovered. No model is called and no API key is
+# used: every listing is offline.
+#
+# Pull requests and pushes use pinned harness versions so a red run means our
+# change broke something. The weekly run uses the latest releases so we learn
+# when a harness update stops loading our skills. Mirror drift itself is
+# gate G13 in ci-quality-gate.yml (scripts/check_harness_mirrors.py).
+name: Harness Compatibility
+
+'on':
+  pull_request:
+    paths:
+      - '**/SKILL.md'
+      - 'commands/**'
+      - 'agents/**'
+      - '.codex/**'
+      - '.gemini/**'
+      - '.vibe/**'
+      - '.hermes/**'
+      - 'scripts/sync-*-skills.py'
+      - 'scripts/codex-install.*'
+      - 'scripts/vibe-install.sh'
+      - 'scripts/gemini-install.sh'
+      - 'scripts/check_harness_*.py'
+      - '.github/workflows/harness-compat.yml'
+  push:
+    branches: [dev, main]
+    paths:
+      - '**/SKILL.md'
+      - 'commands/**'
+      - 'agents/**'
+      - '.codex/**'
+      - '.gemini/**'
+      - '.vibe/**'
+      - '.hermes/**'
+      - 'scripts/sync-*-skills.py'
+      - 'scripts/codex-install.*'
+      - 'scripts/vibe-install.sh'
+      - 'scripts/check_harness_*.py'
+      - '.github/workflows/harness-compat.yml'
+  schedule:
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+    inputs:
+      latest:
+        description: Test the latest harness releases instead of the pinned ones
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: harness-compat-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CODEX_VERSION: 0.166.0
+  GEMINI_CLI_VERSION: 0.66.0
+  HERMES_VERSION: 0.19.0
+  VIBE_VERSION: 3.0.4
+
+jobs:
+  install:
+    name: Clean install (${{ matrix.harness }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        harness: [codex, gemini, hermes, vibe]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        if: matrix.harness == 'codex' || matrix.harness == 'gemini'
+        with:
+          node-version: 22
+
+      - name: Pick harness versions
+        id: ver
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          LATEST_INPUT: ${{ github.event.inputs.latest }}
+        run: |
+          if [[ "$EVENT_NAME" == "schedule" || "$LATEST_INPUT" == "true" ]]; then
+            echo "codex=@openai/codex@latest" >> "$GITHUB_OUTPUT"
+            echo "gemini=@google/gemini-cli@latest" >> "$GITHUB_OUTPUT"
+            echo "hermes=hermes-agent" >> "$GITHUB_OUTPUT"
+            echo "vibe=mistral-vibe" >> "$GITHUB_OUTPUT"
+          else
+            echo "codex=@openai/codex@${CODEX_VERSION}" >> "$GITHUB_OUTPUT"
+            echo "gemini=@google/gemini-cli@${GEMINI_CLI_VERSION}" >> "$GITHUB_OUTPUT"
+            echo "hermes=hermes-agent==${HERMES_VERSION}" >> "$GITHUB_OUTPUT"
+            echo "vibe=mistral-vibe==${VIBE_VERSION}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install Codex CLI
+        if: matrix.harness == 'codex'
+        env:
+          PKG: ${{ steps.ver.outputs.codex }}
+        run: npm install -g "$PKG" && codex --version
+
+      - name: Install Gemini CLI
+        if: matrix.harness == 'gemini'
+        env:
+          PKG: ${{ steps.ver.outputs.gemini }}
+        run: npm install -g "$PKG" && gemini --version
+
+      - name: Install Hermes Agent
+        if: matrix.harness == 'hermes'
+        env:
+          PKG: ${{ steps.ver.outputs.hermes }}
+        run: |
+          python -m venv "$RUNNER_TEMP/hermes"
+          "$RUNNER_TEMP/hermes/bin/pip" install --quiet "$PKG"
+          echo "$RUNNER_TEMP/hermes/bin" >> "$GITHUB_PATH"
+
+      - name: Install Mistral Vibe
+        if: matrix.harness == 'vibe'
+        env:
+          PKG: ${{ steps.ver.outputs.vibe }}
+        run: |
+          python -m venv "$RUNNER_TEMP/vibe"
+          "$RUNNER_TEMP/vibe/bin/pip" install --quiet "$PKG"
+
+      - name: Harness discovers every installed skill
+        env:
+          HARNESS: ${{ matrix.harness }}
+        run: |
+          python3 scripts/check_harness_installs.py --harness "$HARNESS" --require \
+            --vibe-python "$RUNNER_TEMP/vibe/bin/python"

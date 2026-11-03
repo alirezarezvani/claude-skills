@@ -1,6 +1,6 @@
 ---
 name: "sql-database-assistant"
-description: "Write and tune SQL, explore schemas, make migrations: Prisma, Drizzle, TypeORM, SQLAlchemy. Use whenever a query is slow or returns wrong rows, the user needs one written or asks what tables exist."
+description: "Write, fix and speed up SQL: slow queries, EXPLAIN plans, indexes, ORM migrations (Prisma, Drizzle, SQLAlchemy). Load whenever a query is slow or wrong, the user needs SQL written, or an ORM migration."
 ---
 
 # SQL Database Assistant - POWERFUL Tier Skill

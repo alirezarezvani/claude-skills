@@ -1,6 +1,6 @@
 ---
 name: "ci-cd-pipeline-builder"
-description: "Set up or refactor CI/CD for a repo: detect the stack, generate pipeline YAML. Use whenever the user wants builds or tests to run on each push or needs a CI workflow file."
+description: "Generate a CI/CD workflow for a repo from its detected stack: lint, test, build, deploy. Load whenever the user says the repo has no CI, wants tests run on push, or needs a pipeline YAML."
 ---
 
 # CI/CD Pipeline Builder

@@ -1,6 +1,6 @@
 ---
 name: "senior-architect"
-description: "Make system architecture decisions and draw architecture diagrams: monolith vs microservices, database choice, scalability, ADRs, design reviews, Mermaid or PlantUML. Use whenever the user asks how to structure a system, which database to pick, whether it will scale, or wants an ADR or diagram."
+description: "System architecture decisions with a written rationale: monolith vs microservices, database choice, scaling limits, ADRs, Mermaid diagrams. Load whenever the user asks should we split, which database, will it scale, or wants an ADR."
 ---
 
 # Senior Architect

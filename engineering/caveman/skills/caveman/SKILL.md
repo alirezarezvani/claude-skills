@@ -1,6 +1,6 @@
 ---
 name: caveman
-description: "Ultra-short replies that cut tokens about 75% by dropping filler, articles and pleasantries while staying technically accurate. Use whenever the user says caveman mode, talk like caveman, use caveman, less tokens, be brief, too wordy, or invokes /caveman."
+description: "Terse mode: drop filler, articles and pleasantries, keep technical accuracy, about 75% fewer tokens, and stay in it. Load whenever the user asks for fewer words, shorter answers, less tokens, caveman mode or /caveman."
 license: MIT
 metadata:
   derived_from: "https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman"

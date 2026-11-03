@@ -83,7 +83,10 @@ def main():
             spent += cost
             for r in batch:
                 c = got.get(r["path"])
-                if c and len(c.get("pos", [])) == 2 and c.get("neg"):
+                if c and isinstance(c.get("neg"), list) and len(c["neg"]) == 1:
+                    c["neg"] = c["neg"][0]  # the model sometimes wraps the one near miss in a list
+                if (c and len(c.get("pos", [])) == 2 and all(isinstance(p, str) for p in c["pos"])
+                        and isinstance(c.get("neg"), str) and c["neg"]):
                     cases[r["path"]] = dict(name=r["name"], plugin=r["plugin"], pos=c["pos"], neg=c["neg"],
                                             origin="generated")
                 else:

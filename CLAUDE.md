@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.7 (i18n-localization release: new i18n-localization skill that gates translation files on missing keys, placeholders and CLDR plural forms, finds hardcoded UI strings and builds pseudo-locales (#849); deep-research renamed meta-research (reinstall) and the maintainer /review command renamed /quality-gate so neither hides a Claude Code built-in; Vibe and Hermes mirrors resynced. See CHANGELOG.md [2.14.7].)
+**Version:** v2.14.8 (trigger release: descriptions of 111 skills that never auto-triggered rewritten in user words, held-out fires 26% to 38% with zero false fires; senior-frontend, senior-secops and copy-editing SKILL.md files split into references (#1098, #1101, #1102). See CHANGELOG.md [2.14.8].)
+
+**Previously: v2.14.7** (i18n-localization release: new i18n-localization skill that gates translation files on missing keys, placeholders and CLDR plural forms, finds hardcoded UI strings and builds pseudo-locales (#849); deep-research renamed meta-research (reinstall) and the maintainer /review command renamed /quality-gate so neither hides a Claude Code built-in; Vibe and Hermes mirrors resynced. See CHANGELOG.md [2.14.7].)
 
 **Previously: v2.14.6** (agent-run-forensics + security-audit release: new agent-run-forensics skill that answers questions about past agent runs from their transcripts, skill security audit now covers every changed skill with all 409 passing --strict, workflow event text read from env, Firecrawl example on the v2 SDK. See CHANGELOG.md [2.14.6].)
 
@@ -834,7 +836,7 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
    **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
 
    **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.7).
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.8).
 
 ## Anti-Patterns to Avoid
 
@@ -880,5 +882,5 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 ---
 
 **Last Updated:** November 3, 2026
-**Version:** v2.14.7 (i18n-localization, meta-research and /quality-gate renames — see CHANGELOG.md)
+**Version:** v2.14.8 (111 trigger-description rewrites, three SKILL.md splits — see CHANGELOG.md)
 **Status:** 411 production-ready skills across 20 domains, 110 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

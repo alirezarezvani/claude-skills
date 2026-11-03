@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 388,
+  "total_skills": 389,
   "domains": {
     "engineering": [
       {
@@ -112,6 +112,11 @@
         "name": "git-worktree-manager",
         "description": "Use when running several branches or agents in parallel on one repo. Creates worktrees with isolated ports and env via worktree_manager.py and removes stale ones with worktree_cleanup.py.",
         "path": "engineering/git-worktree-manager"
+      },
+      {
+        "name": "i18n-localization",
+        "description": "Use when adding UI text, adding or shipping a language, reviewing translation files, or building i18n into an app. Checks missing keys, placeholders and CLDR plural forms with locale_sync.py, finds hardcoded strings with hardcoded_strings.py, and builds a pseudo-locale with pseudo_localize.py.",
+        "path": "engineering/i18n-localization"
       },
       {
         "name": "interview-system-designer",
@@ -315,7 +320,7 @@
       },
       {
         "name": "caveman",
-        "description": ">",
+        "description": "Ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use when user says \"caveman mode\", \"talk like caveman\", \"use caveman\", \"less tokens\", \"be brief\", or invokes /caveman.",
         "path": "engineering/caveman"
       },
       {
@@ -1596,11 +1601,6 @@
     ],
     "research": [
       {
-        "name": "deep-research",
-        "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly.",
-        "path": "research/deep-research"
-      },
-      {
         "name": "deepread",
         "description": "Use when the user asks to deeply read a book, article, PDF, or document set; extract claims and evidence; build a knowledge map; or learn through Feynman explanation and recall. Covers quick, deep, map, Feynman, and whole-book reading modes.",
         "path": "research/deepread"
@@ -1619,6 +1619,11 @@
         "name": "litreview",
         "description": "Use when starting a literature review or a literature-based project. Plans the search (PICO, SPIDER) with framework_recommender.py, searches PubMed and OpenAlex with free_search.py and writes a .docx orientation guide. Single-paper lookups: query directly.",
         "path": "research/litreview"
+      },
+      {
+        "name": "meta-research",
+        "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly.",
+        "path": "research/meta-research"
       },
       {
         "name": "notebooklm",

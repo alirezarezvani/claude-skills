@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Community request in issue #849 (asadbekXodjayev: an i18n/localization engineering skill with locale-file sync, Intl formatting, RTL and a stdlib locale key drift scanner); closed because it pointed to an external fork rather than a PR. Built independently from public primary sources; no code or text from the requester's fork was used",
+    "build_pattern": "Three deterministic stdlib scripts (translation-file checker with the Unicode CLDR 49 cardinal plural table embedded, hardcoded-string scanner for React/Vue/Svelte/HTML, pseudo-locale generator) with blocking exit codes and a CI job example; rules cited to CLDR and UTS #35, ICU MessageFormat, ECMA-402 and MDN Intl, i18next, Android and gettext documentation, W3C Internationalization and WCAG 2.2 SC 3.1",
+    "distinct_from": "a11y-audit (WCAG in source code); email-template-builder (one email template's locales); marketing localization and copy skills (words, not the translation layer)"
+  }
+}

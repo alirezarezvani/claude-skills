@@ -1,13 +1,13 @@
 ---
 title: "Engineering - POWERFUL Skills — Agent Skills & Codex Plugins"
-description: "93 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
+description: "94 engineering - powerful skills — advanced agent-native skill and Claude Code plugin for AI agent design, infrastructure, and automation. Works with Claude Code, Codex CLI, Gemini CLI, and OpenClaw."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-rocket-launch: Engineering - POWERFUL
 
-<p class="domain-count">93 skills in this domain</p>
+<p class="domain-count">94 skills in this domain</p>
 
 </div>
 
@@ -160,6 +160,12 @@ description: "93 engineering - powerful skills — advanced agent-native skill a
     ---
 
     Claude Code = brain (plans, reviews, merges). opencode = disposable workers on free models
+
+-   **[i18n Localization](i18n-localization.md)**
+
+    ---
+
+    > Portability: 3 stdlib Python scripts. No network, no translation service.
 
 -   **[Interview System Designer](interview-system-designer.md)**
 

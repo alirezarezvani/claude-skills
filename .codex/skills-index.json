@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 408,
+  "total_skills": 410,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1326,6 +1326,18 @@
       "description": "Use before shipping anything that needs human sign-off (a plan, spec, report, page, migration or irreversible action). Builds a review page with review_page_builder.py and runs human_gate.py, which refuses to close with an open blocker or no named reviewer."
     },
     {
+      "name": "i18n-localization",
+      "source": "../../engineering/skills/i18n-localization",
+      "category": "engineering-advanced",
+      "description": "Use when adding UI text, adding or shipping a language, reviewing translation files, or building i18n into an app. Checks missing keys, placeholders and CLDR plural forms with locale_sync.py, finds hardcoded strings with hardcoded_strings.py, and builds a pseudo-locale with pseudo_localize.py."
+    },
+    {
+      "name": "i18n-localization",
+      "source": "../../engineering/i18n-localization/skills/i18n-localization",
+      "category": "engineering-advanced",
+      "description": "Use when adding UI text, adding or shipping a language, reviewing translation files, or building i18n into an app. Checks missing keys, placeholders and CLDR plural forms with locale_sync.py, finds hardcoded strings with hardcoded_strings.py, and builds a pseudo-locale with pseudo_localize.py."
+    },
+    {
       "name": "interview-system-designer",
       "source": "../../engineering/skills/interview-system-designer",
       "category": "engineering-advanced",
@@ -2358,12 +2370,6 @@
       "description": "Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness."
     },
     {
-      "name": "deep-research",
-      "source": "../../research/deep-research/skills/deep-research",
-      "category": "research",
-      "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly."
-    },
-    {
       "name": "deepread",
       "source": "../../research/deepread",
       "category": "research",
@@ -2386,6 +2392,12 @@
       "source": "../../research/litreview/skills/litreview",
       "category": "research",
       "description": "Use when starting a literature review or a literature-based project. Plans the search (PICO, SPIDER) with framework_recommender.py, searches PubMed and OpenAlex with free_search.py and writes a .docx orientation guide. Single-paper lookups: query directly."
+    },
+    {
+      "name": "meta-research",
+      "source": "../../research/meta-research/skills/meta-research",
+      "category": "research",
+      "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly."
     },
     {
       "name": "notebooklm",
@@ -2496,7 +2508,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 102,
+      "count": 104,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

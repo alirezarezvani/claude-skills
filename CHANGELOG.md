@@ -7,6 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.7] - 2026-11-03 — i18n-localization and two built-in name clashes fixed
+
+One new skill requested by the community (#849), and two renames so our names no longer hide Claude Code
+built-ins. **If you installed `deep-research`, reinstall it under its new name** (see Upgrade note). Every plugin
+whose files changed is bumped; plugins changed more than once on dev sit above 2.14.7 (gate G11 requires each
+to exceed its dev version), up to `engineering-advanced-skills` at 2.14.15.
+
+### Upgrade note
+
+- `deep-research` is now `meta-research`. Existing installs show "not found in marketplace" and do not update.
+  Run `/plugin uninstall deep-research@claude-code-skills`, then `/plugin install meta-research@claude-code-skills`.
+  The agent is `cs-meta-research` and the command is `/cs-meta-research`.
+
+### Added
+
+- **i18n-localization** (engineering, standalone plugin 2.14.7, bundled in `engineering-advanced-skills` 2.14.15),
+  requested in #849. Three stdlib scripts with blocking exit codes: `locale_sync.py` checks translation files
+  (JSON/ARB, i18next or ICU, `.properties`, Apple `.strings`, Android XML, gettext `.po`) for missing or empty keys,
+  changed placeholders, ICU syntax, `zero` vs `=0`, and plural categories against the embedded CLDR 49 table;
+  `hardcoded_strings.py` finds UI text that bypasses `t()` in React/Vue/Svelte/HTML; `pseudo_localize.py` builds
+  `en-XA`/`ar-XB` pseudo-locales. Agent `cs-i18n-engineer`, commands `/cs-i18n-check` and `/cs-pseudo-locale`,
+  three references (7-8 sources each) and a CI job example. Eval (3 runs per arm, 8 planted defects): same
+  defects found with and without the skill (24/24), at 43% lower cost and 26% less time with it; the value is a
+  repeatable CI gate, not a quality lift.
+
+### Changed
+
+- **`deep-research` renamed to `meta-research` (reinstall required).** Claude Code 2.1.316 bundles a
+  `deep-research` skill (its fan-out web research workflow), and our plugin skill of the same name hid it.
+  The plugin, skill, agent (`cs-meta-research`) and command (`/cs-meta-research`) are renamed; the method and
+  the upstream catalog pointer are unchanged. Existing installs show "not found in marketplace": run
+  `/plugin uninstall deep-research@claude-code-skills`, then `/plugin install meta-research@claude-code-skills`.
+- **Maintainer command `/review` renamed to `/quality-gate`.** The project command in `.claude/commands/`
+  hid `/review`, which Claude Code uses as an alias of its built-in `/code-review`. The commands README
+  moved to `.claude/COMMANDS.md` (as a file in `.claude/commands/` it loaded as a `/README` command) and now
+  lists every command; `/git:*` commands are confirmed working on 2.1.316.
+- `check_skill_names.py` now reserves the bundled skills and workflows seen in Claude Code 2.1.316
+  (`deep-research`, `autopilot`, `bugfix`, `dashboard`, `docs`, `investigate`, `design`, `slides`, `dataviz`,
+  `team-onboarding`, `import`, `color`).
+
+### Fixed
+
+- Mistral Vibe and Hermes mirrors: the sync scripts now read folded YAML descriptions (`description: >`), so
+  `caveman` (both mirrors) and 13 more skills (Vibe) no longer show the description `>`. The Vibe mirror
+  also gains the seven skills added in v2.14.3 to v2.14.7 (access-lifecycle, agent-run-forensics,
+  cmmc-readiness, commit-craft, design-qa, i18n-localization, mcp-oauth-triage); Hermes gains i18n-localization.
+
 ## [2.14.6] - 2026-11-02 — agent-run-forensics and a security audit that covers every skill
 
 One new skill, a security audit that now runs on every changed skill (all 409 pass `--strict`, with a real

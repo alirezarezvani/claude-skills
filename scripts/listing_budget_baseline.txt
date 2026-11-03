@@ -40,7 +40,7 @@ compliance-team-eu-ai-act 325
 compliance-team-iso42001 259
 data-quality-auditor 258
 deep-learning-book 298
-deep-research 295
+meta-research 295
 deep-work 484
 deepread 251
 demo-video 188
@@ -48,7 +48,7 @@ design-qa 455
 docker-development 239
 dossier 266
 email-pair 478
-engineering-advanced-skills 10881
+engineering-advanced-skills 11194
 engineering-skills 10132
 executive-mentor 1131
 fable-goal 246
@@ -64,6 +64,7 @@ handoff-productivity 648
 helm-chart-builder 235
 hivemind 230
 human-gate 269
+i18n-localization 313
 karpathy-coder 280
 kubernetes-operator 277
 landing 244

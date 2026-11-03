@@ -1,13 +1,13 @@
 ---
 title: "AI Coding Agents — Agent-Native Orchestrators & Codex Skills"
-description: "111 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
+description: "112 agent-native orchestrators for Claude Code, Codex CLI, and Gemini CLI — multi-skill AI agents across engineering, product, marketing, and more."
 ---
 
 <div class="domain-header" markdown>
 
 # :material-robot: Agents
 
-<p class="domain-count">111 agents that orchestrate skills across domains</p>
+<p class="domain-count">112 agents that orchestrate skills across domains</p>
 
 </div>
 
@@ -343,6 +343,12 @@ description: "111 agent-native orchestrators for Claude Code, Codex CLI, and Gem
 
     Engineering - POWERFUL
 
+-   :material-rocket-launch:{ .lg .middle } **[cs-i18n-engineer](cs-i18n-engineer.md)**
+
+    ---
+
+    Engineering - POWERFUL
+
 -   :material-rocket-launch:{ .lg .middle } **[karpathy-reviewer](karpathy-reviewer.md)**
 
     ---
@@ -523,7 +529,7 @@ description: "111 agent-native orchestrators for Claude Code, Codex CLI, and Gem
 
     Marketing
 
--   :material-account:{ .lg .middle } **[Deep Research Agent](cs-deep-research.md)**
+-   :material-account:{ .lg .middle } **[Meta-Research Agent](cs-meta-research.md)**
 
     ---
 

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 455,
+  "total_skills": 456,
   "skills": [
     {
       "name": "content-strategist",
@@ -1559,6 +1559,11 @@
       "description": "Use before high-stakes or multi-file coding (auth, databases, migrations), or when asked to plan carefully and avoid invented APIs. Runs discuss, map, decompose, execute and verify, checking every import and API exists. Not for trivial edits."
     },
     {
+      "name": "i18n-localization",
+      "category": "engineering-advanced",
+      "description": "Use when adding UI text, adding or shipping a language, reviewing translation files, or building i18n into an app. Checks missing keys, placeholders and CLDR plural forms with locale_sync.py, finds hardcoded strings with hardcoded_strings.py, and builds a pseudo-locale with pseudo_localize.py."
+    },
+    {
       "name": "business-investment-advisor",
       "category": "finance",
       "description": "Use when deciding whether a capital expense is worth it (equipment, property, an acquisition, hiring, technology), or for ROI, IRR, NPV, payback, build vs buy or lease vs buy."
@@ -2199,7 +2204,7 @@
       "description": "Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness."
     },
     {
-      "name": "deep-research",
+      "name": "meta-research",
       "category": "research",
       "description": "Use when a wrong answer is expensive: strategy research, comparing several products or markets, validating a hypothesis with outside data. Fans out searches and sub-agents, triangulates each claim across 3+ sources and saves every source with quotes. Quick facts: answer directly."
     },
@@ -2321,7 +2326,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 92,
+      "count": 93,
       "description": "Engineering-advanced resources"
     },
     "finance": {

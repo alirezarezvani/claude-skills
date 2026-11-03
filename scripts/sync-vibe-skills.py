@@ -174,10 +174,24 @@ def read_frontmatter(skill_md):
         if end < 0:
             return {}
         fm = {}
-        for line in text[3:end].splitlines():
-            if ":" in line and not line.strip().startswith("#"):
-                k, _, v = line.partition(":")
-                fm[k.strip()] = v.strip().strip("'\"")
+        lines = text[3:end].splitlines()
+        i = 0
+        while i < len(lines):
+            line = lines[i]
+            i += 1
+            if line[:1] in (" ", "\t") or ":" not in line or line.strip().startswith("#"):
+                continue
+            k, _, v = line.partition(":")
+            v = v.strip()
+            if v in (">", ">-", ">+", "|", "|-", "|+"):
+                # YAML block scalar: gather the indented continuation lines.
+                block = []
+                while i < len(lines) and (not lines[i].strip() or lines[i][:1] in (" ", "\t")):
+                    block.append(lines[i].strip())
+                    i += 1
+                sep = "\n" if v.startswith("|") else " "
+                v = sep.join(b for b in block if b)
+            fm[k.strip()] = v.strip("'\"")
         return fm
     except Exception:
         return {}

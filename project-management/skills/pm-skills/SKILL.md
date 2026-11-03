@@ -1,6 +1,6 @@
 ---
 name: "pm-skills"
-description: "Use when a delivery request needs routing across the project-management skills (sprints, portfolio health, Jira, Confluence, comms), or to run a delivery loop. Routes with pm_goal_router.py, bridges Jira data with jira_snapshot_bridge.py and gates with delivery_loop_gate.py."
+description: "Router for project-management skills: sprints, portfolio health, Jira, Confluence, stakeholder comms, plus a delivery loop. Use whenever a delivery request is unclear about which PM skill fits, or the user asks to run a delivery loop or pull Jira data into one."
 context: fork
 license: MIT
 metadata:

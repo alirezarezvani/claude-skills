@@ -43,6 +43,7 @@ cost (single runs are noisy), or `--scenario full` to test the skill against all
 python3 scripts/evals/inventory.py                                   # coverage
 python3 scripts/evals/run_evals.py --plan                            # tonight's slice, nothing runs
 python3 scripts/evals/run_evals.py --skills engineering/skills/rag-architect --runs 1
+python3 scripts/evals/run_evals.py --skills <all paths> --runs 1 --trigger-only --budget 150  # full trigger sweep
 python3 scripts/evals/report.py eval-out/results.json --scoreboard board/
 ```
 

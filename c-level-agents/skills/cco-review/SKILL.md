@@ -1,6 +1,6 @@
 ---
 name: "cco-review"
-description: "Use for /c-level-agents:cco-review, or to challenge a plan touching retention, segmentation or CS headcount."
+description: "Challenge a churn, retention, segment or CS hiring plan. Use whenever asked or /c-level-agents:cco-review."
 ---
 
 # /c-level-agents:cco-review — CCO Forcing Questions

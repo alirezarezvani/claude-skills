@@ -1,6 +1,6 @@
 ---
 name: "tdd-guide"
-description: "Use when writing tests first, generating tests, fixtures or mocks, or closing coverage gaps in Jest, Pytest, JUnit, Vitest or Mocha. Drives red-green-refactor with tdd_workflow.py, generates tests with test_generator.py and reads coverage with coverage_analyzer.py."
+description: "Test-first development and test generation for Jest, Pytest, JUnit, Vitest or Mocha: red-green-refactor, fixtures and mocks, coverage gaps. Use whenever the user asks to write tests (before or after the code), mock a dependency or raise coverage."
 ---
 
 # TDD Guide

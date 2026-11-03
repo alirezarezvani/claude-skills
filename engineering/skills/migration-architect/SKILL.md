@@ -1,6 +1,6 @@
 ---
 name: "migration-architect"
-description: "Use before planning any database, schema, service or data migration, especially zero-downtime ones. Generates a phased plan, a compatibility check and rollback scripts with migration_planner.py, compatibility_checker.py and rollback_generator.py."
+description: "Plan a safe database, schema, service or data migration: phased plan, compatibility check and rollback scripts. Use whenever the user must move data, change a live schema, switch databases or migrate without downtime."
 ---
 
 # Migration Architect

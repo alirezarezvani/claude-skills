@@ -1,6 +1,6 @@
 ---
 name: "senior-data-engineer"
-description: "Use for data pipelines and ETL or ELT (Spark, Airflow, dbt, Kafka, data modeling, data quality). Orchestrates with pipeline_orchestrator.py, validates with data_quality_validator.py and tunes jobs with etl_performance_optimizer.py."
+description: "Build, fix and tune data pipelines: ETL/ELT, Airflow DAGs, Spark, dbt, Kafka, data modeling and data quality checks. Use whenever a pipeline, DAG or batch job fails, is slow or needs designing, or data arrives wrong."
 ---
 
 # Senior Data Engineer

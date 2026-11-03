@@ -1,6 +1,6 @@
 ---
 name: "c-level-skills"
-description: "Use when looking for which C-level advisor skill fits a question (14 C-suite roles, board meetings, culture, M&A). Lists them and routes to one."
+description: "Find which C-level advisor fits a question: 14 C-suite roles, board meetings, culture, M&A. Use whenever the user asks which advisor to use."
 license: MIT
 metadata:
   version: 2.1.0

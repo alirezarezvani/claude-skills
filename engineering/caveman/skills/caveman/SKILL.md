@@ -1,10 +1,6 @@
 ---
 name: caveman
-description: >
-  Ultra-compressed communication mode. Cuts token usage ~75% by dropping
-  filler, articles, and pleasantries while keeping full technical accuracy.
-  Use when user says "caveman mode", "talk like caveman", "use caveman",
-  "less tokens", "be brief", or invokes /caveman.
+description: "Ultra-short replies that cut tokens about 75% by dropping filler, articles and pleasantries while staying technically accurate. Use whenever the user says caveman mode, talk like caveman, use caveman, less tokens, be brief, too wordy, or invokes /caveman."
 license: MIT
 metadata:
   derived_from: "https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman"

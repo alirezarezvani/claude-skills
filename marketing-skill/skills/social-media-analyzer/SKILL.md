@@ -1,6 +1,6 @@
 ---
 name: "social-media-analyzer"
-description: "Use for any social performance question (engagement rate, campaign ROI, which platform works best), before answering. Calculates the metrics and benchmarks them with calculate_metrics.py and analyze_performance.py."
+description: "Measure how social posts and campaigns perform: engagement rate, campaign ROI, benchmarks, which platform works best. Use whenever the user asks if their posts are working, why engagement is low, or where to focus."
 metadata:
   triggers:
     - analyze social media

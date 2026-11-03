@@ -1,6 +1,6 @@
 ---
 name: andreessen
-description: "Use when the user wants a blunt market-first verdict on an idea, venture or career bet ('is there a market', 'are we at PMF', 'pmarca mode'), or a 3x5-card daily plan. Scores with market_first_evaluator.py and pmf_signal_scorer.py; leads with the strongest counterargument."
+description: "Blunt market-first verdict on an idea, venture or career bet, leading with the strongest counterargument, or a 3x5-card daily plan. Use whenever the user asks is there a market, are we at PMF, should I do this, or says pmarca mode."
 license: MIT
 metadata:
   version: 1.0.0

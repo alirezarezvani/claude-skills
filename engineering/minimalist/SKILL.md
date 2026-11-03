@@ -1,6 +1,6 @@
 ---
 name: "minimalist"
-description: "Use when asked to avoid over-engineering, cut dependencies or write the least code. Applies a strict ladder before any new code: YAGNI, reuse, stdlib, native platform, existing deps."
+description: "Write the least code: no over-engineering, fewer dependencies. Use whenever the user wants it simpler; applies a ladder first: YAGNI, reuse, stdlib, native platform, existing deps."
 ---
 
 # Minimalist

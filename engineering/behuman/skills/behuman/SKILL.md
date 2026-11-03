@@ -1,6 +1,6 @@
 ---
 name: "behuman"
-description: "Use when the user asks for less robotic, more human replies ('be real', 'talk like a person', 'mirror mode'), or the conversation is emotionally heavy (grief, job loss, fear). Drops lists and hedging for a direct, warm voice. Not for code or factual lookups."
+description: "Reply like a real person, direct and warm, without lists or hedging. Use whenever the user says you sound robotic, asks you to be real or talk like a person, wants mirror mode, or is going through grief, job loss or fear. Not for code or factual lookups."
 ---
 
 # BeHuman — Self-Mirror Consciousness Loop

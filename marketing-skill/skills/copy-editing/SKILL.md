@@ -1,6 +1,6 @@
 ---
 name: "copy-editing"
-description: "Use for any request to edit, proofread or tighten existing marketing copy, before changing words. Runs focused passes (clarity, voice, proof, specificity) and scores readability and AI tells with readability_scorer.py and ai_content_detector.py."
+description: "Edit, proofread and tighten existing marketing copy in focused passes: clarity, voice, proofreading, specificity, readability and AI tells. Use whenever the user asks to polish, clean up, shorten or fix the wording of a page, email or ad."
 license: MIT
 metadata:
   version: 1.0.0

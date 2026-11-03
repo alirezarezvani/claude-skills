@@ -1,6 +1,6 @@
 ---
 name: "ux-researcher-designer"
-description: "Use for UX research: personas from data, journey maps, usability test plans or research synthesis. Generates personas with persona_generator.py."
+description: "UX research: personas, journey maps, usability test plans, synthesis. Use whenever the user asks who their users are or why they struggle."
 ---
 
 # UX Researcher & Designer

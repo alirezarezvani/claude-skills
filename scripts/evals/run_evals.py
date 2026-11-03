@@ -238,10 +238,13 @@ def main():
     ap.add_argument("--jobs", type=int, default=6, help="parallel claude processes (default 6)")
     ap.add_argument("--date", help="rotation date, YYYY-MM-DD (default today)")
     ap.add_argument("--out", default="eval-out", help="output folder (default eval-out/)")
+    ap.add_argument("--trigger-only", action="store_true", help="skip behaviour cases (for a trigger-rate sweep)")
     ap.add_argument("--plan", action="store_true", help="print the selection and estimated cost, run nothing")
     args = ap.parse_args()
 
     day, inv, trig, beh, trigger, behaviour, cycle = plan(args)
+    if args.trigger_only:
+        behaviour = []
     missing = [c for c in behaviour if c not in beh]
     if missing:
         raise SystemExit(f"unknown behaviour case: {', '.join(missing)}")

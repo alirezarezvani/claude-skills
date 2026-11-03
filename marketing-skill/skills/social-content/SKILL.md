@@ -1,6 +1,6 @@
 ---
 name: "social-content"
-description: "Use for any LinkedIn post, X thread, Instagram, TikTok or Facebook post to write, before drafting. Applies each platform's hook, length and format rules and repurposes one idea across platforms."
+description: "Write a LinkedIn post, X thread, Instagram, TikTok or Facebook post with each platform's hook, length and format. Use whenever the user wants a post or thread, or one idea for several platforms."
 license: MIT
 metadata:
   version: 1.0.0

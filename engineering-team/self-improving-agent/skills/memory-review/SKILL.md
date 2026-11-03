@@ -1,6 +1,6 @@
 ---
 name: "memory-review"
-description: "Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and health metrics. Use when the user runs /si:memory-review or asks what has been learned and what should be promoted or pruned."
+description: "Review what the agent has learned in auto-memory: what to promote to permanent rules, stale entries to prune, duplicates to merge. Use whenever the user runs /si:memory-review or asks what you learned or what to keep."
 ---
 
 # /si:memory-review — Analyze Auto-Memory

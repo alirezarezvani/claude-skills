@@ -1,6 +1,6 @@
 ---
 name: "dependency-auditor"
-description: "Use before a release, during a CVE investigation, before a major version bump or for a license review. Scans dependencies with dep_scanner.py, checks licenses with license_checker.py and plans safe upgrades with upgrade_planner.py."
+description: "Audit project dependencies for CVEs and licenses and plan safe upgrades. Use whenever the user asks if their packages are safe, before a release or major version bump, while chasing a CVE, or for a license review."
 ---
 
 # Dependency Auditor

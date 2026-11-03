@@ -1,6 +1,6 @@
 ---
 name: "cro-review"
-description: "Use for /c-level-agents:cro-review, or to challenge a forecast, win-rate drop or sales-team scale-up."
+description: "Challenge a forecast, win-rate drop or sales hires. Use whenever asked or /c-level-agents:cro-review."
 ---
 
 # /c-level-agents:cro-review — CRO Forcing Questions

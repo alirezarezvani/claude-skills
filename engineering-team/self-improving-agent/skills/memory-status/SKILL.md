@@ -1,6 +1,6 @@
 ---
 name: "memory-status"
-description: "Memory health dashboard showing line counts, topic files, capacity, stale entries, and recommendations. Use when the user runs /si:memory-status or asks how full or healthy the agent memory is."
+description: "Health check of agent auto-memory: line counts, topic files, capacity, stale entries and what to prune. Use whenever the user asks how full or healthy memory is, or runs /si:memory-status."
 ---
 
 # /si:memory-status — Memory Health Dashboard

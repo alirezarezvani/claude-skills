@@ -1,6 +1,6 @@
 ---
 name: "cpo-review"
-description: "Use for /c-level-agents:cpo-review, or to challenge a roadmap, a PMF claim or a feature-kill decision."
+description: "Challenge a roadmap, PMF claim or feature kill. Use whenever asked or /c-level-agents:cpo-review."
 ---
 
 # /c-level-agents:cpo-review — CPO Forcing Questions

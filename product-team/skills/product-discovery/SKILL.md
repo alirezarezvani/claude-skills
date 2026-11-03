@@ -1,6 +1,6 @@
 ---
 name: product-discovery
-description: Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources.
+description: "Validate product ideas: map assumptions, plan discovery sprints, test problem-solution fit. Use whenever the user asks if an idea is worth building."
 ---
 
 # Product Discovery

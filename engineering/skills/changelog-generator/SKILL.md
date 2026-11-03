@@ -1,6 +1,6 @@
 ---
 name: "changelog-generator"
-description: "Use when cutting a release, writing CHANGELOG.md or deciding the next version from commits, before writing notes by hand. Lints commits with commit_linter.py, picks the semver bump with version_bumper.py and renders notes with generate_changelog.py."
+description: "Write release notes and CHANGELOG.md from commits and pick the next semver version. Use whenever the user is cutting a release, asks what changed since the last one or what version comes next, or wants commits linted first."
 ---
 
 # Changelog Generator

@@ -1,6 +1,6 @@
 ---
 name: "competitive-teardown"
-description: "Use for a deep competitor teardown (pricing, reviews, hiring, SEO, UX) or a response to a competitor's move. Scores products across 12 dimensions with competitive_matrix_builder.py and produces SWOT and positioning maps."
+description: "Deep competitor teardown: pricing, reviews, hiring, SEO, UX, scored across 12 dimensions with SWOT and positioning maps. Use whenever the user asks how they compare to a rival or how to respond to a competitor's move."
 ---
 
 # Competitive Teardown

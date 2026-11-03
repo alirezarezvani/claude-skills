@@ -1,6 +1,6 @@
 ---
 name: "senior-security"
-description: "Use for STRIDE threat modeling, DREAD scoring or a quick secret scan, or to route a security request to the right specialist. Models threats with threat_modeler.py and scans with secret_scanner.py."
+description: "Check if a design or code is secure: STRIDE threat model, DREAD risk scores, leaked secret scan. Use whenever the user asks what could be attacked, how risky a feature is, or to find exposed keys."
 ---
 
 # Senior Security Engineer — Threat Modeling + Security Router

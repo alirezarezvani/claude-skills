@@ -1,6 +1,6 @@
 ---
 name: "engineering-advanced-skills"
-description: "Use when looking for which advanced engineering skill fits a task (agents, RAG, MCP, CI/CD, databases, observability, release, reliability). Lists them and routes to one."
+description: "Pick the right advanced engineering skill: agents, RAG, MCP, CI/CD, databases, observability, release. Use whenever the user asks which skill fits a task."
 license: MIT
 metadata:
   version: 2.9.0

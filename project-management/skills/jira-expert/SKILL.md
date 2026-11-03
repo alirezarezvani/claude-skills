@@ -1,6 +1,6 @@
 ---
 name: "jira-expert"
-description: "Use for Jira configuration and queries: JQL, workflows, custom fields, automation, dashboards. Builds JQL with jql_query_builder.py and checks workflows with workflow_validator.py."
+description: "Jira setup and queries: JQL, workflows, custom fields, automation, dashboards. Use whenever the user needs a Jira search, filter, dashboard or rule set up, or a workflow fixed."
 ---
 
 # Atlassian Jira Expert

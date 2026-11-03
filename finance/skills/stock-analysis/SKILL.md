@@ -1,6 +1,6 @@
 ---
 name: stock-analysis
-description: "Use when asked to analyze, research or value a listed stock or company (US, global, NSE or BSE). Verifies data with verify_data.py, computes ratios, scores and valuation, and checks the report with lint_report.py."
+description: "Analyze, research or value a listed stock or company (US, global, NSE or BSE) with verified data, ratios, scores and valuation. Use whenever asked if a stock is a buy, what it is worth, or how a company looks."
 ---
 
 # Stock Analysis

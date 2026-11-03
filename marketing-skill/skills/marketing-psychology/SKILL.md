@@ -1,6 +1,6 @@
 ---
 name: "marketing-psychology"
-description: "Use when applying persuasion, cognitive biases or behavioral science to a page, offer or campaign. Picks from 70+ named mental models with how to apply each ethically."
+description: "Apply persuasion and behavioral science ethically to a page, offer or campaign, from 70+ mental models. Use whenever the user asks why people buy or how to nudge them."
 license: MIT
 metadata:
   version: 1.1.0

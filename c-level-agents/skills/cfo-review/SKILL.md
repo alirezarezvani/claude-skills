@@ -1,6 +1,6 @@
 ---
 name: "cfo-review"
-description: "Use for /c-level-agents:cfo-review, or to challenge a plan that commits real money (a hiring wave, a raise, a channel budget)."
+description: "Challenge a plan that spends real money: hiring wave, raise, channel budget. Use whenever asked or /c-level-agents:cfo-review."
 ---
 
 # /c-level-agents:cfo-review — CFO Forcing Questions

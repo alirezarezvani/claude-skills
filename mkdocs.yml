@@ -54,6 +54,10 @@ theme:
 plugins:
   - search:
       separator: '[\s\-\.]+'
+  # Per-page social preview cards. Off by default (needs cairo + pillow);
+  # static.yml turns it on for the Pages deploy with SOCIAL_CARDS=true.
+  - social:
+      enabled: !ENV [SOCIAL_CARDS, false]
   - tags
   - redirects:
       redirect_maps:
@@ -173,11 +177,26 @@ markdown_extensions:
   - pymdownx.tilde
 
 nav:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - "What's New": whats-new.md
-  - Multi-Tool Integrations: integrations.md
-  - Guides:
+  - Home:
+    - Overview: index.md
+    - Getting Started: getting-started.md
+    - "What's New": whats-new.md
+  - Skills:
+    - Overview: skills/index.md
+  - Plugins:
+    - Overview: plugins/index.md
+  - Agents:
+    - Overview: agents/index.md
+    - Personas:
+      - Overview: personas/index.md
+      - "Startup CTO": personas/startup-cto.md
+      - "Growth Marketer": personas/growth-marketer.md
+      - "Solo Founder": personas/solo-founder.md
+    - Orchestration: orchestration.md
+  - Commands:
+    - Overview: commands/index.md
+  - Other Tools:
+    - Multi-Tool Integrations: integrations.md
     - "Best Claude Code Plugins": guides/best-claude-code-plugins.md
     - "Agent Skills for Codex": guides/agent-skills-for-codex.md
     - "Gemini CLI Skills Guide": guides/gemini-cli-skills-guide.md
@@ -185,18 +204,4 @@ nav:
     - "OpenClaw Skills Guide": guides/openclaw-skills-guide.md
     - "Hermes Agent Skills Guide": guides/hermes-agent-skills-guide.md
     - "Mistral Vibe Skills Guide": guides/mistral-vibe-skills-guide.md
-  - Skills:
-    - Overview: skills/index.md
-  - Plugins:
-    - Overview: plugins/index.md
-  - Personas:
-    - Overview: personas/index.md
-    - "Startup CTO": personas/startup-cto.md
-    - "Growth Marketer": personas/growth-marketer.md
-    - "Solo Founder": personas/solo-founder.md
-  - Orchestration: orchestration.md
-  - Custom GPTs: custom-gpts.md
-  - Agents:
-    - Overview: agents/index.md
-  - Commands:
-    - Overview: commands/index.md
+    - Custom GPTs: custom-gpts.md

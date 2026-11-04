@@ -9,8 +9,8 @@ command pages are generated at build time and are not tracked):
   2. Every `/plugin install <name>@claude-code-skills` names a plugin that
      exists in .claude-plugin/marketplace.json, and no install line uses the
      invalid `claude /plugin ...` form or omits the marketplace.
-  3. With --build: `mkdocs build --strict` passes and no page is left out of
-     the nav. Needs the pinned mkdocs packages from static.yml.
+  3. With --build: `mkdocs build --strict` passes, no page is left out of
+     the nav, and every scripts/docs_start_here.json pick has a page. Needs the pinned mkdocs packages from static.yml.
 
 Exit codes: 0 clean, 1 findings, 2 usage or environment error.
 """
@@ -83,6 +83,14 @@ def check_build():
     return findings
 
 
+def check_start_here():
+    """Every 'Start here' pick must name a generated skill page (run after a build)."""
+    picks = json.loads((REPO_ROOT / "scripts" / "docs_start_here.json").read_text(encoding="utf-8"))
+    return [("scripts/docs_start_here.json", 0, f"'{d}/{slug}' has no page in docs/skills/{d}/")
+            for d, slugs in picks.items() if not d.startswith("_")
+            for slug in slugs if not (REPO_ROOT / "docs" / "skills" / d / f"{slug}.md").is_file()]
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--build", action="store_true", help="also run mkdocs build --strict and check nav orphans")
@@ -98,6 +106,7 @@ def main():
     findings = check_text(tracked_docs(), market["name"], plugin_names)
     if args.build:
         findings += check_build()
+        findings += check_start_here()
 
     if args.json:
         print(json.dumps({"findings": [{"file": str(f), "line": n, "message": m} for f, n, m in findings]}, indent=2))

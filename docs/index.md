@@ -1,6 +1,6 @@
 ---
 title: Agent Skills & Plugins for Claude Code, Codex, Gemini CLI & 10 More AI Tools
-description: "380 production-ready agent skills, 96 installable plugins, and 138 slash commands across 20 domains — engineering, product, marketing, compliance, finance, research, and agent tooling. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
+description: "{{ count.skills }} production-ready agent skills, {{ count.plugins }} installable plugins, and {{ count.commands }} slash commands across {{ count.domains }} domains — engineering, product, marketing, compliance, finance, research, and agent tooling. Works with Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6 more AI coding tools. Open source, MIT licensed, zero dependencies."
 hide:
   - toc
   - edit
@@ -12,7 +12,7 @@ hide:
 
 <div class="hero" markdown>
 
-<span class="hero-eyebrow">Open source · MIT · 17 domains · 13 AI tools</span>
+<span class="hero-eyebrow">Open source · MIT · {{ count.domains }} domains · 13 AI tools</span>
 
 # Agent Skills
 
@@ -24,11 +24,11 @@ Give your AI coding agent real domain expertise. Every skill is a self-contained
 [GitHub :fontawesome-brands-github:](https://github.com/alirezarezvani/claude-skills){ .md-button }
 
 <div class="stats-strip">
-  <div class="stat"><span class="stat-number">345</span><span class="stat-label">Skills</span></div>
-  <div class="stat"><span class="stat-number">17</span><span class="stat-label">Domains</span></div>
-  <div class="stat"><span class="stat-number">78</span><span class="stat-label">Plugins</span></div>
-  <div class="stat"><span class="stat-number">570+</span><span class="stat-label">Python Tools</span></div>
-  <div class="stat"><span class="stat-number">90+</span><span class="stat-label">Commands</span></div>
+  <div class="stat"><span class="stat-number">{{ count.skills }}</span><span class="stat-label">Skills</span></div>
+  <div class="stat"><span class="stat-number">{{ count.domains }}</span><span class="stat-label">Domains</span></div>
+  <div class="stat"><span class="stat-number">{{ count.plugins }}</span><span class="stat-label">Plugins</span></div>
+  <div class="stat"><span class="stat-number">{{ count.tools }}</span><span class="stat-label">Python Tools</span></div>
+  <div class="stat"><span class="stat-number">{{ count.commands }}</span><span class="stat-label">Commands</span></div>
   <div class="stat"><span class="stat-number">13</span><span class="stat-label">AI Tools</span></div>
 </div>
 
@@ -86,15 +86,15 @@ No API keys, no external services, no dependencies between skills. Copy a folder
 
 <div class="grid cards" markdown>
 
--   :material-toolbox:{ .lg .middle } **345 Skills**
+-   :material-toolbox:{ .lg .middle } **{{ count.skills }} Skills**
 
     ---
 
-    Production-ready playbooks across 17 domains — from code review and RAG architecture to pricing strategy, clinical study design, and markdown-to-HTML publishing. Each ships with workflows, Python tools, and reference docs.
+    Production-ready playbooks across {{ count.domains }} domains — from code review and RAG architecture to pricing strategy, clinical study design, and markdown-to-HTML publishing. Each ships with workflows, Python tools, and reference docs.
 
     [:octicons-arrow-right-24: Browse skills](skills/index.md)
 
--   :material-puzzle-outline:{ .lg .middle } **78 Plugins**
+-   :material-puzzle-outline:{ .lg .middle } **{{ count.plugins }} Plugins**
 
     ---
 
@@ -102,7 +102,7 @@ No API keys, no external services, no dependencies between skills. Copy a folder
 
     [:octicons-arrow-right-24: Plugin marketplace](plugins/index.md)
 
--   :material-robot:{ .lg .middle } **90+ Agents**
+-   :material-robot:{ .lg .middle } **{{ count.agents }} Agents**
 
     ---
 
@@ -110,7 +110,7 @@ No API keys, no external services, no dependencies between skills. Copy a folder
 
     [:octicons-arrow-right-24: View agents](agents/index.md)
 
--   :material-console:{ .lg .middle } **90+ Slash Commands**
+-   :material-console:{ .lg .middle } **{{ count.commands }} Slash Commands**
 
     ---
 
@@ -118,7 +118,7 @@ No API keys, no external services, no dependencies between skills. Copy a folder
 
     [:octicons-arrow-right-24: View commands](commands/index.md)
 
--   :material-language-python:{ .lg .middle } **570+ Python Tools**
+-   :material-language-python:{ .lg .middle } **{{ count.tools }} Python Tools**
 
     ---
 
@@ -174,7 +174,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Architecture, frontend, backend, fullstack, QA, DevOps, SecOps, AI/ML, data engineering, Playwright testing, self-improving agent
 
-    [:octicons-arrow-right-24: 51 skills](skills/engineering-team/index.md)
+    [:octicons-arrow-right-24: {{ count.in.engineering-team }} skills](skills/engineering-team/index.md)
 
 -   :material-lightning-bolt:{ .lg .middle } **Engineering — Advanced**
 
@@ -182,7 +182,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Agent designer, RAG architect, MCP server builder, CI/CD pipelines, SLO architect, chaos engineering, security auditing, tech debt tracking
 
-    [:octicons-arrow-right-24: 74 skills](skills/engineering/index.md)
+    [:octicons-arrow-right-24: {{ count.in.engineering }} skills](skills/engineering/index.md)
 
 -   :material-bullseye-arrow:{ .lg .middle } **Product**
 
@@ -190,7 +190,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Product manager toolkit, agile PO, UX research, discovery, analytics, experiment design, SaaS scaffolding, Apple HIG
 
-    [:octicons-arrow-right-24: 17 skills](skills/product-team/index.md)
+    [:octicons-arrow-right-24: {{ count.in.product-team }} skills](skills/product-team/index.md)
 
 -   :material-bullhorn:{ .lg .middle } **Marketing**
 
@@ -198,7 +198,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Content, SEO, AEO, CRO, paid channels, growth, launch strategy — 8 specialist pods with bundled Python analytics tools
 
-    [:octicons-arrow-right-24: 47 skills](skills/marketing-skill/index.md)
+    [:octicons-arrow-right-24: {{ count.in.marketing-skill }} skills](skills/marketing-skill/index.md)
 
 -   :material-star-circle:{ .lg .middle } **C-Level Advisory**
 
@@ -206,7 +206,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Full C-suite advisors (CEO to General Counsel), founder-mode boardroom, decision logging, culture and strategy frameworks
 
-    [:octicons-arrow-right-24: 61 skills](skills/c-level-advisor/index.md)
+    [:octicons-arrow-right-24: {{ count.in.c-level-advisor }} skills](skills/c-level-advisor/index.md)
 
 -   :material-shield-check:{ .lg .middle } **Regulatory & Quality**
 
@@ -214,7 +214,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     ISO 13485, MDR 2017/745, FDA, ISO 27001, GDPR, CAPA, risk management, quality documentation
 
-    [:octicons-arrow-right-24: 18 skills](skills/ra-qm-team/index.md)
+    [:octicons-arrow-right-24: {{ count.in.ra-qm-team }} skills](skills/ra-qm-team/index.md)
 
 -   :material-shield-lock:{ .lg .middle } **Compliance OS**
 
@@ -222,7 +222,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Audit-prep orchestrator for ISO 13485, ISO 27001, SOC 2, GDPR, FDA QSR, EU AI Act, and ISO 42001 readiness
 
-    [:octicons-arrow-right-24: 9 skills](skills/compliance-os/index.md)
+    [:octicons-arrow-right-24: {{ count.in.compliance-os }} skills](skills/compliance-os/index.md)
 
 -   :material-clipboard-check:{ .lg .middle } **Project Management**
 
@@ -230,7 +230,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Senior PM, scrum master, Jira and Confluence experts, Atlassian admin with bundled remote MCP
 
-    [:octicons-arrow-right-24: 9 skills](skills/project-management/index.md)
+    [:octicons-arrow-right-24: {{ count.in.project-management }} skills](skills/project-management/index.md)
 
 -   :material-trending-up:{ .lg .middle } **Business & Growth**
 
@@ -238,7 +238,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Customer success, sales engineering, revenue operations, contracts and proposals
 
-    [:octicons-arrow-right-24: 5 skills](skills/business-growth/index.md)
+    [:octicons-arrow-right-24: {{ count.in.business-growth }} skills](skills/business-growth/index.md)
 
 -   :material-cog-outline:{ .lg .middle } **Business Operations**
 
@@ -246,7 +246,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Process mapping, vendor management, capacity planning, internal comms, knowledge ops, procurement
 
-    [:octicons-arrow-right-24: 7 skills](skills/business-operations/index.md)
+    [:octicons-arrow-right-24: {{ count.in.business-operations }} skills](skills/business-operations/index.md)
 
 -   :material-handshake:{ .lg .middle } **Commercial**
 
@@ -254,7 +254,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Pricing strategy, deal desk, partnerships, channel economics, commercial policy, RFP response, forecasting
 
-    [:octicons-arrow-right-24: 8 skills](skills/commercial/index.md)
+    [:octicons-arrow-right-24: {{ count.in.commercial }} skills](skills/commercial/index.md)
 
 -   :material-currency-usd:{ .lg .middle } **Finance**
 
@@ -262,7 +262,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Financial analysis, DCF valuation, budgeting, forecasting, SaaS metrics (ARR, MRR, churn, LTV)
 
-    [:octicons-arrow-right-24: 4 skills](skills/finance/index.md)
+    [:octicons-arrow-right-24: {{ count.in.finance }} skills](skills/finance/index.md)
 
 -   :material-magnify:{ .lg .middle } **Research**
 
@@ -270,7 +270,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Literature review, grants, patents, entity dossiers, syllabi, NotebookLM automation — with a hybrid orchestrator
 
-    [:octicons-arrow-right-24: 8 skills](skills/research/index.md)
+    [:octicons-arrow-right-24: {{ count.in.research }} skills](skills/research/index.md)
 
 -   :material-flask:{ .lg .middle } **Research Operations**
 
@@ -278,7 +278,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Clinical study design, R&D program finance, market sizing and surveys, product research methodology
 
-    [:octicons-arrow-right-24: 5 skills](skills/research-ops/index.md)
+    [:octicons-arrow-right-24: {{ count.in.research-ops }} skills](skills/research-ops/index.md)
 
 -   :material-lightning-bolt-outline:{ .lg .middle } **Productivity**
 
@@ -286,7 +286,7 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Brain-dump capture, inbox setup and triage, reflection journal, session handoff, market-first decision making
 
-    [:octicons-arrow-right-24: 6 skills](skills/productivity/index.md)
+    [:octicons-arrow-right-24: {{ count.in.productivity }} skills](skills/productivity/index.md)
 
 -   :material-language-html5:{ .lg .middle } **Markdown to HTML**
 
@@ -294,15 +294,39 @@ Seventeen domains cover the full lifecycle of building a product and running a c
 
     Turn markdown into beautiful single-file HTML — long-form documents, code reviews, and slide decks with your brand
 
-    [:octicons-arrow-right-24: 5 skills](skills/markdown-html/index.md)
+    [:octicons-arrow-right-24: {{ count.in.markdown-html }} skills](skills/markdown-html/index.md)
 
--   :material-web:{ .lg .middle } **Landing Pages**
+-   :material-web:{ .lg .middle } **LinkedIn & Landing Pages**
 
     ---
 
-    Single-file HTML landing page generator with four design styles and a brand palette validator
+    Organic LinkedIn presence with platform rules enforced in code, plus a single-file HTML landing page generator with a brand palette validator
 
-    [:octicons-arrow-right-24: 1 skill](skills/marketing/index.md)
+    [:octicons-arrow-right-24: {{ count.in.marketing }} skills](skills/marketing/index.md)
+
+-   :material-rocket-launch-outline:{ .lg .middle } **Agent Launcher**
+
+    ---
+
+    Build and launch Claude Managed Agents in your own account: interview, BYOK launch, bounded grade-iterate loops, scheduled runs
+
+    [:octicons-arrow-right-24: {{ count.in.agent-launcher }} skills](skills/agent-launcher/index.md)
+
+-   :material-account-group-outline:{ .lg .middle } **C-Level Agents**
+
+    ---
+
+    Founder-mode executive team: forcing-question reviews per role, boardroom deliberation, decision log and post-mortems
+
+    [:octicons-arrow-right-24: {{ count.in.c-level-agents }} skills](skills/c-level-agents/index.md)
+
+-   :material-repeat:{ .lg .middle } **Loop Library**
+
+    ---
+
+    Reusable agent loops with explicit stop states, so long-running work ends on purpose instead of by timeout
+
+    [:octicons-arrow-right-24: {{ count.in.loop-library }} skill](skills/loop-library/index.md)
 
 </div>
 

@@ -2,6 +2,7 @@
 """Generate MkDocs documentation pages from SKILL.md files, agents, and commands."""
 
 import argparse
+import json
 import os
 import re
 import shutil
@@ -29,6 +30,8 @@ DOMAINS = {
     "compliance-os": ("Compliance OS", 16, ":material-shield-lock-outline:", "compliance-os"),
     "markdown-html": ("Markdown to HTML", 17, ":material-language-html5:", "markdown-html-skills"),
     "agent-launcher": ("Agent Launcher", 18, ":material-rocket-launch-outline:", "agent-launcher-skills"),
+    "c-level-agents": ("C-Level Agents", 19, ":material-account-group-outline:", "c-level-agents"),
+    "loop-library": ("Loop Library", 20, ":material-repeat:", "loop-library"),
 }
 
 # Skills to skip (nested assets, samples, etc.)
@@ -250,6 +253,103 @@ def strip_content(content):
 
 
 GITHUB_BASE = "https://github.com/alirezarezvani/claude-skills/tree/main"
+GITHUB_EDIT_BASE = "https://github.com/alirezarezvani/claude-skills/edit/dev"
+MARKETPLACE_PATH = os.path.join(REPO_ROOT, ".claude-plugin", "marketplace.json")
+
+
+def load_marketplace():
+    """Return (marketplace_name, [plugin dicts with a normalized 'dir'])."""
+    with open(MARKETPLACE_PATH, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    plugins = []
+    for p in data.get("plugins", []):
+        src = p.get("source")
+        if not isinstance(src, str):
+            continue
+        plugins.append({**p, "dir": src[2:].rstrip("/") if src.startswith("./") else src.rstrip("/")})
+    return data["name"], plugins
+
+
+MARKETPLACE_NAME, PLUGINS = load_marketplace()
+PLUGIN_NAMES = {p["name"] for p in PLUGINS}
+
+
+def resolve_plugins(skill_rel_path, skill_name):
+    """Find the plugin(s) that ship a skill.
+
+    Returns (primary, bundle): primary is the most specific plugin to install
+    (a standalone plugin named after the skill when one exists), bundle is a
+    larger plugin that also contains it, or None. Both are names that exist in
+    marketplace.json, so every install line on the site is runnable.
+    """
+    domain = skill_rel_path.split("/")[0]
+    # Plugins whose directory contains the skill, most specific first.
+    containing = sorted(
+        (p for p in PLUGINS
+         if skill_rel_path == p["dir"] or skill_rel_path.startswith(p["dir"] + "/")),
+        key=lambda p: len(p["dir"]), reverse=True)
+    # Dual-published skill: the docs page renders the bundled copy, but a
+    # standalone plugin at <domain>/<name> also ships it.
+    standalone = next((p for p in PLUGINS if p["dir"] == f"{domain}/{skill_name}"), None)
+    primary = standalone or (containing[0] if containing else None)
+    bundle = next((p for p in containing if primary is None or p["name"] != primary["name"]), None)
+    if bundle is not None and primary is not None and len(bundle["dir"]) >= len(primary["dir"]):
+        bundle = None
+    return (primary["name"] if primary else None, bundle["name"] if bundle else None)
+
+
+def install_banner(primary, bundle, label="Install"):
+    """HTML banner with a runnable install command (inside Claude Code)."""
+    if primary is None:
+        return ('<div class="install-banner" markdown>\n'
+                '<span class="install-label">Install:</span> not packaged as a plugin; '
+                'copy the skill folder or see [Getting Started](../../getting-started.md).\n'
+                '</div>\n\n')
+    extra = ""
+    if bundle:
+        extra = f' <span class="install-alt">also in <code>{bundle}</code></span>'
+    return ('<div class="install-banner" markdown>\n'
+            f'<span class="install-label">{label}:</span> '
+            f'<code>/plugin install {primary}@{MARKETPLACE_NAME}</code>{extra}\n'
+            '</div>\n\n')
+
+
+def _resolve_vendor(source_rel_dir, vendor_rel):
+    """Map ${CLAUDE_PLUGIN_ROOT}/vendor/<x> to the real repo path behind the symlink."""
+    d = source_rel_dir
+    while d and d != ".":
+        candidate = os.path.join(REPO_ROOT, d, vendor_rel)
+        if os.path.exists(candidate):
+            return os.path.relpath(os.path.realpath(candidate), os.path.realpath(REPO_ROOT)).replace(os.sep, "/")
+        d = os.path.dirname(d)
+    return None
+
+
+def rewrite_remaining_links(content, source_rel_dir):
+    """Last pass: any relative link that still points outside docs/ goes to GitHub.
+
+    SKILL.md files link to chapters/, scorers/, glossary.md, vendored
+    ${CLAUDE_PLUGIN_ROOT}/vendor/<path> files and similar. None of those are
+    docs pages, so on the site they 404 (and fail `mkdocs build --strict`).
+    """
+    def fix(match):
+        text, target = match.group(1), match.group(2)
+        if target.startswith(("#", "http://", "https://", "mailto:", "/")):
+            return match.group(0)
+        path, _, anchor = target.partition("#")
+        if path.startswith("${CLAUDE_PLUGIN_ROOT}/vendor/"):
+            repo_path = _resolve_vendor(source_rel_dir, path[len("${CLAUDE_PLUGIN_ROOT}/"):])
+            if repo_path is None:
+                return match.group(0)
+        elif path.startswith("${CLAUDE_PLUGIN_ROOT}/"):
+            return f"[{text}]({GITHUB_BASE}/{source_rel_dir})"
+        else:
+            repo_path = os.path.normpath(os.path.join(source_rel_dir, path)).replace(os.sep, "/")
+        if repo_path.startswith("..") or not os.path.exists(os.path.join(REPO_ROOT, repo_path)):
+            return match.group(0)
+        return f"[{text}]({GITHUB_BASE}/{repo_path}{'#' + anchor if anchor else ''})"
+
+    return re.sub(r"(?<!!)\[([^\]]+)\]\(([^)\s]+)\)", fix, content)
 
 
 def rewrite_skill_internal_links(content, skill_rel_path):
@@ -382,6 +482,7 @@ def generate_skill_page(skill, domain_key):
     page = f'''---
 title: "{seo_title}"
 description: "{description}"
+edit_source: "{skill["rel_path"]}/SKILL.md"
 ---
 
 # {title}
@@ -393,16 +494,13 @@ description: "{description}"
 </div>
 
 '''
-    # Add install banner
-    page += f'''<div class="install-banner" markdown>
-<span class="install-label">Install:</span> <code>claude /plugin install {plugin_name}</code>
-</div>
-
-'''
+    # Add install banner (real plugin names from marketplace.json)
+    page += install_banner(*resolve_plugins(skill["rel_path"], skill["name"]))
 
     content_clean = strip_content(content)
     content_clean = rewrite_skill_internal_links(content_clean, skill["rel_path"])
     content_clean = rewrite_relative_links(content_clean, os.path.join(skill["rel_path"], "SKILL.md"))
+    content_clean = rewrite_remaining_links(content_clean, skill["rel_path"])
     page += content_clean
 
     return page
@@ -441,6 +539,79 @@ def generate_nav_entry(skills_by_domain):
     return "\n".join(nav_lines)
 
 
+NAV_RECORDS = {}
+
+
+def write_if_changed(path, content):
+    """Write only when content differs, so `mkdocs serve` does not loop on its own output."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            if f.read() == content:
+                return
+    except FileNotFoundError:
+        pass
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+
+def skill_title(skill):
+    title = extract_title(skill["path"]) or prettify(skill["name"])
+    title = re.sub(r"[*_`]", "", title)
+    return re.sub(r"\s*[-—]\s*(POWERFUL|Core|Advanced)\s*$", "", title, flags=re.IGNORECASE)
+
+
+def record_nav(domain_key, filename, skill, group):
+    """Remember a generated skill page so the docs hook can build the nav."""
+    NAV_RECORDS.setdefault(domain_key, []).append({
+        "path": f"skills/{domain_key}/{filename}",
+        "title": skill_title(skill),
+        "group": group,
+    })
+
+
+NAV_LABELS_PATH = os.path.join(REPO_ROOT, "scripts", "docs_nav_labels.json")
+
+
+def nav_label(path, title, labels):
+    """Curated short label if one exists, else the page H1 without its subtitle."""
+    return labels.get(path) or re.split(r"\s+[—–]\s+", title, maxsplit=1)[0].strip()
+
+
+def build_nav(result):
+    """Nav subtrees for the Skills, Agents and Commands tabs (mkdocs nav format).
+
+    Every generated page appears exactly once, so nothing is reachable only by
+    search. Labels come from scripts/docs_nav_labels.json when curated there.
+    """
+    with open(NAV_LABELS_PATH, "r", encoding="utf-8") as f:
+        labels = json.load(f)
+    skills_nav = [{"Overview": "skills/index.md"}]
+    for domain_key in sorted(NAV_RECORDS, key=lambda d: DOMAINS[d][1]):
+        items = [{"Overview": f"skills/{domain_key}/index.md"}]
+        groups = {}
+        for rec in sorted(NAV_RECORDS[domain_key], key=lambda r: ((r["group"] or r["title"]).lower(), r["group"] is None or r["title"] != r["group"], r["title"].lower())):
+            if rec["group"]:
+                if rec["group"] not in groups:
+                    groups[rec["group"]] = []
+                    items.append({nav_label("", rec["group"], {}): groups[rec["group"]]})
+                groups[rec["group"]].append({nav_label(rec["path"], rec["title"], labels): rec["path"]})
+            else:
+                items.append({nav_label(rec["path"], rec["title"], labels): rec["path"]})
+        skills_nav.append({DOMAINS[domain_key][0]: items})
+
+    by_domain = {}
+    for title, slug, domain_label, _icon in result["agents"]:
+        path = f"agents/{slug}.md"
+        by_domain.setdefault(domain_label, []).append({nav_label(path, title, labels): path})
+    agents_nav = [{"Overview": "agents/index.md"}]
+    for label in sorted(by_domain):
+        agents_nav.append({label: sorted(by_domain[label], key=lambda d: next(iter(d)).lower())})
+
+    commands_nav = [{"Overview": "commands/index.md"}]
+    commands_nav += [{f"/{name}": f"commands/{slug}.md"} for name, slug, _t, _d in sorted(result["commands"])]
+    return {"Skills": skills_nav, "Agents": agents_nav, "Commands": commands_nav}
+
+
 def parse_args(argv=None):
     """Parse CLI arguments BEFORE any filesystem access.
 
@@ -456,6 +627,7 @@ def parse_args(argv=None):
 
 
 def main():
+    NAV_RECORDS.clear()
     skills_by_domain = find_skill_files()
 
     # Create docs/skills/ directories
@@ -473,19 +645,20 @@ def main():
             slug = slugify(skill["name"])
             page_content = generate_skill_page(skill, domain_key)
             page_path = os.path.join(DOCS_DIR, "skills", domain_key, f"{slug}.md")
-            with open(page_path, "w", encoding="utf-8") as f:
-                f.write(page_content)
+            write_if_changed(page_path, page_content)
             total += 1
 
             # Generate sub-skill pages
             children = [s for s in sub_skills if s["parent"] == skill["name"]]
+            group = skill_title(skill) if children else None
+            record_nav(domain_key, f"{slug}.md", skill, group)
             for child in children:
                 child_slug = slugify(child["name"])
                 child_content = generate_skill_page(child, domain_key)
                 child_path = os.path.join(DOCS_DIR, "skills", domain_key, f"{slug}-{child_slug}.md")
-                with open(child_path, "w", encoding="utf-8") as f:
-                    f.write(child_content)
+                write_if_changed(child_path, child_content)
                 total += 1
+                record_nav(domain_key, f"{slug}-{child_slug}.md", child, group)
 
         # Render orphan sub-skills (sub-skills whose parent is a plugin folder,
         # not a top-level skill at <domain>/skills/<name>/). Without this,
@@ -502,12 +675,13 @@ def main():
             # If a child has the same name as parent, it's the plugin's index skill;
             # render as <parent>.md (preserves existing URLs like executive-mentor.md).
             index_sub = next((s for s in children if s["name"] == parent), None)
+            group = (skill_title(index_sub) if index_sub else prettify(parent)) if len(children) > 1 else None
             if index_sub:
                 page_content = generate_skill_page(index_sub, domain_key)
                 page_path = os.path.join(DOCS_DIR, "skills", domain_key, f"{parent_slug}.md")
-                with open(page_path, "w", encoding="utf-8") as f:
-                    f.write(page_content)
+                write_if_changed(page_path, page_content)
                 total += 1
+                record_nav(domain_key, f"{parent_slug}.md", index_sub, group)
             # Render non-index children as <parent>-<child>.md
             # (preserves existing URLs like executive-mentor-challenge.md).
             for child in children:
@@ -516,9 +690,9 @@ def main():
                 child_slug = slugify(child["name"])
                 child_content = generate_skill_page(child, domain_key)
                 child_path = os.path.join(DOCS_DIR, "skills", domain_key, f"{parent_slug}-{child_slug}.md")
-                with open(child_path, "w", encoding="utf-8") as f:
-                    f.write(child_content)
+                write_if_changed(child_path, child_content)
                 total += 1
+                record_nav(domain_key, f"{parent_slug}-{child_slug}.md", child, group)
 
     # Generate domain index pages
     sorted_domains = sorted(skills_by_domain.items(), key=lambda x: DOMAINS[x[0]][1])
@@ -551,6 +725,8 @@ def main():
     {subtitle}
 """
 
+        domain_plugin = next((p["name"] for p in PLUGINS if p["dir"] == domain_key), None)
+        domain_install = install_banner(domain_plugin, None, "Install all") if domain_plugin else ""
         domain_seo_ctx = DOMAIN_SEO_CONTEXT.get(domain_key, f"agent skills for {domain_name}")
         index_content = f'''---
 title: "{domain_name} Skills — Agent Skills & Codex Plugins"
@@ -565,18 +741,14 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
 
 </div>
 
-<div class="install-banner" markdown>
-<span class="install-label">Install all:</span> <code>claude /plugin install {plugin_name}</code>
-</div>
-
+{domain_install}
 <div class="grid cards" markdown>
 {cards}
 </div>
 '''
 
         index_path = os.path.join(DOCS_DIR, "skills", domain_key, "index.md")
-        with open(index_path, "w", encoding="utf-8") as f:
-            f.write(index_content)
+        write_if_changed(index_path, index_content)
 
     # Generate agent pages
     agents_dir = os.path.join(REPO_ROOT, "agents")
@@ -624,6 +796,7 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
 
                 content_clean = strip_content(content)
                 content_clean = rewrite_relative_links(content_clean, rel)
+                content_clean = rewrite_remaining_links(content_clean, os.path.dirname(rel))
 
                 agent_seo_title = f"{title} — AI Coding Agent & Codex Skill"
                 agent_fm_desc = extract_description_from_frontmatter(agent_path)
@@ -638,6 +811,7 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
                 page = f'''---
 title: "{agent_seo_title}"
 description: "{agent_desc}"
+edit_source: "{rel}"
 ---
 
 # {title}
@@ -651,8 +825,7 @@ description: "{agent_desc}"
 {content_clean}'''
                 slug = slugify(agent_name)
                 out_path = os.path.join(agents_docs_dir, f"{slug}.md")
-                with open(out_path, "w", encoding="utf-8") as f:
-                    f.write(page)
+                write_if_changed(out_path, page)
                 agent_count += 1
                 agent_entries.append((title, slug, domain_label, domain_icon))
 
@@ -716,6 +889,7 @@ description: "{agent_desc}"
 
                 content_clean = strip_content(content)
                 content_clean = rewrite_relative_links(content_clean, rel)
+                content_clean = rewrite_remaining_links(content_clean, os.path.dirname(rel))
 
                 agent_seo_title = f"{title} — AI Coding Agent & Codex Skill"
                 agent_fm_desc = extract_description_from_frontmatter(agent_path)
@@ -730,6 +904,7 @@ description: "{agent_desc}"
                 page = f'''---
 title: "{agent_seo_title}"
 description: "{agent_desc}"
+edit_source: "{rel}"
 ---
 
 # {title}
@@ -742,8 +917,7 @@ description: "{agent_desc}"
 
 {content_clean}'''
                 out_path = os.path.join(agents_docs_dir, f"{slug}.md")
-                with open(out_path, "w", encoding="utf-8") as f:
-                    f.write(page)
+                write_if_changed(out_path, page)
                 agent_count += 1
                 agent_entries.append((title, slug, domain_label, domain_icon))
                 seen_slugs.add(slug)
@@ -777,8 +951,7 @@ description: "{agent_count} agent-native orchestrators for Claude Code, Codex CL
 {agent_cards}
 </div>
 '''
-        with open(os.path.join(agents_docs_dir, "index.md"), "w", encoding="utf-8") as f:
-            f.write(idx)
+        write_if_changed(os.path.join(agents_docs_dir, "index.md"), idx)
 
     # Generate command pages
     commands_dir = os.path.join(REPO_ROOT, "commands")
@@ -802,6 +975,7 @@ description: "{agent_count} agent-native orchestrators for Claude Code, Codex CL
 
             content_clean = strip_content(content)
             content_clean = rewrite_relative_links(content_clean, rel)
+            content_clean = rewrite_remaining_links(content_clean, os.path.dirname(rel))
 
             cmd_fm_desc = extract_description_from_frontmatter(cmd_path)
             if cmd_fm_desc:
@@ -815,6 +989,7 @@ description: "{agent_count} agent-native orchestrators for Claude Code, Codex CL
             page = f'''---
 title: "/{cmd_name} — Slash Command for AI Coding Agents"
 description: "{cmd_desc}"
+edit_source: "{rel}"
 ---
 
 # /{cmd_name}
@@ -827,8 +1002,7 @@ description: "{cmd_desc}"
 {content_clean}'''
             slug = slugify(cmd_name)
             out_path = os.path.join(commands_docs_dir, f"{slug}.md")
-            with open(out_path, "w", encoding="utf-8") as f:
-                f.write(page)
+            write_if_changed(out_path, page)
             cmd_count += 1
             desc = extract_subtitle(cmd_path) or title
             cmd_entries.append((cmd_name, slug, title, desc))
@@ -873,6 +1047,7 @@ description: "{cmd_desc}"
 
             content_clean = strip_content(content)
             content_clean = rewrite_relative_links(content_clean, rel)
+            content_clean = rewrite_remaining_links(content_clean, os.path.dirname(rel))
 
             cmd_fm_desc = extract_description_from_frontmatter(cmd_path)
             if cmd_fm_desc:
@@ -886,19 +1061,19 @@ description: "{cmd_desc}"
             page = f'''---
 title: "/{cmd_name} — Slash Command for AI Coding Agents"
 description: "{cmd_desc}"
+edit_source: "{rel}"
 ---
 
 # /{cmd_name}
 
 <div class="page-meta" markdown>
 <span class="meta-badge">:material-console: Slash Command</span>
-<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/2-claude-skills/tree/main/{rel}">Source</a></span>
+<span class="meta-badge">:material-github: <a href="https://github.com/alirezarezvani/claude-skills/tree/main/{rel}">Source</a></span>
 </div>
 
 {content_clean}'''
             out_path = os.path.join(commands_docs_dir, f"{slug}.md")
-            with open(out_path, "w", encoding="utf-8") as f:
-                f.write(page)
+            write_if_changed(out_path, page)
             cmd_count += 1
             seen_cmd_slugs.add(slug)
             desc = extract_subtitle(cmd_path) or title
@@ -936,14 +1111,14 @@ description: "{cmd_count} slash commands for Claude Code, Codex CLI, and Gemini 
 {cmd_cards}
 </div>
 '''
-        with open(os.path.join(commands_docs_dir, "index.md"), "w", encoding="utf-8") as f:
-            f.write(idx)
+        write_if_changed(os.path.join(commands_docs_dir, "index.md"), idx)
 
     # Print summary
     print(f"Generated {total} skill pages across {len(skills_by_domain)} domains.")
     print(f"Generated {agent_count} agent pages.")
     print(f"Generated {cmd_count} command pages.")
     print(f"Total: {total + agent_count + cmd_count} pages.")
+    return {"agents": agent_entries, "commands": cmd_entries, "skill_pages": total}
 
 
 if __name__ == "__main__":

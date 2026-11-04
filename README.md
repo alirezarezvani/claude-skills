@@ -17,7 +17,7 @@ The most comprehensive open-source library of Claude Code skills and agent plugi
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
-> **5,200+ GitHub stars** — the most comprehensive open-source Claude Code skills & agent plugins library.
+> **29,000+ GitHub stars** — the most comprehensive open-source Claude Code skills & agent plugins library.
 
 ---
 
@@ -26,8 +26,8 @@ The most comprehensive open-source library of Claude Code skills and agent plugi
 Claude Code skills (also called agent skills or coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
 
 - **SKILL.md** — structured instructions, workflows, and decision frameworks
-- **Python tools** — 706 CLI scripts (all stdlib-only, zero pip installs)
-- **Reference docs** — 823 templates, checklists, and domain-specific knowledge files
+- **Python tools** — 807 CLI scripts (all stdlib-only, zero pip installs)
+- **Reference docs** — 917 templates, checklists, and domain-specific knowledge files
 
 **One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 807 Python tools run anywhere Python runs.
 
@@ -48,7 +48,33 @@ All three work together. See [Orchestration](#orchestration) for how to combine 
 
 > **Windows users:** clone with `git clone -c core.symlinks=true` (Developer Mode enabled) — otherwise the `.gemini/`/`.codex/`/`.vibe/`/`.hermes/` mirror trees check out as 1-line pointer text files instead of skills — and set `PYTHONUTF8=1` so tools that print Unicode don't crash on legacy-codepage consoles. Details: [INSTALLATION.md → Windows Notes](INSTALLATION.md#windows-notes).
 
-### Gemini CLI (New)
+### Claude Code (Recommended)
+
+```bash
+# Add the marketplace
+/plugin marketplace add alirezarezvani/claude-skills
+
+# Install by domain
+/plugin install engineering-skills@claude-code-skills          # core engineering
+/plugin install engineering-advanced-skills@claude-code-skills  # POWERFUL-tier
+/plugin install product-skills@claude-code-skills               # product
+/plugin install marketing-skills@claude-code-skills             # marketing
+/plugin install ra-qm-skills@claude-code-skills                 # regulatory/quality
+/plugin install pm-skills@claude-code-skills                    # project management
+/plugin install c-level-skills@claude-code-skills               # C-level advisory (full C-suite)
+/plugin install business-growth-skills@claude-code-skills       # business & growth
+/plugin install finance-skills@claude-code-skills               # finance
+
+# Or install a standalone plugin
+/plugin install pw@claude-code-skills                           # Playwright testing toolkit
+/plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
+/plugin install karpathy-coder@claude-code-skills               # Coding-discipline reviewer
+/plugin install grill-me@claude-code-skills                     # Plan interrogator
+```
+
+Only names listed in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) can be installed. Most skills (for example `skill-security-auditor` or `content-creator`) ship inside a domain bundle, so install the bundle that contains them. Run `/plugin` and open the marketplace to browse every installable name.
+
+### Gemini CLI
 
 ```bash
 # Clone the repository
@@ -62,32 +88,6 @@ cd claude-skills
 > activate_skill(name="senior-architect")
 ```
 
-### Claude Code (Recommended)
-
-```bash
-# Add the marketplace
-/plugin marketplace add alirezarezvani/claude-skills
-
-# Install by domain
-/plugin install engineering-skills@claude-code-skills          # 24 core engineering
-/plugin install engineering-advanced-skills@claude-code-skills  # 25 POWERFUL-tier
-/plugin install product-skills@claude-code-skills               # 12 product skills
-/plugin install marketing-skills@claude-code-skills             # 43 marketing skills
-/plugin install ra-qm-skills@claude-code-skills                 # 12 regulatory/quality
-/plugin install pm-skills@claude-code-skills                    # 6 project management
-/plugin install c-level-skills@claude-code-skills               # 28 C-level advisory (full C-suite)
-/plugin install business-growth-skills@claude-code-skills       # 4 business & growth
-/plugin install finance-skills@claude-code-skills               # 2 finance (analyst + SaaS metrics)
-
-# Or install a standalone plugin
-/plugin install pw@claude-code-skills                           # Playwright testing toolkit
-/plugin install self-improving-agent@claude-code-skills         # Auto-memory curation
-/plugin install karpathy-coder@claude-code-skills               # Coding-discipline reviewer
-/plugin install grill-me@claude-code-skills                     # Plan interrogator
-```
-
-Only names listed in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json) can be installed. Most skills (for example `skill-security-auditor` or `content-creator`) ship inside a domain bundle, so install the bundle that contains them. Run `/plugin` and open the marketplace to browse every installable name.
-
 ### OpenAI Codex
 
 ```bash
@@ -98,7 +98,8 @@ npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 ### OpenClaw
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/scripts/openclaw-install.sh)
+git clone https://github.com/alirezarezvani/claude-skills.git
+cd claude-skills && ./scripts/openclaw-install.sh
 ```
 
 ### Manual Installation
@@ -112,7 +113,7 @@ git clone https://github.com/alirezarezvani/claude-skills.git
 
 ## Multi-Tool Support (New)
 
-**Convert all 345 skills to 9 AI coding tools** with a single script:
+**Convert the skills for 9 more AI coding tools** with a single script:
 
 | Tool | Format | Install |
 |------|--------|---------|
@@ -143,7 +144,7 @@ find .cursor/rules -name "*.mdc" | wc -l  # Should show 346
 ```
 
 **Each tool gets:**
-- ✅ All 345 skills converted to native format
+- ✅ All skills converted to native format
 - ✅ Per-tool README with install/verify/update steps
 - ✅ Support for scripts, references, templates where applicable
 - ✅ Zero manual conversion work

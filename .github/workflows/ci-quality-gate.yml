@@ -191,6 +191,12 @@ jobs:
         run: |
           python3 scripts/test_derive_counters.py
 
+      - name: Docs site gate (gate G14 — blocking)
+        run: |
+          # Same pinned versions as static.yml, so the gate builds what Pages deploys.
+          pip install --quiet mkdocs==1.6.1 mkdocs-material==9.8.0 mkdocs-redirects==1.2.3
+          python3 scripts/check_docs_site.py --build
+
       - name: Safety dependency audit (requirements*.txt)
         run: |
           set -e

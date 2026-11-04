@@ -1,6 +1,6 @@
 ---
 title: Install Agent Skills — Claude Code, Codex, Gemini CLI Setup
-description: "How to install 345 agent skills and 78 plugins in any of 13 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, OpenClaw, Cursor, Aider, Windsurf, and more — most take under two minutes."
+description: "How to install {{ count.skills }} agent skills and {{ count.plugins }} plugins in any of 13 AI coding tools. Step-by-step setup for Claude Code, OpenAI Codex, Gemini CLI, Hermes Agent, Mistral Vibe, OpenClaw, Cursor, Aider, Windsurf, and more — most take under two minutes."
 ---
 
 # Getting Started
@@ -92,7 +92,7 @@ Choose your platform and follow the steps:
     ./scripts/vibe-install.sh
     ```
 
-    Skills install to `~/.vibe/skills/claude-skills/` (345 skills across 17 domains) and are automatically discovered by Vibe via `/skills` or `/<skill-name>`. See the [official Vibe docs](https://docs.mistral.ai/mistral-vibe/agents-skills) for details on the skills format.
+    Skills install to `~/.vibe/skills/claude-skills/` ({{ count.skills }} skills across {{ count.domains }} domains) and are automatically discovered by Vibe via `/skills` or `/<skill-name>`. See the [official Vibe docs](https://docs.mistral.ai/mistral-vibe/agents-skills) for details on the skills format.
 
     Sync options:
 
@@ -307,7 +307,7 @@ See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-
     Yes. Run `./scripts/gemini-install.sh` to set up skills for Gemini CLI. A sync script (`scripts/sync-gemini-skills.py`) generates the skills index automatically.
 
 ??? question "Does this work with Cursor, Windsurf, Aider, or other tools?"
-    Yes. All 345 skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.
+    Yes. All {{ count.skills }} skills can be converted to native formats for Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, and Antigravity. Run `./scripts/convert.sh --tool all` and then install with `./scripts/install.sh --tool <name>`. See [Multi-Tool Integrations](integrations.md) for details.
 
 ??? question "Can I use Agent Skills in ChatGPT?"
     Yes. We have [6 Custom GPTs](custom-gpts.md) that bring Agent Skills directly into ChatGPT — no installation needed. Just click and start chatting.

@@ -21,20 +21,23 @@ This repo provides **both formats** — every skill includes a `.claude-plugin` 
 
 ## Quick Install
 
-```bash
-# Install the full marketplace (all 345 skills as Claude Code plugins)
-claude /plugin install https://github.com/alirezarezvani/claude-skills
+Inside Claude Code:
+
+```text
+# Add the marketplace once
+/plugin marketplace add alirezarezvani/claude-skills
 
 # Install by domain
-claude /plugin install engineering-skills
-claude /plugin install marketing-skills
-claude /plugin install devops-skills
+/plugin install engineering-skills@claude-code-skills
+/plugin install engineering-advanced-skills@claude-code-skills
+/plugin install marketing-skills@claude-code-skills
 
 # Install individual plugins
-claude /plugin install frontend-design
-claude /plugin install pr-review-expert
-claude /plugin install autoresearch-agent
+/plugin install autoresearch-agent@claude-code-skills
+/plugin install docker-development@claude-code-skills
 ```
+
+Every plugin and its install command is listed in the [plugin catalogue](../plugins/index.md).
 
 ---
 
@@ -44,41 +47,41 @@ claude /plugin install autoresearch-agent
 
 | Plugin | What It Does | Install |
 |--------|-------------|---------|
-| **frontend-design** | Production-grade UI with high design quality. React, Tailwind, shadcn/ui. | `/plugin install frontend-design` |
-| **pr-review-expert** | Multi-pass code review: logic bugs, security, test coverage, architecture. | `/plugin install pr-review-expert` |
-| **autoresearch-agent** | Autonomous experiment loop — optimizes any file by a measurable metric. | `/plugin install autoresearch-agent` |
-| **senior-devops** | Infrastructure as Code, CI/CD pipelines, monitoring, incident response. | `/plugin install senior-devops` |
-| **docker-development** | Dockerfile optimization, multi-stage builds, container security scanning. | `/plugin install docker-development` |
-| **aws-solution-architect** | AWS architecture design with serverless patterns and IaC templates. | `/plugin install aws-solution-architect` |
-| **tdd-guide** | Test-driven development workflows with red-green-refactor cycles. | `/plugin install tdd-guide` |
-| **database-designer** | Schema design, migrations, indexing strategies, query optimization. | `/plugin install database-designer` |
+| **senior-frontend** | Frontend architecture, React and Next.js components, performance and accessibility. | `/plugin install engineering-skills@claude-code-skills` |
+| **pr-review-expert** | Multi-pass code review: logic bugs, security, test coverage, architecture. | `/plugin install engineering-advanced-skills@claude-code-skills` |
+| **autoresearch-agent** | Autonomous experiment loop — optimizes any file by a measurable metric. | `/plugin install autoresearch-agent@claude-code-skills` |
+| **senior-devops** | Infrastructure as Code, CI/CD pipelines, monitoring, incident response. | `/plugin install engineering-skills@claude-code-skills` |
+| **docker-development** | Dockerfile optimization, multi-stage builds, container security scanning. | `/plugin install docker-development@claude-code-skills` |
+| **aws-solution-architect** | AWS architecture design with serverless patterns and IaC templates. | `/plugin install engineering-skills@claude-code-skills` |
+| **tdd-guide** | Test-driven development workflows with red-green-refactor cycles. | `/plugin install engineering-skills@claude-code-skills` |
+| **database-designer** | Schema design, migrations, indexing strategies, query optimization. | `/plugin install engineering-advanced-skills@claude-code-skills` |
 
 ### Marketing & Content
 
 | Plugin | What It Does | Install |
 |--------|-------------|---------|
-| **content-creator** | SEO-optimized content with consistent brand voice and frameworks. | `/plugin install content-creator` |
-| **copywriting** | Marketing copy for landing pages, pricing pages, CTAs. | `/plugin install copywriting` |
-| **email-sequence** | Drip campaigns, nurture sequences, lifecycle email programs. | `/plugin install email-sequence` |
-| **app-store-optimization** | ASO keyword research, metadata optimization, A/B testing. | `/plugin install app-store-optimization` |
+| **content-creator** | SEO-optimized content with consistent brand voice and frameworks. | `/plugin install marketing-skills@claude-code-skills` |
+| **copywriting** | Marketing copy for landing pages, pricing pages, CTAs. | `/plugin install marketing-skills@claude-code-skills` |
+| **email-sequence** | Drip campaigns, nurture sequences, lifecycle email programs. | `/plugin install marketing-skills@claude-code-skills` |
+| **app-store-optimization** | ASO keyword research, metadata optimization, A/B testing. | `/plugin install marketing-skills@claude-code-skills` |
 
 ### Product & Business
 
 | Plugin | What It Does | Install |
 |--------|-------------|---------|
-| **research-summarizer** | Structured research → summary → citations for papers and reports. | `/plugin install research-summarizer` |
-| **agile-product-owner** | User stories, acceptance criteria, sprint planning, velocity tracking. | `/plugin install agile-product-owner` |
-| **ab-test-setup** | A/B test design, hypothesis creation, statistical significance. | `/plugin install ab-test-setup` |
-| **analytics-tracking** | GA4, GTM, conversion tracking, UTM parameters, tracking plans. | `/plugin install analytics-tracking` |
+| **research-summarizer** | Structured research → summary → citations for papers and reports. | `/plugin install research-summarizer@claude-code-skills` |
+| **agile-product-owner** | User stories, acceptance criteria, sprint planning, velocity tracking. | `/plugin install agile-product-owner@claude-code-skills` |
+| **ab-test-setup** | A/B test design, hypothesis creation, statistical significance. | `/plugin install marketing-skills@claude-code-skills` |
+| **analytics-tracking** | GA4, GTM, conversion tracking, UTM parameters, tracking plans. | `/plugin install marketing-skills@claude-code-skills` |
 
 ### C-Level & Strategy
 
 | Plugin | What It Does | Install |
 |--------|-------------|---------|
-| **cto-advisor** | Tech debt analysis, team scaling, architecture decisions, DORA metrics. | `/plugin install cto-advisor` |
-| **ceo-advisor** | Strategy, board governance, investor relations, organizational development. | `/plugin install ceo-advisor` |
-| **cfo-advisor** | Financial modeling, fundraising, burn rate analysis, unit economics. | `/plugin install cfo-advisor` |
-| **marketing-strategy-pmm** | Positioning (April Dunford), GTM strategy, competitive intelligence. | `/plugin install marketing-strategy-pmm` |
+| **cto-advisor** | Tech debt analysis, team scaling, architecture decisions, DORA metrics. | `/plugin install c-level-skills@claude-code-skills` |
+| **ceo-advisor** | Strategy, board governance, investor relations, organizational development. | `/plugin install c-level-skills@claude-code-skills` |
+| **cfo-advisor** | Financial modeling, fundraising, burn rate analysis, unit economics. | `/plugin install c-level-skills@claude-code-skills` |
+| **marketing-strategy-pmm** | Positioning (April Dunford), GTM strategy, competitive intelligence. | `/plugin install marketing-skills@claude-code-skills` |
 
 ---
 
@@ -110,7 +113,7 @@ Every plugin in this collection works across multiple AI coding agents:
 
 ## Related Resources
 
-- [Full Skill Catalog](https://github.com/alirezarezvani/claude-skills) — all 345 skills
+- [Full Skill Catalog](https://github.com/alirezarezvani/claude-skills) — all {{ count.skills }} skills
 - [Agent Skills for Codex](./agent-skills-for-codex.md) — Codex-specific guide
 - [Gemini CLI Skills Guide](./gemini-cli-skills-guide.md) — Gemini CLI setup
 - [Cursor Skills Guide](./cursor-skills-guide.md) — Cursor integration

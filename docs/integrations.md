@@ -5,7 +5,21 @@ description: "Install Claude Code skills and agent plugins in Hermes Agent, Mist
 
 # Multi-Tool Integrations
 
-All 345 skills in this repository work with **9 AI coding tools** beyond Claude Code, Codex, Gemini CLI, and OpenClaw. Hermes Agent and Mistral Vibe both use the same agentskills.io SKILL.md standard — no conversion needed. For the other 7 tools, a conversion script adapts the format each tool expects while preserving skill instructions, workflows, and supporting files.
+All {{ count.skills }} skills in this repository work with **9 AI coding tools** beyond Claude Code, Codex, Gemini CLI, and OpenClaw. Hermes Agent and Mistral Vibe both use the same agentskills.io SKILL.md standard — no conversion needed. For the other 7 tools, a conversion script adapts the format each tool expects while preserving skill instructions, workflows, and supporting files.
+
+## Support matrix
+
+How much each tool is tested tells you how much to trust it. "CI install-tested" means every pull request that changes skills installs the real tool into an empty home directory and fails unless the tool itself lists every installed skill.
+
+| Tool | Format | How you install | Tested |
+|---|---|---|---|
+| Claude Code | Native plugins | `/plugin install <name>@claude-code-skills` | Clean install of every plugin before each release |
+| OpenAI Codex | Native `SKILL.md` | `./scripts/codex-install.sh` | CI install-tested ({{ count.codex }} skills) |
+| Gemini CLI | Native `SKILL.md` | `./scripts/gemini-install.sh` | CI install-tested ({{ count.gemini }} skills) |
+| Hermes Agent | Native `SKILL.md` | `python3 scripts/sync-hermes-skills.py` | CI install-tested ({{ count.hermes }} skills) |
+| Mistral Vibe | Native `SKILL.md` | `./scripts/vibe-install.sh` | CI install-tested ({{ count.vibe }} skills) |
+| OpenClaw | Native `SKILL.md` | `./scripts/openclaw-install.sh` | Not tested in CI |
+| Cursor, Aider, Kilo Code, Windsurf, OpenCode, Augment, Antigravity | Converted | `./scripts/convert.sh` then `./scripts/install.sh --tool <name>` | Conversion only, not tested in the tool |
 
 <div class="grid cards" markdown>
 
@@ -252,7 +266,7 @@ aider --read CONVENTIONS.md
 
 ```bash
 wc -l CONVENTIONS.md
-# Expected: ~41,000 lines (all 156 skills)
+# Expected: one rule file per skill ({{ count.skills }} skills)
 
 grep -c "^## " CONVENTIONS.md
 # Expected: 156 (one section per skill)
@@ -545,8 +559,8 @@ find ~/.gemini/antigravity/skills -name "SKILL.md" | wc -l
 
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research is a self-improving AI agent with a built-in learning loop. It uses the [agentskills.io](https://agentskills.io) standard — **the same SKILL.md format our repo uses** — so no conversion is needed.
 
-!!! tip "Tier: BYO-sync (pre-generated tree available since v2.7.2)"
-    Starting in v2.7.2, the repo ships a pre-generated `.hermes/skills/claude-skills/` tree with **303 symlinks** across **12 domains** (including the v2.7.0 productivity/marketing/research domains). You still need to copy/symlink that tree into `~/.hermes/skills/` on your machine — that's the BYO-sync step. The `sync-hermes-skills.py` script handles this in one command.
+!!! tip "Install-tested in CI"
+    Every pull request that touches skills installs the real `hermes-agent` package into an empty home directory, runs `scripts/sync-hermes-skills.py`, and fails unless `hermes skills list` shows every installed skill ({{ count.hermes }} today). See `harness-compat.yml`.
 
 ### Why Hermes is different
 
@@ -554,48 +568,14 @@ Unlike other tools that need format conversion, Hermes reads `SKILL.md` files na
 
 ### Step 1 — Install Hermes Agent itself
 
-If you don't have Hermes Agent installed yet, set it up first:
+```bash
+python3 -m venv ~/.venvs/hermes
+~/.venvs/hermes/bin/pip install hermes-agent
+export PATH="$HOME/.venvs/hermes/bin:$PATH"
+hermes --version
+```
 
-=== "macOS / Linux"
-
-    ```bash
-    # 1. Clone the official repo
-    git clone https://github.com/NousResearch/hermes-agent.git
-    cd hermes-agent
-
-    # 2. Install dependencies (Python 3.10+)
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-
-    # 3. Configure your model provider (Nous, OpenAI, Anthropic — pick one)
-    cp .env.example .env
-    # Edit .env and set: NOUS_API_KEY=... OR OPENAI_API_KEY=... OR ANTHROPIC_API_KEY=...
-
-    # 4. First run to create ~/.hermes/ config dir
-    python hermes.py --version
-
-    # 5. Verify the skills directory exists
-    ls ~/.hermes/skills/  # → empty by default, ready for our claude-skills tree
-    ```
-
-=== "Windows (WSL2 recommended)"
-
-    Hermes Agent's official support targets macOS and Linux. On Windows, use WSL2 (Ubuntu 22.04+) and follow the macOS/Linux steps above. Native Windows is community-supported only.
-
-=== "Docker"
-
-    ```bash
-    docker run -it --rm \
-      -v $HOME/.hermes:/root/.hermes \
-      -e NOUS_API_KEY=$NOUS_API_KEY \
-      ghcr.io/nousresearch/hermes-agent:latest
-    ```
-
-    The `-v` flag mounts your local `~/.hermes/` so skills + history persist across runs. Replace `NOUS_API_KEY` with whichever provider you configured.
-
-!!! info "Don't have a Nous account?"
-    Hermes Agent supports multiple LLM providers — Nous (default), OpenAI, Anthropic, and any OpenAI-compatible endpoint. You don't need a Nous account if you already have OpenAI or Anthropic credentials. See [Hermes Agent README](https://github.com/NousResearch/hermes-agent#configuration) for the full provider matrix.
+Hermes supports several model providers (Nous, OpenAI, Anthropic and OpenAI-compatible endpoints). Configure yours as described in the [Hermes Agent README](https://github.com/NousResearch/hermes-agent).
 
 ### Step 2 — Install our skills into Hermes
 
@@ -607,7 +587,7 @@ If you don't have Hermes Agent installed yet, set it up first:
     python scripts/sync-hermes-skills.py --verbose
     ```
 
-    This symlinks all 303 skills into `~/.hermes/skills/claude-skills/` where Hermes discovers them automatically. Covers all 12 domains including the v2.7.0 additions (productivity, marketing, research).
+    This symlinks {{ count.hermes }} skills into `~/.hermes/skills/claude-skills/<domain>/<skill>/`, where Hermes discovers them automatically. Re-run it after `git pull` to pick up new skills.
 
 === "Single domain"
 
@@ -661,13 +641,8 @@ Hermes's skill_view tool loads the SKILL.md content into the conversation contex
 ### Verify
 
 ```bash
-# Check how many skills Hermes can see
-find ~/.hermes/skills/claude-skills -name "SKILL.md" | wc -l
-# Expected: 303 (v2.7.2+)
-
-# Or in Hermes CLI
-hermes
-> /skills search claude-skills
+hermes skills list | grep -c claude-skills
+# Expected: {{ count.hermes }}
 ```
 
 ### Updating
@@ -692,7 +667,7 @@ hermes
 # → claude-skills/engineering/karpathy-coder
 # → claude-skills/research/research
 # → claude-skills/productivity/capture
-# ... (303 total)
+# ... ({{ count.hermes }} total)
 
 # 3. Invoke a skill — research orchestrator example
 > /research What's the state of post-quantum cryptography in 2026?
@@ -732,7 +707,7 @@ skills:
     The sync target may be wrong. Check what the script actually did:
     ```bash
     python scripts/sync-hermes-skills.py --target ~/.hermes/skills --verbose --dry-run
-    # Should show 303 skills queued for sync. If 0, your DOMAIN_DIRS list is wrong (regression — file an issue).
+    # Should show {{ count.hermes }} skills queued for sync. If 0, your DOMAIN_DIRS list is wrong (regression — file an issue).
     ls -la ~/.hermes/skills/claude-skills/
     # If empty, the sync didn't actually write — check for permission errors above.
     ```
@@ -774,8 +749,8 @@ skills:
 
 [Mistral Vibe](https://github.com/mistralai/mistral-vibe) is Mistral AI's open-source Apache-2.0 CLI coding agent (v2.0, released January 2026). It uses the [Agent Skills standard](https://docs.mistral.ai/mistral-vibe/agents-skills) — the same `SKILL.md` + YAML frontmatter format Claude Code and Hermes Agent use — so **no conversion is needed**.
 
-!!! tip "Tier: BYO-sync (pre-generated tree available)"
-    The repo ships a pre-generated `.vibe/skills/claude-skills/` tree with **306 symlinks** across **14 domains**. You still need to copy/symlink that tree into `~/.vibe/skills/` on your machine — that's the BYO-sync step. The `sync-vibe-skills.py` script handles this in one command.
+!!! tip "Install-tested in CI"
+    Every pull request that touches skills installs the real `mistral-vibe` package into an empty home directory, runs `scripts/vibe-install.sh`, and fails unless Vibe's own skill manager loads every installed skill ({{ count.vibe }} today). See `harness-compat.yml`.
 
 ### Discovery paths
 
@@ -808,7 +783,7 @@ Vibe supports both Mistral's hosted models (via `MISTRAL_API_KEY`) and self-host
     ./scripts/vibe-install.sh
     ```
 
-    This symlinks all 306 skills into `~/.vibe/skills/claude-skills/` where Vibe discovers them automatically. Covers all 14 domains.
+    This symlinks {{ count.vibe }} skills into `~/.vibe/skills/<skill>/`, the flat user-global path Vibe scans by default. (The old `--nested` layout under `claude-skills/<domain>/` is only discovered if you add `skill_paths` to `~/.vibe/config.toml`.)
 
 === "Single domain"
 
@@ -858,12 +833,8 @@ Vibe can also auto-load skills when your prompt matches a skill's `description` 
 ### Verify
 
 ```bash
-# Count installed skills
-find ~/.vibe/skills/claude-skills -mindepth 2 -maxdepth 2 -name "SKILL.md" -o -type l | wc -l
-# Expected: 306
-
-# Inspect the manifest
-cat ~/.vibe/skills/claude-skills/skills-index.json | python3 -m json.tool | head -20
+ls ~/.vibe/skills | wc -l    # one folder per skill
+# Expected: about {{ count.vibe }}
 
 # Or in the Vibe CLI
 vibe
@@ -884,15 +855,15 @@ python scripts/sync-vibe-skills.py --verbose
 ??? question "Vibe doesn't see the synced skills"
     Make sure the sync ran and the symlinks resolve:
     ```bash
-    ls -la ~/.vibe/skills/claude-skills/engineering/agent-designer/SKILL.md
+    ls -la ~/.vibe/skills/agent-designer/SKILL.md
     # Should print a valid SKILL.md, not "No such file"
     ```
     If symlinks are broken (the source repo was moved), re-run `python scripts/sync-vibe-skills.py --verbose`.
 
 ??? question "How do I unsync (remove our skills from Vibe)?"
     ```bash
-    rm -rf ~/.vibe/skills/claude-skills/
-    # Vibe's own built-in skills are unaffected (they live elsewhere in ~/.vibe/skills/)
+    python3 scripts/sync-vibe-skills.py --dry-run --json   # lists the skill folders it manages
+    # then remove those folders from ~/.vibe/skills/
     ```
 
 <hr class="section-divider">

@@ -1,11 +1,11 @@
 ---
 title: "OpenClaw Skills Guide — Install & Use Agent Skills (2026)"
-description: "Install and use 345 agent skills with OpenClaw. One-line install for engineering, marketing, product, compliance, and DevOps skills in your OpenClaw workspace."
+description: "Install and use {{ count.skills }} agent skills with OpenClaw. One-line install for engineering, marketing, product, compliance, and DevOps skills in your OpenClaw workspace."
 ---
 
 # OpenClaw Skills Guide — Install & Use Agent Skills with OpenClaw
 
-> **Last updated:** June 2026 · **Skills count:** 345 · **Compatibility:** OpenClaw v2024.12+
+> **Skills:** {{ count.skills }} · **Release:** v{{ count.version }}
 
 ## What Are OpenClaw Skills?
 
@@ -26,48 +26,18 @@ OpenClaw's skill system is the most natural fit in the ecosystem — skills live
 
 ## Installation
 
-### Quick Install (Recommended)
-
-```bash
-bash <(curl -s https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/scripts/openclaw-install.sh)
-```
-
-This installs all 345 skills into your OpenClaw workspace with the correct directory structure.
-
-### Manual Install
-
 ```bash
 git clone https://github.com/alirezarezvani/claude-skills.git
 cd claude-skills
-./scripts/install.sh --tool openclaw
+./scripts/openclaw-install.sh --dry-run   # preview
+./scripts/openclaw-install.sh
 ```
 
-### Install Specific Skill Packs
+The script symlinks every skill folder into `~/.openclaw/workspace/skills/<skill>/` and skips names that already exist there, so re-running it after `git pull` only adds new skills. Run it from a clone: piping it straight from `curl` does not work, because it locates the skills relative to its own path.
 
-```bash
-# Engineering (49 skills)
-./scripts/install.sh --tool openclaw --pack engineering
+### ClawHub
 
-# Marketing (43 skills)
-./scripts/install.sh --tool openclaw --pack marketing
-
-# Product (12 skills)
-./scripts/install.sh --tool openclaw --pack product
-
-# C-Level Advisory (28 skills)
-./scripts/install.sh --tool openclaw --pack c-level
-
-# Regulatory & Quality (12 skills)
-./scripts/install.sh --tool openclaw --pack regulatory
-```
-
-### ClawHub Install
-
-If you have the ClawHub CLI:
-
-```bash
-clawhub install alirezarezvani/claude-skills
-```
+Individual skills are also published on [ClawHub](https://clawhub.com). Where another publisher already owns a skill's name, ours is published with a `cs-` prefix (for example `cs-copywriting`).
 
 ## How Skills Work in OpenClaw
 
@@ -86,9 +56,9 @@ OpenClaw has native skill support — it scans `<available_skills>` in your work
 |---|---|
 | `docker-development` | Dockerfile optimization, multi-stage builds, security hardening |
 | `terraform-patterns` | Infrastructure-as-code patterns and module design |
-| `github` | PR workflows, CI/CD, code review automation |
-| `frontend-design` | Production-grade UI components with high design quality |
-| `mcp-builder` | Build MCP servers for external API integrations |
+| `ci-cd-pipeline-builder` | CI/CD pipelines generated from your stack |
+| `senior-frontend` | Frontend architecture, components and performance |
+| `mcp-server-builder` | Build MCP servers for external API integrations |
 
 ### Marketing & Content
 | Skill | What It Does |
@@ -112,19 +82,6 @@ OpenClaw has native skill support — it scans `<available_skills>` in your work
 | `ceo-advisor` | Strategy, board prep, investor relations |
 | `cto-advisor` | Tech debt, team scaling, architecture decisions |
 | `cfo-advisor` | Financial modeling, fundraising, burn rate analysis |
-
-## OpenClaw vs Other Platforms
-
-| Feature | OpenClaw | Claude Code | Cursor | Codex |
-|---|---|---|---|---|
-| Native skill loading | ✅ Automatic | ✅ Manual | ⚠️ Rules only | ⚠️ Instructions |
-| Slash commands | ✅ | ✅ | ❌ | ❌ |
-| Python tool execution | ✅ | ✅ | ❌ | ✅ |
-| Multi-agent delegation | ✅ Built-in | ❌ | ❌ | ❌ |
-| Persistent memory | ✅ | ⚠️ Session | ❌ | ❌ |
-| Cron/scheduled tasks | ✅ | ❌ | ❌ | ❌ |
-
-OpenClaw's architecture — persistent agents, memory, cron jobs, and multi-channel messaging — makes it the most capable platform for running agent skills autonomously.
 
 ## Skill Anatomy
 
@@ -153,9 +110,9 @@ You can create your own skills following the same format:
 4. Add reference materials in `references/`
 5. OpenClaw will auto-discover and use your skill
 
-Use the `skill-creator` meta-skill for guided skill creation:
+Use the `write-a-skill` skill for guided skill creation:
 ```
-Use skill-creator to create my-custom-skill
+Use write-a-skill to create my-custom-skill
 ```
 
 ## Resources
@@ -167,4 +124,4 @@ Use skill-creator to create my-custom-skill
 
 ---
 
-*Part of the [Claude Code Skills & Agent Plugins](https://github.com/alirezarezvani/claude-skills) repository — 345 production-ready skills for 13 AI coding tools.*
+*Part of the [Claude Code Skills & Agent Plugins](https://github.com/alirezarezvani/claude-skills) repository — {{ count.skills }} production-ready skills for Claude Code and other coding agents.*

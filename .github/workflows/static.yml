@@ -29,13 +29,13 @@ jobs:
           python-version: "3.12"
 
       - name: Install MkDocs Material + plugins
-        run: pip install mkdocs-material mkdocs-redirects
+        run: pip install mkdocs==1.6.1 mkdocs-material==9.8.0 mkdocs-redirects==1.2.3
 
       - name: Generate skill pages
         run: python scripts/generate-docs.py
 
       - name: Build docs
-        run: mkdocs build
+        run: mkdocs build --strict
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

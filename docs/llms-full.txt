@@ -21,13 +21,13 @@ Teams download a skill folder and use it immediately: the skill's `SKILL.md` tea
 
 | Metric | Count |
 |--------|-------|
-| Production-ready skills | 354 |
-| Marketplace plugins | 82 |
-| Top-level domains | 18 |
-| Python automation tools | 593 |
-| Reference guides | 722 |
-| Agents (cs-* + personas) | 96 |
-| Slash commands | 102 |
+| Production-ready skills | {{ count.skills }} |
+| Marketplace plugins | {{ count.plugins }} |
+| Top-level domains | {{ count.domains }} |
+| Python automation tools | {{ count.tools }} |
+| Reference guides | {{ count.references }} |
+| Agents (cs-* + personas) | {{ count.agents }} |
+| Slash commands | {{ count.commands }} |
 
 Counters are generated from the actual file tree; run `python3 scripts/derive_counters.py --check` to verify the docs still match the tree.
 
@@ -86,7 +86,7 @@ Each `SKILL.md` carries YAML frontmatter with a `name` and a `description` whose
 
 ```
 claude-skills/
-├── .claude-plugin/        # Plugin registry (marketplace.json — 82 plugins)
+├── .claude-plugin/        # Plugin registry (marketplace.json — {{ count.plugins }} plugins)
 ├── agents/                # cs-* agents + 7 personas
 ├── commands/              # Slash commands
 ├── engineering-team/      # Core engineering skills
@@ -114,7 +114,7 @@ claude-skills/
 
 ---
 
-## The 18 domains in detail
+## The {{ count.domains }} domains in detail
 
 ### Engineering — Core (`engineering-team/`)
 Fullstack, AI/ML, DevOps, security, data, and QA skills. Includes senior-role skills (architect, backend, frontend, fullstack, DevOps, data engineer/scientist, ML, computer vision, prompt, QA, security, SecOps), cloud architects (AWS/Azure/GCP), a full security suite (adversarial reviewer, AI security, cloud security, incident response, red team, threat detection, pen testing), Playwright Pro (10 sub-skills), a Self-Improving Agent suite, Snowflake development, and Stripe integration.
@@ -178,7 +178,7 @@ A converter suite operationalizing Thariq Shihipar's thesis that markdown collap
 
 ## Plugin distribution
 
-Plugins are registered in `.claude-plugin/marketplace.json` (82 plugins) across these categories: development (34), leadership (9), research (9), productivity (6), marketing (5), compliance (4), product (4), finance (2), and one each of project-management, business-growth, design, knowledge, operations, commercial, research-ops, documentation, and engineering.
+Plugins are registered in `.claude-plugin/marketplace.json` ({{ count.plugins }} plugins) across these categories: development (34), leadership (9), research (9), productivity (6), marketing (5), compliance (4), product (4), finance (2), and one each of project-management, business-growth, design, knowledge, operations, commercial, research-ops, documentation, and engineering.
 
 ### plugin.json rules (for anyone extending the library)
 - Required fields: `name`, `description`, `version`, `author`, `homepage`, `repository`, `license`, `skills`.

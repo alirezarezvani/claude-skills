@@ -1,0 +1,54 @@
+name: Docs preview
+
+# Builds the site exactly as static.yml deploys it (social cards on) for any PR
+# that touches the docs pipeline, and uploads it as an artifact to review.
+on:
+  pull_request:
+    branches: [dev, main]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "scripts/generate-docs.py"
+      - "scripts/docs_hooks.py"
+      - "scripts/docs_*.json"
+      - ".github/workflows/static.yml"
+      - ".github/workflows/docs-preview.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install MkDocs Material + plugins
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libcairo2 >/dev/null
+          pip install mkdocs==1.6.1 "mkdocs-material[imaging]==9.8.0" mkdocs-redirects==1.2.3
+
+      - name: Build with social cards
+        run: SOCIAL_CARDS=true mkdocs build --strict
+
+      - name: Check social card meta tags
+        run: |
+          page=site/skills/engineering/docker-development/index.html
+          test "$(grep -c 'property="og:image"' "$page")" -eq 1
+          grep -o 'property="og:image" content="[^"]*"' "$page"
+          ls site/assets/images/social | head
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: docs-site-preview
+          path: site
+          retention-days: 7

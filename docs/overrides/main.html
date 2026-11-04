@@ -11,6 +11,10 @@
 </script>
 
 {% if page and page.meta %}
+{#- The social plugin (on for the Pages deploy) writes its own Open Graph and
+    Twitter tags with a per-page card image; emit ours only when it is off. -#}
+{% set social = config.plugins.get("material/social") or config.plugins.get("social") %}
+{% if not (social and social.config.enabled) %}
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{{ page.meta.title or page.title }} - {{ config.site_name }}" />
@@ -26,9 +30,10 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ page.meta.title or page.title }} - {{ config.site_name }}" />
 <meta name="twitter:description" content="{{ page.meta.description or config.site_description }}" />
+<meta name="twitter:image" content="https://opengraph.githubassets.com/1/alirezarezvani/claude-skills" />
+{% endif %}
 <meta name="twitter:site" content="@nginitycloud" />
 <meta name="twitter:creator" content="@nginitycloud" />
-<meta name="twitter:image" content="https://opengraph.githubassets.com/1/alirezarezvani/claude-skills" />
 
 <!-- Additional SEO -->
 <meta name="author" content="Alireza Rezvani" />

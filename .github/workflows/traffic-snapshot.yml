@@ -1,0 +1,92 @@
+name: Traffic snapshot
+
+# GitHub only keeps 14 days of traffic data. This saves a daily snapshot of
+# views, clones, referrers, popular paths, stars and forks to the `metrics`
+# branch so the history survives.
+#
+# Needs a repository secret TRAFFIC_TOKEN: a fine-grained personal access token
+# for this repository with "Administration: read" (the traffic API requires it).
+# Without the secret the job does nothing and succeeds.
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: traffic-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check for token
+        id: token
+        env:
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+        run: |
+          if [ -z "$TRAFFIC_TOKEN" ]; then
+            echo "::notice::TRAFFIC_TOKEN is not set; skipping the traffic snapshot."
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out the metrics branch
+        if: steps.token.outputs.present == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch traffic data
+        if: steps.token.outputs.present == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          day=$(date -u +%F)
+          mkdir -p /tmp/snap
+          gh api "repos/$REPO/traffic/views" > /tmp/snap/views.json
+          gh api "repos/$REPO/traffic/clones" > /tmp/snap/clones.json
+          gh api "repos/$REPO/traffic/popular/referrers" > /tmp/snap/referrers.json
+          gh api "repos/$REPO/traffic/popular/paths" > /tmp/snap/paths.json
+          gh api "repos/$REPO" \
+            --jq '{stars: .stargazers_count, forks: .forks_count, watchers: .subscribers_count, open_issues: .open_issues_count}' \
+            > /tmp/snap/repo.json
+          jq -n --arg day "$day" \
+            --slurpfile views /tmp/snap/views.json --slurpfile clones /tmp/snap/clones.json \
+            --slurpfile referrers /tmp/snap/referrers.json --slurpfile paths /tmp/snap/paths.json \
+            --slurpfile repo /tmp/snap/repo.json \
+            '{date: $day, repo: $repo[0], views: $views[0], clones: $clones[0], referrers: $referrers[0], paths: $paths[0]}' \
+            > /tmp/snap/snapshot.json
+          echo "day=$day" >> "$GITHUB_ENV"
+
+      - name: Commit to the metrics branch
+        if: steps.token.outputs.present == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin metrics >/dev/null; then
+            git fetch --depth 1 origin metrics
+            git checkout -B metrics FETCH_HEAD
+          else
+            git checkout --orphan metrics
+            git rm -rq --cached . && git clean -fdxq
+            printf '# Traffic snapshots\n\nDaily output of .github/workflows/traffic-snapshot.yml, one JSON file per day.\n' > README.md
+            git add README.md
+          fi
+          mkdir -p traffic
+          cp /tmp/snap/snapshot.json "traffic/${day}.json"
+          git add traffic
+          if git diff --cached --quiet; then
+            echo "No change"
+          else
+            git commit -qm "traffic: snapshot ${day}"
+            git push origin metrics
+          fi

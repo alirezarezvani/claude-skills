@@ -124,9 +124,14 @@ def on_config(config, **kwargs):
     nav = config.get("nav") or []
     for i, entry in enumerate(nav):
         if isinstance(entry, dict):
-            (key, _value), = entry.items()
+            (key, value), = entry.items()
             if key in generated:
-                nav[i] = {key: generated[key]}
+                # Hand-written entries after the Overview stub (e.g. Personas under
+                # Agents) stay, placed right after the generated Overview.
+                extra = [e for e in (value if isinstance(value, list) else [])
+                         if not (isinstance(e, dict) and "Overview" in e)]
+                gen = generated[key]
+                nav[i] = {key: gen[:1] + extra + gen[1:]}
     config["nav"] = nav
     if config.get("site_description"):
         config["site_description"] = _expand(config["site_description"])

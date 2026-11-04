@@ -6,6 +6,7 @@ import json
 import os
 import re
 import shutil
+import sys
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS_DIR = os.path.join(REPO_ROOT, "docs")
@@ -149,6 +150,20 @@ def extract_subtitle(filepath):
     return None
 
 
+def card_summary(filepath, limit=120):
+    """One-line card text: the frontmatter description's first sentence, else the
+    first line after the H1. Markdown quote/emphasis markers are stripped."""
+    text = extract_description_from_frontmatter(filepath) or extract_subtitle(filepath) or ""
+    text = re.sub(r"^>\s*", "", text.strip())
+    text = re.sub(r"[*_`\[\]]", "", text)
+    m = re.match(r"(.+?[.!?])(\s|$)", text)
+    if m and len(m.group(1)) >= 40:
+        text = m.group(1)
+    if len(text) > limit:
+        text = text[:limit - 3].rsplit(" ", 1)[0] + "..."
+    return text
+
+
 def extract_description_from_frontmatter(filepath):
     """Extract the description field from YAML frontmatter.
 
@@ -254,6 +269,7 @@ def strip_content(content):
 
 GITHUB_BASE = "https://github.com/alirezarezvani/claude-skills/tree/main"
 GITHUB_EDIT_BASE = "https://github.com/alirezarezvani/claude-skills/edit/dev"
+START_HERE_PATH = os.path.join(REPO_ROOT, "scripts", "docs_start_here.json")
 MARKETPLACE_PATH = os.path.join(REPO_ROOT, ".claude-plugin", "marketplace.json")
 
 
@@ -271,6 +287,8 @@ def load_marketplace():
 
 
 MARKETPLACE_NAME, PLUGINS = load_marketplace()
+with open(START_HERE_PATH, encoding="utf-8") as _f:
+    START_HERE = {k: v for k, v in json.load(_f).items() if not k.startswith("_")}
 PLUGIN_NAMES = {p["name"] for p in PLUGINS}
 
 
@@ -483,6 +501,8 @@ def generate_skill_page(skill, domain_key):
 title: "{seo_title}"
 description: "{description}"
 edit_source: "{skill["rel_path"]}/SKILL.md"
+search:
+  boost: 2
 ---
 
 # {title}
@@ -566,6 +586,7 @@ def record_nav(domain_key, filename, skill, group):
         "path": f"skills/{domain_key}/{filename}",
         "title": skill_title(skill),
         "group": group,
+        "skill": skill,
     })
 
 
@@ -695,35 +716,51 @@ def main():
                 record_nav(domain_key, f"{parent_slug}-{child_slug}.md", child, group)
 
     # Generate domain index pages
+    sys.path.insert(0, os.path.join(REPO_ROOT, "scripts"))
+    import derive_counters
+    from pathlib import Path
+    DERIVED_PER_DOMAIN = derive_counters.derive_per_domain(Path(REPO_ROOT))
     sorted_domains = sorted(skills_by_domain.items(), key=lambda x: DOMAINS[x[0]][1])
     for domain_key, skills in sorted_domains:
         domain_name, _, domain_icon, plugin_name = DOMAINS[domain_key]
-        top_level = sorted([s for s in skills if not s["is_sub_skill"]], key=lambda s: s["name"])
-        sub_skills = [s for s in skills if s["is_sub_skill"]]
-        skill_count = len(skills)
+        # Same number the homepage shows (scripts/derive_counters.py), so a
+        # domain never claims a different count on two pages.
+        skill_count = DERIVED_PER_DOMAIN.get(domain_key, len(skills))
 
-        # Build grid cards for skills
-        cards = ""
-        for skill in top_level:
-            slug = slugify(skill["name"])
-            title = extract_title(skill["path"]) or prettify(skill["name"])
-            title = re.sub(r"[*_`]", "", title)
-            subtitle = extract_subtitle(skill["path"]) or f"`{skill['name']}`"
-            subtitle = re.sub(r"[*_`\[\]]", "", subtitle)
-            # Truncate long subtitles
-            if len(subtitle) > 120:
-                subtitle = subtitle[:117] + "..."
-            children = sorted([s for s in sub_skills if s["parent"] == skill["name"]], key=lambda s: s["name"])
-            sub_count = len(children)
-            sub_text = f" + {sub_count} sub-skills" if sub_count > 0 else ""
+        # One card per page group: a plugin with sub-skills gets one card (its
+        # index page) with a sub-skill count; every ungrouped page gets its own.
+        records = NAV_RECORDS.get(domain_key, [])
+        entries, seen_groups = [], {}
+        for rec in records:
+            if rec["group"] is None:
+                entries.append({**rec, "subs": 0})
+            elif rec["group"] not in seen_groups:
+                seen_groups[rec["group"]] = len(entries)
+                entries.append({**rec, "subs": 0})
+            else:
+                entries[seen_groups[rec["group"]]]["subs"] += 1
+        entries.sort(key=lambda e: e["title"].lower())
 
-            cards += f"""
--   **[{title}]({slug}.md)**{sub_text}
+        def card(entry):
+            slug = os.path.basename(entry["path"])
+            title = re.sub(r"[*_`]", "", extract_title(entry["skill"]["path"]) or entry["title"])
+            subtitle = card_summary(entry["skill"]["path"]) or f"`{entry['skill']['name']}`"
+            sub_text = f" + {entry['subs']} sub-skills" if entry["subs"] else ""
+            return f"""
+-   **[{title}]({slug})**{sub_text}
 
     ---
 
     {subtitle}
 """
+
+        cards = "".join(card(e) for e in entries)
+        by_slug = {os.path.basename(e["path"])[:-3]: e for e in entries}
+        picks = [by_slug[p] for p in START_HERE.get(domain_key, []) if p in by_slug]
+        start_here = ""
+        if picks and len(entries) > 3:
+            start_here = ('\n## Start here\n\n<div class="grid cards start-here" markdown>\n'
+                          + "".join(card(p) for p in picks) + "\n</div>\n\n## All skills\n")
 
         domain_plugin = next((p["name"] for p in PLUGINS if p["dir"] == domain_key), None)
         domain_install = install_banner(domain_plugin, None, "Install all") if domain_plugin else ""
@@ -742,6 +779,7 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
 </div>
 
 {domain_install}
+{start_here}
 <div class="grid cards" markdown>
 {cards}
 </div>
@@ -812,6 +850,8 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
 title: "{agent_seo_title}"
 description: "{agent_desc}"
 edit_source: "{rel}"
+search:
+  boost: 0.5
 ---
 
 # {title}
@@ -905,6 +945,8 @@ edit_source: "{rel}"
 title: "{agent_seo_title}"
 description: "{agent_desc}"
 edit_source: "{rel}"
+search:
+  boost: 0.5
 ---
 
 # {title}
@@ -990,6 +1032,8 @@ description: "{agent_count} agent-native orchestrators for Claude Code, Codex CL
 title: "/{cmd_name} — Slash Command for AI Coding Agents"
 description: "{cmd_desc}"
 edit_source: "{rel}"
+search:
+  boost: 0.5
 ---
 
 # /{cmd_name}
@@ -1062,6 +1106,8 @@ edit_source: "{rel}"
 title: "/{cmd_name} — Slash Command for AI Coding Agents"
 description: "{cmd_desc}"
 edit_source: "{rel}"
+search:
+  boost: 0.5
 ---
 
 # /{cmd_name}

@@ -1,6 +1,6 @@
 ---
-title: "345 Agent Skills — Browse by Domain"
-description: "Browse 345 production-ready agent skills across 17 domains — engineering, product, marketing, C-level advisory, compliance, commercial, research, and finance. Installable as Claude Code plugins, Codex skills, Gemini CLI skills, and 10 more AI coding tools."
+title: "{{ count.skills }} Agent Skills — Browse by Domain"
+description: "Browse {{ count.skills }} production-ready agent skills across {{ count.domains }} domains — engineering, product, marketing, C-level advisory, compliance, commercial, research, and finance. Installable as Claude Code plugins, Codex skills, Gemini CLI skills, and 10 more AI coding tools."
 hide:
   - edit
 ---
@@ -9,26 +9,26 @@ hide:
 
 # Skills Library
 
-345 production-ready agent skills across 17 domains — every one self-contained, security-audited, and installable in one command.
+{{ count.skills }} production-ready agent skills across {{ count.domains }} domains — every one self-contained, security-audited, and installable in one command.
 { .skills-hero-sub }
 
 </div>
 
 <div class="grid cards" markdown>
 
--   :material-counter:{ .lg .middle } **345 Skills**
+-   :material-counter:{ .lg .middle } **{{ count.skills }} Skills**
 
     ---
 
     Across 17 professional domains
 
--   :material-language-python:{ .lg .middle } **570+ Tools**
+-   :material-language-python:{ .lg .middle } **{{ count.tools }} Tools**
 
     ---
 
     Python CLI tools, all stdlib-only
 
--   :material-package-variant-closed:{ .lg .middle } **78 Plugins**
+-   :material-package-variant-closed:{ .lg .middle } **{{ count.plugins }} Plugins**
 
     ---
 

@@ -82,3 +82,9 @@ tests/
 my-agent/
 my-agent-*/
 .claude/settings.local.json
+
+# Docs pages generated at build time (scripts/docs_hooks.py runs scripts/generate-docs.py).
+# Edit the source SKILL.md, agent or command file instead.
+docs/skills/*/
+docs/agents/
+docs/commands/

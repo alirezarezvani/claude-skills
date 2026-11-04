@@ -1,11 +1,11 @@
 ---
 title: "Cursor Agent Skills & Rules Guide (2026)"
-description: "Install and use 345 agent skills with Cursor IDE. Engineering, marketing, and product plugins for Cursor's AI coding agent."
+description: "Install and use {{ count.skills }} agent skills with Cursor IDE. Engineering, marketing, and product plugins for Cursor's AI coding agent."
 ---
 
 # Cursor Agent Skills Guide
 
-Use 345 production-ready agent skills with Cursor IDE. Every skill converts to Cursor's rules format and installs via the `.cursor/skills/` directory.
+Use {{ count.skills }} production-ready agent skills with Cursor IDE. Every skill converts to Cursor's rules format and installs via the `.cursor/skills/` directory.
 
 ---
 
@@ -69,7 +69,7 @@ cat .cursor/skills/frontend-design/SKILL.md >> .cursorrules
 
 ## Full Catalog
 
-All 345 skills across 17 domains. See the [full README](https://github.com/alirezarezvani/claude-skills) for the complete list.
+All {{ count.skills }} skills across {{ count.domains }} domains. See the [full README](https://github.com/alirezarezvani/claude-skills) for the complete list.
 
 **Also works with:** Claude Code · OpenAI Codex · Gemini CLI · OpenClaw · Aider · Windsurf · Kilo Code · OpenCode · Augment · Antigravity
 

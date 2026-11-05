@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **VERIFIED.md: the skills that load when you ask in plain words.** 152 of the 389 skills tested loaded on every
+  plain-language test prompt and stayed quiet on the near miss. `scripts/build_verified_tier.py` builds the page
+  from `audit/verified-tier/trigger_results.json` (the latest measurement of each skill's live description), and
+  gate G15 fails when the page is stale or lists a skill that no longer exists.
+- **Hero repos.** `heroes/heroes.json` names standalone plugins that also ship as their own repository, each with a
+  one-line promise: `agent-run-forensics`, `human-gate` and `skill-retro`. `scripts/export_hero.py` generates the
+  repo tree (marketplace.json for `/plugin marketplace add <owner>/<repo>`, a README with both install paths and
+  the trigger result, a link back here), and `hero-sync.yml` pushes it on every change to main. This repo stays the
+  source of truth. The workflow does nothing until a `HERO_SYNC_TOKEN` secret and the target repos exist.
+- **Release notes thank community contributors by GitHub handle**, taken from the commits between the previous
+  tag and the release.
+
 - **Codex, Gemini CLI, Hermes and Mistral Vibe are checked in CI.** Gate G13
   (`scripts/check_harness_mirrors.py`) regenerates the `.codex/`, `.gemini/`, `.vibe/` and `.hermes/` mirrors
   from scratch on every PR and fails on any difference; `--fix` rewrites them. The new `harness-compat.yml`
@@ -18,6 +30,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **README first screen rewritten.** One sentence on what the library is and that its skills are tested, one
+  install command for Claude Code and one for other agents, a pick-your-role table and six verified starting
+  skills. The Claude Code install now comes before Gemini CLI, and stale counts (580 tools, 25 advanced skills,
+  346 Cursor rules) are gone.
 - **Second pass on the 48 skills that still never auto-triggered.** On a fresh blind prompt set (generated from
   the old descriptions before any rewrite), 2 runs per prompt, rewriting 43 of them raised exact fires from 23/172
   to 50/172 with zero near-miss fires. Only the 14 rewrites that improved were kept (ceo-advisor, cfo-advisor,

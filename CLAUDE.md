@@ -871,6 +871,7 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 - Write a skill description as a when-to-load trigger ("Use for/when/before X. Does Y with tool.py"), not a capability summary: the 2026-10-30 evals showed summaries rarely fire, and every character counts against Claude Code's ~30,000-char skill listing. A command that only wraps a skill gets `disable-model-invocation: true`. G12 (`check_listing_budget.py`) blocks a plugin from growing its listing; run `--update-baseline` after shrinking one.
 - A marketplace install copies only the plugin's own directory, so `../../other-plugin/...` paths break once installed. To reuse another plugin's scripts or references, add a relative symlink under the plugin's `vendor/` (Claude Code dereferences in-marketplace symlinks into the cache) and reference it as `${CLAUDE_PLUGIN_ROOT}/vendor/...`, which `check_paths.py` now verifies.
 - Never name a skill, command or plugin after a Claude Code built-in (`/skill-doctor`, `/review`, `/init` ...): a plugin skill of the same name hides the built-in. Check `claude` 2.1.x's built-in list before naming one.
+- Build anything from eval results on the measurement of the text that is live: a rewrite that was measured and then rejected describes text that never shipped (VERIFIED.md first used 30 such results).
 
 ## Additional Resources
 

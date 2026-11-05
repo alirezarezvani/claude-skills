@@ -899,3 +899,6 @@
 .md-copyright__ai a:focus {
   opacity: 1;
 }
+
+/* The hero H1 is a landing headline, not a section to deep-link: hide its permalink. */
+.hero .headerlink { display: none; }

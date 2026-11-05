@@ -195,13 +195,13 @@
       "name": "ceo-advisor",
       "source": "../../c-level-advisor/skills/ceo-advisor",
       "category": "c-level",
-      "description": "CEO and founder advice: company strategy, board and investor management, fundraising, org design, culture. Use whenever a CEO asks how to run the company, handle investors or board, or make a big bet."
+      "description": "Advice for a CEO or founder on running the company: board and investor trouble, raise or cut, strategy bets, org and culture. Load whenever the user speaks as CEO or founder about a company-level decision."
     },
     {
       "name": "cfo-advisor",
       "source": "../../c-level-advisor/skills/cfo-advisor",
       "category": "c-level",
-      "description": "Startup finance: runway and burn, unit economics (LTV, CAC, payback), fundraising and dilution, board financials. Use whenever the user shares burn, cash, ARR or CAC numbers or asks if they can raise."
+      "description": "Startup finance: runway and burn, unit economics (LTV, CAC, payback), fundraising and dilution. Load whenever the user asks how long the cash lasts, if burn is too high, or shares cash, ARR or CAC numbers."
     },
     {
       "name": "cfo-review",
@@ -573,7 +573,7 @@
       "name": "ai-act-readiness",
       "source": "../../compliance-os/skills/ai-act-readiness",
       "category": "compliance",
-      "description": "EU AI Act readiness for an AI system. Use when launching AI in the EU, at AI intake, or /compliance-os:ai-act-readiness."
+      "description": "EU AI Act readiness: risk tier, duties, deadlines. Load whenever AI ships in the EU or the user asks if the Act applies."
     },
     {
       "name": "aims-audit",
@@ -867,7 +867,7 @@
       "name": "senior-architect",
       "source": "../../engineering-team/skills/senior-architect",
       "category": "engineering",
-      "description": "Make system architecture decisions and draw architecture diagrams: monolith vs microservices, database choice, scalability, ADRs, design reviews, Mermaid or PlantUML. Use whenever the user asks how to structure a system, which database to pick, whether it will scale, or wants an ADR or diagram."
+      "description": "System architecture decisions with a written rationale: monolith vs microservices, database choice, scaling limits, ADRs, Mermaid diagrams. Load whenever the user asks should we split, which database, will it scale, or wants an ADR."
     },
     {
       "name": "senior-backend",
@@ -885,7 +885,7 @@
       "name": "senior-data-engineer",
       "source": "../../engineering-team/skills/senior-data-engineer",
       "category": "engineering",
-      "description": "Build, fix and tune data pipelines: ETL/ELT, Airflow DAGs, Spark, dbt, Kafka, data modeling and data quality checks. Use whenever a pipeline, DAG or batch job fails, is slow or needs designing, or data arrives wrong."
+      "description": "Data pipelines: Airflow DAGs, Spark, dbt, Kafka, ETL/ELT, data quality checks. Load whenever a DAG or batch job times out or fails, data arrives wrong, or the user designs an ingestion pipeline."
     },
     {
       "name": "senior-data-scientist",
@@ -1107,7 +1107,7 @@
       "name": "caveman",
       "source": "../../engineering/caveman/skills/caveman",
       "category": "engineering-advanced",
-      "description": "Ultra-short replies that cut tokens about 75% by dropping filler, articles and pleasantries while staying technically accurate. Use whenever the user says caveman mode, talk like caveman, use caveman, less tokens, be brief, too wordy, or invokes /caveman."
+      "description": "Terse mode: drop filler, articles and pleasantries, keep technical accuracy, about 75% fewer tokens, and stay in it. Load whenever the user asks for fewer words, shorter answers, less tokens, caveman mode or /caveman."
     },
     {
       "name": "changelog-generator",
@@ -1131,7 +1131,7 @@
       "name": "ci-cd-pipeline-builder",
       "source": "../../engineering/skills/ci-cd-pipeline-builder",
       "category": "engineering-advanced",
-      "description": "Set up or refactor CI/CD for a repo: detect the stack, generate pipeline YAML. Use whenever the user wants builds or tests to run on each push or needs a CI workflow file."
+      "description": "Generate a CI/CD workflow for a repo from its detected stack: lint, test, build, deploy. Load whenever the user says the repo has no CI, wants tests run on push, or needs a pipeline YAML."
     },
     {
       "name": "claude-coach",
@@ -1347,7 +1347,7 @@
       "name": "karpathy-coder",
       "source": "../../engineering/karpathy-coder/skills/karpathy-coder",
       "category": "engineering-advanced",
-      "description": "Check code against Karpathy's four principles: surface assumptions, keep it simple, change surgically, verify goals. Use whenever the user is about to commit, reviews a diff, or worries code is overbuilt or too complex; runs complexity_checker.py."
+      "description": "Check a diff for overbuilt code: hidden assumptions, needless abstraction, non-surgical changes, unverified goals (Karpathy's four principles). Load whenever the user thinks they overcomplicated something or wants a pre-commit check."
     },
     {
       "name": "kubernetes-operator",
@@ -1407,7 +1407,7 @@
       "name": "migration-architect",
       "source": "../../engineering/skills/migration-architect",
       "category": "engineering-advanced",
-      "description": "Plan a safe database, schema, service or data migration: phased plan, compatibility check and rollback scripts. Use whenever the user must move data, change a live schema, switch databases or migrate without downtime."
+      "description": "Plan a migration with zero or minimal downtime: phased plan, compatibility check, rollback scripts, for schemas, databases and services. Load whenever the user must change a live table, move a database or cut over without downtime."
     },
     {
       "name": "minimalist",
@@ -1437,7 +1437,7 @@
       "name": "pr-review-expert",
       "source": "../../engineering/skills/pr-review-expert",
       "category": "engineering-advanced",
-      "description": "Review a pull request or diff for bugs, security and quality, file by file. Use whenever the user asks to review a PR or look over their changes."
+      "description": "File-by-file pull request review for bugs, security and quality, with a merge verdict. Load whenever the user asks to review, look over or check a PR or diff before merging."
     },
     {
       "name": "prompt-governance",
@@ -1545,13 +1545,13 @@
       "name": "sql-database-assistant",
       "source": "../../engineering/skills/sql-database-assistant",
       "category": "engineering-advanced",
-      "description": "Write and tune SQL, explore schemas, make migrations: Prisma, Drizzle, TypeORM, SQLAlchemy. Use whenever a query is slow or returns wrong rows, the user needs one written or asks what tables exist."
+      "description": "Write, fix and speed up SQL: slow queries, EXPLAIN plans, indexes, ORM migrations (Prisma, Drizzle, SQLAlchemy). Load whenever a query is slow or wrong, the user needs SQL written, or an ORM migration."
     },
     {
       "name": "statistical-analyst",
       "source": "../../engineering/statistical-analyst/skills/statistical-analyst",
       "category": "engineering-advanced",
-      "description": "Tell whether a difference is real: A/B results, hypothesis tests, confidence intervals, how many users a test needs. Use whenever the user asks if a result is significant, which variant won, or how long to run a test before calling a winner."
+      "description": "Is a difference real? Significance tests, confidence intervals, sample size and test duration for A/B results. Load whenever the user asks if a lift is real or noise, which variant won, or how many users a test needs."
     },
     {
       "name": "strict-api",
@@ -1581,7 +1581,7 @@
       "name": "universal-scraping-architect",
       "source": "../../engineering/universal-scraping-architect/skills/universal-scraping-architect",
       "category": "engineering-advanced",
-      "description": "Scrape websites, crawl pages, extract documents or parse APIs, and validate what was extracted, via Firecrawl or local Python. Use whenever the user wants data pulled from a site, PDF or API, or a scraper breaks."
+      "description": "Build a scraper or extractor for sites, PDFs or paginated APIs and validate the fields (Firecrawl or local Python). Load whenever the user wants data pulled from pages, files or an API, or a scraper broke."
     },
     {
       "name": "workflow-builder",
@@ -1959,7 +1959,7 @@
       "name": "social-media-analyzer",
       "source": "../../marketing-skill/skills/social-media-analyzer",
       "category": "marketing",
-      "description": "Measure how social posts and campaigns perform: engagement rate, campaign ROI, benchmarks, which platform works best. Use whenever the user asks if their posts are working, why engagement is low, or where to focus."
+      "description": "Score social performance: engagement rate, reach, ROI per platform, benchmarks. Load whenever the user asks which platform performs best, if posts are working, or shares social metrics to compare."
     },
     {
       "name": "social-media-manager",

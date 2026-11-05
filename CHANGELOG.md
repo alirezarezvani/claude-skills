@@ -7,6 +7,87 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.9] - 2026-11-05 — a docs site that cannot drift, and CI that tests every harness
+
+No new skills. The docs site now builds every count, list and install line from the tree, so it cannot fall
+behind the repo again; CI now installs the library into the real Codex, Gemini CLI, Hermes and Vibe CLIs and
+measures whether a re-described skill still loads; and VERIFIED.md lists the 152 skills measured to load on
+plain-language prompts. No renames, so nothing needs a reinstall. Plugins whose files changed are bumped;
+plugins changed more than once on dev sit above 2.14.9 (gate G11), up to `engineering-advanced-skills` at 2.14.17.
+
+### Added
+
+- **Docs site generated from the tree** (#1114). A MkDocs hook (`scripts/docs_hooks.py`) runs the page
+  generator at build time, builds the Skills, Agents and Commands navigation from what it generated, and fills
+  every count, the plugin table and a new What's New page (the last five CHANGELOG releases). The site had
+  drifted to 345 skills and 80 plugins against 411 and 110, with about 150 pages missing from the navigation and
+  32 pages whose install commands named plugins that do not exist. Generated pages are no longer committed; 42
+  redirects keep old URLs working. New Hermes and Vibe guides and a harness support matrix. The Pages build runs
+  `--strict`, and gate G14 (`scripts/check_docs_site.py`) fails CI on a hard-coded counter, an unknown install
+  target or a page missing from the navigation.
+- **Docs site navigation, search and sharing** (#1115). Twelve top tabs reduced to six (Home, Skills, Plugins,
+  Agents, Commands, Other Tools); each domain page opens with up to three "Start here" picks and shows one card
+  per plugin group, so plugin-packaged skills are no longer missing from the grid. Search ranks skill pages
+  above the agent and command pages that wrap them. Social cards on the Pages build (with a fallback build
+  without them). `docs-preview.yml` builds docs PRs the way Pages does; `traffic-snapshot.yml` keeps GitHub's
+  14-day traffic data on a `metrics` branch once a `TRAFFIC_TOKEN` secret exists.
+- **Trigger-rate gate on PRs** (#1109, #1112). A PR that adds a skill or changes a skill's name or description
+  runs `scripts/evals/trigger_gate.py` on held-out prompts, base and head description in the same job. It fails
+  on a drop of more than 25 points, a new skill under 50%, any near-miss fire, or a skill it could not measure
+  (an expired token no longer passes silently; the job summary names the cause). Body-only edits make no model
+  call, fork PRs are skipped, and the `trigger-gate-override` label accepts a reviewed failure.
+- **VERIFIED.md: the skills that load when you ask in plain words** (#1116). 152 of the 389 skills tested loaded on every
+  plain-language test prompt and stayed quiet on the near miss. `scripts/build_verified_tier.py` builds the page
+  from `audit/verified-tier/trigger_results.json` (the latest measurement of each skill's live description), and
+  gate G15 fails when the page is stale or lists a skill that no longer exists.
+- **Hero repos** (#1116). `heroes/heroes.json` names standalone plugins that also ship as their own repository, each with a
+  one-line promise: `agent-run-forensics`, `human-gate` and `skill-retro`. `scripts/export_hero.py` generates the
+  repo tree (marketplace.json for `/plugin marketplace add <owner>/<repo>`, a README with both install paths and
+  the trigger result, a link back here), and `hero-sync.yml` pushes it on every change to main. This repo stays the
+  source of truth. The workflow does nothing until a `HERO_SYNC_TOKEN` secret and the target repos exist.
+- **Release notes thank community contributors by GitHub handle**, taken from the commits between the previous
+  tag and the release.
+
+- **Codex, Gemini CLI, Hermes and Mistral Vibe are checked in CI** (#1110). Gate G13
+  (`scripts/check_harness_mirrors.py`) regenerates the `.codex/`, `.gemini/`, `.vibe/` and `.hermes/` mirrors
+  from scratch on every PR and fails on any difference; `--fix` rewrites them. The new `harness-compat.yml`
+  workflow installs each real, open-source CLI (pinned on PRs, latest every Monday), runs the documented install
+  path into an empty HOME and fails unless the harness itself lists every installed skill
+  (`scripts/check_harness_installs.py`). No model is called and no API key is used.
+
+### Changed
+
+- **README first screen rewritten** (#1116). One sentence on what the library is and that its skills are tested, one
+  install command for Claude Code and one for other agents, a pick-your-role table and six verified starting
+  skills. The Claude Code install now comes before Gemini CLI, and stale counts (580 tools, 25 advanced skills,
+  346 Cursor rules) are gone.
+- **Second pass on the 48 skills that still never auto-triggered** (#1111). On a fresh blind prompt set (generated from
+  the old descriptions before any rewrite), 2 runs per prompt, rewriting 43 of them raised exact fires from 23/172
+  to 50/172 with zero near-miss fires. Only the 14 rewrites that improved were kept (ceo-advisor, cfo-advisor,
+  ai-act-readiness, senior-architect, senior-data-engineer, caveman, karpathy-coder, ci-cd-pipeline-builder,
+  migration-architect, pr-review-expert, sql-database-assistant, statistical-analyst, universal-scraping-architect,
+  social-media-analyzer); the rest keep their old text.
+- **Four router skills are now command-only** (`disable-model-invocation: true`): `c-level-skills`,
+  `engineering-advanced-skills`, `ra-qm-skills` and the `self-improving-agent` umbrella. They never fired, and
+  Claude Code already picks among their sibling skills itself; they stay available as slash commands, so nothing
+  breaks and no reinstall is needed.
+
+- `ai-decision-authority` provenance names no former employer (community, @kubersharmax, #1113;
+  `marketing-skills` 2.14.10).
+
+### Fixed
+
+- **Six skills never loaded in Codex** (aeo, deepread, hivemind, loop-library, swedish-mentor, youtube-full).
+  Codex skips a skill folder that holds a `.claude-plugin/` directory, which single-skill plugins keep next to
+  `SKILL.md`. `codex-install.sh` and `codex-install.bat` now drop that folder from the installed copy.
+- **Eight Gemini CLI entries were invisible** (chaos-experiment, flag-cleanup, operator-audit, slo-design and the
+  four `cs-*-review`/`cs-engineer-grill` commands). Gemini skips a SKILL.md without a frontmatter `name:`; the
+  command files now carry one, matching their file names, so Claude Code is unaffected.
+- Vibe and Hermes mirror links for agent-regression-evals, coding-agent-rollout and month-end-close pointed at
+  the standalone copy instead of the bundle copy a fresh sync picks (same content).
+- `generate_trigger_cases.py` now accepts a near-miss prompt the model wraps in a list, instead of writing a case
+  that crashes `run_evals.py`.
+
 ## [2.14.8] - 2026-11-03 — skills that load when you ask for them
 
 No new skills. This release is about the ones you already have: 111 skills whose descriptions never made Claude

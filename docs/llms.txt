@@ -1,6 +1,6 @@
 # Claude Code Skills & Agent Plugins
 
-> An open-source (MIT) library of 354 production-ready agent skills, 82 installable plugins, 96 agents, and 102 slash commands across 18 domains — engineering, product, marketing, compliance, finance, research, and more. Each skill is a self-contained package bundling domain expertise, deterministic Python tools (stdlib-only, no LLM calls), reference knowledge bases, and ready-to-use templates. Skills are portable across Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6+ more AI coding tools.
+> An open-source (MIT) library of {{ count.skills }} production-ready agent skills, {{ count.plugins }} installable plugins, {{ count.agents }} agents, and {{ count.commands }} slash commands across {{ count.domains }} domains — engineering, product, marketing, compliance, finance, research, and more. Each skill is a self-contained package bundling domain expertise, deterministic Python tools (stdlib-only, no LLM calls), reference knowledge bases, and ready-to-use templates. Skills are portable across Claude Code, OpenAI Codex, Gemini CLI, Cursor, Hermes Agent, Mistral Vibe, OpenClaw, and 6+ more AI coding tools.
 
 This file follows the [llms.txt](https://llmstxt.org) convention. For a full, self-contained description of the entire repository, see [llms-full.txt](https://alirezarezvani.github.io/claude-skills/llms-full.txt).
 
@@ -16,10 +16,10 @@ Key facts for agents:
 - [Home](https://alirezarezvani.github.io/claude-skills/): Overview and value proposition.
 - [Getting Started](https://alirezarezvani.github.io/claude-skills/getting-started/): Install and use skills/plugins.
 - [Multi-Tool Integrations](https://alirezarezvani.github.io/claude-skills/integrations/): Using skills with Codex, Gemini CLI, Cursor, Hermes, Vibe, OpenClaw, and more.
-- [Skills Overview](https://alirezarezvani.github.io/claude-skills/skills/): Index of all 354 skills by domain.
+- [Skills Overview](https://alirezarezvani.github.io/claude-skills/skills/): Index of all {{ count.skills }} skills by domain.
 - [Plugins](https://alirezarezvani.github.io/claude-skills/plugins/): The 82 installable marketplace plugins.
 - [Agents](https://alirezarezvani.github.io/claude-skills/agents/): The 96 cs-* agents and personas.
-- [Commands](https://alirezarezvani.github.io/claude-skills/commands/): The 102 slash commands.
+- [Commands](https://alirezarezvani.github.io/claude-skills/commands/): The {{ count.commands }} slash commands.
 
 ## Domains
 

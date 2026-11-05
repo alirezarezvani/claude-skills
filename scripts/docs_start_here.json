@@ -1,0 +1,23 @@
+{
+  "_comment": "Up to three skills per domain shown under 'Start here' on the domain page. Slugs are docs page names; check_docs_site.py fails on a slug with no page.",
+  "agent-launcher": ["agent-launcher-orchestrator", "interview", "stage-launch"],
+  "business-growth": ["customer-success-manager", "revenue-operations", "sales-engineer"],
+  "business-operations": ["business-operations-skills", "process-mapper", "vendor-management"],
+  "c-level-advisor": ["ceo-advisor", "cto-advisor", "board-meeting"],
+  "c-level-agents": ["founder-mode", "office-hours", "boardroom"],
+  "commercial": ["commercial-skills", "pricing-strategist", "deal-desk"],
+  "compliance-os": ["compliance-os", "iso27001-audit-prep", "soc2-audit-prep"],
+  "engineering": ["karpathy-coder", "write-a-skill", "agent-harness"],
+  "engineering-team": ["senior-architect", "code-reviewer", "tdd-guide"],
+  "finance": ["financial-analyst", "saas-metrics-coach", "month-end-close"],
+  "loop-library": ["loop-library"],
+  "markdown-html": ["markdown-html-orchestrator", "design-system", "md-document"],
+  "marketing": ["linkedin-linkedin-skills", "landing"],
+  "marketing-skill": ["marketing-skills", "copywriting", "seo-audit"],
+  "product-team": ["product-manager-toolkit", "product-discovery", "agile-product-owner"],
+  "productivity": ["capture", "weekly-review", "handoff-session-handoff"],
+  "project-management": ["pm-skills", "jira-expert", "scrum-master"],
+  "ra-qm-team": ["ra-qm-skills", "quality-manager-qms-iso13485", "mdr-745-specialist"],
+  "research": ["research", "litreview", "dossier"],
+  "research-ops": ["research-ops-skills", "clinical-research", "market-research"]
+}

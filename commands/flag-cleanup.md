@@ -1,4 +1,5 @@
 ---
+name: flag-cleanup
 description: Run the quarterly feature-flag cleanup workflow on the current repo
 ---
 

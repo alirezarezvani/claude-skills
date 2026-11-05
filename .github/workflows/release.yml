@@ -91,6 +91,39 @@ jobs:
           echo "=== Release body preview ==="
           head -50 /tmp/release-body.md
 
+      - name: Credit community contributors
+        if: steps.tagcheck.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          MAINTAINER: ${{ github.repository_owner }}
+        run: |
+          set -euo pipefail
+          PREV=$(git describe --tags --abbrev=0 HEAD 2>/dev/null || true)
+          if [[ -z "$PREV" ]]; then
+            echo "No previous tag; skipping contributor credit."
+            exit 0
+          fi
+          # Every commit author with a GitHub account between the last tag and HEAD,
+          # minus the maintainer and bots. Community PRs merge into dev, so their
+          # commits arrive here through the dev -> main promotion.
+          LOGINS=$(gh api --paginate "repos/${REPO}/compare/${PREV}...${GITHUB_SHA}" \
+            --jq '.commits[] | (.author.login // empty), (.committer.login // empty)' \
+            | sort -u | grep -viE "^(${MAINTAINER}|web-flow|claude|.*\[bot\])$" || true)
+          if [[ -z "$LOGINS" ]]; then
+            echo "No community contributors since ${PREV}."
+            exit 0
+          fi
+          {
+            echo ""
+            echo "## Thank you"
+            echo ""
+            echo -n "This release includes work from "
+            echo "$LOGINS" | sed 's/^/@/' | paste -sd, - | sed 's/,/, /g'
+            echo "."
+          } >> /tmp/release-body.md
+          echo "Credited: $(echo "$LOGINS" | paste -sd' ' -)"
+
       - name: Create and push tag
         if: steps.tagcheck.outputs.exists == 'false'
         run: |

@@ -1,6 +1,6 @@
 ---
 name: "migration-architect"
-description: "Plan a safe database, schema, service or data migration: phased plan, compatibility check and rollback scripts. Use whenever the user must move data, change a live schema, switch databases or migrate without downtime."
+description: "Plan a migration with zero or minimal downtime: phased plan, compatibility check, rollback scripts, for schemas, databases and services. Load whenever the user must change a live table, move a database or cut over without downtime."
 ---
 
 # Migration Architect

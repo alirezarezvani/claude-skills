@@ -1,0 +1,160 @@
+---
+name: Skill Trigger Gate
+
+# A new skill, or a skill whose name or description changed, must still fire on held-out
+# prompts and must not fire on its near-miss prompt. See scripts/evals/trigger_gate.py and
+# scripts/evals/README.md ("Trigger gate").
+#
+# - Runs only when a PR touches a SKILL.md, and only measures skills whose name or description
+#   changed (a body edit cannot change triggering), so most PRs finish in seconds with no model call.
+# - Auth: CLAUDE_CODE_OAUTH_TOKEN (subscription, no extra bill) or ANTHROPIC_API_KEY. Without
+#   either, the job notes it and passes.
+# - Fork PRs are skipped: GitHub withholds secrets from them, and running a stranger's plugin with
+#   a token in the environment is unsafe. After reading the diff, a maintainer can run the gate
+#   on a fork PR with "Run workflow" and its number.
+# - Blocking by default. Set the repo variable TRIGGER_GATE_ENFORCE to "false", or add the label
+#   "trigger-gate-override" to a PR to accept a failure (adding the label turns the check green
+#   without spending a run).
+
+'on':
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
+    paths:
+      - '**/SKILL.md'
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: 'PR number to gate (read the diff first if it comes from a fork)'
+        required: true
+
+concurrency:
+  group: trigger-gate-${{ github.event.pull_request.number || github.event.inputs.pr }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Decide whether to run
+        id: pre
+        # Event text goes through env, never inline into the script.
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ACTION: ${{ github.event.action }}
+          LABEL: ${{ github.event.label.name }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          THIS_REPO: ${{ github.repository }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+          INPUT_PR: ${{ github.event.inputs.pr }}
+          GH_TOKEN: ${{ github.token }}
+          OVERRIDE: ${{ contains(github.event.pull_request.labels.*.name, 'trigger-gate-override') }}
+          ENFORCE_VAR: ${{ vars.TRIGGER_GATE_ENFORCE }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            if [ "$ACTION" = "labeled" ] && [ "$LABEL" = "trigger-gate-override" ]; then
+              echo "::notice::trigger-gate-override label added: gate accepted without a new run."
+              echo "run=false" >> "$GITHUB_OUTPUT"; exit 0
+            fi
+            if [ "$HEAD_REPO" != "$THIS_REPO" ]; then
+              echo "::notice::Fork PR: trigger gate skipped. A maintainer can run it with Run workflow after reading the diff."
+              echo "run=false" >> "$GITHUB_OUTPUT"; exit 0
+            fi
+            echo "head=$PR_HEAD_SHA" >> "$GITHUB_OUTPUT"
+            echo "base=$PR_BASE_REF" >> "$GITHUB_OUTPUT"
+          else
+            if ! [[ "$INPUT_PR" =~ ^[0-9]+$ ]]; then echo "::error::pr must be a number"; exit 1; fi
+            pr_json=$(gh api "repos/$THIS_REPO/pulls/$INPUT_PR")
+            echo "head=$(jq -r .head.sha <<<"$pr_json")" >> "$GITHUB_OUTPUT"
+            echo "base=$(jq -r .base.ref <<<"$pr_json")" >> "$GITHUB_OUTPUT"
+            echo "pr_ref=refs/pull/$INPUT_PR/head" >> "$GITHUB_OUTPUT"
+          fi
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ] && [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::notice::No CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY; trigger gate skipped."
+            echo "run=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$ENFORCE_VAR" = "false" ] || [ "$OVERRIDE" = "true" ]; then
+            echo "enforce=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "enforce=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "run=true" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.pre.outputs.run == 'true'
+        with:
+          fetch-depth: 0
+          ref: ${{ steps.pre.outputs.pr_ref || steps.pre.outputs.head }}
+
+      - name: Fetch base
+        if: steps.pre.outputs.run == 'true'
+        env:
+          BASE: ${{ steps.pre.outputs.base }}
+        run: git fetch --no-tags origin "refs/heads/$BASE:refs/remotes/origin/$BASE"
+
+      - uses: actions/setup-python@v5
+        if: steps.pre.outputs.run == 'true'
+        with:
+          python-version: '3.11'
+
+      - name: Find changed skills
+        id: plan
+        if: steps.pre.outputs.run == 'true'
+        env:
+          BASE: ${{ steps.pre.outputs.base }}
+          MAX_SKILLS: ${{ vars.TRIGGER_GATE_MAX_SKILLS || '20' }}
+        run: python3 scripts/evals/trigger_gate.py --base "origin/$BASE" --max-skills "$MAX_SKILLS" --plan
+
+      - uses: actions/setup-node@v4
+        if: steps.plan.outputs.skills != '' && steps.plan.outputs.skills != '0'
+        with:
+          node-version: '22'
+
+      - name: Install Claude Code
+        if: steps.plan.outputs.skills != '' && steps.plan.outputs.skills != '0'
+        env:
+          CC_VERSION: ${{ vars.CLAUDE_CODE_VERSION || '2.1.308' }}
+        run: npm install -g "@anthropic-ai/claude-code@$CC_VERSION"
+
+      - name: Run trigger gate
+        if: steps.plan.outputs.skills != '' && steps.plan.outputs.skills != '0'
+        env:
+          BASE: ${{ steps.pre.outputs.base }}
+          ENFORCE: ${{ steps.pre.outputs.enforce }}
+          MAX_SKILLS: ${{ vars.TRIGGER_GATE_MAX_SKILLS || '20' }}
+          BUDGET: ${{ vars.TRIGGER_GATE_BUDGET_USD || '30' }}
+          MODEL: ${{ vars.SKILL_EVALS_MODEL || 'sonnet' }}
+        run: |
+          set +e
+          python3 scripts/evals/trigger_gate.py --base "origin/$BASE" --max-skills "$MAX_SKILLS" \
+            --budget "$BUDGET" --model "$MODEL" --out gate-out
+          code=$?
+          set -e
+          [ -f gate-out/gate.md ] && cat gate-out/gate.md >> "$GITHUB_STEP_SUMMARY"
+          # 1 = a skill failed, 3 = a skill could not be measured. Both fail: an unmeasured skill
+          # has not passed (PR #1111 went green with every run erroring).
+          if [ "$code" = "1" ] || [ "$code" = "3" ]; then
+            what="failed"; [ "$code" = "3" ] && what="could not measure every changed skill"
+            if [ "$ENFORCE" = "true" ]; then
+              echo "::error::Trigger gate $what; see the job summary. Label the PR trigger-gate-override to accept it."
+              exit 1
+            fi
+            echo "::warning::Trigger gate $what (advisory: override label or TRIGGER_GATE_ENFORCE=false)."
+          elif [ "$code" != "0" ]; then
+            exit "$code"
+          fi
+
+      - name: Upload transcripts
+        if: always() && steps.plan.outputs.skills != '' && steps.plan.outputs.skills != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: trigger-gate-${{ github.run_id }}
+          path: gate-out/
+          retention-days: 14

@@ -29,13 +29,28 @@ jobs:
           python-version: "3.12"
 
       - name: Install MkDocs Material + plugins
-        run: pip install mkdocs-material mkdocs-redirects
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libcairo2 >/dev/null
+          pip install mkdocs==1.6.1 "mkdocs-material[imaging]==9.8.0" mkdocs-redirects==1.2.3
+
+      - name: Cache social cards
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: social-cards-${{ github.run_id }}
+          restore-keys: social-cards-
 
       - name: Generate skill pages
         run: python scripts/generate-docs.py
 
       - name: Build docs
-        run: mkdocs build
+        run: |
+          # Social preview cards are a nice-to-have: if generating them fails
+          # (fonts, cairo), deploy the site without them rather than not at all.
+          if ! SOCIAL_CARDS=true mkdocs build --strict; then
+            echo "::warning::Social cards failed; building without them"
+            mkdocs build --strict
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

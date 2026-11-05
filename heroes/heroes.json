@@ -1,0 +1,26 @@
+{
+  "_comment": "Hero skills: standalone repos generated from this monorepo by scripts/export_hero.py. This repo stays the source of truth; never edit a hero repo by hand. Each hero must be a standalone marketplace plugin whose skill is FIRES in audit/verified-tier/trigger_results.json.",
+  "heroes": [
+    {
+      "plugin": "agent-run-forensics",
+      "path": "engineering/agent-run-forensics",
+      "repo": "alirezarezvani/agent-run-forensics",
+      "promise": "Your agent said the tests passed. Check whether they did.",
+      "pitch": "Answers questions about past Claude Code and Codex runs from the session transcript, not from the agent's memory. It finds the run, numbers every step with its exit code, flags files the agent changed without mentioning them, and tests a summary's claims against what actually happened."
+    },
+    {
+      "plugin": "human-gate",
+      "path": "engineering/human-gate",
+      "repo": "alirezarezvani/human-gate",
+      "promise": "Nothing ships until a named person has signed off.",
+      "pitch": "Turns a plan, spec, report or migration into a single-file review page, collects the feedback as structured data, and refuses to close while a blocker is open, the reviewer is unnamed, or nobody has reviewed at all. Works over SSH and in CI, where no browser exists."
+    },
+    {
+      "plugin": "skill-retro",
+      "path": "engineering/skill-retro",
+      "repo": "alirezarezvani/skill-retro",
+      "promise": "Find out which of your skills actually help, from your own sessions.",
+      "pitch": "Reads your recent Claude Code and Codex sessions for one repo, grades each against fixed efficiency and code-quality rubrics, measures which installed skills fired, and proposes only the skill edits the evidence supports. One local HTML report; nothing is uploaded."
+    }
+  ]
+}

@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.8 (trigger release: descriptions of 111 skills that never auto-triggered rewritten in user words, held-out fires 26% to 38% with zero false fires; senior-frontend, senior-secops and copy-editing SKILL.md files split into references (#1098, #1101, #1102). See CHANGELOG.md [2.14.8].)
+**Version:** v2.14.9 (docs-site and harness-CI release: the docs site builds every count, nav entry and install line from the tree with gate G14 (#1114, #1115); trigger-rate gate on PRs (#1109, #1112); real Codex/Gemini/Hermes/Vibe install checks and mirror-drift gate G13 (#1110); second trigger pass on 48 silent skills (#1111); VERIFIED.md tier with gate G15, hero-repo exporter, README first screen (#1116). See CHANGELOG.md [2.14.9].)
+
+**Previously: v2.14.8** (trigger release: descriptions of 111 skills that never auto-triggered rewritten in user words, held-out fires 26% to 38% with zero false fires; senior-frontend, senior-secops and copy-editing SKILL.md files split into references (#1098, #1101, #1102). See CHANGELOG.md [2.14.8].)
 
 **Previously: v2.14.7** (i18n-localization release: new i18n-localization skill that gates translation files on missing keys, placeholders and CLDR plural forms, finds hardcoded UI strings and builds pseudo-locales (#849); deep-research renamed meta-research (reinstall) and the maintainer /review command renamed /quality-gate so neither hides a Claude Code built-in; Vibe and Hermes mirrors resynced. See CHANGELOG.md [2.14.7].)
 
@@ -836,7 +838,7 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
    **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
 
    **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.8).
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.9).
 
 ## Anti-Patterns to Avoid
 
@@ -861,7 +863,8 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 ## Lessons
 
 - (Claude adds rules here)
-- Never commit a raw `sync-*-skills.py` run: the Gemini/Vibe/Hermes syncs re-point symlinks for duplicate skill names in walk order, so stage only the mirror entries your change touches and revert the rest.
+- Never hand-run the `sync-*-skills.py` scripts into the repo: incremental runs keep stale links for dual-published skills. Regenerate every mirror with `python3 scripts/check_harness_mirrors.py --fix` and commit the result; gate G13 fails a PR whose `.codex/`, `.gemini/`, `.vibe/` or `.hermes/` tree differs from a fresh sync, and `harness-compat.yml` installs the real Codex, Gemini, Hermes and Vibe CLIs to prove each one loads every skill.
+- Codex skips any installed skill folder that contains `.claude-plugin/`, and Gemini skips a SKILL.md without a frontmatter `name:`; both failures are silent, which is why the harness checks list what the real CLI discovered instead of trusting the installer's output.
 - Never write `/cs-<name>`: Claude Code runs plugin commands as `/<plugin>:<name>` or bare `/<name>` (verified on 2.1.306), so a command file `cs-foo.md` is `/cs-foo`, and a generic skill name like `decide` is written `/c-level-agents:decide`. `scripts/check_command_refs.py` blocks regressions.
 - Run the local gates with the exact flags `ci-quality-gate.yml` uses (`check_paths.py --all`, `check_skill_names.py --all`, `check_frontmatter.py --all`): without `--all`, check_paths skips agent and command files and reports clean.
 - Bump the version of every plugin whose files change (`scripts/bump_plugin_versions.py --changed-since origin/dev`): Claude Code caches by version, so an unbumped change never reaches existing installs; G11 (`check_plugin_versions.py`) blocks it.
@@ -870,6 +873,7 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 - Write a skill description as a when-to-load trigger ("Use for/when/before X. Does Y with tool.py"), not a capability summary: the 2026-10-30 evals showed summaries rarely fire, and every character counts against Claude Code's ~30,000-char skill listing. A command that only wraps a skill gets `disable-model-invocation: true`. G12 (`check_listing_budget.py`) blocks a plugin from growing its listing; run `--update-baseline` after shrinking one.
 - A marketplace install copies only the plugin's own directory, so `../../other-plugin/...` paths break once installed. To reuse another plugin's scripts or references, add a relative symlink under the plugin's `vendor/` (Claude Code dereferences in-marketplace symlinks into the cache) and reference it as `${CLAUDE_PLUGIN_ROOT}/vendor/...`, which `check_paths.py` now verifies.
 - Never name a skill, command or plugin after a Claude Code built-in (`/skill-doctor`, `/review`, `/init` ...): a plugin skill of the same name hides the built-in. Check `claude` 2.1.x's built-in list before naming one.
+- Build anything from eval results on the measurement of the text that is live: a rewrite that was measured and then rejected describes text that never shipped (VERIFIED.md first used 30 such results).
 
 ## Additional Resources
 
@@ -881,6 +885,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** November 3, 2026
-**Version:** v2.14.8 (111 trigger-description rewrites, three SKILL.md splits — see CHANGELOG.md)
+**Last Updated:** November 5, 2026
+**Version:** v2.14.9 (docs site generated from the tree, harness CI, trigger gate, VERIFIED.md — see CHANGELOG.md)
 **Status:** 411 production-ready skills across 20 domains, 110 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

@@ -1,4 +1,5 @@
 ---
+name: cs-fullstack-review
 description: Fullstack engineering review — walks the 7 Matt Pocock forcing questions, picks the profile, forks into POWERFUL specialists (api-design-reviewer, database-designer, slo-architect). Invokes the cs-fullstack-engineer agent with context fork.
 argument-hint: "<problem or codebase to review>"
 ---

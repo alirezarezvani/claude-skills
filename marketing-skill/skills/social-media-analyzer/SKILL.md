@@ -1,6 +1,6 @@
 ---
 name: "social-media-analyzer"
-description: "Measure how social posts and campaigns perform: engagement rate, campaign ROI, benchmarks, which platform works best. Use whenever the user asks if their posts are working, why engagement is low, or where to focus."
+description: "Score social performance: engagement rate, reach, ROI per platform, benchmarks. Load whenever the user asks which platform performs best, if posts are working, or shares social metrics to compare."
 metadata:
   triggers:
     - analyze social media

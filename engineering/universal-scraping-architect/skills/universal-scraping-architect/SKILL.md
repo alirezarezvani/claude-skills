@@ -1,6 +1,6 @@
 ---
 name: "universal-scraping-architect"
-description: "Scrape websites, crawl pages, extract documents or parse APIs, and validate what was extracted, via Firecrawl or local Python. Use whenever the user wants data pulled from a site, PDF or API, or a scraper breaks."
+description: "Build a scraper or extractor for sites, PDFs or paginated APIs and validate the fields (Firecrawl or local Python). Load whenever the user wants data pulled from pages, files or an API, or a scraper broke."
 ---
 
 # Universal Scraping Architect

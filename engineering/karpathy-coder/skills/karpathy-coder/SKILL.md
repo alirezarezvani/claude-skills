@@ -1,6 +1,6 @@
 ---
 name: karpathy-coder
-description: "Check code against Karpathy's four principles: surface assumptions, keep it simple, change surgically, verify goals. Use whenever the user is about to commit, reviews a diff, or worries code is overbuilt or too complex; runs complexity_checker.py."
+description: "Check a diff for overbuilt code: hidden assumptions, needless abstraction, non-surgical changes, unverified goals (Karpathy's four principles). Load whenever the user thinks they overcomplicated something or wants a pre-commit check."
 context: fork
 license: MIT
 metadata:

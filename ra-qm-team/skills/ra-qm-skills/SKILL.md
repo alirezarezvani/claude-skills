@@ -1,6 +1,7 @@
 ---
 name: "ra-qm-skills"
 description: "Router for regulatory and quality skills: ISO 13485, MDR, FDA, ISO 14971, CAPA, ISO 27001, ISO 42001, EU AI Act, GDPR, SOC 2. Use whenever a compliance request fits no single one."
+disable-model-invocation: true
 license: MIT
 metadata:
   version: 2.9.0

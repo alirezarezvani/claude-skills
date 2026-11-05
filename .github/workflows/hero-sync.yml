@@ -1,0 +1,85 @@
+name: Hero repo sync
+
+# Regenerates each hero repo listed in heroes/heroes.json from this monorepo
+# and pushes it. This repo is the source of truth; hero repos are output.
+#
+# Needs a HERO_SYNC_TOKEN secret: a fine-grained token with Contents
+# read/write on the hero repos only. Without it, or when a hero repo does not
+# exist yet, the job logs why and exits green.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "heroes/**"
+      - "scripts/export_hero.py"
+      - "audit/verified-tier/**"
+      - "engineering/agent-run-forensics/**"
+      - "engineering/human-gate/**"
+      - "engineering/skill-retro/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hero-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate heroes
+        run: python3 scripts/export_hero.py --check
+
+      - name: Export and push
+        env:
+          HERO_SYNC_TOKEN: ${{ secrets.HERO_SYNC_TOKEN }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${HERO_SYNC_TOKEN}" ]; then
+            echo "HERO_SYNC_TOKEN is not set; skipping push. Exported trees are validated only."
+            python3 scripts/export_hero.py --all --out "${RUNNER_TEMP}/heroes"
+            exit 0
+          fi
+          python3 scripts/export_hero.py --all --out "${RUNNER_TEMP}/heroes"
+          git config --global user.name "claude-skills hero sync"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 - <<'PY' > "${RUNNER_TEMP}/heroes.tsv"
+          import json
+          for h in json.load(open("heroes/heroes.json"))["heroes"]:
+              print(f"{h['plugin']}\t{h['repo']}")
+          PY
+          while IFS=$'\t' read -r plugin repo; do
+            url="https://x-access-token:${HERO_SYNC_TOKEN}@github.com/${repo}.git"
+            work="${RUNNER_TEMP}/clone-${plugin}"
+            if ! git ls-remote "${url}" >/dev/null 2>&1; then
+              echo "::notice::${repo} does not exist or the token cannot reach it; skipping ${plugin}."
+              continue
+            fi
+            rm -rf "${work}"
+            if ! git clone --depth 1 "${url}" "${work}" 2>/dev/null; then
+              # Empty repo: start main from scratch.
+              mkdir -p "${work}"
+              git -C "${work}" init -b main
+              git -C "${work}" remote add origin "${url}"
+            fi
+            find "${work}" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+            cp -R "${RUNNER_TEMP}/heroes/${plugin}/." "${work}/"
+            git -C "${work}" add -A
+            if git -C "${work}" diff --cached --quiet; then
+              echo "${plugin}: no changes."
+              continue
+            fi
+            git -C "${work}" commit -q -m "sync: from alirezarezvani/claude-skills@${SOURCE_SHA:0:12}"
+            git -C "${work}" push -q origin HEAD:main
+            echo "${plugin}: pushed to ${repo}."
+          done < "${RUNNER_TEMP}/heroes.tsv"

@@ -191,6 +191,11 @@ jobs:
         run: |
           python3 scripts/test_derive_counters.py
 
+      - name: Verified tier and hero config (gate G15 — blocking)
+        run: |
+          python3 scripts/build_verified_tier.py --check
+          python3 scripts/export_hero.py --check
+
       - name: Docs site gate (gate G14 — blocking)
         run: |
           # Same pinned versions as static.yml, so the gate builds what Pages deploys.

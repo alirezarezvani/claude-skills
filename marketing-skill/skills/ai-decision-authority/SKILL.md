@@ -108,6 +108,6 @@ Always name the misclassification cost. It is the part that changes behaviour.
 
 ## Provenance
 
-Based on the Augmented Marketing Decision Architecture, developed in an enterprise product marketing function and observed across 16 product launches at Tableau (Salesforce) prior to 2025. Observational deployment, not a controlled study. The 70% figure and the zone definitions come from that context and may not transfer to yours.
+Based on the Augmented Marketing Decision Architecture, developed in an enterprise product marketing function and observed across 16 product launches at a large enterprise software company prior to 2025. Observational deployment, not a controlled study. The 70% figure and the zone definitions come from that context and may not transfer to yours.
 
 Framework by Kuber Sharma. Specification: kubersharma.com/frameworks/amda

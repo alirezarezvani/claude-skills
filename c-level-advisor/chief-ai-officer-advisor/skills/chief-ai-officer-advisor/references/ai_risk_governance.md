@@ -52,7 +52,7 @@ Permitted, but heavy obligations:
 | Human oversight design (override, stop button, monitoring) | Art. 14 |
 | Accuracy, robustness, cybersecurity | Art. 15 |
 | Quality management system | Art. 17 |
-| Conformity assessment (self-assessment for most; Notified Body for biometric) | Art. 43 |
+| Conformity assessment (internal control for Annex III points 2-8; biometrics may self-assess if harmonised standards are applied in full, otherwise Notified Body) | Art. 43 |
 | Registration in EU database before deployment | Art. 49 |
 | Post-market monitoring | Art. 72 |
 | Serious incident reporting (within 15 days) | Art. 73 |

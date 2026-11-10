@@ -6,9 +6,13 @@ Stdlib-only. For a high-risk AI system, selects the conformity assessment Module
 Annex IV technical documentation checklist.
 
 Decision rule (Article 43):
-  - Biometrics (Annex III §1) → Module H (notified body required) by default
-  - All other Annex III categories → Module A (internal control) is permissible
-    where harmonised standards are applied (Article 40)
+  - Biometrics (Annex III §1), Article 43(1): where harmonised standards
+    (Article 40) or common specifications (Article 41) are applied in full, the
+    provider chooses Annex VI internal control (Module A) or Annex VII notified
+    body (Module H); where they do not exist, are not applied or only partly
+    applied, or a standard was published with a restriction → Annex VII (Module H)
+  - Annex III points 2-8, Article 43(2): Annex VI internal control only; no
+    notified body is involved
   - Annex I products (safety components) → follow sectoral law's existing procedure
 
 Input schema (JSON):
@@ -150,12 +154,24 @@ def select_module(payload: Dict[str, Any]) -> Dict[str, Any]:
             "rationale": f"Follow {sectoral_law} existing procedure; AI Act layered on top.",
         }
 
+    if annex_iii == "biometrics" and applies_standards:
+        return {
+            "module": "A_or_H",
+            "citation": "Article 43(1) — provider opts for Annex VI or Annex VII",
+            "notified_body_required": "provider_choice",
+            "rationale": "Biometrics under Annex III §1 with harmonised standards or common specifications "
+                         "applied in full: the provider may choose internal control (Annex VI) or a notified "
+                         "body (Annex VII). If any standard was applied only in part, or was published with a "
+                         "restriction, Annex VII applies instead.",
+        }
+
     if annex_iii == "biometrics":
         return {
             "module": "H",
-            "citation": "Article 43(1) + Annex VII — Full QMS + Notified Body for biometrics",
+            "citation": "Article 43(1) second subparagraph + Annex VII — Full QMS + Notified Body",
             "notified_body_required": "yes",
-            "rationale": "Biometrics under Annex III §1 require notified-body involvement by default.",
+            "rationale": "Biometrics under Annex III §1 without harmonised standards or common specifications "
+                         "applied (or applied only in part) must follow Annex VII with a notified body.",
         }
 
     if annex_iii and applies_standards:
@@ -170,8 +186,10 @@ def select_module(payload: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "module": "A_with_caveats",
             "citation": "Article 43(2) + Annex VI — Internal control without harmonised standards",
-            "notified_body_required": "optional_but_recommended",
-            "rationale": "Internal control still permitted but without presumption of conformity; document alternative compliance evidence in full.",
+            "notified_body_required": "no",
+            "rationale": "Article 43(2) provides internal control only for Annex III points 2-8 (no notified-body route), "
+                         "but without harmonised standards there is no presumption of conformity; document alternative "
+                         "compliance evidence in full.",
         }
 
     return {
@@ -226,9 +244,13 @@ def _next_steps(module: str) -> List[str]:
         base.append("Sign EU declaration of conformity (Article 47) AFTER assembling Annex IV pack.")
         base.append("Affix CE marking (Article 48).")
         base.append("Register in EU database (Article 71) before placing on market.")
+    elif module == "A_or_H":
+        base.append("Decide Annex VI (internal control) vs Annex VII (notified body) and record the reason (Article 43(1)).")
+        base.append("Confirm every harmonised standard or common specification was applied in full; partial application or a restricted standard forces Annex VII.")
+        base.append("Either route: sign EU declaration of conformity (Article 47), affix CE marking (Article 48), register (Article 49).")
     elif module == "A_with_caveats":
         base.append("Document equivalent alternative evidence for each requirement without a harmonised standard.")
-        base.append("Consider voluntary notified-body engagement to reduce regulatory risk.")
+        base.append("Track harmonised standards and common specifications as they are published; applying them restores the presumption of conformity (Articles 40-41).")
     return base
 
 

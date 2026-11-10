@@ -45,9 +45,14 @@ def draft(batch, model):
     out = subprocess.run(["claude", "-p", PROMPT + listing, "--output-format", "json", "--model", model,
                           "--max-turns", "1", "--no-session-persistence", "--disable-slash-commands"],
                          capture_output=True, text=True, env=env, cwd=cfg, timeout=600)
-    res = json.loads(out.stdout)
-    text = res.get("result", "")
+    try:
+        res = json.loads(out.stdout)
+    except json.JSONDecodeError:
+        raise RuntimeError(f"claude -p exited {out.returncode}: {(out.stderr or out.stdout).strip()[:300]}")
+    text = res.get("result", "") or ""
     start, end = text.find("{"), text.rfind("}")
+    if res.get("is_error") or start < 0 or end < start:
+        raise RuntimeError(f"claude -p returned no JSON cases: {text.strip()[:300] or out.stderr.strip()[:300]}")
     cases = json.loads(text[start:end + 1])
     return cases, res.get("total_cost_usd", 0.0)
 

@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 389,
+  "total_skills": 390,
   "domains": {
     "engineering": [
       {
@@ -1359,6 +1359,11 @@
         "name": "cmmc-readiness",
         "description": "Use when a defense contractor or subcontractor is preparing for a CMMC 2.0 Level 2 self-assessment or C3PAO assessment, calculating or checking an SPRS score against NIST SP 800-171 Rev 2, deciding what can go on a POA&M, tracking POA&M closeout before Conditional status expires, or scoping assets, enclaves and cloud providers that handle CUI. Scores all 110 requirements with the 32 CFR 170.24 weights, blocks gaps that can never be deferred, and classifies the asset inventory into CMMC asset categories.",
         "path": "ra-qm-team/cmmc-readiness"
+      },
+      {
+        "name": "cra-readiness",
+        "description": "Use when a company that sells software, connected devices or firmware in the EU asks whether the Cyber Resilience Act (CRA, Regulation 2024/2847) applies, has to report an actively exploited vulnerability or security incident under Article 14 (24h/72h deadlines, ENISA Single Reporting Platform), must classify products as important or critical, pick a conformity route or support period, check an SBOM, or get to CE marking by December 2027. Four deterministic scripts with cited articles.",
+        "path": "ra-qm-team/cra-readiness"
       },
       {
         "name": "eu-ai-act-specialist",

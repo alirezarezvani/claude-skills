@@ -1,0 +1,7 @@
+product,role,sector_regulation,data_connection,commercial,annex_category,core_function,harmonised_standards_full,eucc_substantial,foss_docs_public,planned_route,placed_on_market,substantially_modified,support_years,expected_use_years,support_basis,main_establishment,authorised_rep_ms,importer_ms,distributor_ms,most_users_ms
+GaitCam Home (consumer fall-alert camera),manufacturer,none,yes,yes,III-I-17,yes,no,no,,A,2028-03-01,,5,8,,DE,,,,
+GaitCam Pro (MDR class IIa software),manufacturer,mdr,yes,yes,,,,,,,2024-05-01,,,,,DE,,,,
+Clinic Gateway Router,manufacturer,none,yes,yes,III-I-12,yes,no,no,,B+C,2028-06-01,,7,7,Router fleet data: median 7.2 years in field,DE,,,,
+EdgeGuard Firewall (rebranded OEM),own_brand,none,yes,yes,III-II-2,yes,no,no,,A,2028-01-15,,5,5,,,,AT,,
+Sensor SDK v3 (legacy),manufacturer,none,yes,yes,,,,,,,2025-02-01,no,3,6,,,,,,
+Community parser library,steward,none,yes,no,,,,,,,,,,,,NL,,,,

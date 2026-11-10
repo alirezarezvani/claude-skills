@@ -1,0 +1,59 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "metadata": {
+    "timestamp": "2026-11-02T10:00:00Z",
+    "component": {
+      "type": "firmware",
+      "bom-ref": "pkg:generic/clinic-gateway@4.2.1",
+      "name": "clinic-gateway",
+      "version": "4.2.1",
+      "supplier": {
+        "name": "Example GmbH"
+      }
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:generic/openssl@3.0.15",
+      "name": "openssl",
+      "version": "3.0.15",
+      "purl": "pkg:generic/openssl@3.0.15",
+      "supplier": {
+        "name": "OpenSSL Foundation"
+      },
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "23c666d0edf20f14249b3d8f0368acaee9ab585b09e1de82107c66e1f3ec9533"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:generic/busybox@1.36.1",
+      "name": "busybox",
+      "version": "1.36.1",
+      "purl": "pkg:generic/busybox@1.36.1"
+    },
+    {
+      "bom-ref": "pkg:generic/vendor-blob",
+      "name": "wifi-firmware-blob"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:generic/clinic-gateway@4.2.1",
+      "dependsOn": [
+        "pkg:generic/openssl@3.0.15",
+        "pkg:generic/busybox@1.36.1",
+        "pkg:generic/vendor-blob"
+      ]
+    },
+    {
+      "ref": "pkg:generic/busybox@1.36.1",
+      "dependsOn": [
+        "pkg:generic/musl@1.2.4"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+id,kind,product,detected_at,aware_at,early_warning_at,notification_at,corrective_available_at,final_report_at,users_informed_at,exploited_in_product,malicious_suspected,member_states,corrective_measures,severity_impact,root_cause
+VULN-2026-014,vulnerability,Clinic Gateway Router,2026-10-02T08:10:00+02:00,2026-10-02T15:40:00+02:00,2026-10-03T09:00:00+02:00,2026-10-04T17:30:00+02:00,2026-10-09T12:00:00+02:00,2026-10-20T10:00:00+02:00,2026-10-09T16:00:00+02:00,yes,,DE AT NL,firmware 4.2.1; disable remote admin,CVSS 9.8 RCE on WAN admin,
+VULN-2026-019,vulnerability,GaitCam Home,2026-11-07T22:05:00+01:00,2026-11-09T11:00:00+01:00,2026-11-09T19:00:00+01:00,,,,,yes,,DE,,,
+INC-2026-003,incident,GaitCam Home,2026-11-08T06:00:00+01:00,,,,,,,,unknown,DE,,,
+VULN-2026-020,vulnerability,Sensor SDK v3,2026-11-05T10:00:00+01:00,2026-11-05T12:00:00+01:00,,,,,,no,,,,,
+VULN-2026-007,vulnerability,Clinic Gateway Router,2026-08-20T09:00:00+02:00,2026-08-21T09:00:00+02:00,,,,,,yes,,DE,,,

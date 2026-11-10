@@ -296,7 +296,7 @@
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
       "description": "14 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
-      "version": "2.14.9",
+      "version": "2.14.10",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1812,7 +1812,7 @@
       "name": "compliance-os",
       "source": "./compliance-os",
       "description": "Compliance OS — meta-orchestrator for multi-framework compliance programs spanning 9 frameworks (ISO 27001, ISO 13485, ISO 42001, ISO 14971, EU AI Act, MDR 745, GDPR, SOC 2, FDA QSR). Framework selector, cross-framework control mapper, audit simulator, and consolidated evidence-pool generator (stdlib Python), plus 3 cs-* compliance agents and 3 /cs-* readiness commands.",
-      "version": "2.14.9",
+      "version": "2.14.10",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1979,7 +1979,7 @@
       "name": "compliance-team-eu-ai-act",
       "source": "./ra-qm-team/compliance-team-eu-ai-act",
       "description": "EU AI Act (Regulation (EU) 2024/1689) operational compliance specialist: AI system risk classifier (Articles 5/6/50 + Annex III), conformity assessment planner (Article 43 + Annex IV checklist), and obligation tracker (provider/deployer/importer/distributor + GPAI Articles 51-55). Article-level references and cross-framework mapping to ISO 42001, NIST AI RMF, GDPR. Stdlib-only.",
-      "version": "2.14.5",
+      "version": "2.14.10",
       "author": {
         "name": "Alireza Rezvani"
       },

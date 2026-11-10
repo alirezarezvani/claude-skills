@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
+
+No new skills and no renames, so nothing needs a reinstall. One compliance fix from the community: the EU AI Act
+skills described the wrong conformity route for biometric systems. Six plugins whose files changed are bumped to
+2.14.10; plugins above that from earlier releases keep their versions (gate G11).
+
+### Fixed
+
+- **EU AI Act Article 43(1) conformity route for biometrics** (#1121, thanks @Johnbjoseph-cybersec). The
+  eu-ai-act-specialist skill, its `conformity_assessment_planner.py`, compliance-os `ai-act-readiness` and the
+  chief-ai-officer-advisor reference said Annex III point 1 (biometrics) always needs a notified body. Under
+  Article 43(1) the provider chooses Annex VI or Annex VII when harmonised standards or common specifications are
+  applied in full, and Annex VII is mandatory only when they do not exist, were not applied or only partly
+  applied, or a standard was published with a restriction. The planner now returns `A_or_H` / `provider_choice`
+  for that case, and no longer offers a notified body for Annex III points 2-8, which Article 43(2) limits to
+  internal control.
+
 ## [2.14.9] - 2026-11-05 — a docs site that cannot drift, and CI that tests every harness
 
 No new skills. The docs site now builds every count, list and install line from the tree, so it cannot fall

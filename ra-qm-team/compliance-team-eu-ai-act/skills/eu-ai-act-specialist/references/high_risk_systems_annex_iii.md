@@ -24,7 +24,7 @@ Pair with `scripts/ai_system_risk_classifier.py` for the decision-tree implement
 - Biometric categorisation according to sensitive or protected attributes (where not prohibited under Article 5)
 - Emotion recognition (where not prohibited under Article 5)
 
-**Conformity assessment:** Module H (notified body required) per Article 43(1).
+**Conformity assessment:** per Article 43(1), the provider chooses Module A (Annex VI, internal control) or Module H (Annex VII, notified body) where it applied harmonised standards or common specifications. Module H is required where they do not exist, were not applied or were applied only in part, or a standard was published with a restriction.
 
 **Carve-out applicability:** Article 6(3) carve-outs do NOT apply to biometric ID systems performing biometric verification. Carve-out can apply to other Annex III §1 systems only if profiling is absent.
 

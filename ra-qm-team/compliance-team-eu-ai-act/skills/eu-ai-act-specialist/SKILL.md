@@ -53,7 +53,7 @@ python scripts/ai_act_obligation_tracker.py path/to/roles.json
 - **What organizational role does the company play?** Provider (placed on market), deployer (uses under own authority), importer (places third-country system on EU market), distributor (makes available in supply chain). Many companies are BOTH provider AND deployer simultaneously.
 - **Is this a general-purpose AI model?** GPAI has its own track (Articles 51–55) with stricter rules above 10²⁵ FLOPs training compute (Article 51 systemic risk).
 - **For high-risk: have we run Article 9 risk management AND Article 27 FRIA?** Article 9 is the lifecycle risk management; Article 27 is the Fundamental Rights Impact Assessment for public-sector deployers + essential services.
-- **What's the conformity assessment Module per Article 43?** Module A (internal control, possible for most Annex III systems) vs Module H (full QMS + notified body, required for biometrics + sometimes others).
+- **What's the conformity assessment Module per Article 43?** Module A (internal control, possible for most Annex III systems) vs Module H (full QMS + notified body). For biometrics (Annex III point 1) the provider may choose either route if it applied harmonised standards or common specifications; Module H is required only where they do not exist, were not applied or only partly applied, or a standard was published with a restriction (Article 43(1)).
 
 ## Core Responsibilities
 
@@ -79,7 +79,7 @@ See `references/eu_ai_act_titles.md` for the full Article-by-Article walkthrough
 **The framework (Article 43 + Annex VI/VII):** for high-risk AI systems, the provider must demonstrate conformity before placing on market. Two routes:
 
 - **Module A — Internal control** (Annex VI): provider self-assesses against the requirements. Applies to most Annex III systems where the provider has implemented harmonised standards.
-- **Module H — Full quality management system + technical documentation** (Annex VII): notified body involvement. Required for biometrics systems (Article 43(1)).
+- **Module H — Full quality management system + technical documentation** (Annex VII): notified body involvement. For biometrics systems (Annex III point 1), required where harmonised standards (Article 40) or common specifications (Article 41) do not exist, were not applied or were applied only in part, or a standard was published with a restriction; where they were applied, the provider may choose Annex VI or Annex VII (Article 43(1)).
 
 **Required artifacts per Annex IV — Technical Documentation:**
 

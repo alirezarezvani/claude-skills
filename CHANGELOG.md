@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
+
+No new skills and no renames, so nothing needs a reinstall. One compliance fix from the community: the EU AI Act
+skills described the wrong conformity route for biometric systems. Six plugins whose files changed are bumped to
+2.14.10; plugins above that from earlier releases keep their versions (gate G11).
+
 ### Fixed
 
 - **EU AI Act Article 43(1) conformity route for biometrics** (#1121, thanks @Johnbjoseph-cybersec). The

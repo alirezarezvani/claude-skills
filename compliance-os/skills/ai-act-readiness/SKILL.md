@@ -34,10 +34,10 @@ The EU AI Act compliance operator pressure-tests any AI system before EU deploym
 - Run `ai_system_risk_classifier.py`
 
 ### 3. Article 43: For high-risk, Module A or Module H?
-**Biometrics → Module H (notified body) by default; others → Module A if harmonised standards applied.**
+**Annex III points 2-8 → Module A (internal control, Article 43(2)). Biometrics → provider's choice of Module A or H if harmonised standards or common specifications are applied in full, otherwise Module H (Article 43(1)).**
 - Run `conformity_assessment_planner.py`
 - Module A (Annex VI): internal control with presumption of conformity if Article 40 harmonised standards applied
-- Module H (Annex VII): full QMS + notified body for biometrics or where standards lacking
+- Module H (Annex VII): full QMS + notified body; optional for biometrics with standards applied, mandatory for biometrics where standards or common specifications do not exist, were not applied or only partly applied, or a standard was published with a restriction
 - Annex IV technical documentation: 8 items required before placing on market
 
 ### 4. Article 25: What role does the company play?
@@ -98,9 +98,9 @@ python ../../skills/compliance-os/scripts/cross_framework_mapper.py program.json
 - Systemic-risk GPAI: yes/no (per Article 51 10^25 FLOPs threshold)
 
 ## Conformity Assessment (if high-risk)
-- Module: A | A_with_caveats | H | sectoral
+- Module: A | A_with_caveats | A_or_H | H | sectoral
 - Citation: Article 43 + Annex VI/VII
-- Notified body required: yes | no | optional
+- Notified body required: yes | no | provider_choice | depends_on_sectoral_law
 - Annex IV pack status: complete | in-progress | not-started
 
 ## Obligation Matrix

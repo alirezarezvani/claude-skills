@@ -1,0 +1,15 @@
+{
+  "name": "cra-readiness",
+  "description": "Get products ready for the EU Cyber Resilience Act (Regulation 2024/2847). Four deterministic stdlib scripts: a scope classifier that sorts a portfolio into default, important class I/II and critical (Annex III/IV), blocks conformity routes Article 32 does not allow, checks support periods and names the CSIRT for Article 14 reports; an Article 14 clock for the 24h/72h/14-day/one-month deadlines live since 11 September 2026; an Annex I/II/VII gap check before the EU declaration of conformity; and an SBOM floor check for CycloneDX and SPDX. Ships cs-cra-officer agent, /cs-cra-readiness and /cs-cra-report commands, 3 cited references and an Article 14 runbook.",
+  "version": "2.14.11",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/cra-readiness",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/cra-readiness"
+  ]
+}

@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **cra-readiness plugin: EU Cyber Resilience Act (Regulation (EU) 2024/2847)** (`ra-qm-team/cra-readiness`, also
+  bundled in ra-qm-skills). Article 14 reporting has applied since 11 September 2026 to every in-scope product on
+  the EU market, including products shipped before the CRA; everything else applies from 11 December 2027. Four
+  deterministic stdlib scripts: `cra_scope_classifier.py` (scope and Art 2 exclusions, roles under Arts 19-22 and 24,
+  Annex III/IV class, the conformity routes Art 32 allows, legacy products under Art 69, the Art 13(8) support
+  period, and the CSIRT that receives reports under Art 14(7)); `art14_report_clock.py` (24 h early warning, 72 h
+  notification, final report 14 days after a fix or one month after an incident notification, required content,
+  user notice under Art 14(8), and the Art 64(10)(a) SME carve-out); `annex_i_gap_check.py` (39 ids across Annex I
+  Parts I and II, Annex VII and Annex II, refusing NA on vulnerability handling); `sbom_check.py` (CycloneDX or SPDX
+  JSON, primary component, top-level dependencies per Annex I Part II(1)). Ships the cs-cra-officer agent,
+  `/cs-cra-readiness` and `/cs-cra-report`, three references citing the regulation, Implementing Regulation (EU)
+  2025/2392 and Commission guidance C(2026) 5252, and an Article 14 runbook.
+
 ## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
 
 No new skills and no renames, so nothing needs a reinstall. One compliance fix from the community: the EU AI Act

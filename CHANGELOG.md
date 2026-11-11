@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   loaded in 24/84 runs with the hook against 2/84 without, and 0/21 on near misses either way. No new commands:
   every skill is already `/<plugin>:<skill>`. Per-skill decisions in `audit/silent-skill-triggers-2026-11/`;
   `scripts/check_skill_router.py` (CI) keeps the copies identical and the routes valid.
+- Daily triage pipeline for community PRs and issues: `scripts/triage_snapshot.py` lists every open item with mechanical signals (CI or manifest changes, network and LLM calls in added code, new dependencies, external domains, commercial wording, untouched issue templates) and a suggested lane, without executing or echoing contributor text. `.github/TRIAGE_POLICY.md` sets the pipeline from snapshot to draft PR on `dev`, the documentation update every PR carries, release prep (CHANGELOG version entry, version lines, the `dev → main` PR, with the tag left to `release.yml`), what runs without the maintainer and what waits for a per-batch go-ahead, and runs contributor code only in a network-less namespace, because every process in the cloud container inherits the session's GitHub access.
 
 ## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
 

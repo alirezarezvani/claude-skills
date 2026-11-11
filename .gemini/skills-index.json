@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 457,
+  "total_skills": 458,
   "skills": [
     {
       "name": "content-strategist",
@@ -2169,6 +2169,11 @@
       "description": "Use for EU MDR 2017/745 work: device classification under Annex VIII, technical file gaps (Annex II/III), clinical evaluation, PMS and PSUR cadence, notified body prep. Checks the file with mdr_gap_analyzer.py."
     },
     {
+      "name": "medical-device-software",
+      "category": "ra-qm",
+      "description": "Use when medical device or SaMD software needs its IEC 62304 software safety class (A/B/C), a lifecycle gap check before a notified-body or FDA review, a SOUP list or SBOM checked, a trace matrix checked before release, IEC 81001-5-1 security activities scoped, or the FDA Basic/Enhanced documentation level and 524B cyber-device duties worked out. Four deterministic scripts; every rule cites its clause."
+    },
+    {
       "name": "qms-audit-expert",
       "category": "ra-qm",
       "description": "Use for ISO 13485 internal audits: planning the program, running an audit, classifying findings or preparing for an external audit. Optimizes the schedule with audit_schedule_optimizer.py."
@@ -2367,7 +2372,7 @@
       "description": "Project-management resources"
     },
     "ra-qm": {
-      "count": 20,
+      "count": 21,
       "description": "Ra-qm resources"
     },
     "research": {

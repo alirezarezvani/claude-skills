@@ -1,0 +1,8 @@
+req_id,system_req,is_risk_control,hazard_ids,tests,results,anomaly_ids
+SWR-001,SYS-010,no,,TC-001;TC-002,pass;pass,
+SWR-002,SYS-011,yes,HAZ-03,TC-003,pass,
+SWR-003,SYS-011,yes,,TC-004,fail,
+SWR-004,,no,,TC-005,pass,
+SWR-005,SYS-012,no,,,,
+SWR-006,SYS-013,no,,TC-006,fail,PR-117
+SWR-007,SYS-014,yes,HAZ-07,TC-007,not_run,

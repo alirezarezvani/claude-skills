@@ -21,6 +21,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   JSON, primary component, top-level dependencies per Annex I Part II(1)). Ships the cs-cra-officer agent,
   `/cs-cra-readiness` and `/cs-cra-report`, three references citing the regulation, Implementing Regulation (EU)
   2025/2392 and Commission guidance C(2026) 5252, and an Article 14 runbook.
+- **medical-device-software plugin: IEC 62304 and IEC 81001-5-1** (`ra-qm-team/medical-device-software`, also
+  bundled in ra-qm-skills). Four deterministic stdlib scripts: `software_safety_classifier.py` (IEC 62304 4.3 class
+  per system and item with the Amendment 1 external-control path and segregation, plus the FDA Basic/Enhanced
+  documentation level, which is assessed before risk controls, and the FD&C Act 524B cyber-device test);
+  `lifecycle_gap_check.py` (every 62304 activity by class, clause 4.4 legacy software, and IEC 81001-5-1 activities
+  with `--security`; unassessed is not MET); `soup_register_check.py` (8.1.2, 5.3.3/5.3.4, 7.1.3, end of support,
+  the 81001-5-1 risk-transfer category as clarified by ISH1:2025, and a CycloneDX/SPDX SBOM cross-check for
+  524B(b)(3)); `trace_matrix_check.py` (requirements to tests, risk controls to hazards and verification, release
+  state). Ships the cs-device-software-lead agent, `/cs-medical-device-software` and `/cs-soup-review`, and four
+  references that label every claim as checked against the primary text, agreed by secondary sources (the
+  paywalled 62304 class table), or unverified (EU harmonisation of EN 62304 and EN IEC 81001-5-1 under the MDR).
+
+### Fixed
+
+- **regulatory-affairs-head** IEC 62304 table no longer marks integration testing required for class A or calls
+  IEC 62304 harmonised under the MDR; **fda-consultant-specialist** names the Basic/Enhanced documentation level
+  that replaced the level of concern in June 2023. ra-qm-skills 2.14.12.
 
 ## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
 

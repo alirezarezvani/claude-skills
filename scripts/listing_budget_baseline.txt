@@ -75,6 +75,7 @@ llm-wiki 246
 loop-library 624
 markdown-html-skills 1177
 marketing-skills 11118
+medical-device-software 430
 meetings 435
 memory-engineering 283
 meta-research 295
@@ -87,7 +88,7 @@ product-skills 3286
 prompt-governance 224
 pulse 220
 pw 1490
-ra-qm-skills 5541
+ra-qm-skills 5971
 reflect-skill 230
 research-ops-skills 1572
 research-orchestrator 242

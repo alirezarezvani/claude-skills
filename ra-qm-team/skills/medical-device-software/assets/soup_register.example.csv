@@ -1,0 +1,5 @@
+id,name,version,supplier,used_in_class,functional_requirements,hw_sw_requirements,anomaly_list_source,anomaly_review_date,support_category,end_of_support,eos_plan,vuln_monitoring,purl
+S1,openssl,3.0.13,OpenSSL Project,C,TLS 1.2+ for device-cloud link; handshake < 500 ms,Linux 5.x; 4 MB RAM,https://openssl-library.org/news/vulnerabilities/,2026-10-02,maintained,2026-09-07,,yes,pkg:generic/openssl@3.0.13
+S2,sqlite,3.45.1,SQLite,C,,,https://www.sqlite.org/cves.html,2025-11-20,maintained,,,yes,pkg:generic/sqlite@3.45.1
+S3,qt-base,latest,The Qt Company,B,render UI at 30 fps,ARM Cortex-A53; GPU ES 2.0,https://bugreports.qt.io,,supported,2027-03-31,,no,
+S4,zlib,1.3.1,zlib,A,,,,,maintained,,,yes,pkg:generic/zlib@1.3.1

@@ -3898,5 +3898,15 @@
   ],
   "neg": "Set up a vulnerability scanning pipeline with Trivy and Grype in our GitHub Actions that fails the build on critical CVEs.",
   "origin": "reviewed"
+ },
+ "ra-qm-team/medical-device-software/skills/medical-device-software": {
+  "name": "medical-device-software",
+  "plugin": "medical-device-software",
+  "pos": [
+   "Our infusion pump firmware can overdose a patient if the rate calculation is wrong. Which IEC 62304 software safety class is it, and does a separate hardware pressure sensor change that?",
+   "We're preparing for our notified body audit of our SaMD. Can you check whether our SOUP list and trace matrix are good enough under IEC 62304?"
+  ],
+  "neg": "Write the clinical evaluation report for our class IIa wound dressing under MDR Annex XIV.",
+  "origin": "reviewed"
  }
 }

@@ -1,0 +1,50 @@
+{
+  "plugin": "product-skills",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "experiment-designer",
+      "why": "A/B test planning, sample size and reading results",
+      "any": [
+        "\\ba/?b[- ]test\\w*\\b|\\bsplit[- ]test\\w*\\b",
+        "\\bsample size\\b",
+        "\\b(statistically significant|statistical significance|minimum detectable effect)\\b",
+        "\\bhow long (should|to|do) (we |i )?(run|keep) (the |this |our |my )?(test|experiment)\\b",
+        "\\b(did|has) (the|our|my) (test|experiment|variant) win\\b",
+        "\\b(detect|measure)\\b.{0,30}\\b(lift|uplift)\\b.{0,40}\\b(power|confidence|significan\\w*)\\b",
+        "\\b(users|visitors) per variant\\b",
+        "\\bwant to test (a|the|our) new\\b.{0,40}\\b(flow|page|feature|design|pricing|checkout|onboarding)\\b",
+        "\\b(result|lift|conversion)\\b.{0,40}\\b(actually |statistically )?significant\\b"
+      ],
+      "not": [
+        "\\b(trial|clinical|drug|patients?|survey|tam|sam|som)\\b"
+      ]
+    },
+    {
+      "skill": "product-manager-toolkit",
+      "why": "RICE prioritization, PRDs, interview synthesis",
+      "any": [
+        "\\brice\\b.{0,20}\\b(score\\w*|prioriti\\w*|framework)\\b",
+        "\\bprioriti[sz]\\w*\\b.{0,30}\\b(features?|backlog|feature requests?)\\b",
+        "\\bwhat (should|to) (we |i )?build next\\b",
+        "\\b(write|draft|create)\\b.{0,15}\\b(a |the )?prd\\b|\\bproduct requirements? doc\\w*\\b",
+        "\\b(synthesi[sz]e|sum(marize)? up|analy[sz]e)\\b.{0,30}\\b(customer |user )?interview (notes|transcripts?)\\b"
+      ]
+    },
+    {
+      "skill": "roadmap-communicator",
+      "why": "roadmap narratives, release notes, stakeholder updates",
+      "any": [
+        "\\brelease notes?\\b",
+        "\\broadmap\\b.{0,40}\\b(update|narrative|presentation|deck|for (the )?(execs?|board|leadership|stakeholders|customers|engineers|sales))\\b",
+        "\\bstakeholder update\\b",
+        "\\b(explain|present|communicate)\\b.{0,30}\\broadmap\\b",
+        "\\bwhat we shipped\\b.{0,40}\\b(customers|users|stakeholders|team)\\b",
+        "\\broadmap\\b.{0,80}\\b(exec\\w*|all-hands|leadership|board)\\b"
+      ],
+      "not": [
+        "\\b(git log|commits?|conventional commits?)\\b"
+      ]
+    }
+  ]
+}

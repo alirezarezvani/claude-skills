@@ -55,6 +55,12 @@ npx ai-agent-skills install alirezarezvani/claude-skills/engineering-team/skills
 
 ---
 
+## Skill hints (UserPromptSubmit hook)
+
+Some skills in this plugin rarely load on their own: in our trigger evals the model answered prompts squarely in their scope without opening them. The plugin ships a small hook, `hooks/skill_router.py`, that reads each prompt and, when it clearly matches one of these skills, adds one line telling Claude which skill fits: `engineering-skills:tdd-guide`, `engineering-skills:senior-secops`, `engineering-skills:gcp-cloud-architect`, `engineering-skills:senior-devops`, `engineering-skills:senior-frontend`, `engineering-skills:senior-backend`, `engineering-skills:senior-data-scientist`.
+
+It is quiet by design. It prints nothing on prompts that don't match, suggests at most one skill per prompt and each skill at most once per session, skips prompts that start with `/`, never blocks a prompt and makes no network or model calls. The patterns live in `hooks/skill_routes.json`. Turn it off with `SKILL_ROUTER=0` (all plugins) or `SKILL_ROUTER_ENGINEERING_SKILLS=0` (this plugin only).
+
 ## 📦 Skills Package
 
 All skills follow the exact structure from your fullstack-engineer example:

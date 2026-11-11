@@ -1,0 +1,19 @@
+{
+  "plugin": "c-level-skills",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "cto-advisor",
+      "why": "CTO decisions: rewrites, eng team scaling, technology bets, DORA",
+      "any": [
+        "\\bshould (we|i) rewrite\\b",
+        "\\b(rewrite|re-?platform)\\b.{0,40}\\b(or|vs\\.?|versus)\\b.{0,20}\\b(refactor|keep|incremental)\\b",
+        "\\b(grow|scale|scaling|hire for|structure|reorg\\w*)\\b.{0,25}\\b(the |our |my )?(engineering|eng|dev) (team|org\\w*)\\b",
+        "\\b(which|what) (tech|technology|stack|framework|language|database)\\b.{0,30}\\b(bet on|choose|pick|adopt|standardi[sz]e on)\\b",
+        "\\bbuild (vs\\.?|or|versus) buy\\b",
+        "\\bdora metrics?\\b",
+        "\\b(as|i'?m) (a |the |our )?cto\\b"
+      ]
+    }
+  ]
+}

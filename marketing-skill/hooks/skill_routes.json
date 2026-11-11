@@ -1,0 +1,65 @@
+{
+  "plugin": "marketing-skills",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "content-humanizer",
+      "why": "make AI-sounding copy sound human and on-brand",
+      "any": [
+        "\\b(sounds?|reads?|feels?)\\b.{0,15}\\b(like (ai|chatgpt|gpt|a robot|a bot)|robotic|ai[- ]generated|ai[- ]written)\\b",
+        "\\bhumani[sz]e\\b",
+        "\\b(doesn'?t|does not) sound like (me|us|our brand|a human)\\b",
+        "\\bai (tells|slop)\\b"
+      ],
+      "pairs": [
+        [
+          [
+            "\\b(delve|in today'?s fast-paced world|tapestry|game[- ]changer)\\b"
+          ],
+          [
+            "\\b(rewrite|edit|fix|voice)\\b"
+          ]
+        ]
+      ]
+    },
+    {
+      "skill": "copy-editing",
+      "why": "focused editing passes on existing marketing copy",
+      "any": [
+        "\\b(proofread\\w*|copy[- ]?edit\\w*)\\b",
+        "\\b(go through|edit)\\b.{0,60}\\bin passes\\b"
+      ],
+      "pairs": [
+        [
+          [
+            "\\b(polish|tighten|clean up|edit|shorten|punch up|fix the wording)\\b"
+          ],
+          [
+            "\\b(copy|landing page|pricing page|headline|email|ad|tagline|wording|blurb|cta|product description|homepage)\\b"
+          ]
+        ]
+      ],
+      "not": [
+        "\\b(code|function|script|sql)\\b"
+      ]
+    },
+    {
+      "skill": "marketing-psychology",
+      "why": "ethical persuasion and behavioral science for pages, offers and campaigns",
+      "any": [
+        "\\bwhy (do |don'?t )?(people|customers|users|buyers|visitors)\\b.{0,25}\\b(buy|convert|churn|sign up|purchase|hesitate|abandon|bounce)\\b",
+        "\\b(pricing|marketing|buyer|consumer|conversion|persuasion) psychology\\b"
+      ],
+      "pairs": [
+        [
+          [
+            "\\b(persuasi\\w*|behavio(u)?ral (science|economics)|cognitive bias\\w*|social proof|loss aversion|anchoring|scarcity|urgency|decoy|nudg\\w*|mental models?)\\b"
+          ],
+          [
+            "\\b(page|offer|pricing|campaign|landing|checkout|sign ?up|conversion|customers|buyers|marketing|copy|funnel)\\b"
+          ]
+        ]
+      ]
+    }
+  ]
+}

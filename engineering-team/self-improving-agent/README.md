@@ -24,6 +24,12 @@ Promoting a pattern from memory to rules fundamentally changes how Claude treats
 | `/si:memory-status` | Memory health dashboard — line counts, capacity, recommendations |
 | `/si:remember` | Explicitly save important knowledge to auto-memory |
 
+## Skill hints (UserPromptSubmit hook)
+
+Some skills in this plugin rarely load on their own: in our trigger evals the model answered prompts squarely in their scope without opening them. The plugin ships a small hook, `hooks/skill_router.py`, that reads each prompt and, when it clearly matches one of these skills, adds one line telling Claude which skill fits: `si:remember`.
+
+It is quiet by design. It prints nothing on prompts that don't match, suggests at most one skill per prompt and each skill at most once per session, skips prompts that start with `/`, never blocks a prompt and makes no network or model calls. The patterns live in `hooks/skill_routes.json`. Turn it off with `SKILL_ROUTER=0` (all plugins) or `SKILL_ROUTER_SI=0` (this plugin only).
+
 ## Install
 
 ### Claude Code

@@ -1,0 +1,18 @@
+{
+  "plugin": "autoresearch-agent",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "autoresearch-agent",
+      "why": "optimize a file against a metric with an edit-measure-keep loop",
+      "any": [
+        "\\bautoresearch\\b",
+        "\\bexperiment loop\\b",
+        "\\b(optimi[sz]e|improve|tune)\\b.{0,40}\\b(against|until)\\b.{0,30}\\b(metric|score|benchmark|eval\\w*|pass rate|latency|bundle size)\\b",
+        "\\bkeep (trying|editing|tweaking)\\b.{0,80}\\buntil\\b",
+        "\\bcommit what (lowers|improves|raises|reduces)\\b.{0,60}\\breset what\\b",
+        "\\b(keep|loop|iterate)\\b.{0,30}\\b(trying|editing|tweaking|changes|experiments)\\b.{0,40}\\b(until|while)\\b.{0,30}\\b(score|metric|faster|smaller|pass\\w*)\\b"
+      ]
+    }
+  ]
+}

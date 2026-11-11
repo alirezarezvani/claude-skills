@@ -1,0 +1,6 @@
+id,parent,contributes_to_hazard,external_control,external_control_verified,acceptable_after_external,severity,segregation_rationale,claimed_class,probable_serious_harm_before_controls,device_class_us,combination_product,internet_capable,software_by_sponsor
+INF-SYS,,yes,hardware pressure-limit valve,yes,no,serious,,B,yes,II,no,yes,yes
+INF-UI,INF-SYS,yes,,,,serious,,B,,,,,
+INF-DOSE,INF-SYS,yes,,,,serious,,C,,,,,
+INF-LOG,INF-SYS,no,,,,none,runs as separate process on a separate core; read-only queue from INF-DOSE,A,,,,,
+VIEW-SYS,,yes,clinician confirms every value against the source image,no,yes,non-serious,,A,no,II,no,yes,yes

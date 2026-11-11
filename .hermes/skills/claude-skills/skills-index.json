@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 390,
+  "total_skills": 391,
   "domains": {
     "engineering": [
       {
@@ -1399,6 +1399,11 @@
         "name": "mdr-745-specialist",
         "description": "Use for EU MDR 2017/745 work: device classification under Annex VIII, technical file gaps (Annex II/III), clinical evaluation, PMS and PSUR cadence, notified body prep. Checks the file with mdr_gap_analyzer.py.",
         "path": "ra-qm-team/mdr-745-specialist"
+      },
+      {
+        "name": "medical-device-software",
+        "description": "Use for any question about the software inside a medical device, SaMD or regulated health app - which IEC 62304 safety class (A/B/C) it is and how much process and documentation that class needs, what to record about open-source or third-party libraries (SOUP, SBOM), trace matrix and release testing, IEC 81001-5-1 security, or the FDA documentation level and 524B cyber-device duties. Checks the user's files with four scripts that cite the clause.",
+        "path": "ra-qm-team/medical-device-software"
       },
       {
         "name": "qms-audit-expert",

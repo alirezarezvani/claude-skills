@@ -102,7 +102,7 @@ Phase 4: Review
 | Indications for Use | Form 3881, patient population, use environment |
 | SE Comparison | Side-by-side comparison with predicate |
 | Performance Testing | Bench, biocompatibility, electrical safety |
-| Software Documentation | Level of concern, hazard analysis (IEC 62304) |
+| Software Documentation | Documentation level (Basic or Enhanced, June 2023 guidance, which replaced level of concern), risk management file, IEC 62304 |
 | Labeling | IFU, package labels, warnings |
 | 510(k) Summary | Public summary of submission |
 

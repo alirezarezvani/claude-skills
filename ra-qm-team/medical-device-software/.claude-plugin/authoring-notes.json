@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Planned-skills inventory 2026-11-10 (second-ranked after cra-readiness): IEC 62304 and IEC 81001-5-1 were cited across ra-qm-team but no skill classified software, checked lifecycle activities by class, SOUP, traceability or the FDA documentation level",
+    "build_pattern": "Four deterministic stdlib scripts with blocking exit codes; IEC 62304:2006+A1:2015 clause markers from two agreeing secondary sources (standard paywalled); IEC 81001-5-1:2021 clause map from the IEC FDIS public sample and ISH1:2025 preview; FDA June 2023 software guidance and June 2025 cybersecurity guidance, FD&C Act 524B, FDA recognised standards 13-79/13-122, MDCG 2019-16 rev.1 checked against primary text",
+    "distinct_from": "mdr-745-specialist (MDR device class and technical documentation); fda-consultant-specialist (submission pathway); risk-management-specialist (ISO 14971 file); cra-readiness (CRA excludes medical devices by Art 2(2)); regulatory-affairs-head (strategy)"
+  }
+}

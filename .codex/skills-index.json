@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 412,
+  "total_skills": 414,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -2334,6 +2334,18 @@
       "description": "Use for EU MDR 2017/745 work: device classification under Annex VIII, technical file gaps (Annex II/III), clinical evaluation, PMS and PSUR cadence, notified body prep. Checks the file with mdr_gap_analyzer.py."
     },
     {
+      "name": "medical-device-software",
+      "source": "../../ra-qm-team/skills/medical-device-software",
+      "category": "ra-qm",
+      "description": "Use for any question about the software inside a medical device, SaMD or regulated health app - which IEC 62304 safety class (A/B/C) it is and how much process and documentation that class needs, what to record about open-source or third-party libraries (SOUP, SBOM), trace matrix and release testing, IEC 81001-5-1 security, or the FDA documentation level and 524B cyber-device duties. Checks the user's files with four scripts that cite the clause."
+    },
+    {
+      "name": "medical-device-software",
+      "source": "../../ra-qm-team/medical-device-software/skills/medical-device-software",
+      "category": "ra-qm",
+      "description": "Use for any question about the software inside a medical device, SaMD or regulated health app - which IEC 62304 safety class (A/B/C) it is and how much process and documentation that class needs, what to record about open-source or third-party libraries (SOUP, SBOM), trace matrix and release testing, IEC 81001-5-1 security, or the FDA documentation level and 524B cyber-device duties. Checks the user's files with four scripts that cite the clause."
+    },
+    {
       "name": "qms-audit-expert",
       "source": "../../ra-qm-team/skills/qms-audit-expert",
       "category": "ra-qm",
@@ -2550,7 +2562,7 @@
       "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
-      "count": 25,
+      "count": 27,
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     },

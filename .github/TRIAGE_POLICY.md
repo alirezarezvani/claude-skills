@@ -22,6 +22,12 @@ hand follows it too. When this file and a routine prompt disagree, this file win
 5. **Execute on approval.** Only after the maintainer approves the batch: merge our PRs
    once CI is fully green, close the community PRs they land with the drafted thank-you,
    close rejected PRs and blank issues with their drafted comment.
+6. **Document.** Every PR we open carries its own documentation update (section 6.1), so
+   `dev` is always releasable and never waits on a docs pass.
+7. **Prepare the release.** When `dev` holds approved, merged changes that are not on
+   `main`, prepare the release-prep PR and the `dev → main` PR (section 6.2) and put the
+   release in the next approval batch. The tag and GitHub release are created by
+   `release.yml` when `main` receives the new CHANGELOG entry; nobody tags by hand.
 
 ## 2. What runs without asking, and what waits
 
@@ -29,13 +35,16 @@ hand follows it too. When this file and a routine prompt disagree, this file win
 |---|---|---|
 | Read PRs, issues, diffs, CI results | yes | |
 | Create `claude/*` branches, push our own commits | yes | |
-| Open **draft** PRs to `dev` | yes | |
+| Open **draft** PRs to `dev`, including the release-prep PR | yes | |
+| Update docs, CHANGELOG `Unreleased`, mirrors, counters on our branches | yes | |
 | Fix CI failures on our own draft PRs | yes | |
 | Merge any PR, including our own | | yes |
 | Close a community PR or issue | | yes |
 | Post any public comment, label, or review | | yes |
 | Approve a fork's CI workflow run | | yes |
-| Anything on `main`, releases, tags, secrets, settings | never in triage | never in triage |
+| Open the `dev → main` release PR | yes, as draft | |
+| Merge the `dev → main` release PR (this publishes the tag and release) | | yes, as its own line in the batch |
+| Tag by hand, edit releases, change secrets or settings | never | never |
 
 This boundary is the maintainer's standing rule (merging, closing and commenting are
 outward-facing). It is the one rule most worth revisiting once the routine has a clean
@@ -116,7 +125,56 @@ Then push and wait for every CI check on the draft PR. A red check is fixed on t
 branch, never skipped, disabled or overridden; the `trigger-gate-override` label is the
 maintainer's call only. Read gate output, not just exit codes.
 
-## 6. PR shape
+## 6. Documentation and release prep
+
+### 6.1 Documentation update, in every PR we open
+
+Part of the same PR, not a follow-up:
+
+- **CHANGELOG.md `## [Unreleased]`**: one entry under Added, Changed or Fixed, naming the
+  plugin and crediting the community author and PR number.
+- **Plugin versions**: `python3 scripts/bump_plugin_versions.py --changed-since origin/dev`.
+- **Harness mirrors**: `python3 scripts/check_harness_mirrors.py --fix` when a SKILL.md,
+  its description or a plugin's skill list changed; commit the result (never hand-run the
+  `sync-*-skills.py` scripts).
+- **Counters**: when a skill, tool, reference, agent, command or plugin is added or removed,
+  update every place `python3 scripts/derive_counters.py --check` names (README.md,
+  CLAUDE.md, marketplace.json, mkdocs.yml, .codex-plugin) to the values
+  `derive_counters.py` prints.
+- **Hand-written docs**: the domain's `CLAUDE.md` and README skill table for a new or renamed
+  skill, `docs/` guides the change makes wrong, and install lines. The docs site's skill,
+  agent and command pages are generated at build time; `check_docs_site.py` (G14) must pass.
+- **VERIFIED.md**: `python3 scripts/build_verified_tier.py` when trigger results changed.
+
+### 6.2 Release prep and tag
+
+1. **Decide the version.** Patch (`2.14.10 → 2.14.11`) by default, including releases that
+   add skills; minor only when the maintainer asks for one. Never lower a plugin version:
+   plugins can run ahead of the repo version (gate G11).
+2. **Release-prep PR to `dev`** (`docs(release): CHANGELOG and version for vX.Y.Z`), from the
+   latest `dev`:
+   - CHANGELOG: turn `## [Unreleased]` into `## [X.Y.Z] - YYYY-MM-DD — <subtitle>` with a
+     two-to-four-sentence summary on top (what users get, anything that needs a reinstall),
+     and leave a new empty `## [Unreleased]` above it. `release.yml` reads this heading.
+   - CLAUDE.md: new `**Version:**` line under Current Version, the old one becomes
+     `**Previously:**`; the ClawHub "currently vX.Y.Z" line; the footer date and version.
+   - `.claude-plugin/marketplace.json` `metadata.version` and `.codex-plugin/plugin.json`
+     `version`.
+   - Run section 5 and `python3 scripts/extract_release_notes.py` to confirm the notes parse.
+3. **Release PR `dev → main`** as a draft once the prep PR is merged, titled
+   `Release vX.Y.Z: dev → main`, its body the release notes plus the clean-install result
+   for every marketplace plugin.
+4. **Queue it.** The batch line reads: "Merge release vX.Y.Z (publishes tag vX.Y.Z and the
+   GitHub release; deploys the docs site)". Merge only after every check on the head is
+   green, including the four harness installs.
+5. **After the merge**, verify and report: the `vX.Y.Z` tag and release exist, the Pages
+   deploy succeeded, CI on `main` is green, and the release-link thank-you comments for the
+   community PRs it ships are drafted for the next batch.
+
+Propose a release when `dev` holds a user-facing fix, or any approved change that has
+waited three days; otherwise keep batching.
+
+## 7. PR shape
 
 - Branch from the latest `dev`; base is always `dev`.
 - Title: conventional commit, ending with `(lands #<n>)` when it carries a community PR.
@@ -125,8 +183,9 @@ maintainer's call only. Read gate output, not just exit codes.
   `Co-authored-by:` when squashing.
 - Bump every changed plugin (`scripts/bump_plugin_versions.py --changed-since origin/dev`).
 
-## 7. Run report
+## 8. Run report
 
 Each run ends with one report to the maintainer: counts (open, new, prepared, queued),
-then one line per item with its verdict and links, then the approval batch. A run that
+then one line per item with its verdict and links, the release state of `dev` (unreleased
+changes, prepared release PRs), then the approval batch. A run that
 finds nothing new and nothing changed reports nothing.

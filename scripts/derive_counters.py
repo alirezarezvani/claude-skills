@@ -105,7 +105,10 @@ def derive(root: Path) -> dict:
             counters["plugins_on_disk"] += 1
         elif path.suffix == ".py":
             # Skill/plugin automation tools: every .py except repo-root scripts/.
-            if parts[0] != "scripts":
+            # The skill-router hook ships as identical copies in several plugins
+            # (scripts/check_skill_router.py enforces that); count it once.
+            if parts[0] != "scripts" and not (
+                    name == "skill_router.py" and rel.as_posix() != "engineering-team/hooks/skill_router.py"):
                 counters["python_tools"] += 1
         elif path.suffix == ".md":
             if "references" in parts[:-1]:

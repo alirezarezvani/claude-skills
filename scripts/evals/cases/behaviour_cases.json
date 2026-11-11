@@ -95,5 +95,79 @@
    "Prioritises fixes"
   ],
   "origin": "v2.14-audit"
+ },
+ "cra-readiness": {
+  "assertions": [
+   "Gives the early-warning deadline as 24 hours after the 2026-11-09 14:00 CET confirmation (2026-11-10 14:00 CET) or, if it treats the 2026-11-07 report as awareness, says that deadline has already passed",
+   "Gives the vulnerability notification deadline as 72 hours after awareness",
+   "Says the final report is due within 14 days after the fix (corrective or mitigating measure) is available",
+   "Says reports go through ENISA's Single Reporting Platform to the CSIRT of the Member State of the main establishment (Germany)",
+   "States that GW-200, although placed on the market in 2023, is still subject to Article 14 reporting",
+   "Says impacted users must be informed of the vulnerability and the measures they can take",
+   "Classifies SmartLock S1 as an important class I product and says self-assessment (module A) is not available without harmonised standards, common specifications or certification applied in full",
+   "Classifies FX-Edge as an important class II product that needs a notified body or EU certification, never self-assessment",
+   "Says PulseCare is excluded from the CRA because it is a medical device under the MDR",
+   "Flags the GW-200 three-year support period as too short (minimum five years unless expected use is shorter), or notes it does not apply to the legacy product unless substantially modified"
+  ],
+  "fixture": "cra",
+  "name": "cra-readiness",
+  "origin": "cra-readiness-build",
+  "plugin": "cra-readiness",
+  "prompt": "We make the products in products.md. On 2026-11-07 at 09:00 CET a researcher emailed us that attackers are exploiting an authentication bypass in GW-200 firmware; our PSIRT confirmed active exploitation on 2026-11-09 at 14:00 CET. A firmware fix should be ready in about 5 days. What exactly do we have to do under the EU Cyber Resilience Act, by when and to whom? And for the other products: which CRA class are they and can we self-assess?",
+  "skill": "ra-qm-team/cra-readiness/skills/cra-readiness"
+ },
+ "cra-readiness-incident": {
+  "assertions": [
+   "Treats the compromised firmware signing key as a severe incident having an impact on the security of the products (Art 14(3)-(5)), reportable even though no vulnerability was exploited in a customer device",
+   "Gives the early warning as 24 hours and the incident notification as 72 hours after awareness, and the early warning must say whether unlawful or malicious acts are suspected",
+   "Says the final report for a severe incident is due within one month after the incident notification (not 14 days after a fix)",
+   "Says reports go through ENISA's Single Reporting Platform to the CSIRT of the Netherlands (main establishment)",
+   "Says CardioPatch itself is excluded from the CRA as an MDR medical device, but the Companion app is in scope",
+   "Places FitBand 3 in Annex III important class I (personal wearable with health monitoring not covered by the MDR/IVDR)",
+   "Says hl7-lite is placed on the market (commercial activity) because the company monetises it through a paid Enterprise build or paid tier, so the manufacturer obligations apply at least to that",
+   "Says Home Hub cannot rely on module A self-assessment with an internal spec if it is important class I, and notes harmonised standards for the CRA are not (yet) cited, so a notified body or EU certification is likely needed; or if it classifies Home Hub as a default product, says module A is allowed",
+   "Says a 5-year default support period is not automatically right: Home Hub's support should reflect its 6-8 year expected use",
+   "Does not claim the company is exempt from Article 14 fines; the Art 64(10)(a) carve-out only covers micro and small enterprises, and 180 employees is not small"
+  ],
+  "fixture": "cra2",
+  "name": "cra-readiness",
+  "origin": "cra-readiness-build",
+  "plugin": "cra-readiness",
+  "prompt": "Two things. First: this morning (2026-11-10, 08:30 CET) our security team confirmed that an attacker stole the private key we use to sign firmware for FitBand 3 and the CardioPatch Companion app's update channel. We have not seen malicious updates on customer devices yet. What do we have to report under the Cyber Resilience Act, to whom, and by when? Second: go through portfolio.md and tell us, product by product, whether the CRA applies, which class, how we can do conformity assessment and whether our support periods are OK.",
+  "skill": "ra-qm-team/cra-readiness/skills/cra-readiness"
+ },
+ "medical-device-software": {
+  "assertions": [
+   "Classifies InfuCore (or DoseEngine) as IEC 62304 class C because death is possible",
+   "Says DoseGuard does not lower the class because it runs inside the same software system (a risk control must be external to the software system to count)",
+   "Says the UI item cannot stay class A without a documented segregation rationale; without one it inherits the system's class",
+   "Says the FDA documentation level is Enhanced, because it is assessed before risk controls and a failure could present a probable risk of death or serious injury",
+   "Says the pump is a cyber device under FD&C Act section 524B because of the Bluetooth link or USB port, so the submission needs an SBOM, a postmarket vulnerability plan with coordinated disclosure, and patch/update processes",
+   "Says 'latest' is not acceptable as a SOUP version: each SOUP item needs an exact unique designator (IEC 62304 8.1.2)",
+   "Says that for class B/C each SOUP item needs functional/performance and hardware/software requirements (5.3.3, 5.3.4) and an evaluation of its published anomaly list (7.1.3)",
+   "Rejects the team's plan (class B, UI class A, Basic documentation) rather than accepting it"
+  ],
+  "fixture": "mdsw",
+  "name": "medical-device-software",
+  "origin": "medical-device-software-build",
+  "plugin": "medical-device-software",
+  "prompt": "Here is our pump's software overview in device.md. Is our plan at the bottom right? Tell us the IEC 62304 class for the system and each item, the FDA documentation level, whether 524B applies, and what is wrong with our SOUP list.",
+  "skill": "ra-qm-team/medical-device-software/skills/medical-device-software"
+ },
+ "medical-device-software-classification": {
+  "assertions": [
+   "Says that under IEC 62304 Amendment 1 (2015) a risk control measure external to the software system, such as the verified hardware cut-off, can be taken into account in classification, so the consultant's 'before any risk controls' reading is wrong or outdated",
+   "Concludes the software can be class A if the residual risk with the cut-off is acceptable (or at most says the cut-off can lower the class), and notes the external control must itself be verified",
+   "Says class A software still needs software system testing (clause 5.7) and cannot skip testing",
+   "Says the FDA documentation level (Basic/Enhanced) does not follow the 62304 class because FDA assesses it before risk controls, so the hardware cut-off may not lower it",
+   "Says the open-source libraries must still be identified as SOUP at class A (title, manufacturer, version; clause 8.1.2), even though anomaly-list evaluation applies only from class B",
+   "Does not confirm as settled fact that EN 62304 is cited in the Official Journal under the MDR; says the citation status must be checked or that presumption of conformity is not confirmed"
+  ],
+  "fixture": "mdsw2",
+  "name": "medical-device-software",
+  "origin": "medical-device-software-build",
+  "plugin": "medical-device-software",
+  "prompt": "Read plan.md and answer the team's five questions. Be specific about which clause or guidance each answer rests on.",
+  "skill": "ra-qm-team/medical-device-software/skills/medical-device-software"
  }
 }

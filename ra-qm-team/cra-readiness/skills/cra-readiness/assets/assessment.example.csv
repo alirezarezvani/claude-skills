@@ -1,0 +1,40 @@
+id,status,evidence,justification,owner
+P1-1,MET,evidence/P1-1.md,"",Security
+P1-2a,MET,evidence/P1-2a.md,"",Security
+P1-2b,PARTIAL,default admin password rotated at first boot; reset tested on v4 only,"",Firmware
+P1-2c,MET,evidence/P1-2c.md,"",Security
+P1-2d,MET,evidence/P1-2d.md,"",Security
+P1-2e,MET,evidence/P1-2e.md,"",Security
+P1-2f,MET,evidence/P1-2f.md,"",Security
+P1-2g,NA,,"",Privacy
+P1-2h,MET,evidence/P1-2h.md,"",Security
+P1-2i,MET,evidence/P1-2i.md,"",Security
+P1-2j,MET,evidence/P1-2j.md,"",Security
+P1-2k,MET,evidence/P1-2k.md,"",Security
+P1-2l,NOT_MET,,"",Platform
+P1-2m,NA,,"Device stores no user data; all telemetry is forwarded and not retained (risk assessment RA-7 s.4)",Platform
+P2-1,MET,sbom/cyclonedx-1.6.json,"",Release eng
+P2-2,MET,evidence/P2-2.md,"",Security
+P2-3,MET,evidence/P2-3.md,"",Security
+P2-4,MET,evidence/P2-4.md,"",Security
+P2-5,MET,,"",PSIRT
+P2-6,MET,evidence/P2-6.md,"",Security
+P2-7,MET,evidence/P2-7.md,"",Security
+P2-8,MET,evidence/P2-8.md,"",Security
+TD-1,MET,evidence/TD-1.md,"",Security
+TD-2,MET,evidence/TD-2.md,"",Security
+TD-3,MET,evidence/TD-3.md,"",Security
+TD-4,NOT_MET,,"",Product
+TD-5,MET,evidence/TD-5.md,"",Security
+TD-6,MET,evidence/TD-6.md,"",Security
+TD-7,MET,evidence/TD-7.md,"",Security
+TD-8,NA,,"",Release eng
+UI-1,MET,evidence/UI-1.md,"",Security
+UI-2,MET,evidence/UI-2.md,"",Security
+UI-3,MET,evidence/UI-3.md,"",Security
+UI-4,MET,evidence/UI-4.md,"",Security
+UI-5,MET,evidence/UI-5.md,"",Security
+UI-6,MET,evidence/UI-6.md,"",Security
+UI-7,MET,evidence/UI-7.md,"",Security
+UI-8,MET,evidence/UI-8.md,"",Security
+UI-9,NA,,"SBOM is not shared with users",Product

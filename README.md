@@ -1,12 +1,12 @@
 # Claude Code Skills & Plugins
 
-**411 production-ready skills for Claude Code and 12 other coding agents, covering engineering, product, marketing, compliance, finance and the C-suite. We test whether each skill loads when you ask in plain words, and [publish the results](VERIFIED.md).**
+**415 production-ready skills for Claude Code and 12 other coding agents, covering engineering, product, marketing, compliance, finance and the C-suite. We test whether each skill loads when you ask in plain words, and [publish the results](VERIFIED.md).**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-411-brightgreen?style=for-the-badge)](#skills-overview)
-[![Agents](https://img.shields.io/badge/Agents-129-blue?style=for-the-badge)](#agents)
+[![Skills](https://img.shields.io/badge/Skills-415-brightgreen?style=for-the-badge)](#skills-overview)
+[![Agents](https://img.shields.io/badge/Agents-131-blue?style=for-the-badge)](#agents)
 [![Personas](https://img.shields.io/badge/Personas-7-purple?style=for-the-badge)](#personas)
-[![Commands](https://img.shields.io/badge/Commands-169-orange?style=for-the-badge)](#commands)
+[![Commands](https://img.shields.io/badge/Commands-173-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
@@ -56,6 +56,7 @@ Each of these loaded on every plain-language test prompt. [See all verified skil
 | [i18n-localization](engineering/i18n-localization/) | Finds missing keys, broken placeholders and wrong plural forms before a language ships | `i18n-localization` |
 | [month-end-close](finance/month-end-close/) | Runs the close calendar, proves reconciliations and refuses boilerplate variance explanations | `month-end-close` |
 | [cmmc-readiness](ra-qm-team/cmmc-readiness/) | Scores CMMC 2.0 Level 2 readiness, SPRS and POA&M close-out | `cmmc-readiness` |
+| [cra-readiness](ra-qm-team/cra-readiness/) | EU Cyber Resilience Act: Article 14 reporting clock, product classes, Annex I and SBOM gates | `cra-readiness` |
 
 [^hermes]: Hermes Agent is **BYO-sync tier**: the repo ships a pre-generated `.hermes/skills/claude-skills/` tree, but you run `python scripts/sync-hermes-skills.py` once locally to install into `~/.hermes/skills/`. Uses the same agentskills.io SKILL.md standard — no format conversion.
 [^vibe]: Mistral Vibe is also **BYO-sync tier**: the repo ships a pre-generated `.vibe/skills/claude-skills/` tree, run `./scripts/vibe-install.sh` once locally to install into `~/.vibe/skills/`. Same agentskills.io SKILL.md standard — no format conversion. Docs: <https://docs.mistral.ai/mistral-vibe/agents-skills>.
@@ -67,10 +68,10 @@ Each of these loaded on every plain-language test prompt. [See all verified skil
 Claude Code skills (also called agent skills or coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
 
 - **SKILL.md** — structured instructions, workflows, and decision frameworks
-- **Python tools** — 807 CLI scripts (all stdlib-only, zero pip installs)
-- **Reference docs** — 917 templates, checklists, and domain-specific knowledge files
+- **Python tools** — 824 CLI scripts (all stdlib-only, zero pip installs)
+- **Reference docs** — 931 templates, checklists, and domain-specific knowledge files
 
-**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 807 Python tools run anywhere Python runs.
+**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 824 Python tools run anywhere Python runs.
 
 ### Skills vs Agents vs Personas
 
@@ -222,7 +223,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**411 production-ready skills across 20 domains:**
+**415 production-ready skills across 20 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -235,7 +236,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **🔬 Research (academic)** | 10 | `research` orchestrator (hybrid router + fallback) + 8 specialists: `pulse`, `litreview`, `grants` (NIH), `dossier`, `patent`, `syllabus`, `notebooklm`, `meta-research` (rigor-first meta-research), `deepread` (evidence-first reading of supplied documents) | [research/](research/) |
 | **🧪 Research Operations** ✨v2.9.0 | 6 | Enterprise/cross-functional research: orchestrator + `clinical-research` (study design), `research-finance` (R&D program finance), `market-research` (sizing/survey/segmentation), `product-research` (user research), `interview-mapper` (transcript coding with quote verification) — each with onboarding + customization + opt-in autoresearch bridge | [research-ops/](research-ops/) |
 | **📋 Project Management** | 9 | Senior PM, scrum master, Jira, Confluence, Atlassian admin, templates + bundled Atlassian Remote MCP | [project-management/](project-management/) |
-| **🏥 Regulatory & QM** | 23 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management, access reviews (access-lifecycle), CMMC 2.0 Level 2 (cmmc-readiness), agent-decision-receipts (PQ-signed action receipts) | [ra-qm-team/](ra-qm-team/) |
+| **🏥 Regulatory & QM** | 27 | ISO 13505, MDR 2017/745, FDA, ISO 27001, GDPR, SOC 2, CAPA, risk management, access reviews (access-lifecycle), CMMC 2.0 Level 2 (cmmc-readiness), EU Cyber Resilience Act (cra-readiness), IEC 62304 and IEC 81001-5-1 medical device software (medical-device-software), agent-decision-receipts (PQ-signed action receipts) | [ra-qm-team/](ra-qm-team/) |
 | **🛡️ Compliance OS** | 9 | Compliance operating system — controls, evidence, audit-readiness workflows | [compliance-os/](compliance-os/) |
 | **💼 C-Level Advisory** | 46 | Full C-suite (CEO/CTO/CFO/CMO/CRO/CPO/COO/CHRO/CISO/GC/CDO/CAIO/CCO/VPE) + executive mentor + orchestration + board meetings + culture & collaboration | [c-level-advisor/](c-level-advisor/) |
 | **🎩 C-Level Agents (founder mode)** | 22 | 13 cs-* persona agents + 21 /c-level-agents:* commands — office hours, boardroom, strategic sprint pipeline, cross-eval, freeze | [c-level-agents/](c-level-agents/) |
@@ -381,7 +382,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-807 Python tools ship with the skills (all stdlib-only). A few examples:
+824 Python tools ship with the skills (all stdlib-only). A few examples:
 
 ```bash
 # SaaS health check
@@ -429,7 +430,7 @@ Yes. Skills work natively with 13 tools: Claude Code, OpenAI Codex, Gemini CLI, 
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 807 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
+Yes. All 824 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

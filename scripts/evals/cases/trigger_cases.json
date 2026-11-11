@@ -3888,5 +3888,25 @@
   ],
   "neg": "Create a 15-week syllabus for a new intro to data science course, with weekly topics, grading breakdown, and assignment deadlines.",
   "origin": "generated"
+ },
+ "ra-qm-team/cra-readiness/skills/cra-readiness": {
+  "name": "cra-readiness",
+  "plugin": "cra-readiness",
+  "pos": [
+   "we sell smart home cameras in the EU, does the Cyber Resilience Act apply to us and what do we have to do?",
+   "A customer just told us attackers are exploiting an auth bypass in our router firmware; we confirmed it this morning. Under the CRA, what do we have to report to ENISA, to which CSIRT, and by when? We're a 40-person company in Munich and the router shipped in 2023."
+  ],
+  "neg": "Set up a vulnerability scanning pipeline with Trivy and Grype in our GitHub Actions that fails the build on critical CVEs.",
+  "origin": "reviewed"
+ },
+ "ra-qm-team/medical-device-software/skills/medical-device-software": {
+  "name": "medical-device-software",
+  "plugin": "medical-device-software",
+  "pos": [
+   "Our infusion pump firmware can overdose a patient if the rate calculation is wrong. Which IEC 62304 software safety class is it, and does a separate hardware pressure sensor change that?",
+   "We're preparing for our notified body audit of our SaMD. Can you check whether our SOUP list and trace matrix are good enough under IEC 62304?"
+  ],
+  "neg": "Write the clinical evaluation report for our class IIa wound dressing under MDR Annex XIV.",
+  "origin": "reviewed"
  }
 }

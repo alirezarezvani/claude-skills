@@ -174,7 +174,7 @@ Key ISO standards applicable to medical device development, quality management, 
 | Aspect | Requirement |
 |--------|-------------|
 | Scope | Medical device software development lifecycle |
-| Regulatory Status | Harmonized under EU MDR; FDA guidance reference |
+| Regulatory Status | EU: audited as state of the art under MDR Annex I 17.2; an OJ citation of EN 62304 under the MDR is not confirmed. FDA: recognized consensus standard 13-79 |
 | Key Concept | Safety classification drives rigor |
 | Documentation | Software development plan, architecture, testing |
 
@@ -196,13 +196,15 @@ Key ISO standards applicable to medical device development, quality management, 
 | Software Detailed Design | - | - | Required |
 | Software Unit Implementation | Required | Required | Required |
 | Software Unit Verification | - | Required | Required |
-| Software Integration Testing | Required | Required | Required |
+| Software Integration Testing | - | Required | Required |
 | Software System Testing | Required | Required | Required |
 | Software Release | Required | Required | Required |
 | Software Maintenance | Required | Required | Required |
-| Software Risk Management | Required | Required | Required |
+| Software Risk Management | Partial (4.2, 7.4.1) | Required | Required |
 | Software Configuration Management | Required | Required | Required |
 | Software Problem Resolution | Required | Required | Required |
+
+Class markers per IEC 62304:2006+A1:2015 Table A.1 as reported by secondary sources; your licensed copy prevails. For the clause-level table and a gap-check script, see the `medical-device-software` skill.
 
 ### Documentation Requirements
 
@@ -213,9 +215,9 @@ Key ISO standards applicable to medical device development, quality management, 
 | Software Architecture Document | - | ✓ | ✓ |
 | Software Detailed Design | - | - | ✓ |
 | Software Unit Test Records | - | ✓ | ✓ |
-| Integration Test Records | ✓ | ✓ | ✓ |
+| Integration Test Records | - | ✓ | ✓ |
 | System Test Records | ✓ | ✓ | ✓ |
-| Traceability Matrix | - | ✓ | ✓ |
+| Traceability Matrix | Requirements to system tests (5.7) | ✓ incl. risk controls (7.3.3) | ✓ incl. risk controls (7.3.3) |
 
 ---
 
@@ -340,7 +342,7 @@ Key ISO standards applicable to medical device development, quality management, 
 | ISO 13485 | Harmonized | Recognized | Required | Accepted |
 | ISO 14971 | Harmonized | Referenced | Required | Accepted |
 | ISO 10993 | Harmonized | Referenced | Required | Accepted |
-| IEC 62304 | Harmonized | Referenced | Required | Accepted |
+| IEC 62304 | State of the art (OJ citation unconfirmed) | Recognized (13-79) | Required | Accepted |
 | IEC 62366 | Harmonized | Referenced | Required | Accepted |
 
 ### Version Requirements

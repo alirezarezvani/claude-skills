@@ -121,7 +121,13 @@ def prepare(rows, mb, worktree, model):
             r["case_source"] = "drafted from the " + ("new" if r["is_new"] else "base") + " description"
     if to_draft:
         from generate_trigger_cases import draft
-        got, _ = draft(to_draft, model)
+        try:
+            got, _ = draft(to_draft, model)
+        except (RuntimeError, ValueError, subprocess.TimeoutExpired) as e:
+            got = {}
+            for r in rows:
+                if "case" not in r:
+                    r["draft_error"] = str(e)
         for r in rows:
             c = got.get(r["path"]) if "case" not in r else None
             if c and len(c.get("pos", [])) == 2 and c.get("neg"):
@@ -283,7 +289,7 @@ def main():
             measured = prepare(measured, mb, worktree, args.model)
             for r in measured:
                 if "case" not in r:
-                    r["verdict"], r["detail"] = "NOT_MEASURED", "no exam case and drafting one failed"
+                    r["verdict"], r["detail"] = "NOT_MEASURED", "no exam case and drafting one failed" + (f": {r['draft_error']}" if r.get("draft_error") else "")
             todo = [r for r in measured if "case" in r]
             runs = run_round(todo, worktree, args, budget, 0)
             for r in todo:

@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.11] - 2026-11-11 — CRA, IEC 62304 and skill hints
+
+Two new compliance plugins: cra-readiness for the EU Cyber Resilience Act, whose Article 14 reporting already
+applies, and medical-device-software for IEC 62304 and IEC 81001-5-1. Eight plugins now ship a quiet
+`UserPromptSubmit` hook that names one of 21 skills that never loaded on their own when a prompt clearly fits it;
+it makes no model or network calls, and `SKILL_ROUTER=0` turns it off (`SKILL_ROUTER_<PLUGIN>=0` for one plugin).
+No renames, so nothing needs a reinstall: `claude plugin update` picks up the hooks, and the new plugins install
+as usual. Changed plugins are bumped; plugins above 2.14.11 from earlier releases keep their versions (gate G11).
+
+### Added
+
+- **cra-readiness plugin: EU Cyber Resilience Act (Regulation (EU) 2024/2847)** (`ra-qm-team/cra-readiness`, also
+  bundled in ra-qm-skills). Article 14 reporting has applied since 11 September 2026 to every in-scope product on
+  the EU market, including products shipped before the CRA; everything else applies from 11 December 2027. Four
+  deterministic stdlib scripts: `cra_scope_classifier.py` (scope and Art 2 exclusions, roles under Arts 19-22 and 24,
+  Annex III/IV class, the conformity routes Art 32 allows, legacy products under Art 69, the Art 13(8) support
+  period, and the CSIRT that receives reports under Art 14(7)); `art14_report_clock.py` (24 h early warning, 72 h
+  notification, final report 14 days after a fix or one month after an incident notification, required content,
+  user notice under Art 14(8), and the Art 64(10)(a) SME carve-out); `annex_i_gap_check.py` (39 ids across Annex I
+  Parts I and II, Annex VII and Annex II, refusing NA on vulnerability handling); `sbom_check.py` (CycloneDX or SPDX
+  JSON, primary component, top-level dependencies per Annex I Part II(1)). Ships the cs-cra-officer agent,
+  `/cs-cra-readiness` and `/cs-cra-report`, three references citing the regulation, Implementing Regulation (EU)
+  2025/2392 and Commission guidance C(2026) 5252, and an Article 14 runbook.
+- **Skill hints for 21 skills that never loaded on their own.** Eight plugins (engineering-skills,
+  engineering-advanced-skills, marketing-skills, product-skills, c-level-skills, agenthub, autoresearch-agent,
+  si) now ship a `UserPromptSubmit` hook, `hooks/skill_router.py`, that names the fitting skill when a prompt
+  clearly matches one (tdd-guide, senior-backend/frontend/devops/secops/data-scientist, gcp-cloud-architect,
+  minimalist, codebase-onboarding, self-eval, tech-debt-tracker, copy-editing, content-humanizer,
+  marketing-psychology, experiment-designer, product-manager-toolkit, roadmap-communicator, cto-advisor,
+  agenthub, autoresearch-agent, remember). Silent otherwise, one hint per plugin per prompt, once per session,
+  no model or network calls; `SKILL_ROUTER=0` turns it off. Measured live on held-out prompts: the skills
+  loaded in 24/84 runs with the hook against 2/84 without, and 0/21 on near misses either way. No new commands:
+  every skill is already `/<plugin>:<skill>`. Per-skill decisions in `audit/silent-skill-triggers-2026-11/`;
+  `scripts/check_skill_router.py` (CI) keeps the copies identical and the routes valid.
+- Daily triage pipeline for community PRs and issues: `scripts/triage_snapshot.py` lists every open item with mechanical signals (CI or manifest changes, network and LLM calls in added code, new dependencies, external domains, commercial wording, untouched issue templates) and a suggested lane, without executing or echoing contributor text. `.github/TRIAGE_POLICY.md` sets the pipeline from snapshot to draft PR on `dev`, the documentation update every PR carries, release prep (CHANGELOG version entry, version lines, the `dev → main` PR, with the tag left to `release.yml`), what runs without the maintainer and what waits for a per-batch go-ahead, and runs contributor code only in a network-less namespace, because every process in the cloud container inherits the session's GitHub access.
+- **medical-device-software plugin: IEC 62304 and IEC 81001-5-1** (`ra-qm-team/medical-device-software`, also
+  bundled in ra-qm-skills). Four deterministic stdlib scripts: `software_safety_classifier.py` (IEC 62304 4.3 class
+  per system and item with the Amendment 1 external-control path and segregation, plus the FDA Basic/Enhanced
+  documentation level, which is assessed before risk controls, and the FD&C Act 524B cyber-device test);
+  `lifecycle_gap_check.py` (every 62304 activity by class, clause 4.4 legacy software, and IEC 81001-5-1 activities
+  with `--security`; unassessed is not MET); `soup_register_check.py` (8.1.2, 5.3.3/5.3.4, 7.1.3, end of support,
+  the 81001-5-1 risk-transfer category as clarified by ISH1:2025, and a CycloneDX/SPDX SBOM cross-check for
+  524B(b)(3)); `trace_matrix_check.py` (requirements to tests, risk controls to hazards and verification, release
+  state). Ships the cs-device-software-lead agent, `/cs-medical-device-software` and `/cs-soup-review`, and four
+  references that label every claim as checked against the primary text, agreed by secondary sources (the
+  paywalled 62304 class table), or unverified (EU harmonisation of EN 62304 and EN IEC 81001-5-1 under the MDR).
+
+### Fixed
+
+- **regulatory-affairs-head** IEC 62304 table no longer marks integration testing required for class A or calls
+  IEC 62304 harmonised under the MDR; **fda-consultant-specialist** names the Basic/Enhanced documentation level
+  that replaced the level of concern in June 2023. ra-qm-skills 2.14.12.
+
 ## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
 
 No new skills and no renames, so nothing needs a reinstall. One compliance fix from the community: the EU AI Act

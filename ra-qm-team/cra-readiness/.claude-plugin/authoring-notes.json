@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Planned-skills inventory 2026-11-10: the EU Cyber Resilience Act had zero coverage in the library while Article 14 reporting has applied since 11 September 2026; no existing skill classified CRA products, ran the reporting clock or checked an SBOM against Annex I Part II(1)",
+    "build_pattern": "Four deterministic stdlib scripts with blocking exit codes (scope/class/route classifier, Article 14 clock, Annex I/II/VII gate, SBOM floor check); rules from Regulation (EU) 2024/2847 Arts 2, 3, 7, 13, 14, 21, 22, 24, 32, 64, 69, 71 and Annexes I-IV, VII, checked against the Official Journal text; Implementing Regulation (EU) 2025/2392; Commission guidance C(2026) 5252",
+    "distinct_from": "eu-ai-act-specialist (AI Act); mdr-745-specialist (medical devices, excluded from the CRA by Art 2(2)); information-security-manager-iso27001 (management system, not product law); cmmc-readiness (US defence); compliance-os (no CRA)"
+  }
+}

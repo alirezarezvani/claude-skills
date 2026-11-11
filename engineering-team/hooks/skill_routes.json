@@ -1,0 +1,109 @@
+{
+  "plugin": "engineering-skills",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "tdd-guide",
+      "why": "test-first development, test generation, mocks, coverage gaps",
+      "any": [
+        "\\b(tdd|test[- ]driven|red[- ]green(-refactor)?|test[- ]first)\\b",
+        "\\b(write|add|generate|create)\\b.{0,25}\\b(unit |integration )?tests?\\b.{0,40}\\b(for|covering|around)\\b",
+        "\\b(jest|pytest|vitest|junit|mocha)\\b.{0,40}\\b(tests?|mock\\w*|fixtures?)\\b",
+        "\\bmock(ing)?\\b.{0,30}\\b(dependency|api|database|db|service|module|fetch|http|client)\\b",
+        "\\b(raise|increase|improve|boost)\\b.{0,20}\\b(test )?coverage\\b",
+        "\\bcoverage (gaps?|report)\\b"
+      ],
+      "not": [
+        "\\b(playwright|cypress|e2e|end[- ]to[- ]end|page|endpoints?|form)\\b",
+        "\\b(failing|fails|error|broken)\\b"
+      ]
+    },
+    {
+      "skill": "senior-secops",
+      "why": "security reviews, CVE remediation, hardening, secrets, SOC 2/PCI/HIPAA checks",
+      "any": [
+        "\\b(is|are)\\b.{0,30}\\b(app|api|site|code|service|backend)\\b.{0,20}\\bsecure\\b",
+        "\\bsecurity (review|audit|scan|hardening|check)\\b",
+        "\\bcve-\\d{4}-\\d+\\b",
+        "\\b(patch|fix|remediat\\w*|upgrade)\\b.{0,30}\\b(vulnerable|vulnerabilit(y|ies)|cves?)\\b",
+        "\\b(npm|yarn|pnpm) audit\\b|\\bpip-audit\\b|\\bdependabot\\b",
+        "\\b(soc ?2|pci[- ]?dss|hipaa)\\b.{0,60}\\b(app|code|codebase|api)\\b",
+        "\\bharden(ing)?\\b.{0,30}\\b(server|app|container|api|nginx|docker)\\b"
+      ],
+      "not": [
+        "\\b(iso 27001|stride|threat model\\w*|pen(etration)? test\\w*|access review|okta)\\b"
+      ]
+    },
+    {
+      "skill": "gcp-cloud-architect",
+      "why": "Google Cloud architecture, deployment, migration and cost",
+      "pairs": [
+        [
+          [
+            "\\b(gcp|google cloud|cloud run|gke|cloud functions?|cloud sql|bigquery|app engine|firestore|pub/?sub|cloud storage bucket)\\b"
+          ],
+          [
+            "\\b(host\\w*|deploy\\w*|run|set ?up|architect\\w*|design|migrat\\w*|move|bill|costs?|pricing|expensive|scal\\w*|cheaper)\\b"
+          ]
+        ]
+      ]
+    },
+    {
+      "skill": "senior-devops",
+      "why": "CI/CD pipelines, infrastructure as code, containers and cloud deploys",
+      "any": [
+        "\\b(deploy(ment)? pipeline|release pipeline)\\b",
+        "\\b(set up|provision|create|stand up)\\b.{0,30}\\b(infrastructure|infra)\\b.{0,40}\\b(terraform|pulumi|cloudformation|bicep)\\b",
+        "\\b(write|create|add|fix|optimi[sz]e)\\b.{0,20}\\b(a |the |our )?dockerfile\\b(?!-)",
+        "\\b(deploy|ship|release)\\b.{0,40}\\b(to|on)\\b.{0,10}\\b(aws|azure|kubernetes|k8s|ecs|eks|aks)\\b",
+        "\\b(blue[- ]green|canary) (deploy\\w*|release\\w*)\\b",
+        "\\binfrastructure as code\\b"
+      ],
+      "not": [
+        "\\b(playwright|wcag|security groups?|iam roles?|mlflow|modules?|hook)\\b"
+      ]
+    },
+    {
+      "skill": "senior-frontend",
+      "why": "React/Next.js/TypeScript frontends: components, performance, bundle size, review",
+      "any": [
+        "\\bbundle\\b.{0,30}\\b(size|too (big|large)|huge|bloat\\w*|heavy)\\b",
+        "\\b(react|next\\.?js|vue|svelte|tailwind|tsx|jsx|frontend|front-end)\\b.{0,60}\\b(slow|sluggish|re-?render\\w*|lighthouse|lcp|inp|janky)\\b",
+        "\\b(lighthouse score|core web vitals|largest contentful paint|cumulative layout shift)\\b",
+        "\\b(new|create|build|scaffold|generate)\\b.{0,25}\\b(react|next\\.?js|vue|tsx)\\b.{0,25}\\b(component|app|page|project)\\b",
+        "\\b(review|audit)\\b.{0,30}\\b(react|next\\.?js|frontend|front-end|tsx)\\b"
+      ],
+      "not": [
+        "\\blanding page\\b",
+        "\\bagents?\\b"
+      ]
+    },
+    {
+      "skill": "senior-backend",
+      "why": "backend APIs, auth, PostgreSQL queries, migrations and load tests",
+      "any": [
+        "\\b(add|implement|set up|build)\\b.{0,30}\\b(auth(entication)?|login|jwt|oauth|sessions?)\\b.{0,40}\\b(api|backend|server|express|fastapi|django|nest\\w*|endpoints?)\\b",
+        "\\b(scaffold|create|build|add)\\b.{0,30}\\b(rest|graphql)\\b.{0,20}\\b(api|endpoints?|service|server)\\b",
+        "\\b(database|db|schema|postgres\\w*|sql)\\b.{0,30}\\bmigrations?\\b",
+        "\\bmigrations?\\b.{0,40}\\b(postgres\\w*|schema|table|column)\\b",
+        "\\bload[- ]?test\\w*\\b",
+        "\\b(slow|n\\+1)\\s+quer(y|ies)\\b"
+      ],
+      "not": [
+        "\\b(pen(etration)? test\\w*|authori[sz]ation to test|token|prompt|llm)\\b"
+      ]
+    },
+    {
+      "skill": "senior-data-scientist",
+      "why": "causal inference, feature engineering, model evaluation on tabular data",
+      "any": [
+        "\\bcausal (inference|impact|effect)\\b",
+        "\\b(did|does|whether)\\b.{0,40}\\bcaused?\\b.{0,30}\\b(lift|increase|drop|uplift|decline)\\b",
+        "\\bfeature engineering\\b",
+        "\\b(which|what) features\\b.{0,40}\\bmodel\\b",
+        "\\b(auc|roc curve|precision[- ]recall|f1[- ]score|confusion matrix|calibration curve)\\b",
+        "\\b(difference[- ]in[- ]differences|propensity score|uplift model\\w*|synthetic control)\\b"
+      ]
+    }
+  ]
+}

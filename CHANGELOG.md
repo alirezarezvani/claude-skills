@@ -21,6 +21,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   JSON, primary component, top-level dependencies per Annex I Part II(1)). Ships the cs-cra-officer agent,
   `/cs-cra-readiness` and `/cs-cra-report`, three references citing the regulation, Implementing Regulation (EU)
   2025/2392 and Commission guidance C(2026) 5252, and an Article 14 runbook.
+- **Skill hints for 21 skills that never loaded on their own.** Eight plugins (engineering-skills,
+  engineering-advanced-skills, marketing-skills, product-skills, c-level-skills, agenthub, autoresearch-agent,
+  si) now ship a `UserPromptSubmit` hook, `hooks/skill_router.py`, that names the fitting skill when a prompt
+  clearly matches one (tdd-guide, senior-backend/frontend/devops/secops/data-scientist, gcp-cloud-architect,
+  minimalist, codebase-onboarding, self-eval, tech-debt-tracker, copy-editing, content-humanizer,
+  marketing-psychology, experiment-designer, product-manager-toolkit, roadmap-communicator, cto-advisor,
+  agenthub, autoresearch-agent, remember). Silent otherwise, one hint per plugin per prompt, once per session,
+  no model or network calls; `SKILL_ROUTER=0` turns it off. Measured live on held-out prompts: the skills
+  loaded in 24/84 runs with the hook against 2/84 without, and 0/21 on near misses either way. No new commands:
+  every skill is already `/<plugin>:<skill>`. Per-skill decisions in `audit/silent-skill-triggers-2026-11/`;
+  `scripts/check_skill_router.py` (CI) keeps the copies identical and the routes valid.
 
 ## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
 

@@ -1,0 +1,18 @@
+{
+  "plugin": "agenthub",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "agenthub",
+      "why": "run several agents on one task in parallel and keep the best result",
+      "any": [
+        "\\bbest[- ]of[- ]n\\b",
+        "\\bagenthub\\b",
+        "\\b(multiple|several|\\d+|three|five|a few) (agents|attempts|approaches|variants|versions|solutions)\\b.{0,50}\\b(parallel|compare|pick|keep|best|race|winner)\\b",
+        "\\bin parallel\\b.{0,40}\\b(pick|keep|choose) the best\\b",
+        "\\b(try|run|have)\\b.{0,30}\\b(a few|several|multiple|different|\\d+)\\b.{0,30}\\b(approaches|versions|attempts|agents|variants)\\b.{0,80}\\b(keep|pick|choose|merge|score|rank)\\b.{0,30}\\b(best|fastest|winner|whichever|top)\\b",
+        "\\b\\d+ agents each\\b"
+      ]
+    }
+  ]
+}

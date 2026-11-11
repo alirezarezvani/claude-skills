@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.11] - 2026-11-11 — CRA, IEC 62304 and skill hints
+
+Two new compliance plugins: cra-readiness for the EU Cyber Resilience Act, whose Article 14 reporting already
+applies, and medical-device-software for IEC 62304 and IEC 81001-5-1. Eight plugins now ship a quiet
+`UserPromptSubmit` hook that names one of 21 skills that never loaded on their own when a prompt clearly fits it;
+it makes no model or network calls, and `SKILL_ROUTER=0` turns it off (`SKILL_ROUTER_<PLUGIN>=0` for one plugin).
+No renames, so nothing needs a reinstall: `claude plugin update` picks up the hooks, and the new plugins install
+as usual. Changed plugins are bumped; plugins above 2.14.11 from earlier releases keep their versions (gate G11).
+
 ### Added
 
 - **cra-readiness plugin: EU Cyber Resilience Act (Regulation (EU) 2024/2847)** (`ra-qm-team/cra-readiness`, also

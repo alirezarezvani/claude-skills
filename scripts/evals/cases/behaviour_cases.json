@@ -153,5 +153,21 @@
   "plugin": "medical-device-software",
   "prompt": "Here is our pump's software overview in device.md. Is our plan at the bottom right? Tell us the IEC 62304 class for the system and each item, the FDA documentation level, whether 524B applies, and what is wrong with our SOUP list.",
   "skill": "ra-qm-team/medical-device-software/skills/medical-device-software"
+ },
+ "medical-device-software-classification": {
+  "assertions": [
+   "Says that under IEC 62304 Amendment 1 (2015) a risk control measure external to the software system, such as the verified hardware cut-off, can be taken into account in classification, so the consultant's 'before any risk controls' reading is wrong or outdated",
+   "Concludes the software can be class A if the residual risk with the cut-off is acceptable (or at most says the cut-off can lower the class), and notes the external control must itself be verified",
+   "Says class A software still needs software system testing (clause 5.7) and cannot skip testing",
+   "Says the FDA documentation level (Basic/Enhanced) does not follow the 62304 class because FDA assesses it before risk controls, so the hardware cut-off may not lower it",
+   "Says the open-source libraries must still be identified as SOUP at class A (title, manufacturer, version; clause 8.1.2), even though anomaly-list evaluation applies only from class B",
+   "Does not confirm as settled fact that EN 62304 is cited in the Official Journal under the MDR; says the citation status must be checked or that presumption of conformity is not confirmed"
+  ],
+  "fixture": "mdsw2",
+  "name": "medical-device-software",
+  "origin": "medical-device-software-build",
+  "plugin": "medical-device-software",
+  "prompt": "Read plan.md and answer the team's five questions. Be specific about which clause or guidance each answer rests on.",
+  "skill": "ra-qm-team/medical-device-software/skills/medical-device-software"
  }
 }

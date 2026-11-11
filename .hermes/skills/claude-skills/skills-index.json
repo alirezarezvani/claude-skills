@@ -1402,7 +1402,7 @@
       },
       {
         "name": "medical-device-software",
-        "description": "Use when medical device or SaMD software needs its IEC 62304 software safety class (A/B/C), a lifecycle gap check before a notified-body or FDA review, a SOUP list or SBOM checked, a trace matrix checked before release, IEC 81001-5-1 security activities scoped, or the FDA Basic/Enhanced documentation level and 524B cyber-device duties worked out. Four deterministic scripts; every rule cites its clause.",
+        "description": "Use for any question about the software inside a medical device, SaMD or regulated health app - which IEC 62304 safety class (A/B/C) it is and how much process and documentation that class needs, what to record about open-source or third-party libraries (SOUP, SBOM), trace matrix and release testing, IEC 81001-5-1 security, or the FDA documentation level and 524B cyber-device duties. Checks the user's files with four scripts that cite the clause.",
         "path": "ra-qm-team/medical-device-software"
       },
       {

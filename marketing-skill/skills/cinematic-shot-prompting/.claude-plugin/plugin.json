@@ -1,0 +1,15 @@
+{
+  "name": "cinematic-shot-prompting",
+  "description": "Compiles natural narrative camera movements into a deterministic 7-Slot Camera Motion Contract (Anchor, Mechanism, Velocity, Subject Lock, Parallax, Environmental Response, Landing) for diffusion video generators (Runway Gen-3, Kling, Sora, Luma Dream Machine). Eliminates prompt warping, chaotic perspective jitter, and character morphing. Ships dependency-free Python contract compiler with embedded smoke fixtures.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Peng Guo",
+    "url": "https://github.com/287523023qq-hue"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/skills/cinematic-shot-prompting",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./"
+  ]
+}

@@ -3,10 +3,10 @@ name: "cinematic-shot-prompting"
 description: "Use when creating camera movement, cinematic angles, or motion prompts for AI video generators like Runway Gen-3, Kling, and Luma. Compiles narrative prose into a strict 7-slot camera motion contract."
 license: MIT
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: Peng Guo
   category: marketing-skill
-  updated: 2026-03-07
+  updated: 2026-11-11
 ---
 
 # Cinematic Shot Prompting
@@ -46,14 +46,23 @@ Every compiled shot adheres to this 7-point specification:
 You can compile narrative intentions using the built-in compiler script:
 
 ```bash
+# Natural language intent parsing:
 python3 scripts/motion_contract_compiler.py \
-  --intent "A solitary detective in a neon rainy alley, camera orbits slowly around him" \
+  --intent "A lone detective walking in neon rain at night, camera orbits slowly around him" \
   --format markdown
+
+# JSON output for automated agent pipelines:
+python3 scripts/motion_contract_compiler.py \
+  --intent "Rapid drone crane ascending over ancient mountain peaks at dusk" \
+  --format json
+
+# Built-in smoke fixture verification:
+python3 scripts/motion_contract_compiler.py --sample --format json
 ```
 
 ### 2. Manual Agent Compilation
 
-When invoked directly within Claude Code or Cursor, simply provide a rough shot idea:
+When invoked directly within Claude Code or Cursor, provide a shot idea:
 > *"Direct this shot: A samurai standing on a mountain peak at dusk. The camera starts behind him and cranes upward into an epic high-angle wide view."*
 
 The skill formats the result:
@@ -65,7 +74,9 @@ The skill formats the result:
 [Terminal Landing]: Settles at high-angle establishing wide shot, locking horizon line at top third.
 ```
 
-## References & Official Verified Skill
+## References & Theoretical Foundations
 
-- Standalone Landing Page: [https://287523023qq-hue.github.io/ai-cinematic-skills/](https://287523023qq-hue.github.io/ai-cinematic-skills/)
-- Verified Agensi Marketplace Skill: [https://www.agensi.io/skills/cinematic-shot-prompting](https://www.agensi.io/skills/cinematic-shot-prompting)
+Detailed cinematography principles, parallax velocity formulation, and diffusion engine mapping are documented in:
+- [Camera Mechanics Reference](references/camera-mechanics.md)
+- American Cinematographer Manual (10th Ed.), American Society of Cinematographers (ASC).
+- Cinematography: Theory and Practice (3rd Ed.), Blain Brown.

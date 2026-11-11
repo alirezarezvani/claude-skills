@@ -1,0 +1,20 @@
+{
+  "plugin": "si",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "remember",
+      "why": "save a fact or lesson to auto-memory for future sessions",
+      "any": [
+        "^\\s*(please )?remember (this|that)\\b",
+        "\\b(don'?t|do not) forget (this|that)\\b",
+        "\\bnote (it|this|that) (down )?for next time\\b",
+        "\\bremember (it |this |that )?(for|next) (time|session)\\b",
+        "\\bstop (making|repeating) (that|this|the same) mistake\\b",
+        "\\bsave (this|that) to (memory|auto-?memory)\\b",
+        "\\bnote (this |that |it )?for later\\b",
+        "\\bsave (that|this|it)\\b.{0,60}\\b(next (time|session)|rediscover|future sessions?)\\b"
+      ]
+    }
+  ]
+}

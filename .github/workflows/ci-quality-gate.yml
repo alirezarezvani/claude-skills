@@ -153,6 +153,12 @@ jobs:
         run: |
           python3 scripts/check_command_refs.py
 
+      # Plugins that ship the UserPromptSubmit skill router must carry an identical copy
+      # of the script, name their own plugin, and route only to skills they ship.
+      - name: Skill-router hook check (blocking)
+        run: |
+          python3 scripts/check_skill_router.py
+
       - name: Script --help smoke gate (gate G8 — blocking)
         run: |
           python3 scripts/smoke_scripts.py

@@ -1,0 +1,67 @@
+{
+  "plugin": "engineering-advanced-skills",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "self-eval",
+      "why": "honest two-axis grading of finished work",
+      "any": [
+        "\\b(rate|grade|score|evaluate|assess)\\b.{0,20}\\b(your|the|this) (work|output|answer|job|changes|solution|session)\\b",
+        "\\bhow (well )?did (that|this|it|you) (go|do)\\b",
+        "\\bhonest(ly)?\\b.{0,30}\\b(self[- ]review|self[- ]assessment|grade|rating)\\b",
+        "\\bself[- ]eval\\w*\\b",
+        "\\bbe honest\\b.{0,40}\\bhow (good|well)\\b",
+        "\\brate how (well|good)\\b",
+        "\\bhow good was (that|this|the) (work|job)\\b"
+      ]
+    },
+    {
+      "skill": "codebase-onboarding",
+      "why": "architecture brief and onboarding docs for an unfamiliar repo",
+      "any": [
+        "\\bnew to (this|the|our) (codebase|repo\\w*|project|code)\\b",
+        "\\b(how is|explain|walk me through)\\b.{0,20}\\b(this|the|our) (repo\\w*|codebase|project)\\b.{0,40}\\b(structured|organi[sz]ed|laid out|architecture|works?)\\b",
+        "\\bwhere (do|should) i (start|begin)\\b.{0,40}\\b(reading|code|repo\\w*|codebase)\\b",
+        "\\bonboard\\w*\\b.{0,40}\\b(engineers?|developers?|devs?|hires?|codebase|repo\\w*)\\b",
+        "\\b(architecture (overview|brief)|codebase tour|onboarding doc\\w*)\\b",
+        "\\bhow (this|the|our) (repo\\w*|codebase|project) is (laid out|structured|organi[sz]ed)\\b"
+      ]
+    },
+    {
+      "skill": "tech-debt-tracker",
+      "why": "find, rank and track tech debt in a codebase",
+      "any": [
+        "\\btech(nical)? debt\\b",
+        "\\bwhat (should|to) (we |i )?refactor first\\b",
+        "\\bcleanup sprint\\b|\\brefactor(ing)? (backlog|plan|roadmap)\\b",
+        "\\bhow (messy|bad) is (the|this|our) code(base)?\\b",
+        "\\blegacy (code|codebase)\\b.{0,40}\\b(moderni[sz]\\w*|clean\\w*|refactor\\w*|untangle)\\b"
+      ],
+      "not": [
+        "\\bshould (we|i) rewrite\\b",
+        "\\b(eng(ineering)?|dev) teams?\\b",
+        "\\b(okrs?|engineers across|change failure)\\b"
+      ]
+    },
+    {
+      "skill": "minimalist",
+      "why": "least-code ladder: YAGNI, reuse, stdlib, native platform",
+      "any": [
+        "\\bover[- ]?engineer\\w*\\b",
+        "\\byagni\\b",
+        "\\bdon'?t (go overboard|over-?do it|over-?build)\\b",
+        "\\bbefore you write anything\\b.{0,80}\\b(already|platform|stdlib|existing|installed)\\b"
+      ],
+      "pairs": [
+        [
+          [
+            "\\b(simplif\\w*|simpler|less code|too (complex|complicated|clever)|bloated|fewer (lines|dependencies|deps)|minimal|strip (it )?down)\\b"
+          ],
+          [
+            "\\b(code|codebase|function|implementation|module|class|component|script|service|dependenc\\w*|abstraction\\w*|architecture)\\b"
+          ]
+        ]
+      ]
+    }
+  ]
+}

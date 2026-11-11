@@ -68,10 +68,10 @@ Each of these loaded on every plain-language test prompt. [See all verified skil
 Claude Code skills (also called agent skills or coding agent plugins) are modular instruction packages that give AI coding agents domain expertise they don't have out of the box. Each skill includes:
 
 - **SKILL.md** — structured instructions, workflows, and decision frameworks
-- **Python tools** — 815 CLI scripts (all stdlib-only, zero pip installs)
-- **Reference docs** — 923 templates, checklists, and domain-specific knowledge files
+- **Python tools** — 824 CLI scripts (all stdlib-only, zero pip installs)
+- **Reference docs** — 931 templates, checklists, and domain-specific knowledge files
 
-**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 823 Python tools run anywhere Python runs.
+**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 824 Python tools run anywhere Python runs.
 
 ### Skills vs Agents vs Personas
 
@@ -382,7 +382,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-823 Python tools ship with the skills (all stdlib-only). A few examples:
+824 Python tools ship with the skills (all stdlib-only). A few examples:
 
 ```bash
 # SaaS health check
@@ -430,7 +430,7 @@ Yes. Skills work natively with 13 tools: Claude Code, OpenAI Codex, Gemini CLI, 
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 823 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
+Yes. All 824 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

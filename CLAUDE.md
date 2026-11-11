@@ -161,7 +161,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.10 (EU AI Act Article 43(1) release: biometrics conformity route corrected in eu-ai-act-specialist, its planner script, compliance-os ai-act-readiness and the CAIO reference (#1121 via #1122); six plugins at 2.14.10. See CHANGELOG.md [2.14.10].)
+**Version:** v2.14.11 (CRA and IEC 62304 release: new cra-readiness plugin for the EU Cyber Resilience Act (#1125) and medical-device-software plugin for IEC 62304 / IEC 81001-5-1 (#1128); skill-router hooks in eight plugins for 21 skills that never loaded on their own, off with SKILL_ROUTER=0 (#1127); daily triage policy and snapshot script (#1126). See CHANGELOG.md [2.14.11].)
+
+**Previously: v2.14.10** (EU AI Act Article 43(1) release: biometrics conformity route corrected in eu-ai-act-specialist, its planner script, compliance-os ai-act-readiness and the CAIO reference (#1121 via #1122); six plugins at 2.14.10. See CHANGELOG.md [2.14.10].)
 
 **Previously: v2.14.9** (docs-site and harness-CI release: the docs site builds every count, nav entry and install line from the tree with gate G14 (#1114, #1115); trigger-rate gate on PRs (#1109, #1112); real Codex/Gemini/Hermes/Vibe install checks and mirror-drift gate G13 (#1110); second trigger pass on 48 silent skills (#1111); VERIFIED.md tier with gate G15, hero-repo exporter, README first screen (#1116). See CHANGELOG.md [2.14.9].)
 
@@ -840,7 +842,7 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
    **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
 
    **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.10).
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.11).
 
 ## Anti-Patterns to Avoid
 
@@ -888,6 +890,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** November 10, 2026
-**Version:** v2.14.10 (EU AI Act Article 43(1) biometrics fix — see CHANGELOG.md)
+**Last Updated:** November 11, 2026
+**Version:** v2.14.11 (CRA readiness, IEC 62304 medical-device software, skill-router hooks — see CHANGELOG.md)
 **Status:** 415 production-ready skills across 20 domains, 112 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

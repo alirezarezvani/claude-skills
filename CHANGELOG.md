@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   JSON, primary component, top-level dependencies per Annex I Part II(1)). Ships the cs-cra-officer agent,
   `/cs-cra-readiness` and `/cs-cra-report`, three references citing the regulation, Implementing Regulation (EU)
   2025/2392 and Commission guidance C(2026) 5252, and an Article 14 runbook.
+- Daily triage pipeline for community PRs and issues: `scripts/triage_snapshot.py` lists every open item with mechanical signals (CI or manifest changes, network and LLM calls in added code, new dependencies, external domains, commercial wording, untouched issue templates) and a suggested lane, without executing or echoing contributor text. `.github/TRIAGE_POLICY.md` sets the pipeline from snapshot to draft PR on `dev`, what runs without the maintainer and what waits for a per-batch go-ahead, and runs contributor code only in a network-less namespace, because every process in the cloud container inherits the session's GitHub access.
 
 ## [2.14.10] - 2026-11-10 — EU AI Act Article 43(1) correction
 

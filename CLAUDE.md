@@ -876,6 +876,7 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 - A marketplace install copies only the plugin's own directory, so `../../other-plugin/...` paths break once installed. To reuse another plugin's scripts or references, add a relative symlink under the plugin's `vendor/` (Claude Code dereferences in-marketplace symlinks into the cache) and reference it as `${CLAUDE_PLUGIN_ROOT}/vendor/...`, which `check_paths.py` now verifies.
 - Never name a skill, command or plugin after a Claude Code built-in (`/skill-doctor`, `/review`, `/init` ...): a plugin skill of the same name hides the built-in. Check `claude` 2.1.x's built-in list before naming one.
 - Build anything from eval results on the measurement of the text that is live: a rewrite that was measured and then rejected describes text that never shipped (VERIFIED.md first used 30 such results).
+- Never run contributor code in the cloud container with network access: every process there inherits the session's GitHub access (admin on this repo through the proxy), so wrap anything that executes a community PR's scripts in `unshare -n --`. Triage follows `.github/TRIAGE_POLICY.md`.
 
 ## Additional Resources
 

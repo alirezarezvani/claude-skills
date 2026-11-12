@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 414,
+  "total_skills": 415,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1710,6 +1710,12 @@
       "description": "Use when designing a cancel flow, save offers, exit surveys or dunning emails, or cutting failed-payment churn. Sizes the revenue at stake with churn_impact_calculator.py first. Health scores and expansion: customer-success-manager."
     },
     {
+      "name": "cinematic-shot-prompting",
+      "source": "../../marketing-skill/skills/cinematic-shot-prompting",
+      "category": "marketing",
+      "description": "Use when creating camera movement, cinematic angles, or motion prompts for AI video generators like Runway Gen-3, Kling, and Luma. Compiles narrative prose into a strict 7-slot camera motion contract."
+    },
+    {
       "name": "cold-email",
       "source": "../../marketing-skill/skills/cold-email",
       "category": "marketing",
@@ -2542,7 +2548,7 @@
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 57,
+      "count": 58,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },

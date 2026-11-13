@@ -48,7 +48,7 @@ When generating tests, always:
 When reviewing, check against:
 
 1. All 10 golden rules above
-2. The anti-patterns in `skills/review/anti-patterns.md`
+2. The anti-patterns in `skills/pw-review/anti-patterns.md`
 3. Missing edge cases (empty state, error state, loading state)
 4. Proper use of fixtures for shared setup
 

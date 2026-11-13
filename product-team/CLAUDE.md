@@ -331,7 +331,7 @@ python roadmap-communicator/scripts/changelog_generator.py --from v1.0.0 --to HE
 ## Additional Resources
 
 - **Main Documentation:** `../CLAUDE.md`
-- **Marketing Brand Voice:** `../marketing-skill/content-production/scripts/brand_voice_analyzer.py`
+- **Marketing Brand Voice:** `../marketing-skill/skills/content-production/scripts/brand_voice_analyzer.py`
 
 ---
 

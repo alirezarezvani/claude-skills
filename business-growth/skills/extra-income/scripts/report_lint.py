@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lint a monetization report against the skill's own output contract.
+"""Lint an extra-income report against the skill's own output contract.
 
 Checks:
   - every required section (0-7, Appendix A, Appendix B) is present;
@@ -12,8 +12,8 @@ Exit codes:
   2  usage error
 
 Usage:
-  python3 report_lint.py monetization-report.md
-  python3 report_lint.py monetization-report.md --json
+  python3 report_lint.py extra-income-report.md
+  python3 report_lint.py extra-income-report.md --json
   python3 report_lint.py --sample
 """
 
@@ -74,7 +74,7 @@ def lint(text):
     return findings
 
 
-SAMPLE = """# Monetization report - Sam · 2026-11-15
+SAMPLE = """# Extra-income report - Sam · 2026-11-15
 ## 0. Asset snapshot
 Five years of sourcing experience.
 ## 1. Hidden-skills audit
@@ -99,7 +99,7 @@ Range from the default market table.
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Lint a monetization report against its output contract.")
+    parser = argparse.ArgumentParser(description="Lint an extra-income report against its output contract.")
     parser.add_argument("path", nargs="?", help="path to the report markdown")
     parser.add_argument("--json", action="store_true", help="emit JSON findings")
     parser.add_argument("--sample", action="store_true", help="lint an embedded sample report")

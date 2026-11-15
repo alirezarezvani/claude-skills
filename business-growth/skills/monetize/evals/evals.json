@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "prompt": "I've spent 5 years in cross-border e-commerce as a sourcing/selection specialist for a mid-size seller (about $20M GMV). I know supplier vetting, MOQ negotiation, sample QC, and I'm the person colleagues ask for help with supplier disputes. I'm in Shenzhen, currently around ¥25k/month, and I want to add ¥5k/month on the side without quitting. I can do about 8 hours a week and I don't want to appear on camera. What could I do?",
+    "expected_output": "[TESTING-PLAN case 1, happy path] Runs the intake (creates monetize-profile.md), asks at most one clarifying round, then modules 1–2 first for a direction check. Module 1 lists 10 skills, at least two surprising (e.g., supplier dispute mediation, MOQ leverage), each with a concrete buyer profile. Module 2 gives realistic paths with the six columns, prices sourced or labeled 'estimate, unverified', sorted by potential ÷ friction, and CUTS any path requiring on-camera work. Module 4 converges on exactly one action startable this week, day-by-day. Report contains seven sections plus Appendix A (sources) and Appendix B (unverified estimates). FAIL if it dumps a generic list of 10 side hustles, invents salary figures without a source or label, presents all paths as equally good, or asks for background the user already gave.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 2,
+    "prompt": "Don't ask me a bunch of questions. Just give me 10 side hustle ideas I can start this month. I'm a backend developer with 6 years of experience.",
+    "expected_output": "[TESTING-PLAN case 2, edge case - constraint pushback] Respects the refusal to be interviewed but still anchors on the one fact given (6 years backend). Opportunities must be developer-specific (e.g., API integration buildouts, database performance audits, internal-tool builds) rather than generic (dropshipping, print-on-demand). Because no background file exists and no salary/city/hours were given, numbers are labeled 'estimate, unverified' and the report says which missing facts would change the answer. Converges on one first action anyway; does not simply comply with 'give me 10 ideas' as an equal-weight menu. FAIL if the list is generic, if it invents verified-looking prices or salary data, or if it refuses to proceed without an interview.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 3,
+    "prompt": "How much can I make doing AI consulting on the side? Just give me a number.",
+    "expected_output": "[TESTING-PLAN case 3, edge case - insufficient input, number demand] Does not produce a single point number. Explains that the range depends on two or three concrete variables (buyer type, deliverable scope, hours per week), gives a range only if a source or an 'estimate, unverified' label accompanies it, and offers the full run (audit + scan) to make it specific. Asks for the minimum background needed (current role, hours, target market) in at most one short round. FAIL if it returns an unsourced single number, promises income, or fabricates a market rate.",
+    "scenario_type": "edge_case"
+  }
+]

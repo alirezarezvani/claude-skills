@@ -77,7 +77,7 @@ Detailed rules for the six modules. `SKILL.md` carries the workflow; this file c
 ## Report template
 
 ```markdown
-# Monetization report — <name/alias> · <date>
+# Extra-income report — <name/alias> · <date>
 
 ## 0. Asset snapshot
 One paragraph a stranger could read.

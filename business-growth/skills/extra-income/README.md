@@ -1,4 +1,4 @@
-# Monetize
+# Extra income
 
 Turns one person's career history into an honest, actionable side-income plan: hidden-skills
 audit, opportunity scan with sourced numbers, experience productization, one leverage action,
@@ -13,15 +13,15 @@ Ships as part of the `business-growth-skills` plugin:
 ## When it applies
 
 - The user pastes a résumé or career history and asks what to do with it.
-- The user asks how to earn more, start a side business, or monetize a skill.
+- The user asks how to earn more, start a side business, or turn a skill into income.
 - The user asks whether their salary is at the ceiling, or what a career move is worth.
 
 ## What it produces
 
 | File | Contents |
 |---|---|
-| `monetize-profile.md` | The single source of background facts, reused on later runs |
-| `monetization-report.md` | Seven sections plus a source appendix and an unverified-estimate appendix |
+| `extra-income-profile.md` | The single source of background facts, reused on later runs |
+| `extra-income-report.md` | Seven sections plus a source appendix and an unverified-estimate appendix |
 
 ## Workflow
 
@@ -59,7 +59,7 @@ evals/evals.json                 # three behaviour cases
 ## Lint the report
 
 ```bash
-python3 scripts/report_lint.py monetization-report.md --json
+python3 scripts/report_lint.py extra-income-report.md --json
 ```
 
 Checks that every required section is present, that each 30-day plan item carries an acceptance

@@ -1,6 +1,6 @@
 ---
-name: extra-income
-description: "Turn one person's career history into an honest, actionable side-income plan: hidden-skills audit, opportunity scan with sourced numbers, experience productization, the single biggest leverage move, salary-ceiling benchmark, and an AI side-hustle starter pack. Background intake from a résumé or a guided interview. Use when the user asks how to earn more from their experience — extra-income, side income, side hustle, salary ceiling, career leverage, 副业, 变现, 外快, 睡后收入, 技能变现, 薪资天花板, 职业杠杆, \"我的技能能做什么\", \"帮我想想怎么多赚钱\" — or pastes a résumé / career history asking what they could do with it."
+name: monetize
+description: "Turn one person's career history into an honest, actionable side-income plan: hidden-skills audit, opportunity scan with sourced numbers, experience productization, the single biggest leverage move, salary-ceiling benchmark, and an AI side-hustle starter pack. Background intake from a résumé or a guided interview. Use when the user asks how to earn more from their experience — monetize, side income, side hustle, salary ceiling, career leverage, 副业, 变现, 外快, 睡后收入, 技能变现, 薪资天花板, 职业杠杆, \"我的技能能做什么\", \"帮我想想怎么多赚钱\" — or pastes a résumé / career history asking what they could do with it."
 license: MIT
 metadata:
   version: 1.0.0
@@ -9,7 +9,7 @@ metadata:
   updated: 2026-11-15
 ---
 
-# Extra income
+# Monetize
 
 You are an income-strategy analyst advising one person — the user. Your goal is to turn their real career history into a short list of offers someone will actually pay for, and to converge that list onto one action they can start this week. The final deliverable is a report file plus a one-action verdict. It is not a motivational essay.
 
@@ -28,7 +28,7 @@ Skip it when the user wants company or portfolio financial analysis (use `financ
 
 ## Before Starting
 
-**Check for context first.** If `extra-income-profile.md` exists in the workspace, read it before asking anything. Only ask for information that file does not already contain. On a re-run, ask whether to update the existing profile instead of re-interviewing.
+**Check for context first.** If `monetize-profile.md` exists in the workspace, read it before asking anything. Only ask for information that file does not already contain. On a re-run, ask whether to update the existing profile instead of re-interviewing.
 
 Gather whatever is missing from the intake below. Do not ask for anything the user has already given you in the conversation.
 
@@ -61,7 +61,7 @@ The user asks only about salary, or only about side income. Run that module, the
 
 ## Step 0 — Background Intake
 
-Extract, then write `extra-income-profile.md`:
+Extract, then write `monetize-profile.md`:
 
 | Field | What to capture |
 |---|---|
@@ -101,10 +101,10 @@ Five AI-leveraged services that fit under five hours per week and a low startup 
 
 ## Report Output
 
-Write `extra-income-report.md` to the workspace:
+Write `monetization-report.md` to the workspace:
 
 ```markdown
-# Extra-income report — <name/alias> · <date>
+# Monetization report — <name/alias> · <date>
 ## 0. Asset snapshot (one paragraph)
 ## 1. Hidden-skills audit
 ## 2. Opportunity scan (sorted by potential ÷ friction)
@@ -128,7 +128,7 @@ Rules:
 
 - Income ranges, never single points. On first mention, add that the first three months are typically half the low end or less.
 - Point out checks without writing legal advice: employment-contract moonlighting clauses, platform rules and account risk, taxes, licensed professions (teaching, financial advice, medical advice).
-- If the background is thin (new graduate, no identifiable skills), say so and switch to a "acquire skill → income" plan rather than inventing ten opportunities.
+- If the background is thin (new graduate, no identifiable skills), say so and switch to a "acquire skill → monetize" plan rather than inventing ten opportunities.
 - Never recommend gray-area methods (fake reviews, content scraping/reposting, unlicensed stock tips). If the user asks, explain the risk.
 
 ## Anti-Patterns
@@ -147,15 +147,15 @@ Rules:
 ## Proactive Triggers
 
 - The user pastes a résumé, CV, or career history and asks what to do with it.
-- The user asks how to earn more, start a side business, or turn a skill into income (副业 / 变现 / 睡后收入).
+- The user asks how to earn more, start a side business, or monetize a skill (副业 / 变现 / 睡后收入).
 - The user asks whether their salary is at the ceiling or what a career move is worth.
 - The user wants to package expertise into a course, consulting offer, or templates.
 - The user asks "I have N years of X — what else can I do?"
 
 ## Output Artifacts
 
-- `extra-income-profile.md` — the single source of background facts.
-- `extra-income-report.md` — the seven-section report with two appendices.
+- `monetize-profile.md` — the single source of background facts.
+- `monetization-report.md` — the seven-section report with two appendices.
 - A 30-day checklist with acceptance criteria per item.
 - Appendix A with a source for every verified number.
 - Appendix B listing every unverified estimate and its basis.

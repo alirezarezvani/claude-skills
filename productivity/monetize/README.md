@@ -62,8 +62,9 @@ evals/evals.json                 # three behaviour cases
 python3 scripts/report_lint.py monetization-report.md --json
 ```
 
-Checks that every required section is present, that each 30-day plan item carries an acceptance
-criterion, and that Appendix B is not empty when the body mentions estimates.
+Checks that every required section is present, that each 30-day plan item carries a measurable
+acceptance criterion (`-> outcome`, `acceptance:` or `at least N`), that every money figure is
+labeled, and that Appendix A or B is filled when the body claims verified or estimated numbers.
 
 ## Related skills
 

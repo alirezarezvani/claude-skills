@@ -2046,7 +2046,7 @@
     {
       "name": "monetize",
       "category": "productivity",
-      "description": "Turn one person's career history into an honest, actionable side-income plan: hidden-skills audit, opportunity scan with sourced numbers, experience productization, the single biggest leverage move, salary-ceiling benchmark, and an AI side-hustle starter pack. Background intake from a r\u00e9sum\u00e9 or a guided interview. Use when the user asks how to earn more from their experience \u2014 monetize, side income, side hustle, salary ceiling, career leverage, \u526f\u4e1a, \u53d8\u73b0, \u5916\u5feb, \u7761\u540e\u6536\u5165, \u6280\u80fd\u53d8\u73b0, \u85aa\u8d44\u5929\u82b1\u677f, \u804c\u4e1a\u6760\u6746, \\\"\u6211\u7684\u6280\u80fd\u80fd\u505a\u4ec0\u4e48\\\", \\\"\u5e2e\u6211\u60f3\u60f3\u600e\u4e48\u591a\u8d5a\u94b1\\\" \u2014 or pastes a r\u00e9sum\u00e9 / career history asking what they could do with it."
+      "description": "Use when someone asks how to earn more from their own experience: side income, side hustle, monetizing a skill, salary ceiling, career leverage, \u526f\u4e1a, \u53d8\u73b0, \u5916\u5feb, \u6280\u80fd\u53d8\u73b0, \u85aa\u8d44\u5929\u82b1\u677f, or pastes a r\u00e9sum\u00e9 asking what they could do with it. Builds one person's side-income plan (hidden-skills audit, opportunity scan, productization, one leverage action, salary ceiling, AI starter pack) with every number sourced or labeled, and lints the report with report_lint.py."
     },
     {
       "name": "reflect",

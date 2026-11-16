@@ -3,8 +3,12 @@
 
 Checks:
   - every required section (0-7, Appendix A, Appendix B) is present;
-  - every item under section 7 carries an acceptance criterion;
-  - when the body mentions estimates, Appendix B is not empty.
+  - every item under section 7 (with its indented lines) carries a measurable
+    acceptance criterion: "-> outcome", "acceptance:", or "at least N";
+  - every money figure outside the appendices is labeled (estimate,
+    unverified, verified, source, [n]);
+  - a body that claims verified numbers has sources in Appendix A;
+  - a body that mentions estimates has entries in Appendix B.
 
 Exit codes:
   0  clean
@@ -32,9 +36,8 @@ PLAN_ITEM = re.compile(r"^\s*(?:[-*]|\d+[.)])\s+\S")
 
 def split_sections(text):
     """Return mapping heading -> body text (headings are '## '-level)."""
-    lines = text.splitlines()
     out, current = {}, None
-    for line in lines:
+    for line in text.splitlines():
         if line.startswith("## "):
             current = line.strip()
             out[current] = []
@@ -43,31 +46,68 @@ def split_sections(text):
     return {k: "\n".join(v) for k, v in out.items()}
 
 
+def section_body(sections, prefix):
+    for heading, body in sections.items():
+        if heading.startswith(prefix):
+            return body
+    return ""
+
+
+# A measurable acceptance criterion: an arrow to an outcome, an explicit
+# "acceptance:" label, or a counted threshold ("at least 1", ">= 3").
+CRITERION = re.compile(
+    r"(->|\u2192|acceptance\s*:|\bat least \d+|>=\s*\d+|\u2265\s*\d+)",
+    re.IGNORECASE,
+)
+# A money figure: a currency symbol or code next to a number.
+MONEY = re.compile(r"([$\u00a5\u20ac\u00a3]\s?\d|\d[\d,.]*\s?(?:USD|EUR|CNY|RMB|GBP)\b)")
+LABEL = re.compile(r"(estimate|unverified|verified|source|\[\d+\]|appendix)", re.IGNORECASE)
+
+
+def plan_items(body):
+    """Group a list item with its indented continuation lines."""
+    items, current = [], None
+    for line in body.splitlines():
+        if PLAN_ITEM.match(line) and not line.startswith((" ", "\t")):
+            current = [line.strip()]
+            items.append(current)
+        elif current is not None and line.strip() and line.startswith((" ", "\t")):
+            current.append(line.strip())
+        elif not line.strip():
+            current = None
+    return [" ".join(parts) for parts in items]
+
+
 def lint(text):
     findings = []
+    sections = split_sections(text)
     for section in REQUIRED:
-        if not any(h.startswith(section) for h in split_sections(text)):
+        if not any(h.startswith(section) for h in sections):
             findings.append(f"missing section: {section}")
 
-    sections = split_sections(text)
-    plan_body = ""
-    for heading, body in sections.items():
-        if heading.startswith("## 7."):
-            plan_body = body
-            break
+    plan_body = section_body(sections, "## 7.")
     if plan_body:
-        items = [ln for ln in plan_body.splitlines() if PLAN_ITEM.match(ln)]
-        for ln in items:
-            if not re.search(r"(acceptance|→|->|verify|check)", ln, re.IGNORECASE):
-                findings.append(f"plan item without acceptance criterion: {ln.strip()[:80]}")
+        items = plan_items(plan_body)
         if not items:
             findings.append("section 7 has no checklist items")
+        for item in items:
+            if not CRITERION.search(item):
+                findings.append(f"plan item without measurable acceptance criterion: {item[:80]}")
 
-    body_text = text
-    appendix_b = ""
     for heading, body in sections.items():
-        if heading.startswith("## Appendix B"):
-            appendix_b = body.strip()
+        if heading.startswith("## Appendix"):
+            continue
+        for line in body.splitlines():
+            if MONEY.search(line) and not LABEL.search(line):
+                findings.append(f"money figure with no source or label in '{heading[:30]}': {line.strip()[:80]}")
+
+    body_text = "\n".join(b for h, b in sections.items() if not h.startswith("## Appendix"))
+    appendix_a = section_body(sections, "## Appendix A").strip()
+    appendix_b = section_body(sections, "## Appendix B").strip()
+    if re.search(r"\bverified\b", body_text.replace("unverified", ""), re.IGNORECASE) and (
+        not appendix_a or appendix_a.lower().rstrip(".") == "none"
+    ):
+        findings.append("body claims verified numbers but Appendix A lists no sources")
     if re.search(r"\bestimate", body_text, re.IGNORECASE) and not appendix_b:
         findings.append("body mentions estimates but Appendix B is empty")
 
@@ -86,13 +126,13 @@ Diagnostic offer.
 ## 4. Leverage point
 Publish one case study.
 ## 5. Salary ceiling
-Category manager, ¥35,000-45,000 (verified, sample data).
+Category manager, ¥35,000-45,000 (verified, see Appendix A [1]).
 ## 6. AI side-hustle starter pack
 AI-assisted supplier vetting.
 ## 7. 30-day plan
 - Week 1: publish 3 case notes -> at least 1 inbound inquiry
 ## Appendix A: sources
-None.
+[1] Sample salary survey page, accessed 2026-11-15 (placeholder for a real URL).
 ## Appendix B: unverified estimates
 Range from the default market table.
 """

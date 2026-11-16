@@ -79,7 +79,7 @@ medical-device-software 475
 meetings 435
 memory-engineering 283
 meta-research 295
-monetize 596
+monetize 460
 month-end-close 500
 notebooklm 200
 patent 249

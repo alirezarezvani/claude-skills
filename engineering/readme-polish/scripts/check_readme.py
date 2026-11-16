@@ -31,6 +31,7 @@ import argparse
 import json
 import re
 import sys
+import tempfile
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable
@@ -350,8 +351,13 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Deterministic README gate for the readme-polish skill."
     )
-    parser.add_argument("files", nargs="+", type=Path, help="README files to check")
+    parser.add_argument("files", nargs="*", type=Path, help="README files to check")
     parser.add_argument("--json", action="store_true", help="machine-readable output")
+    parser.add_argument(
+        "--sample",
+        action="store_true",
+        help="run the embedded sample README (CI JSON-output gate)",
+    )
     parser.add_argument(
         "--strict", action="store_true", help="treat warnings as errors (exit 2)"
     )
@@ -367,8 +373,24 @@ def main(argv: Iterable[str] | None = None) -> int:
         max_badges=args.max_badges,
         first_screen_lines=args.first_screen_lines,
     )
+    files = list(args.files)
+    sample_dir: tempfile.TemporaryDirectory[str] | None = None
+    if args.sample:
+        sample_dir = tempfile.TemporaryDirectory()
+        sample = Path(sample_dir.name) / "README.md"
+        sample.write_text(
+            "# Sample Project\n\n"
+            "![License](https://img.shields.io/badge/license-MIT-blue)\n\n"
+            "## Install\n\n"
+            "```bash\npip install sample-project\n```\n",
+            encoding="utf-8",
+        )
+        files.append(sample)
+    if not files:
+        parser.error("provide at least one README file, or --sample")
+
     findings: list[Finding] = []
-    for path in args.files:
+    for path in files:
         if not path.is_file():
             print(f"error: not a file: {path}", file=sys.stderr)
             return 2
@@ -377,6 +399,9 @@ def main(argv: Iterable[str] | None = None) -> int:
         except RuntimeError as exc:
             print(f"error: {exc}", file=sys.stderr)
             return 2
+
+    if sample_dir is not None:
+        sample_dir.cleanup()
 
     emit(findings, args.json)
     errors = sum(f.severity == "error" for f in findings)

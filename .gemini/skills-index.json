@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 460,
+  "total_skills": 461,
   "skills": [
     {
       "name": "content-strategist",
@@ -1444,6 +1444,11 @@
       "description": "Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metrics. Use whenever the user builds search over their docs, picks a vector store or finds answers miss the right context."
     },
     {
+      "name": "readme-polish",
+      "category": "engineering-advanced",
+      "description": "Use when an existing README must be upgraded, audited, or made scannable: polish/\u7f8e\u5316/\u5347\u7ea7/\u4f18\u5316/\u6253\u78e8 README, add badges, mermaid, callouts, or collapsible sections, compare against top repos in the same ecosystem, or fix a plain/ugly first screen. Calibrates to the repo's own category, rewrites the hero and information hierarchy, and enforces a deterministic lint gate. Not for brand-new READMEs from scratch or hero-image design."
+    },
+    {
       "name": "runbook-generator",
       "category": "engineering-advanced",
       "description": "Use when a service needs runbooks for deploy, incident response, maintenance or rollback, before launch. Generates them per environment with runbook_generator.py."
@@ -2346,7 +2351,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 94,
+      "count": 95,
       "description": "Engineering-advanced resources"
     },
     "finance": {

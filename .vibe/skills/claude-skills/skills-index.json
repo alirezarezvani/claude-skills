@@ -1,7 +1,7 @@
 {
   "source": "claude-code-skills",
   "layout": "nested",
-  "total_skills": 393,
+  "total_skills": 394,
   "domains": {
     "engineering": [
       {
@@ -418,6 +418,11 @@
         "name": "prompt-governance",
         "description": "Use when prompts run in production and need versioning, a registry, A/B tests, regression checks or an eval pipeline. Sets up the release process for prompts; single-prompt quality: senior-prompt-engineer.",
         "path": "engineering/prompt-governance"
+      },
+      {
+        "name": "readme-polish",
+        "description": "Use when an existing README must be upgraded, audited, or made scannable: polish/\u7f8e\u5316/\u5347\u7ea7/\u4f18\u5316/\u6253\u78e8 README, add badges, mermaid, callouts, or collapsible sections, compare against top repos in the same ecosystem, or fix a plain/ugly first screen. Calibrates to the repo's own category, rewrites the hero and information hierarchy, and enforces a deterministic lint gate. Not for brand-new READMEs from scratch or hero-image design.",
+        "path": "engineering/readme-polish"
       },
       {
         "name": "security-guidance",

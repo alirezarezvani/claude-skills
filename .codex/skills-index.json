@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 416,
+  "total_skills": 417,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1452,6 +1452,12 @@
       "description": "Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metrics. Use whenever the user builds search over their docs, picks a vector store or finds answers miss the right context."
     },
     {
+      "name": "readme-polish",
+      "source": "../../engineering/readme-polish",
+      "category": "engineering-advanced",
+      "description": "Use when an existing README must be upgraded, audited, or made scannable: polish/\u7f8e\u5316/\u5347\u7ea7/\u4f18\u5316/\u6253\u78e8 README, add badges, mermaid, callouts, or collapsible sections, compare against top repos in the same ecosystem, or fix a plain/ugly first screen. Calibrates to the repo's own category, rewrites the hero and information hierarchy, and enforces a deterministic lint gate. Not for brand-new READMEs from scratch or hero-image design."
+    },
+    {
       "name": "runbook-generator",
       "source": "../../engineering/skills/runbook-generator",
       "category": "engineering-advanced",
@@ -2544,7 +2550,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 104,
+      "count": 105,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

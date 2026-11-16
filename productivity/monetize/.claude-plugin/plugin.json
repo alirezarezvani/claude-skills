@@ -1,0 +1,13 @@
+{
+  "name": "monetize",
+  "description": "Turn one person's career history into an honest side-income plan: hidden-skills audit, opportunity scan with sourced or labeled numbers, productization, one leverage action for this week, salary-ceiling benchmark and an AI side-hustle starter pack, plus a stdlib report linter.",
+  "version": "2.14.11",
+  "author": {
+    "name": "zhengqiuyang",
+    "url": "https://github.com/zhengqiuyang"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/productivity/monetize",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": ["./"]
+}

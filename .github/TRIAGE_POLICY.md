@@ -27,7 +27,7 @@ hand follows it too. When this file and a routine prompt disagree, this file win
    link and the exact comment that would be posted. Execute them only once approved.
 6. **Document.** Every PR we open carries its own documentation update (section 6.1), so
    `dev` is always releasable and never waits on a docs pass.
-7. **Prepare the release.** When `dev` holds approved, merged changes that are not on
+7. **Prepare the release.** When `dev` holds merged changes that are not on
    `main`, prepare the release-prep PR and the `dev → main` PR (section 6.2) and merge
    them once fully verified. The tag and GitHub release are created by
    `release.yml` when `main` receives the new CHANGELOG entry; nobody tags by hand.

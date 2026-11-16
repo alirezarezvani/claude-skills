@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 391,
+  "total_skills": 393,
   "domains": {
     "engineering": [
       {
@@ -890,6 +890,11 @@
         "path": "marketing-skill/churn-prevention"
       },
       {
+        "name": "cinematic-shot-prompting",
+        "description": "Use when creating camera movement, cinematic angles, or motion prompts for AI video generators like Runway Gen-3, Kling, and Luma. Compiles narrative prose into a strict 7-slot camera motion contract.",
+        "path": "marketing-skill/cinematic-shot-prompting"
+      },
+      {
         "name": "cold-email",
         "description": "Use for any cold outreach or SDR email or follow-up sequence to prospects who did not opt in, before drafting. Scores the sequence for length, personalization and spam risk with email_sequence_analyzer.py. Opted-in nurture: email-sequence.",
         "path": "marketing-skill/cold-email"
@@ -1550,6 +1555,11 @@
         "name": "meetings",
         "description": "Use when someone wants to decide whether a meeting is worth calling, price a meeting in dollars, build a timeboxed agenda with desired outcomes, or turn messy meeting notes into owned action items \u2014 or says \"should this be a meeting\", \"/cs-meeting-prep\", or \"/cs-meeting-actions\". Runs a cost gate (ASYNC / NOT-READY / MEET), builds a decision-first agenda, and extracts an owner + due-date checklist that flags every orphan.",
         "path": "productivity/meetings"
+      },
+      {
+        "name": "monetize",
+        "description": "Turn one person's career history into an honest, actionable side-income plan: hidden-skills audit, opportunity scan with sourced numbers, experience productization, the single biggest leverage move, salary-ceiling benchmark, and an AI side-hustle starter pack. Background intake from a r\u00e9sum\u00e9 or a guided interview. Use when the user asks how to earn more from their experience \u2014 monetize, side income, side hustle, salary ceiling, career leverage, \u526f\u4e1a, \u53d8\u73b0, \u5916\u5feb, \u7761\u540e\u6536\u5165, \u6280\u80fd\u53d8\u73b0, \u85aa\u8d44\u5929\u82b1\u677f, \u804c\u4e1a\u6760\u6746, \\\"\u6211\u7684\u6280\u80fd\u80fd\u505a\u4ec0\u4e48\\\", \\\"\u5e2e\u6211\u60f3\u60f3\u600e\u4e48\u591a\u8d5a\u94b1\\\" \u2014 or pastes a r\u00e9sum\u00e9 / career history asking what they could do with it.",
+        "path": "productivity/monetize"
       },
       {
         "name": "reflect",

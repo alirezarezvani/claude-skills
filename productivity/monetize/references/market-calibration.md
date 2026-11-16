@@ -1,8 +1,8 @@
 # Market Calibration
 
-Default assumptions when the user does not specify a market. Always prefer the user's own context — language, city, employer location — over this table. State the assumed market at the top of the report.
+Default assumptions when the user does not specify a market. Pick the region from the user's own context — language, city, employer location. If none of those settles it, ask once; do not fall back to a fixed region. State the assumed market at the top of the report.
 
-| Dimension | Mainland China (default) | North America | Europe |
+| Dimension | Mainland China | North America | Europe |
 |---|---|---|---|
 | Currency | ¥ | $ | € |
 | Default income target | +¥3,000–8,000 / month | +$500–2,000 / month | +€500–2,000 / month |

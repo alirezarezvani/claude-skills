@@ -74,11 +74,12 @@ llm-cost-optimizer 241
 llm-wiki 246
 loop-library 624
 markdown-html-skills 1177
-marketing-skills 11118
+marketing-skills 11344
 medical-device-software 475
 meetings 435
 memory-engineering 283
 meta-research 295
+monetize 596
 month-end-close 500
 notebooklm 200
 patent 249

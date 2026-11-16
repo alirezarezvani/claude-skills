@@ -5,7 +5,7 @@ license: MIT
 metadata:
   version: 1.0.0
   author: zhengqiuyang
-  category: business-growth
+  category: productivity
   updated: 2026-11-15
 ---
 

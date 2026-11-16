@@ -4,10 +4,10 @@ Turns one person's career history into an honest, actionable side-income plan: h
 audit, opportunity scan with sourced numbers, experience productization, one leverage action,
 salary-ceiling benchmark, and an AI side-hustle starter pack.
 
-Ships as part of the `business-growth-skills` plugin:
+Ships as its own plugin, contributed by [@zhengqiuyang](https://github.com/zhengqiuyang):
 
 ```bash
-/plugin install business-growth-skills@claude-code-skills
+/plugin install monetize@claude-code-skills
 ```
 
 ## When it applies

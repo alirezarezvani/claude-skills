@@ -8,7 +8,12 @@ Checks:
   - every money figure outside the appendices ($, CNY 500, 500元, 2万, 5k/month)
     carries a [n] citation or an "estimate" label;
   - every [n] citation resolves to an entry in Appendix A;
+  - every Appendix A entry is cited somewhere in the body;
   - a body that mentions estimates has a non-empty Appendix B (not "n/a").
+
+The money pattern is best-effort (symbols, ISO codes, 元/万/块, "5k/month");
+spelled-out amounts such as "2,000 dollars" are not caught. The linter checks
+form, not truth: an invented number with an invented Appendix A entry passes.
 
 Exit codes:
   0  clean
@@ -126,6 +131,9 @@ def lint(text):
                     f"money figure without a [n] citation or 'estimate' label in '{heading[:30]}': {line.strip()[:80]}"
                 )
     body_text = "\n".join(body_text)
+    used = set(CITATION.findall(body_text))
+    for ref in sorted(sources - used, key=int):
+        findings.append(f"Appendix A entry [{ref}] is never cited in the body")
     if re.search(r"\bestimate", body_text, re.IGNORECASE) and is_empty(appendix_b):
         findings.append("body mentions estimates but Appendix B is empty")
 

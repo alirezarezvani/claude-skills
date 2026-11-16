@@ -67,6 +67,9 @@ criterion, that every money figure (`$`, `CNY 500`, `500元`, `2万`, `5k/month`
 or an "estimate" label, that each `[n]` resolves to Appendix A, and that Appendix B is filled when
 the body mentions estimates. `--sample-bad` runs every finding path.
 
+A clean lint proves the report's form, not its truth: an invented figure with an invented source
+still passes, so the never-invent-a-number rule rests on the skill, and on whoever reads the report.
+
 This plugin ships no agent or slash command on purpose: it is a single-pass skill that loads on
 its description.
 

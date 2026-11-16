@@ -173,11 +173,14 @@ class FMEAAnalyzer:
         }
 
         if revised_rpns:
+            # Entries without revised scores keep their original RPN.
+            rpn_before = sum(rpns)
+            rpn_after = sum(e.revised_rpn if e.revised_rpn > 0 else e.rpn for e in entries if e.rpn > 0)
             summary["revised_rpn_statistics"] = {
                 "min": min(revised_rpns),
                 "max": max(revised_rpns),
                 "average": round(sum(revised_rpns) / len(revised_rpns), 1),
-                "improvement": round((sum(rpns) - sum(revised_rpns)) / sum(rpns) * 100, 1) if rpns else 0
+                "improvement": round((rpn_before - rpn_after) / rpn_before * 100, 1) if rpn_before else 0
             }
 
         return summary

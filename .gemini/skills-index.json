@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 458,
+  "total_skills": 460,
   "skills": [
     {
       "name": "content-strategist",
@@ -1679,6 +1679,11 @@
       "description": "Use when designing a cancel flow, save offers, exit surveys or dunning emails, or cutting failed-payment churn. Sizes the revenue at stake with churn_impact_calculator.py first. Health scores and expansion: customer-success-manager."
     },
     {
+      "name": "cinematic-shot-prompting",
+      "category": "marketing",
+      "description": "Use when creating camera movement, cinematic angles, or motion prompts for AI video generators like Runway Gen-3, Kling, and Luma. Compiles narrative prose into a strict 7-slot camera motion contract."
+    },
+    {
       "name": "cold-email",
       "category": "marketing",
       "description": "Use for any cold outreach or SDR email or follow-up sequence to prospects who did not opt in, before drafting. Scores the sequence for length, personalization and spam risk with email_sequence_analyzer.py. Opted-in nurture: email-sequence."
@@ -2039,6 +2044,11 @@
       "description": "Use when someone wants to decide whether a meeting is worth calling, price a meeting in dollars, build a timeboxed agenda with desired outcomes, or turn messy meeting notes into owned action items \u2014 or says \"should this be a meeting\", \"/cs-meeting-prep\", or \"/cs-meeting-actions\". Runs a cost gate (ASYNC / NOT-READY / MEET), builds a decision-first agenda, and extracts an owner + due-date checklist that flags every orphan."
     },
     {
+      "name": "monetize",
+      "category": "productivity",
+      "description": "Use when someone asks how to earn more from their own experience: side income, side hustle, monetizing a skill, salary ceiling, career leverage, \u526f\u4e1a, \u53d8\u73b0, \u5916\u5feb, \u6280\u80fd\u53d8\u73b0, \u85aa\u8d44\u5929\u82b1\u677f, or pastes a r\u00e9sum\u00e9 asking what they could do with it. Builds one person's side-income plan (hidden-skills audit, opportunity scan, productization, one leverage action, salary ceiling, AI starter pack) with every number sourced or labeled, and lints the report with report_lint.py."
+    },
+    {
       "name": "reflect",
       "category": "productivity",
       "description": "Use when the user says 'step back', 'zoom out', 'are we on track' or 'sanity check this', or work has gone deep into details without a check on direction. Reassesses direction, assumptions and bias across five dimensions."
@@ -2352,7 +2362,7 @@
       "description": "Markdown-html resources"
     },
     "marketing": {
-      "count": 50,
+      "count": 51,
       "description": "Marketing resources"
     },
     "marketing-top-level": {
@@ -2364,7 +2374,7 @@
       "description": "Product resources"
     },
     "productivity": {
-      "count": 12,
+      "count": 13,
       "description": "Productivity resources"
     },
     "project-management": {

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **monetize** (new `productivity/monetize` plugin): turns one person's career history into a side-income plan with a hidden-skills audit, an opportunity scan, productization, one leverage action for this week, a salary-ceiling benchmark and an AI starter pack. Every income figure is a range with a source or an "estimate, unverified" label, and `scripts/report_lint.py` checks the report against its contract. Thanks to @zhengqiuyang for #1138 (question in #1137). We moved it from `business-growth` to `productivity` as its own plugin, since it serves an individual rather than a company's revenue team, and the market reference now infers the region from the user instead of defaulting to one.
+
+### Fixed
+- Headline counters (skills 415 → 417, tools 824 → 826, references 931 → 934, plugins 112 → 113) the README Marketing row and the harness mirrors, which still reflected the tree before `cinematic-shot-prompting` (#1132) merged. The G12 listing baseline for `marketing-skills` rises by 226 characters to accept that skill's description.
+
 ## [2.14.11] - 2026-11-11 — CRA, IEC 62304 and skill hints
 
 Two new compliance plugins: cra-readiness for the EU Cyber Resilience Act, whose Article 14 reporting already

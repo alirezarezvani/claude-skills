@@ -7,13 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.12] - 2026-11-16 — monetize, two math fixes, triage autonomy
+
+A patch release. New productivity plugin monetize, the cinematic-shot-prompting skill that reached `main` on
+2026-11-12 without a release entry, and two community fixes to statistics that were silently wrong: the Welch
+t-test confidence interval and the FMEA improvement percentage. No renames, so nothing needs a reinstall;
+`claude plugin update` picks up the changed plugins (marketing-skills, engineering-advanced-skills,
+statistical-analyst, ra-qm-skills, compliance-os), each bumped above its previous version (gate G11).
+
 ### Added
+- **cinematic-shot-prompting** (`marketing-skill/skills/cinematic-shot-prompting`, in the marketing-skills bundle): compiles a prose scene description into a strict seven-slot camera-motion contract for AI video generators (Runway, Kling, Luma) with `scripts/motion_contract_compiler.py`. Thanks to @287523023qq-hue for #1132. It installs with marketing-skills; it has no standalone marketplace entry yet.
 - **monetize** (new `productivity/monetize` plugin): turns one person's career history into a side-income plan with a hidden-skills audit, an opportunity scan, productization, one leverage action for this week, a salary-ceiling benchmark and an AI starter pack. Every income figure is a range with a source or an "estimate, unverified" label, and `scripts/report_lint.py` checks the report against its contract. Thanks to @zhengqiuyang for #1138 (question in #1137). We moved it from `business-growth` to `productivity` as its own plugin, since it serves an individual rather than a company's revenue team, and the market reference now infers the region from the user instead of defaulting to one.
 
 ### Changed
 - Daily triage policy (`.github/TRIAGE_POLICY.md` section 2): the routine now lands, merges, closes and comments on its own when an item breaks no repo rule and every check is green, including fully verified release merges, and reports afterwards. Security holds, new third-party connections, red or overridden checks, fork workflow approvals and genuine judgment calls still wait for the maintainer.
 
 ### Fixed
+- **statistical-analyst `hypothesis_tester.py`**: the Welch t-test confidence interval used the normal critical value 1.96 while the p-value used the t-distribution, so small samples got a CI that excluded 0 while p said not significant (n=5 vs 5: p=0.074 with CI [0.12, 5.08]; correct CI [-0.32, 5.52]). The CI now uses the t critical value at the Welch-Satterthwaite df. Thanks to @divya0795 for #1141.
+- **risk-management-specialist `fmea_analyzer.py`**: the improvement percentage counted every failure mode without revised scores as if its RPN had fallen to 0 (two modes at RPN 200, one revised to 100, reported 75% instead of 25%). Unrevised entries now keep their original RPN. Thanks to @divya0795 for #1142.
 - Headline counters (skills 415 → 417, tools 824 → 826, references 931 → 934, plugins 112 → 113) the README Marketing row and the harness mirrors, which still reflected the tree before `cinematic-shot-prompting` (#1132) merged. The G12 listing baseline for `marketing-skills` rises by 226 characters to accept that skill's description.
 
 ## [2.14.11] - 2026-11-11 — CRA, IEC 62304 and skill hints

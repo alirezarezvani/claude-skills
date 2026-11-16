@@ -106,6 +106,18 @@ def two_tail_p_t(t: float, df: float) -> float:
     return 2 * (1 - t_cdf(abs(t), df))
 
 
+def t_ppf(p: float, df: float) -> float:
+    """Percent-point function (inverse CDF) of the t-distribution for p > 0.5, via bisection."""
+    lo, hi = 0.0, 1000.0
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        if t_cdf(mid, df) < p:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
 # ---------------------------------------------------------------------------
 # Effect sizes
 # ---------------------------------------------------------------------------
@@ -209,10 +221,9 @@ def ttest_means(cm: float, cs: float, cn: int, tm: float, ts: float, tn: int, al
 
     p_value = two_tail_p_t(t, df)
 
-    z_crit = normal_ppf(1 - alpha / 2) if df > 1000 else normal_ppf(1 - alpha / 2)
-    # Use t critical value approximation
-    from_t = abs(t) / (p_value / 2) if p_value > 0 else z_crit  # rough
-    t_crit = normal_ppf(1 - alpha / 2)  # normal approx for CI
+    # Critical value from the same t-distribution as the p-value, so the CI
+    # excludes 0 exactly when p < alpha.
+    t_crit = t_ppf(1 - alpha / 2, df)
 
     diff = tm - cm
     ci_lo = diff - t_crit * se

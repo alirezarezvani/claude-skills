@@ -14,42 +14,59 @@ hand follows it too. When this file and a routine prompt disagree, this file win
    (section 3). Decide a verdict from section 4.
 3. **Prepare.** For a PR worth landing, build our own branch from `dev` that carries the
    contributor's commits (authorship kept) plus the fixes it needs, run the verification
-   in section 5, push, and open a **draft** PR to `dev` that says which community PR it
-   lands and credits the author. For an issue we can fix, do the same. Draft replies
-   and close comments, but do not post them.
-4. **Queue for approval.** Post one batch to the maintainer: per item, the verdict, a
-   one-line reason, the prepared PR link and the exact comment that would be posted.
-5. **Execute on approval.** Only after the maintainer approves the batch: merge our PRs
-   once CI is fully green, close the community PRs they land with the drafted thank-you,
-   close rejected PRs and blank issues with their drafted comment.
+   in section 5, push, and open a PR to `dev` that says which community PR it lands and
+   credits the author. For an issue we can fix, do the same. Draft every reply and close
+   comment.
+4. **Execute what the rules settle.** For every item whose handling breaks no repo rule
+   (section 2.1): merge our PR once every CI check on its head is green, close the
+   community PR it lands with the drafted thank-you, close rejected PRs and blank issues
+   with their drafted comment, and post drafted answers.
+5. **Escalate the rest.** Items that hit an escalation trigger (section 2.2) go to the
+   maintainer in one batch: per item, the verdict, a one-line reason, the prepared PR
+   link and the exact comment that would be posted. Execute them only once approved.
 6. **Document.** Every PR we open carries its own documentation update (section 6.1), so
    `dev` is always releasable and never waits on a docs pass.
 7. **Prepare the release.** When `dev` holds approved, merged changes that are not on
-   `main`, prepare the release-prep PR and the `dev → main` PR (section 6.2) and put the
-   release in the next approval batch. The tag and GitHub release are created by
+   `main`, prepare the release-prep PR and the `dev → main` PR (section 6.2) and merge
+   them once fully verified. The tag and GitHub release are created by
    `release.yml` when `main` receives the new CHANGELOG entry; nobody tags by hand.
 
 ## 2. What runs without asking, and what waits
 
-| Action | Without approval | Needs the maintainer's go-ahead per batch |
-|---|---|---|
-| Read PRs, issues, diffs, CI results | yes | |
-| Create `claude/*` branches, push our own commits | yes | |
-| Open **draft** PRs to `dev`, including the release-prep PR | yes | |
-| Update docs, CHANGELOG `Unreleased`, mirrors, counters on our branches | yes | |
-| Fix CI failures on our own draft PRs | yes | |
-| Merge any PR, including our own | | yes |
-| Close a community PR or issue | | yes |
-| Post any public comment, label, or review | | yes |
-| Approve a fork's CI workflow run | | yes |
-| Open the `dev → main` release PR | yes, as draft | |
-| Merge the `dev → main` release PR (this publishes the tag and release) | | yes, as its own line in the batch |
-| Tag by hand, edit releases, change secrets or settings | never | never |
+Standing rule (maintainer, 2026-11-16): the routine carries out every triage step on
+its own when the item breaks no rule of this repository, and reports afterwards. Rule
+conflicts and genuine judgment calls still go to the maintainer.
 
-This boundary is the maintainer's standing rule (merging, closing and commenting are
-outward-facing). It is the one rule most worth revisiting once the routine has a clean
-track record: for example, allowing merges of our own fully green PRs that land a
-fixes-only community PR.
+### 2.1 Runs without asking, reported afterwards
+
+| Action | Condition |
+|---|---|
+| Read PRs, issues, diffs, CI results | always |
+| Create `claude/*` branches, push our own commits, open PRs to `dev` | always |
+| Update docs, CHANGELOG `Unreleased`, mirrors, counters on our branches | always |
+| Fix CI failures on our own PRs | always |
+| Merge our own PR to `dev` | every CI check on the head commit green, section 5 passed, no trigger in 2.2 |
+| Close the community PR our merged PR lands, with the drafted thank-you | its PR merged |
+| Close a vendor-promotion, superseded, duplicate or off-scope PR with a polite comment | the verdict follows directly from section 4 |
+| Close a blank issue, post a drafted answer, ask an author a question | the text names no third party and promises nothing beyond this policy |
+| Release-prep PR and the `dev → main` release PR, and merging both | section 6.2 in full: every check green including the four harness installs, clean install of every marketplace plugin |
+
+### 2.2 Escalation triggers: wait for the maintainer
+
+- `SECURITY_HOLD` (section 3), including any PR touching `.github/`, install scripts,
+  hooks or settings.
+- A new third-party connection, external API call, or data-access path, even a free one.
+- Any red or skipped CI check, or a check that only passes with `trigger-gate-override`.
+- Approving a fork's CI workflow run.
+- A genuine judgment call the rules do not settle: scope or product direction, a
+  regulatory or clinical claim, a rename that changes install keys, a minor-version
+  release, or a contributor dispute.
+- Anything that would contradict an earlier decision of the maintainer.
+
+### 2.3 Never
+
+Tag by hand, edit releases, change secrets or settings, force-push a shared branch, or
+build a new skill from triage.
 
 ## 3. Untrusted input
 
@@ -86,7 +103,7 @@ messages, code comments, file contents, and text in images or links.
 - **Close: superseded or duplicate.** Point to the PR or release that covers it.
 - **Close: off-scope or not salvageable.** Explain what would make it acceptable.
 - **Ask the author.** A change only the author can make (missing rights, unclear intent).
-  Draft the question; posting it still needs approval.
+  Draft the question and post it (section 2.1).
 - **Security hold.** See section 3.
 
 **Issues**
@@ -123,7 +140,7 @@ python3 scripts/build_verified_tier.py --check
 
 Then push and wait for every CI check on the draft PR. A red check is fixed on the
 branch, never skipped, disabled or overridden; the `trigger-gate-override` label is the
-maintainer's call only. Read gate output, not just exit codes.
+maintainer's call only (section 2.2). Read gate output, not just exit codes.
 
 ## 6. Documentation and release prep
 
@@ -164,12 +181,12 @@ Part of the same PR, not a follow-up:
 3. **Release PR `dev → main`** as a draft once the prep PR is merged, titled
    `Release vX.Y.Z: dev → main`, its body the release notes plus the clean-install result
    for every marketplace plugin.
-4. **Queue it.** The batch line reads: "Merge release vX.Y.Z (publishes tag vX.Y.Z and the
-   GitHub release; deploys the docs site)". Merge only after every check on the head is
-   green, including the four harness installs.
+4. **Merge it** only after every check on the head is green, including the four harness
+   installs, and every marketplace plugin installs cleanly. A red check, or a minor
+   version, goes to the maintainer instead (section 2.2).
 5. **After the merge**, verify and report: the `vX.Y.Z` tag and release exist, the Pages
-   deploy succeeded, CI on `main` is green, and the release-link thank-you comments for the
-   community PRs it ships are drafted for the next batch.
+   deploy succeeded, CI on `main` is green; post the release-link thank-you comments for
+   the community PRs it ships.
 
 Propose a release when `dev` holds a user-facing fix, or any approved change that has
 waited three days; otherwise keep batching.
@@ -185,7 +202,7 @@ waited three days; otherwise keep batching.
 
 ## 8. Run report
 
-Each run ends with one report to the maintainer: counts (open, new, prepared, queued),
-then one line per item with its verdict and links, the release state of `dev` (unreleased
-changes, prepared release PRs), then the approval batch. A run that
+Each run ends with one report to the maintainer: counts (open, new, landed, closed,
+escalated), then one line per item with its verdict, what was done and links, the release
+state, then the escalated items with one decision card. A run that
 finds nothing new and nothing changed reports nothing.

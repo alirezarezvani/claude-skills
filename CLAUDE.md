@@ -106,8 +106,9 @@ skill-name/
 
 > **⛔ HARD RULE — PR TARGET IS ALWAYS `dev`, NEVER `main`.**
 > Every PR (human or AI-created) must use `--base dev`. Nothing merges into `main`
-> directly — `main` only receives periodic `dev → main` promotion PRs opened by the
-> maintainer. If you find a PR targeting `main`, retarget it to `dev` before review.
+> directly — `main` only receives periodic `dev → main` promotion PRs, opened by the
+> maintainer or, for fully verified patch releases, by the daily triage routine under
+> `.github/TRIAGE_POLICY.md` section 6.2 (maintainer decision, 2026-11-16). If you find a PR targeting `main`, retarget it to `dev` before review.
 > AI agents (Claude Code included): set the base branch explicitly when creating PRs;
 > never rely on the repository default branch.
 

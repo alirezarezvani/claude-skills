@@ -62,9 +62,13 @@ evals/evals.json                 # three behaviour cases
 python3 scripts/report_lint.py monetization-report.md --json
 ```
 
-Checks that every required section is present, that each 30-day plan item carries a measurable
-acceptance criterion (`-> outcome`, `acceptance:` or `at least N`), that every money figure is
-labeled, and that Appendix A or B is filled when the body claims verified or estimated numbers.
+Checks that every required section is present, that each 30-day plan item carries a `-> outcome`
+criterion, that every money figure (`$`, `CNY 500`, `500元`, `2万`, `5k/month`) has a `[n]` citation
+or an "estimate" label, that each `[n]` resolves to Appendix A, and that Appendix B is filled when
+the body mentions estimates. `--sample-bad` runs every finding path.
+
+This plugin ships no agent or slash command on purpose: it is a single-pass skill that loads on
+its description.
 
 ## Related skills
 

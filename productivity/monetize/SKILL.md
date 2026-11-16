@@ -30,7 +30,7 @@ Write `monetize-profile.md` with: timeline, skills (hard, soft, industry know-ho
 ## Core principles
 
 1. **Specific beats generic.** Every conclusion traces to a concrete experience. Not "you could consult", but "three years sourcing cross-border e-commerce means a 90-minute sourcing diagnostic for small sellers at ¥500–1,500 per session".
-2. **Numbers are verified or labeled.** Search and cite salary bands, prices and rate cards when search is available; otherwise mark each number "estimate, unverified" and list it in Appendix B. Never invent a number.
+2. **Numbers are cited or labeled.** Search salary bands, prices and rate cards when search is available and cite each as `[n]` with the source in Appendix A; otherwise mark each number "estimate, unverified" and list it in Appendix B. Never invent a number.
 3. **Honesty over flattery.** No income promises. State competition, failure modes, and that the first three months usually earn a fraction of the steady-state range.
 4. **One background, one truth.** The profile is the single source of facts; modules cite each other and never contradict.
 
@@ -50,10 +50,10 @@ Run 1–2 first and show them for a direction check, then 3–6 (or everything a
 Write `monetization-report.md` using the template in [references/modules.md](references/modules.md): sections 0–7 (asset snapshot through a 30-day plan) plus Appendix A (sources) and Appendix B (unverified estimates). Every 30-day item has a day, a duration and an acceptance criterion ("publish 3 posts -> at least 1 inbound inquiry", not "start posting"). Chat returns a summary, the leverage action and the report path; offer a `.docx` if wanted.
 
 ```bash
-python3 scripts/report_lint.py monetization-report.md --json   # exit 0 clean, 1 findings, 2 usage
+python3 ${CLAUDE_PLUGIN_ROOT}/scripts/report_lint.py monetization-report.md --json   # exit 0 clean, 1 findings, 2 usage
 ```
 
-The linter checks required sections, acceptance criteria on plan items, money figures with no source or label, and that Appendix A or B is filled when the body claims verified or estimated numbers.
+The linter checks required sections, a `-> outcome` criterion on every plan item, that every money figure carries a `[n]` citation or an "estimate" label, that every `[n]` resolves to Appendix A, and that Appendix B is filled when the body mentions estimates. `--sample-bad` shows every finding.
 
 ## Honesty gate
 

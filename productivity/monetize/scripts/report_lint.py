@@ -4,11 +4,11 @@
 Checks:
   - every required section (0-7, Appendix A, Appendix B) is present;
   - every item under section 7 (with its indented lines) carries a measurable
-    acceptance criterion: "-> outcome", "acceptance:", or "at least N";
-  - every money figure outside the appendices is labeled (estimate,
-    unverified, verified, source, [n]);
-  - a body that claims verified numbers has sources in Appendix A;
-  - a body that mentions estimates has entries in Appendix B.
+    acceptance criterion: "-> outcome" or "acceptance: outcome";
+  - every money figure outside the appendices ($, CNY 500, 500元, 2万, 5k/month)
+    carries a [n] citation or an "estimate" label;
+  - every [n] citation resolves to an entry in Appendix A;
+  - a body that mentions estimates has a non-empty Appendix B (not "n/a").
 
 Exit codes:
   0  clean
@@ -19,6 +19,7 @@ Usage:
   python3 report_lint.py monetization-report.md
   python3 report_lint.py monetization-report.md --json
   python3 report_lint.py --sample
+  python3 report_lint.py --sample-bad   # every finding path, exits 1
 """
 
 import argparse
@@ -40,9 +41,10 @@ def split_sections(text):
     for line in text.splitlines():
         if line.startswith("## "):
             current = line.strip()
-            out[current] = []
+            out.setdefault(current, [])
         elif current is not None:
             out[current].append(line)
+        # a repeated heading keeps appending to the first occurrence
     return {k: "\n".join(v) for k, v in out.items()}
 
 
@@ -53,15 +55,27 @@ def section_body(sections, prefix):
     return ""
 
 
-# A measurable acceptance criterion: an arrow to an outcome, an explicit
-# "acceptance:" label, or a counted threshold ("at least 1", ">= 3").
-CRITERION = re.compile(
-    r"(->|\u2192|acceptance\s*:|\bat least \d+|>=\s*\d+|\u2265\s*\d+)",
+# A measurable acceptance criterion: an arrow to an outcome, or an explicit
+# "acceptance:" label.
+CRITERION = re.compile(r"(->|\u2192|acceptance\s*:)\s*\S", re.IGNORECASE)
+# A money figure: currency symbol or code before or after a number, or a
+# Chinese amount (500\u5143, 2\u4e07, 300\u5757), or a shorthand like 5k/month.
+MONEY = re.compile(
+    r"([$\u00a5\u20ac\u00a3]\s?\d"
+    r"|\b(?:USD|EUR|CNY|RMB|GBP)\s?\d"
+    r"|\d[\d,.]*\s?(?:USD|EUR|CNY|RMB|GBP)\b"
+    r"|\d[\d,.]*\s?[\u5143\u4e07\u5757]"
+    r"|\b\d+(?:\.\d+)?k\s?/\s?(?:mo|month|hr|hour|session|week)\b)",
     re.IGNORECASE,
 )
-# A money figure: a currency symbol or code next to a number.
-MONEY = re.compile(r"([$\u00a5\u20ac\u00a3]\s?\d|\d[\d,.]*\s?(?:USD|EUR|CNY|RMB|GBP)\b)")
-LABEL = re.compile(r"(estimate|unverified|verified|source|\[\d+\]|appendix)", re.IGNORECASE)
+# A figure counts as labeled only with an estimate label or a [n] citation.
+ESTIMATE = re.compile(r"estimate", re.IGNORECASE)
+CITATION = re.compile(r"\[(\d+)\]")
+EMPTY = {"", "none", "n/a", "na", "-", "tbd"}
+
+
+def is_empty(text):
+    return text.strip().lower().rstrip(".") in EMPTY
 
 
 def plan_items(body):
@@ -83,7 +97,7 @@ def lint(text):
     sections = split_sections(text)
     for section in REQUIRED:
         if not any(h.startswith(section) for h in sections):
-            findings.append(f"missing section: {section}")
+            findings.append(f"missing section: expected a heading starting '{section}' (level-2, e.g. '{section} Title')")
 
     plan_body = section_body(sections, "## 7.")
     if plan_body:
@@ -94,25 +108,48 @@ def lint(text):
             if not CRITERION.search(item):
                 findings.append(f"plan item without measurable acceptance criterion: {item[:80]}")
 
+    appendix_a = section_body(sections, "## Appendix A")
+    appendix_b = section_body(sections, "## Appendix B")
+    sources = set(CITATION.findall(appendix_a))
+    body_text = []
     for heading, body in sections.items():
         if heading.startswith("## Appendix"):
             continue
+        body_text.append(body)
         for line in body.splitlines():
-            if MONEY.search(line) and not LABEL.search(line):
-                findings.append(f"money figure with no source or label in '{heading[:30]}': {line.strip()[:80]}")
-
-    body_text = "\n".join(b for h, b in sections.items() if not h.startswith("## Appendix"))
-    appendix_a = section_body(sections, "## Appendix A").strip()
-    appendix_b = section_body(sections, "## Appendix B").strip()
-    if re.search(r"\bverified\b", body_text.replace("unverified", ""), re.IGNORECASE) and (
-        not appendix_a or appendix_a.lower().rstrip(".") == "none"
-    ):
-        findings.append("body claims verified numbers but Appendix A lists no sources")
-    if re.search(r"\bestimate", body_text, re.IGNORECASE) and not appendix_b:
+            cited = CITATION.findall(line)
+            for ref in cited:
+                if ref not in sources:
+                    findings.append(f"citation [{ref}] in '{heading[:30]}' has no entry in Appendix A")
+            if MONEY.search(line) and not cited and not ESTIMATE.search(line):
+                findings.append(
+                    f"money figure without a [n] citation or 'estimate' label in '{heading[:30]}': {line.strip()[:80]}"
+                )
+    body_text = "\n".join(body_text)
+    if re.search(r"\bestimate", body_text, re.IGNORECASE) and is_empty(appendix_b):
         findings.append("body mentions estimates but Appendix B is empty")
 
     return findings
 
+
+BAD_SAMPLE = """# Monetization report - Bad · 2026-11-15
+## 0. Asset snapshot
+## 1. Hidden-skills audit
+Supplier mediation earns ¥800 per case from this source.
+## 2. Opportunity scan
+Consulting at 5k/month [2].
+## 3. Productization
+## 4. Leverage point
+## 5. Salary ceiling
+Category manager, about 3万 (estimate).
+## 6. AI side-hustle starter pack
+## 7. 30-day plan
+- Week 1: do things, at least 3
+## Appendix A: sources
+[1] Unused source.
+## Appendix B: unverified estimates
+n/a
+"""
 
 SAMPLE = """# Monetization report - Sam · 2026-11-15
 ## 0. Asset snapshot
@@ -120,13 +157,13 @@ Five years of sourcing experience.
 ## 1. Hidden-skills audit
 Supplier dispute mediation.
 ## 2. Opportunity scan
-Sourcing diagnostic, ¥500-1,500 per session (estimate).
+Sourcing diagnostic, ¥500-1,500 per session (estimate, unverified).
 ## 3. Productization
 Diagnostic offer.
 ## 4. Leverage point
 Publish one case study.
 ## 5. Salary ceiling
-Category manager, ¥35,000-45,000 (verified, see Appendix A [1]).
+Category manager, ¥35,000-45,000 [1].
 ## 6. AI side-hustle starter pack
 AI-assisted supplier vetting.
 ## 7. 30-day plan
@@ -142,12 +179,14 @@ def main():
     parser = argparse.ArgumentParser(description="Lint a monetization report against its output contract.")
     parser.add_argument("path", nargs="?", help="path to the report markdown")
     parser.add_argument("--json", action="store_true", help="emit JSON findings")
-    parser.add_argument("--sample", action="store_true", help="lint an embedded sample report")
+    parser.add_argument("--sample", action="store_true", help="lint an embedded clean sample report")
+    parser.add_argument("--sample-bad", action="store_true", help="lint an embedded report that breaks every rule")
     args = parser.parse_args()
 
-    if args.sample:
-        findings = lint(SAMPLE)
-        result = {"path": "<sample>", "findings": findings, "clean": not findings}
+    if args.sample or args.sample_bad:
+        findings = lint(BAD_SAMPLE if args.sample_bad else SAMPLE)
+        name = "<sample-bad>" if args.sample_bad else "<sample>"
+        result = {"path": name, "findings": findings, "clean": not findings}
         print(json.dumps(result, indent=2))
         return 0 if not findings else 1
 

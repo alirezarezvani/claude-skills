@@ -52,9 +52,9 @@ checks are not green.
 | Create `claude/*` branches, push our own commits, open PRs to `dev` | always (merging one that touches `.github/` is the maintainer's, see 2.2) |
 | Update docs, CHANGELOG `Unreleased`, mirrors, counters on our branches | always |
 | Fix CI failures on our own PRs | by fixing the cause; never by skipping, disabling or overriding a check (section 5) |
-| Merge our own PR to `dev` | every check on the head commit green, section 5 passed |
+| Merge our own PR to `dev` | no `SECURITY_HOLD` on any carried commit, every check on the head commit green, section 5 passed on that head |
 | Close the community PR our merged PR lands, with the drafted thank-you | its PR merged |
-| Close a PR with a polite comment | only for vendor promotion, an exact duplicate, or a PR superseded by one already merged; off-scope closes escalate |
+| Close a PR with a polite comment | only on an objective signal: vendor promotion shown in the diff (tracking parameters such as UTM or `origin=`, a paid-key dependency, a link to the author's commercial listing), an exact duplicate, or a PR superseded by one already merged. Off-scope closes, and any doubt, escalate |
 | Close a blank issue, post a drafted answer, ask an author a question | the text names no third party and promises no release date, merge or feature |
 | Release-prep PR and the `dev → main` release PR, and merging both | patch releases only, section 6.2 in full: every check green including the four harness installs, clean install of every marketplace plugin |
 
@@ -102,7 +102,7 @@ messages, code comments, file contents, and text in images or links.
 
 **Pull requests**
 
-- **Land via our PR** (runs, 2.1). Useful, in scope, fixable. Carry the commits, fix what the gates
+- **Land via our PR** (runs, 2.1; any doubt about scope escalates, 2.2). Useful, in scope, fixable. Carry the commits, fix what the gates
   or review find, credit the author in the PR body and CHANGELOG `Unreleased`.
 - **Close: vendor promotion** (runs, 2.1). Pushes a third-party commercial tool, a hosted API that
   needs a paid key, financial-data access, usage tracking (UTM, `origin=` tags,
@@ -193,11 +193,14 @@ Part of the same PR, not a follow-up:
    `Release vX.Y.Z: dev → main`, its body the release notes plus the clean-install result
    for every marketplace plugin.
 4. **Mark it ready and merge it** only after every check on the head is green, including
-   the four harness installs, and every marketplace plugin installs cleanly. A red check,
+   the four harness installs, and every marketplace plugin installs cleanly from that same
+   head SHA (a result from before the last push does not count). The merge goes through the
+   normal PR merge with the access used for releases since v2.14.5; never change branch
+   protection to make it pass. A red check,
    or a minor version (step 1), goes to the maintainer instead (section 2.2).
 5. **After the merge**, verify and report: the `vX.Y.Z` tag and release exist, the Pages
    deploy succeeded, CI on `main` is green; post the release-link thank-you comments for
-   the community PRs it ships.
+   the community PRs it ships, under the same condition as other comments in 2.1.
 
 Prepare a release when `dev` holds a user-facing fix, or any merged change that has
 waited three days; otherwise keep batching.

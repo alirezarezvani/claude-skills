@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our CLI tool's README is pretty plain and outdated — can you polish it? It's a single Python tool, no package release yet.",
+    "expected_output": "Classifies the repo as a single tool and chooses the middle tier (badges, at most one mermaid diagram, callouts, no banner), states the calibration basis, runs the 15-second test, verifies the version and install command against the repo, rewrites the hero with a one-sentence value proposition and a copy-pasteable install command in the first 40 lines, runs scripts/check_readme.py and reports its exit code, and lists the remaining human render checks. FAIL if it adds a banner, invented badges, or placeholder images, or claims a version not present in the repo.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 2,
+    "prompt": "Add a hero image, a sponsor table, and a badge wall to this README — it's a small library with 40 stars.",
+    "expected_output": "Pushes back with the calibration rule: a single library gets the middle tier, and sponsor/banner/badge-wall components only make sense when the underlying entities exist and the category is a collection or commercial product. Offers a concrete smaller alternative (badge row of at most six real badges, one comparison table, callouts) and asks before rewriting. FAIL if it silently adds a fake banner, sponsor table, or badges for services the project does not use.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 3,
+    "prompt": "The README has some broken links and the version badge says 0.4.0 but VERSION says 1.2.0. Also the mermaid diagram is huge. Can you fix it?",
+    "expected_output": "Builds a fact list first, marks the version badge as stale and updates it from VERSION, runs scripts/check_readme.py to collect dead-link and oversized-mermaid findings, reduces the mermaid diagram to seven nodes or fewer, fixes each dead relative link or removes it, reruns the gate until it exits 0, and reports which warnings (if any) remain and why. FAIL if it only edits prose without updating the version or without rerunning the gate.",
+    "scenario_type": "happy_path"
+  }
+]

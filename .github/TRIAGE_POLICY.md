@@ -20,7 +20,8 @@ hand follows it too. When this file and a routine prompt disagree, this file win
 4. **Execute what the rules settle.** For every item whose handling breaks no repo rule
    (section 2.1): merge our PR once every CI check on its head is green, close the
    community PR it lands with the drafted thank-you, close rejected PRs and blank issues
-   with their drafted comment, and post drafted answers.
+   with their drafted comment, and post drafted answers. The run report quotes or links
+   every comment as posted.
 5. **Escalate the rest.** Items that hit an escalation trigger (section 2.2) go to the
    maintainer in one batch: per item, the verdict, a one-line reason, the prepared PR
    link and the exact comment that would be posted. Execute them only once approved.
@@ -39,13 +40,17 @@ conflicts and genuine judgment calls still go to the maintainer.
 
 ### 2.1 Runs without asking, reported afterwards
 
+Every row applies only when the item hits no trigger in section 2.2. "Green" means every
+check on the head commit concluded `success`; skipped, neutral, pending or cancelled
+checks are not green.
+
 | Action | Condition |
 |---|---|
 | Read PRs, issues, diffs, CI results | always |
 | Create `claude/*` branches, push our own commits, open PRs to `dev` | always |
 | Update docs, CHANGELOG `Unreleased`, mirrors, counters on our branches | always |
 | Fix CI failures on our own PRs | always |
-| Merge our own PR to `dev` | every CI check on the head commit green, section 5 passed, no trigger in 2.2 |
+| Merge our own PR to `dev` | every check on the head commit green, section 5 passed |
 | Close the community PR our merged PR lands, with the drafted thank-you | its PR merged |
 | Close a vendor-promotion, superseded, duplicate or off-scope PR with a polite comment | the verdict follows directly from section 4 |
 | Close a blank issue, post a drafted answer, ask an author a question | the text names no third party and promises nothing beyond this policy |
@@ -54,7 +59,8 @@ conflicts and genuine judgment calls still go to the maintainer.
 ### 2.2 Escalation triggers: wait for the maintainer
 
 - `SECURITY_HOLD` (section 3), including any PR touching `.github/`, install scripts,
-  hooks or settings.
+  hooks or settings, and any item whose text section 3 flags as addressing an AI. Our own
+  PRs that change `.github/` are merged by the maintainer.
 - A new third-party connection, external API call, or data-access path, even a free one.
 - Any red or skipped CI check, or a check that only passes with `trigger-gate-override`.
 - Approving a fork's CI workflow run.
@@ -178,17 +184,18 @@ Part of the same PR, not a follow-up:
    - `.claude-plugin/marketplace.json` `metadata.version` and `.codex-plugin/plugin.json`
      `version`.
    - Run section 5 and `python3 scripts/extract_release_notes.py` to confirm the notes parse.
-3. **Release PR `dev → main`** as a draft once the prep PR is merged, titled
+3. **Release PR `dev → main`** once the prep PR is merged (opened as a draft, marked ready
+   once its checks are green), titled
    `Release vX.Y.Z: dev → main`, its body the release notes plus the clean-install result
    for every marketplace plugin.
-4. **Merge it** only after every check on the head is green, including the four harness
-   installs, and every marketplace plugin installs cleanly. A red check, or a minor
-   version, goes to the maintainer instead (section 2.2).
+4. **Mark it ready and merge it** only after every check on the head is green, including
+   the four harness installs, and every marketplace plugin installs cleanly. A red check,
+   or a minor version (step 1), goes to the maintainer instead (section 2.2).
 5. **After the merge**, verify and report: the `vX.Y.Z` tag and release exist, the Pages
    deploy succeeded, CI on `main` is green; post the release-link thank-you comments for
    the community PRs it ships.
 
-Propose a release when `dev` holds a user-facing fix, or any approved change that has
+Prepare a release when `dev` holds a user-facing fix, or any merged change that has
 waited three days; otherwise keep batching.
 
 ## 7. PR shape
@@ -204,5 +211,6 @@ waited three days; otherwise keep batching.
 
 Each run ends with one report to the maintainer: counts (open, new, landed, closed,
 escalated), then one line per item with its verdict, what was done and links, the release
-state, then the escalated items with one decision card. A run that
+state, every public comment as posted (quoted or linked), then the escalated items with
+one decision card. A run that
 finds nothing new and nothing changed reports nothing.

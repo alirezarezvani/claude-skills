@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -81,7 +82,7 @@ def safe_caption_path() -> str:
     commas, brackets, quotes or '=' never reach the filtergraph."""
     d = tempfile.mkdtemp(prefix="conform_")
     if not SAFE_PATH.fullmatch(d):
-        shutil.rmtree(d, ignore_errors=True)
+        os.rmdir(d)  # empty: just created
         d = tempfile.mkdtemp(prefix="conform_", dir=".")
     return str(Path(d) / "captions.srt")
 
@@ -207,7 +208,8 @@ def main() -> int:
             r = subprocess.run(cmd, capture_output=True, text=True)
         finally:
             if burn_path:
-                shutil.rmtree(Path(burn_path).parent, ignore_errors=True)
+                Path(burn_path).unlink(missing_ok=True)
+                os.rmdir(Path(burn_path).parent)  # only our own captions.srt was in it
         if r.returncode != 0:
             print(f"error: ffmpeg failed: {r.stderr.strip()[-1200:]}", file=sys.stderr)
             return 4

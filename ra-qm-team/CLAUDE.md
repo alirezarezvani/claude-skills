@@ -1,6 +1,6 @@
 # Regulatory Affairs & Quality Management Skills - Claude Code Guidance
 
-This guide covers the 14 production-ready RA/QM compliance skills for HealthTech/MedTech companies.
+This guide covers the RA/QM compliance skills for HealthTech/MedTech companies: the 14 core skills below, plus the standalone readiness plugins listed under "Standalone compliance plugins".
 
 ## RA/QM Skills Overview
 
@@ -27,7 +27,16 @@ This guide covers the 14 production-ready RA/QM compliance skills for HealthTech
 - gdpr-dsgvo-expert - GDPR/DSGVO compliance, data privacy
 - soc2-compliance - SOC 2 Type I/II compliance, trust service criteria, audit readiness
 
-**Total:** 14 specialized compliance skills for medical device industry
+**Total:** 14 core compliance skills for the medical device industry.
+
+**Standalone compliance plugins (each also bundled in ra-qm-skills):**
+- cra-readiness - EU Cyber Resilience Act product obligations and vulnerability reporting
+- nis2-readiness - NIS2 / German NIS2UmsuCG entity scope, Art 23 incident clock, Art 21 gap check, NIS2/DORA/CRA/GDPR regime router
+- dora-readiness - DORA scope, major ICT incident classification and reporting clock, register of information and Art 30 contracts
+- medical-device-software - IEC 62304 and IEC 81001-5-1
+- cmmc-readiness - CMMC 2.0 Level 2
+- access-lifecycle - user access review evidence
+- eu-ai-act-specialist, iso42001-specialist - AI regulation and AI management systems
 
 ## Compliance Frameworks
 
@@ -149,6 +158,6 @@ This guide covers the 14 production-ready RA/QM compliance skills for HealthTech
 
 ---
 
-**Last Updated:** May 10, 2026
-**Skills Deployed:** 14/14 RA/QM skills production-ready
+**Last Updated:** November 17, 2026
+**Skills Deployed:** 14 core RA/QM skills plus the standalone compliance plugins above
 **Focus:** Medical device compliance (ISO 13485, MDR, FDA, ISO 27001, GDPR)

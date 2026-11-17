@@ -169,5 +169,45 @@
   "plugin": "medical-device-software",
   "prompt": "Read plan.md and answer the team's five questions. Be specific about which clause or guidance each answer rests on.",
   "skill": "ra-qm-team/medical-device-software/skills/medical-device-software"
+ },
+ "nis2-readiness": {
+  "assertions": [
+   "Classifies Stadtwerke Nordheim as an important entity (medium-sized in an Annex I sector), not an essential entity",
+   "Says Nordheim Cloud is below the size threshold and so out of NIS2 scope unless designated or a size-independent case applies",
+   "Says Nordheim DNS Services is in scope regardless of size, as an essential entity (DNS service provider)",
+   "Says the in-scope entities must register with the BSI (within three months under BSIG §33)",
+   "Gives the early warning deadline as 24 hours after awareness (2026-11-18 06:30 CET), or 24 hours after detection if it treats detection as awareness",
+   "Gives the incident notification deadline as 72 hours after awareness",
+   "Says a final report is due one month after the incident notification (or a progress report if the incident is still ongoing)",
+   "Says the early warning must indicate whether the incident is suspected to be malicious or unlawful and whether it may have cross-border impact",
+   "Flags a separate GDPR personal-data breach notification to the data protection authority within 72 hours because customer data is in the billing system",
+   "Says the recipients of the service (customers) should be informed where the incident is likely to affect them"
+  ],
+  "fixture": "nis2",
+  "name": "nis2-readiness",
+  "origin": "nis2-readiness-build",
+  "plugin": "nis2-readiness",
+  "prompt": "Our group and the incident are described in group.md. Which of our companies fall under NIS2 and the German NIS2UmsuCG, as essential or important entities, and what do they have to do? For the ransomware incident: what exactly do we have to report, to whom and by when?",
+  "skill": "ra-qm-team/nis2-readiness/skills/nis2-readiness"
+ },
+ "dora-readiness": {
+  "assertions": [
+   "Classifies ICT-2026-41 as a major ICT-related incident: critical services affected plus at least two thresholds (more than 10% of online-banking clients affected, about 18%; downtime above 2 hours on a service supporting a critical function)",
+   "Gives the initial notification deadline as 4 hours after classification, i.e. Friday 2026-11-13 23:30 CET (within 24 hours of awareness)",
+   "Says the weekend or bank-holiday relief does not apply to a credit institution's initial and intermediate reports",
+   "Gives the intermediate report deadline as 72 hours after the initial notification",
+   "Gives the final report deadline as one month after the latest intermediate report",
+   "Says the report goes to the financial competent authority (BaFin)",
+   "Says affected clients must be informed without undue delay because their financial interests are affected (DORA Art 19(3))",
+   "Says the CardSwitch contract must give the bank and BaFin unrestricted rights of access, inspection and audit (Art 30(3)(e))",
+   "Says a documented and tested exit strategy with a transition period is required for CardSwitch (Art 28(8) and Art 30(3)(f))",
+   "Says CardSwitch must be added to the register of information"
+  ],
+  "fixture": "dora",
+  "name": "dora-readiness",
+  "origin": "dora-readiness-build",
+  "plugin": "dora-readiness",
+  "prompt": "See bank.md. Is ICT-2026-41 a major incident under DORA, and what do we have to report, to whom and by exactly when? Also, what must change in the CardSwitch contract?",
+  "skill": "ra-qm-team/dora-readiness/skills/dora-readiness"
  }
 }

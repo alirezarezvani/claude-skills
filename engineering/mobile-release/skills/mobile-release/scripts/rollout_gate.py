@@ -13,10 +13,15 @@ release=baseline. Columns (counts, not percentages, so the test is honest):
 
 Decision, in order
   HALT     Android user-perceived crash rate >= 1.09% or ANR rate >= 0.47%
-           (Play bad-behavior thresholds), or a single phone model >= 8%
+           (Play bad-behavior thresholds), judged on the one-sided 95% Wilson
+           lower bound so a handful of users cannot trip it; a rate above the
+           threshold whose bound is not is a HOLD. A single phone model >= 8%
+           is a HALT once --min-users is reached, a HOLD before
   HALT     crash (or ANR) rate is worse than baseline by more than
            --max-regression (relative) AND the difference is significant
-           (one-sided two-proportion z-test, p < --alpha)
+           (one-sided two-proportion z-test, p < --alpha) on at least
+           --min-users users; below that it is a HOLD (the normal
+           approximation needs the counts)
   HOLD     fewer than --min-users users on the release: not enough data
   HOLD     worse than baseline by more than --max-regression, not yet
            significant: wait for more users before widening
@@ -63,6 +68,17 @@ def z_one_sided(x1, n1, x0, n0):
     return 0.5 * math.erfc(z / math.sqrt(2))
 
 
+def wilson_lower(x, n, z=1.6449):
+    """One-sided 95% Wilson lower bound of x/n, in percent."""
+    if n == 0:
+        return 0.0
+    p = x / n
+    den = 1 + z * z / n
+    centre = p + z * z / (2 * n)
+    margin = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))
+    return 100.0 * max(0.0, (centre - margin) / den)
+
+
 def to_int(row, key, required=True):
     v = (row.get(key) or "").strip()
     if not v:
@@ -102,6 +118,8 @@ def parse(text):
         if d["crashed_users"] > d["users"] or (d["anr_users"] or 0) > d["users"]:
             raise ValueError(f"more affected users than users in row {d['release']}")
         out.append(d)
+    if out[0]["platform"] != out[1]["platform"]:
+        raise ValueError(f"baseline {out[0]['release']} is {out[0]['platform']} but {out[1]['release']} is {out[1]['platform']}; compare releases on the same platform")
     return out
 
 
@@ -133,18 +151,28 @@ def decide(base, new, min_users, max_reg, alpha, ladder):
         reasons.append(f"{v}: {why}")
 
     if new["platform"] == "android":
-        c = metrics.get("crash", {}).get("release_pct")
-        a = metrics.get("anr", {}).get("release_pct")
-        if c is not None and c >= PLAY_CRASH:
-            escalate("HALT", f"user-perceived crash rate {c}% >= Play bad-behavior threshold {PLAY_CRASH}%")
-        if a is not None and a >= PLAY_ANR:
-            escalate("HALT", f"user-perceived ANR rate {a}% >= Play bad-behavior threshold {PLAY_ANR}%")
+        for name, key, limit in (("crash", "crashed_users", PLAY_CRASH), ("ANR", "anr_users", PLAY_ANR)):
+            if new[key] is None:
+                continue
+            r = rate(new[key], new["users"])
+            lo = wilson_lower(new[key], new["users"])
+            if lo >= limit:
+                escalate("HALT", f"user-perceived {name} rate {r:.3f}% (95% lower bound {lo:.3f}%) >= Play bad-behavior threshold {limit}%")
+            elif r >= limit:
+                escalate("HOLD", f"user-perceived {name} rate {r:.3f}% is above the Play threshold {limit}% but its 95% lower bound {lo:.3f}% is not; wait for more users")
+        if new["anr_users"] is None:
+            reasons.append("NOTE: no anr_users for this Android release; ANR was not checked")
         if new["worst_device_crash_pct"] is not None and new["worst_device_crash_pct"] >= PLAY_DEVICE:
-            escalate("HALT", f"a phone model at {new['worst_device_crash_pct']}% crash rate >= Play per-device threshold {PLAY_DEVICE}%")
+            if new["users"] >= min_users:
+                escalate("HALT", f"a phone model at {new['worst_device_crash_pct']}% crash rate >= Play per-device threshold {PLAY_DEVICE}%")
+            else:
+                escalate("HOLD", f"a phone model at {new['worst_device_crash_pct']}% crash rate >= {PLAY_DEVICE}% on fewer than {min_users} users; confirm before halting")
     for name, m in metrics.items():
         rel = m["relative_change"]
         worse = rel is None or rel > max_reg
-        if worse and m["p_worse"] < alpha:
+        if worse and m["p_worse"] < alpha and new["users"] < min_users:
+            escalate("HOLD", f"{name} rate {m['release_pct']}% vs baseline {m['baseline_pct']}% looks like a regression (p={m['p_worse']}), but on fewer than {min_users} users the test is not reliable; pause widening and recheck")
+        elif worse and m["p_worse"] < alpha:
             escalate("HALT", f"{name} rate {m['release_pct']}% vs baseline {m['baseline_pct']}% is a significant regression (p={m['p_worse']})")
         elif worse:
             escalate("HOLD", f"{name} rate {m['release_pct']}% vs baseline {m['baseline_pct']}% is worse by more than {int(max_reg * 100)}% but not yet significant (p={m['p_worse']}); wait for more users")

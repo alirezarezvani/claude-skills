@@ -8,8 +8,8 @@ occupancy above --max-occupancy, then grosses it up for shrinkage (breaks,
 training, meetings, absence) to the number to schedule.
 
 Async channels (email, web form): workload. Agents = arrivals x AHT / 3600,
-plus enough extra to drain any --backlog within --drain-hours, grossed up for
-shrinkage. Erlang C does not apply: an email does not abandon after 60 s.
+plus enough extra to drain any --backlog over the first --drain-hours rows
+(one row = one hour), grossed up for shrinkage. Erlang C does not apply: an email does not abandon after 60 s.
 
 Chat agents handling several sessions at once: pass --concurrency; AHT is then
 divided by it, which is an approximation (concurrent chats are slower each).
@@ -73,8 +73,11 @@ def live_agents(arrivals_h, aht_s, sl, t_s, max_occ):
 def plan(rows, mode, sl, t_s, shrink, max_occ, conc, backlog, drain_h, default_aht):
     out = []
     short = False
-    per_drain = (backlog * default_aht / 3600.0) / drain_h if backlog else 0.0
-    for r in rows:
+    # The backlog is extra work spread over the first --drain-hours rows (one row
+    # = one hour), priced at the same effective handle time as new arrivals.
+    per_drain = (backlog * default_aht / conc / 3600.0) / drain_h if backlog else 0.0
+    drain_rows = math.ceil(drain_h)
+    for idx, r in enumerate(rows):
         aht = r.get("aht_s") or default_aht
         eff_aht = aht / conc
         if mode == "live":
@@ -85,7 +88,10 @@ def plan(rows, mode, sl, t_s, shrink, max_occ, conc, backlog, drain_h, default_a
                     "on_line": n, "service_level": round(got_sl, 3), "asa_s": round(wait, 1),
                     "occupancy": round(load / n, 3) if n else 0.0}
         else:
-            work = r["arrivals"] * eff_aht / 3600.0 + per_drain
+            drain = per_drain if idx < drain_rows else 0.0
+            if drain and idx == drain_rows - 1 and drain_h % 1:
+                drain *= drain_h % 1
+            work = r["arrivals"] * eff_aht / 3600.0 + drain
             n = math.ceil(work / max_occ) if work else 0
             item = {"interval": r["interval"], "arrivals_per_h": r["arrivals"], "work_hours_per_h": round(work, 2),
                     "on_line": n, "occupancy": round(work / n, 3) if n else 0.0}
@@ -133,7 +139,7 @@ def render(res):
         roster = f"  staffed {i['staffed']} ({i['gap']:+d})" if "staffed" in i else ""
         out.append(f"  {i['interval']:>8s}  {i['arrivals_per_h']:>6g}/h  on line {i['on_line']:>3d}  schedule {i['scheduled']:>3d}  occ {i['occupancy']:.0%}  {extra}{roster}")
     out.append("")
-    out.append(f"Peak to schedule: {max(i['scheduled'] for i in res['intervals'])}; agent-hours to schedule: {sum(i['scheduled'] for i in res['intervals'])}")
+    out.append(f"Peak to schedule: {max(i['scheduled'] for i in res['intervals'])}; agent-hours to schedule: {sum(i['scheduled'] for i in res['intervals'])} (one row = one hour)")
     return "\n".join(out)
 
 

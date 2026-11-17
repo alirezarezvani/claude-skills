@@ -15,14 +15,14 @@ Neither store rolls a user back. A bad iOS build stays in the hands of everyone 
 
 ## Play core vitals [3]
 
-🟢 Bad-behavior thresholds: user-perceived crash rate **1.09%**, user-perceived ANR rate **0.47%** across all devices, and **8%** on any single phone model. Above them an app can lose visibility, and a per-device breach can bring a store-listing warning on that model. The gate halts at these values regardless of baseline.
+🟢 Bad-behavior thresholds: user-perceived crash rate **1.09%**, user-perceived ANR rate **0.47%** across all devices, and **8%** on any single phone model. Above them an app can lose visibility, and a per-device breach can bring a store-listing warning on that model. The gate halts when the one-sided 95% Wilson lower bound of the release's rate is at or above these values, regardless of baseline; a rate above the line whose bound is below it is a hold, so 1 crash among 40 users does not halt a 1% rollout. The per-device check has no counts, so it halts only once `--min-users` is reached.
 
 Play computes these as daily users who experienced the event over daily active users. Feeding the gate per-release user counts from Play Console Android vitals (or your crash reporter, same definition for both releases) keeps the comparison like for like.
 
 ## The regression test
 
 A rate on 800 users means little: 2 crashes is 0.25%, 1 crash is 0.125%. The gate therefore
-1. holds below `--min-users` (default 1000),
+1. holds below `--min-users` (default 1000), even when the test reports a significant regression, because the normal approximation behind it needs the counts,
 2. compares the new release with the baseline using a one-sided two-proportion z-test [4],
 3. halts only when the relative worsening is above `--max-regression` (default 25%) **and** p < `--alpha` (default 0.05); holds when it is above but not significant.
 

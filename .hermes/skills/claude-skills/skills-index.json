@@ -2030,7 +2030,7 @@
       },
       {
         "name": "video-beat-board",
-        "description": "Use whenever the user asks if a video or reel script, voice-over or narration fits its length, what to trim or cut, or wants a script broken into a timed shot list. beat_board.py times each beat at speaking and reading pace, refuses a script that does not fit and says how many words to cut.",
+        "description": "Use whenever the user asks \"will this voice-over fit in 30 seconds?\", \"is my reel script too long?\", \"what should I cut?\", or wants a video script turned into a timed shot list. Do not eyeball it - beat_board.py times every beat at 150 wpm speech and 180 wpm reading, refuses a script that does not fit and says exactly how many words to cut.",
         "path": "video/video-beat-board"
       },
       {

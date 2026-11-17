@@ -1,7 +1,7 @@
 {
   "source": "claude-code-skills",
   "layout": "nested",
-  "total_skills": 396,
+  "total_skills": 399,
   "domains": {
     "engineering": [
       {
@@ -53,6 +53,11 @@
         "name": "ci-cd-pipeline-builder",
         "description": "Generate a CI/CD workflow for a repo from its detected stack: lint, test, build, deploy. Load whenever the user says the repo has no CI, wants tests run on push, or needs a pipeline YAML.",
         "path": "engineering/ci-cd-pipeline-builder"
+      },
+      {
+        "name": "cloud-finops",
+        "description": "Analyse a cloud bill (AWS, Azure, Google Cloud) from a FOCUS cost export. Use when the cloud bill jumped, to find who owns untagged spend, to check Savings Plans, Reserved Instances or committed use discounts (utilization, coverage, effective savings rate) before buying more, or to track cost per customer or per order.",
+        "path": "engineering/cloud-finops"
       },
       {
         "name": "codebase-onboarding",
@@ -143,6 +148,11 @@
         "name": "migration-architect",
         "description": "Plan a migration with zero or minimal downtime: phased plan, compatibility check, rollback scripts, for schemas, databases and services. Load whenever the user must change a live table, move a database or cut over without downtime.",
         "path": "engineering/migration-architect"
+      },
+      {
+        "name": "mobile-release",
+        "description": "Get an iOS or Android app release through App Store and Google Play review, then roll it out safely. Use before submitting or uploading a build, when App Store Connect or Play Console rejects one (privacy manifest, required reason API, missing purpose string, target API level, exported components, permission declarations) or when deciding whether to widen, pause or halt a staged or phased rollout from crash and ANR numbers.",
+        "path": "engineering/mobile-release"
       },
       {
         "name": "monorepo-navigator",
@@ -1470,7 +1480,7 @@
     "business-growth": [
       {
         "name": "business-growth-skills",
-        "description": "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations and contract-and-proposal-writer.",
+        "description": "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations, contract-and-proposal-writer and support-ops.",
         "path": "business-growth/business-growth-skills"
       },
       {
@@ -1492,6 +1502,11 @@
         "name": "sales-engineer",
         "description": "Use for pre-sales work: RFP coverage gaps, competitive feature matrices or planning and scoring a proof of concept. Runs rfp_response_analyzer.py, competitive_matrix_builder.py and poc_planner.py.",
         "path": "business-growth/sales-engineer"
+      },
+      {
+        "name": "support-ops",
+        "description": "Run a customer support queue on numbers. Use when SLA targets are being missed or disputed (first response, resolution, business hours), to work out how many agents a phone, chat or email queue needs, or to decide which ticket topics to turn into help-center articles, macros or bug fixes, from a helpdesk ticket export.",
+        "path": "business-growth/support-ops"
       }
     ],
     "finance": [

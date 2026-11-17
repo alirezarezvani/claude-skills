@@ -48,6 +48,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering
 | Changelog Generator | `changelog-generator/` | Changelogs, semantic version bumps, hotfix/rollback discipline |
 | Chaos Engineering | `chaos-engineering/` | Experiment design, blast-radius, postmortems |
 | CI/CD Pipeline Builder | `ci-cd-pipeline-builder/` | Pipeline generation |
+| Cloud FinOps | `cloud-finops/` | FOCUS cost allocation, commitments (utilization, coverage, ESR), anomalies |
 | Codebase Onboarding | `codebase-onboarding/` | New dev onboarding guides |
 | Database Designer | `database-designer/` | Schema analysis, index optimization, migrations |
 | Database Schema Designer | `database-schema-designer/` | ERD, normalization |
@@ -60,6 +61,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering
 | Interview System Designer | `interview-system-designer/` | Hiring pipeline design |
 | Kubernetes Operator | `kubernetes-operator/` | CRD validation, reconcile linting |
 | MCP Server Builder | `mcp-server-builder/` | MCP tool creation |
+| Mobile Release | `mobile-release/` | App Store / Play submission checks, staged-rollout gate |
 | Migration Architect | `migration-architect/` | System migration planning |
 | Monorepo Navigator | `monorepo-navigator/` | Monorepo tooling |
 | Observability Designer | `observability-designer/` | Dashboards, alert noise (SLOs → slo-architect) |

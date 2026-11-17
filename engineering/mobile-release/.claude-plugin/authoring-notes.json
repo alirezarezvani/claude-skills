@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Demand: discussion #360 (mobile named as the missing engineering specialization); repo audit 2026-11-17 found no skill covering store submission or rollout gating (only app-store-optimization, which is listing marketing). Built from public primary sources",
+    "build_pattern": "Three deterministic stdlib scripts (iOS privacy manifest and purpose-string check, Android Play release check with ELF 16 KB alignment, staged-rollout gate with a one-sided two-proportion test) with blocking exit codes; rules cited to Apple Bundle Resources, App Store Connect Help, Apple Upcoming Requirements, developer.android.com target-SDK, behavior-changes-12 and page-sizes pages, and the Android Developers Blog on Play core vitals",
+    "distinct_from": "app-store-optimization (store listing and ASO); ship-gate (web service pre-production audit); senior-devops and ci-cd-pipeline-builder (pipelines, not store review)"
+  }
+}

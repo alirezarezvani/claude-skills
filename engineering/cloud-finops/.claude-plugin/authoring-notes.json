@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Repo gap audit 2026-11-17: no skill analysed cloud billing data (FinOps appeared only in two reference files). Built from the FOCUS v1.4 specification and FinOps Foundation Framework pages",
+    "build_pattern": "Three deterministic stdlib scripts over a FOCUS 1.x CSV export (allocation coverage and tag hygiene, commitment utilization/coverage/ESR with a sizing floor, robust MAD anomaly and unit-cost detector) with typed exit codes and a shared loader; no provider APIs or credentials",
+    "distinct_from": "llm-cost-optimizer (LLM token spend); procurement-optimizer (SaaS vendor spend); cloud architect skills (design, not billing); cfo-advisor (company finance)"
+  }
+}

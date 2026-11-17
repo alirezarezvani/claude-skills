@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 463,
+  "total_skills": 466,
   "skills": [
     {
       "name": "content-strategist",
@@ -196,7 +196,7 @@
     {
       "name": "business-growth-skills",
       "category": "business-growth",
-      "description": "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations and contract-and-proposal-writer."
+      "description": "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations, contract-and-proposal-writer and support-ops."
     },
     {
       "name": "contract-and-proposal-writer",
@@ -217,6 +217,11 @@
       "name": "sales-engineer",
       "category": "business-growth",
       "description": "Use for pre-sales work: RFP coverage gaps, competitive feature matrices or planning and scoring a proof of concept. Runs rfp_response_analyzer.py, competitive_matrix_builder.py and poc_planner.py."
+    },
+    {
+      "name": "support-ops",
+      "category": "business-growth",
+      "description": "Run a customer support queue on numbers. Use when SLA targets are being missed or disputed (first response, resolution, business hours), to work out how many agents a phone, chat or email queue needs, or to decide which ticket topics to turn into help-center articles, macros or bug fixes, from a helpdesk ticket export."
     },
     {
       "name": "business-operations-skills",
@@ -1214,6 +1219,11 @@
       "description": "Use when the user wants to get better at using Claude ('coach me', 'teach me Claude tricks', 'make me a power user'). Rates their prompts with prompt_rater.py and surfaces one relevant power-user tip per turn after activation."
     },
     {
+      "name": "cloud-finops",
+      "category": "engineering-advanced",
+      "description": "Analyse a cloud bill (AWS, Azure, Google Cloud) from a FOCUS cost export. Use when the cloud bill jumped, to find who owns untagged spend, to check Savings Plans, Reserved Instances or committed use discounts (utilization, coverage, effective savings rate) before buying more, or to track cost per customer or per order."
+    },
+    {
       "name": "code-tour",
       "category": "engineering-advanced",
       "description": "Use when asked for a CodeTour .tour file or a step-by-step code walkthrough (onboarding, architecture, PR review, how X works). Writes persona-targeted steps that link to real files and line numbers, checked to exist."
@@ -1412,6 +1422,11 @@
       "name": "minimalist",
       "category": "engineering-advanced",
       "description": "Write the least code: no over-engineering, fewer dependencies. Use whenever the user wants it simpler; applies a ladder first: YAGNI, reuse, stdlib, native platform, existing deps."
+    },
+    {
+      "name": "mobile-release",
+      "category": "engineering-advanced",
+      "description": "Get an iOS or Android app release through App Store and Google Play review, then roll it out safely. Use before submitting or uploading a build, when App Store Connect or Play Console rejects one (privacy manifest, required reason API, missing purpose string, target API level, exported components, permission declarations) or when deciding whether to widen, pause or halt a staged or phased rollout from crash and ANR numbers."
     },
     {
       "name": "monorepo-navigator",
@@ -2329,7 +2344,7 @@
       "description": "Agent-launcher resources"
     },
     "business-growth": {
-      "count": 5,
+      "count": 6,
       "description": "Business-growth resources"
     },
     "business-operations": {
@@ -2361,7 +2376,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 95,
+      "count": 97,
       "description": "Engineering-advanced resources"
     },
     "finance": {

@@ -17,7 +17,7 @@ arquiteto-de-empresa 276
 autoresearch-agent 842
 behuman 263
 book-to-skill 302
-business-growth-skills 1009
+business-growth-skills 1355
 business-investment-advisor 204
 business-operations-skills 1672
 c-level-agents 3067
@@ -28,6 +28,7 @@ chaos-engineering 271
 chief-ai-officer-advisor 259
 chief-customer-officer-advisor 266
 chief-data-officer-advisor 273
+cloud-finops 334
 cmmc-readiness 524
 code-to-prd 249
 code-tour 228
@@ -49,7 +50,7 @@ docker-development 239
 dora-readiness 594
 dossier 266
 email-pair 478
-engineering-advanced-skills 10826
+engineering-advanced-skills 11603
 engineering-skills 9841
 executive-mentor 1114
 fable-goal 246
@@ -80,6 +81,7 @@ medical-device-software 475
 meetings 435
 memory-engineering 283
 meta-research 295
+mobile-release 443
 monetize 460
 month-end-close 500
 nis2-readiness 559
@@ -106,6 +108,7 @@ slo-architect 262
 snowflake-development 224
 spinning-up-deep-rl 237
 statistical-analyst 238
+support-ops 333
 swedish-mentor 190
 syllabus 228
 terraform-patterns 234

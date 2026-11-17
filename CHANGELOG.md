@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.14] - 2026-11-17 — mobile-release, cloud-finops and support-ops
+
+Three new plugins outside regulatory work. mobile-release gets an iOS or Android update through App Store and
+Google Play review and decides whether to pause or widen a staged rollout. cloud-finops reads a FOCUS cost
+export from AWS, Azure or Google Cloud for allocation gaps, commitment coverage and cost spikes. support-ops
+checks SLA attainment on a business-hours clock, schedules agents per interval with Erlang C and finds tickets
+to deflect. All three are stdlib-only and call no provider API. cinematic-shot-prompting is now installable on
+its own. No renames, so nothing needs a reinstall; `claude plugin update` picks up the new and changed plugins
+(engineering-advanced-skills, business-growth-skills).
+
 ### Added
 - **mobile-release** (new `engineering/mobile-release` plugin, also in the engineering-advanced-skills bundle): gets an iOS or Android release through App Store and Google Play review, then rolls it out safely. Three deterministic stdlib scripts: `ios_privacy_manifest_check.py` (required-reason API use in Swift/Objective-C against PrivacyInfo.xcprivacy, with the valid reason codes per category, SDK-only codes, missing purpose strings and third-party SDKs that ship no manifest); `android_release_check.py` (Play's target API rule by form factor and date, `android:exported`, debuggable and cleartext flags, restricted permissions that need a Play Console declaration, and 16 KB page alignment of bundled native libraries read from the ELF headers); and `rollout_gate.py` (PROCEED, HOLD or HALT for the next staged or phased step from a one-sided two-proportion test against the previous release plus Play's bad-behavior thresholds). Ships the cs-mobile-release agent, `/cs-mobile-release` and `/cs-rollout-gate`, three cited references and a release checklist. Distinct from app-store-optimization, which ranks a listing.
 - **cloud-finops** (new `engineering/cloud-finops` plugin, also in the engineering-advanced-skills bundle): FinOps on a FOCUS cost export from any provider. `allocation_check.py` (allocation coverage against required tags, case-variant tags that split one owner, the largest unallocated resources, shared costs that need a split rule), `commitment_check.py` (savings plan and reservation utilization, coverage, effective savings rate, unused commitment cost and the uncovered daily floor to size a purchase), and `cost_anomaly.py` (robust median/MAD anomalies that must also clear a relative and an absolute floor, plus unit cost half over half). Ships the cs-finops-analyst agent, `/cs-finops-review` and `/cs-cost-spike`, three cited references and a review template. No provider API calls; it reads the export you give it.

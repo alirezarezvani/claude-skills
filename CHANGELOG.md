@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **cinematic-shot-prompting** is now its own marketplace plugin (`/plugin install cinematic-shot-prompting@claude-code-skills`), so you can install it without the full marketing-skills bundle. It stays in the bundle too.
+
 ## [2.14.13] - 2026-11-17 — NIS2, DORA and readme-polish
 
 Two new EU cyber-compliance plugins for laws that already apply: nis2-readiness for NIS2 and the German

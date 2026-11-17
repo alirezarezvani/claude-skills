@@ -33,6 +33,7 @@ import json
 import re
 import shutil
 import subprocess
+import tempfile
 import sys
 import textwrap
 from pathlib import Path
@@ -71,6 +72,20 @@ def srt_from_shots(shots: list) -> str:
     return "\n".join(out)
 
 
+SAFE_PATH = re.compile(r"[A-Za-z0-9_./\\:-]+")
+
+
+def safe_caption_path() -> str:
+    """A caption path the subtitles filter cannot misparse: a fresh temp dir whose path
+    holds only [A-Za-z0-9_./-] (plus a drive colon, escaped later). User file names with
+    commas, brackets, quotes or '=' never reach the filtergraph."""
+    d = tempfile.mkdtemp(prefix="conform_")
+    if not SAFE_PATH.fullmatch(d):
+        shutil.rmtree(d, ignore_errors=True)
+        d = tempfile.mkdtemp(prefix="conform_", dir=".")
+    return str(Path(d) / "captions.srt")
+
+
 def build_cmd(video_in: list, duration: float, fps: float, vo: str | None, music: str | None,
               target: float, burn: str | None, out: str) -> list:
     cmd = ["ffmpeg", "-y", "-loglevel", "error"] + video_in
@@ -93,7 +108,9 @@ def build_cmd(video_in: list, duration: float, fps: float, vo: str | None, music
         af = f"[{inputs}:a]anull[a]"
     vf = "format=yuv420p"
     if burn:
-        burn = burn.replace("\\", "/").replace(":", "\\:").replace("'", "\\'")
+        # burn is a path from safe_caption_path(): [A-Za-z0-9_./-] only, so nothing in it
+        # can break the filtergraph (commas, brackets, quotes, colons on Windows drives).
+        burn = burn.replace("\\", "/").replace(":", "\\:")
         vf = f"subtitles={burn}:force_style='FontSize=22,Outline=2,MarginV=40',{vf}"
     cmd += ["-filter_complex", f"[0:v]{vf}[vid];{af}", "-map", "[vid]", "-map", "[a]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-r", f"{fps:g}",
@@ -167,21 +184,30 @@ def main() -> int:
     if shots:
         srt_path = str(base / "captions.srt")
     target = TARGETS[args.loudness]
-    cmd = build_cmd(video_in, duration, fps, args.vo, args.music, target,
-                    srt_path if (args.burn_captions and srt_path) else None, args.out)
+    srt_text = srt_from_shots(shots) if shots else ""
+    if args.burn_captions and not srt_text.strip():
+        print("note: no voice-over lines in the scene, so there are no captions to burn in", file=sys.stderr)
+    burn_path = safe_caption_path() if (args.burn_captions and srt_text.strip()) else None
+    cmd = build_cmd(video_in, duration, fps, args.vo, args.music, target, burn_path, args.out)
     plan = {"out": args.out, "duration": round(duration, 3), "fps": fps, "loudness_target_lufs": target,
             "true_peak_dbtp": TRUE_PEAK, "audio": "vo+music" if args.vo and args.music else
             ("vo" if args.vo else ("music" if args.music else "silent track")),
-            "captions": srt_path, "burn_captions": bool(args.burn_captions and srt_path),
+            "captions": srt_path, "burn_captions": bool(burn_path),
             "command": cmd, "ran": False}
 
     if args.run:
-        if not shutil.which("ffmpeg"):
-            print("error: ffmpeg not found (install it, e.g. apt install ffmpeg / brew install ffmpeg)", file=sys.stderr)
+        if not (shutil.which("ffmpeg") and shutil.which("ffprobe")):
+            print("error: ffmpeg/ffprobe not found (install ffmpeg, e.g. apt install ffmpeg / brew install ffmpeg)", file=sys.stderr)
             return 3
         if srt_path:
-            Path(srt_path).write_text(srt_from_shots(shots), encoding="utf-8")
-        r = subprocess.run(cmd, capture_output=True, text=True)
+            Path(srt_path).write_text(srt_text, encoding="utf-8")
+        if burn_path:
+            Path(burn_path).write_text(srt_text, encoding="utf-8")
+        try:
+            r = subprocess.run(cmd, capture_output=True, text=True)
+        finally:
+            if burn_path:
+                shutil.rmtree(Path(burn_path).parent, ignore_errors=True)
         if r.returncode != 0:
             print(f"error: ffmpeg failed: {r.stderr.strip()[-1200:]}", file=sys.stderr)
             return 4

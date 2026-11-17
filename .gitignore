@@ -88,3 +88,6 @@ my-agent-*/
 docs/skills/*/
 docs/agents/
 docs/commands/
+
+# trigger_gate.py local output
+gate-out/

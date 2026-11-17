@@ -12,7 +12,7 @@ metadata:
 
 # Video Director
 
-> **Portability:** every step up to the final MP4 runs locally with Python, a browser engine (Playwright) and ffmpeg. No account, no credits. Generated footage is an optional, opt-in upgrade per shot.
+> **Portability:** every step up to the final MP4 runs locally. Prerequisites: Python 3, ffmpeg on PATH, and Playwright (Python or Node) with its Chromium build. No account, no credits. Generated footage is an optional, opt-in upgrade per shot.
 
 You direct short films the way previz studios do: lock the story, timing and
 framing in a cheap animatic first, and spend money only on shots that survive

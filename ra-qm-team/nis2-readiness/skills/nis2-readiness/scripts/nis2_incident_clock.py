@@ -19,7 +19,8 @@ Significance
       death of a natural person (caused or capable of)                                        Art 3(1)(c)
       considerable damage to a natural person's health (caused or capable of)                 Art 3(1)(d)
       successful, suspected malicious, unauthorised access capable of severe disruption       Art 3(1)(e)
-      recurring: same apparent root cause at least twice in six months, jointly meeting (a)   Art 4
+      recurring: same apparent root cause at least twice in six months, jointly meeting (a)   Art 3(1)(f), Art 4
+        (the script cannot aggregate: answer yes only after checking the joint financial-loss test yourself)
       a service-specific threshold of Arts 5-14 (column sector_threshold_met)                 Art 3(1)(g)
   Scheduled maintenance and planned interruptions are not significant (Art 3(2)).
 
@@ -209,6 +210,14 @@ def evaluate(row, line, now, warn):
         start, cbasis = ts["detected_at"], "detection (awareness not recorded)"
     if ts["detected_at"] and ts["aware_at"] and ts["aware_at"] < ts["detected_at"]:
         raise ValueError(f"row {line} ({iid}): aware_at is before detected_at")
+    for c in ("early_warning_at", "notification_at", "final_report_at", "progress_report_at",
+              "handling_concluded_at", "recipients_informed_at"):
+        if ts[c] and ts[c] < start:
+            raise ValueError(f"row {line} ({iid}): {c} is before the clock start ({cbasis})")
+    for a_, b_ in (("early_warning_at", "notification_at"), ("notification_at", "final_report_at"), ("notification_at", "progress_report_at")):
+        if ts[a_] and ts[b_] and ts[b_] < ts[a_]:
+            raise ValueError(f"row {line} ({iid}): {b_} is before {a_}")
+    future = [c for c in ts if ts[c] and ts[c] > now]
 
     if sig is False:
         add("INFO", "NOT_SIGNIFICANT", f"not significant under {basis}: {'; '.join(why)}. Keep the assessment; a voluntary notification is possible (Art 30)", basis)
@@ -219,6 +228,8 @@ def evaluate(row, line, now, warn):
     if ts["aware_at"] is None:
         add("BLOCKER", "AWARENESS_NOT_RECORDED", "no awareness timestamp: the clock is run from detection. Record when you established, with reasonable certainty, that a significant incident occurred", "Art 23(4)")
     inc["clock_start"], inc["clock_basis"] = start.isoformat(), cbasis
+    if future:
+        add("MEDIUM", "FUTURE_TIMESTAMP", f"{', '.join(future)} after the evaluation time; check the log or --as-of", "data quality")
 
     trust = flag(row, "trust_service")
     notif_window = H24 if trust else H72
@@ -309,7 +320,7 @@ EXIT = {"ON_TIME": 0, "OPEN": 2, "OVERDUE": 4}
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0],
-                                epilog="Exit codes: 0 on time, 2 open, 3 invalid input, 4 overdue, awareness not recorded, or significance undetermined after 24 h.")
+                                epilog="Exit codes: 0 on time, 2 open (includes a report sent late: LATE is recorded, not blocking), 3 invalid input (also a report timestamp before the clock start), 4 overdue, awareness not recorded, or significance undetermined after 24 h.")
     p.add_argument("--incidents", help="incident log CSV (columns in the module docstring)")
     p.add_argument("--as-of", help="evaluation time, ISO 8601 with offset (default: now)")
     p.add_argument("--warn-hours", type=float, default=12, help="flag reports due within this many hours (default 12)")

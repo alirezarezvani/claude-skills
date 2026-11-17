@@ -219,6 +219,12 @@ def run(text, now, entity, micro, holidays, warn):
                                           "intermediate_updated_at", "recovered_at", "final_at", "clients_informed_at")}
         if t["aware_at"] is None:
             raise ValueError(f"row {line} ({iid}): aware_at is required")
+        for c, v in t.items():
+            if v and v < t["aware_at"]:
+                raise ValueError(f"row {line} ({iid}): {c} is before aware_at")
+        for a_, b_ in (("initial_at", "intermediate_at"), ("intermediate_at", "final_at")):
+            if t[a_] and t[b_] and t[b_] < t[a_]:
+                raise ValueError(f"row {line} ({iid}): {b_} is before {a_}")
         m = measures(r, line)
         major, why, met = classify(m)
         incs.append({"id": iid, "row": r, "t": t, "m": m, "major": major, "why": why, "met": met,
@@ -364,7 +370,7 @@ EXIT = {"ON_TIME": 0, "OPEN": 2, "OVERDUE": 4}
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0],
-                                epilog="Exit codes: 0 on time, 2 open (includes reports not yet due, e.g. an intermediate report still waiting on the initial one), 3 invalid input, 4 overdue or unclassified after 24 h. "
+                                epilog="Exit codes: 0 on time, 2 open (includes a report sent late, and reports not yet due, e.g. an intermediate report still waiting on the initial one), 3 invalid input (also a report timestamp before aware_at), 4 overdue or unclassified after 24 h. "
                                        "Weekdays and noon are evaluated in each timestamp's own UTC offset: write timestamps in the Member State's local time.")
     p.add_argument("--incidents", help="incident log CSV (columns in the module docstring)")
     p.add_argument("--entity", default="other", choices=["credit-institution", "ccp", "trading-venue", "nis2-identified", "art16", "other"],

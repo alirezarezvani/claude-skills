@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **readme-polish** (new `engineering/readme-polish` plugin, also in the engineering-advanced-skills bundle): upgrades an existing README to the standard of the leading repos in its own category. It calibrates the presentation tier against 2-3 peer repos, runs a 15-second first-screen test, marks every claim true, stale or invented, rewrites the hero and hierarchy, and gates the result with `scripts/check_readme.py`, a stdlib-only lint for dead local links, placeholder badges, broken or non-ASCII anchors, oversized mermaid diagrams, wide tables and a missing first-screen install command. Thanks to @zhengqiuyang for #1145. We trimmed SKILL.md under 100 lines (component selection, anti-patterns and triggers moved into its references) and registered it as a standalone marketplace plugin.
+
 ## [2.14.12] - 2026-11-16 — monetize, two math fixes, triage autonomy
 
 A patch release. New productivity plugin monetize, the cinematic-shot-prompting skill that reached `main` on

@@ -55,3 +55,20 @@ Never keep an impressive claim you cannot verify.
 - [ ] The README still fits the category tier (a single tool did not acquire a banner).
 - [ ] The first command works as written.
 - [ ] No sentence claims a feature the code does not have.
+
+## Proactive Triggers
+
+- The README's first screen has no install command.
+- The version in the title or badges differs from `VERSION`, `package.json`, or the latest tag.
+- The badge row contains a shields.io image not backed by a real entity.
+- A mermaid block defines more nodes than the configured maximum.
+- A relative link or image points to a file that no longer exists.
+- The README contains a table with more than five columns.
+
+## Output Artifacts
+
+- A rewritten `README.md` (Mode 1), or a findings report with line references (Mode 2).
+- A calibration note: sampled repos, archetype, chosen tier, and why.
+- A fact list marking every claim true / stale / invented.
+- The gate output: errors, warnings, and the exit code.
+- A short list of items that still need human rendering checks.

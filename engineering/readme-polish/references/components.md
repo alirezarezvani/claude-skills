@@ -3,6 +3,31 @@
 Every component below is native to common Markdown renderers. Keep the count low and the meaning
 high.
 
+## Component Selection
+
+| Component | Use when | Skip when |
+|---|---|---|
+| Badge row (six or fewer) | License, language/runtime, version, real status | The entity does not exist |
+| Mermaid | Flow, funnel, decision path (seven nodes or fewer) | Full architecture panorama |
+| Native callouts (`> [!NOTE]`) | Install note, real evidence, risk | Decoration |
+| Collapsible `<details>` | Long command reference, artifact layout, FAQ | The core value |
+| Comparison table | "Before vs after", "it is / it is not" | Prose would be shorter |
+| Explicit anchors | Non-ASCII or emoji headings | Short English headings |
+| Banner image | Collection or commercial repo with real assets | Single tool without design assets |
+| Table of contents | README longer than about 300 lines | Short documents |
+
+## Anti-Patterns
+
+- **Banner on a single-tool repo.** It reads as compensating.
+- **More than six badges**, or badges for things that do not exist.
+- **Placeholder images or fake screenshots.** Remove them or ship a real one.
+- **Mermaid with more than seven nodes.** The diagram stops being scannable.
+- **Tables wider than five columns.** They break on a phone.
+- **Anchors that rely on auto-generated slugs** for non-ASCII headings; they will be wrong.
+- **Hiding the value proposition inside `<details>`.**
+- **Rewriting a README that is already accurate and scannable.**
+- **Keeping stale claims** (old version, removed feature) because they look impressive.
+
 ## Badge row
 
 ```markdown

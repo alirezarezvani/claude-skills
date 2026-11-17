@@ -49,6 +49,7 @@ This repository uses **modular documentation**. For domain-specific guidance, se
 | **Research Operations** | [research-ops/CLAUDE.md](research-ops/CLAUDE.md) | Clinical study design, R&D finance, market research, product research (enterprise counterpart to academic research/) |
 | **Markdown → HTML** | [markdown-html/CLAUDE.md](markdown-html/CLAUDE.md) | Markdown-to-interactive-HTML converter (orchestrator + design-system foundation; md-document/review/slides v2.10.1). Inspired by Shihipar's "Claude Code HTML output" essay |
 | **Agent Launcher** | [agent-launcher/CLAUDE.md](agent-launcher/CLAUDE.md) | Claude Managed Agent (CMA) launcher — session-goal orchestrator + interview / stage-launch / grade-iterate / run-without-you / wrap-up; deterministic BYOK-curl scaffolders; bounded grade→iterate + cron deployment loops. Re-implements anthropics/launch-your-agent (Apache-2.0) |
+| **Video** | [video/CLAUDE.md](video/CLAUDE.md) | video-studio: brief gate, beat board, code animatic (scene.v1 → seekable HTML → frame-exact MP4), optional AI shot upgrades through the user's own MCP connector, checked conform |
 | **Standards Library** | [standards/CLAUDE.md](standards/CLAUDE.md) | Communication, quality, git, security standards |
 | **Templates** | [templates/CLAUDE.md](templates/CLAUDE.md) | Template system usage |
 
@@ -77,6 +78,7 @@ claude-code-skills/
 ├── research-ops/              # 5 research-ops skills (orchestrator + clinical-research + research-finance + market-research + product-research)
 ├── markdown-html/             # 2 markdown-to-HTML skills v2.10.0 foundation (orchestrator + design-system); md-document/review/slides land in v2.10.1
 ├── agent-launcher/            # 6 CMA-launcher skills (session-goal orchestrator + 5 phase skills; 18 BYOK-curl scaffolder tools, opt-in SessionStart goal hook)
+├── video/                     # 4 video-studio skills (director + beat board + animatic + conform; 7 stdlib tools, Playwright + ffmpeg at runtime)
 ├── eval-workspace/            # Skill evaluation results (Tessl)
 ├── standards/                 # 5 standards library files
 ├── templates/                 # Reusable templates

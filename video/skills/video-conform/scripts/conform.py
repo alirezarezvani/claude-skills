@@ -187,9 +187,11 @@ def main() -> int:
             return 4
         plan["ran"] = True
         got = probe_duration(args.out)
-        lufs = measure_lufs(args.out) if (args.vo or args.music) else None
+        has_audio = bool(args.vo or args.music)
+        lufs = measure_lufs(args.out) if has_audio else None
+        # A mix that could not be measured is a failure, not a pass; only a silent track skips the check.
         qc = {"duration_s": got, "duration_ok": got is not None and abs(got - duration) <= 1.5 / fps + 0.05,
-              "lufs": lufs, "lufs_ok": lufs is None or abs(lufs - target) <= 1.0}
+              "lufs": lufs, "lufs_ok": (not has_audio) or (lufs is not None and abs(lufs - target) <= 1.0)}
         plan["qc"] = qc
         plan["verdict"] = "PASS" if qc["duration_ok"] and qc["lufs_ok"] else "QC-FAILED"
     else:
@@ -202,8 +204,11 @@ def main() -> int:
               f"target {target:g} LUFS / {TRUE_PEAK:g} dBTP")
         if plan.get("qc"):
             q = plan["qc"]
-            print(f"  duration {q['duration_s']}s ({'ok' if q['duration_ok'] else 'MISMATCH'}), "
-                  f"loudness {q['lufs']} LUFS ({'ok' if q['lufs_ok'] else 'OFF TARGET'})")
+            if q["lufs"] is None and q["lufs_ok"]:
+                loud = "loudness n/a (silent track)"
+            else:
+                loud = f"loudness {q['lufs']} LUFS ({'ok' if q['lufs_ok'] else 'OFF TARGET or unmeasured'})"
+            print(f"  duration {q['duration_s']}s ({'ok' if q['duration_ok'] else 'MISMATCH'}), {loud}")
         if srt_path:
             print(f"  captions: {srt_path}{' (burned in)' if plan['burn_captions'] else ''}")
         if not plan["ran"]:

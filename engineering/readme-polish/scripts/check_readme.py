@@ -64,7 +64,7 @@ INSTALL_RE = re.compile(
     re.I,
 )
 PLACEHOLDER_RE = re.compile(
-    r"(placeholder|todo|tbd|coming\s+soon|待补|占位|示例截图|假图)", re.I
+    r"(\b(?:placeholder|todo|tbd|coming\s+soon)\b|待补|占位|示例截图|假图)", re.I
 )
 INLINE_CODE_RE = re.compile(r"`+[^`]*`+")
 GITHUB_PAGE_IMG_RE = re.compile(r"github\.com/[^)\s\"']+/(?:blob|tree)/", re.I)
@@ -94,7 +94,8 @@ def slugify(text: str) -> str:
     text = re.sub(r"<[^>]+>", "", text)
     text = text.strip().lower()
     text = re.sub(r"[^\w\s-]", "", text, flags=re.UNICODE)
-    return re.sub(r"\s+", "-", text).strip("-")
+    # GitHub keeps a leading hyphen left by a stripped emoji: "🚀 Install" -> "-install".
+    return re.sub(r"\s", "-", text)
 
 
 def has_non_ascii(text: str) -> bool:
@@ -277,7 +278,8 @@ def scan_file(path: Path, cfg: Config) -> list[Finding]:
 
 
 def _check_image(add, lineno: int, alt: str, url: str, readme: Path) -> None:
-    if PLACEHOLDER_RE.search(alt) or PLACEHOLDER_RE.search(url):
+    filename = url.split("?", 1)[0].split("#", 1)[0].rstrip("/").rsplit("/", 1)[-1]
+    if PLACEHOLDER_RE.search(alt) or PLACEHOLDER_RE.search(filename):
         add(
             "R003",
             "error",

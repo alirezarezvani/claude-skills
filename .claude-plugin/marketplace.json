@@ -664,7 +664,7 @@
       "name": "video-studio",
       "source": "./video",
       "description": "Brief to finished MP4 through a code animatic. Four skills: video-director (brief gate, context: fork, upgrade protocol), video-beat-board (times beats against the brief and refuses what does not fit), video-animatic (scene.v1 JSON -> seekable HTML timeline -> frame-exact Playwright render, linter for readability, flashes and contrast, keyframes and shot manifest) and video-conform (ffmpeg mix, loudness to a named target, captions, post-encode QC). AI shot upgrades are optional and go through the user's own MCP connector, quoted per shot, after an explicit yes. 7 stdlib scripts, no generation service called by any script.",
-      "version": "2.14.13",
+      "version": "2.14.14",
       "author": {
         "name": "Alireza Rezvani"
       },

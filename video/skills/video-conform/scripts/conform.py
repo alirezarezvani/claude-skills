@@ -82,6 +82,7 @@ def srt_from_shots(shots: list) -> str:
     return "\n".join(out)
 
 
+FRAME_PATTERN = re.compile(r"[\w.-]*%0?\d*d[\w.-]*")  # one integer field, no path separators
 SAFE_PATH = re.compile(r"[A-Za-z0-9_./\\:-]+")
 
 
@@ -134,17 +135,21 @@ def build_cmd(video_in: list, duration: float, fps: float, vo: str | None, music
 
 
 def probe_duration(path: str) -> float | None:
-    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", as_input(path)],
-                       capture_output=True, text=True)
     try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", as_input(path)],
+                           capture_output=True, text=True, timeout=60)
         return float(r.stdout.strip())
-    except ValueError:
+    except (ValueError, subprocess.TimeoutExpired):
         return None
 
 
 def measure_lufs(path: str) -> float | None:
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", as_input(path), "-filter_complex", "ebur128", "-f", "null", "-"],
-                       capture_output=True, text=True)
+    """None when unmeasurable or when ffmpeg hangs; QC then fails closed."""
+    try:
+        r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", as_input(path), "-filter_complex", "ebur128",
+                            "-f", "null", "-"], capture_output=True, text=True, timeout=600)
+    except subprocess.TimeoutExpired:
+        return None
     m = re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)
     return float(m[-1]) if m else None
 
@@ -192,6 +197,8 @@ def main() -> int:
             fdir, pat = Path(render["frames_dir"]), render["pattern"]
             count = int(render.get("frame_count") or round(duration * fps))
             try:
+                if not FRAME_PATTERN.fullmatch(str(pat)):
+                    raise ValueError(pat)
                 missing = [i for i in range(count) if not (fdir / (pat % i)).exists()]
             except (TypeError, ValueError):
                 print(f"error: render.json pattern {pat!r} is not a frame pattern like frame_%05d.png",

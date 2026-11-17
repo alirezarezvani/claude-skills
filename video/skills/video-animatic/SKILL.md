@@ -81,6 +81,9 @@ camera-intent sentence, first/last keyframes and what stays as code overlay.
 It names no provider and calls nothing; `video-director` quotes and sends it.
 A greybox placeholder is never sent as a keyframe, because it carries no framing.
 
+Render only pages you compiled yourself: `frame_renderer.py` opens the HTML in
+Chromium from `file://`, where its script can read local files.
+
 ## Design rules
 
 - One idea per shot; one heading face and one body face.

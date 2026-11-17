@@ -38,7 +38,10 @@ when a scene is given (one cue per shot, two lines of up to 42 characters);
 they autoplay muted.
 
 QC after encode: duration within one frame of the scene and loudness within
-1 LU of the target. A miss is exit 4; fix the input (a clipped VO, a silent
+1 LU of the target. Loudness is single-pass `loudnorm`, which lands within
+1 LU on clips of about 5 s and longer; on very short stings measure and re-run
+rather than widening the gate. A voice-over longer than the picture is warned
+about, and a render with missing frames is refused. A miss is exit 4; fix the input (a clipped VO, a silent
 track) rather than re-running until it passes.
 
 ## Delivery checklist

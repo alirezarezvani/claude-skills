@@ -152,6 +152,9 @@ def main() -> int:
     args = ap.parse_args()
 
     try:
+        if not args.sample and not (args.render or args.video):
+            if args.run or args.scene or args.vo or args.music:
+                raise ValueError("pass --render (frames from frame_renderer.py) or --video, or --sample for a dry plan")
         if args.sample or not (args.render or args.video):
             render, shots, args.run = SAMPLE_RENDER, SAMPLE_SHOTS, False
             base = Path("film")
@@ -170,6 +173,14 @@ def main() -> int:
     if render:
         fps = float(render["fps"])
         duration = float(render["duration"])
+        if args.run:
+            # image2 stops at the first missing frame, so a gap would silently shorten the cut.
+            fdir, pat = Path(render["frames_dir"]), render["pattern"]
+            missing = [i for i in range(int(render.get("frame_count", 0))) if not (fdir / (pat % i)).exists()]
+            if missing:
+                print(f"error: {len(missing)} frame(s) missing from {fdir} (first: {pat % missing[0]}); "
+                      "render the whole film with frame_renderer.py before conforming", file=sys.stderr)
+                return 2
         video_in = ["-framerate", f"{fps:g}", "-i", str(Path(render["frames_dir"]) / render["pattern"])]
     else:
         fps = 30.0
@@ -204,6 +215,11 @@ def main() -> int:
             Path(srt_path).write_text(srt_text, encoding="utf-8")
         if burn_path:
             Path(burn_path).write_text(srt_text, encoding="utf-8")
+        vo_len = probe_duration(args.vo) if args.vo else None
+        if vo_len and vo_len > duration + 0.1:
+            print(f"warning: voice-over is {vo_len:.1f}s but the picture is {duration:.1f}s, so the export "
+                  "cuts it off; re-time the beats or trim the VO", file=sys.stderr)
+            plan["warnings"] = ["vo-longer-than-picture"]
         try:
             r = subprocess.run(cmd, capture_output=True, text=True)
         finally:

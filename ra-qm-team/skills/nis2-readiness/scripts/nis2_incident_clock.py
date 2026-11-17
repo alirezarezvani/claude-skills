@@ -86,6 +86,8 @@ INC-44,TrustSign QTSP,essential,yes,yes,2026-10-01T10:00:00+02:00,2026-10-01T12:
 INC-45,CloudNest SaaS GmbH,important,yes,no,2026-11-12T08:00:00+01:00,2026-11-12T09:00:00+01:00,,,,,,,,,,,,yes,,,,,,,,,,,
 """
 
+RULES_VERIFIED = "2026-11-17"  # bump after re-checking the cited articles
+
 
 def norm(v):
     return (v or "").strip()
@@ -93,7 +95,13 @@ def norm(v):
 
 def flag(row, col):
     v = norm(row.get(col)).lower()
-    return True if v in YES else False if v in NO else None
+    if not v:
+        return None
+    if v in YES:
+        return True
+    if v in NO:
+        return False
+    raise ValueError(f"{col}: '{row.get(col)}' is not yes/no (leave it blank if not assessed)")
 
 
 def parse_ts(v, field):
@@ -292,7 +300,7 @@ def render(out):
     lines += ["", f"{s['incidents']} incidents, {s['significant']} significant, {s['undetermined']} undetermined, "
               f"{s['pending_reports']} reports pending. Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items()),
               "Send to the CSIRT or competent authority of the supervising Member State; intermediate reports only on request (Art 23(4)(c))."]
-    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
+    lines += ["", f"Rules last verified {RULES_VERIFIED}. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

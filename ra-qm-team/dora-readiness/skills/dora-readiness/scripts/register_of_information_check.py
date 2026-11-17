@@ -72,6 +72,8 @@ C-004,OfficeSuite BV,724500ZYXWVUTSRQ9876,NL,email and office,no,,a;b;c;d;e;g;h,
 C-005,HR Payroll GmbH,391200QWERTYUIOP5555,DE,payroll SaaS,,,a;b;c,,none,,unknown,,
 """
 
+RULES_VERIFIED = "2026-11-17"  # bump after re-checking the cited articles
+
 
 def norm(v):
     return (v or "").strip()
@@ -186,7 +188,7 @@ def render(o):
     s = o["summary"]
     lines += ["", f"{s['contracts']} contracts, {s['critical_or_important']} supporting critical or important functions. Findings: "
               + ", ".join(f"{k} {v}" for k, v in s["findings"].items())]
-    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
+    lines += ["", f"Rules last verified {RULES_VERIFIED}. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

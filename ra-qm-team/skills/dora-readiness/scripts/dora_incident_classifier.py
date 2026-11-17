@@ -76,6 +76,8 @@ ICT-305,2026-11-10T09:00:00+01:00,,yes,no,4,1200,,,,no,complaints,4,1.5,1,no,400
 ICT-306,2026-11-15T22:00:00+01:00,,no,no,,,,,,,,2,,1,no,,,,,,,,
 """
 
+RULES_VERIFIED = "2026-11-17"  # bump after re-checking the cited articles
+
 
 def norm(v):
     return (v or "").strip()
@@ -83,7 +85,13 @@ def norm(v):
 
 def b(row, col):
     v = norm(row.get(col)).lower()
-    return True if v in YES else False if v in NO else None
+    if not v:
+        return None
+    if v in YES:
+        return True
+    if v in NO:
+        return False
+    raise ValueError(f"{col}: '{row.get(col)}' is not yes/no (leave it blank if not assessed)")
 
 
 def f(row, col, line):
@@ -219,28 +227,32 @@ def run(text, now, entity, micro, holidays, warn):
     if not micro and entity != "art16":
         groups = {}
         for x in incs:
-            if x["major"] is False and x["root"] and x["m"]["critical_services"]:
+            if x["major"] is not True and x["root"] and x["m"]["critical_services"]:
                 groups.setdefault(x["root"], []).append(x)
         for root, xs in groups.items():
             xs.sort(key=lambda x: x["t"]["aware_at"])
-            window = [x for x in xs if xs[-1]["t"]["aware_at"] - x["t"]["aware_at"] <= dt.timedelta(days=183)]
-            if len(window) < 2:
-                continue
-            agg = {"critical_services": True, "malicious_access": any(x["m"]["malicious_access"] for x in window)}
-            for k in ("clients", "economic_eur", "duration_h", "cif_downtime_h"):
-                vals = [x["m"][k] for x in window if x["m"][k] is not None]
-                agg[k] = sum(vals) if vals else None
-            for k in ("clients_pct", "counterparts_pct", "transactions_pct", "transaction_value_pct", "member_states"):
-                vals = [x["m"][k] for x in window if x["m"][k] is not None]
-                agg[k] = max(vals) if vals else None
-            agg["relevant_clients"] = any(x["m"]["relevant_clients"] for x in window)
-            agg["reputational"] = sorted({r for x in window for r in x["m"]["reputational"]})
-            agg["data_impact"] = any(x["m"]["data_impact"] for x in window)
-            maj, why, _ = classify(agg)
-            if maj:
-                last = window[-1]
-                last["major"], last["recurring"] = True, True
-                last["why"] = [f"RECURRING: {len(window)} incidents with root cause {root} within 6 months jointly meet Art 8(1): {why[0]} (Art 8(2)). Aggregation here sums clients, costs and durations and takes the widest share; confirm the method with your competent authority"]
+            # Sliding window: the first incident that completes a qualifying set within 183 days
+            # (Art 8(2) "at least twice within 6 months") becomes the reportable major incident.
+            for anchor in xs[1:]:
+                window = [x for x in xs if dt.timedelta(0) <= anchor["t"]["aware_at"] - x["t"]["aware_at"] <= dt.timedelta(days=183)]
+                if len(window) < 2:
+                    continue
+                agg = {"critical_services": True, "malicious_access": any(x["m"]["malicious_access"] for x in window)}
+                for k in ("clients", "economic_eur", "duration_h", "cif_downtime_h"):
+                    vals = [x["m"][k] for x in window if x["m"][k] is not None]
+                    agg[k] = sum(vals) if vals else None
+                for k in ("clients_pct", "counterparts_pct", "transactions_pct", "transaction_value_pct", "member_states"):
+                    vals = [x["m"][k] for x in window if x["m"][k] is not None]
+                    agg[k] = max(vals) if vals else None
+                agg["relevant_clients"] = any(x["m"]["relevant_clients"] for x in window)
+                agg["reputational"] = sorted({r for x in window for r in x["m"]["reputational"]})
+                agg["data_impact"] = any(x["m"]["data_impact"] for x in window)
+                maj, why, _ = classify(agg)
+                if maj:
+                    last = anchor
+                    last["major"], last["recurring"] = True, True
+                    last["why"] = [f"RECURRING: {len(window)} incidents with root cause {root} within 6 months jointly meet Art 8(1): {why[0]} (Art 8(2)). Aggregation here sums clients, costs and durations and takes the widest share; confirm the method with your competent authority"]
+                    break
 
     counts = {s: 0 for s in SEVERITY_ORDER}
     pending = 0
@@ -343,7 +355,7 @@ def render(out):
               "Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items()),
               *[f"Note: {n}" for n in out["notes"]],
               "Report to the financial competent authority with the ITS templates (Implementing Regulation (EU) 2025/302)."]
-    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
+    lines += ["", f"Rules last verified {RULES_VERIFIED}. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 
@@ -352,7 +364,8 @@ EXIT = {"ON_TIME": 0, "OPEN": 2, "OVERDUE": 4}
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0],
-                                epilog="Exit codes: 0 on time, 2 open, 3 invalid input, 4 overdue or unclassified after 24 h.")
+                                epilog="Exit codes: 0 on time, 2 open (includes reports not yet due, e.g. an intermediate report still waiting on the initial one), 3 invalid input, 4 overdue or unclassified after 24 h. "
+                                       "Weekdays and noon are evaluated in each timestamp's own UTC offset: write timestamps in the Member State's local time.")
     p.add_argument("--incidents", help="incident log CSV (columns in the module docstring)")
     p.add_argument("--entity", default="other", choices=["credit-institution", "ccp", "trading-venue", "nis2-identified", "art16", "other"],
                    help="entity kind: decides weekend relief (Art 5(5)) and the recurring check (art16 = simplified framework)")

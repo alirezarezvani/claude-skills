@@ -77,6 +77,8 @@ ANNEX_2690 = {"A": "Annex 1-2", "B": "Annex 3", "C-1": "Annex 4", "C-2": "Annex 
               "I-3": "Annex 12", "P-1": "Annex 13", "J-1": "Annex 11", "RSK-1": "Annex 2", "REP-1": "Annex 3"}
 SEVERITY_ORDER = ["BLOCKER", "HIGH", "MEDIUM", "INFO"]
 
+RULES_VERIFIED = "2026-11-17"  # bump after re-checking the cited articles
+
 
 def sample():
     status = {"GOV-3": "NOT_MET", "D-2": "PARTIAL", "D-3": "PARTIAL", "E-2": "PARTIAL", "J-2": "NA",
@@ -157,7 +159,7 @@ def render(out):
     lines += ["", f"{s['met']}/{s['requirements']} MET, {s['na']} NA. Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items())]
     if out["digital_provider"]:
         lines.append("Digital provider: each area is specified in Implementing Regulation (EU) 2024/2690 Annex; audit against that text.")
-    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
+    lines += ["", f"Rules last verified {RULES_VERIFIED}. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

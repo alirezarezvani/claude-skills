@@ -16,7 +16,7 @@
       "name": "marketing-skills",
       "source": "./marketing-skill",
       "description": "47 marketing skills across 8 pods: Content, SEO & AEO, CRO, Channels, Growth, Intelligence, Sales enablement, and X/Twitter growth. 62 Python tools, 89 reference docs.",
-      "version": "2.14.12",
+      "version": "2.14.13",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -1596,7 +1596,8 @@
       "description": "Use when writing camera movement or motion prompts for AI video generators (Runway Gen-3, Kling, Sora, Luma). Compiles narrative shot descriptions into a 7-slot Camera Motion Contract (anchor, mechanism, velocity, subject lock, parallax, environmental response, landing) with a stdlib Python compiler, to cut perspective jitter and character morphing.",
       "version": "2.14.13",
       "author": {
-        "name": "Peng Guo"
+        "name": "Peng Guo",
+        "url": "https://github.com/287523023qq-hue"
       },
       "keywords": [
         "video-generation",

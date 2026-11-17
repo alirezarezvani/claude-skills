@@ -61,14 +61,23 @@ def ts(sec: float) -> str:
 
 
 def srt_from_shots(shots: list) -> str:
+    """One or more cues per shot: lines of at most 42 characters, two lines per cue.
+    A voice-over too long for one cue is split into consecutive cues across the shot,
+    each timed in proportion to its length, so no words are dropped."""
     out, t, n = [], 0.0, 0
     for s in shots:
         d = float(s["duration"])
         vo = (s.get("vo") or "").strip()
         if vo:
-            n += 1
-            lines = textwrap.wrap(vo, 42)[:2] if len(vo) <= 84 else textwrap.wrap(vo, max(42, len(vo) // 2 + 1))[:2]
-            out.append(f"{n}\n{ts(t + 0.05)} --> {ts(t + d - 0.05)}\n" + "\n".join(lines) + "\n")
+            lines = textwrap.wrap(vo, 42)
+            cues = [lines[i:i + 2] for i in range(0, len(lines), 2)]
+            total = sum(len(" ".join(c)) for c in cues)
+            start = t
+            for c in cues:
+                span = d * len(" ".join(c)) / total
+                n += 1
+                out.append(f"{n}\n{ts(start + 0.05)} --> {ts(start + span - 0.05)}\n" + "\n".join(c) + "\n")
+                start += span
         t += d
     return "\n".join(out)
 
@@ -177,7 +186,12 @@ def main() -> int:
             # image2 stops at the first missing frame, so a gap would silently shorten the cut.
             fdir, pat = Path(render["frames_dir"]), render["pattern"]
             count = int(render.get("frame_count") or round(duration * fps))
-            missing = [i for i in range(count) if not (fdir / (pat % i)).exists()]
+            try:
+                missing = [i for i in range(count) if not (fdir / (pat % i)).exists()]
+            except (TypeError, ValueError):
+                print(f"error: render.json pattern {pat!r} is not a frame pattern like frame_%05d.png",
+                      file=sys.stderr)
+                return 2
             if missing:
                 print(f"error: {len(missing)} frame(s) missing from {fdir} (first: {pat % missing[0]}); "
                       "render the whole film with frame_renderer.py before conforming", file=sys.stderr)
@@ -257,6 +271,9 @@ def main() -> int:
             else:
                 loud = f"loudness {q['lufs']} LUFS ({'ok' if q['lufs_ok'] else 'OFF TARGET or unmeasured'})"
             print(f"  duration {q['duration_s']}s ({'ok' if q['duration_ok'] else 'MISMATCH'}), {loud}")
+            if not q["lufs_ok"]:
+                print("  fix: check the inputs for clipping or near-silence; for a very short sting, measure "
+                      "with ebur128 and run loudnorm twice (measured_I/TP/LRA) rather than widening the gate")
         if srt_path:
             print(f"  captions: {srt_path}{' (burned in)' if plan['burn_captions'] else ''}")
         if not plan["ran"]:

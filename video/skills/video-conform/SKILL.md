@@ -33,7 +33,8 @@ python3 $C --video film/cut.mp4 --scene film/scene.json --loudness music --burn-
 | `broadcast` | -23 LUFS | -1 dBTP | EBU R 128 |
 
 Music is mixed about 12 dB under the voice. `captions.srt` is always written
-when a scene is given (one cue per shot, two lines of up to 42 characters);
+when a scene is given (two lines of up to 42 characters per cue; a long voice-over line is split
+into several cues across its shot, never cut);
 `--burn-captions` also draws them in, which most social feeds need because
 they autoplay muted.
 

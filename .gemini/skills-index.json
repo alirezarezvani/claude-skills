@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 467,
+  "total_skills": 470,
   "skills": [
     {
       "name": "content-strategist",
@@ -196,7 +196,7 @@
     {
       "name": "business-growth-skills",
       "category": "business-growth",
-      "description": "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations and contract-and-proposal-writer."
+      "description": "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations, contract-and-proposal-writer and support-ops."
     },
     {
       "name": "contract-and-proposal-writer",
@@ -217,6 +217,11 @@
       "name": "sales-engineer",
       "category": "business-growth",
       "description": "Use for pre-sales work: RFP coverage gaps, competitive feature matrices or planning and scoring a proof of concept. Runs rfp_response_analyzer.py, competitive_matrix_builder.py and poc_planner.py."
+    },
+    {
+      "name": "support-ops",
+      "category": "business-growth",
+      "description": "Use for any customer support operations question - SLA attainment and breaches (first response, resolution, business hours, weekends, tickets about to breach), how many agents to schedule per hour for a phone, chat or email queue and where the roster is short (Erlang C, service level, handle time, shrinkage, occupancy, backlog), or which ticket topics to deflect with help-center articles, automate with macros or fix as product bugs. Works from a helpdesk ticket export with stdlib scripts."
     },
     {
       "name": "business-operations-skills",
@@ -1214,6 +1219,11 @@
       "description": "Use when the user wants to get better at using Claude ('coach me', 'teach me Claude tricks', 'make me a power user'). Rates their prompts with prompt_rater.py and surfaces one relevant power-user tip per turn after activation."
     },
     {
+      "name": "cloud-finops",
+      "category": "engineering-advanced",
+      "description": "Use for any cloud cost question on AWS, Azure or Google Cloud - a bill that jumped or one service that spiked (NAT gateway, egress, storage), cost anomaly alert thresholds, untagged or unallocated spend and tag cleanup for showback or chargeback, Savings Plans, Reserved Instances or committed use discounts (utilization, coverage, unused commitment, effective savings rate, whether to buy more), or whether cost per order or per customer got worse. Reads a FOCUS billing export with stdlib scripts."
+    },
+    {
       "name": "code-tour",
       "category": "engineering-advanced",
       "description": "Use when asked for a CodeTour .tour file or a step-by-step code walkthrough (onboarding, architecture, PR review, how X works). Writes persona-targeted steps that link to real files and line numbers, checked to exist."
@@ -1412,6 +1422,11 @@
       "name": "minimalist",
       "category": "engineering-advanced",
       "description": "Write the least code: no over-engineering, fewer dependencies. Use whenever the user wants it simpler; applies a ladder first: YAGNI, reuse, stdlib, native platform, existing deps."
+    },
+    {
+      "name": "mobile-release",
+      "category": "engineering-advanced",
+      "description": "Use when shipping an iOS or Android app update to the App Store or Google Play - Apple or Google rejected or warned about a build (ITMS-91053 privacy manifest, required reason API, missing usage description, target API level, 16 KB page size, exported activity, SMS or call log permission, Data safety), a readiness check before submitting an iOS, Android, Flutter or React Native release, or whether to pause, halt or widen a phased or staged rollout from crash rate, ANR rate or Play's bad behavior thresholds. Checks the project with stdlib scripts."
     },
     {
       "name": "monorepo-navigator",
@@ -2349,7 +2364,7 @@
       "description": "Agent-launcher resources"
     },
     "business-growth": {
-      "count": 5,
+      "count": 6,
       "description": "Business-growth resources"
     },
     "business-operations": {
@@ -2381,7 +2396,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 95,
+      "count": 97,
       "description": "Engineering-advanced resources"
     },
     "finance": {

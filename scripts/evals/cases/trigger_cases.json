@@ -3929,6 +3929,36 @@
   "neg": "Calculate our DORA metrics: deployment frequency, lead time for changes, change failure rate and MTTR from this CSV of deploys.",
   "origin": "reviewed"
  },
+ "business-growth/support-ops/skills/support-ops": {
+  "name": "support-ops",
+  "plugin": "support-ops",
+  "pos": [
+   "What percentage of our support tickets met the first-response SLA last month? Our targets are in business hours, Mon-Fri 9 to 6.",
+   "How many chat agents do we need per hour to answer 80% of chats within 60 seconds? Here are our hourly volumes."
+  ],
+  "neg": "Score our customers' health and flag accounts at churn risk from this usage data.",
+  "origin": "support-ops-build"
+ },
+ "engineering/cloud-finops/skills/cloud-finops": {
+  "name": "cloud-finops",
+  "plugin": "cloud-finops",
+  "pos": [
+   "Our AWS bill jumped 40% last month. Here's a FOCUS cost export - can you find what spiked and which team owns it?",
+   "What share of our cloud spend is untagged? We need cost allocation by team from our FOCUS billing data."
+  ],
+  "neg": "Calculate our SaaS metrics: ARR, net revenue retention, CAC payback and burn multiple.",
+  "origin": "cloud-finops-build"
+ },
+ "engineering/mobile-release/skills/mobile-release": {
+  "name": "mobile-release",
+  "plugin": "mobile-release",
+  "pos": [
+   "Our iOS app got rejected with ITMS-91053 missing API declaration for NSPrivacyAccessedAPICategoryUserDefaults. What do we put in PrivacyInfo.xcprivacy?",
+   "We're shipping version 4.2 of our Android app to Google Play next week. How should we stage the rollout and when do we halt it?"
+  ],
+  "neg": "Improve our App Store listing keywords and screenshots so we rank higher for 'budget planner'.",
+  "origin": "mobile-release-build"
+ },
  "video/skills/video-animatic": {
   "name": "video-animatic",
   "plugin": "video-studio",

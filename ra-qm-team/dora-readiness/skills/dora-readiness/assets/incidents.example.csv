@@ -1,0 +1,7 @@
+id,aware_at,classified_at,critical_services,malicious_access,clients_pct,clients,counterparts_pct,transactions_pct,transaction_value_pct,relevant_clients,reputational,duration_h,cif_downtime_h,member_states,data_impact,economic_eur,root_cause_id,initial_at,intermediate_at,intermediate_updated_at,recovered_at,final_at,clients_informed_at
+ICT-301,2026-11-13T19:10:00+01:00,2026-11-13T21:00:00+01:00,yes,no,14,42000,,,,no,media,6,4.5,1,no,60000,RC-DNS,2026-11-14T00:30:00+01:00,,,2026-11-14T03:00:00+01:00,,
+ICT-302,2026-11-16T08:20:00+01:00,,yes,yes,,,,,,,,1,0.5,1,yes,,RC-PHISH,,,,,,
+ICT-303,2026-09-02T10:00:00+02:00,2026-09-02T11:00:00+02:00,yes,no,3,9000,,,,no,,30,3,2,no,250000,RC-STOR,2026-09-02T14:30:00+02:00,2026-09-05T12:00:00+02:00,,2026-09-03T18:00:00+02:00,2026-10-03T12:00:00+02:00,2026-09-02T16:00:00+02:00
+ICT-304,2026-10-20T09:00:00+02:00,,yes,no,2,800,,,,no,,3,1,1,no,30000,RC-BATCH,,,,,,
+ICT-305,2026-11-10T09:00:00+01:00,,yes,no,4,1200,,,,no,complaints,4,1.5,1,no,40000,RC-BATCH,,,,,,
+ICT-306,2026-11-15T22:00:00+01:00,,no,no,,,,,,,,2,,1,no,,,,,,,,

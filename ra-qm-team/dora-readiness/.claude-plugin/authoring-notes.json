@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Planned-skills inventory re-ranked 2026-11-17: DORA has applied since 17 January 2025 and supervisors first collect the register of information and major-incident reports; no skill classified ICT incidents against the RTS thresholds or checked Article 30 contracts",
+    "build_pattern": "Three deterministic stdlib scripts with blocking exit codes (scope + simplified framework + CTPP check, major-incident classifier with the 2025/301 clock, register of information and Article 30 check); rules from Regulation (EU) 2022/2554 Arts 2, 16, 19, 26, 28-31, 35, Delegated Regulations (EU) 2024/1772 Arts 6-9 and 2025/301 Art 5, Implementing Regulation (EU) 2024/2956",
+    "distinct_from": "nis2-readiness (non-financial entities); vpe-advisor (DORA DevOps metrics, a different DORA); information-security-manager-iso27001 (management system); cra-readiness (products)"
+  }
+}

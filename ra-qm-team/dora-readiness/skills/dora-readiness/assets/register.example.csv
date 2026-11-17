@@ -1,0 +1,6 @@
+contract_id,provider,provider_lei,provider_country,service,critical_or_important,function,art30_2,art30_3,exit_plan,risk_assessment,subcontractors,substitutable,last_review
+C-001,Cloudhost SE,529900ABCDEFGHIJ1234,DE,IaaS core banking,yes,payments;core-ledger,a;b;c;d;e;f;g;h;i,a;b;c;e;f,documented,yes,yes,no,2026-03-01
+C-002,Cloudhost SE,529900ABCDEFGHIJ1234,DE,managed backup,yes,core-ledger,a;b;c;d;e;f;g;h;i,a;b;c;d;e;f,tested,yes,yes,yes,2026-06-12
+C-003,CardSwitch Inc,,US,card processing,yes,card-issuing,a;b;c;e;g;h,a;b;e,none,no,unknown,unknown,2024-02-10
+C-004,OfficeSuite BV,724500ZYXWVUTSRQ9876,NL,email and office,no,,a;b;c;d;e;g;h,,none,yes,yes,yes,2026-01-15
+C-005,HR Payroll GmbH,391200QWERTYUIOP5555,DE,payroll SaaS,,,a;b;c,,none,,unknown,,

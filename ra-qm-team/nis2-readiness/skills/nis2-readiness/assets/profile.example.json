@@ -1,0 +1,18 @@
+{
+  "name": "Nordbank AG (credit institution that also makes its own POS terminal)",
+  "sector": "banking",
+  "employees": 320,
+  "turnover_eur_m": 95,
+  "balance_eur_m": 140,
+  "special": [],
+  "dora_type": "credit-institution",
+  "product_manufacturer": true,
+  "personal_data": true,
+  "event": {
+    "aware_at": "2026-11-16T23:40:00+01:00",
+    "service_impact": true,
+    "own_product_exploited": true,
+    "personal_data_affected": true,
+    "clients_financial_interest": true
+  }
+}

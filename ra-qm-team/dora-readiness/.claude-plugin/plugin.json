@@ -1,0 +1,15 @@
+{
+  "name": "dora-readiness",
+  "description": "Get an EU financial entity ready for DORA, the Digital Operational Resilience Act (Regulation 2022/2554). Three deterministic stdlib scripts: a scope check for the 20 entity types, exclusions, the Article 16 simplified framework and critical ICT provider oversight; a major-incident classifier that applies the Delegated Regulation 2024/1772 thresholds, catches recurring incidents and runs the 2025/301 clock (initial 4h/24h, intermediate 72h, final one month, weekend rule); and a register of information check for Article 30 contract terms, exit plans and concentration risk. Ships cs-dora-officer agent, /cs-dora-readiness and /cs-dora-incident commands, 3 cited references and a major-incident runbook.",
+  "version": "2.14.13",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/dora-readiness",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/dora-readiness"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "nis2-readiness",
+  "description": "Get an EU company ready for NIS2 (Directive 2022/2555) and the German NIS2UmsuCG. Four deterministic stdlib scripts: a scope classifier that sorts entities into essential, important or out by sector and size and names the authority and registration duty; an Article 23 clock for the 24h early warning, 72h notification and one-month final report, with the Implementing Regulation 2024/2690 significance thresholds; an Article 21 gap check of 30 measures; and a router that lays NIS2, DORA, CRA and GDPR reporting clocks side by side for one event. Ships cs-nis2-officer agent, /cs-nis2-readiness, /cs-nis2-report and /cs-eu-cyber-scope commands, 3 cited references and an incident runbook.",
+  "version": "2.14.13",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/nis2-readiness",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/nis2-readiness"
+  ]
+}

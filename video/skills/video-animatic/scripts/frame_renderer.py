@@ -43,6 +43,22 @@ from scene_model import SAMPLE_SCENE, normalize, timeline, total_duration  # noq
 STEP_TIMEOUT = 3600  # seconds; a stuck browser or encode fails with exit 4 instead of hanging
 SCENE_RE = re.compile(r"const SCENE = (\{.*?\});\n", re.S)
 
+# Network policy for the render browser: local files, inline data and the Google Fonts the
+# compiler links are allowed; any other http(s) request is blocked unless --allow-remote,
+# so a shared scene.json cannot make the renderer fetch arbitrary hosts.
+FONT_HOSTS = ("fonts.googleapis.com", "fonts.gstatic.com")
+
+
+def request_allowed(url: str, allow_remote: bool) -> bool:
+    from urllib.parse import urlsplit
+    parts = urlsplit(url)
+    if parts.scheme in ("file", "data", "blob", "about"):
+        return True
+    if parts.scheme in ("http", "https"):
+        return allow_remote or parts.hostname in FONT_HOSTS
+    return False
+
+
 NODE_RUNNER = r"""
 const { chromium } = require('playwright');
 const fs = require('fs');
@@ -50,6 +66,14 @@ const fs = require('fs');
   const job = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: job.width, height: job.height }, deviceScaleFactor: 1 });
+  await page.route('**/*', route => {
+    const u = new URL(route.request().url());
+    const ok = ['file:', 'data:', 'blob:', 'about:'].includes(u.protocol) ||
+      (['http:', 'https:'].includes(u.protocol) && (job.allowRemote || job.fontHosts.includes(u.hostname)));
+    if (ok) return route.continue();
+    console.log('BLOCKED ' + u.href);
+    return route.abort();
+  });
   await page.goto(job.url, { waitUntil: 'load' });
   await page.evaluate(() => window.__ready);
   for (const f of job.frames) {
@@ -116,29 +140,42 @@ def pick_backend(choice: str) -> str | None:
     return None
 
 
-def render_python(url: str, width: int, height: int, frames: list) -> None:
+def render_python(url: str, width: int, height: int, frames: list, allow_remote: bool) -> list:
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
+        blocked: list = []
+
+        def gate(route):
+            if request_allowed(route.request.url, allow_remote):
+                route.continue_()
+            else:
+                blocked.append(route.request.url)
+                route.abort()
+
+        page.route("**/*", gate)
         page.goto(url, wait_until="load")
         page.evaluate("() => window.__ready")
         for f in frames:
             page.evaluate("t => window.__seek(t)", f["t"])
             page.screenshot(path=f["path"], clip={"x": 0, "y": 0, "width": width, "height": height})
         browser.close()
+    return blocked
 
 
-def render_node(url: str, width: int, height: int, frames: list) -> None:
+def render_node(url: str, width: int, height: int, frames: list, allow_remote: bool) -> list:
     with tempfile.TemporaryDirectory() as tmp:
         runner = Path(tmp) / "runner.cjs"
         job = Path(tmp) / "job.json"
         runner.write_text(NODE_RUNNER, encoding="utf-8")
-        job.write_text(json.dumps({"url": url, "width": width, "height": height, "frames": frames}), encoding="utf-8")
+        job.write_text(json.dumps({"url": url, "width": width, "height": height, "frames": frames,
+                                    "allowRemote": allow_remote, "fontHosts": list(FONT_HOSTS)}), encoding="utf-8")
         r = subprocess.run(["node", str(runner), str(job)], capture_output=True, text=True, cwd=tmp,
                            timeout=STEP_TIMEOUT)
         if r.returncode != 0:
             raise RuntimeError(r.stderr.strip()[-2000:] or "node renderer failed")
+        return [ln[8:] for ln in r.stdout.splitlines() if ln.startswith("BLOCKED ")]
 
 
 def encode_mp4(frames_dir: Path, fps: float, mp4: Path) -> list:
@@ -157,6 +194,8 @@ def main() -> int:
     ap.add_argument("--keyframes", action="store_true",
                     help="Render only the first and last frame of each upgrade shot, plates and images only, as <shot>_first.png / <shot>_last.png.")
     ap.add_argument("--mp4", help="Also encode the frames to this MP4 (H.264, no audio; use video-conform for the real cut).")
+    ap.add_argument("--allow-remote", action="store_true",
+                    help="Let the page fetch remote http(s) media; by default only local files and Google Fonts load.")
     ap.add_argument("--dry-run", action="store_true", help="Print the frame plan without launching a browser.")
     ap.add_argument("--sample", action="store_true", help="Dry-run plan for the built-in sample scene.")
     ap.add_argument("--output", choices=["text", "json"], default="text")
@@ -226,13 +265,17 @@ def main() -> int:
         url = html_path.as_uri() + query
         try:
             if backend == "python":
-                render_python(url, w, h, frames)
+                blocked = render_python(url, w, h, frames, args.allow_remote)
             else:
-                render_node(url, w, h, frames)
+                blocked = render_node(url, w, h, frames, args.allow_remote)
         except Exception as exc:  # renderer errors come from the browser, keep the message
             print(f"error: render failed ({backend}): {exc}", file=sys.stderr)
             return 4
         report["backend"] = backend
+        if blocked:
+            report["blocked_requests"] = sorted(set(blocked))
+            print(f"warning: blocked {len(report['blocked_requests'])} remote request(s), e.g. "
+                  f"{report['blocked_requests'][0]}; use local files or pass --allow-remote", file=sys.stderr)
         report["keyframes"] = bool(args.keyframes)
         (out_dir / ("keyframes.json" if args.keyframes else "render.json")).write_text(json.dumps(report, indent=2), encoding="utf-8")
         if args.mp4:

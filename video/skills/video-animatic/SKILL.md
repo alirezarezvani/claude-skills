@@ -82,7 +82,9 @@ It names no provider and calls nothing; `video-director` quotes and sends it.
 A greybox placeholder is never sent as a keyframe, because it carries no framing.
 
 Render only pages you compiled yourself: `frame_renderer.py` opens the HTML in
-Chromium from `file://`, where its script can read local files.
+Chromium from `file://`, where its script can read local files. The render
+browser blocks every remote request except Google Fonts and reports what it
+blocked; pass `--allow-remote` only for media URLs you trust.
 
 ## Design rules
 

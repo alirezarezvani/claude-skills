@@ -176,7 +176,8 @@ def main() -> int:
         if args.run:
             # image2 stops at the first missing frame, so a gap would silently shorten the cut.
             fdir, pat = Path(render["frames_dir"]), render["pattern"]
-            missing = [i for i in range(int(render.get("frame_count", 0))) if not (fdir / (pat % i)).exists()]
+            count = int(render.get("frame_count") or round(duration * fps))
+            missing = [i for i in range(count) if not (fdir / (pat % i)).exists()]
             if missing:
                 print(f"error: {len(missing)} frame(s) missing from {fdir} (first: {pat % missing[0]}); "
                       "render the whole film with frame_renderer.py before conforming", file=sys.stderr)
@@ -212,6 +213,9 @@ def main() -> int:
             print("error: ffmpeg/ffprobe not found (install ffmpeg, e.g. apt install ffmpeg / brew install ffmpeg)", file=sys.stderr)
             return 3
         if srt_path:
+            if Path(srt_path).exists():
+                print(f"note: replacing {srt_path} (captions are regenerated from the scene's voice-over lines)",
+                      file=sys.stderr)
             Path(srt_path).write_text(srt_text, encoding="utf-8")
         if burn_path:
             Path(burn_path).write_text(srt_text, encoding="utf-8")

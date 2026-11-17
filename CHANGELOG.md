@@ -14,7 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Skill-router hooks (UserPromptSubmit, off with `SKILL_ROUTER=0`) now ship in the three new plugins and hint them from the engineering-advanced-skills and business-growth-skills bundles, for release, cloud-cost and support-queue questions the model would otherwise answer from memory.
-- Headline counters: skills 422 → 428 (3 standalone plugins plus their bundle copies), tools 841 → 861, references 949 → 967, agents 133 → 136, commands 178 → 185, plugins 116 → 119. `business-growth/CLAUDE.md` lists support-ops.
+- Headline counters: skills 422 → 428 (3 standalone plugins plus their bundle copies), tools 841 → 861, references 949 → 967, agents 133 → 136, commands 178 → 185, plugins 117 → 120. `business-growth/CLAUDE.md` lists support-ops.
+- **cinematic-shot-prompting** is now its own marketplace plugin (`/plugin install cinematic-shot-prompting@claude-code-skills`), so you can install it without the full marketing-skills bundle. It stays in the bundle too.
 
 ## [2.14.13] - 2026-11-17 — NIS2, DORA and readme-polish
 

@@ -1,0 +1,3 @@
+release,platform,rollout_pct,users,crashed_users,anr_users,worst_device_crash_pct
+4.1.3,android,100,412000,1650,1240,2.1
+4.2.0,android,5,21800,182,95,3.4

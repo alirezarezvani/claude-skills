@@ -1,0 +1,11 @@
+android {
+    namespace "com.example.shop"
+    compileSdk 35
+    defaultConfig {
+        applicationId "com.example.shop"
+        minSdk 24
+        targetSdk 35
+        versionCode 420
+        versionName "4.2.0"
+    }
+}

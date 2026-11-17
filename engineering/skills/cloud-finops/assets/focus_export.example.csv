@@ -1,0 +1,76 @@
+ChargePeriodStart,BillingCurrency,ChargeCategory,ServiceCategory,ServiceName,SubAccountName,ResourceId,PricingCategory,CommitmentDiscountId,CommitmentDiscountStatus,ListCost,BilledCost,EffectiveCost,Tags
+2026-10-01T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-01T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,23.89,23.89,23.89,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-01T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,303.02,303.02,303.02,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-01T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,95.91,95.91,95.91,
+2026-10-01T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,38.58,38.58,38.58,
+2026-10-01T00:00:00Z,USD,Purchase,Compute,Savings Plans for AWS Compute usage,prod,,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,,0,655.2,0,
+2026-10-02T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-02T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,26.43,26.43,26.43,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-02T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,307.31,307.31,307.31,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-02T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,93.15,93.15,93.15,
+2026-10-02T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,42.06,42.06,42.06,
+2026-10-03T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,56.0,0,36.4,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-03T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Unused,0,0,10.4,
+2026-10-03T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,15.34,15.34,15.34,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-03T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,231.17,231.17,231.17,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-03T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,94.02,94.02,94.02,
+2026-10-03T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,38.73,38.73,38.73,
+2026-10-04T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,56.0,0,36.4,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-04T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Unused,0,0,10.4,
+2026-10-04T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,18.82,18.82,18.82,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-04T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,239.04,239.04,239.04,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-04T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,95.14,95.14,95.14,
+2026-10-04T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,39.79,39.79,39.79,
+2026-10-05T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-05T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,27.53,27.53,27.53,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-05T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,318.95,318.95,318.95,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-05T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,98.66,98.66,98.66,
+2026-10-05T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,41.17,41.17,41.17,
+2026-10-06T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-06T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,31.72,31.72,31.72,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-06T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,300.93,300.93,300.93,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-06T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,101.15,101.15,101.15,
+2026-10-06T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,40.32,40.32,40.32,
+2026-10-07T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-07T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,21.73,21.73,21.73,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-07T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,302.36,302.36,302.36,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-07T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,98.65,98.65,98.65,
+2026-10-07T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,44.53,44.53,44.53,
+2026-10-08T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-08T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,22.17,22.17,22.17,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-08T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,311.63,311.63,311.63,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-08T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,101.43,101.43,101.43,
+2026-10-08T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,40.98,40.98,40.98,
+2026-10-09T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-09T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,26.57,26.57,26.57,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-09T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,301.26,301.26,301.26,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-09T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,98.76,98.76,98.76,
+2026-10-09T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,39.65,39.65,39.65,
+2026-10-10T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,56.0,0,36.4,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-10T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Unused,0,0,10.4,
+2026-10-10T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,21.12,21.12,21.12,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-10T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,231.05,231.05,231.05,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-10T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,101.08,101.08,101.08,
+2026-10-10T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,42.68,42.68,42.68,
+2026-10-11T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,56.0,0,36.4,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-11T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Unused,0,0,10.4,
+2026-10-11T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,19.08,19.08,19.08,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-11T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,228.5,228.5,228.5,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-11T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,104.77,104.77,104.77,
+2026-10-11T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,43.59,43.59,43.59,
+2026-10-12T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-12T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,22.93,22.93,22.93,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-12T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,311.49,311.49,311.49,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-12T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,103.95,103.95,103.95,
+2026-10-12T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,45.0,45.0,45.0,
+2026-10-13T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-13T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,28.75,28.75,28.75,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-13T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,305.76,305.76,305.76,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-13T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,107.48,107.48,107.48,
+2026-10-13T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,38.94,38.94,38.94,
+2026-10-14T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0a1,Committed,arn:aws:savingsplans::111:savingsplan/sp-1,Used,72.0,0,46.8,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-14T00:00:00Z,USD,Usage,Compute,Amazon EC2,prod,i-0b2,Standard,,,25.02,25.02,25.02,"{""team"": ""Checkout"", ""env"": ""Prod""}"
+2026-10-14T00:00:00Z,USD,Usage,Databases,Amazon RDS,prod,db-main,Standard,,,315.14,315.14,315.14,"{""team"": ""checkout"", ""env"": ""prod"", ""cost-center"": ""CC-410""}"
+2026-10-14T00:00:00Z,USD,Usage,Storage,Amazon S3,shared,logs-bucket,Standard,,,103.31,103.31,103.31,
+2026-10-14T00:00:00Z,USD,Usage,Networking,Amazon VPC,prod,nat-0c3,Standard,,,41.91,41.91,41.91,

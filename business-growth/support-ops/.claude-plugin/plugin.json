@@ -1,0 +1,15 @@
+{
+  "name": "support-ops",
+  "description": "Run a customer support queue on numbers from a helpdesk ticket export. Three deterministic stdlib scripts: an SLA check that measures first-response and resolution attainment on business or calendar hours with holidays, counts open breaches as misses and lists tickets due next; a staffing planner using Erlang C for phone and chat (service level, ASA, occupancy cap, shrinkage, chat concurrency) and workload with backlog drain for email, with the roster gap per interval; and a deflection finder that ranks contact reasons and routes each to a help-center article, a macro or a product fix. Ships cs-support-ops-lead agent, /cs-support-sla, /cs-support-staffing and /cs-support-deflection commands and 3 cited references.",
+  "version": "2.14.14",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/support-ops",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/support-ops"
+  ]
+}

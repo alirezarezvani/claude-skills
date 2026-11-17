@@ -1,6 +1,6 @@
 ---
 name: "business-growth-skills"
-description: "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations and contract-and-proposal-writer."
+description: "Use when a growth request needs routing between customer-success-manager, sales-engineer, revenue-operations, contract-and-proposal-writer and support-ops."
 license: MIT
 metadata:
   version: 2.9.0
@@ -19,7 +19,7 @@ metadata:
 
 # Business & Growth Skills — Router
 
-This plugin bundles **4 skills** (this router is the 5th folder under `business-growth/skills/`). Each skill is self-contained.
+This plugin bundles **5 skills** (this router is the 6th folder under `business-growth/skills/`). Each skill is self-contained.
 
 ## Routing table
 
@@ -31,6 +31,7 @@ Match the request, then load `business-growth/skills/<skill>/SKILL.md`. If multi
 | RFP/RFI coverage, competitive positioning, PoC plans | sales-engineer | `skills/sales-engineer/` |
 | Pipeline coverage, forecast accuracy (MAPE), GTM efficiency | revenue-operations | `skills/revenue-operations/` |
 | Proposals, contracts, statements of work, DPAs | contract-and-proposal-writer | `skills/contract-and-proposal-writer/` |
+| Support SLAs, agent staffing (Erlang C), ticket deflection | support-ops | `skills/support-ops/` |
 
 ## Quick start
 

@@ -1,0 +1,10 @@
+{
+  "timezone_offset": "+01:00",
+  "business_hours": {"days": [0, 1, 2, 3, 4], "start": "09:00", "end": "17:00", "holidays": ["2026-12-24", "2026-12-25", "2026-12-26", "2027-01-01"]},
+  "targets": {
+    "urgent": {"first_response_h": 1, "resolution_h": 8, "clock": "calendar"},
+    "high": {"first_response_h": 4, "resolution_h": 16, "clock": "business"},
+    "normal": {"first_response_h": 8, "resolution_h": 40, "clock": "business"},
+    "low": {"first_response_h": 16, "resolution_h": 80, "clock": "business"}
+  }
+}

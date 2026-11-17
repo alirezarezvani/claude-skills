@@ -214,12 +214,14 @@ def main() -> int:
     srt_text = srt_from_shots(shots) if shots else ""
     if args.burn_captions and not srt_text.strip():
         print("note: no voice-over lines in the scene, so there are no captions to burn in", file=sys.stderr)
-    burn_path = safe_caption_path() if (args.burn_captions and srt_text.strip()) else None
-    cmd = build_cmd(video_in, duration, fps, args.vo, args.music, target, burn_path, args.out)
+    burning = bool(args.burn_captions and srt_text.strip())
+    # The temp caption dir is made only for a real run; a plan shows a placeholder path.
+    cmd = build_cmd(video_in, duration, fps, args.vo, args.music, target,
+                    "<tmp>/captions.srt" if burning else None, args.out)
     plan = {"out": args.out, "duration": round(duration, 3), "fps": fps, "loudness_target_lufs": target,
             "true_peak_dbtp": TRUE_PEAK, "audio": "vo+music" if args.vo and args.music else
             ("vo" if args.vo else ("music" if args.music else "silent track")),
-            "captions": srt_path, "burn_captions": bool(burn_path),
+            "captions": srt_path, "burn_captions": burning,
             "command": cmd, "ran": False}
 
     if args.run:
@@ -231,14 +233,16 @@ def main() -> int:
                 print(f"note: replacing {srt_path} (captions are regenerated from the scene's voice-over lines)",
                       file=sys.stderr)
             Path(srt_path).write_text(srt_text, encoding="utf-8")
-        if burn_path:
-            Path(burn_path).write_text(srt_text, encoding="utf-8")
         vo_len = probe_duration(args.vo) if args.vo else None
         if vo_len and vo_len > duration + 0.1:
             print(f"warning: voice-over is {vo_len:.1f}s but the picture is {duration:.1f}s, so the export "
                   "cuts it off; re-time the beats or trim the VO", file=sys.stderr)
             plan["warnings"] = ["vo-longer-than-picture"]
+        burn_path = safe_caption_path() if burning else None
         try:
+            if burn_path:
+                Path(burn_path).write_text(srt_text, encoding="utf-8")
+                cmd = build_cmd(video_in, duration, fps, args.vo, args.music, target, burn_path, args.out)
             r = subprocess.run(cmd, capture_output=True, text=True)
         finally:
             if burn_path:

@@ -98,7 +98,10 @@ def pick_backend(choice: str) -> str | None:
     def has_node() -> bool:
         if not shutil.which("node"):
             return False
-        r = subprocess.run(["node", "-e", "require('playwright')"], capture_output=True)
+        # probe from a clean dir: the runner lives in a temp dir, so resolve the same way and
+        # never load a node_modules planted in the user's working directory
+        with tempfile.TemporaryDirectory() as tmp:
+            r = subprocess.run(["node", "-e", "require('playwright')"], capture_output=True, cwd=tmp)
         return r.returncode == 0
 
     if choice == "python":
@@ -131,7 +134,7 @@ def render_node(url: str, width: int, height: int, frames: list) -> None:
         job = Path(tmp) / "job.json"
         runner.write_text(NODE_RUNNER, encoding="utf-8")
         job.write_text(json.dumps({"url": url, "width": width, "height": height, "frames": frames}), encoding="utf-8")
-        r = subprocess.run(["node", str(runner), str(job)], capture_output=True, text=True)
+        r = subprocess.run(["node", str(runner), str(job)], capture_output=True, text=True, cwd=tmp)
         if r.returncode != 0:
             raise RuntimeError(r.stderr.strip()[-2000:] or "node renderer failed")
 

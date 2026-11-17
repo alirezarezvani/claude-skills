@@ -85,6 +85,11 @@ def srt_from_shots(shots: list) -> str:
 SAFE_PATH = re.compile(r"[A-Za-z0-9_./\\:-]+")
 
 
+def as_input(path: str) -> str:
+    """ffmpeg reads an argument starting with '-' as an option; anchor such paths."""
+    return "./" + path if path.startswith("-") else path
+
+
 def safe_caption_path() -> str:
     """A caption path the subtitles filter cannot misparse: a fresh temp dir whose path
     holds only [A-Za-z0-9_./-] (plus a drive colon, escaped later). User file names with
@@ -102,10 +107,10 @@ def build_cmd(video_in: list, duration: float, fps: float, vo: str | None, music
     inputs = 1
     vo_i = mu_i = None
     if vo:
-        cmd += ["-i", vo]
+        cmd += ["-i", as_input(vo)]
         vo_i, inputs = inputs, inputs + 1
     if music:
-        cmd += ["-i", music]
+        cmd += ["-i", as_input(music)]
         mu_i, inputs = inputs, inputs + 1
     norm = f"loudnorm=I={target:g}:TP={TRUE_PEAK:g}:LRA=11,aresample=48000"
     if vo_i is not None and mu_i is not None:
@@ -124,12 +129,12 @@ def build_cmd(video_in: list, duration: float, fps: float, vo: str | None, music
         vf = f"subtitles={burn}:force_style='FontSize=22,Outline=2,MarginV=40',{vf}"
     cmd += ["-filter_complex", f"[0:v]{vf}[vid];{af}", "-map", "[vid]", "-map", "[a]",
             "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-r", f"{fps:g}",
-            "-c:a", "aac", "-b:a", "192k", "-t", f"{duration:.3f}", "-movflags", "+faststart", out]
+            "-c:a", "aac", "-b:a", "192k", "-t", f"{duration:.3f}", "-movflags", "+faststart", as_input(out)]
     return cmd
 
 
 def probe_duration(path: str) -> float | None:
-    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
+    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", as_input(path)],
                        capture_output=True, text=True)
     try:
         return float(r.stdout.strip())
@@ -138,7 +143,7 @@ def probe_duration(path: str) -> float | None:
 
 
 def measure_lufs(path: str) -> float | None:
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path, "-filter_complex", "ebur128", "-f", "null", "-"],
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", as_input(path), "-filter_complex", "ebur128", "-f", "null", "-"],
                        capture_output=True, text=True)
     m = re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)
     return float(m[-1]) if m else None
@@ -205,7 +210,7 @@ def main() -> int:
         if not duration:
             print("error: cannot tell the duration; pass --scene", file=sys.stderr)
             return 2
-        video_in = ["-i", args.video]
+        video_in = ["-i", as_input(args.video)]
 
     srt_path = None
     if shots:

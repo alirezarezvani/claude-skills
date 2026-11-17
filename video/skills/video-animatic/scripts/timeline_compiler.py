@@ -428,7 +428,7 @@ def fonts_link(theme: dict, offline: bool) -> str:
 
 
 def compile_scene(scene: dict, offline: bool = False) -> str:
-    payload = json.dumps(scene, ensure_ascii=False).replace("</", "<\\/")
+    payload = json.dumps(scene, ensure_ascii=False).replace("<", "\\u003c")  # no </script>, <!-- or <script in the page
     engine = ENGINE_JS.replace("__SCENE_JSON__", payload)
     return (PAGE.replace("__TITLE__", html.escape(scene["meta"].get("title", "Animatic")))
                 .replace("__FONTS__", fonts_link(scene["theme"], offline))

@@ -1,0 +1,9 @@
+name,type,microenterprise,exemption,simplified,nis2_identified,ctpp_designated
+Nordbank AG,credit-institution,no,,,yes,
+PayFlow GmbH,payment-institution,no,,,no,
+MiniPay UG,payment-institution,yes,,psd2-exempt-pi,no,
+Assekuranz Makler KG,insurance-intermediary,no,intermediary-sme,,no,
+Alpine Capital Partners,aifm,no,,,no,
+CoreHost Cloud SE,ict-tpp,no,,,yes,no
+Velo Pension Fund,iorp,no,iorp-15-members,,no,
+Mystery Fintech,neo-bank,no,,,no,

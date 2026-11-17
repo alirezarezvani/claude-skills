@@ -3908,5 +3908,25 @@
   ],
   "neg": "Write the clinical evaluation report for our class IIa wound dressing under MDR Annex XIV.",
   "origin": "reviewed"
+ },
+ "ra-qm-team/nis2-readiness/skills/nis2-readiness": {
+  "name": "nis2-readiness",
+  "plugin": "nis2-readiness",
+  "pos": [
+   "A DDoS attack knocked our regional airport's check-in systems offline this morning. Which German authority do we have to notify and how fast?",
+   "Ransomware hit our water utility's billing servers two hours ago and we're sure it's serious. Under NIS2, what do we report, to whom, and by when?"
+  ],
+  "neg": "Prepare our ISO 27001 surveillance audit: which Annex A controls will the auditor sample?",
+  "origin": "reviewed"
+ },
+ "ra-qm-team/dora-readiness/skills/dora-readiness": {
+  "name": "dora-readiness",
+  "plugin": "dora-readiness",
+  "pos": [
+   "We're a payment institution in the Netherlands. Our card authorisation service was down for three hours this morning. Is this a major ICT incident under DORA and when is the initial report due?",
+   "Our regulator asked for the DORA register of information. Can you check our ICT third-party contracts for the Article 30 clauses?"
+  ],
+  "neg": "Calculate our DORA metrics: deployment frequency, lead time for changes, change failure rate and MTTR from this CSV of deploys.",
+  "origin": "reviewed"
  }
 }

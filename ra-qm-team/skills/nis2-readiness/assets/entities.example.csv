@@ -1,0 +1,8 @@
+name,sector,employees,turnover_eur_m,balance_eur_m,special,member_states,main_establishment,dora_entity
+Stadtwerke Nord GmbH,energy-electricity,420,180,210,critical-entity,DE,DE,no
+CloudNest SaaS GmbH,digital-infrastructure,85,14,11,,DE AT FR,DE,no
+OrthoParts Manufacturing,manufacturing-medical-devices,130,28,19,,DE,DE,no
+TrustSign QTSP,digital-infrastructure,12,2,1,qtsp,DE NL,DE,no
+Regionalbank Mitte AG,banking,900,310,4200,,DE,DE,yes
+Kleine Praxis Software,health,18,3,2,,DE,DE,no
+FreshFood Logistik,food,,,,,DE,DE,no

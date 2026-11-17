@@ -46,6 +46,7 @@ deepread 251
 demo-video 188
 design-qa 455
 docker-development 239
+dora-readiness 594
 dossier 266
 email-pair 478
 engineering-advanced-skills 10826
@@ -81,6 +82,7 @@ memory-engineering 283
 meta-research 295
 monetize 460
 month-end-close 500
+nis2-readiness 559
 notebooklm 200
 patent 249
 pm-skills 2024
@@ -89,7 +91,8 @@ product-skills 3286
 prompt-governance 224
 pulse 220
 pw 1490
-ra-qm-skills 6016
+ra-qm-skills 7169
+readme-polish 439
 reflect-skill 230
 research-ops-skills 1572
 research-orchestrator 242

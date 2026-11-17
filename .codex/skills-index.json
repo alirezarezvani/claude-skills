@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 416,
+  "total_skills": 421,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1452,6 +1452,12 @@
       "description": "Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metrics. Use whenever the user builds search over their docs, picks a vector store or finds answers miss the right context."
     },
     {
+      "name": "readme-polish",
+      "source": "../../engineering/readme-polish",
+      "category": "engineering-advanced",
+      "description": "Use when an existing README must be upgraded, audited, or made scannable: polish/\u7f8e\u5316/\u5347\u7ea7/\u4f18\u5316/\u6253\u78e8 README, add badges, mermaid, callouts, or collapsible sections, compare against top repos in the same ecosystem, or fix a plain/ugly first screen. Calibrates to the repo's own category, rewrites the hero and information hierarchy, and enforces a deterministic lint gate. Not for brand-new READMEs from scratch or hero-image design."
+    },
+    {
       "name": "runbook-generator",
       "source": "../../engineering/skills/runbook-generator",
       "category": "engineering-advanced",
@@ -2292,6 +2298,18 @@
       "description": "Use when a company that sells software, connected devices or firmware in the EU asks whether the Cyber Resilience Act (CRA, Regulation 2024/2847) applies, has to report an actively exploited vulnerability or security incident under Article 14 (24h/72h deadlines, ENISA Single Reporting Platform), must classify products as important or critical, pick a conformity route or support period, check an SBOM, or get to CE marking by December 2027. Four deterministic scripts with cited articles."
     },
     {
+      "name": "dora-readiness",
+      "source": "../../ra-qm-team/skills/dora-readiness",
+      "category": "ra-qm",
+      "description": "Use when a bank, payment or e-money institution, investment firm, insurer, crypto-asset service provider or fund manager in the EU faces DORA (Regulation 2022/2554, Digital Operational Resilience Act) - is an ICT outage or cyber incident major, when the initial (4h/24h), intermediate (72h) and final reports are due, weekends included; the register of information; ICT or cloud contracts missing audit rights, exit plans or other Article 30 terms; scope and the simplified framework for small firms. Not for DORA DevOps metrics. Three deterministic scripts with cited articles."
+    },
+    {
+      "name": "dora-readiness",
+      "source": "../../ra-qm-team/dora-readiness/skills/dora-readiness",
+      "category": "ra-qm",
+      "description": "Use when a bank, payment or e-money institution, investment firm, insurer, crypto-asset service provider or fund manager in the EU faces DORA (Regulation 2022/2554, Digital Operational Resilience Act) - is an ICT outage or cyber incident major, when the initial (4h/24h), intermediate (72h) and final reports are due, weekends included; the register of information; ICT or cloud contracts missing audit rights, exit plans or other Article 30 terms; scope and the simplified framework for small firms. Not for DORA DevOps metrics. Three deterministic scripts with cited articles."
+    },
+    {
       "name": "eu-ai-act-specialist",
       "source": "../../ra-qm-team/skills/eu-ai-act-specialist",
       "category": "ra-qm",
@@ -2356,6 +2374,18 @@
       "source": "../../ra-qm-team/medical-device-software/skills/medical-device-software",
       "category": "ra-qm",
       "description": "Use for any question about the software inside a medical device, SaMD or regulated health app - which IEC 62304 safety class (A/B/C) it is and how much process and documentation that class needs, what to record about open-source or third-party libraries (SOUP, SBOM), trace matrix and release testing, IEC 81001-5-1 security, or the FDA documentation level and 524B cyber-device duties. Checks the user's files with four scripts that cite the clause."
+    },
+    {
+      "name": "nis2-readiness",
+      "source": "../../ra-qm-team/skills/nis2-readiness",
+      "category": "ra-qm",
+      "description": "Use when a cyberattack, ransomware or outage hits a hospital, utility, transport, digital-infrastructure or other EU company and it must report under NIS2 (Directive 2022/2555) or the German NIS2UmsuCG/BSIG - 24h early warning, 72h notification, one-month final report. Also for whether a company is an essential or important entity, BSI registration, management-board liability and training (Article 20), an Article 21 gap analysis, or one incident that also triggers DORA, CRA or GDPR reports. Four deterministic scripts with cited articles."
+    },
+    {
+      "name": "nis2-readiness",
+      "source": "../../ra-qm-team/nis2-readiness/skills/nis2-readiness",
+      "category": "ra-qm",
+      "description": "Use when a cyberattack, ransomware or outage hits a hospital, utility, transport, digital-infrastructure or other EU company and it must report under NIS2 (Directive 2022/2555) or the German NIS2UmsuCG/BSIG - 24h early warning, 72h notification, one-month final report. Also for whether a company is an essential or important entity, BSI registration, management-board liability and training (Article 20), an Article 21 gap analysis, or one incident that also triggers DORA, CRA or GDPR reports. Four deterministic scripts with cited articles."
     },
     {
       "name": "qms-audit-expert",
@@ -2544,7 +2574,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 104,
+      "count": 105,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
@@ -2574,7 +2604,7 @@
       "description": "Project management and Atlassian skills"
     },
     "ra-qm": {
-      "count": 27,
+      "count": 31,
       "source": "../../ra-qm-team",
       "description": "Regulatory affairs and quality management skills"
     },

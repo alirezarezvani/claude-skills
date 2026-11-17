@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "Planned-skills inventory re-ranked 2026-11-17: NIS2 had zero coverage while Germany's NIS2UmsuCG has applied since 6 December 2025 with a three-month BSI registration duty; no skill classified entities, ran the Article 23 clock or routed one event across NIS2, DORA, CRA and GDPR",
+    "build_pattern": "Four deterministic stdlib scripts with blocking exit codes (scope classifier, Article 23 clock, Article 21 gap check, cross-regime router); rules from Directive (EU) 2022/2555 Arts 2-4, 20-23, 26-27, 34, Implementing Regulation (EU) 2024/2690 Arts 3-14 and Annex, Recommendation 2003/361 and BSIG 2025 §§28, 32, 33, 65",
+    "distinct_from": "dora-readiness (financial entities, lex specialis); cra-readiness (products); information-security-manager-iso27001 (management system); gdpr-dsgvo-expert (personal-data breaches)"
+  }
+}

@@ -1,0 +1,6 @@
+id,entity,category,digital_provider,trust_service,detected_at,aware_at,significant,severe_disruption,damage_to_others,financial_loss_eur,annual_turnover_eur,trade_secret_exfiltration,death,health_damage,malicious_access_severe,recurring,sector_threshold_met,scheduled_maintenance,early_warning_at,notification_at,final_report_at,progress_report_at,handling_concluded_at,recipients_informed_at,malicious_suspected,cross_border,severity_impact,root_cause,mitigation
+INC-41,CloudNest SaaS GmbH,important,yes,no,2026-11-14T02:10:00+01:00,2026-11-14T07:30:00+01:00,,,,40000,14000000,no,no,no,yes,no,no,no,2026-11-14T18:00:00+01:00,,,,,,yes,unknown,,,
+INC-42,Stadtwerke Nord GmbH,essential,no,no,2026-11-16T21:00:00+01:00,2026-11-16T23:15:00+01:00,,yes,,,,,,,,,,,,,,,,,,,,,
+INC-43,OrthoParts Manufacturing,important,no,no,2026-11-15T09:00:00+01:00,,,,,,,,,,,,,,,,,,,,,,,,
+INC-44,TrustSign QTSP,essential,yes,yes,2026-10-01T10:00:00+02:00,2026-10-01T12:00:00+02:00,yes,,,,,,,,,,,,2026-10-01T20:00:00+02:00,2026-10-02T09:00:00+02:00,2026-10-30T16:00:00+01:00,,2026-10-05T12:00:00+02:00,2026-10-01T15:00:00+02:00,no,no,certificate issuance halted 3 h,HSM firmware fault,firmware rollback; vendor fix
+INC-45,CloudNest SaaS GmbH,important,yes,no,2026-11-12T08:00:00+01:00,2026-11-12T09:00:00+01:00,,,,,,,,,,,,yes,,,,,,,,,,,

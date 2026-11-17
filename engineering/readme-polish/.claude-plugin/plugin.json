@@ -1,0 +1,15 @@
+{
+  "name": "readme-polish",
+  "description": "Upgrade an existing README to the visual and structural standard of the leading repos in its own ecosystem: archetype calibration, component selection, restraint boundaries, honesty rules, and a deterministic lint gate.",
+  "version": "2.14.12",
+  "author": {
+    "name": "zhengqiuyang",
+    "url": "https://github.com/zhengqiuyang"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/readme-polish",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./"
+  ]
+}

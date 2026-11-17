@@ -22,6 +22,14 @@
         "BROWSERSTACK_USERNAME": "${BROWSERSTACK_USERNAME}",
         "BROWSERSTACK_ACCESS_KEY": "${BROWSERSTACK_ACCESS_KEY}"
       }
+    },
+    "e2e": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "e2e",
+        "mcp"
+      ]
     }
   }
 }

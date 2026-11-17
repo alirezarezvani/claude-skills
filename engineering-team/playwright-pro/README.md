@@ -67,10 +67,11 @@ Ready-to-use, parametrizable templates covering:
 | API | 5 | REST CRUD, GraphQL, error handling |
 | Accessibility | 3 | Keyboard nav, screen reader, contrast |
 
-### 2 MCP Integrations (optional — not auto-registered, see [Integrations Setup](#integrations-setup))
+### 3 MCP Integrations (optional — not auto-registered, see [Integrations Setup](#integrations-setup))
 
 - **TestRail** — Read test cases, create runs, push pass/fail results
 - **BrowserStack** — Trigger cross-browser runs, pull session reports with video/screenshots
+- **e2e** — Drive iOS/Android apps and web pages from a live session, run plain-language test flows
 
 ### Smart Hooks
 
@@ -108,6 +109,23 @@ export BROWSERSTACK_ACCESS_KEY="your-access-key"
 ```
 
 Then use `/pw:browserstack` to run tests across browsers.
+
+### e2e (Optional)
+
+For iOS and Android apps, which Playwright does not cover, or for tests written
+as plain-language steps. An agent writes the flow while it drives the app, and
+later runs replay the recorded steps without model calls. The server ships on
+npm, so there is no `npm install` step inside the plugin.
+
+Add the `e2e` entry from `integrations/mcp-servers.example.json` to your
+user/project MCP config, or register it with:
+
+```bash
+claude mcp add --scope project e2e -- npx -y e2e mcp
+```
+
+Start Claude Code in the project you want to test. `npx e2e init` sets up a
+project config; the server itself needs no API key or model.
 
 ## Works With
 

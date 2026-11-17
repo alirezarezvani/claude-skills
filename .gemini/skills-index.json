@@ -2326,7 +2326,7 @@
     {
       "name": "video-beat-board",
       "category": "video",
-      "description": "Use when a video script, voice-over or shot list has to fit a fixed length (15 s, 30 s, 60 s), or to turn beats into a timed shot list. beat_board.py gives each beat the time its narration and on-screen text need and refuses a script that does not fit, saying how many words to cut."
+      "description": "Use whenever the user asks if a video or reel script, voice-over or narration fits its length, what to trim or cut, or wants a script broken into a timed shot list. beat_board.py times each beat at speaking and reading pace, refuses a script that does not fit and says how many words to cut."
     },
     {
       "name": "video-conform",
@@ -2336,7 +2336,7 @@
     {
       "name": "video-director",
       "category": "video",
-      "description": "Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a script, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4."
+      "description": "Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4."
     }
   ],
   "categories": {

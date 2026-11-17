@@ -1,6 +1,6 @@
 ---
 name: video-beat-board
-description: Use when a video script, voice-over or shot list has to fit a fixed length (15 s, 30 s, 60 s), or to turn beats into a timed shot list. beat_board.py gives each beat the time its narration and on-screen text need and refuses a script that does not fit, saying how many words to cut.
+description: Use whenever the user asks if a video or reel script, voice-over or narration fits its length, what to trim or cut, or wants a script broken into a timed shot list. beat_board.py times each beat at speaking and reading pace, refuses a script that does not fit and says how many words to cut.
 argument-hint: "[brief.json] [beats.json]"
 license: MIT
 metadata:

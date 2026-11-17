@@ -4,7 +4,7 @@
  "runs": 2,
  "min_rate": 0.5,
  "max_drop": 0.25,
- "spent": 2.397,
+ "spent": 2.3983,
  "skills": [
   {
    "path": "video/skills/video-animatic",
@@ -14,17 +14,17 @@
    "case_source": "drafted from the new description",
    "case": {
     "pos": [
-     "can you make me a little animated bar chart from this sales data that renders to an mp4?",
-     "I need a 12-second kinetic type piece in code: three lines of text (\"Ship faster\", \"Break less\", \"Sleep more\") sliding in on a 1920x1080 canvas at 30fps, with no flashing and good contrast, rendered frame-exact to MP4."
+     "can you make a little animated bar chart that grows year by year and render it as an mp4? just use code",
+     "I have sales.csv with quarterly revenue for 2021-2024 (16 rows). Build a 20 second 1080p kinetic-type animation that counts up the totals, then render it frame-exact to MP4 and check the text stays readable and nothing flashes."
     ],
-    "neg": "Write an ffmpeg command to trim the first 10 seconds off intro.mp4 and re-encode it as H.264 without changing the resolution."
+    "neg": "Write me a CSS keyframes animation that makes a button pulse when hovered on my React landing page."
    },
    "drafted_case": {
     "pos": [
-     "can you make me a little animated bar chart from this sales data that renders to an mp4?",
-     "I need a 12-second kinetic type piece in code: three lines of text (\"Ship faster\", \"Break less\", \"Sleep more\") sliding in on a 1920x1080 canvas at 30fps, with no flashing and good contrast, rendered frame-exact to MP4."
+     "can you make a little animated bar chart that grows year by year and render it as an mp4? just use code",
+     "I have sales.csv with quarterly revenue for 2021-2024 (16 rows). Build a 20 second 1080p kinetic-type animation that counts up the totals, then render it frame-exact to MP4 and check the text stays readable and nothing flashes."
     ],
-    "neg": "Write an ffmpeg command to trim the first 10 seconds off intro.mp4 and re-encode it as H.264 without changing the resolution."
+    "neg": "Write me a CSS keyframes animation that makes a button pulse when hovered on my React landing page."
    },
    "verdict": "PASS",
    "detail": "fired 2/4",
@@ -46,25 +46,25 @@
    "case_source": "drafted from the new description",
    "case": {
     "pos": [
-     "my voice-over script is way too long for a 30 second spot, can you check it and tell me what to trim?",
-     "I have a 60-second explainer script with 8 scenes and about 190 words of narration plus on-screen titles. Break it into a timed shot list and tell me whether it fits, and if not, how many words to cut."
+     "my voice-over script is way too long for a 30 second reel, can you tell me what to trim?",
+     "Here's my 60 second explainer script, 9 beats, about 190 words of narration plus on-screen titles. Turn it into a timed shot list and tell me how many words I have to cut so each beat has enough time."
     ],
-    "neg": "Write a 60-second voice-over script for our new coffee subscription product, friendly tone, aimed at young professionals."
+    "neg": "Proofread my 500-word blog post intro and tighten the wording so it reads more punchy, no word limit in mind."
    },
    "drafted_case": {
     "pos": [
-     "my voice-over script is way too long for a 30 second spot, can you check it and tell me what to trim?",
-     "I have a 60-second explainer script with 8 scenes and about 190 words of narration plus on-screen titles. Break it into a timed shot list and tell me whether it fits, and if not, how many words to cut."
+     "my voice-over script is way too long for a 30 second reel, can you tell me what to trim?",
+     "Here's my 60 second explainer script, 9 beats, about 190 words of narration plus on-screen titles. Turn it into a timed shot list and tell me how many words I have to cut so each beat has enough time."
     ],
-    "neg": "Write a 60-second voice-over script for our new coffee subscription product, friendly tone, aimed at young professionals."
+    "neg": "Proofread my 500-word blog post intro and tighten the wording so it reads more punchy, no word limit in mind."
    },
-   "verdict": "PASS",
-   "detail": "fired 2/4",
+   "verdict": "BELOW_FLOOR",
+   "detail": "fired 0/8, floor is 50% (pooled over 2 rounds)",
    "head": {
-    "pos": 2,
-    "pos_total": 4,
+    "pos": 0,
+    "pos_total": 8,
     "neg_fires": 0,
-    "neg_total": 2,
+    "neg_total": 4,
     "skipped": 0,
     "errors": 0
    },
@@ -78,17 +78,17 @@
    "case_source": "drafted from the new description",
    "case": {
     "pos": [
-     "my video's audio is too quiet compared to the music, can you fix the mix and get it ready to upload?",
-     "I've got final.mov, a voice-over WAV and a music track. Mix the voice over the music, normalize to -14 LUFS, burn in the captions from captions.srt, and export an MP4 that's exactly 45 seconds and plays on phones and browsers."
+     "the video is done, can you mix the narration over the music and make the volume levels right before I upload?",
+     "I have final_cut.mp4 (58 s), vo.wav and theme.mp3. Duck the music under the voice, normalize loudness to -14 LUFS for YouTube, burn in captions from subs.srt, and export an MP4 that plays on iPhone and fails if it's off-length."
     ],
-    "neg": "Transcribe this interview recording and clean up the transcript into readable paragraphs with speaker labels."
+    "neg": "Write an ffmpeg command to extract frames from a screen recording every 2 seconds and save them as PNG files."
    },
    "drafted_case": {
     "pos": [
-     "my video's audio is too quiet compared to the music, can you fix the mix and get it ready to upload?",
-     "I've got final.mov, a voice-over WAV and a music track. Mix the voice over the music, normalize to -14 LUFS, burn in the captions from captions.srt, and export an MP4 that's exactly 45 seconds and plays on phones and browsers."
+     "the video is done, can you mix the narration over the music and make the volume levels right before I upload?",
+     "I have final_cut.mp4 (58 s), vo.wav and theme.mp3. Duck the music under the voice, normalize loudness to -14 LUFS for YouTube, burn in captions from subs.srt, and export an MP4 that plays on iPhone and fails if it's off-length."
     ],
-    "neg": "Transcribe this interview recording and clean up the transcript into readable paragraphs with speaker labels."
+    "neg": "Write an ffmpeg command to extract frames from a screen recording every 2 seconds and save them as PNG files."
    },
    "verdict": "PASS",
    "detail": "fired 4/4",
@@ -110,25 +110,25 @@
    "case_source": "drafted from the new description",
    "case": {
     "pos": [
-     "I want a short teaser video for our app launch, can you make one?",
-     "Here's our changelog for v3.2 (6 bullet points) and a brand color of #1A73E8. Turn it into a 30-second promo video, starting from a brief, with a timed plan and a final MP4 I can post on social."
+     "I want to make a short promo video for my app launch, where do we start?",
+     "Turn this changelog for v3.2 (6 bullet points: dark mode, faster sync, new export, etc.) into a 30 second vertical teaser for Instagram Reels with a voice-over, and take it all the way to a finished MP4."
     ],
-    "neg": "Write a creative brief and campaign messaging for our product launch, including target audience, key messages and channels. No video needed yet."
+    "neg": "Give me tips on how to edit my wedding footage in DaVinci Resolve so the color grading looks warm and cinematic."
    },
    "drafted_case": {
     "pos": [
-     "I want a short teaser video for our app launch, can you make one?",
-     "Here's our changelog for v3.2 (6 bullet points) and a brand color of #1A73E8. Turn it into a 30-second promo video, starting from a brief, with a timed plan and a final MP4 I can post on social."
+     "I want to make a short promo video for my app launch, where do we start?",
+     "Turn this changelog for v3.2 (6 bullet points: dark mode, faster sync, new export, etc.) into a 30 second vertical teaser for Instagram Reels with a voice-over, and take it all the way to a finished MP4."
     ],
-    "neg": "Write a creative brief and campaign messaging for our product launch, including target audience, key messages and channels. No video needed yet."
+    "neg": "Give me tips on how to edit my wedding footage in DaVinci Resolve so the color grading looks warm and cinematic."
    },
-   "verdict": "BELOW_FLOOR",
-   "detail": "fired 2/8, floor is 50% (pooled over 2 rounds)",
+   "verdict": "PASS",
+   "detail": "fired 4/4",
    "head": {
-    "pos": 2,
-    "pos_total": 8,
+    "pos": 4,
+    "pos_total": 4,
     "neg_fires": 0,
-    "neg_total": 4,
+    "neg_total": 2,
     "skipped": 0,
     "errors": 0
    },
@@ -148,11 +148,11 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "can you make me a little animated bar chart from this sales data that renders to an mp4?",
+   "prompt": "can you make a little animated bar chart that grows year by year and render it as an mp4? just use code",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0707137,
+   "cost": 0.0706477,
    "transcript": "video__skills__video-animatic__head__pos0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -167,11 +167,11 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "can you make me a little animated bar chart from this sales data that renders to an mp4?",
+   "prompt": "can you make a little animated bar chart that grows year by year and render it as an mp4? just use code",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0710775,
+   "cost": 0.0695824,
    "transcript": "video__skills__video-animatic__head__pos0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -186,13 +186,13 @@
    "i": 1,
    "rep": 0,
    "round": 0,
-   "prompt": "I need a 12-second kinetic type piece in code: three lines of text (\"Ship faster\", \"Break less\", \"Sleep more\") sliding in on a 1920x1080 canvas at 30fps, with no flashing and good contrast, rendered frame-exact to MP4.",
+   "prompt": "I have sales.csv with quarterly revenue for 2021-2024 (16 rows). Build a 20 second 1080p kinetic-type animation that counts up the totals, then render it frame-exact to MP4 and check the text stays readable and nothing flashes.",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-animatic"
    ],
-   "cost": 0.07547380000000001,
+   "cost": 0.0819758,
    "transcript": "video__skills__video-animatic__head__pos1__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -207,13 +207,13 @@
    "i": 1,
    "rep": 1,
    "round": 0,
-   "prompt": "I need a 12-second kinetic type piece in code: three lines of text (\"Ship faster\", \"Break less\", \"Sleep more\") sliding in on a 1920x1080 canvas at 30fps, with no flashing and good contrast, rendered frame-exact to MP4.",
+   "prompt": "I have sales.csv with quarterly revenue for 2021-2024 (16 rows). Build a 20 second 1080p kinetic-type animation that counts up the totals, then render it frame-exact to MP4 and check the text stays readable and nothing flashes.",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-animatic"
    ],
-   "cost": 0.08020350000000001,
+   "cost": 0.07769020000000001,
    "transcript": "video__skills__video-animatic__head__pos1__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -228,11 +228,11 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "Write an ffmpeg command to trim the first 10 seconds off intro.mp4 and re-encode it as H.264 without changing the resolution.",
+   "prompt": "Write me a CSS keyframes animation that makes a button pulse when hovered on my React landing page.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0629224,
+   "cost": 0.0691624,
    "transcript": "video__skills__video-animatic__head__neg0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -247,11 +247,11 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "Write an ffmpeg command to trim the first 10 seconds off intro.mp4 and re-encode it as H.264 without changing the resolution.",
+   "prompt": "Write me a CSS keyframes animation that makes a button pulse when hovered on my React landing page.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0624124,
+   "cost": 0.0688844,
    "transcript": "video__skills__video-animatic__head__neg0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -266,11 +266,11 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "my voice-over script is way too long for a 30 second spot, can you check it and tell me what to trim?",
+   "prompt": "my voice-over script is way too long for a 30 second reel, can you tell me what to trim?",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0726879,
+   "cost": 0.10102080000000001,
    "transcript": "video__skills__video-beat-board__head__pos0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -285,11 +285,11 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "my voice-over script is way too long for a 30 second spot, can you check it and tell me what to trim?",
+   "prompt": "my voice-over script is way too long for a 30 second reel, can you tell me what to trim?",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.07254390000000001,
+   "cost": 0.1115474,
    "transcript": "video__skills__video-beat-board__head__pos0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -304,13 +304,11 @@
    "i": 1,
    "rep": 0,
    "round": 0,
-   "prompt": "I have a 60-second explainer script with 8 scenes and about 190 words of narration plus on-screen titles. Break it into a timed shot list and tell me whether it fits, and if not, how many words to cut.",
+   "prompt": "Here's my 60 second explainer script, 9 beats, about 190 words of narration plus on-screen titles. Turn it into a timed shot list and tell me how many words I have to cut so each beat has enough time.",
    "status": "ok",
-   "exact": true,
-   "fired": [
-    "video-studio:video-beat-board"
-   ],
-   "cost": 0.0811854,
+   "exact": false,
+   "fired": [],
+   "cost": 0.1012588,
    "transcript": "video__skills__video-beat-board__head__pos1__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -325,13 +323,11 @@
    "i": 1,
    "rep": 1,
    "round": 0,
-   "prompt": "I have a 60-second explainer script with 8 scenes and about 190 words of narration plus on-screen titles. Break it into a timed shot list and tell me whether it fits, and if not, how many words to cut.",
+   "prompt": "Here's my 60 second explainer script, 9 beats, about 190 words of narration plus on-screen titles. Turn it into a timed shot list and tell me how many words I have to cut so each beat has enough time.",
    "status": "ok",
-   "exact": true,
-   "fired": [
-    "video-studio:video-beat-board"
-   ],
-   "cost": 0.08197460000000001,
+   "exact": false,
+   "fired": [],
+   "cost": 0.0633287,
    "transcript": "video__skills__video-beat-board__head__pos1__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -346,11 +342,11 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "Write a 60-second voice-over script for our new coffee subscription product, friendly tone, aimed at young professionals.",
+   "prompt": "Proofread my 500-word blog post intro and tighten the wording so it reads more punchy, no word limit in mind.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0664544,
+   "cost": 0.07135359999999999,
    "transcript": "video__skills__video-beat-board__head__neg0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -365,11 +361,11 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "Write a 60-second voice-over script for our new coffee subscription product, friendly tone, aimed at young professionals.",
+   "prompt": "Proofread my 500-word blog post intro and tighten the wording so it reads more punchy, no word limit in mind.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0652044,
+   "cost": 0.0694638,
    "transcript": "video__skills__video-beat-board__head__neg0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -384,13 +380,13 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "my video's audio is too quiet compared to the music, can you fix the mix and get it ready to upload?",
+   "prompt": "the video is done, can you mix the narration over the music and make the volume levels right before I upload?",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-conform"
    ],
-   "cost": 0.07862200000000001,
+   "cost": 0.0772443,
    "transcript": "video__skills__video-conform__head__pos0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -405,13 +401,13 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "my video's audio is too quiet compared to the music, can you fix the mix and get it ready to upload?",
+   "prompt": "the video is done, can you mix the narration over the music and make the volume levels right before I upload?",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-conform"
    ],
-   "cost": 0.0764142,
+   "cost": 0.0777991,
    "transcript": "video__skills__video-conform__head__pos0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -426,13 +422,13 @@
    "i": 1,
    "rep": 0,
    "round": 0,
-   "prompt": "I've got final.mov, a voice-over WAV and a music track. Mix the voice over the music, normalize to -14 LUFS, burn in the captions from captions.srt, and export an MP4 that's exactly 45 seconds and plays on phones and browsers.",
+   "prompt": "I have final_cut.mp4 (58 s), vo.wav and theme.mp3. Duck the music under the voice, normalize loudness to -14 LUFS for YouTube, burn in captions from subs.srt, and export an MP4 that plays on iPhone and fails if it's off-length.",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-conform"
    ],
-   "cost": 0.0745855,
+   "cost": 0.0748992,
    "transcript": "video__skills__video-conform__head__pos1__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -447,13 +443,13 @@
    "i": 1,
    "rep": 1,
    "round": 0,
-   "prompt": "I've got final.mov, a voice-over WAV and a music track. Mix the voice over the music, normalize to -14 LUFS, burn in the captions from captions.srt, and export an MP4 that's exactly 45 seconds and plays on phones and browsers.",
+   "prompt": "I have final_cut.mp4 (58 s), vo.wav and theme.mp3. Duck the music under the voice, normalize loudness to -14 LUFS for YouTube, burn in captions from subs.srt, and export an MP4 that plays on iPhone and fails if it's off-length.",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-conform"
    ],
-   "cost": 0.071602,
+   "cost": 0.0753487,
    "transcript": "video__skills__video-conform__head__pos1__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -468,11 +464,11 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "Transcribe this interview recording and clean up the transcript into readable paragraphs with speaker labels.",
+   "prompt": "Write an ffmpeg command to extract frames from a screen recording every 2 seconds and save them as PNG files.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.07152220000000001,
+   "cost": 0.0631155,
    "transcript": "video__skills__video-conform__head__neg0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -487,11 +483,11 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "Transcribe this interview recording and clean up the transcript into readable paragraphs with speaker labels.",
+   "prompt": "Write an ffmpeg command to extract frames from a screen recording every 2 seconds and save them as PNG files.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0691417,
+   "cost": 0.0634516,
    "transcript": "video__skills__video-conform__head__neg0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -506,11 +502,13 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "I want a short teaser video for our app launch, can you make one?",
+   "prompt": "I want to make a short promo video for my app launch, where do we start?",
    "status": "ok",
-   "exact": false,
-   "fired": [],
-   "cost": 0.0656584,
+   "exact": true,
+   "fired": [
+    "video-studio:video-director"
+   ],
+   "cost": 0.1133531,
    "transcript": "video__skills__video-director__head__pos0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -525,13 +523,13 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "I want a short teaser video for our app launch, can you make one?",
+   "prompt": "I want to make a short promo video for my app launch, where do we start?",
    "status": "ok",
    "exact": true,
    "fired": [
     "video-studio:video-director"
    ],
-   "cost": 0.166489,
+   "cost": 0.1113637,
    "transcript": "video__skills__video-director__head__pos0__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -546,11 +544,13 @@
    "i": 1,
    "rep": 0,
    "round": 0,
-   "prompt": "Here's our changelog for v3.2 (6 bullet points) and a brand color of #1A73E8. Turn it into a 30-second promo video, starting from a brief, with a timed plan and a final MP4 I can post on social.",
+   "prompt": "Turn this changelog for v3.2 (6 bullet points: dark mode, faster sync, new export, etc.) into a 30 second vertical teaser for Instagram Reels with a voice-over, and take it all the way to a finished MP4.",
    "status": "ok",
-   "exact": false,
-   "fired": [],
-   "cost": 0.0794104,
+   "exact": true,
+   "fired": [
+    "video-studio:video-director"
+   ],
+   "cost": 0.1156712,
    "transcript": "video__skills__video-director__head__pos1__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -565,11 +565,13 @@
    "i": 1,
    "rep": 1,
    "round": 0,
-   "prompt": "Here's our changelog for v3.2 (6 bullet points) and a brand color of #1A73E8. Turn it into a 30-second promo video, starting from a brief, with a timed plan and a final MP4 I can post on social.",
+   "prompt": "Turn this changelog for v3.2 (6 bullet points: dark mode, faster sync, new export, etc.) into a 30 second vertical teaser for Instagram Reels with a voice-over, and take it all the way to a finished MP4.",
    "status": "ok",
-   "exact": false,
-   "fired": [],
-   "cost": 0.07921439999999999,
+   "exact": true,
+   "fired": [
+    "video-studio:video-director"
+   ],
+   "cost": 0.1156746,
    "transcript": "video__skills__video-director__head__pos1__r01.jsonl",
    "error": null,
    "error_detail": ""
@@ -584,11 +586,11 @@
    "i": 0,
    "rep": 0,
    "round": 0,
-   "prompt": "Write a creative brief and campaign messaging for our product launch, including target audience, key messages and channels. No video needed yet.",
+   "prompt": "Give me tips on how to edit my wedding footage in DaVinci Resolve so the color grading looks warm and cinematic.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.1478002,
+   "cost": 0.07915749999999999,
    "transcript": "video__skills__video-director__head__neg0__r00.jsonl",
    "error": null,
    "error_detail": ""
@@ -603,128 +605,126 @@
    "i": 0,
    "rep": 1,
    "round": 0,
-   "prompt": "Write a creative brief and campaign messaging for our product launch, including target audience, key messages and channels. No video needed yet.",
+   "prompt": "Give me tips on how to edit my wedding footage in DaVinci Resolve so the color grading looks warm and cinematic.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0754775,
+   "cost": 0.071866,
    "transcript": "video__skills__video-director__head__neg0__r01.jsonl",
    "error": null,
    "error_detail": ""
   },
   {
-   "skill": "video/skills/video-director",
+   "skill": "video/skills/video-beat-board",
    "plugin": "video-studio",
    "arm": "head",
    "plugin_dir": "/home/user/claude-skills/video",
-   "name": "video-director",
+   "name": "video-beat-board",
    "kind": "pos",
    "i": 0,
    "rep": 0,
    "round": 1,
-   "prompt": "I want a short teaser video for our app launch, can you make one?",
+   "prompt": "my voice-over script is way too long for a 30 second reel, can you tell me what to trim?",
    "status": "ok",
-   "exact": true,
-   "fired": [
-    "video-studio:video-director"
-   ],
-   "cost": 0.1099433,
-   "transcript": "video__skills__video-director__head__pos0__r10.jsonl",
+   "exact": false,
+   "fired": [],
+   "cost": 0.06974770000000001,
+   "transcript": "video__skills__video-beat-board__head__pos0__r10.jsonl",
    "error": null,
    "error_detail": ""
   },
   {
-   "skill": "video/skills/video-director",
+   "skill": "video/skills/video-beat-board",
    "plugin": "video-studio",
    "arm": "head",
    "plugin_dir": "/home/user/claude-skills/video",
-   "name": "video-director",
+   "name": "video-beat-board",
    "kind": "pos",
    "i": 0,
    "rep": 1,
    "round": 1,
-   "prompt": "I want a short teaser video for our app launch, can you make one?",
+   "prompt": "my voice-over script is way too long for a 30 second reel, can you tell me what to trim?",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0621787,
-   "transcript": "video__skills__video-director__head__pos0__r11.jsonl",
+   "cost": 0.0707475,
+   "transcript": "video__skills__video-beat-board__head__pos0__r11.jsonl",
    "error": null,
    "error_detail": ""
   },
   {
-   "skill": "video/skills/video-director",
+   "skill": "video/skills/video-beat-board",
    "plugin": "video-studio",
    "arm": "head",
    "plugin_dir": "/home/user/claude-skills/video",
-   "name": "video-director",
+   "name": "video-beat-board",
    "kind": "pos",
    "i": 1,
    "rep": 0,
    "round": 1,
-   "prompt": "Here's our changelog for v3.2 (6 bullet points) and a brand color of #1A73E8. Turn it into a 30-second promo video, starting from a brief, with a timed plan and a final MP4 I can post on social.",
+   "prompt": "Here's my 60 second explainer script, 9 beats, about 190 words of narration plus on-screen titles. Turn it into a timed shot list and tell me how many words I have to cut so each beat has enough time.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0792603,
-   "transcript": "video__skills__video-director__head__pos1__r10.jsonl",
+   "cost": 0.0622327,
+   "transcript": "video__skills__video-beat-board__head__pos1__r10.jsonl",
    "error": null,
    "error_detail": ""
   },
   {
-   "skill": "video/skills/video-director",
+   "skill": "video/skills/video-beat-board",
    "plugin": "video-studio",
    "arm": "head",
    "plugin_dir": "/home/user/claude-skills/video",
-   "name": "video-director",
+   "name": "video-beat-board",
    "kind": "pos",
    "i": 1,
    "rep": 1,
    "round": 1,
-   "prompt": "Here's our changelog for v3.2 (6 bullet points) and a brand color of #1A73E8. Turn it into a 30-second promo video, starting from a brief, with a timed plan and a final MP4 I can post on social.",
+   "prompt": "Here's my 60 second explainer script, 9 beats, about 190 words of narration plus on-screen titles. Turn it into a timed shot list and tell me how many words I have to cut so each beat has enough time.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.07583630000000001,
-   "transcript": "video__skills__video-director__head__pos1__r11.jsonl",
+   "cost": 0.0628947,
+   "transcript": "video__skills__video-beat-board__head__pos1__r11.jsonl",
    "error": null,
    "error_detail": ""
   },
   {
-   "skill": "video/skills/video-director",
+   "skill": "video/skills/video-beat-board",
    "plugin": "video-studio",
    "arm": "head",
    "plugin_dir": "/home/user/claude-skills/video",
-   "name": "video-director",
+   "name": "video-beat-board",
    "kind": "neg",
    "i": 0,
    "rep": 0,
    "round": 1,
-   "prompt": "Write a creative brief and campaign messaging for our product launch, including target audience, key messages and channels. No video needed yet.",
+   "prompt": "Proofread my 500-word blog post intro and tighten the wording so it reads more punchy, no word limit in mind.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.0854607,
-   "transcript": "video__skills__video-director__head__neg0__r10.jsonl",
+   "cost": 0.0687895,
+   "transcript": "video__skills__video-beat-board__head__neg0__r10.jsonl",
    "error": null,
    "error_detail": ""
   },
   {
-   "skill": "video/skills/video-director",
+   "skill": "video/skills/video-beat-board",
    "plugin": "video-studio",
    "arm": "head",
    "plugin_dir": "/home/user/claude-skills/video",
-   "name": "video-director",
+   "name": "video-beat-board",
    "kind": "neg",
    "i": 0,
    "rep": 1,
    "round": 1,
-   "prompt": "Write a creative brief and campaign messaging for our product launch, including target audience, key messages and channels. No video needed yet.",
+   "prompt": "Proofread my 500-word blog post intro and tighten the wording so it reads more punchy, no word limit in mind.",
    "status": "ok",
    "exact": false,
    "fired": [],
-   "cost": 0.06549669999999999,
-   "transcript": "video__skills__video-director__head__neg0__r11.jsonl",
+   "cost": 0.0690675,
+   "transcript": "video__skills__video-beat-board__head__neg0__r11.jsonl",
    "error": null,
    "error_detail": ""
   }

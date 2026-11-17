@@ -1,6 +1,6 @@
 ---
 name: video-director
-description: Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a script, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4.
+description: Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4.
 argument-hint: "[brief.json | one-sentence goal]"
 context: fork
 license: MIT

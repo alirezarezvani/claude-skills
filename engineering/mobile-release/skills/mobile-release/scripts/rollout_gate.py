@@ -5,8 +5,8 @@ Compares the new release's crash and ANR numbers with the previous release
 (the baseline) and with Google Play's "bad behavior" thresholds, and returns
 PROCEED, HOLD or HALT for the current stage.
 
-Input: a CSV with one row per release, the baseline first or marked
-release=baseline. Columns (counts, not percentages, so the test is honest):
+Input: a CSV with exactly two rows, the baseline and the new release (the
+baseline is the row whose release starts with "baseline", else the first). Columns (counts, not percentages, so the test is honest):
 
   release, platform (android|ios), rollout_pct, users,
   crashed_users, anr_users (android, optional), worst_device_crash_pct (optional)
@@ -32,6 +32,10 @@ over seven days and can only be paused (up to 30 days) or released to all;
 users can still download the version manually while paused. Android staged
 rollout percentages are yours to set; the default ladder here is
 1, 5, 10, 20, 50, 100 (change with --ladder).
+
+Re-running the gate at every stage on two metrics means several looks at
+alpha 0.05, so the false-HALT rate over a whole rollout is above 5%; lower
+--alpha if a false HALT is expensive for you.
 
 Exit codes: 0 PROCEED, 2 HOLD, 3 bad input, 4 HALT.
 Thresholds verified 2026-11-17. Deterministic, stdlib only, no network.
@@ -86,7 +90,10 @@ def to_int(row, key, required=True):
             raise ValueError(f"missing {key} in row {row.get('release')}")
         return None
     try:
-        n = int(float(v))
+        f = float(v)
+        if not math.isfinite(f):
+            raise ValueError
+        n = int(f)
     except ValueError:
         raise ValueError(f"{key}='{v}' is not a number in row {row.get('release')}")
     if n < 0:
@@ -96,8 +103,8 @@ def to_int(row, key, required=True):
 
 def parse(text):
     rows = list(csv.DictReader(io.StringIO(text)))
-    if len(rows) < 2:
-        raise ValueError("need a baseline row and the new release row")
+    if len(rows) != 2:
+        raise ValueError(f"need exactly two rows, the baseline and the new release; got {len(rows)}")
     base = next((r for r in rows if (r.get("release") or "").lower().startswith("baseline")), rows[0])
     new = rows[-1] if rows[-1] is not base else rows[-2]
     out = []
@@ -111,6 +118,9 @@ def parse(text):
             "anr_users": to_int(r, "anr_users", False),
             "worst_device_crash_pct": float(r["worst_device_crash_pct"]) if (r.get("worst_device_crash_pct") or "").strip() else None,
         }
+        for k in ("rollout_pct", "worst_device_crash_pct"):
+            if d[k] is not None and not (math.isfinite(d[k]) and 0 <= d[k] <= 100):
+                raise ValueError(f"{k} must be a number from 0 to 100 in row {d['release']}")
         if d["platform"] not in ("android", "ios"):
             raise ValueError(f"platform must be android or ios in row {d['release']}")
         if d["users"] == 0:

@@ -15,8 +15,9 @@ Chat agents handling several sessions at once: pass --concurrency; AHT is then
 divided by it, which is an approximation (concurrent chats are slower each).
 
 Input: --arrivals and --aht for one interval, or --intervals CSV with columns
-interval, arrivals (per hour) [, aht_s]. Optional column staffed compares the
-plan with the roster.
+interval, arrivals (per hour) [, aht_s]. Optional column staffed is the number
+of paid agents rostered for that hour (before shrinkage, the same basis as
+"scheduled"), and the plan is compared with it.
 
 Exit codes: 0 plan meets the goal (and the roster, if given), 2 roster short in
 at least one interval, 3 bad input. Deterministic, stdlib only, no network.
@@ -117,9 +118,14 @@ def read_rows(path):
                 if (r.get("aht_s") or "").strip():
                     row["aht_s"] = float(r["aht_s"])
                 if (r.get("staffed") or "").strip():
-                    row["staffed"] = int(float(r["staffed"]))
+                    f = float(r["staffed"])
+                    if not math.isfinite(f):
+                        raise ValueError
+                    row["staffed"] = int(f)
             except ValueError:
                 raise ValueError(f"row {i}: non-numeric value")
+            if not all(math.isfinite(v) for v in (row["arrivals"], row.get("aht_s", 1), row.get("staffed", 0))):
+                raise ValueError(f"row {i}: values must be finite numbers")
             if row["arrivals"] < 0 or row.get("aht_s", 1) <= 0:
                 raise ValueError(f"row {i}: arrivals must be >= 0 and aht_s > 0")
             rows.append(row)
@@ -147,7 +153,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0], epilog="Exit codes: 0 plan ok, 2 roster short, 3 bad input.")
     ap.add_argument("--mode", choices=["live", "async"], default="live", help="live = phone/chat (Erlang C), async = email/form (workload)")
     ap.add_argument("--arrivals", type=float, help="contacts per hour (single interval)")
-    ap.add_argument("--intervals", help="CSV: interval, arrivals [, aht_s, staffed]")
+    ap.add_argument("--intervals", help="CSV: interval, arrivals per hour [, aht_s, staffed = paid agents rostered, before shrinkage]")
     ap.add_argument("--aht", type=float, help="average handle time in seconds (talk/chat + wrap-up)")
     ap.add_argument("--service-level", type=float, default=0.8, help="share answered within --target-s (live; default 0.8)")
     ap.add_argument("--target-s", type=float, default=60, help="answer-time target in seconds (live; default 60)")
@@ -164,12 +170,12 @@ def main(argv=None):
             rows = [{"interval": i, "arrivals": float(n), "staffed": s} for i, n, s in SAMPLE]
             aht, conc = a.aht or 420.0, a.concurrency if a.concurrency != 1 else 2.0
         else:
-            if a.aht is None or a.aht <= 0:
+            if a.aht is None or not math.isfinite(a.aht) or a.aht <= 0:
                 raise ValueError("--aht (seconds, > 0) is required")
             aht, conc = a.aht, a.concurrency
             if a.intervals:
                 rows = read_rows(a.intervals)
-            elif a.arrivals is not None and a.arrivals >= 0:
+            elif a.arrivals is not None and math.isfinite(a.arrivals) and a.arrivals >= 0:
                 rows = [{"interval": "interval", "arrivals": a.arrivals}]
             else:
                 raise ValueError("give --arrivals N or --intervals FILE (or --sample)")

@@ -1,6 +1,6 @@
 # Business & Growth Skills - Claude Code Guidance
 
-This guide covers the 6 production-ready business and growth skills and their Python automation tools.
+This guide covers the 6 business and growth skills (5 specialists plus the `business-growth-skills` router) and their Python automation tools.
 
 ## Business & Growth Skills Overview
 
@@ -9,8 +9,10 @@ This guide covers the 6 production-ready business and growth skills and their Py
 2. **sales-engineer/** - Technical discovery, RFP analysis, competitive positioning, POC planning (3 Python tools)
 3. **revenue-operations/** - Pipeline analysis, forecast accuracy, GTM efficiency metrics (3 Python tools)
 4. **support-ops/** - SLA attainment in business hours, Erlang C staffing, ticket deflection (3 Python tools; also a standalone plugin)
+5. **contract-and-proposal-writer/** - Contracts, SOWs and proposals (guidance only, no scripts)
+6. **business-growth-skills/** - Router that picks the right skill above
 
-**Total Tools:** 12 Python automation tools, 12 knowledge bases, 19+ templates
+**Total Tools:** 12 Python automation tools and 12 reference guides
 
 ## Python Automation Tools
 

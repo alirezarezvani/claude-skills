@@ -26,7 +26,7 @@ A rate on 800 users means little: 2 crashes is 0.25%, 1 crash is 0.125%. The gat
 2. compares the new release with the baseline using a one-sided two-proportion z-test [4],
 3. halts only when the relative worsening is above `--max-regression` (default 25%) **and** p < `--alpha` (default 0.05); holds when it is above but not significant.
 
-Defaults are judgement calls (🔴), state them when you report a decision. Repeated looks at a growing sample inflate false alarms [5]; that is acceptable here because a false HOLD costs a day and a missed HALT costs the user base. Google's SRE canary guidance makes the same trade: compare canary and control on the same metric, over a population large enough to detect the difference you care about [6].
+Defaults are judgement calls (🔴), state them when you report a decision. Repeated looks at a growing sample inflate false alarms [5]; that is acceptable for a HOLD, which costs a day, but each stage and each metric is another look at the same alpha, so over a six-stage rollout the chance of at least one false HALT is well above 5%; lower `--alpha` where a false HALT is expensive. The staged cohort is also not a random sample (early stages over-represent users on auto-update and recent devices), so treat a borderline regression as a reason to look at the crash clusters, not as proof. Google's SRE canary guidance makes the same trade: compare canary and control on the same metric, over a population large enough to detect the difference you care about [6].
 
 ## Sources
 

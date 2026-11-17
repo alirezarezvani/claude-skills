@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 463,
+  "total_skills": 467,
   "skills": [
     {
       "name": "content-strategist",
@@ -2317,6 +2317,26 @@
       "name": "research-ops-skills",
       "category": "research-ops",
       "description": "Use when an enterprise research request needs routing (clinical study design, R&D finance, market sizing, user research): 'what sample size', 'R&D budget'. Lists the research-ops skills and routes to one."
+    },
+    {
+      "name": "video-animatic",
+      "category": "video",
+      "description": "Use when building an animation, motion graphic, kinetic type, animated chart from data, or animatic with code and rendering it to MP4 frame-exact. Compiles a scene.v1 JSON into a seekable HTML timeline, lints readability, flashes and contrast, renders with Playwright, and exports clean keyframes for AI shot upgrades."
+    },
+    {
+      "name": "video-beat-board",
+      "category": "video",
+      "description": "Use when a video script, voice-over or shot list has to fit a fixed length (15 s, 30 s, 60 s), or to turn beats into a timed shot list. beat_board.py gives each beat the time its narration and on-screen text need and refuses a script that does not fit, saying how many words to cut."
+    },
+    {
+      "name": "video-conform",
+      "category": "video",
+      "description": "Use when finishing a video for delivery - mix voice-over and music, normalize loudness, add or burn in captions, and export a checked MP4 that plays everywhere. conform.py builds the ffmpeg command, then fails the export if duration or loudness misses its target."
+    },
+    {
+      "name": "video-director",
+      "category": "video",
+      "description": "Use when someone wants a video, animation, explainer, teaser, trailer, promo or short film made, from a brief, a script, a changelog or a CSV. Runs brief \u2192 beat board \u2192 code animatic \u2192 (optional AI shot upgrades) \u2192 conform to MP4, and gates the brief with brief_gate.py before anything is rendered or spent."
     }
   ],
   "categories": {
@@ -2407,6 +2427,10 @@
     "research-ops": {
       "count": 6,
       "description": "Research-ops resources"
+    },
+    "video": {
+      "count": 4,
+      "description": "Video resources"
     }
   }
 }

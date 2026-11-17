@@ -1,0 +1,18 @@
+{
+  "name": "video-studio",
+  "description": "Make short films, explainers, teasers and animated charts the way previz studios do: a free code animatic first, generated footage only for shots you approve. brief_gate.py derives aspect and voice-over budget and refuses unsafe or out-of-scope briefs; beat_board.py times beats and refuses a script that does not fit; timeline_compiler.py turns a scene.v1 JSON into a seekable HTML animatic (text, charts from CSV, counters, lower thirds, camera moves, plates); frame_renderer.py renders it frame-exact with Playwright; motion_linter.py blocks unreadable text, VO overruns, flashes (WCAG 2.3.1) and low contrast; shot_manifest.py turns upgrade shots into a provider-neutral request list with clean keyframes; conform.py mixes VO and music, normalizes loudness (AES TD1008 / EBU R 128) and QC-checks the MP4. Generation MCPs (Higgsfield or any other) are optional, quoted per shot and never run without a yes. 4 skills, 7 stdlib tools, cs-video-director agent, 3 commands.",
+  "version": "2.14.13",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/video",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/video-director",
+    "./skills/video-beat-board",
+    "./skills/video-animatic",
+    "./skills/video-conform"
+  ]
+}

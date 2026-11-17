@@ -67,6 +67,7 @@ DOMAIN_DIRS = [
     "agent-launcher",  # unreleased post-v2.11.2 — CMA launcher: orchestrator + interview + stage-launch + grade-iterate + run-without-you + wrap-up
     "c-level-agents",  # v2.5.0 — founder-mode persona layer (boardroom, office-hours, *-review); self-contained since v2.13.0
     "loop-library",    # vendored loop catalog — SKILL.md sits at the domain root
+    "video",           # unreleased post-v2.14.13 — video-studio: director, beat board, animatic, conform
 ]
 
 

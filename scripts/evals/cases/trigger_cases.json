@@ -3928,5 +3928,45 @@
   ],
   "neg": "Calculate our DORA metrics: deployment frequency, lead time for changes, change failure rate and MTTR from this CSV of deploys.",
   "origin": "reviewed"
+ },
+ "video/skills/video-animatic": {
+  "name": "video-animatic",
+  "plugin": "video-studio",
+  "pos": [
+   "animate this bar chart of quarterly revenue into a short mp4",
+   "Build a 12-second kinetic typography intro with our brand colours: the headline types on word by word, a counter rolls up to 68%, then a logo end card. Render it as a 1080p MP4 and a 9:16 version for Reels, all done in code, no stock footage."
+  ],
+  "neg": "Write the camera movement prompt for a Kling shot where the drone pushes in over a foggy forest towards a cabin.",
+  "origin": "generated"
+ },
+ "video/skills/video-beat-board": {
+  "name": "video-beat-board",
+  "plugin": "video-studio",
+  "pos": [
+   "does this voiceover script actually fit in 20 seconds?",
+   "Here are six beats for a 15-second Instagram teaser, each with a voice-over line and on-screen text. Time them so every line can be read and spoken, tell me what to cut if it doesn't fit, and turn it into a shot list."
+  ],
+  "neg": "Write a 90-second video script for our product launch with a hook, three benefits and a call to action.",
+  "origin": "generated"
+ },
+ "video/skills/video-conform": {
+  "name": "video-conform",
+  "plugin": "video-studio",
+  "pos": [
+   "the music is drowning the voiceover in my export, can you fix the mix?",
+   "I have rendered frames, a voice-over WAV and a music bed. Mix them with the music under the voice, normalize to -16 LUFS for social, burn in captions because the feed autoplays muted, and check the final MP4 before I upload it."
+  ],
+  "neg": "Record a product demo video of our web app: take screenshots of the signup flow and stitch them into a walkthrough with narration.",
+  "origin": "generated"
+ },
+ "video/skills/video-director": {
+  "name": "video-director",
+  "plugin": "video-studio",
+  "pos": [
+   "I need a 30 second launch video for LinkedIn, where do we even start?",
+   "Make me a 45-second explainer film for our new onboarding flow: a few shots of a nurse using the tablet, plus animated stats about time saved. Plan the shots, build a cheap version first so I can review, and only use AI footage where it really adds something."
+  ],
+  "neg": "Write me a YouTube content strategy for the next quarter: which video topics, posting cadence and thumbnails will grow the channel.",
+  "origin": "generated"
  }
 }

@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 396,
+  "total_skills": 400,
   "domains": {
     "engineering": [
       {
@@ -2020,6 +2020,28 @@
         "name": "loop-library",
         "description": "Discover, find, compare, audit, repair, adapt, and design repeatable AI-agent loops with explicit triggers, actions, verification, stopping conditions, guardrails, and handoffs. Use when a user asks to analyze a codebase for potential loops, mine coding-thread history for work done more than once, turn repeated engineering work into a loop, find or recommend a published loop, create a recurring agent workflow or automation cadence, turn an outcome into a bounded copy-ready loop, or review an existing loop for weak checks, unsafe authority, unbounded repetition, stale state, or unclear stopping behavior.",
         "path": "loop-library/loop-library"
+      }
+    ],
+    "video": [
+      {
+        "name": "video-animatic",
+        "description": "Use when building an animation, motion graphic, kinetic type, animated chart from data, or animatic with code and rendering it to MP4 frame-exact. Compiles a scene.v1 JSON into a seekable HTML timeline, lints readability, flashes and contrast, renders with Playwright, and exports clean keyframes for AI shot upgrades.",
+        "path": "video/video-animatic"
+      },
+      {
+        "name": "video-beat-board",
+        "description": "Use when a video script, voice-over or shot list has to fit a fixed length (15 s, 30 s, 60 s), or to turn beats into a timed shot list. beat_board.py gives each beat the time its narration and on-screen text need and refuses a script that does not fit, saying how many words to cut.",
+        "path": "video/video-beat-board"
+      },
+      {
+        "name": "video-conform",
+        "description": "Use when finishing a video for delivery - mix voice-over and music, normalize loudness, add or burn in captions, and export a checked MP4 that plays everywhere. conform.py builds the ffmpeg command, then fails the export if duration or loudness misses its target.",
+        "path": "video/video-conform"
+      },
+      {
+        "name": "video-director",
+        "description": "Use when someone wants a video, animation, explainer, teaser, trailer, promo or short film made, from a brief, a script, a changelog or a CSV. Runs brief \u2192 beat board \u2192 code animatic \u2192 (optional AI shot upgrades) \u2192 conform to MP4, and gates the brief with brief_gate.py before anything is rendered or spent.",
+        "path": "video/video-director"
       }
     ]
   }

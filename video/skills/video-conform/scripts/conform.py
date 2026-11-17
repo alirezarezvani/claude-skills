@@ -76,7 +76,8 @@ def srt_from_shots(shots: list) -> str:
             for c in cues:
                 span = d * len(" ".join(c)) / total
                 n += 1
-                out.append(f"{n}\n{ts(start + 0.05)} --> {ts(start + span - 0.05)}\n" + "\n".join(c) + "\n")
+                end = max(start + span - 0.05, start + 0.15)  # a too-long VO line in a short shot still gets a valid cue
+                out.append(f"{n}\n{ts(start + 0.05)} --> {ts(end)}\n" + "\n".join(c) + "\n")
                 start += span
         t += d
     return "\n".join(out)
@@ -141,6 +142,18 @@ def probe_duration(path: str) -> float | None:
                            capture_output=True, text=True, timeout=60)
         return float(r.stdout.strip())
     except (ValueError, subprocess.TimeoutExpired):
+        return None
+
+
+def probe_fps(path: str) -> float | None:
+    """Frame rate of the first video stream, so --video input is not resampled."""
+    try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=r_frame_rate",
+                            "-of", "csv=p=0", as_input(path)], capture_output=True, text=True, timeout=60)
+        num, _, den = r.stdout.strip().partition("/")
+        fps = float(num) / float(den or 1)
+        return fps if 0 < fps <= 240 else None
+    except (ValueError, ZeroDivisionError, subprocess.TimeoutExpired):
         return None
 
 
@@ -211,7 +224,7 @@ def main() -> int:
                 return 2
         video_in = ["-framerate", f"{fps:g}", "-i", str(Path(render["frames_dir"]) / render["pattern"])]
     else:
-        fps = 30.0
+        fps = (probe_fps(args.video) if shutil.which("ffprobe") else None) or 30.0
         duration = sum(float(s["duration"]) for s in shots) if shots else None
         if duration is None:
             duration = probe_duration(args.video) if shutil.which("ffprobe") else None

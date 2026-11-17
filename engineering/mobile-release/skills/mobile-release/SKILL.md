@@ -1,6 +1,6 @@
 ---
 name: mobile-release
-description: "Get an iOS or Android app release through App Store and Google Play review, then roll it out safely. Use before submitting or uploading a build, when App Store Connect or Play Console rejects one (privacy manifest, required reason API, missing purpose string, target API level, exported components, permission declarations) or when deciding whether to widen, pause or halt a staged or phased rollout from crash and ANR numbers."
+description: "Use when shipping an iOS or Android app update to the App Store or Google Play - Apple or Google rejected or warned about a build (ITMS-91053 privacy manifest, required reason API, missing usage description, target API level, 16 KB page size, exported activity, SMS or call log permission, Data safety), a readiness check before submitting an iOS, Android, Flutter or React Native release, or whether to pause, halt or widen a phased or staged rollout from crash rate, ANR rate or Play's bad behavior thresholds. Checks the project with stdlib scripts."
 argument-hint: "[ios project dir | android project dir | rollout.csv]"
 license: MIT
 metadata:
@@ -53,6 +53,7 @@ significant or the release has too few users.
 
 ## Hard rules
 
+- **Pick the reason code the stated use supports.** When the user says how the API is used, name the one matching code (for example C617.1 for timestamps of files in the app container); ask only when the use is unknown.
 - **A BLOCKER means do not submit.** Fix it, re-run, then upload.
 - **Never declare a reason code to make the check pass.** Ask what the code does with the API, then pick the reason.
 - **The app's manifest cannot cover an SDK.** Update the SDK to a version that ships its own manifest.

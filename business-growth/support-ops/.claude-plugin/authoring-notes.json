@@ -2,6 +2,6 @@
   "source": {
     "spec": "October 2026 quality-audit proposal 'support-ops' (never built) and the 2026-11-17 gap audit: no skill covered support queue SLAs, staffing or deflection. Built from primary sources",
     "build_pattern": "Three deterministic stdlib scripts over a helpdesk export (business-hours SLA attainment and breach risk, Erlang C via the Erlang B recursion plus async workload staffing, Pareto deflection finder with root-cause routing); methods cited to Erlang 1917, Gans-Koole-Mandelbaum 2003, Halfin-Whitt 1981, Little 1961, the KCS v6 Practices Guide and ITIL 4",
-    "distinct_from": "customer-success-manager (account health and churn); chief-customer-officer-advisor (retention strategy); capacity-planner (general team capacity); incident-commander (production incidents)"
+    "distinct_from": "customer-success-manager (account health and churn); chief-customer-officer-advisor (retention strategy); capacity-planner (headcount and hiring from daily demand; support-ops schedules per interval against a roster); incident-commander (production incidents)"
   }
 }

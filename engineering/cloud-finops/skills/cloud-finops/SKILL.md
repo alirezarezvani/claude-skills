@@ -1,6 +1,6 @@
 ---
 name: cloud-finops
-description: "Analyse a cloud bill (AWS, Azure, Google Cloud) from a FOCUS cost export. Use when the cloud bill jumped, to find who owns untagged spend, to check Savings Plans, Reserved Instances or committed use discounts (utilization, coverage, effective savings rate) before buying more, or to track cost per customer or per order."
+description: "Use for any cloud cost question on AWS, Azure or Google Cloud - a bill that jumped or one service that spiked (NAT gateway, egress, storage), cost anomaly alert thresholds, untagged or unallocated spend and tag cleanup for showback or chargeback, Savings Plans, Reserved Instances or committed use discounts (utilization, coverage, unused commitment, effective savings rate, whether to buy more), or whether cost per order or per customer got worse. Reads a FOCUS billing export with stdlib scripts."
 argument-hint: "<focus_export.csv> [--required-tags team,env] [--units units.csv]"
 license: MIT
 metadata:

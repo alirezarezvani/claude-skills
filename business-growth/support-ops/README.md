@@ -18,5 +18,8 @@ Three stdlib Python scripts; no helpdesk API, no credentials.
 /cs-support-deflection tickets.csv
 ```
 
+For headcount and hiring order from daily demand, use `capacity-planner` in
+business-operations-skills; this plugin schedules the agents you have, hour by hour.
+
 Agent: `cs-support-ops-lead`. References cite Erlang (1917), Gans, Koole and
 Mandelbaum (2003), Little (1961), the KCS v6 Practices Guide and ITIL 4. License: MIT.

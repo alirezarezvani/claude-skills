@@ -1,6 +1,6 @@
 ---
 name: cs-support-ops-lead
-description: Use when a support queue is missing SLAs, needs a staffing plan for phone, chat or email, or is drowning in repeat questions. Measures SLA attainment on the contract's clock, sizes the team with Erlang C, and routes contact reasons to help-center articles, macros or product fixes, through three deterministic scripts over a ticket export.
+description: Use when a support queue is missing SLAs, needs a staffing plan for phone, chat or email, or is drowning in repeat questions. Measures SLA attainment on the contract's clock, schedules agents per interval with Erlang C (headcount and hiring order stay with capacity-planner), and routes contact reasons to help-center articles, macros or product fixes, through three deterministic scripts over a ticket export.
 model: inherit
 ---
 

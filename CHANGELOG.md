@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **support-ops** (new `business-growth/support-ops` plugin, also in the business-growth-skills bundle): support operations for a helpdesk team. `sla_check.py` (first-response and resolution attainment on a business-hours clock with holidays, open tickets past target counted as misses, at-risk tickets, backlog age), `staffing_plan.py` (Erlang C agents per interval for phone and chat, workload plus backlog drain for email, shrinkage and occupancy caps, gaps against the roster) and `deflection_finder.py` (Pareto contact reasons labelled FIX_ROOT_CAUSE, DEFLECT, AUTOMATE or REVIEW). Ships the cs-support-ops-lead agent, `/cs-support-sla`, `/cs-support-staffing` and `/cs-support-deflection`, and three cited references.
 
 ### Changed
+- Skill-router hooks (UserPromptSubmit, off with `SKILL_ROUTER=0`) now ship in the three new plugins and hint them from the engineering-advanced-skills and business-growth-skills bundles, for release, cloud-cost and support-queue questions the model would otherwise answer from memory.
 - Headline counters: skills 422 → 428 (3 standalone plugins plus their bundle copies), tools 841 → 861, references 949 → 967, agents 133 → 136, commands 178 → 185, plugins 116 → 119. `business-growth/CLAUDE.md` lists support-ops.
 
 ## [2.14.13] - 2026-11-17 — NIS2, DORA and readme-polish

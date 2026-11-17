@@ -255,7 +255,7 @@
   "name": "support-ops",
   "plugin": "support-ops",
   "fixture": "supops",
-  "prompt": "Answer both questions in brief.md using tickets.csv and sla_policy.json.",
+  "prompt": "Our weekly support review: check our ticket SLA attainment and the phone staffing question in brief.md, using tickets.csv and sla_policy.json.",
   "assertions": [
    "Says S-201 met its first-response SLA: about 2.5 business hours (Friday 16:00-17:00 plus Monday 09:00-10:30), not a breach",
    "Says S-203 breached the high first-response target (about 5.5 business hours against 4)",

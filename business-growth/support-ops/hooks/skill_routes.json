@@ -1,0 +1,28 @@
+{
+  "plugin": "support-ops",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "support-ops",
+      "why": "support SLA attainment, Erlang C staffing and ticket deflection",
+      "any": [
+        "\\bSLA\\b.{0,60}\\b(ticket\\w*|first[- ]response|resolution|breach\\w*|attainment|helpdesk|support)\\b",
+        "\\b(first[- ]response|resolution) (time|SLA|target)\\b",
+        "\\berlang ?c\\b",
+        "\\bhow many\\b.{0,30}\\b(support|chat|phone|call[- ]?cent(er|re)|service desk|helpdesk)?\\s*(agents|reps|staff)\\b.{0,80}\\b(answer|handle|queue|calls?|chats?|tickets?|backlog|service level|hire|schedule)\\b",
+        "\\b(shrinkage|occupancy|average handle time|AHT)\\b.{0,60}\\b(agents?|staff\\w*|support)\\b",
+        "\\bservice level\\b.{0,40}\\b(\\d+ ?/ ?\\d+|seconds|calls|chats)\\b",
+        "\\b(ticket|tickets|contact) (deflection|volume)\\b|\\bdeflect\\b.{0,40}\\b(tickets?|contacts?)\\b",
+        "\\b(help ?center|knowledge base) articles?\\b.{0,60}\\b(tickets?|support volume|deflect\\w*)\\b|\\b(tickets?|support volume)\\b.{0,60}\\b(help ?center|knowledge base) articles?\\b",
+        "\\b(password resets?|invoice copies)\\b.{0,60}\\b(deflect|automate|macro)\\b",
+        "\\b(ticket|support|email) (queue|backlog)\\b.{0,60}\\b(agents?|clear|drain)\\b"
+      ],
+      "not": [
+        "\\b(churn|health score)\\b",
+        "\\bincident (response|runbook)\\b",
+        "\\bengineering (team|headcount)\\b",
+        "\\b(hire|hiring|headcount|utili[sz]ation|team size)\\b"
+      ]
+    }
+  ]
+}

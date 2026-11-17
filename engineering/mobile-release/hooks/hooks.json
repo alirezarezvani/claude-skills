@@ -1,0 +1,16 @@
+{
+  "description": "Skill router. On UserPromptSubmit, skill_router.py matches the prompt against the high-precision patterns in skill_routes.json and, on a match, adds one line naming the skill that fits. Silent on no match, at most one hint per plugin per prompt, each skill hinted at most once per session, never blocks, fails open. Disable with SKILL_ROUTER=0 (every plugin) or SKILL_ROUTER_<PLUGIN>=0.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/skill_router.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

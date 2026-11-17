@@ -1,12 +1,12 @@
 ---
 name: support-ops
-description: "Run a customer support queue on numbers. Use when SLA targets are being missed or disputed (first response, resolution, business hours), to work out how many agents a phone, chat or email queue needs, or to decide which ticket topics to turn into help-center articles, macros or bug fixes, from a helpdesk ticket export."
+description: "Use for any customer support operations question - SLA attainment and breaches (first response, resolution, business hours, weekends, tickets about to breach), how many agents to schedule per hour for a phone, chat or email queue and where the roster is short (Erlang C, service level, handle time, shrinkage, occupancy, backlog), or which ticket topics to deflect with help-center articles, automate with macros or fix as product bugs. Works from a helpdesk ticket export with stdlib scripts."
 argument-hint: "<tickets.csv> [--policy sla.json] | --intervals volumes.csv --aht SECONDS"
 license: MIT
 metadata:
   version: 1.0.0
   build_pattern: "Three deterministic stdlib scripts over a helpdesk ticket export (business-hours SLA attainment and breach risk, Erlang C and workload staffing with shrinkage and occupancy caps, Pareto deflection finder with root-cause routing); methods cited to Erlang 1917, Gans-Koole-Mandelbaum 2003, Little 1961, the KCS v6 Practices Guide and ITIL 4"
-  distinct_from: "customer-success-manager (account health, churn, expansion); chief-customer-officer-advisor (retention strategy and CS org); capacity-planner (general team capacity, not queueing); incident-commander (production incidents, not the support queue)"
+  distinct_from: "customer-success-manager (account health, churn, expansion); chief-customer-officer-advisor (retention strategy and CS org); capacity-planner (headcount and hiring order from daily demand at target utilization; this skill schedules per interval against a roster); incident-commander (production incidents, not the support queue)"
 ---
 
 # Support Ops
@@ -49,10 +49,21 @@ defect, REVIEW otherwise.
 
 - **Ask which clock the SLA runs on** (business or calendar, timezone, holidays) before reporting attainment. Never assume.
 - **Open breaches count.** Never report attainment on closed tickets only.
+- **Run `sla_check.py`, don't count hours by hand.** Business-hours arithmetic across evenings and weekends is where manual counts go wrong. Name each breached and at-risk ticket with the time left, and say when a clock started later than the ticket (after hours, weekend).
 - **Staff to the interval, not the day.** A daily average hides the 11:00 peak.
+- **Headcount and hiring order belong to capacity-planner** (business-operations). This skill schedules the agents you have, interval by interval.
 - **Never write an article for a defect.** FIX_ROOT_CAUSE goes to engineering with ticket count and hours.
 - **Deflection savings are an upper bound** until contact rate for the topic is measured after launch.
 - **State every default** (attainment target, service level, shrinkage, occupancy cap, concurrency, Pareto cut).
+
+## Report
+
+Answer in the reply, not only in a file, and never edit the user's input files.
+Show the working a reviewer would check: the load in Erlangs (arrivals x AHT /
+3600), the agent count one below the answer and the service level it misses
+with, scheduled = on line / (1 - shrinkage), and for each breached or at-risk
+ticket the time used, the time left and when its clock started (a ticket that
+arrives after hours or on a weekend starts at the next opening).
 
 ## Scripts
 

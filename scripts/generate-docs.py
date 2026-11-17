@@ -33,6 +33,7 @@ DOMAINS = {
     "agent-launcher": ("Agent Launcher", 18, ":material-rocket-launch-outline:", "agent-launcher-skills"),
     "c-level-agents": ("C-Level Agents", 19, ":material-account-group-outline:", "c-level-agents"),
     "loop-library": ("Loop Library", 20, ":material-repeat:", "loop-library"),
+    "video": ("Video", 21, ":material-movie-open-outline:", "video-studio"),
 }
 
 # Skills to skip (nested assets, samples, etc.)
@@ -224,6 +225,7 @@ DOMAIN_SEO_SUFFIX = {
     "research": "Agent Skill for Research Workflows",
     "markdown-html": "Agent Skill for HTML Output",
     "agent-launcher": "Agent Skill for Claude Managed Agents",
+    "video": "Agent Skill for Video and Motion",
 }
 
 # Domain-specific description context for pages without frontmatter descriptions
@@ -246,6 +248,7 @@ DOMAIN_SEO_CONTEXT = {
     "compliance-os": "compliance readiness agent skill and Claude Code plugin for ISO 13485, ISO 27001, SOC 2, GDPR, FDA QSR, and EU AI Act audit prep",
     "markdown-html": "markdown-to-interactive-HTML converter agent skill and Claude Code plugin for single-file documents, code reviews, and slide decks",
     "agent-launcher": "Claude Managed Agent launcher agent skill and Claude Code plugin for session-goal-driven interview, BYOK launch, bounded grade-iterate loops, and cron scheduled deployments",
+    "video": "video production agent skill and Claude Code plugin for briefs, beat boards, code-built animatics, frame-exact rendering, optional AI shot upgrades and checked MP4 delivery",
 }
 
 
@@ -808,6 +811,7 @@ description: "{skill_count} {domain_name.lower()} skills — {domain_seo_ctx}. W
         "ra-qm-team": ("Regulatory & Quality", ":material-shield-check-outline:"),
         "markdown-html": ("Markdown to HTML", ":material-language-html5:"),
         "agent-launcher": ("Agent Launcher", ":material-rocket-launch-outline:"),
+        "video": ("Video", ":material-movie-open-outline:"),
     }
 
     if os.path.isdir(agents_dir):
@@ -890,6 +894,7 @@ search:
         "compliance-os": "compliance-os",
         "markdown-html": "markdown-html",
         "agent-launcher": "agent-launcher",
+        "video": "video",
     }
     seen_slugs = {entry[1] for entry in agent_entries}
     for skill_domain in DOMAINS:

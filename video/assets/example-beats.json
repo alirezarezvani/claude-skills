@@ -1,0 +1,30 @@
+[
+  {
+    "vo": "Your release notes are a wall of text.",
+    "on_screen": "Release notes nobody reads",
+    "visual": "dense changelog scrolling",
+    "kind": "motion"
+  },
+  {
+    "vo": "Version two turns them into a two-minute brief.",
+    "on_screen": "v2: the release brief",
+    "visual": "engineer at a desk at night, laptop glow, calm",
+    "kind": "upgrade"
+  },
+  {
+    "vo": "Teams save over an hour per release.",
+    "stat": {
+      "to": 68,
+      "suffix": " min"
+    },
+    "on_screen": "saved per release",
+    "visual": "counter",
+    "kind": "motion"
+  },
+  {
+    "vo": "Try it today.",
+    "on_screen": "example.dev/v2",
+    "visual": "end card",
+    "kind": "motion"
+  }
+]

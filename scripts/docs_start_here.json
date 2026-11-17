@@ -19,5 +19,6 @@
   "project-management": ["pm-skills", "jira-expert", "scrum-master"],
   "ra-qm-team": ["ra-qm-skills", "quality-manager-qms-iso13485", "mdr-745-specialist"],
   "research": ["research", "litreview", "dossier"],
-  "research-ops": ["research-ops-skills", "clinical-research", "market-research"]
+  "research-ops": ["research-ops-skills", "clinical-research", "market-research"],
+  "video": ["video-director", "video-animatic", "video-beat-board"]
 }

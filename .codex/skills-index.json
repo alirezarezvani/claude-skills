@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 427,
+  "total_skills": 431,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -2566,6 +2566,30 @@
       "source": "../../research-ops/skills/research-ops-skills",
       "category": "research-ops",
       "description": "Use when an enterprise research request needs routing (clinical study design, R&D finance, market sizing, user research): 'what sample size', 'R&D budget'. Lists the research-ops skills and routes to one."
+    },
+    {
+      "name": "video-animatic",
+      "source": "../../video/skills/video-animatic",
+      "category": "video",
+      "description": "Use when building an animation, motion graphic, kinetic type, animated chart from data, or animatic with code and rendering it to MP4 frame-exact. Compiles a scene.v1 JSON into a seekable HTML timeline, lints readability, flashes and contrast, renders with Playwright, and exports clean keyframes for AI shot upgrades."
+    },
+    {
+      "name": "video-beat-board",
+      "source": "../../video/skills/video-beat-board",
+      "category": "video",
+      "description": "Use whenever the user asks \"will this voice-over fit in 30 seconds?\", \"is my reel script too long?\", \"what should I cut?\", or wants a video script turned into a timed shot list. Do not eyeball it - beat_board.py times every beat at 150 wpm speech and 180 wpm reading, refuses a script that does not fit and says exactly how many words to cut."
+    },
+    {
+      "name": "video-conform",
+      "source": "../../video/skills/video-conform",
+      "category": "video",
+      "description": "Use when finishing a video for delivery - mix voice-over and music, normalize loudness, add or burn in captions, and export a checked MP4 that plays everywhere. conform.py builds the ffmpeg command, then fails the export if duration or loudness misses its target."
+    },
+    {
+      "name": "video-director",
+      "source": "../../video/skills/video-director",
+      "category": "video",
+      "description": "Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4."
     }
   ],
   "categories": {
@@ -2653,6 +2677,11 @@
       "count": 6,
       "source": "../../research-ops",
       "description": "Enterprise Research Operations skills (v2.9.0): clinical study design, R&D program finance, market research methodology, product/user research"
+    },
+    "video": {
+      "count": 4,
+      "source": "../../video",
+      "description": "Video studio: brief gate, beat board, code animatic (scene.v1 -> seekable HTML -> frame-exact MP4), optional AI shot upgrades through the user's own MCP connector, and checked conform"
     }
   }
 }

@@ -39,7 +39,8 @@ DOMAIN_MAP = {
     "markdown-html": "markdown-html",
     "agent-launcher": "agent-launcher",
     "c-level-agents": "c-level-agents",
-    "loop-library": "loop-library"
+    "loop-library": "loop-library",
+    "video": "video"
 }
 
 

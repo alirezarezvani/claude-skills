@@ -3903,8 +3903,8 @@
   "name": "video-beat-board",
   "plugin": "video-studio",
   "pos": [
-   "does this voiceover script actually fit in 20 seconds?",
-   "Here are six beats for a 15-second Instagram teaser, each with a voice-over line and on-screen text. Time them so every line can be read and spoken, tell me what to cut if it doesn't fit, and turn it into a shot list."
+   "will this fit in a 15 second reel? \"Your release notes are a wall of text. Nobody reads them. Version two turns every release into a two-minute brief your whole team actually opens. Try it today at example.dev.\"",
+   "Time this 20-second teaser and tell me what to cut if it doesn't fit. Beat 1 VO: 'Incidents don't wait for office hours.' on screen: 'Incident at 02:14'. Beat 2 VO: 'NIS2 starts a 24-hour clock the moment you know.' on screen: '24 h early warning'. Beat 3 VO: 'Our checker tells you which clocks are running and what each report needs.' on screen: 'Which clocks? What to file?'. Beat 4 VO: 'Install it free from the marketplace.' on screen: 'example.dev/nis2'."
   ],
   "neg": "Write a 90-second video script for our product launch with a hook, three benefits and a call to action.",
   "origin": "generated"

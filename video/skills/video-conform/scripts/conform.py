@@ -82,6 +82,7 @@ def srt_from_shots(shots: list) -> str:
     return "\n".join(out)
 
 
+ENCODE_TIMEOUT = 3600  # seconds; a hung encode fails with exit 4 instead of blocking forever
 FRAME_PATTERN = re.compile(r"[\w.-]*%0?\d*d[\w.-]*")  # one integer field, no path separators
 SAFE_PATH = re.compile(r"[A-Za-z0-9_./\\:-]+")
 
@@ -255,7 +256,10 @@ def main() -> int:
             if burn_path:
                 Path(burn_path).write_text(srt_text, encoding="utf-8")
                 cmd = build_cmd(video_in, duration, fps, args.vo, args.music, target, burn_path, args.out)
-            r = subprocess.run(cmd, capture_output=True, text=True)
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=ENCODE_TIMEOUT)
+        except subprocess.TimeoutExpired:
+            print(f"error: ffmpeg did not finish within {ENCODE_TIMEOUT}s", file=sys.stderr)
+            return 4
         finally:
             if burn_path:
                 Path(burn_path).unlink(missing_ok=True)

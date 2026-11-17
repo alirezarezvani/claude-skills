@@ -40,6 +40,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scene_model import SAMPLE_SCENE, normalize, timeline, total_duration  # noqa: E402
 
+STEP_TIMEOUT = 3600  # seconds; a stuck browser or encode fails with exit 4 instead of hanging
 SCENE_RE = re.compile(r"const SCENE = (\{.*?\});\n", re.S)
 
 NODE_RUNNER = r"""
@@ -134,7 +135,8 @@ def render_node(url: str, width: int, height: int, frames: list) -> None:
         job = Path(tmp) / "job.json"
         runner.write_text(NODE_RUNNER, encoding="utf-8")
         job.write_text(json.dumps({"url": url, "width": width, "height": height, "frames": frames}), encoding="utf-8")
-        r = subprocess.run(["node", str(runner), str(job)], capture_output=True, text=True, cwd=tmp)
+        r = subprocess.run(["node", str(runner), str(job)], capture_output=True, text=True, cwd=tmp,
+                           timeout=STEP_TIMEOUT)
         if r.returncode != 0:
             raise RuntimeError(r.stderr.strip()[-2000:] or "node renderer failed")
 
@@ -237,7 +239,12 @@ def main() -> int:
             if not shutil.which("ffmpeg"):
                 print("error: ffmpeg not found for --mp4", file=sys.stderr)
                 return 3
-            r = subprocess.run(encode_mp4(out_dir, fps, Path(args.mp4)), capture_output=True, text=True)
+            try:
+                r = subprocess.run(encode_mp4(out_dir, fps, Path(args.mp4)), capture_output=True, text=True,
+                                   timeout=STEP_TIMEOUT)
+            except subprocess.TimeoutExpired:
+                print(f"error: ffmpeg did not finish within {STEP_TIMEOUT}s", file=sys.stderr)
+                return 4
             if r.returncode != 0:
                 print(f"error: ffmpeg failed: {r.stderr.strip()[-800:]}", file=sys.stderr)
                 return 4

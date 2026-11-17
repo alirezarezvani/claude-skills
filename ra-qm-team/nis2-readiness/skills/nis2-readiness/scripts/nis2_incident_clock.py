@@ -300,7 +300,7 @@ EXIT = {"ON_TIME": 0, "OPEN": 2, "OVERDUE": 4}
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0],
-                                epilog="Exit codes: 0 on time, 2 open, 3 invalid input, 4 overdue or undetermined.")
+                                epilog="Exit codes: 0 on time, 2 open, 3 invalid input, 4 overdue, awareness not recorded, or significance undetermined after 24 h.")
     p.add_argument("--incidents", help="incident log CSV (columns in the module docstring)")
     p.add_argument("--as-of", help="evaluation time, ISO 8601 with offset (default: now)")
     p.add_argument("--warn-hours", type=float, default=12, help="flag reports due within this many hours (default 12)")

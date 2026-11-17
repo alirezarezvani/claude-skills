@@ -34,7 +34,8 @@ Deadlines (2025/301 Art 5)
   clients: inform affected clients without undue delay when their financial interests are hit  DORA Art 19(3)
 
 Incident CSV columns (timestamps ISO 8601 with offset):
-  id, aware_at, classified_at, critical_services (yes|no), malicious_access (yes|no), clients_pct, clients,
+  id, aware_at, classified_at, critical_services (yes|no: yes if ANY Art 6 condition holds, incl. a successful
+  malicious unauthorised access), malicious_access (yes|no), clients_pct, clients,
   counterparts_pct, transactions_pct, transaction_value_pct, relevant_clients (yes|no), reputational
   (semicolon list: media;complaints;regulatory;client_loss or blank), duration_h, cif_downtime_h,
   member_states (count), data_impact (yes|no), economic_eur, root_cause_id, initial_at, intermediate_at,
@@ -46,7 +47,7 @@ Exit codes:
     0  nothing major, or every due report on time
     2  reports pending, or findings below BLOCKER
     3  invalid input
-    4  an overdue report, or an incident that cannot be classified for missing data
+    4  an overdue report, or an incident still unclassified more than 24 h after awareness
 """
 
 import argparse
@@ -180,6 +181,8 @@ def classify(m):
     met, unknown = thresholds(m)
     if len(met) >= 2:
         return True, ["critical services + " + "; ".join(f"{k} ({ref}: {d})" for k, ref, d in met)], met
+    if m["malicious_access"] is None:
+        return None, ["critical services affected but malicious_access not assessed; a successful malicious access alone makes it major (Art 8(1)(a))"], met
     if len(met) + unknown >= 2:
         return None, [f"critical services + {len(met)} threshold(s) met, {unknown} not assessed; two decide it"], met
     return False, [f"critical services but only {len(met)} other threshold met" + (f": {met[0][0]}" if met else "")], met
@@ -237,7 +240,7 @@ def run(text, now, entity, micro, holidays, warn):
             if maj:
                 last = window[-1]
                 last["major"], last["recurring"] = True, True
-                last["why"] = [f"RECURRING: {len(window)} incidents with root cause {root} within 6 months jointly meet Art 8(1): {why[0]} (Art 8(2))"]
+                last["why"] = [f"RECURRING: {len(window)} incidents with root cause {root} within 6 months jointly meet Art 8(1): {why[0]} (Art 8(2)). Aggregation here sums clients, costs and durations and takes the widest share; confirm the method with your competent authority"]
 
     counts = {s: 0 for s in SEVERITY_ORDER}
     pending = 0
@@ -314,7 +317,10 @@ def run(text, now, entity, micro, holidays, warn):
         del x["t"], x["m"]
         x["met"] = [{"criterion": k, "ref": ref, "detail": d} for k, ref, d in x["met"]]
     verdict = "OVERDUE" if counts["BLOCKER"] else "OPEN" if pending or counts["HIGH"] or counts["MEDIUM"] else "ON_TIME"
-    return {"verdict": verdict, "as_of": now.isoformat(), "entity": entity, "weekend_relief": relief_allowed,
+    notes = []
+    if not holidays:
+        notes.append("no --holidays given: bank holidays are treated as working days, so the Art 5(4) relief may be missed on them")
+    return {"verdict": verdict, "as_of": now.isoformat(), "entity": entity, "weekend_relief": relief_allowed, "notes": notes,
             "summary": {"incidents": len(incs), "major": sum(1 for x in incs if x["major"]),
                         "unclassified": sum(1 for x in incs if x["major"] is None), "pending_reports": pending, "findings": counts},
             "incidents": incs}
@@ -335,6 +341,7 @@ def render(out):
     s = out["summary"]
     lines += ["", f"{s['incidents']} incidents, {s['major']} major, {s['unclassified']} unclassified, {s['pending_reports']} reports pending. "
               "Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items()),
+              *[f"Note: {n}" for n in out["notes"]],
               "Report to the financial competent authority with the ITS templates (Implementing Regulation (EU) 2025/302)."]
     return "\n".join(lines)
 

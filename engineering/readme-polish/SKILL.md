@@ -64,7 +64,8 @@ python3 scripts/check_readme.py --sample
 The stdlib-only gate (no network) flags dead local links, broken or placeholder badges, non-ASCII
 and broken anchors, mermaid diagrams over the node limit, tables wider than five columns, more than
 six badges, and a first screen with no install command. Exit codes: `0` clean, `1` warnings, `2`
-errors.
+errors (or warnings under `--strict`), `3` a missing or unreadable file. Heading-slug
+matching follows GitHub (repeated headings get `-1`, `-2`); the mermaid node count is approximate.
 
 ## Output
 

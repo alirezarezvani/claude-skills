@@ -18,8 +18,9 @@ Rules
   R008  badge overload             more shields.io badges than the configured max
   R009  install below fold         no install command in the first N lines (warn)
 
-Exit codes: 0 = clean (warnings allowed), 1 = errors found, 2 = usage/IO error.
-Use --strict to fail on warnings too; --json for CI consumption.
+Exit codes: 0 = clean, 1 = warnings only, 2 = errors (or warnings under
+--strict), 3 = a file is missing or unreadable. Bad flags exit 2 via argparse,
+with a usage message on stderr and no findings. --json for CI consumption.
 
 Examples
   python scripts/check_readme.py README.md
@@ -121,7 +122,8 @@ def suspicious_image_url(url: str) -> str | None:
         return "shields.io URL still contains a placeholder owner/repo"
     if GITHUB_PAGE_IMG_RE.search(url):
         return "image src points at a GitHub blob/tree HTML page (broken image)"
-    if "github.com" in url and not IMAGE_EXT_RE.search(url.split("?", 1)[0]):
+    bare = url.split("?", 1)[0].rstrip("/")
+    if "github.com" in url and not IMAGE_EXT_RE.search(bare) and not bare.endswith("/badge"):
         return "image src points at a GitHub HTML page, not an image file"
     if url.lower().endswith(".html") or url.lower().endswith(".htm"):
         return "image src points at an HTML page"
@@ -150,6 +152,7 @@ def scan_file(path: Path, cfg: Config) -> list[Finding]:
     mermaid_lines: list[str] = []
     explicit_ids: set[str] = set()
     heading_slugs: set[str] = set()
+    slug_counts: dict[str, int] = {}
 
     for lineno, line in enumerate(lines, 1):
         match = FENCE_RE.match(line)
@@ -177,10 +180,18 @@ def scan_file(path: Path, cfg: Config) -> list[Finding]:
             explicit_ids.add(found)
         heading = HEADING_RE.match(line)
         if heading:
-            heading_slugs.add(slugify(heading.group(1)))
+            # GitHub suffixes repeated slugs: usage, usage-1, usage-2 ...
+            base = slugify(heading.group(1))
+            seen = slug_counts.get(base, 0)
+            slug_counts[base] = seen + 1
+            heading_slugs.add(base if seen == 0 else f"{base}-{seen}")
 
     # Pass 2: line-level checks outside fenced code.
-    badge_count = len(re.findall(r"img\.shields\.io", text, re.I))
+    badge_count = sum(
+        len(re.findall(r"img\.shields\.io", strip_inline_code(line), re.I))
+        for lineno, line in enumerate(lines, 1)
+        if lineno not in code_lines
+    )
     seen_images: set[tuple[int, str]] = set()
     # Install commands usually live inside fenced code, so scan raw lines.
     install_visible = any(
@@ -393,12 +404,12 @@ def main(argv: Iterable[str] | None = None) -> int:
     for path in files:
         if not path.is_file():
             print(f"error: not a file: {path}", file=sys.stderr)
-            return 2
+            return 3
         try:
             findings.extend(scan_file(path, cfg))
         except RuntimeError as exc:
             print(f"error: {exc}", file=sys.stderr)
-            return 2
+            return 3
 
     if sample_dir is not None:
         sample_dir.cleanup()

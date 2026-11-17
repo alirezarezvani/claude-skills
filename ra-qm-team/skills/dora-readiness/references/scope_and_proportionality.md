@@ -1,5 +1,7 @@
 # DORA scope, proportionality and ICT provider oversight
 
+> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+
 From Regulation (EU) 2022/2554 (DORA) unless marked otherwise. Applies from
 **17 January 2025** (Art 64).
 

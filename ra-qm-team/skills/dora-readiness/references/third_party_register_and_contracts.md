@@ -1,5 +1,7 @@
 # DORA register of information and ICT third-party contracts
 
+> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+
 Confidence: 🟢 legal text · 🟡 ESA guidance or Q&A · 🔴 our reading, typical evidence only
 
 ## The register (Art 28(3))

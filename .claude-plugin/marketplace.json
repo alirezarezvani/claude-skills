@@ -295,7 +295,7 @@
     {
       "name": "ra-qm-skills",
       "source": "./ra-qm-team",
-      "description": "14 regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2 compliance.",
+      "description": "Regulatory affairs & quality management skills for HealthTech/MedTech: ISO 13485 QMS, MDR 2017/745, FDA 510(k)/PMA, GDPR/DSGVO, ISO 27001 ISMS, CAPA management, risk management, clinical evaluation, SOC 2, EU CRA, NIS2 and DORA.",
       "version": "2.14.14",
       "author": {
         "name": "Alireza Rezvani"

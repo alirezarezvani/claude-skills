@@ -186,6 +186,7 @@ def render(o):
     s = o["summary"]
     lines += ["", f"{s['contracts']} contracts, {s['critical_or_important']} supporting critical or important functions. Findings: "
               + ", ".join(f"{k} {v}" for k, v in s["findings"].items())]
+    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

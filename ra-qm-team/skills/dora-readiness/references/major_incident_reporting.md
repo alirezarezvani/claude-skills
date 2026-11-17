@@ -1,5 +1,7 @@
 # DORA major ICT-related incidents: classification and reporting
 
+> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+
 Confidence: 🟢 legal text · 🟡 ESA guidance or Q&A · 🔴 our reading, check with counsel
 
 ## Classification (Delegated Regulation 2024/1772)

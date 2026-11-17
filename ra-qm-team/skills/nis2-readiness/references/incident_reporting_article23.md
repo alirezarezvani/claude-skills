@@ -1,5 +1,7 @@
 # NIS2 Article 23: significant incidents and the three reports
 
+> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+
 Confidence: 🟢 legal text · 🟡 authority guidance · 🔴 our reading, check with counsel
 
 ## What is significant (Art 23(3))

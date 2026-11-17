@@ -343,6 +343,7 @@ def render(out):
               "Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items()),
               *[f"Note: {n}" for n in out["notes"]],
               "Report to the financial competent authority with the ITS templates (Implementing Regulation (EU) 2025/302)."]
+    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

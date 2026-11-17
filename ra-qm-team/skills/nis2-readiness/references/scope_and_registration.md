@@ -1,5 +1,7 @@
 # NIS2 scope, entity category and registration
 
+> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+
 Who NIS2 catches, as which category, under which Member State, and what the
 German transposition adds. From Directive (EU) 2022/2555 unless marked otherwise.
 

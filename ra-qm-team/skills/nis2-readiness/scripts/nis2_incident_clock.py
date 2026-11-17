@@ -292,6 +292,7 @@ def render(out):
     lines += ["", f"{s['incidents']} incidents, {s['significant']} significant, {s['undetermined']} undetermined, "
               f"{s['pending_reports']} reports pending. Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items()),
               "Send to the CSIRT or competent authority of the supervising Member State; intermediate reports only on request (Art 23(4)(c))."]
+    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

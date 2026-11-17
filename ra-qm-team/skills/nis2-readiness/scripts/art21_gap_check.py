@@ -157,6 +157,7 @@ def render(out):
     lines += ["", f"{s['met']}/{s['requirements']} MET, {s['na']} NA. Findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items())]
     if out["digital_provider"]:
         lines.append("Digital provider: each area is specified in Implementing Regulation (EU) 2024/2690 Annex; audit against that text.")
+    lines += ["", "Rules last verified 2026-11-17. Not legal advice: confirm with counsel or the competent authority."]
     return "\n".join(lines)
 
 

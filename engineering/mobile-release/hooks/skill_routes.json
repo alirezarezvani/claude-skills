@@ -1,0 +1,30 @@
+{
+  "plugin": "mobile-release",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "mobile-release",
+      "why": "App Store / Google Play submission rules and staged-rollout go/no-go",
+      "any": [
+        "\\bITMS-\\d+",
+        "\\bprivacy ?manifest\\b|\\bPrivacyInfo\\.xcprivacy\\b|\\brequired[- ]reason\\b|\\bNSPrivacyAccessed",
+        "\\b(app store( connect)?|testflight|play console|google play)\\b.{0,80}\\b(reject\\w*|warn\\w*|flag\\w*|blocked|submit\\w*|upload\\w*|review|policy)\\b",
+        "\\b(reject\\w*|submit\\w*|submission|upload\\w*)\\b.{0,60}\\b(app store|google play|play store|play console)\\b",
+        "\\b(target ?sdk|target api( level)?|targetSdkVersion)\\b",
+        "\\b16 ?kb page\\b",
+        "\\b(staged|phased|percentage) (roll ?out|release)\\b",
+        "\\b(roll ?out|release)\\b.{0,40}\\b(halt|pause|widen)\\b.{0,40}\\b(play|app store|android|ios)\\b",
+        "\\bbad behavio(u)?r threshold\\b|\\bANR rate\\b|\\buser[- ]perceived (crash|ANR)\\b",
+        "\\b(release readiness|ready to submit)\\b.{0,60}\\b(ios|android|app store|play)\\b",
+        "\\bdata safety (form|section)\\b|\\bpermission declaration\\b",
+        "\\b(ios|android|flutter|react native)\\b.{0,40}\\b(release|build|update)\\b.{0,60}\\b(store|play|review|reject\\w*|submit\\w*)\\b"
+      ],
+      "not": [
+        "\\b(aso|keywords?|screenshots?|rank\\w*|listing)\\b",
+        "\\bfastlane\\b",
+        "\\b(argo|kubernetes|k8s|canary deployment)\\b",
+        "\\b(coding agent|ai agent|feature flags?|engineering org)\\b"
+      ]
+    }
+  ]
+}

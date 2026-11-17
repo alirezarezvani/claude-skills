@@ -209,5 +209,65 @@
   "plugin": "dora-readiness",
   "prompt": "See bank.md. Is ICT-2026-41 a major incident under DORA, and what do we have to report, to whom and by exactly when? Also, what must change in the CardSwitch contract?",
   "skill": "ra-qm-team/dora-readiness/skills/dora-readiness"
+ },
+ "mobile-release": {
+  "skill": "engineering/mobile-release/skills/mobile-release",
+  "name": "mobile-release",
+  "plugin": "mobile-release",
+  "fixture": "mrel",
+  "prompt": "See release.md. Are our iOS and Android projects ready to submit on Friday, and should the Android 4.2.0 staged rollout continue, pause or halt? List every blocker with the file it is in.",
+  "assertions": [
+   "Says NSPrivacyAccessedAPICategorySystemBootTime is used (systemUptime) and missing from the app's PrivacyInfo.xcprivacy",
+   "Says NSPrivacyAccessedAPICategoryFileTimestamp is used and missing, and picks reason C617.1 (files inside the app container)",
+   "Says the app uses AVCaptureDevice without NSCameraUsageDescription in Info.plist, which crashes on the permission request",
+   "Says the AnalyticsKit pod uses a required-reason API and ships no privacy manifest, so the SDK must be updated (the app manifest cannot cover it)",
+   "Says targetSdk 35 is below the 36 that Google Play requires for app updates since 31 August 2026",
+   "Says MainActivity has an intent-filter without android:exported, which is required from targetSdk 31",
+   "Flags READ_SMS as a restricted permission that needs a Play Console declaration (SMS and Call Log policy)",
+   "Flags app-wide usesCleartextTraffic=true",
+   "Recommends halting the 5% Android rollout: crash rate about 0.83% vs 0.40% baseline is a significant regression",
+   "Says a halted Play release needs a new versionCode to ship the fix"
+  ],
+  "origin": "mobile-release-build"
+ },
+ "cloud-finops": {
+  "skill": "engineering/cloud-finops/skills/cloud-finops",
+  "name": "cloud-finops",
+  "plugin": "cloud-finops",
+  "fixture": "finops",
+  "prompt": "Run our October FinOps review from brief.md and focus_oct.csv. Answer the three questions with numbers.",
+  "assertions": [
+   "Gives allocation coverage of about 64-65% for team and cost-center, below the 90% target",
+   "Names tag case variants such as 'Checkout' vs 'checkout' that split one owner in two",
+   "Names the largest unallocated items (logs-bucket on Amazon S3 about 2,955 and nat-0c3 on Amazon VPC about 1,392)",
+   "Says unused commitment cost has no ResourceId and must be allocated by a split rule, not by tagging",
+   "Gives savings plan utilization of about 93.7% with about 83 USD unused",
+   "Gives commitment coverage of eligible compute of about 74%",
+   "Gives an effective savings rate of about 23%, or computes it as savings over on-demand-equivalent spend",
+   "Advises not to buy more commitment while utilization is below target (or to size any purchase to the uncovered floor of about 15 USD/day)",
+   "Flags the Amazon VPC spike on 2026-10-25 (about 255 vs a median of about 43)",
+   "Links the VPC spike to the untagged NAT gateway nat-0c3 and so to the allocation gap"
+  ],
+  "origin": "cloud-finops-build"
+ },
+ "support-ops": {
+  "skill": "business-growth/support-ops/skills/support-ops",
+  "name": "support-ops",
+  "plugin": "support-ops",
+  "fixture": "supops",
+  "prompt": "Our weekly support review: check our ticket SLA attainment and the phone staffing question in brief.md, using tickets.csv and sla_policy.json.",
+  "assertions": [
+   "Says S-201 met its first-response SLA: about 2.5 business hours (Friday 16:00-17:00 plus Monday 09:00-10:30), not a breach",
+   "Says S-203 breached the high first-response target (about 5.5 business hours against 4)",
+   "Gives high-priority first-response attainment of 2 of 3 answered tickets (about 67%)",
+   "Says S-206 is open and at risk with about 1 business hour left, because its clock started at 09:00, not at 08:00",
+   "Says S-208 is open with about 2 business hours left on its 40-hour resolution target",
+   "Says S-204's clock did not start until Monday 09:00 because it arrived on a Saturday",
+   "Computes the phone load as 12 Erlangs (180 calls x 240 s / 3600)",
+   "Says 16 agents on the phones are needed for 80% in 20 seconds (15 gives about 75%)",
+   "Says about 25 agents must be scheduled after 35% shrinkage",
+   "Says the 12 rostered agents are short by about 13 and cannot even cover the 12 Erlang load"
+  ],
+  "origin": "support-ops-build"
  }
 }

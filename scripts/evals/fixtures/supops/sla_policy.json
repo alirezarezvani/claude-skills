@@ -1,0 +1,8 @@
+{
+  "timezone_offset": "+01:00",
+  "business_hours": {"days": [0, 1, 2, 3, 4], "start": "09:00", "end": "17:00", "holidays": []},
+  "targets": {
+    "high": {"first_response_h": 4, "resolution_h": 16, "clock": "business"},
+    "normal": {"first_response_h": 8, "resolution_h": 40, "clock": "business"}
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "plugin": "cloud-finops",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "cloud-finops",
+      "why": "cloud cost allocation, commitments and cost anomalies from a FOCUS export",
+      "any": [
+        "\\bfinops\\b|\\bFOCUS (export|billing|cost|data|1\\.\\d)\\b",
+        "\\b(aws|azure|gcp|google cloud|cloud)\\b.{0,30}\\b(bill|billing|cost|costs|spend|invoice)\\b.{0,80}\\b(jump\\w*|spik\\w*|grew|increase\\w*|doubl\\w*|tripl\\w*|anomal\\w*|untagged|allocat\\w*|team|owner)\\b",
+        "\\b(savings plans?|reserved instances?|committed use discounts?|commitment(s)? (coverage|utili[sz]ation)|effective savings rate)\\b",
+        "\\b(untagged|unallocated)\\b.{0,30}\\b(spend|cost|costs|resources)\\b",
+        "\\b(showback|chargeback)\\b",
+        "\\bcost anomal\\w*\\b",
+        "\\b(nat gateway|egress|data transfer)\\b.{0,40}\\b(charges?|costs?|bill)\\b",
+        "\\b(unit cost|cost per (order|customer|user|request))\\b"
+      ],
+      "not": [
+        "\\b(dcf|3[- ]statement|valuation|arr|net revenue retention|burn multiple|cac)\\b",
+        "\\bterraform\\b.{0,40}\\b(module|deploy)\\b"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "cloud-finops",
+  "description": "Analyse AWS, Azure and Google Cloud bills from a FOCUS cost export, the open billing format all three publish. Three deterministic stdlib scripts: an allocation check that measures the share of EffectiveCost carrying your required tags, lists the largest unallocated resources and flags tag values that split one owner; a commitment check for Savings Plans, Reserved Instances and committed use discounts that computes utilization, coverage in on-demand equivalent and the FinOps Foundation effective savings rate, refuses to recommend buying while commitments sit idle and sizes new ones to the uncovered floor; and a robust anomaly detector with unit-cost tracking. Ships cs-finops-analyst agent, /cs-finops-review and /cs-cost-spike commands and 3 cited references. No cloud credentials, read-only.",
+  "version": "2.14.14",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/cloud-finops",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/cloud-finops"
+  ]
+}

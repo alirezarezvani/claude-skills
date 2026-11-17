@@ -1,0 +1,15 @@
+{
+  "name": "mobile-release",
+  "description": "Get iOS and Android releases through App Store and Google Play review and roll them out safely. Three deterministic stdlib scripts: an iOS check that matches required-reason API use in source against PrivacyInfo.xcprivacy (valid and SDK-only reason codes per category), purpose strings in Info.plist or INFOPLIST_KEY_ settings and vendored SDK manifests; an Android check for Play's dated target API level by form factor, android:exported, debuggable builds, permissions that need a Play Console declaration and 16 KB page alignment read from ELF headers; and a rollout gate that returns PROCEED, HOLD or HALT from crash and ANR counts against the previous release and Play's bad-behavior thresholds. Ships cs-mobile-release agent, /cs-mobile-release and /cs-rollout-gate commands and 3 cited references.",
+  "version": "2.14.14",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/mobile-release",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/mobile-release"
+  ]
+}

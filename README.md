@@ -163,6 +163,8 @@ npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 # Or: git clone + ./scripts/codex-install.sh --category <name>  (no arguments lists categories)
 ```
 
+The agent-agnostic marketplace at [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) lists the same plugins (and metadata) as the Claude marketplace for Codex / ChatGPT Plugins Directory installs (`codex plugin marketplace add alirezarezvani/claude-skills`).
+
 ### OpenClaw
 
 ```bash

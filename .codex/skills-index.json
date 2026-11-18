@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 431,
+  "total_skills": 432,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -2016,6 +2016,12 @@
       "description": "Plan social media: strategy, content calendar, community management, follower growth. Use whenever the user asks what to post and when, or how to grow followers. Single posts: social-content."
     },
     {
+      "name": "source-audit",
+      "source": "../../marketing-skill/skills/source-audit",
+      "category": "marketing",
+      "description": "Use before publishing a draft that cites links: verify that each claim is actually supported by the source it points to, link by link. Triggers include \u5ba1\u7a3f\u3001\u6838\u67e5\u4fe1\u6e90\u3001\u53d1\u5e03\u524d\u68c0\u67e5\u3001fact-check\u3001\u8fd9\u7bc7\u80fd\u4e0d\u80fd\u53d1\u3001\u91cc\u9762\u8bf4\u7684\u5bf9\u4e0d\u5bf9, or any review of an article, tool roundup, comparison, or review post with citations. Produces per-claim verdicts (supported, partial, contradicted, not found, unreachable) with quoted evidence. Not for copy-editing, structure review, or research from scratch."
+    },
+    {
       "name": "video-content-strategist",
       "source": "../../marketing-skill/video-content-strategist/skills/video-content-strategist",
       "category": "marketing",
@@ -2644,7 +2650,7 @@
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 58,
+      "count": 59,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },

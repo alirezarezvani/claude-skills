@@ -166,10 +166,14 @@ Part of the same PR, not a follow-up:
 
 - **CHANGELOG.md `## [Unreleased]`**: one entry under Added, Changed or Fixed, naming the
   plugin and crediting the community author and PR number.
-- **Plugin versions**: `python3 scripts/bump_plugin_versions.py --changed-since origin/dev`.
+- **Plugin versions**: `python3 scripts/bump_plugin_versions.py --changed-since origin/dev`
+  (also regenerates `.agents/plugins/marketplace.json`).
 - **Harness mirrors**: `python3 scripts/check_harness_mirrors.py --fix` when a SKILL.md,
   its description or a plugin's skill list changed; commit the result (never hand-run the
   `sync-*-skills.py` scripts).
+- **Agent marketplace**: after editing `.claude-plugin/marketplace.json` by hand, run
+  `python3 scripts/sync_agents_marketplace.py` so `.agents/plugins/marketplace.json` stays
+  aligned (`check_plugin_json.py --all` fails on drift).
 - **Counters**: when a skill, tool, reference, agent, command or plugin is added or removed,
   update every place `python3 scripts/derive_counters.py --check` names (README.md,
   CLAUDE.md, marketplace.json, mkdocs.yml, .codex-plugin) to the values
@@ -192,7 +196,7 @@ Part of the same PR, not a follow-up:
    - CLAUDE.md: new `**Version:**` line under Current Version, the old one becomes
      `**Previously:**`; the ClawHub "currently vX.Y.Z" line; the footer date and version.
    - `.claude-plugin/marketplace.json` `metadata.version` and `.codex-plugin/plugin.json`
-     `version`.
+     `version`, then `python3 scripts/sync_agents_marketplace.py`.
    - Run section 5 and `python3 scripts/extract_release_notes.py` to confirm the notes parse.
 3. **Release PR `dev → main`** once the prep PR is merged (opened as a draft, marked ready
    once its checks are green), titled

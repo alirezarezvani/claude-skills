@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Generate .agents/plugins/marketplace.json from the Claude marketplace.
 
-The agent-agnostic Codex / ChatGPT Plugins Directory catalog (astryx-style
-local sources) lists the plugins of `.claude-plugin/marketplace.json` that Codex can
-load, with the same paths and metadata. A plugin is left out, and named by --check,
-when its skills are not under skills/<name>/SKILL.md or its plugin.json name differs
-from its marketplace name; scripts/check_harness_installs.py --harness codex installs
-every listed plugin with the real Codex CLI and checks each skill is listed. Marketplace presentation (`name` and
-`interface.displayName`) is taken from `.codex-plugin/plugin.json` so Codex
-metadata stays single-sourced and does not drift.
+The Codex plugin catalog lists the plugins of `.claude-plugin/marketplace.json`
+that Codex can load, with the same local paths and metadata. A plugin is left out,
+and named by --check, when its skills are not under skills/<name>/SKILL.md or its
+plugin.json name differs from its marketplace name.
+
+scripts/check_harness_installs.py --harness codex installs every listed plugin with
+the real Codex CLI and checks that each skill is listed. Marketplace presentation
+(`name` and `interface.displayName`) comes from `.codex-plugin/plugin.json`, so the
+Codex metadata has one source. Per-plugin `version`, `author`, `keywords` and
+`description` go beyond Codex's documented fields; codex-cli 0.166-0.170 accepts them.
 
   python3 scripts/sync_agents_marketplace.py           # write the file
   python3 scripts/sync_agents_marketplace.py --check   # exit 1 on drift

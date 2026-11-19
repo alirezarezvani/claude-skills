@@ -164,7 +164,8 @@ def check_codex_marketplace(codex: str, tmp: Path) -> list[str]:
         want = len(claude_skill_files(src)) - len(codex_hidden(src))
         if want < 1 or len(listed) < want:
             return [f"plugin {name}: Codex listed {len(listed)} of the {want} skills "
-                    f"under its skills/ folder"]
+                    f"under its skills/ folder (0 for every plugin means the "
+                    f"`debug prompt-input` format changed, not the plugins)"]
         return []
 
     with ThreadPoolExecutor(max_workers=8) as pool:

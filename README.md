@@ -163,6 +163,8 @@ npx agent-skills-cli add alirezarezvani/claude-skills --agent codex
 # Or: git clone + ./scripts/codex-install.sh --category <name>  (no arguments lists categories)
 ```
 
+Codex can also install whole plugins: `codex plugin marketplace add alirezarezvani/claude-skills`, then `codex plugin add <plugin>@claude-code-skills`. The catalog at [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) lists every plugin whose skills Codex loads, and CI installs each one with the real Codex CLI.
+
 ### OpenClaw
 
 ```bash

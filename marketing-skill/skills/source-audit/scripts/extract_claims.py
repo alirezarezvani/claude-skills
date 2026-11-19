@@ -21,9 +21,9 @@ from pathlib import Path
 BARE_URL = re.compile(r"https?://[^\s)\]}，。；]+")
 SAMPLE = """# Sample roundup
 
-Orca is a desktop agent fleet manager, licensed MIT ([repo](https://github.com/stablyai/orca)).
+Acme CLI is a command-line tool, licensed MIT ([repo](https://github.com/example/acme-cli)).
 
-It supports Windows and macOS, per the README: https://example.com/orca/readme
+It supports Windows and macOS, per the README: https://example.com/acme-cli/readme
 """
 
 

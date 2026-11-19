@@ -529,29 +529,6 @@
       ]
     },
     {
-      "name": "self-improving-agent",
-      "source": {
-        "source": "local",
-        "path": "./engineering-team/self-improving-agent"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "development",
-      "description": "Curate auto-memory, promote learnings to CLAUDE.md and rules, extract patterns into skills. Ships 5 slash commands (/si:memory-review, /si:promote, /si:extract, /si:memory-status, /si:remember) and 2 sub-agents (memory-analyst, skill-extractor).",
-      "version": "2.14.11",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "memory",
-        "auto-memory",
-        "self-improvement",
-        "learning"
-      ]
-    },
-    {
       "name": "autoresearch-agent",
       "source": {
         "source": "local",
@@ -1277,31 +1254,6 @@
       ]
     },
     {
-      "name": "hivemind",
-      "source": {
-        "source": "local",
-        "path": "./engineering/hivemind"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "development",
-      "description": "Opt-in, outside every domain bundle: orchestrate opencode workers from Claude Code to cut token costs, with single workers or parallel scout/coder/tester swarms on free or open-source models and worktree isolation. Requires the third-party opencode CLI and an opencode account; by default worker prompts and code go to opencode's hosted service (point --model at a local model to keep code on your machine), so install it only if you accept that data flow.",
-      "version": "2.14.5",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "opencode",
-        "multi-agent",
-        "swarm",
-        "open-source-models",
-        "cost-reduction",
-        "orchestration"
-      ]
-    },
-    {
       "name": "zero-hallucination-coder",
       "source": {
         "source": "local",
@@ -1748,56 +1700,6 @@
       ]
     },
     {
-      "name": "swedish-mentor",
-      "source": {
-        "source": "local",
-        "path": "./productivity/swedish-mentor"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "productivity",
-      "description": "CEFR-leveled Swedish-learning mentor: two-question placement probe, listening-first learning paths, vetted YouTube/podcast catalog (SFI, Radio Sweden pa latt svenska, Klartext), never-invent-a-URL rule.",
-      "version": "2.14.5",
-      "author": {
-        "name": "mh-mansouri"
-      },
-      "keywords": [
-        "productivity",
-        "language-learning",
-        "swedish",
-        "cefr",
-        "sfi",
-        "mentor"
-      ]
-    },
-    {
-      "name": "monetize",
-      "source": {
-        "source": "local",
-        "path": "./productivity/monetize"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "productivity",
-      "description": "Turn one person's career history into an honest side-income plan: hidden-skills audit, opportunity scan with sourced or labeled numbers, productization, one leverage action for this week, salary-ceiling benchmark and an AI side-hustle starter pack. Every income figure is a range with a source or an 'estimate, unverified' label.",
-      "version": "2.14.11",
-      "author": {
-        "name": "zhengqiuyang"
-      },
-      "keywords": [
-        "productivity",
-        "side-income",
-        "career",
-        "monetization",
-        "salary-benchmark",
-        "productization"
-      ]
-    },
-    {
       "name": "landing",
       "source": {
         "source": "local",
@@ -2096,90 +1998,6 @@
       ]
     },
     {
-      "name": "deepread",
-      "source": {
-        "source": "local",
-        "path": "./research/deepread"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "research",
-      "description": "Evidence-first reading of supplied documents. Five modes (quick/deep/map/feynman/book), claim-reason-evidence decomposition, confidence labels, evidence ledger, knowledge maps, Feynman teach-back.",
-      "version": "2.14.7",
-      "author": {
-        "name": "xiehuan123"
-      },
-      "keywords": [
-        "research",
-        "reading",
-        "deep-read",
-        "feynman",
-        "knowledge-map",
-        "evidence",
-        "comprehension"
-      ]
-    },
-    {
-      "name": "aeo",
-      "source": {
-        "source": "local",
-        "path": "./marketing-skill/skills/aeo"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "marketing",
-      "description": "Answer Engine Optimization (AEO) skill — optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO (which optimizes for search rankings), AEO optimizes for citation in LLM-generated responses. 3 stdlib Python tools (aeo_audit, aeo_optimizer, citation_tracker), 3 references citing 8 sources each, industry-aware thresholds for 8 industries (saas/healthcare/finance/legal/ecommerce/b2b/media/education). Ported from alirezarezvani/aeo-box.",
-      "version": "2.14.6",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "aeo",
-        "answer-engine-optimization",
-        "llm-citation",
-        "eeat",
-        "chatgpt",
-        "perplexity",
-        "claude",
-        "gemini",
-        "marketing",
-        "seo-complement"
-      ]
-    },
-    {
-      "name": "cinematic-shot-prompting",
-      "source": {
-        "source": "local",
-        "path": "./marketing-skill/skills/cinematic-shot-prompting"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "marketing",
-      "description": "Use when writing camera movement or motion prompts for AI video generators (Runway Gen-3, Kling, Sora, Luma). Compiles narrative shot descriptions into a 7-slot Camera Motion Contract (anchor, mechanism, velocity, subject lock, parallax, environmental response, landing) with a stdlib Python compiler, to cut perspective jitter and character morphing.",
-      "version": "2.14.13",
-      "author": {
-        "name": "Peng Guo",
-        "url": "https://github.com/287523023qq-hue"
-      },
-      "keywords": [
-        "video-generation",
-        "camera-motion",
-        "prompting",
-        "runway",
-        "kling",
-        "sora",
-        "luma",
-        "cinematography",
-        "marketing"
-      ]
-    },
-    {
       "name": "security-guidance",
       "source": {
         "source": "local",
@@ -2441,34 +2259,6 @@
         "matt-pocock",
         "grill-with-docs",
         "context-fork"
-      ]
-    },
-    {
-      "name": "youtube-full",
-      "source": {
-        "source": "local",
-        "path": "./marketing-skill/skills/youtube-full"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "marketing",
-      "description": "YouTube transcripts, video search, channel browsing, playlist extraction, and upload monitoring with open-source tools (yt-dlp, youtube-transcript-api, RSS). No API key needed.",
-      "version": "2.14.5",
-      "author": {
-        "name": "therohitdas"
-      },
-      "keywords": [
-        "youtube",
-        "transcript",
-        "video",
-        "channel",
-        "playlist",
-        "search",
-        "content-monitoring",
-        "marketing",
-        "transcriptapi"
       ]
     },
     {
@@ -3105,30 +2895,6 @@
       ]
     },
     {
-      "name": "loop-library",
-      "source": {
-        "source": "local",
-        "path": "./loop-library"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "development",
-      "description": "Discover, compare, audit, repair, adapt, and design repeatable AI-agent loops with explicit triggers, actions, verification, stopping conditions, guardrails, and handoffs. Vendored verbatim from the Forward Future Loop Library (MIT).",
-      "version": "2.14.1",
-      "author": {
-        "name": "Alireza Rezvani"
-      },
-      "keywords": [
-        "loops",
-        "agent-loops",
-        "automation",
-        "verification",
-        "guardrails"
-      ]
-    },
-    {
       "name": "agent-regression-evals",
       "source": {
         "source": "local",
@@ -3184,32 +2950,6 @@
         "debugging",
         "hooks",
         "engineering"
-      ]
-    },
-    {
-      "name": "readme-polish",
-      "source": {
-        "source": "local",
-        "path": "./engineering/readme-polish"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "development",
-      "description": "Upgrade an existing README to the visual and structural standard of the leading repos in its own ecosystem: archetype calibration, component selection, restraint boundaries, honesty rules, and a deterministic lint gate. Ships scripts/check_readme.py, a stdlib-only README gate for dead links, placeholder badges, broken anchors, oversized diagrams and a missing first-screen install command.",
-      "version": "2.14.12",
-      "author": {
-        "name": "zhengqiuyang"
-      },
-      "keywords": [
-        "readme",
-        "documentation",
-        "markdown",
-        "badges",
-        "mermaid",
-        "docs-quality",
-        "lint"
       ]
     },
     {

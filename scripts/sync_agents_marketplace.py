@@ -2,8 +2,11 @@
 """Generate .agents/plugins/marketplace.json from the Claude marketplace.
 
 The agent-agnostic Codex / ChatGPT Plugins Directory catalog (astryx-style
-local sources) must list the same plugins, paths, and plugin metadata as
-`.claude-plugin/marketplace.json`. Marketplace presentation (`name` and
+local sources) lists the plugins of `.claude-plugin/marketplace.json` that Codex can
+load, with the same paths and metadata. A plugin is left out, and named by --check,
+when its skills are not under skills/<name>/SKILL.md or its plugin.json name differs
+from its marketplace name; scripts/check_harness_installs.py --harness codex installs
+every listed plugin with the real Codex CLI and checks each skill is listed. Marketplace presentation (`name` and
 `interface.displayName`) is taken from `.codex-plugin/plugin.json` so Codex
 metadata stays single-sourced and does not drift.
 
@@ -34,6 +37,68 @@ def _load(path):
         return json.load(f)
 
 
+def codex_skill_dirs(source):
+    """Skill folders Codex discovers in a plugin: only <plugin>/skills/<name>/SKILL.md.
+
+    Verified on codex-cli 0.170.0: a SKILL.md at the plugin root is not listed, whatever
+    the plugin manifest's `skills` field says.
+    """
+    root = os.path.join(REPO_ROOT, os.path.normpath(source), "skills")
+    if not os.path.isdir(root):
+        return []
+    return sorted(d for d in os.listdir(root)
+                  if os.path.isfile(os.path.join(root, d, "SKILL.md")))
+
+
+def claude_skill_files(source):
+    """SKILL.md files the plugin declares to Claude Code through its plugin.json `skills`."""
+    base = os.path.join(REPO_ROOT, os.path.normpath(source))
+    skills = _load(os.path.join(base, ".claude-plugin", "plugin.json")).get("skills", [])
+    found = set()
+    for rel in skills if isinstance(skills, list) else [skills]:
+        d = os.path.normpath(os.path.join(base, rel))
+        if os.path.isfile(os.path.join(d, "SKILL.md")):
+            found.add(os.path.join(d, "SKILL.md"))
+        elif os.path.isdir(d):
+            found.update(os.path.join(d, x, "SKILL.md") for x in os.listdir(d)
+                         if os.path.isfile(os.path.join(d, x, "SKILL.md")))
+    return sorted(found)
+
+
+def unloadable_reason(entry):
+    """Why Codex cannot install or load this plugin, or None when it can."""
+    source = entry["source"]
+    manifest = os.path.join(REPO_ROOT, os.path.normpath(source), ".claude-plugin", "plugin.json")
+    try:
+        name = _load(manifest).get("name")
+    except (OSError, json.JSONDecodeError):
+        name = None
+    if name != entry["name"]:
+        return f"plugin.json name {name!r} differs from the marketplace name (Codex refuses the install)"
+    if not codex_skill_dirs(source):
+        return "no skills/<name>/SKILL.md (Codex lists no skill from a root SKILL.md)"
+
+    return None
+
+
+def codex_hidden(source):
+    """Declared SKILL.md files Codex will not list (outside skills/<name>/)."""
+    codex_files = {os.path.join(REPO_ROOT, os.path.normpath(source), "skills", d, "SKILL.md")
+                   for d in codex_skill_dirs(source)}
+    return [f for f in claude_skill_files(source) if f not in codex_files]
+
+
+def skipped(claude=None):
+    """(name, reason) for every Claude marketplace plugin left out of the Codex catalog."""
+    claude = claude if claude is not None else _load(CLAUDE_MARKETPLACE)
+    out = []
+    for entry in claude.get("plugins", []):
+        reason = unloadable_reason(entry)
+        if reason:
+            out.append((entry["name"], reason))
+    return out
+
+
 def build_agents_marketplace(claude=None, codex=None):
     claude = claude if claude is not None else _load(CLAUDE_MARKETPLACE)
     codex = codex if codex is not None else _load(CODEX_PLUGIN)
@@ -49,6 +114,8 @@ def build_agents_marketplace(claude=None, codex=None):
                 f"plugin {entry.get('name')!r}: source must be a ./-prefixed path, "
                 f"got {source!r}"
             )
+        if unloadable_reason(entry):
+            continue
         plugin = {
             "name": entry["name"],
             "source": {"source": "local", "path": source},
@@ -139,6 +206,13 @@ def main(argv=None):
             f"OK   .agents/plugins/marketplace.json "
             f"({len(data['plugins'])} plugins, mirrors Claude marketplace)"
         )
+        for name, reason in skipped():
+            print(f"     not listed: {name}: {reason}")
+        for p in data["plugins"]:
+            hidden = codex_hidden(p["source"]["path"])
+            if hidden:
+                print(f"     partial: {p['name']}: Codex will not list "
+                      + ", ".join(os.path.relpath(h, REPO_ROOT) for h in hidden))
         return 0
 
     if args.stdout:

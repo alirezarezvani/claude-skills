@@ -26,6 +26,9 @@ name: Harness Compatibility
       - 'scripts/vibe-install.sh'
       - 'scripts/gemini-install.sh'
       - 'scripts/check_harness_*.py'
+      - '.agents/**'
+      - '.claude-plugin/marketplace.json'
+      - 'scripts/sync_agents_marketplace.py'
       - '.github/workflows/harness-compat.yml'
   push:
     branches: [dev, main]
@@ -41,6 +44,9 @@ name: Harness Compatibility
       - 'scripts/codex-install.*'
       - 'scripts/vibe-install.sh'
       - 'scripts/check_harness_*.py'
+      - '.agents/**'
+      - '.claude-plugin/marketplace.json'
+      - 'scripts/sync_agents_marketplace.py'
       - '.github/workflows/harness-compat.yml'
   schedule:
     - cron: '17 5 * * 1'

@@ -9,7 +9,10 @@ API key: every harness is queried through an offline listing.
   codex   scripts/codex-install.sh --category <c>, one fresh CODEX_HOME per
           category (the documented way; the full library overflows Codex's
           skill budget). Listing: `codex debug prompt-input`, which renders
-          the skill catalog the model would see.
+          the skill catalog the model would see. Then every plugin of
+          .agents/plugins/marketplace.json, one fresh CODEX_HOME each:
+          `codex plugin marketplace add <repo>`, `codex plugin add`, and every
+          skills/<name>/SKILL.md must be listed.
   gemini  the committed .gemini/skills mirror, read as a trusted workspace.
           Listing: `gemini skills list`. Name conflicts fail the check.
   hermes  scripts/sync-hermes-skills.py into ~/.hermes/skills.
@@ -129,6 +132,46 @@ def check_codex(tmp: Path, _: argparse.Namespace) -> list[str]:
         print(f"    {cat:<22} installed {len(installed):>3}, listed "
               f"{len(installed) - len(missing):>3}")
     print(f"    codex total: {total} skills across {len(categories)} categories")
+    return problems + check_codex_marketplace(codex, tmp)
+
+
+def check_codex_marketplace(codex: str, tmp: Path) -> list[str]:
+    """Install every plugin of .agents/plugins/marketplace.json with the real Codex CLI.
+
+    One fresh CODEX_HOME per plugin, so Codex's skill-listing budget never hides a skill;
+    each plugin must install and Codex must list every skills/<name>/SKILL.md it ships.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+    sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from sync_agents_marketplace import claude_skill_files, codex_hidden
+
+    catalog = json.loads((REPO_ROOT / ".agents/plugins/marketplace.json").read_text())
+    market = catalog["name"]
+
+    def one(plugin: dict) -> list[str]:
+        name = plugin["name"]
+        home = tmp / f"codex-plugin-{name}"
+        env = _env(home, CODEX_HOME=str(home / ".codex"))
+        (home / ".codex").mkdir(parents=True, exist_ok=True)
+        try:
+            _run([codex, "plugin", "marketplace", "add", str(REPO_ROOT)], env, cwd=home)
+            _run([codex, "plugin", "add", f"{name}@{market}"], env, cwd=home)
+            text = _run([codex, "debug", "prompt-input"], env, cwd=home, timeout=120)
+        except (RuntimeError, subprocess.TimeoutExpired) as e:
+            return [f"plugin {name}: Codex install failed: {e}"]
+        listed = set(re.findall(re.escape(name) + r":([A-Za-z0-9_.-]+)", text))
+        src = plugin["source"]["path"]
+        want = len(claude_skill_files(src)) - len(codex_hidden(src))
+        if want < 1 or len(listed) < want:
+            return [f"plugin {name}: Codex listed {len(listed)} of the {want} skills "
+                    f"under its skills/ folder"]
+        return []
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        results = list(pool.map(one, catalog["plugins"]))
+    problems = [p for r in results for p in r]
+    print(f"    codex marketplace: {len(catalog['plugins'])} plugins installed, "
+          f"{sum(1 for r in results if not r)} with every skill listed")
     return problems
 
 

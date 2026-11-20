@@ -1,0 +1,79 @@
+{
+  "game_id": "arcade-speed-chase",
+  "title": "Arcade Speed Chase 3D",
+  "version": "1.0.0",
+  "engine": "threejs",
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "aspect_ratio": "16:9",
+    "canvas_id": "game-canvas-mount"
+  },
+  "character": {
+    "id": "driver-neo",
+    "turnaround_views": ["front", "three_quarter", "profile", "back"],
+    "sheet_dimensions": {
+      "width": 2048,
+      "height": 2048
+    },
+    "palette_locks": ["#ffaa00", "#11111a", "#00ffff", "#ffffff"]
+  },
+  "sprites": [
+    {
+      "action": "idle",
+      "frames": 4,
+      "fps": 6,
+      "tile_size": [128, 128]
+    },
+    {
+      "action": "steer_left",
+      "frames": 4,
+      "fps": 12,
+      "tile_size": [128, 128]
+    },
+    {
+      "action": "steer_right",
+      "frames": 4,
+      "fps": 12,
+      "tile_size": [128, 128]
+    },
+    {
+      "action": "boost",
+      "frames": 6,
+      "fps": 16,
+      "tile_size": [128, 128]
+    }
+  ],
+  "audio_cues": [
+    {
+      "name": "engine_rev",
+      "type": "sawtooth",
+      "freq_start": 80,
+      "freq_end": 240,
+      "duration_ms": 300,
+      "gain": 0.3
+    },
+    {
+      "name": "nitro_boost",
+      "type": "square",
+      "freq_start": 350,
+      "freq_end": 700,
+      "duration_ms": 200,
+      "gain": 0.25
+    },
+    {
+      "name": "coin_pickup",
+      "type": "sine",
+      "freq_start": 988,
+      "freq_end": 1319,
+      "duration_ms": 90,
+      "gain": 0.2
+    }
+  ],
+  "bento_card": {
+    "badge": "Retro Racer",
+    "contrast_ratio": 5.2,
+    "theme_accent": "#ffaa00",
+    "description": "High-octane retro racing prototype built with lightweight procedural canvas rendering."
+  }
+}

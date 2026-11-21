@@ -56,55 +56,121 @@ SAMPLE_FIXTURE = {
 }
 
 
+KEBAB_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+REQUIRED_VIEWS = ("front", "three_quarter", "profile", "back")
+MIN_FREQ_HZ, MAX_FREQ_HZ = 20, 20000
+SAFE_GAIN = 0.4
+MIN_CONTRAST = 4.5
+
+
+def _num(value) -> float | None:
+    """Return value as a float when it is a real number (not bool), else None."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        return None
+    return float(value)
+
+
+def _positive(value) -> bool:
+    n = _num(value)
+    return n is not None and n > 0
+
+
+def _section(data: dict, key: str, kind: type):
+    value = data.get(key)
+    return value if isinstance(value, kind) else kind()
+
+
 def validate_manifest(data: dict) -> list[dict]:
-    findings = []
+    findings: list[dict] = []
 
-    # Meta check
+    def add(severity: str, field: str, message: str) -> None:
+        findings.append({"severity": severity, "field": field, "message": message})
+
+    # Meta
     if not data.get("title"):
-        findings.append({"severity": "BLOCKER", "field": "title", "message": "Missing game title"})
+        add("BLOCKER", "title", "Missing game title")
+    game_id = data.get("game_id")
+    if game_id is not None and not (isinstance(game_id, str) and KEBAB_RE.match(game_id)):
+        add("WARN", "game_id", f"game_id should be kebab-case, got {game_id!r}")
     engine = data.get("engine")
-    if not engine or engine not in SUPPORTED_ENGINES:
-        findings.append({"severity": "BLOCKER", "field": "engine",
-                         "message": f"Unsupported or missing engine '{engine}'. Choose from {sorted(SUPPORTED_ENGINES)}"})
+    if engine not in SUPPORTED_ENGINES:
+        add("BLOCKER", "engine",
+            f"Unsupported or missing engine {engine!r}. Choose from {sorted(SUPPORTED_ENGINES)}")
 
-    viewport = data.get("viewport", {})
-    if not viewport.get("width") or not viewport.get("height"):
-        findings.append({"severity": "BLOCKER", "field": "viewport", "message": "Viewport width and height required"})
+    # Viewport
+    viewport = _section(data, "viewport", dict)
+    width, height = viewport.get("width"), viewport.get("height")
+    if not (_positive(width) and _positive(height)):
+        add("BLOCKER", "viewport", "Viewport width and height must be positive numbers")
+    else:
+        ratio = viewport.get("aspect_ratio")
+        if isinstance(ratio, str) and re.match(r"^\d+:\d+$", ratio):
+            rw, rh = (int(x) for x in ratio.split(":"))
+            if rh and abs(width / height - rw / rh) > 0.01:
+                add("WARN", "viewport.aspect_ratio",
+                    f"aspect_ratio {ratio} does not match {width}x{height}")
+        elif ratio is not None:
+            add("WARN", "viewport.aspect_ratio", f"aspect_ratio should look like 16:9, got {ratio!r}")
 
-    # Character check
-    char = data.get("character")
+    # Character
+    char = _section(data, "character", dict)
     if char:
-        views = set(char.get("turnaround_views", []))
-        required_views = {"front", "profile", "back"}
-        if not required_views.issubset(views):
-            findings.append({"severity": "WARN", "field": "character.turnaround_views",
-                             "message": f"Turnaround should cover at least {sorted(required_views)}"})
-        for hex_code in char.get("palette_locks", []):
-            if not HEX_COLOR_RE.match(hex_code):
-                findings.append({"severity": "WARN", "field": "character.palette_locks",
-                                 "message": f"Invalid HEX color code: {hex_code}"})
+        views = set(char.get("turnaround_views") or [])
+        missing = [v for v in REQUIRED_VIEWS if v not in views]
+        if missing:
+            add("WARN", "character.turnaround_views", f"Turnaround is missing views: {missing}")
+        palette = char.get("palette_locks") or []
+        if not 3 <= len(palette) <= 6:
+            add("WARN", "character.palette_locks",
+                f"Lock 3 to 6 palette colors, got {len(palette)}")
+        for hex_code in palette:
+            if not (isinstance(hex_code, str) and HEX_COLOR_RE.match(hex_code)):
+                add("WARN", "character.palette_locks", f"Invalid HEX color code: {hex_code!r}")
 
-    # Sprites check
-    sprites = data.get("sprites", [])
+    # Sprites
+    sprites = _section(data, "sprites", list)
     if not sprites:
-        findings.append({"severity": "WARN", "field": "sprites", "message": "No sprite animations defined"})
+        add("WARN", "sprites", "No sprite animations defined")
     for i, s in enumerate(sprites):
-        if s.get("frames", 0) <= 0:
-            findings.append({"severity": "BLOCKER", "field": f"sprites[{i}].frames", "message": "Frames must be > 0"})
+        s = s if isinstance(s, dict) else {}
         if not s.get("action"):
-            findings.append({"severity": "BLOCKER", "field": f"sprites[{i}].action", "message": "Action name required"})
+            add("BLOCKER", f"sprites[{i}].action", "Action name required")
+        for key in ("frames", "fps"):
+            if not _positive(s.get(key)):
+                add("BLOCKER", f"sprites[{i}].{key}", f"{key} must be a positive number")
+        tile = s.get("tile_size")
+        if not (isinstance(tile, list) and len(tile) == 2 and all(_positive(t) for t in tile)):
+            add("BLOCKER", f"sprites[{i}].tile_size", "tile_size must be [width, height] with positive values")
 
-    # Audio cues check
-    audio_cues = data.get("audio_cues", [])
-    for i, a in enumerate(audio_cues):
-        osc = a.get("type")
-        if osc not in SUPPORTED_OSCILLATORS:
-            findings.append({"severity": "WARN", "field": f"audio_cues[{i}].type",
-                             "message": f"Invalid oscillator '{osc}'. Choose from {sorted(SUPPORTED_OSCILLATORS)}"})
-        gain = a.get("gain", 0)
-        if gain > 1.0 or gain <= 0:
-            findings.append({"severity": "BLOCKER", "field": f"audio_cues[{i}].gain",
-                             "message": "Audio cue gain must be between 0.0 and 1.0"})
+    # Audio cues
+    for i, a in enumerate(_section(data, "audio_cues", list)):
+        a = a if isinstance(a, dict) else {}
+        if a.get("type") not in SUPPORTED_OSCILLATORS:
+            add("WARN", f"audio_cues[{i}].type",
+                f"Invalid oscillator {a.get('type')!r}. Choose from {sorted(SUPPORTED_OSCILLATORS)}")
+        gain = _num(a.get("gain"))
+        if gain is None or not 0 < gain <= 1.0:
+            add("BLOCKER", f"audio_cues[{i}].gain", "gain must be a number in (0, 1]")
+        elif gain > SAFE_GAIN:
+            add("WARN", f"audio_cues[{i}].gain", f"gain {gain} is above the {SAFE_GAIN} safe ceiling")
+        for key in ("freq_start", "freq_end"):
+            freq = _num(a.get(key))
+            if freq is None or not MIN_FREQ_HZ <= freq <= MAX_FREQ_HZ:
+                add("BLOCKER", f"audio_cues[{i}].{key}",
+                    f"{key} must be between {MIN_FREQ_HZ} and {MAX_FREQ_HZ} Hz")
+        if not _positive(a.get("duration_ms")):
+            add("BLOCKER", f"audio_cues[{i}].duration_ms", "duration_ms must be positive")
+
+    # Showcase card
+    card = _section(data, "bento_card", dict)
+    if card:
+        contrast = _num(card.get("contrast_ratio"))
+        if contrast is None or contrast < MIN_CONTRAST:
+            add("BLOCKER", "bento_card.contrast_ratio",
+                f"contrast_ratio must be at least {MIN_CONTRAST} (WCAG 2.2 AA body text)")
+        accent = card.get("theme_accent")
+        if accent is not None and not (isinstance(accent, str) and HEX_COLOR_RE.match(accent)):
+            add("WARN", "bento_card.theme_accent", f"Invalid HEX color code: {accent!r}")
 
     return findings
 
@@ -128,13 +194,16 @@ def main(argv: list[str] | None = None) -> int:
     else:
         if not os.path.isfile(args.manifest):
             print(f"Error: file not found: {args.manifest}", file=sys.stderr)
-            return 1
+            return 2
         with open(args.manifest, "r", encoding="utf-8") as f:
             try:
                 data = json.load(f)
             except json.JSONDecodeError as exc:
                 print(f"Error: invalid JSON in {args.manifest}: {exc}", file=sys.stderr)
-                return 1
+                return 2
+        if not isinstance(data, dict):
+            print(f"Error: {args.manifest} must hold a JSON object", file=sys.stderr)
+            return 2
 
     findings = validate_manifest(data)
     blockers = sum(1 for f in findings if f["severity"] == "BLOCKER")
@@ -150,9 +219,9 @@ def main(argv: list[str] | None = None) -> int:
             "manifest_summary": {
                 "title": data.get("title"),
                 "engine": data.get("engine"),
-                "character_id": data.get("character", {}).get("id"),
-                "sprite_count": len(data.get("sprites", [])),
-                "audio_cue_count": len(data.get("audio_cues", []))
+                "character_id": _section(data, "character", dict).get("id"),
+                "sprite_count": len(_section(data, "sprites", list)),
+                "audio_cue_count": len(_section(data, "audio_cues", list))
             }
         }
         print(json.dumps(report, indent=2))
@@ -162,7 +231,7 @@ def main(argv: list[str] | None = None) -> int:
         for f in findings:
             print(f"  [{f['severity']}] {f['field']}: {f['message']}")
         if is_valid:
-            print(f"Manifest '{data.get('title')}' conforms to game universe studio architecture.")
+            print(f"Manifest '{data.get('title')}' passed every check.")
 
     return 0 if is_valid else 1
 

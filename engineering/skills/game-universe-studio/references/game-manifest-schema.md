@@ -21,7 +21,7 @@ The Game Asset Manifest formalizes the interface between visual generative asset
 - `id` (string, required): Identifier for the primary character/avatar.
 - `turnaround_views` (array of string): Must include standard views `["front", "three_quarter", "profile", "back"]`.
 - `sheet_dimensions` (object): Width and height of the combined orthographic turnaround sheet.
-- `palette_locks` (array of string): 3-6 primary HEX color codes defining the locked wardrobe and skin tones to prevent color drift across frames.
+- `palette_locks` (array of string): 3 to 6 primary HEX color codes defining the locked wardrobe and skin tones to prevent color drift across frames.
 
 ### 3. Sprite Matrix
 Array of animation definitions:
@@ -34,10 +34,10 @@ Array of animation definitions:
 Array of procedural zero-dependency Web Audio synthesizers:
 - `name` (string): Trigger name invoked by game events.
 - `type` (string): Web Audio oscillator waveform (`sine`, `square`, `sawtooth`, `triangle`).
-- `freq_start` (number): Starting frequency in Hz.
-- `freq_end` (number): Ending frequency in Hz (for pitch sweeps).
+- `freq_start` (number): Starting frequency in Hz, 20 to 20,000.
+- `freq_end` (number): Ending frequency in Hz (for pitch sweeps), 20 to 20,000.
 - `duration_ms` (number): Tone duration in milliseconds.
-- `gain` (number): Peak amplitude (0.0 to 1.0) clamped for safety.
+- `gain` (number): Peak amplitude in (0, 1]. Values above 0.4 raise a warning (see `web-audio-synth-primitives.md`).
 
 ### 5. Bento Card Presentation
 Metadata for catalog showcase rendering:

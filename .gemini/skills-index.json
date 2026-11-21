@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 471,
+  "total_skills": 472,
   "skills": [
     {
       "name": "content-strategist",
@@ -1314,6 +1314,11 @@
       "description": "Use when asked for a full-page or long screenshot of a web page. Captures SPA scroll containers, lazy images and very tall pages through Chrome DevTools Protocol with no extra dependencies."
     },
     {
+      "name": "game-universe-studio",
+      "category": "engineering-advanced",
+      "description": "Use when building a browser game prototype (Canvas, WebGL, Three.js, PixiJS, Babylon) and its character turnaround sheet, sprite set, procedural Web Audio sound effects or showcase card. Checks the game's asset manifest with game_manifest_validator.py before you ship it."
+    },
+    {
       "name": "git-worktree-manager",
       "category": "engineering-advanced",
       "description": "Use when running several branches or agents in parallel on one repo. Creates worktrees with isolated ports and env via worktree_manager.py and removes stale ones with worktree_cleanup.py."
@@ -2401,7 +2406,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 97,
+      "count": 98,
       "description": "Engineering-advanced resources"
     },
     "finance": {

@@ -1,52 +1,36 @@
 ---
 name: "game-universe-studio"
-description: "Build web game prototypes, character turnaround sheets, procedural Web Audio effects, and Bento showcase card layouts. Validates asset manifests against browser runtime contracts."
+description: "Use when building a browser game prototype (Canvas, WebGL, Three.js, PixiJS, Babylon) and its character turnaround sheet, sprite set, procedural Web Audio sound effects or showcase card. Checks the game's asset manifest with game_manifest_validator.py before you ship it."
 ---
 
 # Game Universe Studio
 
-## Overview
+Plan the assets of a small browser game as one JSON manifest, then check that manifest before any art is generated or any code is wired up. The manifest holds the viewport, the main character's turnaround sheet and palette, the sprite animations, the procedural sound cues and the showcase card. A mismatch found here costs a JSON edit; found after the sprites are drawn, it costs a redraw.
 
-Use this skill when architecting lightweight web games, interactive WebGL/Canvas prototypes, consistent game character turnaround sheets, or responsive game portfolio showcases.
-
-The skill provides an industrial 3-tier pipeline paired with a deterministic manifest validator to guarantee that assets match modular browser runtime requirements:
-1. **Character Consistency**: 4-angle turnaround orthographic sheets (Front, 3/4, Profile, Back) with locked anatomical proportions and HEX palette anchors.
-2. **Procedural Web Audio**: Zero-asset synthesis routines (blip, jump, hit, slash) using Web Audio API oscillators to avoid sound loading overhead.
-3. **Bento Card Packaging**: High-contrast showcase cards with status tags and responsive canvas viewport mounts.
-4. **Manifest Verification**: An integrated stdlib tool (`scripts/game_manifest_validator.py`) to validate game configs, tile dimensions, and audio frequencies before deployment.
-
-## Core Capabilities
-
-- **4-View Orthographic Turnarounds**: Compiles prompts for front, 3/4 angle, 90° profile, and rear views on unified canvas layouts.
-- **Zero-Dependency Audio Synthesizers**: Generates procedural Web Audio sound functions without external MP3/WAV file downloads.
-- **Bento Grid Showcase Layouts**: Emits semantic HTML/Tailwind CSS components tailored for instant web game embedding.
-- **Manifest Contract Validation**: Verifies complete game packages via CLI against standard asset contracts.
+Camera moves and shot language are out of scope; use `cinematic-shot-prompting` for those.
 
 ## Workflow
 
-### Step 1: Character Turnaround Sheet Generation
-Define the character anchor profile before generating animation sprites:
-- Specify anatomical scale (e.g. `7.5 heads tall, athletic silhouette`).
-- Lock 3-5 key HEX palette colors (e.g. primary armor `#1a1a24`, glow accent `#00e5ff`).
-- Arrange into 4 orthogonal views: Front, 3/4 perspective, Side profile, and Rear.
-- Reference: `references/character-ortho-spec.md`.
+1. **Write the manifest.** Start from `examples/indie-game-showcase-manifest.json`. Field rules are in `references/game-manifest-schema.md`.
+2. **Lock the character.** Fill `character` with all four turnaround views, the sheet size and 3 to 6 palette colors, and write the image prompt from `references/character-ortho-spec.md` (head-unit proportions, HEX palette, invariant features, no perspective change between views).
+3. **Define the sounds.** Each `audio_cues` entry is one oscillator sweep. Build them with the recipes in `references/web-audio-synth-primitives.md`, resume the `AudioContext` on the first user gesture, and keep peak gain at or below 0.4.
+4. **Validate.** Fix every BLOCKER; read each WARN and fix it or keep it on purpose:
+   ```bash
+   python3 scripts/game_manifest_validator.py --manifest game-manifest.json
+   python3 scripts/game_manifest_validator.py --manifest game-manifest.json --strict --format json
+   ```
+   Exit 0 means valid, 1 means BLOCKERs (or WARNs under `--strict`), 2 means the file is missing or not a JSON object. Run `--sample` to see a passing report.
+5. **Only then generate.** Generate the turnaround sheet first, then sprites from it, so every frame inherits the locked palette and proportions.
 
-### Step 2: Procedural Audio & Runtime Mount
-- Implement browser-native Web Audio oscillators for immediate player feedback (jump, hit, pickup, laser).
-- Ensure AudioContext resumes upon first user interaction to comply with browser autoplay constraints.
-- Reference: `references/web-audio-synth-primitives.md`.
+## What the validator checks
 
-### Step 3: Compile & Validate Game Manifest
-Bundle game metadata, viewport settings, character locks, and audio parameters into a single manifest:
-```bash
-python3 engineering/skills/game-universe-studio/scripts/game_manifest_validator.py \
-  --manifest engineering/skills/game-universe-studio/examples/indie-game-showcase-manifest.json
-```
-To run the built-in self-check fixture:
-```bash
-python3 engineering/skills/game-universe-studio/scripts/game_manifest_validator.py --sample --format json
-```
+| Area | BLOCKER | WARN |
+|---|---|---|
+| Meta | missing `title`, unknown `engine` | `game_id` not kebab-case |
+| Viewport | width or height missing or not positive | `aspect_ratio` disagrees with width:height |
+| Character | | missing turnaround view, palette outside 3 to 6 colors, invalid HEX |
+| Sprites | frames, fps or `tile_size` not positive, no `action` | no sprites defined |
+| Audio | gain outside (0, 1], frequency outside 20 Hz to 20 kHz, duration not positive | unknown oscillator type, gain above 0.4 |
+| Showcase card | `contrast_ratio` below 4.5 (WCAG 2.2 AA body text) | invalid `theme_accent` HEX |
 
-## Manifest Schema Reference
-
-See `references/game-manifest-schema.md` for full field specifications and validation rules.
+The validator checks numbers it is given. It does not measure contrast from colors or listen to audio; `contrast_ratio` is the value you measured.

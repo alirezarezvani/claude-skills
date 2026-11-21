@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Generative image pipelines frequently drift in facial anatomy, clothing textures, and scale when prompting different views. This specification provides deterministic prompting anchors to ensure 100% visual continuity across game turnarounds and sprite extractions.
+Generative image pipelines frequently drift in facial anatomy, clothing textures, and scale when prompting different views. This specification provides deterministic prompting anchors to keep the character consistent across game turnarounds and sprite extractions.
 
 ## 4-View Orthographic Plane
 

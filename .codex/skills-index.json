@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 427,
+  "total_skills": 433,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1290,6 +1290,12 @@
       "description": "Use when asked for a full-page or long screenshot of a web page. Captures SPA scroll containers, lazy images and very tall pages through Chrome DevTools Protocol with no extra dependencies."
     },
     {
+      "name": "game-universe-studio",
+      "source": "../../engineering/skills/game-universe-studio",
+      "category": "engineering-advanced",
+      "description": "Use when building a browser game prototype (Canvas, WebGL, Three.js, PixiJS, Babylon) and its character turnaround sheet, sprite set, procedural Web Audio sound effects or showcase card. Checks the game's asset manifest with game_manifest_validator.py before you ship it."
+    },
+    {
       "name": "git-worktree-manager",
       "source": "../../engineering/skills/git-worktree-manager",
       "category": "engineering-advanced",
@@ -2016,6 +2022,12 @@
       "description": "Plan social media: strategy, content calendar, community management, follower growth. Use whenever the user asks what to post and when, or how to grow followers. Single posts: social-content."
     },
     {
+      "name": "source-audit",
+      "source": "../../marketing-skill/skills/source-audit",
+      "category": "marketing",
+      "description": "Use before publishing a draft that cites links: verify that each claim is actually supported by the source it points to, link by link. Triggers include \u5ba1\u7a3f\u3001\u6838\u67e5\u4fe1\u6e90\u3001\u53d1\u5e03\u524d\u68c0\u67e5\u3001fact-check\u3001\u8fd9\u7bc7\u80fd\u4e0d\u80fd\u53d1\u3001\u91cc\u9762\u8bf4\u7684\u5bf9\u4e0d\u5bf9, or any review of an article, tool roundup, comparison, or review post with citations. Produces per-claim verdicts (supported, partial, contradicted, not found, unreachable) with quoted evidence. Not for copy-editing, structure review, or research from scratch."
+    },
+    {
       "name": "video-content-strategist",
       "source": "../../marketing-skill/video-content-strategist/skills/video-content-strategist",
       "category": "marketing",
@@ -2566,6 +2578,30 @@
       "source": "../../research-ops/skills/research-ops-skills",
       "category": "research-ops",
       "description": "Use when an enterprise research request needs routing (clinical study design, R&D finance, market sizing, user research): 'what sample size', 'R&D budget'. Lists the research-ops skills and routes to one."
+    },
+    {
+      "name": "video-animatic",
+      "source": "../../video/skills/video-animatic",
+      "category": "video",
+      "description": "Use when building an animation, motion graphic, kinetic type, animated chart from data, or animatic with code and rendering it to MP4 frame-exact. Compiles a scene.v1 JSON into a seekable HTML timeline, lints readability, flashes and contrast, renders with Playwright, and exports clean keyframes for AI shot upgrades."
+    },
+    {
+      "name": "video-beat-board",
+      "source": "../../video/skills/video-beat-board",
+      "category": "video",
+      "description": "Use whenever the user asks \"will this voice-over fit in 30 seconds?\", \"is my reel script too long?\", \"what should I cut?\", or wants a video script turned into a timed shot list. Do not eyeball it - beat_board.py times every beat at 150 wpm speech and 180 wpm reading, refuses a script that does not fit and says exactly how many words to cut."
+    },
+    {
+      "name": "video-conform",
+      "source": "../../video/skills/video-conform",
+      "category": "video",
+      "description": "Use when finishing a video for delivery - mix voice-over and music, normalize loudness, add or burn in captions, and export a checked MP4 that plays everywhere. conform.py builds the ffmpeg command, then fails the export if duration or loudness misses its target."
+    },
+    {
+      "name": "video-director",
+      "source": "../../video/skills/video-director",
+      "category": "video",
+      "description": "Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4."
     }
   ],
   "categories": {
@@ -2610,7 +2646,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 109,
+      "count": 110,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },
@@ -2620,7 +2656,7 @@
       "description": "Financial analysis, valuation, and forecasting skills"
     },
     "marketing": {
-      "count": 58,
+      "count": 59,
       "source": "../../marketing-skill",
       "description": "Marketing, content, and demand generation skills"
     },
@@ -2653,6 +2689,11 @@
       "count": 6,
       "source": "../../research-ops",
       "description": "Enterprise Research Operations skills (v2.9.0): clinical study design, R&D program finance, market research methodology, product/user research"
+    },
+    "video": {
+      "count": 4,
+      "source": "../../video",
+      "description": "Video studio: brief gate, beat board, code animatic (scene.v1 -> seekable HTML -> frame-exact MP4), optional AI shot upgrades through the user's own MCP connector, and checked conform"
     }
   }
 }

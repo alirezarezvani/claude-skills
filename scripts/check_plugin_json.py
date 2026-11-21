@@ -280,6 +280,19 @@ def main():
                 print(f"  - {e}")
         else:
             print("OK   .claude-plugin/marketplace.json (descriptions <= 1024 chars, names match plugin.json)")
+        # Agent-agnostic marketplace must mirror Claude + Codex presentation metadata.
+        try:
+            from sync_agents_marketplace import build_agents_marketplace, check as check_agents
+            agents_errors = check_agents(build_agents_marketplace())
+        except Exception as e:  # noqa: BLE001 — surface any generator failure as a gate failure
+            agents_errors = [str(e)]
+        if agents_errors:
+            failed += 1
+            print("FAIL .agents/plugins/marketplace.json")
+            for e in agents_errors:
+                print(f"  - {e}")
+        else:
+            print("OK   .agents/plugins/marketplace.json (mirrors Claude marketplace)")
     if warned:
         print(f"\n{warned} file(s) passed with warnings (legacy schema)", file=sys.stderr)
     if failed:

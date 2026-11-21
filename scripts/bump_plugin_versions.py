@@ -10,7 +10,9 @@ time, or when the gate reports an unbumped plugin:
 
 Only the `version` value is rewritten, in place, so manifest formatting and key
 order survive. The marketplace `metadata.version` is left alone; it is the repo
-release version and moves with the CHANGELOG.
+release version and moves with the CHANGELOG. After a real (non-dry-run) bump,
+`.agents/plugins/marketplace.json` is regenerated via sync_agents_marketplace.py
+so the agent-agnostic catalog stays aligned with Claude marketplace versions.
 """
 from __future__ import annotations
 
@@ -85,6 +87,10 @@ def main():
         set_manifest(os.path.join(REPO_ROOT, os.path.normpath(p["source"]), ".claude-plugin", "plugin.json"),
                      args.to, args.dry_run)
     set_marketplace([p["name"] for p in chosen], args.to, args.dry_run)
+    # Keep the agent-agnostic Codex/ChatGPT marketplace in lockstep with Claude.
+    if not args.dry_run and chosen:
+        from sync_agents_marketplace import build_agents_marketplace, write  # noqa: E402
+        write(build_agents_marketplace())
     verb = "would set" if args.dry_run else "set"
     print(f"{verb} {len(chosen)} plugin(s) to {args.to}")
     return 0

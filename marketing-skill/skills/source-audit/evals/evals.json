@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "prompt": "I wrote a roundup of desktop agent tools. Before I publish it, can you check whether the links actually support what I say? The draft is at posts/agent-tools.md.",
+    "expected_output": "Runs scripts/extract_claims.py on the draft, lists checkable claims per link (versions, licenses, platform support), fetches every cited source, and returns one verdict per claim with a quoted passage. Writes posts/agent-tools-audit.md with supported/partial/contradicted/not-found/unreachable/opinion counts, a per-claim table, and a fix list. FAIL if it judges from memory or search snippets, issues a verdict without a quote, or copy-edits the draft instead of auditing claims.",
+    "scenario_type": "happy_path"
+  },
+  {
+    "id": 2,
+    "prompt": "This comparison table cites one vendor page for three competitors' prices. Is that good enough to publish?",
+    "expected_output": "Flags the structural problem: one source cannot support three vendors' prices. Fetches the cited page, marks each vendor's price as supported/not-found against it, and recommends a per-vendor source for each row. Reports unreachable or missing prices as not-found rather than contradicted.",
+    "scenario_type": "edge_case"
+  },
+  {
+    "id": 3,
+    "prompt": "Two links in my article return 403 when I open them. Can you finish the fact-check anyway?",
+    "expected_output": "Retries each failing link once with another fetch method, marks them unreachable with the status code, and explicitly refuses to issue a substantive verdict on those claims. Audits the reachable links normally and says which claims remain unverified.",
+    "scenario_type": "edge_case"
+  }
+]

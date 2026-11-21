@@ -57,7 +57,7 @@ Add domain expertise that doesn't already exist in the repo:
 | Skills requiring paid API keys | Must work without external services |
 | Scripts with pip dependencies | stdlib-only Python |
 | PRs that change the skill count (205) | Curated number |
-| PRs modifying `.codex/`, `.gemini/`, `marketplace.json` | Auto-generated files |
+| PRs modifying `.codex/`, `.gemini/`, `marketplace.json`, `.agents/plugins/marketplace.json` | Auto-generated files |
 | Bloated diffs with fork merge history | Rebase on `dev` first |
 | Generic advice without actionable frameworks | Must be executable by an AI agent |
 
@@ -168,7 +168,7 @@ Before submitting your PR, verify:
 - [ ] **Scripts support `--json` output**
 - [ ] **Anti-patterns section** included in SKILL.md
 - [ ] **Cross-references** to related skills included
-- [ ] **No modifications** to `.codex/`, `.gemini/`, `marketplace.json`, or index files
+- [ ] **No modifications** to `.codex/`, `.gemini/`, `marketplace.json`, `.agents/plugins/marketplace.json`, or index files
 - [ ] **No 3rd party links** added to README
 - [ ] **Clean diff** — rebased on `dev`, no merge commit history
 - [ ] **Security audit passes** with zero CRITICAL/HIGH findings
@@ -208,11 +208,11 @@ docs: update CONTRIBUTING.md
 ## After Your PR is Merged
 
 Maintainers will handle:
-1. Running sync scripts (Codex, Gemini, integrations)
+1. Running sync scripts (Codex, Gemini, integrations, and `scripts/sync_agents_marketplace.py`)
 2. Generating docs pages
 3. Updating mkdocs.yml navigation
 4. Updating domain plugin.json counts
-5. Updating marketplace.json
+5. Updating marketplace.json (Claude) and regenerating `.agents/plugins/marketplace.json`
 6. Merging dev → main for deployment
 
 You do NOT need to do any of these steps in your PR.

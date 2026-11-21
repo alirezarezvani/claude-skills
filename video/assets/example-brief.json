@@ -1,0 +1,24 @@
+{
+  "title": "Release 2.0 teaser",
+  "goal": "Get existing users to try the v2 release pipeline this week.",
+  "audience": "Engineering leads already on v1",
+  "platform": "linkedin",
+  "duration_s": 20.0,
+  "tone": "confident, dry, no hype",
+  "cta": "example.dev/v2",
+  "vo": "recorded",
+  "brand": {
+    "bg": "#0b0d12",
+    "fg": "#f5f7fa",
+    "accent": "#5b8cff",
+    "font_heading": "Inter",
+    "font_body": "Inter"
+  },
+  "upgrade_allowed": true,
+  "budget_credits": 60,
+  "real_people": false,
+  "aspect": "1:1",
+  "vo_word_budget": 50,
+  "lane": "previz-to-final",
+  "disclosure": "label generated footage as AI-generated where it is published (EU AI Act Article 50 transparency duties for deployers; check the text that applies to you)"
+}

@@ -28,6 +28,7 @@ chaos-engineering 271
 chief-ai-officer-advisor 259
 chief-customer-officer-advisor 266
 chief-data-officer-advisor 273
+cinematic-shot-prompting 226
 cloud-finops 513
 cmmc-readiness 524
 code-to-prd 249
@@ -50,7 +51,7 @@ docker-development 239
 dora-readiness 594
 dossier 266
 email-pair 478
-engineering-advanced-skills 11907
+engineering-advanced-skills 12200
 engineering-skills 9841
 executive-mentor 1114
 fable-goal 246
@@ -76,7 +77,7 @@ llm-cost-optimizer 241
 llm-wiki 246
 loop-library 624
 markdown-html-skills 1177
-marketing-skills 11344
+marketing-skills 11811
 medical-device-software 475
 meetings 435
 memory-engineering 283
@@ -114,6 +115,7 @@ syllabus 228
 terraform-patterns 234
 universal-scraping-architect 235
 video-content-strategist 222
+video-studio 1360
 vpe-advisor 253
 weekly-review 416
 workflow-builder 280

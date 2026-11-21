@@ -99,6 +99,10 @@ SKILL_DOMAINS = {
     "loop-library": {
         "category": "engineering-advanced",
         "description": "Loop library: catalog of bounded agent loops with named stop states (vendored verbatim)"
+    },
+    "video": {
+        "category": "video",
+        "description": "Video studio: brief gate, beat board, code animatic (scene.v1 -> seekable HTML -> frame-exact MP4), optional AI shot upgrades through the user's own MCP connector, and checked conform"
     }
 }
 

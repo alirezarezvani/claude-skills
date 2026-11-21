@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 432,
+  "total_skills": 433,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1288,6 +1288,12 @@
       "source": "../../engineering/skills/full-page-screenshot",
       "category": "engineering-advanced",
       "description": "Use when asked for a full-page or long screenshot of a web page. Captures SPA scroll containers, lazy images and very tall pages through Chrome DevTools Protocol with no extra dependencies."
+    },
+    {
+      "name": "game-universe-studio",
+      "source": "../../engineering/skills/game-universe-studio",
+      "category": "engineering-advanced",
+      "description": "Use when building a browser game prototype (Canvas, WebGL, Three.js, PixiJS, Babylon) and its character turnaround sheet, sprite set, procedural Web Audio sound effects or showcase card. Checks the game's asset manifest with game_manifest_validator.py before you ship it."
     },
     {
       "name": "git-worktree-manager",
@@ -2640,7 +2646,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 109,
+      "count": 110,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 404,
+  "total_skills": 405,
   "domains": {
     "engineering": [
       {
@@ -112,6 +112,11 @@
         "name": "full-page-screenshot",
         "description": "Use when asked for a full-page or long screenshot of a web page. Captures SPA scroll containers, lazy images and very tall pages through Chrome DevTools Protocol with no extra dependencies.",
         "path": "engineering/full-page-screenshot"
+      },
+      {
+        "name": "game-universe-studio",
+        "description": "Use when building a browser game prototype (Canvas, WebGL, Three.js, PixiJS, Babylon) and its character turnaround sheet, sprite set, procedural Web Audio sound effects or showcase card. Checks the game's asset manifest with game_manifest_validator.py before you ship it.",
+        "path": "engineering/game-universe-studio"
       },
       {
         "name": "git-worktree-manager",

@@ -164,7 +164,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.14 (mobile-release, cloud-finops and support-ops release: new plugins for App Store / Google Play review and staged-rollout gates, FinOps on a FOCUS cost export, and support SLA, Erlang C staffing and deflection, each with a skill-router hook (#1153); cinematic-shot-prompting as a standalone marketplace plugin (#1151). See CHANGELOG.md [2.14.14].)
+**Version:** v2.14.15 (video-studio, source-audit and Codex marketplace release: new video-studio plugin for brief-to-MP4 previz with a code animatic first (#1152); source-audit in marketing-skills checks a draft's claims against their links (#1158 via #1159); Codex plugin marketplace with a real-CLI install check (#1157 via #1160); community game-universe-studio skill in engineering-advanced-skills (#1161 via #1162). See CHANGELOG.md [2.14.15].)
+
+**Previously: v2.14.14** (mobile-release, cloud-finops and support-ops release: new plugins for App Store / Google Play review and staged-rollout gates, FinOps on a FOCUS cost export, and support SLA, Erlang C staffing and deflection, each with a skill-router hook (#1153); cinematic-shot-prompting as a standalone marketplace plugin (#1151). See CHANGELOG.md [2.14.14].)
 
 **Previously: v2.14.13** (NIS2 and DORA release: new nis2-readiness plugin for NIS2 / German NIS2UmsuCG and dora-readiness plugin for DORA major-incident reporting and the register of information (#1148); community readme-polish plugin (#1146). See CHANGELOG.md [2.14.13].)
 
@@ -851,7 +853,7 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
    **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
 
    **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.14).
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.15).
 
 ## Anti-Patterns to Avoid
 
@@ -899,6 +901,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** November 17, 2026
-**Version:** v2.14.14 (mobile-release, cloud-finops, support-ops — see CHANGELOG.md)
+**Last Updated:** November 21, 2026
+**Version:** v2.14.15 (video-studio, source-audit, Codex marketplace, game-universe-studio — see CHANGELOG.md)
 **Status:** 434 production-ready skills across 21 domains, 121 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

@@ -161,7 +161,10 @@ def calculate_confidence_intervals(results, confidence_levels=[0.5, 0.7, 0.85, 0
     intervals = {}
     
     for confidence in confidence_levels:
-        percentile_index = int(confidence * len(sorted_results))
+        # X% confidence = X% of simulations deliver at least this much,
+        # so read the (1 - X) percentile of the ascending-sorted totals.
+        percentile_index = int(round((1 - confidence) * len(sorted_results)))
+        percentile_index = min(percentile_index, len(sorted_results) - 1)
         intervals[f"{int(confidence*100)}%"] = sorted_results[percentile_index]
     
     return intervals
@@ -170,15 +173,15 @@ def calculate_confidence_intervals(results, confidence_levels=[0.5, 0.7, 0.85, 0
 #### Example Interpretation
 For a 6-sprint forecast with results:
 - **50%:** 120 points (median outcome)
-- **70%:** 135 points (likely case)
-- **85%:** 150 points (conservative case)
-- **95%:** 170 points (very conservative case)
+- **70%:** 105 points (likely case: 70% of simulations deliver at least this)
+- **85%:** 90 points (conservative case)
+- **95%:** 70 points (very conservative case)
 
 ### Risk Assessment Framework
 
 #### Delivery Probability
 ```
-P(Completion ≤ Target) = (# simulations ≤ target) / total_simulations
+P(Delivered ≥ Target) = (# simulations delivering ≥ target) / total_simulations
 ```
 
 #### Risk Categories

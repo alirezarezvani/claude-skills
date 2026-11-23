@@ -298,7 +298,9 @@ def monte_carlo_forecast(sprints: List[SprintData], sprints_ahead: int = 6) -> D
     forecasts = {}
     
     for confidence in confidence_levels:
-        percentile_index = int(confidence * iterations)
+        # "X% confidence" = X% of simulated futures deliver at least this many
+        # points, i.e. the (1 - X) percentile of the ascending-sorted totals.
+        percentile_index = int(round((1 - confidence) * iterations))
         percentile_index = min(percentile_index, iterations - 1)
         forecasts[f"{int(confidence * 100)}%"] = simulated_totals[percentile_index]
     

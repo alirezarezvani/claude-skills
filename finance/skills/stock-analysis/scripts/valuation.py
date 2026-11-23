@@ -98,6 +98,7 @@ _TERMINAL_GROWTH_HIGH = 0.05      # terminal growth above ~nominal long-run GDP.
 _WACC_LOW = 0.06                  # a suspiciously low discount rate.
 _WACC_HIGH = 0.20                 # a suspiciously high one.
 _IMPLIED_GROWTH_DEMANDING = 0.15  # implied stage-1 growth the market rarely sustains.
+_STAGE1_GROWTH_IMPLAUSIBLE = 1.0  # above 100%/yr is almost always a percent typed as a decimal.
 
 
 # --------------------------------------------------------------------------- #
@@ -150,10 +151,14 @@ def num(value: Any) -> Optional[float]:
 
 
 def rate(value: Any) -> Optional[float]:
-    """Coerce to a decimal rate; a magnitude above 1.5 is read as a percent."""
+    """Coerce to a decimal rate. A string with an explicit '%' is always a
+    percent ("1.5%" -> 0.015); otherwise a magnitude above 1.5 is read as a
+    percent and anything smaller as a decimal."""
     n = num(value)
     if n is None:
         return None
+    if isinstance(value, str) and "%" in value:
+        return n / 100.0
     return n / 100.0 if abs(n) > _RATE_AS_PERCENT_ABOVE else n
 
 
@@ -588,7 +593,7 @@ def compute_scenarios(doc: Dict[str, Any], notes: List[Note]
 # Assumption guard-rails (warnings)
 # --------------------------------------------------------------------------- #
 def check_assumptions(doc: Dict[str, Any], notes: List[Note]) -> None:
-    """Flag aggressive or implausible discount-rate / terminal-growth inputs."""
+    """Flag aggressive or implausible discount-rate / growth inputs."""
     for block_name in ("reverse_dcf", "dcf"):
         block = doc.get(block_name)
         if not isinstance(block, dict):
@@ -604,6 +609,12 @@ def check_assumptions(doc: Dict[str, Any], notes: List[Note]) -> None:
             notes.append(Note("warn", "%s: terminal growth of %.1f%% exceeds "
                               "~nominal long-run GDP; a business cannot outgrow the "
                               "economy forever." % (block_name, term_g * 100)))
+        g1 = rate(block.get("stage1_growth"))
+        if g1 is not None and abs(g1) > _STAGE1_GROWTH_IMPLAUSIBLE:
+            notes.append(Note("warn", "%s: stage-1 growth of %.1f%%/yr is implausible. "
+                              "Bare rates from -1.5 to 1.5 are read as decimals, so "
+                              "if you meant %g%%, write %g or \"%g%%\"."
+                              % (block_name, g1 * 100, g1, g1 / 100, g1)))
 
 
 # --------------------------------------------------------------------------- #
@@ -781,7 +792,8 @@ def render_json(res: Dict[str, Any]) -> str:
 TEMPLATE = """\
 // Valuation input template for the stock-analysis skill.
 // Fill in only the blocks you need; each section runs if its block is present.
-// Rates may be decimals (0.12) or percents (12). Whole-line // comments are
+// Rates may be decimals (0.12), percents (12) or "%" strings ("1.5%"); a bare
+// number from -1.5 to 1.5 is read as a decimal. Whole-line // comments are
 // stripped by the loader. Then run:  python valuation.py this_file.json
 {
   "company": "",

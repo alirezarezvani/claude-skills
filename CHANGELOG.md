@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.16] - 2026-11-23 — scrum-master forecast and stock-analysis rate fixes
+
+Two community bug fixes. scrum-master's Monte Carlo forecast now reports "X% confidence" as a total that X% of
+simulated futures reach, so higher confidence means a smaller commitment; before, the 95% figure was one only 5%
+of futures reached. stock-analysis reads `"1.5%"` as 1.5% instead of 150%, and warns on stage-1 growth above
+100%/yr. No renames; `claude plugin update` picks up pm-skills and finance-skills.
+
+### Fixed
+- **scrum-master** (pm-skills): `velocity_analyzer.py`'s Monte Carlo forecast labelled the Xth percentile of simulated totals as "X% confidence", so the "95%" figure was a total only 5% of simulated futures reach. It now reports the (1 − X) percentile, so 70/85/95% confidence sit below the median. The forecasting guide, its delivery-probability formula and both expected-output fixtures are corrected to match (#1167, thanks @thejesh23).
+- **stock-analysis** (finance-skills): `valuation.py` read `"1.5%"` as 150% because the `%` was stripped before the bare-number heuristic ran, so a DCF valued at 62.41/share came out at 4398. An explicit `%` now always means percent, and a stage-1 growth above 100%/yr warns (#1168, thanks @thejesh23).
+
 ## [2.14.15] - 2026-11-21 — video-studio, source-audit, game-universe-studio and a Codex plugin marketplace
 
 video-studio is a new plugin that takes a brief to a finished MP4 the way previz studios work: a free code

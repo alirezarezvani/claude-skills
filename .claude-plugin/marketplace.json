@@ -343,7 +343,7 @@
       "name": "pm-skills",
       "source": "./project-management",
       "description": "9 project management skills with 15 Python tools: pm-skills fork-orchestrator with agentic delivery loop (deterministic 8-lane router, Jira MCP snapshot bridge to Kanban flow metrics + Monte Carlo forecasts, delegation-governance gate, /cs-pm + /cs-grill-pm + /cs-pm-loop), senior PM, scrum master, Jira expert, Confluence expert, Atlassian admin, template creator, meeting analyzer, team communications. Bundled Atlassian Remote MCP.",
-      "version": "2.14.6",
+      "version": "2.14.16",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -378,7 +378,7 @@
       "name": "finance-skills",
       "source": "./finance",
       "description": "4 finance skills: financial analyst (ratio analysis, DCF valuation, budgeting, forecasting), SaaS metrics coach (ARR, MRR, churn, CAC, LTV, NRR, Quick Ratio, projections), business investment advisor, and month-end close (close calendar, reconciliation proof, flux gate). 10 Python automation tools.",
-      "version": "2.14.6",
+      "version": "2.14.16",
       "author": {
         "name": "Alireza Rezvani"
       },

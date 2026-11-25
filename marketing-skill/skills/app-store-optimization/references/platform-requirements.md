@@ -87,7 +87,7 @@ task manager, todo list, productivity app, task tracking
 
 | Field | Character Limit | Notes |
 |-------|----------------|-------|
-| App Title | 50 characters | Increased from 30 in 2021 |
+| App Title | 30 characters | Reduced from 50 in 2021 |
 | Short Description | 80 characters | Visible on store listing |
 | Full Description | 4,000 characters | Indexed for search keywords |
 | Developer Name | 64 characters | Organization or individual |
@@ -248,7 +248,7 @@ Supported localizations: 40+ languages
 Supported localizations: 75+ languages
 
 Each locale requires:
-- Title (50 chars)
+- Title (30 chars)
 - Short description (80 chars)
 - Full description (4,000 chars)
 - Screenshots (can reuse or localize)
@@ -311,7 +311,7 @@ Each locale requires:
 
 | Attribute | Apple App Store | Google Play Store |
 |-----------|-----------------|-------------------|
-| Title Length | 30 chars | 50 chars |
+| Title Length | 30 chars | 30 chars |
 | Subtitle | 30 chars | N/A |
 | Short Description | N/A | 80 chars |
 | Full Description | 4,000 chars | 4,000 chars |

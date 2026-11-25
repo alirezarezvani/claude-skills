@@ -111,7 +111,7 @@ Optimize app store listing elements for search ranking and conversion.
 
 | Field | Apple App Store | Google Play Store |
 |-------|-----------------|-------------------|
-| Title | 30 characters | 50 characters |
+| Title | 30 characters | 30 characters |
 | Subtitle | 30 characters | N/A |
 | Short Description | N/A | 80 characters |
 | Keywords | 100 characters | N/A |

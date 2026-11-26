@@ -1,6 +1,6 @@
 # DORA scope, proportionality and ICT provider oversight
 
-> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+> Rules last verified 2026-11-26 (2025/532, CTPP list and pending amendments added; in-force rules unchanged since 2026-11-17) against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
 
 From Regulation (EU) 2022/2554 (DORA) unless marked otherwise. Applies from
 **17 January 2025** (Art 64).
@@ -47,8 +47,9 @@ initial and intermediate reports. 🟢 RTS 2025/301 Art 5(5)
 
 ## Critical ICT third-party service providers (Arts 31-44)
 
-- The ESAs designate CTPPs on criteria such as systemic impact and substitutability; first designations were made in 2025. 🟢 Art 31(2) · 🟡 ESA announcements
-- A financial entity may use a CTPP established in a third country only if that provider sets up an EU subsidiary within 12 months of designation. 🟢 Art 31(12)
+- The ESAs designate CTPPs on criteria such as systemic impact and substitutability. 🟢 Art 31(2). The first list was published on **18 November 2025** 🟢 (ESMA/ESAs joint press release); secondary sources count 19 providers, including AWS, Google Cloud, Microsoft, Oracle, SAP, IBM and several telecoms and IT-services groups 🟡 (verify against the ESAs' published list PDF). The ESAs' 2027 work programme includes updating the list 🟡, so check it at each register refresh.
+- Designation does not change the financial entity's own Art 28-30 duties: a CTPP contract still needs every Art 30 term and an exit plan. 🟢 Art 28(1); DLA Piper, 20 Nov 2025 🟡
+- A financial entity may use a CTPP established in a third country only if that provider sets up an EU subsidiary within 12 months of designation. 🟢 Art 31(12). For the November 2025 designations that window closes around November 2026 🔴 (sources disagree on whether it runs from each decision date or from publication); ask your provider for its EU subsidiary now.
 - The Lead Overseer can impose periodic penalty payments of up to 1% of the provider's average daily worldwide turnover, for at most six months. 🟢 Art 35(7)-(8)
 
 ## Threat-led penetration testing
@@ -64,3 +65,4 @@ years, following TIBER-EU-aligned RTS. 🟢 Art 26(1), 26(8)
 4. Commission Delegated Regulation (EU) 2024/1772 — https://eur-lex.europa.eu/eli/reg_del/2024/1772/oj
 5. Commission Delegated Regulation (EU) 2025/301 — https://eur-lex.europa.eu/eli/reg_del/2025/301/oj
 6. Joint Committee of the ESAs, DORA pages and Q&A 🟡 — https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en
+7. ESAs, *European Supervisory Authorities designate critical ICT third-party providers*, 18 Nov 2025 — https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers

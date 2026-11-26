@@ -75,7 +75,7 @@ rationale for use, post-release activities.
 - 🟢 FDA: recognised consensus standard 13-79 (IEC 62304 Ed. 1.1 2015-06), complete
   recognition. Basic documentation can rest on a 62304 declaration of conformity.
 - 🟡 EU: notified bodies audit against EN 62304:2006+A1:2015 as state of the art
-  under MDR Annex I 17.2. 🔴 OJ citation under the MDR not confirmed; see
+  under MDR Annex I 17.2. 🟡 Not cited in the OJ under the MDR through Decision 2026/2479 (Nov 2026), so no presumption of conformity; see
   `classification_and_documentation_levels.md` §4.
 
 ## Sources

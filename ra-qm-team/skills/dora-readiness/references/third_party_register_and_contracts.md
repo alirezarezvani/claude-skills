@@ -1,6 +1,6 @@
 # DORA register of information and ICT third-party contracts
 
-> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+> Rules last verified 2026-11-26 (2025/532, CTPP list and pending amendments added; in-force rules unchanged since 2026-11-17) against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
 
 Confidence: 🟢 legal text · 🟡 ESA guidance or Q&A · 🔴 our reading, typical evidence only
 
@@ -52,6 +52,25 @@ Also: a documented exit strategy for each such service, realistic, feasible and
 adequately tested, with transition plans. 🟢 Art 28(8). The policy on contracts
 for critical functions follows Delegated Regulation (EU) 2024/1773. 🟢
 
+## Subcontracting critical or important functions (Art 30(2)(a), 30(5))
+
+Delegated Regulation (EU) 2025/532 sets what you must assess and write into the
+contract when an ICT provider may subcontract services that support a critical
+or important function. Adopted by the Commission in March 2025 and published
+in the OJ in July 2025 🟡 (Norton Rose Fulbright, A&O Shearman and Jones Day,
+July 2025). Before allowing subcontracting: a risk assessment covering the
+provider's own due diligence and oversight of its subcontractors, concentration
+and the location of subcontractors 🟡. In the contract: which services may be
+subcontracted and on what conditions, the provider's duty to monitor its
+subcontractors, advance notice of material changes, and your right to object
+and to terminate if a material change goes ahead or subcontracting happens
+without authorisation 🟡. The Commission removed the ESAs' draft article that
+would have made financial entities monitor the whole chain themselves 🟡; the
+duty to know the chain stays, through the provider and the register's
+subcontractor rows (2024/2956). Read the regulation itself before you redraft
+a clause: this summary is from law-firm briefings. `register_of_information_check.py`
+does not test these terms. 🔴
+
 ## Concentration and third countries (Art 29)
 
 Assess whether a contract makes you dependent on a provider that is not easily
@@ -73,3 +92,4 @@ That is the evidence an auditor asks for. 🔴
 4. EBA, register of information reporting pages 🟡 — https://www.eba.europa.eu/
 5. EIOPA, DORA pages 🟡 — https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en
 6. ESMA, DORA pages 🟡 — https://www.esma.europa.eu/
+7. Commission Delegated Regulation (EU) 2025/532 (subcontracting ICT services supporting critical or important functions) — https://eur-lex.europa.eu/eli/reg_del/2025/532/oj; summaries by Norton Rose Fulbright and Jones Day (July 2025) 🟡

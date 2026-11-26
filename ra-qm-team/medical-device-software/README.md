@@ -22,7 +22,9 @@ IEC 62304 and IEC 81001-5-1 are paywalled. Each claim in the references is label
 
 - 🟢 checked against the primary text (FDA guidance, 21 U.S.C. 360n-2, FDA recognised-standards database, MDCG 2019-16, IEC public samples and the ISH1:2025 preview, BSI notified-body material);
 - 🟡 two or more independent secondary sources agree (the IEC 62304 class-by-clause table);
-- 🔴 not verified, do not rely on it (whether EN 62304 or EN IEC 81001-5-1 is cited in the Official Journal under the MDR).
+- 🔴 not verified, do not rely on it.
+
+EN 62304 and EN IEC 81001-5-1 are not cited in the Official Journal under the MDR (🟡, checked through Implementing Decision 2026/2479 of 9 November 2026), so neither gives a presumption of conformity.
 
 Your licensed copy of the standard prevails over this plugin.
 

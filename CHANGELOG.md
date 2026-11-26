@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - **video-director** (video-studio): the upgrade protocol told agents to quote Higgsfield with `generate_video` `get_cost: true`. Higgsfield moved quotes to `estimate_video_cost` after 2026-11-17, so that call could start a paid job; the director and agent now hand over to `video-shot-upgrade`, whose adapter names the live tools.
 
+### Changed
+- **Regulatory accuracy refresh** (ra-qm-skills, medical-device-software, cra-readiness, nis2-readiness, dora-readiness, compliance-team-eu-ai-act, chief-ai-officer-advisor), checked 26 Nov 2026; every change names its clause or source and its confidence level:
+  - **medical-device-software / regulatory-affairs-head:** EN 62304 and EN IEC 81001-5-1 are now stated as *not cited* in the OJ under the MDR, checked through Implementing Decision 2026/2479 (9 Nov 2026), instead of "unconfirmed".
+  - **eu-ai-act-specialist:** Regulation (EU) 2026/1744 changes beyond the high-risk dates: new Art 5(1)(ba)/(bb) prohibitions (intimate imagery without consent, CSAM) from 2 Dec 2026, the Art 111(4) grace for Art 50(2) marking to 2 Dec 2026, Art 4 AI literacy as replaced, Art 10(5) moved to new Art 4a, national sandboxes by 2 Aug 2027, AI Office competence under Art 75. Fixed "Article 50 in force from 2 Aug 2025" (it applies from 2 Aug 2026). The obligation tracker and risk classifier know the new prohibitions and the generative-provider marking duty.
+  - **cra-readiness:** Delegated Regulation (EU) 2026/881 on delayed dissemination (Art 14(9)) added; harmonised-standards status as of Nov 2026 (EN 40000-1-1/-1-2 ratified, none cited); SRP launch confirmed from ENISA's press release; Digital Omnibus status updated to the Council mandate.
+  - **nis2-readiness:** pending changes in COM(2026) 13 (small mid-caps, ransomware data, ENISA registry) and the Digital Omnibus Council mandate (national single entry point, GDPR 96 h); 2026 Court referrals.
+  - **dora-readiness:** Delegated Regulation (EU) 2025/532 on subcontracting, the 18 Nov 2025 CTPP list and the Art 31(12) subsidiary window, and the Omnibus change to Art 19.
+
 ## [2.14.17] - 2026-11-26 — app-store-optimization Google Play title limit fix
 
 One community bug fix. The app-store-optimization tools validated Google Play titles against the old 50-character

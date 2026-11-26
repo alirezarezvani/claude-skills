@@ -75,6 +75,7 @@ prefix depends on how the user named the connector.
 | Gate | Failure it prevents |
 |---|---|
 | Cap is the lower of `budget_credits` and `--cap` | a capped test silently inheriting the film's whole budget |
+| `budget_credits` is per film: each new batch carries what earlier batches committed (`spent_before`) | several batches each under budget adding up past it |
 | Balance check | a batch half-submitted when credits run out, leaving a film with a hole |
 | Approval must equal the quoted total | a yes to "about 20" being stretched over a 28-credit batch |
 | Quotes expire (60 min default) | approving yesterday's price |

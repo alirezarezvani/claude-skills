@@ -86,11 +86,17 @@ def save(path: Path, data: dict, archive_to: Path | None = None) -> None:
     so a crash never leaves the ledger path empty for longer than one rename."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=".spend-", suffix=".json")
-    with os.fdopen(fd, "w", encoding="utf-8") as fh:
-        json.dump(data, fh, indent=2)
-    if archive_to is not None:
-        shutil.copy2(path, archive_to)
-    os.replace(tmp, path)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            json.dump(data, fh, indent=2)
+            fh.flush()
+            os.fsync(fh.fileno())
+        if archive_to is not None:
+            shutil.copy2(path, archive_to)
+        os.replace(tmp, path)
+    except BaseException:
+        Path(tmp).unlink(missing_ok=True)
+        raise
 
 
 def log(ledger: dict, event: str, **kw) -> None:
@@ -161,8 +167,10 @@ def cmd_quote(args) -> dict:
         raise GateError("the brief does not say upgrade_allowed: true; ask the user before any generation")
     path = Path(args.ledger)
     archive = None
+    spent_before = 0.0  # what earlier batches of this film may already have cost; budget_credits is per film
     if path.exists():
         old = load(path)
+        spent_before = round(float(old.get("spent_before") or 0) + committed(old), 3)
         live = [sid for sid, s in old["shots"].items() if s["state"] in ("reserved", "submitted", "unknown")]
         if live:
             raise GateError(f"the existing ledger has {', '.join(live)} sent with no final outcome; poll those jobs "
@@ -186,14 +194,17 @@ def cmd_quote(args) -> dict:
         raise GateError(f"no price for {', '.join(missing)}; call the quote tool for each and add "
                         f"{{\"<id>\": {{\"credits\": n, \"quote_ref\": \"...\"}}}} to the quotes file", 3)
     try:
-        caps = [float(c) for c in (brief.get("budget_credits"), args.cap) if c is not None]
+        budget = brief.get("budget_credits")
+        caps = [float(c) for c in (budget, args.cap) if c is not None]
         if not all(math.isfinite(c) and c >= 0 for c in caps):
             raise ValueError
     except (TypeError, ValueError):
         raise GateError(f"brief budget_credits must be a number, got {brief.get('budget_credits')!r}", 2)
     if not caps:
         raise GateError("no cap: set budget_credits in the brief or pass --cap", 3)
-    cap = float(min(caps))
+    if budget is not None:
+        caps[0] = round(caps[0] - spent_before, 3)  # the brief's budget minus earlier batches; --cap is per batch
+    cap = max(float(min(caps)), 0.0)
     shots, total = {}, 0.0
     for r in req["requests"]:
         if r["id"] not in ids:
@@ -218,14 +229,15 @@ def cmd_quote(args) -> dict:
                 break
             drop.append(sid)
             over -= s["credits"]
-        raise GateError(f"OVER BUDGET: {total:g} credits quoted, cap {cap:g}. Cheapest way under: drop "
+        raise GateError(f"OVER BUDGET: {total:g} credits quoted, cap {cap:g}"
+                       + (f" ({spent_before:g} already committed by earlier batches)" if spent_before else "") + ". Cheapest way under: drop "
                         f"{', '.join(drop)} (keep them as motion graphics), pick a cheaper model or lower resolution")
     if args.balance is not None and total > args.balance + 1e-9:
         raise GateError(f"balance {args.balance:g} credits is below the {total:g} quoted; the user must top up "
                         f"{total - args.balance:g} or drop shots")
     ledger = {
         "schema": "spend.v1", "title": req.get("title"), "provider": req.get("provider"), "model": req.get("model"),
-        "cap": cap, "balance_at_quote": args.balance, "total_quoted": total, "quoted_at": now().isoformat(),
+        "cap": cap, "spent_before": spent_before, "balance_at_quote": args.balance, "total_quoted": total, "quoted_at": now().isoformat(),
         "state": "quoted", "approved_credits": None, "approved_at": None, "shots": shots, "events": [],
         "approval_sentence": f"yes, spend {total:g} credits on {len(shots)} shot(s) "
                              f"({', '.join(shots)}) with {req.get('provider')} {req.get('model')}",
@@ -355,6 +367,7 @@ def run_sample() -> int:
                                                     {"id": "s2", "generated_duration": 4}, {"id": "s4", "generated_duration": 4}]}))
         (d / "q.json").write_text(json.dumps({"s2": {"credits": 10, "quote_ref": "quote:a"}, "s4": {"credits": 10, "quote_ref": "quote:b"}}))
         (d / "brief.json").write_text(json.dumps({"upgrade_allowed": True, "budget_credits": 60}))
+        (d / "brief35.json").write_text(json.dumps({"upgrade_allowed": True, "budget_credits": 35}))
         base = dict(requests=str(d / "req.json"), quotes=str(d / "q.json"), brief=str(d / "brief.json"),
                     ledger=str(d / "spend.json"), only=None, max_shots=None, new_batch=False)
         rec = dict(ledger=base["ledger"], job_id=None, plate=None, charged=None, release_failed=False, said=None)
@@ -382,6 +395,8 @@ def run_sample() -> int:
             ("release failed s2 without the user's words", False, cmd_record, dict(rec, shot="s2", status=None, release_failed=True)),
             ("release failed s2", True, cmd_record, dict(rec, shot="s2", status=None, release_failed=True, said="yes, retry s2")),
             ("reserve s2 retry: its 10 charged credits already used the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
+            ("new batch of 20 on a 35 budget after 20 spent", False, cmd_quote, dict(base, brief=str(d / "brief35.json"), cap=None, balance=100, new_batch=True)),
+            ("new batch of 20 on a 60 budget after 20 spent", True, cmd_quote, dict(base, cap=None, balance=100, new_batch=True)),
         ]
         bad = 0
         for label, expect_ok, fn, kw in steps:

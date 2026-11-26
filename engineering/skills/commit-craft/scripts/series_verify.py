@@ -7,7 +7,10 @@ worktree (your working tree, index and stash are never touched), runs --cmd ther
 reports the first commit that fails. The worktree starts from the commit alone, without
 node_modules, .venv or build caches, so pass --setup with your install step (e.g. npm ci) for a
 project that needs installed dependencies, or every commit fails for the wrong reason.
-On a timeout the whole process group is killed, so no test runner or server is left behind. It also scans what each commit adds for debug
+Ignored files (node_modules, build output) are kept between commits for speed, so a stale
+artifact from one commit can make the next pass; --strict wipes them at every commit
+(git clean -x) and needs --setup to rebuild. On a timeout the whole process group is
+killed, so no test runner or server is left behind. It also scans what each commit adds for debug
 leftovers that pass tests but should never land.
 
 Findings
@@ -42,9 +45,9 @@ CODE_EXT = re.compile(r"\.(py|js|jsx|ts|tsx|mjs|cjs|rb|go|rs|php|java|kt|swift|v
 TESTY = re.compile(r"(^|/)(tests?|__tests__|spec|specs)/|[._-](test|spec)\.\w+$|(^|/)test_[^/]+\.py$|_test\.go$")
 RULES = [
     ("FOCUSED_TEST", "BLOCKER", re.compile(r"\b(it|describe|test|context)\.only\s*\(|^\s*f(it|describe)\s*\(|@focus\b|\.only\(\s*['\"`]")),
-    ("DEBUGGER_LEFT", "BLOCKER", re.compile(r"\bbreakpoint\(\s*\)|\bpdb\.set_trace\(|\bipdb\.set_trace\(|^\s*debugger\s*;?\s*$|\bbinding\.(pry|irb)\b|\bbyebug\b")),
+    ("DEBUGGER_LEFT", "BLOCKER", re.compile(r"\bbreakpoint\(\s*\)|\bpdb\.set_trace\(|\bipdb\.set_trace\(|^\s*debugger\s*;?\s*$|\bbinding\.(pry|irb)\b|^\s*byebug\s*$")),
     ("SKIP_ADDED", "WARN", re.compile(r"@pytest\.mark\.skip\b|@unittest\.skip\b|\b(it|describe|test)\.skip\s*\(|^\s*x(it|describe)\s*\(|\bt\.Skip\(")),
-    ("PRINT_DEBUG", "WARN", re.compile(r"^\s*console\.(log|debug)\(|^\s*print\(|\bdbg!\(|\bvar_dump\(|\bpp\s")),
+    ("PRINT_DEBUG", "WARN", re.compile(r"^\s*console\.(log|debug)\(|^\s*print\(|\bdbg!\(|\bvar_dump\(")),
 ]
 
 
@@ -104,7 +107,7 @@ def run_cmd(cmd, cwd, timeout):
         return None, ""
 
 
-def verify(repo, rng, cmd, timeout, keep_going, setup=None):
+def verify(repo, rng, cmd, timeout, keep_going, setup=None, strict=False):
     shas = git(["rev-list", "--reverse", rng], repo).split()
     if not shas:
         raise ValueError(f"range {rng} has no commits")
@@ -121,7 +124,7 @@ def verify(repo, rng, cmd, timeout, keep_going, setup=None):
                 commits.append(entry)
                 continue
             git(["checkout", "--detach", "--quiet", "--force", sha], wt)
-            git(["clean", "-fdq"], wt)  # keep ignored files (node_modules, .venv) between commits; --setup refreshes them
+            git(["clean", "-fdxq" if strict else "-fdq"], wt)  # default keeps ignored files (node_modules) between commits
             t0 = time.monotonic()
             for step, code_fail in ((setup, "SETUP_FAILED"), (cmd, "BROKEN_COMMIT")):
                 if not step:
@@ -202,6 +205,7 @@ def main(argv=None):
     ap.add_argument("--cmd", help="command that must pass at every commit, e.g. 'npm test' or 'make check'")
     ap.add_argument("--setup", help="command run before --cmd at every commit, e.g. 'npm ci' (your project's install step): "
                     "the worktree starts without node_modules, .venv or build caches")
+    ap.add_argument("--strict", action="store_true", help="wipe ignored files at every commit (hermetic; pair with --setup)")
     ap.add_argument("--repo", default=".", help="repository path (default .)")
     ap.add_argument("--timeout", type=int, default=900, help="seconds per commit (default 900)")
     ap.add_argument("--keep-going", action="store_true", help="run the command at every commit even after one fails")
@@ -219,7 +223,7 @@ def main(argv=None):
         if "@{upstream}" in a.range and subprocess.run(["git", "rev-parse", "--verify", "-q", "@{upstream}"], cwd=a.repo,
                                                         capture_output=True).returncode != 0:
             raise ValueError("this branch has no upstream; pass --range, e.g. --range origin/main..HEAD")
-        res = verify(a.repo, a.range, a.cmd, a.timeout, a.keep_going, a.setup)
+        res = verify(a.repo, a.range, a.cmd, a.timeout, a.keep_going, a.setup, a.strict)
     except (OSError, ValueError) as exc:
         print(json.dumps({"verdict": "BAD_INPUT", "error": str(exc)}) if a.output == "json" else f"BAD_INPUT: {exc}")
         return EXIT["BAD_INPUT"]

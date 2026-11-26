@@ -123,4 +123,4 @@ memory directly. For agenthub and self-eval the test session had no repo and no 
 the model asked for it, which a single-turn eval cannot reward. These three need multi-turn
 evals, not more patterns.
 
-Raw rows, cases and scripts: project files `audits/silent-21-round2-2026-11/`.
+The blind set is committed at `round2/blind_cases.json` so later pattern edits can be re-measured on the same prompts (offline: `python3 scripts/check_skill_router.py --cases audit/silent-skill-triggers-2026-11/round2/blind_cases.json`). Raw live rows and scripts: project files `audits/silent-21-round2-2026-11/`.

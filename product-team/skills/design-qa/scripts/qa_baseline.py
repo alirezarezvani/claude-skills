@@ -5,7 +5,10 @@ On an existing product the first finish_lint / state_matrix_checker / rendered_a
 is usually red. Blocking every PR on that history teaches people to switch the gate off;
 waving it through teaches nothing. A baseline turns the report into a ratchet: a PR may
 not add a finding, findings that disappear are counted as fixed, and the baseline only
-shrinks (--update writes it, and refuses to grow it unless --allow-growth is given).
+shrinks: --update writes it when nothing is new, and refuses to grow it unless
+--allow-growth is given, which is a recorded waiver (the verdict still names the new
+findings), not a way to make CI pass. Identical findings are counted, so a second copy
+of an existing finding is new.
 
 Input: the --output json report of any of the three design-qa scripts. The kind is
 detected from its fields. Findings are matched by a key that survives unrelated edits:
@@ -58,23 +61,32 @@ def kind_of(report):
 
 
 def keyed(report, kind):
-    """Map stable key -> (severity, human label) for every finding in the report."""
+    """Map stable key -> [severity, human label, count] for every finding in the report.
+
+    Keys repeat when one file holds two identical findings, so occurrences are counted:
+    a second identical dead link is a new finding, not a duplicate of the first."""
     out = {}
+
+    def put(key, sev, label):
+        if key in out:
+            out[key][2] += 1
+        else:
+            out[key] = [sev, label, 1]
     if kind == "rendered_audit":
         for g in report.get("groups", []):
             for ex in g.get("examples") or [g.get("pattern", "")]:
                 key = f"{g['code']}|{ex}"
-                out[key] = (g.get("severity", "WARN"), f"{g['code']} on {ex}: {g.get('message', '')}")
+                put(key, g.get("severity", "WARN"), f"{g['code']} on {ex}: {g.get('message', '')}")
     elif kind == "finish_lint":
         for f in report.get("findings", []):
             key = f"{f['code']}|{f.get('file', '')}|{(f.get('snippet') or '').strip()}"
-            out[key] = (f.get("severity", "WARN"),
-                        f"{f['code']} in {f.get('file', '')}:{f.get('line', '?')}: {f.get('message', '')}")
+            put(key, f.get("severity", "WARN"),
+                f"{f['code']} in {f.get('file', '')}:{f.get('line', '?')}: {f.get('message', '')}")
     else:
         for f in report.get("findings", []):
             key = f"{f['code']}|{f.get('surface', '')}|{f.get('state', '')}"
-            out[key] = (f.get("severity", "WARN"),
-                        f"{f['code']} for {f.get('surface', '')} / {f.get('state', '')}: {f.get('message', '')}")
+            put(key, f.get("severity", "WARN"),
+                f"{f['code']} for {f.get('surface', '')} / {f.get('state', '')}: {f.get('message', '')}")
     return out
 
 
@@ -85,16 +97,21 @@ def compare(base, head):
     if kb != kh:
         raise ValueError(f"baseline is a {kb} report but the current one is {kh}")
     b, h = keyed(base, kb), keyed(head, kh)
-    new = [{"key": k, "severity": h[k][0], "finding": h[k][1]} for k in sorted(set(h) - set(b))]
-    fixed = [{"key": k, "severity": b[k][0], "finding": b[k][1]} for k in sorted(set(b) - set(h))]
+    new, fixed = [], []
+    for k in sorted(set(b) | set(h)):
+        nb, nh = (b[k][2] if k in b else 0), (h[k][2] if k in h else 0)
+        if nh > nb:
+            new.append({"key": k, "severity": h[k][0], "finding": h[k][1], "added": nh - nb})
+        elif nb > nh:
+            fixed.append({"key": k, "severity": b[k][0], "finding": b[k][1], "removed": nb - nh})
     if any(n["severity"] in BLOCKING for n in new):
         verdict = "NEW_BLOCKING"
     elif new:
         verdict = "NEW_WARN"
     else:
         verdict = "CLEAN"
-    return {"verdict": verdict, "kind": kb, "baseline_findings": len(b), "current_findings": len(h),
-            "unchanged": len(set(b) & set(h)), "new": new, "fixed": fixed}
+    return {"verdict": verdict, "kind": kb, "baseline_findings": sum(v[2] for v in b.values()), "current_findings": sum(v[2] for v in h.values()),
+            "unchanged": sum(min(b[k][2], h[k][2]) for k in set(b) & set(h)), "new": new, "fixed": fixed}
 
 
 def load(path):
@@ -107,7 +124,7 @@ def render(res):
              f"  baseline {res['baseline_findings']} · current {res['current_findings']} · "
              f"unchanged {res['unchanged']} · new {len(res['new'])} · fixed {len(res['fixed'])}"]
     for n in res["new"]:
-        lines.append(f"  NEW   [{n['severity']}] {n['finding']}")
+        lines.append(f"  NEW   [{n['severity']}] {n['finding']}" + (f" (x{n['added']})" if n["added"] > 1 else ""))
     for f in res["fixed"]:
         lines.append(f"  FIXED [{f['severity']}] {f['finding']}")
     if res["verdict"] == "NEW_BLOCKING":
@@ -124,7 +141,9 @@ def main(argv=None):
     ap.add_argument("--baseline", help="baseline report JSON (a missing file is treated as an empty baseline with --update)")
     ap.add_argument("--current", help="current report JSON from finish_lint, state_matrix_checker or rendered_audit")
     ap.add_argument("--update", action="store_true", help="write the current report as the new baseline when it adds nothing")
-    ap.add_argument("--allow-growth", action="store_true", help="with --update, also accept a baseline that grows (first run, accepted debt)")
+    ap.add_argument("--allow-growth", action="store_true",
+                    help="with --update, write a baseline that grows: a deliberate waiver for the first run or accepted "
+                         "debt, never a CI default. The verdict still reports the new findings.")
     ap.add_argument("--sample", action="store_true", help="run on a built-in example")
     ap.add_argument("--output", choices=["text", "json"], default="text")
     a = ap.parse_args(argv)
@@ -154,8 +173,8 @@ def main(argv=None):
         else:
             with open(a.baseline, "w", encoding="utf-8") as fh:
                 json.dump(head, fh, indent=2)
-            res["update"] = f"baseline written to {a.baseline}"
-            res["verdict"] = "CLEAN" if not res["new"] or a.allow_growth else res["verdict"]
+            res["update"] = f"baseline written to {a.baseline}" + (
+                f" (grew by {sum(n['added'] for n in res['new'])} finding(s), waived)" if res["new"] else "")
     print(json.dumps(res, indent=2) if a.output == "json" else render(res) + (f"\n  {res['update']}" if "update" in res else ""))
     return EXIT[res["verdict"]]
 

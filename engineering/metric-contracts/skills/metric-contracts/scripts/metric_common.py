@@ -86,9 +86,9 @@ def _ref(raw):
         return {"name": raw, "filter": (), "alias": None, "offset": None}
     if not isinstance(raw, dict) or not raw.get("name"):
         return None
-    off = raw.get("offset_window") or raw.get("offset_to_grain") or raw.get("offset")
+    offs = {k: raw.get(k) for k in ("offset_window", "offset_to_grain", "offset") if raw.get(k) is not None}
     return {"name": raw["name"], "filter": _filters(raw.get("filter")), "alias": raw.get("alias"),
-            "offset": json.dumps(off, sort_keys=True) if isinstance(off, dict) else off}
+            "offset": json.dumps(offs, sort_keys=True, default=str) if offs else None}
 
 
 def _meta(m):
@@ -143,6 +143,9 @@ def _from_dbt(doc, source):
             ms = measures.get(ref["name"]) if ref else None
             rec["measure"] = ref["name"] if ref else None
             rec["filter"] = tuple(sorted(rec["filter"] + (ref["filter"] if ref else ())))
+            if not ms and ref:
+                # keep the dangling name in the signature so a change to it is still a change (lint MC03 flags it)
+                rec["expr"] = f"<unresolved measure {ref['name']}>"
             if ms:
                 smn = ms["_model"]
                 nad = ms.get("non_additive_dimension")
@@ -233,7 +236,8 @@ def load_many(paths):
 
 def signature(rec):
     """The fields that decide what number the metric returns, as a comparable value."""
-    return json.dumps({f: rec.get(f) for f in NUMERIC_FIELDS}, sort_keys=True, default=list)
+    return json.dumps({f: rec.get(f) for f in NUMERIC_FIELDS}, sort_keys=True,
+                      default=lambda o: sorted(o, key=str) if isinstance(o, (set, frozenset)) else str(o))
 
 
 def refs(rec):

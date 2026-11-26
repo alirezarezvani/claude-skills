@@ -126,7 +126,10 @@ def diff(base, head, accept, consumers):
 
 def _fmt(v):
     if isinstance(v, dict):
-        return v.get("name", str(v)) + (f" [filter {list(v['filter'])}]" if v.get("filter") else "")
+        extra = [f"filter {list(v['filter'])}" if v.get("filter") else "",
+                 f"alias {v['alias']}" if v.get("alias") else "", f"offset {v['offset']}" if v.get("offset") else ""]
+        extra = [e for e in extra if e]
+        return v.get("name", str(v)) + (f" [{'; '.join(extra)}]" if extra else "")
     if isinstance(v, (list, tuple)):
         return "[" + ", ".join(_fmt(x) for x in v) + "]"
     return repr(v)

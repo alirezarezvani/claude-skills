@@ -75,8 +75,16 @@ SBOM location if shared.
 
 ## Standards
 
-No CRA harmonised standard was cited in the OJ as of September 2026 🔴 (check
-the current list). Until then, use the drafts and established standards as
+No CRA harmonised standard is cited in the OJ as of 26 November 2026 🟡 (two
+trackers checked 21 and 26 Nov 2026; re-check the list). CEN and CENELEC
+ratified **EN 40000-1-1** and **EN 40000-1-2** in November 2026, but a ratified
+EN is not a cited one: presumption starts only with the OJ reference
+(Regulation (EU) No 1025/2012, Art 10(6)) 🟢. CEN's project record reportedly
+marks EN 40000-1-2 "no citation expected" under the CRA 🟡, and prEN 40000-1-3
+(vulnerability handling) was in formal vote in November 2026 🟡. The Commission
+amended standardisation request M/606 on 10 November 2026 to extend some
+deadlines; sources disagree on whether by one or three months 🔴. Until a
+citation appears, use the ratified ENs, drafts and established standards as
 evidence of "solutions adopted" (TD-5): EN 18031-1/-2/-3 (RED delegated act,
 radio equipment), IEC 62443-4-1/-4-2 (industrial), ETSI EN 303 645 (consumer IoT),
 ISO/IEC 29147 and 30111 (disclosure and handling). Mapping them is evidence, not
@@ -86,10 +94,11 @@ Art 27(1)).
 ## Sources
 
 1. Regulation (EU) 2024/2847, Art 13, Art 27, Art 28, Art 31; Annexes I, II, VII — https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng
-2. European Commission, guidance on the application of the CRA, Annex to C(2026) 5252, 27 July 2026
+2. European Commission, guidance on the application of the CRA, Annex to C(2026) 5252, 27 July 2026 (one tracker cites it as C/2026/6013; same date, verify the number on EUR-Lex)
 3. ISO/IEC 29147:2018 Vulnerability disclosure; ISO/IEC 30111:2019 Vulnerability handling processes
 4. RFC 9116, *A File Format to Aid in Security Vulnerability Disclosure* (security.txt), 2022
 5. OASIS CSAF 2.0 (Common Security Advisory Framework), 2022
 6. BSI TR-03183-2, *Cyber Resilience Requirements for Manufacturers and Products, Part 2: Software Bill of Materials*
 7. NTIA, *The Minimum Elements For a Software Bill of Materials*, July 2021
 8. ETSI EN 303 645 (consumer IoT); IEC 62443-4-1 and 4-2; EN 18031 series
+9. cyberresilienceact.eu, *State of play* (updated November 2026); Cenitia, *CRA harmonised standards OJEU tracker* (checked 21 Nov 2026); Grecta, *CRA standards EN 40000-1-1 and EN 40000-1-2 have landed* (19 Nov 2026) — secondary, used for the standards status

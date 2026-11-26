@@ -8,7 +8,7 @@ Pair with `scripts/ai_risk_classifier.py` for automation. **Not legal advice.**
 
 The EU AI Act (Regulation (EU) 2024/1689) is the most comprehensive AI regulation globally. It applies to any AI system **placed on the EU market or whose output is used in the EU**, regardless of where the provider is established.
 
-**Application dates (as amended by Regulation (EU) 2026/1744, the AI Omnibus, in force 27 Jul 2026):** Article 5 prohibitions and AI literacy from 2 Feb 2025; GPAI obligations from 2 Aug 2025; Article 50 transparency from 2 Aug 2026; Annex III high-risk obligations from **2 Dec 2027**; Annex I (AI in products such as medical devices) from **2 Aug 2028**.
+**Application dates (as amended by Regulation (EU) 2026/1744, the AI Omnibus, in force 27 Jul 2026):** Article 5 prohibitions and AI literacy from 2 Feb 2025; GPAI obligations from 2 Aug 2025; Article 50 transparency from 2 Aug 2026; two new Article 5 prohibitions (AI-generated non-consensual intimate imagery and CSAM, Art 5(1)(ba)/(bb)) and the end of the Art 50(2) marking grace for generative systems already on the market from 2 Dec 2026; Annex III high-risk obligations from **2 Dec 2027**; Annex I (AI in products such as medical devices) from **2 Aug 2028**.
 
 ### Risk Tiers (Article 5–7, Annex III)
 

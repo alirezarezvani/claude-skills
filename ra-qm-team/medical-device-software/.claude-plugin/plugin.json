@@ -1,7 +1,7 @@
 {
   "name": "medical-device-software",
   "description": "Get medical device software through IEC 62304 and IEC 81001-5-1. Four deterministic stdlib scripts: a software safety classifier (62304 4.3 with A1 external controls and segregation) that also sets the FDA Basic/Enhanced documentation level and flags 524B cyber devices; a lifecycle gap check scoped by class, with IEC 81001-5-1 security activities; a SOUP register check with SBOM cross-check; and a trace matrix release gate. Ships cs-device-software-lead agent, /cs-medical-device-software and /cs-soup-review commands and 4 references with per-claim confidence levels.",
-  "version": "2.14.11",
+  "version": "2.14.18",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

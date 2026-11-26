@@ -1,6 +1,6 @@
 # NIS2 scope, entity category and registration
 
-> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+> Rules last verified 2026-11-26 (pending amendments added; in-force rules unchanged since 2026-11-17) against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
 
 Who NIS2 catches, as which category, under which Member State, and what the
 German transposition adds. From Directive (EU) 2022/2555 unless marked otherwise.
@@ -52,6 +52,31 @@ Everything else in scope is **important** 🟢 Art 3(2). The difference is super
 
 Germany mirrors these (BSIG §65). 🟢 Management bodies can be held liable and, for essential entities, temporarily barred. 🟢 Art 32(5)
 
+## Pending scope changes (proposal, not law)
+
+COM(2026) 13 (20 Jan 2026) would make **small mid-caps** (Recommendation (EU)
+2025/1099: fewer than 750 staff and turnover up to EUR 150m or balance sheet up
+to EUR 129m) important rather than essential entities by default; take micro
+and small DNS providers and electricity producers up to 1 MW out of scope; bring
+in EU Digital Identity Wallet and European Business Wallet providers and
+submarine data-transmission operators regardless of size; and give ENISA a
+registry of all essential and important entities, with changes notified within
+two weeks 🟡 (Aegister, Mayer Brown). Transposition would be 12 months after
+entry into force. It is in committee in Parliament and not agreed in Council
+as of October 2026, so `nis2_scope_classifier.py` classifies on Art 3 as it
+stands. 🔴 A firm of 300-749 staff that plans for "essential" today may end up
+"important": plan to the current text and note the change in the register.
+
+## Transposition status
+
+The Commission sent reasoned opinions to 19 Member States on 7 May 2025 and
+referred Ireland, Spain, France and the Netherlands to the Court of Justice on
+8 July 2026 for failing to notify transposition 🟡 (Commission press release as
+reported by Brandefense, Oct 2026). In a Member State without a transposing law,
+NIS2 obligations do not bind entities directly 🔴 (directives need
+transposition; check whether the national NIS1 law still applies), but the
+size and sector test does not change.
+
 ## Where the scripts draw a line
 
 - `nis2_scope_classifier.py` refuses to classify without employees or financials (exit 4): guessing size is the most common scoping error. 🔴
@@ -67,3 +92,5 @@ Germany mirrors these (BSIG §65). 🟢 Management bodies can be held liable and
 5. NIS2UmsuCG, BGBl. 2025 I Nr. 301 (BSIG §§28, 32, 33, 38, 65)
 6. BSI, NIS-2 registration and reporting information — https://www.bsi.bund.de/
 7. European Commission, NIS2 Directive policy page and FAQs 🟡 — https://digital-strategy.ec.europa.eu/en/policies/nis2-directive
+8. Proposal COM(2026) 13 amending Directive (EU) 2022/2555 (20 Jan 2026), as summarised by Aegister (13 Oct 2026) and Mayer Brown (20 Feb 2026) — secondary
+9. Brandefense, *NIS2 transposition status 2026* (updated 17 Oct 2026), citing the Commission's 8 July 2026 infringement package — secondary

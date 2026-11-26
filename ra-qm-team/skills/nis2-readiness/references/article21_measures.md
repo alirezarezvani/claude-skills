@@ -1,6 +1,6 @@
 # NIS2 Article 21 measures and evidence
 
-> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+> Rules last verified 2026-11-26 (pending amendments added; in-force rules unchanged since 2026-11-17) against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
 
 The ten measures every essential and important entity must take, with what an
 auditor usually asks to see, and the Annex section of Implementing Regulation

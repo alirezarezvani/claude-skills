@@ -41,6 +41,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import shutil
 import sys
@@ -71,6 +72,7 @@ def now() -> datetime:
 
 
 def load(path: Path) -> dict:
+    # status reads without the lock: save() swaps files with os.replace, so a reader sees old or new, never half
     if not path.exists():
         raise GateError(f"no ledger at {path}; run the quote step first", 3)
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -184,6 +186,8 @@ def cmd_quote(args) -> dict:
                         f"{{\"<id>\": {{\"credits\": n, \"quote_ref\": \"...\"}}}} to the quotes file", 3)
     try:
         caps = [float(c) for c in (brief.get("budget_credits"), args.cap) if c is not None]
+        if not all(math.isfinite(c) and c >= 0 for c in caps):
+            raise ValueError
     except (TypeError, ValueError):
         raise GateError(f"brief budget_credits must be a number, got {brief.get('budget_credits')!r}", 2)
     if not caps:
@@ -198,8 +202,8 @@ def cmd_quote(args) -> dict:
             credits = float(q["credits"])
         except (TypeError, ValueError):
             raise GateError(f"{r['id']}: credits in the quotes file must be a number, got {q['credits']!r}", 2)
-        if credits < 0:
-            raise GateError(f"{r['id']}: negative price", 2)
+        if not math.isfinite(credits) or credits < 0:
+            raise GateError(f"{r['id']}: the price must be a finite number of 0 or more, got {q['credits']!r}", 2)
         total += credits
         shots[r["id"]] = {"credits": credits, "quote_ref": q.get("quote_ref"), "state": "quoted",
                           "generated_duration": r["generated_duration"], "job_id": None, "plate": None}
@@ -244,7 +248,7 @@ def cmd_approve(args) -> dict:
     age = now() - datetime.fromisoformat(ledger["quoted_at"])
     if age > timedelta(minutes=args.max_age):
         raise GateError(f"quotes are {int(age.total_seconds() // 60)} min old (limit {args.max_age}); prices move, quote again")
-    if abs(float(args.credits) - ledger["total_quoted"]) > 1e-9:
+    if not abs(float(args.credits) - ledger["total_quoted"]) <= 1e-9:  # fails closed on NaN
         raise GateError(f"the yes was for {args.credits:g} credits but {ledger['total_quoted']:g} were quoted; "
                         f"show the user the quoted total and ask again")
     ledger.update(state="approved", approved_credits=ledger["total_quoted"], approved_at=now().isoformat(),
@@ -359,6 +363,7 @@ def run_sample() -> int:
             ("quote, cap 30", True, cmd_quote, dict(base, cap=30, balance=100)),
             ("reserve before the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
             ("approve 25 (not the quoted total)", False, cmd_approve, dict(ledger=L, credits=25, max_age=60, said=None)),
+            ("approve nan credits", False, cmd_approve, dict(ledger=L, credits=float("nan"), max_age=60, said="yes")),
             ("approve with --max-age past the ceiling", False, cmd_approve, dict(ledger=L, credits=20, max_age=100000, said="yes")),
             ("approve 20 without the user's words", False, cmd_approve, dict(ledger=L, credits=20, max_age=60, said=" ")),
             ("approve 20", True, cmd_approve, dict(ledger=L, credits=20, max_age=60, said="yes, spend 20")),
@@ -433,8 +438,8 @@ def main() -> int:
         return run_sample()
     for name in ("charged", "credits", "balance", "cap"):
         v = getattr(args, name, None)
-        if v is not None and v < 0:
-            print(f"error: --{name} cannot be negative", file=sys.stderr)
+        if v is not None and not (math.isfinite(v) and v >= 0):
+            print(f"error: --{name} must be a finite number of 0 or more", file=sys.stderr)
             return 2
     if args.cmd == "record" and not args.release_failed and not args.status:
         print("error: record needs --status or --release-failed", file=sys.stderr)

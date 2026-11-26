@@ -1,0 +1,30 @@
+{
+  "hire": "A. Rivera",
+  "role": "Backend Engineer",
+  "start_date": "2026-12-07",
+  "manager": "J. Chen",
+  "buddy": "P. Okafor",
+  "profile": "engineering",
+  "milestones": [
+    {
+      "phase": 30,
+      "outcome": "Ship a small bug fix to production",
+      "done_when": "PR merged and deployed",
+      "early_win": true
+    },
+    {
+      "phase": 30,
+      "outcome": "Understand the billing architecture"
+    },
+    {
+      "phase": 60,
+      "outcome": "Own the billing-export on-call shadow week",
+      "done_when": "Handled 2 pages with the primary, wrote one runbook fix"
+    },
+    {
+      "phase": 90,
+      "outcome": "Lead the invoice-retry feature",
+      "done_when": "Design doc approved and feature live"
+    }
+  ]
+}

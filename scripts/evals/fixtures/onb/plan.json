@@ -1,0 +1,14 @@
+{
+  "hire": "M. Novak",
+  "role": "Data Analyst",
+  "start_date": "2026-12-14",
+  "manager": "S. Patel",
+  "buddy": "S. Patel",
+  "profile": "standard",
+  "milestones": [
+    {"phase": 30, "outcome": "Get familiar with our data warehouse"},
+    {"phase": 30, "outcome": "Rebuild the weekly revenue dashboard", "done_when": "Dashboard live, finance lead signs off"},
+    {"phase": 60, "outcome": "Own the monthly churn report", "done_when": "Ran it twice with no handback"},
+    {"phase": 90, "outcome": "Ship the pricing-experiment analysis", "done_when": "Readout presented to the product team"}
+  ]
+}

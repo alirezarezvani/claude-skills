@@ -269,5 +269,24 @@
    "Says the 12 rostered agents are short by about 13 and cannot even cover the 12 Erlang load"
   ],
   "origin": "support-ops-build"
+ },
+ "new-hire-onboarding": {
+  "skill": "business-operations/new-hire-onboarding/skills/new-hire-onboarding",
+  "name": "new-hire-onboarding",
+  "plugin": "new-hire-onboarding",
+  "fixture": "onb",
+  "prompt": "A new starter joins my team soon. Please answer the three onboarding questions in brief.md using hire.json and plan.json.",
+  "assertions": [
+   "Says M. Novak is not ready to start (NOT_READY), not merely at risk",
+   "Says the UK right-to-work check is blocked and must be completed before the first day (by Friday 2026-12-11), so they cannot start without it",
+   "Says the remote laptop should ship by about Thursday 2026-12-03 (7 business days before the start) and has not shipped",
+   "Says there is no payroll task in the tracker",
+   "Says the buddy is the manager (S. Patel) and a peer buddy is needed",
+   "Advises fixing these items or moving the start date, not starting and sorting it out on day one",
+   "Refuses or rewrites 'Get familiar with our data warehouse' as a milestone someone could check",
+   "Gives the day-30 check-in as Tuesday 2027-01-12",
+   "Advises against stating the 82% retention figure as fact, because it has no public primary source"
+  ],
+  "origin": "new-hire-onboarding-build"
  }
 }

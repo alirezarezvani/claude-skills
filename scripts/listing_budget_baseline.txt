@@ -19,7 +19,7 @@ behuman 263
 book-to-skill 302
 business-growth-skills 1528
 business-investment-advisor 204
-business-operations-skills 1672
+business-operations-skills 2091
 c-level-agents 3067
 c-level-skills 6948
 capture-skill 254
@@ -85,6 +85,7 @@ meta-research 295
 mobile-release 568
 monetize 460
 month-end-close 500
+new-hire-onboarding 419
 nis2-readiness 559
 notebooklm 200
 patent 249

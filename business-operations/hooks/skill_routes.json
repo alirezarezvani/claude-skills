@@ -1,0 +1,33 @@
+{
+  "plugin": "business-operations-skills",
+  "note": "Patterns for hooks/skill_router.py. High precision first: a missed prompt costs nothing, a wrong hint costs attention.",
+  "routes": [
+    {
+      "skill": "new-hire-onboarding",
+      "why": "preboarding before a start date, 30/60/90 plans and new-hire ramp checks",
+      "any": [
+        "\\bnew (hire|starter|joiner|employee|team member|colleague)s?'?s?\\b.{0,100}\\b(onboard\\w*|first (day|week|month|\\d+ days)|start(s|ing)?\\b|preboard\\w*|checklist|plan|ramp\\w*|buddy|buddies|check[- ]?ins?|milestones?|paperwork|accounts?|laptop|I-9|right[- ]to[- ]work)",
+        "\\bnew (\\w+ ){0,3}(rep|engineer|developer|designer|manager|analyst|hire|employee|starter|lead|director|VP|assistant|agent|nurse|accountant|recruiter|marketer|head of \\w+)s?\\b.{0,60}\\b(starts?|joins?|joining|starting|first (day|week)|onboard\\w*)\\b",
+        "\\b30[-/ ]?60[-/ ]?90\\b",
+        "\\bpre-?boarding\\b",
+        "\\bonboarding (buddy|buddies|plan|checklist|goals?|milestones?|tracker|schedule)\\b",
+        "\\b(starts?|starting|joins?|joining|begins?)\\b.{0,80}\\b(first (two weeks|week|day|month|\\d+ days|(two|three) months)|onboard\\w*)\\b",
+        "\\b(first (two weeks|week|day|\\d+ days|(two|three) months)|onboard\\w*)\\b.{0,80}\\b(starts?|starting|joins?|joining)\\b",
+        "\\b(I-9|right[- ]to[- ]work)\\b.{0,80}\\b(start\\w*|hire|day one|first day|tomorrow|new employee)\\b",
+        "\\b(start\\w*|hire|new employee)\\b.{0,80}\\b(I-9|right[- ]to[- ]work check)\\b"
+      ],
+      "not": [
+        "\\b(repo|repository|codebase|code base|folder structure)\\b",
+        "\\b(user|customer|client|app|product|account) onboarding\\b",
+        "\\bonboarding (screens?|flow|emails?)\\b",
+        "\\boff-?board\\w*\\b",
+        "\\bjob (description|posting|ad)\\b",
+        "\\b(PIP|performance improvement plan)\\b",
+        "\\b(SOP|runbook|wiki)\\b",
+        "\\bnew (customer|client|user|subscriber)s?\\b",
+        "\\b(architecture|monolith|Django|React|key modules)\\b",
+        "\\b(installed|bundle|plugins?)\\b"
+      ]
+    }
+  ]
+}

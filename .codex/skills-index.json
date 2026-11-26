@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 433,
+  "total_skills": 435,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -106,6 +106,18 @@
       "source": "../../business-operations/skills/knowledge-ops",
       "category": "business-operations",
       "description": "Use when writing, checking or cleaning up SOPs and runbooks. Generates them with sop_generator.py, checks 5W2H completeness and links with runbook_validator.py and ingests an existing knowledge base with kb_ingester.py."
+    },
+    {
+      "name": "new-hire-onboarding",
+      "source": "../../business-operations/skills/new-hire-onboarding",
+      "category": "business-operations",
+      "description": "Use when someone new is joining a team and the first day, first week or first 90 days need to go right: a 30/60/90-day onboarding plan for a new hire, a preboarding checklist before the start date (laptop, accounts, signed contract, I-9 or right-to-work check, a named buddy), or a check on how a new employee's ramp-up is going against their plan. Works from a small JSON file with stdlib scripts."
+    },
+    {
+      "name": "new-hire-onboarding",
+      "source": "../../business-operations/new-hire-onboarding/skills/new-hire-onboarding",
+      "category": "business-operations",
+      "description": "Use when someone new is joining a team and the first day, first week or first 90 days need to go right: a 30/60/90-day onboarding plan for a new hire, a preboarding checklist before the start date (laptop, accounts, signed contract, I-9 or right-to-work check, a named buddy), or a check on how a new employee's ramp-up is going against their plan. Works from a small JSON file with stdlib scripts."
     },
     {
       "name": "process-mapper",
@@ -2616,7 +2628,7 @@
       "description": "Customer success, sales engineering, and revenue operations skills"
     },
     "business-operations": {
-      "count": 7,
+      "count": 9,
       "source": "../../business-operations",
       "description": "Internal BizOps skills (v2.8.0): process mapping, vendor management, capacity planning (Erlang-C), internal comms (ADKAR+Kotter), knowledge ops (SOP+runbook), procurement (UNSPSC)"
     },

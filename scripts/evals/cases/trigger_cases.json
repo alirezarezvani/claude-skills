@@ -3998,5 +3998,15 @@
   ],
   "neg": "Write me a YouTube content strategy for the next quarter: which video topics, posting cadence and thumbnails will grow the channel.",
   "origin": "generated"
+ },
+ "business-operations/new-hire-onboarding/skills/new-hire-onboarding": {
+  "name": "new-hire-onboarding",
+  "plugin": "new-hire-onboarding",
+  "pos": [
+   "We have a new backend engineer starting on December 7, working remotely from Texas. Can you put together a preboarding checklist so their laptop, accounts and I-9 are sorted before day one?",
+   "Write a 30-60-90 day onboarding plan for the product designer who joins my team next month, with check-ins and a buddy."
+  ],
+  "neg": "Write a README and architecture tour so new engineers can find their way around this codebase.",
+  "origin": "new-hire-onboarding-build"
  }
 }

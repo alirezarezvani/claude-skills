@@ -10,13 +10,14 @@ The Business Operations domain ships skills that help **internal operators** (Bi
 
 | Skill | Job-to-be-done | `context: fork`? |
 |---|---|---|
-| `business-operations-skills` | Domain orchestrator — routes inquiries to the 6 sub-skills | YES |
+| `business-operations-skills` | Domain orchestrator — routes inquiries to the 7 sub-skills | YES |
 | `process-mapper` | BPMN-style process docs + bottleneck + cycle-time (Lean / TOC canon) | YES |
 | `vendor-management` | Vendor scoring + SLA + third-party risk (NIST SP 800-161 / ISO 27036) | YES |
 | `capacity-planner` | Erlang-C queueing math for ops teams (NOT engineering capacity) | NO |
 | `internal-comms` | ADKAR + Kotter 8-step change comms (NOT marketing) | NO |
 | `knowledge-ops` | SOPs + runbooks with 5W2H validation + KB hygiene (NOT personal PKM) | YES |
 | `procurement-optimizer` | UNSPSC-aligned spend categorization + supplier consolidation | NO |
+| `new-hire-onboarding` | Preboarding gate (I-9 / UK right to work), checkable 30/60/90 plan, ramp check. Also a standalone plugin in `new-hire-onboarding/`; `hooks/skill_router.py` hints it on new-hire prompts | NO |
 
 ## Build pattern
 

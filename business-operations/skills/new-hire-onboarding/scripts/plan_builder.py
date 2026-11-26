@@ -133,8 +133,14 @@ def build(spec, profile_override=None):
     if by_phase[30] and not any(m["early_win"] for m in by_phase[30]):
         findings.append({"rule": "P3", "level": "WARN",
                          "msg": "Day 30: no early win marked. Pick one small, visible result and set early_win: true."})
-    manager = (spec.get("manager") or "").strip()
-    buddy = (spec.get("buddy") or "").strip()
+    manager = spec.get("manager") or ""
+    if not isinstance(manager, str):
+        raise ValueError("manager must be a string")
+    manager = manager.strip()
+    buddy = spec.get("buddy") or ""
+    if not isinstance(buddy, str):
+        raise ValueError("buddy must be a string")
+    buddy = buddy.strip()
     if not manager:
         findings.append({"rule": "P4", "level": "BLOCK", "msg": "No named manager."})
     if not buddy:

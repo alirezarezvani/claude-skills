@@ -84,7 +84,7 @@ def check(spec, today, grace):
         raise ValueError("input must be a JSON object")
     start = parse_date(spec.get("start_date"), "start_date")
     horizon = spec.get("horizon_days", 90)
-    if not isinstance(horizon, int) or horizon < 30:
+    if isinstance(horizon, bool) or not isinstance(horizon, int) or horizon < 30:
         raise ValueError("horizon_days must be a whole number >= 30")
     if today < start:
         raise ValueError(f"--today {today} is before the start date {start}: run preboarding_gate.py instead")
@@ -146,8 +146,8 @@ def check(spec, today, grace):
         findings.append({"code": "BUDDY_LAPSED", "msg": "No buddy meeting in the first 10 days."})
     elif len(buddy) < expected / 2:
         findings.append({"code": "BUDDY_LAPSED",
-                         "msg": f"{len(buddy)} buddy meetings by day {day}; weekly pace is {expected}. "
-                                "Microsoft's buddy pilot found the benefit rose with each meeting band up to more than 8 in 90 days."})
+                         "msg": f"{len(buddy)} buddy meetings by day {day}; a weekly pace is {expected}. "
+                                "See references/buddy_and_checkins.md for the cadence evidence."})
 
     mgr = [d for d, t in meetings if t == "manager"]
     gap_from = [start] + mgr
@@ -190,7 +190,7 @@ def main(argv=None):
                                  epilog="Exit codes: 0 ON_TRACK, 2 AT_RISK, 3 bad input, 4 OFF_TRACK.")
     ap.add_argument("--log", help="ramp log JSON (start_date, milestones with done_on, meetings)")
     ap.add_argument("--today", help="date to judge from, YYYY-MM-DD (default: today)")
-    ap.add_argument("--grace", type=int, default=5, help="days a checkpoint may move and still count as held (default 5)")
+    ap.add_argument("--grace", type=int, default=5, help="days a checkpoint may move and still count as held, 0-14 (default 5)")
     ap.add_argument("--sample", action="store_true", help="run on a built-in log (today = 2027-01-20)")
     ap.add_argument("--output", "--format", choices=["text", "json"], default="text")
     a = ap.parse_args(argv)
@@ -205,6 +205,8 @@ def main(argv=None):
             raise ValueError("give --log FILE or --sample")
         if a.today:
             today = parse_date(a.today, "--today")
+        if not 0 <= a.grace <= 14:
+            raise ValueError("--grace must be 0-14 days, so one meeting cannot count for two checkpoints")
         res = check(spec, today, a.grace)
     except (ValueError, OSError, json.JSONDecodeError) as e:
         print(f"error: {e}", file=sys.stderr)

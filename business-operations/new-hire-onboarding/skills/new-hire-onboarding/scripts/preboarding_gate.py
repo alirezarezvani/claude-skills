@@ -24,7 +24,9 @@ Status is done | in_progress | not_started | blocked. A task that is not done is
 
 Required categories (one task each must exist): contract (signed offer or
 contract), right_to_work, equipment, accounts (email/SSO and the systems the
-role needs on day one), payroll, day_one_agenda. A named manager and a named
+role needs on day one), payroll, day_one_agenda. Spaces and hyphens in a
+category are read as underscores; any other category is bad input (exit 3).
+An optional "holidays" list of YYYY-MM-DD dates is skipped like a weekend. A named manager and a named
 buddy (not the manager) are required too.
 
 Right to work, per --jurisdiction or the file's jurisdiction:
@@ -52,6 +54,7 @@ system; it reads the file you give it.
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 
 EXIT = {"READY": 0, "AT_RISK": 2, "BAD_INPUT": 3, "NOT_READY": 4}
@@ -83,10 +86,17 @@ def parse_date(s, field):
         raise ValueError(f"{field} must be YYYY-MM-DD, got {s!r}")
 
 
+HOLIDAYS = set()  # filled from the hire file's "holidays" list
+
+
+def is_business_day(d):
+    return d.weekday() < 5 and d not in HOLIDAYS
+
+
 def business_days_before(d, n):
     while n > 0:
         d -= dt.timedelta(days=1)
-        if d.weekday() < 5:
+        if is_business_day(d):
             n -= 1
     return d
 
@@ -94,7 +104,7 @@ def business_days_before(d, n):
 def business_days_after(d, n):
     while n > 0:
         d += dt.timedelta(days=1)
-        if d.weekday() < 5:
+        if is_business_day(d):
             n -= 1
     return d
 
@@ -107,17 +117,36 @@ def business_days_between(a, b):
     n, d = 0, a
     while d != b:
         d += dt.timedelta(days=step)
-        if d.weekday() < 5:
+        if is_business_day(d):
             n += step
     return n
+
+
+def text_field(value, field):
+    if value is None:
+        return ""
+    if not isinstance(value, str):
+        raise ValueError(f"{field} must be a string, got {type(value).__name__}")
+    return value.strip()
+
+
+def norm_category(value):
+    return re.sub(r"[\s-]+", "_", str(value).strip().lower())
 
 
 def evaluate(spec, today, risk_days, jurisdiction=None):
     if not isinstance(spec, dict):
         raise ValueError("input must be a JSON object")
+    hol = spec.get("holidays") or []
+    if not isinstance(hol, list):
+        raise ValueError("holidays must be a list of YYYY-MM-DD dates")
+    HOLIDAYS.clear()
+    HOLIDAYS.update(parse_date(h, "holidays entry") for h in hol)
     start = parse_date(spec.get("start_date"), "start_date")
     if start.weekday() >= 5:
         raise ValueError(f"start_date {start} is a weekend day")
+    if start in HOLIDAYS:
+        raise ValueError(f"start_date {start} is listed as a holiday")
     juris = (jurisdiction or spec.get("jurisdiction") or "other").upper()
     if juris not in {"US", "UK", "OTHER"}:
         raise ValueError("jurisdiction must be US, UK or other")
@@ -131,14 +160,16 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
     for i, t in enumerate(tasks):
         if not isinstance(t, dict) or not t.get("task") or not t.get("category"):
             raise ValueError(f"task {i}: needs 'task' and 'category'")
-        cat = str(t["category"]).strip().lower()
+        cat = norm_category(t["category"])
+        if cat not in DEFAULT_LEAD:
+            raise ValueError(f"task {t['task']!r}: category {t['category']!r} is not one of {REQUIRED}")
         status = str(t.get("status", "not_started")).strip().lower()
         if status not in STATUSES:
             raise ValueError(f"task {t['task']!r}: status must be one of {sorted(STATUSES)}")
         lead = t.get("lead_days")
         if lead is None:
-            lead = REMOTE_EQUIPMENT_LEAD if (cat == "equipment" and remote) else DEFAULT_LEAD.get(cat, 2)
-        if not isinstance(lead, int) or lead < 0:
+            lead = REMOTE_EQUIPMENT_LEAD if (cat == "equipment" and remote) else DEFAULT_LEAD[cat]
+        if isinstance(lead, bool) or not isinstance(lead, int) or lead < 0:
             raise ValueError(f"task {t['task']!r}: lead_days must be a whole number >= 0")
         if cat == "right_to_work" and juris == "UK" and lead < 1:
             lead = 1  # UK check must be complete before the first day
@@ -152,7 +183,7 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
             state = "AT_RISK"
         else:
             state = "OPEN"
-        owner = (t.get("owner") or "").strip()
+        owner = text_field(t.get("owner"), f"task {t['task']!r} owner")
         if not owner and state != "DONE":
             findings.append(f"NO_OWNER: '{t['task']}' has no owner; nobody will chase it.")
         seen.add(cat)
@@ -161,7 +192,7 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
                      "blocking": cat in BLOCKING})
 
     missing = [c for c in REQUIRED if c not in seen]
-    people = {k: (spec.get(k) or "").strip() for k in ("manager", "buddy")}
+    people = {k: text_field(spec.get(k), k) for k in ("manager", "buddy")}
     for c in missing:
         findings.append(f"MISSING: no '{c}' task. Add it with an owner and a due date.")
     for k, v in people.items():
@@ -182,7 +213,8 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
 
     rtw = {}
     if juris == "US":
-        rtw = {"rule": "Form I-9 Section 1 by the first day; Section 2 within 3 business days after it (USCIS)",
+        rtw = {"rule": "Form I-9 Section 1 by the first day; Section 2 within 3 business days after it (USCIS). "
+                       "Counted Mon-Fri minus listed holidays; if the employer is open other days, count those instead",
                "section_1_by": start.isoformat(),
                "section_2_by": business_days_after(start, 3).isoformat()}
     elif juris == "UK":
@@ -198,7 +230,8 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
             "buddy": people["buddy"] or None, "right_to_work": rtw, "verdict": verdict,
             "tasks": rows, "findings": findings,
             "defaults": {"risk_days": risk_days, "remote_equipment_lead_days": REMOTE_EQUIPMENT_LEAD,
-                         "default_lead_days": DEFAULT_LEAD}}
+                         "default_lead_days": DEFAULT_LEAD,
+                         "holidays": sorted(h.isoformat() for h in HOLIDAYS)}}
 
 
 def render(r):
@@ -224,7 +257,8 @@ def render(r):
         out.append("Do not start the hire on a day they cannot work: fix the items above or move the start date.")
     out.append("")
     out.append(f"Defaults: at risk = due within {r['defaults']['risk_days']} business days; "
-               f"remote equipment lead {r['defaults']['remote_equipment_lead_days']} business days; weekends skipped, holidays not.")
+               f"remote equipment lead {r['defaults']['remote_equipment_lead_days']} business days; weekends skipped, "
+               f"{len(r['defaults']['holidays'])} listed holiday(s) skipped (add a \"holidays\" list to the hire file).")
     return "\n".join(out)
 
 
@@ -244,10 +278,10 @@ def main(argv=None):
         elif a.hire:
             with open(a.hire, encoding="utf-8") as f:
                 spec = json.load(f)
-            today = parse_date(a.today, "--today") if a.today else dt.date.today()
+            today = dt.date.today()
         else:
             raise ValueError("give --hire FILE or --sample")
-        if a.today and a.sample:
+        if a.today:
             today = parse_date(a.today, "--today")
         res = evaluate(spec, today, a.risk_days, a.jurisdiction)
     except (ValueError, OSError, json.JSONDecodeError) as e:

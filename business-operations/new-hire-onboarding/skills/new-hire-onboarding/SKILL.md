@@ -36,6 +36,8 @@ work, equipment, accounts, payroll, a day-one agenda, a named manager and a
 named buddy. US: I-9 Section 1 by day one and Section 2 within 3 business days
 (the script prints the date). UK: the right-to-work check before the first day.
 Any other country: the task must exist and the local rule comes from HR.
+Weekends are skipped; public holidays are skipped only when the hire file lists
+them under `"holidays"`, so add the local bank holidays before trusting a LATE.
 
 **Step 2** refuses a plan when a phase has no milestone, a milestone has no
 `done_when`, or the buddy is missing or is the manager. It puts day 1, the end

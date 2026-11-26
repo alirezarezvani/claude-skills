@@ -86,30 +86,27 @@ def parse_date(s, field):
         raise ValueError(f"{field} must be YYYY-MM-DD, got {s!r}")
 
 
-HOLIDAYS = set()  # filled from the hire file's "holidays" list
+def is_business_day(d, holidays):
+    return d.weekday() < 5 and d not in holidays
 
 
-def is_business_day(d):
-    return d.weekday() < 5 and d not in HOLIDAYS
-
-
-def business_days_before(d, n):
+def business_days_before(d, n, holidays=frozenset()):
     while n > 0:
         d -= dt.timedelta(days=1)
-        if is_business_day(d):
+        if is_business_day(d, holidays):
             n -= 1
     return d
 
 
-def business_days_after(d, n):
+def business_days_after(d, n, holidays=frozenset()):
     while n > 0:
         d += dt.timedelta(days=1)
-        if is_business_day(d):
+        if is_business_day(d, holidays):
             n -= 1
     return d
 
 
-def business_days_between(a, b):
+def business_days_between(a, b, holidays=frozenset()):
     """Business days from a (exclusive) to b (inclusive); negative if b < a."""
     if b == a:
         return 0
@@ -117,7 +114,7 @@ def business_days_between(a, b):
     n, d = 0, a
     while d != b:
         d += dt.timedelta(days=step)
-        if is_business_day(d):
+        if is_business_day(d, holidays):
             n += step
     return n
 
@@ -140,8 +137,7 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
     hol = spec.get("holidays") or []
     if not isinstance(hol, list):
         raise ValueError("holidays must be a list of YYYY-MM-DD dates")
-    HOLIDAYS.clear()
-    HOLIDAYS.update(parse_date(h, "holidays entry") for h in hol)
+    HOLIDAYS = frozenset(parse_date(h, "holidays entry") for h in hol)
     start = parse_date(spec.get("start_date"), "start_date")
     if start.weekday() >= 5:
         raise ValueError(f"start_date {start} is a weekend day")
@@ -173,8 +169,8 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
             raise ValueError(f"task {t['task']!r}: lead_days must be a whole number >= 0")
         if cat == "right_to_work" and juris == "UK" and lead < 1:
             lead = 1  # UK check must be complete before the first day
-        due = business_days_before(start, lead) if lead else start
-        left = business_days_between(today, due)
+        due = business_days_before(start, lead, HOLIDAYS) if lead else start
+        left = business_days_between(today, due, HOLIDAYS)
         if status == "done":
             state = "DONE"
         elif left < 0:
@@ -216,16 +212,16 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
         rtw = {"rule": "Form I-9 Section 1 by the first day; Section 2 within 3 business days after it (USCIS). "
                        "Counted Mon-Fri minus listed holidays; if the employer is open other days, count those instead",
                "section_1_by": start.isoformat(),
-               "section_2_by": business_days_after(start, 3).isoformat()}
+               "section_2_by": business_days_after(start, 3, HOLIDAYS).isoformat()}
     elif juris == "UK":
-        rtw = {"rule": "Right to work check before employment starts (GOV.UK)", "check_by": business_days_before(start, 1).isoformat()}
+        rtw = {"rule": "Right to work check before employment starts (GOV.UK)", "check_by": business_days_before(start, 1, HOLIDAYS).isoformat()}
     else:
         rtw = {"rule": "No rule built in for this jurisdiction: confirm the right-to-work deadline with HR or counsel"}
 
     order = {"LATE": 0, "AT_RISK": 1, "OPEN": 2, "DONE": 3}
     rows.sort(key=lambda r: (order[r["state"]], not r["blocking"], r["due"]))
     return {"hire": spec.get("hire", ""), "role": spec.get("role", ""), "start_date": start.isoformat(),
-            "today": today.isoformat(), "business_days_to_start": business_days_between(today, start),
+            "today": today.isoformat(), "business_days_to_start": business_days_between(today, start, HOLIDAYS),
             "jurisdiction": juris, "remote": remote, "manager": people["manager"] or None,
             "buddy": people["buddy"] or None, "right_to_work": rtw, "verdict": verdict,
             "tasks": rows, "findings": findings,

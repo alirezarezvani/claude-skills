@@ -59,7 +59,7 @@ OFF_TRACK.
 - **Ask the jurisdiction** before stating a right-to-work deadline. The script knows the US and UK rules only; anywhere else, say so and send the user to HR or counsel.
 - **The ramp check judges the onboarding, not the person.** Never say a hire is failing probation. Report what slipped and whether anyone reviewed it; the decision is the manager's and HR's, with the hire's account.
 - **The buddy is a peer, never the manager**, and meets the hire weekly.
-- **State every default** (lead days, at-risk window, checkpoint grace, profile).
+- **State every default** (lead days, at-risk window, checkpoint grace, profile). Lead days are starting points, not legal minimums; only the I-9 and UK right-to-work deadlines are law.
 - **Don't quote the "onboarding raises retention 82%" figure.** See `references/buddy_and_checkins.md`: it has no public primary study.
 
 ## Forcing-question library

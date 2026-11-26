@@ -32,6 +32,7 @@ python scripts/art14_report_clock.py --events assets/events.example.csv
 # 3 - Conformity: can we sign the EU declaration of conformity?
 python scripts/annex_i_gap_check.py --assessment assets/assessment.example.csv
 python scripts/sbom_check.py --sbom assets/sbom.example.cdx.json
+python scripts/cvd_check.py --security-txt public/ --policy docs/cvd-policy.md   # P2-5, P2-6, UI-2
 ```
 
 Run step 2 first whenever a vulnerability or incident is live: it is the only
@@ -63,6 +64,7 @@ print the Annex III/IV categories and the 39 assessment ids.
 | `scripts/cra_scope_classifier.py` | Scope (Art 2), role (Arts 19-22, 24), class (Art 7-8, Annex III/IV), routes (Art 32), legacy (Art 69), support period (Art 13(8)), reporting CSIRT (Art 14(7)) | 0 clear · 2 findings · 3 bad input · 4 blocked |
 | `scripts/art14_report_clock.py` | 24h / 72h / 14-day / one-month deadlines, content per report, user notice | 0 on time · 2 open · 3 · 4 overdue |
 | `scripts/annex_i_gap_check.py` | 39 ids across Annex I Parts I-II, Annex VII, Annex II; NA rules; evidence | 0 ready · 2 gaps · 3 · 4 blocked |
+| `scripts/cvd_check.py` | security.txt per RFC 9116 (Contact, Expires, Policy, https, location) and the CVD policy text (channel, acknowledgement, timeline, safe harbour, scope, advisories) | 0 pass · 2 findings · 3 bad input · 4 blocked |
 | `scripts/sbom_check.py` | CycloneDX/SPDX JSON, primary component, top-level dependencies, versions, purl/CPE coverage | 0 pass · 2 · 3 · 4 fail |
 
 All support `--help`, `--sample` and `--output json`.

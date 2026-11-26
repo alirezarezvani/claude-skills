@@ -30,6 +30,8 @@ python scripts/state_matrix_checker.py --matrix states.csv --evidence-root .
 # 3 - Rendered: what did the browser actually show? (capture 320 px and desktop)
 node assets/capture_snapshot.mjs http://localhost:3000/invoices --width 320 --out s320.json
 python scripts/rendered_audit.py --snapshot s320.json --waivers waivers.csv
+# 4 - Existing product? Gate on what this change adds, not on history
+python scripts/qa_baseline.py --baseline qa/lint.baseline.json --current lint.json
 ```
 
 **Step 1** blocks on inert handlers, dead links, placeholder copy and focus
@@ -68,6 +70,7 @@ populated page. Fill `assets/finish_signoff.md` from the three runs.
 | `scripts/finish_lint.py` | Inert controls, dead links, placeholder copy, removed focus, template traits, token drift | 0 clean · 2 findings · 3 bad input · 4 blocked |
 | `scripts/state_matrix_checker.py` | Required states per surface kind, evidence and NA reasons | 0 complete · 2 · 3 · 4 blocked |
 | `scripts/rendered_audit.py` | Contrast, focus, target size, names, clipping, reflow from a snapshot | 0 clean · 2 · 3 · 4 blocked |
+| `scripts/qa_baseline.py` | Ratchet any of the three JSON reports against a committed baseline: new findings fail, fixed ones are counted, `--update` only shrinks it | 0 nothing new · 2 new warnings · 3 · 4 new blocking |
 
 All support `--help`, `--sample` and `--output json`.
 

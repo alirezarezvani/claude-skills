@@ -6,13 +6,16 @@
       "skill": "cto-advisor",
       "why": "CTO decisions: rewrites, eng team scaling, technology bets, DORA",
       "any": [
-        "\\bshould (we|i) rewrite\\b",
+        "\\bshould (we|i) (just )?rewrite\\b",
         "\\b(rewrite|re-?platform)\\b.{0,40}\\b(or|vs\\.?|versus)\\b.{0,20}\\b(refactor|keep|incremental)\\b",
         "\\b(grow|scale|scaling|hire for|structure|reorg\\w*)\\b.{0,25}\\b(the |our |my )?(engineering|eng|dev) (team|org\\w*)\\b",
         "\\b(which|what) (tech|technology|stack|framework|language|database)\\b.{0,30}\\b(bet on|choose|pick|adopt|standardi[sz]e on)\\b",
         "\\bbuild (vs\\.?|or|versus) buy\\b",
         "\\bdora metrics?\\b",
-        "\\b(as|i'?m) (a |the |our )?cto\\b"
+        "\\b(as|i'?m) (a |the |our )?cto\\b",
+        "\\bhow should (i|we) (structure|organi[sz]e|grow|scale)\\b.{0,25}\\b(the |our |my )?(eng\\w* )?(team|org\\w*)\\b",
+        "\\b(hir\\w*|grow\\w*|scal\\w*) from \\d+ to \\d+ (engineers|devs|developers)\\b",
+        "\\b(engineering|tech(nology)?) strategy\\b"
       ]
     }
   ]

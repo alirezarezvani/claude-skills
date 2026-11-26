@@ -1,7 +1,7 @@
 {
   "name": "business-growth-skills",
   "description": "5 business & growth skills plus a router: customer success manager (health scoring, churn), sales engineer (RFP analysis, PoC planning), revenue operations (pipeline, forecast accuracy, GTM), contract & proposal writer, and support ops (SLA attainment, Erlang C staffing, ticket deflection). Agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw.",
-  "version": "2.14.14",
+  "version": "2.14.18",
   "author": {
     "name": "Alireza Rezvani",
     "url": "https://alirezarezvani.com"

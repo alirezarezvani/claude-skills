@@ -8,11 +8,11 @@ This guide covers the 6 business and growth skills (5 specialists plus the `busi
 1. **customer-success-manager/** - Customer health scoring, churn risk analysis, expansion opportunities (3 Python tools)
 2. **sales-engineer/** - Technical discovery, RFP analysis, competitive positioning, POC planning (3 Python tools)
 3. **revenue-operations/** - Pipeline analysis, forecast accuracy, GTM efficiency metrics (3 Python tools)
-4. **support-ops/** - SLA attainment in business hours, Erlang C staffing, ticket deflection (3 Python tools; also a standalone plugin)
+4. **support-ops/** - SLA policy lint, SLA attainment in business hours, Erlang C staffing, ticket deflection (4 Python tools; also a standalone plugin)
 5. **contract-and-proposal-writer/** - Contracts, SOWs and proposals (guidance only, no scripts)
 6. **business-growth-skills/** - Router that picks the right skill above
 
-**Total Tools:** 12 Python automation tools and 12 reference guides
+**Total Tools:** 13 Python automation tools and 12 reference guides
 
 ## Python Automation Tools
 
@@ -171,6 +171,7 @@ python revenue-operations/scripts/gtm_efficiency_calculator.py gtm_data.json --f
 
 `support-ops/scripts/` (stdlib only, `--sample`, `--format json`):
 
+- `sla_policy_lint.py --policy p.json --tickets t.csv` - lints the policy itself: inverted priorities, resolution shorter than first response, urgent on a business clock, missing timezone or hours, stale holidays, ticket priorities the policy lacks (exit 4 blocked)
 - `sla_check.py --tickets t.csv --policy p.json` - first-response and resolution attainment against a business-hours clock; open tickets past target count as misses (exit 4 breached, 2 at risk)
 - `staffing_plan.py --intervals i.csv --aht 420` - Erlang C agents per interval for live channels, workload plus backlog drain for async, grossed up for shrinkage (exit 2 when the roster is short)
 - `deflection_finder.py --tickets t.csv` - Pareto contact reasons, each labelled FIX_ROOT_CAUSE, DEFLECT, AUTOMATE or REVIEW
@@ -196,4 +197,4 @@ python revenue-operations/scripts/gtm_efficiency_calculator.py gtm_data.json --f
 
 **Last Updated:** November 17, 2026
 **Skills Deployed:** 6/6 business & growth skills production-ready
-**Total Tools:** 12 Python automation tools
+**Total Tools:** 13 Python automation tools

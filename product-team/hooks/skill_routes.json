@@ -26,9 +26,12 @@
       "any": [
         "\\brice\\b.{0,20}\\b(score\\w*|prioriti\\w*|framework)\\b",
         "\\bprioriti[sz]\\w*\\b.{0,30}\\b(features?|backlog|feature requests?)\\b",
-        "\\bwhat (should|to) (we |i )?build next\\b",
+        "\\bwhat (should |to )?(we |i )?(should )?build next\\b",
         "\\b(write|draft|create)\\b.{0,15}\\b(a |the )?prd\\b|\\bproduct requirements? doc\\w*\\b",
-        "\\b(synthesi[sz]e|sum(marize)? up|analy[sz]e)\\b.{0,30}\\b(customer |user )?interview (notes|transcripts?)\\b"
+        "\\b(synthesi[sz]e|summari[sz]e|sum up|analy[sz]e)\\b.{0,50}\\b(customer |user )?interview (notes|transcripts?)\\b",
+        "\\b(score|rank|prioriti\\w*)\\b.{0,40}\\b(by|with|using) rice\\b",
+        "\\brice (score|scores|scoring|framework|prioriti\\w*)\\b",
+        "\\b(rank|score|prioriti[sz]e)\\b.{0,20}\\b(these|our|my)? ?\\d* ?(feature requests|features|backlog items|ideas)\\b"
       ]
     },
     {
@@ -40,7 +43,11 @@
         "\\bstakeholder update\\b",
         "\\b(explain|present|communicate)\\b.{0,30}\\broadmap\\b",
         "\\bwhat we shipped\\b.{0,40}\\b(customers|users|stakeholders|team)\\b",
-        "\\broadmap\\b.{0,80}\\b(exec\\w*|all-hands|leadership|board)\\b"
+        "\\broadmap\\b.{0,160}\\b(exec\\w*|all-hands|leadership|board)\\b",
+        "\\b(explain|tell|update|present|brief)\\b.{0,30}\\b(the )?(board|execs?|exec team|leadership|investors|stakeholders)\\b.{0,40}\\b(slip\\w*|delay\\w*|late|behind|roadmap|shipped|progress|quarter|q[1-4])\\b",
+        "\\bslipped (to|into) (q[1-4]|next quarter|h[12])\\b",
+        "\\b(update|summary|recap)\\b.{0,30}\\bfor (the )?(execs?|exec team|board|leadership|stakeholders)\\b",
+        "\\bwhat'?s coming\\b.{0,20}\\b(post|page|update|email)\\b|\\bcustomer[- ]facing\\b.{0,30}\\broadmap\\b"
       ],
       "not": [
         "\\b(git log|commits?|conventional commits?)\\b"

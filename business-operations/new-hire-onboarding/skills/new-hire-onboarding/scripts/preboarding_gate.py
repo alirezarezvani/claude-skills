@@ -137,11 +137,13 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
     hol = spec.get("holidays") or []
     if not isinstance(hol, list):
         raise ValueError("holidays must be a list of YYYY-MM-DD dates")
-    HOLIDAYS = frozenset(parse_date(h, "holidays entry") for h in hol)
+    holidays_set = frozenset(parse_date(h, "holidays entry") for h in hol)
     start = parse_date(spec.get("start_date"), "start_date")
     if start.weekday() >= 5:
         raise ValueError(f"start_date {start} is a weekend day")
-    if start in HOLIDAYS:
+    if start < today:
+        raise ValueError(f"start_date {start} is before {today}: the preboarding gate is for upcoming starts")
+    if start in holidays_set:
         raise ValueError(f"start_date {start} is listed as a holiday")
     juris = (jurisdiction or spec.get("jurisdiction") or "other").upper()
     if juris not in {"US", "UK", "OTHER"}:
@@ -169,8 +171,8 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
             raise ValueError(f"task {t['task']!r}: lead_days must be a whole number >= 0")
         if cat == "right_to_work" and juris == "UK" and lead < 1:
             lead = 1  # UK check must be complete before the first day
-        due = business_days_before(start, lead, HOLIDAYS) if lead else start
-        left = business_days_between(today, due, HOLIDAYS)
+        due = business_days_before(start, lead, holidays_set) if lead else start
+        left = business_days_between(today, due, holidays_set)
         if status == "done":
             state = "DONE"
         elif left < 0:
@@ -212,22 +214,22 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
         rtw = {"rule": "Form I-9 Section 1 by the first day; Section 2 within 3 business days after it (USCIS). "
                        "Counted Mon-Fri minus listed holidays; if the employer is open other days, count those instead",
                "section_1_by": start.isoformat(),
-               "section_2_by": business_days_after(start, 3, HOLIDAYS).isoformat()}
+               "section_2_by": business_days_after(start, 3, holidays_set).isoformat()}
     elif juris == "UK":
-        rtw = {"rule": "Right to work check before employment starts (GOV.UK)", "check_by": business_days_before(start, 1, HOLIDAYS).isoformat()}
+        rtw = {"rule": "Right to work check before employment starts (GOV.UK)", "check_by": business_days_before(start, 1, holidays_set).isoformat()}
     else:
         rtw = {"rule": "No rule built in for this jurisdiction: confirm the right-to-work deadline with HR or counsel"}
 
     order = {"LATE": 0, "AT_RISK": 1, "OPEN": 2, "DONE": 3}
     rows.sort(key=lambda r: (order[r["state"]], not r["blocking"], r["due"]))
     return {"hire": spec.get("hire", ""), "role": spec.get("role", ""), "start_date": start.isoformat(),
-            "today": today.isoformat(), "business_days_to_start": business_days_between(today, start, HOLIDAYS),
+            "today": today.isoformat(), "business_days_to_start": business_days_between(today, start, holidays_set),
             "jurisdiction": juris, "remote": remote, "manager": people["manager"] or None,
             "buddy": people["buddy"] or None, "right_to_work": rtw, "verdict": verdict,
             "tasks": rows, "findings": findings,
             "defaults": {"risk_days": risk_days, "remote_equipment_lead_days": REMOTE_EQUIPMENT_LEAD,
                          "default_lead_days": DEFAULT_LEAD,
-                         "holidays": sorted(h.isoformat() for h in HOLIDAYS)}}
+                         "holidays": sorted(h.isoformat() for h in holidays_set)}}
 
 
 def render(r):
@@ -279,6 +281,8 @@ def main(argv=None):
             raise ValueError("give --hire FILE or --sample")
         if a.today:
             today = parse_date(a.today, "--today")
+        if a.risk_days < 0:
+            raise ValueError("--risk-days must be 0 or more")
         res = evaluate(spec, today, a.risk_days, a.jurisdiction)
     except (ValueError, OSError, json.JSONDecodeError) as e:
         print(f"error: {e}", file=sys.stderr)

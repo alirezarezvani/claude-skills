@@ -26,7 +26,7 @@ Rules (the plan is refused, exit 4, on any BLOCK):
             visible result that builds credibility early (Watkins).
   P4 BLOCK  a named manager and a named buddy who is not the manager.
 
-Schedule (business days; a date that lands on a weekend moves to Monday):
+Schedule (calendar days from the start; a date that lands on a weekend moves to Monday):
   day 1: welcome, manager 1:1, buddy intro, access check
   end of week 1: manager check-in on role clarity
   weekly manager 1:1 through the horizon
@@ -107,10 +107,9 @@ def build(spec, profile_override=None):
     for i, m in enumerate(ms):
         if not isinstance(m, dict) or not m.get("outcome"):
             raise ValueError(f"milestone {i}: needs 'phase' and 'outcome'")
-        try:
-            ph = int(m.get("phase"))
-        except (TypeError, ValueError):
-            raise ValueError(f"milestone {i}: phase must be one of {phases}")
+        ph = m.get("phase")
+        if isinstance(ph, bool) or not isinstance(ph, int):
+            raise ValueError(f"milestone {i}: phase must be a whole number, one of {phases}")
         if ph not in by_phase:
             raise ValueError(f"milestone {i}: phase must be one of {phases}, got {ph}")
         outcome = str(m["outcome"]).strip()

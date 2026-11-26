@@ -145,7 +145,7 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
         raise ValueError(f"start_date {start} is before {today}: the preboarding gate is for upcoming starts")
     if start in holidays_set:
         raise ValueError(f"start_date {start} is listed as a holiday")
-    juris = (jurisdiction or spec.get("jurisdiction") or "other").upper()
+    juris = (jurisdiction or text_field(spec.get("jurisdiction"), "jurisdiction") or "other").upper()
     if juris not in {"US", "UK", "OTHER"}:
         raise ValueError("jurisdiction must be US, UK or other")
     remote = bool(spec.get("remote", False))

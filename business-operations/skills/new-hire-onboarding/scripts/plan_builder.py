@@ -93,7 +93,10 @@ def build(spec, profile_override=None):
     start = parse_date(spec.get("start_date"), "start_date")
     if start.weekday() >= 5:
         raise ValueError(f"start_date {start} is a weekend day")
-    profile = (profile_override or spec.get("profile") or "standard").lower()
+    profile = profile_override or spec.get("profile") or "standard"
+    if not isinstance(profile, str):
+        raise ValueError("profile must be a string")
+    profile = profile.lower()
     if profile not in PROFILES:
         raise ValueError(f"profile must be one of {sorted(PROFILES)}")
     prof = PROFILES[profile]

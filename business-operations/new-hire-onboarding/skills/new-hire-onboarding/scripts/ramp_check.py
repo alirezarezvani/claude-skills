@@ -92,6 +92,9 @@ def check(spec, today, grace):
     phases = list(range(30, horizon + 1, 30))
 
     meetings = []
+    for key in ("meetings", "milestones"):
+        if not isinstance(spec.get(key) or [], list):
+            raise ValueError(f"{key} must be a list")
     for i, m in enumerate(spec.get("meetings") or []):
         if not isinstance(m, dict) or str(m.get("type", "")).lower() not in TYPES:
             raise ValueError(f"meeting {i}: type must be one of {sorted(TYPES)}")

@@ -149,6 +149,8 @@ ARTICLE_5_PRACTICES = {
     "child_sexual_abuse_material": "Article 5(1)(bb) — Generating child sexual abuse material per Directive 2011/93/EU (from 2 Dec 2026)",
 }
 
+NEW_ARTICLE_5_PRACTICES = {"non_consensual_intimate_imagery", "child_sexual_abuse_material"}
+
 # Annex III high-risk categories (the 8 — Article 6(2))
 ANNEX_III_CATEGORIES = {
     "biometrics": "Annex III §1 — Biometrics including biometric ID and categorisation",
@@ -180,7 +182,11 @@ def classify(system: Dict[str, Any]) -> Dict[str, Any]:
             "name": name,
             "tier": "prohibited",
             "primary_citation": ARTICLE_5_PRACTICES[article_5],
-            "rationale": "Listed Article 5 practice. Cannot be placed on EU market or used (penalty up to EUR 35M / 7% turnover).",
+            "rationale": ("Listed Article 5 practice added by Regulation (EU) 2026/1744. Prohibited from 2026-12-02: "
+                          "withdraw it or put adequate safeguards in place (Article 5(1a)) before then (penalty up to EUR 35M / 7% turnover)."
+                          if article_5 in NEW_ARTICLE_5_PRACTICES else
+                          "Listed Article 5 practice. Cannot be placed on EU market or used (penalty up to EUR 35M / 7% turnover)."),
+            "applies_from": "2026-12-02" if article_5 in NEW_ARTICLE_5_PRACTICES else "2025-02-02",
             "is_gpai": is_gpai,
             "gpai_systemic_risk": False,
         }

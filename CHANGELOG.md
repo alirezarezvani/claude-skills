@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.17] - 2026-11-26 — app-store-optimization Google Play title limit fix
+
+One community bug fix. The app-store-optimization tools validated Google Play titles against the old 50-character
+limit; Google cut it to 30 in 2021, so a too-long title passed every check. No renames; `claude plugin update`
+picks up marketing-skills.
+
+### Fixed
+- **app-store-optimization** (marketing-skills): `metadata_optimizer.py`, `localization_helper.py` and `launch_checklist.py` now enforce Google Play's 30-character app title limit instead of 50. SKILL.md, the README, the platform-requirements reference, the audit template and the example output are corrected to match; Apple limits are unchanged (#1172 via #1173, thanks @Walentalien).
+
 ## [2.14.16] - 2026-11-23 — scrum-master forecast and stock-analysis rate fixes
 
 Two community bug fixes. scrum-master's Monte Carlo forecast now reports "X% confidence" as a total that X% of

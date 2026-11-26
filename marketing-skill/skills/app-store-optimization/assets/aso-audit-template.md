@@ -21,10 +21,10 @@ Use this template to conduct a systematic App Store Optimization audit.
 
 ### Title Analysis
 
-| Criterion | iOS (30 chars) | Android (50 chars) |
-|-----------|----------------|---------------------|
+| Criterion | iOS (30 chars) | Android (30 chars) |
+|-----------|----------------|--------------------|
 | Current Title | | |
-| Character Count | /30 | /50 |
+| Character Count | /30 | /30 |
 | Primary Keyword Present | [ ] Yes [ ] No | [ ] Yes [ ] No |
 | Brand Name Position | | |
 

@@ -191,7 +191,7 @@ Verify: `python3 scripts/webinar_funnel_scorer.py --help` exits 0 and prints usa
 ## KEEP-verdict verification criteria
 
 - **aeo** — all 3 scripts pass `--help`; `aeo_audit.py --input <md> --output json` emits composite 0-100 + 4 dimension keys; industry table thresholds (healthcare/finance/legal ≥ 85) unchanged.
-- **app-store-optimization** — all 8 scripts pass `--help`; `metadata_optimizer.py --platform ios --title "<31 chars>"` flags the over-limit title; char-limit table matches Apple 30/30/100 + Play 50/80.
+- **app-store-optimization** — all 8 scripts pass `--help`; `metadata_optimizer.py --platform ios --title "<31 chars>"` flags the over-limit title; char-limit table matches Apple 30/30/100 + Play 30/80.
 - **campaign-analytics** — 3 scripts run on `assets/sample_campaign_data.json` with `--format json` exit 0; attribution output includes all 5 models; funnel analyzer names a bottleneck stage.
 - **churn-prevention** — `churn_impact_calculator.py` runs no-arg with sample, exits 0; benchmark table retains save-rate ≥ 10-15% / recovery 25-35% calibration.
 - **cold-email** — 3 references resolve; deliverability section still names SPF/DKIM/DMARC + warmup ramp; orphan `email_sequence_analyzer.py` gets wired (carryover from A3 sweep).

@@ -121,13 +121,16 @@ def prepare(rows, mb, worktree, model):
             r["case_source"] = "drafted from the " + ("new" if r["is_new"] else "base") + " description"
     if to_draft:
         from generate_trigger_cases import draft
-        try:
-            got, _ = draft(to_draft, model)
-        except (RuntimeError, ValueError, subprocess.TimeoutExpired) as e:
-            got = {}
-            for r in rows:
-                if "case" not in r:
-                    r["draft_error"] = str(e)
+        got = {}
+        for attempt in range(3):  # the drafter sometimes returns JSON with an unescaped quote
+            try:
+                got, _ = draft(to_draft, model)
+                break
+            except (RuntimeError, ValueError, subprocess.TimeoutExpired) as e:
+                if attempt == 2:
+                    for r in rows:
+                        if "case" not in r:
+                            r["draft_error"] = str(e)
         for r in rows:
             c = got.get(r["path"]) if "case" not in r else None
             if c and len(c.get("pos", [])) == 2 and c.get("neg"):

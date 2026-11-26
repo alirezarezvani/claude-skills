@@ -103,7 +103,8 @@ def committed(ledger: dict) -> float:
     total = 0.0
     for s in ledger["shots"].values():
         if s["state"] in COMMITTED:
-            total += s["credits"]
+            # a provider that charged more than it quoted is counted at what it charged
+            total += max(s["credits"], float(s.get("charged") or 0))
         elif s["state"] == "failed":
             total += float(s.get("charged") or 0)
         total += float(s.get("prior_charged") or 0)
@@ -427,7 +428,7 @@ def main() -> int:
     rc.add_argument("--status", choices=["submitted", "completed", "failed", "unknown"])
     rc.add_argument("--job-id")
     rc.add_argument("--plate", help="Path of the downloaded plate (completed).")
-    rc.add_argument("--charged", type=float, help="Credits the provider actually charged, if it says.")
+    rc.add_argument("--charged", type=float, help="Credits the provider actually charged (required for failed; on completed, counted when above the quote).")
     rc.add_argument("--release-failed", action="store_true", help="Allow one new attempt for a failed shot (needs --said).")
     rc.add_argument("--said", help="With --release-failed: the user's words approving the retry.")
     s = sub.add_parser("status", help="Print the ledger.")

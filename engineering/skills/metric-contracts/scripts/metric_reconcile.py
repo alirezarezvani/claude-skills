@@ -22,12 +22,17 @@ Patterns (first match is reported as most likely; all matches are listed)
               higher suggests a join fan-out double counting
   MIXED       none of the above: compare the definitions (metric_diff.py)
 
+Keys are ordered naturally (2024-9 before 2024-10), so use dates or numbers as
+keys; month names such as Jan or Feb do not sort in time order. Values use . as
+the decimal separator; commas are dropped as thousands separators.
+
 Exit codes: 0 every matched key within tolerance and no coverage gap,
 2 mismatch, 3 bad input. Deterministic, stdlib only, no network.
 """
 import argparse
 import csv
 import os
+import re
 import statistics
 import sys
 
@@ -65,7 +70,8 @@ def read(path, key, value):
         try:
             val = float(raw)
         except ValueError:
-            raise Bad(f"{path} line {i}: {v}={r[v]!r} is not a number")
+            raise Bad(f"{path} line {i}: {v}={r[v]!r} is not a number; use . as the decimal separator "
+                      "(commas are read as thousands separators, so 1.234,5 must be exported as 1234.5)")
         if val != val or val in (float("inf"), float("-inf")):
             raise Bad(f"{path} line {i}: {v} is not finite")
         kk = r[k].strip()
@@ -79,8 +85,14 @@ def _near(x, y, rel):
     return abs(x - y) <= rel * max(abs(x), abs(y), 1e-12)
 
 
+def _natural(k):
+    """Order keys so 2024-9 comes before 2024-10: digit runs compare as numbers."""
+    return [(0, int(p), "") if p.isdigit() else (1, 0, p.lower()) for p in re.findall(r"\d+|\D+", k)]
+
+
 def diagnose(a, b, rel, abs_tol):
-    keys = sorted(a.keys() | b.keys())
+    # TAIL, STEP and "at the end" need chronological order; keys must be dates or numbers
+    keys = sorted(a.keys() | b.keys(), key=_natural)
     only_a = [k for k in keys if k not in b]
     only_b = [k for k in keys if k not in a]
     both = [k for k in keys if k in a and k in b]
@@ -112,10 +124,13 @@ def diagnose(a, b, rel, abs_tol):
     nonzero = [r for r in rows if r["a"] or r["b"]]
     every = len(bad) == len(nonzero) and len(bad) >= 2
     cv_ratio = statistics.pstdev(ratios) / abs(statistics.mean(ratios)) if len(ratios) >= 2 and statistics.mean(ratios) else 1
+    # a mean gap of exactly 0 (gaps cancelling) is not a constant offset, so it falls back to 1
     cv_diff = statistics.pstdev(diffs) / abs(statistics.mean(diffs)) if len(diffs) >= 2 and statistics.mean(diffs) else 1
     constant = None  # whichever of ratio or gap is steadier explains it
-    if every and min(cv_ratio, cv_diff) < 0.005:
-        constant = "SCALE" if cv_ratio <= cv_diff else "OFFSET"
+    # a row with a == 0 and b != 0 has no ratio, so a factor cannot explain it
+    scale_ok = len(ratios) == len(bad)
+    if every and min(cv_ratio if scale_ok else 1, cv_diff) < 0.005:
+        constant = "SCALE" if scale_ok and cv_ratio <= cv_diff else "OFFSET"
     if constant == "SCALE":
         f = statistics.mean(ratios)
         g = f if f >= 1 else 1 / f

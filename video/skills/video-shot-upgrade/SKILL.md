@@ -54,8 +54,10 @@ Then hand `scene.final.json` back to `video-animatic` (`--mode final`) and
 | Script | 0 | 3 | 4 |
 |---|---|---|---|
 | `provider_adapter.py` | requests written | no `--model-spec`: it prints the catalog call to make | a shot the model cannot make (aspect, too long, empty prompt) |
-| `budget_gate.py` | step recorded | quotes or ledger missing | over cap, over balance, wrong total, stale quote, second call for one shot |
+| `budget_gate.py` | step recorded | quotes or ledger missing, ledger locked | over cap, over balance, wrong total, stale quote or yes, second call for one shot, re-quoting a live batch |
 | `drift_check.py` | every plate holds | a human must look (REVIEW), or no ffmpeg | a plate drifted: re-prompt or keep the shot as motion graphics |
+
+The drift thresholds (framing r 0.55 / 0.30, palette 0.25) are calibrated on synthetic plates only, not yet on real generated footage. Treat HOLDS as "looks like the animatic", and watch every plate before it ships.
 
 ## Rules that come from the providers
 
@@ -78,7 +80,13 @@ Then hand `scene.final.json` back to `video-animatic` (`--mode final`) and
 - No quote call before the animatic is approved; no generate call without an
   approved ledger and a fresh `reserve`.
 - One quote buys one call. A failed shot needs `record --release-failed`, which
-  is a new yes from the user, and a new quote if the old one aged out.
+  is a new yes from the user. Record what the provider charged for the failure
+  (`--charged`): it counts against the approved total, so a charged retry needs
+  a new batch (`quote --new-batch`, which archives the old ledger) and a new yes.
+- Never re-quote over a live ledger; the gate refuses it, and refuses a new
+  batch while any shot is sent with no known outcome.
+- One agent per ledger. A lock file guards each write; if a crashed run left
+  `spend.json.lock`, delete it only when no other run is active.
 - Real-person likeness needs recorded consent (the brief gate refuses without
   it). Label generated footage as AI-generated where it is published.
 - What leaves the machine: prompt, duration, aspect and keyframe stills, to the

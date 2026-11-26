@@ -15,7 +15,12 @@ each step that would spend credits the user did not agree to:
            is never sent again on its own (the timeout rule).
   record   the job id and later the outcome (completed / failed / unknown).
            Only a failed shot can be released for one new reserve, and only
-           with --release-failed, which is the user's second yes.
+           with --release-failed, which is the user's second yes. What a
+           failed job was charged (--charged) still counts against the yes.
+
+Re-quoting over a live ledger is refused; --new-batch archives it first, and
+is refused too while any shot has an unknown outcome. Every write holds a
+lock file next to the ledger.
 
 Nothing here calls a provider. The agent calls the MCP; this file is the
 memory of what was quoted, approved and sent, so a resumed session cannot
@@ -39,6 +44,8 @@ import json
 import os
 import sys
 import tempfile
+import time
+from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -77,17 +84,65 @@ def log(ledger: dict, event: str, **kw) -> None:
 
 
 def committed(ledger: dict) -> float:
-    return round(sum(s["credits"] for s in ledger["shots"].values() if s["state"] in COMMITTED), 3)
+    """Credits that may already be spent: every shot sent or about to be sent at its quote, a failed
+    shot at what the provider says it charged, and charges from attempts released for a retry."""
+    total = 0.0
+    for s in ledger["shots"].values():
+        if s["state"] in COMMITTED:
+            total += s["credits"]
+        elif s["state"] == "failed":
+            total += float(s.get("charged") or 0)
+        total += float(s.get("prior_charged") or 0)
+    return round(total, 3)
+
+
+@contextmanager
+def locked(path: Path, wait: float = 10.0):
+    """One writer at a time: an O_EXCL lock file next to the ledger (portable, stdlib)."""
+    lock = path.with_name(path.name + ".lock")
+    lock.parent.mkdir(parents=True, exist_ok=True)
+    deadline = time.monotonic() + wait
+    while True:
+        try:
+            fd = os.open(str(lock), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            break
+        except FileExistsError:
+            if time.monotonic() > deadline:
+                raise GateError(f"{lock} is held by another run; if no other run is active, delete it", 3)
+            time.sleep(0.1)
+    try:
+        os.write(fd, str(os.getpid()).encode())
+        yield
+    finally:
+        os.close(fd)
+        try:
+            lock.unlink()
+        except FileNotFoundError:
+            pass
 
 
 def cmd_quote(args) -> dict:
     req = json.loads(Path(args.requests).read_text(encoding="utf-8"))
     quotes = json.loads(Path(args.quotes).read_text(encoding="utf-8"))
-    brief = json.loads(Path(args.brief).read_text(encoding="utf-8")) if args.brief else {}
+    brief = json.loads(Path(args.brief).read_text(encoding="utf-8"))
     if req.get("schema") != "requests.v1":
         raise GateError("--requests must be a requests.v1 file from provider_adapter.py", 2)
-    if brief and not brief.get("upgrade_allowed", False):
-        raise GateError("the brief says upgrade_allowed: false; ask the user before any generation")
+    if brief.get("upgrade_allowed") is not True:
+        raise GateError("the brief does not say upgrade_allowed: true; ask the user before any generation")
+    path = Path(args.ledger)
+    if path.exists():
+        old = load(path)
+        live = [sid for sid, s in old["shots"].items() if s["state"] in ("reserved", "unknown")]
+        if live:
+            raise GateError(f"the existing ledger has {', '.join(live)} sent with no known outcome; poll those jobs "
+                            f"and record the result before quoting again")
+        sent = [sid for sid, s in old["shots"].items() if s["state"] != "quoted"]
+        if (sent or old["state"] != "quoted") and not args.new_batch:
+            raise GateError(f"{path} is a live batch ({old['state']}; sent: {', '.join(sent) or 'none'}). Re-quoting "
+                            f"would reset it. Pass --new-batch to archive it and start another batch")
+        if sent or old["state"] != "quoted":
+            archive = path.with_name(f"{path.stem}.{now().strftime('%Y%m%dT%H%M%SZ')}{path.suffix}")
+            os.replace(path, archive)
     ids = [r["id"] for r in req["requests"]]
     if args.only:
         wanted = [i.strip() for i in args.only.split(",") if i.strip()]
@@ -137,7 +192,7 @@ def cmd_quote(args) -> dict:
                              f"({', '.join(shots)}) with {req.get('provider')} {req.get('model')}",
     }
     log(ledger, "quoted", total=total, cap=cap)
-    save(Path(args.ledger), ledger)
+    save(path, ledger)
     return ledger
 
 
@@ -152,7 +207,8 @@ def cmd_approve(args) -> dict:
     if abs(float(args.credits) - ledger["total_quoted"]) > 1e-9:
         raise GateError(f"the yes was for {args.credits:g} credits but {ledger['total_quoted']:g} were quoted; "
                         f"show the user the quoted total and ask again")
-    ledger.update(state="approved", approved_credits=ledger["total_quoted"], approved_at=now().isoformat())
+    ledger.update(state="approved", approved_credits=ledger["total_quoted"], approved_at=now().isoformat(),
+                  max_age_min=args.max_age)
     log(ledger, "approved", credits=ledger["total_quoted"], said=args.said)
     save(path, ledger)
     return ledger
@@ -166,13 +222,18 @@ def cmd_reserve(args) -> dict:
         raise GateError(f"{args.shot} is not in this batch", 2)
     if ledger["state"] != "approved":
         raise GateError(f"batch is {ledger['state']}: no generate call before the user's yes is recorded")
+    age = now() - datetime.fromisoformat(ledger["approved_at"])
+    if age > timedelta(minutes=ledger.get("max_age_min", 60)):
+        raise GateError(f"the yes is {int(age.total_seconds() // 60)} min old; prices move. Quote again "
+                        f"(--new-batch) and ask again")
     if shot["state"] != "quoted":
         if shot["state"] == "unknown":
             raise GateError(f"{args.shot} was sent and its outcome is unknown; it may be charged. Poll the job "
                             f"({shot['job_id'] or 'no id recorded'}) instead of resubmitting")
         raise GateError(f"{args.shot} is already {shot['state']}; one quote buys one generate call")
     if committed(ledger) + shot["credits"] > ledger["approved_credits"] + 1e-9:
-        raise GateError("this call would pass the approved total")
+        raise GateError(f"this call would pass the approved total ({committed(ledger):g} already committed of "
+                        f"{ledger['approved_credits']:g}); quote a new batch and ask again")
     shot["state"] = "reserved"
     log(ledger, "reserved", shot=args.shot, credits=shot["credits"])
     save(path, ledger)
@@ -188,7 +249,10 @@ def cmd_record(args) -> dict:
     if args.release_failed:
         if shot["state"] != "failed":
             raise GateError(f"only a failed shot can be released; {args.shot} is {shot['state']}")
-        shot.update(state="quoted", job_id=None)
+        shot["prior_charged"] = round(float(shot.get("prior_charged") or 0) + float(shot.get("charged") or 0), 3)
+        shot.update(state="quoted", job_id=None, charged=None)
+        if ledger["state"] == "closed":
+            ledger["state"] = "approved"
         log(ledger, "released", shot=args.shot, note="user approved one more attempt")
         save(path, ledger)
         return ledger
@@ -232,26 +296,42 @@ def run_sample() -> int:
         (d / "q.json").write_text(json.dumps({"s2": {"credits": 10, "quote_ref": "quote:a"}, "s4": {"credits": 10, "quote_ref": "quote:b"}}))
         (d / "brief.json").write_text(json.dumps({"upgrade_allowed": True, "budget_credits": 60}))
         base = dict(requests=str(d / "req.json"), quotes=str(d / "q.json"), brief=str(d / "brief.json"),
-                    ledger=str(d / "spend.json"), only=None, max_shots=None)
+                    ledger=str(d / "spend.json"), only=None, max_shots=None, new_batch=False)
+        rec = dict(ledger=base["ledger"], job_id=None, plate=None, charged=None, release_failed=False)
+        L = base["ledger"]
         steps = [
-            ("quote, cap 15 -> refused", cmd_quote, dict(base, cap=15, balance=None)),
-            ("quote, cap 30, balance 0.5 -> refused", cmd_quote, dict(base, cap=30, balance=0.5)),
-            ("quote, cap 30", cmd_quote, dict(base, cap=30, balance=100)),
-            ("reserve before yes -> refused", cmd_reserve, dict(ledger=base["ledger"], shot="s2")),
-            ("approve 25 (wrong total) -> refused", cmd_approve, dict(ledger=base["ledger"], credits=25, max_age=60, said=None)),
-            ("approve 20", cmd_approve, dict(ledger=base["ledger"], credits=20, max_age=60, said="yes, spend 20")),
-            ("reserve s2", cmd_reserve, dict(ledger=base["ledger"], shot="s2")),
-            ("record s2 timeout -> unknown", cmd_record, dict(ledger=base["ledger"], shot="s2", status="unknown",
-                                                             job_id=None, plate=None, charged=None, release_failed=False)),
-            ("reserve s2 again -> refused", cmd_reserve, dict(ledger=base["ledger"], shot="s2")),
+            ("quote, cap 15", False, cmd_quote, dict(base, cap=15, balance=None)),
+            ("quote, cap 30, balance 0.5", False, cmd_quote, dict(base, cap=30, balance=0.5)),
+            ("quote, cap 30", True, cmd_quote, dict(base, cap=30, balance=100)),
+            ("reserve before the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
+            ("approve 25 (not the quoted total)", False, cmd_approve, dict(ledger=L, credits=25, max_age=60, said=None)),
+            ("approve 20", True, cmd_approve, dict(ledger=L, credits=20, max_age=60, said="yes, spend 20")),
+            ("re-quote a live batch", False, cmd_quote, dict(base, cap=30, balance=100)),
+            ("reserve s2", True, cmd_reserve, dict(ledger=L, shot="s2")),
+            ("record s2 timeout -> unknown", True, cmd_record, dict(rec, shot="s2", status="unknown")),
+            ("reserve s2 again", False, cmd_reserve, dict(ledger=L, shot="s2")),
+            ("re-quote with s2 unknown, even --new-batch", False, cmd_quote, dict(base, cap=30, balance=100, new_batch=True)),
+            ("record s2 failed, charged 10", True, cmd_record, dict(rec, shot="s2", status="failed", charged=10)),
+            ("reserve s4", True, cmd_reserve, dict(ledger=L, shot="s4")),
+            ("record s4 submitted", True, cmd_record, dict(rec, shot="s4", status="submitted", job_id="job-s4")),
+            ("record s4 completed (batch closes)", True, cmd_record, dict(rec, shot="s4", status="completed", plate="plates/s4.mp4")),
+            ("release failed s2", True, cmd_record, dict(rec, shot="s2", status=None, release_failed=True)),
+            ("reserve s2 retry: its 10 charged credits already used the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
         ]
-        for label, fn, kw in steps:
+        bad = 0
+        for label, expect_ok, fn, kw in steps:
             try:
                 fn(argparse.Namespace(**kw))
-                print(f"ok       {label}")
+                got, msg = True, ""
             except GateError as exc:
-                print(f"refused  {label}: {exc}")
+                got, msg = False, f": {exc}"
+            mark = "ok  " if got == expect_ok else "FAIL"
+            bad += got != expect_ok
+            print(f"{mark} {'allowed ' if got else 'refused '} {label}{msg}")
         print(summary(load(Path(base["ledger"]))))
+    if bad:
+        print(f"{bad} step(s) did not behave as expected", file=sys.stderr)
+        return 1
     return 0
 
 
@@ -262,7 +342,8 @@ def main() -> int:
     q = sub.add_parser("quote", help="Check quotes against the cap and balance; write the ledger.")
     q.add_argument("--requests", required=True)
     q.add_argument("--quotes", required=True, help='JSON {"<shot id>": {"credits": n, "quote_ref": "..."}}')
-    q.add_argument("--brief", help="brief.json (budget_credits, upgrade_allowed).")
+    q.add_argument("--brief", required=True, help="brief.json; must say upgrade_allowed: true (budget_credits caps the batch).")
+    q.add_argument("--new-batch", action="store_true", help="Archive a live ledger at --ledger and start a new batch.")
     q.add_argument("--cap", type=float, help="Hard credit cap for this batch (the lower of this and budget_credits wins).")
     q.add_argument("--balance", type=float, help="The provider balance read just now.")
     q.add_argument("--only", help="Comma-separated shot ids to put in this batch.")
@@ -298,7 +379,9 @@ def main() -> int:
         if args.cmd == "status":
             ledger = load(Path(args.ledger))
         else:
-            ledger = {"quote": cmd_quote, "approve": cmd_approve, "reserve": cmd_reserve, "record": cmd_record}[args.cmd](args)
+            with locked(Path(args.ledger)):
+                ledger = {"quote": cmd_quote, "approve": cmd_approve, "reserve": cmd_reserve,
+                          "record": cmd_record}[args.cmd](args)
     except GateError as exc:
         print(("REFUSED " if exc.code == 4 else "error: ") + str(exc), file=sys.stderr)
         return exc.code

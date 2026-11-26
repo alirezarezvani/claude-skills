@@ -32,6 +32,8 @@ For EACH skill below write:
   something the description says the skill does.
 
 Return ONLY a JSON object mapping each skill path to {"pos": [str, str], "neg": str}. No prose.
+It must parse with a strict JSON parser: escape every double quote inside a prompt as \\" or
+use single quotes there.
 
 Skills:
 """

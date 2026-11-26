@@ -119,6 +119,8 @@ def check(shot_id: str, plate: Path, req: dict, man: dict, canvas: tuple[int, in
     if info["duration"] + 0.05 < need:
         verdict = "DRIFTED"
         res["findings"].append(f"plate is {info['duration']:.2f}s, the shot needs {need:g}s")
+    if info["width"] <= 0 or info["height"] <= 0:
+        raise RuntimeError(f"{plate}: ffprobe reports no picture size; re-download the plate")
     want, got = canvas[0] / canvas[1], info["width"] / info["height"]
     if abs(got - want) / want > ASPECT_TOL:
         verdict = "DRIFTED"

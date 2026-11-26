@@ -232,6 +232,8 @@ def cmd_approve(args) -> dict:
     ledger = load(path)
     if ledger["state"] != "quoted":
         raise GateError(f"ledger is {ledger['state']}, not quoted; quote again for a new batch")
+    if not (args.said or "").strip():
+        raise GateError("an approval needs the user's own words: ask them and pass what they said with --said")
     age = now() - datetime.fromisoformat(ledger["quoted_at"])
     if age > timedelta(minutes=args.max_age):
         raise GateError(f"quotes are {int(age.total_seconds() // 60)} min old (limit {args.max_age}); prices move, quote again")
@@ -240,7 +242,7 @@ def cmd_approve(args) -> dict:
                         f"show the user the quoted total and ask again")
     ledger.update(state="approved", approved_credits=ledger["total_quoted"], approved_at=now().isoformat(),
                   max_age_min=args.max_age)
-    log(ledger, "approved", credits=ledger["total_quoted"], said=args.said)
+    log(ledger, "approved", credits=ledger["total_quoted"], said=args.said.strip())
     save(path, ledger)
     return ledger
 
@@ -348,6 +350,7 @@ def run_sample() -> int:
             ("quote, cap 30", True, cmd_quote, dict(base, cap=30, balance=100)),
             ("reserve before the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
             ("approve 25 (not the quoted total)", False, cmd_approve, dict(ledger=L, credits=25, max_age=60, said=None)),
+            ("approve 20 without the user's words", False, cmd_approve, dict(ledger=L, credits=20, max_age=60, said=" ")),
             ("approve 20", True, cmd_approve, dict(ledger=L, credits=20, max_age=60, said="yes, spend 20")),
             ("re-quote a live batch", False, cmd_quote, dict(base, cap=30, balance=100)),
             ("reserve s2", True, cmd_reserve, dict(ledger=L, shot="s2")),
@@ -397,7 +400,7 @@ def main() -> int:
     a = sub.add_parser("approve", help="Record the user's yes to the quoted total.")
     a.add_argument("--ledger", required=True)
     a.add_argument("--credits", type=float, required=True, help="The total the user said yes to.")
-    a.add_argument("--said", help="The user's words, for the record.")
+    a.add_argument("--said", required=True, help="The user's words approving this total, for the record.")
     a.add_argument("--max-age", type=int, default=60, help="Minutes a quote stays valid (default 60).")
     r = sub.add_parser("reserve", help="Run right before one generate call.")
     r.add_argument("--ledger", required=True)

@@ -185,7 +185,7 @@ seed().catch(console.error).finally(() => process.exit(0))
 
 ## ERD Generation (Mermaid)
 
-```
+```mermaid
 erDiagram
     Organization ||--o{ OrganizationMember : has
     Organization ||--o{ Project : owns

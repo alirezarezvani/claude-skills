@@ -277,7 +277,8 @@ def cmd_reserve(args) -> dict:
         raise GateError(f"{args.shot} is already {shot['state']}; one quote buys one generate call")
     if committed(ledger) + shot["credits"] > ledger["approved_credits"] + 1e-9:
         raise GateError(f"this call would pass the approved total ({committed(ledger):g} already committed of "
-                        f"{ledger['approved_credits']:g}); quote a new batch and ask again")
+                        f"{ledger['approved_credits']:g}; charges for failed attempts count too, so a released retry does not add credits); "
+                        f"quote a new batch with --new-batch and ask again")
     shot["state"] = "reserved"
     log(ledger, "reserved", shot=args.shot, credits=shot["credits"])
     save(path, ledger)
@@ -338,7 +339,7 @@ def summary(ledger: dict) -> str:
     if ledger["state"] == "quoted":
         lines.append(f"ask the user, and wait for: \"{ledger['approval_sentence']}\"")
         exp = datetime.fromisoformat(ledger["quoted_at"]) + timedelta(minutes=60)
-        lines.append(f"quotes valid until {exp.isoformat()} (default window)")
+        lines.append(f"quotes valid until {exp.isoformat()} with the default 60 min window; approve --max-age sets it, up to 240")
     elif ledger["state"] == "approved" and ledger.get("approved_at"):
         exp = datetime.fromisoformat(ledger["approved_at"]) + timedelta(minutes=min(ledger.get("max_age_min", 60), MAX_AGE_CEILING))
         lines.append(f"the yes is valid until {exp.isoformat()}; after that, quote a new batch")

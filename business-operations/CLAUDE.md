@@ -17,7 +17,7 @@ The Business Operations domain ships skills that help **internal operators** (Bi
 | `internal-comms` | ADKAR + Kotter 8-step change comms (NOT marketing) | NO |
 | `knowledge-ops` | SOPs + runbooks with 5W2H validation + KB hygiene (NOT personal PKM) | YES |
 | `procurement-optimizer` | UNSPSC-aligned spend categorization + supplier consolidation | NO |
-| `new-hire-onboarding` | Preboarding gate (I-9 / UK right to work), checkable 30/60/90 plan, ramp check. Also a standalone plugin in `new-hire-onboarding/` | NO |
+| `new-hire-onboarding` | Preboarding gate (I-9 / UK right to work), checkable 30/60/90 plan, ramp check. Also a standalone plugin in `new-hire-onboarding/`; `hooks/skill_router.py` hints it on new-hire prompts | NO |
 
 ## Build pattern
 

@@ -18,6 +18,10 @@ over one JSON file per hire; no HRIS API, no credentials.
 /cs-ramp-check ramp.json
 ```
 
+A skill-router hook adds one line pointing at this skill when a prompt is
+clearly about a new hire's start (it never blocks, fails open, and is off with
+`SKILL_ROUTER=0` or `SKILL_ROUTER_NEW_HIRE_ONBOARDING=0`).
+
 The ramp check judges the onboarding, never the person: probation and
 performance decisions stay with the manager and HR. For how many people to
 hire, use `capacity-planner`; to write the onboarding SOP itself, use

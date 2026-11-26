@@ -309,7 +309,7 @@
       },
       "category": "development",
       "description": "48 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate, slo-architect, tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft, agent-run-forensics, i18n-localization, mobile-release, cloud-finops and game-universe-studio.",
-      "version": "2.14.22",
+      "version": "2.14.23",
       "author": {
         "name": "Alireza Rezvani"
       },

@@ -88,3 +88,39 @@ intended trade: a missed prompt costs nothing, a wrong hint costs attention.
 
 Raw rows and scripts: project files `audits/silent-21-hooks-2026-11/`. Re-measure the offline
 numbers with `python3 scripts/check_skill_router.py --cases <cases.json>`.
+
+## Round 2 (2026-11-26): wider patterns
+
+The first-round patterns were written from one phrasing per skill, so on the least-seen set the
+router hinted only 17 of 42 positives, and 11 of the 21 skills never loaded live. Round 2 adds
+patterns for the intents those misses expressed ("what we should build next", "just joined this
+team", "keep the ones that shrink it, revert the rest", "fix typos", "explain to the board why X
+slipped", JWT/refresh-token APIs, `it.only`-style test-first wording and so on), and narrows four
+that over-fired once widened (`cut it to N` now needs "words", OWASP left to the pen-test skills,
+the monolith pattern dropped from cto-advisor, CI-only pipelines left to ci-cd-pipeline-builder).
+
+**Blind set.** Before any pattern changed, 84 new positives (4 per skill, inputs pasted inline so
+the model can act without asking) and 42 near misses were drafted by Opus from the SKILL.md
+descriptions and not read until the first measurement was taken. Tuning used only the three
+earlier sets.
+
+| | Router hints on blind positives (offline) | Live loads, blind positives | Live loads, near misses | Skills that never loaded |
+|---|---|---|---|---|
+| Hook off | — | 3/84 | 0/42 | 18 of 21 |
+| Round-1 patterns | 30/84 | 28/84 | 0/42 | 5 |
+| Round-2 patterns | **43/84** | **35/84** | 0/42 | 3 |
+
+Live: Claude Code 2.1.332, Sonnet, only the skill's plugin loaded, one run per prompt, so per-skill
+numbers are noisy (±1 run); compare the totals. Earlier sets after tuning (not blind): trigger
+cases 39 → 43 of 46, heldout 21 → 40 of 42, heldout2 17 → 39 of 42, no near-miss hints on any.
+Hints landing on other skills' prompts rose on tuning sets (53 → 59 of 1,200 trigger prompts);
+the new ones were read one by one and are adjacent work (Terraform for ECS hinting senior-devops,
+RICE scoring hinting product-manager-toolkit).
+
+**Still at zero: remember, agenthub, self-eval.** The hint fired on most of their prompts; the
+model then did the right thing without the skill. For remember it wrote to Claude Code's own
+memory directly. For agenthub and self-eval the test session had no repo and no prior work, so
+the model asked for it, which a single-turn eval cannot reward. These three need multi-turn
+evals, not more patterns.
+
+Raw rows, cases and scripts: project files `audits/silent-21-round2-2026-11/`.

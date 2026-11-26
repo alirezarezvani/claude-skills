@@ -4,10 +4,14 @@
 A series that only passes at its tip breaks `git bisect` and every revert of a single
 commit. This checks out each commit of --range, oldest first, in a throwaway detached
 worktree (your working tree, index and stash are never touched), runs --cmd there, and
-reports the first commit that fails. It also scans what each commit adds for debug
+reports the first commit that fails. The worktree starts from the commit alone, without
+node_modules, .venv or build caches, so pass --setup (npm ci, pip install -e .) for a
+project that needs installed dependencies, or every commit fails for the wrong reason.
+On a timeout the whole process group is killed, so no test runner or server is left behind. It also scans what each commit adds for debug
 leftovers that pass tests but should never land.
 
 Findings
+  SETUP_FAILED      --setup exits non-zero at this commit                      BLOCKER
   BROKEN_COMMIT     --cmd exits non-zero at this commit                        BLOCKER
   TIMEOUT           --cmd ran past --timeout seconds                           BLOCKER
   FOCUSED_TEST      it.only / describe.only / fit( / test.only / @focus added  BLOCKER
@@ -25,7 +29,9 @@ import argparse
 import json
 import os
 import re
+import shlex
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -51,12 +57,20 @@ def git(args, cwd, check=True):
 
 def added_lines(repo, sha):
     """Yield (path, line) for every line this commit adds."""
-    out = git(["show", "--format=", "--unified=0", "--no-color", "--no-ext-diff", sha], repo)
-    path = None
+    # Diff against the first parent, so a merge shows what it brings in (git show would print
+    # a combined diff); a root commit diffs against the empty tree.
+    parents = git(["rev-list", "--parents", "-n", "1", sha], repo).split()[1:]
+    base = parents[0] if parents else "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+    out = git(["diff", "--unified=0", "--no-color", "--no-ext-diff", base, sha], repo)
+    path, in_header = None, False
     for ln in out.splitlines():
-        if ln.startswith("+++ "):
+        if ln.startswith("diff --git "):
+            path, in_header = None, True
+        elif in_header and ln.startswith("+++ "):
             path = ln[6:] if ln.startswith("+++ b/") else None
-        elif ln.startswith("+") and not ln.startswith("+++") and path:
+        elif ln.startswith("@@"):
+            in_header = False
+        elif not in_header and ln.startswith("+") and path:
             yield path, ln[1:]
 
 
@@ -66,7 +80,7 @@ def scan(repo, sha):
         if not CODE_EXT.search(path):
             continue
         for code, sev, rx in RULES:
-            if code == "PRINT_DEBUG" and (TESTY.search(path) or path.endswith(".py") and "scripts/" in path):
+            if code == "PRINT_DEBUG" and TESTY.search(path):
                 continue
             if rx.search(line):
                 found.append({"code": code, "severity": sev, "file": path, "line": line.strip()[:120]})
@@ -74,7 +88,23 @@ def scan(repo, sha):
     return found
 
 
-def verify(repo, rng, cmd, timeout, keep_going):
+def run_cmd(cmd, cwd, timeout):
+    """Run cmd in its own process group so a timeout kills test runners and servers it started."""
+    p = subprocess.Popen(cmd, shell=True, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,  # noqa: SEC-AUDITOR (runs the user's own --cmd / --setup, like git rebase -x)
+                         text=True, start_new_session=True)
+    try:
+        out, _ = p.communicate(timeout=timeout)
+        return p.returncode, out or ""
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(p.pid, signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            pass
+        p.communicate()
+        return None, ""
+
+
+def verify(repo, rng, cmd, timeout, keep_going, setup=None):
     shas = git(["rev-list", "--reverse", rng], repo).split()
     if not shas:
         raise ValueError(f"range {rng} has no commits")
@@ -91,20 +121,26 @@ def verify(repo, rng, cmd, timeout, keep_going):
                 commits.append(entry)
                 continue
             git(["checkout", "--detach", "--quiet", "--force", sha], wt)
-            git(["clean", "-fdxq"], wt)
+            git(["clean", "-fdq"], wt)  # keep ignored files (node_modules, .venv) between commits; --setup refreshes them
             t0 = time.monotonic()
-            try:
-                r = subprocess.run(cmd, shell=True, cwd=wt, capture_output=True, text=True, timeout=timeout)  # noqa: SEC-AUDITOR (runs the user's own --cmd, e.g. 'npm test && npm run lint', like git rebase -x)
-                entry["status"] = "PASS" if r.returncode == 0 else "FAIL"
-                entry["exit"] = r.returncode
-                if r.returncode:
-                    entry["findings"].insert(0, {"code": "BROKEN_COMMIT", "severity": "BLOCKER", "file": "",
-                                                 "line": f"`{cmd}` exited {r.returncode}"})
-                    entry["output_tail"] = ((r.stdout or "") + (r.stderr or "")).strip().splitlines()[-15:]
-            except subprocess.TimeoutExpired:
+            for step, code_fail in ((setup, "SETUP_FAILED"), (cmd, "BROKEN_COMMIT")):
+                if not step:
+                    continue
+                rc, out = run_cmd(step, wt, timeout)
+                if rc == 0:
+                    continue
                 entry["status"] = "FAIL"
-                entry["findings"].insert(0, {"code": "TIMEOUT", "severity": "BLOCKER", "file": "",
-                                             "line": f"`{cmd}` ran past {timeout}s"})
+                entry["exit"] = rc
+                if rc is None:
+                    entry["findings"].insert(0, {"code": "TIMEOUT", "severity": "BLOCKER", "file": "",
+                                                 "line": f"`{step}` ran past {timeout}s (process group killed)"})
+                else:
+                    entry["findings"].insert(0, {"code": code_fail, "severity": "BLOCKER", "file": "",
+                                                 "line": f"`{step}` exited {rc}"})
+                    entry["output_tail"] = out.strip().splitlines()[-15:]
+                break
+            else:
+                entry["status"] = "PASS"
             entry["seconds"] = round(time.monotonic() - t0, 1)
             if entry["status"] == "FAIL" and not keep_going:
                 stopped = True
@@ -140,7 +176,7 @@ def make_sample():
     commit({"calc.py": "def total(xs, tax=0.0):\n    return sum(xs) * tax\n",
             "spec/calc.test.js": "it.only('adds tax', () => {});\n"}, "feat: add tax to total")
     commit({"calc.py": "def total(xs, tax=0.0):\n    return sum(xs) * (1 + tax)\n"}, "fix: apply tax as a rate")
-    return d, f"{sys.executable} check.py"
+    return d, f"{shlex.quote(sys.executable)} check.py"
 
 
 def render(res):
@@ -164,6 +200,8 @@ def main(argv=None):
                                  epilog="Exit codes: 0 all pass, 2 warnings, 3 bad input, 4 a commit fails or a blocker was added.")
     ap.add_argument("--range", default="@{upstream}..HEAD", help="commits to verify (default @{upstream}..HEAD)")
     ap.add_argument("--cmd", help="command that must pass at every commit, e.g. 'npm test' or 'make check'")
+    ap.add_argument("--setup", help="command run before --cmd at every commit, e.g. 'npm ci' or 'pip install -e .': "
+                    "the worktree starts without node_modules, .venv or build caches")
     ap.add_argument("--repo", default=".", help="repository path (default .)")
     ap.add_argument("--timeout", type=int, default=900, help="seconds per commit (default 900)")
     ap.add_argument("--keep-going", action="store_true", help="run the command at every commit even after one fails")
@@ -178,7 +216,10 @@ def main(argv=None):
         if not a.cmd:
             raise ValueError("--cmd is required: the command that must pass at every commit")
         git(["rev-parse", "--git-dir"], a.repo)
-        res = verify(a.repo, a.range, a.cmd, a.timeout, a.keep_going)
+        if "@{upstream}" in a.range and subprocess.run(["git", "rev-parse", "--verify", "-q", "@{upstream}"], cwd=a.repo,
+                                                        capture_output=True).returncode != 0:
+            raise ValueError("this branch has no upstream; pass --range, e.g. --range origin/main..HEAD")
+        res = verify(a.repo, a.range, a.cmd, a.timeout, a.keep_going, a.setup)
     except (OSError, ValueError) as exc:
         print(json.dumps({"verdict": "BAD_INPUT", "error": str(exc)}) if a.output == "json" else f"BAD_INPUT: {exc}")
         return EXIT["BAD_INPUT"]

@@ -3998,5 +3998,17 @@
   ],
   "neg": "Write me a YouTube content strategy for the next quarter: which video topics, posting cadence and thumbnails will grow the channel.",
   "origin": "generated"
+ },
+ "engineering/metric-contracts/skills/metric-contracts": {
+  "name": "metric-contracts",
+  "plugin": "metric-contracts",
+  "pos": [
+   "Finance says October revenue was 412k and our Looker dashboard says 431k. Why don't the two numbers match? I can export both by day as CSV.",
+   "We're changing the revenue metric in our dbt semantic layer to include partially refunded orders. What does that break downstream, and do we need to version it?",
+   "Review the MetricFlow metric definitions in target/semantic_manifest.json: every metric needs an owner, and I suspect we have duplicates.",
+   "Product and marketing count active users differently and the numbers never agree. How do we get one metric definition everyone uses?"
+  ],
+  "neg": "Profile customers.csv for missing values and outliers before we train the churn model.",
+  "origin": "metric-contracts-build"
  }
 }

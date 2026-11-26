@@ -1,0 +1,43 @@
+{
+  "_comment": "Plain metric contract for tools without a dbt semantic layer (Cube, LookML, a BI tool, a spreadsheet). Schema: references/metric_contract_spec.md",
+  "metrics": [
+    {
+      "name": "net_revenue",
+      "description": "Paid order value in EUR, excluding VAT, refunds netted on the refund date.",
+      "owner": "@finance-analytics",
+      "version": "2.0",
+      "unit": "EUR",
+      "type": "simple",
+      "agg": "sum",
+      "expr": "amount_excl_vat - refunded_amount",
+      "filter": "status in ('paid', 'refunded') and is_test_account = false",
+      "time_dimension": "order_date (Europe/Berlin)",
+      "source_table": "analytics.fct_orders",
+      "consumers": ["Looker: Exec KPIs", "Board pack slide 4"]
+    },
+    {
+      "name": "paying_customers",
+      "description": "Distinct customers with at least one paid order in the period.",
+      "owner": "@growth",
+      "version": "1.0",
+      "type": "simple",
+      "agg": "count_distinct",
+      "expr": "customer_id",
+      "filter": "status = 'paid' and is_test_account = false",
+      "time_dimension": "order_date (Europe/Berlin)",
+      "source_table": "analytics.fct_orders",
+      "consumers": ["Looker: Growth weekly"]
+    },
+    {
+      "name": "revenue_per_paying_customer",
+      "description": "Net revenue divided by paying customers in the same period.",
+      "owner": "@growth",
+      "version": "1.0",
+      "unit": "EUR",
+      "type": "ratio",
+      "numerator": "net_revenue",
+      "denominator": "paying_customers",
+      "consumers": ["Looker: Growth weekly"]
+    }
+  ]
+}

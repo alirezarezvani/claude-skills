@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "October 2026 audit proposal #3 (metric-contracts), listed in the 2026-11-10 skill inventory; built on request 2026-11-26. dbt artifact shapes taken from semantic_manifest.json and manifest.json written by dbt-core 1.12.7 (dbt-duckdb 1.11.1), legacy and 1.12 YAML spec",
+    "build_pattern": "Three deterministic stdlib scripts with a shared loader over dbt's semantic_manifest.json or a plain contract JSON: 13-rule definition linter, base-vs-head diff with transitive impact, rename mapping and a version-bump gate, and a two-source reconciler that classifies the gap pattern; typed exit codes, no warehouse access",
+    "distinct_from": "data-quality-auditor (dataset values); senior-data-engineer (pipelines and dbt models); snowflake-development (warehouse SQL); product analytics skills (which metrics matter, not keeping their definitions consistent)"
+  }
+}

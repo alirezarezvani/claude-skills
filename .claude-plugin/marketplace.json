@@ -8,7 +8,7 @@
   "homepage": "https://github.com/alirezarezvani/claude-skills",
   "repository": "https://github.com/alirezarezvani/claude-skills",
   "metadata": {
-    "description": "434 production-ready skills across 21 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 871 Python tools, 975 reference guides, 137 agents (cs-* + personas), 188 slash commands across 121 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs-pm and /cs-product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
+    "description": "436 production-ready skills across 21 domains (engineering, engineering-core, marketing, product, c-level, c-level-agents, compliance-os, project management, RA/QM, business growth, finance, productivity, marketing top-level, research, research-ops, business-operations, commercial, markdown-html, loop-library, plus standards). 879 Python tools, 981 reference guides, 138 agents (cs-* + personas), 190 slash commands across 122 marketplace plugins. v2.11.2 vendors engineering/skillopt-sleep — a verbatim copy of microsoft/SkillOpt's stdlib-only skillopt_sleep engine + Claude Code plugin surface, giving a local agent a nightly gated self-improvement cycle (read-only session harvest -> mine -> offline replay -> held-out-gated CLAUDE.md/SKILL.md edits -> staged for explicit /skillopt-sleep adopt). productivity/fable-goal (unreleased, post-v2.11.1) converts a rambling description of a desired outcome into one polished /goal prompt for a fresh autonomous session. v2.11.1 turns product-team and project-management into agent-harness domains: fork-orchestrators with deterministic goal routers, a Jira MCP snapshot bridge (Kanban flow metrics + Monte Carlo forecasting), a delegation-governance loop gate, a continuous-discovery cadence tracker, and an Opportunity Solution Tree linter, with /cs-pm and /cs-product command families. v2.10.3 completes the markdown-html domain with md-slides — slide-deck converter (arrow-key / Space / PgDn / Home/End / P keyboard navigation + presenter mode with split-view clock + speaker notes + next-slide preview + URL-hash deep linking like #3 for direct slide jumps + @media print page-per-slide for browser-native PDF export). Reuses md-document's markdown parser; vanilla JS only (no framework runtime); Prism.js opt-in via --syntax. Joins md-review (v2.10.2 code-review converter), md-document (v2.10.1 long-form converter), and the v2.10.0 foundation (orchestrator + design-system). Compatible with Claude Code, Codex CLI, Gemini CLI, Cursor, OpenClaw, Hermes Agent, Mistral Vibe, and 5 more coding agents.",
     "version": "2.14.17"
   },
   "plugins": [
@@ -245,8 +245,8 @@
     {
       "name": "engineering-advanced-skills",
       "source": "./engineering",
-      "description": "48 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate, slo-architect, tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft, agent-run-forensics, i18n-localization, mobile-release, cloud-finops and game-universe-studio.",
-      "version": "2.14.23",
+      "description": "49 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate, slo-architect, tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft, agent-run-forensics, i18n-localization, mobile-release, cloud-finops, metric-contracts and game-universe-studio.",
+      "version": "2.14.24",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -2552,6 +2552,28 @@
         "cost-allocation",
         "anomaly-detection",
         "unit-economics"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "metric-contracts",
+      "source": "./engineering/metric-contracts",
+      "description": "Keep business metrics (revenue, active users, MRR, churn) to one owned, versioned definition and find out why two dashboards disagree. Three deterministic stdlib scripts over dbt's semantic_manifest.json (legacy and 1.12 spec) or a plain contract JSON: a 13-rule definition linter (owner, unresolved inputs, average of ratios, count vs count_distinct, summed balances, duplicate and conflicting definitions); a base-vs-head metric diff that classifies breaking, renamed, removed, affected and cosmetic changes, requires a version bump and names the dbt exposures to warn; and a two-source reconciler that names the pattern of the gap (time zone bucketing, unit or VAT scale, step change, late data, excluded subset, join fan-out). Ships cs-metric-steward agent, /cs-metric-check and /cs-metric-reconcile commands and 3 cited references. No warehouse access.",
+      "version": "2.14.23",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "metrics",
+        "semantic-layer",
+        "dbt",
+        "metricflow",
+        "data-contracts",
+        "analytics-engineering",
+        "kpi",
+        "reconciliation",
+        "breaking-changes",
+        "bi"
       ],
       "category": "development"
     },

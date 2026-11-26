@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **metric-contracts** (new plugin, engineering; also in engineering-advanced-skills): one owned, versioned definition per business metric, and a cause when two dashboards disagree. Reads dbt's `semantic_manifest.json` from `dbt parse` (legacy and 1.12 spec, verified against dbt-core 1.12.7 artifacts) or a plain contract JSON. `metric_contract_lint.py` checks 13 rules (no owner, unresolved inputs, average of ratios, count vs count_distinct, balances summed over time, duplicate and conflicting definitions, cycles); `metric_diff.py` classifies each change as breaking, renamed, removed, affected downstream or cosmetic, fails a breaking change without a version bump and names the dbt exposures to warn; `metric_reconcile.py` names the pattern of a gap between two sources (time zone bucketing, unit or VAT scale, constant offset, step change, late data, excluded subset, join fan-out). Ships cs-metric-steward, /cs-metric-check, /cs-metric-reconcile, a skill-router hook and 3 cited references.
+
 ### Changed
 - **Regulatory accuracy refresh** (ra-qm-skills, medical-device-software, cra-readiness, nis2-readiness, dora-readiness, compliance-team-eu-ai-act, chief-ai-officer-advisor), checked 26 Nov 2026; every change names its clause or source and its confidence level:
   - **medical-device-software / regulatory-affairs-head:** EN 62304 and EN IEC 81001-5-1 are now stated as *not cited* in the OJ under the MDR, checked through Implementing Decision 2026/2479 (9 Nov 2026), instead of "unconfirmed".

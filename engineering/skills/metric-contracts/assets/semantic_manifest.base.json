@@ -1,0 +1,528 @@
+{
+ "semantic_models": [
+  {
+   "name": "orders",
+   "defaults": {
+    "agg_time_dimension": "ordered_at"
+   },
+   "description": "",
+   "node_relation": {
+    "alias": "orders",
+    "schema_name": "main",
+    "database": "shop",
+    "relation_name": "\"shop\".\"main\".\"orders\""
+   },
+   "primary_entity": null,
+   "entities": [
+    {
+     "name": "order",
+     "description": "",
+     "type": "primary",
+     "role": null,
+     "expr": "order_id",
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    },
+    {
+     "name": "customer",
+     "description": "",
+     "type": "foreign",
+     "role": null,
+     "expr": "customer_id",
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    }
+   ],
+   "measures": [],
+   "dimensions": [
+    {
+     "name": "ordered_at",
+     "description": "",
+     "type": "time",
+     "datatype": null,
+     "is_partition": false,
+     "type_params": {
+      "time_granularity": "day",
+      "validity_params": null
+     },
+     "expr": null,
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    },
+    {
+     "name": "status",
+     "description": "",
+     "type": "categorical",
+     "datatype": null,
+     "is_partition": false,
+     "type_params": null,
+     "expr": null,
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    },
+    {
+     "name": "region",
+     "description": "",
+     "type": "categorical",
+     "datatype": null,
+     "is_partition": false,
+     "type_params": null,
+     "expr": null,
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    }
+   ],
+   "label": null,
+   "metadata": null,
+   "config": {
+    "meta": {}
+   }
+  },
+  {
+   "name": "accounts",
+   "defaults": {
+    "agg_time_dimension": "snapshot_date"
+   },
+   "description": "",
+   "node_relation": {
+    "alias": "accounts",
+    "schema_name": "main",
+    "database": "shop",
+    "relation_name": "\"shop\".\"main\".\"accounts\""
+   },
+   "primary_entity": null,
+   "entities": [
+    {
+     "name": "account",
+     "description": "",
+     "type": "primary",
+     "role": null,
+     "expr": "account_id",
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    }
+   ],
+   "measures": [],
+   "dimensions": [
+    {
+     "name": "snapshot_date",
+     "description": "",
+     "type": "time",
+     "datatype": null,
+     "is_partition": false,
+     "type_params": {
+      "time_granularity": "day",
+      "validity_params": null
+     },
+     "expr": null,
+     "metadata": null,
+     "label": null,
+     "config": {
+      "meta": {}
+     }
+    }
+   ],
+   "label": null,
+   "metadata": null,
+   "config": {
+    "meta": {}
+   }
+  }
+ ],
+ "metrics": [
+  {
+   "name": "revenue",
+   "description": "Revenue from paid orders, in EUR, net of tax.",
+   "type": "simple",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "amount",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": {
+     "semantic_model": "orders",
+     "agg": "sum",
+     "agg_params": {
+      "percentile": null,
+      "use_discrete_percentile": false,
+      "use_approximate_percentile": false
+     },
+     "agg_time_dimension": "ordered_at",
+     "non_additive_dimension": null
+    },
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": {
+    "where_filters": [
+     {
+      "where_sql_template": "{{ Dimension('order__status') }} = 'paid'"
+     }
+    ]
+   },
+   "metadata": null,
+   "label": "Revenue",
+   "config": {
+    "meta": {
+     "owner": "@finance-analytics",
+     "version": 1,
+     "unit": "EUR"
+    }
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "gross_revenue",
+   "description": "Revenue as the sales team reports it.",
+   "type": "simple",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "amount",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": {
+     "semantic_model": "orders",
+     "agg": "sum",
+     "agg_params": {
+      "percentile": null,
+      "use_discrete_percentile": false,
+      "use_approximate_percentile": false
+     },
+     "agg_time_dimension": "ordered_at",
+     "non_additive_dimension": null
+    },
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": {
+    "where_filters": [
+     {
+      "where_sql_template": "{{ Dimension('order__status') }} = 'paid'"
+     }
+    ]
+   },
+   "metadata": null,
+   "label": "Gross revenue",
+   "config": {
+    "meta": {
+     "owner": "@sales-ops"
+    }
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "order_count",
+   "description": "Number of orders placed.",
+   "type": "simple",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "order_id",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": {
+     "semantic_model": "orders",
+     "agg": "count",
+     "agg_params": {
+      "percentile": null,
+      "use_discrete_percentile": false,
+      "use_approximate_percentile": false
+     },
+     "agg_time_dimension": "ordered_at",
+     "non_additive_dimension": null
+    },
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": null,
+   "metadata": null,
+   "label": "Orders",
+   "config": {
+    "meta": {
+     "owner": "@finance-analytics",
+     "version": 1
+    }
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "customers",
+   "description": "Customers who ordered.",
+   "type": "simple",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "customer_id",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": {
+     "semantic_model": "orders",
+     "agg": "count",
+     "agg_params": {
+      "percentile": null,
+      "use_discrete_percentile": false,
+      "use_approximate_percentile": false
+     },
+     "agg_time_dimension": "ordered_at",
+     "non_additive_dimension": null
+    },
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": null,
+   "metadata": null,
+   "label": "Customers",
+   "config": {
+    "meta": {
+     "owner": "@growth",
+     "version": 1
+    }
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "avg_discount_rate",
+   "description": "Average discount rate.",
+   "type": "simple",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "discount / amount",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": {
+     "semantic_model": "orders",
+     "agg": "average",
+     "agg_params": {
+      "percentile": null,
+      "use_discrete_percentile": false,
+      "use_approximate_percentile": false
+     },
+     "agg_time_dimension": "ordered_at",
+     "non_additive_dimension": null
+    },
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": null,
+   "metadata": null,
+   "label": "Avg discount rate",
+   "config": {
+    "meta": {
+     "owner": "@growth"
+    }
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "account_balance",
+   "description": "",
+   "type": "simple",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "balance",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": {
+     "semantic_model": "accounts",
+     "agg": "sum",
+     "agg_params": {
+      "percentile": null,
+      "use_discrete_percentile": false,
+      "use_approximate_percentile": false
+     },
+     "agg_time_dimension": "snapshot_date",
+     "non_additive_dimension": null
+    },
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": null,
+   "metadata": null,
+   "label": "Account balance",
+   "config": {
+    "meta": {}
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "aov",
+   "description": "Average order value.",
+   "type": "ratio",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": {
+     "name": "revenue",
+     "filter": null,
+     "alias": null,
+     "offset_window": null,
+     "offset_to_grain": null
+    },
+    "denominator": {
+     "name": "order_count",
+     "filter": null,
+     "alias": null,
+     "offset_window": null,
+     "offset_to_grain": null
+    },
+    "expr": null,
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": null,
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": null,
+   "metadata": null,
+   "label": "AOV",
+   "config": {
+    "meta": {
+     "owner": "@finance-analytics",
+     "version": 1
+    }
+   },
+   "time_granularity": null
+  },
+  {
+   "name": "revenue_per_customer",
+   "description": "Revenue per ordering customer.",
+   "type": "derived",
+   "datatype": null,
+   "type_params": {
+    "measure": null,
+    "numerator": null,
+    "denominator": null,
+    "expr": "revenue / customers",
+    "window": null,
+    "grain_to_date": null,
+    "metrics": [
+     {
+      "name": "revenue",
+      "filter": null,
+      "alias": null,
+      "offset_window": null,
+      "offset_to_grain": null
+     },
+     {
+      "name": "customers",
+      "filter": null,
+      "alias": null,
+      "offset_window": null,
+      "offset_to_grain": null
+     }
+    ],
+    "conversion_type_params": null,
+    "cumulative_type_params": null,
+    "input_measures": [],
+    "metric_aggregation_params": null,
+    "join_to_timespine": false,
+    "fill_nulls_with": null,
+    "is_private": false
+   },
+   "filter": null,
+   "metadata": null,
+   "label": "Revenue per customer",
+   "config": {
+    "meta": {
+     "owner": "@growth",
+     "version": 1
+    }
+   },
+   "time_granularity": null
+  }
+ ],
+ "project_configuration": {
+  "time_spine_table_configurations": [],
+  "metadata": null,
+  "dsi_package_version": {
+   "major_version": "0",
+   "minor_version": "214",
+   "patch_version": "0"
+  },
+  "time_spines": [
+   {
+    "node_relation": {
+     "alias": "metricflow_time_spine",
+     "schema_name": "main",
+     "database": "shop",
+     "relation_name": "\"shop\".\"main\".\"metricflow_time_spine\""
+    },
+    "primary_column": {
+     "name": "date_day",
+     "time_granularity": "day"
+    },
+    "custom_granularities": []
+   }
+  ]
+ },
+ "saved_queries": []
+}

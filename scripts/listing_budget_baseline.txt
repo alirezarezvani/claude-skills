@@ -51,7 +51,7 @@ docker-development 239
 dora-readiness 594
 dossier 266
 email-pair 478
-engineering-advanced-skills 12200
+engineering-advanced-skills 12608
 engineering-skills 9841
 executive-mentor 1114
 fable-goal 246
@@ -82,6 +82,7 @@ medical-device-software 475
 meetings 435
 memory-engineering 283
 meta-research 295
+metric-contracts 408
 mobile-release 568
 monetize 460
 month-end-close 500

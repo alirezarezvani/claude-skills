@@ -113,10 +113,17 @@ def locked(path: Path, wait: float = 10.0):
                     if pid:
                         os.kill(pid, 0)
                 except ProcessLookupError:
-                    lock.unlink(missing_ok=True)  # holder is gone: stale lock
+                    # holder is gone: claim the stale lock by atomic rename so two waiters
+                    # cannot both remove it; only the one whose rename succeeds retries
+                    grave = lock.with_name(f"{lock.name}.stale.{os.getpid()}")
+                    try:
+                        os.replace(lock, grave)
+                        grave.unlink(missing_ok=True)
+                    except FileNotFoundError:
+                        pass
                     continue
                 except (ValueError, OSError):
-                    pass
+                    pass  # empty PID: the holder is between open and write, so the lock is live
             if time.monotonic() > deadline:
                 raise GateError(f"{lock} is held by another run; if no other run is active, delete it", 3)
             time.sleep(0.1)
@@ -140,6 +147,7 @@ def cmd_quote(args) -> dict:
     if brief.get("upgrade_allowed") is not True:
         raise GateError("the brief does not say upgrade_allowed: true; ask the user before any generation")
     path = Path(args.ledger)
+    archive = None
     if path.exists():
         old = load(path)
         live = [sid for sid, s in old["shots"].items() if s["state"] in ("reserved", "unknown")]
@@ -151,8 +159,8 @@ def cmd_quote(args) -> dict:
             raise GateError(f"{path} is a live batch ({old['state']}; sent: {', '.join(sent) or 'none'}). Re-quoting "
                             f"would reset it. Pass --new-batch to archive it and start another batch")
         if sent or old["state"] != "quoted":
+            # archived only after every check below passes, so a refused re-quote keeps the live ledger
             archive = path.with_name(f"{path.stem}.{now().strftime('%Y%m%dT%H%M%SZ')}{path.suffix}")
-            os.replace(path, archive)
     ids = [r["id"] for r in req["requests"]]
     if args.only:
         wanted = [i.strip() for i in args.only.split(",") if i.strip()]
@@ -201,6 +209,9 @@ def cmd_quote(args) -> dict:
         "approval_sentence": f"yes, spend {total:g} credits on {len(shots)} shot(s) "
                              f"({', '.join(shots)}) with {req.get('provider')} {req.get('model')}",
     }
+    if archive is not None:
+        ledger["previous_batch"] = archive.name
+        os.replace(path, archive)
     log(ledger, "quoted", total=total, cap=cap)
     save(path, ledger)
     return ledger
@@ -392,6 +403,11 @@ def main() -> int:
     args = ap.parse_args()
     if args.sample or not args.cmd:
         return run_sample()
+    for name in ("charged", "credits", "balance", "cap"):
+        v = getattr(args, name, None)
+        if v is not None and v < 0:
+            print(f"error: --{name} cannot be negative", file=sys.stderr)
+            return 2
     if args.cmd == "record" and not args.release_failed and not args.status:
         print("error: record needs --status or --release-failed", file=sys.stderr)
         return 2

@@ -86,6 +86,10 @@ The drift thresholds (framing r 0.55 / 0.30, palette 0.25) are calibrated on syn
   a new batch (`quote --new-batch`, which archives the old ledger) and a new yes.
 - Never re-quote over a live ledger; the gate refuses it, and refuses a new
   batch while any shot is sent with no known outcome.
+- Record `failed --charged 0` only when the provider rejected the call
+  before creating a job (a validation error with no job id). If a job id
+  exists, take the charge from the provider's balance or transactions, never
+  assume 0.
 - A retry released long after the yes hits the quote window in `reserve` and
   needs a new batch; that is deliberate.
 - `--only` and `--max-shots` pick the batch before pricing, so shots left out

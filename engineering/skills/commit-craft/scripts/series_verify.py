@@ -5,7 +5,7 @@ A series that only passes at its tip breaks `git bisect` and every revert of a s
 commit. This checks out each commit of --range, oldest first, in a throwaway detached
 worktree (your working tree, index and stash are never touched), runs --cmd there, and
 reports the first commit that fails. The worktree starts from the commit alone, without
-node_modules, .venv or build caches, so pass --setup (npm ci, pip install -e .) for a
+node_modules, .venv or build caches, so pass --setup with your install step (e.g. npm ci) for a
 project that needs installed dependencies, or every commit fails for the wrong reason.
 On a timeout the whole process group is killed, so no test runner or server is left behind. It also scans what each commit adds for debug
 leftovers that pass tests but should never land.
@@ -200,7 +200,7 @@ def main(argv=None):
                                  epilog="Exit codes: 0 all pass, 2 warnings, 3 bad input, 4 a commit fails or a blocker was added.")
     ap.add_argument("--range", default="@{upstream}..HEAD", help="commits to verify (default @{upstream}..HEAD)")
     ap.add_argument("--cmd", help="command that must pass at every commit, e.g. 'npm test' or 'make check'")
-    ap.add_argument("--setup", help="command run before --cmd at every commit, e.g. 'npm ci' or 'pip install -e .': "
+    ap.add_argument("--setup", help="command run before --cmd at every commit, e.g. 'npm ci' (your project's install step): "
                     "the worktree starts without node_modules, .venv or build caches")
     ap.add_argument("--repo", default=".", help="repository path (default .)")
     ap.add_argument("--timeout", type=int, default=900, help="seconds per commit (default 900)")

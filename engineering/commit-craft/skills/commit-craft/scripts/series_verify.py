@@ -45,7 +45,7 @@ EXIT = {"CLEAN": 0, "FINDINGS": 2, "BAD_INPUT": 3, "BLOCKED": 4}
 CODE_EXT = re.compile(r"\.(py|js|jsx|ts|tsx|mjs|cjs|rb|go|rs|php|java|kt|swift|vue|svelte)$")
 TESTY = re.compile(r"(^|/)(tests?|__tests__|spec|specs)/|[._-](test|spec)\.\w+$|(^|/)test_[^/]+\.py$|_test\.go$")
 RULES = [
-    ("FOCUSED_TEST", "BLOCKER", re.compile(r"\b(it|describe|test|context)\.only\s*\(|^\s*f(it|describe)\s*\(|@focus\b|\.only\(\s*['\"`]")),
+    ("FOCUSED_TEST", "BLOCKER", re.compile(r"\b(it|describe|test|context)\.only\s*\(|^\s*f(it|describe)\s*\(|@focus\b")),
     ("DEBUGGER_LEFT", "BLOCKER", re.compile(r"\bbreakpoint\(\s*\)|\bpdb\.set_trace\(|\bipdb\.set_trace\(|^\s*debugger\s*;?\s*$|\bbinding\.(pry|irb)\b|^\s*byebug\s*$")),
     ("SKIP_ADDED", "WARN", re.compile(r"@pytest\.mark\.skip\b|@unittest\.skip\b|\b(it|describe|test)\.skip\s*\(|^\s*x(it|describe)\s*\(|\bt\.Skip\(")),
     ("PRINT_DEBUG", "WARN", re.compile(r"^\s*console\.(log|debug)\(|^\s*print\(|\bdbg!\(|\bvar_dump\(")),
@@ -112,11 +112,11 @@ def verify(repo, rng, cmd, timeout, keep_going, setup=None, strict=False):
     shas = git(["rev-list", "--reverse", rng], repo).split()
     if not shas:
         raise ValueError(f"range {rng} has no commits")
+    commits, stopped = [], False
     tmp = tempfile.mkdtemp(prefix="series-verify-")
     wt = os.path.join(tmp, "wt")
-    git(["worktree", "add", "--detach", "--quiet", wt, shas[0]], repo)
-    commits, stopped = [], False
     try:
+        git(["worktree", "add", "--detach", "--quiet", wt, shas[0]], repo)
         for sha in shas:
             subject = git(["log", "-1", "--format=%s", sha], repo).strip()
             entry = {"sha": sha[:12], "subject": subject, "findings": scan(repo, sha)}
@@ -135,6 +135,7 @@ def verify(repo, rng, cmd, timeout, keep_going, setup=None, strict=False):
                     continue
                 entry["status"] = "FAIL"
                 entry["exit"] = rc
+                entry["failed_step"] = "setup" if step is setup and setup != cmd else "cmd"
                 if rc is None:
                     entry["findings"].insert(0, {"code": "TIMEOUT", "severity": "BLOCKER", "file": "",
                                                  "line": f"`{step}` ran past {timeout}s (process group killed)"})
@@ -155,8 +156,10 @@ def verify(repo, rng, cmd, timeout, keep_going, setup=None, strict=False):
     allf = [f for c in commits for f in c["findings"]]
     verdict = ("BLOCKED" if any(f["severity"] == "BLOCKER" for f in allf)
                else "FINDINGS" if allf else "CLEAN")
-    first = next((c["sha"] for c in commits if c.get("status") == "FAIL"), None)
+    first_c = next((c for c in commits if c.get("status") == "FAIL"), None)
+    first = first_c["sha"] if first_c else None
     return {"verdict": verdict, "range": rng, "cmd": cmd, "commits": commits, "first_failing": first,
+            "first_failing_step": first_c.get("failed_step") if first_c else None,
             "passed": sum(1 for c in commits if c.get("status") == "PASS"), "total": len(commits)}
 
 
@@ -193,7 +196,10 @@ def render(res):
             lines.append(f"          [{f['severity']}] {f['code']}{where} {f['line']}")
         for t in c.get("output_tail", [])[-5:]:
             lines.append(f"          | {t}")
-    if res["first_failing"]:
+    if res["first_failing"] and res.get("first_failing_step") == "setup":
+        lines.append(f"  --setup failed at {res['first_failing']}: check the environment (network, toolchain, "
+                     f"lockfile) before blaming the code; the commit's own test command never ran.")
+    elif res["first_failing"]:
         lines.append(f"  First failing commit {res['first_failing']}: fix it there (git rebase -i, edit) "
                      f"so every commit builds, then run this again.")
     return "\n".join(lines)

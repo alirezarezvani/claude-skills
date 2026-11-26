@@ -9,13 +9,13 @@ argument-hint: "<semantic_manifest.json|contract.json> [--base base.json] [--man
 Lint the definitions in `$ARGUMENTS`:
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_contract_lint.py --input <file>
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_contract_lint.py --input <file>
 ```
 
 If a base version was given, also diff it:
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_diff.py --base <base> --head <file> [--manifest <manifest.json>]
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_diff.py --base <base> --head <file> [--manifest <manifest.json>]
 ```
 
 dbt users without an artifact: run `dbt parse` (no warehouse query) and use `target/semantic_manifest.json`; for the base, parse the main branch in a worktree.

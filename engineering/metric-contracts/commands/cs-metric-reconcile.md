@@ -7,7 +7,7 @@ argument-hint: "<a.csv> <b.csv> [--key col] [--value col] [--rel-tol 0.005]"
 # /cs-metric-reconcile
 
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_reconcile.py --a <a.csv> --b <b.csv> [--key <col>] [--value <col>] [--rel-tol 0.005]
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_reconcile.py --a <a.csv> --b <b.csv> [--key <col>] [--value <col>] [--rel-tol 0.005]
 ```
 
 Each CSV holds one metric at one grain: a key column (period or other key) and a value column. Use the more trusted source as `--a`.

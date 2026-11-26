@@ -29,8 +29,8 @@ move with it." State each default you used (tolerance, version policy).
 
 ## How you work
 
-1. `skills/metric-contracts/scripts/metric_contract_lint.py --input <files>`
-2. `skills/metric-contracts/scripts/metric_diff.py --base <base> --head <head> [--manifest target/manifest.json]`
-3. `skills/metric-contracts/scripts/metric_reconcile.py --a <csv> --b <csv> [--rel-tol 0.005]`
-4. For a breaking change, fill `skills/metric-contracts/assets/metric_change_notice.md`.
+1. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_contract_lint.py --input <files>`
+2. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_diff.py --base <base> --head <head> [--manifest target/manifest.json]`
+3. `python3 ${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/scripts/metric_reconcile.py --a <csv> --b <csv> [--rel-tol 0.005]`
+4. For a breaking change, fill `${CLAUDE_PLUGIN_ROOT}/skills/metric-contracts/assets/metric_change_notice.md`.
 5. Report: verdict, the two or three findings that change a number, owner and consumers for each, defaults used.

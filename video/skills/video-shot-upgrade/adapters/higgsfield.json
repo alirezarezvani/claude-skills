@@ -1,0 +1,39 @@
+{
+  "schema": "adapter.v1",
+  "provider": "higgsfield",
+  "display_name": "Higgsfield MCP",
+  "verified_on": "2026-11-26",
+  "verified_how": "tool schemas read live; models_explore list, balance and estimate_video_cost called (none of them spends credits)",
+  "tools": {
+    "catalog": "models_explore",
+    "quote": "estimate_video_cost",
+    "generate": "generate_video",
+    "wait": "jobs_wait",
+    "upload": "media_upload",
+    "confirm_upload": "media_confirm",
+    "balance": "balance"
+  },
+  "tool_match": "suffix",
+  "catalog_get": {"action": "get", "model_id": "<model>"},
+  "quote_returns": {"credits": "cost.credits", "quote_ref": "quote_ref"},
+  "generate_from_quote": {"params": {"ref": "<quote_ref>"}},
+  "params": {
+    "model": "model",
+    "prompt": "prompt",
+    "duration": "duration",
+    "aspect_ratio": "aspect_ratio",
+    "media_list": "medias",
+    "media_role_start": "start_image",
+    "media_role_end": "end_image",
+    "silent": [{"name": "generate_audio", "value": false}, {"name": "sound", "value": "off"}, {"name": "sound", "value": false}]
+  },
+  "duration_integer": true,
+  "rules": [
+    "Quote with estimate_video_cost. generate_video no longer accepts get_cost (changed after 2026-11-17).",
+    "Generate with params {\"ref\": quote_ref} so exactly the quoted request runs.",
+    "Never set use_unlim. If a call returns unlim_choice, nothing was submitted: put the question to the user.",
+    "medias take media ids from media_upload + media_confirm, never local paths or https URLs.",
+    "On a transport timeout the job may exist and may be charged: never resubmit; poll jobs_wait with the job id."
+  ],
+  "data_flow": "Shot prompt, duration, aspect ratio and keyframe stills go to Higgsfield under the user's own account. Nothing goes anywhere else."
+}

@@ -17,9 +17,10 @@ brief ──► beats ──► code animatic ──► review ──► (option
 | `video-director` | `brief_gate.py` | Orchestrates the pipeline; derives aspect and VO word budget; asks open questions; refuses out-of-scope briefs and AI likeness without consent |
 | `video-beat-board` | `beat_board.py` | Times beats (150 wpm VO, 180 wpm reading) and refuses a script that does not fit, naming the words to cut; emits `scene.v1` |
 | `video-animatic` | `timeline_compiler.py`, `frame_renderer.py`, `motion_linter.py`, `shot_manifest.py`, `scene_model.py` | Compiles `scene.v1` to a seekable HTML animatic, renders it frame-exact with Playwright, blocks unreadable or flashing cuts, builds the provider-neutral upgrade manifest |
+| `video-shot-upgrade` | `provider_adapter.py`, `budget_gate.py`, `drift_check.py` | Maps upgrade shots onto your own video MCP (Higgsfield adapter first, model limits read from its catalog at run time), keeps a spend ledger (quote, your yes to the exact total, one reserved call per shot, never a resubmitted timeout), and checks each generated plate against the animatic's framing |
 | `video-conform` | `conform.py` | Mixes VO and music, normalizes loudness (AES TD1008 / EBU R 128), writes or burns captions, QC-checks the MP4 |
 
-Agent: `cs-video-director`. Commands: `/cs-video`, `/cs-animatic`, `/cs-conform`.
+Agent: `cs-video-director`. Commands: `/cs-video`, `/cs-animatic`, `/cs-upgrade-shots`, `/cs-conform`.
 
 ## Quick start
 
@@ -42,14 +43,18 @@ Open `film/animatic.html` in a browser to play and scrub it.
 
 ## Generated footage, credits and data flow
 
-Release 1 makes every film without any generation service. Shots marked
+Every film can be made without any generation service. Shots marked
 `upgrade: true` stay greybox placeholders until you choose to upgrade them.
 
-When you do, the plugin uses a video-generation MCP **you** connected
-(Higgsfield, ElevenLabs, Adobe, Canva or another) under **your** account and
-credits. Before anything is generated it gets the provider's price for every
-shot, shows the total against the brief's `budget_credits`, and waits for your
-yes. It never retries a timed-out job on its own.
+When you do, `video-shot-upgrade` uses a video-generation MCP **you**
+connected under **your** account and credits. Higgsfield has an adapter
+(verified 2026-11-26); other providers get one by copying
+`adapters/template.json`. Before anything is generated it gets the provider's
+price for every shot, shows the total against the lower of the brief's
+`budget_credits` and your cap, and waits for your yes to that exact total. The
+ledger reserves one call per shot and never resubmits a timed-out job, which
+the provider may already have charged. `drift_check.py` then compares every
+plate with the animatic and only plates that hold go into the final cut.
 
 What leaves your machine, and only on an upgrade: the shot prompt, its
 duration and aspect ratio, and any keyframe stills, sent to that provider.
@@ -58,9 +63,9 @@ AI-generated where you publish it.
 
 ## Roadmap
 
-- **Release 2:** budget gate, drift check (does a generated plate keep the
-  animatic's framing?), first provider adapter, after a measured test on a
-  real 8-shot brief.
+- **Release 2 (this release):** spend ledger, drift check, Higgsfield adapter.
+  Drift thresholds are calibrated on synthetic plates so far; a capped credit
+  test on real plates is next and may move them.
 - **Release 3:** compositing presets for code layers over plates, more
   adapters, a shot bible for multi-character continuity.
 

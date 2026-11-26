@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **video-shot-upgrade** (video-studio, release 2): upgrades approved animatic shots to generated footage through the user's own video MCP. `provider_adapter.py` maps `shots.v1` onto an adapter file (Higgsfield first, `template.json` for the next provider) and the model's limits as the provider's catalog returns them at run time, snapping durations and reporting paid-and-trimmed seconds. `budget_gate.py` keeps a `spend.v1` ledger: every shot needs a quote, the total must fit the lower of the brief's `budget_credits` and `--cap` and the balance, the user's yes must name the quoted total, each generate call is reserved right before it runs, and a timed-out call is never resubmitted. `drift_check.py` compares each plate's first and last frames with the animatic keyframes (framing, palette, duration, aspect) and writes `scene.final.json` with only the plates that hold. New `/cs-upgrade-shots` command.
+
+### Fixed
+- **video-director** (video-studio): the upgrade protocol told agents to quote Higgsfield with `generate_video` `get_cost: true`. Higgsfield moved quotes to `estimate_video_cost` after 2026-11-17, so that call could start a paid job; the director and agent now hand over to `video-shot-upgrade`, whose adapter names the live tools.
+
 ## [2.14.17] - 2026-11-26 — app-store-optimization Google Play title limit fix
 
 One community bug fix. The app-store-optimization tools validated Google Play titles against the old 50-character

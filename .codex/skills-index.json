@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 433,
+  "total_skills": 434,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -2602,6 +2602,12 @@
       "source": "../../video/skills/video-director",
       "category": "video",
       "description": "Use whenever the user asks you to make, plan or produce a whole video - a launch teaser, promo, explainer, trailer, social clip or short film - from an idea, a brief, a changelog or data. Start here before animating anything; brief_gate.py fixes length, aspect and voice-over budget, then it runs beat board, code animatic, optional AI shots and conform to a finished MP4."
+    },
+    {
+      "name": "video-shot-upgrade",
+      "source": "../../video/skills/video-shot-upgrade",
+      "category": "video",
+      "description": "Use when turning approved animatic shots into AI-generated footage through the user's own video MCP (e.g. Higgsfield), or to price them first. Quotes each shot, needs a yes to the total, never resubmits a timeout, and checks plates against the animatic."
     }
   ],
   "categories": {
@@ -2691,7 +2697,7 @@
       "description": "Enterprise Research Operations skills (v2.9.0): clinical study design, R&D program finance, market research methodology, product/user research"
     },
     "video": {
-      "count": 4,
+      "count": 5,
       "source": "../../video",
       "description": "Video studio: brief gate, beat board, code animatic (scene.v1 -> seekable HTML -> frame-exact MP4), optional AI shot upgrades through the user's own MCP connector, and checked conform"
     }

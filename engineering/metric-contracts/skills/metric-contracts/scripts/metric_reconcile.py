@@ -134,7 +134,8 @@ def diagnose(a, b, rel, abs_tol):
     if constant == "SCALE":
         f = statistics.mean(ratios)
         g = f if f >= 1 else 1 / f
-        name = next((n for x, n in KNOWN_FACTORS if abs(g - x) / x < 0.01), "a unit, currency or FX difference")
+        # 0.2%: tight enough that 1.19 and 1.2 do not both match; list every candidate that does
+        name = " or ".join(n for x, n in KNOWN_FACTORS if abs(g - x) / x < 0.002) or "a unit, currency or FX difference"
         patterns.append(("SCALE", f"b is {f:.4g} x a on every non-zero period, consistent with {name}",
                          "compare the unit, currency and tax treatment of the two sources"))
     elif constant == "OFFSET":
@@ -150,8 +151,8 @@ def diagnose(a, b, rel, abs_tol):
     if not constant and len(bad) >= 2 and (all(r["diff"] < 0 for r in bad) or all(r["diff"] > 0 for r in bad)):
         lower = all(r["diff"] < 0 for r in bad)
         shares = [abs(r["rel"]) for r in bad if r["rel"] is not None]
-        patterns.append(("SUBSET", f"b is {'lower' if lower else 'higher'} on all {len(bad)} differing periods, "
-                         f"by {min(shares):.1%} to {max(shares):.1%}",
+        by = f", by {min(shares):.1%} to {max(shares):.1%}" if shares else ""
+        patterns.append(("SUBSET", f"b is {'lower' if lower else 'higher'} on all {len(bad)} differing periods{by}",
                          "one side excludes a subset (refunds, cancelled, test or internal accounts, a region)"
                          if lower else "b may double count through a join fan-out, or a looser filter"))
     if not [p for p in patterns if p[0] != "COVERAGE"]:

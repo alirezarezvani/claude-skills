@@ -10,7 +10,8 @@ project that needs installed dependencies, or every commit fails for the wrong r
 Ignored files (node_modules, build output) are kept between commits for speed, so a stale
 artifact from one commit can make the next pass; --strict wipes them at every commit
 (git clean -x) and needs --setup to rebuild. On a timeout the whole process group is
-killed, so no test runner or server is left behind. It also scans what each commit adds for debug
+killed, so no test runner or server is left behind. The last lines of a failing command's
+output are printed as-is: if your tests log secrets, they appear in the report. It also scans what each commit adds for debug
 leftovers that pass tests but should never land.
 
 Findings
@@ -64,13 +65,13 @@ def added_lines(repo, sha):
     # a combined diff); a root commit diffs against the empty tree.
     parents = git(["rev-list", "--parents", "-n", "1", sha], repo).split()[1:]
     base = parents[0] if parents else "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
-    out = git(["diff", "--unified=0", "--no-color", "--no-ext-diff", base, sha], repo)
+    out = git(["-c", "core.quotepath=off", "diff", "--unified=0", "--no-color", "--no-ext-diff", base, sha], repo)
     path, in_header = None, False
     for ln in out.splitlines():
         if ln.startswith("diff --git "):
             path, in_header = None, True
         elif in_header and ln.startswith("+++ "):
-            path = ln[6:] if ln.startswith("+++ b/") else None
+            path = ln[6:].rstrip("\t") if ln.startswith("+++ b/") else None
         elif ln.startswith("@@"):
             in_header = False
         elif not in_header and ln.startswith("+") and path:

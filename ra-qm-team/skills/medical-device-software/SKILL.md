@@ -57,7 +57,7 @@ empty input; `lifecycle_gap_check.py --list --class X` prints the required ids.
 - **Unclassified is class C.** Unknown inputs never round down.
 - **Severity decides the class, not probability.** Only verified external controls lower it.
 - **Class A still tests.** Software system testing (5.7) applies to every class since A1.
-- **Mark the confidence.** 🟢 primary text checked · 🟡 secondary sources agree · 🔴 not verified. EN 62304 and EN IEC 81001-5-1 are not confirmed as cited in the OJ under the MDR; never claim presumption of conformity without checking the current list.
+- **Mark the confidence.** 🟢 primary text checked · 🟡 secondary sources agree · 🔴 not verified. EN 62304 and EN IEC 81001-5-1 are not cited in the OJ under the MDR (🟡, checked through Decision 2026/2479 of 9 Nov 2026); never claim presumption of conformity from them, and re-check the list when a new amending decision appears.
 - **Never sign or submit.** The scripts prepare evidence; the manufacturer's named people approve the class, the release and the submission.
 
 ## Scripts

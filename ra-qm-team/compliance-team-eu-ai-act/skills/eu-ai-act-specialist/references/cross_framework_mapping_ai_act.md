@@ -43,7 +43,7 @@ The point: minimize duplicate work. EU AI Act compliance for high-risk systems r
 **EU AI Act requirement:** training, validation, test datasets meet quality criteria including:
 - Article 10(3): "relevant, sufficiently representative, free of errors, complete"
 - Article 10(2)(d): documentation of data origin and provenance
-- Article 10(5): processing of special categories permissible if strictly necessary for bias detection
+- Article 4a (replaced Article 10(5), deleted by Regulation (EU) 2026/1744): processing of special categories permissible, exceptionally, for bias detection and correction under conditions (a)-(f)
 
 **Best reuse:**
 - ISO 42001 Annex A.7.2 data management + A.7.3 data quality + A.7.4 data provenance + A.7.5 data preparation: direct overlap
@@ -51,7 +51,7 @@ The point: minimize duplicate work. EU AI Act compliance for high-risk systems r
 - ISO 8000 + DAMA-DMBOK 2: data-quality framework
 
 **Gap to fill:**
-- Article 10(5) bias-detection-specific processing of special categories — explicit DPIA + ISO 23894 risk treatment combination
+- Article 4a bias-detection-specific processing of special categories — explicit DPIA + ISO 23894 risk treatment combination
 
 ### Article 11 — Technical Documentation (Annex IV)
 
@@ -168,7 +168,7 @@ A mature NIST AI RMF program covers ~70% of EU AI Act high-risk system obligatio
 The two regulations interact heavily. Recital 10 + Article 10 of the AI Act + EDPB Opinion 28/2024 (Dec 2024) establish:
 
 1. **AI Act does not modify GDPR.** GDPR continues to apply in full to personal data processing in AI systems.
-2. **Article 10(5) AI Act** permits processing of special categories of personal data strictly necessary for bias detection — but only with safeguards (e.g., effective anonymisation after use).
+2. **Article 4a AI Act** (added by Regulation (EU) 2026/1744, replacing the deleted Article 10(5)) permits exceptional processing of special categories of personal data for bias detection and correction, only under its conditions (a)-(f). Since 2026/1744 it also covers providers and deployers of non-high-risk systems and models, without making bias detection mandatory. GDPR Article 9 still applies in full.
 3. **DPIA + FRIA overlap (Article 27 AI Act).** Both can be integrated into a single impact-assessment artefact for public-sector deployers of high-risk AI systems.
 4. **Right to explanation (Article 86 AI Act + Article 22 GDPR).** Article 86 strengthens individual rights for high-risk AI decisions.
 

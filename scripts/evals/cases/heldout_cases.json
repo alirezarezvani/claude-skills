@@ -3928,5 +3928,15 @@
   ],
   "neg": "Write me a YouTube content strategy for the next quarter: which video topics, posting cadence and thumbnails will grow the channel.",
   "origin": "generated"
+ },
+ "engineering/metric-contracts/skills/metric-contracts": {
+  "name": "metric-contracts",
+  "plugin": "metric-contracts",
+  "pos": [
+   "finance says we did $4.2M MRR last month but the growth dashboard says $3.9M. can you figure out why they don't match?",
+   "I've got a PR that changes the `active_users` metric in our MetricFlow config, switching the filter from last_login_at to any event in the trailing 28 days. Can you check target/semantic_manifest.json and tell me which downstream metrics and saved queries would break or shift?"
+  ],
+  "neg": "Write a dbt model that calculates monthly recurring revenue from the subscriptions table, with a incremental materialization and tests for not-null and uniqueness on the subscription_id.",
+  "origin": "trigger-gate-draft-2026-11-26"
  }
 }

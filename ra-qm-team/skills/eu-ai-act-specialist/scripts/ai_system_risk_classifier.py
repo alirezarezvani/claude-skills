@@ -142,6 +142,11 @@ ARTICLE_5_PRACTICES = {
     "emotion_recognition_in_workplace_or_education": "Article 5(1)(f) — Emotion recognition in workplace and educational institutions",
     "biometric_categorisation_sensitive": "Article 5(1)(g) — Biometric categorisation by sensitive attributes",
     "real_time_remote_biometric_id_public_law_enforcement": "Article 5(1)(h) — Real-time remote biometric ID in publicly accessible spaces for law enforcement",
+    # Added by Regulation (EU) 2026/1744; apply from 2 Dec 2026. Article 5(1a):
+    # a provider is caught when the generation is the intended purpose or a
+    # reasonably foreseeable, reproducible outcome without adequate safeguards.
+    "non_consensual_intimate_imagery": "Article 5(1)(ba) — Generating realistic intimate imagery of an identifiable person without explicit consent (from 2 Dec 2026)",
+    "child_sexual_abuse_material": "Article 5(1)(bb) — Generating child sexual abuse material per Directive 2011/93/EU (from 2 Dec 2026)",
 }
 
 # Annex III high-risk categories (the 8 — Article 6(2))

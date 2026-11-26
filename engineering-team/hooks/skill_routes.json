@@ -11,11 +11,14 @@
         "\\b(jest|pytest|vitest|junit|mocha)\\b.{0,40}\\b(tests?|mock\\w*|fixtures?)\\b",
         "\\bmock(ing)?\\b.{0,30}\\b(dependency|api|database|db|service|module|fetch|http|client)\\b",
         "\\b(raise|increase|improve|boost)\\b.{0,20}\\b(test )?coverage\\b",
-        "\\bcoverage (gaps?|report)\\b"
+        "\\bcoverage (gaps?|report)\\b",
+        "\\btests? first\\b",
+        "\\bwrite tests\\b.{0,30}\\bbefore\\b"
       ],
       "not": [
         "\\b(playwright|cypress|e2e|end[- ]to[- ]end|page|endpoints?|form)\\b",
-        "\\b(failing|fails|error|broken)\\b"
+        "\\b(failing|fails|broken|flaky|error)\\b(?!\\s+tests?\\s+first)",
+        "\\bprove\\b.{0,30}\\bwith a test\\b"
       ]
     },
     {
@@ -27,8 +30,11 @@
         "\\bcve-\\d{4}-\\d+\\b",
         "\\b(patch|fix|remediat\\w*|upgrade)\\b.{0,30}\\b(vulnerable|vulnerabilit(y|ies)|cves?)\\b",
         "\\b(npm|yarn|pnpm) audit\\b|\\bpip-audit\\b|\\bdependabot\\b",
-        "\\b(soc ?2|pci[- ]?dss|hipaa)\\b.{0,60}\\b(app|code|codebase|api)\\b",
-        "\\bharden(ing)?\\b.{0,30}\\b(server|app|container|api|nginx|docker)\\b"
+        "\\b(soc ?2|pci[- ]?dss|hipaa)\\b.{0,60}\\b(app|code|codebase|api|repo(s|sitor(y|ies))?|service)\\b",
+        "\\bharden(ing)?\\b.{0,30}\\b(server|app|container|api|nginx|docker)\\b",
+        "\\bcves?\\b.{0,40}\\b(alert|dependenc\\w*|package|library|libraries)\\b",
+        "\\b(critical|high)[- ](severity )?(vuln\\w*|cve)\\b",
+        "\\bhard-?coded (secrets?|credentials|api keys?|passwords?)\\b|\\bsecrets? (scan\\w*|in (the )?(code|repo\\w*))\\b"
       ],
       "not": [
         "\\b(iso 27001|stride|threat model\\w*|pen(etration)? test\\w*|access review|okta)\\b"
@@ -43,10 +49,11 @@
             "\\b(gcp|google cloud|cloud run|gke|cloud functions?|cloud sql|bigquery|app engine|firestore|pub/?sub|cloud storage bucket)\\b"
           ],
           [
-            "\\b(host\\w*|deploy\\w*|run|set ?up|architect\\w*|design|migrat\\w*|move|bill|costs?|pricing|expensive|scal\\w*|cheaper)\\b"
+            "\\b(host\\w*|deploy\\w*|run|set (\\w+ )?up|moving off|move off|architect\\w*|design|migrat\\w*|move|bill|costs?|pricing|expensive|scal\\w*|cheaper)\\b"
           ]
         ]
-      ]
+      ],
+      "any": []
     },
     {
       "skill": "senior-devops",
@@ -55,12 +62,17 @@
         "\\b(deploy(ment)? pipeline|release pipeline)\\b",
         "\\b(set up|provision|create|stand up)\\b.{0,30}\\b(infrastructure|infra)\\b.{0,40}\\b(terraform|pulumi|cloudformation|bicep)\\b",
         "\\b(write|create|add|fix|optimi[sz]e)\\b.{0,20}\\b(a |the |our )?dockerfile\\b(?!-)",
-        "\\b(deploy|ship|release)\\b.{0,40}\\b(to|on)\\b.{0,10}\\b(aws|azure|kubernetes|k8s|ecs|eks|aks)\\b",
+        "\\b(deploy\\w*|ship\\w*|release\\w*|roll\\w* out)\\b.{0,40}\\b(to|on)\\b.{0,15}\\b(aws|azure|kubernetes|k8s|ecs|eks|aks|fargate|ec2)\\b",
         "\\b(blue[- ]green|canary) (deploy\\w*|release\\w*)\\b",
-        "\\binfrastructure as code\\b"
+        "\\binfrastructure as code\\b",
+        "\\bbuild\\w*,? (push\\w*,? )?(and|then) deploy\\w*\\b",
+        "\\b(terraform|pulumi|cloudformation|cdk)\\b.{0,60}\\b(ecs|eks|fargate|alb|vpc|gke|aks|ec2|lambda|cloud run)\\b",
+        "\\bmulti-?stage dockerfile\\b",
+        "\\bdeploy\\w*\\b.{0,20}\\b(docker|container\\w*)\\b"
       ],
       "not": [
-        "\\b(playwright|wcag|security groups?|iam roles?|mlflow|modules?|hook)\\b"
+        "\\b(playwright|wcag|security groups?|iam roles?|mlflow|modules?|hook)\\b",
+        "\\b(lint\\w*|ci for|unit tests|jest|run(s)? (the )?tests)\\b"
       ]
     },
     {
@@ -71,11 +83,16 @@
         "\\b(react|next\\.?js|vue|svelte|tailwind|tsx|jsx|frontend|front-end)\\b.{0,60}\\b(slow|sluggish|re-?render\\w*|lighthouse|lcp|inp|janky)\\b",
         "\\b(lighthouse score|core web vitals|largest contentful paint|cumulative layout shift)\\b",
         "\\b(new|create|build|scaffold|generate)\\b.{0,25}\\b(react|next\\.?js|vue|tsx)\\b.{0,25}\\b(component|app|page|project)\\b",
-        "\\b(review|audit)\\b.{0,30}\\b(react|next\\.?js|frontend|front-end|tsx)\\b"
+        "\\b(review|audit)\\b.{0,30}\\b(react|next\\.?js|frontend|front-end|tsx)\\b",
+        "\\bbundle\\b.{0,30}\\b\\d+(\\.\\d+)? ?(mb|kb)\\b",
+        "\\bcode[- ]splitting\\b",
+        "\\b(build|create|write|make)\\b.{0,30}\\bcomponent\\b.{0,40}\\b(react|typescript|tsx|tailwind|next\\.?js|vue)\\b",
+        "\\b(react|typescript|tsx|tailwind|next\\.?js|vue)\\b.{0,30}\\bcomponent\\b.{0,40}\\b(with|that)\\b"
       ],
       "not": [
         "\\blanding page\\b",
-        "\\bagents?\\b"
+        "\\bagents?\\b",
+        "\\b(keep (editing|trying|tweaking)|one at a time|revert(ing)? the|looping on)\\b"
       ]
     },
     {
@@ -87,10 +104,13 @@
         "\\b(database|db|schema|postgres\\w*|sql)\\b.{0,30}\\bmigrations?\\b",
         "\\bmigrations?\\b.{0,40}\\b(postgres\\w*|schema|table|column)\\b",
         "\\bload[- ]?test\\w*\\b",
-        "\\b(slow|n\\+1)\\s+quer(y|ies)\\b"
+        "\\b(slow|n\\+1)\\s+quer(y|ies)\\b",
+        "\\b(need|want|build|create|write|add|scaffold|make)\\b.{0,30}\\b(rest|graphql|crud)\\b.{0,15}\\b(api|endpoints?|service)\\b",
+        "\\b(jwt|oauth2?|refresh tokens?)\\b.{0,50}\\b(api|endpoints?|backend|server|express|fastapi|django|login|sessions?)\\b"
       ],
       "not": [
-        "\\b(pen(etration)? test\\w*|authori[sz]ation to test|token|prompt|llm)\\b"
+        "\\b(pen(etration)? test\\w*|authori[sz](ation|ed) to test|tokens? (cost|usage|budget|count)|prompt|llm)\\b",
+        "\\bpr #?\\d+\\b|\\breview\\b.{0,20}\\b(pr|diff|pull request)\\b|\\b(write|add) tests\\b"
       ]
     },
     {
@@ -102,7 +122,13 @@
         "\\bfeature engineering\\b",
         "\\b(which|what) features\\b.{0,40}\\bmodel\\b",
         "\\b(auc|roc curve|precision[- ]recall|f1[- ]score|confusion matrix|calibration curve)\\b",
-        "\\b(difference[- ]in[- ]differences|propensity score|uplift model\\w*|synthetic control)\\b"
+        "\\b(difference[- ]in[- ]differences|propensity score|uplift model\\w*|synthetic control)\\b",
+        "\\bdid (our|the|my|this) (new )?\\w+( \\w+)? (actually )?(increase|improve|drive|cause|reduce|lift|hurt)\\b",
+        "\\b(churn|propensity)\\b.{0,15}\\b(model|prediction)\\b",
+        "\\b(train|build|fit)\\b.{0,20}\\b(a |an )?(model|classifier|regression|xgboost|random forest)\\b.{0,60}\\b(predict\\w*|churn|tabular|csv|features?|dataset)\\b"
+      ],
+      "not": [
+        "\\b(null rates?|duplicate \\w+|data quality)\\b"
       ]
     }
   ]

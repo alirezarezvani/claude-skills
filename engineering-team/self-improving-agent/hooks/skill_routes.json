@@ -13,7 +13,17 @@
         "\\bstop (making|repeating) (that|this|the same) mistake\\b",
         "\\bsave (this|that) to (memory|auto-?memory)\\b",
         "\\bnote (this |that |it )?for later\\b",
-        "\\bsave (that|this|it)\\b.{0,60}\\b(next (time|session)|rediscover|future sessions?)\\b"
+        "\\bsave (that|this|it)\\b.{0,60}\\b(next (time|session)|rediscover|future sessions?)\\b",
+        "\\bdon'?t forget\\s*[:\\-—]",
+        "\\b(note|reminder) for (future|next|later) (sessions?|time)\\b",
+        "\\bmake sure (that |this |it )?sticks\\b",
+        "\\byou('ve| have)? (gotten|got) (this|that|it) wrong\\b.{0,40}\\b(twice|again|before|\\d+ times)\\b",
+        "\\bsave (this|that|it) so (you|we)\\b",
+        "\\b(across|between|in future) sessions\\b",
+        "\\bfrom now on,? (always|never|use|don'?t|do not)\\b"
+      ],
+      "not": [
+        "\\b(don'?t forget|remember) to\\b"
       ]
     }
   ]

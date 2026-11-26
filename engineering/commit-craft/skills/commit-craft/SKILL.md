@@ -31,7 +31,7 @@ python scripts/secret_gate.py                     # blocks before the commit exi
 python scripts/message_linter.py -m "<message>" --staged && git commit -m "<message>"
 # 4 - Before push: the whole series, and proof every commit builds
 python scripts/message_linter.py --range @{upstream}..HEAD
-git rebase -x "<test command>" @{upstream}
+python scripts/series_verify.py --setup "npm ci" --cmd "npm test"   # every commit, throwaway worktree
 ```
 
 **Step 1** groups files: manifest with lockfile, pure moves, whitespace-only
@@ -52,6 +52,20 @@ body. It enforces Conventional Commits only if the repo already uses them.
 **Step 4** also blocks fixup!/squash!/WIP commits and warns on duplicates and
 revert pairs. Install `assets/hooks/` to run steps 2 to 4 on every commit and push.
 
+`series_verify.py` runs `--setup` and `--cmd` through the shell at every commit, so
+pass only a command the user gave or approved. The commits are code too: `npm ci` runs
+their install scripts. On someone else's branch, run it without network access
+(`unshare -n -- python scripts/series_verify.py ...`). Merge commits are scanned
+against their first parent only, and a failing command's last output lines are shown
+unredacted.
+
+`series_verify.py` runs `--setup` and `--cmd` through the shell at every commit, so
+pass only a command the user gave or approved. The commits are code too: `npm ci` runs
+their install scripts. On someone else's branch, run it without network access
+(`unshare -n -- python scripts/series_verify.py ...`). Merge commits are scanned
+against their first parent only, and a failing command's last output lines are shown
+unredacted.
+
 ## Hard rules
 
 - **Never `git add -A` or `git add .` on a mixed tree.** Stage each group by name or by hunk.
@@ -68,6 +82,7 @@ revert pairs. Install `assets/hooks/` to run steps 2 to 4 on every commit and pu
 | `scripts/commit_planner.py` | Groups, order, staging commands, MOVE/MIXED/SIZE flags | 0 one commit · 2 split · 3 bad input · 4 secrets file held back |
 | `scripts/secret_gate.py` | Staged or range scan for credentials, sensitive files, conflict markers | 0 · 2 warnings · 3 · 4 blocked |
 | `scripts/message_linter.py` | One message (`-m`, `--message-file`) or a series (`--range`) | 0 · 2 warnings · 3 · 4 blocked |
+| `scripts/series_verify.py` | Runs `--setup` (install deps) then `--cmd` at every commit of `--range` in a detached worktree; names the first broken commit; flags added `.only`, `breakpoint()`, skips and debug prints | 0 all pass · 2 warnings · 3 · 4 a commit fails |
 
 All support `--help`, `--sample` and `--output json`.
 

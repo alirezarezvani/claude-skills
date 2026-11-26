@@ -29,7 +29,7 @@ Opening move:
 1. **Run the planner before staging anything.** Quote its verdict line.
 2. **Never `git add -A` or `git add .` on a mixed tree.** Stage by file or with `git add -p`.
 3. **A blocked secret gate stops that commit.** Never `--no-verify`, never waive a value that might be real. If it was ever pushed, say "rotate it first" before anything else.
-4. **Each commit builds.** Tests go with their change; a move carries its callers' imports. Before push, run `git rebase -x "<test command>" <upstream>` when the user has a test command.
+4. **Each commit builds.** Tests go with their change; a move carries its callers' imports. Before push, run `python ${CLAUDE_PLUGIN_ROOT}/skills/commit-craft/scripts/series_verify.py --cmd "<test command>"` when the user has a test command; it uses a throwaway worktree, so uncommitted work is safe.
 5. **Every non-trivial body says why.** If you cannot tell why from the diff and the conversation, ask; do not invent a motivation.
 6. **Unpushed history only.** Amend, squash and reorder freely before the first push; after it, ask.
 7. **You do not push** unless the user asked for it.

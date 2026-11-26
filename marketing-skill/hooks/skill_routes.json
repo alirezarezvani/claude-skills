@@ -27,7 +27,9 @@
       "why": "focused editing passes on existing marketing copy",
       "any": [
         "\\b(proofread\\w*|copy[- ]?edit\\w*)\\b",
-        "\\b(go through|edit)\\b.{0,60}\\bin passes\\b"
+        "\\b(go through|edit)\\b.{0,60}\\bin passes\\b",
+        "\\b(fix|catch)\\b.{0,25}\\b(typos|grammar|capitali[sz]ation|punctuation)\\b",
+        "\\bcut (it|this|them)\\b.{0,15}\\b(under|below|down to|to) \\d[\\d,]* words\\b"
       ],
       "pairs": [
         [
@@ -48,7 +50,10 @@
       "why": "ethical persuasion and behavioral science for pages, offers and campaigns",
       "any": [
         "\\bwhy (do |don'?t )?(people|customers|users|buyers|visitors)\\b.{0,25}\\b(buy|convert|churn|sign up|purchase|hesitate|abandon|bounce)\\b",
-        "\\b(pricing|marketing|buyer|consumer|conversion|persuasion) psychology\\b"
+        "\\b(pricing|marketing|buyer|consumer|conversion|persuasion) psychology\\b",
+        "\\bwhy (do |don'?t )?(people|customers|users|buyers|visitors)\\b.{0,25}\\b(bail|drop off|leave|quit|stall|hesitate|abandon)\\b",
+        "\\bpsycholog\\w*\\b.{0,40}\\b(checkout|pricing|page|offer|funnel|sign ?up|conversion|buy\\w*)\\b",
+        "\\b(checkout|pricing|page|offer|funnel|sign ?up|conversion)\\b.{0,60}\\bpsycholog\\w*\\b"
       ],
       "pairs": [
         [

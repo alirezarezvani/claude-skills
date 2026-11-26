@@ -22,6 +22,8 @@ separates topics an article can deflect from topics only a product fix will.
 ## Workflow
 
 ```bash
+# 0 - Is the promise itself sound? (before it goes in a contract, and before step 1)
+python scripts/sla_policy_lint.py --policy sla_policy.json --tickets tickets.csv
 # 1 - Are we keeping the promise? What breaches next?
 python scripts/sla_check.py --tickets tickets.csv --policy sla_policy.json
 # 2 - How many people, when?
@@ -69,6 +71,7 @@ arrives after hours or on a weekend starts at the next opening).
 
 | Script | Role | Exit codes |
 |---|---|---|
+| `scripts/sla_policy_lint.py` | The policy itself: inverted priorities, resolution before first response, urgent on a business clock, missing timezone or hours, stale holidays, ticket priorities the policy lacks | 0 clean · 2 findings · 3 bad input · 4 blocked |
 | `scripts/sla_check.py` | Attainment, p50/p90, breached and at-risk open tickets, backlog age, reopens | 0 ok · 2 at risk / below target · 3 bad input · 4 open breaches |
 | `scripts/staffing_plan.py` | Agents on line and scheduled per interval, roster gap | 0 ok · 2 roster short · 3 bad input |
 | `scripts/deflection_finder.py` | Pareto of contact reasons with DEFLECT / AUTOMATE / FIX_ROOT_CAUSE / REVIEW | 0 none · 2 candidates · 3 bad input |

@@ -1,0 +1,275 @@
+{
+ "cto-advisor": {
+  "name": "cto-advisor",
+  "pos": [
+   "should we just rewrite our monolith or keep patching it?",
+   "we're 6 engineers and about to raise a Series A, how do I structure hiring for the next 18 months?",
+   "Our deploy frequency is once every two weeks, lead time for changes is ~9 days, change failure rate 22%, MTTR about 6 hours. Where are we weak and what should I fix first as head of engineering?",
+   "We're choosing between staying on Rails 6 with a 400k-line codebase that has 30% test coverage, or moving new services to Go. Team is 14 devs, mostly Ruby. Which bet makes sense for the next 3 years and how do I justify it to the board?"
+  ],
+  "neg": [
+   "fix this N+1 query in my Rails controller: `@posts.each { |p| p.author.name }`",
+   "write a job description for a senior frontend engineer at a fintech startup"
+  ]
+ },
+ "remember": {
+  "name": "remember",
+  "pos": [
+   "don't forget: we use pnpm in this repo, not npm",
+   "note for next time \u2014 the staging DB is reset every Sunday at 02:00 UTC, so don't trust data older than that",
+   "You keep running the full test suite with `pytest` which takes 20 minutes. From now on in every session, use `pytest -m 'not slow'` unless I ask otherwise. Keep that in mind going forward.",
+   "Important finding, keep it for future sessions: the flaky failure in `test_checkout_flow` is caused by the Redis mock not resetting between tests \u2014 fixture `redis_client` in conftest.py needs `scope='function'`, not `'module'`."
+  ],
+  "neg": [
+   "what does Python's functools.lru_cache remember between calls?",
+   "explain how React's useMemo memoizes values"
+  ]
+ },
+ "gcp-cloud-architect": {
+  "name": "gcp-cloud-architect",
+  "pos": [
+   "cheapest way to host a small Flask app on google cloud?",
+   "why is my GCP bill $3k this month, it was $800 last month",
+   "We're moving a Django app with Postgres 14 (200GB) and a Celery worker from AWS EC2/RDS to Google Cloud. Should the app go on Cloud Run or GKE, and how do we migrate the database with minimal downtime?",
+   "Our BigQuery costs jumped after analysts started running `SELECT * FROM events WHERE DATE(ts) = '2026-11-01'` on a 4TB table. How should I restructure the table and queries to cut spend?"
+  ],
+  "neg": [
+   "write a Terraform module for an AWS Lambda behind API Gateway",
+   "how do I use the Google Sheets API from Python to append a row?"
+  ]
+ },
+ "senior-backend": {
+  "name": "senior-backend",
+  "pos": [
+   "add JWT login to my express api",
+   "my /orders endpoint takes 4 seconds, help",
+   "This Postgres query is slow on a 5M-row table, how do I speed it up?\n```sql\nSELECT * FROM orders o JOIN users u ON u.id = o.user_id WHERE o.status = 'pending' AND o.created_at > now() - interval '7 days' ORDER BY o.created_at DESC;\n```",
+   "I need to add a `tenant_id` column to the `invoices` table (12M rows, Postgres 15) and backfill it from `accounts.tenant_id` without locking writes. Write the migration and a FastAPI endpoint `GET /tenants/{id}/invoices` with pagination."
+  ],
+  "neg": [
+   "center this div horizontally and vertically with flexbox",
+   "set up a GitHub Actions workflow that lints my Markdown files"
+  ]
+ },
+ "senior-data-scientist": {
+  "name": "senior-data-scientist",
+  "pos": [
+   "is my a/b test significant? control 1200/24000 conversions, variant 1310/23800",
+   "how long should I run an experiment to detect a 2% lift on a 5% baseline?",
+   "We changed the onboarding flow on Oct 1 but didn't randomize. Weekly signups went from ~3,400 to ~3,900, and a competitor shut down Oct 5. How can I estimate how much of the lift our change caused?",
+   "My churn classifier gets AUC 0.91 on test but precision at the top 5% is only 0.18. Classes are 4% positive. Here's my eval:\n```\naccuracy 0.96, recall 0.31, f1 0.22\n```\nIs this model actually good, and what features from tables `sessions(user_id, ts, duration)` and `billing(user_id, plan, failed_payments)` should I engineer?"
+  ],
+  "neg": [
+   "build an Airflow DAG that loads CSVs from S3 into Snowflake nightly",
+   "make a bar chart dashboard of monthly revenue in Looker Studio"
+  ]
+ },
+ "senior-devops": {
+  "name": "senior-devops",
+  "pos": [
+   "need a github actions workflow that builds my node app and deploys it to ECS on every push to main",
+   "can you write a Dockerfile for this python flask app? it uses requirements.txt and runs on port 5000 with gunicorn",
+   "Write Terraform for a GCP setup: one Cloud Run service pulling from Artifact Registry, a Cloud SQL Postgres 15 instance in europe-west1, and a service account with only cloudsql.client. Here's my current main.tf:\n\nprovider \"google\" {\n  project = \"acme-prod\"\n  region  = \"europe-west1\"\n}\n\nresource \"google_artifact_registry_repository\" \"app\" {\n  repository_id = \"app\"\n  format        = \"DOCKER\"\n}",
+   "Our Azure DevOps pipeline takes 25 minutes and redeploys everything even when only one service changed. Here's the yaml:\n\ntrigger:\n  - main\npool:\n  vmImage: ubuntu-latest\nsteps:\n  - script: docker build -t api ./api && docker build -t web ./web && docker build -t worker ./worker\n  - script: az acr login -n acmeacr && docker push acmeacr.azurecr.io/api && docker push acmeacr.azurecr.io/web && docker push acmeacr.azurecr.io/worker\n  - script: kubectl apply -f k8s/\n\nCan you make it build and deploy only changed services and add caching?"
+  ],
+  "neg": [
+   "what's the difference between a process and a thread in linux, explain like I'm a junior dev",
+   "My Python script that parses a CSV of 2 million rows runs out of memory on my laptop, how do I stream it instead of loading it all with pandas.read_csv?"
+  ]
+ },
+ "senior-frontend": {
+  "name": "senior-frontend",
+  "pos": [
+   "make me a responsive navbar component in react with tailwind, hamburger menu on mobile",
+   "our next.js landing page takes like 6 seconds to load on mobile, where do I even start?",
+   "Review this component, it re-renders constantly and feels laggy when typing:\n\nexport function Search({ items }: { items: Item[] }) {\n  const [q, setQ] = useState('');\n  const filtered = items.filter(i => i.name.toLowerCase().includes(q.toLowerCase()));\n  const onSelect = (id: string) => console.log(id);\n  return (\n    <div>\n      <input value={q} onChange={e => setQ(e.target.value)} />\n      {filtered.map(i => <Row key={Math.random()} item={i} onSelect={onSelect} />)}\n    </div>\n  );\n}",
+   "Our production JS bundle went from 280KB to 1.4MB gzipped after the last sprint. webpack-bundle-analyzer shows moment.js with all locales, the full lodash, and @mui/icons-material imported as `import * as Icons from '@mui/icons-material'`. How do I cut this down without breaking things in our Next.js 14 app router project?"
+  ],
+  "neg": [
+   "Write a REST endpoint in Express that returns paginated orders from Postgres with limit and offset",
+   "Can you pick a color palette and font pairing for a calm meditation app brand? Just the design direction, no code"
+  ]
+ },
+ "senior-secops": {
+  "name": "senior-secops",
+  "pos": [
+   "is it safe to store JWTs in localStorage or should I switch to cookies?",
+   "npm audit says lodash 4.17.15 has a prototype pollution CVE, how do I patch it when it's pulled in by three other packages?",
+   "Can you check this login handler for security issues before we ship?\n\napp.post('/login', async (req, res) => {\n  const user = await db.query(`SELECT * FROM users WHERE email = '${req.body.email}'`);\n  if (user && user.password === req.body.password) {\n    res.cookie('session', user.id);\n    return res.json({ ok: true, token: process.env.ADMIN_KEY });\n  }\n  res.status(401).send('Invalid password for ' + req.body.email);\n});",
+   "We store patient appointment notes in a Postgres DB behind a Django API on AWS, and we're getting our first SOC 2 Type I audit in March plus a hospital customer asking about HIPAA. Encryption at rest is on for RDS, but we log full request bodies to CloudWatch and devs share one IAM user. What gaps should we fix first and what evidence will the auditor want?"
+  ],
+  "neg": [
+   "Write a Python script that generates a strong random password of 20 characters with symbols",
+   "My React app's login form doesn't show an error message when the API returns 401, the spinner just keeps spinning"
+  ]
+ },
+ "tdd-guide": {
+  "name": "tdd-guide",
+  "pos": [
+   "write pytest tests for this:\n\ndef slugify(s):\n    return '-'.join(s.lower().strip().split())",
+   "how do I mock axios in jest so my service test doesn't hit the real API?",
+   "I want to build a shopping cart discount function test-first in TypeScript with Vitest. Rules: 10% off orders over $100, a 'SAVE20' code gives 20% but can't stack with the 10%, and totals never go below 0. Start with failing tests and walk me through red-green-refactor.",
+   "Our coverage report shows this Java class at 41% and CI requires 80%. Can you write the missing JUnit 5 tests?\n\npublic class RateLimiter {\n  private final int max; private final Map<String, Integer> hits = new HashMap<>();\n  public RateLimiter(int max) { if (max <= 0) throw new IllegalArgumentException(); this.max = max; }\n  public boolean allow(String key) {\n    int n = hits.getOrDefault(key, 0);\n    if (n >= max) return false;\n    hits.put(key, n + 1);\n    return true;\n  }\n  public void reset(String key) { hits.remove(key); }\n}"
+  ],
+  "neg": [
+   "Our Playwright e2e suite is flaky in CI, tests time out randomly on the checkout page, what's going on with the GitHub Actions runner?",
+   "Explain the difference between unit, integration and end-to-end testing for a product manager presentation"
+  ]
+ },
+ "agenthub": {
+  "name": "agenthub",
+  "pos": [
+   "try this optimization 5 different ways at once and keep whichever is fastest",
+   "give me 4 versions of this headline in parallel and tell me which one's strongest: 'Ship faster with fewer bugs'",
+   "This function is our hot path and takes ~120ms per call on 10k items. Spin up several independent attempts to speed it up in separate branches, benchmark each with `pytest benchmarks/test_dedupe.py --benchmark-only`, and merge only the winner:\n\ndef dedupe(records):\n    out = []\n    for r in records:\n        if r not in out:\n            out.append(r)\n    return out",
+   "I need research on why B2B SaaS churn spikes in month 3. Have a few separate agents each take a different angle (pricing, onboarding, product usage data, competitor switching), run them side by side, then compare and rank what they found into one summary."
+  ],
+  "neg": [
+   "How do I use git worktree to check out two branches at the same time on my machine?",
+   "Set up a Celery worker pool in Python so I can process 10,000 image resize jobs concurrently"
+  ]
+ },
+ "autoresearch-agent": {
+  "name": "autoresearch-agent",
+  "pos": [
+   "can you keep tweaking this until the benchmark gets faster? `npm run bench` prints ops/sec",
+   "get our test pass rate up on prompts/classifier.txt, try stuff and keep what helps",
+   "Our webpack bundle is 1.4MB. Run `npm run build && du -b dist/main.js` as the score, try changes to src/index.ts and webpack.config.js one at a time, revert anything that makes it bigger, and stop after 20 attempts or under 900KB.",
+   "I have a system prompt in agent/prompt.md and an eval script `python eval.py --prompt agent/prompt.md` that outputs a score 0-100 (currently 61). Iterate on the prompt wording automatically, keep only edits that raise the score, and log each attempt with its result."
+  ],
+  "neg": [
+   "Why is this function slow? `def find(xs, t):\n    for i in range(len(xs)):\n        if xs[i] == t: return i`",
+   "Set up a GitHub Actions workflow that runs our benchmark suite on every PR and posts the numbers as a comment."
+  ]
+ },
+ "minimalist": {
+  "name": "minimalist",
+  "pos": [
+   "this feels way too complicated, can you cut it down?",
+   "do we really need lodash for this? just want it simpler",
+   "Here's my config loader, it's 80 lines with a factory and strategy pattern for reading one JSON file:\n```ts\nclass ConfigLoaderFactory { static create(type: string): ConfigLoader { if (type==='json') return new JsonConfigLoader(); throw new Error('unsupported'); } }\nabstract class ConfigLoader { abstract load(p: string): Promise<Record<string, unknown>>; }\nclass JsonConfigLoader extends ConfigLoader { async load(p: string) { const fs = await import('fs/promises'); return JSON.parse(await fs.readFile(p,'utf8')); } }\n```\nRewrite it as small as possible without losing behaviour.",
+   "I need to add date formatting to a Python CLI. Teammate suggested pulling in arrow and pendulum. Before I add deps, write the smallest version that prints dates like '2026-11-26 14:05 UTC' and parses ISO strings."
+  ],
+  "neg": [
+   "Minify this JS for production so the file size goes down: `function add(a, b) { return a + b; }`",
+   "Explain what YAGNI means and give me a few examples from real projects."
+  ]
+ },
+ "codebase-onboarding": {
+  "name": "codebase-onboarding",
+  "pos": [
+   "just joined this team, where do I even start in this repo?",
+   "how is this project laid out? give me the big picture",
+   "I'm a new backend dev on this Django monorepo with apps/, services/, libs/ and a docker-compose.yml. Walk me through how a request flows from the API down to the database and which files I should read first.",
+   "Write a ONBOARDING.md for this repo for new hires: main modules, how they talk to each other, how to run it locally, and key conventions. It's a Go service with cmd/, internal/, pkg/ and a Makefile."
+  ],
+  "neg": [
+   "Draft a 30-60-90 day onboarding plan for a new engineering manager joining our company.",
+   "Generate API reference docs from the docstrings in src/api/ and publish them with mkdocs."
+  ]
+ },
+ "self-eval": {
+  "name": "self-eval",
+  "pos": [
+   "be honest, how good was what you just did?",
+   "rate your last answer out of 10, no sugarcoating",
+   "You just refactored the payment module and said all tests pass. Give me a critical review of that work: how complete it was, how good the quality is, and argue against yourself where you might be overrating it.",
+   "We finished the migration from REST to GraphQL in this session. Score the outcome and the process separately, list what you'd mark down, and tell me what a skeptical reviewer would say."
+  ],
+  "neg": [
+   "Review this PR diff for bugs:\n```diff\n- if (user) return user.name\n+ return user.name\n```",
+   "Write a self-evaluation for my annual performance review as a senior engineer."
+  ]
+ },
+ "tech-debt-tracker": {
+  "name": "tech-debt-tracker",
+  "pos": [
+   "what should we refactor first in here?",
+   "how messy is this codebase honestly?",
+   "We have a 2-week cleanup sprint next month for our 8-year-old PHP app. Scan the repo, list the worst debt (dead code, duplicated logic, outdated deps, missing tests), rank it by risk and effort, and give me a backlog.",
+   "Set up a tech debt register for this repo: a markdown table with item, location, severity, estimated cost, and owner, seeded from what you find in src/. We want to re-check it every quarter."
+  ],
+  "neg": [
+   "Refactor this function to use early returns:\n```js\nfunction f(x){ if(x){ if(x.a){ return x.a } else { return null } } else { return null } }\n```",
+   "Help me make a plan to pay off my credit card debt and student loans."
+  ]
+ },
+ "content-humanizer": {
+  "name": "content-humanizer",
+  "pos": [
+   "this reads like a robot wrote it, can you make it sound like a person? \"In today's fast-paced digital landscape, our innovative solution empowers teams to unlock their full potential and drive meaningful results.\"",
+   "ugh my linkedin post screams chatgpt, fix it pls",
+   "Rewrite this About section so it sounds like us, a two-person coffee roastery in Leeds that swears a bit and loves bad puns: \"We are passionate about delivering exceptional coffee experiences. Our commitment to quality ensures that every cup exceeds expectations. Discover the difference today.\"",
+   "My newsletter intro feels flat and samey, every sentence is the same length and there are no real examples. Here it is: \"Productivity is important. Many people struggle with it. There are many tools available. Choosing the right one can be difficult. In this issue, we will explore some options.\" Give it some rhythm and personality, I'm a former teacher writing for freelancers."
+  ],
+  "neg": [
+   "Proofread this email for typos and grammar only, don't change the tone: \"Hi Sam, thank's for the quick reply, I'll send the the contract tomorow.\"",
+   "Can you build a tool that detects whether an essay was written by AI and gives it a probability score?"
+  ]
+ },
+ "copy-editing": {
+  "name": "copy-editing",
+  "pos": [
+   "tighten this up? \"We are really very excited to be able to announce that our brand new app is now finally available for download.\"",
+   "clean up the wording on my pricing page headline pls",
+   "Shorten this Facebook ad to under 125 characters without losing the offer: \"Tired of spending hours on meal prep every Sunday? Our ready-to-cook kits arrive at your door with everything pre-chopped and portioned. Get 40% off your first box this week only!\"",
+   "Polish this onboarding email before it goes out tomorrow, fix any typos, vague phrases and clunky sentences: \"Welcome aboard! Your account has been setup succesfully. To get started you can utilize our various different features which help you in achieving better outcomes. Let us know if their is anything we can do.\""
+  ],
+  "neg": [
+   "Write me a brand new landing page from scratch for a dog-walking app, hero, features, FAQ.",
+   "Edit the CSS on my landing page so the headline font is bigger on mobile: h1 { font-size: 24px; }"
+  ]
+ },
+ "marketing-psychology": {
+  "name": "marketing-psychology",
+  "pos": [
+   "why do people actually pick the middle pricing tier?",
+   "how can I nudge more trial users to upgrade without being sleazy?",
+   "Our checkout has a 68% abandonment rate. We show the full price $249 up front, shipping is added on the last step, and there's no social proof. Which behavioral principles explain this and what should we change?",
+   "We're launching a webinar series for HR managers. Suggest ethical persuasion tactics based on things like loss aversion, commitment and consistency, and social proof that we could use in the invite email and registration page."
+  ],
+  "neg": [
+   "Explain cognitive behavioral therapy techniques for managing my anxiety before presentations.",
+   "Run a two-sample t-test on these conversion numbers: A 120/2400, B 151/2380."
+  ]
+ },
+ "experiment-designer": {
+  "name": "experiment-designer",
+  "pos": [
+   "did my test win? control 412/10,000 signups, variant 468/10,050",
+   "how long should I run a pricing page test?",
+   "We get about 3,000 visitors a day to the signup page with a 4.2% conversion rate. I want to detect a 10% relative lift at 95% confidence and 80% power. What sample size per arm do I need and how many days is that?",
+   "I have five test ideas for our onboarding flow: shorter form, progress bar, social login, welcome video, removing the credit card step. Help me write proper hypotheses for each and rank which to run first."
+  ],
+  "neg": [
+   "Set up a feature flag in LaunchDarkly so I can roll out the new dashboard to 10% of users.",
+   "Design a lab experiment to test how temperature affects yeast fermentation rates for my biology class."
+  ]
+ },
+ "product-manager-toolkit": {
+  "name": "product-manager-toolkit",
+  "pos": [
+   "which of these should we build next: dark mode, CSV export, SSO, mobile app?",
+   "write a PRD for a saved-searches feature",
+   "Score these with RICE and rank them. Bulk edit: reach 2000/qtr, impact 2, confidence 80%, effort 3 person-months. Slack integration: reach 800, impact 3, confidence 50%, effort 2. Audit log: reach 300, impact 2, confidence 90%, effort 1.",
+   "Summarize the themes from these interview notes: \"P1: exporting reports takes forever, I copy into Excel. P2: love the dashboard but can't share it with my boss. P3: export is broken for big files. P4: wish I could send a link to stakeholders.\" What are the top pain points and opportunities?"
+  ],
+  "neg": [
+   "Help me prepare for a product manager job interview at a fintech company, what questions will they ask?",
+   "Set up a Jira board with sprints, story points and a burndown chart for my team."
+  ]
+ },
+ "roadmap-communicator": {
+  "name": "roadmap-communicator",
+  "pos": [
+   "can you turn our Q1 plans into something I can send the leadership team? we're shipping SSO, the new billing page, and pushing the mobile app to Q2",
+   "need release notes for v3.4 from these commits:\n- feat: add CSV export to reports page\n- fix: timezone bug in scheduled emails\n- perf: dashboard loads 40% faster\n- chore: bump deps",
+   "I have to explain to our enterprise customers why the offline sync feature slipped from March to June. Context: we found data-conflict bugs in beta, rewrote the merge logic, and now have 3 pilot customers testing. Draft an email that's honest but keeps confidence high, and mention the interim workaround (manual export/import).",
+   "Write a monthly update for our board and investors covering product progress. Facts: launched Teams plan (212 paying orgs in 3 weeks), API v2 is 70% done and on track for May, we cut the AI assistant from H1 to focus on reliability (uptime went 99.2% to 99.9%). Keep it under 300 words, with a 'Next quarter' section."
+  ],
+  "neg": [
+   "help me prioritize these 12 feature requests using RICE scoring and tell me which ones should make the next sprint",
+   "set up a GitHub Actions workflow that bumps the semver version and creates a git tag whenever we merge to main"
+  ]
+ }
+}

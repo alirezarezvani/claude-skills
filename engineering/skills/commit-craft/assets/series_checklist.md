@@ -20,6 +20,6 @@ Branch: ________________   Upstream: ________________   Date: ________
 - [ ] No fixup!/squash!/WIP commits left (`git rebase -i --autosquash <upstream>`)
 
 ## Proof
-- [ ] `git rebase -x "<test command>" <upstream>` passed at every commit
+- [ ] `python scripts/series_verify.py --cmd "<test command>"` passed at every commit (or `git rebase -x "<test command>" <upstream>`)
 
 Signed off by: ________________ (a person, not the agent)

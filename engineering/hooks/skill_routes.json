@@ -12,7 +12,10 @@
         "\\bself[- ]eval\\w*\\b",
         "\\bbe honest\\b.{0,40}\\bhow (good|well)\\b",
         "\\brate how (well|good)\\b",
-        "\\bhow good was (that|this|the) (work|job)\\b"
+        "\\bhow good was (that|this|the) (work|job)\\b",
+        "\\bhow'?d (i|you|we|that|it) (actually )?(do|go)\\b",
+        "\\b(rate|grade|score|critique|review|assess)\\b.{0,10}\\byour own (work|output|code|answer|changes)\\b",
+        "\\bdon'?t go easy on yourself\\b"
       ]
     },
     {
@@ -24,7 +27,14 @@
         "\\bwhere (do|should) i (start|begin)\\b.{0,40}\\b(reading|code|repo\\w*|codebase)\\b",
         "\\bonboard\\w*\\b.{0,40}\\b(engineers?|developers?|devs?|hires?|codebase|repo\\w*)\\b",
         "\\b(architecture (overview|brief)|codebase tour|onboarding doc\\w*)\\b",
-        "\\bhow (this|the|our) (repo\\w*|codebase|project) is (laid out|structured|organi[sz]ed)\\b"
+        "\\bhow (this|the|our) (repo\\w*|codebase|project) is (laid out|structured|organi[sz]ed)\\b",
+        "\\b(just|recently) (joined|started)\\b.{0,40}\\b(team|repo\\w*|codebase|project|company)\\b",
+        "\\bwhere do i (even )?start\\b.{0,30}\\b(repo\\w*|codebase|code|project)\\b",
+        "\\bhow (it'?s|it is) (laid out|structured|organi[sz]ed)\\b",
+        "\\bstarting on (this|the|a|our)\\b.{0,40}\\b(project|repo\\w*|codebase|service)\\b",
+        "\\bmap (out )?the architecture\\b",
+        "\\b(getting[- ]started|onboarding) guide\\b",
+        "\\bnew hires?\\b.{0,60}\\b(repo\\w*|codebase|architecture|service|project)\\b"
       ]
     },
     {
@@ -35,10 +45,12 @@
         "\\bwhat (should|to) (we |i )?refactor first\\b",
         "\\bcleanup sprint\\b|\\brefactor(ing)? (backlog|plan|roadmap)\\b",
         "\\bhow (messy|bad) is (the|this|our) code(base)?\\b",
-        "\\blegacy (code|codebase)\\b.{0,40}\\b(moderni[sz]\\w*|clean\\w*|refactor\\w*|untangle)\\b"
+        "\\blegacy (code|codebase)\\b.{0,40}\\b(moderni[sz]\\w*|clean\\w*|refactor\\w*|untangle)\\b",
+        "\\b(code|codebase) is (a )?(mess|messy|spaghetti|a disaster|a nightmare)\\b.{0,60}\\b(fix|clean|tackle|refactor)\\w*\\b.{0,15}\\bfirst\\b",
+        "\\bwhat should (we|i) (fix|clean up|tackle) first\\b"
       ],
       "not": [
-        "\\bshould (we|i) rewrite\\b",
+        "\\bshould (we|i) (just )?rewrite\\b",
         "\\b(eng(ineering)?|dev) teams?\\b",
         "\\b(okrs?|engineers across|change failure)\\b"
       ]
@@ -50,7 +62,13 @@
         "\\bover[- ]?engineer\\w*\\b",
         "\\byagni\\b",
         "\\bdon'?t (go overboard|over-?do it|over-?build)\\b",
-        "\\bbefore you write anything\\b.{0,80}\\b(already|platform|stdlib|existing|installed)\\b"
+        "\\bbefore you write anything\\b.{0,80}\\b(already|platform|stdlib|existing|installed)\\b",
+        "\\b(too much|way too much|so much) code\\b",
+        "\\bwith less( code)?\\?",
+        "\\b(smallest|simplest|leanest|minimal) (possible )?(version|implementation|way|code|solution)\\b",
+        "\\b(no|without (adding )?|don'?t (want|add|need)\\b.{0,20})(any |a bunch of )?new (packages|dependencies|deps|libraries)\\b",
+        "\\bkeep (it|this) simple\\b",
+        "\\bleast code\\b"
       ],
       "pairs": [
         [

@@ -11,7 +11,9 @@
         "\\b(multiple|several|\\d+|three|five|a few) (agents|attempts|approaches|variants|versions|solutions)\\b.{0,50}\\b(parallel|compare|pick|keep|best|race|winner)\\b",
         "\\bin parallel\\b.{0,40}\\b(pick|keep|choose) the best\\b",
         "\\b(try|run|have)\\b.{0,30}\\b(a few|several|multiple|different|\\d+)\\b.{0,30}\\b(approaches|versions|attempts|agents|variants)\\b.{0,80}\\b(keep|pick|choose|merge|score|rank)\\b.{0,30}\\b(best|fastest|winner|whichever|top)\\b",
-        "\\b\\d+ agents each\\b"
+        "\\b\\d+ agents each\\b",
+        "\\b(different|separate|several|multiple|\\d+|a few|few) (ways|attempts|approaches|versions|tries|implementations)\\b.{0,80}\\b(in parallel|at once|simultaneously|benchmark each|keep whichever|pick whichever|merge the (best|fastest|winner)|keep the (best|fastest))\\b",
+        "\\bin parallel\\b.{0,40}\\b(keep|pick|choose|merge) (whichever|the best|the fastest|the winner)\\b"
       ]
     }
   ]

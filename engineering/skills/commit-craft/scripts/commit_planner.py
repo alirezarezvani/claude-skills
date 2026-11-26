@@ -371,7 +371,7 @@ def main(argv=None):
     verdict = "BLOCKED" if held else ("SPLIT" if len(groups) > 1 else "SINGLE")
     result = {"verdict": verdict, "files": len(files), "commits": len(groups), "groups": groups,
               "held_back": held, "flags": flags,
-              "verify": "git rebase -x '<your test command>' <upstream>  # runs the tests at every commit"}
+              "verify": "python scripts/series_verify.py --cmd '<your test command>'  # runs the tests at every commit"}
     if a.output == "json":
         print(json.dumps(result, indent=2))
         return EXIT[verdict]

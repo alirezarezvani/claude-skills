@@ -74,7 +74,9 @@ def read(path, key, value):
                       "(commas are read as thousands separators, so 1.234,5 must be exported as 1234.5)")
         if val != val or val in (float("inf"), float("-inf")):
             raise Bad(f"{path} line {i}: {v} is not finite")
-        kk = r[k].strip()
+        kk = (r[k] or "").strip()
+        if not kk:
+            raise Bad(f"{path} line {i}: {k} is empty (a short or ragged row?)")
         if kk in out:
             raise Bad(f"{path}: key {kk!r} appears twice; aggregate to one row per key first")
         out[kk] = val
@@ -141,7 +143,7 @@ def diagnose(a, b, rel, abs_tol):
     elif constant == "OFFSET":
         patterns.append(("OFFSET", f"constant gap of {statistics.mean(diffs):,.2f} on every non-zero period",
                          "look for a manual adjustment or a single record one side includes"))
-    first = next(i for i, r in enumerate(rows) if not r["ok"])
+    first = next(i for i, r in enumerate(rows) if not r["ok"])  # safe: we returned above when nothing is bad
     if 0 < first and all(not r["ok"] for r in rows[first:]) and len(rows) - first >= 2:
         if len(rows) - first <= 3 and first >= len(rows) / 2:
             patterns.append(("TAIL", f"only the last {len(rows) - first} period(s) differ, from {rows[first]['key']}",

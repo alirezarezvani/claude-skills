@@ -216,7 +216,7 @@ def load(path):
             kind = "contract"
         else:
             mets = None
-    except (AttributeError, TypeError, KeyError) as e:
+    except (AttributeError, TypeError, KeyError, ValueError) as e:
         raise BadInput(f"{path}: unexpected structure ({type(e).__name__}: {e}); is this an unmodified "
                        "semantic_manifest.json or a contract file?")
     if mets is None and "nodes" in doc and "exposures" in doc:

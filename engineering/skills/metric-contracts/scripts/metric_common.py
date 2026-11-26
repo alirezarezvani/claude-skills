@@ -85,7 +85,7 @@ def _ref(raw):
     if isinstance(raw, str):
         return {"name": raw, "filter": (), "alias": None, "offset": None}
     if not isinstance(raw, dict) or not raw.get("name"):
-        return None
+        raise BadInput(f"a metric input has no name: {raw!r}")
     offs = {k: raw.get(k) for k in ("offset_window", "offset_to_grain", "offset") if raw.get(k) is not None}
     return {"name": raw["name"], "filter": _filters(raw.get("filter")), "alias": raw.get("alias"),
             "offset": json.dumps(offs, sort_keys=True, default=str) if offs else None}
@@ -194,7 +194,8 @@ def _from_contract(doc, source):
                    semantic_model=m.get("source_table"),
                    numerator=_ref(m.get("numerator")), denominator=_ref(m.get("denominator")),
                    inputs=[x for x in (_ref(i) for i in m.get("inputs") or []) if x],
-                   non_additive=m.get("non_additive_dimension"), window=m.get("window"),
+                   non_additive=m.get("non_additive_dimension"), window=(json.dumps(m["window"], sort_keys=True, default=str) if isinstance(m.get("window"), (dict, list))
+                           else m.get("window")),
                    grain_to_date=m.get("grain_to_date"), percentile=m.get("percentile"),
                    consumers=list(m.get("consumers") or []), source=source)
         out.append(_record(**rec))

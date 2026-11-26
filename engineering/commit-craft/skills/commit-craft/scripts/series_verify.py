@@ -45,7 +45,7 @@ EXIT = {"CLEAN": 0, "FINDINGS": 2, "BAD_INPUT": 3, "BLOCKED": 4}
 CODE_EXT = re.compile(r"\.(py|js|jsx|ts|tsx|mjs|cjs|rb|go|rs|php|java|kt|swift|vue|svelte)$")
 TESTY = re.compile(r"(^|/)(tests?|__tests__|spec|specs)/|[._-](test|spec)\.\w+$|(^|/)test_[^/]+\.py$|_test\.go$")
 RULES = [
-    ("FOCUSED_TEST", "BLOCKER", re.compile(r"\b(it|describe|test|context)\.only\s*\(|^\s*f(it|describe)\s*\(|@focus\b")),
+    ("FOCUSED_TEST", "BLOCKER", re.compile(r"\b(it|describe|test|context)\.only\s*\(|^\s*f(it|describe)\s*\(|^\s*@focus\b")),
     ("DEBUGGER_LEFT", "BLOCKER", re.compile(r"\bbreakpoint\(\s*\)|\bpdb\.set_trace\(|\bipdb\.set_trace\(|^\s*debugger\s*;?\s*$|\bbinding\.(pry|irb)\b|^\s*byebug\s*$")),
     ("SKIP_ADDED", "WARN", re.compile(r"@pytest\.mark\.skip\b|@unittest\.skip\b|\b(it|describe|test)\.skip\s*\(|^\s*x(it|describe)\s*\(|\bt\.Skip\(")),
     ("PRINT_DEBUG", "WARN", re.compile(r"^\s*console\.(log|debug)\(|^\s*print\(|\bdbg!\(|\bvar_dump\(")),
@@ -64,7 +64,7 @@ def added_lines(repo, sha):
     # Diff against the first parent, so a merge shows what it brings in (git show would print
     # a combined diff); a root commit diffs against the empty tree.
     parents = git(["rev-list", "--parents", "-n", "1", sha], repo).split()[1:]
-    base = parents[0] if parents else "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+    base = parents[0] if parents else git(["hash-object", "-t", "tree", os.devnull], repo).strip()  # empty tree, SHA-1 or SHA-256
     out = git(["-c", "core.quotepath=off", "diff", "--unified=0", "--no-color", "--no-ext-diff", base, sha], repo)
     path, in_header = None, False
     for ln in out.splitlines():
@@ -160,7 +160,7 @@ def verify(repo, rng, cmd, timeout, keep_going, setup=None, strict=False):
     first = first_c["sha"] if first_c else None
     return {"verdict": verdict, "range": rng, "cmd": cmd, "commits": commits, "first_failing": first,
             "first_failing_step": first_c.get("failed_step") if first_c else None,
-            "passed": sum(1 for c in commits if c.get("status") == "PASS"), "total": len(commits)}
+            "strict": strict, "passed": sum(1 for c in commits if c.get("status") == "PASS"), "total": len(commits)}
 
 
 def make_sample():
@@ -196,6 +196,9 @@ def render(res):
             lines.append(f"          [{f['severity']}] {f['code']}{where} {f['line']}")
         for t in c.get("output_tail", [])[-5:]:
             lines.append(f"          | {t}")
+    if not res.get("strict") and res["passed"]:
+        lines.append("  Ignored files (node_modules, build output) were kept between commits; a stale artifact can "
+                     "make a broken commit pass. Use --strict --setup '...' for a hermetic run.")
     if res["first_failing"] and res.get("first_failing_step") == "setup":
         lines.append(f"  --setup failed at {res['first_failing']}: check the environment (network, toolchain, "
                      f"lockfile) before blaming the code; the commit's own test command never ran.")

@@ -107,6 +107,16 @@ def locked(path: Path, wait: float = 10.0):
             fd = os.open(str(lock), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
             break
         except FileExistsError:
+            if os.name == "posix":
+                try:
+                    pid = int(lock.read_text().strip() or 0)
+                    if pid:
+                        os.kill(pid, 0)
+                except ProcessLookupError:
+                    lock.unlink(missing_ok=True)  # holder is gone: stale lock
+                    continue
+                except (ValueError, OSError):
+                    pass
             if time.monotonic() > deadline:
                 raise GateError(f"{lock} is held by another run; if no other run is active, delete it", 3)
             time.sleep(0.1)
@@ -249,11 +259,13 @@ def cmd_record(args) -> dict:
     if args.release_failed:
         if shot["state"] != "failed":
             raise GateError(f"only a failed shot can be released; {args.shot} is {shot['state']}")
+        if not (args.said or "").strip():
+            raise GateError("a retry is a new yes: ask the user and pass their words with --said")
         shot["prior_charged"] = round(float(shot.get("prior_charged") or 0) + float(shot.get("charged") or 0), 3)
         shot.update(state="quoted", job_id=None, charged=None)
         if ledger["state"] == "closed":
             ledger["state"] = "approved"
-        log(ledger, "released", shot=args.shot, note="user approved one more attempt")
+        log(ledger, "released", shot=args.shot, said=args.said.strip())
         save(path, ledger)
         return ledger
     if shot["state"] == "quoted":
@@ -263,6 +275,11 @@ def cmd_record(args) -> dict:
                "unknown": {"completed", "failed", "submitted"}}
     if args.status not in allowed.get(shot["state"], set()):
         raise GateError(f"{args.shot}: cannot go from {shot['state']} to {args.status}", 2)
+    if args.status == "failed" and args.charged is None:
+        raise GateError(f"{args.shot}: say what the provider charged for the failed job with --charged "
+                        f"(0 if it says nothing was charged); a failure is not assumed free", 2)
+    if args.status == "submitted" and not (args.job_id or shot.get("job_id")):
+        raise GateError(f"{args.shot}: record the job id with --job-id so the job can be polled", 2)
     shot["state"] = args.status
     if args.job_id:
         shot["job_id"] = args.job_id
@@ -297,7 +314,7 @@ def run_sample() -> int:
         (d / "brief.json").write_text(json.dumps({"upgrade_allowed": True, "budget_credits": 60}))
         base = dict(requests=str(d / "req.json"), quotes=str(d / "q.json"), brief=str(d / "brief.json"),
                     ledger=str(d / "spend.json"), only=None, max_shots=None, new_batch=False)
-        rec = dict(ledger=base["ledger"], job_id=None, plate=None, charged=None, release_failed=False)
+        rec = dict(ledger=base["ledger"], job_id=None, plate=None, charged=None, release_failed=False, said=None)
         L = base["ledger"]
         steps = [
             ("quote, cap 15", False, cmd_quote, dict(base, cap=15, balance=None)),
@@ -311,11 +328,13 @@ def run_sample() -> int:
             ("record s2 timeout -> unknown", True, cmd_record, dict(rec, shot="s2", status="unknown")),
             ("reserve s2 again", False, cmd_reserve, dict(ledger=L, shot="s2")),
             ("re-quote with s2 unknown, even --new-batch", False, cmd_quote, dict(base, cap=30, balance=100, new_batch=True)),
+            ("record s2 failed without --charged", False, cmd_record, dict(rec, shot="s2", status="failed")),
             ("record s2 failed, charged 10", True, cmd_record, dict(rec, shot="s2", status="failed", charged=10)),
             ("reserve s4", True, cmd_reserve, dict(ledger=L, shot="s4")),
             ("record s4 submitted", True, cmd_record, dict(rec, shot="s4", status="submitted", job_id="job-s4")),
             ("record s4 completed (batch closes)", True, cmd_record, dict(rec, shot="s4", status="completed", plate="plates/s4.mp4")),
-            ("release failed s2", True, cmd_record, dict(rec, shot="s2", status=None, release_failed=True)),
+            ("release failed s2 without the user's words", False, cmd_record, dict(rec, shot="s2", status=None, release_failed=True)),
+            ("release failed s2", True, cmd_record, dict(rec, shot="s2", status=None, release_failed=True, said="yes, retry s2")),
             ("reserve s2 retry: its 10 charged credits already used the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
         ]
         bad = 0
@@ -364,7 +383,8 @@ def main() -> int:
     rc.add_argument("--job-id")
     rc.add_argument("--plate", help="Path of the downloaded plate (completed).")
     rc.add_argument("--charged", type=float, help="Credits the provider actually charged, if it says.")
-    rc.add_argument("--release-failed", action="store_true", help="Allow one new attempt for a failed shot (needs a new yes).")
+    rc.add_argument("--release-failed", action="store_true", help="Allow one new attempt for a failed shot (needs --said).")
+    rc.add_argument("--said", help="With --release-failed: the user's words approving the retry.")
     s = sub.add_parser("status", help="Print the ledger.")
     s.add_argument("--ledger", required=True)
     for p in (q, a, r, rc, s):

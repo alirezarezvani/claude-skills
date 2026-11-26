@@ -79,14 +79,19 @@ The drift thresholds (framing r 0.55 / 0.30, palette 0.25) are calibrated on syn
 
 - No quote call before the animatic is approved; no generate call without an
   approved ledger and a fresh `reserve`.
-- One quote buys one call. A failed shot needs `record --release-failed`, which
-  is a new yes from the user. Record what the provider charged for the failure
-  (`--charged`): it counts against the approved total, so a charged retry needs
+- One quote buys one call. A failed shot needs `record --release-failed --said
+  "<the user's words>"`, a new yes on the record. A failure is recorded with
+  what the provider charged (`--charged`, 0 if it says nothing): it counts
+  against the approved total, so a charged retry needs
   a new batch (`quote --new-batch`, which archives the old ledger) and a new yes.
 - Never re-quote over a live ledger; the gate refuses it, and refuses a new
   batch while any shot is sent with no known outcome.
-- One agent per ledger. A lock file guards each write; if a crashed run left
-  `spend.json.lock`, delete it only when no other run is active.
+- A retry released long after the yes hits the quote window in `reserve` and
+  needs a new batch; that is deliberate.
+- `--only` and `--max-shots` pick the batch before pricing, so shots left out
+  need no quote.
+- One agent per ledger. A lock file guards each write; a lock whose process is
+  gone is cleared on its own (POSIX).
 - Real-person likeness needs recorded consent (the brief gate refuses without
   it). Label generated footage as AI-generated where it is published.
 - What leaves the machine: prompt, duration, aspect and keyframe stills, to the

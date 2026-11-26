@@ -242,7 +242,10 @@ def load_many(paths):
 
 def signature(rec):
     """The fields that decide what number the metric returns, as a comparable value."""
-    return json.dumps({f: rec.get(f) for f in NUMERIC_FIELDS}, sort_keys=True,
+    sig = {f: rec.get(f) for f in NUMERIC_FIELDS}
+    if sig.get("inputs"):  # a derived metric's expr names its inputs, so their order cannot change the number
+        sig["inputs"] = sorted(sig["inputs"], key=lambda r: json.dumps(r, sort_keys=True, default=str))
+    return json.dumps(sig, sort_keys=True,
                       default=lambda o: sorted(o, key=str) if isinstance(o, (set, frozenset)) else str(o))
 
 

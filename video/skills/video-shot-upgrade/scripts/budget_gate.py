@@ -42,6 +42,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import sys
 import tempfile
 import time
@@ -71,11 +72,15 @@ def load(path: Path) -> dict:
     return data
 
 
-def save(path: Path, data: dict) -> None:
+def save(path: Path, data: dict, archive_to: Path | None = None) -> None:
+    """Write the new ledger to a temp file first; only then archive the old one and swap the new one in,
+    so a crash never leaves the ledger path empty for longer than one rename."""
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=".spend-", suffix=".json")
     with os.fdopen(fd, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2)
+    if archive_to is not None:
+        shutil.copy2(path, archive_to)
     os.replace(tmp, path)
 
 
@@ -172,7 +177,10 @@ def cmd_quote(args) -> dict:
     if missing:
         raise GateError(f"no price for {', '.join(missing)}; call the quote tool for each and add "
                         f"{{\"<id>\": {{\"credits\": n, \"quote_ref\": \"...\"}}}} to the quotes file", 3)
-    caps = [c for c in (brief.get("budget_credits"), args.cap) if c is not None]
+    try:
+        caps = [float(c) for c in (brief.get("budget_credits"), args.cap) if c is not None]
+    except (TypeError, ValueError):
+        raise GateError(f"brief budget_credits must be a number, got {brief.get('budget_credits')!r}", 2)
     if not caps:
         raise GateError("no cap: set budget_credits in the brief or pass --cap", 3)
     cap = float(min(caps))
@@ -181,7 +189,10 @@ def cmd_quote(args) -> dict:
         if r["id"] not in ids:
             continue
         q = quotes[r["id"]]
-        credits = float(q["credits"])
+        try:
+            credits = float(q["credits"])
+        except (TypeError, ValueError):
+            raise GateError(f"{r['id']}: credits in the quotes file must be a number, got {q['credits']!r}", 2)
         if credits < 0:
             raise GateError(f"{r['id']}: negative price", 2)
         total += credits
@@ -211,9 +222,8 @@ def cmd_quote(args) -> dict:
     }
     if archive is not None:
         ledger["previous_batch"] = archive.name
-        os.replace(path, archive)
     log(ledger, "quoted", total=total, cap=cap)
-    save(path, ledger)
+    save(path, ledger, archive_to=archive)
     return ledger
 
 
@@ -312,6 +322,11 @@ def summary(ledger: dict) -> str:
         lines.append(f"  {sid:>6}  {s['credits']:g} cr  {s['state']:<9} job={s['job_id'] or '-'}  plate={s['plate'] or '-'}")
     if ledger["state"] == "quoted":
         lines.append(f"ask the user, and wait for: \"{ledger['approval_sentence']}\"")
+        exp = datetime.fromisoformat(ledger["quoted_at"]) + timedelta(minutes=60)
+        lines.append(f"quotes valid until {exp.isoformat()} (default window)")
+    elif ledger["state"] == "approved" and ledger.get("approved_at"):
+        exp = datetime.fromisoformat(ledger["approved_at"]) + timedelta(minutes=ledger.get("max_age_min", 60))
+        lines.append(f"the yes is valid until {exp.isoformat()}; after that, quote a new batch")
     return "\n".join(lines)
 
 

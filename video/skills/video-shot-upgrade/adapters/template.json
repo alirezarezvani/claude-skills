@@ -1,0 +1,33 @@
+{
+  "schema": "adapter.v1",
+  "provider": "template",
+  "display_name": "Copy this file to add a provider",
+  "verified_on": null,
+  "verified_how": "Fill in from the provider's live tool list. Leave quote null if the provider has no price preflight: budget_gate.py then needs a price the user typed and says so.",
+  "tools": {
+    "catalog": null,
+    "quote": null,
+    "generate": "<tool that starts one video job>",
+    "wait": "<tool that polls a job>",
+    "upload": null,
+    "confirm_upload": null,
+    "balance": null
+  },
+  "tool_match": "suffix",
+  "catalog_get": null,
+  "quote_returns": null,
+  "generate_from_quote": null,
+  "params": {
+    "model": "model",
+    "prompt": "prompt",
+    "duration": "duration",
+    "aspect_ratio": "aspect_ratio",
+    "media_list": null,
+    "media_role_start": null,
+    "media_role_end": null,
+    "silent": []
+  },
+  "duration_integer": true,
+  "rules": ["On a timeout, never resubmit; poll the job first."],
+  "data_flow": "Say exactly what this provider receives."
+}

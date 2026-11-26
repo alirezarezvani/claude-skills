@@ -3998,5 +3998,15 @@
   ],
   "neg": "Write me a YouTube content strategy for the next quarter: which video topics, posting cadence and thumbnails will grow the channel.",
   "origin": "generated"
+ },
+ "video/skills/video-shot-upgrade": {
+  "name": "video-shot-upgrade",
+  "plugin": "video-studio",
+  "pos": [
+   "The animatic for our teaser is signed off. Shots s2 and s4 should become real footage through my Higgsfield connector, but keep it under 30 credits and tell me the price before anything runs.",
+   "How much would it cost to turn the two placeholder shots in film/shots.json into generated video, and can you check afterwards that the clips still match the animatic framing?"
+  ],
+  "neg": "Write me a single cinematic camera prompt for one Kling clip of a car driving along a coast road at dusk.",
+  "origin": "generated"
  }
 }

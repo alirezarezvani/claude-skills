@@ -31,8 +31,8 @@ python3 $P/video-beat-board/scripts/beat_board.py --brief film/brief.json --beat
 python3 $P/video-animatic/scripts/motion_linter.py --scene film/scene.json
 python3 $P/video-animatic/scripts/timeline_compiler.py --scene film/scene.json --out film/animatic.html
 python3 $P/video-animatic/scripts/frame_renderer.py --html film/animatic.html --fps 12 --mp4 film/animatic.mp4
-# 4 (previz-to-final lane only, after the animatic is approved) build the upgrade manifest
-python3 $P/video-animatic/scripts/shot_manifest.py --scene film/scene.json --out film/shots.json
+# 4 (previz-to-final lane only, after the animatic is approved) upgrade manifest, then the video-shot-upgrade skill
+python3 $P/video-animatic/scripts/shot_manifest.py --scene film/scene.json --keyframes film/keyframes --out film/shots.json
 # 5 Final: switch mode to final, render at full fps, conform
 python3 $P/video-animatic/scripts/timeline_compiler.py --scene film/scene.json --mode final --out film/final.html
 python3 $P/video-animatic/scripts/frame_renderer.py --html film/final.html --out film/frames
@@ -50,7 +50,7 @@ length; `motion_linter` 4 = fix before rendering; `conform` 4 = QC failed.
 | Brief | `brief_gate` READY | `brief.json` with lane, aspect, VO budget |
 | Beats | `beat_board` FITS | `scene.json` (greybox) |
 | Animatic | linter PASS, user watched `animatic.mp4` and approved | approved scene |
-| Upgrade (optional) | every shot quoted, user said yes to the total | plates in `film/plates/`, set as plate `src` |
+| Upgrade (optional) | `budget_gate` ledger approved and closed, `drift_check` HOLDS | plates in `film/plates/`, `scene.final.json` |
 | Final | `conform` PASS | `final.mp4`, `captions.srt` |
 
 Show the animatic before anything else is polished. Most notes land there, and
@@ -59,19 +59,15 @@ there they cost seconds.
 ## Shot upgrades with a generation MCP
 
 Only in the `previz-to-final` lane and only after the animatic is approved.
-Use whatever video-generation MCP the user has connected (Higgsfield,
-ElevenLabs, Adobe, Canva or another); read its tool list at run time, never
-assume model ids. For each shot in `shots.json`:
+Hand over to the `video-shot-upgrade` skill (`/cs-upgrade-shots`). It maps
+`shots.json` onto the user's connected provider (Higgsfield adapter first;
+model constraints read from the provider's catalog at run time), records every
+quote and the user's yes in a spend ledger, reserves each shot right before its
+one generate call, never resubmits a timeout, and drift-checks each plate
+against the animatic keyframes before it goes into `scene.final.json`. Text,
+charts and logos stay as code layers on top, so they never come out garbled.
 
-1. Get the provider's price without generating (Higgsfield `generate_video`
-   takes `get_cost: true`). Show per-shot and total against `budget_credits`.
-2. Generate only after the user says yes to that total. One batch, no retries
-   on timeout: a timed-out job may still be charged; ask before resubmitting.
-3. Save the plate, set it as the shot's plate `src`, re-render that shot only
-   (`frame_renderer.py --shots s2`). Text, charts and logos stay as code layers
-   on top, so they never come out garbled.
-
-Data flow: prompts and any reference stills go to that provider under the
+Data flow: prompts and any keyframe stills go to that provider under the
 user's account. Nothing goes anywhere else.
 
 ## Hard rules
@@ -95,4 +91,4 @@ Ask one at a time, recommended answer first.
 ## References
 
 - [previz_pipeline.md](references/previz_pipeline.md) — why animatic first, what each phase decides
-- Sibling skills: `video-beat-board`, `video-animatic`, `video-conform`
+- Sibling skills: `video-beat-board`, `video-animatic`, `video-shot-upgrade`, `video-conform`

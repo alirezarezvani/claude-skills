@@ -850,8 +850,8 @@
         "authentication": "ON_INSTALL"
       },
       "category": "video",
-      "description": "Brief to finished MP4 through a code animatic. Four skills: video-director (brief gate, context: fork, upgrade protocol), video-beat-board (times beats against the brief and refuses what does not fit), video-animatic (scene.v1 JSON -> seekable HTML timeline -> frame-exact Playwright render, linter for readability, flashes and contrast, keyframes and shot manifest) and video-conform (ffmpeg mix, loudness to a named target, captions, post-encode QC). AI shot upgrades are optional and go through the user's own MCP connector, quoted per shot, after an explicit yes. 7 stdlib scripts, no generation service called by any script.",
-      "version": "2.14.14",
+      "description": "Brief to finished MP4 through a code animatic. Five skills: video-director (brief gate, context: fork), video-beat-board (times beats against the brief and refuses what does not fit), video-animatic (scene.v1 JSON -> seekable HTML timeline -> frame-exact Playwright render, linter for readability, flashes and contrast, keyframes and shot manifest), video-shot-upgrade (provider adapters for the user's own video MCP, Higgsfield first, a spend ledger that needs a quote and a recorded yes and never resubmits a timeout, and a drift check of each plate against the animatic) and video-conform (ffmpeg mix, loudness to a named target, captions, post-encode QC). 10 stdlib scripts, no generation service called by any script.",
+      "version": "2.14.18",
       "author": {
         "name": "Alireza Rezvani"
       },

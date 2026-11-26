@@ -1,12 +1,12 @@
 # Claude Code Skills & Plugins
 
-**434 production-ready skills for Claude Code and 12 other coding agents, covering engineering, product, marketing, compliance, finance and the C-suite. We test whether each skill loads when you ask in plain words, and [publish the results](VERIFIED.md).**
+**435 production-ready skills for Claude Code and 12 other coding agents, covering engineering, product, marketing, compliance, finance and the C-suite. We test whether each skill loads when you ask in plain words, and [publish the results](VERIFIED.md).**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Skills](https://img.shields.io/badge/Skills-434-brightgreen?style=for-the-badge)](#skills-overview)
+[![Skills](https://img.shields.io/badge/Skills-435-brightgreen?style=for-the-badge)](#skills-overview)
 [![Agents](https://img.shields.io/badge/Agents-137-blue?style=for-the-badge)](#agents)
 [![Personas](https://img.shields.io/badge/Personas-7-purple?style=for-the-badge)](#personas)
-[![Commands](https://img.shields.io/badge/Commands-188-orange?style=for-the-badge)](#commands)
+[![Commands](https://img.shields.io/badge/Commands-189-orange?style=for-the-badge)](#commands)
 [![Stars](https://img.shields.io/github/stars/alirezarezvani/claude-skills?style=for-the-badge)](https://github.com/alirezarezvani/claude-skills/stargazers)
 [![SkillCheck Validated](https://img.shields.io/badge/SkillCheck-Validated-4c1?style=for-the-badge)](https://getskillcheck.com)
 
@@ -71,7 +71,7 @@ Claude Code skills (also called agent skills or coding agent plugins) are modula
 - **Python tools** — 824 CLI scripts (all stdlib-only, zero pip installs)
 - **Reference docs** — 931 templates, checklists, and domain-specific knowledge files
 
-**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 871 Python tools run anywhere Python runs.
+**One repo, thirteen platforms.** Works natively as Claude Code plugins, Codex agent skills, Gemini CLI skills, Hermes Agent skills, Mistral Vibe skills, and converts to more tools via `scripts/convert.sh`. All 874 Python tools run anywhere Python runs.
 
 ### Skills vs Agents vs Personas
 
@@ -225,7 +225,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 
 ## Skills Overview
 
-**434 production-ready skills across 21 domains:**
+**435 production-ready skills across 21 domains:**
 
 | Domain | Skills | Highlights | Details |
 |--------|--------|------------|---------|
@@ -247,7 +247,7 @@ Run `./scripts/convert.sh --tool all` to generate tool-specific outputs locally.
 | **🤝 Commercial** | 8 | Orchestrator + pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster | [commercial/](commercial/) |
 | **💰 Finance** | 8 | Financial analyst (DCF, budgeting, forecasting), SaaS metrics coach, business investment advisor, stock-analysis (sector-relative fundamentals, 26 sector playbooks, forensic + IPO modes), passive-deal-screener (LP-side private deal screening, not investment advice), **month-end-close** (close calendar on its critical path, reconciliation proof with aging, flux gate that refuses boilerplate explanations) | [finance/](finance/) |
 | **🧬 Agent Launcher** ✨new | 6 | Build/launch/grade/schedule **Claude Managed Agents** in your own account — orchestrator (`context: fork` goal router) + `interview` + `stage-launch` + `grade-iterate` (bounded outcome loop) + `run-without-you` (cron deployment loop) + `wrap-up`. Every session starts with a goal; deterministic BYOK scaffolders (no API calls). Re-implements Anthropic's launch-your-agent (Apache-2.0) | [agent-launcher/](agent-launcher/) |
-| **🎬 Video Studio** ✨new | 4 | Brief to finished MP4 through a free code animatic: `video-director` (brief gate, upgrade protocol) + `video-beat-board` (times beats, refuses scripts that don't fit) + `video-animatic` (scene.v1 → seekable HTML → frame-exact render, readability/flash/contrast linter) + `video-conform` (loudness, captions, post-encode QC). AI shots only through your own MCP connector, quoted per shot, after a yes | [video/](video/) |
+| **🎬 Video Studio** ✨new | 5 | Brief to finished MP4 through a free code animatic: `video-director` (brief gate) + `video-beat-board` (times beats, refuses scripts that don't fit) + `video-animatic` (scene.v1 → seekable HTML → frame-exact render, readability/flash/contrast linter) + `video-shot-upgrade` (your own video MCP, Higgsfield adapter first; spend ledger needs a quote and a recorded yes, never resubmits a timeout; drift check against the animatic) + `video-conform` (loudness, captions, post-encode QC) | [video/](video/) |
 | **🔄 Loop Library** | 1 | `loop-library` — discover, find, audit/repair, adapt, and design bounded AI-agent loops; reads the live catalog from signals.forwardfuture.ai at runtime (vendored verbatim from [Forward-Future/loop-library](https://github.com/Forward-Future/loop-library)) | [loop-library/](loop-library/) |
 | **📄 Markdown → HTML** | 5 | `markdown-html-orchestrator` (doctype router) + `design-system` (WCAG-AA brand tokens) + `md-document` (long-form) + `md-review` (2-col code review) + `md-slides` (single-file deck) — markdown-to-interactive-HTML converter | [markdown-html/](markdown-html/) |
 
@@ -385,7 +385,7 @@ for MDR Annex II compliance gaps.
 
 ## Python Analysis Tools
 
-871 Python tools ship with the skills (all stdlib-only). A few examples:
+874 Python tools ship with the skills (all stdlib-only). A few examples:
 
 ```bash
 # SaaS health check
@@ -433,7 +433,7 @@ Yes. Skills work natively with 13 tools: Claude Code, OpenAI Codex, Gemini CLI, 
 No. We follow semantic versioning and maintain backward compatibility within patch releases. Existing script arguments, plugin source paths, and SKILL.md structures are never changed in patch versions. See the [CHANGELOG](CHANGELOG.md) for details on each release.
 
 **Are the Python tools dependency-free?**
-Yes. All 871 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
+Yes. All 874 Python tools use the standard library only — zero pip installs required. Every skill's CLI entry point is verified to run with `--help` (most skills ship one script per tool; a few, like the vendored `engineering/skillopt-sleep` engine, ship a multi-module package behind a single `python -m` entry point). A few tools — `engineering/book-to-skill`'s document extractors — can *optionally* use third-party parsers for higher-fidelity output, but every format falls back to a standard-library parser and nothing is installed implicitly.
 
 **How do I create my own Claude Code skill?**
 Each skill is a folder with a `SKILL.md` (frontmatter + instructions), optional `scripts/`, `references/`, and `assets/`. See the [Skills & Agents Factory](https://github.com/alirezarezvani/claude-code-skills-agents-factory) for a step-by-step guide.

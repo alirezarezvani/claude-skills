@@ -115,7 +115,7 @@ syllabus 228
 terraform-patterns 234
 universal-scraping-architect 235
 video-content-strategist 222
-video-studio 1360
+video-studio 1633
 vpe-advisor 253
 weekly-review 416
 workflow-builder 280

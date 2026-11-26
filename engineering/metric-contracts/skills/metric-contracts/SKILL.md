@@ -36,6 +36,8 @@ python scripts/metric_reconcile.py --a warehouse.csv --b dashboard.csv --rel-tol
 No dbt? Write the definitions in the plain contract format
 (`assets/metric_contracts.example.json`, schema in
 `references/metric_contract_spec.md`) and run the same scripts on it.
+Contract files are JSON; `.yml` contracts also load when PyYAML is installed
+(the scripts say so and exit 3 when it is not).
 
 **Step 1** checks 13 rules. Errors: no owner, an input that does not exist, an
 average of a ratio, a derived expression using an undeclared name, the same

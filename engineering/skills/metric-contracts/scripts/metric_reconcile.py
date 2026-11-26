@@ -59,8 +59,11 @@ def read(path, key, value):
     out = {}
     for i, r in enumerate(rows, 2):
         raw = (r[v] or "").strip().replace(",", "")
+        if not raw:
+            raise Bad(f"{path} line {i}: {v} is empty; a blank is not a zero. Fill it (0 if it really is zero) "
+                      "or drop the row")
         try:
-            val = float(raw) if raw else 0.0
+            val = float(raw)
         except ValueError:
             raise Bad(f"{path} line {i}: {v}={r[v]!r} is not a number")
         if val != val or val in (float("inf"), float("-inf")):
@@ -105,7 +108,9 @@ def diagnose(a, b, rel, abs_tol):
                          "compare the time zone and the date column each side groups by"))
     ratios = [r["b"] / r["a"] for r in bad if r["a"]]
     diffs = [r["diff"] for r in bad]
-    every = len(bad) == len(rows) and len(bad) >= 2
+    # rows where both sides are 0 agree under any factor or gap, so they do not break a constant pattern
+    nonzero = [r for r in rows if r["a"] or r["b"]]
+    every = len(bad) == len(nonzero) and len(bad) >= 2
     cv_ratio = statistics.pstdev(ratios) / abs(statistics.mean(ratios)) if len(ratios) >= 2 and statistics.mean(ratios) else 1
     cv_diff = statistics.pstdev(diffs) / abs(statistics.mean(diffs)) if len(diffs) >= 2 and statistics.mean(diffs) else 1
     constant = None  # whichever of ratio or gap is steadier explains it
@@ -115,10 +120,10 @@ def diagnose(a, b, rel, abs_tol):
         f = statistics.mean(ratios)
         g = f if f >= 1 else 1 / f
         name = next((n for x, n in KNOWN_FACTORS if abs(g - x) / x < 0.01), "a unit, currency or FX difference")
-        patterns.append(("SCALE", f"b is {f:.4g} x a on every period ({name})",
+        patterns.append(("SCALE", f"b is {f:.4g} x a on every non-zero period, consistent with {name}",
                          "compare the unit, currency and tax treatment of the two sources"))
     elif constant == "OFFSET":
-        patterns.append(("OFFSET", f"constant gap of {statistics.mean(diffs):,.2f} on every period",
+        patterns.append(("OFFSET", f"constant gap of {statistics.mean(diffs):,.2f} on every non-zero period",
                          "look for a manual adjustment or a single record one side includes"))
     first = next(i for i, r in enumerate(rows) if not r["ok"])
     if 0 < first and all(not r["ok"] for r in rows[first:]) and len(rows) - first >= 2:

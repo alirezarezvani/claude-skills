@@ -59,6 +59,8 @@ tell you that a filter edit moved revenue, which is the gap this closes.
 
 ## What the diff cannot see
 
+- Two filters that mean the same thing but are written differently (`a = 1 and b = 2` vs `b = 2 and a = 1`, other quoting) are compared as text after whitespace is collapsed, so they show as BREAKING. This errs toward a false alarm, never a missed change; the owner confirms and bumps or reverts the rewording.
+
 - A change in the upstream model's SQL (a new dedup step) that keeps the metric YAML identical. Pair the diff with model contracts and data tests on the model, and reconcile old vs new output with `metric_reconcile.py`.
 - Consumers outside dbt exposures. List them in the contract (`consumers`) or declare exposures; an undeclared dashboard will not be warned.
 

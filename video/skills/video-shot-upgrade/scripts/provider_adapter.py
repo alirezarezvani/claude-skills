@@ -255,12 +255,17 @@ def main() -> int:
         print(f"error: {exc}", file=sys.stderr)
         return 2
 
-    result, blockers = build(shots, adapter, model, spec)
+    try:
+        result, blockers = build(shots, adapter, model, spec)
+    except (KeyError, TypeError, ValueError) as exc:
+        print(f"error: the shots file or model spec is missing or has a bad field: {exc!r}", file=sys.stderr)
+        return 2
     if blockers:
         for b in blockers:
             print(f"BLOCKED {b}", file=sys.stderr)
         return 4
     if args.out:
+        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
         Path(args.out).write_text(json.dumps(result, indent=2), encoding="utf-8")
     if args.output == "json":
         print(json.dumps(result, indent=2))

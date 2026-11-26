@@ -234,6 +234,9 @@ def main() -> int:
     ap.add_argument("--sample", action="store_true", help="Build three synthetic plates with ffmpeg and check them.")
     ap.add_argument("--output", choices=["text", "json"], default="text")
     args = ap.parse_args()
+    if not args.sample and not (args.requests and args.shots and args.plates):
+        print("error: --requests, --shots and --plates are required (or --sample)", file=sys.stderr)
+        return 2
     try:
         need_ffmpeg()
     except RuntimeError as exc:
@@ -241,9 +244,6 @@ def main() -> int:
         return 3
     if args.sample:
         return sample()
-    if not (args.requests and args.shots and args.plates):
-        print("error: --requests, --shots and --plates are required (or --sample)", file=sys.stderr)
-        return 2
     try:
         results, _ = run(args)
         applied = None

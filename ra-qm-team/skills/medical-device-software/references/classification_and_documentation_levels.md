@@ -120,12 +120,21 @@ you can show none of these exists.
   requirements on hardware, IT network characteristics and IT security measures.
   EN 62304:2006+A1:2015 is what notified bodies audit as the state of the art
   (BSI, notified-body webinar, 27 March 2025).
-- 🔴 **Harmonisation.** As of November 2026 this skill could not confirm that
-  EN 62304 or EN IEC 81001-5-1 is cited in the Official Journal under the MDR
-  (checked: the Commission's harmonised-standards page listing Decision
-  2021/1182 and its amendments up to 2026/1231; amendments 2025/2078 and 2026/193
-  do not include either). Read the Commission's consolidated list before claiming
-  presumption of conformity; plan as if neither gives it.
+- 🟡 **Harmonisation: neither is cited.** EN 62304 and EN IEC 81001-5-1 are not
+  cited in the Official Journal under the MDR as of 26 November 2026. Checked:
+  the Commission's MDR harmonised-standards page lists Decision 2021/1182 and
+  its amendments 2022/6, 2022/757, 2023/1410, 2024/815, 2024/2631, 2025/681,
+  2025/2078, 2026/193, 2026/760, 2026/1231 and 2026/2479 (9 Nov 2026). The
+  annexes of 2026/193 (entries 37-48) and 2026/760 (entries 49-51) were read in
+  full and contain neither; 2026/1231 and 2026/2479 were checked through
+  secondary summaries (mdlaw.eu), which name neither; a third-party tracker
+  checked against the Commission's 17 June 2026 summary list says the same.
+  This is 🟡, not 🟢, because the earlier annexes and the consolidated text were
+  not read line by line. Claim no presumption of conformity from either
+  standard; cite them as the state of the art under Annex I 17.2.
+  🔴 Notified bodies may read this differently in practice: most audit
+  EN 62304 conformity as if it were mandatory, and a deviation needs a
+  documented equivalent, so "not harmonised" never means "optional".
 - MDR device class (Rule 11, MDCG 2019-11) is a separate question:
   `mdr-745-specialist` owns it.
 - Medical devices are excluded from the EU Cyber Resilience Act (Art 2(2));
@@ -149,6 +158,6 @@ on Edition 1.1 (2006+A1:2015); do not build a QMS on a committee draft.
 5. 21 U.S.C. 360n-2 (FD&C Act 524B) — https://www.law.cornell.edu/uscode/text/21/360n-2
 6. Federal Register 90 FR (27 June 2025), notice of availability of the updated premarket cybersecurity guidance — https://www.govinfo.gov/content/pkg/FR-2025-06-27/html/2025-11669.htm; guidance text (issued 27 June 2025, Section VII.B) — https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/FDA/GUI00001825-final-PremarketCybersecurity-2025.pdf
 7. FDA Recognized Consensus Standards database, IEC 62304 (13-79) — https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfStandards/results.cfm?title=62304
-8. European Commission, harmonised standards for medical devices — https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards/medical-devices_en
+8. European Commission, harmonised standards for medical devices (amendment list through 2026/2479) — https://single-market-economy.ec.europa.eu/single-market/goods/european-standards/harmonised-standards/medical-devices_en; Implementing Decisions (EU) 2026/193 (OJ L 30.1.2026) and 2026/760 (OJ L 7.4.2026), annexes read via the LNE/G-MED copies of the OJ PDFs; mdlaw.eu summaries of 2026/1231 (18 June 2026) and 2026/2479 (10 November 2026)
 9. BSI, "Software under MDR: perspectives of a notified body", 27 March 2025 — https://bsigroup.com/siteassets/pdf/en/insights-and-media/media/webinars/bsi-md-software-under-mdr-perspectives-notified-body-270325-en-gb.pdf
 10. QuickBird Medical, "IEC 62304 Edition 2 has been delayed", 10 September 2026 — https://quickbirdmedical.com/en/news/iec-62304-edition-2-august-2026/

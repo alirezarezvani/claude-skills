@@ -15,7 +15,8 @@ The Act has 13 Titles + 13 Annexes. Adopted as Regulation (EU) 2024/1689 (the "A
 | **1** | Subject matter | Establishes harmonised rules for AI systems placed on EU market, used or put into service |
 | **2** | Scope | Applies to providers, deployers, importers, distributors, authorized representatives. Extraterritorial: applies to non-EU providers placing systems on EU market. Excludes military / national security / pure scientific research |
 | **3** | Definitions | "AI system" (Article 3(1)): a machine-based system designed to operate with varying levels of autonomy that may exhibit adaptiveness after deployment; infers from input how to generate outputs (predictions, content, recommendations, decisions). Per Commission Feb 2025 Guidelines, excludes simple rule-based systems with no adaptiveness |
-| **4** | AI literacy | **In force from 2 Feb 2025.** Organizations must ensure staff dealing with AI systems have AI literacy proportionate to their roles |
+| **4** | AI literacy | **Applies from 2 Feb 2025; replaced by Regulation (EU) 2026/1744.** Providers and deployers "shall take measures to support" the AI literacy of their staff; the text no longer requires any specific level of literacy (Art 4(1) as replaced). The Commission publishes practical examples (Art 4(2)) and the Board adopts recommendations (Art 4(3)) 🟢 |
+| **4a** | Special categories of personal data for bias detection | **New, added by 2026/1744; replaces Art 10(5), which is deleted.** Providers of high-risk systems may exceptionally process special-category data for bias detection and correction under Art 10(2)(f)-(g), subject to conditions (a)-(f) (Art 4a(1)). Providers and deployers of other AI systems and models, and deployers of high-risk systems, may do so where strictly necessary under the same conditions (Art 4a(2)); this creates no obligation to run bias detection 🟢. GDPR Art 9(2) still needs its own legal basis 🔴 (our reading; check with your DPO) |
 
 ## Title II — Prohibited AI Practices (Article 5)
 
@@ -31,6 +32,12 @@ The Act has 13 Titles + 13 Annexes. Adopted as Regulation (EU) 2024/1689 (the "A
 - **(f)** Emotion recognition in workplace and educational institutions
 - **(g)** Biometric categorisation by sensitive attributes (race, religion, political opinions, sexual orientation, etc.)
 - **(h)** Real-time remote biometric identification in publicly accessible spaces for law-enforcement purposes (with narrow Article 5(2)(d)–(h) exceptions)
+
+**Added by Regulation (EU) 2026/1744 (apply from 2 Dec 2026 🟡: date per ActuIA, HAQQ and euai-act; the Art 113 text was not read verbatim):**
+
+- **(ba)** AI systems that generate or manipulate realistic images, video, audio or similar material of an identifiable person's intimate parts or sexually explicit activity without freely given, specific, informed, unambiguous and explicit consent 🟢
+- **(bb)** AI systems that generate or manipulate child sexual abuse material within Directive 2011/93/EU, Art 2(c) and (e), except where a national "without right" defence applies 🟢
+- **Scope (Art 5(1a)):** a provider is caught where that generation is the intended purpose, or a reasonably foreseeable and reproducible outcome without adequate safeguards; a deployer only where it uses the system for that purpose 🟢. A general-purpose image or video generator therefore needs documented safeguards, not just terms of use 🔴 (our reading; a market surveillance authority may set the "adequate safeguards" bar higher)
 
 ## Title III — High-Risk AI Systems (Articles 6–49)
 
@@ -50,7 +57,7 @@ See `high_risk_systems_annex_iii.md` for the detailed Annex III walkthrough.
 |---|---|
 | **8** | Compliance with all Section 2 requirements |
 | **9** | Risk management system across full lifecycle |
-| **10** | Data governance: training/validation/test datasets quality + bias examination |
+| **10** | Data governance: training/validation/test datasets quality + bias examination. Art 10(5) deleted by 2026/1744; special-category processing for bias now sits in Art 4a |
 | **11** | Technical documentation per Annex IV |
 | **12** | Automatic event logging |
 | **13** | Transparency + instructions for use to deployers |
@@ -87,7 +94,7 @@ Procedures for designating + monitoring notified bodies (involved in Module H co
 
 ## Title IV — Transparency Obligations (Article 50)
 
-**In force from 2 Aug 2025.**
+**Applies from 2 Aug 2026** (Art 113; not deferred by 2026/1744). Generative systems placed on the market before 2 Aug 2026 have until **2 Dec 2026** for Art 50(2) only (new Art 111(4) 🟡; recital 38 of 2026/1744 confirms a four-month transitional period 🟢). Art 50(1) and 50(4) get no grace 🟡.
 
 | Article 50 paragraph | Requirement |
 |---|---|
@@ -112,7 +119,7 @@ Procedures for designating + monitoring notified bodies (involved in Module H co
 
 | Article | Topic |
 |---|---|
-| **57** | AI regulatory sandboxes by Member States |
+| **57** | AI regulatory sandboxes: at least one national sandbox operational by **2 Aug 2027** (Art 57(1) as amended by 2026/1744; was 2 Aug 2026). The AI Office may run a Union-level sandbox with priority access for SMEs and small mid-caps (new Art 57(3a)) 🟢 |
 | **58** | Modalities for sandboxes |
 | **59** | Further processing of personal data for AI development in sandboxes |
 | **60** | Real-world testing of high-risk systems outside sandboxes |
@@ -139,7 +146,8 @@ EU-wide database of stand-alone high-risk Annex III AI systems. Provider registr
 | **72** | Provider post-market monitoring system |
 | **73** | Serious-incident reporting (provider) — 15 days general; 2 days for critical infrastructure |
 | **74** | Market surveillance + AI Office cooperation |
-| **75–84** | Market surveillance powers, enforcement, mutual assistance |
+| **75** | As amended by 2026/1744: the AI Office is exclusively competent for AI systems built on a GPAI model by the same provider or undertaking (except Annex I products, Annex III points 2 and 8, and Art 74(6) systems), and for systems that are or sit inside a VLOP or VLOSE (Art 75(1)). New Arts 75a-75b give it investigation, inspection and binding-commitment powers 🟢. A company integrating a third party's model stays with the national authority 🟡 |
+| **76–84** | Market surveillance powers, enforcement, mutual assistance |
 
 ## Title X — Codes of Conduct and Guidelines (Articles 95–96)
 
@@ -155,7 +163,7 @@ Commission powers to update Annexes (notably Annex III categories) via delegated
 |---|---|
 | **99** | Penalties: up to EUR 35M / 7% turnover (Article 5); EUR 15M / 3% (most high-risk); EUR 7.5M / 1% (incorrect info) |
 | **102** | Amendments to other regulations (medical devices, etc.) |
-| **113** | Entry into force + application phasing |
+| **113** | Entry into force + application phasing (amended by 2026/1744: Annex III high-risk 2 Dec 2027, Annex I 2 Aug 2028) |
 
 ## Annexes — At a Glance
 
@@ -186,6 +194,8 @@ Commission powers to update Annexes (notably Annex III categories) via delegated
 **Source authorities (non-exhaustive):**
 
 - **Regulation (EU) 2024/1689** — the AI Act (the binding regulation; published in OJEU L on 12 July 2024)
+- **Regulation (EU) 2026/1744** of 8 July 2026 (Digital Omnibus on AI), OJ L 24.7.2026, in force 27 Jul 2026 — https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ%3AL_202601744 (Art 1 amendments to Arts 4, 4a, 5, 10, 43, 57, 75 read on 26 Nov 2026; Arts 99, 111 and 113 not read verbatim)
+- **ActuIA**, "AI Act: obligations in force and delays under omnibus 2026/1744", 6 Oct 2026; **HAQQ**, "EU AI Act Amendments 2026", updated 22 Oct 2026 — secondary, used for the 2 Dec 2026 and Art 111(4) dates
 - **European Commission** — Guidelines on the definition of an AI system (Feb 2025)
 - **European Commission** — Guidelines on prohibited AI practices (Feb 2025)
 - **European Commission Q&A** — AI Act explanatory materials (continuously updated)

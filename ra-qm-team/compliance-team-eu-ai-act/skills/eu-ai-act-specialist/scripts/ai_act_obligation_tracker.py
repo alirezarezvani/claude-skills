@@ -7,6 +7,9 @@ a deadline-sorted obligation matrix tied to the Act's phased application:
   - 2 Feb 2025: Article 5 prohibitions + Article 4 AI literacy
   - 2 Aug 2025: GPAI Articles 51-55 + governance + penalties
   - 2 Aug 2026: Article 50 transparency obligations
+  - 2 Dec 2026: new Article 5(1)(ba)/(bb) prohibitions (non-consensual intimate
+    imagery, CSAM) + Article 50(2) marking for generative systems placed on the
+    market before 2 Aug 2026 (Article 111(4) grace)
   - 2 Dec 2027: Annex III stand-alone high-risk obligations
   - 2 Aug 2028: Annex I sectoral (product-embedded) high-risk obligations
 
@@ -26,7 +29,9 @@ Input schema (JSON):
     {"role": "deployer", "systems_tier": "limited_risk"}
   ],
   "deploys_gpai": true,
-  "gpai_systemic_risk": false
+  "gpai_systemic_risk": false,
+  "provides_generative_ai": true,     # optional: generates synthetic content (Art 50(2))
+  "generative_on_market_before_2026_08_02": false
 }
 
 Usage:
@@ -51,6 +56,8 @@ SAMPLE: Dict[str, Any] = {
     ],
     "deploys_gpai": True,
     "gpai_systemic_risk": False,
+    "provides_generative_ai": True,
+    "generative_on_market_before_2026_08_02": True,
 }
 
 
@@ -61,6 +68,8 @@ PHASE_DATES = {
     "gpai_articles_51_55": "2025-08-02",
     "governance_penalties": "2025-08-02",
     "article_50_transparency": "2026-08-02",
+    "article_5_new_prohibitions": "2026-12-02",
+    "article_50_2_legacy_grace": "2026-12-02",
     "title_iii_high_risk_general": "2027-12-02",
     "title_iii_annex_i_sectoral": "2028-08-02",
 }
@@ -135,8 +144,17 @@ GPAI_SYSTEMIC_RISK = [
 ]
 
 UNIVERSAL = [
-    ("Article 4 — Ensure AI literacy of staff dealing with AI systems", "article_4_ai_literacy"),
+    ("Article 4 — Take measures to support AI literacy of staff (as replaced by 2026/1744; no guaranteed level)", "article_4_ai_literacy"),
     ("Article 5 — No prohibited AI practices", "article_5_prohibitions"),
+    ("Article 5(1)(ba)/(bb) — No AI generating non-consensual intimate imagery of an identifiable person or CSAM (added by 2026/1744)", "article_5_new_prohibitions"),
+]
+
+PROVIDER_GENERATIVE_NEW = [
+    ("Article 50(2) — Mark synthetic audio/image/video/text output in a machine-readable, detectable format", "article_50_transparency"),
+]
+
+PROVIDER_GENERATIVE_LEGACY = [
+    ("Article 50(2) via Article 111(4) — Systems placed on the market before 2 Aug 2026: machine-readable marking of synthetic output", "article_50_2_legacy_grace"),
 ]
 
 
@@ -181,6 +199,12 @@ def gather_obligations(payload: Dict[str, Any]) -> List[Dict[str, Any]]:
         obligations += _make_obs(GPAI_ALL, "GPAI provider")
         if payload.get("gpai_systemic_risk"):
             obligations += _make_obs(GPAI_SYSTEMIC_RISK, "GPAI systemic risk")
+
+    if payload.get("provides_generative_ai"):
+        if payload.get("generative_on_market_before_2026_08_02"):
+            obligations += _make_obs(PROVIDER_GENERATIVE_LEGACY, "generative provider")
+        else:
+            obligations += _make_obs(PROVIDER_GENERATIVE_NEW, "generative provider")
 
     obligations.sort(key=lambda x: (x["deadline_date"], x["role"]))
     return obligations
@@ -237,6 +261,7 @@ def render_text(r: Dict[str, Any], source: str) -> str:
     lines.append("  2025-02-02: Article 5 prohibitions + Article 4 AI literacy")
     lines.append("  2025-08-02: GPAI (Art. 51-55) + governance + penalties")
     lines.append("  2026-08-02: Article 50 transparency")
+    lines.append("  2026-12-02: new Art. 5(1)(ba)/(bb) prohibitions; Art. 50(2) grace ends for legacy generative systems")
     lines.append("  2027-12-02: Annex III stand-alone high-risk")
     lines.append("  2028-08-02: Annex I sectoral (product-embedded) high-risk")
     return "\n".join(lines)

@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **metric-contracts** (new plugin, engineering; also in engineering-advanced-skills): one owned, versioned definition per business metric, and a cause when two dashboards disagree. Reads dbt's `semantic_manifest.json` from `dbt parse` (legacy and 1.12 spec, verified against dbt-core 1.12.7 artifacts) or a plain contract JSON. `metric_contract_lint.py` checks 13 rules (no owner, unresolved inputs, average of ratios, count vs count_distinct, balances summed over time, duplicate and conflicting definitions, cycles); `metric_diff.py` classifies each change as breaking, renamed, removed, affected downstream or cosmetic, fails a breaking change without a version bump and names the dbt exposures to warn; `metric_reconcile.py` names the pattern of a gap between two sources (time zone bucketing, unit or VAT scale, constant offset, step change, late data, excluded subset, join fan-out). Ships cs-metric-steward, /cs-metric-check, /cs-metric-reconcile, a skill-router hook and 3 cited references.
+
 ## [2.14.17] - 2026-11-26 — app-store-optimization Google Play title limit fix
 
 One community bug fix. The app-store-optimization tools validated Google Play titles against the old 50-character

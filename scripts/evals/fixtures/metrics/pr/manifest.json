@@ -1,0 +1,39 @@
+{
+ "metadata": {
+  "note": "Trimmed from a dbt 1.12.7 target/manifest.json: only the exposures key, which is all metric_diff.py reads."
+ },
+ "exposures": {
+  "exposure.shop.exec_kpi_dashboard": {
+   "name": "exec_kpi_dashboard",
+   "type": "dashboard",
+   "owner": {
+    "email": "cfo-office@example.com",
+    "name": "CFO office"
+   },
+   "depends_on": {
+    "macros": [],
+    "nodes": [
+     "metric.shop.revenue",
+     "metric.shop.aov"
+    ]
+   },
+   "unique_id": "exposure.shop.exec_kpi_dashboard"
+  },
+  "exposure.shop.growth_weekly": {
+   "name": "growth_weekly",
+   "type": "dashboard",
+   "owner": {
+    "email": "growth@example.com",
+    "name": "Growth team"
+   },
+   "depends_on": {
+    "macros": [],
+    "nodes": [
+     "metric.shop.revenue_per_customer",
+     "metric.shop.active_customers"
+    ]
+   },
+   "unique_id": "exposure.shop.growth_weekly"
+  }
+ }
+}

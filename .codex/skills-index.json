@@ -3,7 +3,7 @@
   "name": "claude-code-skills",
   "description": "Production-ready skill packages for AI agents - Marketing, Engineering, Product, C-Level, PM, and RA/QM",
   "repository": "https://github.com/alirezarezvani/claude-skills",
-  "total_skills": 433,
+  "total_skills": 435,
   "skills": [
     {
       "name": "agent-launcher-orchestrator",
@@ -1434,6 +1434,18 @@
       "description": "Use to land the winning AgentHub branch, archive the others and clean up worktrees."
     },
     {
+      "name": "metric-contracts",
+      "source": "../../engineering/skills/metric-contracts",
+      "category": "engineering-advanced",
+      "description": "Use when two dashboards or teams report different numbers for the same metric (revenue, active users, churn, MRR), when a dbt semantic layer or MetricFlow metric changes in a PR and you need to know what it breaks, or when defining metrics with an owner, version and one agreed definition. Lints semantic_manifest.json, diffs metric definitions for breaking changes, reconciles two sources."
+    },
+    {
+      "name": "metric-contracts",
+      "source": "../../engineering/metric-contracts/skills/metric-contracts",
+      "category": "engineering-advanced",
+      "description": "Use when two dashboards or teams report different numbers for the same metric (revenue, active users, churn, MRR), when a dbt semantic layer or MetricFlow metric changes in a PR and you need to know what it breaks, or when defining metrics with an owner, version and one agreed definition. Lints semantic_manifest.json, diffs metric definitions for breaking changes, reconciles two sources."
+    },
+    {
       "name": "migration-architect",
       "source": "../../engineering/skills/migration-architect",
       "category": "engineering-advanced",
@@ -2646,7 +2658,7 @@
       "description": "Software engineering and technical skills"
     },
     "engineering-advanced": {
-      "count": 110,
+      "count": 112,
       "source": "../../engineering",
       "description": "Advanced engineering skills - agents, RAG, MCP, CI/CD, databases, observability"
     },

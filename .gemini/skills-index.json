@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 472,
+  "total_skills": 473,
   "skills": [
     {
       "name": "content-strategist",
@@ -1419,6 +1419,11 @@
       "description": "Use to land the winning AgentHub branch, archive the others and clean up worktrees."
     },
     {
+      "name": "metric-contracts",
+      "category": "engineering-advanced",
+      "description": "Use when two dashboards or teams report different numbers for the same metric (revenue, active users, churn, MRR), when a dbt semantic layer or MetricFlow metric changes in a PR and you need to know what it breaks, or when defining metrics with an owner, version and one agreed definition. Lints semantic_manifest.json, diffs metric definitions for breaking changes, reconciles two sources."
+    },
+    {
       "name": "migration-architect",
       "category": "engineering-advanced",
       "description": "Plan a migration with zero or minimal downtime: phased plan, compatibility check, rollback scripts, for schemas, databases and services. Load whenever the user must change a live table, move a database or cut over without downtime."
@@ -2406,7 +2411,7 @@
       "description": "Engineering resources"
     },
     "engineering-advanced": {
-      "count": 98,
+      "count": 99,
       "description": "Engineering-advanced resources"
     },
     "finance": {

@@ -308,8 +308,8 @@
         "authentication": "ON_INSTALL"
       },
       "category": "development",
-      "description": "48 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate, slo-architect, tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft, agent-run-forensics, i18n-localization, mobile-release, cloud-finops and game-universe-studio.",
-      "version": "2.14.22",
+      "description": "49 advanced engineering skills: agent designer, agent workflow designer, RAG architect, database designer + schema designer + SQL assistant, migration architect, observability designer, dependency auditor, changelog generator, API design reviewer, API test suite builder, CI/CD pipeline builder, MCP server builder, skill security auditor, skill tester, performance profiler, focused-fix, browser-automation, full-page-screenshot, git-worktree-manager, monorepo-navigator, codebase-onboarding, interview-system-designer, runbook-generator, spec-driven-workflow, secrets-vault-manager, env-secrets-manager, pr-review-expert, self-eval, tc-tracker, feature-flags-architect, kubernetes-operator, chaos-engineering, ship-gate, slo-architect, tech-debt-tracker, agent-regression-evals, coding-agent-rollout, commit-craft, agent-run-forensics, i18n-localization, mobile-release, cloud-finops, metric-contracts and game-universe-studio.",
+      "version": "2.14.23",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -3125,6 +3125,35 @@
         "cost-allocation",
         "anomaly-detection",
         "unit-economics"
+      ]
+    },
+    {
+      "name": "metric-contracts",
+      "source": {
+        "source": "local",
+        "path": "./engineering/metric-contracts"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "development",
+      "description": "Keep business metrics (revenue, active users, MRR, churn) to one owned, versioned definition and find out why two dashboards disagree. Three deterministic stdlib scripts over dbt's semantic_manifest.json (legacy and 1.12 spec) or a plain contract JSON: a 13-rule definition linter (owner, unresolved inputs, average of ratios, count vs count_distinct, summed balances, duplicate and conflicting definitions); a base-vs-head metric diff that classifies breaking, renamed, removed, affected and cosmetic changes, requires a version bump and names the dbt exposures to warn; and a two-source reconciler that names the pattern of the gap (time zone bucketing, unit or VAT scale, step change, late data, excluded subset, join fan-out). Ships cs-metric-steward agent, /cs-metric-check and /cs-metric-reconcile commands and 3 cited references. No warehouse access.",
+      "version": "2.14.23",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "metrics",
+        "semantic-layer",
+        "dbt",
+        "metricflow",
+        "data-contracts",
+        "analytics-engineering",
+        "kpi",
+        "reconciliation",
+        "breaking-changes",
+        "bi"
       ]
     },
     {

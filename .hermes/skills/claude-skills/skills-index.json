@@ -1,6 +1,6 @@
 {
   "source": "claude-code-skills",
-  "total_skills": 405,
+  "total_skills": 406,
   "domains": {
     "engineering": [
       {
@@ -147,6 +147,11 @@
         "name": "mcp-server-builder",
         "description": "Use when exposing an API as an MCP server or scaffolding a new MCP server in Python or TypeScript, before hand-writing tool wrappers. Generates tools from OpenAPI with openapi_to_mcp.py and validates them with mcp_validator.py.",
         "path": "engineering/mcp-server-builder"
+      },
+      {
+        "name": "metric-contracts",
+        "description": "Use when two dashboards or teams report different numbers for the same metric (revenue, active users, churn, MRR), when a dbt semantic layer or MetricFlow metric changes in a PR and you need to know what it breaks, or when defining metrics with an owner, version and one agreed definition. Lints semantic_manifest.json, diffs metric definitions for breaking changes, reconciles two sources.",
+        "path": "engineering/metric-contracts"
       },
       {
         "name": "migration-architect",

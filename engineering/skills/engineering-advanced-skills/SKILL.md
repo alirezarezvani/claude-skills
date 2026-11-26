@@ -61,6 +61,7 @@ npx agent-skills-cli add alirezarezvani/claude-skills/engineering
 | Interview System Designer | `interview-system-designer/` | Hiring pipeline design |
 | Kubernetes Operator | `kubernetes-operator/` | CRD validation, reconcile linting |
 | MCP Server Builder | `mcp-server-builder/` | MCP tool creation |
+| Metric Contracts | `metric-contracts/` | Metric definition lint, breaking-change diff with version gate, two-source reconciliation |
 | Mobile Release | `mobile-release/` | App Store / Play submission checks, staged-rollout gate |
 | Migration Architect | `migration-architect/` | System migration planning |
 | Monorepo Navigator | `monorepo-navigator/` | Monorepo tooling |

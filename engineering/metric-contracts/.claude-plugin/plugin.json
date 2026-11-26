@@ -1,0 +1,15 @@
+{
+  "name": "metric-contracts",
+  "description": "Keep business metrics (revenue, active users, MRR, churn) to one owned, versioned definition and find out why two dashboards disagree. Three deterministic stdlib scripts over dbt's semantic_manifest.json (legacy and 1.12 spec) or a plain contract JSON: a 13-rule definition linter (owner, unresolved inputs, average of ratios, count vs count_distinct, summed balances, duplicate and conflicting definitions); a base-vs-head metric diff that classifies breaking, renamed, removed, affected and cosmetic changes, requires a version bump and names the dbt exposures to warn; and a two-source reconciler that names the pattern of the gap (time zone bucketing, unit or VAT scale, step change, late data, excluded subset, join fan-out). Ships cs-metric-steward agent, /cs-metric-check and /cs-metric-reconcile commands and 3 cited references. No warehouse access.",
+  "version": "2.14.23",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/metric-contracts",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/metric-contracts"
+  ]
+}

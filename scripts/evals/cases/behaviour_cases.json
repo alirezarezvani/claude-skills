@@ -269,5 +269,26 @@
    "Says the 12 rostered agents are short by about 13 and cannot even cover the 12 Erlang load"
   ],
   "origin": "support-ops-build"
+ },
+ "metric-contracts": {
+  "skill": "engineering/metric-contracts/skills/metric-contracts",
+  "name": "metric-contracts",
+  "plugin": "metric-contracts",
+  "fixture": "metrics",
+  "prompt": "Work through brief.md: review the semantic layer PR and explain the revenue mismatch between the warehouse and Looker.",
+  "assertions": [
+   "Says the revenue filter change (adding partially_refunded orders) changes revenue's numbers, so it is a breaking change",
+   "Says revenue's version stayed at 1 and must be bumped before merging",
+   "Names aov and revenue_per_customer as metrics whose numbers change because they are built on revenue",
+   "Names the exec_kpi_dashboard (CFO office) as a consumer to warn about the revenue change",
+   "Says customers was renamed to active_customers with an identical computation, which breaks consumers of the old name (needs an alias or the owner's acceptance)",
+   "Says the order_count change is description-only and does not change its numbers",
+   "Flags that customers/active_customers uses count over customer_id rather than count_distinct",
+   "Flags avg_discount_rate as an average of per-row ratios and recommends a ratio of sums",
+   "Flags account_balance: no owner, and summed over time without a non-additive (snapshot) dimension",
+   "Says the warehouse and Looker totals for the period agree (about 173,587) while individual days differ",
+   "Attributes the daily mismatch to records landing in different days (time zone or date column), not to missing or wrong data, and advises against changing Looker's numbers to force a match"
+  ],
+  "origin": "metric-contracts-build"
  }
 }

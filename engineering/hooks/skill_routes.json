@@ -104,6 +104,26 @@
         "\\b(dcf|3[- ]statement|valuation|arr|net revenue retention|burn multiple|cac)\\b",
         "\\bterraform\\b.{0,40}\\b(module|deploy)\\b"
       ]
+    },
+    {
+      "skill": "metric-contracts",
+      "why": "metric definitions, breaking metric changes and reconciling two sources of one number",
+      "any": [
+        "\\b(semantic layer|metricflow|semantic_manifest|metric contracts?|metrics? layer)\\b",
+        "\\bdbt\\b.{0,40}\\b(metrics?|semantic models?|measures?)\\b",
+        "\\b(two|both|different|our|the) (dashboards?|reports?|teams?|tools?)\\b.{0,60}\\b(disagree\\w*|differ\\w*|mismatch\\w*|don'?t match|do not match|doesn'?t match|different numbers?|don'?t agree)\\b",
+        "\\b(revenue|mrr|arr|gmv|aov|active users|dau|wau|mau|churn( rate)?|conversion rate|retention rate|signups|bookings)\\b.{0,60}\\b(doesn'?t match|don'?t match|do not match|disagree\\w*|mismatch\\w*|reconcil\\w*|different (number|figure|value)s?)\\b",
+        "\\b(doesn'?t match|don'?t match|disagree\\w*|mismatch\\w*|reconcil\\w*)\\b.{0,60}\\b(looker|tableau|power bi|metabase|mode|superset|dashboard)\\b",
+        "\\bmetric (definitions?|owners?|versions?|governance|drift)\\b",
+        "\\b(single|one) source of truth\\b.{0,40}\\b(metrics?|kpis?|revenue|numbers)\\b",
+        "\\b(definition of|define)\\b.{0,20}\\b(active users?|revenue|churn|mrr)\\b.{0,40}\\b(teams?|everyone|consistent\\w*)\\b"
+      ],
+      "not": [
+        "\\b(prometheus|grafana|datadog|slo|sli|latency|p99|alertmanager)\\b",
+        "\\b(finops|aws bill|cloud cost|savings plans?)\\b",
+        "\\b(bank statement|general ledger|gl account|bank reconciliation)\\b",
+        "\\b(f1|precision|recall|auc|eval(uation)? metrics?|loss curve)\\b"
+      ]
     }
   ]
 }

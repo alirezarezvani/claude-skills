@@ -121,19 +121,29 @@ def prepare(rows, mb, worktree, model):
             r["case_source"] = "drafted from the " + ("new" if r["is_new"] else "base") + " description"
     if to_draft:
         from generate_trigger_cases import draft
-        got = {}
-        for attempt in range(3):  # the drafter sometimes returns JSON with an unescaped quote
+        def usable(c):
+            return isinstance(c, dict) and len(c.get("pos") or []) == 2 and bool(c.get("neg"))
+
+        got, err = {}, ""
+        # The drafter sometimes returns JSON with an unescaped quote, or a case
+        # keyed by the wrong path or with the wrong number of prompts: retry both.
+        for attempt in range(3):
             try:
-                got, _ = draft(to_draft, model)
-                break
+                res, _ = draft(to_draft, model)
             except (RuntimeError, ValueError, subprocess.TimeoutExpired) as e:
-                if attempt == 2:
-                    for r in rows:
-                        if "case" not in r:
-                            r["draft_error"] = str(e)
+                err = str(e)
+                continue
+            got.update({k: v for k, v in res.items() if usable(v)})
+            missing = [d["path"] for d in to_draft if d["path"] not in got]
+            if not missing:
+                break
+            err = "drafted no usable case (need 2 pos and 1+ neg) for " + ", ".join(missing)
+        for r in rows:
+            if "case" not in r and r["path"] not in got and err:
+                r["draft_error"] = err
         for r in rows:
             c = got.get(r["path"]) if "case" not in r else None
-            if c and len(c.get("pos", [])) == 2 and c.get("neg"):
+            if c and usable(c):
                 r["case"] = dict(pos=c["pos"], neg=c["neg"])
                 r["drafted_case"] = r["case"]
     return rows

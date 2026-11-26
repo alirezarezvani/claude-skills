@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "gemini-cli-skills",
-  "total_skills": 472,
+  "total_skills": 473,
   "skills": [
     {
       "name": "content-strategist",
@@ -242,6 +242,11 @@
       "name": "knowledge-ops",
       "category": "business-operations",
       "description": "Use when writing, checking or cleaning up SOPs and runbooks. Generates them with sop_generator.py, checks 5W2H completeness and links with runbook_validator.py and ingests an existing knowledge base with kb_ingester.py."
+    },
+    {
+      "name": "new-hire-onboarding",
+      "category": "business-operations",
+      "description": "Use when someone new is joining a team and the first day, first week or first 90 days need to go right: a 30/60/90-day onboarding plan for a new hire, a preboarding checklist before the start date (laptop, accounts, signed contract, I-9 or right-to-work check, a named buddy), or a check on how a new employee's ramp-up is going against their plan. Works from a small JSON file with stdlib scripts."
     },
     {
       "name": "process-mapper",
@@ -2378,7 +2383,7 @@
       "description": "Business-growth resources"
     },
     "business-operations": {
-      "count": 7,
+      "count": 8,
       "description": "Business-operations resources"
     },
     "c-level": {

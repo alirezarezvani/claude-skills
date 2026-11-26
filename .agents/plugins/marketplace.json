@@ -2064,8 +2064,8 @@
         "authentication": "ON_INSTALL"
       },
       "category": "operations",
-      "description": "Internal BizOps domain. v2.8.0 ships 7 skills: orchestrator + process-mapper (BPMN/bottleneck/cycle-time, Lean+TOC) + vendor-management (scorecard+SLA+3rd-party risk, NIST SP 800-161/ISO 27036) + capacity-planner (Erlang-C queueing math for ops teams, NOT engineering) + internal-comms (ADKAR+Kotter 8-step, NOT marketing) + knowledge-ops (SOP+runbook+KB hygiene with 5W2H, context: fork) + procurement-optimizer (UNSPSC spend categorization + supplier consolidation). Orchestrator uses context: fork to route inquiries via Matt Pocock grill discipline (one question per turn, recommended answer, canon-cited challenge). Every SKILL.md ships a Forcing-question library section. 18 stdlib Python tools, 24+ reference docs. Distinct from business-growth (external sales) and c-level-advisor (strategic).",
-      "version": "2.14.6",
+      "description": "Internal BizOps domain. Ships 8 skills: orchestrator + process-mapper (BPMN/bottleneck/cycle-time, Lean+TOC) + vendor-management (scorecard+SLA+3rd-party risk, NIST SP 800-161/ISO 27036) + capacity-planner (Erlang-C queueing math for ops teams, NOT engineering) + internal-comms (ADKAR+Kotter 8-step, NOT marketing) + knowledge-ops (SOP+runbook+KB hygiene with 5W2H, context: fork) + procurement-optimizer (UNSPSC spend categorization + supplier consolidation) + new-hire-onboarding (preboarding gate, checkable 30/60/90 plans, ramp check). Orchestrator uses context: fork to route inquiries via Matt Pocock grill discipline (one question per turn, recommended answer, canon-cited challenge). Every SKILL.md ships a Forcing-question library section. 21 stdlib Python tools, 24+ reference docs. Distinct from business-growth (external sales) and c-level-advisor (strategic).",
+      "version": "2.14.18",
       "author": {
         "name": "Alireza Rezvani"
       },
@@ -3153,6 +3153,34 @@
         "deflection",
         "kcs",
         "support-operations"
+      ]
+    },
+    {
+      "name": "new-hire-onboarding",
+      "source": {
+        "source": "local",
+        "path": "./business-operations/new-hire-onboarding"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "business-operations",
+      "description": "Get a new hire's first day and first 90 days right from one JSON file per hire. Three deterministic stdlib scripts: a preboarding gate that dates every task (contract, laptop, accounts, payroll, day-one agenda) against the start date in business days, applies the US I-9 and UK right-to-work deadlines and refuses a start with no named manager or buddy; a 30/60/90 plan builder that refuses milestones nobody could check and books day-30/60/90 checkpoints and weekly buddy meetings; and a ramp check that finds missed checkpoints, overdue milestones and a lapsed buddy without ever judging probation. Ships cs-onboarding-lead agent, /cs-preboarding-check, /cs-onboarding-plan and /cs-ramp-check commands and 3 cited references.",
+      "version": "2.14.18",
+      "author": {
+        "name": "Alireza Rezvani"
+      },
+      "keywords": [
+        "onboarding",
+        "new-hire",
+        "preboarding",
+        "30-60-90",
+        "i-9",
+        "right-to-work",
+        "buddy",
+        "people-ops",
+        "hr"
       ]
     }
   ]

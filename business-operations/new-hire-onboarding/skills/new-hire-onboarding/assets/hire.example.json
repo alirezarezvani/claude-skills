@@ -1,0 +1,48 @@
+{
+  "hire": "A. Rivera",
+  "role": "Backend Engineer",
+  "start_date": "2026-12-07",
+  "jurisdiction": "US",
+  "remote": true,
+  "manager": "J. Chen",
+  "buddy": "",
+  "tasks": [
+    {
+      "task": "Offer letter signed",
+      "category": "contract",
+      "owner": "Recruiting",
+      "status": "done"
+    },
+    {
+      "task": "I-9 Section 1 link sent",
+      "category": "right_to_work",
+      "owner": "People Ops",
+      "status": "in_progress"
+    },
+    {
+      "task": "Laptop shipped",
+      "category": "equipment",
+      "owner": "IT",
+      "lead_days": 7,
+      "status": "not_started"
+    },
+    {
+      "task": "Email, SSO, GitHub, AWS read-only",
+      "category": "accounts",
+      "owner": "IT",
+      "status": "in_progress"
+    },
+    {
+      "task": "Payroll and tax forms",
+      "category": "payroll",
+      "owner": "Finance",
+      "status": "not_started"
+    },
+    {
+      "task": "Day-one agenda shared",
+      "category": "day_one_agenda",
+      "owner": "J. Chen",
+      "status": "not_started"
+    }
+  ]
+}

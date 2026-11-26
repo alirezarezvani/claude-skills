@@ -12,7 +12,7 @@ metadata:
 
 # Business Operations — Domain Orchestrator
 
-The BizOps surface is **internal**: how the company actually runs. This orchestrator forks its conversation context, routes your inquiry to one of six sub-skills, then returns a tight digest to the parent thread. The heavy ingestion (vendor catalogs, process interviews, multi-doc SOP intake) stays in the forked context.
+The BizOps surface is **internal**: how the company actually runs. This orchestrator forks its conversation context, routes your inquiry to one of seven sub-skills, then returns a tight digest to the parent thread. The heavy ingestion (vendor catalogs, process interviews, multi-doc SOP intake) stays in the forked context.
 
 ## When to invoke
 
@@ -24,6 +24,7 @@ The BizOps surface is **internal**: how the company actually runs. This orchestr
 | "I need to brief the company on a re-org" | `internal-comms` |
 | "Write me a runbook for the incident response process" | `knowledge-ops` |
 | "Why is our software spend up 40% YoY?" | `procurement-optimizer` |
+| "Someone starts on Monday: is everything ready, and what is their 30/60/90 plan?" | `new-hire-onboarding` |
 
 ## Routing logic (deterministic)
 
@@ -39,6 +40,7 @@ The orchestrator classifies the inquiry by **signals** detected in the prompt. T
 | **COMMS** | all-hands, internal newsletter, announcement, change management, FAQ, town hall | `internal-comms` |
 | **KNOWLEDGE** | SOP, runbook, knowledge base, wiki, playbook, documentation, onboarding doc | `knowledge-ops` |
 | **PROCUREMENT** | spend, procurement, purchase, supplier rationalization, software audit, SaaS sprawl | `procurement-optimizer` |
+| **ONBOARDING** | new hire, start date, first day, 30/60/90, preboarding, buddy, I-9, right to work, ramp-up | `new-hire-onboarding` |
 
 If signals are mixed (e.g., "vendor SLA + spend audit"), run the **highest-confidence sub-skill first**, then chain into the second one in a follow-up forked turn.
 
@@ -134,7 +136,7 @@ Every sub-skill produces at least one artifact (markdown, CSV, or JSON) saved to
 
 ## Anti-patterns (do not)
 
-- ❌ Run all 6 sub-skills "to be thorough" — pick one based on signal, return digest, let user chain
+- ❌ Run all 7 sub-skills "to be thorough" — pick one based on signal, return digest, let user chain
 - ❌ Auto-approve a vendor or process change — surface findings; the human decides
 - ❌ Edit production process docs without asking — write to a new file, propose the diff
 - ❌ Skip the digest step — parent context needs ≤ 200-word digest, not the full sub-skill output

@@ -1,7 +1,7 @@
 {
   "source": "claude-code-skills",
   "layout": "nested",
-  "total_skills": 405,
+  "total_skills": 406,
   "domains": {
     "engineering": [
       {
@@ -1732,6 +1732,11 @@
         "name": "knowledge-ops",
         "description": "Use when writing, checking or cleaning up SOPs and runbooks. Generates them with sop_generator.py, checks 5W2H completeness and links with runbook_validator.py and ingests an existing knowledge base with kb_ingester.py.",
         "path": "business-operations/knowledge-ops"
+      },
+      {
+        "name": "new-hire-onboarding",
+        "description": "Use when someone new is joining a team and the first day, first week or first 90 days need to go right: a 30/60/90-day onboarding plan for a new hire, a preboarding checklist before the start date (laptop, accounts, signed contract, I-9 or right-to-work check, a named buddy), or a check on how a new employee's ramp-up is going against their plan. Works from a small JSON file with stdlib scripts.",
+        "path": "business-operations/new-hire-onboarding"
       },
       {
         "name": "process-mapper",

@@ -1,0 +1,16 @@
+{
+  "hire": "M. Novak",
+  "role": "Data Analyst",
+  "start_date": "2026-12-14",
+  "jurisdiction": "UK",
+  "remote": true,
+  "manager": "S. Patel",
+  "buddy": "S. Patel",
+  "tasks": [
+    {"task": "Contract signed", "category": "contract", "owner": "Recruiting", "status": "done"},
+    {"task": "Right to work check (waiting for share code)", "category": "right_to_work", "owner": "People Ops", "status": "blocked"},
+    {"task": "Laptop shipped to home address", "category": "equipment", "owner": "IT", "status": "not_started"},
+    {"task": "Email, SSO, Looker and warehouse read access", "category": "accounts", "owner": "IT", "status": "in_progress"},
+    {"task": "Day-one agenda sent", "category": "day_one_agenda", "owner": "S. Patel", "status": "done"}
+  ]
+}

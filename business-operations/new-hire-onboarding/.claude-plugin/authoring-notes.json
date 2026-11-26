@@ -1,0 +1,7 @@
+{
+  "source": {
+    "spec": "October 2026 quality-audit proposal #8 'new-hire-onboarding' (never built; listed in the 2026-11-10 planned-skills inventory). Built from primary sources",
+    "build_pattern": "Three deterministic stdlib scripts over one JSON file per hire (business-day preboarding gate with US I-9 and UK right-to-work deadlines, 30/60/90 plan builder that refuses uncheckable milestones, ramp check for missed checkpoints, overdue milestones and buddy lapses); cited to USCIS, GOV.UK, the Nachweisgesetz, Bauer 2010, Bauer et al. 2007, Watkins 2003, Gallup 2021 and Microsoft's buddy pilot",
+    "distinct_from": "codebase-onboarding (repository docs for engineers); knowledge-ops (authors the onboarding SOP); chro-advisor (people strategy); access-lifecycle (joiner/mover/leaver access reviews); capacity-planner (how many to hire)"
+  }
+}

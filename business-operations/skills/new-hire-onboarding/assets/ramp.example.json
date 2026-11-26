@@ -1,0 +1,57 @@
+{
+  "hire": "A. Rivera",
+  "start_date": "2026-12-07",
+  "horizon_days": 90,
+  "milestones": [
+    {
+      "phase": 30,
+      "outcome": "Ship a small bug fix to production",
+      "done_on": "2026-12-18"
+    },
+    {
+      "phase": 30,
+      "outcome": "Map the billing services in a one-page diagram",
+      "done_on": null
+    },
+    {
+      "phase": 60,
+      "outcome": "Own the billing-export on-call shadow week",
+      "done_on": null
+    },
+    {
+      "phase": 90,
+      "outcome": "Lead the invoice-retry feature",
+      "done_on": null
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2026-12-07",
+      "type": "manager"
+    },
+    {
+      "date": "2026-12-07",
+      "type": "buddy"
+    },
+    {
+      "date": "2026-12-14",
+      "type": "manager"
+    },
+    {
+      "date": "2026-12-16",
+      "type": "buddy"
+    },
+    {
+      "date": "2026-12-21",
+      "type": "manager"
+    },
+    {
+      "date": "2027-01-11",
+      "type": "manager"
+    },
+    {
+      "date": "2027-01-18",
+      "type": "manager"
+    }
+  ]
+}

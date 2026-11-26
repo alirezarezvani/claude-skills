@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **new-hire-onboarding** (business-operations; standalone plugin and in business-operations-skills): get a new hire's first day and first 90 days right from one JSON file. `preboarding_gate.py` dates every task (contract, laptop, accounts, payroll, day-one agenda) against the start date in business days, applies the US I-9 (Section 2 within 3 business days) and UK right-to-work (before day one) deadlines and returns NOT_READY with no named manager or buddy; `plan_builder.py` builds a 30/60/90 plan and refuses milestones with no `done_when`; `ramp_check.py` finds missed checkpoints, overdue milestones, a lapsed buddy and manager gaps, and never judges probation. `cs-onboarding-lead` agent, `/cs-preboarding-check`, `/cs-onboarding-plan`, `/cs-ramp-check`, 3 references; the "onboarding raises retention 82%" figure is flagged as having no public primary study. Builds the October audit's proposal #8.
+
 ## [2.14.17] - 2026-11-26 — app-store-optimization Google Play title limit fix
 
 One community bug fix. The app-store-optimization tools validated Google Play titles against the old 50-character

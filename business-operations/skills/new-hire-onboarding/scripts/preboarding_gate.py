@@ -34,7 +34,8 @@ Right to work, per --jurisdiction or the file's jurisdiction:
          3 business days after it (USCIS). The script prints the Section 2
          deadline; the right_to_work task covers Section 1.
   UK     the check must be done before employment starts (GOV.UK), so the
-         right_to_work task is blocking on the start date.
+         right_to_work task is due at least one business day before the start
+         and is blocking: a check left for day one shows LATE.
   other  no rule built in: the task must exist and the output says to confirm
          the local rule with HR or counsel.
 
@@ -43,7 +44,9 @@ Verdict:
   AT_RISK    something is AT_RISK or LATE but no blocking item is late
   NOT_READY  a required category, the manager or the buddy is missing, or a
              blocking item (contract, right_to_work, equipment, accounts) is
-             LATE or blocked
+             LATE or blocked (a blocked blocking item shows AT_RISK in its row
+             but makes the verdict NOT_READY however much time is left: nothing
+             moves it until someone unblocks it)
              -> move the start date or fix the item; do not start the hire
                 on a day they cannot work
 
@@ -158,6 +161,7 @@ def evaluate(spec, today, risk_days, jurisdiction=None):
     for i, t in enumerate(tasks):
         if not isinstance(t, dict) or not t.get("task") or not t.get("category"):
             raise ValueError(f"task {i}: needs 'task' and 'category'")
+        t = dict(t, task=text_field(t["task"], f"task {i} name"))
         cat = norm_category(t["category"])
         if cat not in DEFAULT_LEAD:
             raise ValueError(f"task {t['task']!r}: category {t['category']!r} is not one of {REQUIRED}")

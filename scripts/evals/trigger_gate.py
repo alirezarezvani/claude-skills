@@ -128,14 +128,16 @@ def prepare(rows, mb, worktree, model):
         # The drafter sometimes returns JSON with an unescaped quote, or a case
         # keyed by the wrong path or with the wrong number of prompts: retry both.
         for attempt in range(3):
+            todo = [d for d in to_draft if d["path"] not in got]
             try:
-                res, _ = draft(to_draft, model)
+                res, _ = draft(todo, model)
             except (RuntimeError, ValueError, subprocess.TimeoutExpired) as e:
                 err = str(e)
                 continue
             got.update({k: v for k, v in res.items() if usable(v)})
             missing = [d["path"] for d in to_draft if d["path"] not in got]
             if not missing:
+                err = ""
                 break
             err = "drafted no usable case (need 2 pos and 1+ neg) for " + ", ".join(missing)
         for r in rows:

@@ -206,16 +206,22 @@ def load(path):
     doc = _read(path)
     if not isinstance(doc, dict):
         raise BadInput(f"{path}: expected a JSON/YAML object at the top level")
-    if "semantic_models" in doc or "project_configuration" in doc:
-        mets, models, meas = _from_dbt(doc, path)
-        kind = "dbt-semantic-manifest"
-    elif "metrics" in doc:
-        mets, models, meas = _from_contract(doc, path)
-        kind = "contract"
-    elif "nodes" in doc and "exposures" in doc:
+    try:
+        if "semantic_models" in doc or "project_configuration" in doc:
+            mets, models, meas = _from_dbt(doc, path)
+            kind = "dbt-semantic-manifest"
+        elif "metrics" in doc:
+            mets, models, meas = _from_contract(doc, path)
+            kind = "contract"
+        else:
+            mets = None
+    except (AttributeError, TypeError, KeyError) as e:
+        raise BadInput(f"{path}: unexpected structure ({type(e).__name__}: {e}); is this an unmodified "
+                       "semantic_manifest.json or a contract file?")
+    if mets is None and "nodes" in doc and "exposures" in doc:
         raise BadInput(f"{path}: this is target/manifest.json; pass target/semantic_manifest.json "
                        "(pass manifest.json to metric_diff.py --manifest for exposures)")
-    else:
+    if mets is None:
         raise BadInput(f"{path}: no 'metrics' or 'semantic_models' key; not a metric definition file")
     for r in mets:
         if not r["name"]:
@@ -249,8 +255,13 @@ def refs(rec):
 def load_exposures(path):
     """Map metric name -> [consumer labels] from a dbt manifest.json (or a trimmed copy)."""
     doc = _read(path)
+    exposures = doc.get("exposures") if isinstance(doc, dict) else None
+    if not isinstance(exposures, dict):
+        raise BadInput(f"{path}: no 'exposures' object; pass dbt's target/manifest.json")
     out = {}
-    for ex in (doc.get("exposures") or {}).values():
+    for ex in exposures.values():
+        if not isinstance(ex, dict):
+            raise BadInput(f"{path}: an exposure is not an object")
         owner = ex.get("owner") or {}
         who = owner.get("name") or owner.get("email") or "no owner"
         label = f"{ex.get('type', 'exposure')} {ex.get('name')} ({who})"

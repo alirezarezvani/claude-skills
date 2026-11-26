@@ -36,7 +36,8 @@ from metric_common import AGGS, TYPES, VERIFIED, BadInput, asset, emit, load_man
 
 SEMI_ADDITIVE = re.compile(r"(balance|\bmrr\b|\barr\b|inventory|stock_level|on_hand|headcount|outstanding|"
                            r"backlog|snapshot|open_(tickets|orders|positions)|seats_active)", re.I)
-PEOPLE = re.compile(r"(customer|user|account|visitor|member|subscriber|buyer|seller|patient)s?\b", re.I)
+PEOPLE = re.compile(r"(^|_)(customer|user|account|visitor|member|subscriber|buyer|seller|patient)s?$", re.I)
+QUOTED = re.compile(r"'(?:[^']|'')*'|\"[^\"]*\"|--[^\n]*|/\*.*?\*/", re.S)
 SQL_WORDS = {"and", "or", "not", "case", "when", "then", "else", "end", "null", "is", "in", "as",
              "true", "false", "between", "like", "nullif", "coalesce", "cast", "float", "int", "integer",
              "numeric", "decimal", "double", "precision", "over", "partition", "by", "distinct"}
@@ -84,7 +85,8 @@ def lint(metrics, models, measures, kinds, require_version):
             if r not in uniq:
                 add("MC03", "ERROR", name, f"references metric {r!r}, which is not defined")
         agg, expr = m.get("agg"), str(m.get("expr") or "")
-        if agg == "average" and "/" in expr:
+        bare = QUOTED.sub(" ", expr)  # string literals and comments are not code
+        if agg == "average" and "/" in bare:
             add("MC05", "ERROR", name, f"averages a ratio ({expr}); small rows weigh as much as big ones. "
                 "Define a ratio metric of two sums instead")
         if agg == "count":
@@ -92,7 +94,7 @@ def lint(metrics, models, measures, kinds, require_version):
             if ent.get(expr) == "foreign":
                 add("MC06", "WARN", name, f"count of foreign key {expr} counts rows, not distinct entities; "
                     "use count_distinct if you mean unique ones")
-            elif PEOPLE.search(name) and ent.get(expr) != "primary":
+            elif PEOPLE.search(name) and "_per_" not in name and ent.get(expr) != "primary":
                 add("MC06", "WARN", name, f"'{name}' sounds like unique entities but agg is count over {expr}; "
                     "use count_distinct or rename it")
         if agg == "sum" and not m.get("non_additive") and (SEMI_ADDITIVE.search(name) or SEMI_ADDITIVE.search(expr)):
@@ -100,8 +102,8 @@ def lint(metrics, models, measures, kinds, require_version):
                 "days multiplies it. Add non_additive_dimension on the snapshot date")
         if m.get("type") == "derived" and expr:
             declared = {i["name"] for i in m["inputs"]} | {i["alias"] for i in m["inputs"] if i.get("alias")}
-            used = {t for t in re.findall(r"\b([A-Za-z_][A-Za-z0-9_]*)\b(?!\s*\()", expr)
-                    if t.lower() not in SQL_WORDS}
+            used = {t for t in re.findall(r"\b([A-Za-z_][A-Za-z0-9_]*)\b(?!\s*\()", bare)
+                    if t.lower() not in SQL_WORDS}  # tokens taken from bare, below
             for u in sorted(used - declared):
                 add("MC08", "ERROR", name, f"expr uses {u!r}, which is not a declared input or alias")
     # MC04: same computation, two names

@@ -101,13 +101,20 @@ def diff(base, head, accept, consumers):
     # acknowledgement
     for n, r in rows.items():
         if r["class"] == "BREAKING":
+            ob, oh = r["version"]
             vb, vh = (_vnum(v) if v is not None else None for v in r["version"])
-            if vb is not None and vh is not None and vh > vb:
-                r["ack"] = f"version {r['version'][0]} -> {r['version'][1]}"
-            elif r["version"][0] is None and r["version"][1] is None:
+            if ob is None and oh is not None:
+                r["ack"] = f"version introduced ({oh}) with the change"
+            elif ob is None and oh is None:
                 r["problem"] = "unversioned metric changed its numbers; add a version and bump it"
+            elif oh is None:
+                r["problem"] = f"version {ob} was removed while the numbers changed; restore it and bump it"
+            elif vb is None or vh is None:
+                r["problem"] = f"versions {ob!r} -> {oh!r} are not comparable; use numbers such as 2 or 1.3"
+            elif vh > vb:
+                r["ack"] = f"version {ob} -> {oh}"
             else:
-                r["problem"] = f"numbers change but version stayed {r['version'][1]}; bump it"
+                r["problem"] = f"numbers change but version stayed {oh}; bump it"
         elif r["class"] in ("REMOVED", "RENAMED"):
             if n in accept:
                 r["ack"] = "accepted with --accept"

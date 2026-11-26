@@ -46,6 +46,30 @@ prefix depends on how the user named the connector.
 5. Run `provider_adapter.py --adapter <provider> --sample` style checks with a
    saved model spec before anyone spends.
 
+## Exit codes
+
+| Script | 0 | 3 | 4 |
+|---|---|---|---|
+| `provider_adapter.py` | requests written | no `--model-spec`: it prints the catalog call to make | a shot the model cannot make (aspect, too long, empty prompt) |
+| `budget_gate.py` | step recorded | quotes or ledger missing, ledger locked | over cap, over balance, wrong total, stale quote or yes, second call for one shot, re-quoting a live batch |
+| `drift_check.py` | every plate holds | a human must look (REVIEW), or no ffmpeg | a plate drifted: re-prompt or keep the shot as motion graphics |
+
+## Provider rules
+
+- Read tool names and model constraints at run time. Adapters name tool roles
+  (quote, generate, wait, upload); match them against the tools you have by
+  suffix, and stop if one is missing rather than guessing a substitute.
+- Higgsfield (verified 2026-11-26): quote with `estimate_video_cost`;
+  `generate_video` no longer takes `get_cost`. Generate with
+  `params: {"ref": "<quote_ref>"}` so exactly the quoted request runs. Never
+  set `use_unlim`; an `unlim_choice` reply means nothing was submitted and the
+  question goes to the user. Media take ids from `media_upload` +
+  `media_confirm`, never local paths.
+- Plates are generated silent (the adapter sets the model's audio switch off);
+  voice-over and music are mixed in conform.
+- A model with a 4 s minimum makes a 2.5 s shot cost 4 s. The adapter reports
+  the paid-and-trimmed seconds; say them in the quote.
+
 ## Why each gate exists
 
 | Gate | Failure it prevents |

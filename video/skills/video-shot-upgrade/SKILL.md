@@ -49,31 +49,12 @@ python3 $S/video-shot-upgrade/scripts/drift_check.py --requests film/requests.js
 Then hand `scene.final.json` back to `video-animatic` (`--mode final`) and
 `video-conform`. Text, charts and logos stay as code layers over the plate.
 
-## Exit codes
-
-| Script | 0 | 3 | 4 |
-|---|---|---|---|
-| `provider_adapter.py` | requests written | no `--model-spec`: it prints the catalog call to make | a shot the model cannot make (aspect, too long, empty prompt) |
-| `budget_gate.py` | step recorded | quotes or ledger missing, ledger locked | over cap, over balance, wrong total, stale quote or yes, second call for one shot, re-quoting a live batch |
-| `drift_check.py` | every plate holds | a human must look (REVIEW), or no ffmpeg | a plate drifted: re-prompt or keep the shot as motion graphics |
-
-The drift thresholds (framing r 0.55 / 0.30, palette 0.25) are calibrated on synthetic plates only, not yet on real generated footage. Treat HOLDS as "looks like the animatic", and watch every plate before it ships.
+Exit codes: 0 done, 3 ask or missing input, 4 refused or drifted (per-script table in the reference). Drift thresholds are calibrated on synthetic plates only: HOLDS means "looks like the animatic", so watch every plate before it ships.
 
 ## Rules that come from the providers
 
-- Read tool names and model constraints at run time. Adapters name tool roles
-  (quote, generate, wait, upload); match them against the tools you have by
-  suffix, and stop if one is missing rather than guessing a substitute.
-- Higgsfield (verified 2026-11-26): quote with `estimate_video_cost`;
-  `generate_video` no longer takes `get_cost`. Generate with
-  `params: {"ref": "<quote_ref>"}` so exactly the quoted request runs. Never
-  set `use_unlim`; an `unlim_choice` reply means nothing was submitted and the
-  question goes to the user. Media take ids from `media_upload` +
-  `media_confirm`, never local paths.
-- Plates are generated silent (the adapter sets the model's audio switch off);
-  voice-over and music are mixed in conform.
-- A model with a 4 s minimum makes a 2.5 s shot cost 4 s. The adapter reports
-  the paid-and-trimmed seconds; say them in the quote.
+Read tool names and model limits at run time, never guess a missing tool, and follow
+the adapter's rules; the Higgsfield specifics are in [provider_adapters.md](references/provider_adapters.md#provider-rules).
 
 ## Hard rules
 
@@ -94,8 +75,10 @@ The drift thresholds (framing r 0.55 / 0.30, palette 0.25) are calibrated on syn
   needs a new batch; that is deliberate.
 - `--only` and `--max-shots` pick the batch before pricing, so shots left out
   need no quote.
-- One agent per ledger. A lock file guards each write; a lock whose process is
-  gone is cleared on its own (POSIX).
+- One agent per ledger. Each write holds a lock (`flock` on POSIX, released
+  when the process dies).
+- `--said` records the user's words; the script cannot prove a person said
+  them. Pass only what the user wrote, never your own "yes".
 - Real-person likeness needs recorded consent (the brief gate refuses without
   it). Label generated footage as AI-generated where it is published.
 - What leaves the machine: prompt, duration, aspect and keyframe stills, to the

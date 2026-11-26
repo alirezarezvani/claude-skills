@@ -46,6 +46,13 @@ import shutil
 import sys
 import tempfile
 import time
+
+MAX_AGE_CEILING = 240  # minutes; --max-age cannot stretch a quote or a yes past this
+
+try:
+    import fcntl  # POSIX only
+except ImportError:  # Windows
+    fcntl = None
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -103,37 +110,35 @@ def committed(ledger: dict) -> float:
 
 @contextmanager
 def locked(path: Path, wait: float = 10.0):
-    """One writer at a time: an O_EXCL lock file next to the ledger (portable, stdlib)."""
+    """One writer at a time. POSIX: fcntl.flock on a lock file, which the kernel releases when the
+    holder dies, so there is no stale lock to clear and no takeover race. Elsewhere: an O_EXCL file."""
     lock = path.with_name(path.name + ".lock")
     lock.parent.mkdir(parents=True, exist_ok=True)
     deadline = time.monotonic() + wait
+    if fcntl is not None:
+        fd = os.open(str(lock), os.O_CREAT | os.O_RDWR, 0o600)
+        try:
+            while True:
+                try:
+                    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    break
+                except BlockingIOError:
+                    if time.monotonic() > deadline:
+                        raise GateError(f"{lock} is held by another run of budget_gate.py", 3)
+                    time.sleep(0.1)
+            yield  # the lock file stays; deleting it would let a waiter lock a different inode
+        finally:
+            os.close(fd)  # closing releases the flock
+        return
     while True:
         try:
             fd = os.open(str(lock), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
             break
         except FileExistsError:
-            if os.name == "posix":
-                try:
-                    pid = int(lock.read_text().strip() or 0)
-                    if pid:
-                        os.kill(pid, 0)
-                except ProcessLookupError:
-                    # holder is gone: claim the stale lock by atomic rename so two waiters
-                    # cannot both remove it; only the one whose rename succeeds retries
-                    grave = lock.with_name(f"{lock.name}.stale.{os.getpid()}")
-                    try:
-                        os.replace(lock, grave)
-                        grave.unlink(missing_ok=True)
-                    except FileNotFoundError:
-                        pass
-                    continue
-                except (ValueError, OSError):
-                    pass  # empty PID: the holder is between open and write, so the lock is live
             if time.monotonic() > deadline:
                 raise GateError(f"{lock} is held by another run; if no other run is active, delete it", 3)
             time.sleep(0.1)
     try:
-        os.write(fd, str(os.getpid()).encode())
         yield
     finally:
         os.close(fd)
@@ -155,9 +160,9 @@ def cmd_quote(args) -> dict:
     archive = None
     if path.exists():
         old = load(path)
-        live = [sid for sid, s in old["shots"].items() if s["state"] in ("reserved", "unknown")]
+        live = [sid for sid, s in old["shots"].items() if s["state"] in ("reserved", "submitted", "unknown")]
         if live:
-            raise GateError(f"the existing ledger has {', '.join(live)} sent with no known outcome; poll those jobs "
+            raise GateError(f"the existing ledger has {', '.join(live)} sent with no final outcome; poll those jobs "
                             f"and record the result before quoting again")
         sent = [sid for sid, s in old["shots"].items() if s["state"] != "quoted"]
         if (sent or old["state"] != "quoted") and not args.new_batch:
@@ -234,6 +239,8 @@ def cmd_approve(args) -> dict:
         raise GateError(f"ledger is {ledger['state']}, not quoted; quote again for a new batch")
     if not (args.said or "").strip():
         raise GateError("an approval needs the user's own words: ask them and pass what they said with --said")
+    if not 1 <= args.max_age <= MAX_AGE_CEILING:
+        raise GateError(f"--max-age must be 1..{MAX_AGE_CEILING} minutes; a price older than that is not a quote", 2)
     age = now() - datetime.fromisoformat(ledger["quoted_at"])
     if age > timedelta(minutes=args.max_age):
         raise GateError(f"quotes are {int(age.total_seconds() // 60)} min old (limit {args.max_age}); prices move, quote again")
@@ -256,7 +263,7 @@ def cmd_reserve(args) -> dict:
     if ledger["state"] != "approved":
         raise GateError(f"batch is {ledger['state']}: no generate call before the user's yes is recorded")
     age = now() - datetime.fromisoformat(ledger["approved_at"])
-    if age > timedelta(minutes=ledger.get("max_age_min", 60)):
+    if age > timedelta(minutes=min(ledger.get("max_age_min", 60), MAX_AGE_CEILING)):
         raise GateError(f"the yes is {int(age.total_seconds() // 60)} min old; prices move. Quote again "
                         f"(--new-batch) and ask again")
     if shot["state"] != "quoted":
@@ -303,6 +310,8 @@ def cmd_record(args) -> dict:
                         f"(0 if it says nothing was charged); a failure is not assumed free", 2)
     if args.status == "submitted" and not (args.job_id or shot.get("job_id")):
         raise GateError(f"{args.shot}: record the job id with --job-id so the job can be polled", 2)
+    if args.status == "completed" and not (args.job_id or shot.get("job_id")):
+        raise GateError(f"{args.shot}: a completed shot needs the provider's job id (--job-id); none is on record", 2)
     shot["state"] = args.status
     if args.job_id:
         shot["job_id"] = args.job_id
@@ -327,7 +336,7 @@ def summary(ledger: dict) -> str:
         exp = datetime.fromisoformat(ledger["quoted_at"]) + timedelta(minutes=60)
         lines.append(f"quotes valid until {exp.isoformat()} (default window)")
     elif ledger["state"] == "approved" and ledger.get("approved_at"):
-        exp = datetime.fromisoformat(ledger["approved_at"]) + timedelta(minutes=ledger.get("max_age_min", 60))
+        exp = datetime.fromisoformat(ledger["approved_at"]) + timedelta(minutes=min(ledger.get("max_age_min", 60), MAX_AGE_CEILING))
         lines.append(f"the yes is valid until {exp.isoformat()}; after that, quote a new batch")
     return "\n".join(lines)
 
@@ -350,6 +359,7 @@ def run_sample() -> int:
             ("quote, cap 30", True, cmd_quote, dict(base, cap=30, balance=100)),
             ("reserve before the yes", False, cmd_reserve, dict(ledger=L, shot="s2")),
             ("approve 25 (not the quoted total)", False, cmd_approve, dict(ledger=L, credits=25, max_age=60, said=None)),
+            ("approve with --max-age past the ceiling", False, cmd_approve, dict(ledger=L, credits=20, max_age=100000, said="yes")),
             ("approve 20 without the user's words", False, cmd_approve, dict(ledger=L, credits=20, max_age=60, said=" ")),
             ("approve 20", True, cmd_approve, dict(ledger=L, credits=20, max_age=60, said="yes, spend 20")),
             ("re-quote a live batch", False, cmd_quote, dict(base, cap=30, balance=100)),
@@ -401,7 +411,7 @@ def main() -> int:
     a.add_argument("--ledger", required=True)
     a.add_argument("--credits", type=float, required=True, help="The total the user said yes to.")
     a.add_argument("--said", required=True, help="The user's words approving this total, for the record.")
-    a.add_argument("--max-age", type=int, default=60, help="Minutes a quote stays valid (default 60).")
+    a.add_argument("--max-age", type=int, default=60, help="Minutes a quote and the yes stay valid (default 60, at most 240).")
     r = sub.add_parser("reserve", help="Run right before one generate call.")
     r.add_argument("--ledger", required=True)
     r.add_argument("--shot", required=True)

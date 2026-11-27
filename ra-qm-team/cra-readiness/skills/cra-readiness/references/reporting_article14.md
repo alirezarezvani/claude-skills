@@ -17,7 +17,9 @@ Confidence: 🟢 regulation text · 🟡 Commission guidance or ENISA (non-bindi
 | 11 Jun 2028 | End of validity for certificates issued under other cybersecurity acts | 🟢 Art 69(1) |
 
 ENISA launched the Single Reporting Platform (SRP) on 11 September 2026 at
-`portal.cra-srp.enisa.europa.eu` 🟡 (ENISA news item of that date). At launch it
+`portal.cra-srp.enisa.europa.eu` as an "initial operating capability", with more
+functions to follow 🟢 (ENISA press release of that date). Reports written in
+July 2026 that the SRP would not be live are superseded. At launch it
 had no API, an English-only interface and no voluntary-report flow 🔴 (third-party
 onboarding reports; verify on the portal).
 
@@ -81,12 +83,39 @@ still owed; only the fine is excluded.
 
 ## Pending changes to watch
 
-- The **Digital Omnibus** (proposed 19 Nov 2025) would create one incident
-  reporting entry point across GDPR, NIS2, DORA and CER. It is a proposal and,
-  per the Commission's own summary, does not amend the CRA deadlines 🟡.
-- Delegated act on delaying dissemination for cybersecurity reasons (due by
-  11 Dec 2025, Art 14(9)) and implementing acts on format (Art 14(10)) 🟢. Check
-  the OJ for adoption before relying on a template.
+- The **Digital Omnibus** (COM(2025) 837, 19 Nov 2025) would create one incident
+  reporting entry point across GDPR, NIS2, DORA and CER. The Council's mandate
+  (Coreper, 21 Oct 2026) replaces the EU-level point with a national entry point
+  per Member State and adds a NIS2 clause treating a CRA severe-incident
+  notification as meeting NIS2 Art 23(4) information requirements 🟡
+  (regreportingdesk.com, diesec.com). It is not adopted: Parliament's committee
+  vote is expected in early 2027. It does not change CRA Art 14 deadlines.
+- The Art 14(10) implementing act on notification format and procedure had not
+  been adopted as of 26 Nov 2026 🟡 (no adoption found in the trackers below).
+  Use the SRP's own forms until it is.
+
+## Delayed dissemination: Delegated Regulation (EU) 2026/881
+
+Adopted 11 Dec 2025 under Art 14(9), published OJ L 20.4.2026, in force on the
+twentieth day after publication (10 May 2026) 🟢 (Art 6). It governs when the
+CSIRT that first receives your notification may hold it back from other CSIRTs
+and market surveillance authorities. It does not change your 24h/72h/14-day
+clock. The CSIRT decides, at its discretion, for no longer than strictly
+necessary; there is no fixed maximum 🟢 (Art 3, recital 1). Grounds 🟢:
+
+- Art 3(a): you expect a mitigation within 72 hours. If none arrives, the CSIRT
+  must disseminate. Put the expected fix date in the early warning: it is the
+  fact that opens this ground.
+- Art 3(b)-(c): the details would let someone build an exploit, or partial
+  sharing is enough for other CSIRTs to act; full release once a mitigation exists.
+- Art 3(d): a coordinated disclosure through a trusted intermediary, released
+  when delay is no longer needed and the parties consent.
+- Art 4: a specific receiving CSIRT has had a confidentiality incident or lacks
+  capability. Art 5: the SRP itself has had a confidentiality incident, until
+  ENISA reports it restored.
+
+🔴 You cannot ask for a delay as of right; a manufacturer that wants one should
+say why in the notification and keep the CSIRT's answer with the report.
 
 ## Sources
 
@@ -95,5 +124,6 @@ still owed; only the fine is excluded.
 3. ENISA, *The CRA Single Reporting Platform is launched*, 11 September 2026 — https://www.enisa.europa.eu/news/the-cra-single-reporting-platform-is-launched
 4. ENISA, SRP FAQ — https://www.enisa.europa.eu/topics/product-security/vulnerability-services/eu-incident-response-and-cyber-crisis-management/single-reporting-platform-srp/frequently-asked-questions
 5. Directive (EU) 2022/2555 (NIS2), Arts 6 and 12 — definitions of incident and near miss, CSIRT coordinators
-6. European Commission, Digital Omnibus proposal, 19 November 2025 (status per EU Transition Pathways summary)
+6. European Commission, Digital Omnibus proposal COM(2025) 837, 19 November 2025; Council mandate 21 October 2026 (Council doc 14756/26), as summarised by regreportingdesk.com (Nov 2026) and diesec.com (27 Oct 2026)
 7. cyberresilienceact.eu, *CRA reporting: 24h, 72h & 14-day deadlines* — SRP field limits and launch constraints (independent, verify)
+8. Commission Delegated Regulation (EU) 2026/881 of 11 December 2025 (Art 14(9)), OJ L 20.4.2026 — https://eur-lex.europa.eu/eli/reg_del/2026/881/oj (read via the OJ PDF copy at ibf-solutions.com)

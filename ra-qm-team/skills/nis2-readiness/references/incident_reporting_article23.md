@@ -1,6 +1,6 @@
 # NIS2 Article 23: significant incidents and the three reports
 
-> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+> Rules last verified 2026-11-26 (pending amendments added; in-force rules unchanged since 2026-11-17) against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
 
 Confidence: 🟢 legal text · 🟡 authority guidance · 🔴 our reading, check with counsel
 
@@ -57,6 +57,29 @@ missing. 🔴
 `eu_cyber_regime_router.py` lays these clocks side by side for one entity and
 one event. Who reports is set by each law; one event can create four reports. 🟢
 
+## Pending changes to watch (none in force)
+
+- **Digital Omnibus** (COM(2025) 837, 19 Nov 2025, procedure 2025/0360(COD)).
+  The Commission proposed one EU entry point run by ENISA. The Council's mandate
+  (Coreper, 21 Oct 2026) replaces it with a **national single entry point** in
+  each Member State plus an ENISA information point that cannot accept
+  notifications; NIS2 Art 23(1) would route reports "via" that national point;
+  the GDPR Art 33 deadline would move to 96 h and apply only to breaches likely
+  to result in a high risk; amended Art 23 and GDPR Art 33 would apply 18 months
+  after entry into force, the national entry point after 30 🟡 (regreportingdesk.com,
+  diesec.com, nicfab.eu, Oct-Nov 2026). Parliament (ITRE/LIBE) has not voted;
+  a committee vote is expected in early 2027. Keep today's 24 h / 72 h / one
+  month clock and today's recipients.
+- **Targeted NIS2 amendments** (COM(2026) 13, 20 Jan 2026, with the Cybersecurity
+  Act 2 proposal). Adds harmonised ransomware data in new Art 23(12)-(13), with
+  ransom details shared only on request; the 24 h / 72 h / one-month deadlines do
+  not change 🟡 (Aegister, 13 Oct 2026). Not adopted: no Council general approach
+  and no Parliament committee vote as of October 2026. 🔴 The Council's omnibus
+  text and this proposal both use the number Art 23(12) for different content;
+  the final numbering will come out of the trilogues.
+
+`eu_cyber_regime_router.py` encodes the rules in force only.
+
 ## Penalties for missing a report
 
 Failing Art 23 is a breach sanctioned under Art 34 (see the scope reference for
@@ -71,3 +94,5 @@ ceilings). Germany: BSIG §65. 🟢
 5. Regulation (EU) 2016/679 (GDPR), Arts 33-34 — https://eur-lex.europa.eu/eli/reg/2016/679/oj
 6. NIS2UmsuCG, BGBl. 2025 I Nr. 301 (BSIG §32)
 7. ENISA, NIS2 technical implementation guidance for 2024/2690 (2025) 🟡 — https://www.enisa.europa.eu/
+8. Digital Omnibus COM(2025) 837 and Council mandate of 21 Oct 2026 (doc 14756/26), as summarised by regreportingdesk.com (Nov 2026), diesec.com (27 Oct 2026) and nicfab.eu (21 Oct 2026) — secondary
+9. Proposal for a Directive amending Directive (EU) 2022/2555, COM(2026) 13, 20 Jan 2026, as summarised by Aegister (13 Oct 2026), Clifford Chance (2 Feb 2026) and Mayer Brown (20 Feb 2026) — secondary

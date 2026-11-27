@@ -84,9 +84,12 @@ transition for new or upgraded categories 🟢 (Art 7(3)).
 | Critical | EUCC where a delegated act under Art 8(1) requires it; otherwise as class II | 🟢 Art 32(4) |
 | FOSS in Annex III | any Art 32(1) route if the technical documentation is public | 🟢 Art 32(5) |
 
-🔴 **The trap for class I:** as of September 2026 no CRA harmonised standard had
-been cited in the Official Journal (standardisation request M/606, C(2025) 618;
-EN 40000 series in drafting, deadlines slipping). Until one is cited, module A
+🔴 **The trap for class I:** as of 26 November 2026 no CRA harmonised standard had
+been cited in the Official Journal 🟡 (standardisation request M/606, C(2025) 618,
+amended 10 Nov 2026; EN 40000-1-1 and -1-2 ratified by CEN-CENELEC in November
+2026 but not cited; most vertical standards still in public enquiry). A
+notified body may accept a ratified EN as evidence under module B+C, but only a
+cited one opens module A. Until one is cited, module A
 is closed for class I and the plan needs a notified body. Check the OJ list
 before you commit to A. Notified-body capacity is the schedule risk: the
 notification regime only started on 11 June 2026.
@@ -105,6 +108,6 @@ whichever is longer 🟢 (Art 13(9)); record the basis in Annex VII point 4 🟢
 1. Regulation (EU) 2024/2847, Arts 2, 3, 7, 8, 13, 19-22, 24, 32, 64, 69; Annexes III, IV, VIII — https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng
 2. Commission Implementing Regulation (EU) 2025/2392 on the technical description of important and critical product categories (28 Nov 2025)
 3. European Commission, guidance on the application of the CRA, Annex to C(2026) 5252, 27 July 2026
-4. Commission standardisation request C(2025) 618 (M/606), 3 Feb 2025; status per cyberresilienceact.eu tracker, Sept 2026
+4. Commission standardisation request C(2025) 618 (M/606), 3 Feb 2025, amended 10 Nov 2026; status per cyberresilienceact.eu state of play and Cenitia OJEU tracker, Nov 2026
 5. Regulation (EU) 2017/745 (MDR), Annex I §17.2 and §17.4; MDCG 2019-16 rev.1, Guidance on cybersecurity for medical devices
 6. Commission Notice, *The 'Blue Guide' on the implementation of EU product rules 2022* (2022/C 247/01) — placing on the market applies per individual unit

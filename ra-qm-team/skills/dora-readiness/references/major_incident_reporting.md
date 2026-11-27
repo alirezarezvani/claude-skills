@@ -1,6 +1,6 @@
 # DORA major ICT-related incidents: classification and reporting
 
-> Rules last verified 2026-11-17 against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
+> Rules last verified 2026-11-26 (2025/532, CTPP list and pending amendments added; in-force rules unchanged since 2026-11-17) against the EUR-Lex texts cited below. Re-check before relying on a deadline or threshold.
 
 Confidence: 🟢 legal text · 🟡 ESA guidance or Q&A · 🔴 our reading, check with counsel
 
@@ -52,6 +52,14 @@ Report formats: the ITS standard forms. 🟢 Implementing Regulation (EU) 2025/3
 - **Outsourced reporting** to a third party is allowed; responsibility stays with the entity. 🟢 DORA Art 19(5)
 - **Payment-related incidents** of credit, payment, e-money and AIS institutions are reported under DORA, no longer PSD2 Art 96. 🟢 DORA Art 23 and Directive 2022/2556
 
+## Pending change: Digital Omnibus (not in force)
+
+The Digital Omnibus (COM(2025) 837) would rewrite DORA Art 19(1)-(2) so major
+incident reports reach the competent authority "with the support of" a national
+single entry point (Council mandate, 21 Oct 2026). Content and time limits in
+Delegated Regulation 2025/301 are not amended 🟡 (regreportingdesk.com,
+Nov 2026). Not adopted; Parliament has not voted. Report as above until it is.
+
 ## What the classifier will not decide
 
 Whether a service supports a critical or important function is your
@@ -66,3 +74,4 @@ and "relevant clients" are judgment calls the script records, not makes. 🔴
 4. Commission Implementing Regulation (EU) 2025/302 (forms and templates) — https://eur-lex.europa.eu/eli/reg_impl/2025/302/oj
 5. Directive (EU) 2022/2556 — https://eur-lex.europa.eu/eli/dir/2022/2556/oj
 6. EBA, DORA incident reporting pages 🟡 — https://www.eba.europa.eu/
+7. Digital Omnibus COM(2025) 837, Council mandate 21 Oct 2026, as summarised by regreportingdesk.com (Nov 2026) — secondary

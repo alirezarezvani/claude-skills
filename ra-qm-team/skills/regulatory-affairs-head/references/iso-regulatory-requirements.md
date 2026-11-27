@@ -174,7 +174,7 @@ Key ISO standards applicable to medical device development, quality management, 
 | Aspect | Requirement |
 |--------|-------------|
 | Scope | Medical device software development lifecycle |
-| Regulatory Status | EU: audited as state of the art under MDR Annex I 17.2; an OJ citation of EN 62304 under the MDR is not confirmed. FDA: recognized consensus standard 13-79 |
+| Regulatory Status | EU: audited as state of the art under MDR Annex I 17.2; EN 62304 is not cited in the OJ under the MDR (checked through Implementing Decision 2026/2479, Nov 2026), so no presumption of conformity. FDA: recognized consensus standard 13-79 |
 | Key Concept | Safety classification drives rigor |
 | Documentation | Software development plan, architecture, testing |
 
@@ -342,7 +342,7 @@ Class markers per IEC 62304:2006+A1:2015 Table A.1 as reported by secondary sour
 | ISO 13485 | Harmonized | Recognized | Required | Accepted |
 | ISO 14971 | Harmonized | Referenced | Required | Accepted |
 | ISO 10993 | Harmonized | Referenced | Required | Accepted |
-| IEC 62304 | State of the art (OJ citation unconfirmed) | Recognized (13-79) | Required | Accepted |
+| IEC 62304 | State of the art (not cited in the OJ under MDR, Nov 2026) | Recognized (13-79) | Required | Accepted |
 | IEC 62366 | Harmonized | Referenced | Required | Accepted |
 
 ### Version Requirements

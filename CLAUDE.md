@@ -164,7 +164,9 @@ See [standards/git/git-workflow-standards.md](standards/git/git-workflow-standar
 
 ## Current Version
 
-**Version:** v2.14.17 (app-store-optimization fix release: Google Play app titles are now checked against the 30-character limit, not 50 (#1172 via #1173). See CHANGELOG.md [2.14.17].)
+**Version:** v2.14.18 (EU regulatory refresh release: AI Act amendments in Regulation (EU) 2026/1744, EN 62304 OJ status, CRA, NIS2 and DORA updates (#1178); database-schema-designer seed and ERD fixes (#1176 via #1177). See CHANGELOG.md [2.14.18].)
+
+**Previously: v2.14.17** (app-store-optimization fix release: Google Play app titles are now checked against the 30-character limit, not 50 (#1172 via #1173). See CHANGELOG.md [2.14.17].)
 
 **Previously: v2.14.16** (scrum-master and stock-analysis fix release: Monte Carlo "X% confidence" now reads the lower tail (#1167) and `"1.5%"` is read as 1.5%, not 150% (#1168), both via #1169. See CHANGELOG.md [2.14.16].)
 
@@ -857,7 +859,7 @@ This repository publishes skills to **ClawHub** (clawhub.com) as the distributio
    **Historical regressions (now reversed upstream):** The `./` prefix was briefly forbidden between CC v2.1.107 and v2.1.144 (issues #539, #686). That window is closed; the `./` prefix is required again. Do **not** reintroduce the bare-string form for new manifests.
 
    **Enforcement:** `scripts/check_plugin_json.py --all` runs in `ci-quality-gate.yml` on every PR. It hard-fails on any non-`./`-prefixed string that isn't the legacy `"skills"` literal, on empty strings/arrays, and on non-string array entries. When CC tightens its path validator again in the future, update both the validator (`_check_skills_string` / `_check_skills_array`) and this section together — they must move in lockstep.
-6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.17).
+6. **Version follows repo versioning.** ClawHub package versions must match the repo release version (currently v2.14.18).
 
 ## Anti-Patterns to Avoid
 
@@ -905,6 +907,6 @@ When I correct you, or you catch yourself making a mistake: before continuing ad
 
 ---
 
-**Last Updated:** November 26, 2026
-**Version:** v2.14.17 (app-store-optimization Google Play title limit fix — see CHANGELOG.md)
+**Last Updated:** November 27, 2026
+**Version:** v2.14.18 (EU regulatory refresh and database-schema-designer fixes — see CHANGELOG.md)
 **Status:** 434 production-ready skills across 21 domains, 121 marketplace plugins, docs site live (counters derived via `scripts/derive_counters.py`)

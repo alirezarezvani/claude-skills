@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.14.18] - 2026-11-27 — EU regulatory refresh and database-schema-designer fixes
+
+The regulatory skills are checked again against the Official Journal as of 26 November 2026: the EU AI Act
+amendments in Regulation (EU) 2026/1744 (including the new Art 5 prohibitions that apply from 2 December 2026),
+the OJ status of EN 62304, and the latest CRA, NIS2 and DORA acts. database-schema-designer's seed example runs
+again. No renames; `claude plugin update` picks up the changed plugins.
+
+### Fixed
+- **database-schema-designer** (engineering-advanced-skills): the seed-data example had a mangled string (`"fakercompanycatchphrase"`) where it should call `faker.company.catchPhrase()`, and the ERD block had no `mermaid` language tag, so it rendered as plain text (#1176 via #1177, thanks @milddrunker).
+
 ### Changed
 - **Regulatory accuracy refresh** (ra-qm-skills, medical-device-software, cra-readiness, nis2-readiness, dora-readiness, compliance-team-eu-ai-act, chief-ai-officer-advisor), checked 26 Nov 2026; every change names its clause or source and its confidence level:
   - **medical-device-software / regulatory-affairs-head:** EN 62304 and EN IEC 81001-5-1 are now stated as *not cited* in the OJ under the MDR, checked through Implementing Decision 2026/2479 (9 Nov 2026), instead of "unconfirmed".
